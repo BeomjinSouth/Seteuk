@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useAppStore } from '@/lib/store';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -29,6 +29,18 @@ function getAISettings() {
         model: localStorage.getItem('ai_model') || 'gpt-5.2',
         temperature: parseFloat(localStorage.getItem('ai_temperature') || '0.7'),
     };
+}
+
+// Loading fallback component
+function WritePageLoading() {
+    return (
+        <div className={styles.page}>
+            <div className={styles.emptyState}>
+                <Loader2 size={48} className={styles.spinning} />
+                <h3>로딩 중...</h3>
+            </div>
+        </div>
+    );
 }
 
 // AI generation using GPT-5.2 API with settings
@@ -82,7 +94,7 @@ async function generateDraft(
 // Spell check using speller.town API
 async function performSpellCheck(text: string): Promise<SpellError[]> {
     console.log('[Speller API] 요청 시작, 텍스트 길이:', text.length);
-    
+
     try {
         const response = await fetch('/api/speller', {
             method: 'POST',
@@ -103,7 +115,7 @@ async function performSpellCheck(text: string): Promise<SpellError[]> {
 
             if (data.suggestions && data.suggestions.length > 0) {
                 console.log('[Speller API] suggestions 원본:', JSON.stringify(data.suggestions, null, 2));
-                
+
                 const errors = data.suggestions
                     .filter((s: { token?: string; suggestions?: string[] }) => {
                         const hasToken = s && s.token;
@@ -171,7 +183,7 @@ async function checkForbiddenWords(text: string): Promise<{ word: string; sugges
     return found;
 }
 
-export default function WritePage() {
+function WritePageContent() {
     const searchParams = useSearchParams();
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const _classFilter = searchParams.get('classId');  // Kept for URL parameter support
@@ -722,5 +734,14 @@ export default function WritePage() {
                 onApplyChanges={handleApplySpellChanges}
             />
         </div>
+    );
+}
+
+// Main export with Suspense boundary for useSearchParams
+export default function WritePage() {
+    return (
+        <Suspense fallback={<WritePageLoading />}>
+            <WritePageContent />
+        </Suspense>
     );
 }
