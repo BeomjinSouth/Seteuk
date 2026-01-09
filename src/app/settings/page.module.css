@@ -1,0 +1,434 @@
+.page {
+    padding: 2rem;
+    max-width: 900px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    margin-bottom: 0.25rem;
+}
+
+.subtitle {
+    color: hsl(var(--foreground-muted));
+    font-size: 0.95rem;
+}
+
+/* Saved Toast */
+.savedToast {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: #10b981;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* Sections */
+.sections {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.section {
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+.section h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.sectionHint {
+    font-size: 0.9rem;
+    color: hsl(var(--foreground-muted));
+    margin-bottom: 1rem;
+}
+
+/* Setting Grid */
+.settingGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.settingItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.settingItem label {
+    min-width: 150px;
+    font-size: 0.9rem;
+    color: hsl(var(--foreground-muted));
+}
+
+.numberInput {
+    width: 100px;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.numberInput:focus {
+    outline: none;
+    border-color: hsl(var(--primary));
+}
+
+.rangeInputs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.unit {
+    font-size: 0.9rem;
+    color: hsl(var(--foreground-muted));
+}
+
+.select {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-size: 0.9rem;
+    min-width: 150px;
+}
+
+/* Add Word Form */
+.addWordForm {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+/* Word List */
+.wordList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.emptyMessage {
+    padding: 1rem;
+    text-align: center;
+    color: hsl(var(--foreground-muted));
+    font-size: 0.9rem;
+}
+
+.wordItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background: hsl(var(--background));
+    border-radius: 0.5rem;
+}
+
+.wordContent {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.forbiddenWord {
+    font-weight: 600;
+    color: hsl(var(--destructive));
+    padding: 0.25rem 0.5rem;
+    background: rgba(239, 68, 68, 0.1);
+    border-radius: 0.25rem;
+}
+
+.arrow {
+    color: hsl(var(--foreground-muted));
+}
+
+.alternative {
+    color: #10b981;
+    padding: 0.25rem 0.5rem;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 0.25rem;
+}
+
+.removeBtn {
+    padding: 0.35rem;
+    border: none;
+    background: transparent;
+    color: hsl(var(--foreground-muted));
+    cursor: pointer;
+    border-radius: 0.25rem;
+    transition: all 0.15s;
+}
+
+.removeBtn:hover {
+    background: rgba(239, 68, 68, 0.1);
+    color: hsl(var(--destructive));
+}
+
+/* Memo Area */
+.memoArea {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-size: 0.95rem;
+    line-height: 1.6;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.memoArea:focus {
+    outline: none;
+    border-color: hsl(var(--primary));
+}
+
+/* Checkbox Group */
+.checkboxGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.checkboxLabel input {
+    width: 18px;
+    height: 18px;
+    accent-color: hsl(var(--primary));
+}
+
+/* Notice */
+.notice {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    border-radius: 0.5rem;
+    color: #b45309;
+    font-size: 0.9rem;
+}
+
+.notice p {
+    flex: 1;
+    line-height: 1.5;
+}
+
+/* Admin Note */
+.adminNote {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-left: 0.75rem;
+    padding: 0.3rem 0.6rem;
+    background: rgba(245, 158, 11, 0.1);
+    color: #d97706;
+    border-radius: 0.25rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.headerActions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Request Toast */
+.requestToast {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: #3b82f6;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    z-index: 100;
+}
+
+/* Section Header */
+.sectionHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.readOnlyBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.2rem 0.5rem;
+    background: hsl(var(--border));
+    color: hsl(var(--foreground-muted));
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+}
+
+/* Modal Backdrop */
+.modalBackdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+/* Modal */
+.modal {
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    border-radius: 1rem;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.modalHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid hsl(var(--border));
+}
+
+.modalHeader h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    margin: 0;
+}
+
+.closeBtn {
+    padding: 0.5rem;
+    border: none;
+    background: transparent;
+    color: hsl(var(--foreground-muted));
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: all 0.15s;
+}
+
+.closeBtn:hover {
+    background: hsl(var(--surface-hover));
+    color: hsl(var(--foreground));
+}
+
+.modalBody {
+    padding: 1.5rem;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.modalDesc {
+    font-size: 0.9rem;
+    color: hsl(var(--foreground-muted));
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.currentWordsInfo {
+    padding: 1rem;
+    background: hsl(var(--background));
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.currentWordsInfo strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    color: hsl(var(--foreground));
+}
+
+.wordTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.wordTag {
+    padding: 0.25rem 0.6rem;
+    background: rgba(239, 68, 68, 0.1);
+    color: hsl(var(--destructive));
+    border-radius: 0.25rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.requestTextarea {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-size: 0.9rem;
+    line-height: 1.6;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.requestTextarea:focus {
+    outline: none;
+    border-color: hsl(var(--primary));
+}
+
+.requestTextarea::placeholder {
+    color: hsl(var(--foreground-muted));
+    opacity: 0.7;
+}
+
+.modalFooter {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid hsl(var(--border));
+    background: hsl(var(--background));
+}

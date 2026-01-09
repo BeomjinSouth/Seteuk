@@ -1,0 +1,252 @@
+.page {
+    padding: 2rem;
+}
+
+.header {
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    margin-bottom: 0.25rem;
+}
+
+.subtitle {
+    color: hsl(var(--foreground-muted));
+    font-size: 0.95rem;
+}
+
+/* Stats */
+.statsRow {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+    max-width: 400px;
+}
+
+.statCard {
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    border-radius: 1rem;
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.statIconGreen {
+    color: #10b981;
+}
+
+.statIconBlue {
+    color: #3b82f6;
+}
+
+.statValue {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.statLabel {
+    font-size: 0.85rem;
+    color: hsl(var(--foreground-muted));
+}
+
+/* Grade-Class Tabs */
+.gradeClassTabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.gradeClassTab {
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--surface));
+    color: hsl(var(--foreground-muted));
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.gradeClassTab:hover {
+    border-color: hsl(var(--primary));
+    color: hsl(var(--primary));
+}
+
+.activeGradeClass {
+    background: hsl(var(--primary));
+    color: white;
+    border-color: hsl(var(--primary));
+}
+
+/* Button Group */
+.buttonGroup {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Export Section */
+.exportSection {
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.exportSection h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.options {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filterGroup {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.filterGroup label {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.9rem;
+    color: hsl(var(--foreground-muted));
+}
+
+.select {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-size: 0.9rem;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.checkbox input {
+    width: 18px;
+    height: 18px;
+    accent-color: hsl(var(--primary));
+}
+
+.exportInfo {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    background: hsl(var(--background));
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Copy Section */
+.copySection {
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+.copySection h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.hint {
+    font-size: 0.9rem;
+    color: hsl(var(--foreground-muted));
+    margin-bottom: 1rem;
+}
+
+.emptyState {
+    padding: 2rem;
+    text-align: center;
+    color: hsl(var(--foreground-muted));
+}
+
+.copyList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.copyCard {
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.75rem;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.copyCard:hover {
+    border-color: hsl(var(--primary));
+    background: hsl(var(--primary) / 0.02);
+}
+
+.copyCard.copied {
+    border-color: #10b981;
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.copyHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.studentLabel {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.copyStatus {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    color: hsl(var(--foreground-muted));
+}
+
+.copied .copyStatus {
+    color: #10b981;
+}
+
+.copyContent {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: hsl(var(--foreground));
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

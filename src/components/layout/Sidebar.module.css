@@ -1,0 +1,188 @@
+.sidebar {
+    width: 260px;
+    min-height: 100vh;
+    background: hsl(var(--surface));
+    border-right: 1px solid hsl(var(--border));
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.logoSection {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    border-bottom: 1px solid hsl(var(--border));
+}
+
+.logoIcon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, hsl(var(--primary)), #a855f7);
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoText {
+    font-size: 1.25rem;
+    font-weight: 700;
+    background: linear-gradient(to right, hsl(var(--primary)), #9333ea);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Main Navigation */
+.nav {
+    padding: 1rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.navItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    color: hsl(var(--foreground-muted));
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.navItem:hover {
+    background: hsl(var(--surface-hover));
+    color: hsl(var(--foreground));
+}
+
+.navItemActive {
+    background: hsl(var(--primary) / 0.1);
+    color: hsl(var(--primary));
+}
+
+.navItemActive:hover {
+    background: hsl(var(--primary) / 0.15);
+    color: hsl(var(--primary));
+}
+
+/* Examples Section */
+.examplesSection {
+    padding: 0 0.75rem;
+    border-top: 1px solid hsl(var(--border));
+    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+}
+
+.exampleLink {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    color: hsl(var(--foreground-muted));
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.exampleLink:hover {
+    background: hsl(var(--surface-hover));
+    color: hsl(var(--foreground));
+}
+
+.exampleLinkActive {
+    background: hsl(var(--primary) / 0.1);
+    color: hsl(var(--primary));
+}
+
+.exampleBadge {
+    margin-left: auto;
+    padding: 0.2rem 0.5rem;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.15), rgba(168, 85, 247, 0.15));
+    color: hsl(var(--primary));
+    border-radius: 0.25rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+/* Tools Section */
+.toolsSection {
+    margin-top: auto;
+    padding: 0.75rem;
+    border-top: 1px solid hsl(var(--border));
+}
+
+.toolsHeader {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: hsl(var(--foreground-muted));
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.toolItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    border-radius: 0.5rem;
+    color: hsl(var(--foreground-muted));
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.15s;
+}
+
+.toolItem:hover {
+    background: hsl(var(--surface-hover));
+    color: hsl(var(--foreground));
+}
+
+.toolItemActive {
+    color: hsl(var(--primary));
+}
+
+/* User Section */
+.userSection {
+    padding: 1rem;
+    border-top: 1px solid hsl(var(--border));
+}
+
+.userInfo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, hsl(var(--primary)), #a855f7);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.userName {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: hsl(var(--foreground));
+}
+
+.userSubject {
+    font-size: 0.8rem;
+    color: hsl(var(--foreground-muted));
+}

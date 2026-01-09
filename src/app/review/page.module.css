@@ -1,0 +1,292 @@
+.page {
+    padding: 2rem;
+}
+
+.header {
+    margin-bottom: 1.5rem;
+}
+
+.title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    margin-bottom: 0.25rem;
+}
+
+.subtitle {
+    color: hsl(var(--foreground-muted));
+    font-size: 0.95rem;
+}
+
+/* Grade-Class Tabs */
+.gradeClassTabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.gradeClassTab {
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--surface));
+    color: hsl(var(--foreground-muted));
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.gradeClassTab:hover {
+    border-color: hsl(var(--primary));
+    color: hsl(var(--primary));
+}
+
+.activeGradeClass {
+    background: hsl(var(--primary));
+    color: white;
+    border-color: hsl(var(--primary));
+}
+
+/* Status Tabs */
+.tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid hsl(var(--border));
+    padding-bottom: 1rem;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    background: transparent;
+    color: hsl(var(--foreground-muted));
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.tab:hover {
+    background: hsl(var(--surface-hover));
+    color: hsl(var(--foreground));
+}
+
+.activeTab {
+    background: hsl(var(--primary) / 0.1);
+    color: hsl(var(--primary));
+}
+
+.tabCount {
+    padding: 0.15rem 0.5rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    background: hsl(var(--border));
+}
+
+.activeTab .tabCount {
+    background: hsl(var(--primary) / 0.2);
+}
+
+/* Search */
+.searchBar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--surface));
+    margin-bottom: 1.5rem;
+    color: hsl(var(--foreground-muted));
+}
+
+.searchBar input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: hsl(var(--foreground));
+    font-size: 0.95rem;
+}
+
+.searchBar input:focus {
+    outline: none;
+}
+
+/* Empty State */
+.emptyState {
+    background: hsl(var(--surface));
+    border: 2px dashed hsl(var(--border));
+    border-radius: 1rem;
+    padding: 4rem;
+    text-align: center;
+    color: hsl(var(--foreground-muted));
+}
+
+.emptyState h3 {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+}
+
+.emptyState p {
+    margin-top: 0.5rem;
+}
+
+/* Records List */
+.recordsList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.recordCard {
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: all 0.2s ease;
+}
+
+.recordCard:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.recordCard.editing {
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1);
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.studentInfo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.classInfo {
+    font-size: 0.85rem;
+    color: hsl(var(--foreground-muted));
+}
+
+.studentName {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.badges {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.warningBadge {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    background: rgba(245, 158, 11, 0.1);
+    color: #d97706;
+}
+
+.statusBadge {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+}
+
+.statusBadge.draft {
+    background: rgba(107, 114, 128, 0.1);
+    color: #6b7280;
+}
+
+.statusBadge.checked {
+    background: rgba(139, 92, 246, 0.1);
+    color: #7c3aed;
+}
+
+.statusBadge.confirmed {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+}
+
+/* Card Content */
+.cardContent {
+    margin-bottom: 1rem;
+}
+
+.preview {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: hsl(var(--foreground));
+    cursor: pointer;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    transition: background 0.15s;
+}
+
+.preview:hover {
+    background: hsl(var(--surface-hover));
+}
+
+.editArea {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid hsl(var(--primary) / 0.3);
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-size: 0.95rem;
+    line-height: 1.7;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.editArea:focus {
+    outline: none;
+    border-color: hsl(var(--primary));
+}
+
+/* Card Actions */
+.cardActions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    padding-top: 1rem;
+    border-top: 1px solid hsl(var(--border));
+}
+
+.spinning {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

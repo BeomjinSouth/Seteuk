@@ -1,0 +1,456 @@
+.page {
+    padding: 1.5rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid hsl(var(--border));
+}
+
+.schoolInfo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.schoolBadge {
+    padding: 0.35rem 0.75rem;
+    background: hsl(var(--primary) / 0.1);
+    color: hsl(var(--primary));
+    border-radius: 0.375rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.teacherName {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.headerRight {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.aiLabel {
+    font-size: 0.85rem;
+    color: hsl(var(--foreground-muted));
+}
+
+.semesterSelect {
+    padding: 0.5rem 1rem;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--surface));
+    color: hsl(var(--foreground));
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.semesterSelect:hover {
+    border-color: hsl(var(--primary));
+}
+
+.semesterSelect:focus {
+    outline: none;
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 2px hsl(var(--primary) / 0.1);
+}
+
+/* Subject Tabs */
+.subjectTabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid hsl(var(--border));
+    padding-bottom: 0;
+}
+
+.subjectTab {
+    padding: 0.75rem 1.25rem;
+    border: none;
+    background: transparent;
+    color: hsl(var(--foreground-muted));
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.15s;
+}
+
+.subjectTab:hover {
+    color: hsl(var(--foreground));
+}
+
+.subjectTab.active {
+    color: hsl(var(--primary));
+}
+
+.subjectTab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: hsl(var(--primary));
+}
+
+.tabCount {
+    margin-left: 0.35rem;
+    padding: 0.15rem 0.5rem;
+    background: hsl(var(--border));
+    border-radius: 2rem;
+    font-size: 0.75rem;
+}
+
+.subjectTab.active .tabCount {
+    background: hsl(var(--primary) / 0.2);
+    color: hsl(var(--primary));
+}
+
+/* Action Bar */
+.actionBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.actionLeft {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.selectAllBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--surface));
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.15s;
+    color: hsl(var(--foreground));
+}
+
+.selectAllBtn:hover {
+    border-color: hsl(var(--primary));
+    color: hsl(var(--primary));
+}
+
+.searchBox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--surface));
+    border-radius: 0.5rem;
+    color: hsl(var(--foreground-muted));
+}
+
+.searchBox input {
+    border: none;
+    background: transparent;
+    color: hsl(var(--foreground));
+    font-size: 0.9rem;
+    width: 150px;
+}
+
+.searchBox input:focus {
+    outline: none;
+}
+
+/* Progress Bar */
+.progressBar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.1), rgba(168, 85, 247, 0.1));
+    border: 1px solid hsl(var(--primary) / 0.2);
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    color: hsl(var(--primary));
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.spinning {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Empty State */
+.emptyState {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: hsl(var(--foreground-muted));
+    gap: 0.75rem;
+}
+
+.emptyState h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+}
+
+/* Data Table */
+.tableWrapper {
+    flex: 1;
+    overflow: auto;
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.75rem;
+    background: hsl(var(--surface));
+}
+
+.dataTable {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1200px;
+}
+
+.dataTable th {
+    position: sticky;
+    top: 0;
+    background: hsl(var(--background));
+    border-bottom: 1px solid hsl(var(--border));
+    padding: 0.75rem 0.5rem;
+    text-align: left;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: hsl(var(--foreground-muted));
+    white-space: nowrap;
+}
+
+.dataTable td {
+    padding: 0.75rem 0.5rem;
+    border-bottom: 1px solid hsl(var(--border));
+    vertical-align: top;
+    font-size: 0.9rem;
+}
+
+.dataTable tr:hover {
+    background: hsl(var(--surface-hover));
+}
+
+.selectedRow {
+    background: hsl(var(--primary) / 0.05) !important;
+}
+
+.generatingRow {
+    background: rgba(245, 158, 11, 0.05) !important;
+}
+
+/* Column widths */
+.checkCol {
+    width: 40px;
+    text-align: center;
+}
+
+.classCol {
+    width: 50px;
+    text-align: center;
+}
+
+.numberCol {
+    width: 50px;
+    text-align: center;
+}
+
+.nameCol {
+    width: 80px;
+}
+
+.subjectCol {
+    width: 120px;
+}
+
+.dataCol {
+    width: 300px;
+}
+
+.contentCol {
+    min-width: 400px;
+}
+
+.actionCol {
+    width: 50px;
+}
+
+/* Checkbox */
+.checkbox {
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: hsl(var(--foreground-muted));
+    cursor: pointer;
+    transition: color 0.15s;
+}
+
+.checkbox:hover {
+    color: hsl(var(--primary));
+}
+
+.selectedRow .checkbox {
+    color: hsl(var(--primary));
+}
+
+/* Year Badge */
+.yearBadge {
+    display: block;
+    font-size: 0.7rem;
+    color: hsl(var(--foreground-muted));
+    margin-bottom: 0.25rem;
+}
+
+/* Data Preview */
+.dataPreview {
+    max-height: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: hsl(var(--foreground));
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    transition: background 0.15s;
+}
+
+.dataPreview:hover {
+    background: hsl(var(--surface-hover));
+}
+
+/* Content Preview */
+.contentPreview {
+    max-height: 100px;
+    overflow: hidden;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: hsl(var(--foreground));
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    transition: background 0.15s;
+    /* Highlighted style like the image */
+    background: rgba(59, 130, 246, 0.08);
+    border-left: 3px solid hsl(var(--primary));
+    padding-left: 0.5rem;
+}
+
+.contentPreview:hover {
+    background: rgba(59, 130, 246, 0.12);
+}
+
+.emptyContent {
+    color: hsl(var(--foreground-muted));
+    font-style: italic;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.clickable:hover {
+    background: hsl(var(--primary) / 0.05);
+}
+
+.generatingText {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #d97706;
+    font-size: 0.85rem;
+}
+
+/* Edit Textarea */
+.editTextarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 0.5rem;
+    border: 2px solid hsl(var(--primary));
+    border-radius: 0.375rem;
+    background: hsl(var(--surface));
+    color: hsl(var(--foreground));
+    font-size: 0.85rem;
+    line-height: 1.5;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.editTextarea:focus {
+    outline: none;
+}
+
+/* Spell Check Button */
+.spellCheckBtn {
+    padding: 0.4rem;
+    border: none;
+    background: transparent;
+    color: hsl(var(--foreground-muted));
+    cursor: pointer;
+    border-radius: 0.375rem;
+    transition: all 0.15s;
+}
+
+.spellCheckBtn:hover {
+    background: hsl(var(--primary) / 0.1);
+    color: hsl(var(--primary));
+}
+
+/* Empty data styling */
+.emptyData {
+    color: hsl(var(--foreground-muted));
+    font-style: italic;
+}
+
+/* Warning row for forbidden words */
+.warningRow {
+    background: rgba(245, 158, 11, 0.05) !important;
+}
+
+/* Warning badge in content */
+.warningBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.15rem 0.4rem;
+    background: rgba(245, 158, 11, 0.15);
+    color: #d97706;
+    border-radius: 0.25rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    margin-left: 0.5rem;
+}

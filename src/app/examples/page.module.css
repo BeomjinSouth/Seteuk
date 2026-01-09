@@ -1,0 +1,307 @@
+.page {
+    padding: 2rem;
+    max-width: 1000px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    margin-bottom: 0.25rem;
+}
+
+.subtitle {
+    color: hsl(var(--foreground-muted));
+    font-size: 0.95rem;
+}
+
+/* Saved Toast */
+.savedToast {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: #10b981;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    z-index: 100;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid hsl(var(--border));
+    padding-bottom: 0;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border: none;
+    background: transparent;
+    color: hsl(var(--foreground-muted));
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.15s;
+}
+
+.tab:hover {
+    color: hsl(var(--foreground));
+}
+
+.activeTab {
+    color: hsl(var(--primary));
+}
+
+.activeTab::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: hsl(var(--primary));
+}
+
+/* Info Box */
+.infoBox {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.1), rgba(168, 85, 247, 0.1));
+    border: 1px solid hsl(var(--primary) / 0.2);
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+    color: hsl(var(--primary));
+}
+
+.infoBox strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: hsl(var(--foreground));
+}
+
+.infoBox p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: hsl(var(--foreground-muted));
+}
+
+/* Tips Section */
+.tipsSection {
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    border-radius: 1rem;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.tipsSection h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: hsl(var(--foreground));
+}
+
+.tipsSection ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tipsSection li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 0.9rem;
+    color: hsl(var(--foreground-muted));
+}
+
+.tipsSection li::before {
+    content: '•';
+    position: absolute;
+    left: 0.5rem;
+    color: hsl(var(--primary));
+}
+
+.tipsSection li strong {
+    color: hsl(var(--foreground));
+}
+
+/* Selector Section */
+.selectorSection {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    border-radius: 1rem;
+}
+
+.selectorGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.selectorGroup label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: hsl(var(--foreground-muted));
+}
+
+.selectorButtons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.selectorBtn {
+    padding: 0.6rem 1.25rem;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--background));
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.15s;
+    color: hsl(var(--foreground));
+}
+
+.selectorBtn:hover {
+    border-color: hsl(var(--primary));
+}
+
+.selectorBtn.selected {
+    background: hsl(var(--primary));
+    border-color: hsl(var(--primary));
+    color: white;
+}
+
+/* Editor Section */
+.editorSection {
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    border-radius: 1rem;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.editorHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.25rem;
+    background: hsl(var(--background));
+    border-bottom: 1px solid hsl(var(--border));
+    font-weight: 500;
+}
+
+.headerButtons {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: auto;
+}
+
+.charCount {
+    margin-left: auto;
+    font-size: 0.8rem;
+    color: hsl(var(--foreground-muted));
+    font-weight: normal;
+}
+
+.headerButtons~.charCount {
+    margin-left: 0;
+    margin-right: 1rem;
+}
+
+.editor {
+    width: 100%;
+    padding: 1.25rem;
+    border: none;
+    background: hsl(var(--surface));
+    color: hsl(var(--foreground));
+    font-size: 0.95rem;
+    line-height: 1.7;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.editor:focus {
+    outline: none;
+}
+
+/* Overview Section */
+.overviewSection {
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    border-radius: 1rem;
+    padding: 1.25rem;
+}
+
+.overviewSection h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: hsl(var(--foreground));
+}
+
+.overviewGrid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.5rem;
+}
+
+.overviewCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.75rem;
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.15s;
+    background: hsl(var(--background));
+}
+
+.overviewCard:hover {
+    border-color: hsl(var(--primary));
+}
+
+.overviewCard.filled {
+    background: hsl(var(--primary) / 0.1);
+    border-color: hsl(var(--primary) / 0.3);
+}
+
+.overviewLabel {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+}
+
+.overviewStatus {
+    font-size: 0.75rem;
+    color: hsl(var(--foreground-muted));
+    margin-top: 0.25rem;
+}
+
+.overviewCard.filled .overviewStatus {
+    color: hsl(var(--primary));
+}
