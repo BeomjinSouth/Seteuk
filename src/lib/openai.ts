@@ -1,9 +1,19 @@
 import OpenAI from 'openai';
 
-// Initialize OpenAI client
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-});
+// Lazy initialization of OpenAI client to prevent build-time errors
+let openaiClient: OpenAI | null = null;
+
+function getOpenAIClient(): OpenAI {
+    if (!openaiClient) {
+        if (!process.env.OPENAI_API_KEY) {
+            throw new Error('OPENAI_API_KEY environment variable is not set');
+        }
+        openaiClient = new OpenAI({
+            apiKey: process.env.OPENAI_API_KEY,
+        });
+    }
+    return openaiClient;
+}
 
 // GPT-5.2 model variants
 export const GPT_MODELS = {
@@ -74,7 +84,7 @@ ${dataEntries}
 ${exampleTemplates.map((t, i) => `예시 ${i + 1}: ${t}`).join('\n')}`;
     }
 
-    const response = await openai.chat.completions.create({
+    const response = await getOpenAIClient().chat.completions.create({
         model: model,
         messages: [
             { role: 'system', content: SYSTEM_PROMPT },
@@ -128,7 +138,7 @@ interface ForbiddenCheckResult {
  * Check for forbidden expressions using GPT-5.2
  */
 export async function checkForbiddenExpressions(text: string): Promise<ForbiddenCheckResult> {
-    const response = await openai.chat.completions.create({
+    const response = await getOpenAIClient().chat.completions.create({
         model: GPT_MODELS.INSTANT,
         messages: [
             { role: 'system', content: FORBIDDEN_CHECK_PROMPT },
