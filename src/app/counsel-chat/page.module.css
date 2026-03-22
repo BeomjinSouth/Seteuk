@@ -1,0 +1,260 @@
+.page {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(280px, 0.9fr);
+    gap: 1rem;
+    padding: 1.5rem;
+    border-radius: 1.25rem;
+    background:
+        radial-gradient(circle at top left, rgba(14, 165, 233, 0.16), transparent 42%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(248, 250, 252, 0.95));
+    border: 1px solid hsl(var(--border));
+}
+
+.heroCopy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.kicker {
+    display: inline-flex;
+    width: fit-content;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #0f766e;
+    background: rgba(20, 184, 166, 0.12);
+}
+
+.title {
+    font-size: 2rem;
+    line-height: 1.1;
+    color: hsl(var(--foreground));
+}
+
+.subtitle {
+    max-width: 56rem;
+    color: hsl(var(--foreground-muted));
+    line-height: 1.7;
+}
+
+.heroStats {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.statCard {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.statCard strong {
+    display: block;
+    font-size: 1.2rem;
+}
+
+.statCard span {
+    color: hsl(var(--foreground-muted));
+    font-size: 0.85rem;
+}
+
+.composer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-radius: 1.25rem;
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+}
+
+.filterRow {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.filterField {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filterField span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: hsl(var(--foreground-muted));
+}
+
+.filterField select,
+.filterField input {
+    width: 100%;
+    padding: 0.8rem 0.95rem;
+    border-radius: 0.85rem;
+    border: 1px solid hsl(var(--input));
+    background: hsl(var(--surface));
+    color: hsl(var(--foreground));
+}
+
+.questionInput {
+    min-height: 180px;
+    resize: vertical;
+    padding: 1rem 1.1rem;
+    border-radius: 1rem;
+    border: 1px solid hsl(var(--input));
+    background: linear-gradient(180deg, rgba(248, 250, 252, 0.9), rgba(255, 255, 255, 0.96));
+    color: hsl(var(--foreground));
+    font: inherit;
+    line-height: 1.7;
+}
+
+.sampleRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.sampleChip {
+    border: 1px solid rgba(14, 165, 233, 0.18);
+    background: rgba(14, 165, 233, 0.08);
+    color: #0369a1;
+    padding: 0.5rem 0.8rem;
+    border-radius: 999px;
+    font: inherit;
+    cursor: pointer;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.errorBox {
+    padding: 1rem 1.1rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(239, 68, 68, 0.25);
+    background: rgba(254, 242, 242, 0.95);
+    color: #b91c1c;
+}
+
+.resultShell {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(320px, 0.9fr);
+    gap: 1rem;
+}
+
+.answerCard,
+.citationPanel {
+    padding: 1.5rem;
+    border-radius: 1.25rem;
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+}
+
+.answerHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.badge {
+    display: inline-flex;
+    padding: 0.25rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #9a3412;
+    background: rgba(251, 146, 60, 0.12);
+}
+
+.answerText {
+    white-space: pre-wrap;
+    line-height: 1.8;
+    color: hsl(var(--foreground));
+}
+
+.noticeBox {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: rgba(250, 204, 21, 0.1);
+    border: 1px solid rgba(234, 179, 8, 0.18);
+}
+
+.noticeBox strong {
+    display: block;
+    margin-bottom: 0.35rem;
+}
+
+.citationPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.citationList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.citationCard {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    color: inherit;
+    text-decoration: none;
+    background: linear-gradient(180deg, rgba(248, 250, 252, 0.9), rgba(255, 255, 255, 0.96));
+    border: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.citationHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sourceType {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #1d4ed8;
+}
+
+.citationCard p {
+    color: hsl(var(--foreground-muted));
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 960px) {
+    .hero,
+    .resultShell,
+    .filterRow {
+        grid-template-columns: 1fr;
+    }
+
+    .page {
+        padding: 1rem;
+    }
+}
