@@ -6,6 +6,7 @@
 - `web` now exposes:
   - `/api/knowledge/meta`
   - `/api/search`
+  - `/api/search-eval`
   - `/api/counsel-chat`
   - `/api/record-review`
 - `web` now provides:
@@ -22,6 +23,7 @@
 5. Search inspection API + UI
 6. GitHub-mirrored docs under `docs/student-record-knowledge/`
 7. OpenAI-based reranking hook added on top of lexical retrieval
+8. Retrieval eval dataset and API added
 
 ## In Progress
 

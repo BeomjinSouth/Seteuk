@@ -19,6 +19,7 @@
 
 - `src/app/api/knowledge/meta/route.ts`
 - `src/app/api/search/route.ts`
+- `src/app/api/search-eval/route.ts`
 - `src/app/api/counsel-chat/route.ts`
 - `src/app/api/record-review/route.ts`
 
@@ -26,6 +27,7 @@
 
 - `src/app/counsel-chat/page.tsx`
 - `src/app/record-review/page.tsx`
+- `src/app/search-inspector/page.tsx`
 - 각 페이지에서 raw match list 표시
 - query string prefill 지원
 - GNB / Sidebar / Dashboard quick action 연결

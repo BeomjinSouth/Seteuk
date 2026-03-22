@@ -165,3 +165,31 @@ export interface RecordReviewResponse {
     model?: string | null;
     error?: string;
 }
+
+export interface KnowledgeEvalCase {
+    id: string;
+    query: string;
+    schoolLevel?: string;
+    category?: string;
+    year: number;
+    expectedTitleKeywords: string[];
+    notes?: string;
+}
+
+export interface KnowledgeEvalCaseResult {
+    id: string;
+    query: string;
+    expectedTitleKeywords: string[];
+    matchedTitles: string[];
+    top1Matched: boolean;
+    top3Matched: boolean;
+    reciprocalRank: number;
+}
+
+export interface KnowledgeEvalReport {
+    caseCount: number;
+    hitAt1: number;
+    hitAt3: number;
+    meanReciprocalRank: number;
+    results: KnowledgeEvalCaseResult[];
+}

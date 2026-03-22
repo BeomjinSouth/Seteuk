@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState, useTransition } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
-import type { RetrievedKnowledgeEvidence } from '@/types/knowledge';
+import type { KnowledgeEvalReport, RetrievedKnowledgeEvidence } from '@/types/knowledge';
 import styles from './page.module.css';
 
 export default function SearchInspectorPage() {
@@ -13,8 +13,10 @@ export default function SearchInspectorPage() {
     const [category, setCategory] = useState('');
     const [year, setYear] = useState('2026');
     const [matches, setMatches] = useState<RetrievedKnowledgeEvidence[]>([]);
+    const [evalReport, setEvalReport] = useState<KnowledgeEvalReport | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [isPending, startTransition] = useTransition();
+    const [isEvalPending, startEvalTransition] = useTransition();
 
     const handleSearch = () => {
         setError(null);
@@ -42,6 +44,22 @@ export default function SearchInspectorPage() {
         });
     };
 
+    const handleRunEval = () => {
+        setError(null);
+        startEvalTransition(async () => {
+            try {
+                const response = await fetch('/api/search-eval');
+                const data = await response.json();
+                if (!response.ok || !data.success) {
+                    throw new Error(data.error || '평가 실행에 실패했습니다.');
+                }
+                setEvalReport(data);
+            } catch (err) {
+                setError(err instanceof Error ? err.message : '평가 실행에 실패했습니다.');
+            }
+        });
+    };
+
     return (
         <div className={styles.page}>
             <div className={styles.topNav}>
@@ -53,7 +71,7 @@ export default function SearchInspectorPage() {
 
             <section className={styles.panel}>
                 <h1 className={styles.title}>검색 점검</h1>
-                <p className={styles.subtitle}>현재 retrieval 결과와 점수를 직접 확인하는 개발용 화면입니다.</p>
+                <p className={styles.subtitle}>현재 retrieval 결과와 평가셋 성능을 직접 확인하는 개발용 화면입니다.</p>
 
                 <div className={styles.filterGrid}>
                     <input value={query} onChange={(event) => setQuery(event.target.value)} className={styles.input} />
@@ -64,10 +82,53 @@ export default function SearchInspectorPage() {
 
                 <div className={styles.actions}>
                     <Button onClick={handleSearch} isLoading={isPending}>검색 실행</Button>
+                    <Button variant="secondary" onClick={handleRunEval} isLoading={isEvalPending}>평가셋 실행</Button>
                 </div>
             </section>
 
             {error && <div className={styles.errorBox}>{error}</div>}
+
+            {evalReport && (
+                <section className={styles.evalPanel}>
+                    <div className={styles.evalHeader}>
+                        <h2>검색 평가 리포트</h2>
+                        <span>{evalReport.caseCount} cases</span>
+                    </div>
+                    <div className={styles.evalStats}>
+                        <div className={styles.evalStatCard}>
+                            <strong>{(evalReport.hitAt1 * 100).toFixed(1)}%</strong>
+                            <span>Hit@1</span>
+                        </div>
+                        <div className={styles.evalStatCard}>
+                            <strong>{(evalReport.hitAt3 * 100).toFixed(1)}%</strong>
+                            <span>Hit@3</span>
+                        </div>
+                        <div className={styles.evalStatCard}>
+                            <strong>{evalReport.meanReciprocalRank.toFixed(3)}</strong>
+                            <span>MRR</span>
+                        </div>
+                    </div>
+
+                    <div className={styles.evalResultList}>
+                        {evalReport.results.map((result) => (
+                            <div key={result.id} className={styles.evalResultCard}>
+                                <div className={styles.evalResultHeader}>
+                                    <strong>{result.query}</strong>
+                                    <span>{result.top1Matched ? 'Top1 match' : result.top3Matched ? 'Top3 match' : 'Miss'}</span>
+                                </div>
+                                <p className={styles.evalExpected}>
+                                    Expected keywords: {result.expectedTitleKeywords.join(', ')}
+                                </p>
+                                <ol className={styles.evalMatchedTitles}>
+                                    {result.matchedTitles.map((title) => (
+                                        <li key={title}>{title}</li>
+                                    ))}
+                                </ol>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            )}
 
             <div className={styles.resultList}>
                 {matches.map((match, index) => (
