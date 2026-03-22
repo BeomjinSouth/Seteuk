@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useState, useTransition } from 'react';
+import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Bot, CalendarRange, FileSearch, GraduationCap, Link2, MessageSquareQuote, Tag } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
@@ -14,6 +16,7 @@ const SAMPLE_QUESTIONS = [
 ];
 
 export default function CounselChatPage() {
+    const searchParams = useSearchParams();
     const [meta, setMeta] = useState<KnowledgeMeta | null>(null);
     const [question, setQuestion] = useState(SAMPLE_QUESTIONS[0]);
     const [schoolLevel, setSchoolLevel] = useState('고등학교');
@@ -22,6 +25,18 @@ export default function CounselChatPage() {
     const [result, setResult] = useState<CounselChatResponse | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [isPending, startTransition] = useTransition();
+
+    useEffect(() => {
+        const presetQuestion = searchParams.get('q');
+        const presetSchoolLevel = searchParams.get('schoolLevel');
+        const presetCategory = searchParams.get('category');
+        const presetYear = searchParams.get('year');
+
+        if (presetQuestion) setQuestion(presetQuestion);
+        if (presetSchoolLevel) setSchoolLevel(presetSchoolLevel);
+        if (presetCategory) setCategory(presetCategory);
+        if (presetYear) setYear(presetYear);
+    }, [searchParams]);
 
     useEffect(() => {
         const loadMeta = async () => {
@@ -63,6 +78,12 @@ export default function CounselChatPage() {
 
     return (
         <div className={styles.page}>
+            <div className={styles.topNav}>
+                <Link href="/dashboard" className={styles.topLink}>대시보드</Link>
+                <Link href="/counsel-chat" className={styles.topLinkActive}>학생부 상담</Link>
+                <Link href="/record-review" className={styles.topLink}>생기부 점검</Link>
+            </div>
+
             <section className={styles.hero}>
                 <div className={styles.heroCopy}>
                     <span className={styles.kicker}>Knowledge-backed Counsel</span>

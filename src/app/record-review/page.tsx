@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useState, useTransition } from 'react';
+import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { AlertTriangle, CheckCircle2, GraduationCap, Link2, ShieldCheck, Sparkles, Tag } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
@@ -10,6 +12,7 @@ import styles from './page.module.css';
 const SAMPLE_TEXT = '학생은 지역 대학 탐방 활동에서 우수한 태도를 보였으며 최고 수준의 발표 역량을 바탕으로 진로 설계 내용을 구체적으로 정리함.';
 
 export default function RecordReviewPage() {
+    const searchParams = useSearchParams();
     const [meta, setMeta] = useState<KnowledgeMeta | null>(null);
     const [schoolLevel, setSchoolLevel] = useState('고등학교');
     const [category, setCategory] = useState('');
@@ -18,6 +21,18 @@ export default function RecordReviewPage() {
     const [result, setResult] = useState<RecordReviewResponse | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [isPending, startTransition] = useTransition();
+
+    useEffect(() => {
+        const presetText = searchParams.get('text');
+        const presetSchoolLevel = searchParams.get('schoolLevel');
+        const presetCategory = searchParams.get('category');
+        const presetYear = searchParams.get('year');
+
+        if (presetText) setRecordText(presetText);
+        if (presetSchoolLevel) setSchoolLevel(presetSchoolLevel);
+        if (presetCategory) setCategory(presetCategory);
+        if (presetYear) setYear(presetYear);
+    }, [searchParams]);
 
     useEffect(() => {
         const loadMeta = async () => {
@@ -60,6 +75,12 @@ export default function RecordReviewPage() {
 
     return (
         <div className={styles.page}>
+            <div className={styles.topNav}>
+                <Link href="/dashboard" className={styles.topLink}>대시보드</Link>
+                <Link href="/counsel-chat" className={styles.topLink}>학생부 상담</Link>
+                <Link href="/record-review" className={styles.topLinkActive}>생기부 점검</Link>
+            </div>
+
             <section className={styles.hero}>
                 <div>
                     <span className={styles.kicker}>Context-grounded Review</span>
