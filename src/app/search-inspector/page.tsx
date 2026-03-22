@@ -13,10 +13,20 @@ export default function SearchInspectorPage() {
     const [category, setCategory] = useState('');
     const [year, setYear] = useState('2026');
     const [matches, setMatches] = useState<RetrievedKnowledgeEvidence[]>([]);
+    const [hostedMatches, setHostedMatches] = useState<RetrievedKnowledgeEvidence[]>([]);
     const [evalReport, setEvalReport] = useState<KnowledgeEvalReport | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [isPending, startTransition] = useTransition();
+    const [isHostedPending, startHostedTransition] = useTransition();
     const [isEvalPending, startEvalTransition] = useTransition();
+
+    const payload = {
+        query,
+        schoolLevel: schoolLevel || undefined,
+        category: category || undefined,
+        year: Number(year),
+        limit: 10,
+    };
 
     const handleSearch = () => {
         setError(null);
@@ -25,21 +35,35 @@ export default function SearchInspectorPage() {
                 const response = await fetch('/api/search', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        query,
-                        schoolLevel: schoolLevel || undefined,
-                        category: category || undefined,
-                        year: Number(year),
-                        limit: 10,
-                    }),
+                    body: JSON.stringify(payload),
                 });
                 const data = await response.json();
                 if (!response.ok || !data.success) {
-                    throw new Error(data.error || '검색에 실패했습니다.');
+                    throw new Error(data.error || 'Local search failed.');
                 }
                 setMatches(data.matches);
             } catch (err) {
-                setError(err instanceof Error ? err.message : '검색에 실패했습니다.');
+                setError(err instanceof Error ? err.message : 'Local search failed.');
+            }
+        });
+    };
+
+    const handleHostedSearch = () => {
+        setError(null);
+        startHostedTransition(async () => {
+            try {
+                const response = await fetch('/api/search-openai', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                });
+                const data = await response.json();
+                if (!response.ok || !data.success) {
+                    throw new Error(data.error || 'Hosted search failed.');
+                }
+                setHostedMatches(data.matches);
+            } catch (err) {
+                setError(err instanceof Error ? err.message : 'Hosted search failed.');
             }
         });
     };
@@ -51,11 +75,11 @@ export default function SearchInspectorPage() {
                 const response = await fetch('/api/search-eval');
                 const data = await response.json();
                 if (!response.ok || !data.success) {
-                    throw new Error(data.error || '평가 실행에 실패했습니다.');
+                    throw new Error(data.error || 'Evaluation failed.');
                 }
                 setEvalReport(data);
             } catch (err) {
-                setError(err instanceof Error ? err.message : '평가 실행에 실패했습니다.');
+                setError(err instanceof Error ? err.message : 'Evaluation failed.');
             }
         });
     };
@@ -63,26 +87,29 @@ export default function SearchInspectorPage() {
     return (
         <div className={styles.page}>
             <div className={styles.topNav}>
-                <Link href="/dashboard" className={styles.topLink}>대시보드</Link>
-                <Link href="/counsel-chat" className={styles.topLink}>학생부 상담</Link>
-                <Link href="/record-review" className={styles.topLink}>생기부 점검</Link>
-                <Link href="/search-inspector" className={styles.topLinkActive}>검색 점검</Link>
+                <Link href="/dashboard" className={styles.topLink}>Dashboard</Link>
+                <Link href="/counsel-chat" className={styles.topLink}>Counsel Chat</Link>
+                <Link href="/record-review" className={styles.topLink}>Record Review</Link>
+                <Link href="/search-inspector" className={styles.topLinkActive}>Search Inspector</Link>
             </div>
 
             <section className={styles.panel}>
-                <h1 className={styles.title}>검색 점검</h1>
-                <p className={styles.subtitle}>현재 retrieval 결과와 평가셋 성능을 직접 확인하는 개발용 화면입니다.</p>
+                <h1 className={styles.title}>Search Inspector</h1>
+                <p className={styles.subtitle}>
+                    Inspect local retrieval, hosted retrieval, and evaluation metrics from one place.
+                </p>
 
                 <div className={styles.filterGrid}>
                     <input value={query} onChange={(event) => setQuery(event.target.value)} className={styles.input} />
                     <input value={schoolLevel} onChange={(event) => setSchoolLevel(event.target.value)} className={styles.input} />
-                    <input value={category} onChange={(event) => setCategory(event.target.value)} className={styles.input} placeholder="구분(선택)" />
+                    <input value={category} onChange={(event) => setCategory(event.target.value)} className={styles.input} placeholder="category (optional)" />
                     <input value={year} onChange={(event) => setYear(event.target.value)} className={styles.input} />
                 </div>
 
                 <div className={styles.actions}>
-                    <Button onClick={handleSearch} isLoading={isPending}>검색 실행</Button>
-                    <Button variant="secondary" onClick={handleRunEval} isLoading={isEvalPending}>평가셋 실행</Button>
+                    <Button onClick={handleSearch} isLoading={isPending}>Local Search</Button>
+                    <Button variant="secondary" onClick={handleHostedSearch} isLoading={isHostedPending}>Hosted Search</Button>
+                    <Button variant="secondary" onClick={handleRunEval} isLoading={isEvalPending}>Run Eval Set</Button>
                 </div>
             </section>
 
@@ -91,7 +118,7 @@ export default function SearchInspectorPage() {
             {evalReport && (
                 <section className={styles.evalPanel}>
                     <div className={styles.evalHeader}>
-                        <h2>검색 평가 리포트</h2>
+                        <h2>Retrieval Evaluation</h2>
                         <span>{evalReport.caseCount} cases</span>
                     </div>
                     <div className={styles.evalStats}>
@@ -108,53 +135,58 @@ export default function SearchInspectorPage() {
                             <span>MRR</span>
                         </div>
                     </div>
-
-                    <div className={styles.evalResultList}>
-                        {evalReport.results.map((result) => (
-                            <div key={result.id} className={styles.evalResultCard}>
-                                <div className={styles.evalResultHeader}>
-                                    <strong>{result.query}</strong>
-                                    <span>{result.top1Matched ? 'Top1 match' : result.top3Matched ? 'Top3 match' : 'Miss'}</span>
-                                </div>
-                                <p className={styles.evalExpected}>
-                                    Expected keywords: {result.expectedTitleKeywords.join(', ')}
-                                </p>
-                                <ol className={styles.evalMatchedTitles}>
-                                    {result.matchedTitles.map((title) => (
-                                        <li key={title}>{title}</li>
-                                    ))}
-                                </ol>
-                            </div>
-                        ))}
-                    </div>
                 </section>
             )}
 
-            <div className={styles.resultList}>
-                {matches.map((match, index) => (
-                    <motion.article
-                        key={match.knowledgeUnitId}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.02 }}
-                        className={styles.card}
-                    >
-                        <div className={styles.cardHeader}>
-                            <strong>{match.title}</strong>
-                            <span>{match.score} pts</span>
-                        </div>
-                        <p className={styles.meta}>
-                            {match.sourceBoard} · {match.schoolLevels.join(', ')} · {match.categories.join(', ') || '-'} · {match.effectiveYear ?? '미상'}
-                        </p>
-                        <p className={styles.snippet}>{match.snippet}</p>
-                        <div className={styles.links}>
-                            {match.sourceUrls.map((url) => (
-                                <a key={url} href={url} target="_blank" rel="noreferrer">{url}</a>
-                            ))}
-                        </div>
-                    </motion.article>
-                ))}
-            </div>
+            <section className={styles.resultSection}>
+                <div className={styles.resultColumn}>
+                    <h2>Local Search Results</h2>
+                    <div className={styles.resultList}>
+                        {matches.map((match, index) => (
+                            <motion.article
+                                key={`local-${match.knowledgeUnitId}-${index}`}
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: index * 0.02 }}
+                                className={styles.card}
+                            >
+                                <div className={styles.cardHeader}>
+                                    <strong>{match.title}</strong>
+                                    <span>{match.score} pts</span>
+                                </div>
+                                <p className={styles.meta}>
+                                    {match.sourceBoard} · {match.schoolLevels.join(', ')} · {match.categories.join(', ') || '-'} · {match.effectiveYear ?? 'unknown'}
+                                </p>
+                                <p className={styles.snippet}>{match.snippet}</p>
+                            </motion.article>
+                        ))}
+                    </div>
+                </div>
+
+                <div className={styles.resultColumn}>
+                    <h2>Hosted Search Results</h2>
+                    <div className={styles.resultList}>
+                        {hostedMatches.map((match, index) => (
+                            <motion.article
+                                key={`hosted-${match.knowledgeUnitId}-${index}`}
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: index * 0.02 }}
+                                className={styles.card}
+                            >
+                                <div className={styles.cardHeader}>
+                                    <strong>{match.title}</strong>
+                                    <span>{match.score.toFixed(3)}</span>
+                                </div>
+                                <p className={styles.meta}>
+                                    {match.sourceBoard} · {match.schoolLevels.join(', ')} · {match.categories.join(', ') || '-'} · {match.effectiveYear ?? 'unknown'}
+                                </p>
+                                <p className={styles.snippet}>{match.snippet}</p>
+                            </motion.article>
+                        ))}
+                    </div>
+                </div>
+            </section>
         </div>
     );
 }

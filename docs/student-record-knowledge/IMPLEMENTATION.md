@@ -20,11 +20,19 @@
 - uses OpenAI Responses API when available
 - reranks top lexical candidates before final answer or review generation
 
+### Hosted Retrieval Preparation
+
+- `src/lib/knowledge-hosted.ts`
+- syncs canonical knowledge into an OpenAI vector store in batches
+- searches the vector store and maps hosted hits back into app evidence objects
+
 ### APIs
 
 - `src/app/api/knowledge/meta/route.ts`
+- `src/app/api/knowledge/sync/route.ts`
 - `src/app/api/search/route.ts`
 - `src/app/api/search-eval/route.ts`
+- `src/app/api/search-openai/route.ts`
 - `src/app/api/counsel-chat/route.ts`
 - `src/app/api/record-review/route.ts`
 
@@ -34,6 +42,7 @@
 - `src/app/record-review/page.tsx`
 - `src/app/search-inspector/page.tsx`
 - raw match list shown in the pages
+- local vs hosted search comparison available
 - query-string prefill supported
 - main navigation connected
 
@@ -52,5 +61,5 @@
 ## Next Steps
 
 1. improve difficult query ranking classes
-2. replace lexical-first retrieval with vector or hosted file search
+2. decide when hosted retrieval is good enough to become the default provider
 3. automate doc mirroring further if the workflow expands

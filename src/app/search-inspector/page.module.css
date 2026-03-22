@@ -32,7 +32,8 @@
     color: #1d4ed8;
 }
 
-.panel {
+.panel,
+.evalPanel {
     padding: 1.5rem;
     border-radius: 1.25rem;
     background: hsl(var(--surface));
@@ -69,6 +70,7 @@
     display: flex;
     justify-content: flex-end;
     gap: 0.75rem;
+    flex-wrap: wrap;
 }
 
 .errorBox {
@@ -77,13 +79,6 @@
     border: 1px solid rgba(239, 68, 68, 0.25);
     background: rgba(254, 242, 242, 0.95);
     color: #b91c1c;
-}
-
-.evalPanel {
-    padding: 1.5rem;
-    border-radius: 1.25rem;
-    background: hsl(var(--surface));
-    border: 1px solid hsl(var(--border));
 }
 
 .evalHeader {
@@ -97,7 +92,6 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.75rem;
-    margin-bottom: 1rem;
 }
 
 .evalStatCard {
@@ -117,37 +111,16 @@
     font-size: 0.85rem;
 }
 
-.evalResultList {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.evalResultCard {
-    padding: 1rem;
-    border-radius: 1rem;
-    background: rgba(248, 250, 252, 0.92);
-    border: 1px solid hsl(var(--border));
-}
-
-.evalResultHeader {
-    display: flex;
-    justify-content: space-between;
+.resultSection {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
 }
 
-.evalExpected {
-    margin-top: 0.5rem;
-    color: hsl(var(--foreground-muted));
-    font-size: 0.9rem;
-}
-
-.evalMatchedTitles {
-    margin-top: 0.75rem;
-    padding-left: 1.2rem;
+.resultColumn {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: 0.75rem;
 }
 
 .resultList {
@@ -180,25 +153,14 @@
     line-height: 1.7;
 }
 
-.links {
-    margin-top: 0.75rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-}
-
-.links a {
-    color: #2563eb;
-    word-break: break-all;
-}
-
 @media (max-width: 960px) {
     .page {
         padding: 1rem;
     }
 
     .filterGrid,
-    .evalStats {
+    .evalStats,
+    .resultSection {
         grid-template-columns: 1fr;
     }
 }
