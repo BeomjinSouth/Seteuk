@@ -28,6 +28,7 @@
 - `src/app/record-review/page.tsx`
 - 각 페이지에서 raw match list 표시
 - query string prefill 지원
+- GNB / Sidebar / Dashboard quick action 연결
 
 ## 응답 정책
 

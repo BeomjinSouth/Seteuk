@@ -13,12 +13,28 @@ import {
     Bell,
     Check,
     X,
-    Shield
+    Shield,
+    ScanLine,
+    Sparkles,
+    ArrowRight
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
 import styles from './page.module.css';
 
+/**
+ * Dashboard Page Component
+ * 
+ * @description
+ * Main dashboard view showing overview statistics and quick actions.
+ * 
+ * Features:
+ * - Teacher greeting and info
+ * - Statistics cards (Total students, Drafts, Pending reviews, Confirmed)
+ * - Admin notification center for setting approval requests
+ * - Class list overview with progress bars
+ * - Quick action links
+ */
 export default function DashboardPage() {
     const {
         teacher,
@@ -33,8 +49,11 @@ export default function DashboardPage() {
     const isAdminUser = isAdmin(teacher);
     const pendingNotifications = adminNotifications.filter(n => n.status === 'pending');
 
-    // Calculate stats
-    const totalStudents = students.length;
+    // Calculate stats - 학교별 필터링 적용
+    const schoolFilteredStudents = students.filter(s =>
+        !teacher?.school || s.school === teacher.school
+    );
+    const totalStudents = schoolFilteredStudents.length;
     const draftCount = records.filter(r => r.status === 'draft').length;
     const confirmedCount = records.filter(r => r.status === 'confirmed').length;
     const pendingReviewCount = records.filter(r => r.status === 'checked').length;
@@ -255,6 +274,14 @@ export default function DashboardPage() {
                         <FileText size={24} />
                         <span>AI 세특 생성</span>
                     </Link>
+                    <Link href="/counsel-chat" className={styles.actionCard}>
+                        <Sparkles size={24} />
+                        <span>학생부 상담</span>
+                    </Link>
+                    <Link href="/record-review" className={styles.actionCard}>
+                        <Shield size={24} />
+                        <span>생기부 점검</span>
+                    </Link>
                     <Link href="/review" className={styles.actionCard}>
                         <CheckCircle2 size={24} />
                         <span>검토 및 확정</span>
@@ -263,6 +290,12 @@ export default function DashboardPage() {
                         <AlertCircle size={24} />
                         <span>금지어 관리</span>
                     </Link>
+                    {isAdminUser && (
+                        <Link href="/search-inspector" className={styles.actionCard}>
+                            <ScanLine size={24} />
+                            <span>검색 점검</span>
+                        </Link>
+                    )}
                 </div>
             </section>
         </div>

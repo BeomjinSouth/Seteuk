@@ -26,11 +26,9 @@
 ## In Progress
 
 1. Retrieval quality tuning and evaluation
-2. Existing navigation integration with minimal risk to unrelated local changes
 
 ## Next
 
 1. Improve ranking for name/성명, 세특, 창체/출결 queries
-2. Connect new pages into stable product navigation
-3. Replace lexical retrieval with vector/file-search strategy
-4. Automate doc mirroring from `../student-record-knowledge`
+2. Replace lexical retrieval with vector/file-search strategy
+3. Automate doc mirroring from `../student-record-knowledge`
