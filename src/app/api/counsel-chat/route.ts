@@ -10,6 +10,7 @@ import {
     buildFallbackCounselAnswer,
     searchKnowledgeBase,
 } from '@/lib/knowledge-base';
+import { rerankMatchesWithAI } from '@/lib/knowledge-rerank';
 import type { CounselChatResponse } from '@/types/knowledge';
 
 const DEFAULT_MODEL = 'gpt-5-mini';
@@ -39,7 +40,7 @@ export async function POST(request: NextRequest) {
     }
 
     try {
-        const matches = await searchKnowledgeBase({
+        let matches = await searchKnowledgeBase({
             query: question,
             schoolLevel: body.schoolLevel,
             category: body.category,
@@ -63,14 +64,27 @@ export async function POST(request: NextRequest) {
         }
 
         const client = getClient();
+        if (client) {
+            matches = await rerankMatchesWithAI({
+                client,
+                query: question,
+                matches,
+                schoolLevel: body.schoolLevel,
+                category: body.category,
+                year: body.year,
+                model: DEFAULT_MODEL,
+            });
+        }
+        const rerankedCitations = buildCitations(matches);
+        const rerankedConflictNote = buildConflictSummary(matches);
 
         if (!client) {
             const payload: CounselChatResponse = {
                 success: true,
                 answer: buildFallbackCounselAnswer(question, matches),
-                citations,
+                citations: rerankedCitations,
                 matches,
-                conflictNote,
+                conflictNote: rerankedConflictNote,
                 fallback: true,
                 model: null,
             };
@@ -127,9 +141,9 @@ export async function POST(request: NextRequest) {
         const payload: CounselChatResponse = {
             success: true,
             answer: response.output_text || buildFallbackCounselAnswer(question, matches),
-            citations,
+            citations: rerankedCitations,
             matches,
-            conflictNote,
+            conflictNote: rerankedConflictNote,
             model: DEFAULT_MODEL,
         };
 

@@ -5,6 +5,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import OpenAI from 'openai';
 import { getPromptCacheParams } from '@/lib/prompt-cache';
 import { buildCitations, searchKnowledgeBase } from '@/lib/knowledge-base';
+import { rerankMatchesWithAI } from '@/lib/knowledge-rerank';
 import type { RecordReviewIssue, RecordReviewResponse } from '@/types/knowledge';
 
 const DEFAULT_MODEL = 'gpt-5-mini';
@@ -136,14 +137,13 @@ export async function POST(request: NextRequest) {
     const year = body.year || 2026;
 
     try {
-        const matches = await searchKnowledgeBase({
+        let matches = await searchKnowledgeBase({
             query: recordText,
             schoolLevel,
             category,
             year,
             limit: 6,
         });
-        const citations = buildCitations(matches);
         if (matches.length === 0) {
             return NextResponse.json({
                 success: true,
@@ -171,6 +171,18 @@ export async function POST(request: NextRequest) {
         }
 
         const client = getClient();
+        if (client) {
+            matches = await rerankMatchesWithAI({
+                client,
+                query: recordText,
+                matches,
+                schoolLevel,
+                category,
+                year,
+                model: DEFAULT_MODEL,
+            });
+        }
+        const citations = buildCitations(matches);
 
         if (!client) {
             return NextResponse.json(buildFallbackReview(recordText, schoolLevel, category, year, citations, matches));

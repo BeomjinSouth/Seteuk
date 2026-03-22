@@ -21,10 +21,11 @@
 4. Record review API + UI
 5. Search inspection API + UI
 6. GitHub-mirrored docs under `docs/student-record-knowledge/`
+7. OpenAI-based reranking hook added on top of lexical retrieval
 
 ## In Progress
 
-1. Retrieval quality tuning
+1. Retrieval quality tuning and evaluation
 2. Existing navigation integration with minimal risk to unrelated local changes
 
 ## Next
