@@ -1,21 +1,26 @@
 # Student Record Knowledge Implementation
 
-## 데이터 소스
+## Data Sources
 
 - `../student-record-knowledge/output/star-moe-knowledge-2026.json`
 - `../student-record-knowledge/output/star-moe-knowledge-units-2026.json`
 
-## 현재 구현
+## Current Implementation
 
-### 로더
+### Loader
 
 - `src/lib/knowledge-base.ts`
-- knowledge JSON 로드
-- school level / category / year 필터
-- lexical retrieval + synonym boost
-- concept constraint 기반 후처리
+- loads knowledge JSON
+- applies school-level, category, and year filters
+- uses lexical retrieval, synonym expansion, concept constraints, and scoring
 
-### API
+### Reranking
+
+- `src/lib/knowledge-rerank.ts`
+- uses OpenAI Responses API when available
+- reranks top lexical candidates before final answer or review generation
+
+### APIs
 
 - `src/app/api/knowledge/meta/route.ts`
 - `src/app/api/search/route.ts`
@@ -28,18 +33,24 @@
 - `src/app/counsel-chat/page.tsx`
 - `src/app/record-review/page.tsx`
 - `src/app/search-inspector/page.tsx`
-- 각 페이지에서 raw match list 표시
-- query string prefill 지원
-- GNB / Sidebar / Dashboard quick action 연결
+- raw match list shown in the pages
+- query-string prefill supported
+- main navigation connected
 
-## 응답 정책
+## Response Policy
 
-- 공개 근거가 없으면 추정 답변 대신 fallback 또는 manual review 반환
-- 상담은 citations 포함
-- 점검은 issue list, risk level, recommended rewrite 포함
+- If there is no public evidence, do not fabricate an answer
+- counsel responses must include citations
+- review responses must include issues, risk level, and rewrite guidance
 
-## 다음 단계
+## Quality Loop
 
-1. lexical retrieval을 vector search로 고도화
-2. 기존 네비게이션과 정식 연결
-3. docs mirror 자동화
+- retrieval test set in `src/data/knowledge-eval-cases.ts`
+- evaluation runner in `src/lib/knowledge-eval.ts`
+- evaluation API in `/api/search-eval`
+
+## Next Steps
+
+1. improve difficult query ranking classes
+2. replace lexical-first retrieval with vector or hosted file search
+3. automate doc mirroring further if the workflow expands

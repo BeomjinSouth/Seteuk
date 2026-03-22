@@ -1,36 +1,33 @@
-# Student Record Knowledge Status
+# STATUS
 
-## Current State
+## Source Snapshot
 
-- FAQ/Q&A source knowledge has been normalized outside the app and is consumed as JSON.
-- `web` now exposes:
-  - `/api/knowledge/meta`
-  - `/api/search`
-  - `/api/search-eval`
-  - `/api/counsel-chat`
-  - `/api/record-review`
-- `web` now provides:
-  - `/counsel-chat`
-  - `/record-review`
-  - `/search-inspector`
+- generatedAt: 2026-03-22T07:53:13.538Z
+- year: 2026
+- qnaLastPage: 174
+- qnaListed: 2087
+- qnaPublic: 947
+- qnaSecret: 1140
+- canonicalEntries: 928
+- knowledgeUnits: 928
+- pendingPublicEntries: 63
+- inaccessibleEntries: 1140
 
-## Completed
+## Web Status
 
-1. Public FAQ/Q&A retrieval and canonical knowledge generation
-2. Knowledge loader in `web`
-3. Counsel chatbot API + UI
-4. Record review API + UI
-5. Search inspection API + UI
-6. GitHub-mirrored docs under `docs/student-record-knowledge/`
-7. OpenAI-based reranking hook added on top of lexical retrieval
-8. Retrieval eval dataset and API added
-
-## In Progress
-
-1. Retrieval quality tuning and evaluation
+- counsel chat API: implemented
+- record review API: implemented
+- raw search API: implemented
+- search eval API: implemented
+- counsel chat page: implemented
+- record review page: implemented
+- search inspector page: implemented
+- main navigation integration: implemented
+- lexical retrieval: implemented
+- AI reranking: implemented
 
 ## Next
 
-1. Improve ranking for name/성명, 세특, 창체/출결 queries
-2. Replace lexical retrieval with vector/file-search strategy
-3. Automate doc mirroring from `../student-record-knowledge`
+- improve retrieval ranking for difficult query classes
+- replace lexical-first retrieval with vector or hosted file search
+- automate more of the doc mirror workflow if needed

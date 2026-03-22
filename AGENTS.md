@@ -2,11 +2,12 @@
 
 ## Scope
 
-이 저장소에서 학생부 상담 챗봇과 생기부 점검 AI의 GitHub 기준 문서는 `docs/student-record-knowledge/` 아래 파일들이다.
-
-로컬 워크스페이스의 `../student-record-knowledge/` 문서는 상세 원본이고, 이 저장소에 들어오는 변경은 요약/미러 형태로 동기화한다.
+This repository contains the shipped web application.
+The source knowledge package still lives in `../student-record-knowledge`, but the GitHub-facing project docs must exist under `docs/student-record-knowledge/`.
 
 ## Source Of Truth
+
+Use this order when making changes:
 
 1. `docs/student-record-knowledge/PRD.md`
 2. `docs/student-record-knowledge/IMPLEMENTATION.md`
@@ -15,33 +16,60 @@
 5. `src/app/api/counsel-chat/route.ts`
 6. `src/app/api/record-review/route.ts`
 7. `src/lib/knowledge-base.ts`
+8. `src/lib/knowledge-rerank.ts`
 
 ## Mandatory Maintenance
 
-### 기능 범위 변경
+### Product or scope changes
 
-- PRD와 IMPLEMENTATION을 같이 갱신한다.
-- STATUS도 같이 갱신한다.
+- Update `PRD.md`
+- Update `IMPLEMENTATION.md`
+- Update `STATUS.md`
 
-### 수집/검색 규칙 변경
+### Retrieval or source-policy changes
 
-- SOURCE_AUDIT와 IMPLEMENTATION을 같이 갱신한다.
-- 검색 품질 관련 변경은 STATUS의 In Progress / Next도 같이 갱신한다.
+- Update `SOURCE_AUDIT.md`
+- Update `IMPLEMENTATION.md`
+- Update `STATUS.md`
 
-### API 계약 변경
+### API contract changes
 
-- 관련 route와 문서를 같이 갱신한다.
+- Update the route
+- Update the relevant docs
+- Keep `STATUS.md` current
+
+## Doc Mirroring
+
+The detailed planning docs in `../student-record-knowledge/docs/` should be mirrored into this repo.
+
+Use:
+
+```bash
+npm run sync:knowledge-docs
+```
+
+This updates:
+
+- `docs/student-record-knowledge/mirror/PRD.md`
+- `docs/student-record-knowledge/mirror/IMPLEMENTATION.md`
+- `docs/student-record-knowledge/mirror/SOURCE_AUDIT.md`
+- `docs/student-record-knowledge/mirror/AGENT_CATALOG.md`
+- `docs/student-record-knowledge/STATUS.md`
+
+Keep the top-level docs in `docs/student-record-knowledge/` as curated, GitHub-friendly summaries.
+Use `mirror/` for raw mirrored planning docs.
 
 ## End Of Task
 
-1. 구현 파일과 문서 파일이 서로 모순되지 않는지 확인
-2. `npx tsc --noEmit` 실행
-3. 가능하면 route 스모크 테스트 실행
-4. `docs/student-record-knowledge/STATUS.md` 갱신
-5. Git 저장소와 remote가 정상이면 commit/push
+1. Make sure code and docs agree.
+2. Run `npx tsc --noEmit`.
+3. Run a route smoke test when possible.
+4. Refresh `docs/student-record-knowledge/STATUS.md`.
+5. If mirrored docs changed, run `npm run sync:knowledge-docs`.
+6. Commit and push when the repo is healthy.
 
 ## Git Rule
 
-- 기본 순서: `git add -A` -> `git commit -m "<scope>: <summary>"` -> `git push origin HEAD`
-- push가 실패하면 원인까지 기록한다.
-- force-push는 사용하지 않는다.
+- Default flow: `git add -A` -> `git commit -m "<scope>: <summary>"` -> `git push origin HEAD`
+- If push fails, record the reason.
+- Do not force-push.

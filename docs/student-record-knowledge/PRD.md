@@ -1,50 +1,53 @@
 # Student Record Knowledge PRD
 
-## 목적
+## Goal
 
-학생부 FAQ와 공개 Q&A를 구조화해서 다음 두 기능을 제공한다.
+Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 
-1. 학생부 관련 질문에 근거 기반으로 답하는 상담 챗봇
-2. 생기부 초안을 근거와 함께 점검하는 리뷰 기능
+1. A counsel chatbot that answers student-record questions with citations
+2. A record-review tool that checks draft wording against public guidance
 
-## 핵심 원칙
+## Product Rules
 
-- 비밀글은 답변 근거로 쓰지 않는다.
-- 동일 질문에 답이 다르면 최신 답변을 기본으로 사용한다.
-- FAQ와 공개 Q&A는 같은 무게가 아니라, 정책형/사례형 역할을 나눠서 사용한다.
+- Never use private posts as answer evidence
+- Prefer the latest public answer when the same question has conflicting answers
+- Treat FAQ as policy-shaped guidance and public Q&A as case-shaped support
 
-## 사용자
+## User Types
 
-- 담임교사
-- 교과 담당교사
-- 생활기록부 검토 담당자
+- homeroom teachers
+- subject teachers
+- record-review staff
 
-## 기능 범위
+## Scope
 
-### 1. 상담 챗봇
+### Counsel chatbot
 
-- 학교급/구분/연도 필터
-- 공개 근거 기반 답변
-- citation 포함
-- raw 검색 결과 확인 가능
+- school-level filter
+- category filter
+- year filter
+- citation-backed answer
+- visible raw search results
 
-### 2. 생기부 점검
+### Record review
 
-- 위험 항목 추출
-- 근거 카드 표시
-- 수정 방향 제안
-- raw 검색 결과 확인 가능
+- issue extraction
+- evidence cards
+- rewrite guidance
+- visible raw search results
 
-### 3. 운영
+### Operations
 
-- knowledge metadata 조회
-- raw search API
-- 이후 vector search 확장 가능
+- metadata endpoint
+- raw search endpoint
+- search evaluation endpoint
 
-## 현재 상태
+## Current State
 
-- `/api/counsel-chat` 구현됨
-- `/api/record-review` 구현됨
-- `/api/search` 구현됨
-- `/counsel-chat` 페이지 구현됨
-- `/record-review` 페이지 구현됨
+- `/api/counsel-chat`: implemented
+- `/api/record-review`: implemented
+- `/api/search`: implemented
+- `/api/search-eval`: implemented
+- `/counsel-chat`: implemented
+- `/record-review`: implemented
+- `/search-inspector`: implemented
