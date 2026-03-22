@@ -10,20 +10,23 @@
 
 1. `docs/student-record-knowledge/PRD.md`
 2. `docs/student-record-knowledge/IMPLEMENTATION.md`
-3. `docs/student-record-knowledge/SOURCE_AUDIT.md`
-4. `src/app/api/counsel-chat/route.ts`
-5. `src/app/api/record-review/route.ts`
-6. `src/lib/knowledge-base.ts`
+3. `docs/student-record-knowledge/STATUS.md`
+4. `docs/student-record-knowledge/SOURCE_AUDIT.md`
+5. `src/app/api/counsel-chat/route.ts`
+6. `src/app/api/record-review/route.ts`
+7. `src/lib/knowledge-base.ts`
 
 ## Mandatory Maintenance
 
 ### 기능 범위 변경
 
 - PRD와 IMPLEMENTATION을 같이 갱신한다.
+- STATUS도 같이 갱신한다.
 
 ### 수집/검색 규칙 변경
 
 - SOURCE_AUDIT와 IMPLEMENTATION을 같이 갱신한다.
+- 검색 품질 관련 변경은 STATUS의 In Progress / Next도 같이 갱신한다.
 
 ### API 계약 변경
 
@@ -34,7 +37,8 @@
 1. 구현 파일과 문서 파일이 서로 모순되지 않는지 확인
 2. `npx tsc --noEmit` 실행
 3. 가능하면 route 스모크 테스트 실행
-4. Git 저장소와 remote가 정상이면 commit/push
+4. `docs/student-record-knowledge/STATUS.md` 갱신
+5. Git 저장소와 remote가 정상이면 commit/push
 
 ## Git Rule
 
