@@ -17,6 +17,12 @@ type SearchParams = {
     limit?: number;
 };
 
+type ConceptConstraint = {
+    name: string;
+    allOf: string[];
+    anyOf: string[];
+};
+
 type CachedDataset = {
     key: string;
     loadedAt: number;
@@ -72,6 +78,24 @@ const CONCEPT_BOOSTS: Array<{
     },
 ];
 
+const CONCEPT_CONSTRAINTS: ConceptConstraint[] = [
+    {
+        name: 'student-name',
+        allOf: ['학생'],
+        anyOf: ['이름', '성명'],
+    },
+    {
+        name: 'certificate',
+        allOf: ['자격증'],
+        anyOf: ['자격증', '취득', '국가직무능력표준'],
+    },
+    {
+        name: 'attendance-bongsa-time',
+        allOf: ['봉사', '결석'],
+        anyOf: ['봉사활동', '결석', '출결', '시수', '이수시간'],
+    },
+];
+
 function buildKnowledgeUnitId(entry: CanonicalKnowledgeEntry): string {
     return crypto
         .createHash('sha1')
@@ -117,6 +141,14 @@ function expandQueryTokens(value: string): string[] {
     }
 
     return [...expanded];
+}
+
+function detectConstraints(query: string): ConceptConstraint[] {
+    const normalized = normalizeText(query);
+    return CONCEPT_CONSTRAINTS.filter((constraint) =>
+        constraint.allOf.every((token) => normalized.includes(token)) &&
+        constraint.anyOf.some((token) => normalized.includes(token))
+    );
 }
 
 function parseYear(value: string | null | undefined): number | null {
@@ -279,10 +311,25 @@ export async function getKnowledgeMeta(year: string = DEFAULT_YEAR): Promise<Kno
 export async function searchKnowledgeBase(params: SearchParams): Promise<RetrievedKnowledgeEvidence[]> {
     const year = params.year ? String(params.year) : DEFAULT_YEAR;
     const data = await loadKnowledgeDataset(year);
+    const constraints = detectConstraints(params.query);
 
     return mergeKnowledgeRecords(data)
         .filter((entry) => matchesSchoolLevel(entry, params.schoolLevel))
         .filter((entry) => matchesCategory(entry, params.category))
+        .filter((entry) => {
+            if (constraints.length === 0) return true;
+            const combinedText = normalizeText([
+                entry.title,
+                entry.question,
+                entry.answer,
+                entry.categories.join(' '),
+                entry.policyAnchors.map((anchor) => anchor.rule).join(' '),
+            ].join(' '));
+
+            return constraints.every((constraint) =>
+                constraint.anyOf.some((token) => combinedText.includes(normalizeText(token)))
+            );
+        })
         .map((entry) => {
             const score = scoreEntry(entry, params);
             return {

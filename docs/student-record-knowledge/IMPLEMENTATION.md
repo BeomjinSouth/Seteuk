@@ -13,6 +13,7 @@
 - knowledge JSON 로드
 - school level / category / year 필터
 - lexical retrieval + synonym boost
+- concept constraint 기반 후처리
 
 ### API
 
@@ -25,6 +26,8 @@
 
 - `src/app/counsel-chat/page.tsx`
 - `src/app/record-review/page.tsx`
+- 각 페이지에서 raw match list 표시
+- query string prefill 지원
 
 ## 응답 정책
 

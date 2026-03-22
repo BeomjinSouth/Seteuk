@@ -200,6 +200,20 @@ export default function CounselChatPage() {
                                 </a>
                             ))}
                         </div>
+
+                        {result.matches.length > 0 && (
+                            <div className={styles.matchPanel}>
+                                <h4>검색된 지식</h4>
+                                <div className={styles.matchList}>
+                                    {result.matches.map((match) => (
+                                        <div key={match.knowledgeUnitId} className={styles.matchCard}>
+                                            <strong>{match.title}</strong>
+                                            <span>{match.score} pts</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
                     </aside>
                 </motion.section>
             )}
