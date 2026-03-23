@@ -1,4 +1,7 @@
 .page {
+    --page-accent: 198 93% 48%;
+    --page-warning: 48 96% 53%;
+    --page-badge: 29 95% 55%;
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -17,19 +20,28 @@
     align-items: center;
     padding: 0.55rem 0.9rem;
     border-radius: 999px;
+    border: 1px solid hsl(var(--border));
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 600;
+    transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
 .topLink {
-    background: rgba(226, 232, 240, 0.75);
+    background: hsl(var(--surface));
     color: hsl(var(--foreground-muted));
 }
 
 .topLinkActive {
-    background: rgba(14, 165, 233, 0.12);
-    color: #0369a1;
+    background: linear-gradient(135deg, hsl(var(--page-accent) / 0.2), hsl(var(--page-accent) / 0.12));
+    border-color: hsl(var(--page-accent) / 0.3);
+    color: hsl(var(--page-accent));
+}
+
+.topLink:hover,
+.topLinkActive:hover {
+    border-color: hsl(var(--page-accent) / 0.3);
+    color: hsl(var(--foreground));
 }
 
 .hero {
@@ -39,9 +51,10 @@
     padding: 1.5rem;
     border-radius: 1.25rem;
     background:
-        radial-gradient(circle at top left, rgba(14, 165, 233, 0.16), transparent 42%),
-        linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(248, 250, 252, 0.95));
+        radial-gradient(circle at top left, hsl(var(--page-accent) / 0.18), transparent 42%),
+        linear-gradient(135deg, hsl(var(--surface)), hsl(var(--surface-hover)));
     border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow);
 }
 
 .heroCopy {
@@ -59,8 +72,8 @@
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #0f766e;
-    background: rgba(20, 184, 166, 0.12);
+    color: hsl(var(--page-accent));
+    background: hsl(var(--page-accent) / 0.14);
 }
 
 .title {
@@ -86,8 +99,9 @@
     gap: 0.75rem;
     padding: 1rem;
     border-radius: 1rem;
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(148, 163, 184, 0.2);
+    background: linear-gradient(180deg, hsl(var(--surface) / 0.96), hsl(var(--surface-hover) / 0.9));
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-sm);
 }
 
 .statCard strong {
@@ -139,6 +153,14 @@
     border: 1px solid hsl(var(--input));
     background: hsl(var(--surface));
     color: hsl(var(--foreground));
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filterField select:focus,
+.filterField input:focus {
+    outline: none;
+    border-color: hsl(var(--page-accent) / 0.45);
+    box-shadow: 0 0 0 3px hsl(var(--page-accent) / 0.14);
 }
 
 .questionInput {
@@ -147,10 +169,20 @@
     padding: 1rem 1.1rem;
     border-radius: 1rem;
     border: 1px solid hsl(var(--input));
-    background: linear-gradient(180deg, rgba(248, 250, 252, 0.9), rgba(255, 255, 255, 0.96));
+    background: linear-gradient(180deg, hsl(var(--surface-hover) / 0.94), hsl(var(--surface) / 0.98));
     color: hsl(var(--foreground));
     font: inherit;
     line-height: 1.7;
+}
+
+.questionInput::placeholder {
+    color: hsl(var(--foreground-muted) / 0.9);
+}
+
+.questionInput:focus {
+    outline: none;
+    border-color: hsl(var(--page-accent) / 0.45);
+    box-shadow: 0 0 0 3px hsl(var(--page-accent) / 0.14);
 }
 
 .sampleRow {
@@ -160,13 +192,20 @@
 }
 
 .sampleChip {
-    border: 1px solid rgba(14, 165, 233, 0.18);
-    background: rgba(14, 165, 233, 0.08);
-    color: #0369a1;
+    border: 1px solid hsl(var(--page-accent) / 0.22);
+    background: hsl(var(--page-accent) / 0.08);
+    color: hsl(var(--page-accent));
     padding: 0.5rem 0.8rem;
     border-radius: 999px;
     font: inherit;
     cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.sampleChip:hover {
+    border-color: hsl(var(--page-accent) / 0.34);
+    background: hsl(var(--page-accent) / 0.14);
+    transform: translateY(-1px);
 }
 
 .actions {
@@ -177,9 +216,9 @@
 .errorBox {
     padding: 1rem 1.1rem;
     border-radius: 1rem;
-    border: 1px solid rgba(239, 68, 68, 0.25);
-    background: rgba(254, 242, 242, 0.95);
-    color: #b91c1c;
+    border: 1px solid hsl(var(--destructive) / 0.25);
+    background: hsl(var(--destructive) / 0.12);
+    color: hsl(var(--destructive));
 }
 
 .resultShell {
@@ -194,6 +233,7 @@
     border-radius: 1.25rem;
     background: hsl(var(--surface));
     border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-sm);
 }
 
 .answerHeader {
@@ -209,8 +249,9 @@
     border-radius: 999px;
     font-size: 0.75rem;
     font-weight: 700;
-    color: #9a3412;
-    background: rgba(251, 146, 60, 0.12);
+    color: hsl(var(--page-badge));
+    background: hsl(var(--page-badge) / 0.14);
+    border: 1px solid hsl(var(--page-badge) / 0.2);
 }
 
 .answerText {
@@ -223,13 +264,14 @@
     margin-top: 1rem;
     padding: 1rem;
     border-radius: 1rem;
-    background: rgba(250, 204, 21, 0.1);
-    border: 1px solid rgba(234, 179, 8, 0.18);
+    background: hsl(var(--page-warning) / 0.12);
+    border: 1px solid hsl(var(--page-warning) / 0.2);
 }
 
 .noticeBox strong {
     display: block;
     margin-bottom: 0.35rem;
+    color: hsl(var(--page-warning));
 }
 
 .citationPanel {
@@ -252,8 +294,14 @@
     border-radius: 1rem;
     color: inherit;
     text-decoration: none;
-    background: linear-gradient(180deg, rgba(248, 250, 252, 0.9), rgba(255, 255, 255, 0.96));
-    border: 1px solid rgba(148, 163, 184, 0.18);
+    background: linear-gradient(180deg, hsl(var(--surface-hover) / 0.92), hsl(var(--surface) / 0.98));
+    border: 1px solid hsl(var(--border));
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.citationCard:hover {
+    border-color: hsl(var(--page-accent) / 0.28);
+    transform: translateY(-1px);
 }
 
 .citationHeader {
@@ -265,7 +313,7 @@
 .sourceType {
     font-size: 0.75rem;
     font-weight: 700;
-    color: #1d4ed8;
+    color: hsl(var(--page-accent));
 }
 
 .citationCard p {
@@ -295,7 +343,8 @@
     gap: 1rem;
     padding: 0.75rem 0.9rem;
     border-radius: 0.9rem;
-    background: rgba(241, 245, 249, 0.8);
+    background: hsl(var(--surface-hover));
+    border: 1px solid hsl(var(--border));
     font-size: 0.88rem;
 }
 

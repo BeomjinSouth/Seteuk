@@ -1,4 +1,7 @@
 .page {
+    --page-accent: 36 95% 50%;
+    --page-review-accent: 221 83% 60%;
+    --page-success: 160 84% 39%;
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -17,19 +20,28 @@
     align-items: center;
     padding: 0.55rem 0.9rem;
     border-radius: 999px;
+    border: 1px solid hsl(var(--border));
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 600;
+    transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
 .topLink {
-    background: rgba(226, 232, 240, 0.75);
+    background: hsl(var(--surface));
     color: hsl(var(--foreground-muted));
 }
 
 .topLinkActive {
-    background: rgba(245, 158, 11, 0.14);
-    color: #b45309;
+    background: linear-gradient(135deg, hsl(var(--page-accent) / 0.2), hsl(var(--page-accent) / 0.12));
+    border-color: hsl(var(--page-accent) / 0.28);
+    color: hsl(var(--page-accent));
+}
+
+.topLink:hover,
+.topLinkActive:hover {
+    border-color: hsl(var(--page-accent) / 0.28);
+    color: hsl(var(--foreground));
 }
 
 .hero {
@@ -39,17 +51,18 @@
     padding: 1.5rem;
     border-radius: 1.25rem;
     background:
-        radial-gradient(circle at top left, rgba(251, 191, 36, 0.18), transparent 38%),
-        linear-gradient(140deg, rgba(255, 255, 255, 0.95), rgba(255, 247, 237, 0.95));
+        radial-gradient(circle at top left, hsl(var(--page-accent) / 0.2), transparent 38%),
+        linear-gradient(140deg, hsl(var(--surface)), hsl(var(--surface-hover)));
     border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow);
 }
 
 .kicker {
     display: inline-flex;
     padding: 0.35rem 0.7rem;
     border-radius: 999px;
-    background: rgba(245, 158, 11, 0.14);
-    color: #b45309;
+    background: hsl(var(--page-accent) / 0.14);
+    color: hsl(var(--page-accent));
     font-size: 0.76rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -79,8 +92,9 @@
     gap: 0.7rem;
     padding: 1rem;
     border-radius: 1rem;
-    background: rgba(255, 255, 255, 0.88);
-    border: 1px solid rgba(251, 191, 36, 0.18);
+    background: linear-gradient(180deg, hsl(var(--surface) / 0.96), hsl(var(--surface-hover) / 0.9));
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-sm);
 }
 
 .editorPanel,
@@ -90,6 +104,7 @@
     border-radius: 1.25rem;
     background: hsl(var(--surface));
     border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-sm);
 }
 
 .filterGrid {
@@ -121,6 +136,15 @@
     border-radius: 0.85rem;
     border: 1px solid hsl(var(--input));
     background: hsl(var(--surface));
+    color: hsl(var(--foreground));
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filterField select:focus,
+.filterField input:focus {
+    outline: none;
+    border-color: hsl(var(--page-accent) / 0.42);
+    box-shadow: 0 0 0 3px hsl(var(--page-accent) / 0.14);
 }
 
 .textarea {
@@ -130,10 +154,20 @@
     padding: 1rem 1.1rem;
     border-radius: 1rem;
     border: 1px solid hsl(var(--input));
-    background: linear-gradient(180deg, rgba(255, 251, 235, 0.9), rgba(255, 255, 255, 0.98));
+    background: linear-gradient(180deg, hsl(var(--surface-hover) / 0.94), hsl(var(--surface) / 0.98));
     color: hsl(var(--foreground));
     font: inherit;
     line-height: 1.8;
+}
+
+.textarea::placeholder {
+    color: hsl(var(--foreground-muted) / 0.9);
+}
+
+.textarea:focus {
+    outline: none;
+    border-color: hsl(var(--page-accent) / 0.42);
+    box-shadow: 0 0 0 3px hsl(var(--page-accent) / 0.14);
 }
 
 .actions {
@@ -145,9 +179,9 @@
 .errorBox {
     padding: 1rem 1.1rem;
     border-radius: 1rem;
-    border: 1px solid rgba(239, 68, 68, 0.25);
-    background: rgba(254, 242, 242, 0.95);
-    color: #b91c1c;
+    border: 1px solid hsl(var(--destructive) / 0.25);
+    background: hsl(var(--destructive) / 0.12);
+    color: hsl(var(--destructive));
 }
 
 .reviewGrid {
@@ -181,29 +215,29 @@
 
 .pass,
 .low {
-    background: rgba(16, 185, 129, 0.12);
-    color: #047857;
+    background: hsl(var(--page-success) / 0.14);
+    color: hsl(var(--page-success));
 }
 
 .caution,
 .medium {
-    background: rgba(245, 158, 11, 0.14);
-    color: #b45309;
+    background: hsl(var(--page-accent) / 0.14);
+    color: hsl(var(--page-accent));
 }
 
 .revise,
 .needs_manual_review,
 .high {
-    background: rgba(239, 68, 68, 0.14);
-    color: #b91c1c;
+    background: hsl(var(--destructive) / 0.14);
+    color: hsl(var(--destructive));
 }
 
 .rewriteBox {
     margin-top: 1rem;
     padding: 1rem;
     border-radius: 1rem;
-    background: rgba(59, 130, 246, 0.08);
-    border: 1px solid rgba(59, 130, 246, 0.16);
+    background: hsl(var(--page-review-accent) / 0.12);
+    border: 1px solid hsl(var(--page-review-accent) / 0.2);
 }
 
 .rewriteBox strong {
@@ -224,15 +258,15 @@
     gap: 0.6rem;
     padding: 1rem;
     border-radius: 1rem;
-    background: rgba(16, 185, 129, 0.08);
-    color: #047857;
+    background: hsl(var(--page-success) / 0.1);
+    color: hsl(var(--page-success));
 }
 
 .issueCard {
     padding: 1rem;
     border-radius: 1rem;
-    background: linear-gradient(180deg, rgba(248, 250, 252, 0.92), rgba(255, 255, 255, 0.98));
-    border: 1px solid rgba(148, 163, 184, 0.16);
+    background: linear-gradient(180deg, hsl(var(--surface-hover) / 0.92), hsl(var(--surface) / 0.98));
+    border: 1px solid hsl(var(--border));
 }
 
 .issueHeader {
@@ -259,7 +293,7 @@
     margin-top: 0.7rem;
     padding-top: 0.7rem;
     border-top: 1px solid hsl(var(--border));
-    color: #92400e;
+    color: hsl(var(--page-accent));
 }
 
 .citationHeader {
@@ -283,8 +317,14 @@
     color: inherit;
     padding: 1rem;
     border-radius: 1rem;
-    background: rgba(255, 251, 235, 0.7);
-    border: 1px solid rgba(251, 191, 36, 0.18);
+    background: linear-gradient(180deg, hsl(var(--surface-hover) / 0.9), hsl(var(--surface) / 0.98));
+    border: 1px solid hsl(var(--border));
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.citationItem:hover {
+    border-color: hsl(var(--page-accent) / 0.26);
+    transform: translateY(-1px);
 }
 
 .citationTop {
@@ -321,7 +361,8 @@
     gap: 1rem;
     padding: 0.75rem 0.9rem;
     border-radius: 0.9rem;
-    background: rgba(255, 247, 237, 0.7);
+    background: hsl(var(--surface-hover));
+    border: 1px solid hsl(var(--border));
     font-size: 0.88rem;
 }
 
