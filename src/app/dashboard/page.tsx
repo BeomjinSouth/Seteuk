@@ -16,10 +16,12 @@ import {
     Shield,
     ScanLine,
     Sparkles,
-    ArrowRight
+    ArrowRight,
+    FlaskConical,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
+import { getStudentsInTeachingClass, getTeacherClasses } from '@/lib/teacher-context';
 import styles from './page.module.css';
 
 /**
@@ -43,20 +45,30 @@ export default function DashboardPage() {
         records,
         adminNotifications,
         updateNotificationStatus,
-        clearNotification
+        clearNotification,
+        seedDemoWorkspace,
     } = useAppStore();
 
     const isAdminUser = isAdmin(teacher);
     const pendingNotifications = adminNotifications.filter(n => n.status === 'pending');
+    const teacherClasses = getTeacherClasses(classes, teacher);
 
-    // Calculate stats - 학교별 필터링 적용
-    const schoolFilteredStudents = students.filter(s =>
-        !teacher?.school || s.school === teacher.school
+    const teacherStudents = teacherClasses.reduce<typeof students>((acc, cls) => {
+        getStudentsInTeachingClass(students, cls).forEach((student) => {
+            if (!acc.some((item) => item.id === student.id)) {
+                acc.push(student);
+            }
+        });
+        return acc;
+    }, []);
+    const teacherRecords = records.filter((record) =>
+        teacher?.teacherKey ? record.teacherKey === teacher.teacherKey : true
     );
-    const totalStudents = schoolFilteredStudents.length;
-    const draftCount = records.filter(r => r.status === 'draft').length;
-    const confirmedCount = records.filter(r => r.status === 'confirmed').length;
-    const pendingReviewCount = records.filter(r => r.status === 'checked').length;
+
+    const totalStudents = teacherStudents.length;
+    const draftCount = teacherRecords.filter(r => r.status === 'draft').length;
+    const confirmedCount = teacherRecords.filter(r => r.status === 'confirmed').length;
+    const pendingReviewCount = teacherRecords.filter(r => r.status === 'checked').length;
 
     // Handle notification actions
     const handleApprove = (id: string, newValue: string) => {
@@ -208,22 +220,34 @@ export default function DashboardPage() {
                     </Link>
                 </div>
 
-                {classes.length === 0 ? (
+                {teacherClasses.length === 0 ? (
                     <div className={styles.emptyState}>
                         <AlertCircle size={48} className={styles.emptyIcon} />
                         <h3>등록된 반이 없습니다</h3>
                         <p>학생 관리에서 엑셀 파일을 업로드하여 반과 학생을 추가하세요.</p>
-                        <Link href="/students">
-                            <Button className="mt-4">
-                                <Plus size={18} /> 학생 데이터 업로드
+                        <div className={styles.emptyActions}>
+                            <Link href="/students">
+                                <Button className="mt-4">
+                                    <Plus size={18} /> 학생 데이터 업로드
+                                </Button>
+                            </Link>
+                            <Button
+                                variant="secondary"
+                                className="mt-4"
+                                onClick={() => {
+                                    seedDemoWorkspace();
+                                    window.location.href = '/students';
+                                }}
+                            >
+                                <FlaskConical size={18} /> 데모 작업공간 채우기
                             </Button>
-                        </Link>
+                        </div>
                     </div>
                 ) : (
                     <div className={styles.classGrid}>
-                        {classes.map((cls, i) => {
-                            const classStudents = students.filter(s => s.classId === cls.id);
-                            const classRecords = records.filter(r => r.classId === cls.id);
+                        {teacherClasses.map((cls, i) => {
+                            const classStudents = getStudentsInTeachingClass(students, cls);
+                            const classRecords = teacherRecords.filter(r => r.classId === cls.id);
                             const progress = classStudents.length > 0
                                 ? Math.round((classRecords.filter(r => r.status === 'confirmed').length / classStudents.length) * 100)
                                 : 0;

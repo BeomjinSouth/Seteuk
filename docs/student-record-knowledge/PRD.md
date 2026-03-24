@@ -34,6 +34,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - issue extraction
 - evidence cards
 - rewrite guidance
+- one-click improve action from `/write`
 - visible raw search results
 
 ### Operations
@@ -50,4 +51,5 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - `/api/search-eval`: implemented
 - `/counsel-chat`: implemented
 - `/record-review`: implemented
+- `/write`: RAG review-improve action implemented
 - `/search-inspector`: implemented

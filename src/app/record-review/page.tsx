@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useTransition } from 'react';
+import { Suspense, useEffect, useState, useTransition } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
@@ -11,7 +11,7 @@ import styles from './page.module.css';
 
 const SAMPLE_TEXT = '학생은 지역 대학 탐방 활동에서 우수한 태도를 보였으며 최고 수준의 발표 역량을 바탕으로 진로 설계 내용을 구체적으로 정리함.';
 
-export default function RecordReviewPage() {
+function RecordReviewPageContent() {
     const searchParams = useSearchParams();
     const [meta, setMeta] = useState<KnowledgeMeta | null>(null);
     const [schoolLevel, setSchoolLevel] = useState('고등학교');
@@ -233,5 +233,13 @@ export default function RecordReviewPage() {
                 </motion.section>
             )}
         </div>
+    );
+}
+
+export default function RecordReviewPage() {
+    return (
+        <Suspense fallback={<div className={styles.page} />}>
+            <RecordReviewPageContent />
+        </Suspense>
     );
 }

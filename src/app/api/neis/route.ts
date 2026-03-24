@@ -181,6 +181,25 @@ async function getSchedule(officeCode: string, schoolCode: string, fromDate?: st
     }
 }
 
+/**
+ * Proxy API for NEIS (National Education Information System) open data.
+ * 
+ * @description
+ * Provides access to school information, timetables, meal plans, and schedules.
+ * Handles API key management and response formatting.
+ * 
+ * @param {NextRequest} request - URL searchParams containing:
+ *   - type: 'school' | 'timetable' | 'meal' | 'class' | 'schedule' | 'all'
+ *   - school: string (School name)
+ *   - region: string (Region name, e.g., '경기도')
+ *   - grade?: string
+ *   - class?: string
+ *   - date?: string (YYYYMMDD)
+ * 
+ * @returns {NextResponse} JSON response containing:
+ *   - success: boolean
+ *   - data: object (The requested NEIS data)
+ */
 export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const type = searchParams.get('type');

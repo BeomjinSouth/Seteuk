@@ -1,10 +1,29 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getStudents, addStudent, updateStudent } from '@/lib/sheets';
 
-export async function GET() {
+/**
+ * Retrieves student list.
+ * 
+ * @param {NextRequest} request - URL searchParams containing:
+ *   - grade?: string (Optional filter by grade)
+ * 
+ * @returns {NextResponse} JSON response containing:
+ *   - success: boolean
+ *   - students: Array of Student objects
+ */
+export async function GET(request: NextRequest) {
     try {
-        const students = await getStudents();
-        return NextResponse.json({ success: true, students });
+        const { searchParams } = new URL(request.url);
+        const grade = searchParams.get('grade');
+
+        const allStudents = await getStudents();
+
+        // Filter by grade if provided (classId format: "1-1" where first number is grade)
+        const students = grade
+            ? allStudents.filter(s => s.classId?.startsWith(`${grade}-`))
+            : allStudents;
+
+        return NextResponse.json({ success: true, students, data: students });
     } catch (error) {
         console.error('Get students error:', error);
         return NextResponse.json(
@@ -14,6 +33,19 @@ export async function GET() {
     }
 }
 
+/**
+ * Adds a new student record.
+ * 
+ * @param {NextRequest} request - JSON body containing:
+ *   - classId: string
+ *   - number: number
+ *   - name: string
+ *   - learningData?: object
+ * 
+ * @returns {NextResponse} JSON response containing:
+ *   - success: boolean
+ *   - id: string
+ */
 export async function POST(request: NextRequest) {
     try {
         const body = await request.json();
@@ -43,6 +75,16 @@ export async function POST(request: NextRequest) {
     }
 }
 
+/**
+ * Updates an existing student record.
+ * 
+ * @param {NextRequest} request - JSON body containing:
+ *   - id: string (Required)
+ *   - ...fields to update (learningData, etc.)
+ * 
+ * @returns {NextResponse} JSON response containing:
+ *   - success: boolean
+ */
 export async function PUT(request: NextRequest) {
     try {
         const body = await request.json();

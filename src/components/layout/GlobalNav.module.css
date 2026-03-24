@@ -1,0 +1,109 @@
+.gnb {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: hsl(var(--surface));
+    border-bottom: 1px solid hsl(var(--border));
+    z-index: 100;
+    backdrop-filter: blur(8px);
+}
+
+.gnbInner {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 1.5rem;
+    max-width: 100%;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    margin-right: 2rem;
+}
+
+.logoIcon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #8b5cf6, #6366f1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoText {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+}
+
+/* Main Navigation */
+.mainNav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: hsl(var(--muted-foreground));
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.navItem:hover {
+    color: hsl(var(--foreground));
+    background: hsl(var(--muted) / 0.5);
+}
+
+.navItemActive {
+    color: hsl(var(--primary));
+    background: hsl(var(--primary) / 0.1);
+}
+
+.navItemActive::after {
+    content: '';
+    position: absolute;
+    bottom: -13px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: hsl(var(--primary));
+    border-radius: 2px 2px 0 0;
+}
+
+.navLabel {
+    font-weight: 500;
+}
+
+.spacer {
+    flex: 1;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .logoText {
+        display: none;
+    }
+
+    .navLabel {
+        display: none;
+    }
+
+    .navItem {
+        padding: 0.5rem 0.75rem;
+    }
+}

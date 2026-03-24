@@ -1,77 +1,92 @@
-'use client';
+﻿'use client';
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useMemo, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import {
     Bot,
-    Save,
-    RotateCcw,
     Info,
-    Sparkles,
     Lock,
+    MessageSquare,
+    RotateCcw,
+    Save,
     Send,
+    Sparkles,
     X,
-    MessageSquare
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import { useAppStore, isAdmin, ADMIN_CONFIG } from '@/lib/store';
+import { ADMIN_CONFIG, isAdmin, useAppStore } from '@/lib/store';
 import styles from './page.module.css';
 
-// Default system prompt
-const DEFAULT_SYSTEM_PROMPT = `당신은 한국 고등학교 교사를 도와 교과 세특(교과 세부능력 및 특기사항)을 작성하는 AI 어시스턴트입니다.
+type ReasoningEffort = 'none' | 'low' | 'medium' | 'high' | 'xhigh';
 
-세특 작성 원칙:
-1. 학생의 학습 과정과 성장을 구체적으로 기술합니다.
-2. 과정 중심 평가 내용을 포함합니다.
-3. 객관적이고 긍정적인 서술을 사용합니다.
-4. 350~500자 내외로 작성합니다.
-5. 비교/서열화 표현, 단정적 표현을 피합니다.
-6. "최고", "가장", "천재" 등의 금지어를 사용하지 않습니다.
+const DEFAULT_SYSTEM_PROMPT = `당신은 중등 교사 업무를 지원하는 교과 세특 작성 도우미입니다.
 
-입력받은 학생의 학습 데이터(수업 태도, 수행평가 등)를 바탕으로 세특을 생성해 주세요.`;
+작성 원칙:
+1. 학생의 학습 과정과 성장을 구체적으로 서술합니다.
+2. 관찰 근거가 드러나는 표현을 사용합니다.
+3. 비교/서열/과장 표현은 피합니다.
+4. 분량은 350~500자 내외를 권장합니다.
+5. 단정적 표현 대신 과정 중심의 문장을 우선합니다.`;
+
+const DEFAULT_MODEL = 'gpt-5-mini';
+const DEFAULT_MAX_TOKENS = 1000;
+const DEFAULT_REASONING_EFFORT: ReasoningEffort = 'low';
+
+const REASONING_OPTIONS: Array<{ value: ReasoningEffort; label: string; description: string }> = [
+    { value: 'low', label: 'Low', description: '기본 권장값. 속도와 품질의 균형.' },
+    { value: 'none', label: 'None', description: '추론 단계 최소화. 응답 속도 우선.' },
+    { value: 'medium', label: 'Medium', description: '난이도 있는 문장 구성에 유리.' },
+    { value: 'high', label: 'High', description: '복잡한 판단 품질 우선.' },
+    { value: 'xhigh', label: 'XHigh', description: '가장 높은 추론 강도. 지연 증가 가능.' },
+];
 
 export default function AISettingsPage() {
     const { teacher, addNotification } = useAppStore();
     const isAdminUser = isAdmin(teacher);
 
     const [systemPrompt, setSystemPrompt] = useState(DEFAULT_SYSTEM_PROMPT);
-    const [model, setModel] = useState('gpt-5.2');
-    const [temperature, setTemperature] = useState(0.7);
-    const [maxTokens, setMaxTokens] = useState(1000);
+    const [model, setModel] = useState(DEFAULT_MODEL);
+    const [maxTokens, setMaxTokens] = useState(DEFAULT_MAX_TOKENS);
+    const [reasoningEffort, setReasoningEffort] = useState<ReasoningEffort>(DEFAULT_REASONING_EFFORT);
     const [saved, setSaved] = useState(false);
 
-    // Request modal state
     const [showRequestModal, setShowRequestModal] = useState(false);
     const [requestDescription, setRequestDescription] = useState('');
     const [requestSent, setRequestSent] = useState(false);
 
-    // Load settings from localStorage on mount
     useEffect(() => {
         const savedPrompt = localStorage.getItem('ai_system_prompt');
         const savedModel = localStorage.getItem('ai_model');
-        const savedTemp = localStorage.getItem('ai_temperature');
-        const savedMaxTokens = localStorage.getItem('ai_max_tokens');
+        const savedMaxTokens = Number.parseInt(localStorage.getItem('ai_max_tokens') || '', 10);
+        const savedReasoningEffort = localStorage.getItem('ai_reasoning_effort') as ReasoningEffort | null;
 
         if (savedPrompt) setSystemPrompt(savedPrompt);
         if (savedModel) setModel(savedModel);
-        if (savedTemp) setTemperature(parseFloat(savedTemp));
-        if (savedMaxTokens) setMaxTokens(parseInt(savedMaxTokens));
+        if (Number.isFinite(savedMaxTokens)) {
+            setMaxTokens(Math.min(3000, Math.max(200, savedMaxTokens)));
+        }
+        if (savedReasoningEffort && REASONING_OPTIONS.some((option) => option.value === savedReasoningEffort)) {
+            setReasoningEffort(savedReasoningEffort);
+        }
     }, []);
 
-    // Save settings (admin only)
+    const reasoningDescription = useMemo(
+        () => REASONING_OPTIONS.find((option) => option.value === reasoningEffort)?.description || '',
+        [reasoningEffort]
+    );
+
     const handleSave = () => {
         if (!isAdminUser) return;
 
         localStorage.setItem('ai_system_prompt', systemPrompt);
         localStorage.setItem('ai_model', model);
-        localStorage.setItem('ai_temperature', String(temperature));
-        localStorage.setItem('ai_max_tokens', String(maxTokens));
+        localStorage.setItem('ai_max_tokens', String(Math.min(3000, Math.max(200, maxTokens || DEFAULT_MAX_TOKENS))));
+        localStorage.setItem('ai_reasoning_effort', reasoningEffort);
 
         setSaved(true);
         setTimeout(() => setSaved(false), 2000);
     };
 
-    // Submit modification request
     const handleSubmitRequest = () => {
         if (!teacher || !requestDescription.trim()) return;
 
@@ -80,11 +95,15 @@ export default function AISettingsPage() {
             requester: {
                 name: teacher.name,
                 school: teacher.school,
-                subject: teacher.subject
+                subject: teacher.subject,
             },
             content: requestDescription,
-            originalValue: localStorage.getItem('ai_system_prompt') || DEFAULT_SYSTEM_PROMPT,
-            newValue: requestDescription  // Store the description as the request
+            originalValue: [
+                `model=${localStorage.getItem('ai_model') || DEFAULT_MODEL}`,
+                `maxOutputTokens=${localStorage.getItem('ai_max_tokens') || DEFAULT_MAX_TOKENS}`,
+                `reasoningEffort=${localStorage.getItem('ai_reasoning_effort') || DEFAULT_REASONING_EFFORT}`,
+            ].join(', '),
+            newValue: requestDescription,
         });
 
         setShowRequestModal(false);
@@ -93,28 +112,26 @@ export default function AISettingsPage() {
         setTimeout(() => setRequestSent(false), 3000);
     };
 
-    // Reset to default
     const handleReset = () => {
         if (!isAdminUser) return;
+        if (!confirm('AI 설정을 기본값으로 초기화할까요?')) return;
 
-        if (confirm('기본값으로 초기화하시겠습니까?')) {
-            setSystemPrompt(DEFAULT_SYSTEM_PROMPT);
-            setModel('gpt-5.2');
-            setTemperature(0.7);
-            setMaxTokens(1000);
-        }
+        setSystemPrompt(DEFAULT_SYSTEM_PROMPT);
+        setModel(DEFAULT_MODEL);
+        setMaxTokens(DEFAULT_MAX_TOKENS);
+        setReasoningEffort(DEFAULT_REASONING_EFFORT);
     };
 
     return (
         <div className={styles.page}>
             <header className={styles.header}>
                 <div>
-                    <h1 className={styles.title}>인공지능 설정</h1>
+                    <h1 className={styles.title}>AI 설정</h1>
                     <p className={styles.subtitle}>
-                        AI 세특 생성에 사용되는 설정을 관리합니다.
+                        세특 생성 시 사용하는 AI 파라미터를 관리합니다.
                         {!isAdminUser && (
                             <span className={styles.adminNote}>
-                                <Lock size={14} /> 관리자({ADMIN_CONFIG.name})만 수정 가능
+                                <Lock size={14} /> 관리자({ADMIN_CONFIG.name})만 수정 가능합니다.
                             </span>
                         )}
                     </p>
@@ -131,7 +148,7 @@ export default function AISettingsPage() {
                         </>
                     ) : (
                         <Button onClick={() => setShowRequestModal(true)} disabled={requestSent}>
-                            <MessageSquare size={16} /> {requestSent ? '요청 완료!' : '수정 요청'}
+                            <MessageSquare size={16} /> {requestSent ? '요청 완료' : '수정 요청'}
                         </Button>
                     )}
                 </div>
@@ -145,7 +162,7 @@ export default function AISettingsPage() {
                         exit={{ opacity: 0 }}
                         className={styles.savedToast}
                     >
-                        ✓ 설정이 저장되었습니다.
+                        설정이 저장되었습니다.
                     </motion.div>
                 )}
                 {requestSent && (
@@ -155,12 +172,11 @@ export default function AISettingsPage() {
                         exit={{ opacity: 0 }}
                         className={styles.requestToast}
                     >
-                        ✓ 수정 요청이 관리자에게 전송되었습니다.
+                        설정 변경 요청을 관리자에게 전송했습니다.
                     </motion.div>
                 )}
             </AnimatePresence>
 
-            {/* Request Modal */}
             <AnimatePresence>
                 {showRequestModal && (
                     <motion.div
@@ -175,7 +191,7 @@ export default function AISettingsPage() {
                             initial={{ opacity: 0, scale: 0.95, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                            onClick={(e) => e.stopPropagation()}
+                            onClick={(event) => event.stopPropagation()}
                         >
                             <div className={styles.modalHeader}>
                                 <h2><MessageSquare size={20} /> AI 설정 수정 요청</h2>
@@ -185,14 +201,13 @@ export default function AISettingsPage() {
                             </div>
                             <div className={styles.modalBody}>
                                 <p className={styles.modalDesc}>
-                                    어떤 내용을 어떻게 수정하고 싶은지 자세히 작성해 주세요.<br />
-                                    관리자({ADMIN_CONFIG.name})가 검토 후 반영합니다.
+                                    어떤 항목을 어떻게 바꾸고 싶은지 적어주세요.
                                 </p>
                                 <textarea
                                     className={styles.requestTextarea}
                                     value={requestDescription}
-                                    onChange={(e) => setRequestDescription(e.target.value)}
-                                    placeholder={`예시:\n- 시스템 프롬프트에 "~였음" 어미 대신 "~함" 어미 사용 지침 추가 요청\n- 세특 작성 시 수행평가 결과를 더 구체적으로 반영하도록 수정 요청\n- 글자 수 제한을 400자로 변경 요청`}
+                                    onChange={(event) => setRequestDescription(event.target.value)}
+                                    placeholder={'예시:\n- maxOutputTokens를 1200으로 조정\n- reasoningEffort를 medium으로 변경\n- 프롬프트에 금지 표현 지침 추가'}
                                     rows={8}
                                 />
                             </div>
@@ -200,10 +215,7 @@ export default function AISettingsPage() {
                                 <Button variant="secondary" onClick={() => setShowRequestModal(false)}>
                                     취소
                                 </Button>
-                                <Button
-                                    onClick={handleSubmitRequest}
-                                    disabled={!requestDescription.trim()}
-                                >
+                                <Button onClick={handleSubmitRequest} disabled={!requestDescription.trim()}>
                                     <Send size={16} /> 요청 보내기
                                 </Button>
                             </div>
@@ -212,48 +224,43 @@ export default function AISettingsPage() {
                 )}
             </AnimatePresence>
 
-            {/* Model Selection */}
             <section className={styles.section}>
                 <h2><Sparkles size={20} /> 모델 선택</h2>
-                <p className={styles.sectionDesc}>세특 생성에 사용할 GPT 모델을 선택하세요.</p>
+                <p className={styles.sectionDesc}>생성 API에 전달할 모델을 선택합니다.</p>
 
                 <div className={styles.modelGrid}>
                     {[
-                        { id: 'gpt-5.2', name: 'GPT-5.2', desc: '기본 모델 (권장)' },
-                        { id: 'gpt-5.2-pro', name: 'GPT-5.2 Pro', desc: '최고 품질, 복잡한 작업용' },
-                        { id: 'gpt-5.2-chat-latest', name: 'GPT-5.2 Latest', desc: '최신 버전' },
-                    ].map(m => (
+                        { id: 'gpt-5-mini', name: 'GPT-5 Mini', desc: '기본 권장 모델' },
+                        { id: 'gpt-5', name: 'GPT-5', desc: '품질 우선(비용/지연 증가 가능)' },
+                    ].map((item) => (
                         <button
-                            key={m.id}
-                            className={`${styles.modelCard} ${model === m.id ? styles.selected : ''}`}
-                            onClick={() => isAdminUser && setModel(m.id)}
+                            key={item.id}
+                            className={`${styles.modelCard} ${model === item.id ? styles.selected : ''}`}
+                            onClick={() => isAdminUser && setModel(item.id)}
                             disabled={!isAdminUser}
                         >
-                            <span className={styles.modelName}>{m.name}</span>
-                            <span className={styles.modelDesc}>{m.desc}</span>
+                            <span className={styles.modelName}>{item.name}</span>
+                            <span className={styles.modelDesc}>{item.desc}</span>
                         </button>
                     ))}
                 </div>
             </section>
 
-            {/* System Prompt */}
             <section className={styles.section}>
                 <h2><Bot size={20} /> 시스템 프롬프트</h2>
-                <p className={styles.sectionDesc}>
-                    AI에게 전달되는 기본 지시사항입니다. 학교나 과목 특성에 맞게 수정하세요.
-                </p>
+                <p className={styles.sectionDesc}>생성 정책과 문체 규칙을 지정합니다.</p>
 
                 <div className={styles.infoBox}>
                     <Info size={16} />
-                    <span>시스템 프롬프트는 모든 세특 생성 요청에 적용됩니다.</span>
+                    <span>이 프롬프트는 모든 세특 생성 요청에 공통 적용됩니다.</span>
                 </div>
 
                 <textarea
                     className={styles.promptTextarea}
                     value={systemPrompt}
-                    onChange={(e) => setSystemPrompt(e.target.value)}
+                    onChange={(event) => setSystemPrompt(event.target.value)}
                     rows={15}
-                    placeholder="시스템 프롬프트를 입력하세요..."
+                    placeholder="시스템 프롬프트를 입력하세요."
                     readOnly={!isAdminUser}
                 />
 
@@ -263,45 +270,49 @@ export default function AISettingsPage() {
                 </div>
             </section>
 
-            {/* Advanced Settings */}
             <section className={styles.section}>
-                <h2>고급 설정</h2>
+                <h2>생성 파라미터</h2>
+                <p className={styles.sectionDesc}>`model`, `maxOutputTokens`, `reasoningEffort`만 실제 생성 API에 반영됩니다.</p>
 
                 <div className={styles.settingsGrid}>
                     <div className={styles.settingItem}>
-                        <label>Temperature (창의성)</label>
-                        <div className={styles.sliderContainer}>
-                            <input
-                                type="range"
-                                min="0"
-                                max="1"
-                                step="0.1"
-                                value={temperature}
-                                onChange={(e) => isAdminUser && setTemperature(parseFloat(e.target.value))}
-                                className={styles.slider}
-                                disabled={!isAdminUser}
-                            />
-                            <span className={styles.sliderValue}>{temperature}</span>
-                        </div>
-                        <p className={styles.settingHint}>
-                            낮을수록 일관성 있고, 높을수록 창의적인 결과
-                        </p>
+                        <label htmlFor="max-output-tokens">Max Output Tokens</label>
+                        <input
+                            id="max-output-tokens"
+                            type="number"
+                            className={styles.numberInput}
+                            value={maxTokens}
+                            onChange={(event) => {
+                                const value = Number.parseInt(event.target.value || '', 10);
+                                if (!Number.isFinite(value)) {
+                                    setMaxTokens(DEFAULT_MAX_TOKENS);
+                                    return;
+                                }
+                                setMaxTokens(Math.min(3000, Math.max(200, value)));
+                            }}
+                            min={200}
+                            max={3000}
+                            disabled={!isAdminUser}
+                        />
+                        <p className={styles.settingHint}>권장 범위: 200 ~ 3000</p>
                     </div>
 
                     <div className={styles.settingItem}>
-                        <label>Max Tokens (최대 길이)</label>
-                        <input
-                            type="number"
-                            value={maxTokens}
-                            onChange={(e) => isAdminUser && setMaxTokens(parseInt(e.target.value) || 1000)}
+                        <label htmlFor="reasoning-effort">Reasoning Effort</label>
+                        <select
+                            id="reasoning-effort"
                             className={styles.numberInput}
-                            min={100}
-                            max={4000}
+                            value={reasoningEffort}
+                            onChange={(event) => setReasoningEffort(event.target.value as ReasoningEffort)}
                             disabled={!isAdminUser}
-                        />
-                        <p className={styles.settingHint}>
-                            생성할 텍스트의 최대 토큰 수 (약 500자 = 250토큰)
-                        </p>
+                        >
+                            {REASONING_OPTIONS.map((option) => (
+                                <option key={option.value} value={option.value}>
+                                    {option.label}
+                                </option>
+                            ))}
+                        </select>
+                        <p className={styles.settingHint}>{reasoningDescription}</p>
                     </div>
                 </div>
             </section>

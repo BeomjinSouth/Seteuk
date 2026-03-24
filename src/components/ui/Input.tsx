@@ -6,6 +6,17 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     error?: string;
 }
 
+/**
+ * Input Component
+ * 
+ * @description
+ * Shared input component with label and error message support.
+ * Wraps the native input element.
+ * 
+ * @param {object} props - Input props extending HTMLInputElement
+ * @param {string} [props.label] - Optional label text displayed above input
+ * @param {string} [props.error] - Error message displayed below input in red
+ */
 export const Input = forwardRef<HTMLInputElement, InputProps>(
     ({ className, label, error, ...props }, ref) => {
         return (

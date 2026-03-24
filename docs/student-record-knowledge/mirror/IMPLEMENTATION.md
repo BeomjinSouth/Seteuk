@@ -98,12 +98,33 @@ STAR FAQ/Q&A
 - [`web/src/app/api/record-review/route.ts`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/api/record-review/route.ts)
 - [`web/src/app/counsel-chat/page.tsx`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/counsel-chat/page.tsx)
 - [`web/src/app/record-review/page.tsx`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/record-review/page.tsx)
+- [`web/src/app/write/page.tsx`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/write/page.tsx)
 - [`web/src/lib/knowledge-base.ts`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/lib/knowledge-base.ts)
 
 페이지 보조 기능:
 
 - 상단 quick nav 추가
 - URL query prefill 지원
+- 세특 작성 탭의 `RAG 점검·개선` 버튼은 `/api/record-review`의 `includeImprovedDraft` 흐름을 재사용
+
+## 4.4 교사 작업공간 컨텍스트 모델
+
+웹앱에서 학생/수업/세특을 연결하는 기본 단위는 아래처럼 분리한다.
+
+- 학생 명부: 학교/학년/반/번호/이름 기준의 학적 roster
+- homeroom class: 명부 업로드 시 생성되는 학적 기준 반
+- teaching class: 로그인한 교사의 `teacherKey + subject + semester + grade/class` 조합으로 생성되는 담당 수업 반
+- observation: `studentId + teacherKey + teachingClassId`를 포함하는 수업 기록
+- subject record: `studentId + teacherKey + teachingClassId + semester`를 포함하는 세특 초안/확정본
+
+핵심 규칙:
+
+- 학생은 학적 명부 기준으로 한 번만 등록하고 과목별로 중복 생성하지 않는다.
+- 교사별 담당 학급은 명부에서 선택해 연결하며, 학생 목록은 teaching class의 학년/반 기준으로 동적으로 계산한다.
+- 학생 관리 UI는 teaching class 탭 + 학생 카드 보드로 구성하고, 카드에서 관찰 메모와 세특 작성 페이지로 query prefill 이동한다.
+- 학습 메모와 관찰 메모는 teaching class 단위로 저장한다.
+- 세특 AI 생성 API는 현재 교사의 `teacherKey`와 `teachingClassId`를 전달하고, 같은 맥락의 관찰 메모만 불러온다.
+- 로컬 개발 모드에서는 Google Sheets API 호출이 실패할 때 `.local-sheet-store.json`으로 자동 fallback해 웹앱 흐름을 중단하지 않는다.
 
 ## 5. 수집 파이프라인
 
@@ -213,6 +234,7 @@ STAR FAQ/Q&A
 - `citations[]`
 - `recommendedRewrite`
 - `summary`
+- `improvedDraft` (optional when `includeImprovedDraft=true`)
 
 ## 8. 인덱싱 전략
 
@@ -269,11 +291,24 @@ STAR FAQ/Q&A
 1. 텍스트 입력
 2. 문장/절 단위 분해
 3. 관련 근거 검색
+   - 먼저 학교급/영역 필터로 찾고, 결과가 없으면 같은 학교급 기준 전체 공개 근거로 한 번 더 검색
 4. 위험 항목 분류
 5. 이유/근거/수정 방향 생성
 6. structured review result 반환
+7. 호출자가 요청하면 같은 공개 근거로 `improvedDraft` 생성
 
 점검 원칙은 [`skills/student-record-review.md`](/Users/pbj95/Desktop/cursor/seteuk(2026)/student-record-knowledge/skills/student-record-review.md)를 따른다.
+
+## 10.1 세특 작성 컨텍스트 구현 흐름
+
+1. 교사 로그인 시 `teacherKey` 생성
+2. 선택적으로 데모 시드 버튼으로 샘플 roster/teaching class/student 데이터를 즉시 생성
+3. 학생 명부 업로드 시 학적 roster와 homeroom class 생성
+4. 교사가 담당 학급을 선택하면 teaching class 생성
+5. 관찰 메모 저장 시 `teacherKey`, `teachingClassId`, `lessonTopic`, `subjectName` 저장
+6. 세특 생성 호출 시 `studentId`, `teacherKey`, `teachingClassId`로 관찰 메모 필터링
+7. AI 프롬프트에 학습 메모 + 수업 기록 + OCR 평가 컨텍스트를 함께 주입
+8. 작성된 세특은 `write` 탭에서 선택 후 `RAG 점검·개선`을 실행해 공개 근거 기반 개선본으로 갱신 가능
 
 ## 11. 운영 도구
 

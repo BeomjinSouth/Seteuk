@@ -1,195 +1,359 @@
+/* Main Page Layout */
 .page {
-    padding: 1.5rem;
+    padding: 1.5rem 2rem;
     height: 100vh;
     display: flex;
     flex-direction: column;
+    background: hsl(var(--background));
+    overflow: hidden;
 }
 
-/* Header */
+/* Header Section */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid hsl(var(--border));
+    margin-bottom: 1.25rem;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(180deg, hsl(var(--surface)) 0%, hsl(var(--background)) 100%);
+    border: 1px solid hsl(var(--border));
+    border-radius: 1rem;
+    flex-shrink: 0;
 }
 
-.schoolInfo {
+.headerTitle {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.headerTitle h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: hsl(var(--foreground));
+    letter-spacing: -0.02em;
+}
+
+.semesterToggle {
+    display: flex;
+    background: hsl(var(--background));
+    padding: 0.25rem;
+    border-radius: 2rem;
+    border: 1px solid hsl(var(--border));
+    gap: 0.25rem;
+}
+
+.semesterBtn {
+    padding: 0.5rem 1.1rem;
+    border: none;
+    border-radius: 2rem;
+    background: transparent;
+    color: hsl(var(--foreground-muted));
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.semesterBtn:hover {
+    color: hsl(var(--foreground));
+    background: hsl(var(--surface));
+}
+
+.semesterBtnActive {
+    background: hsl(var(--primary));
+    color: white !important;
+    font-weight: 600;
+    box-shadow: 0 2px 8px hsl(var(--primary) / 0.3);
+}
+
+.headerActions {
     display: flex;
     align-items: center;
     gap: 0.75rem;
 }
 
-.schoolBadge {
-    padding: 0.35rem 0.75rem;
-    background: hsl(var(--primary) / 0.1);
-    color: hsl(var(--primary));
-    border-radius: 0.375rem;
-    font-size: 0.85rem;
-    font-weight: 500;
+/* Layout Containers */
+.container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    gap: 1.25rem;
+    position: relative;
+    min-height: 0;
 }
 
-.teacherName {
-    font-weight: 600;
+.mainContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    gap: 1rem;
+    min-width: 0;
+}
+
+.editorArea {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    border-radius: 1rem;
+    position: relative;
+    box-shadow: 0 4px 12px -4px rgba(0, 0, 0, 0.08);
+}
+
+.editorList {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 320px;
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    height: 100%;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.05);
+}
+
+.sidebarHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid hsl(var(--border));
+}
+
+.sidebarHeader h2 {
     font-size: 1rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    margin: 0;
+    letter-spacing: -0.01em;
 }
 
-.headerRight {
+.filters {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.select {
+    padding: 0.5rem 0.6rem;
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.5rem;
+    background: hsl(var(--background));
+    font-size: 0.85rem;
+    color: hsl(var(--foreground));
+    width: 90px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.select:hover {
+    border-color: hsl(var(--primary) / 0.5);
+}
+
+.select:focus {
+    outline: none;
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1);
+}
+
+.searchBox {
+    flex: 1;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-}
-
-.aiLabel {
-    font-size: 0.85rem;
-    color: hsl(var(--foreground-muted));
-}
-
-.semesterSelect {
-    padding: 0.5rem 1rem;
+    padding: 0 0.75rem;
     border: 1px solid hsl(var(--border));
-    background: hsl(var(--surface));
-    color: hsl(var(--foreground));
+    background: hsl(var(--background));
     border-radius: 0.5rem;
-    font-size: 0.9rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.15s;
+    color: hsl(var(--foreground-muted));
+    transition: all 0.2s ease;
 }
 
-.semesterSelect:hover {
+.searchBox:focus-within {
     border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1);
 }
 
-.semesterSelect:focus {
-    outline: none;
-    border-color: hsl(var(--primary));
-    box-shadow: 0 0 0 2px hsl(var(--primary) / 0.1);
-}
-
-/* Subject Tabs */
-.subjectTabs {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid hsl(var(--border));
-    padding-bottom: 0;
-}
-
-.subjectTab {
-    padding: 0.75rem 1.25rem;
+.searchInput {
     border: none;
     background: transparent;
-    color: hsl(var(--foreground-muted));
-    font-size: 0.9rem;
-    font-weight: 500;
-    cursor: pointer;
-    position: relative;
-    transition: all 0.15s;
-}
-
-.subjectTab:hover {
+    font-size: 0.85rem;
+    width: 100%;
+    padding: 0.5rem 0;
     color: hsl(var(--foreground));
 }
 
-.subjectTab.active {
+.searchInput:focus {
+    outline: none;
+}
+
+.selectionBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    padding: 0.5rem 0.25rem;
+    margin-top: 0.25rem;
+}
+
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    color: hsl(var(--foreground));
+    font-weight: 500;
+    transition: color 0.15s ease;
+}
+
+.checkboxLabel:hover {
     color: hsl(var(--primary));
 }
 
-.subjectTab.active::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: hsl(var(--primary));
-}
-
-.tabCount {
-    margin-left: 0.35rem;
-    padding: 0.15rem 0.5rem;
-    background: hsl(var(--border));
+.selectionCount {
+    color: hsl(var(--primary));
+    font-weight: 600;
+    background: hsl(var(--primary) / 0.1);
+    padding: 0.2rem 0.6rem;
     border-radius: 2rem;
     font-size: 0.75rem;
 }
 
-.subjectTab.active .tabCount {
-    background: hsl(var(--primary) / 0.2);
-    color: hsl(var(--primary));
+.studentList {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding-right: 0.25rem;
+    margin-right: -0.25rem;
 }
 
-/* Action Bar */
-.actionBar {
+.studentItem {
     display: flex;
-    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 0.75rem;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+    position: relative;
+    background: transparent;
+}
+
+.studentItem:hover {
+    background: hsl(var(--background));
+}
+
+.selected {
+    background: hsl(var(--primary) / 0.08);
+    border-left-color: hsl(var(--primary));
+}
+
+.selected:hover {
+    background: hsl(var(--primary) / 0.12);
+}
+
+.studentCheckbox {
+    margin-top: 0.15rem;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    accent-color: hsl(var(--primary));
+    border-radius: 4px;
+}
+
+.studentInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.studentMeta {
+    display: flex;
     align-items: center;
-    margin-bottom: 1rem;
-    gap: 1rem;
+    gap: 0.5rem;
     flex-wrap: wrap;
 }
 
-.actionLeft {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-}
-
-.selectAllBtn {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 0.75rem;
-    border: 1px solid hsl(var(--border));
-    background: hsl(var(--surface));
-    border-radius: 0.5rem;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: all 0.15s;
-    color: hsl(var(--foreground));
-}
-
-.selectAllBtn:hover {
-    border-color: hsl(var(--primary));
-    color: hsl(var(--primary));
-}
-
-.searchBox {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    border: 1px solid hsl(var(--border));
-    background: hsl(var(--surface));
-    border-radius: 0.5rem;
+.studentNum {
+    font-size: 0.7rem;
     color: hsl(var(--foreground-muted));
+    font-family: monospace;
+    background: hsl(var(--background));
+    padding: 0.15rem 0.4rem;
+    border-radius: 0.35rem;
+    border: 1px solid hsl(var(--border));
 }
 
-.searchBox input {
-    border: none;
-    background: transparent;
-    color: hsl(var(--foreground));
+.studentName {
     font-size: 0.9rem;
-    width: 150px;
+    font-weight: 600;
+    color: hsl(var(--foreground));
 }
 
-.searchBox input:focus {
-    outline: none;
-}
-
-/* Progress Bar */
-.progressBar {
+.studentStatus {
+    font-size: 0.7rem;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem 1rem;
-    background: linear-gradient(135deg, hsl(var(--primary) / 0.1), rgba(168, 85, 247, 0.1));
-    border: 1px solid hsl(var(--primary) / 0.2);
-    border-radius: 0.5rem;
-    margin-bottom: 1rem;
-    color: hsl(var(--primary));
-    font-size: 0.9rem;
+    margin-top: 0.15rem;
+}
+
+/* Status Badge Styles */
+.statusGenerating {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 1rem;
+    background: rgba(245, 158, 11, 0.12);
+    color: #d97706;
+    font-weight: 600;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.statusDone {
+    display: inline-flex;
+    padding: 0.15rem 0.5rem;
+    border-radius: 1rem;
+    background: rgba(16, 185, 129, 0.12);
+    color: #059669;
+    font-weight: 600;
+}
+
+.statusReady {
+    display: inline-flex;
+    padding: 0.15rem 0.5rem;
+    border-radius: 1rem;
+    background: rgba(59, 130, 246, 0.12);
+    color: #3b82f6;
+    font-weight: 500;
+}
+
+.statusEmpty {
+    display: inline-flex;
+    padding: 0.15rem 0.5rem;
+    border-radius: 1rem;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground-muted));
     font-weight: 500;
 }
 
@@ -198,13 +362,344 @@
 }
 
 @keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
 
-    to {
-        transform: rotate(360deg);
-    }
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.emptyList {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: hsl(var(--foreground-muted));
+    font-size: 0.875rem;
+}
+
+/* Editor Row Styles */
+.editorRow {
+    display: grid;
+    grid-template-columns: 200px 1fr 1.2fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: hsl(var(--background));
+    border: 1px solid hsl(var(--border));
+    border-radius: 1rem;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.04);
+}
+
+.editorRow:hover {
+    border-color: hsl(var(--primary) / 0.4);
+    box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.studentCol {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-right: 1.5rem;
+    border-right: 1px solid hsl(var(--border));
+}
+
+/* Student Avatar */
+.studentAvatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, hsl(var(--primary)), #9333ea);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px hsl(var(--primary) / 0.25);
+}
+
+.studentBadge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    background: hsl(var(--surface));
+    color: hsl(var(--foreground-muted));
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-family: monospace;
+    border-radius: 2rem;
+    border: 1px solid hsl(var(--border));
+    width: fit-content;
+}
+
+.studentNameLarge {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    letter-spacing: -0.02em;
+    margin-top: 0.25rem;
+}
+
+/* Editor Columns */
+.dataCol,
+.contentCol {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.dataDisplay,
+.contentDisplay {
+    padding: 1.25rem;
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.75rem;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: hsl(var(--foreground));
+    cursor: pointer;
+    position: relative;
+    min-height: 180px;
+    white-space: pre-wrap;
+    transition: all 0.25s ease;
+}
+
+.dataDisplay:hover,
+.contentDisplay:hover {
+    border-color: hsl(var(--primary) / 0.5);
+    box-shadow: 0 4px 16px hsl(var(--primary) / 0.08);
+}
+
+.contentDisplay {
+    background: white;
+}
+
+[data-theme='dark'] .contentDisplay {
+    background: hsl(var(--surface));
+}
+
+.placeholder {
+    color: hsl(var(--foreground-muted));
+    font-style: italic;
+    opacity: 0.6;
+    font-size: 0.9rem;
+}
+
+.editBtnIcon {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: all 0.25s ease;
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    padding: 0.4rem;
+    border-radius: 0.5rem;
+    color: hsl(var(--foreground-muted));
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+}
+
+.editBtnIcon:hover {
+    background: hsl(var(--primary) / 0.1);
+    border-color: hsl(var(--primary));
+    color: hsl(var(--primary));
+}
+
+.dataDisplay:hover .editBtnIcon,
+.contentDisplay:hover .editBtnIcon {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.editTextarea {
+    width: 100%;
+    min-height: 180px;
+    padding: 1.25rem;
+    border: 2px solid hsl(var(--primary));
+    border-radius: 0.75rem;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-size: 0.95rem;
+    line-height: 1.8;
+    resize: vertical;
+    font-family: inherit;
+    box-shadow: 0 0 0 4px hsl(var(--primary) / 0.1);
+    transition: box-shadow 0.2s ease;
+}
+
+.editTextarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px hsl(var(--primary) / 0.15);
+}
+
+.editActions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 0.75rem;
+}
+
+.charCount {
+    font-size: 0.8rem;
+    color: hsl(var(--foreground-muted));
+    padding: 0.25rem 0.5rem;
+    background: hsl(var(--background));
+    border-radius: 0.375rem;
+    margin-right: auto;
+}
+
+.charCountDisplay {
+    font-size: 0.8rem;
+    color: hsl(var(--foreground-muted));
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.6rem;
+    background: hsl(var(--background));
+    border-radius: 0.375rem;
+    border: 1px solid hsl(var(--border));
+}
+
+.contentDisplayContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.contentActions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem;
+}
+
+.actionButtons {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+}
+
+.actionBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--surface));
+    color: hsl(var(--foreground-muted));
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.actionBtn:hover {
+    border-color: hsl(var(--primary));
+    color: hsl(var(--primary));
+    background: hsl(var(--primary) / 0.08);
+    transform: translateY(-1px);
+}
+
+.actionBtn:active {
+    transform: translateY(0);
+}
+
+.actionBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Toolbar */
+.toolbar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.75rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.05);
+}
+
+.toolbarGroup {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.toolbarDivider {
+    width: 1px;
+    height: 28px;
+    background: hsl(var(--border));
+    margin: 0 0.75rem;
+    flex-shrink: 0;
+}
+
+.generateBtn {
+    background: linear-gradient(135deg, hsl(var(--primary)), #9333ea);
+    color: white;
+    border: none;
+    font-weight: 600;
+    padding: 0.6rem 1.25rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 14px hsl(var(--primary) / 0.35);
+    transition: all 0.25s ease;
+}
+
+.generateBtn:hover:not(:disabled) {
+    box-shadow: 0 8px 20px hsl(var(--primary) / 0.4);
+    transform: translateY(-2px);
+}
+
+.generateBtn:active:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.generateBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: hsl(var(--foreground-muted));
+    box-shadow: none;
+}
+
+.reviewImproveBtn {
+    background: linear-gradient(135deg, #0f766e, #14b8a6);
+    color: white;
+    border: none;
+    font-weight: 600;
+    padding: 0.6rem 1.1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 14px rgba(15, 118, 110, 0.28);
+    transition: all 0.25s ease;
+}
+
+.reviewImproveBtn:hover:not(:disabled) {
+    box-shadow: 0 8px 20px rgba(20, 184, 166, 0.32);
+    transform: translateY(-2px);
+}
+
+.reviewImproveBtn:active:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.reviewImproveBtn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    background: hsl(var(--foreground-muted));
+    box-shadow: none;
 }
 
 /* Empty State */
@@ -215,242 +710,652 @@
     align-items: center;
     justify-content: center;
     color: hsl(var(--foreground-muted));
-    gap: 0.75rem;
+    gap: 1rem;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.emptyState svg {
+    color: hsl(var(--foreground-muted));
+    opacity: 0.5;
+    margin-bottom: 0.5rem;
 }
 
 .emptyState h3 {
-    font-size: 1.1rem;
+    font-size: 1.125rem;
     font-weight: 600;
     color: hsl(var(--foreground));
+    margin: 0;
 }
 
-/* Data Table */
-.tableWrapper {
+.emptyState p {
+    font-size: 0.95rem;
+    color: hsl(var(--foreground-muted));
+    max-width: 300px;
+    line-height: 1.5;
+}
+
+/* ============ Table Layout Styles ============ */
+.tableContainer {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px -4px rgba(0, 0, 0, 0.08);
+}
+
+.tableScrollArea {
     flex: 1;
     overflow: auto;
-    border: 1px solid hsl(var(--border));
-    border-radius: 0.75rem;
-    background: hsl(var(--surface));
 }
 
 .dataTable {
     width: 100%;
     border-collapse: collapse;
-    min-width: 1200px;
+    table-layout: auto;
+    min-width: 1180px;
 }
 
-.dataTable th {
+/* Table Header */
+.tableHeader {
     position: sticky;
     top: 0;
+    z-index: 10;
     background: hsl(var(--background));
-    border-bottom: 1px solid hsl(var(--border));
-    padding: 0.75rem 0.5rem;
+}
+
+.tableHeader th {
+    padding: 0.875rem 1rem;
     text-align: left;
     font-size: 0.8rem;
     font-weight: 600;
     color: hsl(var(--foreground-muted));
     white-space: nowrap;
+    border-bottom: 2px solid hsl(var(--border));
+    letter-spacing: 0.01em;
 }
 
-.dataTable td {
-    padding: 0.75rem 0.5rem;
-    border-bottom: 1px solid hsl(var(--border));
-    vertical-align: top;
-    font-size: 0.9rem;
-}
-
-.dataTable tr:hover {
-    background: hsl(var(--surface-hover));
-}
-
-.selectedRow {
-    background: hsl(var(--primary) / 0.05) !important;
-}
-
-.generatingRow {
-    background: rgba(245, 158, 11, 0.05) !important;
-}
-
-/* Column widths */
-.checkCol {
-    width: 40px;
+.tableHeader th:first-child {
     text-align: center;
 }
 
-.classCol {
-    width: 50px;
-    text-align: center;
+/* Column Widths - minimum widths, actual widths controlled by JS */
+.checkboxCell {
+    width: 52px;
+    min-width: 52px;
+    max-width: 52px;
+    text-align: center !important;
 }
 
-.numberCol {
-    width: 50px;
-    text-align: center;
+.classCell {
+    width: 72px;
+    min-width: 72px;
+    max-width: 72px;
+    text-align: center !important;
 }
 
-.nameCol {
-    width: 80px;
+.numberCell {
+    width: 78px;
+    min-width: 78px;
+    max-width: 78px;
+    text-align: center !important;
 }
 
-.subjectCol {
-    width: 120px;
+.nameCell {
+    width: 110px;
+    min-width: 110px;
 }
 
-.dataCol {
-    width: 300px;
+.subjectCell {
+    width: 145px;
+    min-width: 145px;
 }
 
-.contentCol {
-    min-width: 400px;
+.dataCell {
+    width: 30%;
+    min-width: 260px;
 }
 
-.actionCol {
-    width: 50px;
+.contentCell {
+    width: 42%;
+    min-width: 360px;
 }
 
-/* Checkbox */
-.checkbox {
-    padding: 0;
-    border: none;
+/* Column Resize Handle */
+.tableHeader th {
+    position: relative;
+}
+
+.resizeHandle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    cursor: col-resize;
     background: transparent;
-    color: hsl(var(--foreground-muted));
-    cursor: pointer;
-    transition: color 0.15s;
-}
-
-.checkbox:hover {
-    color: hsl(var(--primary));
-}
-
-.selectedRow .checkbox {
-    color: hsl(var(--primary));
-}
-
-/* Year Badge */
-.yearBadge {
-    display: block;
-    font-size: 0.7rem;
-    color: hsl(var(--foreground-muted));
-    margin-bottom: 0.25rem;
-}
-
-/* Data Preview */
-.dataPreview {
-    max-height: 80px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 0.85rem;
-    line-height: 1.5;
-    color: hsl(var(--foreground));
-    cursor: pointer;
-    padding: 0.25rem;
-    border-radius: 0.25rem;
+    z-index: 1;
     transition: background 0.15s;
 }
 
-.dataPreview:hover {
-    background: hsl(var(--surface-hover));
+.resizeHandle:hover {
+    background: hsl(var(--primary) / 0.3);
 }
 
-/* Content Preview */
-.contentPreview {
-    max-height: 100px;
-    overflow: hidden;
+.resizeHandle:active {
+    background: hsl(var(--primary) / 0.5);
+}
+
+/* Table Body */
+.tableBody tr {
+    border-bottom: 1px solid hsl(var(--border));
+    transition: background 0.15s ease;
+}
+
+.tableBody tr:hover {
+    background: hsl(var(--primary) / 0.03);
+}
+
+.tableBody tr:last-child {
+    border-bottom: none;
+}
+
+.rowSelected {
+    background: hsl(var(--primary) / 0.08) !important;
+}
+
+.rowSelected:hover {
+    background: hsl(var(--primary) / 0.12) !important;
+}
+
+.tableBody td {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    vertical-align: top;
+    color: hsl(var(--foreground));
+}
+
+.tableBody td:first-child {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Table Checkbox */
+.tableCheckbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: hsl(var(--primary));
+    border-radius: 4px;
+}
+
+/* Cell Content Styles */
+.cellClass,
+.cellNumber {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: hsl(var(--foreground-muted));
+    text-align: center;
+}
+
+.cellName {
+    font-weight: 600;
+    color: hsl(var(--foreground));
+}
+
+.cellSubject {
+    font-size: 0.8rem;
+    color: hsl(var(--foreground-muted));
+    line-height: 1.4;
+}
+
+/* Editable Cell */
+.editableCell {
+    min-height: 80px;
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    font-size: 0.85rem;
+    background: hsl(var(--background));
+    border: 1px solid transparent;
+    position: relative;
+}
+
+.editableCell:hover {
+    background: hsl(var(--surface));
+    border-color: hsl(var(--border));
+}
+
+.editableCell:hover .cellEditIcon {
+    opacity: 1;
+}
+
+.cellEditIcon {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    color: hsl(var(--foreground-muted));
+    background: hsl(var(--surface));
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    border: 1px solid hsl(var(--border));
+}
+
+/* Cell Textarea for Editing */
+.cellTextarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 0.75rem;
+    border: 2px solid hsl(var(--primary));
+    border-radius: 0.5rem;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
     font-size: 0.85rem;
     line-height: 1.6;
-    color: hsl(var(--foreground));
-    cursor: pointer;
+    resize: vertical;
+    font-family: inherit;
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1);
+}
+
+.cellTextarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.15);
+}
+
+.cellEditActions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+}
+
+/* Toolbar Tabs */
+.toolbarTabs {
+    display: flex;
+    gap: 0.25rem;
     padding: 0.25rem;
-    border-radius: 0.25rem;
-    transition: background 0.15s;
-    /* Highlighted style like the image */
-    background: rgba(59, 130, 246, 0.08);
-    border-left: 3px solid hsl(var(--primary));
-    padding-left: 0.5rem;
+    background: hsl(var(--background));
+    border-radius: 0.5rem;
+    border: 1px solid hsl(var(--border));
+    overflow-x: auto;
+    flex-shrink: 0;
 }
 
-.contentPreview:hover {
-    background: rgba(59, 130, 246, 0.12);
-}
-
-.emptyContent {
-    color: hsl(var(--foreground-muted));
-    font-style: italic;
+.tabBtn {
+    padding: 0.5rem 1rem;
+    border: none;
+    background: transparent;
+    border-radius: 0.375rem;
     font-size: 0.85rem;
+    font-weight: 500;
+    color: hsl(var(--foreground-muted));
     cursor: pointer;
-}
-
-.clickable {
-    cursor: pointer;
-}
-
-.clickable:hover {
-    background: hsl(var(--primary) / 0.05);
-}
-
-.generatingText {
+    white-space: nowrap;
+    transition: all 0.15s ease;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #d97706;
-    font-size: 0.85rem;
 }
 
-/* Edit Textarea */
-.editTextarea {
-    width: 100%;
-    min-height: 80px;
-    padding: 0.5rem;
-    border: 2px solid hsl(var(--primary));
-    border-radius: 0.375rem;
+.tabBtn:hover {
     background: hsl(var(--surface));
     color: hsl(var(--foreground));
-    font-size: 0.85rem;
-    line-height: 1.5;
-    resize: vertical;
-    font-family: inherit;
 }
 
-.editTextarea:focus {
-    outline: none;
+.tabBtnActive {
+    background: hsl(var(--primary));
+    color: white;
 }
 
-/* Spell Check Button */
-.spellCheckBtn {
-    padding: 0.4rem;
-    border: none;
-    background: transparent;
-    color: hsl(var(--foreground-muted));
-    cursor: pointer;
-    border-radius: 0.375rem;
-    transition: all 0.15s;
+.tabBtnActive:hover {
+    background: hsl(var(--primary));
+    color: white;
 }
 
-.spellCheckBtn:hover {
-    background: hsl(var(--primary) / 0.1);
-    color: hsl(var(--primary));
+.tabCount {
+    font-size: 0.75rem;
+    opacity: 0.8;
 }
 
-/* Empty data styling */
-.emptyData {
-    color: hsl(var(--foreground-muted));
-    font-style: italic;
-}
-
-/* Warning row for forbidden words */
-.warningRow {
-    background: rgba(245, 158, 11, 0.05) !important;
-}
-
-/* Warning badge in content */
-.warningBadge {
-    display: inline-flex;
+/* Toolbar Layout for Table View */
+.toolbarRow {
+    display: grid;
+    grid-template-columns: minmax(220px, auto) minmax(0, 1fr) auto;
     align-items: center;
-    gap: 0.25rem;
-    padding: 0.15rem 0.4rem;
-    background: rgba(245, 158, 11, 0.15);
-    color: #d97706;
-    border-radius: 0.25rem;
-    font-size: 0.7rem;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.75rem;
+}
+
+.toolbarLeft {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.toolbarCenter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+    min-width: 0;
+    overflow-x: auto;
+    padding-bottom: 0.125rem;
+}
+
+.toolbarCenter > * {
+    flex-shrink: 0;
+}
+
+.toolbarRight {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-self: end;
+    min-width: fit-content;
+}
+
+/* Select All Checkbox in Toolbar */
+.selectAllLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
     font-weight: 500;
-    margin-left: 0.5rem;
+    color: hsl(var(--foreground));
+    cursor: pointer;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    transition: background 0.15s ease;
+}
+
+.selectAllLabel:hover {
+    background: hsl(var(--background));
+}
+
+/* Subject Filter Dropdown */
+.subjectFilter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.subjectFilter label {
+    font-size: 0.85rem;
+    color: hsl(var(--foreground-muted));
+}
+
+.subjectSelect {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.5rem;
+    background: hsl(var(--background));
+    font-size: 0.85rem;
+    color: hsl(var(--foreground));
+    cursor: pointer;
+    min-width: 140px;
+}
+
+.subjectSelect:focus {
+    outline: none;
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1);
+}
+
+/* Delete Button */
+.deleteBtn {
+    background: transparent;
+    color: hsl(var(--destructive, #ef4444));
+    border: 1px solid hsl(var(--destructive, #ef4444) / 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.deleteBtn:hover:not(:disabled) {
+    background: hsl(var(--destructive, #ef4444) / 0.1);
+    border-color: hsl(var(--destructive, #ef4444));
+}
+
+.deleteBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@media (max-width: 1480px) {
+    .toolbarRow {
+        grid-template-columns: 1fr;
+        align-items: stretch;
+    }
+
+    .toolbarCenter {
+        order: 2;
+    }
+
+    .toolbarRight {
+        order: 3;
+        justify-self: end;
+    }
+}
+
+@media (max-width: 1360px) {
+    .page {
+        padding: 1.25rem;
+    }
+
+    .header {
+        margin-bottom: 1rem;
+        padding: 0.875rem 1rem;
+    }
+
+    .headerTitle {
+        gap: 1rem;
+    }
+
+    .headerTitle h1 {
+        font-size: 1.35rem;
+    }
+
+    .dataTable {
+        min-width: 1060px;
+    }
+
+    .subjectCell {
+        width: 130px;
+        min-width: 130px;
+    }
+
+    .dataCell {
+        min-width: 220px;
+    }
+
+    .contentCell {
+        min-width: 300px;
+    }
+
+    .editableCell {
+        min-height: 72px;
+        max-height: 180px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .page {
+        padding: 1rem;
+    }
+
+    .header {
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 0.75rem;
+        margin-bottom: 0.875rem;
+    }
+
+    .headerActions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .semesterBtn {
+        padding: 0.45rem 0.9rem;
+        font-size: 0.82rem;
+    }
+
+    .toolbarRow {
+        padding: 0.875rem;
+    }
+
+    .toolbarTabs {
+        max-width: 100%;
+    }
+
+    .tableHeader th {
+        padding: 0.7rem 0.75rem;
+        font-size: 0.76rem;
+    }
+
+    .tableBody td {
+        padding: 0.65rem 0.75rem;
+        font-size: 0.84rem;
+    }
+
+    .dataTable {
+        min-width: 960px;
+    }
+
+    .dataCell {
+        min-width: 210px;
+    }
+
+    .contentCell {
+        min-width: 280px;
+    }
+
+    .deleteBtn {
+        padding: 0.45rem 0.75rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .page {
+        padding: 0.75rem;
+    }
+
+    .header {
+        padding: 0.75rem;
+        border-radius: 0.75rem;
+    }
+
+    .headerTitle {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .headerTitle h1 {
+        font-size: 1.15rem;
+    }
+
+    .headerActions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .toolbarRow {
+        padding: 0.75rem;
+        gap: 0.75rem;
+    }
+
+    .toolbarTabs {
+        padding: 0.2rem;
+    }
+
+    .tabBtn {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.8rem;
+        gap: 0.35rem;
+    }
+
+    .selectAllLabel {
+        padding: 0.4rem 0.55rem;
+        font-size: 0.82rem;
+    }
+
+    .toolbarDivider {
+        height: 22px;
+        margin: 0 0.5rem;
+    }
+
+    .dataTable {
+        min-width: 860px;
+    }
+
+    .checkboxCell {
+        width: 46px;
+        min-width: 46px;
+        max-width: 46px;
+    }
+
+    .classCell {
+        width: 62px;
+        min-width: 62px;
+        max-width: 62px;
+    }
+
+    .numberCell {
+        width: 66px;
+        min-width: 66px;
+        max-width: 66px;
+    }
+
+    .nameCell {
+        width: 95px;
+        min-width: 95px;
+    }
+
+    .subjectCell {
+        width: 120px;
+        min-width: 120px;
+    }
+
+    .dataCell {
+        min-width: 185px;
+    }
+
+    .contentCell {
+        min-width: 255px;
+    }
+
+    .editableCell {
+        min-height: 64px;
+        max-height: 150px;
+        padding: 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    .cellTextarea {
+        min-height: 90px;
+        padding: 0.6rem;
+        font-size: 0.8rem;
+    }
 }

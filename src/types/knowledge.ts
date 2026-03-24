@@ -160,6 +160,7 @@ export interface RecordReviewResponse {
     citations: Citation[];
     recommendedRewrite: string | null;
     summary: string;
+    improvedDraft?: string | null;
     matches: RetrievedKnowledgeEvidence[];
     fallback?: boolean;
     model?: string | null;

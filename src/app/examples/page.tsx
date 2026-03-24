@@ -35,6 +35,17 @@ const DEFAULT_TEMPLATE = `[예시 세특]
 // Tab types
 type TabType = 'template' | 'curriculum';
 
+/**
+ * Examples Page Component
+ * 
+ * @description
+ * Manages few-shot learning templates and curriculum content.
+ * 
+ * Features:
+ * - Example Template Editor: Edit the reference Se-teuk style for AI generation
+ * - Curriculum Editor: Manage curriculum content per grade/semester
+ * - Tabs for switching between Template and Curriculum views
+ */
 export default function ExamplesPage() {
     const { exampleTemplate, setExampleTemplate, setCurriculumContent, getCurriculumContent, teacher } = useAppStore();
 

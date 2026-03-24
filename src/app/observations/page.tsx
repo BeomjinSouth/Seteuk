@@ -1,0 +1,706 @@
+'use client';
+
+import { useSearchParams } from 'next/navigation';
+import { Suspense, useEffect, useMemo, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+    ClipboardList,
+    Search,
+    Calendar,
+    User,
+    FileText,
+    Trash2,
+    Eye,
+    X,
+    ScanLine,
+    RefreshCw,
+    ChevronLeft,
+    ChevronRight,
+    Plus,
+    BookOpen,
+} from 'lucide-react';
+import { Button } from '@/components/ui/Button';
+import { useAppStore } from '@/lib/store';
+import { Observation, Assessment, Student } from '@/types';
+import { getTeacherClasses, getStudentsInTeachingClass } from '@/lib/teacher-context';
+import styles from './page.module.css';
+
+function ObservationsPageContent() {
+    const searchParams = useSearchParams();
+    const initialClassId = searchParams.get('classId') || '';
+    const initialStudentId = searchParams.get('studentId') || '';
+    const { students, classes, teacher } = useAppStore();
+    const teacherClasses = useMemo(
+        () => getTeacherClasses(classes, teacher),
+        [classes, teacher]
+    );
+
+    const [observations, setObservations] = useState<Observation[]>([]);
+    const [assessments, setAssessments] = useState<Assessment[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [isSaving, setIsSaving] = useState(false);
+
+    const [searchQuery, setSearchQuery] = useState('');
+    const [selectedClassId, setSelectedClassId] = useState(initialClassId);
+    const [selectedStudentId, setSelectedStudentId] = useState(initialStudentId);
+    const [selectedAssessmentId, setSelectedAssessmentId] = useState('');
+    const [selectedEvidenceType, setSelectedEvidenceType] = useState('');
+    const [selectedObservation, setSelectedObservation] = useState<Observation | null>(null);
+    const [showDetailModal, setShowDetailModal] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const [formClassId, setFormClassId] = useState(initialClassId);
+    const [formStudentId, setFormStudentId] = useState(initialStudentId);
+    const [formAssessmentId, setFormAssessmentId] = useState('');
+    const [formDate, setFormDate] = useState(new Date().toISOString().split('T')[0]);
+    const [formEvidenceType, setFormEvidenceType] = useState<'process' | 'result'>('process');
+    const [formLessonTopic, setFormLessonTopic] = useState('');
+    const [formMemo, setFormMemo] = useState('');
+    const [formTags, setFormTags] = useState('');
+
+    const itemsPerPage = 10;
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    useEffect(() => {
+        if (!formClassId && teacherClasses.length > 0) {
+            setFormClassId(teacherClasses[0].id);
+        }
+    }, [formClassId, teacherClasses]);
+
+    useEffect(() => {
+        if (formClassId) {
+            const studentsInClass = getStudentsForClass(formClassId);
+            if (studentsInClass.length > 0 && !studentsInClass.some((student) => student.id === formStudentId)) {
+                setFormStudentId(studentsInClass[0].id);
+            }
+        }
+    }, [formClassId, formStudentId, students, teacherClasses]);
+
+    const fetchData = async () => {
+        setIsLoading(true);
+        try {
+            const [obsRes, assessRes] = await Promise.all([
+                fetch('/api/observations'),
+                fetch('/api/assessments'),
+            ]);
+
+            const obsData = await obsRes.json();
+            const assessData = await assessRes.json();
+
+            if (obsData.success) {
+                setObservations(obsData.data);
+            }
+            if (assessData.success) {
+                setAssessments(assessData.data);
+            }
+        } catch (error) {
+            console.error('Failed to fetch data:', error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const getStudentsForClass = (classId: string) => {
+        const targetClass = teacherClasses.find((cls) => cls.id === classId);
+        if (!targetClass) return [];
+        return getStudentsInTeachingClass(students, targetClass);
+    };
+
+    const scopedStudents = useMemo(() => {
+        if (selectedClassId) return getStudentsForClass(selectedClassId);
+
+        const map = new Map<string, Student>();
+        teacherClasses.forEach((cls) => {
+            getStudentsInTeachingClass(students, cls).forEach((student) => {
+                map.set(student.id, student);
+            });
+        });
+        return Array.from(map.values()).sort((a, b) => a.number - b.number);
+    }, [selectedClassId, students, teacherClasses]);
+
+    const formStudents = useMemo(
+        () => formClassId ? getStudentsForClass(formClassId) : [],
+        [formClassId, students, teacherClasses]
+    );
+
+    const isTeacherObservation = (obs: Observation) => {
+        if (!teacher) return false;
+        if (obs.teacherKey) return obs.teacherKey === teacher.teacherKey;
+        const student = students.find((item) => item.id === obs.studentId);
+        return student?.school === teacher.school;
+    };
+
+    const filteredObservations = useMemo(() => {
+        return observations
+            .filter(isTeacherObservation)
+            .filter((obs) => !selectedClassId || obs.classId === selectedClassId)
+            .filter((obs) => !selectedStudentId || obs.studentId === selectedStudentId)
+            .filter((obs) => {
+                if (!selectedAssessmentId) return true;
+                if (selectedAssessmentId === 'none') return !obs.assessmentId;
+                return obs.assessmentId === selectedAssessmentId;
+            })
+            .filter((obs) => !selectedEvidenceType || obs.evidenceType === selectedEvidenceType)
+            .filter((obs) => {
+                if (!searchQuery) return true;
+                const query = searchQuery.toLowerCase();
+                return [
+                    getStudentDisplay(obs.studentId),
+                    obs.memo,
+                    obs.lessonTopic || '',
+                ].join(' ').toLowerCase().includes(query);
+            })
+            .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+    }, [observations, searchQuery, selectedAssessmentId, selectedClassId, selectedEvidenceType, selectedStudentId, students, teacher]);
+
+    const totalPages = Math.ceil(filteredObservations.length / itemsPerPage);
+    const paginatedObservations = filteredObservations.slice(
+        (currentPage - 1) * itemsPerPage,
+        currentPage * itemsPerPage
+    );
+
+    const getStudentDisplay = (studentId: string): string => {
+        const student = students.find((item) => item.id === studentId);
+        if (!student) return '알 수 없는 학생';
+        return `${student.grade || ''}학년 ${student.classNumber || ''}반 ${student.number}번 ${student.name}`;
+    };
+
+    const getClassDisplay = (classId?: string) => {
+        if (!classId) return '미지정 수업';
+        const targetClass = teacherClasses.find((cls) => cls.id === classId) || classes.find((cls) => cls.id === classId);
+        if (!targetClass) return '미지정 수업';
+        return `${targetClass.grade}학년 ${targetClass.classNumber}반 · ${targetClass.subjectName}`;
+    };
+
+    const getAssessmentTitle = (assessmentId?: string): string => {
+        if (!assessmentId) return '과제 미연결';
+        const assessment = assessments.find((item) => item.id === assessmentId);
+        return assessment?.title || '알 수 없는 과제';
+    };
+
+    const handleSaveManualObservation = async () => {
+        if (!teacher || !formClassId || !formStudentId || !formMemo.trim()) {
+            alert('수업, 학생, 메모를 모두 입력하세요.');
+            return;
+        }
+
+        const targetClass = teacherClasses.find((cls) => cls.id === formClassId);
+        if (!targetClass) {
+            alert('수업 정보를 찾을 수 없습니다.');
+            return;
+        }
+
+        setIsSaving(true);
+        try {
+            const response = await fetch('/api/observations', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    studentId: formStudentId,
+                    classId: formClassId,
+                    teacherKey: teacher.teacherKey,
+                    assessmentId: formAssessmentId || undefined,
+                    subjectName: targetClass.subjectName,
+                    lessonTopic: formLessonTopic || undefined,
+                    date: formDate,
+                    memo: formMemo,
+                    evidenceType: formEvidenceType,
+                    tags: formTags.split(',').map((tag) => tag.trim()).filter(Boolean),
+                    sourceType: 'manual',
+                }),
+            });
+
+            const data = await response.json();
+            if (!data.success) {
+                alert(data.error || '저장에 실패했습니다.');
+                return;
+            }
+
+            setFormMemo('');
+            setFormLessonTopic('');
+            setFormTags('');
+            await fetchData();
+        } catch (error) {
+            console.error('Failed to save observation:', error);
+            alert('저장 중 오류가 발생했습니다.');
+        } finally {
+            setIsSaving(false);
+        }
+    };
+
+    const handleDelete = async (id: string) => {
+        if (!confirm('이 관찰 메모를 삭제하시겠습니까?')) return;
+
+        try {
+            const response = await fetch(`/api/observations?id=${id}`, {
+                method: 'DELETE',
+            });
+            const data = await response.json();
+            if (data.success) {
+                setObservations((prev) => prev.filter((item) => item.id !== id));
+                if (selectedObservation?.id === id) {
+                    setShowDetailModal(false);
+                    setSelectedObservation(null);
+                }
+            }
+        } catch (error) {
+            console.error('Failed to delete:', error);
+            alert('삭제에 실패했습니다.');
+        }
+    };
+
+    const resetFilters = () => {
+        setSearchQuery('');
+        setSelectedClassId('');
+        setSelectedStudentId('');
+        setSelectedAssessmentId('');
+        setSelectedEvidenceType('');
+        setCurrentPage(1);
+    };
+
+    return (
+        <div className={styles.page}>
+            <header className={styles.header}>
+                <div>
+                    <h1 className={styles.title}>
+                        <div className={styles.titleIcon}>
+                            <ClipboardList size={22} />
+                        </div>
+                        수업 관찰 메모
+                    </h1>
+                    <p className={styles.subtitle}>
+                        담당 학급별 수업 기록을 남기고, 저장된 메모를 세특 AI 작성 컨텍스트로 바로 연결합니다.
+                    </p>
+                </div>
+                <div className={styles.headerActions}>
+                    <Button variant="secondary" onClick={fetchData}>
+                        <RefreshCw size={16} />
+                        새로고침
+                    </Button>
+                    <Button onClick={() => window.location.href = '/ocr'}>
+                        <ScanLine size={16} />
+                        OCR 분석
+                    </Button>
+                </div>
+            </header>
+
+            <section className={styles.composeSection}>
+                <div className={styles.composeHeader}>
+                    <h2><Plus size={18} /> 수업 기록 추가</h2>
+                    <span>{teacher?.subject || '과목'} · {teacherClasses.length}개 학급 연결됨</span>
+                </div>
+                <div className={styles.composeGrid}>
+                    <div className={styles.composeField}>
+                        <label>수업 학급</label>
+                        <select value={formClassId} onChange={(e) => setFormClassId(e.target.value)}>
+                            <option value="">수업 선택</option>
+                            {teacherClasses.map((cls) => (
+                                <option key={cls.id} value={cls.id}>
+                                    {cls.year} {cls.semester}학기 · {cls.grade}학년 {cls.classNumber}반
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                    <div className={styles.composeField}>
+                        <label>학생</label>
+                        <select value={formStudentId} onChange={(e) => setFormStudentId(e.target.value)}>
+                            <option value="">학생 선택</option>
+                            {formStudents.map((student) => (
+                                <option key={student.id} value={student.id}>
+                                    {getStudentDisplay(student.id)}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                    <div className={styles.composeField}>
+                        <label>날짜</label>
+                        <input type="date" value={formDate} onChange={(e) => setFormDate(e.target.value)} />
+                    </div>
+                    <div className={styles.composeField}>
+                        <label>평가 과제</label>
+                        <select value={formAssessmentId} onChange={(e) => setFormAssessmentId(e.target.value)}>
+                            <option value="">과제 미연결</option>
+                            {assessments.map((assessment) => (
+                                <option key={assessment.id} value={assessment.id}>
+                                    {assessment.title}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                    <div className={styles.composeField}>
+                        <label>근거 유형</label>
+                        <select value={formEvidenceType} onChange={(e) => setFormEvidenceType(e.target.value as 'process' | 'result')}>
+                            <option value="process">과정 중심</option>
+                            <option value="result">결과 중심</option>
+                        </select>
+                    </div>
+                    <div className={styles.composeField}>
+                        <label>수업 주제</label>
+                        <input
+                            type="text"
+                            value={formLessonTopic}
+                            onChange={(e) => setFormLessonTopic(e.target.value)}
+                            placeholder="예: 효소 반응 탐구, 발표 활동"
+                        />
+                    </div>
+                </div>
+                <div className={styles.composeField}>
+                    <label>태그</label>
+                    <input
+                        type="text"
+                        value={formTags}
+                        onChange={(e) => setFormTags(e.target.value)}
+                        placeholder="문제해결, 협력, 발표 등 쉼표로 구분"
+                    />
+                </div>
+                <div className={styles.composeField}>
+                    <label>수업 기록 메모</label>
+                    <textarea
+                        value={formMemo}
+                        onChange={(e) => setFormMemo(e.target.value)}
+                        placeholder="학생의 질문, 수행 과정, 발표 내용, 피드백 반응 등을 구체적으로 기록하세요."
+                    />
+                </div>
+                <div className={styles.composeActions}>
+                    <Button onClick={handleSaveManualObservation} isLoading={isSaving} disabled={teacherClasses.length === 0}>
+                        <BookOpen size={16} />
+                        수업 기록 저장
+                    </Button>
+                </div>
+            </section>
+
+            <div className={styles.stats}>
+                <div className={styles.statCard}>
+                    <span className={styles.statValue}>{filteredObservations.length}</span>
+                    <span className={styles.statLabel}>표시 중 메모</span>
+                </div>
+                <div className={styles.statCard}>
+                    <span className={styles.statValue}>
+                        {filteredObservations.filter((item) => item.sourceType === 'manual').length}
+                    </span>
+                    <span className={styles.statLabel}>수동 기록</span>
+                </div>
+                <div className={styles.statCard}>
+                    <span className={styles.statValue}>
+                        {new Set(filteredObservations.map((item) => item.studentId)).size}
+                    </span>
+                    <span className={styles.statLabel}>학생 수</span>
+                </div>
+                <div className={styles.statCard}>
+                    <span className={styles.statValue}>{teacherClasses.length}</span>
+                    <span className={styles.statLabel}>담당 학급</span>
+                </div>
+            </div>
+
+            <section className={styles.filters}>
+                <div className={styles.searchBox}>
+                    <Search size={18} />
+                    <input
+                        type="text"
+                        placeholder="학생 이름, 수업 주제, 메모 내용 검색..."
+                        value={searchQuery}
+                        onChange={(e) => {
+                            setSearchQuery(e.target.value);
+                            setCurrentPage(1);
+                        }}
+                    />
+                </div>
+
+                <div className={styles.filterGroup}>
+                    <select
+                        value={selectedClassId}
+                        onChange={(e) => {
+                            setSelectedClassId(e.target.value);
+                            setSelectedStudentId('');
+                            setCurrentPage(1);
+                        }}
+                    >
+                        <option value="">전체 수업</option>
+                        {teacherClasses.map((cls) => (
+                            <option key={cls.id} value={cls.id}>
+                                {cls.grade}학년 {cls.classNumber}반 · {cls.subjectName}
+                            </option>
+                        ))}
+                    </select>
+
+                    <select
+                        value={selectedStudentId}
+                        onChange={(e) => {
+                            setSelectedStudentId(e.target.value);
+                            setCurrentPage(1);
+                        }}
+                    >
+                        <option value="">전체 학생</option>
+                        {scopedStudents.map((student) => (
+                            <option key={student.id} value={student.id}>
+                                {getStudentDisplay(student.id)}
+                            </option>
+                        ))}
+                    </select>
+
+                    <select
+                        value={selectedAssessmentId}
+                        onChange={(e) => {
+                            setSelectedAssessmentId(e.target.value);
+                            setCurrentPage(1);
+                        }}
+                    >
+                        <option value="">전체 과제</option>
+                        <option value="none">과제 미연결</option>
+                        {assessments.map((assessment) => (
+                            <option key={assessment.id} value={assessment.id}>
+                                {assessment.title}
+                            </option>
+                        ))}
+                    </select>
+
+                    <select
+                        value={selectedEvidenceType}
+                        onChange={(e) => {
+                            setSelectedEvidenceType(e.target.value);
+                            setCurrentPage(1);
+                        }}
+                    >
+                        <option value="">전체 유형</option>
+                        <option value="process">과정 중심</option>
+                        <option value="result">결과 중심</option>
+                    </select>
+
+                    {(searchQuery || selectedClassId || selectedStudentId || selectedAssessmentId || selectedEvidenceType) && (
+                        <button className={styles.resetBtn} onClick={resetFilters}>
+                            <X size={14} />
+                            필터 초기화
+                        </button>
+                    )}
+                </div>
+            </section>
+
+            <div className={styles.resultsInfo}>
+                <span>총 {filteredObservations.length}건</span>
+            </div>
+
+            {isLoading ? (
+                <div className={styles.loadingContainer}>
+                    <div className={styles.loadingSpinner} />
+                    <p>관찰 메모를 불러오는 중...</p>
+                </div>
+            ) : paginatedObservations.length === 0 ? (
+                <div className={styles.emptyState}>
+                    <ClipboardList size={48} className={styles.emptyIcon} />
+                    <h3>관찰 메모가 없습니다</h3>
+                    <p>직접 수업 기록을 남기거나 OCR 분석 결과를 저장하면 여기에 표시됩니다.</p>
+                </div>
+            ) : (
+                <div className={styles.list}>
+                    {paginatedObservations.map((obs) => (
+                        <motion.div
+                            key={obs.id}
+                            className={styles.card}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            layout
+                        >
+                            <div className={styles.cardHeader}>
+                                <div className={styles.cardMeta}>
+                                    <span className={styles.studentName}>
+                                        <User size={14} />
+                                        {getStudentDisplay(obs.studentId)}
+                                    </span>
+                                    <span className={styles.separator}>|</span>
+                                    <span className={styles.assessment}>{getClassDisplay(obs.classId)}</span>
+                                    <span className={styles.separator}>|</span>
+                                    <span className={styles.date}>
+                                        <Calendar size={14} />
+                                        {obs.date}
+                                    </span>
+                                </div>
+                                <div className={styles.cardActions}>
+                                    <button
+                                        className={styles.actionBtn}
+                                        onClick={() => {
+                                            setSelectedObservation(obs);
+                                            setShowDetailModal(true);
+                                        }}
+                                        title="상세 보기"
+                                    >
+                                        <Eye size={16} />
+                                    </button>
+                                    <button
+                                        className={`${styles.actionBtn} ${styles.deleteBtn}`}
+                                        onClick={() => handleDelete(obs.id)}
+                                        title="삭제"
+                                    >
+                                        <Trash2 size={16} />
+                                    </button>
+                                </div>
+                            </div>
+
+                            {obs.lessonTopic && (
+                                <p className={styles.lessonTopic}>{obs.lessonTopic}</p>
+                            )}
+                            <p className={styles.cardMemo}>
+                                {obs.memo.length > 220 ? `${obs.memo.slice(0, 220)}...` : obs.memo}
+                            </p>
+
+                            <div className={styles.cardFooter}>
+                                <div className={styles.tags}>
+                                    <span className={`${styles.typeTag} ${obs.evidenceType === 'process' ? styles.processTag : styles.resultTag}`}>
+                                        {obs.evidenceType === 'process' ? '과정' : '결과'}
+                                    </span>
+                                    <span className={`${styles.sourceTag} ${obs.sourceType === 'ocr' ? styles.ocrTag : ''}`}>
+                                        {obs.sourceType === 'ocr' ? 'OCR' : '수동'}
+                                    </span>
+                                    <span className={styles.sourceTag}>{getAssessmentTitle(obs.assessmentId)}</span>
+                                    {obs.tags.slice(0, 3).map((tag, index) => (
+                                        <span key={index} className={styles.competencyTag}>
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+            )}
+
+            {totalPages > 1 && (
+                <div className={styles.pagination}>
+                    <button
+                        className={styles.pageBtn}
+                        onClick={() => setCurrentPage((page) => Math.max(1, page - 1))}
+                        disabled={currentPage === 1}
+                    >
+                        <ChevronLeft size={18} />
+                    </button>
+                    <span className={styles.pageInfo}>
+                        {currentPage} / {totalPages}
+                    </span>
+                    <button
+                        className={styles.pageBtn}
+                        onClick={() => setCurrentPage((page) => Math.min(totalPages, page + 1))}
+                        disabled={currentPage === totalPages}
+                    >
+                        <ChevronRight size={18} />
+                    </button>
+                </div>
+            )}
+
+            <AnimatePresence>
+                {showDetailModal && selectedObservation && (
+                    <motion.div
+                        className={styles.modalBackdrop}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setShowDetailModal(false)}
+                    >
+                        <motion.div
+                            className={styles.modal}
+                            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <div className={styles.modalHeader}>
+                                <h2>
+                                    <FileText size={20} />
+                                    관찰 메모 상세
+                                </h2>
+                                <button className={styles.closeBtn} onClick={() => setShowDetailModal(false)}>
+                                    <X size={20} />
+                                </button>
+                            </div>
+
+                            <div className={styles.modalBody}>
+                                <div className={styles.detailRow}>
+                                    <label>학생</label>
+                                    <span>{getStudentDisplay(selectedObservation.studentId)}</span>
+                                </div>
+                                <div className={styles.detailRow}>
+                                    <label>수업</label>
+                                    <span>{getClassDisplay(selectedObservation.classId)}</span>
+                                </div>
+                                <div className={styles.detailRow}>
+                                    <label>수업 주제</label>
+                                    <span>{selectedObservation.lessonTopic || '미입력'}</span>
+                                </div>
+                                <div className={styles.detailRow}>
+                                    <label>평가 과제</label>
+                                    <span>{getAssessmentTitle(selectedObservation.assessmentId)}</span>
+                                </div>
+                                <div className={styles.detailRow}>
+                                    <label>날짜</label>
+                                    <span>{selectedObservation.date}</span>
+                                </div>
+                                <div className={styles.detailRow}>
+                                    <label>출처</label>
+                                    <span>{selectedObservation.sourceType === 'ocr' ? 'OCR 분석' : '수동 입력'}</span>
+                                </div>
+                                <div className={styles.detailRow}>
+                                    <label>태그</label>
+                                    <div className={styles.detailTags}>
+                                        {selectedObservation.tags.map((tag, index) => (
+                                            <span key={index} className={styles.competencyTag}>{tag}</span>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div className={styles.detailMemo}>
+                                    <label>메모 내용</label>
+                                    <p>{selectedObservation.memo}</p>
+                                </div>
+
+                                {selectedObservation.ocrData && (
+                                    <div className={styles.ocrDataSection}>
+                                        <h4>OCR 원본 데이터</h4>
+                                        <div className={styles.ocrDataContent}>
+                                            <div className={styles.ocrDataItem}>
+                                                <strong>추출 텍스트</strong>
+                                                <p>{selectedObservation.ocrData.extractedText}</p>
+                                            </div>
+                                            <div className={styles.ocrDataItem}>
+                                                <strong>AI 요약</strong>
+                                                <p>{selectedObservation.ocrData.summary}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+
+                            <div className={styles.modalFooter}>
+                                <Button variant="destructive" onClick={() => handleDelete(selectedObservation.id)}>
+                                    <Trash2 size={16} />
+                                    삭제
+                                </Button>
+                                <Button onClick={() => setShowDetailModal(false)}>
+                                    닫기
+                                </Button>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </div>
+    );
+}
+
+function ObservationsPageLoading() {
+    return (
+        <div className={styles.page}>
+            <div className={styles.emptyState}>
+                <ClipboardList size={48} className={styles.emptyIcon} />
+                <h3>불러오는 중...</h3>
+            </div>
+        </div>
+    );
+}
+
+export default function ObservationsPage() {
+    return (
+        <Suspense fallback={<ObservationsPageLoading />}>
+            <ObservationsPageContent />
+        </Suspense>
+    );
+}

@@ -56,6 +56,18 @@ interface ScheduleItem {
     SBTR_DD_SC_NM?: string;
 }
 
+/**
+ * School Info Page Component
+ * 
+ * @description
+ * Displays school-related information using NEIS API.
+ * 
+ * Features:
+ * - Timetable: Daily class schedule
+ * - Meal Service: Lunch/Dinner menus with allergen info
+ * - Academic Schedule: Monthly school events calendar
+ * - Class Info: Statistics about classes in the school
+ */
 export default function SchoolInfoPage() {
     const { teacher } = useAppStore();
 

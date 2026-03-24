@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useTransition } from 'react';
+import { Suspense, useEffect, useState, useTransition } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
@@ -15,7 +15,7 @@ const SAMPLE_QUESTIONS = [
     '창의적 체험활동 누가기록은 어떻게 관리해야 하나요?',
 ];
 
-export default function CounselChatPage() {
+function CounselChatPageContent() {
     const searchParams = useSearchParams();
     const [meta, setMeta] = useState<KnowledgeMeta | null>(null);
     const [question, setQuestion] = useState(SAMPLE_QUESTIONS[0]);
@@ -218,5 +218,13 @@ export default function CounselChatPage() {
                 </motion.section>
             )}
         </div>
+    );
+}
+
+export default function CounselChatPage() {
+    return (
+        <Suspense fallback={<div className={styles.page} />}>
+            <CounselChatPageContent />
+        </Suspense>
     );
 }

@@ -14,15 +14,39 @@ import {
     Sparkles,
     Lock,
     MessageSquare,
-    Send
+    Send,
+    Highlighter
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { useAppStore, isAdmin, ADMIN_CONFIG } from '@/lib/store';
 import styles from './page.module.css';
 
+/**
+ * Settings Page Component
+ * 
+ * @description
+ * Manages general application settings and policies.
+ * 
+ * Features:
+ * - Forbidden Words: Manage list of words prohibited in Se-teuk
+ * - Character Limits: Set min/max character counts and enforcement rules
+ * - AI Options: Configure output sentence length style
+ * - Keyword Highlighting: Manage keywords to highlight in review mode
+ * - Review Guidelines: Set custom guidelines text for the review page
+ */
 export default function SettingsPage() {
-    const { teacher, forbiddenWords, setForbiddenWords, addForbiddenWord, removeForbiddenWord, addNotification } = useAppStore();
+    const {
+        teacher,
+        forbiddenWords,
+        setForbiddenWords,
+        addForbiddenWord,
+        removeForbiddenWord,
+        addNotification,
+        keywords,
+        addKeyword,
+        removeKeyword
+    } = useAppStore();
     const isAdminUser = isAdmin(teacher);
 
     const [settings, setSettings] = useState({
@@ -47,6 +71,9 @@ export default function SettingsPage() {
 
     // Local state for non-admin word suggestions
     const [localWords, setLocalWords] = useState<{ word: string; alternative: string }[]>([]);
+
+    // Keyword state
+    const [newKeyword, setNewKeyword] = useState('');
 
     // Sync localWords with store on mount
     useEffect(() => {
@@ -77,6 +104,18 @@ export default function SettingsPage() {
         const wordToRemove = localWords[index].word;
         removeForbiddenWord(wordToRemove);
         setLocalWords(localWords.filter((_, i) => i !== index));
+    };
+
+    // Add keyword
+    const handleAddKeyword = () => {
+        if (!newKeyword.trim()) return;
+        addKeyword(newKeyword.trim());
+        setNewKeyword('');
+    };
+
+    // Remove keyword
+    const handleRemoveKeyword = (keyword: string) => {
+        removeKeyword(keyword);
     };
 
     // Submit modification request
@@ -293,6 +332,51 @@ export default function SettingsPage() {
                                 <option value="long">길게 (상세하게)</option>
                             </select>
                         </div>
+                    </div>
+                </section>
+
+                {/* Keyword Highlighting Settings */}
+                <section className={styles.section}>
+                    <div className={styles.sectionHeader}>
+                        <h2><Highlighter size={20} /> 키워드 하이라이팅</h2>
+                    </div>
+                    <p className={styles.sectionHint}>
+                        검토 화면에서 하이라이팅할 핵심 키워드를 관리합니다. (역량, 성취기준 등)
+                    </p>
+
+                    <div className={styles.addWordForm}>
+                        <Input
+                            placeholder="키워드 입력 (예: 탐구, 협력, 분석)"
+                            value={newKeyword}
+                            onChange={(e) => setNewKeyword(e.target.value)}
+                            onKeyDown={(e) => e.key === 'Enter' && handleAddKeyword()}
+                        />
+                        <Button variant="secondary" onClick={handleAddKeyword}>
+                            <Plus size={18} /> 추가
+                        </Button>
+                    </div>
+
+                    <div className={styles.wordList}>
+                        {keywords.length === 0 ? (
+                            <p className={styles.emptyMessage}>등록된 키워드가 없습니다.</p>
+                        ) : (
+                            keywords.map((keyword, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    className={styles.keywordItem}
+                                >
+                                    <span className={styles.keywordText}>{keyword}</span>
+                                    <button
+                                        className={styles.removeBtn}
+                                        onClick={() => handleRemoveKeyword(keyword)}
+                                    >
+                                        <X size={16} />
+                                    </button>
+                                </motion.div>
+                            ))
+                        )}
                     </div>
                 </section>
 

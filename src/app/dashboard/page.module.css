@@ -21,6 +21,122 @@
     font-size: 0.95rem;
 }
 
+/* Main Section Selection */
+.sectionSelection {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid hsl(var(--border));
+}
+
+.sectionSelectionTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    margin-bottom: 1rem;
+}
+
+.sectionCards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+    .sectionCards {
+        grid-template-columns: 1fr;
+    }
+}
+
+.sectionCard {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    border-radius: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.sectionCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary)), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.sectionCard:hover {
+    border-color: hsl(var(--primary) / 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.15);
+}
+
+.sectionCard:hover::before {
+    opacity: 1;
+}
+
+.sectionCardIcon {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.sectionCardContent {
+    flex: 1;
+}
+
+.sectionCardContent h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    margin-bottom: 0.35rem;
+}
+
+.sectionCardContent p {
+    font-size: 0.88rem;
+    color: hsl(var(--muted-foreground));
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+}
+
+.sectionCardBadges {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.sectionCardBadges span {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.7rem;
+    border-radius: 100px;
+    background: hsl(var(--primary) / 0.1);
+    color: hsl(var(--primary));
+}
+
+.sectionCardArrow {
+    color: hsl(var(--muted-foreground));
+    flex-shrink: 0;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.sectionCard:hover .sectionCardArrow {
+    transform: translateX(4px);
+    color: hsl(var(--primary));
+}
+
 /* Stats Grid */
 .statsGrid {
     display: grid;
@@ -126,6 +242,13 @@
 .emptyState p {
     color: hsl(var(--foreground-muted));
     font-size: 0.95rem;
+}
+
+.emptyActions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 /* Class Grid */

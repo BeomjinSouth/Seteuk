@@ -4,10 +4,22 @@ import { Loader2 } from 'lucide-react';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: 'primary' | 'secondary' | 'ghost' | 'destructive';
-    size?: 'sm' | 'md' | 'lg';
+    size?: 'xs' | 'sm' | 'md' | 'lg';
     isLoading?: boolean;
 }
 
+/**
+ * Button Component
+ * 
+ * @description
+ * Shared button component with variant and size support.
+ * Includes built-in loading state with spinner.
+ * 
+ * @param {object} props - Button props extending HTMLButtonElement
+ * @param {'primary' | 'secondary' | 'ghost' | 'destructive'} [props.variant='primary'] - Visual style variant
+ * @param {'xs' | 'sm' | 'md' | 'lg'} [props.size='md'] - Button size
+ * @param {boolean} [props.isLoading] - Whether to show loading spinner (disables button)
+ */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ({ className, variant = 'primary', size = 'md', isLoading, children, ...props }, ref) => {
         return (
@@ -20,10 +32,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                         'btn-secondary': variant === 'secondary',
                         'btn-destructive': variant === 'destructive',
                         'btn-ghost': variant === 'ghost',
-                        // Size overrides can be added to globals or inline styles if needed, 
-                        // but standard .btn has padding. 
-                        // Let's rely on base padding or add specific classes if needed. 
-                        // For now, I'll assume base size is fine or handled by utility classes passed in className.
+                        'btn-xs': size === 'xs',
+                        'btn-sm': size === 'sm',
                     },
                     className
                 )}

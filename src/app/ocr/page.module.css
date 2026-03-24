@@ -1,0 +1,2912 @@
+/* ========== NEW: Full Page Layout with Sidebar ========== */
+.pageContainer {
+    display: flex;
+    height: calc(100vh - 60px);
+    overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 320px;
+    min-width: 320px;
+    height: 100%;
+    background: hsl(var(--sidebar-bg));
+    border-right: 1px solid hsl(var(--sidebar-border));
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.sidebarHeader {
+    padding: 1.25rem;
+    border-bottom: 1px solid hsl(var(--border));
+}
+
+.sidebarTitle {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: hsl(var(--sidebar-title));
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.sidebarTitleRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.sidebarCollapsed .sidebarTitleRow {
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+.sidebarToggleBtn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: hsl(var(--accent));
+    border: 1px solid hsl(var(--border));
+    border-radius: 8px;
+    color: hsl(var(--muted-foreground));
+    cursor: pointer;
+    transition: all 0.15s;
+    flex-shrink: 0;
+}
+
+.sidebarToggleBtn:hover {
+    background: hsl(var(--primary) / 0.1);
+    color: hsl(var(--primary));
+    border-color: hsl(var(--primary) / 0.3);
+}
+
+.sidebarCollapsed {
+    width: 60px;
+    min-width: 60px;
+}
+
+.sidebarCollapsed .sidebarHeader {
+    padding: 1rem 0.5rem;
+}
+
+.sidebarCollapsed .sidebarTitle {
+    justify-content: center;
+}
+
+.sidebarFilters {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.filterSelect {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid hsl(var(--border));
+    border-radius: 8px;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-size: 0.8rem;
+    font-family: inherit;
+}
+
+.filterSelect:focus {
+    outline: none;
+    border-color: hsl(var(--primary));
+}
+
+.addEvaluationBtn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(135deg, #a78bfa, #818cf8);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(167, 139, 250, 0.2);
+}
+
+.addEvaluationBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(167, 139, 250, 0.3);
+}
+
+.sidebarList {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.evaluationGroup {
+    margin-bottom: 1.5rem;
+}
+
+.groupTitle {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: hsl(var(--sidebar-group-text));
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.5rem 0.75rem;
+    background: hsl(var(--sidebar-group-bg) / 0.1);
+    border-radius: 6px;
+    margin-bottom: 0.75rem;
+}
+
+.evaluationCard {
+    padding: 1rem;
+    background: hsl(var(--sidebar-card-bg));
+    border: 1px solid hsl(var(--sidebar-card-border));
+    border-radius: 12px;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.evaluationCard:hover {
+    border-color: hsl(var(--sidebar-card-hover-bg) / 0.4);
+    background: hsl(var(--sidebar-card-hover-bg) / 0.08);
+    transform: translateX(4px);
+}
+
+.evaluationCard.active {
+    border-color: hsl(var(--sidebar-card-active-bg));
+    background: hsl(var(--sidebar-card-active-bg) / 0.15);
+    box-shadow: 0 0 20px hsl(var(--sidebar-card-active-bg) / 0.15);
+}
+
+.evaluationCardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.375rem;
+}
+
+.evaluationCardTitle {
+    font-weight: 600;
+    color: hsl(var(--foreground));
+}
+
+.evaluationCardGrade {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.125rem 0.5rem;
+    border-radius: 4px;
+    background: hsl(var(--primary) / 0.15);
+    color: hsl(var(--primary));
+}
+
+.evaluationCardMeta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+    color: hsl(var(--muted-foreground));
+}
+
+.evaluationCardMeta span {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+/* Main Content Area */
+.mainContent {
+    flex: 1;
+    height: 100%;
+    overflow-y: auto;
+    background: hsl(var(--background));
+}
+
+.mainContentInner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.emptyMainState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    color: hsl(var(--muted-foreground));
+}
+
+.emptyMainIcon {
+    width: 100px;
+    height: 100px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.2), hsl(var(--primary) / 0.15));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    color: hsl(var(--primary));
+    box-shadow: 0 8px 32px hsl(var(--foreground) / 0.08);
+}
+
+.emptyMainTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    margin-bottom: 0.5rem;
+}
+
+.emptyMainText {
+    font-size: 0.95rem;
+}
+
+/* Evaluation Detail Header */
+.detailHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid hsl(var(--border));
+}
+
+.detailHeaderLeft {
+    flex: 1;
+}
+
+.detailTitle {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: hsl(var(--foreground));
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.03em;
+}
+
+.detailMeta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: hsl(var(--muted-foreground));
+}
+
+.detailMetaItem {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.75rem;
+    background: hsl(var(--accent) / 0.5);
+    border-radius: 6px;
+}
+
+.detailHeaderActions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Student Roster */
+.studentRosterSection {
+    padding: 1.25rem;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 16px;
+    margin-bottom: 1.75rem;
+}
+
+.studentRosterHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.studentRosterTitle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+}
+
+.studentRosterMeta {
+    font-size: 0.85rem;
+    color: hsl(var(--muted-foreground));
+}
+
+.studentRosterTable {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.studentRosterRowHeader {
+    display: grid;
+    grid-template-columns: 64px 64px 1fr;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: hsl(var(--accent) / 0.6);
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: hsl(var(--muted-foreground));
+}
+
+.studentRosterRow {
+    display: grid;
+    grid-template-columns: 64px 64px 1fr;
+    gap: 0.5rem;
+    padding: 0.6rem 0.75rem;
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: hsl(var(--foreground));
+}
+
+.studentRosterEmpty {
+    padding: 1.25rem;
+    border: 1px dashed hsl(var(--border));
+    border-radius: 10px;
+    color: hsl(var(--muted-foreground));
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Section Tabs */
+.sectionTabs {
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: 2rem;
+    padding: 0.375rem;
+    background: hsl(var(--tab-bg));
+    backdrop-filter: blur(12px);
+    border-radius: 14px;
+    border: 1px solid hsl(var(--tab-border));
+}
+
+.sectionTab {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: transparent;
+    border: none;
+    border-radius: 10px;
+    color: hsl(var(--tab-text));
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sectionTab:hover {
+    color: hsl(var(--foreground));
+    background: hsl(var(--tab-hover-bg));
+}
+
+.sectionTab.active {
+    background: hsl(var(--tab-active-bg));
+    color: hsl(var(--tab-active-text));
+    box-shadow: 0 4px 12px hsl(var(--primary) / 0.25);
+}
+
+.sectionTabBadge {
+    font-size: 0.7rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 10px;
+    background: hsl(255 100% 100% / 0.2);
+}
+
+/* Memo Section */
+.memoSection {
+    margin-top: 2rem;
+}
+
+.memoTextarea {
+    width: 100%;
+    min-height: 200px;
+    padding: 1.5rem;
+    border: 1px solid hsl(var(--border));
+    border-radius: 16px;
+    background: hsl(var(--surface));
+    color: hsl(var(--foreground));
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+    line-height: 1.8;
+    transition: all 0.2s;
+}
+
+.memoTextarea:focus {
+    outline: none;
+    background: hsl(var(--surface-hover));
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 4px hsl(var(--primary) / 0.1);
+}
+
+.memoTextarea::placeholder {
+    color: hsl(var(--muted-foreground));
+}
+
+/* Grading Results Section */
+.gradingResultsSection {
+    margin-bottom: 1.5rem;
+}
+
+.gradingSummary {
+    padding: 0.75rem 1rem;
+    background: hsl(var(--primary) / 0.1);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: hsl(var(--primary));
+    margin-bottom: 1rem;
+}
+
+.studentResultsList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.studentResultCard {
+    padding: 1rem 1.25rem;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 10px;
+}
+
+.studentResultHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.studentResultName {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+}
+
+.achievementBadge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.levelHigh {
+    background: hsl(142 76% 36% / 0.15);
+    color: hsl(142 76% 36%);
+}
+
+.levelMid {
+    background: hsl(38 92% 50% / 0.15);
+    color: hsl(38 92% 40%);
+}
+
+.levelLow {
+    background: hsl(0 84% 60% / 0.15);
+    color: hsl(0 84% 50%);
+}
+
+.studentResultScore {
+    font-size: 0.85rem;
+    color: hsl(var(--muted-foreground));
+    margin-bottom: 0.5rem;
+}
+
+.criteriaScores {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.criteriaScoreItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.75rem;
+    background: hsl(var(--accent));
+    border-radius: 6px;
+    font-size: 0.8rem;
+}
+
+.criteriaName {
+    color: hsl(var(--muted-foreground));
+}
+
+.criteriaScore {
+    font-weight: 600;
+    color: hsl(var(--foreground));
+}
+
+.questionResults {
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+    background: hsl(var(--accent) / 0.35);
+    border-radius: 10px;
+}
+
+.questionResultsHeader {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    margin-bottom: 0.5rem;
+}
+
+.questionResultsList {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.questionResultRow {
+    display: grid;
+    grid-template-columns: 70px 90px 1fr;
+    gap: 0.5rem;
+    align-items: start;
+    padding: 0.5rem 0.75rem;
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    border-radius: 8px;
+    font-size: 0.82rem;
+}
+
+.questionResultNumber {
+    font-weight: 600;
+    color: hsl(var(--foreground));
+}
+
+.questionResultScore {
+    font-weight: 600;
+    color: hsl(var(--primary));
+}
+
+.questionResultFeedback {
+    color: hsl(var(--muted-foreground));
+    line-height: 1.4;
+}
+
+.questionResultsEmpty {
+    padding: 0.6rem 0.75rem;
+    border: 1px dashed hsl(var(--border));
+    border-radius: 8px;
+    font-size: 0.82rem;
+    color: hsl(var(--muted-foreground));
+    margin-bottom: 0.75rem;
+}
+
+.overallFeedbackSection {
+    margin-top: 0.5rem;
+}
+
+.overallFeedbackLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    margin-bottom: 0.5rem;
+}
+
+.overallFeedbackTextarea {
+    width: 100%;
+    min-height: 96px;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid hsl(var(--border));
+    border-radius: 10px;
+    background: hsl(var(--surface));
+    color: hsl(var(--foreground));
+    font-size: 0.88rem;
+    font-family: inherit;
+    resize: vertical;
+}
+
+.overallFeedbackTextarea:focus {
+    outline: none;
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.15);
+}
+
+.overallFeedbackHint {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.75rem;
+    color: hsl(var(--muted-foreground));
+}
+
+.noResultsMessage {
+    text-align: center;
+    padding: 2rem;
+    color: hsl(var(--muted-foreground));
+}
+
+/* Attached Files Section */
+.attachedFilesSection {
+    margin-bottom: 2rem;
+}
+
+.sectionTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.fileGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.fileCard {
+    padding: 1rem;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.fileIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: hsl(var(--primary) / 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: hsl(var(--primary));
+    flex-shrink: 0;
+}
+
+.fileInfo {
+    flex: 1;
+    min-width: 0;
+}
+
+.fileName {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: hsl(var(--foreground));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.fileDate {
+    font-size: 0.75rem;
+    color: hsl(var(--muted-foreground));
+}
+
+.fileActions {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.fileActionBtn {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    color: hsl(var(--muted-foreground));
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.fileActionBtn:hover {
+    background: hsl(var(--accent));
+    color: hsl(var(--foreground));
+}
+
+.fileActionBtn.delete:hover {
+    background: hsl(var(--destructive) / 0.1);
+    color: hsl(var(--destructive));
+}
+
+.uploadFileBtn {
+    width: 100%;
+    padding: 1rem;
+    border: 2px dashed hsl(var(--border));
+    border-radius: 10px;
+    background: hsl(var(--card));
+    color: hsl(var(--muted-foreground));
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.uploadFileBtn:hover {
+    border-color: hsl(var(--primary));
+    color: hsl(var(--primary));
+    background: hsl(var(--primary) / 0.05);
+}
+
+/* OCR Results Section */
+.ocrResultsSection {
+    margin-bottom: 2rem;
+}
+
+.ocrResultsList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ocrResultCard {
+    padding: 1.25rem;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 12px;
+}
+
+.ocrResultHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid hsl(var(--border));
+}
+
+.ocrResultStudent {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+}
+
+.ocrResultDate {
+    font-size: 0.75rem;
+    color: hsl(var(--muted-foreground));
+}
+
+.ocrResultContent {
+    font-size: 0.9rem;
+    color: hsl(var(--foreground));
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+/* Create/Edit Modal */
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 2rem;
+}
+
+.modalContent {
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: hsl(var(--modal-bg));
+    border: 1px solid hsl(var(--modal-border));
+    border-radius: 20px;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.2);
+}
+
+.modalHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid hsl(var(--border));
+}
+
+.modalTitle {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: hsl(var(--foreground));
+    letter-spacing: -0.01em;
+}
+
+.modalCloseBtn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    color: hsl(var(--muted-foreground));
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.modalCloseBtn:hover {
+    background: hsl(var(--accent));
+    color: hsl(var(--foreground));
+}
+
+.modalBody {
+    padding: 1.5rem;
+}
+
+.formGroup {
+    margin-bottom: 1.25rem;
+}
+
+.formLabel {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    margin-bottom: 0.5rem;
+}
+
+.formInput,
+.formSelect {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid hsl(var(--border));
+    border-radius: 8px;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-size: 0.9rem;
+    font-family: inherit;
+}
+
+.formInput:focus,
+.formSelect:focus {
+    outline: none;
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1);
+}
+
+.formRow {
+    display: flex;
+    gap: 1rem;
+}
+
+.formRow .formGroup {
+    flex: 1;
+}
+
+.modalFooter {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding: 1.25rem 1.5rem;
+    border-top: 1px solid hsl(var(--border));
+}
+
+.modalBtn {
+    padding: 0.625rem 1.25rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.modalBtnSecondary {
+    background: hsl(var(--accent));
+    border: 1px solid hsl(var(--border));
+    color: hsl(var(--foreground));
+}
+
+.modalBtnSecondary:hover {
+    background: hsl(var(--accent) / 0.8);
+}
+
+.modalBtnPrimary {
+    background: linear-gradient(135deg, #a78bfa, #818cf8);
+    border: none;
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(167, 139, 250, 0.2);
+}
+
+.modalBtnPrimary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(167, 139, 250, 0.3);
+}
+
+.modalBtnDanger {
+    background: hsl(var(--destructive));
+    border: none;
+    color: white;
+}
+
+.modalBtnDanger:hover {
+    background: hsl(var(--destructive) / 0.9);
+}
+
+/* Empty evaluation list */
+.emptyList {
+    padding: 2rem;
+    text-align: center;
+    color: hsl(var(--muted-foreground));
+}
+
+.emptyListIcon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: hsl(var(--accent) / 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+/* Original page style updated */
+.page {
+    padding: 1rem 2rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Top Navigation */
+.topNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid hsl(var(--border));
+}
+
+.backLink {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: hsl(var(--muted-foreground));
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.backLink:hover {
+    color: hsl(var(--foreground));
+}
+
+.logoSmall {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: hsl(var(--foreground));
+}
+
+.logoIconSmall {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #8b5cf6, #6366f1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header {
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.titleIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #8b5cf6, #6366f1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.subtitle {
+    color: hsl(var(--muted-foreground));
+    font-size: 0.95rem;
+}
+
+/* ========== Evaluation Settings Section ========== */
+.evaluationSection {
+    margin-bottom: 1.5rem;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.evaluationToggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: hsl(var(--foreground));
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: background 0.15s;
+}
+
+.evaluationToggle:hover {
+    background: hsl(var(--accent) / 0.3);
+}
+
+.evaluationToggleLeft {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+}
+
+.evaluationBadge {
+    background: linear-gradient(135deg, hsl(var(--primary)), #a855f7);
+    color: white;
+    font-size: 0.65rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.evaluationContent {
+    padding: 0 1.25rem 1.25rem;
+    overflow: hidden;
+}
+
+.evaluationHint {
+    font-size: 0.8rem;
+    color: hsl(var(--muted-foreground));
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    background: hsl(var(--accent) / 0.3);
+    border-radius: 8px;
+    border-left: 3px solid hsl(var(--primary));
+}
+
+.evaluationField {
+    margin-bottom: 1rem;
+}
+
+.evaluationField label {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    margin-bottom: 0.375rem;
+}
+
+.evaluationField input,
+.evaluationField textarea,
+.evaluationField select {
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    border: 1px solid hsl(var(--border));
+    border-radius: 8px;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-size: 0.875rem;
+    font-family: inherit;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.evaluationField input:focus,
+.evaluationField textarea:focus,
+.evaluationField select:focus {
+    outline: none;
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1);
+}
+
+.evaluationField input::placeholder,
+.evaluationField textarea::placeholder {
+    color: hsl(var(--muted-foreground));
+}
+
+.evaluationField textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.evaluationLevels {
+    margin-top: 0.5rem;
+}
+
+.evaluationLevels>label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    margin-bottom: 0.5rem;
+}
+
+.levelInputs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.levelInput {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.levelBadge {
+    min-width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.levelHigh {
+    background: rgba(34, 197, 94, 0.15);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.levelMid {
+    background: rgba(234, 179, 8, 0.15);
+    color: #fde047;
+    border: 1px solid rgba(234, 179, 8, 0.3);
+}
+
+.levelLow {
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.levelCustom {
+    background: hsl(var(--primary) / 0.15);
+    color: hsl(var(--primary));
+}
+
+.levelInput input {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid hsl(var(--border));
+    border-radius: 8px;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-size: 0.8rem;
+    font-family: inherit;
+}
+
+.levelInput input:focus {
+    outline: none;
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 2px hsl(var(--primary) / 0.1);
+}
+
+.levelInput input::placeholder {
+    color: hsl(var(--muted-foreground));
+}
+
+/* ========== New Evaluation Form Styles ========== */
+.evaluationBlock {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: hsl(var(--background));
+    border: 1px solid hsl(var(--border));
+    border-radius: 12px;
+}
+
+.evaluationBlockHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid hsl(var(--border));
+}
+
+.evaluationBlockHeader h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    margin: 0;
+}
+
+/* Standard Card (성취기준 카드) */
+.standardCard,
+.criteriaCard {
+    margin-bottom: 1.25rem;
+    padding: 1.25rem;
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    border-radius: 14px;
+    transition: box-shadow 0.2s;
+}
+
+.standardCard:hover,
+.criteriaCard:hover {
+    box-shadow: 0 4px 12px hsl(var(--foreground) / 0.08);
+}
+
+.standardCardHeader,
+.criteriaCardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+}
+
+.standardCardActions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: hsl(var(--primary));
+    cursor: pointer;
+}
+
+.checkboxLabel input[type="checkbox"] {
+    accent-color: hsl(var(--primary));
+}
+
+.deleteBtn {
+    background: transparent;
+    border: none;
+    font-size: 0.8rem;
+    color: hsl(var(--muted-foreground));
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: all 0.15s;
+}
+
+.deleteBtn:hover {
+    background: hsl(var(--destructive) / 0.1);
+    color: hsl(var(--destructive));
+}
+
+.standardInput {
+    margin-bottom: 0.75rem;
+}
+
+.standardInput input {
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    border: 1px solid hsl(var(--border));
+    border-radius: 8px;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-size: 0.85rem;
+    font-family: inherit;
+}
+
+.standardInput input:focus {
+    outline: none;
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 2px hsl(var(--primary) / 0.1);
+}
+
+/* Levels Table */
+.levelsTable {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.levelRow {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.levelRow .levelBadge {
+    min-width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.levelRow input {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid hsl(var(--border));
+    border-radius: 6px;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-size: 0.8rem;
+    font-family: inherit;
+}
+
+.levelRow input:focus {
+    outline: none;
+    border-color: hsl(var(--primary));
+}
+
+.levelRow input::placeholder {
+    color: hsl(var(--muted-foreground));
+}
+
+/* Level Actions */
+.levelActions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.addLevelBtn,
+.removeLevelBtn {
+    background: transparent;
+    border: none;
+    font-size: 0.8rem;
+    color: hsl(var(--primary));
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: all 0.15s;
+}
+
+.addLevelBtn:hover {
+    background: hsl(var(--primary) / 0.1);
+}
+
+.removeLevelBtn {
+    color: hsl(var(--muted-foreground));
+}
+
+.removeLevelBtn:hover:not(:disabled) {
+    background: hsl(var(--destructive) / 0.1);
+    color: hsl(var(--destructive));
+}
+
+.removeLevelBtn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.addStandardBtn,
+.addCriteriaBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    background: hsl(var(--primary) / 0.05);
+    border: 1px dashed hsl(var(--primary) / 0.4);
+    border-radius: 10px;
+    color: hsl(var(--primary));
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.addStandardBtn:hover,
+.addCriteriaBtn:hover {
+    background: hsl(var(--primary) / 0.1);
+    border-color: hsl(var(--primary));
+    transform: translateY(-1px);
+}
+
+/* Scoring Mode Toggle */
+.scoringModeToggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.scoringModeToggle label {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.8rem;
+    color: hsl(var(--muted-foreground));
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: all 0.15s;
+}
+
+.scoringModeToggle label.active {
+    color: hsl(var(--primary));
+    background: hsl(var(--primary) / 0.1);
+}
+
+.scoringModeToggle input[type="radio"] {
+    accent-color: hsl(var(--primary));
+}
+
+/* Criteria Table */
+.criteriaTable {
+    display: flex;
+    gap: 0.75rem;
+    border: 1px solid hsl(var(--border));
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.criteriaElement {
+    flex: 0 0 180px;
+    padding: 0.75rem;
+    background: hsl(var(--accent) / 0.3);
+    border-right: 1px solid hsl(var(--border));
+    display: flex;
+    align-items: center;
+}
+
+.criteriaElement input {
+    width: 100%;
+    padding: 0.5rem 0.625rem;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    background: transparent;
+    color: hsl(var(--foreground));
+    font-size: 0.8rem;
+    font-family: inherit;
+}
+
+.criteriaElement input:focus {
+    outline: none;
+    background: hsl(var(--background));
+    border-color: hsl(var(--primary));
+}
+
+.criteriaLevels {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.criteriaLevelRow {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid hsl(var(--border));
+}
+
+.criteriaLevelRow:last-child {
+    border-bottom: none;
+}
+
+.scoreBadge {
+    min-width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: hsl(var(--primary) / 0.1);
+    color: hsl(var(--primary));
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.scoreInput {
+    width: 48px !important;
+    min-width: 48px !important;
+    flex: 0 0 48px !important;
+    height: 28px;
+    text-align: center;
+    padding: 0.25rem !important;
+    background: hsl(var(--primary) / 0.1) !important;
+    border: 1px solid hsl(var(--primary) / 0.3) !important;
+    border-radius: 6px !important;
+    color: hsl(var(--primary)) !important;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.scoreInput:focus {
+    outline: none;
+    border-color: hsl(var(--primary)) !important;
+    background: hsl(var(--background)) !important;
+}
+
+/* Hide number input arrows */
+.scoreInput::-webkit-outer-spin-button,
+.scoreInput::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.scoreInput[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.criteriaLevelRow input {
+    flex: 1;
+    padding: 0.375rem 0.625rem;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    background: transparent;
+    color: hsl(var(--foreground));
+    font-size: 0.8rem;
+    font-family: inherit;
+}
+
+.criteriaLevelRow input:focus {
+    outline: none;
+    background: hsl(var(--background));
+    border-color: hsl(var(--primary));
+}
+
+.criteriaLevelRow input::placeholder {
+    color: hsl(var(--muted-foreground));
+}
+
+/* ========== Top Action Section (최상단 버튼 그룹) ========== */
+.topActionSection {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.05), hsl(280 70% 50% / 0.05));
+    border: 1px solid hsl(var(--primary) / 0.2);
+    border-radius: 12px;
+}
+
+.topActionSection .rubricUploadSection,
+.topActionSection .aiReviewSection {
+    flex: 1;
+    margin-bottom: 0;
+    padding: 1rem;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 10px;
+}
+
+.topActionSection .rubricUploadSection {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.topActionSection .aiReviewSection {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    border: none;
+    padding: 1rem;
+}
+
+/* ========== Rubric Upload Section ========== */
+.rubricUploadSection {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: hsl(var(--accent) / 0.2);
+    border: 1px dashed hsl(var(--border));
+    border-radius: 8px;
+}
+
+.rubricUploadBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.rubricUploadBtn:hover:not(:disabled) {
+    background: hsl(var(--primary) / 0.9);
+}
+
+.rubricUploadBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.rubricUploadHint {
+    font-size: 0.75rem;
+    color: hsl(var(--muted-foreground));
+}
+
+.spinning {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ========== AI Review Section ========== */
+.aiReviewSection {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: hsl(var(--accent) / 0.15);
+    border: 1px solid hsl(var(--primary) / 0.2);
+    border-radius: 10px;
+}
+
+.aiReviewBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(280 70% 50%));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px hsl(var(--primary) / 0.25);
+}
+
+.aiReviewBtn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px hsl(var(--primary) / 0.35);
+}
+
+.aiReviewBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.aiReviewHint {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: hsl(var(--muted-foreground));
+}
+
+/* Review Result Card */
+.reviewResultCard {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 10px;
+}
+
+.reviewResultHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.reviewScore {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: hsl(var(--primary));
+    padding: 0.25rem 0.75rem;
+    background: hsl(var(--primary) / 0.1);
+    border-radius: 20px;
+}
+
+.closeReviewBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    color: hsl(var(--muted-foreground));
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.closeReviewBtn:hover {
+    background: hsl(var(--accent));
+    color: hsl(var(--foreground));
+}
+
+.reviewSummary {
+    font-size: 0.85rem;
+    color: hsl(var(--foreground));
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+
+.reviewIssues h4 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    margin-bottom: 0.5rem;
+}
+
+.reviewIssue {
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+    background: hsl(var(--background));
+    border-left: 3px solid hsl(var(--muted-foreground));
+    border-radius: 0 6px 6px 0;
+}
+
+.reviewIssue.severityHigh {
+    border-left-color: hsl(0 80% 50%);
+    background: hsl(0 80% 50% / 0.05);
+}
+
+.reviewIssue.severityMedium {
+    border-left-color: hsl(40 80% 50%);
+    background: hsl(40 80% 50% / 0.05);
+}
+
+.reviewIssue.severityLow {
+    border-left-color: hsl(200 80% 50%);
+    background: hsl(200 80% 50% / 0.05);
+}
+
+.issueMeta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.issueType,
+.issueSeverity,
+.issueLocation {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.125rem 0.5rem;
+    border-radius: 4px;
+    background: hsl(var(--accent));
+}
+
+.issueType {
+    background: hsl(var(--primary) / 0.15);
+    color: hsl(var(--primary));
+}
+
+.issueProblem {
+    font-size: 0.8rem;
+    color: hsl(var(--foreground));
+    margin-bottom: 0.375rem;
+}
+
+.issueSuggestion {
+    font-size: 0.8rem;
+    color: hsl(var(--primary));
+    font-weight: 500;
+}
+
+/* Upload Section */
+.uploadSection {
+    margin-bottom: 2rem;
+}
+
+.dropzone {
+    border: 2px dashed hsl(var(--border));
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    text-align: center;
+    background: hsl(var(--card));
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.dropzone:hover {
+    border-color: hsl(var(--primary));
+    background: hsl(var(--primary) / 0.05);
+}
+
+.dropzoneActive {
+    border-color: hsl(var(--primary));
+    background: hsl(var(--primary) / 0.1);
+    transform: scale(1.01);
+}
+
+.dropzoneIcon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.2), hsl(var(--primary) / 0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    color: hsl(var(--primary));
+}
+
+.dropzoneText {
+    font-size: 1.1rem;
+    color: hsl(var(--foreground));
+    margin-bottom: 0.5rem;
+}
+
+.dropzoneSubtext {
+    font-size: 0.85rem;
+    color: hsl(var(--muted-foreground));
+}
+
+/* Preview Section */
+.previewSection {
+    margin-bottom: 2rem;
+    background: hsl(var(--card));
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid hsl(var(--border));
+}
+
+.previewHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.previewTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.previewImageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: hsl(var(--muted) / 0.3);
+    border-radius: 12px;
+    padding: 1rem;
+    min-height: 200px;
+    max-height: 400px;
+    overflow: hidden;
+}
+
+.previewImage {
+    max-width: 100%;
+    max-height: 380px;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+.actionButtons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Results Section */
+.resultsSection {
+    background: hsl(var(--card));
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid hsl(var(--border));
+}
+
+.resultsHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid hsl(var(--border));
+}
+
+.resultsTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.resultCard {
+    background: hsl(var(--muted) / 0.3);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.resultCard:last-child {
+    margin-bottom: 0;
+}
+
+.resultCardTitle {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: hsl(var(--primary));
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.resultCardContent {
+    font-size: 0.95rem;
+    color: hsl(var(--foreground));
+    line-height: 1.7;
+    white-space: pre-wrap;
+}
+
+.drawingItem {
+    background: hsl(var(--background));
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.drawingItem:last-child {
+    margin-bottom: 0;
+}
+
+.drawingLocation {
+    font-size: 0.8rem;
+    color: hsl(var(--muted-foreground));
+    margin-top: 0.25rem;
+}
+
+/* Loading State */
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+}
+
+.loadingSpinner {
+    width: 48px;
+    height: 48px;
+    border: 3px solid hsl(var(--muted));
+    border-top-color: hsl(var(--primary));
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loadingText {
+    margin-top: 1rem;
+    color: hsl(var(--muted-foreground));
+    font-size: 0.95rem;
+}
+
+/* Empty State */
+.emptyState {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: hsl(var(--muted-foreground));
+}
+
+.emptyIcon {
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .page {
+        padding: 1rem;
+    }
+
+    .dropzone {
+        padding: 2rem 1rem;
+    }
+
+    .actionButtons {
+        flex-direction: column;
+    }
+}
+
+/* Copy Button Success */
+.copySuccess {
+    color: #10b981 !important;
+}
+
+/* Save Button Success */
+.saveSuccess {
+    background: #10b981 !important;
+    border-color: #10b981 !important;
+}
+
+/* Results Actions */
+.resultsActions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Feature badges */
+.featureBadges {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    border-radius: 100px;
+    background: hsl(var(--primary) / 0.1);
+    color: hsl(var(--primary));
+}
+
+/* ========== Model Answer Section ========== */
+.modelAnswerSection {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    border-radius: 16px;
+    box-shadow: 0 4px 24px -6px hsl(var(--foreground) / 0.08);
+}
+
+.modelAnswerTitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.modelAnswerSetTabs {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.modelAnswerSetTab {
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.modelAnswerSetTab:hover {
+    border-color: hsl(var(--primary) / 0.6);
+    color: hsl(var(--primary));
+}
+
+.modelAnswerSetTabActive {
+    background: hsl(var(--primary) / 0.12);
+    border-color: hsl(var(--primary));
+    color: hsl(var(--primary));
+}
+
+/* Question Card */
+.modelAnswerItem {
+    background: hsl(var(--background));
+    border: 1px solid hsl(var(--border));
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modelAnswerItem:hover {
+    border-color: hsl(var(--primary) / 0.5);
+    box-shadow: 0 4px 12px hsl(var(--foreground) / 0.05);
+}
+
+/* Question Accordion Header */
+.modelAnswerQuestion {
+    position: relative;
+    padding: 1rem 1.25rem;
+    padding-left: 1.5rem;
+    background: hsl(var(--surface-hover));
+    border-bottom: 1px solid hsl(var(--border));
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: hsl(var(--foreground));
+    cursor: pointer;
+    transition: background 0.2s;
+    /* Fix for text truncation */
+    white-space: normal;
+    word-break: break-word;
+    height: auto;
+}
+
+.modelAnswerQuestion::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: hsl(var(--primary));
+    border-radius: 0 2px 2px 0;
+}
+
+.modelAnswerQuestion:hover {
+    background: hsl(var(--surface-hover));
+}
+
+.questionHeaderRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.questionHeaderLeft {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-width: 0;
+    flex: 1;
+}
+
+.questionNumberBadge {
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    background: hsl(var(--primary) / 0.12);
+    color: hsl(var(--primary));
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    flex-shrink: 0;
+}
+
+.questionPreview {
+    flex: 1;
+    min-width: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.questionScoreBadge {
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
+    background: hsl(var(--accent));
+    color: hsl(var(--foreground));
+    font-size: 0.75rem;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.subSectionHeaderTitle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.answerTabs {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    padding: 0.25rem;
+    background: hsl(var(--accent) / 0.4);
+    border: 1px solid hsl(var(--border));
+    border-radius: 999px;
+}
+
+.answerTab {
+    border: none;
+    background: transparent;
+    color: hsl(var(--muted-foreground));
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.answerTab:hover {
+    background: hsl(var(--primary) / 0.08);
+    color: hsl(var(--foreground));
+}
+
+.answerTabActive {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    box-shadow: 0 4px 10px hsl(var(--primary) / 0.3);
+}
+
+.answerTabAdd {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: 1px dashed hsl(var(--border));
+    background: transparent;
+    color: hsl(var(--muted-foreground));
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.answerTabAdd:hover {
+    border-color: hsl(var(--primary));
+    color: hsl(var(--primary));
+    background: hsl(var(--primary) / 0.1);
+}
+
+/* Internal Sections (Content Blocks) */
+.subSection {
+    margin-bottom: 1.5rem;
+    background: hsl(var(--background));
+    border: 1px solid hsl(var(--border));
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.subSectionHeader {
+    padding: 0.75rem 1rem;
+    background: hsl(var(--muted) / 0.3);
+    border-bottom: 1px solid hsl(var(--border));
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.subSectionContent {
+    padding: 1rem;
+}
+
+.modelAnswerContent {
+    background: hsl(var(--background));
+}
+
+.autoHeightTextarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 1.25rem;
+    background: transparent;
+    border: none;
+    color: hsl(var(--foreground));
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-family: inherit;
+    resize: none;
+}
+
+.autoHeightTextarea:focus {
+    outline: none;
+    background: hsl(var(--card) / 0.3);
+}
+
+.autoHeightTextarea::placeholder {
+    color: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Rubric Points */
+.modelAnswerRubric {
+    padding: 1.25rem;
+    background: hsl(var(--accent) / 0.1);
+    border-top: 1px solid hsl(var(--border));
+}
+
+.modelAnswerRubric strong {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    color: hsl(var(--foreground));
+}
+
+.rubricList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.rubricBadgeList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.rubricBadge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    background: hsl(var(--primary) / 0.1);
+    border: 1px solid hsl(var(--primary) / 0.2);
+    color: hsl(var(--primary));
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.rubricPointInput {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: hsl(var(--background));
+    border: 1px solid hsl(var(--border));
+    border-radius: 8px;
+    color: hsl(var(--foreground));
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.rubricPointInput:focus {
+    outline: none;
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1);
+}
+
+/* Guidelines Section */
+.guidelineSection {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed hsl(var(--border));
+}
+
+.editGuidelineBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: hsl(var(--primary));
+    background: hsl(var(--primary) / 0.1);
+    border: 1px solid hsl(var(--primary) / 0.2);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.editGuidelineBtn:hover {
+    background: hsl(var(--primary) / 0.15);
+}
+
+/* Guidelines Table */
+.guidelineTable {
+    border: 1px solid hsl(var(--border));
+    border-radius: 8px;
+    overflow: hidden;
+    background: hsl(var(--background));
+}
+
+.guidelineHeaderRow {
+    display: flex;
+    background: hsl(var(--muted) / 0.5);
+    border-bottom: 1px solid hsl(var(--border));
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: hsl(var(--muted-foreground));
+}
+
+.guidelineHeaderCell {
+    padding: 0.75rem 1rem;
+}
+
+.guidelineHeaderCell:first-child {
+    width: 80px;
+    text-align: center;
+    border-right: 1px solid hsl(var(--border));
+}
+
+.guidelineRow {
+    display: flex;
+    border-bottom: 1px solid hsl(var(--border));
+}
+
+.guidelineRow:last-child {
+    border-bottom: none;
+}
+
+.guidelineScoreCol {
+    width: 80px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1rem 0.5rem;
+    background: hsl(var(--card));
+    border-right: 1px solid hsl(var(--border));
+    flex-shrink: 0;
+}
+
+.guidelineScoreBadge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 32px;
+    padding: 0 0.5rem;
+    background: hsl(var(--primary) / 0.1);
+    color: hsl(var(--primary));
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 8px;
+}
+
+.guidelineContentCol {
+    flex: 1;
+    padding: 1rem;
+}
+
+.guidelineDescription {
+    color: hsl(var(--foreground));
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.guidelineExample {
+    margin-top: 0.75rem;
+    padding: 0.875rem 1rem;
+    background: hsl(var(--surface-hover));
+    border-radius: 8px;
+    border-left: 3px solid hsl(var(--primary) / 0.5);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.guidelineExampleLabel {
+    color: hsl(var(--primary));
+    font-weight: 700;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.guidelineExampleText {
+    color: hsl(var(--foreground));
+}
+
+/* ========== Batch Grading Section ========== */
+.batchGradingSection {
+    margin-bottom: 2rem;
+}
+
+.batchSettings {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 10px;
+}
+
+.settingLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: hsl(var(--foreground));
+}
+
+.settingInput {
+    width: 80px;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid hsl(var(--border));
+    border-radius: 6px;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.settingInput:focus {
+    outline: none;
+    border-color: hsl(var(--primary));
+}
+
+.batchContent {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.batchControls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid hsl(var(--border));
+}
+
+.batchProgress {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: hsl(var(--card));
+    border-radius: 10px;
+}
+
+.progressBar {
+    flex: 1;
+    height: 8px;
+    background: hsl(var(--muted) / 0.3);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    background: linear-gradient(90deg, hsl(var(--primary)), #a855f7);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+/* ========== Preliminary Grading Section ========== */
+.preliminarySection {
+    margin-bottom: 2rem;
+}
+
+.preliminaryProgress {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.progressLabel {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: hsl(var(--muted-foreground));
+}
+
+.progressCount {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+}
+
+.progressSuccess {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: hsl(142 76% 36%);
+    padding: 0.25rem 0.75rem;
+    background: hsl(142 76% 36% / 0.1);
+    border-radius: 12px;
+}
+
+.preliminaryStudentList {
+    margin-bottom: 1.5rem;
+}
+
+.studentGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.75rem;
+}
+
+.prelimStudentBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: hsl(var(--foreground));
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.prelimStudentBtn:hover:not(:disabled) {
+    border-color: hsl(var(--primary));
+    background: hsl(var(--primary) / 0.05);
+}
+
+.prelimStudentBtn:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.prelimStudentBtn.graded {
+    background: hsl(142 76% 36% / 0.1);
+    border-color: hsl(142 76% 36% / 0.3);
+    color: hsl(142 76% 36%);
+}
+
+.preliminaryResults {
+    margin-bottom: 1.5rem;
+}
+
+.prelimResultCard {
+    padding: 0.875rem 1rem;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.prelimResultHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.375rem;
+}
+
+.prelimResultScore {
+    font-size: 0.85rem;
+    color: hsl(var(--muted-foreground));
+}
+
+.noPdfMessage {
+    text-align: center;
+    padding: 2rem;
+    background: hsl(var(--card));
+    border: 1px dashed hsl(var(--border));
+    border-radius: 10px;
+    color: hsl(var(--muted-foreground));
+}
+
+/* ========== Teacher Feedback Section ========== */
+.teacherFeedbackSection {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 12px;
+}
+
+.feedbackTitle {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.feedbackHint {
+    font-size: 0.85rem;
+    color: hsl(var(--muted-foreground));
+    margin-bottom: 1rem;
+}
+
+.feedbackItems {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.feedbackItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: hsl(var(--primary) / 0.1);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: hsl(var(--foreground));
+}
+
+.feedbackItem button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    color: hsl(var(--muted-foreground));
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.feedbackItem button:hover {
+    background: hsl(var(--destructive) / 0.2);
+    color: hsl(var(--destructive));
+}
+
+.addFeedbackRow {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.feedbackInput {
+    flex: 1;
+    padding: 0.625rem 0.875rem;
+    border: 1px solid hsl(var(--border));
+    border-radius: 8px;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-size: 0.85rem;
+}
+
+.feedbackInput:focus {
+    outline: none;
+    border-color: hsl(var(--primary));
+}
+
+/* ========== System Prompt Section ========== */
+.systemPromptSection {
+    padding: 1.25rem;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.systemPromptTitle {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.375rem;
+}
+
+.systemPromptHint {
+    font-size: 0.8rem;
+    color: hsl(var(--muted-foreground));
+    margin-bottom: 0.75rem;
+}
+
+.systemPromptTextarea {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 1px solid hsl(var(--border));
+    border-radius: 8px;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-size: 0.85rem;
+    font-family: inherit;
+    line-height: 1.5;
+    resize: vertical;
+}
+
+.systemPromptTextarea:focus {
+    outline: none;
+    border-color: hsl(var(--primary));
+}
+
+.systemPromptTextarea::placeholder {
+    color: hsl(var(--muted-foreground));
+}
+
+/* ========== Ambiguous Items Display ========== */
+.ambiguousSection {
+    margin-top: 0.75rem;
+    padding: 0.875rem;
+    background: hsl(38 92% 50% / 0.1);
+    border: 1px solid hsl(38 92% 50% / 0.3);
+    border-radius: 8px;
+}
+
+.ambiguousHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: hsl(38 70% 35%);
+    margin-bottom: 0.5rem;
+}
+
+.ambiguousItems {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+}
+
+.ambiguousItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.375rem 0.625rem;
+    background: hsl(var(--card));
+    border-radius: 6px;
+    font-size: 0.8rem;
+    cursor: help;
+}
+
+.ambiguousCriteria {
+    color: hsl(var(--foreground));
+    font-weight: 500;
+}
+
+.ambiguousConfidence {
+    color: hsl(var(--muted-foreground));
+    font-size: 0.75rem;
+}

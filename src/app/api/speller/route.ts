@@ -18,10 +18,11 @@ import { NextRequest, NextResponse } from 'next/server';
 import * as hanspell from 'hanspell';
 
 // 맞춤법 검사 결과 인터페이스
+// hanspell은 suggestions를 단일 문자열(|로 구분) 또는 배열로 반환할 수 있음
 interface SpellCheckResult {
     type: string;      // 오류 유형 (맞춤법, 띄어쓰기 등)
     token: string;     // 오류가 있는 원본 단어
-    suggestions: string[]; // 수정 제안 목록
+    suggestions: string | string[]; // 수정 제안 (문자열 또는 배열)
     context: string;   // 오류가 발생한 문맥
     info: string;      // 오류에 대한 설명
 }
@@ -70,9 +71,14 @@ function spellCheckAsync(text: string, service: 'daum' | 'pnu' = 'daum'): Promis
         const results: SpellCheckResult[] = [];
         const timeout = 15000; // 15초 (타임아웃을 10초에서 15초로 증가)
 
-        // 결과가 하나씩 도착할 때마다 호출되는 콜백
-        const callback = (result: SpellCheckResult) => {
-            results.push(result);
+        // 결과가 도착할 때마다 호출되는 콜백
+        // hanspell은 단일 객체 또는 배열을 전달할 수 있음
+        const callback = (result: SpellCheckResult | SpellCheckResult[]) => {
+            if (Array.isArray(result)) {
+                results.push(...result);
+            } else {
+                results.push(result);
+            }
         };
 
         // 모든 검사가 완료되었을 때 호출되는 콜백
@@ -109,12 +115,12 @@ function spellCheckAsync(text: string, service: 'daum' | 'pnu' = 'daum'): Promis
  * @returns 맞춤법 검사 결과
  */
 async function spellCheckWithRetry(
-    text: string, 
+    text: string,
     service: 'daum' | 'pnu' = 'daum',
     maxRetries: number = 2
 ): Promise<{ results: SpellCheckResult[], usedService: string }> {
     let lastError: Error | null = null;
-    
+
     // 1단계: 요청한 서비스로 시도 (재시도 포함)
     for (let attempt = 0; attempt <= maxRetries; attempt++) {
         try {
@@ -124,20 +130,20 @@ async function spellCheckWithRetry(
                 await new Promise(resolve => setTimeout(resolve, delay));
                 console.log(`[Speller] ${service.toUpperCase()} 재시도 ${attempt}/${maxRetries}`);
             }
-            
+
             const results = await spellCheckAsync(text, service);
             return { results, usedService: service };
         } catch (error) {
             lastError = error as Error;
-            console.warn(`[Speller] ${service.toUpperCase()} 시도 ${attempt + 1} 실패:`, 
+            console.warn(`[Speller] ${service.toUpperCase()} 시도 ${attempt + 1} 실패:`,
                 (error as Error).message || error);
         }
     }
-    
+
     // 2단계: 대체 서비스로 시도 (원래 서비스가 완전히 실패한 경우)
     const fallbackService = service === 'daum' ? 'pnu' : 'daum';
     console.log(`[Speller] ${fallbackService.toUpperCase()} 대체 서비스로 전환 시도`);
-    
+
     try {
         const results = await spellCheckAsync(text, fallbackService);
         console.log(`[Speller] ${fallbackService.toUpperCase()} 대체 서비스 성공`);
@@ -206,31 +212,55 @@ export async function POST(request: NextRequest) {
         // 재시도 로직이 포함된 맞춤법 검사 실행
         console.log('[Speller] 검사 시작, 텍스트 길이:', text.length, '서비스:', service);
         const { results: rawResults, usedService } = await spellCheckWithRetry(
-            text, 
+            text,
             service as 'daum' | 'pnu'
         );
         console.log('[Speller] 검사 완료, 원본 결과 수:', rawResults.length, '사용 서비스:', usedService);
-        
+
         // 원본 결과 상세 로그
         if (rawResults.length > 0) {
             console.log('[Speller] 원본 결과:', JSON.stringify(rawResults, null, 2));
         }
 
-        // hanspell이 이중 배열을 반환할 수 있으므로 평탄화(flatten)
-        // 예: [[{token: "..."}]] -> [{token: "..."}]
-        const flatResults = rawResults.flat() as SpellCheckResult[];
-        console.log('[Speller] 평탄화된 결과 수:', flatResults.length);
-
         // 결과를 클라이언트 형식으로 변환
-        const suggestions = flatResults.map((r, i) => ({
-            id: `spell-${i}`,
-            token: r.token,
-            suggestions: r.suggestions,
-            type: r.type || 'spelling',
-            description: r.info || '',
-            context: r.context || ''
-        }));
-        
+        // hanspell의 suggestions 필드 처리:
+        // - 문자열인 경우: 교정된 결과 (예: "안녕하세요")
+        // - 배열인 경우: 여러 제안 목록
+        const suggestions = rawResults.map((r, i) => {
+            // suggestions 필드 정규화
+            let suggestionList: string[];
+
+            if (typeof r.suggestions === 'string') {
+                // 문자열인 경우 - 하나의 제안 또는 '|'로 구분된 여러 제안
+                suggestionList = r.suggestions.split('|').map(s => s.trim()).filter(s => s);
+            } else if (Array.isArray(r.suggestions)) {
+                suggestionList = r.suggestions;
+            } else {
+                suggestionList = [];
+            }
+
+            // 원본과 동일한 제안 제거
+            suggestionList = suggestionList.filter(s => s !== r.token);
+
+            // 제안이 없으면 description에서 힌트 찾기
+            if (suggestionList.length === 0 && r.info) {
+                // info에서 교정 제안 추출 시도 (예: "'안녕하세요'로 고쳐야 합니다")
+                const match = r.info.match(/'([^']+)'/);
+                if (match && match[1] !== r.token) {
+                    suggestionList = [match[1]];
+                }
+            }
+
+            return {
+                id: `spell-${i}`,
+                token: r.token,
+                suggestions: suggestionList,
+                type: r.type || 'spelling',
+                description: r.info || '',
+                context: r.context || ''
+            };
+        }).filter(s => s.suggestions.length > 0); // 제안이 없는 항목은 제거
+
         console.log('[Speller] 변환된 suggestions:', JSON.stringify(suggestions, null, 2));
 
         // 대체 서비스 사용 시 알림 메시지 포함

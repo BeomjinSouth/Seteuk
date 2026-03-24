@@ -1,6 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getRecords, saveRecord } from '@/lib/sheets';
 
+/**
+ * Retrieves all student records (drafts/completed).
+ * 
+ * @returns {NextResponse} JSON response containing:
+ *   - success: boolean
+ *   - records: Array of Record objects
+ */
 export async function GET() {
     try {
         const records = await getRecords();
@@ -14,10 +21,23 @@ export async function GET() {
     }
 }
 
+/**
+ * Saves or updates a student record.
+ * 
+ * @param {NextRequest} request - JSON body containing:
+ *   - studentId: string
+ *   - classId: string
+ *   - content: string
+ *   - status: 'draft' | 'completed'
+ *   - id?: string
+ * 
+ * @returns {NextResponse} JSON response containing:
+ *   - success: boolean
+ */
 export async function POST(request: NextRequest) {
     try {
         const body = await request.json();
-        const { id, studentId, classId, content, status } = body;
+        const { id, studentId, classId, teacherKey, content, status } = body;
 
         if (!studentId || !classId) {
             return NextResponse.json(
@@ -30,6 +50,7 @@ export async function POST(request: NextRequest) {
             id: id || `r-${Date.now()}`,
             studentId,
             classId,
+            teacherKey,
             content: content || '',
             status: status || 'draft',
             lastUpdated: new Date().toISOString(),

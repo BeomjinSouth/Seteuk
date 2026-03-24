@@ -6,12 +6,13 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { useAppStore } from '@/lib/store';
-import { Sparkles, Brain, ArrowRight, GraduationCap } from 'lucide-react';
+import { Sparkles, ArrowRight, GraduationCap, FlaskConical } from 'lucide-react';
 import styles from './page.module.css';
 
 export default function LoginPage() {
   const router = useRouter();
   const login = useAppStore((state) => state.login);
+  const seedDemoWorkspace = useAppStore((state) => state.seedDemoWorkspace);
   const [name, setName] = useState('');
   const [subject, setSubject] = useState('');
   const [school, setSchool] = useState('');
@@ -26,6 +27,15 @@ export default function LoginPage() {
 
     login(name, subject, school);
     router.push('/dashboard');
+  };
+
+  const handleDemoStart = async () => {
+    setIsLoading(true);
+    await new Promise(r => setTimeout(r, 300));
+
+    login('박범진', '생명과학I', '성호중학교');
+    seedDemoWorkspace();
+    router.push('/students');
   };
 
   return (
@@ -105,6 +115,16 @@ export default function LoginPage() {
             style={{ height: '48px', fontSize: '1rem' }}
           >
             작업공간 시작하기 <ArrowRight size={18} />
+          </Button>
+          <Button
+            type="button"
+            variant="secondary"
+            className="w-full"
+            onClick={handleDemoStart}
+            disabled={isLoading}
+            style={{ height: '48px', fontSize: '0.95rem' }}
+          >
+            <FlaskConical size={18} /> 데모 체험 바로 시작
           </Button>
         </form>
 

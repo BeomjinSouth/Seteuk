@@ -15,7 +15,20 @@ import {
 import { Button } from '@/components/ui/Button';
 import * as XLSX from 'xlsx';
 import styles from './page.module.css';
+import ClassSelectionTabs from '@/components/ClassSelectionTabs';
 
+/**
+ * Export Page Component
+ * 
+ * @description
+ * Handles exporting student records to Excel and clipboard copying.
+ * 
+ * Features:
+ * - Export statistics (Confirmed/Total)
+ * - Excel download by class or entire batch
+ * - Option to include draft records
+ * - Copy-to-clipboard view for easy NEIS entry
+ */
 export default function ExportPage() {
     const { classes, students, records, teacher } = useAppStore();
 
@@ -26,29 +39,41 @@ export default function ExportPage() {
 
     // Get unique grade-class combinations from students
     const gradeClassTabs = useMemo(() => {
-        const gradeClassSet = new Set<string>();
+        const gradeClassMap = new Map<string, number>();
+
         students
             .filter(s => !teacher?.school || s.school === teacher.school)
             .forEach(s => {
                 const grade = s.grade || 0;
                 const classNum = s.classNumber || 0;
                 if (grade > 0 && classNum > 0) {
-                    gradeClassSet.add(`${grade}-${classNum}`);
+                    const key = `${grade}-${classNum}`;
+                    gradeClassMap.set(key, (gradeClassMap.get(key) || 0) + 1);
                 }
             });
 
-        return Array.from(gradeClassSet).sort((a, b) => {
-            const [gradeA, classA] = a.split('-').map(Number);
-            const [gradeB, classB] = b.split('-').map(Number);
-            if (gradeA !== gradeB) return gradeA - gradeB;
-            return classA - classB;
-        });
+        return Array.from(gradeClassMap.entries())
+            .sort((a, b) => {
+                const [gradeA, classA] = a[0].split('-').map(Number);
+                const [gradeB, classB] = b[0].split('-').map(Number);
+                if (gradeA !== gradeB) return gradeA - gradeB;
+                return classA - classB;
+            })
+            .map(([key, count]) => {
+                const [grade, classNum] = key.split('-');
+                return {
+                    value: key,
+                    label: `${grade}-${classNum}반`,
+                    count
+                };
+            });
     }, [students, teacher]);
 
     // Filter records for export
     const exportableRecords = useMemo(() => {
         return records.filter(r => {
             const student = students.find(s => s.id === r.studentId);
+            const matchTeacher = !teacher?.teacherKey || !r.teacherKey || r.teacherKey === teacher.teacherKey;
 
             // Filter by school
             const matchSchool = !teacher?.school || student?.school === teacher.school;
@@ -61,7 +86,7 @@ export default function ExportPage() {
             }
 
             const matchStatus = includeUnconfirmed || r.status === 'confirmed';
-            return matchSchool && matchGradeClass && matchStatus;
+            return matchTeacher && matchSchool && matchGradeClass && matchStatus;
         }).sort((a, b) => {
             const studentA = students.find(s => s.id === a.studentId);
             const studentB = students.find(s => s.id === b.studentId);
@@ -88,12 +113,13 @@ export default function ExportPage() {
 
         const data = recordsToExport.map(record => {
             const { student, cls } = getStudentInfo(record.studentId);
+            const recordClass = classes.find(c => c.id === record.classId);
             return {
                 '학년': student?.grade || cls?.grade || '',
                 '반': student?.classNumber || cls?.classNumber || '',
                 '번호': student?.number || '',
                 '이름': student?.name || '',
-                '과목': cls?.subjectName || '',
+                '과목': recordClass?.subjectName || cls?.subjectName || '',
                 '세특 내용': record.content,
                 '상태': record.status === 'confirmed' ? '확정' : '초안',
                 '마지막 수정': new Date(record.lastUpdated).toLocaleDateString('ko-KR')
@@ -120,12 +146,13 @@ export default function ExportPage() {
             // Export all as single file
             const data = exportableRecords.map(record => {
                 const { student, cls } = getStudentInfo(record.studentId);
+                const recordClass = classes.find(c => c.id === record.classId);
                 return {
                     '학년': student?.grade || cls?.grade || '',
                     '반': student?.classNumber || cls?.classNumber || '',
                     '번호': student?.number || '',
                     '이름': student?.name || '',
-                    '과목': cls?.subjectName || '',
+                    '과목': recordClass?.subjectName || cls?.subjectName || '',
                     '세특 내용': record.content,
                     '상태': record.status === 'confirmed' ? '확정' : '초안',
                     '마지막 수정': new Date(record.lastUpdated).toLocaleDateString('ko-KR')
@@ -152,15 +179,17 @@ export default function ExportPage() {
     const handleDownloadAll = async () => {
         setIsDownloadingAll(true);
 
-        for (const gc of gradeClassTabs) {
+        for (const gcTab of gradeClassTabs) {
+            const gc = gcTab.value;
             const [targetGrade, targetClass] = gc.split('-').map(Number);
 
             const classRecords = records.filter(r => {
                 const student = students.find(s => s.id === r.studentId);
+                const matchTeacher = !teacher?.teacherKey || !r.teacherKey || r.teacherKey === teacher.teacherKey;
                 const matchSchool = !teacher?.school || student?.school === teacher.school;
                 const matchGradeClass = student?.grade === targetGrade && student?.classNumber === targetClass;
                 const matchStatus = includeUnconfirmed || r.status === 'confirmed';
-                return matchSchool && matchGradeClass && matchStatus;
+                return matchTeacher && matchSchool && matchGradeClass && matchStatus;
             }).sort((a, b) => {
                 const studentA = students.find(s => s.id === a.studentId);
                 const studentB = students.find(s => s.id === b.studentId);
@@ -169,6 +198,7 @@ export default function ExportPage() {
 
             if (classRecords.length > 0) {
                 exportClassToExcel(gc, classRecords);
+
                 // Small delay between downloads
                 await new Promise(resolve => setTimeout(resolve, 500));
             }
@@ -188,11 +218,14 @@ export default function ExportPage() {
     // Stats
     const confirmedCount = records.filter(r => {
         const student = students.find(s => s.id === r.studentId);
-        return r.status === 'confirmed' && (!teacher?.school || student?.school === teacher.school);
+        return r.status === 'confirmed'
+            && (!teacher?.teacherKey || !r.teacherKey || r.teacherKey === teacher.teacherKey)
+            && (!teacher?.school || student?.school === teacher.school);
     }).length;
     const totalCount = records.filter(r => {
         const student = students.find(s => s.id === r.studentId);
-        return !teacher?.school || student?.school === teacher.school;
+        return (!teacher?.teacherKey || !r.teacherKey || r.teacherKey === teacher.teacherKey)
+            && (!teacher?.school || student?.school === teacher.school);
     }).length;
 
     return (
@@ -227,26 +260,12 @@ export default function ExportPage() {
                 <h2><FileSpreadsheet size={20} /> 엑셀 내보내기</h2>
 
                 {/* Grade-Class Selection */}
-                <div className={styles.gradeClassTabs}>
-                    <button
-                        className={`${styles.gradeClassTab} ${selectedGradeClass === 'all' ? styles.activeGradeClass : ''}`}
-                        onClick={() => setSelectedGradeClass('all')}
-                    >
-                        전체
-                    </button>
-                    {gradeClassTabs.map(gc => {
-                        const [grade, classNum] = gc.split('-').map(Number);
-                        return (
-                            <button
-                                key={gc}
-                                className={`${styles.gradeClassTab} ${selectedGradeClass === gc ? styles.activeGradeClass : ''}`}
-                                onClick={() => setSelectedGradeClass(gc)}
-                            >
-                                {grade}-{classNum}
-                            </button>
-                        );
-                    })}
-                </div>
+                <ClassSelectionTabs
+                    selectedClass={selectedGradeClass}
+                    onSelectClass={setSelectedGradeClass}
+                    tabs={gradeClassTabs}
+                    totalCount={totalCount}
+                />
 
                 <div className={styles.options}>
                     <label className={styles.checkbox}>

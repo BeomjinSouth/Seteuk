@@ -1,6 +1,8 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { ClassGroup, Student, SubjectRecord, TeacherProfile } from '@/types';
+import { ClassGroup, Student, SubjectRecord, SubjectRecordHistorySource, TeacherProfile } from '@/types';
+import { buildTeacherKey } from '@/lib/teacher-context';
+import { createDemoWorkspaceSeed } from '@/lib/demo-workspace';
 
 // Admin configuration
 export const ADMIN_CONFIG = {
@@ -9,9 +11,17 @@ export const ADMIN_CONFIG = {
 };
 
 // Check if current teacher is admin
+/**
+ * Checks if the current teacher has admin privileges.
+ * 
+ * @param {TeacherProfile | null} teacher - The teacher profile to check.
+ * @returns {boolean} True if the teacher matches the admin configuration.
+ */
 export function isAdmin(teacher: TeacherProfile | null): boolean {
     if (!teacher) return false;
-    return teacher.name === ADMIN_CONFIG.name && teacher.school === ADMIN_CONFIG.school;
+    // Allow '성호중' as an alias for '성호중학교'
+    const isSchoolMatch = teacher.school === ADMIN_CONFIG.school || teacher.school === '성호중';
+    return teacher.name === ADMIN_CONFIG.name && isSchoolMatch;
 }
 
 // Notification types
@@ -60,19 +70,26 @@ interface AppState {
     // Forbidden words (shared across all teachers, editable only by admin)
     forbiddenWords: string[];
 
+    // Keywords for highlighting in review page
+    keywords: string[];
+
     // Actions
     login: (name: string, subject: string, school: string) => void;
     logout: () => void;
+    seedDemoWorkspace: () => string | null;
 
     addClass: (cls: ClassGroup) => void;
+    upsertClass: (cls: ClassGroup) => void;
     updateClass: (id: string, data: Partial<ClassGroup>) => void;
 
     setStudents: (classId: string, students: Student[]) => void;
+    upsertRosterStudents: (students: Student[]) => void;
     addStudent: (student: Student) => void;
     updateStudent: (id: string, data: Partial<Student>) => void;
-    updateStudentLearningData: (studentId: string, data: Record<string, string>) => void;
+    removeStudent: (id: string) => void;
+    updateStudentLearningData: (studentId: string, data: Record<string, string>, classId?: string) => void;
 
-    updateRecord: (record: SubjectRecord) => void;
+    updateRecord: (record: SubjectRecord, source?: SubjectRecordHistorySource) => void;
     getRecord: (studentId: string) => SubjectRecord | undefined;
 
     setExampleTemplate: (template: string) => void;
@@ -90,6 +107,11 @@ interface AppState {
     setForbiddenWords: (words: string[]) => void;
     addForbiddenWord: (word: string) => void;
     removeForbiddenWord: (word: string) => void;
+
+    // Keywords actions
+    setKeywords: (keywords: string[]) => void;
+    addKeyword: (keyword: string) => void;
+    removeKeyword: (keyword: string) => void;
 }
 
 // Default example template for few-shot learning
@@ -105,6 +127,16 @@ const DEFAULT_EXAMPLE_TEMPLATE = `[예시 세특]
 // Default forbidden words
 const DEFAULT_FORBIDDEN_WORDS = ['최고', '가장', '천재', '완벽', '1등', '꼴찌', '못함'];
 
+/**
+ * Main application state store using Zustand.
+ * Persists state to localStorage.
+ * 
+ * Manages:
+ * - Authentication (Teacher profile)
+ * - Data (Classes, Students, Records)
+ * - Settings (AI Templates, Forbidden Words, Keywords)
+ * - Admin features (Notifications)
+ */
 export const useAppStore = create<AppState>()(
     persist(
         (set, get) => ({
@@ -116,16 +148,79 @@ export const useAppStore = create<AppState>()(
             curriculumContents: [],
             adminNotifications: [],
             forbiddenWords: DEFAULT_FORBIDDEN_WORDS,
+            keywords: ['탐구', '협력', '분석', '창의', '문제해결', '의사소통', '비판적 사고'],
 
-            login: (name, subject, school) => set({
-                teacher: { id: `t-${Date.now()}`, name, subject, school }
+            login: (name, subject, school) => set(() => {
+                const teacherKey = buildTeacherKey({ name, subject, school });
+                return {
+                    teacher: { id: teacherKey, teacherKey, name, subject, school }
+                };
             }),
 
             logout: () => set({ teacher: null }),
 
+            seedDemoWorkspace: () => {
+                const teacher = get().teacher;
+                if (!teacher) return null;
+
+                const seed = createDemoWorkspaceSeed(teacher);
+                set((state) => {
+                    const nextClasses = [...state.classes];
+                    seed.classes.forEach((cls) => {
+                        const existingIndex = nextClasses.findIndex((item) => item.id === cls.id);
+                        if (existingIndex >= 0) {
+                            nextClasses[existingIndex] = { ...nextClasses[existingIndex], ...cls };
+                            return;
+                        }
+                        nextClasses.push(cls);
+                    });
+
+                    const nextStudents = [...state.students];
+                    seed.students.forEach((student) => {
+                        const existingIndex = nextStudents.findIndex((item) => item.id === student.id);
+                        if (existingIndex >= 0) {
+                            nextStudents[existingIndex] = {
+                                ...nextStudents[existingIndex],
+                                ...student,
+                                classLearningData: {
+                                    ...(nextStudents[existingIndex].classLearningData || {}),
+                                    ...(student.classLearningData || {}),
+                                },
+                            };
+                            return;
+                        }
+                        nextStudents.push(student);
+                    });
+
+                    return {
+                        classes: nextClasses,
+                        students: nextStudents,
+                    };
+                });
+
+                return seed.defaultClassId;
+            },
+
             addClass: (cls) => set((state) => ({
                 classes: [...state.classes, cls]
             })),
+
+            upsertClass: (cls) => set((state) => {
+                const existingIndex = state.classes.findIndex((item) => item.id === cls.id);
+                if (existingIndex < 0) {
+                    return {
+                        classes: [...state.classes, cls]
+                    };
+                }
+
+                const nextClasses = [...state.classes];
+                nextClasses[existingIndex] = {
+                    ...nextClasses[existingIndex],
+                    ...cls,
+                };
+
+                return { classes: nextClasses };
+            }),
 
             updateClass: (id, data) => set((state) => ({
                 classes: state.classes.map(c => c.id === id ? { ...c, ...data } : c)
@@ -146,6 +241,33 @@ export const useAppStore = create<AppState>()(
                 };
             }),
 
+            upsertRosterStudents: (newStudents) => set((state) => {
+                const nextStudents = [...state.students];
+                const indexMap = new Map(nextStudents.map((student, index) => [student.id, index]));
+
+                newStudents.forEach((student) => {
+                    const existingIndex = indexMap.get(student.id);
+                    if (existingIndex === undefined) {
+                        indexMap.set(student.id, nextStudents.length);
+                        nextStudents.push(student);
+                        return;
+                    }
+
+                    const existing = nextStudents[existingIndex];
+                    nextStudents[existingIndex] = {
+                        ...existing,
+                        ...student,
+                        learningData: existing.learningData ?? student.learningData ?? {},
+                        classLearningData: {
+                            ...(existing.classLearningData || {}),
+                            ...(student.classLearningData || {}),
+                        },
+                    };
+                });
+
+                return { students: nextStudents };
+            }),
+
             addStudent: (student) => set((state) => ({
                 students: [...state.students, student]
             })),
@@ -154,19 +276,69 @@ export const useAppStore = create<AppState>()(
                 students: state.students.map(s => s.id === id ? { ...s, ...data } : s)
             })),
 
-            updateStudentLearningData: (studentId, data) => set((state) => ({
-                students: state.students.map(s =>
-                    s.id === studentId
-                        ? { ...s, learningData: { ...s.learningData, ...data } }
-                        : s
-                )
+            removeStudent: (id) => set((state) => {
+                const student = state.students.find(s => s.id === id);
+                if (!student) return {};
+
+                return {
+                    students: state.students.filter(s => s.id !== id),
+                    classes: state.classes.map(c =>
+                        c.id === student.classId
+                            ? { ...c, studentCount: Math.max(0, (c.studentCount || 0) - 1) }
+                            : c
+                    ),
+                    records: state.records.filter(r => r.studentId !== id),
+                };
+            }),
+
+            updateStudentLearningData: (studentId, data, classId) => set((state) => ({
+                students: state.students.map((student) => {
+                    if (student.id !== studentId) return student;
+
+                    if (!classId) {
+                        return {
+                            ...student,
+                            learningData: { ...student.learningData, ...data }
+                        };
+                    }
+
+                    return {
+                        ...student,
+                        classLearningData: {
+                            ...(student.classLearningData || {}),
+                            [classId]: {
+                                ...(student.classLearningData?.[classId] || {}),
+                                ...data,
+                            },
+                        },
+                    };
+                })
             })),
 
-            updateRecord: (record) => set((state) => {
+            updateRecord: (record, source: SubjectRecordHistorySource = 'manual') => set((state) => {
                 const existingIdx = state.records.findIndex(r => r.id === record.id);
                 if (existingIdx >= 0) {
+                    const existingRecord = state.records[existingIdx];
+
+                    // If content changed, save previous to history
+                    let updatedRecord = { ...record };
+                    if (existingRecord.content && existingRecord.content !== record.content) {
+                        const historyEntry = {
+                            content: existingRecord.content,
+                            timestamp: existingRecord.lastUpdated || new Date().toISOString(),
+                            source
+                        };
+
+                        // Keep max 10 versions
+                        const history = [...(existingRecord.history || []), historyEntry].slice(-10);
+                        updatedRecord = { ...record, history };
+                    } else if (existingRecord.history) {
+                        // Preserve existing history
+                        updatedRecord = { ...record, history: existingRecord.history };
+                    }
+
                     const newRecords = [...state.records];
-                    newRecords[existingIdx] = record;
+                    newRecords[existingIdx] = updatedRecord;
                     return { records: newRecords };
                 }
                 return { records: [...state.records, record] };
@@ -242,6 +414,17 @@ export const useAppStore = create<AppState>()(
             removeForbiddenWord: (word) => set((state) => ({
                 forbiddenWords: state.forbiddenWords.filter(w => w !== word)
             })),
+
+            // Keywords
+            setKeywords: (keywords) => set({ keywords }),
+
+            addKeyword: (keyword) => set((state) => ({
+                keywords: [...new Set([...state.keywords, keyword])]
+            })),
+
+            removeKeyword: (keyword) => set((state) => ({
+                keywords: state.keywords.filter(k => k !== keyword)
+            })),
         }),
         {
             name: 'seteuk-storage', // localStorage key
@@ -254,6 +437,7 @@ export const useAppStore = create<AppState>()(
                 curriculumContents: state.curriculumContents,
                 adminNotifications: state.adminNotifications,
                 forbiddenWords: state.forbiddenWords,
+                keywords: state.keywords,
             }),
         }
     )

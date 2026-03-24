@@ -40,17 +40,21 @@
 
 - `src/app/counsel-chat/page.tsx`
 - `src/app/record-review/page.tsx`
+- `src/app/write/page.tsx`
 - `src/app/search-inspector/page.tsx`
 - raw match list shown in the pages
 - local vs hosted search comparison available
 - query-string prefill supported
 - main navigation connected
+- `/api/record-review` can optionally return `improvedDraft` for the write-tab review-improve action
 
 ## Response Policy
 
 - If there is no public evidence, do not fabricate an answer
 - counsel responses must include citations
 - review responses must include issues, risk level, and rewrite guidance
+- improved drafts must stay inside the original facts plus public evidence
+- record review first tries category-filtered matches and falls back to school-level public evidence when the category slice is empty
 
 ## Quality Loop
 

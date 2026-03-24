@@ -1,743 +1,755 @@
 'use client';
 
-import { useState, useMemo, Suspense } from 'react';
+import { Suspense, useCallback, useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { useAppStore } from '@/lib/store';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-    Sparkles,
-    Search,
-    CheckSquare,
-    Square,
-    Loader2,
-    AlertCircle,
-    SpellCheck,
-    ShieldAlert,
-    Trash2
-} from 'lucide-react';
+import { Loader2, Settings } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { SpellCheckModal, SpellError } from '@/components/SpellCheckModal';
-import { SubjectRecord } from '@/types';
+import { ForbiddenCheckModal } from '@/components/ForbiddenCheckModal';
+import { SimilarityModal, SimilarityResult } from '@/components/SimilarityModal';
+import { getContentHash } from '@/components/KeywordHighlighter';
+import { useAppStore } from '@/lib/store';
+import { SubjectRecord, CompetencySegment } from '@/types';
+import { generateDraft, performSpellCheck, checkForbiddenWords, reviewAndImproveRecord } from '@/lib/write-logic';
+import { applyCheckResultToRecord } from '@/lib/check-utils';
+import { getRecordByStudentSemester } from '@/lib/record-utils';
+import { DEFAULT_CONCURRENCY_LIMIT, mapWithConcurrency } from '@/lib/concurrency';
+import { getLearningDataForClass, getStudentsInTeachingClass, getTeacherClasses } from '@/lib/teacher-context';
+import { WriteTableRow } from './components/WriteTableRow';
+import { WriteToolbar } from './components/WriteToolbar';
 import styles from './page.module.css';
 
-// Get stored settings
-function getAISettings() {
-    if (typeof window === 'undefined') return { systemPrompt: '', model: 'gpt-5.2', temperature: 0.7 };
-
-    return {
-        systemPrompt: localStorage.getItem('ai_system_prompt') || '',
-        model: localStorage.getItem('ai_model') || 'gpt-5.2',
-        temperature: parseFloat(localStorage.getItem('ai_temperature') || '0.7'),
-    };
-}
-
-// Loading fallback component
 function WritePageLoading() {
     return (
         <div className={styles.page}>
             <div className={styles.emptyState}>
                 <Loader2 size={48} className={styles.spinning} />
-                <h3>로딩 중...</h3>
+                <h3>불러오는 중...</h3>
             </div>
         </div>
     );
 }
 
-// AI generation using GPT-5.2 API with settings
-async function generateDraft(
-    studentName: string,
-    subjectName: string,
-    learningData: Record<string, string>,
-    exampleTemplate: string,
-    curriculumContent?: string  // What students learn in this grade/semester
-): Promise<string> {
-    const settings = getAISettings();
-
-    try {
-        const response = await fetch('/api/generate', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                studentName,
-                subjectName,
-                learningData,
-                exampleTemplates: exampleTemplate ? [exampleTemplate] : [],
-                curriculumContent,  // Include grade/semester curriculum
-                model: settings.model,
-                systemPrompt: settings.systemPrompt,
-                temperature: settings.temperature,
-            }),
-        });
-
-        if (response.ok) {
-            const data = await response.json();
-            return data.content;
-        }
-    } catch (error) {
-        console.error('API call failed, using fallback:', error);
-    }
-
-    // Fallback for development or API failure
-    await new Promise(r => setTimeout(r, 1500 + Math.random() * 1000));
-
-    // Build content from learning data
-    const dataEntries = Object.entries(learningData)
-        .filter(([_, v]) => v && v.trim())
-        .map(([k, v]) => v)
-        .join(' ');
-
-    const baseContent = dataEntries || '수업에 성실하게 참여함';
-
-    return `${studentName} 학생은 ${baseContent}. 특히 탐구 활동에서 적극적으로 참여하여 ${subjectName || '해당 과목'} 현상에 대한 깊은 이해를 보여주었습니다. 실험 과정에서 정확한 관찰력과 논리적인 분석 능력을 발휘하였고, 조별 활동에서는 동료들과 협력하여 문제를 해결하는 협동심을 보였습니다.`;
-}
-
-// Spell check using speller.town API
-async function performSpellCheck(text: string): Promise<SpellError[]> {
-    console.log('[Speller API] 요청 시작, 텍스트 길이:', text.length);
-
-    try {
-        const response = await fetch('/api/speller', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ text }),
-        });
-
-        console.log('[Speller API] 응답 상태:', response.status);
-
-        if (response.ok) {
-            const data = await response.json();
-            console.log('[Speller API] 응답 데이터:', JSON.stringify(data, null, 2));
-
-            // API 에러 메시지가 있으면 표시
-            if (data.error) {
-                console.warn('[Speller API] 서버 에러:', data.error);
-            }
-
-            if (data.suggestions && data.suggestions.length > 0) {
-                console.log('[Speller API] suggestions 원본:', JSON.stringify(data.suggestions, null, 2));
-
-                const errors = data.suggestions
-                    .filter((s: { token?: string; suggestions?: string[] }) => {
-                        const hasToken = s && s.token;
-                        if (!hasToken) {
-                            console.warn('[Speller API] token 없는 항목 필터링됨:', s);
-                        }
-                        return hasToken;
-                    })
-                    .map((s: { id?: string; token: string; suggestions?: string[]; type?: string; position?: { start: number; end: number }; description?: string }, i: number) => ({
-                        id: s.id || `err-${i}`,
-                        original: s.token,
-                        suggestions: s.suggestions || [],
-                        context: text.slice(
-                            Math.max(0, (s.position?.start || text.indexOf(s.token)) - 30),
-                            Math.min(text.length, (s.position?.end || text.indexOf(s.token) + s.token.length) + 30)
-                        ),
-                        position: s.position || {
-                            start: text.indexOf(s.token),
-                            end: text.indexOf(s.token) + s.token.length
-                        },
-                        type: (s.type || 'spelling') as SpellError['type']
-                    }));
-                console.log('[Speller API] 변환된 오류:', errors.length, '개');
-                return errors;
-            } else {
-                console.log('[Speller API] suggestions가 비어있음');
-            }
-        } else {
-            console.error('[Speller API] 응답 실패:', response.status, response.statusText);
-        }
-    } catch (error) {
-        console.error('[Speller API] 요청 실패:', error);
-    }
-
-    return [];
-}
-
-// Forbidden word check
-async function checkForbiddenWords(text: string): Promise<{ word: string; suggestion: string }[]> {
-    try {
-        const response = await fetch('/api/forbidden', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ text }),
-        });
-
-        if (response.ok) {
-            const data = await response.json();
-            return data.issues || [];
-        }
-    } catch (error) {
-        console.error('Forbidden check failed:', error);
-    }
-
-    // Fallback local check
-    const forbidden = ['최고', '가장', '천재', '완벽', '1등'];
-    const found: { word: string; suggestion: string }[] = [];
-
-    for (const word of forbidden) {
-        if (text.includes(word)) {
-            found.push({ word, suggestion: '해당 표현 삭제 권장' });
-        }
-    }
-
-    return found;
+function inferSchoolLevel(schoolName?: string): '초등학교' | '중학교' | '고등학교' {
+    if (schoolName?.includes('초')) return '초등학교';
+    if (schoolName?.includes('중')) return '중학교';
+    return '고등학교';
 }
 
 function WritePageContent() {
     const searchParams = useSearchParams();
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const _classFilter = searchParams.get('classId');  // Kept for URL parameter support
+    const classFilter = searchParams.get('classId');
+    const studentFilter = searchParams.get('studentId');
 
-    const { classes, students, records, updateRecord, updateStudentLearningData, exampleTemplate, teacher, getCurriculumContent } = useAppStore();
+    const {
+        classes,
+        students,
+        records,
+        updateRecord,
+        updateStudentLearningData,
+        exampleTemplate,
+        teacher,
+        forbiddenWords,
+        getCurriculumContent,
+    } = useAppStore();
 
-    const [selectedSemester, setSelectedSemester] = useState<'1' | '2'>('2');  // 학기 선택
-    const [selectedGradeClass, setSelectedGradeClass] = useState<string>('all');  // 학년-반 선택
-    const [searchQuery, setSearchQuery] = useState('');
-    const [selectedStudents, setSelectedStudents] = useState<Set<string>>(new Set());
+    const [selectedSemester, setSelectedSemester] = useState<'1' | '2'>('2');
+    const [selectedGradeClass, setSelectedGradeClass] = useState<string>(classFilter || 'all');
+    const [selectedStudents, setSelectedStudents] = useState<Set<string>>(
+        () => new Set(studentFilter ? [studentFilter] : [])
+    );
     const [generatingIds, setGeneratingIds] = useState<Set<string>>(new Set());
     const [editingCell, setEditingCell] = useState<{ studentId: string; field: 'data' | 'content' } | null>(null);
     const [editValue, setEditValue] = useState('');
 
-    // Spell check modal state
     const [spellCheckTarget, setSpellCheckTarget] = useState<SubjectRecord | null>(null);
     const [spellErrors, setSpellErrors] = useState<SpellError[]>([]);
-    const [isChecking, setIsChecking] = useState(false);
+    const [isChecking] = useState(false);
 
-    // Bulk check states
     const [isBulkChecking, setIsBulkChecking] = useState(false);
-    const [bulkCheckType, setBulkCheckType] = useState<'spell' | 'forbidden' | null>(null);
-    const [forbiddenResults, setForbiddenResults] = useState<Map<string, { word: string; suggestion: string }[]>>(new Map());
+    const [isForbiddenModalOpen, setIsForbiddenModalOpen] = useState(false);
+    const [forbiddenResults, setForbiddenResults] = useState<Map<string, { word: string; suggestion: string; reason: string }[]>>(new Map());
+    const [isCompetencyAnalyzing, setIsCompetencyAnalyzing] = useState(false);
+    const [isCheckingSimilarity, setIsCheckingSimilarity] = useState(false);
+    const [isBulkAdjusting, setIsBulkAdjusting] = useState(false);
+    const [isBulkReviewImproving, setIsBulkReviewImproving] = useState(false);
+    const [similarityResults, setSimilarityResults] = useState<SimilarityResult[]>([]);
+    const [isSimilarityModalOpen, setIsSimilarityModalOpen] = useState(false);
+    const [similaritySuggestions, setSimilaritySuggestions] = useState<Map<string, { similarityAnalysis: string; student1Suggestion: string; student2Suggestion: string }>>(new Map());
 
-    // Get unique grade-class combinations from students, sorted
+    const currentSemester: 1 | 2 = selectedSemester === '1' ? 1 : 2;
+    const currentTeacherClasses = useMemo(
+        () => getTeacherClasses(classes, teacher, selectedSemester),
+        [classes, selectedSemester, teacher]
+    );
+    const validStudents = useMemo(
+        () =>
+            students.filter((student) =>
+                !!student.id?.trim()
+                && !!student.classId?.trim()
+                && !!student.name?.trim()
+                && Number.isFinite(student.number)
+                && student.number > 0
+            ),
+        [students]
+    );
+
+    const getStudentRecord = useCallback(
+        (studentId: string) => getRecordByStudentSemester(records, studentId, currentSemester, teacher?.teacherKey),
+        [currentSemester, records, teacher?.teacherKey]
+    );
+
     const gradeClassTabs = useMemo(() => {
-        const gradeClassSet = new Set<string>();
-        students
-            .filter(s => !teacher?.school || s.school === teacher.school)
-            .forEach(s => {
-                const grade = s.grade || 0;
-                const classNum = s.classNumber || 0;
-                if (grade > 0 && classNum > 0) {
-                    gradeClassSet.add(`${grade}-${classNum}`);
-                }
-            });
+        return currentTeacherClasses.map((cls) => ({
+            value: cls.id,
+            count: getStudentsInTeachingClass(validStudents, cls).length,
+            label: `${cls.grade}-${cls.classNumber}`,
+        }));
+    }, [currentTeacherClasses, validStudents]);
 
-        // Sort by grade first, then by class number
-        return Array.from(gradeClassSet).sort((a, b) => {
-            const [gradeA, classA] = a.split('-').map(Number);
-            const [gradeB, classB] = b.split('-').map(Number);
-            if (gradeA !== gradeB) return gradeA - gradeB;
-            return classA - classB;
-        });
-    }, [students, teacher]);
-
-    // Filter students - only show students from the same school as logged-in teacher
     const filteredStudents = useMemo(() => {
-        return students.filter(s => {
-            const matchSchool = !teacher?.school || s.school === teacher.school;
-            // Filter by grade-class if selected
-            let matchGradeClass = true;
-            if (selectedGradeClass !== 'all') {
-                const [targetGrade, targetClass] = selectedGradeClass.split('-').map(Number);
-                matchGradeClass = s.grade === targetGrade && s.classNumber === targetClass;
-            }
-            const matchSearch = s.name.toLowerCase().includes(searchQuery.toLowerCase());
-            return matchSchool && matchGradeClass && matchSearch;
-        }).sort((a, b) => {
-            // Sort by grade, then class, then student number
-            if ((a.grade || 0) !== (b.grade || 0)) {
-                return (a.grade || 0) - (b.grade || 0);
-            }
-            if ((a.classNumber || 0) !== (b.classNumber || 0)) {
-                return (a.classNumber || 0) - (b.classNumber || 0);
-            }
-            return a.number - b.number;
+        if (!teacher || currentTeacherClasses.length === 0) return [];
+
+        if (selectedGradeClass !== 'all') {
+            const selectedClass = currentTeacherClasses.find((cls) => cls.id === selectedGradeClass);
+            return selectedClass ? getStudentsInTeachingClass(validStudents, selectedClass) : [];
+        }
+
+        const uniqueStudents = new Map<string, typeof validStudents[number]>();
+        currentTeacherClasses.forEach((cls) => {
+            getStudentsInTeachingClass(validStudents, cls).forEach((student) => {
+                uniqueStudents.set(student.id, student);
+            });
         });
-    }, [students, selectedGradeClass, searchQuery, teacher]);
+        return Array.from(uniqueStudents.values()).sort((a, b) => (a.number || 0) - (b.number || 0));
+    }, [currentTeacherClasses, selectedGradeClass, teacher, validStudents]);
+    const totalTeacherStudents = useMemo(() => {
+        const uniqueStudents = new Set<string>();
+        currentTeacherClasses.forEach((cls) => {
+            getStudentsInTeachingClass(validStudents, cls).forEach((student) => {
+                uniqueStudents.add(student.id);
+            });
+        });
+        return uniqueStudents.size;
+    }, [currentTeacherClasses, validStudents]);
 
-    // Toggle student selection
+    const studentNameMap = useMemo(
+        () => new Map(students.map((student) => [student.id, student.name])),
+        [students]
+    );
+
+    const similarityTargetStudents = useMemo(() => {
+        if (selectedStudents.size > 0) {
+            return Array.from(selectedStudents)
+                .map((id) => students.find((student) => student.id === id))
+                .filter((student): student is typeof students[number] => !!student);
+        }
+        return filteredStudents;
+    }, [selectedStudents, students, filteredStudents]);
+
+    const similarityTargetLabel = selectedStudents.size > 0
+        ? `선택 ${similarityTargetStudents.length}명`
+        : `필터 ${similarityTargetStudents.length}명`;
+
+    const getTeachingClassForStudent = useCallback((student: typeof students[number]) => {
+        if (selectedGradeClass !== 'all') {
+            return currentTeacherClasses.find((cls) => cls.id === selectedGradeClass);
+        }
+        return currentTeacherClasses.find((cls) =>
+            cls.school === student.school
+            && cls.grade === student.grade
+            && cls.classNumber === student.classNumber
+        );
+    }, [currentTeacherClasses, selectedGradeClass]);
+
     const toggleStudent = (id: string) => {
-        const newSet = new Set(selectedStudents);
-        if (newSet.has(id)) {
-            newSet.delete(id);
-        } else {
-            newSet.add(id);
-        }
-        setSelectedStudents(newSet);
+        setSelectedStudents((prev) => {
+            const next = new Set(prev);
+            if (next.has(id)) next.delete(id);
+            else next.add(id);
+            return next;
+        });
     };
 
-    // Select all
     const toggleSelectAll = () => {
-        if (selectedStudents.size === filteredStudents.length) {
+        if (selectedStudents.size === filteredStudents.length && filteredStudents.length > 0) {
             setSelectedStudents(new Set());
-        } else {
-            setSelectedStudents(new Set(filteredStudents.map(s => s.id)));
+            return;
         }
+        setSelectedStudents(new Set(filteredStudents.map((student) => student.id)));
     };
 
-    // Generate drafts for selected students
     const handleGenerateDrafts = async () => {
         const toGenerate = Array.from(selectedStudents);
-        setGeneratingIds(new Set(toGenerate));
+        if (toGenerate.length === 0) return;
 
-        for (const studentId of toGenerate) {
-            const student = students.find(s => s.id === studentId);
-            if (!student) continue;
+        setGeneratingIds(new Set(toGenerate));
+        const ocrEvaluationCache = new Map<string, Promise<any[]>>();
+
+        const getOcrEvaluations = (grade: number, semester: 1 | 2) => {
+            const key = `${grade}-${semester}`;
+            const cached = ocrEvaluationCache.get(key);
+            if (cached) return cached;
+
+            const request = (async () => {
+                try {
+                    const response = await fetch(`/api/ocr-evaluations?grade=${grade}&semester=${semester}`);
+                    if (!response.ok) return [];
+                    const data = await response.json();
+                    return data.data || data.evaluations || [];
+                } catch {
+                    return [];
+                }
+            })();
+            ocrEvaluationCache.set(key, request);
+            return request;
+        };
+
+        await mapWithConcurrency(toGenerate, DEFAULT_CONCURRENCY_LIMIT, async (studentId) => {
+            const student = students.find((item) => item.id === studentId);
+            if (!student) return;
 
             try {
-                const cls = classes.find(c => c.id === student.classId);
+                const teachingClass = getTeachingClassForStudent(student);
+                if (!teachingClass) return;
 
-                // Get curriculum content for this student's grade and selected semester
-                const studentGrade = student.grade || cls?.grade || 1;
-                const semester: 1 | 2 = selectedSemester === '1' ? 1 : 2;
-                const curriculumData = getCurriculumContent(studentGrade, semester);
+                const studentGrade = student.grade || teachingClass.grade || 1;
+                const curriculumData = getCurriculumContent(studentGrade, currentSemester);
+                const evaluations = await getOcrEvaluations(studentGrade, currentSemester);
 
-                console.log(`Generating for ${student.name}: grade=${studentGrade}, semester=${semester}, curriculum=${curriculumData?.content?.substring(0, 50)}...`);
+                let ocrEvaluationContext = undefined;
+                for (const evaluation of evaluations) {
+                    const studentResult = evaluation.batchGradingResult?.results?.find(
+                        (result: { studentId: string; studentName: string }) =>
+                            result.studentId === studentId || result.studentName === student.name
+                    );
 
-                const content = await generateDraft(
+                    if (studentResult || evaluation.achievementStandards?.length > 0 || evaluation.scoringCriteria?.length > 0) {
+                        ocrEvaluationContext = {
+                            achievementStandards: evaluation.achievementStandards,
+                            scoringCriteria: evaluation.scoringCriteria,
+                            studentResult: studentResult || undefined,
+                        };
+                        break;
+                    }
+                }
+
+                const result = await generateDraft(
+                    studentId,
                     student.name,
-                    cls?.subjectName || '',
-                    student.learningData,
+                    teachingClass.subjectName || '',
+                    getLearningDataForClass(student, teachingClass.id),
                     exampleTemplate,
-                    curriculumData?.content  // Pass curriculum content for grade/semester
+                    curriculumData?.content,
+                    ocrEvaluationContext,
+                    {
+                        teacherKey: teacher?.teacherKey,
+                        classId: teachingClass.id,
+                    }
                 );
 
-                const newRecord: SubjectRecord = {
-                    id: `r-${studentId}`,
+                updateRecord({
+                    id: `r-${teacher?.teacherKey || 'teacher'}-${teachingClass.id}-${studentId}-${currentSemester}`,
                     studentId,
-                    classId: student.classId,
-                    content,
+                    classId: teachingClass.id,
+                    teacherKey: teacher?.teacherKey,
+                    semester: currentSemester,
+                    content: result.content,
                     status: 'draft',
-                    lastUpdated: new Date().toISOString()
-                };
-
-                updateRecord(newRecord);
+                    lastUpdated: new Date().toISOString(),
+                }, 'ai');
             } catch (error) {
-                console.error('Generation failed for', studentId, error);
+                console.error('Generation failed', studentId, error);
+            } finally {
+                setGeneratingIds((prev) => {
+                    const next = new Set(prev);
+                    next.delete(studentId);
+                    return next;
+                });
             }
-
-            setGeneratingIds(prev => {
-                const newSet = new Set(prev);
-                newSet.delete(studentId);
-                return newSet;
-            });
-        }
+        });
 
         setSelectedStudents(new Set());
     };
 
-    // Bulk spell check for selected students
+    const handleBulkReviewImprove = async () => {
+        const targets = Array.from(selectedStudents)
+            .map((studentId) => {
+                const student = students.find((item) => item.id === studentId);
+                const record = getStudentRecord(studentId);
+                const teachingClass = student ? getTeachingClassForStudent(student) : undefined;
+
+                if (!student || !record?.content?.trim() || !teachingClass) {
+                    return null;
+                }
+
+                return { student, record, teachingClass };
+            })
+            .filter((item): item is NonNullable<typeof item> => item !== null);
+
+        if (targets.length === 0) {
+            alert('점검·개선할 세특 내용이 없습니다.');
+            return;
+        }
+
+        setIsBulkReviewImproving(true);
+
+        let improvedCount = 0;
+        let unchangedCount = 0;
+        let cautionOrReviseCount = 0;
+        let failureCount = 0;
+
+        await mapWithConcurrency(targets, DEFAULT_CONCURRENCY_LIMIT, async ({ student, record, teachingClass }) => {
+            try {
+                const review = await reviewAndImproveRecord({
+                    recordText: record.content,
+                    schoolLevel: inferSchoolLevel(student.school || teacher?.school),
+                    category: '교과학습발달상황',
+                    year: new Date().getFullYear(),
+                    subjectName: teachingClass.subjectName || teacher?.subject,
+                });
+
+                const nextContent = review.improvedDraft?.trim() || record.content;
+                const contentChanged = nextContent !== record.content;
+                if (contentChanged) improvedCount += 1;
+                else unchangedCount += 1;
+
+                if (review.status !== 'pass') {
+                    cautionOrReviseCount += 1;
+                }
+
+                updateRecord({
+                    ...record,
+                    classId: teachingClass.id,
+                    teacherKey: teacher?.teacherKey,
+                    semester: currentSemester,
+                    content: nextContent,
+                    status: review.status === 'pass' && !contentChanged && record.status === 'confirmed'
+                        ? 'confirmed'
+                        : 'checked',
+                    lastUpdated: new Date().toISOString(),
+                }, 'improve');
+            } catch (error) {
+                failureCount += 1;
+                console.error('Review and improve failed', record.studentId, error);
+            }
+        });
+
+        setIsBulkReviewImproving(false);
+        setSelectedStudents(new Set());
+
+        const summaryLines = [
+            `점검·개선 완료: ${targets.length}건`,
+            `개선본 반영: ${improvedCount}건`,
+            `원문 유지: ${unchangedCount}건`,
+        ];
+
+        if (cautionOrReviseCount > 0) {
+            summaryLines.push(`주의 이상 판정: ${cautionOrReviseCount}건`);
+        }
+
+        if (failureCount > 0) {
+            summaryLines.push(`실패: ${failureCount}건`);
+        }
+
+        alert(summaryLines.join('\n'));
+    };
+
     const handleBulkSpellCheck = async () => {
         const toCheck = Array.from(selectedStudents);
         if (toCheck.length === 0) {
-            alert('맞춤법 검사할 학생을 선택해주세요.');
+            alert('Select students for spell check.');
             return;
         }
 
         setIsBulkChecking(true);
-        setBulkCheckType('spell');
 
-        // Check the first student's record that has content
-        for (const studentId of toCheck) {
-            const record = records.find(r => r.studentId === studentId);
-            if (record && record.content) {
-                const errors = await performSpellCheck(record.content);
-                if (errors.length > 0) {
-                    setSpellCheckTarget(record);
-                    setSpellErrors(errors);
-                    break;
+        let firstRecordWithErrors: SubjectRecord | null = null;
+        let firstErrors: SpellError[] = [];
+        let totalErrorCount = 0;
+        let affectedRecordCount = 0;
+
+        await mapWithConcurrency(toCheck, DEFAULT_CONCURRENCY_LIMIT, async (studentId) => {
+            const record = getStudentRecord(studentId);
+            if (!record || !record.content) return;
+            const errors = await performSpellCheck(record.content);
+            const updatedRecord = applyCheckResultToRecord(record, { spellerErrors: errors.length });
+            updateRecord(updatedRecord);
+
+            if (errors.length > 0) {
+                totalErrorCount += errors.length;
+                affectedRecordCount += 1;
+                if (!firstRecordWithErrors) {
+                    firstRecordWithErrors = updatedRecord;
+                    firstErrors = errors;
                 }
             }
-        }
+        });
 
         setIsBulkChecking(false);
-        setBulkCheckType(null);
+
+        if (firstRecordWithErrors) {
+            setSpellCheckTarget(firstRecordWithErrors);
+            setSpellErrors(firstErrors);
+            alert(`Spell check done: ${affectedRecordCount} students, ${totalErrorCount} issues.`);
+        } else {
+            alert('Spell check done: no issues found.');
+        }
     };
 
-    // Bulk forbidden word check
     const handleBulkForbiddenCheck = async () => {
         const toCheck = Array.from(selectedStudents);
         if (toCheck.length === 0) {
-            alert('금지어 검사할 학생을 선택해주세요.');
+            alert('Select students for forbidden-word check.');
             return;
         }
 
         setIsBulkChecking(true);
-        setBulkCheckType('forbidden');
 
-        const results = new Map<string, { word: string; suggestion: string }[]>();
+        const results = new Map<string, { word: string; suggestion: string; reason: string }[]>();
         let foundCount = 0;
 
-        for (const studentId of toCheck) {
-            const record = records.find(r => r.studentId === studentId);
-            if (record && record.content) {
-                const issues = await checkForbiddenWords(record.content);
-                if (issues.length > 0) {
-                    results.set(studentId, issues);
-                    foundCount += issues.length;
-                }
+        await mapWithConcurrency(toCheck, DEFAULT_CONCURRENCY_LIMIT, async (studentId) => {
+            const record = getStudentRecord(studentId);
+            if (!record || !record.content) return;
+            const issues = await checkForbiddenWords(record.content, forbiddenWords);
+            const updatedRecord = applyCheckResultToRecord(record, { forbiddenWords: issues.length });
+            updateRecord(updatedRecord);
+            if (issues.length > 0) {
+                results.set(studentId, issues);
+                foundCount += issues.length;
             }
-        }
+        });
 
         setForbiddenResults(results);
         setIsBulkChecking(false);
-        setBulkCheckType(null);
-
-        if (foundCount === 0) {
-            alert('검사 완료: 금지어가 발견되지 않았습니다.');
-        } else {
-            alert(`검사 완료: ${results.size}명의 세특에서 총 ${foundCount}개의 금지어가 발견되었습니다.`);
-        }
+        if (foundCount > 0) setIsForbiddenModalOpen(true);
+        else alert('Forbidden-word check done: no issues found.');
     };
 
-    // Spell check for a single record
-    const handleSpellCheck = async (record: SubjectRecord) => {
-        console.log('[맞춤법 검사] 시작:', record.content.substring(0, 50) + '...');
-        setIsChecking(true);
-        setSpellCheckTarget(record);
-
-        const errors = await performSpellCheck(record.content);
-        console.log('[맞춤법 검사] 결과:', errors.length, '개 오류 발견', errors);
-        setSpellErrors(errors);
-        setIsChecking(false);
-
-        if (errors.length === 0) {
-            alert('맞춤법 오류가 없습니다!');
-            setSpellCheckTarget(null);
+    const handleDeleteLearningData = () => {
+        const toDelete = Array.from(selectedStudents);
+        if (toDelete.length === 0) {
+            alert('Select students to delete AI input data.');
+            return;
         }
+
+        if (!confirm(`Delete AI input data for ${toDelete.length} students?`)) return;
+
+        toDelete.forEach((studentId) => {
+            const student = students.find((item) => item.id === studentId);
+            if (!student) return;
+            const teachingClass = getTeachingClassForStudent(student);
+            updateStudentLearningData(studentId, { customData: '' }, teachingClass?.id);
+        });
+        setSelectedStudents(new Set());
     };
 
-    // Apply spell check changes
-    const handleApplySpellChanges = (newText: string) => {
-        if (spellCheckTarget) {
-            updateRecord({
-                ...spellCheckTarget,
-                content: newText,
-                lastUpdated: new Date().toISOString()
+    const handleBulkCompetencyAnalysis = async () => {
+        const targets = Array.from(selectedStudents)
+            .map((studentId) => getStudentRecord(studentId))
+            .filter((record): record is SubjectRecord => !!record && !!record.content && record.content.length >= 10);
+
+        if (targets.length === 0) {
+            alert('No record content available for analysis.');
+            return;
+        }
+
+        setIsCompetencyAnalyzing(true);
+        await mapWithConcurrency(targets, DEFAULT_CONCURRENCY_LIMIT, async (record) => {
+            try {
+                const response = await fetch('/api/competency', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text: record.content }),
+                });
+                if (!response.ok) return;
+                const data = await response.json();
+                if (!data.segments || data.segments.length === 0) return;
+
+                updateRecord({
+                    ...record,
+                    competencyAnalysis: {
+                        segments: data.segments as CompetencySegment[],
+                        analyzedAt: new Date().toISOString(),
+                        contentHash: getContentHash(record.content),
+                    },
+                });
+            } catch (error) {
+                console.error('Competency analysis failed', record.studentId, error);
+            }
+        });
+        setIsCompetencyAnalyzing(false);
+    };
+
+    const handleSimilarityCheck = async () => {
+        const targets = similarityTargetStudents
+            .map((student) => {
+                const record = getStudentRecord(student.id);
+                if (!record?.content) return null;
+                return { student, record };
+            })
+            .filter((item): item is { student: typeof students[number]; record: SubjectRecord } => !!item);
+
+        if (targets.length < 2) {
+            alert('Need at least 2 records with content for similarity check.');
+            return;
+        }
+
+        setIsCheckingSimilarity(true);
+        try {
+            const contents = targets.map(({ student, record }) => ({
+                studentId: student.id,
+                studentName: student.name,
+                content: record.content,
+            }));
+
+            const response = await fetch('/api/similarity', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ contents, threshold: 0.5 }),
             });
+
+            if (!response.ok) return;
+            const data = await response.json();
+            if (!data.results || data.results.length === 0) {
+                alert('No high-similarity pairs found.');
+                return;
+            }
+
+            setSimilarityResults(data.results);
+            setSimilaritySuggestions(new Map());
+            setIsSimilarityModalOpen(true);
+        } catch (error) {
+            console.error('Similarity check failed', error);
+        } finally {
+            setIsCheckingSimilarity(false);
         }
     };
 
-    // Get record for student
-    const getStudentRecord = (studentId: string) => {
-        return records.find(r => r.studentId === studentId);
+    const handleBulkAdjust = async (direction: 'expand' | 'shorten') => {
+        const targets = Array.from(selectedStudents)
+            .map((studentId) => getStudentRecord(studentId))
+            .filter((record): record is SubjectRecord => !!record && !!record.content);
+
+        if (targets.length === 0) {
+            alert('No selected records to adjust.');
+            return;
+        }
+
+        setIsBulkAdjusting(true);
+        await mapWithConcurrency(targets, DEFAULT_CONCURRENCY_LIMIT, async (record) => {
+            try {
+                const response = await fetch('/api/adjust', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ content: record.content, direction }),
+                });
+                if (!response.ok) return;
+                const data = await response.json();
+                if (!data.content) return;
+
+                updateRecord({
+                    ...record,
+                    content: data.content,
+                    lastUpdated: new Date().toISOString(),
+                }, direction === 'expand' ? 'expand' : 'shorten');
+            } catch (error) {
+                console.error('Bulk adjust failed', record.studentId, error);
+            }
+        });
+        setIsBulkAdjusting(false);
+        setSelectedStudents(new Set());
     };
 
-    // Start editing
+    const handleApplySpellChanges = (newText: string) => {
+        if (!spellCheckTarget) return;
+        const updatedRecord = applyCheckResultToRecord(spellCheckTarget, { spellerErrors: 0 }, newText);
+        updateRecord(updatedRecord);
+    };
+
+    const closeSpellCheck = () => {
+        setSpellCheckTarget(null);
+        setSpellErrors([]);
+    };
+
     const startEdit = (studentId: string, field: 'data' | 'content', value: string) => {
         setEditingCell({ studentId, field });
         setEditValue(value);
     };
 
-    // Save edit
     const saveEdit = (studentId: string, field: 'data' | 'content') => {
-        const student = students.find(s => s.id === studentId);
+        const student = students.find((item) => item.id === studentId);
         if (!student) {
             setEditingCell(null);
             return;
         }
 
         if (field === 'data') {
-            // Save learning data - parse as customData
-            updateStudentLearningData(studentId, { customData: editValue });
-        } else if (field === 'content') {
-            const record = getStudentRecord(studentId);
-
-            if (record) {
-                updateRecord({
-                    ...record,
-                    content: editValue,
-                    lastUpdated: new Date().toISOString()
-                });
-            } else {
-                const newRecord: SubjectRecord = {
-                    id: `r-${studentId}`,
-                    studentId,
-                    classId: student.classId,
-                    content: editValue,
-                    status: 'draft',
-                    lastUpdated: new Date().toISOString()
-                };
-                updateRecord(newRecord);
-            }
+            const teachingClass = getTeachingClassForStudent(student);
+            updateStudentLearningData(studentId, { customData: editValue }, teachingClass?.id);
+            setEditingCell(null);
+            return;
         }
 
+        const record = getStudentRecord(studentId);
+        const teachingClass = getTeachingClassForStudent(student);
+        if (!teachingClass) {
+            setEditingCell(null);
+            return;
+        }
+        if (record) {
+            updateRecord({
+                ...record,
+                classId: teachingClass.id,
+                teacherKey: teacher?.teacherKey,
+                semester: currentSemester,
+                content: editValue,
+                lastUpdated: new Date().toISOString(),
+            }, 'manual');
+        } else {
+            updateRecord({
+                id: `r-${teacher?.teacherKey || 'teacher'}-${teachingClass.id}-${studentId}-${currentSemester}`,
+                studentId,
+                classId: teachingClass.id,
+                teacherKey: teacher?.teacherKey,
+                semester: currentSemester,
+                content: editValue,
+                status: 'draft',
+                lastUpdated: new Date().toISOString(),
+            }, 'manual');
+        }
         setEditingCell(null);
+    };
+
+    const getSubjectName = (student: typeof students[number]) => {
+        const cls = getTeachingClassForStudent(student);
+        const year = new Date().getFullYear();
+        const semesterLabel = selectedSemester === '1' ? '1' : '2';
+        return `${year} ${semesterLabel}학기\n${cls?.subjectName || ''}`;
     };
 
     return (
         <div className={styles.page}>
-            {/* Header */}
             <header className={styles.header}>
-                <div className={styles.schoolInfo}>
-                    <span className={styles.schoolBadge} suppressHydrationWarning>{teacher?.school || '고등학교'}</span>
-                    <span className={styles.teacherName} suppressHydrationWarning>{teacher?.name || '선생님'}</span>
+                <div className={styles.headerTitle}>
+                    <h1>AI 세특 작성기</h1>
+                    <div className={styles.semesterToggle}>
+                        <button className={`${styles.semesterBtn} ${selectedSemester === '1' ? styles.semesterBtnActive : ''}`} onClick={() => setSelectedSemester('1')}>
+                            1학기
+                        </button>
+                        <button className={`${styles.semesterBtn} ${selectedSemester === '2' ? styles.semesterBtnActive : ''}`} onClick={() => setSelectedSemester('2')}>
+                            2학기
+                        </button>
+                    </div>
                 </div>
-                <div className={styles.headerRight}>
-                    {/* 학기 선택 */}
-                    <select
-                        className={styles.semesterSelect}
-                        value={selectedSemester}
-                        onChange={(e) => setSelectedSemester(e.target.value as '1' | '2')}
-                    >
-                        <option value="1">1학기</option>
-                        <option value="2">2학기</option>
-                    </select>
-                    <span className={styles.aiLabel}>AI 생성용 데이터 삭제</span>
-                    <Button variant="secondary" size="sm">
-                        <Trash2 size={14} />
+                <div className={styles.headerActions}>
+                    <Button variant="ghost" onClick={() => { window.location.href = '/settings/ai'; }}>
+                        <Settings size={18} />
+                        AI 설정
                     </Button>
                 </div>
             </header>
 
-            {/* Grade-Class Tabs */}
-            <div className={styles.subjectTabs}>
-                <button
-                    className={`${styles.subjectTab} ${selectedGradeClass === 'all' ? styles.active : ''}`}
-                    onClick={() => setSelectedGradeClass('all')}
-                >
-                    전체 <span className={styles.tabCount}>{students.filter(s => !teacher?.school || s.school === teacher.school).length}</span>
-                </button>
-                {gradeClassTabs.map(gc => {
-                    const [grade, classNum] = gc.split('-').map(Number);
-                    const count = students.filter(s =>
-                        (!teacher?.school || s.school === teacher.school) &&
-                        s.grade === grade &&
-                        s.classNumber === classNum
-                    ).length;
-                    return (
-                        <button
-                            key={gc}
-                            className={`${styles.subjectTab} ${selectedGradeClass === gc ? styles.active : ''}`}
-                            onClick={() => setSelectedGradeClass(gc)}
-                        >
-                            {grade}-{classNum} <span className={styles.tabCount}>{count}</span>
-                        </button>
-                    );
-                })}
-            </div>
+            <motion.div className={styles.mainContent} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                <WriteToolbar
+                    gradeClassTabs={gradeClassTabs}
+                    selectedGradeClass={selectedGradeClass}
+                    onGradeClassChange={setSelectedGradeClass}
+                    totalCount={totalTeacherStudents}
+                    selectedCount={selectedStudents.size}
+                    isAllSelected={selectedStudents.size === filteredStudents.length && filteredStudents.length > 0}
+                    onToggleSelectAll={toggleSelectAll}
+                    onGenerate={handleGenerateDrafts}
+                    onBulkReviewImprove={handleBulkReviewImprove}
+                    onBulkSpellCheck={handleBulkSpellCheck}
+                    onBulkForbiddenCheck={handleBulkForbiddenCheck}
+                    onBulkCompetencyAnalysis={handleBulkCompetencyAnalysis}
+                    onSimilarityCheck={handleSimilarityCheck}
+                    similarityTargetLabel={similarityTargetLabel}
+                    onBulkAdjust={handleBulkAdjust}
+                    onDeleteLearningData={handleDeleteLearningData}
+                    isGenerating={generatingIds.size > 0}
+                    isBulkReviewImproving={isBulkReviewImproving}
+                    isBulkChecking={isBulkChecking}
+                    isCompetencyAnalyzing={isCompetencyAnalyzing}
+                    isCheckingSimilarity={isCheckingSimilarity}
+                    isBulkAdjusting={isBulkAdjusting}
+                />
 
-            {/* Action Bar */}
-            <div className={styles.actionBar}>
-                <div className={styles.actionLeft}>
-                    <button
-                        className={styles.selectAllBtn}
-                        onClick={toggleSelectAll}
-                    >
-                        {selectedStudents.size === filteredStudents.length && filteredStudents.length > 0 ? (
-                            <CheckSquare size={18} />
-                        ) : (
-                            <Square size={18} />
-                        )}
-                        전체 선택
-                    </button>
-
-                    <Button
-                        onClick={handleGenerateDrafts}
-                        disabled={selectedStudents.size === 0 || generatingIds.size > 0}
-                        isLoading={generatingIds.size > 0}
-                    >
-                        <Sparkles size={16} /> AI 세특 생성
-                    </Button>
-
-                    <Button
-                        variant="secondary"
-                        onClick={handleBulkSpellCheck}
-                        disabled={isBulkChecking}
-                        isLoading={isBulkChecking && bulkCheckType === 'spell'}
-                    >
-                        <SpellCheck size={16} /> 맞춤법 검사
-                    </Button>
-
-                    <Button
-                        variant="secondary"
-                        onClick={handleBulkForbiddenCheck}
-                        disabled={isBulkChecking}
-                        isLoading={isBulkChecking && bulkCheckType === 'forbidden'}
-                    >
-                        <ShieldAlert size={16} /> 기재 금지어 검사
-                    </Button>
-                </div>
-
-                <div className={styles.searchBox}>
-                    <Search size={16} />
-                    <input
-                        type="text"
-                        placeholder="이름 검색..."
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                    />
-                </div>
-            </div>
-
-            {/* Progress indicator */}
-            <AnimatePresence>
-                {generatingIds.size > 0 && (
-                    <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className={styles.progressBar}
-                    >
-                        <Loader2 size={18} className={styles.spinning} />
-                        <span>AI가 세특을 작성하고 있습니다... ({generatingIds.size}명 남음)</span>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-
-            {/* Data Table */}
-            {filteredStudents.length === 0 ? (
-                <div className={styles.emptyState}>
-                    <AlertCircle size={48} />
-                    <h3>학생이 없습니다</h3>
-                    <p>학생 관리 메뉴에서 학생을 추가해 주세요.</p>
-                </div>
-            ) : (
-                <div className={styles.tableWrapper}>
-                    <table className={styles.dataTable}>
-                        <thead>
-                            <tr>
-                                <th className={styles.checkCol}></th>
-                                <th className={styles.classCol}>반</th>
-                                <th className={styles.numberCol}>번호</th>
-                                <th className={styles.nameCol}>성명</th>
-                                <th className={styles.subjectCol}>과목</th>
-                                <th className={styles.dataCol}>AI 생성용 데이터</th>
-                                <th className={styles.contentCol}>특기사항</th>
-                                <th className={styles.actionCol}></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {filteredStudents.map((student, i) => {
-                                const cls = classes.find(c => c.id === student.classId);
-                                const record = getStudentRecord(student.id);
-                                const isSelected = selectedStudents.has(student.id);
-                                const isGenerating = generatingIds.has(student.id);
-                                const isEditingData = editingCell?.studentId === student.id && editingCell?.field === 'data';
-                                const isEditingContent = editingCell?.studentId === student.id && editingCell?.field === 'content';
-                                const hasForbidden = forbiddenResults.has(student.id);
-
-                                // Format learning data for display
-                                const dataText = Object.entries(student.learningData)
-                                    .map(([_, v]) => v)
-                                    .filter(v => v)
-                                    .join(' | ') || '';
-
-                                return (
-                                    <motion.tr
+                <div className={styles.tableContainer}>
+                    <div className={styles.tableScrollArea}>
+                        <table className={styles.dataTable}>
+                            <thead className={styles.tableHeader}>
+                                <tr>
+                                    <th className={styles.checkboxCell}><input type="checkbox" className={styles.tableCheckbox} checked={selectedStudents.size === filteredStudents.length && filteredStudents.length > 0} onChange={toggleSelectAll} /></th>
+                                    <th className={styles.classCell}>반</th>
+                                    <th className={styles.numberCell}>번호</th>
+                                    <th className={styles.nameCell}>이름</th>
+                                    <th className={styles.subjectCell}>과목</th>
+                                    <th className={styles.dataCell}>AI 입력 데이터</th>
+                                    <th className={styles.contentCell}>세특 내용</th>
+                                </tr>
+                            </thead>
+                            <tbody className={styles.tableBody}>
+                                {filteredStudents.length > 0 ? filteredStudents.map((student) => (
+                                    <WriteTableRow
                                         key={student.id}
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        transition={{ delay: i * 0.02 }}
-                                        className={`${isSelected ? styles.selectedRow : ''} ${isGenerating ? styles.generatingRow : ''} ${hasForbidden ? styles.warningRow : ''}`}
-                                    >
-                                        <td className={styles.checkCol}>
-                                            <button
-                                                className={styles.checkbox}
-                                                onClick={() => toggleStudent(student.id)}
-                                                disabled={isGenerating}
-                                            >
-                                                {isSelected ? <CheckSquare size={18} /> : <Square size={18} />}
-                                            </button>
-                                        </td>
-                                        <td className={styles.classCol}>{student.classNumber || cls?.classNumber || '-'}</td>
-                                        <td className={styles.numberCol}>{student.number}</td>
-                                        <td className={styles.nameCol}>{student.name}</td>
-                                        <td className={styles.subjectCol}>
-                                            <span className={styles.yearBadge}>2025 {selectedSemester}학기</span>
-                                            <span>{cls?.subjectName || '-'}</span>
-                                        </td>
-                                        <td
-                                            className={styles.dataCol}
-                                            onClick={() => !isEditingData && startEdit(student.id, 'data', dataText)}
-                                        >
-                                            {isEditingData ? (
-                                                <textarea
-                                                    className={styles.editTextarea}
-                                                    value={editValue}
-                                                    onChange={(e) => setEditValue(e.target.value)}
-                                                    onBlur={() => saveEdit(student.id, 'data')}
-                                                    onKeyDown={(e) => {
-                                                        if (e.key === 'Enter' && !e.shiftKey) {
-                                                            e.preventDefault();
-                                                            saveEdit(student.id, 'data');
-                                                        }
-                                                    }}
-                                                    autoFocus
-                                                    placeholder="수업 태도, 수행평가 내용 등 입력..."
-                                                />
-                                            ) : (
-                                                <div className={`${styles.dataPreview} ${!dataText ? styles.emptyData : ''}`}>
-                                                    {dataText || '클릭하여 입력'}
-                                                </div>
-                                            )}
-                                        </td>
-                                        <td
-                                            className={`${styles.contentCol} ${!record && !isGenerating ? styles.clickable : ''}`}
-                                            onClick={() => !isEditingContent && !isGenerating && startEdit(student.id, 'content', record?.content || '')}
-                                        >
-                                            {isGenerating ? (
-                                                <div className={styles.generatingText}>
-                                                    <Loader2 size={16} className={styles.spinning} />
-                                                    생성 중...
-                                                </div>
-                                            ) : isEditingContent ? (
-                                                <textarea
-                                                    className={styles.editTextarea}
-                                                    value={editValue}
-                                                    onChange={(e) => setEditValue(e.target.value)}
-                                                    onBlur={() => saveEdit(student.id, 'content')}
-                                                    autoFocus
-                                                    placeholder="세특 내용을 직접 입력..."
-                                                />
-                                            ) : record ? (
-                                                <div className={styles.contentPreview}>
-                                                    {record.content}
-                                                    {hasForbidden && (
-                                                        <span className={styles.warningBadge}>
-                                                            <ShieldAlert size={12} /> 금지어
-                                                        </span>
-                                                    )}
-                                                </div>
-                                            ) : (
-                                                <span className={styles.emptyContent}>클릭하여 입력</span>
-                                            )}
-                                        </td>
-                                        <td className={styles.actionCol}>
-                                            {record && (
-                                                <button
-                                                    className={styles.spellCheckBtn}
-                                                    onClick={() => handleSpellCheck(record)}
-                                                    title="맞춤법 검사"
-                                                    disabled={isChecking}
-                                                >
-                                                    <SpellCheck size={16} />
-                                                </button>
-                                            )}
-                                        </td>
-                                    </motion.tr>
-                                );
-                            })}
-                        </tbody>
-                    </table>
+                                        student={student}
+                                        record={getStudentRecord(student.id)}
+                                        learningData={getLearningDataForClass(student, getTeachingClassForStudent(student)?.id)}
+                                        subjectName={getSubjectName(student)}
+                                        isSelected={selectedStudents.has(student.id)}
+                                        editingCell={editingCell}
+                                        editValue={editValue}
+                                        onToggleSelect={toggleStudent}
+                                        onStartEdit={startEdit}
+                                        onSaveEdit={saveEdit}
+                                        onCancelEdit={() => setEditingCell(null)}
+                                        onEditValueChange={setEditValue}
+                                    />
+                                )) : (
+                                    <tr><td colSpan={7} style={{ textAlign: 'center', padding: '2rem' }}>표시할 학생이 없습니다.</td></tr>
+                                )}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            )}
+            </motion.div>
 
-            {/* Spell Check Modal */}
-            <SpellCheckModal
-                isOpen={spellCheckTarget !== null && !isChecking && spellErrors.length > 0}
-                onClose={() => {
-                    setSpellCheckTarget(null);
-                    setSpellErrors([]);
-                }}
-                errors={spellErrors}
-                originalText={spellCheckTarget?.content || ''}
-                onApplyChanges={handleApplySpellChanges}
-            />
+            <AnimatePresence>
+                <SpellCheckModal
+                    key="spell-check-modal"
+                    isOpen={spellCheckTarget !== null && !isChecking && spellErrors.length > 0}
+                    onClose={closeSpellCheck}
+                    errors={spellErrors}
+                    originalText={spellCheckTarget?.content || ''}
+                    onApplyChanges={handleApplySpellChanges}
+                />
+                <ForbiddenCheckModal
+                    key="forbidden-check-modal"
+                    isOpen={isForbiddenModalOpen}
+                    onClose={() => setIsForbiddenModalOpen(false)}
+                    results={forbiddenResults}
+                    studentNames={studentNameMap}
+                />
+                <SimilarityModal
+                    key="similarity-modal"
+                    isOpen={isSimilarityModalOpen}
+                    onClose={() => setIsSimilarityModalOpen(false)}
+                    results={similarityResults}
+                    suggestions={similaritySuggestions}
+                    onSuggestionReady={(pairKey, suggestion) => {
+                        setSimilaritySuggestions((prev) => new Map(prev).set(pairKey, suggestion));
+                    }}
+                    getContentByStudentId={(studentId) => getStudentRecord(studentId)?.content || ''}
+                />
+            </AnimatePresence>
         </div>
     );
 }
 
-// Main export with Suspense boundary for useSearchParams
 export default function WritePage() {
     return (
         <Suspense fallback={<WritePageLoading />}>
