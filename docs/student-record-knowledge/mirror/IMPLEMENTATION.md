@@ -107,6 +107,7 @@ STAR FAQ/Q&A
 - `AI 세특 생성` 공통 앱 셸(`GlobalNav + Sidebar`) 안에서 `/write`, `/counsel-chat`, `/record-review`, `/search-inspector`를 같은 작업공간 탭처럼 제공
 - URL query prefill 지원
 - 세특 작성 탭의 `RAG 점검·개선` 버튼은 `/api/record-review`의 `includeImprovedDraft` 흐름을 재사용
+- 세특 작성 탭의 `유사도` 버튼은 선택 학생 초안을 문장 단위로 비교하고, 다른 학생 간 90% 이상 동일한 문장만 모달에 노출한다.
 
 ## 4.4 교사 작업공간 컨텍스트 모델
 
@@ -124,7 +125,8 @@ STAR FAQ/Q&A
 - 교사별 담당 학급은 명부에서 선택해 연결하며, 학생 목록은 teaching class의 학년/반 기준으로 동적으로 계산한다.
 - 학생 관리 UI는 학교 명부 업로드와 teaching class 연결만 담당한다.
 - 별도 `학생 관찰 기록` 섹션에서 학생 카드 보드(`/observation-board`)와 관찰 메모(`/observations`)를 제공한다.
-- 학생 카드에서는 관찰 메모와 세특 작성 페이지로 query prefill 이동한다.
+- 학생 카드에서는 클릭으로 선택 상태를 토글하고, 더블클릭 시 `/observations`로 query prefill 이동한다.
+- 여러 학생이 선택된 상태에서 선택된 카드 중 하나를 더블클릭하면 같은 teaching class 학생 ID들을 `studentIds` query로 넘겨 일괄 관찰 기록 작성 모드로 진입한다.
 - 학습 메모와 관찰 메모는 teaching class 단위로 저장한다.
 - 세특 AI 생성 API는 현재 교사의 `teacherKey`와 `teachingClassId`를 전달하고, 같은 맥락의 관찰 메모만 불러온다.
 - 로컬 개발 모드에서는 Google Sheets API 호출이 실패할 때 `.local-sheet-store.json`으로 자동 fallback해 웹앱 흐름을 중단하지 않는다.
@@ -305,6 +307,14 @@ UI 흐름:
 6. structured review result 반환
 7. 호출자가 요청하면 같은 공개 근거로 `improvedDraft` 생성
 
+## 10.1 세특 유사도 검사 흐름
+
+1. `write` 탭에서 선택 학생 또는 현재 필터 학생의 세특 초안을 수집
+2. 초안을 문장 단위로 분해하고 공백/문장부호를 정규화
+3. 서로 다른 학생 쌍만 pairwise 비교
+4. 문장 유사도를 계산해 0.90 이상인 문장만 중복 의심 문장으로 채택
+5. 모달에는 학생 쌍별 최고 유사도와 매칭된 문장만 보여주고, 세특 전체 점수는 판단 기준으로 사용하지 않는다.
+
 UI 흐름:
 
 - 교사는 `AI 세특 생성` 섹션에 머문 상태로 사이드바에서 `생기부 점검` 탭을 선택한다.
@@ -312,7 +322,7 @@ UI 흐름:
 
 점검 원칙은 [`skills/student-record-review.md`](/Users/pbj95/Desktop/cursor/seteuk(2026)/student-record-knowledge/skills/student-record-review.md)를 따른다.
 
-## 10.1 세특 작성 컨텍스트 구현 흐름
+## 10.2 세특 작성 컨텍스트 구현 흐름
 
 1. 교사 로그인 시 `teacherKey` 생성
 2. 선택적으로 데모 시드 버튼으로 샘플 roster/teaching class/student 데이터를 즉시 생성

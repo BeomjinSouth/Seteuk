@@ -120,6 +120,63 @@
     justify-content: flex-end;
 }
 
+.inlineSelectButton {
+    width: fit-content;
+    padding: 0.45rem 0.7rem;
+    border-radius: 999px;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    cursor: pointer;
+}
+
+.inlineSelectButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.targetSummary {
+    font-size: 0.85rem;
+    color: hsl(var(--foreground));
+}
+
+.targetHint {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: hsl(var(--muted-foreground));
+}
+
+.studentSelectionGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.6rem;
+}
+
+.studentOption {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem 0.85rem;
+    border-radius: 10px;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--background));
+    cursor: pointer;
+}
+
+.studentOption input {
+    accent-color: hsl(var(--primary));
+}
+
+.studentOption span {
+    font-size: 0.85rem;
+    color: hsl(var(--foreground));
+}
+
+.studentOptionSelected {
+    border-color: hsl(var(--primary) / 0.5);
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.18);
+}
+
 /* Stats */
 .stats {
     display: grid;

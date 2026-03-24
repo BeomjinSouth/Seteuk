@@ -74,6 +74,7 @@ async function syncStatus() {
     '- search inspector page: implemented',
     '- main navigation integration: 학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검 -> 학습지 OCR 순서 적용',
     '- student workspace split: 학생 관리는 명부/학급 연결만 담당하고 학생 카드 보드는 /observation-board로 분리',
+    '- observation board interaction: 카드 클릭 선택 + 더블클릭 관찰 기록 작성 + 같은 학급 다중 선택 일괄 저장 지원',
     '- lexical retrieval: implemented',
     '- AI reranking: implemented',
     '',

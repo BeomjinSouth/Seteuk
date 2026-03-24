@@ -28,7 +28,16 @@ import styles from './page.module.css';
 function ObservationsPageContent() {
     const searchParams = useSearchParams();
     const initialClassId = searchParams.get('classId') || '';
-    const initialStudentId = searchParams.get('studentId') || '';
+    const initialStudentIds = useMemo(() => {
+        const queryIds = (searchParams.get('studentIds') || '')
+            .split(',')
+            .map((value) => value.trim())
+            .filter(Boolean);
+        const singleStudentId = searchParams.get('studentId') || '';
+        const fallbackIds = singleStudentId ? [singleStudentId] : [];
+        return Array.from(new Set(queryIds.length > 0 ? queryIds : fallbackIds));
+    }, [searchParams]);
+    const initialStudentId = initialStudentIds[0] || '';
     const { students, classes, teacher } = useAppStore();
     const teacherClasses = useMemo(
         () => getTeacherClasses(classes, teacher),
@@ -50,7 +59,7 @@ function ObservationsPageContent() {
     const [currentPage, setCurrentPage] = useState(1);
 
     const [formClassId, setFormClassId] = useState(initialClassId);
-    const [formStudentId, setFormStudentId] = useState(initialStudentId);
+    const [formStudentIds, setFormStudentIds] = useState<string[]>(initialStudentIds);
     const [formAssessmentId, setFormAssessmentId] = useState('');
     const [formDate, setFormDate] = useState(new Date().toISOString().split('T')[0]);
     const [formEvidenceType, setFormEvidenceType] = useState<'process' | 'result'>('process');
@@ -66,18 +75,32 @@ function ObservationsPageContent() {
 
     useEffect(() => {
         if (!formClassId && teacherClasses.length > 0) {
-            setFormClassId(teacherClasses[0].id);
+            setFormClassId(initialClassId || teacherClasses[0].id);
         }
-    }, [formClassId, teacherClasses]);
+    }, [formClassId, initialClassId, teacherClasses]);
 
     useEffect(() => {
-        if (formClassId) {
-            const studentsInClass = getStudentsForClass(formClassId);
-            if (studentsInClass.length > 0 && !studentsInClass.some((student) => student.id === formStudentId)) {
-                setFormStudentId(studentsInClass[0].id);
-            }
+        if (!formClassId) {
+            setFormStudentIds([]);
+            return;
         }
-    }, [formClassId, formStudentId, students, teacherClasses]);
+
+        const studentsInClass = getStudentsForClass(formClassId);
+        if (studentsInClass.length === 0) {
+            setFormStudentIds([]);
+            return;
+        }
+
+        const availableStudentIds = new Set(studentsInClass.map((student) => student.id));
+        const queryStudentIds = initialStudentIds.filter((studentId) => availableStudentIds.has(studentId));
+
+        setFormStudentIds((prev) => {
+            const next = prev.filter((studentId) => availableStudentIds.has(studentId));
+            if (next.length > 0) return next;
+            if (queryStudentIds.length > 0) return queryStudentIds;
+            return [studentsInClass[0].id];
+        });
+    }, [formClassId, initialStudentIds, students, teacherClasses]);
 
     const fetchData = async () => {
         setIsLoading(true);
@@ -124,6 +147,11 @@ function ObservationsPageContent() {
     const formStudents = useMemo(
         () => formClassId ? getStudentsForClass(formClassId) : [],
         [formClassId, students, teacherClasses]
+    );
+
+    const selectedTargetStudents = useMemo(
+        () => formStudents.filter((student) => formStudentIds.includes(student.id)),
+        [formStudentIds, formStudents]
     );
 
     const isTeacherObservation = (obs: Observation) => {
@@ -181,8 +209,26 @@ function ObservationsPageContent() {
         return assessment?.title || '알 수 없는 과제';
     };
 
+    const toggleFormStudent = (studentId: string) => {
+        setFormStudentIds((prev) =>
+            prev.includes(studentId)
+                ? prev.filter((id) => id !== studentId)
+                : [...prev, studentId]
+        );
+    };
+
+    const toggleAllFormStudents = () => {
+        if (formStudents.length === 0) return;
+        if (formStudentIds.length === formStudents.length) {
+            setFormStudentIds([]);
+            return;
+        }
+
+        setFormStudentIds(formStudents.map((student) => student.id));
+    };
+
     const handleSaveManualObservation = async () => {
-        if (!teacher || !formClassId || !formStudentId || !formMemo.trim()) {
+        if (!teacher || !formClassId || formStudentIds.length === 0 || !formMemo.trim()) {
             alert('수업, 학생, 메모를 모두 입력하세요.');
             return;
         }
@@ -195,33 +241,54 @@ function ObservationsPageContent() {
 
         setIsSaving(true);
         try {
-            const response = await fetch('/api/observations', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    studentId: formStudentId,
-                    classId: formClassId,
-                    teacherKey: teacher.teacherKey,
-                    assessmentId: formAssessmentId || undefined,
-                    subjectName: targetClass.subjectName,
-                    lessonTopic: formLessonTopic || undefined,
-                    date: formDate,
-                    memo: formMemo,
-                    evidenceType: formEvidenceType,
-                    tags: formTags.split(',').map((tag) => tag.trim()).filter(Boolean),
-                    sourceType: 'manual',
-                }),
-            });
+            const payload = {
+                classId: formClassId,
+                teacherKey: teacher.teacherKey,
+                assessmentId: formAssessmentId || undefined,
+                subjectName: targetClass.subjectName,
+                lessonTopic: formLessonTopic || undefined,
+                date: formDate,
+                memo: formMemo,
+                evidenceType: formEvidenceType,
+                tags: formTags.split(',').map((tag) => tag.trim()).filter(Boolean),
+                sourceType: 'manual',
+            };
 
-            const data = await response.json();
-            if (!data.success) {
-                alert(data.error || '저장에 실패했습니다.');
+            const results = await Promise.all(
+                formStudentIds.map(async (studentId) => {
+                    const response = await fetch('/api/observations', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            ...payload,
+                            studentId,
+                        }),
+                    });
+                    const data = await response.json();
+                    return {
+                        studentId,
+                        success: response.ok && data.success,
+                        error: data.error as string | undefined,
+                    };
+                })
+            );
+
+            const failedResults = results.filter((result) => !result.success);
+            if (failedResults.length > 0) {
+                const savedCount = results.length - failedResults.length;
+                alert(
+                    savedCount > 0
+                        ? `${savedCount}명 저장, ${failedResults.length}명 실패했습니다.`
+                        : failedResults[0]?.error || '저장에 실패했습니다.'
+                );
+                await fetchData();
                 return;
             }
 
             setFormMemo('');
             setFormLessonTopic('');
             setFormTags('');
+            alert(`${results.length}명에게 수업 기록을 저장했습니다.`);
             await fetchData();
         } catch (error) {
             console.error('Failed to save observation:', error);
@@ -287,7 +354,7 @@ function ObservationsPageContent() {
                 </div>
             </header>
 
-            <section className={styles.composeSection}>
+            <section id="compose" className={styles.composeSection}>
                 <div className={styles.composeHeader}>
                     <h2><Plus size={18} /> 수업 기록 추가</h2>
                     <span>{teacher?.subject || '과목'} · {teacherClasses.length}개 학급 연결됨</span>
@@ -305,15 +372,15 @@ function ObservationsPageContent() {
                         </select>
                     </div>
                     <div className={styles.composeField}>
-                        <label>학생</label>
-                        <select value={formStudentId} onChange={(e) => setFormStudentId(e.target.value)}>
-                            <option value="">학생 선택</option>
-                            {formStudents.map((student) => (
-                                <option key={student.id} value={student.id}>
-                                    {getStudentDisplay(student.id)}
-                                </option>
-                            ))}
-                        </select>
+                        <label>대상 학생</label>
+                        <button
+                            type="button"
+                            className={styles.inlineSelectButton}
+                            onClick={toggleAllFormStudents}
+                            disabled={formStudents.length === 0}
+                        >
+                            {formStudentIds.length === formStudents.length ? '전체 해제' : '전체 선택'}
+                        </button>
                     </div>
                     <div className={styles.composeField}>
                         <label>날짜</label>
@@ -346,6 +413,35 @@ function ObservationsPageContent() {
                             placeholder="예: 효소 반응 탐구, 발표 활동"
                         />
                     </div>
+                </div>
+                <div className={styles.composeField}>
+                    <label>기록 대상 선택</label>
+                    <div className={styles.targetSummary}>
+                        {selectedTargetStudents.length > 0
+                            ? `${selectedTargetStudents.length}명 선택됨`
+                            : '선택된 학생이 없습니다.'}
+                    </div>
+                    <div className={styles.studentSelectionGrid}>
+                        {formStudents.map((student) => {
+                            const isSelected = formStudentIds.includes(student.id);
+                            return (
+                                <label
+                                    key={student.id}
+                                    className={`${styles.studentOption} ${isSelected ? styles.studentOptionSelected : ''}`}
+                                >
+                                    <input
+                                        type="checkbox"
+                                        checked={isSelected}
+                                        onChange={() => toggleFormStudent(student.id)}
+                                    />
+                                    <span>{getStudentDisplay(student.id)}</span>
+                                </label>
+                            );
+                        })}
+                    </div>
+                    <p className={styles.targetHint}>
+                        같은 수업 학급 학생을 여러 명 선택하면 동일한 관찰 기록을 각 학생에게 개별 저장합니다.
+                    </p>
                 </div>
                 <div className={styles.composeField}>
                     <label>태그</label>

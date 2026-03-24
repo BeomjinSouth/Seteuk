@@ -52,6 +52,7 @@
 - main navigation groups those tools under `AI 세특 생성`
 - top navigation order is `학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검 -> 학습지 OCR`
 - student management is limited to roster upload and teaching-class connection; the student board now lives in `/observation-board`
+- in `/observation-board`, single click selects students and double click opens observation writing; same-class multi-selection enters batch observation entry
 - `/api/record-review` can optionally return `improvedDraft` for the write-tab review-improve action
 
 ## Response Policy

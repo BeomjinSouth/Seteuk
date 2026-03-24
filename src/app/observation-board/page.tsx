@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useMemo, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useAppStore } from '@/lib/store';
 import { motion } from 'framer-motion';
 import {
@@ -11,7 +12,6 @@ import {
     ClipboardList,
     FileText,
     Sparkles,
-    ChevronRight,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Observation, Student } from '@/types';
@@ -23,6 +23,7 @@ import {
 import styles from '../students/page.module.css';
 
 export default function ObservationBoardPage() {
+    const router = useRouter();
     const {
         classes,
         students,
@@ -34,6 +35,7 @@ export default function ObservationBoardPage() {
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedStudentIds, setSelectedStudentIds] = useState<Set<string>>(new Set());
     const [observations, setObservations] = useState<Observation[]>([]);
+    const clickTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     const teacherClasses = useMemo(
         () => getTeacherClasses(classes, teacher),
@@ -54,6 +56,14 @@ export default function ObservationBoardPage() {
         };
 
         loadObservations();
+    }, []);
+
+    useEffect(() => {
+        return () => {
+            if (clickTimerRef.current) {
+                clearTimeout(clickTimerRef.current);
+            }
+        };
     }, []);
 
     const filteredStudents = useMemo(() => {
@@ -106,14 +116,17 @@ export default function ObservationBoardPage() {
     };
 
     const getTeachingClassForStudent = (student: Student) => {
-        if (selectedClass !== 'all') {
-            return teacherClasses.find((cls) => cls.id === selectedClass);
-        }
-        return teacherClasses.find((cls) =>
+        const matchingClasses = teacherClasses.filter((cls) =>
             cls.school === student.school
             && cls.grade === student.grade
             && cls.classNumber === student.classNumber
         );
+
+        if (selectedClass !== 'all') {
+            return matchingClasses.find((cls) => cls.id === selectedClass) ?? matchingClasses[0];
+        }
+
+        return matchingClasses[0];
     };
 
     const getObservationCount = (student: Student, classId?: string) => {
@@ -177,21 +190,50 @@ export default function ObservationBoardPage() {
         setSelectedStudentIds(new Set());
     };
 
-    const handleOpenSelectedRecords = () => {
-        if (selectedStudentIds.size === 0) return;
-        const firstStudentId = Array.from(selectedStudentIds)[0];
-        const firstStudent = filteredStudents.find((student) => student.id === firstStudentId);
-        const teachingClass = firstStudent ? getTeachingClassForStudent(firstStudent) : undefined;
-
+    const openObservationComposer = (student: Student) => {
+        const teachingClass = getTeachingClassForStudent(student);
         if (!teachingClass) return;
 
         const query = new URLSearchParams({
             classId: teachingClass.id,
         });
-        if (selectedStudentIds.size === 1) {
-            query.set('studentId', firstStudentId);
+
+        const selectedStudentsInSameClass = selectedStudentIds.has(student.id)
+            ? Array.from(selectedStudentIds).filter((studentId) => {
+                const selectedStudent = students.find((item) => item.id === studentId);
+                return selectedStudent
+                    ? getTeachingClassForStudent(selectedStudent)?.id === teachingClass.id
+                    : false;
+            })
+            : [];
+
+        if (selectedStudentsInSameClass.length > 1) {
+            query.set('studentIds', selectedStudentsInSameClass.join(','));
+        } else {
+            query.set('studentId', student.id);
         }
-        window.location.href = `/observations?${query.toString()}`;
+
+        router.push(`/observations?${query.toString()}#compose`);
+    };
+
+    const handleStudentCardClick = (studentId: string) => {
+        if (clickTimerRef.current) {
+            clearTimeout(clickTimerRef.current);
+        }
+
+        clickTimerRef.current = setTimeout(() => {
+            toggleStudentSelection(studentId);
+            clickTimerRef.current = null;
+        }, 180);
+    };
+
+    const handleStudentCardDoubleClick = (student: Student) => {
+        if (clickTimerRef.current) {
+            clearTimeout(clickTimerRef.current);
+            clickTimerRef.current = null;
+        }
+
+        openObservationComposer(student);
     };
 
     return (
@@ -200,7 +242,7 @@ export default function ObservationBoardPage() {
                 <div>
                     <h1 className={styles.title}>학생 카드 보드</h1>
                     <p className={styles.subtitle}>
-                        학생 관리에서 연결한 담당 학급 학생을 카드로 확인하고, 관찰 메모와 세특 작성으로 바로 이동합니다.
+                        카드를 클릭하면 학생이 선택되고, 더블클릭하면 관찰 기록 작성으로 바로 이동합니다.
                     </p>
                 </div>
             </header>
@@ -265,7 +307,11 @@ export default function ObservationBoardPage() {
                         </div>
 
                         <div className={styles.boardSummary}>
-                            <span>학생 명부 업로드와 담당 학급 연결은 학생 관리에서 합니다.</span>{' '}
+                            <span>
+                                여러 학생을 선택한 뒤 선택된 카드 중 하나를 더블클릭하면 같은 학급 학생들에 대해
+                                관찰 기록을 한 번에 남길 수 있습니다. 학생 명부 업로드와 담당 학급 연결은 학생
+                                관리에서 합니다.
+                            </span>{' '}
                             <Link href="/students" className={styles.summaryLink}>
                                 학생 관리 열기
                             </Link>
@@ -275,14 +321,6 @@ export default function ObservationBoardPage() {
                             <Button variant="secondary" onClick={toggleSelectAllStudents}>
                                 <Users size={16} />
                                 {selectedStudentIds.size === filteredStudents.length ? '전체 선택 해제' : '전체 선택'}
-                            </Button>
-                            <Button
-                                variant="secondary"
-                                onClick={handleOpenSelectedRecords}
-                                disabled={selectedStudentIds.size === 0}
-                            >
-                                <ClipboardList size={16} />
-                                선택 기록 보기
                             </Button>
                             <Button
                                 variant="ghost"
@@ -308,12 +346,30 @@ export default function ObservationBoardPage() {
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ delay: index * 0.02 }}
                                         className={`${styles.studentCard} ${selectedStudentIds.has(student.id) ? styles.studentCardSelected : ''}`}
+                                        role="button"
+                                        tabIndex={0}
+                                        aria-pressed={selectedStudentIds.has(student.id)}
+                                        title="클릭하면 선택, 더블클릭하면 관찰 기록 작성"
+                                        onClick={() => handleStudentCardClick(student.id)}
+                                        onDoubleClick={() => handleStudentCardDoubleClick(student)}
+                                        onKeyDown={(event) => {
+                                            if (event.key === ' ') {
+                                                event.preventDefault();
+                                                toggleStudentSelection(student.id);
+                                            }
+                                            if (event.key === 'Enter') {
+                                                event.preventDefault();
+                                                openObservationComposer(student);
+                                            }
+                                        }}
                                     >
                                         <div className={styles.studentCardTop}>
                                             <input
                                                 type="checkbox"
                                                 className={styles.cardCheckbox}
                                                 checked={selectedStudentIds.has(student.id)}
+                                                onClick={(event) => event.stopPropagation()}
+                                                onDoubleClick={(event) => event.stopPropagation()}
                                                 onChange={() => toggleStudentSelection(student.id)}
                                             />
                                             <div className={styles.studentBadge}>
@@ -345,31 +401,13 @@ export default function ObservationBoardPage() {
                                             />
                                         </div>
 
-                                        <div className={styles.cardActions}>
-                                            {teachingClass && (
-                                                <Link
-                                                    href={`/observations?classId=${encodeURIComponent(teachingClass.id)}&studentId=${encodeURIComponent(student.id)}`}
-                                                    className={styles.cardLink}
-                                                >
-                                                    <ClipboardList size={14} />
-                                                    기록 보기
-                                                </Link>
-                                            )}
-                                            {teachingClass && (
-                                                <Link
-                                                    href={`/write?classId=${encodeURIComponent(teachingClass.id)}&studentId=${encodeURIComponent(student.id)}`}
-                                                    className={styles.cardLink}
-                                                >
-                                                    <ChevronRight size={14} />
-                                                    세특 작성
-                                                </Link>
-                                            )}
-                                        </div>
-
                                         <button
                                             className={styles.cardDeleteButton}
                                             title="삭제"
-                                            onClick={() => handleDeleteStudent(student)}
+                                            onClick={(event) => {
+                                                event.stopPropagation();
+                                                handleDeleteStudent(student);
+                                            }}
                                         >
                                             <Trash2 size={14} /> 삭제
                                         </button>
