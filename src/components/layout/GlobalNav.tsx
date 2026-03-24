@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { GraduationCap, ScanLine, Sparkles, ClipboardCheck, School } from 'lucide-react';
+import { GraduationCap, ScanLine, Sparkles, ClipboardCheck, ClipboardList, School } from 'lucide-react';
 import clsx from 'clsx';
 import styles from './GlobalNav.module.css';
 
@@ -14,10 +14,10 @@ const mainSections = [
         description: '대시보드, 학교·학생 정보'
     },
     {
-        href: '/ocr',
-        label: '학습지 OCR',
-        icon: ScanLine,
-        description: '손글씨·그림 인식, 관찰 메모'
+        href: '/observation-board',
+        label: '학생 관찰 기록',
+        icon: ClipboardList,
+        description: '학생 카드 보드, 관찰 메모'
     },
     {
         href: '/write',
@@ -30,6 +30,12 @@ const mainSections = [
         label: '평가 점검',
         icon: ClipboardCheck,
         description: '시험지 오류 점검, 수정 제안'
+    },
+    {
+        href: '/ocr',
+        label: '학습지 OCR',
+        icon: ScanLine,
+        description: '손글씨·그림 인식, 관찰 메모'
     },
 ];
 
@@ -45,6 +51,9 @@ export function GlobalNav() {
 
     // Helper to determine if a section is active
     const isActive = (href: string) => {
+        if (href === '/observation-board') {
+            return pathname.startsWith('/observation-board') || pathname.startsWith('/observations');
+        }
         if (href === '/ocr') return pathname.startsWith('/ocr');
         if (href === '/eval-check') return pathname.startsWith('/eval-check');
         if (href === '/dashboard') return pathname.startsWith('/dashboard') || pathname.startsWith('/school') || pathname.startsWith('/students');
@@ -56,7 +65,6 @@ export function GlobalNav() {
             pathname.startsWith('/export') ||
             pathname.startsWith('/examples') ||
             pathname.startsWith('/settings') ||
-            pathname.startsWith('/observations') ||
             pathname.startsWith('/search-inspector')
         );
         return false;

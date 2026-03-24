@@ -35,7 +35,7 @@ export default function LoginPage() {
 
     login('박범진', '생명과학I', '성호중학교');
     seedDemoWorkspace();
-    router.push('/students');
+    router.push('/observation-board');
   };
 
   return (

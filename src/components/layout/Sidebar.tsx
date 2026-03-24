@@ -16,6 +16,7 @@ import {
     Sun,
     Moon,
     ClipboardCheck,
+    ClipboardList,
     MessageSquareQuote,
     SearchCheck
 } from 'lucide-react';
@@ -29,6 +30,11 @@ const schoolNavItems = [
     { href: '/dashboard', label: '대시보드', icon: LayoutDashboard },
     { href: '/school', label: '학교 정보', icon: School },
     { href: '/students', label: '학생 관리', icon: Users },
+];
+
+const observationNavItems = [
+    { href: '/observation-board', label: '학생 카드 보드', icon: Users },
+    { href: '/observations', label: '관찰 메모', icon: ClipboardList },
 ];
 
 // LNB for AI 세특 생성 section
@@ -66,6 +72,7 @@ export function Sidebar() {
     const { resolvedTheme, toggleTheme, mounted } = useTheme();
 
     const isSchoolSection = pathname.startsWith('/dashboard') || pathname.startsWith('/school') || pathname.startsWith('/students');
+    const isObservationSection = pathname.startsWith('/observation-board') || pathname.startsWith('/observations');
     const isEvalCheckSection = pathname.startsWith('/eval-check');
 
     let activeNavItems;
@@ -74,6 +81,9 @@ export function Sidebar() {
     if (isSchoolSection) {
         activeNavItems = schoolNavItems;
         sectionLabel = '학교 정보';
+    } else if (isObservationSection) {
+        activeNavItems = observationNavItems;
+        sectionLabel = '학생 관찰 기록';
     } else if (isEvalCheckSection) {
         activeNavItems = evalCheckNavItems;
         sectionLabel = '평가 점검';
@@ -108,7 +118,7 @@ export function Sidebar() {
             </nav>
 
             {/* Show examples only for Seteuk section */}
-            {!isSchoolSection && !isEvalCheckSection && (
+            {!isSchoolSection && !isObservationSection && !isEvalCheckSection && (
                 <div className={styles.examplesSection}>
                     <Link
                         href="/examples"

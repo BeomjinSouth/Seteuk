@@ -103,6 +103,7 @@ STAR FAQ/Q&A
 
 페이지 보조 기능:
 
+- 상단 `GlobalNav`는 `학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검 -> 학습지 OCR` 순서로 고정한다.
 - `AI 세특 생성` 공통 앱 셸(`GlobalNav + Sidebar`) 안에서 `/write`, `/counsel-chat`, `/record-review`, `/search-inspector`를 같은 작업공간 탭처럼 제공
 - URL query prefill 지원
 - 세특 작성 탭의 `RAG 점검·개선` 버튼은 `/api/record-review`의 `includeImprovedDraft` 흐름을 재사용
@@ -121,7 +122,9 @@ STAR FAQ/Q&A
 
 - 학생은 학적 명부 기준으로 한 번만 등록하고 과목별로 중복 생성하지 않는다.
 - 교사별 담당 학급은 명부에서 선택해 연결하며, 학생 목록은 teaching class의 학년/반 기준으로 동적으로 계산한다.
-- 학생 관리 UI는 teaching class 탭 + 학생 카드 보드로 구성하고, 카드에서 관찰 메모와 세특 작성 페이지로 query prefill 이동한다.
+- 학생 관리 UI는 학교 명부 업로드와 teaching class 연결만 담당한다.
+- 별도 `학생 관찰 기록` 섹션에서 학생 카드 보드(`/observation-board`)와 관찰 메모(`/observations`)를 제공한다.
+- 학생 카드에서는 관찰 메모와 세특 작성 페이지로 query prefill 이동한다.
 - 학습 메모와 관찰 메모는 teaching class 단위로 저장한다.
 - 세특 AI 생성 API는 현재 교사의 `teacherKey`와 `teachingClassId`를 전달하고, 같은 맥락의 관찰 메모만 불러온다.
 - 로컬 개발 모드에서는 Google Sheets API 호출이 실패할 때 `.local-sheet-store.json`으로 자동 fallback해 웹앱 흐름을 중단하지 않는다.

@@ -386,6 +386,19 @@
     font-size: 0.9rem;
 }
 
+.summaryLink {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 0.9rem;
+    color: hsl(var(--primary));
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.summaryLink:hover {
+    text-decoration: underline;
+}
+
 .boardBulkActions {
     display: flex;
     gap: 0.75rem;

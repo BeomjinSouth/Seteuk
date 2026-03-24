@@ -24,10 +24,10 @@
 - record review page: implemented
 - write page integration: implemented
 - search inspector page: implemented
-- main navigation integration: unified under the AI workspace shell
+- main navigation integration: 학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검 -> 학습지 OCR 순서 적용
+- student workspace split: 학생 관리는 명부/학급 연결만 담당하고 학생 카드 보드는 /observation-board로 분리
 - lexical retrieval: implemented
 - AI reranking: implemented
-- OpenAI routes: lazy client init applied to avoid Vercel build failures without runtime credentials
 
 ## Next
 

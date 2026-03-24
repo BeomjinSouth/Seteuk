@@ -236,7 +236,7 @@ export default function DashboardPage() {
                                 className="mt-4"
                                 onClick={() => {
                                     seedDemoWorkspace();
-                                    window.location.href = '/students';
+                                    window.location.href = '/observation-board';
                                 }}
                             >
                                 <FlaskConical size={18} /> 데모 작업공간 채우기

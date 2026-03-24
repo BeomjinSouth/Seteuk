@@ -42,12 +42,16 @@
 - `src/app/record-review/page.tsx`
 - `src/app/write/page.tsx`
 - `src/app/search-inspector/page.tsx`
+- `src/app/observation-board/page.tsx`
+- `src/app/observations/page.tsx`
 - `src/components/layout/AppShell.tsx`
 - raw match list shown in the pages
 - local vs hosted search comparison available
 - query-string prefill supported
 - counsel chat, record review, and search inspector now share the same `GlobalNav + Sidebar` shell as the write workspace
 - main navigation groups those tools under `AI 세특 생성`
+- top navigation order is `학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검 -> 학습지 OCR`
+- student management is limited to roster upload and teaching-class connection; the student board now lives in `/observation-board`
 - `/api/record-review` can optionally return `improvedDraft` for the write-tab review-improve action
 
 ## Response Policy

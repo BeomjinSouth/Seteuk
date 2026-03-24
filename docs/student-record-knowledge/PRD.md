@@ -55,3 +55,6 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - `/record-review`: implemented in the shared AI workspace shell
 - `/write`: RAG review-improve action implemented
 - `/search-inspector`: implemented in the shared AI workspace shell
+- top navigation order: `학교 정보` -> `학생 관찰 기록` -> `AI 세특 생성` -> `평가 점검` -> `학습지 OCR`
+- student management scope: roster upload + teaching-class connection only
+- student board location: `/observation-board`

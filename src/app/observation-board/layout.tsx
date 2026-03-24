@@ -1,6 +1,6 @@
 import { AppShell } from '@/components/layout/AppShell';
 
-export default function ObservationsLayout({
+export default function ObservationBoardLayout({
     children,
 }: {
     children: React.ReactNode;
