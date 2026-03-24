@@ -1,7 +1,6 @@
 'use client';
 
 import { Suspense, useEffect, useState, useTransition } from 'react';
-import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { AlertTriangle, CheckCircle2, GraduationCap, Link2, ShieldCheck, Sparkles, Tag } from 'lucide-react';
@@ -75,12 +74,6 @@ function RecordReviewPageContent() {
 
     return (
         <div className={styles.page}>
-            <div className={styles.topNav}>
-                <Link href="/dashboard" className={styles.topLink}>대시보드</Link>
-                <Link href="/counsel-chat" className={styles.topLink}>학생부 상담</Link>
-                <Link href="/record-review" className={styles.topLinkActive}>생기부 점검</Link>
-            </div>
-
             <section className={styles.hero}>
                 <div>
                     <span className={styles.kicker}>Context-grounded Review</span>

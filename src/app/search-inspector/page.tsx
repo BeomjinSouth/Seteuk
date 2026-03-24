@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { useState, useTransition } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
@@ -86,13 +85,6 @@ export default function SearchInspectorPage() {
 
     return (
         <div className={styles.page}>
-            <div className={styles.topNav}>
-                <Link href="/dashboard" className={styles.topLink}>Dashboard</Link>
-                <Link href="/counsel-chat" className={styles.topLink}>Counsel Chat</Link>
-                <Link href="/record-review" className={styles.topLink}>Record Review</Link>
-                <Link href="/search-inspector" className={styles.topLinkActive}>Search Inspector</Link>
-            </div>
-
             <section className={styles.panel}>
                 <h1 className={styles.title}>Search Inspector</h1>
                 <p className={styles.subtitle}>

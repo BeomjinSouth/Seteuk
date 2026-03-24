@@ -24,7 +24,7 @@
 - record review page: implemented
 - write page integration: implemented
 - search inspector page: implemented
-- main navigation integration: implemented
+- main navigation integration: unified under the AI workspace shell
 - lexical retrieval: implemented
 - AI reranking: implemented
 - OpenAI routes: lazy client init applied to avoid Vercel build failures without runtime credentials

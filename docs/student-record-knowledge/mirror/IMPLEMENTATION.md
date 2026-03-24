@@ -103,7 +103,7 @@ STAR FAQ/Q&A
 
 페이지 보조 기능:
 
-- 상단 quick nav 추가
+- `AI 세특 생성` 공통 앱 셸(`GlobalNav + Sidebar`) 안에서 `/write`, `/counsel-chat`, `/record-review`, `/search-inspector`를 같은 작업공간 탭처럼 제공
 - URL query prefill 지원
 - 세특 작성 탭의 `RAG 점검·개선` 버튼은 `/api/record-review`의 `includeImprovedDraft` 흐름을 재사용
 
@@ -284,6 +284,11 @@ STAR FAQ/Q&A
 6. 응답 생성
 7. citations와 warnings 반환
 
+UI 흐름:
+
+- 교사는 `AI 세특 생성` 섹션에 머문 상태로 사이드바에서 `학생부 상담` 탭을 선택한다.
+- 별도 단독 레이아웃으로 이탈하지 않고 같은 앱 셸, 같은 세션, 같은 탐색 구조를 유지한다.
+
 응답 원칙은 [`skills/rag-answering.md`](/Users/pbj95/Desktop/cursor/seteuk(2026)/student-record-knowledge/skills/rag-answering.md)를 따른다.
 
 ## 10. 생기부 점검 구현 흐름
@@ -296,6 +301,11 @@ STAR FAQ/Q&A
 5. 이유/근거/수정 방향 생성
 6. structured review result 반환
 7. 호출자가 요청하면 같은 공개 근거로 `improvedDraft` 생성
+
+UI 흐름:
+
+- 교사는 `AI 세특 생성` 섹션에 머문 상태로 사이드바에서 `생기부 점검` 탭을 선택한다.
+- 세특 작성/상담/점검/검색 점검이 동일한 앱 셸을 공유해 기능 전환 시 다른 사이트처럼 보이지 않게 유지한다.
 
 점검 원칙은 [`skills/student-record-review.md`](/Users/pbj95/Desktop/cursor/seteuk(2026)/student-record-knowledge/skills/student-record-review.md)를 따른다.
 

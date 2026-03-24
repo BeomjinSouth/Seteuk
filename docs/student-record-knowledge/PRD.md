@@ -23,6 +23,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 
 ### Counsel chatbot
 
+- lives inside the `AI 세특 생성` workspace sidebar
 - school-level filter
 - category filter
 - year filter
@@ -31,6 +32,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 
 ### Record review
 
+- lives inside the `AI 세특 생성` workspace sidebar
 - issue extraction
 - evidence cards
 - rewrite guidance
@@ -49,7 +51,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - `/api/record-review`: implemented
 - `/api/search`: implemented
 - `/api/search-eval`: implemented
-- `/counsel-chat`: implemented
-- `/record-review`: implemented
+- `/counsel-chat`: implemented in the shared AI workspace shell
+- `/record-review`: implemented in the shared AI workspace shell
 - `/write`: RAG review-improve action implemented
-- `/search-inspector`: implemented
+- `/search-inspector`: implemented in the shared AI workspace shell

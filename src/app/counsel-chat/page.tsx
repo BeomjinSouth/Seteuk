@@ -1,7 +1,6 @@
 'use client';
 
 import { Suspense, useEffect, useState, useTransition } from 'react';
-import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Bot, CalendarRange, FileSearch, GraduationCap, Link2, MessageSquareQuote, Tag } from 'lucide-react';
@@ -78,12 +77,6 @@ function CounselChatPageContent() {
 
     return (
         <div className={styles.page}>
-            <div className={styles.topNav}>
-                <Link href="/dashboard" className={styles.topLink}>대시보드</Link>
-                <Link href="/counsel-chat" className={styles.topLinkActive}>학생부 상담</Link>
-                <Link href="/record-review" className={styles.topLink}>생기부 점검</Link>
-            </div>
-
             <section className={styles.hero}>
                 <div className={styles.heroCopy}>
                     <span className={styles.kicker}>Knowledge-backed Counsel</span>

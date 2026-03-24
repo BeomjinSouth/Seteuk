@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { GraduationCap, ScanLine, Sparkles, ClipboardCheck, School, MessageSquareQuote } from 'lucide-react';
+import { GraduationCap, ScanLine, Sparkles, ClipboardCheck, School } from 'lucide-react';
 import clsx from 'clsx';
 import styles from './GlobalNav.module.css';
 
@@ -23,13 +23,7 @@ const mainSections = [
         href: '/write',
         label: 'AI 세특 생성',
         icon: Sparkles,
-        description: '세특 자동 작성'
-    },
-    {
-        href: '/counsel-chat',
-        label: '학생부 상담',
-        icon: MessageSquareQuote,
-        description: 'FAQ·Q&A 기반 상담'
+        description: '세특 작성, 상담, 점검'
     },
     {
         href: '/eval-check',
@@ -53,19 +47,17 @@ export function GlobalNav() {
     const isActive = (href: string) => {
         if (href === '/ocr') return pathname.startsWith('/ocr');
         if (href === '/eval-check') return pathname.startsWith('/eval-check');
-        if (href === '/counsel-chat') return (
-            pathname.startsWith('/counsel-chat') ||
-            pathname.startsWith('/record-review') ||
-            pathname.startsWith('/search-inspector')
-        );
         if (href === '/dashboard') return pathname.startsWith('/dashboard') || pathname.startsWith('/school') || pathname.startsWith('/students');
         if (href === '/write') return (
             pathname.startsWith('/write') ||
+            pathname.startsWith('/counsel-chat') ||
+            pathname.startsWith('/record-review') ||
             pathname.startsWith('/review') ||
             pathname.startsWith('/export') ||
             pathname.startsWith('/examples') ||
             pathname.startsWith('/settings') ||
-            pathname.startsWith('/observations')
+            pathname.startsWith('/observations') ||
+            pathname.startsWith('/search-inspector')
         );
         return false;
     };
