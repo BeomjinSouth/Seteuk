@@ -1,12 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import OpenAI from 'openai';
+import { getOpenAIClient, hasOpenAIApiKey } from '@/lib/openai-client';
 import { getAssessments, getObservationsForContext } from '@/lib/sheets';
 import { getPromptCacheParams } from '@/lib/prompt-cache';
-
-// Initialize OpenAI client
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-});
 
 // GPT-5 Model names (released December 11, 2025)
 const DEFAULT_MODEL = 'gpt-5-mini';
@@ -264,7 +259,7 @@ ${exampleTemplates.join('\n\n')}
         : DEFAULT_REASONING_EFFORT;
 
     // Check if API key is available
-    if (!process.env.OPENAI_API_KEY) {
+    if (!hasOpenAIApiKey()) {
         console.log('No OpenAI API key, using fallback');
         return NextResponse.json({
             success: true,
@@ -275,6 +270,7 @@ ${exampleTemplates.join('\n\n')}
     }
 
     try {
+        const openai = getOpenAIClient();
         console.log(`Calling OpenAI with model: ${actualModel}`);
         console.log(`Learning data:`, learningData);
 

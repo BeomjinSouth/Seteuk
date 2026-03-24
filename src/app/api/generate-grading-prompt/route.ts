@@ -1,10 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import OpenAI from 'openai';
+import { getOpenAIClient, hasOpenAIApiKey } from '@/lib/openai-client';
 import { getPromptCacheParams } from '@/lib/prompt-cache';
-
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-});
 
 const DEFAULT_MODEL = 'gpt-5-mini';
 
@@ -65,6 +61,13 @@ export async function POST(request: NextRequest) {
             return NextResponse.json(
                 { success: false, error: '피드백 항목이 필요합니다.' },
                 { status: 400 }
+            );
+        }
+
+        if (!hasOpenAIApiKey()) {
+            return NextResponse.json(
+                { success: false, error: 'OPENAI_API_KEY가 설정되지 않았습니다.' },
+                { status: 503 }
             );
         }
 
@@ -129,6 +132,7 @@ JSON 형식으로만 응답해 주세요.`;
             JSON.stringify(achievementStandards ?? []),
         ]);
 
+        const openai = getOpenAIClient();
         const response = await openai.responses.create({
             model: DEFAULT_MODEL,
             input: prompt,

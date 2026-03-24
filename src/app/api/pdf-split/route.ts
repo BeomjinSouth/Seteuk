@@ -2,12 +2,8 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 import { NextRequest, NextResponse } from 'next/server';
-import OpenAI from 'openai';
+import { getOpenAIClient, hasOpenAIApiKey } from '@/lib/openai-client';
 import { getPromptCacheParams } from '@/lib/prompt-cache';
-
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-});
 
 const DEFAULT_MODEL = 'gpt-5-mini';
 
@@ -49,7 +45,15 @@ export async function POST(request: NextRequest) {
             );
         }
 
+        if (!hasOpenAIApiKey()) {
+            return NextResponse.json(
+                { success: false, error: 'OPENAI_API_KEY가 설정되지 않았습니다.' },
+                { status: 503 }
+            );
+        }
+
         const base64Data = pdfData.includes(',') ? pdfData.split(',')[1] : pdfData;
+        const openai = getOpenAIClient();
 
         const prompt = `이 PDF는 여러 학생의 평가지를 스캔한 파일입니다.
 각 학생의 평가지는 ${pagesPerStudent}페이지입니다.

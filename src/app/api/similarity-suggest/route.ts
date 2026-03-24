@@ -1,9 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import OpenAI from 'openai';
-
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-});
+import { getOpenAIClient, hasOpenAIApiKey } from '@/lib/openai-client';
 
 const DEFAULT_MODEL = 'gpt-5-mini';
 
@@ -50,6 +46,13 @@ export async function POST(request: NextRequest) {
             );
         }
 
+        if (!hasOpenAIApiKey()) {
+            return NextResponse.json(
+                { success: false, error: 'OPENAI_API_KEY가 설정되지 않았습니다.' },
+                { status: 503 }
+            );
+        }
+
         const userPrompt = `학생1(${name1 || '학생A'})의 세특:
 ${text1}
 
@@ -58,6 +61,7 @@ ${text2}
 
 위 두 세특의 유사한 부분을 분석하고, 각 학생별로 구별되는 표현으로 수정하는 제안을 JSON 형식으로 드려주세요.`;
 
+        const openai = getOpenAIClient();
         const response = await openai.responses.create({
             model: DEFAULT_MODEL,
             instructions: SYSTEM_PROMPT,

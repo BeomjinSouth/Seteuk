@@ -1,10 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import OpenAI from 'openai';
+import { getOpenAIClient, hasOpenAIApiKey } from '@/lib/openai-client';
 import { getPromptCacheParams } from '@/lib/prompt-cache';
-
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-});
 
 const DEFAULT_MODEL = 'gpt-5-mini';
 
@@ -99,7 +95,7 @@ export async function POST(request: NextRequest) {
     }
 
     // API 키 없으면 데모 결과 반환
-    if (!process.env.OPENAI_API_KEY) {
+    if (!hasOpenAIApiKey()) {
         return NextResponse.json({
             success: true,
             result: generateDemoExtraction(),
@@ -110,6 +106,7 @@ export async function POST(request: NextRequest) {
 
     try {
         console.log('Extracting rubric from image...');
+        const openai = getOpenAIClient();
 
         const imageContent = image
             ? { type: 'input_image' as const, image_url: `data:image/jpeg;base64,${image}`, detail: 'high' as const }
@@ -202,7 +199,6 @@ function generateDemoExtraction() {
         confidence: 'low'
     };
 }
-
 
 
 

@@ -1,11 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import OpenAI from 'openai';
+import { getOpenAIClient, hasOpenAIApiKey } from '@/lib/openai-client';
 import { getPromptCacheParams } from '@/lib/prompt-cache';
-
-// Initialize OpenAI client
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-});
 
 const DEFAULT_MODEL = 'gpt-5-mini';
 
@@ -96,7 +91,7 @@ export async function POST(request: NextRequest) {
 축소된 세특 내용만 출력하세요.`;
 
     // Check if API key is available
-    if (!process.env.OPENAI_API_KEY) {
+    if (!hasOpenAIApiKey()) {
         // Simple fallback: just return original with a note
         return NextResponse.json({
             success: true,
@@ -109,6 +104,7 @@ export async function POST(request: NextRequest) {
     }
 
     try {
+        const openai = getOpenAIClient();
         const cacheParams = getPromptCacheParams('adjust:v1', [direction]);
         const response = await openai.responses.create({
             model: DEFAULT_MODEL,

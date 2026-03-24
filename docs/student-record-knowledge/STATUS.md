@@ -27,6 +27,7 @@
 - main navigation integration: implemented
 - lexical retrieval: implemented
 - AI reranking: implemented
+- OpenAI routes: lazy client init applied to avoid Vercel build failures without runtime credentials
 
 ## Next
 
