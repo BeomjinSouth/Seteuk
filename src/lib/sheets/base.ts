@@ -153,6 +153,44 @@ export async function appendRow(sheetName: string, values: string[]): Promise<vo
 }
 
 /**
+ * Replaces the full contents of a sheet with the provided 2D rows.
+ *
+ * @param sheetName - Target sheet name.
+ * @param values - Full sheet payload, including header rows when needed.
+ */
+export async function writeSheet(sheetName: string, values: string[][]): Promise<void> {
+    try {
+        const sheets = getSheets();
+        await sheets.spreadsheets.values.clear({
+            spreadsheetId: SPREADSHEET_ID,
+            range: `${sheetName}!A:ZZ`,
+        });
+
+        if (values.length === 0) {
+            return;
+        }
+
+        const maxColumns = Math.max(1, ...values.map((row) => row.length));
+        const endCol = columnNumberToLetters(maxColumns);
+        const range = `${sheetName}!A1:${endCol}${values.length}`;
+
+        await sheets.spreadsheets.values.update({
+            spreadsheetId: SPREADSHEET_ID,
+            range,
+            valueInputOption: 'USER_ENTERED',
+            requestBody: {
+                values,
+            },
+        });
+    } catch (error) {
+        if (!shouldUseLocalSheetFallback()) throw error;
+        const store = await ensureLocalSheet(sheetName);
+        store[sheetName] = values;
+        await writeLocalSheetStore(store);
+    }
+}
+
+/**
  * Updates a specific row in a sheet.
  * Updates only the columns provided in valus.
  * 

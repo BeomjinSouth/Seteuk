@@ -119,7 +119,7 @@ export default function DashboardPage() {
                         {isAdminUser && <span className={styles.adminBadge}><Shield size={14} /> 관리자</span>}
                     </h1>
                     <p className={styles.subtitle} suppressHydrationWarning>
-                        {teacher?.school} · {teacher?.subject} 세특 작업 현황입니다.
+                        {teacher?.school} · {teacher?.subject} 세특 작업 현황
                     </p>
                 </div>
                 <Link href="/students">
@@ -219,7 +219,7 @@ export default function DashboardPage() {
                     <div className={styles.emptyState}>
                         <AlertCircle size={48} className={styles.emptyIcon} />
                         <h3>등록된 반이 없습니다</h3>
-                        <p>학생 관리에서 엑셀 파일을 업로드하여 반과 학생을 추가하세요.</p>
+                        <p>학생 관리에서 명부를 업로드하고 학급을 연결하세요.</p>
                         <div className={styles.emptyActions}>
                             <Link href="/students">
                                 <Button className="mt-4">

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="성호 AI favicon">
+  <path fill="#a8a8a8" d="M128 32h80l48-32 48 32h80c53 0 96 43 96 96v224c0 35-17 68-46 88L300 499c-27 17-61 17-88 0L78 440c-29-20-46-53-46-88V128c0-53 43-96 96-96Z"/>
+  <path fill="#ffffff" d="M142 74h67l47-31 47 31h67c31 0 56 25 56 56v214c0 21-10 41-27 53L284 460c-17 11-39 11-56 0L113 397c-17-12-27-32-27-53V130c0-31 25-56 56-56Z"/>
+  <path fill="none" stroke="#7b338f" stroke-width="34" d="M145 339A144 144 0 0 1 214 119"/>
+  <path fill="none" stroke="#7b338f" stroke-width="34" d="M298 119A144 144 0 0 1 367 339"/>
+  <path fill="none" stroke="#7b338f" stroke-width="28" d="M164 373A122 122 0 0 0 348 373"/>
+  <path fill="#135f9c" d="M256 108l41 77h-82l41-77Z"/>
+  <path fill="#135f9c" d="M182 205h148l40 90H142l40-90Z"/>
+  <path fill="#135f9c" d="M110 326h122l-169 100 47-100Z"/>
+  <path fill="#135f9c" d="M402 326h-122l169 100-47-100Z"/>
+</svg>

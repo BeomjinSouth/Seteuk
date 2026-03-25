@@ -233,7 +233,7 @@ export default function ExportPage() {
             <header className={styles.header}>
                 <div>
                     <h1 className={styles.title}>내보내기</h1>
-                    <p className={styles.subtitle}>세특 데이터를 엑셀로 내보내거나 복사하세요.</p>
+                    <p className={styles.subtitle}>엑셀로 내보내거나 바로 복사하세요.</p>
                 </div>
             </header>
 
@@ -305,7 +305,7 @@ export default function ExportPage() {
             {/* Copy View */}
             <section className={styles.copySection}>
                 <h2><Copy size={20} /> 복사용 보기 (나이스 입력용)</h2>
-                <p className={styles.hint}>각 학생의 세특을 클릭하여 복사하세요.</p>
+                <p className={styles.hint}>클릭하면 복사됩니다.</p>
 
                 {exportableRecords.length === 0 ? (
                     <div className={styles.emptyState}>

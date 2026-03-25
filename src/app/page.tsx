@@ -79,7 +79,7 @@ export default function LoginPage() {
             <GraduationCap size={32} color="white" />
           </motion.div>
 
-          <h1 className={styles.title}>세특 AI 도우미</h1>
+          <h1 className={styles.title}>성호 AI</h1>
           <p className="text-muted text-sm">
             생성형 AI 기반 교과 세특 작성 서비스
           </p>

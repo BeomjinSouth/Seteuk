@@ -400,7 +400,7 @@ function ObservationsPageContent() {
                         수업 관찰 메모
                     </h1>
                     <p className={styles.subtitle}>
-                        담당 학급별 수업 기록을 남기고, 저장된 메모를 세특 AI 작성 컨텍스트로 바로 연결합니다.
+                        수업 기록을 남기고 세특 작성에 연결합니다.
                     </p>
                 </div>
                 <div className={styles.headerActions}>
@@ -473,7 +473,7 @@ function ObservationsPageContent() {
                         })}
                     </div>
                     <p className={styles.targetHint}>
-                        저장 시 선택된 학생별 입력 행이 각각 별도 관찰 기록으로 저장됩니다.
+                        저장하면 학생별 기록으로 따로 저장됩니다.
                     </p>
                 </div>
                 <div className={styles.entryList}>
@@ -550,7 +550,7 @@ function ObservationsPageContent() {
                                         <textarea
                                             value={draft.memo}
                                             onChange={(e) => updateStudentDraft(student.id, 'memo', e.target.value)}
-                                            placeholder="학생의 질문, 수행 과정, 발표 내용, 피드백 반응 등을 구체적으로 기록하세요."
+                                            placeholder="질문, 수행, 발표, 반응을 기록하세요."
                                         />
                                     </div>
                                 </div>
@@ -689,7 +689,7 @@ function ObservationsPageContent() {
                 <div className={styles.emptyState}>
                     <ClipboardList size={48} className={styles.emptyIcon} />
                     <h3>관찰 메모가 없습니다</h3>
-                    <p>직접 수업 기록을 남기거나 OCR 분석 결과를 저장하면 여기에 표시됩니다.</p>
+                    <p>수업 기록과 OCR 저장분이 여기에 표시됩니다.</p>
                 </div>
             ) : (
                 <div className={styles.list}>

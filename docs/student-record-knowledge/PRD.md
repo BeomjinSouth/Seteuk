@@ -57,6 +57,8 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - `/search-inspector`: retained as an internal diagnostics page and removed from the sidebar
 - top navigation order: `학교 정보` -> `학생 관찰 기록` -> `AI 세특 생성` -> `평가 점검` -> `학습지 OCR`
 - student management scope: roster upload + teaching-class connection only
+- school roster uploads are shared per school, so other teachers at the same school can reuse the uploaded roster without uploading again
+- repeated roster uploads for the same school are merged by roster key, so overlapping students are skipped instead of duplicated
 - student board location: `/observation-board`
 - observation board interaction: single click selects, double click opens observation writing, and same-class multi-selection supports batch entry
 - manual observation entry uses per-student rows with roster/date fields plus lesson topic, selected tag, and free memo

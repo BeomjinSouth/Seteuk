@@ -84,6 +84,7 @@ interface AppState {
 
     setStudents: (classId: string, students: Student[]) => void;
     upsertRosterStudents: (students: Student[]) => void;
+    replaceRosterStudentsForSchool: (school: string, students: Student[]) => void;
     addStudent: (student: Student) => void;
     updateStudent: (id: string, data: Partial<Student>) => void;
     removeStudent: (id: string) => void;
@@ -263,6 +264,31 @@ export const useAppStore = create<AppState>()(
                             ...(student.classLearningData || {}),
                         },
                     };
+                });
+
+                return { students: nextStudents };
+            }),
+
+            replaceRosterStudentsForSchool: (school, newStudents) => set((state) => {
+                const schoolKey = school.replace(/\s+/g, '').toLowerCase();
+                const incomingIds = new Set(newStudents.map((student) => student.id));
+                const nextStudents = state.students.filter((student) =>
+                    student.school !== school
+                    && !incomingIds.has(student.id)
+                    && !student.id.startsWith(`student-${schoolKey}-`)
+                );
+
+                newStudents.forEach((student) => {
+                    const existing = state.students.find((item) => item.id === student.id);
+                    nextStudents.push({
+                        ...existing,
+                        ...student,
+                        learningData: existing?.learningData ?? student.learningData ?? {},
+                        classLearningData: {
+                            ...(existing?.classLearningData || {}),
+                            ...(student.classLearningData || {}),
+                        },
+                    });
                 });
 
                 return { students: nextStudents };

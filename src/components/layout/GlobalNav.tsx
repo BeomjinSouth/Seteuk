@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { GraduationCap, ScanLine, Sparkles, ClipboardCheck, ClipboardList, School } from 'lucide-react';
 import clsx from 'clsx';
+import { SharedRosterSync } from '@/components/providers/SharedRosterSync';
 import styles from './GlobalNav.module.css';
 
 const mainSections = [
@@ -71,41 +72,44 @@ export function GlobalNav() {
     };
 
     return (
-        <header className={styles.gnb}>
-            <div className={styles.gnbInner}>
-                {/* Logo */}
-                <Link href="/dashboard" className={styles.logo}>
-                    <div className={styles.logoIcon}>
-                        <GraduationCap size={20} color="white" />
-                    </div>
-                    <span className={styles.logoText}>세특 AI</span>
-                </Link>
+        <>
+            <SharedRosterSync />
+            <header className={styles.gnb}>
+                <div className={styles.gnbInner}>
+                    {/* Logo */}
+                    <Link href="/dashboard" className={styles.logo}>
+                        <div className={styles.logoIcon}>
+                            <GraduationCap size={20} color="white" />
+                        </div>
+                        <span className={styles.logoText}>성호 AI</span>
+                    </Link>
 
-                {/* Main Navigation */}
-                <nav className={styles.mainNav}>
-                    {mainSections.map((section) => {
-                        const Icon = section.icon;
-                        const active = isActive(section.href);
+                    {/* Main Navigation */}
+                    <nav className={styles.mainNav}>
+                        {mainSections.map((section) => {
+                            const Icon = section.icon;
+                            const active = isActive(section.href);
 
-                        return (
-                            <Link
-                                key={section.href}
-                                href={section.href}
-                                className={clsx(
-                                    styles.navItem,
-                                    active && styles.navItemActive
-                                )}
-                            >
-                                <Icon size={18} />
-                                <span className={styles.navLabel}>{section.label}</span>
-                            </Link>
-                        );
-                    })}
-                </nav>
+                            return (
+                                <Link
+                                    key={section.href}
+                                    href={section.href}
+                                    className={clsx(
+                                        styles.navItem,
+                                        active && styles.navItemActive
+                                    )}
+                                >
+                                    <Icon size={18} />
+                                    <span className={styles.navLabel}>{section.label}</span>
+                                </Link>
+                            );
+                        })}
+                    </nav>
 
-                {/* Spacer */}
-                <div className={styles.spacer} />
-            </div>
-        </header>
+                    {/* Spacer */}
+                    <div className={styles.spacer} />
+                </div>
+            </header>
+        </>
     );
 }

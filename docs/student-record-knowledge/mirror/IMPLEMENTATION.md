@@ -125,6 +125,8 @@ STAR FAQ/Q&A
 핵심 규칙:
 
 - 학생은 학적 명부 기준으로 한 번만 등록하고 과목별로 중복 생성하지 않는다.
+- 학교 전체 명부는 학교 단위 공유 저장소에 동기화하고, 같은 학교 사용자는 로그인 후 공용 명부를 자동으로 불러온다.
+- 같은 학교에서 명부를 다시 업로드하면 기존 공용 명부와 `학교/학년/반/번호` 기준으로 병합하고, 동일 학생은 건너뛰며 이름 등 학적 정보가 달라진 경우만 갱신한다.
 - 교사별 담당 학급은 명부에서 선택해 연결하며, 학생 목록은 teaching class의 학년/반 기준으로 동적으로 계산한다.
 - 학생 관리 UI는 학교 명부 업로드와 teaching class 연결만 담당한다.
 - 별도 `학생 관찰 기록` 섹션에서 학생 카드 보드(`/observation-board`)와 관찰 메모(`/observations`)를 제공한다.
@@ -340,7 +342,7 @@ UI 흐름:
 
 1. 교사 로그인 시 `teacherKey` 생성
 2. 선택적으로 데모 시드 버튼으로 샘플 roster/teaching class/student 데이터를 즉시 생성
-3. 학생 명부 업로드 시 학적 roster와 homeroom class 생성
+3. 학생 명부 업로드 시 학적 roster와 homeroom class를 생성하고 학교 단위 공용 저장소에도 반영
 4. 교사가 담당 학급을 선택하면 teaching class 생성
 5. 관찰 메모 저장 시 `teacherKey`, `teachingClassId`, `lessonTopic`, `subjectName` 저장
 6. 세특 생성 호출 시 `studentId`, `teacherKey`, `teachingClassId`로 관찰 메모 필터링

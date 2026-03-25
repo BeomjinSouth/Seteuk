@@ -281,7 +281,7 @@ export default function ObservationBoardPage() {
                 <div>
                     <h1 className={styles.title}>학생 카드 보드</h1>
                     <p className={styles.subtitle}>
-                        카드를 클릭하면 학생이 선택되고, 더블클릭하면 관찰 기록 작성으로 바로 이동합니다.
+                        클릭: 선택 · 더블클릭: 기록 작성
                     </p>
                 </div>
             </header>
@@ -307,7 +307,7 @@ export default function ObservationBoardPage() {
                     <div className={styles.emptyList}>
                         <Users size={48} />
                         <p>아직 연결된 담당 수업 학급이 없습니다.</p>
-                        <p className={styles.hint}>학생 관리에서 학급을 연결하면 여기서 학생 카드가 열립니다.</p>
+                        <p className={styles.hint}>학생 관리에서 학급을 연결하세요.</p>
                         <Link href="/students" className={styles.summaryLink}>
                             학생 관리로 이동
                         </Link>
@@ -316,7 +316,7 @@ export default function ObservationBoardPage() {
                     <div className={styles.emptyList}>
                         <Users size={48} />
                         <p>조건에 맞는 학생이 없습니다.</p>
-                        <p className={styles.hint}>학급 선택이나 검색어를 확인하세요.</p>
+                        <p className={styles.hint}>학급 또는 검색어를 확인하세요.</p>
                     </div>
                 ) : (
                     <>
@@ -347,12 +347,10 @@ export default function ObservationBoardPage() {
 
                         <div className={styles.boardSummary}>
                             <span>
-                                여러 학생을 선택한 뒤 선택된 카드 중 하나를 더블클릭하면 같은 학급 학생들에 대해
-                                관찰 기록을 한 번에 남길 수 있습니다. 학생 명부 업로드와 담당 학급 연결은 학생
-                                관리에서 합니다.
+                                클릭: 선택 · 더블클릭: 기록 작성. 여러 명 선택 시 같은 학급 학생을 함께 기록합니다.
                             </span>{' '}
                             <Link href="/students" className={styles.summaryLink}>
-                                학생 관리 열기
+                                학생 관리
                             </Link>
                         </div>
 

@@ -46,12 +46,37 @@ function buildStudentId(school: string, grade: number, classNumber: number, numb
     return `student-${school.replace(/\s+/g, '').toLowerCase()}-${grade}-${classNumber}-${number}`;
 }
 
+function buildUploadSummary(stats: {
+    addedCount?: number;
+    updatedCount?: number;
+    skippedCount?: number;
+    totalCount?: number;
+}): string {
+    const parts: string[] = [];
+
+    if (stats.addedCount) {
+        parts.push(`${stats.addedCount}명 추가`);
+    }
+    if (stats.updatedCount) {
+        parts.push(`${stats.updatedCount}명 갱신`);
+    }
+    if (stats.skippedCount) {
+        parts.push(`${stats.skippedCount}명 중복 건너뜀`);
+    }
+
+    if (parts.length === 0) {
+        return `${stats.totalCount || 0}명 명부를 확인했고, 새로 반영할 항목은 없었습니다.`;
+    }
+
+    return `${parts.join(', ')} 처리했습니다.`;
+}
+
 export default function StudentsPage() {
     const {
         classes,
         students,
         upsertClass,
-        upsertRosterStudents,
+        replaceRosterStudentsForSchool,
         seedDemoWorkspace,
         teacher,
     } = useAppStore();
@@ -63,6 +88,7 @@ export default function StudentsPage() {
         details?: string[];
     } | null>(null);
     const [isDragging, setIsDragging] = useState(false);
+    const [isUploading, setIsUploading] = useState(false);
 
     const teacherClasses = useMemo(
         () => getTeacherClasses(classes, teacher),
@@ -104,13 +130,21 @@ export default function StudentsPage() {
         seedDemoWorkspace();
         setUploadResult({
             success: true,
-            message: '데모 명부와 담당 학급을 채웠습니다. 상단 학생 관찰 기록 탭에서 학생 카드 보드를 확인하세요.',
+            message: '데모 명부와 학급을 불러왔습니다. 학생 카드 보드를 확인하세요.',
         });
     };
 
     const handleFileUpload = useCallback((file: File) => {
         const reader = new FileReader();
-        reader.onload = (e) => {
+        setIsUploading(true);
+        reader.onerror = () => {
+            setIsUploading(false);
+            setUploadResult({
+                success: false,
+                message: '파일을 읽는 중 오류가 발생했습니다.',
+            });
+        };
+        reader.onload = async (e) => {
             try {
                 const data = new Uint8Array(e.target?.result as ArrayBuffer);
                 const workbook = XLSX.read(data, { type: 'array' });
@@ -132,7 +166,6 @@ export default function StudentsPage() {
 
                 const errors: string[] = [];
                 const newStudents: Student[] = [];
-                const homeroomClasses = new Map<string, ClassGroup>();
                 const seenStudents = new Set<string>();
 
                 for (let i = 1; i < jsonData.length; i++) {
@@ -169,18 +202,6 @@ export default function StudentsPage() {
                     seenStudents.add(studentKey);
 
                     const homeroomClassId = buildHomeroomClassId(school, grade, classNumber);
-                    homeroomClasses.set(homeroomClassId, {
-                        id: homeroomClassId,
-                        kind: 'homeroom',
-                        school,
-                        grade,
-                        classNumber,
-                        subjectName: '학적 명부',
-                        semester: '1',
-                        year: new Date().getFullYear(),
-                        studentCount: 0,
-                    });
-
                     newStudents.push({
                         id: buildStudentId(school, grade, classNumber, number),
                         classId: homeroomClassId,
@@ -194,16 +215,65 @@ export default function StudentsPage() {
                     });
                 }
 
-                homeroomClasses.forEach((cls) => {
-                    const studentCount = newStudents.filter((student) => student.classId === cls.id).length;
-                    upsertClass({ ...cls, studentCount });
-                });
-
                 if (newStudents.length > 0) {
-                    upsertRosterStudents(newStudents);
+                    const response = await fetch('/api/students', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            mode: 'merge_school_roster',
+                            school: newStudents[0].school,
+                            students: newStudents,
+                        }),
+                    });
+
+                    if (!response.ok) {
+                        const payload = await response.json().catch(() => null) as { error?: string } | null;
+                        throw new Error(payload?.error || '공용 명부 저장에 실패했습니다.');
+                    }
+
+                    const payload = await response.json() as {
+                        students?: Student[];
+                        addedCount?: number;
+                        updatedCount?: number;
+                        skippedCount?: number;
+                    };
+
+                    const mergedStudents = Array.isArray(payload.students) ? payload.students : newStudents;
+                    const mergedHomeroomClasses = new Map<string, ClassGroup>();
+                    mergedStudents.forEach((student) => {
+                        if (!student.school || !student.grade || !student.classNumber) {
+                            return;
+                        }
+                        const homeroomClassId = buildHomeroomClassId(student.school, student.grade, student.classNumber);
+                        mergedHomeroomClasses.set(homeroomClassId, {
+                            id: homeroomClassId,
+                            kind: 'homeroom',
+                            school: student.school,
+                            grade: student.grade,
+                            classNumber: student.classNumber,
+                            subjectName: '학적 명부',
+                            semester: '1',
+                            year: new Date().getFullYear(),
+                            studentCount: 0,
+                        });
+                    });
+
+                    mergedHomeroomClasses.forEach((cls) => {
+                        const studentCount = mergedStudents.filter((student) => student.classId === cls.id).length;
+                        upsertClass({ ...cls, studentCount });
+                    });
+
+                    replaceRosterStudentsForSchool(newStudents[0].school || teacher?.school || '', mergedStudents);
                     setUploadResult({
                         success: true,
-                        message: `${newStudents.length}명의 학생 명부를 반영했습니다.`,
+                        message: buildUploadSummary({
+                            addedCount: payload.addedCount,
+                            updatedCount: payload.updatedCount,
+                            skippedCount: payload.skippedCount,
+                            totalCount: newStudents.length,
+                        }),
                         details: errors.length > 0 ? errors : undefined
                     });
                 } else {
@@ -219,10 +289,12 @@ export default function StudentsPage() {
                     message: '파일 처리 중 오류가 발생했습니다.',
                     details: [String(error)]
                 });
+            } finally {
+                setIsUploading(false);
             }
         };
         reader.readAsArrayBuffer(file);
-    }, [teacher, upsertClass, upsertRosterStudents]);
+    }, [replaceRosterStudentsForSchool, teacher, upsertClass]);
 
     const handleImportTeachingClasses = () => {
         if (!teacher || selectedHomerooms.size === 0) return;
@@ -262,7 +334,7 @@ export default function StudentsPage() {
         setSelectedHomerooms(new Set());
         setUploadResult({
             success: true,
-            message: `${importedCount}개 학급을 담당 수업에 연결했습니다. 학생 관찰 기록 탭에서 학생 카드 보드를 확인하세요.`,
+            message: `${importedCount}개 학급을 연결했습니다. 학생 카드 보드를 확인하세요.`,
         });
     };
 
@@ -313,20 +385,22 @@ export default function StudentsPage() {
                 <div>
                     <h1 className={styles.title}>학생 관리</h1>
                     <p className={styles.subtitle}>
-                        전교 명부를 한 번 업로드하고, 로그인한 교사의 담당 수업 학급만 연결합니다.
-                        학생 목록과 학생별 카드는 상단 학생 관찰 기록 탭으로 분리되었습니다.
+                        명부를 업로드하고 담당 학급만 연결합니다.
                     </p>
                 </div>
             </header>
 
             <section className={styles.uploadSection}>
                 <div className={styles.uploadHeader}>
-                    <h2><FileSpreadsheet size={20} /> 학교 학생 명부 업로드</h2>
+                    <div>
+                        <h2><FileSpreadsheet size={20} /> 학교 학생 명부 업로드</h2>
+                        <p className={styles.assignmentHint}>한 번 업로드하면 같은 학교 다른 사용자에게도 자동 반영됩니다.</p>
+                    </div>
                     <div className={styles.uploadActions}>
-                        <Button variant="secondary" onClick={handleDownloadTemplate}>
+                        <Button variant="secondary" onClick={handleDownloadTemplate} disabled={isUploading}>
                             <Download size={16} /> 템플릿 다운로드
                         </Button>
-                        <Button variant="ghost" onClick={handleSeedDemoRoster}>
+                        <Button variant="ghost" onClick={handleSeedDemoRoster} disabled={isUploading}>
                             <FlaskConical size={16} /> 데모 명부 채우기
                         </Button>
                     </div>
@@ -343,12 +417,13 @@ export default function StudentsPage() {
                         전교 명부 엑셀을 드래그하거나 클릭하여 업로드
                     </p>
                     <p className={styles.dropzoneHint}>
-                        필수 열: 학교, 학년, 반, 번호, 이름
+                        {isUploading ? '학교 공용 명부를 저장하는 중입니다...' : '필수 열: 학교, 학년, 반, 번호, 이름'}
                     </p>
                     <input
                         type="file"
                         accept=".xlsx,.xls"
                         onChange={handleFileInput}
+                        disabled={isUploading}
                         className={styles.fileInput}
                     />
                 </div>
@@ -385,7 +460,7 @@ export default function StudentsPage() {
                     <div>
                         <h2><Link2 size={20} /> 담당 수업 학급 가져오기</h2>
                         <p className={styles.assignmentHint}>
-                            {teacher?.subject || '로그인한 과목'} 기준으로 내가 가르치는 학급만 작업 목록에 연결합니다.
+                            {teacher?.subject || '로그인한 과목'} 학급만 연결합니다.
                         </p>
                     </div>
                     <div className={styles.semesterToggle}>
@@ -454,17 +529,17 @@ export default function StudentsPage() {
                 {teacherClasses.length === 0 ? (
                     <div className={styles.emptyList}>
                         <Users size={48} />
-                        <p>담당 수업 학급을 연결하면 학생 카드 보드가 열립니다.</p>
-                        <p className={styles.hint}>위에서 학급을 선택한 뒤 상단 학생 관찰 기록 탭으로 이동하세요.</p>
+                        <p>학급을 연결하면 학생 카드 보드가 열립니다.</p>
+                        <p className={styles.hint}>연결 후 학생 카드 보드로 이동하세요.</p>
                     </div>
                 ) : (
                     <div className={styles.emptyAssignment}>
-                        <p>담당 수업 학급 {teacherClasses.length}개가 연결되었습니다.</p>
+                        <p>담당 수업 학급 {teacherClasses.length}개 연결됨</p>
                         <p className={styles.hint}>
-                            학생 목록과 학생별 카드는 상단 학생 관찰 기록 탭의 학생 카드 보드에서 확인합니다.
+                            학생 카드 보드에서 확인하세요.
                         </p>
                         <Link href="/observation-board" className={styles.summaryLink}>
-                            학생 카드 보드 열기
+                            학생 카드 보드
                         </Link>
                     </div>
                 )}

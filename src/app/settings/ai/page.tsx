@@ -143,7 +143,7 @@ export default function AISettingsPage() {
                 <div>
                     <h1 className={styles.title}>AI 설정</h1>
                     <p className={styles.subtitle}>
-                        세특 생성 시 사용하는 AI 파라미터를 관리합니다.
+                        세특 생성 AI 설정입니다.
                         {!isAdminUser && (
                             <span className={styles.adminNote}>
                                 <Lock size={14} /> 관리자({ADMIN_CONFIG.name})만 수정 가능합니다.
@@ -241,7 +241,7 @@ export default function AISettingsPage() {
 
             <section className={styles.section}>
                 <h2><Sparkles size={20} /> 모델 선택</h2>
-                <p className={styles.sectionDesc}>현재 운영 표준 모델은 `gpt-5.4-mini`로 고정됩니다.</p>
+                <p className={styles.sectionDesc}>운영 모델은 `gpt-5.4-mini`입니다.</p>
 
                 <div className={styles.modelGrid}>
                     {[
@@ -262,11 +262,11 @@ export default function AISettingsPage() {
 
             <section className={styles.section}>
                 <h2><Bot size={20} /> 시스템 프롬프트</h2>
-                <p className={styles.sectionDesc}>생성 정책과 문체 규칙을 지정합니다.</p>
+                <p className={styles.sectionDesc}>생성 기준을 설정합니다.</p>
 
                 <div className={styles.infoBox}>
                     <Info size={16} />
-                    <span>이 프롬프트는 모든 세특 생성 요청에 공통 적용됩니다.</span>
+                    <span>모든 세특 생성에 공통 적용됩니다.</span>
                 </div>
 
                 <textarea
@@ -286,7 +286,7 @@ export default function AISettingsPage() {
 
             <section className={styles.section}>
                 <h2>생성 파라미터</h2>
-                <p className={styles.sectionDesc}>`model`, `maxOutputTokens`, `reasoningEffort`만 실제 생성 API에 반영됩니다.</p>
+                <p className={styles.sectionDesc}>이 세 항목만 생성 API에 반영됩니다.</p>
 
                 <div className={styles.settingsGrid}>
                     <div className={styles.settingItem}>

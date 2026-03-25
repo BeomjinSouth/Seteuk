@@ -168,8 +168,7 @@ function CounselChatPageContent() {
                     <span className={styles.kicker}>One Workspace, Two Jobs</span>
                     <h1 className={styles.title}>생기부 상담 점검</h1>
                     <p className={styles.subtitle}>
-                        질문에 대한 근거 답변과 생기부 초안 점검을 같은 화면에서 처리합니다. 상담과 점검이 분리돼 보이지 않도록
-                        하나의 작업공간으로 정리했습니다.
+                        질문 답변과 문장 점검을 한 화면에서 처리합니다.
                     </p>
 
                     <div className={styles.modeSwitch}>
@@ -181,7 +180,7 @@ function CounselChatPageContent() {
                             <MessageSquareQuote size={18} />
                             <span className={styles.modeButtonCopy}>
                                 <strong>질문 답변</strong>
-                                <span>규정, FAQ, 공개 Q&amp;A 근거로 답합니다.</span>
+                                <span>규정·FAQ 근거 답변</span>
                             </span>
                         </button>
                         <button
@@ -192,7 +191,7 @@ function CounselChatPageContent() {
                             <SearchCheck size={18} />
                             <span className={styles.modeButtonCopy}>
                                 <strong>문구 점검</strong>
-                                <span>초안 문장의 위험 요소와 수정 방향을 봅니다.</span>
+                                <span>위험 요소와 수정 방향</span>
                             </span>
                         </button>
                     </div>

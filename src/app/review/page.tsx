@@ -164,7 +164,7 @@ export default function ReviewPage() {
             <header className={styles.header}>
                 <div>
                     <h1 className={styles.title}>검토/확정</h1>
-                    <p className={styles.subtitle}>맞춤법과 금지어를 확인하고 최종 확정합니다.</p>
+                    <p className={styles.subtitle}>맞춤법과 금지어를 확인해 확정합니다.</p>
                 </div>
             </header>
 

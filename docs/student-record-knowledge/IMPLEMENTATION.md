@@ -56,6 +56,8 @@
 - main navigation groups those tools under `AI 세특 생성`
 - top navigation order is `학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검 -> 학습지 OCR`
 - student management is limited to roster upload and teaching-class connection; the student board now lives in `/observation-board`
+- school roster data syncs through `/api/students` into shared sheet-backed storage, while teaching-class connections remain teacher-specific in local app state
+- repeated uploads for the same school are merged server-side by roster key and return add/update/skip counts so overlapping students do not duplicate
 - in `/observation-board`, single click selects students and double click opens observation writing; same-class multi-selection enters batch observation entry
 - `/observations` manual compose renders one editable row per selected student and stores row-specific date, lesson topic, selected tag, and memo
 - `/api/record-review` can optionally return `improvedDraft` for the write-tab review-improve action

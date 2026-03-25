@@ -1,9 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-    Settings,
     Type,
     ShieldAlert,
     Plus,
@@ -70,28 +69,25 @@ export default function SettingsPage() {
     const [requestSent, setRequestSent] = useState(false);
 
     // Local state for non-admin word suggestions
-    const [localWords, setLocalWords] = useState<{ word: string; alternative: string }[]>([]);
+    const [localWordsDraft, setLocalWordsDraft] = useState<{ word: string; alternative: string }[] | null>(null);
 
     // Keyword state
     const [newKeyword, setNewKeyword] = useState('');
 
-    // Sync localWords with store on mount
-    useEffect(() => {
-        // Convert string array to object array format
-        const wordsWithAlternatives = forbiddenWords.map(word => ({
-            word,
-            alternative: ''
-        }));
-        setLocalWords(wordsWithAlternatives);
-    }, [forbiddenWords]);
+    const localWords = localWordsDraft ?? forbiddenWords.map((word) => ({
+        word,
+        alternative: ''
+    }));
 
     // Add forbidden word (admin only)
     const handleAddWord = () => {
         if (!newWord.trim()) return;
 
         if (isAdminUser) {
-            addForbiddenWord(newWord.trim());
-            setLocalWords([...localWords, { word: newWord.trim(), alternative: newAlternative.trim() }]);
+            const nextWord = newWord.trim();
+            const nextLocalWords = [...localWords, { word: nextWord, alternative: newAlternative.trim() }];
+            addForbiddenWord(nextWord);
+            setLocalWordsDraft(nextLocalWords);
         }
         setNewWord('');
         setNewAlternative('');
@@ -103,7 +99,7 @@ export default function SettingsPage() {
 
         const wordToRemove = localWords[index].word;
         removeForbiddenWord(wordToRemove);
-        setLocalWords(localWords.filter((_, i) => i !== index));
+        setLocalWordsDraft(localWords.filter((_, i) => i !== index));
     };
 
     // Add keyword
@@ -158,7 +154,7 @@ export default function SettingsPage() {
                 <div>
                     <h1 className={styles.title}>설정</h1>
                     <p className={styles.subtitle}>
-                        세특 작성 기준과 옵션을 설정하세요.
+                        세특 작성 기준을 설정합니다.
                         {!isAdminUser && (
                             <span className={styles.adminNote}>
                                 <Lock size={14} /> 금지어 관리는 관리자({ADMIN_CONFIG.name})만 수정 가능
@@ -227,8 +223,7 @@ export default function SettingsPage() {
                             </div>
                             <div className={styles.modalBody}>
                                 <p className={styles.modalDesc}>
-                                    추가하거나 삭제하고 싶은 금지어와 이유를 작성해 주세요.<br />
-                                    관리자({ADMIN_CONFIG.name})가 검토 후 반영합니다.
+                                    변경할 금지어와 이유를 적어주세요. 관리자({ADMIN_CONFIG.name})가 검토합니다.
                                 </p>
 
                                 <div className={styles.currentWordsInfo}>
@@ -341,7 +336,7 @@ export default function SettingsPage() {
                         <h2><Highlighter size={20} /> 키워드 하이라이팅</h2>
                     </div>
                     <p className={styles.sectionHint}>
-                        검토 화면에서 하이라이팅할 핵심 키워드를 관리합니다. (역량, 성취기준 등)
+                        검토 화면 키워드입니다.
                     </p>
 
                     <div className={styles.addWordForm}>
@@ -391,7 +386,7 @@ export default function SettingsPage() {
                         )}
                     </div>
                     <p className={styles.sectionHint}>
-                        세특에 사용하면 안 되는 표현과 대체 표현을 관리합니다.
+                        금지 표현을 관리합니다.
                     </p>
 
                     {isAdminUser && (
@@ -450,7 +445,7 @@ export default function SettingsPage() {
                 <section className={styles.section}>
                     <h2><FileText size={20} /> 검토 기준 메모</h2>
                     <p className={styles.sectionHint}>
-                        학교별 기재요령을 요약해서 저장하세요. 검토 화면에서 항상 표시됩니다.
+                        학교별 검토 기준을 적어두세요.
                     </p>
 
                     <textarea
@@ -489,8 +484,7 @@ export default function SettingsPage() {
                     <div className={styles.notice}>
                         <AlertCircle size={16} />
                         <p>
-                            맞춤법 검사는 외부 서비스를 사용하므로 분당 호출 수가 제한됩니다.
-                            대량 검사 시 시간이 소요될 수 있습니다.
+                            외부 서비스 사용으로 호출 수가 제한됩니다.
                         </p>
                     </div>
                 </section>

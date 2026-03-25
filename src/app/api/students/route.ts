@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getStudents, addStudent, updateStudent } from '@/lib/sheets';
+import { addStudent, getStudents, mergeStudentsForSchool, updateStudent } from '@/lib/sheets';
+import { initializeSheets } from '@/lib/sheets/base';
 
 /**
  * Retrieves student list.
@@ -14,14 +15,14 @@ import { getStudents, addStudent, updateStudent } from '@/lib/sheets';
 export async function GET(request: NextRequest) {
     try {
         const { searchParams } = new URL(request.url);
+        const school = searchParams.get('school') || undefined;
         const grade = searchParams.get('grade');
+        await initializeSheets();
 
-        const allStudents = await getStudents();
-
-        // Filter by grade if provided (classId format: "1-1" where first number is grade)
-        const students = grade
-            ? allStudents.filter(s => s.classId?.startsWith(`${grade}-`))
-            : allStudents;
+        const students = await getStudents({
+            school,
+            grade: grade ? Number.parseInt(grade, 10) : undefined,
+        });
 
         return NextResponse.json({ success: true, students, data: students });
     } catch (error) {
@@ -49,7 +50,24 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
     try {
         const body = await request.json();
-        const { classId, number, name, learningData } = body;
+        await initializeSheets();
+
+        if (body.mode === 'merge_school_roster') {
+            const school = typeof body.school === 'string' ? body.school.trim() : '';
+            const students = Array.isArray(body.students) ? body.students : [];
+
+            if (!school || students.length === 0) {
+                return NextResponse.json(
+                    { error: '학교명과 학생 명부가 필요합니다.' },
+                    { status: 400 }
+                );
+            }
+
+            const result = await mergeStudentsForSchool(school, students);
+            return NextResponse.json({ success: true, ...result });
+        }
+
+        const { classId, number, name, learningData, grade, school, classNumber, classLearningData } = body;
 
         if (!classId || !number || !name) {
             return NextResponse.json(
@@ -62,7 +80,11 @@ export async function POST(request: NextRequest) {
             classId,
             number,
             name,
+            grade,
+            school,
+            classNumber,
             learningData: learningData || {},
+            classLearningData: classLearningData || {},
         });
 
         return NextResponse.json({ success: true, id });
@@ -89,6 +111,7 @@ export async function PUT(request: NextRequest) {
     try {
         const body = await request.json();
         const { id, ...data } = body;
+        await initializeSheets();
 
         if (!id) {
             return NextResponse.json(

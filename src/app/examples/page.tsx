@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     FileText,
@@ -47,29 +47,22 @@ type TabType = 'template' | 'curriculum';
  * - Tabs for switching between Template and Curriculum views
  */
 export default function ExamplesPage() {
-    const { exampleTemplate, setExampleTemplate, setCurriculumContent, getCurriculumContent, teacher } = useAppStore();
+    const { exampleTemplate, setExampleTemplate, setCurriculumContent, getCurriculumContent } = useAppStore();
 
     const [activeTab, setActiveTab] = useState<TabType>('template');
-    const [content, setContent] = useState(exampleTemplate || DEFAULT_TEMPLATE);
+    const [templateDraft, setTemplateDraft] = useState<string | null>(null);
     const [saved, setSaved] = useState(false);
 
     // Curriculum state
     const [selectedGrade, setSelectedGrade] = useState<number>(1);
     const [selectedSemester, setSelectedSemester] = useState<1 | 2>(1);
-    const [curriculumText, setCurriculumText] = useState('');
-
-    // Sync with store
-    useEffect(() => {
-        if (exampleTemplate) {
-            setContent(exampleTemplate);
-        }
-    }, [exampleTemplate]);
-
-    // Load curriculum content when grade/semester changes
-    useEffect(() => {
-        const curr = getCurriculumContent(selectedGrade, selectedSemester);
-        setCurriculumText(curr?.content || '');
-    }, [selectedGrade, selectedSemester, getCurriculumContent]);
+    const [curriculumDrafts, setCurriculumDrafts] = useState<Record<string, string>>({});
+    const content = templateDraft ?? exampleTemplate ?? DEFAULT_TEMPLATE;
+    const selectedCurriculumKey = `${selectedGrade}-${selectedSemester}`;
+    const curriculumText =
+        curriculumDrafts[selectedCurriculumKey]
+        ?? getCurriculumContent(selectedGrade, selectedSemester)?.content
+        ?? '';
 
     // Save template
     const handleSaveTemplate = () => {
@@ -81,7 +74,7 @@ export default function ExamplesPage() {
     // Reset template
     const handleResetTemplate = () => {
         if (confirm('기본 예시로 초기화하시겠습니까?')) {
-            setContent(DEFAULT_TEMPLATE);
+            setTemplateDraft(DEFAULT_TEMPLATE);
             setExampleTemplate(DEFAULT_TEMPLATE);
         }
     };
@@ -102,7 +95,7 @@ export default function ExamplesPage() {
                 <div>
                     <h1 className={styles.title}>AI 예시 양식</h1>
                     <p className={styles.subtitle}>
-                        AI가 세특 작성 시 참고할 예시와 학년/학기별 교육과정 내용을 관리합니다.
+                        세특 예시와 교육과정을 관리합니다.
                     </p>
                 </div>
             </header>
@@ -144,10 +137,9 @@ export default function ExamplesPage() {
                     <div className={styles.infoBox}>
                         <Sparkles size={20} />
                         <div>
-                            <strong>퓨샷 러닝(Few-shot Learning) 활용</strong>
+                            <strong>AI가 참고하는 예시</strong>
                             <p>
-                                이 예시는 AI가 세특을 생성할 때 문체와 표현 방식의 참고 자료로 사용됩니다.
-                                선생님의 평소 작성 스타일에 맞게 수정하시면 더 일관된 결과를 얻을 수 있습니다.
+                                문체와 표현 기준으로 쓰입니다.
                             </p>
                         </div>
                     </div>
@@ -155,10 +147,10 @@ export default function ExamplesPage() {
                     <div className={styles.tipsSection}>
                         <h3><Info size={16} /> 작성 팁</h3>
                         <ul>
-                            <li><strong>예시 세특</strong>: 실제 작성한 세특 예시를 포함하세요</li>
-                            <li><strong>어미/어투</strong>: 선호하는 문장 종결 어미를 명시하세요 (예: ~함, ~였음)</li>
-                            <li><strong>자주 쓰는 표현</strong>: 반복적으로 사용하는 표현을 나열하세요</li>
-                            <li><strong>과목 특성</strong>: 과목별 전문 용어나 평가 기준을 포함하세요</li>
+                            <li><strong>예시 세특</strong>: 참고 문단을 넣으세요</li>
+                            <li><strong>어미/어투</strong>: 선호하는 끝맺음을 적으세요</li>
+                            <li><strong>자주 쓰는 표현</strong>: 반복 표현을 정리하세요</li>
+                            <li><strong>과목 특성</strong>: 핵심 용어를 넣으세요</li>
                         </ul>
                     </div>
 
@@ -180,7 +172,7 @@ export default function ExamplesPage() {
                         <textarea
                             className={styles.editor}
                             value={content}
-                            onChange={(e) => setContent(e.target.value)}
+                            onChange={(e) => setTemplateDraft(e.target.value)}
                             rows={20}
                             placeholder="예시 세특과 작성 스타일을 입력하세요..."
                         />
@@ -192,10 +184,9 @@ export default function ExamplesPage() {
                     <div className={styles.infoBox}>
                         <GraduationCap size={20} />
                         <div>
-                            <strong>학년/학기별 교육과정 내용</strong>
+                            <strong>학년·학기별 교육과정</strong>
                             <p>
-                                해당 학년/학기에 어떤 내용을 배우는지 입력하면, AI가 세특 작성 시 이 내용을 참고합니다.
-                                예: "1학년 1학기: 세포의 구조와 기능, 물질대사, 생태계..."
+                                입력한 내용은 세특 작성에 반영됩니다.
                             </p>
                         </div>
                     </div>
@@ -248,18 +239,17 @@ export default function ExamplesPage() {
                         <textarea
                             className={styles.editor}
                             value={curriculumText}
-                            onChange={(e) => setCurriculumText(e.target.value)}
+                            onChange={(e) => setCurriculumDrafts((prev) => ({
+                                ...prev,
+                                [selectedCurriculumKey]: e.target.value,
+                            }))}
                             rows={15}
-                            placeholder={`${selectedGrade}학년 ${selectedSemester}학기에 배우는 내용을 입력하세요...
+                            placeholder={`${selectedGrade}학년 ${selectedSemester}학기 핵심 내용을 입력하세요.
 
 예시:
-- 단원1: 세포의 구조와 기능
-  - 세포막의 구조와 물질 이동
-  - 세포 소기관의 종류와 역할
-  
-- 단원2: 물질대사
-  - 효소의 작용과 특성
-  - 광합성과 세포호흡`}
+- 단원: 세포의 구조와 기능
+- 핵심 개념: 세포막, 세포 소기관
+- 활동: 현미경 관찰, 모둠 발표`}
                         />
                     </section>
 
