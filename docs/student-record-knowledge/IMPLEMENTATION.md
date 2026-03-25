@@ -2,14 +2,16 @@
 
 ## Data Sources
 
-- `../student-record-knowledge/output/star-moe-knowledge-2026.json`
-- `../student-record-knowledge/output/star-moe-knowledge-units-2026.json`
+- `output/star-moe-knowledge-2026.json` bundled into the web app for deployed runtime reads
+- `../student-record-knowledge/output/star-moe-knowledge-2026.json` used as the local fallback source during workspace development
+- `../student-record-knowledge/output/star-moe-knowledge-units-2026.json` kept upstream as the detailed knowledge-unit artifact
 
 ## Current Implementation
 
 ### Loader
 
 - `src/lib/knowledge-base.ts`
+- prefers the bundled `web/output` snapshot, then falls back to the sibling knowledge repo or `KNOWLEDGE_JSON_PATH`
 - loads knowledge JSON
 - applies school-level, category, and year filters
 - uses lexical retrieval, synonym expansion, concept constraints, and scoring
@@ -48,6 +50,7 @@
 - raw match list shown in the pages
 - local vs hosted search comparison available
 - query-string prefill supported
+- the sidebar/workspace label is `생기부 상담 점검`
 - counsel chat and record review now share one `/counsel-chat` workspace with a mode switch, and `/record-review` redirects into that workspace
 - `search-inspector` remains available only as an internal diagnostics route and is no longer shown in the sidebar
 - main navigation groups those tools under `AI 세특 생성`

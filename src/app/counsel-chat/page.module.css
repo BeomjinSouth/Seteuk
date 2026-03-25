@@ -10,8 +10,8 @@
 }
 
 .hero {
-    display: grid;
-    grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.95fr);
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
     padding: 1.5rem;
     border-radius: 1.25rem;
@@ -107,32 +107,6 @@
 .modeButtonCopy span {
     color: hsl(var(--foreground-muted));
     line-height: 1.55;
-    font-size: 0.86rem;
-}
-
-.heroStats {
-    display: grid;
-    gap: 0.75rem;
-}
-
-.statCard {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem;
-    border-radius: 1rem;
-    background: linear-gradient(180deg, hsl(var(--surface) / 0.96), hsl(var(--surface-hover) / 0.9));
-    border: 1px solid hsl(var(--border));
-    box-shadow: var(--shadow-sm);
-}
-
-.statCard strong {
-    display: block;
-    font-size: 1.15rem;
-}
-
-.statCard span {
-    color: hsl(var(--foreground-muted));
     font-size: 0.86rem;
 }
 
@@ -441,7 +415,6 @@
         padding: 1rem;
     }
 
-    .hero,
     .resultShell,
     .filterRow,
     .modeSwitch {

@@ -105,6 +105,7 @@ STAR FAQ/Q&A
 
 - 상단 `GlobalNav`는 `학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검 -> 학습지 OCR` 순서로 고정한다.
 - `AI 세특 생성` 공통 앱 셸(`GlobalNav + Sidebar`) 안에서 `/write`, `/counsel-chat`, `/review`, `/export`를 사용자 탭으로 제공하고, 상담과 점검은 `/counsel-chat` 내부 모드 전환으로 통합한다.
+- `/counsel-chat` 사용자 탭 라벨은 `생기부 상담 점검`으로 노출한다.
 - 기존 `/record-review` 경로는 `/counsel-chat?mode=review`로 리다이렉트해 북마크와 기존 링크를 깨지 않게 유지한다.
 - `/search-inspector`는 검색 품질 확인용 내부 진단 route로만 남기고 사용자 사이드바에서는 노출하지 않는다.
 - URL query prefill 지원
@@ -133,6 +134,13 @@ STAR FAQ/Q&A
 - 학습 메모와 관찰 메모는 teaching class 단위로 저장한다.
 - 세특 AI 생성 API는 현재 교사의 `teacherKey`와 `teachingClassId`를 전달하고, 같은 맥락의 관찰 메모만 불러온다.
 - 로컬 개발 모드에서는 Google Sheets API 호출이 실패할 때 `.local-sheet-store.json`으로 자동 fallback해 웹앱 흐름을 중단하지 않는다.
+
+## 4.5 OpenAI 모델/비전 기준
+
+- 웹앱의 OpenAI 기반 생성, 점검, OCR, 채점 흐름은 모두 `gpt-5.4-mini`를 기본 모델로 사용한다.
+- OCR, 루브릭 추출, 예비 채점, 일괄 채점, 평가 점검 구조 추출은 Responses API 멀티모달 입력을 사용하고, 이미지 파트는 `input_image`로 전달한다.
+- `gpt-5.4-mini` 비전 입력은 공식 문서 기준 `low`, `high`, `auto` detail을 지원하므로, 현재 구현은 판독 안정성을 우선해 `detail: "high"`를 기본값으로 유지한다.
+- 현재 웹앱의 관련 요청은 단일 Responses 호출 위주이며 assistant 메시지를 재주입하는 장기 에이전트 흐름이 아니므로 `phase` 필드는 적용하지 않는다. 추후 tool-heavy 장기 흐름으로 확장할 때만 `commentary` / `final_answer` round-trip을 검토한다.
 
 ## 5. 수집 파이프라인
 
@@ -264,6 +272,8 @@ STAR FAQ/Q&A
 현재 구현 상태:
 
 - 현재는 로컬 `knowledge JSON`을 읽어 lexical retrieval + OpenAI Responses API를 결합한 MVP를 구현했다.
+- 배포된 `web` 앱은 `web/output/star-moe-knowledge-YYYY.json` 번들 스냅샷을 우선 읽고, 로컬 개발에서는 `../student-record-knowledge/output/...` 또는 `KNOWLEDGE_JSON_PATH`로 fallback한다.
+- 모델 프롬프트에는 검색된 상위 근거만 넣고 전체 knowledge JSON 본문을 매 요청마다 그대로 주입하지 않는다.
 - 추후 검색 품질과 운영 편의성이 더 중요해지면 File Search 또는 외부 vector DB로 전환 가능하다.
 
 ## 8.2 대안 2안: 자체 벡터 DB

@@ -30,10 +30,12 @@
 - observation compose layout: 학생별 row editor + 선택형 태그 + 날짜 기본값 오늘
 - lexical retrieval: implemented
 - AI reranking: implemented
+- bundled knowledge snapshot for deployed runtime: implemented
 
 ## Recent Changes
 
-- 2026-03-25: fixed the eval-check settings tab layout so the page no longer overflows beneath the global nav and the settings card can scroll again
+- 2026-03-25: renamed the counsel/review workspace label to `생기부 상담 점검` and removed the hero stat cards from the page header
+- 2026-03-25: made knowledge loading prefer `web/output/star-moe-knowledge-2026.json` and bundle that snapshot during sync so deployed routes stop looking for `/var/student-record-knowledge/...`
 - 2026-03-25: merged counsel chat and record review into one `/counsel-chat` workspace and removed the search inspector from the user sidebar
 - 2026-03-25: fixed OpenAI JSON mode validation failures in `record-review` and AI reranking by adding explicit `JSON` instructions to the request input context
 

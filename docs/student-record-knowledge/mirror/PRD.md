@@ -234,6 +234,12 @@ Run `npm run sync:knowledge-docs` from the web repo to refresh it.
 - 유사도 검사는 세특 전체 유사도가 아니라 문장 단위로 수행하고, 다른 학생 사이에 90% 이상 동일한 문장만 표시한다.
 - 확실하지 않으면 수동 확인 필요로 표시한다.
 
+#### OpenAI 모델 운영 기준
+
+- 평가 점검, 학습지 OCR, 루브릭 추출, 예비 채점, 모범답안 생성, 세특 생성/점검에 사용하는 OpenAI 기본 모델은 `gpt-5.4-mini`로 통일한다.
+- 이미지 입력이 필요한 흐름은 OpenAI Responses API의 `input_image` 형식을 사용한다.
+- 비전 입력 세부도는 `gpt-5.4-mini`에서 지원하는 범위(`low`, `high`, `auto`) 안에서 운영하며, 문항 판독과 루브릭 추출 기본값은 `detail: "high"`로 둔다.
+
 ### FR-6. 운영
 
 - 재수집 실행 가능

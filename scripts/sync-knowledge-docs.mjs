@@ -1,12 +1,16 @@
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const repoRoot = process.cwd();
 const sourceRoot = path.resolve(repoRoot, '..', 'student-record-knowledge');
 const docsSourceDir = path.join(sourceRoot, 'docs');
-const outputSourcePath = path.join(sourceRoot, 'output', 'star-moe-knowledge-2026.json');
 const targetDir = path.join(repoRoot, 'docs', 'student-record-knowledge');
 const mirrorDir = path.join(targetDir, 'mirror');
+const outputSourceDir = path.join(sourceRoot, 'output');
+const outputTargetDir = path.join(repoRoot, 'output');
+const bundledOutputFiles = [
+  'star-moe-knowledge-2026.json',
+];
 
 const sourceDocs = [
   { source: 'PRD.md', target: 'PRD.md' },
@@ -39,9 +43,20 @@ async function syncDocs() {
   }
 }
 
+async function syncOutput() {
+  await mkdir(outputTargetDir, { recursive: true });
+
+  for (const filename of bundledOutputFiles) {
+    const sourcePath = path.join(outputSourceDir, filename);
+    const targetPath = path.join(outputTargetDir, filename);
+    await copyFile(sourcePath, targetPath);
+  }
+}
+
 async function syncStatus() {
   const targetPath = path.join(targetDir, 'STATUS.md');
-  const outputRaw = await readFile(outputSourcePath, 'utf8');
+  const bundledKnowledgePath = path.join(outputTargetDir, 'star-moe-knowledge-2026.json');
+  const outputRaw = await readFile(bundledKnowledgePath, 'utf8');
   const output = JSON.parse(outputRaw);
   const stats = output.stats;
 
@@ -78,9 +93,12 @@ async function syncStatus() {
     '- observation compose layout: 학생별 row editor + 선택형 태그 + 날짜 기본값 오늘',
     '- lexical retrieval: implemented',
     '- AI reranking: implemented',
+    '- bundled knowledge snapshot for deployed runtime: implemented',
     '',
     '## Recent Changes',
     '',
+    '- 2026-03-25: renamed the counsel/review workspace label to `생기부 상담 점검` and removed the hero stat cards from the page header',
+    '- 2026-03-25: made knowledge loading prefer `web/output/star-moe-knowledge-2026.json` and bundle that snapshot during sync so deployed routes stop looking for `/var/student-record-knowledge/...`',
     '- 2026-03-25: merged counsel chat and record review into one `/counsel-chat` workspace and removed the search inspector from the user sidebar',
     '- 2026-03-25: fixed OpenAI JSON mode validation failures in `record-review` and AI reranking by adding explicit `JSON` instructions to the request input context',
     '',
@@ -96,5 +114,6 @@ async function syncStatus() {
 }
 
 await syncDocs();
+await syncOutput();
 await syncStatus();
-console.log('Knowledge docs synced into web/docs/student-record-knowledge/mirror');
+console.log('Knowledge docs and bundled dataset synced into web/docs/student-record-knowledge and web/output');

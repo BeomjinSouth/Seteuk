@@ -8,12 +8,10 @@ import {
     Bot,
     CalendarRange,
     CheckCircle2,
-    FileSearch,
     GraduationCap,
     Link2,
     MessageSquareQuote,
     SearchCheck,
-    ShieldCheck,
     Tag
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
@@ -168,7 +166,7 @@ function CounselChatPageContent() {
             <section className={styles.hero}>
                 <div className={styles.heroCopy}>
                     <span className={styles.kicker}>One Workspace, Two Jobs</span>
-                    <h1 className={styles.title}>학생부 상담·점검</h1>
+                    <h1 className={styles.title}>생기부 상담 점검</h1>
                     <p className={styles.subtitle}>
                         질문에 대한 근거 답변과 생기부 초안 점검을 같은 화면에서 처리합니다. 상담과 점검이 분리돼 보이지 않도록
                         하나의 작업공간으로 정리했습니다.
@@ -197,23 +195,6 @@ function CounselChatPageContent() {
                                 <span>초안 문장의 위험 요소와 수정 방향을 봅니다.</span>
                             </span>
                         </button>
-                    </div>
-                </div>
-
-                <div className={styles.heroStats}>
-                    <div className={styles.statCard}>
-                        <FileSearch size={18} />
-                        <div>
-                            <strong>{meta?.stats.canonicalEntries ?? '-'}</strong>
-                            <span>canonical answers</span>
-                        </div>
-                    </div>
-                    <div className={styles.statCard}>
-                        <ShieldCheck size={18} />
-                        <div>
-                            <strong>{meta?.stats.knowledgeUnits ?? '-'}</strong>
-                            <span>knowledge units</span>
-                        </div>
                     </div>
                 </div>
             </section>

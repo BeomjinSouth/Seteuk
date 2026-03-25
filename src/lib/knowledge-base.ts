@@ -104,10 +104,39 @@ function buildKnowledgeUnitId(entry: CanonicalKnowledgeEntry): string {
         .slice(0, 16);
 }
 
-function getDatasetPath(year: string): string {
+function getDatasetCandidatePaths(year: string): string[] {
+    const filename = `star-moe-knowledge-${year}.json`;
     const override = process.env.KNOWLEDGE_JSON_PATH;
-    if (override) return override;
-    return path.resolve(process.cwd(), '..', 'student-record-knowledge', 'output', `star-moe-knowledge-${year}.json`);
+    const candidates = override
+        ? [override]
+        : [
+            path.resolve(process.cwd(), 'output', filename),
+            path.resolve(process.cwd(), '..', 'student-record-knowledge', 'output', filename),
+        ];
+
+    return [...new Set(candidates)];
+}
+
+async function readKnowledgeDatasetFile(year: string): Promise<{ filePath: string; text: string }> {
+    const checkedPaths: string[] = [];
+
+    for (const filePath of getDatasetCandidatePaths(year)) {
+        try {
+            const text = await readFile(filePath, 'utf8');
+            return { filePath, text };
+        } catch (error) {
+            if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
+                checkedPaths.push(filePath);
+                continue;
+            }
+
+            throw error;
+        }
+    }
+
+    throw new Error(
+        `Knowledge dataset not found. Checked: ${checkedPaths.join(', ')}. Run \`npm run sync:knowledge-docs\` in the web app or set KNOWLEDGE_JSON_PATH.`,
+    );
 }
 
 function normalizeText(value: string): string {
@@ -277,16 +306,16 @@ function scoreEntry(entry: RetrievedKnowledgeEvidence, params: SearchParams): nu
 }
 
 export async function loadKnowledgeDataset(year: string = DEFAULT_YEAR): Promise<KnowledgeDataset> {
-    if (datasetCache && datasetCache.key === year && Date.now() - datasetCache.loadedAt < CACHE_TTL_MS) {
+    const cacheKey = getDatasetCandidatePaths(year).join('|');
+    if (datasetCache && datasetCache.key === cacheKey && Date.now() - datasetCache.loadedAt < CACHE_TTL_MS) {
         return datasetCache.data;
     }
 
-    const filePath = getDatasetPath(year);
-    const text = await readFile(filePath, 'utf8');
+    const { text } = await readKnowledgeDatasetFile(year);
     const data = JSON.parse(text) as KnowledgeDataset;
 
     datasetCache = {
-        key: year,
+        key: cacheKey,
         loadedAt: Date.now(),
         data,
     };

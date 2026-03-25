@@ -17,3 +17,6 @@
 - chatbot and review use only canonical public knowledge
 - private posts are retained only for stats and operations
 - conflict resolution defaults to latest answer first
+- deployed web runtime reads a bundled knowledge snapshot from `web/output/star-moe-knowledge-2026.json`
+- local development can fall back to `../student-record-knowledge/output/star-moe-knowledge-2026.json` or `KNOWLEDGE_JSON_PATH`
+- hosted/vector retrieval exists as an optional path, but the default production answer flow is still lexical retrieval plus optional AI reranking

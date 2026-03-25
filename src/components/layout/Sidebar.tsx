@@ -39,7 +39,7 @@ const observationNavItems = [
 // LNB for AI 세특 생성 section
 const seteukNavItems = [
     { href: '/write', label: '세특 작성', icon: FileEdit },
-    { href: '/counsel-chat', label: '학생부 상담·점검', icon: MessageSquareQuote },
+    { href: '/counsel-chat', label: '생기부 상담 점검', icon: MessageSquareQuote },
     { href: '/review', label: '검토/확정', icon: CheckCircle },
     { href: '/export', label: '내보내기', icon: Download },
 ];
