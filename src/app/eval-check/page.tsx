@@ -37,6 +37,10 @@ type SortMode = 'number' | 'issueCount' | 'severity';
 const MAIN_TABS: MainTab[] = ['settings', 'upload', 'results', 'rules'];
 const POLL_MAX_RETRIES = 10;
 
+const parseMainTab = (value: string | null): MainTab => (
+    value && MAIN_TABS.includes(value as MainTab) ? value as MainTab : 'settings'
+);
+
 const compactText = (parts: Array<string | undefined>) =>
     parts
         .map(part => (typeof part === 'string' ? part.trim() : ''))
@@ -222,8 +226,9 @@ function EvalCheckPageContent() {
     const router = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
+    const initialTab = parseMainTab(searchParams.get('tab'));
 
-    const [activeTab, setActiveTab] = useState<MainTab>('settings');
+    const [activeTab, setActiveTab] = useState<MainTab>(initialTab);
     const [settings, setSettings] = useState<EvalCheckSettings | null>(null);
     const [isLoadingSettings, setIsLoadingSettings] = useState(true);
     const [isTestingConnection, setIsTestingConnection] = useState(false);
@@ -282,9 +287,16 @@ function EvalCheckPageContent() {
         }
     }, []);
 
-    const isMainTab = useCallback((value: string | null): value is MainTab =>
-        Boolean(value && MAIN_TABS.includes(value as MainTab))
-    , []);
+    const handleTabChange = useCallback((nextTab: MainTab) => {
+        setActiveTab((prevTab) => (prevTab === nextTab ? prevTab : nextTab));
+
+        if (searchParams.get('tab') === nextTab) return;
+
+        const nextParams = new URLSearchParams(searchParams.toString());
+        nextParams.set('tab', nextTab);
+        const nextQuery = nextParams.toString();
+        router.replace(nextQuery ? `${pathname}?${nextQuery}` : pathname, { scroll: false });
+    }, [pathname, router, searchParams]);
 
     const loadSettings = useCallback(async () => {
         setIsLoadingSettings(true);
@@ -380,29 +392,16 @@ function EvalCheckPageContent() {
     }, [clearPollTimer]);
 
     useEffect(() => {
-        const tab = searchParams.get('tab');
-        if (!isMainTab(tab)) return;
-
-        // Avoid a feedback loop: only react to URL tab changes.
-        setActiveTab((prevTab) => (prevTab === tab ? prevTab : tab));
-    }, [searchParams, isMainTab]);
-
-    useEffect(() => {
-        const currentTab = searchParams.get('tab');
-        if (currentTab === activeTab) return;
-
-        const nextParams = new URLSearchParams(searchParams.toString());
-        nextParams.set('tab', activeTab);
-        const nextQuery = nextParams.toString();
-        router.replace(nextQuery ? `${pathname}?${nextQuery}` : pathname, { scroll: false });
-    }, [activeTab, pathname, router, searchParams]);
+        const nextTab = parseMainTab(searchParams.get('tab'));
+        setActiveTab((prevTab) => (prevTab === nextTab ? prevTab : nextTab));
+    }, [searchParams]);
 
     useEffect(() => {
         if (settings?.isConnected) return;
         if (activeTab === 'upload' || activeTab === 'results') {
-            setActiveTab('settings');
+            handleTabChange('settings');
         }
-    }, [settings?.isConnected, activeTab]);
+    }, [settings?.isConnected, activeTab, handleTabChange]);
 
     useEffect(() => {
         loadSettings();
@@ -551,7 +550,7 @@ function EvalCheckPageContent() {
                 }
                 alert(`연결 완료! 폴더: ${data.folderName}`);
                 await loadSettings();
-                setActiveTab('upload');
+                handleTabChange('upload');
             } else {
                 alert(`연결 실패: ${data.error}`);
             }
@@ -597,7 +596,7 @@ function EvalCheckPageContent() {
                     setSelectedFile(null);
                     setFileDescription('');
                     await loadDocuments(documentId);
-                    setActiveTab('results');
+                    handleTabChange('results');
                     alert('분석이 완료되었습니다.');
                     return;
                 }
@@ -662,7 +661,7 @@ function EvalCheckPageContent() {
                     clearPollTimer();
                     alert(data.message);
                     await loadDocuments(data.documentId);
-                    setActiveTab('results');
+                    handleTabChange('results');
                     setIsUploading(false);
                 } else {
                     pollProgress(data.documentId);
@@ -979,14 +978,14 @@ function EvalCheckPageContent() {
             <nav className={styles.tabNav}>
                 <button
                     className={`${styles.tab} ${activeTab === 'settings' ? styles.activeTab : ''}`}
-                    onClick={() => setActiveTab('settings')}
+                    onClick={() => handleTabChange('settings')}
                 >
                     <Settings size={16} />
                     설정
                 </button>
                 <button
                     className={`${styles.tab} ${activeTab === 'upload' ? styles.activeTab : ''}`}
-                    onClick={() => setActiveTab('upload')}
+                    onClick={() => handleTabChange('upload')}
                     disabled={!settings?.isConnected}
                 >
                     <Upload size={16} />
@@ -994,7 +993,7 @@ function EvalCheckPageContent() {
                 </button>
                 <button
                     className={`${styles.tab} ${activeTab === 'results' ? styles.activeTab : ''}`}
-                    onClick={() => setActiveTab('results')}
+                    onClick={() => handleTabChange('results')}
                     disabled={!settings?.isConnected}
                 >
                     <Clipboard size={16} />
@@ -1002,7 +1001,7 @@ function EvalCheckPageContent() {
                 </button>
                 <button
                     className={`${styles.tab} ${activeTab === 'rules' ? styles.activeTab : ''}`}
-                    onClick={() => setActiveTab('rules')}
+                    onClick={() => handleTabChange('rules')}
                 >
                     <ShieldAlert size={16} />
                     규칙

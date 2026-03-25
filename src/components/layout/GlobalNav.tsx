@@ -7,7 +7,13 @@ import clsx from 'clsx';
 import { SharedRosterSync } from '@/components/providers/SharedRosterSync';
 import styles from './GlobalNav.module.css';
 
-const mainSections = [
+const mainSections: Array<{
+    href: string;
+    label: string;
+    icon: typeof School;
+    description: string;
+    hidden?: boolean;
+}> = [
     {
         href: '/dashboard',
         label: '학교 정보',
@@ -36,7 +42,9 @@ const mainSections = [
         href: '/ocr',
         label: '학습지 OCR',
         icon: ScanLine,
-        description: '손글씨·그림 인식, 관찰 메모'
+        description: '손글씨·그림 인식, 관찰 메모',
+        // Keep the route available, but hide the tab from the main navigation for now.
+        hidden: true
     },
 ];
 
@@ -45,7 +53,7 @@ const mainSections = [
  * 
  * @description
  * Top navigation bar visible across all authenticated pages.
- * Provides access to major application sections: School Info, OCR, AI Generation, Evaluation Check.
+ * Provides access to the visible top-level sections in the authenticated workspace.
  */
 export function GlobalNav() {
     const pathname = usePathname();
@@ -86,7 +94,7 @@ export function GlobalNav() {
 
                     {/* Main Navigation */}
                     <nav className={styles.mainNav}>
-                        {mainSections.map((section) => {
+                        {mainSections.filter((section) => !section.hidden).map((section) => {
                             const Icon = section.icon;
                             const active = isActive(section.href);
 
