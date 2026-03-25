@@ -5,6 +5,7 @@ import {
     ForbiddenIssue,
     performSpellCheckRequest,
 } from '@/lib/check-utils';
+import { OPENAI_STANDARD_MODEL, normalizeOpenAIModel } from '@/lib/openai-models';
 
 type ReasoningEffort = 'none' | 'low' | 'medium' | 'high' | 'xhigh';
 
@@ -28,7 +29,7 @@ export function getAISettings(): AISettings {
     if (typeof window === 'undefined') {
         return {
             systemPrompt: '',
-            model: 'gpt-5-mini',
+            model: OPENAI_STANDARD_MODEL,
             maxOutputTokens: 1000,
             reasoningEffort: 'low',
         };
@@ -53,7 +54,7 @@ export function getAISettings(): AISettings {
 
     return {
         systemPrompt: localStorage.getItem('ai_system_prompt') || '',
-        model: localStorage.getItem('ai_model') || 'gpt-5-mini',
+        model: normalizeOpenAIModel(localStorage.getItem('ai_model')),
         maxOutputTokens,
         reasoningEffort,
     };

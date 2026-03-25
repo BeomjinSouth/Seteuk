@@ -1,6 +1,7 @@
 'use server';
 
 import OpenAI from 'openai';
+import type { QuestionAnalysisResult } from '@/types/eval-check';
 import type { ChoiceItem } from '@/types';
 import {
     QUESTION_STRUCTURE_SCHEMA,
@@ -44,10 +45,10 @@ function getOpenAIClient(): OpenAI {
     return openaiClient;
 }
 
-// GPT 모델 설정 (요청에 따라 gpt-5로 통일)
+// OpenAI 운영 표준 모델 설정
 const MODELS = {
-    FAST: 'gpt-5-mini',        // 구조화, 요약, 그림 설명
-    ANALYSIS: 'gpt-5-mini',     // 문항 분석
+    FAST: 'gpt-5.4-mini',        // 구조화, 요약, 그림 설명
+    ANALYSIS: 'gpt-5.4-mini',     // 문항 분석
 } as const;
 
 type ModelInputContent =
@@ -101,6 +102,15 @@ interface DocumentSummaryResult {
     summary: string;
     keyPoints: string[];
 }
+
+type QuestionAnalysisIssue = QuestionAnalysisResult['issues'][number] & {
+    issueId?: string;
+};
+
+type QuestionAnalysisResponse = Omit<QuestionAnalysisResult, 'analyzedAt' | 'issues'> & {
+    issues: QuestionAnalysisIssue[];
+    answerType?: string;
+};
 
 /**
  * 시험지 이미지에서 문항 구조 추출
@@ -317,7 +327,7 @@ export async function analyzeQuestionDetail(
     imageDescription?: string,
     pdfDataUrl?: string,
     pdfFileName?: string,
-): Promise<any> {
+): Promise<QuestionAnalysisResponse> {
     const client = getOpenAIClient();
 
     const userContent: ModelInputContent[] = [{ type: 'input_text', text: questionText }];
@@ -378,7 +388,7 @@ export async function analyzeQuestionDetail(
         throw new Error('문항 분석 응답이 비어있습니다.');
     }
 
-    return JSON.parse(outputText);
+    return JSON.parse(outputText) as QuestionAnalysisResponse;
 }
 
 /**
@@ -446,12 +456,12 @@ export async function analyzeQuestion(params: {
     imageDescription?: string;
     passageText?: string;
     sharedResources?: SharedResource[];
-    documentContext?: any;
+    documentContext?: DocumentSummaryResult | Record<string, unknown>;
     consistencyReport?: string;
     pdfDataUrl?: string;
     pdfFileName?: string;
     usePdfContext?: boolean;
-}): Promise<any> {
+}): Promise<QuestionAnalysisResponse> {
     // 1. Construct Question Text
     let qText = `[Question ${params.questionNumber}]`;
     if (params.taskType) qText += ` (Type: ${params.taskType})`;

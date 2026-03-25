@@ -10,7 +10,11 @@ export interface SimilarityResult {
     student1: { id: string; name: string };
     student2: { id: string; name: string };
     similarity: number;
-    similarPhrases: string[];
+    matchedSentences: Array<{
+        student1Sentence: string;
+        student2Sentence: string;
+        similarity: number;
+    }>;
 }
 
 interface SimilaritySuggestion {
@@ -33,8 +37,8 @@ function getPairKey(result: SimilarityResult): string {
 }
 
 function getBadgeClass(similarity: number): string {
-    if (similarity >= 0.8) return styles.badgeHigh;
-    if (similarity >= 0.6) return styles.badgeMedium;
+    if (similarity >= 0.95) return styles.badgeHigh;
+    if (similarity >= 0.9) return styles.badgeMedium;
     return styles.badgeLow;
 }
 
@@ -109,9 +113,9 @@ export function SimilarityModal({
                         <div className={styles.headerTitle}>
                             <AlertCircle size={24} className={styles.headerIcon} />
                             <div>
-                                <h2>유사도 검사 결과</h2>
+                                <h2>90% 이상 동일 문장 검사 결과</h2>
                                 <p className={styles.headerStats}>
-                                    {results.length}쌍의 유사 세특 발견
+                                    {results.length}쌍의 학생 기록에서 중복 의심 문장을 발견했습니다.
                                 </p>
                             </div>
                         </div>
@@ -121,6 +125,9 @@ export function SimilarityModal({
                     </div>
 
                     <div className={styles.resultList}>
+                        <div className={styles.noticeBox}>
+                            세특 전체 유사도가 아니라, 서로 다른 학생 사이에서 90% 이상 비슷한 문장만 표시합니다.
+                        </div>
                         {results.map((result) => {
                             const key = getPairKey(result);
                             const suggestion = suggestions.get(key);
@@ -134,16 +141,29 @@ export function SimilarityModal({
                                         <span className={styles.vs}>vs</span>
                                         <span className={styles.studentName}>{result.student2.name}</span>
                                         <span className={`${styles.similarityBadge} ${getBadgeClass(result.similarity)}`}>
-                                            유사도 {pct}%
+                                            최대 문장 유사도 {pct}%
                                         </span>
                                     </div>
 
-                                    {result.similarPhrases.length > 0 && (
-                                        <div className={styles.phrasesSection}>
-                                            <div className={styles.phrasesLabel}>유사 구절</div>
-                                            <div className={styles.phrasesList}>
-                                                {result.similarPhrases.map((phrase, index) => (
-                                                    <span key={index} className={styles.phraseTag}>{phrase}</span>
+                                    {result.matchedSentences.length > 0 && (
+                                        <div className={styles.sentencesSection}>
+                                            <div className={styles.sentencesLabel}>중복 의심 문장</div>
+                                            <div className={styles.sentencesList}>
+                                                {result.matchedSentences.map((sentence, index) => (
+                                                    <div key={`${key}-${index}`} className={styles.sentencePair}>
+                                                        <div className={styles.sentenceMeta}>
+                                                            문장 {index + 1}
+                                                            <span>{Math.round(sentence.similarity * 100)}%</span>
+                                                        </div>
+                                                        <div className={styles.sentenceBox}>
+                                                            <strong>{result.student1.name}</strong>
+                                                            <p>{sentence.student1Sentence}</p>
+                                                        </div>
+                                                        <div className={styles.sentenceBox}>
+                                                            <strong>{result.student2.name}</strong>
+                                                            <p>{sentence.student2Sentence}</p>
+                                                        </div>
+                                                    </div>
                                                 ))}
                                             </div>
                                         </div>

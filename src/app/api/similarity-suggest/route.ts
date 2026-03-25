@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getOpenAIClient, hasOpenAIApiKey } from '@/lib/openai-client';
 
-const DEFAULT_MODEL = 'gpt-5-mini';
+const DEFAULT_MODEL = 'gpt-5.4-mini';
 
 const SYSTEM_PROMPT = `당신은 학생 세특(교과세부능력 및 특기사항) 작성을 도와주는 AI입니다.
 두 학생의 세특이 유사하다고 판단되었습니다. 다음 작업을 수행해 주세요.

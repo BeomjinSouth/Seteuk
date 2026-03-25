@@ -14,6 +14,7 @@ import {
     X,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { OPENAI_STANDARD_MODEL, normalizeOpenAIModel } from '@/lib/openai-models';
 import { ADMIN_CONFIG, isAdmin, useAppStore } from '@/lib/store';
 import styles from './page.module.css';
 
@@ -28,7 +29,7 @@ const DEFAULT_SYSTEM_PROMPT = `당신은 중등 교사 업무를 지원하는 �
 4. 분량은 350~500자 내외를 권장합니다.
 5. 단정적 표현 대신 과정 중심의 문장을 우선합니다.`;
 
-const DEFAULT_MODEL = 'gpt-5-mini';
+const DEFAULT_MODEL = OPENAI_STANDARD_MODEL;
 const DEFAULT_MAX_TOKENS = 1000;
 const DEFAULT_REASONING_EFFORT: ReasoningEffort = 'low';
 
@@ -39,6 +40,24 @@ const REASONING_OPTIONS: Array<{ value: ReasoningEffort; label: string; descript
     { value: 'high', label: 'High', description: '복잡한 판단 품질 우선.' },
     { value: 'xhigh', label: 'XHigh', description: '가장 높은 추론 강도. 지연 증가 가능.' },
 ];
+
+function loadStoredSettings() {
+    const savedPrompt = localStorage.getItem('ai_system_prompt');
+    const savedModel = localStorage.getItem('ai_model');
+    const savedMaxTokens = Number.parseInt(localStorage.getItem('ai_max_tokens') || '', 10);
+    const savedReasoningEffort = localStorage.getItem('ai_reasoning_effort') as ReasoningEffort | null;
+
+    return {
+        systemPrompt: savedPrompt || DEFAULT_SYSTEM_PROMPT,
+        model: normalizeOpenAIModel(savedModel),
+        maxTokens: Number.isFinite(savedMaxTokens)
+            ? Math.min(3000, Math.max(200, savedMaxTokens))
+            : DEFAULT_MAX_TOKENS,
+        reasoningEffort: savedReasoningEffort && REASONING_OPTIONS.some((option) => option.value === savedReasoningEffort)
+            ? savedReasoningEffort
+            : DEFAULT_REASONING_EFFORT,
+    };
+}
 
 export default function AISettingsPage() {
     const { teacher, addNotification } = useAppStore();
@@ -55,19 +74,15 @@ export default function AISettingsPage() {
     const [requestSent, setRequestSent] = useState(false);
 
     useEffect(() => {
-        const savedPrompt = localStorage.getItem('ai_system_prompt');
-        const savedModel = localStorage.getItem('ai_model');
-        const savedMaxTokens = Number.parseInt(localStorage.getItem('ai_max_tokens') || '', 10);
-        const savedReasoningEffort = localStorage.getItem('ai_reasoning_effort') as ReasoningEffort | null;
+        const nextSettings = loadStoredSettings();
+        const frameId = window.requestAnimationFrame(() => {
+            setSystemPrompt(nextSettings.systemPrompt);
+            setModel(nextSettings.model);
+            setMaxTokens(nextSettings.maxTokens);
+            setReasoningEffort(nextSettings.reasoningEffort);
+        });
 
-        if (savedPrompt) setSystemPrompt(savedPrompt);
-        if (savedModel) setModel(savedModel);
-        if (Number.isFinite(savedMaxTokens)) {
-            setMaxTokens(Math.min(3000, Math.max(200, savedMaxTokens)));
-        }
-        if (savedReasoningEffort && REASONING_OPTIONS.some((option) => option.value === savedReasoningEffort)) {
-            setReasoningEffort(savedReasoningEffort);
-        }
+        return () => window.cancelAnimationFrame(frameId);
     }, []);
 
     const reasoningDescription = useMemo(
@@ -79,7 +94,7 @@ export default function AISettingsPage() {
         if (!isAdminUser) return;
 
         localStorage.setItem('ai_system_prompt', systemPrompt);
-        localStorage.setItem('ai_model', model);
+        localStorage.setItem('ai_model', normalizeOpenAIModel(model));
         localStorage.setItem('ai_max_tokens', String(Math.min(3000, Math.max(200, maxTokens || DEFAULT_MAX_TOKENS))));
         localStorage.setItem('ai_reasoning_effort', reasoningEffort);
 
@@ -99,7 +114,7 @@ export default function AISettingsPage() {
             },
             content: requestDescription,
             originalValue: [
-                `model=${localStorage.getItem('ai_model') || DEFAULT_MODEL}`,
+                `model=${normalizeOpenAIModel(localStorage.getItem('ai_model'))}`,
                 `maxOutputTokens=${localStorage.getItem('ai_max_tokens') || DEFAULT_MAX_TOKENS}`,
                 `reasoningEffort=${localStorage.getItem('ai_reasoning_effort') || DEFAULT_REASONING_EFFORT}`,
             ].join(', '),
@@ -226,12 +241,11 @@ export default function AISettingsPage() {
 
             <section className={styles.section}>
                 <h2><Sparkles size={20} /> 모델 선택</h2>
-                <p className={styles.sectionDesc}>생성 API에 전달할 모델을 선택합니다.</p>
+                <p className={styles.sectionDesc}>현재 운영 표준 모델은 `gpt-5.4-mini`로 고정됩니다.</p>
 
                 <div className={styles.modelGrid}>
                     {[
-                        { id: 'gpt-5-mini', name: 'GPT-5 Mini', desc: '기본 권장 모델' },
-                        { id: 'gpt-5', name: 'GPT-5', desc: '품질 우선(비용/지연 증가 가능)' },
+                        { id: OPENAI_STANDARD_MODEL, name: 'GPT-5.4 Mini', desc: '평가 점검·비전 포함 공통 운영 모델' },
                     ].map((item) => (
                         <button
                             key={item.id}

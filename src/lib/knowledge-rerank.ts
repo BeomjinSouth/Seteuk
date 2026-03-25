@@ -19,7 +19,7 @@ export async function rerankMatchesWithAI({
     schoolLevel,
     category,
     year,
-    model = 'gpt-5-mini',
+    model = 'gpt-5.4-mini',
 }: RerankParams): Promise<RetrievedKnowledgeEvidence[]> {
     if (matches.length <= 1) return matches;
 
@@ -54,6 +54,8 @@ export async function rerankMatchesWithAI({
                 'orderedIds에는 제공된 후보 번호만 넣는다.',
             ].join('\n'),
             input: [
+                'Return JSON only.',
+                'Output format: {"orderedIds":[...]}',
                 `질문: ${query}`,
                 schoolLevel ? `학교급: ${schoolLevel}` : '',
                 category ? `구분: ${category}` : '',

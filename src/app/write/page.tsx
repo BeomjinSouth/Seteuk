@@ -11,6 +11,7 @@ import { SimilarityModal, SimilarityResult } from '@/components/SimilarityModal'
 import { getContentHash } from '@/components/KeywordHighlighter';
 import { useAppStore } from '@/lib/store';
 import { SubjectRecord, CompetencySegment } from '@/types';
+import type { OCREvaluation } from '@/types/ocr';
 import { generateDraft, performSpellCheck, checkForbiddenWords, reviewAndImproveRecord } from '@/lib/write-logic';
 import { applyCheckResultToRecord } from '@/lib/check-utils';
 import { getRecordByStudentSemester } from '@/lib/record-utils';
@@ -185,7 +186,7 @@ function WritePageContent() {
         if (toGenerate.length === 0) return;
 
         setGeneratingIds(new Set(toGenerate));
-        const ocrEvaluationCache = new Map<string, Promise<any[]>>();
+        const ocrEvaluationCache = new Map<string, Promise<OCREvaluation[]>>();
 
         const getOcrEvaluations = (grade: number, semester: 1 | 2) => {
             const key = `${grade}-${semester}`;
@@ -196,7 +197,10 @@ function WritePageContent() {
                 try {
                     const response = await fetch(`/api/ocr-evaluations?grade=${grade}&semester=${semester}`);
                     if (!response.ok) return [];
-                    const data = await response.json();
+                    const data = await response.json() as {
+                        data?: OCREvaluation[];
+                        evaluations?: OCREvaluation[];
+                    };
                     return data.data || data.evaluations || [];
                 } catch {
                     return [];
@@ -508,13 +512,13 @@ function WritePageContent() {
             const response = await fetch('/api/similarity', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ contents, threshold: 0.5 }),
+                body: JSON.stringify({ contents, threshold: 0.9 }),
             });
 
             if (!response.ok) return;
             const data = await response.json();
             if (!data.results || data.results.length === 0) {
-                alert('No high-similarity pairs found.');
+                alert('다른 학생 사이에서 90% 이상 동일한 문장은 발견되지 않았습니다.');
                 return;
             }
 

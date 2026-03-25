@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getOpenAIClient, hasOpenAIApiKey } from '@/lib/openai-client';
 import { getPromptCacheParams } from '@/lib/prompt-cache';
 
-// GPT-5 Model with Vision capabilities
-const DEFAULT_MODEL = 'gpt-5-mini';
+// Standard model for OCR and vision analysis
+const DEFAULT_MODEL = 'gpt-5.4-mini';
 
 // Base OCR System Prompt
 const OCR_SYSTEM_PROMPT = `당신은 학습지 이미지를 분석하는 OCR 전문가 AI입니다.
@@ -74,7 +74,7 @@ interface OCRResult {
  * Performs OCR and optional rubric-based evaluation on an image.
  *
  * @description
- * Uses GPT-5 Vision to analyze educational worksheets.
+ * Uses `gpt-5.4-mini` with the Responses API vision input to analyze educational worksheets.
  * Can extract text, describe diagrams, summarize content, and perform evaluation.
  *
  * @param {NextRequest} request - JSON body containing:
@@ -248,7 +248,7 @@ function generateFallbackResult(includeEvaluation: boolean = false): OCRResult {
                 location: '예시 위치'
             }
         ],
-        summary: 'API 키를 설정하면 실제 학습지 분석 결과가 표시됩니다. OpenAI GPT-5 Vision API를 활용하여 텍스트와 그림 모두를 인식할 수 있습니다.'
+        summary: 'API 키를 설정하면 실제 학습지 분석 결과가 표시됩니다. OpenAI gpt-5.4-mini Responses vision 입력을 사용해 텍스트와 그림을 함께 인식할 수 있습니다.'
     };
 
     if (includeEvaluation) {

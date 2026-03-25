@@ -23,7 +23,7 @@ const mainSections = [
         href: '/write',
         label: 'AI 세특 생성',
         icon: Sparkles,
-        description: '세특 작성, 상담, 점검'
+        description: '세특 작성, 상담·점검'
     },
     {
         href: '/eval-check',

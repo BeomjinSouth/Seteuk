@@ -28,11 +28,11 @@ function getOpenAIClient(): OpenAI {
  */
 export const GPT_MODELS = {
     /** Fast responses suitable for simple tasks. */
-    INSTANT: 'gpt-5-mini',
+    INSTANT: 'gpt-5.4-mini',
     /** Deep reasoning capability for complex logic. */
-    THINKING: 'gpt-5-mini',
+    THINKING: 'gpt-5.4-mini',
     /** Best overall quality. */
-    PRO: 'gpt-5-mini',
+    PRO: 'gpt-5.4-mini',
 } as const;
 
 /** Type representing available GPT models. */
@@ -202,4 +202,3 @@ export async function checkForbiddenExpressions(text: string): Promise<Forbidden
         return { issues: [] };
     }
 }
-

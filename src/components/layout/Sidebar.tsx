@@ -17,8 +17,7 @@ import {
     Moon,
     ClipboardCheck,
     ClipboardList,
-    MessageSquareQuote,
-    SearchCheck
+    MessageSquareQuote
 } from 'lucide-react';
 import clsx from 'clsx';
 import { useAppStore } from '@/lib/store';
@@ -40,11 +39,9 @@ const observationNavItems = [
 // LNB for AI 세특 생성 section
 const seteukNavItems = [
     { href: '/write', label: '세특 작성', icon: FileEdit },
-    { href: '/counsel-chat', label: '학생부 상담', icon: MessageSquareQuote },
-    { href: '/record-review', label: '생기부 점검', icon: SearchCheck },
+    { href: '/counsel-chat', label: '학생부 상담·점검', icon: MessageSquareQuote },
     { href: '/review', label: '검토/확정', icon: CheckCircle },
     { href: '/export', label: '내보내기', icon: Download },
-    { href: '/search-inspector', label: '검색 점검', icon: FileText },
 ];
 
 // LNB for Eval Check section
@@ -103,7 +100,9 @@ export function Sidebar() {
             <nav className={styles.nav}>
                 {activeNavItems.map((item) => {
                     const Icon = item.icon;
-                    const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
+                    const isActive = item.href === '/counsel-chat'
+                        ? pathname.startsWith('/counsel-chat') || pathname.startsWith('/record-review')
+                        : pathname === item.href || pathname.startsWith(item.href + '/');
                     return (
                         <Link
                             key={item.href}

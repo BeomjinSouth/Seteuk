@@ -125,7 +125,7 @@ export async function POST(request: NextRequest) {
         const cacheParams = getPromptCacheParams('competency:v1', [ANALYZE_PROMPT]);
 
         const response = await getOpenAIClient().responses.create({
-            model: 'gpt-5-mini',
+            model: 'gpt-5.4-mini',
             instructions: ANALYZE_PROMPT,
             input: `다음 텍스트를 분석하여 JSON 형식으로 응답해 주세요.\n\n${text}`,
             text: { format: { type: 'json_object' } },

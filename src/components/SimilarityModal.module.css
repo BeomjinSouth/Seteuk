@@ -75,6 +75,16 @@
     gap: 1rem;
 }
 
+.noticeBox {
+    border: 1px solid rgba(249, 115, 22, 0.28);
+    background: rgba(249, 115, 22, 0.08);
+    color: hsl(var(--foreground));
+    border-radius: 0.75rem;
+    padding: 0.85rem 1rem;
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
 /* Single pair card */
 .pairCard {
     border: 1px solid hsl(var(--border));
@@ -128,31 +138,62 @@
     color: #16a34a;
 }
 
-/* Phrases */
-.phrasesSection {
+/* Matched sentences */
+.sentencesSection {
     padding: 0.75rem 1rem 0;
 }
 
-.phrasesLabel {
+.sentencesLabel {
     font-size: 0.78rem;
     color: hsl(var(--foreground-muted));
     margin-bottom: 0.4rem;
     font-weight: 500;
 }
 
-.phrasesList {
+.sentencesList {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem;
+    flex-direction: column;
+    gap: 0.65rem;
 }
 
-.phraseTag {
-    background: hsl(var(--primary), 0.1);
-    color: hsl(var(--primary));
-    padding: 0.2rem 0.55rem;
-    border-radius: 999px;
+.sentencePair {
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.65rem;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: hsl(var(--surface-hover));
+}
+
+.sentenceMeta {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: hsl(var(--foreground-muted));
+}
+
+.sentenceBox {
+    border-radius: 0.55rem;
+    background: hsl(var(--surface));
+    padding: 0.65rem 0.75rem;
+    border: 1px solid hsl(var(--border));
+}
+
+.sentenceBox strong {
+    display: block;
     font-size: 0.8rem;
-    border: 1px solid hsl(var(--primary), 0.2);
+    margin-bottom: 0.25rem;
+    color: hsl(var(--foreground-muted));
+}
+
+.sentenceBox p {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: hsl(var(--foreground));
+    white-space: pre-wrap;
 }
 
 /* Suggestion section */

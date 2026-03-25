@@ -7,7 +7,7 @@ import {
 import { getOpenAIClient, hasOpenAIApiKey } from '@/lib/openai-client';
 import { getPromptCacheParams } from '@/lib/prompt-cache';
 
-const DEFAULT_MODEL = 'gpt-5-mini';
+const DEFAULT_MODEL = 'gpt-5.4-mini';
 const SUPPORTED_IMAGE_TYPES = new Set(['image/png', 'image/jpeg', 'image/gif', 'image/webp']);
 const SUPPORTED_PDF_TYPES = new Set(['application/pdf']);
 
@@ -46,6 +46,31 @@ const MODEL_ANSWER_QUESTION_SCHEMA = {
 } as const;
 
 type PromptCacheParams = ReturnType<typeof getPromptCacheParams>;
+
+type RawModelAnswerOption = {
+    label?: string;
+    content?: string;
+};
+
+type RawModelAnswerQuestion = {
+    questionNumber?: unknown;
+    questionText?: unknown;
+    answer?: unknown;
+    answers?: unknown;
+    rubricPoints?: unknown;
+    scoringGuidelines?: unknown;
+    maxScore?: unknown;
+};
+
+type NormalizedModelAnswerQuestion = {
+    questionNumber: number;
+    questionText: string;
+    answers: Array<{ label: string; content: string }>;
+    answer: string;
+    rubricPoints: string[];
+    scoringGuidelines: string;
+    maxScore?: number;
+};
 
 function buildImageDataUrl(imageData: string): { dataUrl?: string; error?: string } {
     if (typeof imageData !== 'string') {
@@ -214,28 +239,29 @@ JSON 형식으로만 응답하세요.`;
 }
 
 function normalizeQuestionOutput(
-    raw: any,
+    raw: unknown,
     fallbackNumber: number,
     fallbackText: string,
     defaultLabel: string
-) {
+): NormalizedModelAnswerQuestion {
+    const parsed = raw && typeof raw === 'object' ? raw as RawModelAnswerQuestion : {};
     const normalizeAnswerContent = (value: string) =>
         value.replace(/\s+/g, ' ').trim().toLowerCase();
 
-    const questionNumber = normalizeQuestionNumber(raw?.questionNumber, fallbackNumber);
-    const questionText = typeof raw?.questionText === 'string' && raw.questionText.trim().length > 0
-        ? raw.questionText
+    const questionNumber = normalizeQuestionNumber(parsed.questionNumber, fallbackNumber);
+    const questionText = typeof parsed.questionText === 'string' && parsed.questionText.trim().length > 0
+        ? parsed.questionText
         : fallbackText;
 
-    let answers = Array.isArray(raw?.answers) ? raw.answers : [];
-    if (answers.length === 0 && raw?.answer) {
-        answers = [{ label: defaultLabel, content: raw.answer }];
+    let answers = Array.isArray(parsed.answers) ? parsed.answers : [];
+    if (answers.length === 0 && typeof parsed.answer === 'string' && parsed.answer) {
+        answers = [{ label: defaultLabel, content: parsed.answer }];
     }
     if (answers.length === 0) {
         answers = [{ label: defaultLabel, content: '' }];
     }
 
-    answers = answers.map((answer: { label?: string; content?: string }, idx: number) => ({
+    answers = answers.map((answer: RawModelAnswerOption, idx: number) => ({
         label: answer.label?.trim() ? answer.label : (idx === 0 ? defaultLabel : `추가 답안 ${idx + 1}`),
         content: answer.content ?? '',
     }));
@@ -257,10 +283,12 @@ function normalizeQuestionOutput(
         questionNumber,
         questionText,
         answers,
-        answer: answers[0]?.content || raw?.answer || '',
-        rubricPoints: Array.isArray(raw?.rubricPoints) ? raw.rubricPoints : [],
-        scoringGuidelines: typeof raw?.scoringGuidelines === 'string' ? raw.scoringGuidelines : '',
-        maxScore: typeof raw?.maxScore === 'number' ? raw.maxScore : undefined,
+        answer: answers[0]?.content || (typeof parsed.answer === 'string' ? parsed.answer : ''),
+        rubricPoints: Array.isArray(parsed.rubricPoints)
+            ? parsed.rubricPoints.filter((item): item is string => typeof item === 'string')
+            : [],
+        scoringGuidelines: typeof parsed.scoringGuidelines === 'string' ? parsed.scoringGuidelines : '',
+        maxScore: typeof parsed.maxScore === 'number' ? parsed.maxScore : undefined,
     };
 }
 

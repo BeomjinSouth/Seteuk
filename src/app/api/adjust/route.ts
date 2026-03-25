@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getOpenAIClient, hasOpenAIApiKey } from '@/lib/openai-client';
 import { getPromptCacheParams } from '@/lib/prompt-cache';
 
-const DEFAULT_MODEL = 'gpt-5-mini';
+const DEFAULT_MODEL = 'gpt-5.4-mini';
 
 /**
  * Adjusts the length of the provided text content using AI.

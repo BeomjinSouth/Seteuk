@@ -8,7 +8,7 @@ import { buildCitations, searchKnowledgeBase } from '@/lib/knowledge-base';
 import { rerankMatchesWithAI } from '@/lib/knowledge-rerank';
 import type { RecordReviewIssue, RecordReviewResponse, RetrievedKnowledgeEvidence } from '@/types/knowledge';
 
-const DEFAULT_MODEL = 'gpt-5-mini';
+const DEFAULT_MODEL = 'gpt-5.4-mini';
 const DEFAULT_SCHOOL_LEVEL = '고등학교';
 const DEFAULT_CATEGORY = '기타사항';
 const DEFAULT_YEAR = 2026;
@@ -352,6 +352,9 @@ export async function POST(request: NextRequest) {
                 'issues[].keys: severity, issueType, message, evidence, rewriteGuidance.',
             ].join('\n'),
             input: [
+                'Return JSON only.',
+                'JSON keys: status, riskLevel, summary, recommendedRewrite, issues.',
+                'issues[].keys: severity, issueType, message, evidence, rewriteGuidance.',
                 `학교급: ${schoolLevel}`,
                 `영역: ${category}`,
                 `연도: ${year}`,

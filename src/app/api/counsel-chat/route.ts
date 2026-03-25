@@ -13,7 +13,7 @@ import {
 import { rerankMatchesWithAI } from '@/lib/knowledge-rerank';
 import type { CounselChatResponse } from '@/types/knowledge';
 
-const DEFAULT_MODEL = 'gpt-5-mini';
+const DEFAULT_MODEL = 'gpt-5.4-mini';
 
 function getClient(): OpenAI | null {
     if (!process.env.OPENAI_API_KEY) return null;

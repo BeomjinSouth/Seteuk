@@ -1045,7 +1045,8 @@ async function startAnalysis(
             });
 
             const analysisIssues = Array.isArray(analysis.issues)
-                ? analysis.issues.map((issue: any) => ({
+                ? analysis.issues.map((issue) => ({
+                    issueId: issue?.issueId || '',
                     type: issue?.type || 'other',
                     riskLevel: normalizeIssueRiskLevel(issue?.riskLevel),
                     summary: issue?.summary || '',
@@ -1055,7 +1056,7 @@ async function startAnalysis(
                     suggestedFix: issue?.suggestedFix || '',
                 }))
                 : [];
-            const normalizedReviewSections = normalizeReviewSections((analysis as any)?.reviewSections);
+            const normalizedReviewSections = normalizeReviewSections(analysis.reviewSections);
             const compactedReviewSections = compactReviewSections(normalizedReviewSections);
             const reviewIssues = reviewSectionsToIssues(normalizedReviewSections, questionId);
 
@@ -1092,7 +1093,7 @@ async function startAnalysis(
 
             const combinedIssues = [...analysisIssues, ...reviewIssues, ...ruleIssues];
             const highRiskTypes = ['question_defect', 'condition_mismatch'];
-            const highRiskIssues = combinedIssues.filter((issue: any) =>
+            const highRiskIssues = combinedIssues.filter((issue) =>
                 issue.riskLevel === 'high' || highRiskTypes.includes(issue.type)
             );
             const isHighRisk = highRiskIssues.length > 0;

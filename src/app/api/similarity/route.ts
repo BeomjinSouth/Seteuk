@@ -1,34 +1,72 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// Tokenize Korean text into words/phrases
-function tokenize(text: string): Set<string> {
-    // Remove punctuation and split into tokens
-    const cleaned = text.replace(/[.,!?;:'"()\[\]{}]/g, ' ');
-    const tokens = cleaned.split(/\s+/).filter(t => t.length > 1);
+const DEFAULT_THRESHOLD = 0.9;
+const MAX_MATCHED_SENTENCES = 5;
+const MIN_SENTENCE_LENGTH = 8;
 
-    // Also create bigrams for better similarity detection
-    const bigrams: string[] = [];
-    for (let i = 0; i < tokens.length - 1; i++) {
-        bigrams.push(`${tokens[i]} ${tokens[i + 1]}`);
-    }
-
-    return new Set([...tokens, ...bigrams]);
+function splitSentences(text: string): string[] {
+    return text
+        .replace(/\r\n/g, '\n')
+        .split(/(?<=[.!?。！？])\s*|\n+/u)
+        .map((sentence) => sentence.trim())
+        .filter((sentence) => sentence.length > 0);
 }
 
-// Calculate Jaccard similarity between two texts
-function jaccardSimilarity(text1: string, text2: string): number {
-    const set1 = tokenize(text1);
-    const set2 = tokenize(text2);
+function normalizeSentence(text: string): string {
+    return text
+        .toLowerCase()
+        .replace(/\r\n/g, ' ')
+        .replace(/[“”"'`´’‘~!@#$%^&*()_+=|\\/:;<>{}\[\],.?·•-]/gu, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
 
-    if (set1.size === 0 && set2.size === 0) return 0;
+function levenshteinDistance(source: string, target: string): number {
+    if (source === target) return 0;
+    if (source.length === 0) return target.length;
+    if (target.length === 0) return source.length;
 
-    let intersection = 0;
-    set1.forEach(token => {
-        if (set2.has(token)) intersection++;
-    });
+    const previous = Array.from({ length: target.length + 1 }, (_, index) => index);
+    const current = new Array<number>(target.length + 1).fill(0);
 
-    const union = set1.size + set2.size - intersection;
-    return union === 0 ? 0 : intersection / union;
+    for (let i = 1; i <= source.length; i++) {
+        current[0] = i;
+
+        for (let j = 1; j <= target.length; j++) {
+            const substitutionCost = source[i - 1] === target[j - 1] ? 0 : 1;
+            current[j] = Math.min(
+                current[j - 1] + 1,
+                previous[j] + 1,
+                previous[j - 1] + substitutionCost,
+            );
+        }
+
+        for (let j = 0; j <= target.length; j++) {
+            previous[j] = current[j];
+        }
+    }
+
+    return previous[target.length];
+}
+
+function calculateSentenceSimilarity(source: string, target: string): number {
+    const normalizedSource = normalizeSentence(source);
+    const normalizedTarget = normalizeSentence(target);
+
+    if (!normalizedSource || !normalizedTarget) return 0;
+    if (
+        normalizedSource.length < MIN_SENTENCE_LENGTH
+        || normalizedTarget.length < MIN_SENTENCE_LENGTH
+    ) {
+        return 0;
+    }
+
+    if (normalizedSource === normalizedTarget) return 1;
+
+    const maxLength = Math.max(normalizedSource.length, normalizedTarget.length);
+    if (maxLength === 0) return 0;
+
+    return 1 - (levenshteinDistance(normalizedSource, normalizedTarget) / maxLength);
 }
 
 interface ContentItem {
@@ -37,24 +75,30 @@ interface ContentItem {
     content: string;
 }
 
+interface MatchedSentence {
+    student1Sentence: string;
+    student2Sentence: string;
+    similarity: number;
+}
+
 interface SimilarityResult {
     student1: { id: string; name: string };
     student2: { id: string; name: string };
-    similarity: number;  // 0-1
-    similarPhrases: string[];
+    similarity: number;
+    matchedSentences: MatchedSentence[];
 }
 
 /**
- * Calculates similarity between multiple student contents.
- * 
+ * Finds near-identical sentences across different students' records.
+ *
  * @description
- * Uses Jaccard similarity to compare texts and identify
- * potential duplicate or highly similar content.
- * 
+ * Splits each record into sentences, compares sentences pairwise, and returns
+ * only student pairs that share at least one sentence above the similarity threshold.
+ *
  * @param {NextRequest} request - JSON body containing:
  *   - contents: Array<{ studentId, studentName, content }>
- *   - threshold?: number (0.0 to 1.0, default 0.6)
- * 
+ *   - threshold?: number (0.0 to 1.0, default 0.9)
+ *
  * @returns {NextResponse} JSON response containing:
  *   - success: boolean
  *   - results: Array of SimilarityResult
@@ -64,7 +108,7 @@ interface SimilarityResult {
 export async function POST(request: NextRequest) {
     let body: {
         contents: ContentItem[];
-        threshold?: number;  // default 0.6 (60% similarity)
+        threshold?: number;
     };
 
     try {
@@ -76,57 +120,77 @@ export async function POST(request: NextRequest) {
         );
     }
 
-    const { contents, threshold = 0.6 } = body;
+    const {
+        contents,
+        threshold = DEFAULT_THRESHOLD,
+    } = body;
 
     if (!contents || contents.length < 2) {
         return NextResponse.json({
             success: true,
             results: [],
-            message: '비교할 세특이 2개 이상 필요합니다.'
+            message: '비교할 세특이 2개 이상 필요합니다.',
         });
     }
 
+    const preparedContents = contents.map((item) => ({
+        ...item,
+        sentences: splitSentences(item.content),
+    }));
+
     const results: SimilarityResult[] = [];
 
-    // Compare all pairs
-    for (let i = 0; i < contents.length; i++) {
-        for (let j = i + 1; j < contents.length; j++) {
-            const content1 = contents[i];
-            const content2 = contents[j];
+    for (let i = 0; i < preparedContents.length; i++) {
+        for (let j = i + 1; j < preparedContents.length; j++) {
+            const content1 = preparedContents[i];
+            const content2 = preparedContents[j];
 
             if (!content1.content || !content2.content) continue;
 
-            const similarity = jaccardSimilarity(content1.content, content2.content);
+            const matchedSentences: MatchedSentence[] = [];
+            const seenPairs = new Set<string>();
 
-            if (similarity >= threshold) {
-                // Find common phrases
-                const tokens1 = tokenize(content1.content);
-                const tokens2 = tokenize(content2.content);
-                const commonPhrases: string[] = [];
+            content1.sentences.forEach((sentence1) => {
+                content2.sentences.forEach((sentence2) => {
+                    const similarity = calculateSentenceSimilarity(sentence1, sentence2);
+                    if (similarity < threshold) return;
 
-                tokens1.forEach(token => {
-                    if (tokens2.has(token) && token.includes(' ')) {
-                        commonPhrases.push(token);
-                    }
+                    const normalizedPair = [
+                        normalizeSentence(sentence1),
+                        normalizeSentence(sentence2),
+                    ].sort().join('::');
+
+                    if (seenPairs.has(normalizedPair)) return;
+                    seenPairs.add(normalizedPair);
+
+                    matchedSentences.push({
+                        student1Sentence: sentence1,
+                        student2Sentence: sentence2,
+                        similarity: Math.round(similarity * 100) / 100,
+                    });
                 });
+            });
 
-                results.push({
-                    student1: { id: content1.studentId, name: content1.studentName },
-                    student2: { id: content2.studentId, name: content2.studentName },
-                    similarity: Math.round(similarity * 100) / 100,
-                    similarPhrases: commonPhrases.slice(0, 5)  // Top 5 similar phrases
-                });
-            }
+            if (matchedSentences.length === 0) continue;
+
+            matchedSentences.sort((left, right) => right.similarity - left.similarity);
+
+            results.push({
+                student1: { id: content1.studentId, name: content1.studentName },
+                student2: { id: content2.studentId, name: content2.studentName },
+                similarity: matchedSentences[0].similarity,
+                matchedSentences: matchedSentences.slice(0, MAX_MATCHED_SENTENCES),
+            });
         }
     }
 
-    // Sort by similarity (highest first)
-    results.sort((a, b) => b.similarity - a.similarity);
+    results.sort((left, right) => right.similarity - left.similarity);
 
     return NextResponse.json({
         success: true,
         results,
-        totalCompared: (contents.length * (contents.length - 1)) / 2,
-        similarCount: results.length
+        totalCompared: (preparedContents.length * (preparedContents.length - 1)) / 2,
+        similarCount: results.length,
+        threshold,
     });
 }

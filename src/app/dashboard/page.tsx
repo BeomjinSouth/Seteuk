@@ -1,7 +1,7 @@
 'use client';
 
 import { useAppStore, isAdmin } from '@/lib/store';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
     Users,
     FileText,
@@ -14,9 +14,6 @@ import {
     Check,
     X,
     Shield,
-    ScanLine,
-    Sparkles,
-    ArrowRight,
     FlaskConical,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
@@ -28,14 +25,13 @@ import styles from './page.module.css';
  * Dashboard Page Component
  * 
  * @description
- * Main dashboard view showing overview statistics and quick actions.
+ * Main dashboard view showing overview statistics and class progress.
  * 
  * Features:
  * - Teacher greeting and info
  * - Statistics cards (Total students, Drafts, Pending reviews, Confirmed)
  * - Admin notification center for setting approval requests
  * - Class list overview with progress bars
- * - Quick action links
  */
 export default function DashboardPage() {
     const {
@@ -45,7 +41,6 @@ export default function DashboardPage() {
         records,
         adminNotifications,
         updateNotificationStatus,
-        clearNotification,
         seedDemoWorkspace,
     } = useAppStore();
 
@@ -286,42 +281,6 @@ export default function DashboardPage() {
                 )}
             </section>
 
-            {/* Quick Actions */}
-            <section className={styles.section}>
-                <h2 className={styles.sectionTitle}>빠른 작업</h2>
-                <div className={styles.quickActions}>
-                    <Link href="/students" className={styles.actionCard}>
-                        <Users size={24} />
-                        <span>학생 데이터 관리</span>
-                    </Link>
-                    <Link href="/write" className={styles.actionCard}>
-                        <FileText size={24} />
-                        <span>AI 세특 생성</span>
-                    </Link>
-                    <Link href="/counsel-chat" className={styles.actionCard}>
-                        <Sparkles size={24} />
-                        <span>학생부 상담</span>
-                    </Link>
-                    <Link href="/record-review" className={styles.actionCard}>
-                        <Shield size={24} />
-                        <span>생기부 점검</span>
-                    </Link>
-                    <Link href="/review" className={styles.actionCard}>
-                        <CheckCircle2 size={24} />
-                        <span>검토 및 확정</span>
-                    </Link>
-                    <Link href="/settings" className={styles.actionCard}>
-                        <AlertCircle size={24} />
-                        <span>금지어 관리</span>
-                    </Link>
-                    {isAdminUser && (
-                        <Link href="/search-inspector" className={styles.actionCard}>
-                            <ScanLine size={24} />
-                            <span>검색 점검</span>
-                        </Link>
-                    )}
-                </div>
-            </section>
         </div>
     );
 }

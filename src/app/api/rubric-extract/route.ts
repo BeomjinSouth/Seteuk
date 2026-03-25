@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getOpenAIClient, hasOpenAIApiKey } from '@/lib/openai-client';
 import { getPromptCacheParams } from '@/lib/prompt-cache';
 
-const DEFAULT_MODEL = 'gpt-5-mini';
+const DEFAULT_MODEL = 'gpt-5.4-mini';
 
 // 채점기준표 추출 시스템 프롬프트
 const RUBRIC_EXTRACTION_PROMPT = `당신은 채점기준표(루브릭) 이미지를 분석하는 전문가입니다.
@@ -55,7 +55,7 @@ const RUBRIC_EXTRACTION_PROMPT = `당신은 채점기준표(루브릭) 이미지
  * Extracts rubric information from an image.
  * 
  * @description
- * Uses GPT-5 Vision to analyze an image of a rubric table
+ * Uses `gpt-5.4-mini` vision input to analyze an image of a rubric table
  * and extract achievement standards and scoring criteria.
  * 
  * @param {NextRequest} request - JSON body containing:
@@ -199,6 +199,5 @@ function generateDemoExtraction() {
         confidence: 'low'
     };
 }
-
 
 

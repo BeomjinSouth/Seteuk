@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getOpenAIClient, hasOpenAIApiKey } from '@/lib/openai-client';
 import { getPromptCacheParams } from '@/lib/prompt-cache';
 
-const DEFAULT_MODEL = 'gpt-5-mini';
+const DEFAULT_MODEL = 'gpt-5.4-mini';
 
 interface GradingRequest {
     studentId: string;
@@ -30,14 +30,33 @@ interface GradingRequest {
     systemPrompt?: string;  // 교사가 지정한 채점 가이드라인
 }
 
-function resolveModelAnswerQuestions(modelAnswer: any) {
+interface ModelAnswerQuestion {
+    questionNumber: string | number;
+    questionText: string;
+    answer?: string;
+    answers?: Array<{ content?: string }>;
+    rubricPoints: string[];
+    maxScore?: number | null;
+}
+
+interface ModelAnswerPayload {
+    sets?: Array<{
+        label?: string;
+        questions?: ModelAnswerQuestion[];
+    }>;
+    questions?: ModelAnswerQuestion[];
+}
+
+function resolveModelAnswerQuestions(modelAnswer: ModelAnswerPayload | null | undefined): ModelAnswerQuestion[] {
     if (!modelAnswer || typeof modelAnswer !== 'object') return [];
-    if (Array.isArray(modelAnswer.sets) && modelAnswer.sets.length > 0) {
-        const preferred = modelAnswer.sets.find((set: any) => typeof set.label === 'string' && set.label.includes('표준'))
-            || modelAnswer.sets[0];
+    const payload = modelAnswer as ModelAnswerPayload;
+    if (Array.isArray(payload.sets) && payload.sets.length > 0) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const preferred = payload.sets.find((set: any) => typeof set.label === 'string' && set.label.includes('표준'))
+            || payload.sets[0];
         return Array.isArray(preferred?.questions) ? preferred.questions : [];
     }
-    if (Array.isArray(modelAnswer.questions)) return modelAnswer.questions;
+    if (Array.isArray(payload.questions)) return payload.questions;
     return [];
 }
 
@@ -48,7 +67,7 @@ function resolveModelAnswerQuestions(modelAnswer: any) {
  *
  * @description
  * Analyzes the provided student answer image/PDF page against the model answer and scoring criteria.
- * Generates scores, feedback, and achievement levels using GPT-5.
+ * Generates scores, feedback, and achievement levels using `gpt-5.4-mini`.
  *
  * @param {NextRequest} request - The request object containing:
  *   - studentId: string
@@ -119,13 +138,13 @@ export async function POST(request: NextRequest) {
             });
         }
 
-        const modelAnswerQuestions = resolveModelAnswerQuestions(modelAnswer);
+        const modelAnswerQuestions = resolveModelAnswerQuestions(modelAnswer as ModelAnswerPayload | null | undefined);
         let modelAnswerContext = '';
         if (modelAnswerQuestions.length > 0) {
             modelAnswerContext = '\n## 모범답안\n';
-            modelAnswerQuestions.forEach((q: any) => {
-                const answerContent = q.answer
-                    || (Array.isArray(q.answers) && q.answers[0]?.content)
+            modelAnswerQuestions.forEach((q) => {
+                const answerContent = (typeof q.answer === 'string' && q.answer)
+                    || (Array.isArray(q.answers) && typeof q.answers[0]?.content === 'string' && q.answers[0].content)
                     || '';
                 modelAnswerContext += `### ${q.questionNumber}번 문항\n`;
                 modelAnswerContext += `**문제:** ${q.questionText}\n`;

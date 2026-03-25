@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getOpenAIClient, hasOpenAIApiKey } from '@/lib/openai-client';
 import { getPromptCacheParams } from '@/lib/prompt-cache';
 
-const DEFAULT_MODEL = 'gpt-5-mini';
+const DEFAULT_MODEL = 'gpt-5.4-mini';
 
 interface PreliminaryGradingRequest {
     studentId: string;
@@ -29,9 +29,27 @@ interface PreliminaryGradingRequest {
     }>;
 }
 
-function resolveModelAnswerQuestions(modelAnswer: any) {
+interface ModelAnswerQuestion {
+    questionNumber: string | number;
+    questionText: string;
+    answer?: string;
+    answers?: Array<{ content?: string }>;
+    rubricPoints: string[];
+    maxScore?: number | null;
+}
+
+interface ModelAnswerPayload {
+    sets?: Array<{
+        label?: string;
+        questions?: ModelAnswerQuestion[];
+    }>;
+    questions?: ModelAnswerQuestion[];
+}
+
+function resolveModelAnswerQuestions(modelAnswer: ModelAnswerPayload | null | undefined): ModelAnswerQuestion[] {
     if (!modelAnswer || typeof modelAnswer !== 'object') return [];
     if (Array.isArray(modelAnswer.sets) && modelAnswer.sets.length > 0) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const preferred = modelAnswer.sets.find((set: any) => typeof set.label === 'string' && set.label.includes('표준'))
             || modelAnswer.sets[0];
         return Array.isArray(preferred?.questions) ? preferred.questions : [];
@@ -111,11 +129,11 @@ export async function POST(request: NextRequest) {
             });
         }
 
-        const modelAnswerQuestions = resolveModelAnswerQuestions(modelAnswer);
+        const modelAnswerQuestions = resolveModelAnswerQuestions(modelAnswer as ModelAnswerPayload | null | undefined);
         let modelAnswerContext = '';
         if (modelAnswerQuestions.length > 0) {
             modelAnswerContext = '\n## 모범답안\n';
-            modelAnswerQuestions.forEach((q: any) => {
+            modelAnswerQuestions.forEach((q) => {
                 const answerContent = q.answer
                     || (Array.isArray(q.answers) && q.answers[0]?.content)
                     || '';

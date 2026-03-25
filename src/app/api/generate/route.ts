@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getOpenAIClient, hasOpenAIApiKey } from '@/lib/openai-client';
+import { OPENAI_STANDARD_MODEL, normalizeOpenAIModel } from '@/lib/openai-models';
 import { getAssessments, getObservationsForContext } from '@/lib/sheets';
 import { getPromptCacheParams } from '@/lib/prompt-cache';
 
-// GPT-5 Model names (released December 11, 2025)
-const DEFAULT_MODEL = 'gpt-5-mini';
+const DEFAULT_MODEL = OPENAI_STANDARD_MODEL;
 const DEFAULT_MAX_OUTPUT_TOKENS = 1000;
 const DEFAULT_REASONING_EFFORT: 'none' | 'low' | 'medium' | 'high' | 'xhigh' = 'low';
 const ALLOWED_REASONING_EFFORTS = new Set(['none', 'low', 'medium', 'high', 'xhigh']);
@@ -39,7 +39,7 @@ const DEFAULT_SYSTEM_PROMPT = `당신은 한국 고등학교 교사로서 교과
  * - OCR evaluation results (optional)
  * - Teacher's system prompt and guidelines
  *
- * Uses 'gpt-5-mini' (default) or specified model.
+ * Uses `gpt-5.4-mini` as the standard model.
  *
  * @param {NextRequest} request - JSON body containing:
  *   - studentName: string (Required)
@@ -249,8 +249,8 @@ ${exampleTemplates.join('\n\n')}
         ? systemPrompt
         : DEFAULT_SYSTEM_PROMPT;
 
-    // Use specified model or default to gpt-5
-    const actualModel = model || DEFAULT_MODEL;
+    // Normalize any legacy/persisted model selection to the current standard model.
+    const actualModel = normalizeOpenAIModel(model || DEFAULT_MODEL);
     const actualMaxOutputTokens = typeof maxOutputTokens === 'number'
         ? Math.max(200, Math.min(3000, Math.floor(maxOutputTokens)))
         : DEFAULT_MAX_OUTPUT_TOKENS;
