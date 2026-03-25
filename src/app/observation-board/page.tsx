@@ -35,7 +35,11 @@ export default function ObservationBoardPage() {
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedStudentIds, setSelectedStudentIds] = useState<Set<string>>(new Set());
     const [observations, setObservations] = useState<Observation[]>([]);
-    const clickTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const selectedStudentIdsRef = useRef<Set<string>>(new Set());
+    const clickTimerRef = useRef<{
+        studentId: string;
+        timerId: ReturnType<typeof setTimeout>;
+    } | null>(null);
 
     const teacherClasses = useMemo(
         () => getTeacherClasses(classes, teacher),
@@ -61,10 +65,17 @@ export default function ObservationBoardPage() {
     useEffect(() => {
         return () => {
             if (clickTimerRef.current) {
-                clearTimeout(clickTimerRef.current);
+                clearTimeout(clickTimerRef.current.timerId);
             }
         };
     }, []);
+
+    const updateSelectedStudentIds = (updater: (prev: Set<string>) => Set<string>) => {
+        const next = updater(selectedStudentIdsRef.current);
+        selectedStudentIdsRef.current = next;
+        setSelectedStudentIds(next);
+        return next;
+    };
 
     const filteredStudents = useMemo(() => {
         if (!teacher) return [];
@@ -94,7 +105,7 @@ export default function ObservationBoardPage() {
             || !observation.teacherKey
             || observation.teacherKey === teacher.teacherKey
         ),
-        [observations, teacher?.teacherKey]
+        [observations, teacher]
     );
 
     const getDataCount = (student: Student) => {
@@ -167,7 +178,7 @@ export default function ObservationBoardPage() {
     };
 
     const toggleStudentSelection = (studentId: string) => {
-        setSelectedStudentIds((prev) => {
+        updateSelectedStudentIds((prev) => {
             const next = new Set(prev);
             if (next.has(studentId)) next.delete(studentId);
             else next.add(studentId);
@@ -177,17 +188,25 @@ export default function ObservationBoardPage() {
 
     const toggleSelectAllStudents = () => {
         if (selectedStudentIds.size === filteredStudents.length) {
-            setSelectedStudentIds(new Set());
+            const emptySelection = new Set<string>();
+            selectedStudentIdsRef.current = emptySelection;
+            setSelectedStudentIds(emptySelection);
             return;
         }
-        setSelectedStudentIds(new Set(filteredStudents.map((student) => student.id)));
+
+        const nextSelection = new Set(filteredStudents.map((student) => student.id));
+        selectedStudentIdsRef.current = nextSelection;
+        setSelectedStudentIds(nextSelection);
     };
 
     const handleDeleteSelectedStudents = () => {
         if (selectedStudentIds.size === 0) return;
         if (!confirm(`선택한 ${selectedStudentIds.size}명의 학생을 삭제하시겠습니까?`)) return;
         Array.from(selectedStudentIds).forEach((studentId) => removeStudent(studentId));
-        setSelectedStudentIds(new Set());
+
+        const emptySelection = new Set<string>();
+        selectedStudentIdsRef.current = emptySelection;
+        setSelectedStudentIds(emptySelection);
     };
 
     const openObservationComposer = (student: Student) => {
@@ -198,8 +217,9 @@ export default function ObservationBoardPage() {
             classId: teachingClass.id,
         });
 
-        const selectedStudentsInSameClass = selectedStudentIds.has(student.id)
-            ? Array.from(selectedStudentIds).filter((studentId) => {
+        const currentSelectedStudentIds = selectedStudentIdsRef.current;
+        const selectedStudentsInSameClass = currentSelectedStudentIds.has(student.id)
+            ? Array.from(currentSelectedStudentIds).filter((studentId) => {
                 const selectedStudent = students.find((item) => item.id === studentId);
                 return selectedStudent
                     ? getTeachingClassForStudent(selectedStudent)?.id === teachingClass.id
@@ -216,23 +236,42 @@ export default function ObservationBoardPage() {
         router.push(`/observations?${query.toString()}#compose`);
     };
 
+    const flushPendingStudentSelection = (skipStudentId?: string) => {
+        const pendingClick = clickTimerRef.current;
+        if (!pendingClick) return;
+
+        clearTimeout(pendingClick.timerId);
+        clickTimerRef.current = null;
+
+        if (pendingClick.studentId !== skipStudentId) {
+            toggleStudentSelection(pendingClick.studentId);
+        }
+    };
+
     const handleStudentCardClick = (studentId: string) => {
-        if (clickTimerRef.current) {
-            clearTimeout(clickTimerRef.current);
+        if (clickTimerRef.current?.studentId && clickTimerRef.current.studentId !== studentId) {
+            flushPendingStudentSelection();
         }
 
-        clickTimerRef.current = setTimeout(() => {
+        if (clickTimerRef.current) {
+            clearTimeout(clickTimerRef.current.timerId);
+        }
+
+        const timerId = setTimeout(() => {
             toggleStudentSelection(studentId);
-            clickTimerRef.current = null;
+            if (clickTimerRef.current?.studentId === studentId) {
+                clickTimerRef.current = null;
+            }
         }, 180);
+
+        clickTimerRef.current = {
+            studentId,
+            timerId,
+        };
     };
 
     const handleStudentCardDoubleClick = (student: Student) => {
-        if (clickTimerRef.current) {
-            clearTimeout(clickTimerRef.current);
-            clickTimerRef.current = null;
-        }
-
+        flushPendingStudentSelection(student.id);
         openObservationComposer(student);
     };
 
