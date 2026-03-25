@@ -25,6 +25,15 @@ import { Observation, Assessment, Student } from '@/types';
 import { getTeacherClasses, getStudentsInTeachingClass } from '@/lib/teacher-context';
 import styles from './page.module.css';
 
+const OBSERVATION_TAG_OPTIONS = ['문제해결', '추론', '창의·융합', '의사소통', '정보처리', '태도'];
+
+interface ObservationDraftRow {
+    date: string;
+    lessonTopic: string;
+    tag: string;
+    memo: string;
+}
+
 function ObservationsPageContent() {
     const searchParams = useSearchParams();
     const initialClassId = searchParams.get('classId') || '';
@@ -37,7 +46,7 @@ function ObservationsPageContent() {
         const fallbackIds = singleStudentId ? [singleStudentId] : [];
         return Array.from(new Set(queryIds.length > 0 ? queryIds : fallbackIds));
     }, [searchParams]);
-    const initialStudentId = initialStudentIds[0] || '';
+    const initialStudentId = initialStudentIds.length === 1 ? initialStudentIds[0] || '' : '';
     const { students, classes, teacher } = useAppStore();
     const teacherClasses = useMemo(
         () => getTeacherClasses(classes, teacher),
@@ -60,12 +69,8 @@ function ObservationsPageContent() {
 
     const [formClassId, setFormClassId] = useState(initialClassId);
     const [formStudentIds, setFormStudentIds] = useState<string[]>(initialStudentIds);
-    const [formAssessmentId, setFormAssessmentId] = useState('');
-    const [formDate, setFormDate] = useState(new Date().toISOString().split('T')[0]);
-    const [formEvidenceType, setFormEvidenceType] = useState<'process' | 'result'>('process');
-    const [formLessonTopic, setFormLessonTopic] = useState('');
-    const [formMemo, setFormMemo] = useState('');
-    const [formTags, setFormTags] = useState('');
+    const today = useMemo(() => new Date().toISOString().split('T')[0], []);
+    const [studentDrafts, setStudentDrafts] = useState<Record<string, ObservationDraftRow>>({});
 
     const itemsPerPage = 10;
 
@@ -101,6 +106,21 @@ function ObservationsPageContent() {
             return [studentsInClass[0].id];
         });
     }, [formClassId, initialStudentIds, students, teacherClasses]);
+
+    useEffect(() => {
+        setStudentDrafts((prev) => {
+            const next: Record<string, ObservationDraftRow> = {};
+            formStudentIds.forEach((studentId) => {
+                next[studentId] = prev[studentId] || {
+                    date: today,
+                    lessonTopic: '',
+                    tag: '',
+                    memo: '',
+                };
+            });
+            return next;
+        });
+    }, [formStudentIds, today]);
 
     const fetchData = async () => {
         setIsLoading(true);
@@ -149,8 +169,15 @@ function ObservationsPageContent() {
         [formClassId, students, teacherClasses]
     );
 
+    const targetClass = useMemo(
+        () => teacherClasses.find((cls) => cls.id === formClassId),
+        [formClassId, teacherClasses]
+    );
+
     const selectedTargetStudents = useMemo(
-        () => formStudents.filter((student) => formStudentIds.includes(student.id)),
+        () => formStudents
+            .filter((student) => formStudentIds.includes(student.id))
+            .sort((a, b) => a.number - b.number),
         [formStudentIds, formStudents]
     );
 
@@ -227,46 +254,71 @@ function ObservationsPageContent() {
         setFormStudentIds(formStudents.map((student) => student.id));
     };
 
+    const updateStudentDraft = (
+        studentId: string,
+        field: keyof ObservationDraftRow,
+        value: string
+    ) => {
+        const emptyDraft: ObservationDraftRow = {
+            date: today,
+            lessonTopic: '',
+            tag: '',
+            memo: '',
+        };
+
+        setStudentDrafts((prev) => ({
+            ...prev,
+            [studentId]: {
+                ...(prev[studentId] ?? emptyDraft),
+                [field]: value,
+            },
+        }));
+    };
+
     const handleSaveManualObservation = async () => {
-        if (!teacher || !formClassId || formStudentIds.length === 0 || !formMemo.trim()) {
-            alert('수업, 학생, 메모를 모두 입력하세요.');
+        if (!teacher || !formClassId || selectedTargetStudents.length === 0) {
+            alert('수업과 학생을 먼저 선택하세요.');
             return;
         }
 
-        const targetClass = teacherClasses.find((cls) => cls.id === formClassId);
         if (!targetClass) {
             alert('수업 정보를 찾을 수 없습니다.');
             return;
         }
 
+        const missingMemoStudents = selectedTargetStudents
+            .filter((student) => !studentDrafts[student.id]?.memo?.trim())
+            .map((student) => student.name);
+
+        if (missingMemoStudents.length > 0) {
+            alert(`기타 메모를 입력하지 않은 학생: ${missingMemoStudents.join(', ')}`);
+            return;
+        }
+
         setIsSaving(true);
         try {
-            const payload = {
-                classId: formClassId,
-                teacherKey: teacher.teacherKey,
-                assessmentId: formAssessmentId || undefined,
-                subjectName: targetClass.subjectName,
-                lessonTopic: formLessonTopic || undefined,
-                date: formDate,
-                memo: formMemo,
-                evidenceType: formEvidenceType,
-                tags: formTags.split(',').map((tag) => tag.trim()).filter(Boolean),
-                sourceType: 'manual',
-            };
-
             const results = await Promise.all(
-                formStudentIds.map(async (studentId) => {
+                selectedTargetStudents.map(async (student) => {
+                    const draft = studentDrafts[student.id];
                     const response = await fetch('/api/observations', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
-                            ...payload,
-                            studentId,
+                            studentId: student.id,
+                            classId: formClassId,
+                            teacherKey: teacher.teacherKey,
+                            subjectName: targetClass.subjectName,
+                            lessonTopic: draft.lessonTopic.trim() || undefined,
+                            date: draft.date || today,
+                            memo: draft.memo.trim(),
+                            evidenceType: 'process',
+                            tags: draft.tag ? [draft.tag] : [],
+                            sourceType: 'manual',
                         }),
                     });
                     const data = await response.json();
                     return {
-                        studentId,
+                        studentId: student.id,
                         success: response.ok && data.success,
                         error: data.error as string | undefined,
                     };
@@ -285,9 +337,18 @@ function ObservationsPageContent() {
                 return;
             }
 
-            setFormMemo('');
-            setFormLessonTopic('');
-            setFormTags('');
+            setStudentDrafts((prev) => {
+                const next = { ...prev };
+                selectedTargetStudents.forEach((student) => {
+                    next[student.id] = {
+                        date: today,
+                        lessonTopic: '',
+                        tag: '',
+                        memo: '',
+                    };
+                });
+                return next;
+            });
             alert(`${results.length}명에게 수업 기록을 저장했습니다.`);
             await fetchData();
         } catch (error) {
@@ -372,55 +433,27 @@ function ObservationsPageContent() {
                         </select>
                     </div>
                     <div className={styles.composeField}>
-                        <label>대상 학생</label>
+                        <label>선택 학생</label>
+                        <div className={styles.targetSummary}>
+                            {selectedTargetStudents.length > 0
+                                ? `${selectedTargetStudents.length}명 선택됨`
+                                : '선택된 학생이 없습니다.'}
+                        </div>
+                    </div>
+                    <div className={styles.composeField}>
+                        <label>선택 제어</label>
                         <button
                             type="button"
                             className={styles.inlineSelectButton}
                             onClick={toggleAllFormStudents}
                             disabled={formStudents.length === 0}
                         >
-                            {formStudentIds.length === formStudents.length ? '전체 해제' : '전체 선택'}
+                            {formStudents.length > 0 && formStudentIds.length === formStudents.length ? '전체 해제' : '전체 선택'}
                         </button>
-                    </div>
-                    <div className={styles.composeField}>
-                        <label>날짜</label>
-                        <input type="date" value={formDate} onChange={(e) => setFormDate(e.target.value)} />
-                    </div>
-                    <div className={styles.composeField}>
-                        <label>평가 과제</label>
-                        <select value={formAssessmentId} onChange={(e) => setFormAssessmentId(e.target.value)}>
-                            <option value="">과제 미연결</option>
-                            {assessments.map((assessment) => (
-                                <option key={assessment.id} value={assessment.id}>
-                                    {assessment.title}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-                    <div className={styles.composeField}>
-                        <label>근거 유형</label>
-                        <select value={formEvidenceType} onChange={(e) => setFormEvidenceType(e.target.value as 'process' | 'result')}>
-                            <option value="process">과정 중심</option>
-                            <option value="result">결과 중심</option>
-                        </select>
-                    </div>
-                    <div className={styles.composeField}>
-                        <label>수업 주제</label>
-                        <input
-                            type="text"
-                            value={formLessonTopic}
-                            onChange={(e) => setFormLessonTopic(e.target.value)}
-                            placeholder="예: 효소 반응 탐구, 발표 활동"
-                        />
                     </div>
                 </div>
                 <div className={styles.composeField}>
                     <label>기록 대상 선택</label>
-                    <div className={styles.targetSummary}>
-                        {selectedTargetStudents.length > 0
-                            ? `${selectedTargetStudents.length}명 선택됨`
-                            : '선택된 학생이 없습니다.'}
-                    </div>
                     <div className={styles.studentSelectionGrid}>
                         {formStudents.map((student) => {
                             const isSelected = formStudentIds.includes(student.id);
@@ -440,28 +473,97 @@ function ObservationsPageContent() {
                         })}
                     </div>
                     <p className={styles.targetHint}>
-                        같은 수업 학급 학생을 여러 명 선택하면 동일한 관찰 기록을 각 학생에게 개별 저장합니다.
+                        저장 시 선택된 학생별 입력 행이 각각 별도 관찰 기록으로 저장됩니다.
                     </p>
                 </div>
-                <div className={styles.composeField}>
-                    <label>태그</label>
-                    <input
-                        type="text"
-                        value={formTags}
-                        onChange={(e) => setFormTags(e.target.value)}
-                        placeholder="문제해결, 협력, 발표 등 쉼표로 구분"
-                    />
-                </div>
-                <div className={styles.composeField}>
-                    <label>수업 기록 메모</label>
-                    <textarea
-                        value={formMemo}
-                        onChange={(e) => setFormMemo(e.target.value)}
-                        placeholder="학생의 질문, 수행 과정, 발표 내용, 피드백 반응 등을 구체적으로 기록하세요."
-                    />
+                <div className={styles.entryList}>
+                    {selectedTargetStudents.length === 0 ? (
+                        <div className={styles.entryEmpty}>
+                            학생을 선택하면 학생별 입력 행이 여기 열립니다.
+                        </div>
+                    ) : selectedTargetStudents.map((student) => {
+                        const draft = studentDrafts[student.id] || {
+                            date: today,
+                            lessonTopic: '',
+                            tag: '',
+                            memo: '',
+                        };
+
+                        return (
+                            <div key={student.id} className={styles.entryRow}>
+                                <div className={styles.entryMetaGrid}>
+                                    <div className={styles.entryCell}>
+                                        <label>학년도</label>
+                                        <input type="text" value={String(targetClass?.year || '')} readOnly />
+                                    </div>
+                                    <div className={styles.entryCell}>
+                                        <label>학년</label>
+                                        <input type="text" value={String(student.grade || targetClass?.grade || '')} readOnly />
+                                    </div>
+                                    <div className={styles.entryCell}>
+                                        <label>반</label>
+                                        <input type="text" value={String(student.classNumber || targetClass?.classNumber || '')} readOnly />
+                                    </div>
+                                    <div className={styles.entryCell}>
+                                        <label>번호</label>
+                                        <input type="text" value={String(student.number)} readOnly />
+                                    </div>
+                                    <div className={`${styles.entryCell} ${styles.entryCellWide}`}>
+                                        <label>이름</label>
+                                        <input type="text" value={student.name} readOnly />
+                                    </div>
+                                    <div className={styles.entryCell}>
+                                        <label>날짜</label>
+                                        <input
+                                            type="date"
+                                            value={draft.date}
+                                            onChange={(e) => updateStudentDraft(student.id, 'date', e.target.value)}
+                                        />
+                                    </div>
+                                </div>
+                                <div className={styles.entryEditorGrid}>
+                                    <div className={`${styles.entryCell} ${styles.entryCellWide}`}>
+                                        <label>수업 주제</label>
+                                        <input
+                                            type="text"
+                                            value={draft.lessonTopic}
+                                            onChange={(e) => updateStudentDraft(student.id, 'lessonTopic', e.target.value)}
+                                            placeholder="예: 효소 반응 탐구, 발표 활동"
+                                        />
+                                    </div>
+                                    <div className={styles.entryCell}>
+                                        <label>태그</label>
+                                        <select
+                                            value={draft.tag}
+                                            onChange={(e) => updateStudentDraft(student.id, 'tag', e.target.value)}
+                                        >
+                                            <option value="">태그 선택</option>
+                                            {OBSERVATION_TAG_OPTIONS.map((tag) => (
+                                                <option key={tag} value={tag}>
+                                                    {tag}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                    <div className={`${styles.entryCell} ${styles.entryCellFull}`}>
+                                        <label>기타 메모</label>
+                                        <textarea
+                                            value={draft.memo}
+                                            onChange={(e) => updateStudentDraft(student.id, 'memo', e.target.value)}
+                                            placeholder="학생의 질문, 수행 과정, 발표 내용, 피드백 반응 등을 구체적으로 기록하세요."
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })}
                 </div>
                 <div className={styles.composeActions}>
-                    <Button onClick={handleSaveManualObservation} isLoading={isSaving} disabled={teacherClasses.length === 0}>
+                    <Button
+                        onClick={handleSaveManualObservation}
+                        isLoading={isSaving}
+                        disabled={teacherClasses.length === 0 || selectedTargetStudents.length === 0}
+                    >
                         <BookOpen size={16} />
                         수업 기록 저장
                     </Button>

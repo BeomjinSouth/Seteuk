@@ -146,6 +146,86 @@
     color: hsl(var(--muted-foreground));
 }
 
+.entryList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.entryEmpty {
+    padding: 1rem;
+    border: 1px dashed hsl(var(--border));
+    border-radius: 12px;
+    color: hsl(var(--muted-foreground));
+    background: hsl(var(--background));
+}
+
+.entryRow {
+    padding: 1rem;
+    border: 1px solid hsl(var(--border));
+    border-radius: 12px;
+    background: hsl(var(--background));
+}
+
+.entryMetaGrid,
+.entryEditorGrid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.entryEditorGrid {
+    margin-top: 0.75rem;
+}
+
+.entryCell {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.entryCell label {
+    font-size: 0.85rem;
+    color: hsl(var(--muted-foreground));
+}
+
+.entryCell input,
+.entryCell select,
+.entryCell textarea {
+    padding: 0.7rem 0.8rem;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 10px;
+    color: hsl(var(--foreground));
+    font-size: 0.9rem;
+}
+
+.entryCell input[readonly] {
+    color: hsl(var(--muted-foreground));
+}
+
+.entryCell textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.entryCell input:focus,
+.entryCell select:focus,
+.entryCell textarea:focus {
+    outline: none;
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.08);
+}
+
+.entryCellWide {
+    grid-column: span 2;
+}
+
+.entryCellFull {
+    grid-column: 1 / -1;
+}
+
 .studentSelectionGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -716,5 +796,15 @@
 
     .filterGroup select {
         width: 100%;
+    }
+
+    .entryMetaGrid,
+    .entryEditorGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .entryCellWide,
+    .entryCellFull {
+        grid-column: 1 / -1;
     }
 }

@@ -18,6 +18,7 @@ Open `http://localhost:3000`.
 - `학생 관리` now handles roster upload and teaching-class connection only
 - the student card board moved to `/observation-board`, and observation notes stay in `/observations`
 - in `/observation-board`, single click selects a student and double click opens observation writing; if multiple same-class students are selected, double click opens batch observation entry
+- `/observations` manual entry uses per-student rows with roster/date fields plus `수업 주제`, selected `태그`, and `기타 메모`
 
 ## Environment Variables
 

@@ -23,7 +23,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 
 ### Counsel chatbot
 
-- lives inside the `AI 세특 생성` workspace sidebar
+- lives inside the shared `학생부 상담·점검` workspace entry
 - school-level filter
 - category filter
 - year filter
@@ -32,7 +32,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 
 ### Record review
 
-- lives inside the `AI 세특 생성` workspace sidebar
+- lives inside the same `학생부 상담·점검` workspace as a mode switch
 - issue extraction
 - evidence cards
 - rewrite guidance
@@ -51,11 +51,12 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - `/api/record-review`: implemented
 - `/api/search`: implemented
 - `/api/search-eval`: implemented
-- `/counsel-chat`: implemented in the shared AI workspace shell
-- `/record-review`: implemented in the shared AI workspace shell
+- `/counsel-chat`: implemented as the combined counsel/review workspace
+- `/record-review`: implemented as a compatibility redirect to `/counsel-chat?mode=review`
 - `/write`: RAG review-improve action implemented
-- `/search-inspector`: implemented in the shared AI workspace shell
+- `/search-inspector`: retained as an internal diagnostics page and removed from the sidebar
 - top navigation order: `학교 정보` -> `학생 관찰 기록` -> `AI 세특 생성` -> `평가 점검` -> `학습지 OCR`
 - student management scope: roster upload + teaching-class connection only
 - student board location: `/observation-board`
 - observation board interaction: single click selects, double click opens observation writing, and same-class multi-selection supports batch entry
+- manual observation entry uses per-student rows with roster/date fields plus lesson topic, selected tag, and free memo

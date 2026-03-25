@@ -48,11 +48,13 @@
 - raw match list shown in the pages
 - local vs hosted search comparison available
 - query-string prefill supported
-- counsel chat, record review, and search inspector now share the same `GlobalNav + Sidebar` shell as the write workspace
+- counsel chat and record review now share one `/counsel-chat` workspace with a mode switch, and `/record-review` redirects into that workspace
+- `search-inspector` remains available only as an internal diagnostics route and is no longer shown in the sidebar
 - main navigation groups those tools under `AI 세특 생성`
 - top navigation order is `학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검 -> 학습지 OCR`
 - student management is limited to roster upload and teaching-class connection; the student board now lives in `/observation-board`
 - in `/observation-board`, single click selects students and double click opens observation writing; same-class multi-selection enters batch observation entry
+- `/observations` manual compose renders one editable row per selected student and stores row-specific date, lesson topic, selected tag, and memo
 - `/api/record-review` can optionally return `improvedDraft` for the write-tab review-improve action
 
 ## Response Policy

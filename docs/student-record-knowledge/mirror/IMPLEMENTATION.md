@@ -24,7 +24,7 @@ Run `npm run sync:knowledge-docs` from the web repo to refresh it.
 - `web` 앱 지식 로더 구현
 - `web` 앱 상담 API 구현
 - `web` 앱 생기부 점검 API 구현
-- `web` 앱 상담/점검 페이지 구현
+- `web` 앱 상담/점검 통합 작업공간 구현
 
 다음 단계:
 
@@ -104,7 +104,9 @@ STAR FAQ/Q&A
 페이지 보조 기능:
 
 - 상단 `GlobalNav`는 `학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검 -> 학습지 OCR` 순서로 고정한다.
-- `AI 세특 생성` 공통 앱 셸(`GlobalNav + Sidebar`) 안에서 `/write`, `/counsel-chat`, `/record-review`, `/search-inspector`를 같은 작업공간 탭처럼 제공
+- `AI 세특 생성` 공통 앱 셸(`GlobalNav + Sidebar`) 안에서 `/write`, `/counsel-chat`, `/review`, `/export`를 사용자 탭으로 제공하고, 상담과 점검은 `/counsel-chat` 내부 모드 전환으로 통합한다.
+- 기존 `/record-review` 경로는 `/counsel-chat?mode=review`로 리다이렉트해 북마크와 기존 링크를 깨지 않게 유지한다.
+- `/search-inspector`는 검색 품질 확인용 내부 진단 route로만 남기고 사용자 사이드바에서는 노출하지 않는다.
 - URL query prefill 지원
 - 세특 작성 탭의 `RAG 점검·개선` 버튼은 `/api/record-review`의 `includeImprovedDraft` 흐름을 재사용
 - 세특 작성 탭의 `유사도` 버튼은 선택 학생 초안을 문장 단위로 비교하고, 다른 학생 간 90% 이상 동일한 문장만 모달에 노출한다.
@@ -127,6 +129,7 @@ STAR FAQ/Q&A
 - 별도 `학생 관찰 기록` 섹션에서 학생 카드 보드(`/observation-board`)와 관찰 메모(`/observations`)를 제공한다.
 - 학생 카드에서는 클릭으로 선택 상태를 토글하고, 더블클릭 시 `/observations`로 query prefill 이동한다.
 - 여러 학생이 선택된 상태에서 선택된 카드 중 하나를 더블클릭하면 같은 teaching class 학생 ID들을 `studentIds` query로 넘겨 일괄 관찰 기록 작성 모드로 진입한다.
+- `/observations`의 수동 입력 섹션은 선택된 학생별 row editor를 렌더링하고, 각 row는 `date`, `lessonTopic`, 단일 선택 `tag`, `memo`를 별도로 관리한다.
 - 학습 메모와 관찰 메모는 teaching class 단위로 저장한다.
 - 세특 AI 생성 API는 현재 교사의 `teacherKey`와 `teachingClassId`를 전달하고, 같은 맥락의 관찰 메모만 불러온다.
 - 로컬 개발 모드에서는 Google Sheets API 호출이 실패할 때 `.local-sheet-store.json`으로 자동 fallback해 웹앱 흐름을 중단하지 않는다.
@@ -291,7 +294,7 @@ STAR FAQ/Q&A
 
 UI 흐름:
 
-- 교사는 `AI 세특 생성` 섹션에 머문 상태로 사이드바에서 `학생부 상담` 탭을 선택한다.
+- 교사는 `AI 세특 생성` 섹션에 머문 상태로 사이드바에서 `학생부 상담·점검` 탭을 선택한 뒤 `질문 답변` 모드로 들어간다.
 - 별도 단독 레이아웃으로 이탈하지 않고 같은 앱 셸, 같은 세션, 같은 탐색 구조를 유지한다.
 
 응답 원칙은 [`skills/rag-answering.md`](/Users/pbj95/Desktop/cursor/seteuk(2026)/student-record-knowledge/skills/rag-answering.md)를 따른다.
@@ -317,8 +320,9 @@ UI 흐름:
 
 UI 흐름:
 
-- 교사는 `AI 세특 생성` 섹션에 머문 상태로 사이드바에서 `생기부 점검` 탭을 선택한다.
-- 세특 작성/상담/점검/검색 점검이 동일한 앱 셸을 공유해 기능 전환 시 다른 사이트처럼 보이지 않게 유지한다.
+- 교사는 `AI 세특 생성` 섹션에 머문 상태로 사이드바에서 `학생부 상담·점검` 탭을 선택한 뒤 `문구 점검` 모드로 전환한다.
+- 세특 작성과 학생부 상담·점검은 동일한 앱 셸을 공유해 기능 전환 시 다른 사이트처럼 보이지 않게 유지한다.
+- 검색 점검은 같은 섹션의 내부 진단 route로만 유지하고, 일반 사용자에게는 탭으로 노출하지 않는다.
 
 점검 원칙은 [`skills/student-record-review.md`](/Users/pbj95/Desktop/cursor/seteuk(2026)/student-record-knowledge/skills/student-record-review.md)를 따른다.
 
