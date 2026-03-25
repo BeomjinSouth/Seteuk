@@ -10,8 +10,6 @@ import {
     Search,
     Trash2,
     ClipboardList,
-    FileText,
-    Sparkles,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Observation, Student } from '@/types';
@@ -153,14 +151,6 @@ export default function ObservationBoardPage() {
             && (!classId || record.classId === classId)
             && (!teacher?.teacherKey || !record.teacherKey || record.teacherKey === teacher.teacherKey)
         );
-    };
-
-    const getStudentProgress = (student: Student, classId?: string) => {
-        const dataReady = getDataCount(student) > 0 ? 1 : 0;
-        const observationReady = getObservationCount(student, classId) > 0 ? 1 : 0;
-        const record = getRecordForStudent(student, classId);
-        const recordReady = record ? (record.status === 'confirmed' ? 2 : 1) : 0;
-        return Math.round(((dataReady + observationReady + recordReady) / 4) * 100);
     };
 
     const getRecordStatusLabel = (student: Student, classId?: string) => {
@@ -374,7 +364,6 @@ export default function ObservationBoardPage() {
                                 const dataCount = getDataCount(student);
                                 const teachingClass = getTeachingClassForStudent(student);
                                 const observationCount = getObservationCount(student, teachingClass?.id);
-                                const progress = getStudentProgress(student, teachingClass?.id);
                                 const recordStatus = getRecordStatusLabel(student, teachingClass?.id);
                                 return (
                                     <motion.div
@@ -386,6 +375,7 @@ export default function ObservationBoardPage() {
                                         role="button"
                                         tabIndex={0}
                                         aria-pressed={selectedStudentIds.has(student.id)}
+                                        aria-label={`${student.name}, 메모 ${observationCount}개, AI 입력 ${dataCount}, ${recordStatus}`}
                                         title="클릭하면 선택, 더블클릭하면 관찰 기록 작성"
                                         onClick={() => handleStudentCardClick(student.id)}
                                         onDoubleClick={() => handleStudentCardDoubleClick(student)}
@@ -422,20 +412,14 @@ export default function ObservationBoardPage() {
                                             {student.number}번 · {teachingClass?.subjectName || teacher?.subject}
                                         </div>
 
-                                        <div className={styles.cardMetricRow}>
-                                            <span><Sparkles size={14} /> AI 입력 {dataCount}</span>
-                                            <span><ClipboardList size={14} /> 메모 {observationCount}</span>
-                                        </div>
-                                        <div className={styles.cardMetricRow}>
-                                            <span><FileText size={14} /> {recordStatus}</span>
-                                            <span>{progress}% 진행</span>
-                                        </div>
-
-                                        <div className={styles.cardProgressTrack}>
-                                            <div
-                                                className={styles.cardProgressFill}
-                                                style={{ width: `${progress}%` }}
-                                            />
+                                        <div className={styles.cardMemoStat}>
+                                            <span className={styles.cardMemoLabel}>
+                                                <ClipboardList size={16} /> 메모
+                                            </span>
+                                            <div className={styles.cardMemoValue}>
+                                                {observationCount}
+                                                <small>개</small>
+                                            </div>
                                         </div>
 
                                         <button
