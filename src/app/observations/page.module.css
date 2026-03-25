@@ -2,6 +2,9 @@
     padding: 1rem 2rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    --observations-muted: hsl(var(--foreground) / 0.78);
+    --observations-subtle: hsl(var(--foreground) / 0.68);
+    --observations-placeholder: hsl(var(--foreground) / 0.48);
 }
 
 /* Header */
@@ -35,7 +38,7 @@
 }
 
 .subtitle {
-    color: hsl(var(--muted-foreground));
+    color: var(--observations-muted);
     font-size: 0.95rem;
 }
 
@@ -69,7 +72,7 @@
 }
 
 .composeHeader span {
-    color: hsl(var(--muted-foreground));
+    color: var(--observations-muted);
     font-size: 0.85rem;
 }
 
@@ -88,7 +91,7 @@
 
 .composeField label {
     font-size: 0.85rem;
-    color: hsl(var(--muted-foreground));
+    color: var(--observations-muted);
 }
 
 .composeField input,
@@ -105,6 +108,13 @@
 .composeField textarea {
     min-height: 140px;
     resize: vertical;
+}
+
+.composeField input::placeholder,
+.composeField textarea::placeholder,
+.entryCell input::placeholder,
+.entryCell textarea::placeholder {
+    color: var(--observations-placeholder);
 }
 
 .composeField input:focus,
@@ -143,7 +153,7 @@
 .targetHint {
     margin-top: 0.5rem;
     font-size: 0.8rem;
-    color: hsl(var(--muted-foreground));
+    color: var(--observations-subtle);
 }
 
 .entryList {
@@ -157,7 +167,7 @@
     padding: 1rem;
     border: 1px dashed hsl(var(--border));
     border-radius: 12px;
-    color: hsl(var(--muted-foreground));
+    color: var(--observations-subtle);
     background: hsl(var(--background));
 }
 
@@ -166,6 +176,37 @@
     border: 1px solid hsl(var(--border));
     border-radius: 12px;
     background: hsl(var(--background));
+}
+
+.entryHeader {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    justify-content: space-between;
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid hsl(var(--border));
+}
+
+.entryHeader > .entryCell:not(:last-child) {
+    display: none;
+}
+
+.entryHeader > .entryCell:last-child {
+    width: min(220px, 100%);
+    margin-left: auto;
+}
+
+.entryStudentName {
+    font-size: 1rem;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+}
+
+.entryStudentMeta {
+    margin-top: 0.2rem;
+    font-size: 0.85rem;
+    color: var(--observations-muted);
 }
 
 .entryMetaGrid,
@@ -187,7 +228,7 @@
 
 .entryCell label {
     font-size: 0.85rem;
-    color: hsl(var(--muted-foreground));
+    color: var(--observations-muted);
 }
 
 .entryCell input,
@@ -202,7 +243,7 @@
 }
 
 .entryCell input[readonly] {
-    color: hsl(var(--muted-foreground));
+    color: var(--observations-subtle);
 }
 
 .entryCell textarea {
@@ -224,6 +265,81 @@
 
 .entryCellFull {
     grid-column: 1 / -1;
+}
+
+.entryEditorGrid > .entryCell:has(.tagButtonGroup) {
+    grid-column: 1 / -1;
+}
+
+.hiddenTagSelect {
+    display: none;
+}
+
+.tagButtonGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tagButton {
+    padding: 0.5rem 0.8rem;
+    border: 1px solid hsl(var(--border));
+    border-radius: 999px;
+    background: hsl(var(--card));
+    color: var(--observations-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.tagButton:hover {
+    border-color: hsl(var(--primary) / 0.42);
+    background: hsl(var(--accent));
+    color: hsl(var(--foreground));
+}
+
+.tagButtonSelected {
+    background: hsl(var(--primary) / 0.14);
+    border-color: hsl(var(--primary) / 0.55);
+    color: hsl(var(--primary));
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.08);
+}
+
+.customTagRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.customTagRow input {
+    flex: 1;
+    min-width: 180px;
+}
+
+.addTagButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.7rem 0.9rem;
+    border-radius: 10px;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--card));
+    color: hsl(var(--foreground));
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.addTagButton:hover {
+    border-color: hsl(var(--primary) / 0.42);
+    background: hsl(var(--accent));
+}
+
+.tagSelectionSummary {
+    margin-top: 0.55rem;
+    font-size: 0.82rem;
+    color: var(--observations-muted);
 }
 
 .studentSelectionGrid {
@@ -283,7 +399,7 @@
 
 .statLabel {
     font-size: 0.8rem;
-    color: hsl(var(--muted-foreground));
+    color: var(--observations-subtle);
 }
 
 /* Filters */
@@ -318,11 +434,11 @@
 }
 
 .searchBox input::placeholder {
-    color: hsl(var(--muted-foreground));
+    color: var(--observations-placeholder);
 }
 
 .searchBox svg {
-    color: hsl(var(--muted-foreground));
+    color: var(--observations-muted);
 }
 
 .filterGroup {
@@ -370,7 +486,7 @@
 .resultsInfo {
     margin-bottom: 1rem;
     font-size: 0.875rem;
-    color: hsl(var(--muted-foreground));
+    color: var(--observations-subtle);
 }
 
 /* List */
@@ -424,7 +540,7 @@
     display: flex;
     align-items: center;
     gap: 0.25rem;
-    color: hsl(var(--muted-foreground));
+    color: var(--observations-muted);
 }
 
 .separator {
@@ -441,7 +557,7 @@
     background: none;
     border: none;
     border-radius: 6px;
-    color: hsl(var(--muted-foreground));
+    color: var(--observations-muted);
     cursor: pointer;
     transition: all 0.15s ease;
 }
@@ -509,7 +625,7 @@
 
 .sourceTag {
     background: hsl(var(--accent));
-    color: hsl(var(--muted-foreground));
+    color: var(--observations-muted);
 }
 
 .competencyTag {
@@ -519,7 +635,7 @@
 
 .moreTag {
     background: hsl(var(--muted));
-    color: hsl(var(--muted-foreground));
+    color: var(--observations-muted);
 }
 
 /* Loading */
@@ -529,7 +645,7 @@
     align-items: center;
     justify-content: center;
     padding: 4rem;
-    color: hsl(var(--muted-foreground));
+    color: var(--observations-subtle);
 }
 
 .loadingSpinner {
@@ -552,7 +668,7 @@
 .emptyState {
     text-align: center;
     padding: 4rem 2rem;
-    color: hsl(var(--muted-foreground));
+    color: var(--observations-subtle);
 }
 
 .emptyIcon {
@@ -601,7 +717,7 @@
 
 .pageInfo {
     font-size: 0.875rem;
-    color: hsl(var(--muted-foreground));
+    color: var(--observations-subtle);
 }
 
 /* Modal */
@@ -649,7 +765,7 @@
 .closeBtn {
     background: none;
     border: none;
-    color: hsl(var(--muted-foreground));
+    color: var(--observations-muted);
     cursor: pointer;
     padding: 0.5rem;
     border-radius: 8px;
@@ -676,7 +792,7 @@
 
 .detailRow label {
     min-width: 80px;
-    color: hsl(var(--muted-foreground));
+    color: var(--observations-muted);
     font-weight: 500;
 }
 
@@ -699,7 +815,7 @@
 .detailMemo label {
     display: block;
     font-size: 0.9rem;
-    color: hsl(var(--muted-foreground));
+    color: var(--observations-muted);
     font-weight: 500;
     margin-bottom: 0.75rem;
 }
@@ -728,7 +844,7 @@
 
 .ocrDataContent {
     font-size: 0.8rem;
-    color: hsl(var(--muted-foreground));
+    color: var(--observations-subtle);
 }
 
 .ocrDataItem {
@@ -775,6 +891,15 @@
     .composeHeader {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .entryHeader {
+        flex-direction: column;
+    }
+
+    .entryHeader > .entryCell:last-child {
+        width: 100%;
+        margin-left: 0;
     }
 
     .stats {

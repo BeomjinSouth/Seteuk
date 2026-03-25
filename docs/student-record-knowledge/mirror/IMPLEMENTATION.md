@@ -103,7 +103,8 @@ STAR FAQ/Q&A
 
 페이지 보조 기능:
 
-- 상단 `GlobalNav`는 `학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검 -> 학습지 OCR` 순서로 고정한다.
+- 상단 `GlobalNav`는 `학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검` 순서로 고정한다.
+- 학습지 OCR route(`/ocr`)와 관련 코드는 유지하되, 현재는 `GlobalNav` 렌더링에서 제외해 화면 탭으로는 노출하지 않는다.
 - `AI 세특 생성` 공통 앱 셸(`GlobalNav + Sidebar`) 안에서 `/write`, `/counsel-chat`, `/review`, `/export`를 사용자 탭으로 제공하고, 상담과 점검은 `/counsel-chat` 내부 모드 전환으로 통합한다.
 - `/counsel-chat` 사용자 탭 라벨은 `생기부 상담 점검`으로 노출한다.
 - 기존 `/record-review` 경로는 `/counsel-chat?mode=review`로 리다이렉트해 북마크와 기존 링크를 깨지 않게 유지한다.
@@ -132,7 +133,8 @@ STAR FAQ/Q&A
 - 별도 `학생 관찰 기록` 섹션에서 학생 카드 보드(`/observation-board`)와 관찰 메모(`/observations`)를 제공한다.
 - 학생 카드에서는 클릭으로 선택 상태를 토글하고, 더블클릭 시 `/observations`로 query prefill 이동한다.
 - 여러 학생이 선택된 상태에서 선택된 카드 중 하나를 더블클릭하면 같은 teaching class 학생 ID들을 `studentIds` query로 넘겨 일괄 관찰 기록 작성 모드로 진입한다.
-- `/observations`의 수동 입력 섹션은 선택된 학생별 row editor를 렌더링하고, 각 row는 `date`, `lessonTopic`, 단일 선택 `tag`, `memo`를 별도로 관리한다.
+- `/observations`의 수동 입력 섹션은 선택된 학생별 row editor를 렌더링하고, 각 row는 학생명 헤더와 `date`, `lessonTopic`, 다중 선택 `tags`, `memo`를 관리한다.
+- 수동 입력 row에서는 학년도/학년/반/번호 같은 중복 메타 필드를 다시 노출하지 않고, 태그는 버튼형 선택과 교사 직접 추가를 함께 제공한다.
 - 학습 메모와 관찰 메모는 teaching class 단위로 저장한다.
 - 세특 AI 생성 API는 현재 교사의 `teacherKey`와 `teachingClassId`를 전달하고, 같은 맥락의 관찰 메모만 불러온다.
 - 로컬 개발 모드에서는 Google Sheets API 호출이 실패할 때 `.local-sheet-store.json`으로 자동 fallback해 웹앱 흐름을 중단하지 않는다.

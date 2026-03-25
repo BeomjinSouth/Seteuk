@@ -25,13 +25,24 @@ import { Observation, Assessment, Student } from '@/types';
 import { getTeacherClasses, getStudentsInTeachingClass } from '@/lib/teacher-context';
 import styles from './page.module.css';
 
+const EXTRA_OBSERVATION_TAG_OPTIONS = ['참여', '발표', '협력', '성장', '질문', '탐구', '자기주도', '성찰'];
+
 const OBSERVATION_TAG_OPTIONS = ['문제해결', '추론', '창의·융합', '의사소통', '정보처리', '태도'];
 
 interface ObservationDraftRow {
     date: string;
     lessonTopic: string;
-    tag: string;
+    tags: string[];
     memo: string;
+}
+
+function createEmptyDraft(date: string): ObservationDraftRow {
+    return {
+        date,
+        lessonTopic: '',
+        tags: [],
+        memo: '',
+    };
 }
 
 function ObservationsPageContent() {
@@ -71,8 +82,14 @@ function ObservationsPageContent() {
     const [formStudentIds, setFormStudentIds] = useState<string[]>(initialStudentIds);
     const today = useMemo(() => new Date().toISOString().split('T')[0], []);
     const [studentDrafts, setStudentDrafts] = useState<Record<string, ObservationDraftRow>>({});
+    const [customTagOptions, setCustomTagOptions] = useState<string[]>([]);
+    const [customTagInputs, setCustomTagInputs] = useState<Record<string, string>>({});
 
     const itemsPerPage = 10;
+    const availableTagOptions = useMemo(
+        () => Array.from(new Set([...OBSERVATION_TAG_OPTIONS, ...EXTRA_OBSERVATION_TAG_OPTIONS, ...customTagOptions])),
+        [customTagOptions]
+    );
 
     useEffect(() => {
         fetchData();
@@ -111,12 +128,7 @@ function ObservationsPageContent() {
         setStudentDrafts((prev) => {
             const next: Record<string, ObservationDraftRow> = {};
             formStudentIds.forEach((studentId) => {
-                next[studentId] = prev[studentId] || {
-                    date: today,
-                    lessonTopic: '',
-                    tag: '',
-                    memo: '',
-                };
+                next[studentId] = prev[studentId] || createEmptyDraft(today);
             });
             return next;
         });
@@ -223,6 +235,8 @@ function ObservationsPageContent() {
         return `${student.grade || ''}학년 ${student.classNumber || ''}반 ${student.number}번 ${student.name}`;
     };
 
+    const getComposeStudentLabel = (student: Student): string => `${student.number}번 ${student.name}`;
+
     const getClassDisplay = (classId?: string) => {
         if (!classId) return '미지정 수업';
         const targetClass = teacherClasses.find((cls) => cls.id === classId) || classes.find((cls) => cls.id === classId);
@@ -256,23 +270,62 @@ function ObservationsPageContent() {
 
     const updateStudentDraft = (
         studentId: string,
-        field: keyof ObservationDraftRow,
+        field: 'date' | 'lessonTopic' | 'memo',
         value: string
     ) => {
-        const emptyDraft: ObservationDraftRow = {
-            date: today,
-            lessonTopic: '',
-            tag: '',
-            memo: '',
-        };
-
         setStudentDrafts((prev) => ({
             ...prev,
             [studentId]: {
-                ...(prev[studentId] ?? emptyDraft),
+                ...(prev[studentId] ?? createEmptyDraft(today)),
                 [field]: value,
             },
         }));
+    };
+
+    const toggleStudentTag = (studentId: string, tag: string) => {
+        const normalizedTag = tag.trim();
+        if (!normalizedTag) return;
+
+        setStudentDrafts((prev) => {
+            const current = prev[studentId] ?? createEmptyDraft(today);
+            const hasTag = current.tags.includes(normalizedTag);
+
+            return {
+                ...prev,
+                [studentId]: {
+                    ...current,
+                    tags: hasTag
+                        ? current.tags.filter((item) => item !== normalizedTag)
+                        : [...current.tags, normalizedTag],
+                },
+            };
+        });
+    };
+
+    const addCustomTagForStudent = (studentId: string) => {
+        const nextTag = (customTagInputs[studentId] || '').trim();
+        if (!nextTag) return;
+
+        setCustomTagOptions((prev) => (prev.includes(nextTag) ? prev : [...prev, nextTag]));
+        setCustomTagInputs((prev) => ({
+            ...prev,
+            [studentId]: '',
+        }));
+
+        setStudentDrafts((prev) => {
+            const current = prev[studentId] ?? createEmptyDraft(today);
+            if (current.tags.includes(nextTag)) {
+                return prev;
+            }
+
+            return {
+                ...prev,
+                [studentId]: {
+                    ...current,
+                    tags: [...current.tags, nextTag],
+                },
+            };
+        });
     };
 
     const handleSaveManualObservation = async () => {
@@ -312,7 +365,7 @@ function ObservationsPageContent() {
                             date: draft.date || today,
                             memo: draft.memo.trim(),
                             evidenceType: 'process',
-                            tags: draft.tag ? [draft.tag] : [],
+                            tags: draft.tags,
                             sourceType: 'manual',
                         }),
                     });
@@ -343,13 +396,14 @@ function ObservationsPageContent() {
                     next[student.id] = {
                         date: today,
                         lessonTopic: '',
-                        tag: '',
+                        tags: [],
                         memo: '',
                     };
                 });
                 return next;
             });
             alert(`${results.length}명에게 수업 기록을 저장했습니다.`);
+            setCustomTagInputs({});
             await fetchData();
         } catch (error) {
             console.error('Failed to save observation:', error);
@@ -467,7 +521,7 @@ function ObservationsPageContent() {
                                         checked={isSelected}
                                         onChange={() => toggleFormStudent(student.id)}
                                     />
-                                    <span>{getStudentDisplay(student.id)}</span>
+                                    <span>{getComposeStudentLabel(student)}</span>
                                 </label>
                             );
                         })}
@@ -482,17 +536,15 @@ function ObservationsPageContent() {
                             학생을 선택하면 학생별 입력 행이 여기 열립니다.
                         </div>
                     ) : selectedTargetStudents.map((student) => {
-                        const draft = studentDrafts[student.id] || {
-                            date: today,
-                            lessonTopic: '',
-                            tag: '',
-                            memo: '',
-                        };
+                        const draft = studentDrafts[student.id] || createEmptyDraft(today);
+                        const selectedTags = draft.tags;
 
                         return (
                             <div key={student.id} className={styles.entryRow}>
-                                <div className={styles.entryMetaGrid}>
-                                    <div className={styles.entryCell}>
+                                <div className={styles.entryHeader}>
+                                    <p className={styles.entryStudentName}>{student.name}</p>
+                                    <p className={styles.entryStudentMeta}>{student.number}번 학생</p>
+                                    <div className={`${styles.entryCell} ${styles.entryCellFull}`}>
                                         <label>학년도</label>
                                         <input type="text" value={String(targetClass?.year || '')} readOnly />
                                     </div>
@@ -533,12 +585,58 @@ function ObservationsPageContent() {
                                     </div>
                                     <div className={styles.entryCell}>
                                         <label>태그</label>
+                                        <div className={styles.tagButtonGroup}>
+                                            {availableTagOptions.map((tag) => {
+                                                const isSelected = selectedTags.includes(tag);
+                                                return (
+                                                    <button
+                                                        key={tag}
+                                                        type="button"
+                                                        className={`${styles.tagButton} ${isSelected ? styles.tagButtonSelected : ''}`}
+                                                        onClick={() => toggleStudentTag(student.id, tag)}
+                                                    >
+                                                        {tag}
+                                                    </button>
+                                                );
+                                            })}
+                                        </div>
+                                        <div className={styles.customTagRow}>
+                                            <input
+                                                type="text"
+                                                value={customTagInputs[student.id] || ''}
+                                                onChange={(e) => setCustomTagInputs((prev) => ({
+                                                    ...prev,
+                                                    [student.id]: e.target.value,
+                                                }))}
+                                                onKeyDown={(e) => {
+                                                    if (e.key === 'Enter') {
+                                                        e.preventDefault();
+                                                        addCustomTagForStudent(student.id);
+                                                    }
+                                                }}
+                                                placeholder="태그 직접 추가"
+                                            />
+                                            <button
+                                                type="button"
+                                                className={styles.addTagButton}
+                                                onClick={() => addCustomTagForStudent(student.id)}
+                                            >
+                                                <Plus size={14} />
+                                                추가
+                                            </button>
+                                        </div>
+                                        {selectedTags.length > 0 && (
+                                            <p className={styles.tagSelectionSummary}>
+                                                선택됨: {selectedTags.join(', ')}
+                                            </p>
+                                        )}
                                         <select
-                                            value={draft.tag}
-                                            onChange={(e) => updateStudentDraft(student.id, 'tag', e.target.value)}
+                                            className={styles.hiddenTagSelect}
+                                            value={selectedTags[0] || ''}
+                                            onChange={() => undefined}
                                         >
                                             <option value="">태그 선택</option>
-                                            {OBSERVATION_TAG_OPTIONS.map((tag) => (
+                                            {availableTagOptions.map((tag) => (
                                                 <option key={tag} value={tag}>
                                                     {tag}
                                                 </option>

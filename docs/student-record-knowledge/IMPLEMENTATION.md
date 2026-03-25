@@ -54,7 +54,8 @@
 - counsel chat and record review now share one `/counsel-chat` workspace with a mode switch, and `/record-review` redirects into that workspace
 - `search-inspector` remains available only as an internal diagnostics route and is no longer shown in the sidebar
 - main navigation groups those tools under `AI 세특 생성`
-- top navigation order is `학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검 -> 학습지 OCR`
+- top navigation order is `학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검`
+- `/ocr` stays available as a route, but `GlobalNav` currently filters the OCR tab out of the visible main navigation
 - student management is limited to roster upload and teaching-class connection; the student board now lives in `/observation-board`
 - school roster data syncs through `/api/students` into shared sheet-backed storage, while teaching-class connections remain teacher-specific in local app state
 - repeated uploads for the same school are merged server-side by roster key and return add/update/skip counts so overlapping students do not duplicate

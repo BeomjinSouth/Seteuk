@@ -67,6 +67,9 @@ export function Sidebar() {
     const pathname = usePathname();
     const teacher = useAppStore((state) => state.teacher);
     const { resolvedTheme, toggleTheme, mounted } = useTheme();
+    const activeEvalTab = typeof window === 'undefined'
+        ? 'settings'
+        : new URLSearchParams(window.location.search).get('tab') ?? 'settings';
 
     const isSchoolSection = pathname.startsWith('/dashboard') || pathname.startsWith('/school') || pathname.startsWith('/students');
     const isObservationSection = pathname.startsWith('/observation-board') || pathname.startsWith('/observations');
@@ -102,6 +105,10 @@ export function Sidebar() {
                     const Icon = item.icon;
                     const isActive = item.href === '/counsel-chat'
                         ? pathname.startsWith('/counsel-chat') || pathname.startsWith('/record-review')
+                        : item.href === '/eval-check'
+                            ? pathname === '/eval-check' && activeEvalTab !== 'settings'
+                            : item.href === '/eval-check?tab=settings'
+                                ? pathname === '/eval-check' && activeEvalTab === 'settings'
                         : pathname === item.href || pathname.startsWith(item.href + '/');
                     return (
                         <Link

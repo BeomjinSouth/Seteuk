@@ -1,7 +1,6 @@
 'use client';
 
-import { Suspense, useEffect, useState, useTransition } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useEffect, useState, useTransition } from 'react';
 import { motion } from 'framer-motion';
 import {
     AlertTriangle,
@@ -62,7 +61,6 @@ const ISSUE_TYPE_LABELS: Record<RecordReviewIssue['issueType'], string> = {
 };
 
 function CounselChatPageContent() {
-    const searchParams = useSearchParams();
     const [mode, setMode] = useState<AssistantMode>('counsel');
     const [meta, setMeta] = useState<KnowledgeMeta | null>(null);
     const [schoolLevel, setSchoolLevel] = useState('고등학교');
@@ -77,6 +75,7 @@ function CounselChatPageContent() {
     const [isReviewPending, startReviewTransition] = useTransition();
 
     useEffect(() => {
+        const searchParams = new URLSearchParams(window.location.search);
         const presetMode = searchParams.get('mode');
         const presetQuestion = searchParams.get('q');
         const presetText = searchParams.get('text');
@@ -94,7 +93,7 @@ function CounselChatPageContent() {
         if (presetSchoolLevel) setSchoolLevel(presetSchoolLevel);
         if (presetCategory) setCategory(presetCategory);
         if (presetYear) setYear(presetYear);
-    }, [searchParams]);
+    }, []);
 
     useEffect(() => {
         const loadMeta = async () => {
@@ -446,9 +445,5 @@ function CounselChatPageContent() {
 }
 
 export default function CounselChatPage() {
-    return (
-        <Suspense fallback={<div className={styles.page} />}>
-            <CounselChatPageContent />
-        </Suspense>
-    );
+    return <CounselChatPageContent />;
 }
