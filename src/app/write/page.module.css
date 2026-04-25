@@ -938,6 +938,70 @@
     opacity: 1;
 }
 
+.contentMetaRow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.5rem;
+    padding-right: 2rem;
+}
+
+.analysisBadge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 22px;
+    padding: 0.15rem 0.45rem;
+    border-radius: 0.35rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.analysisBadgeDone {
+    color: #047857;
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.22);
+}
+
+.analysisBadgeNeeded {
+    color: #a16207;
+    background: rgba(234, 179, 8, 0.12);
+    border: 1px solid rgba(234, 179, 8, 0.25);
+}
+
+.analysisSummary {
+    color: hsl(var(--foreground-muted));
+    font-size: 0.72rem;
+    white-space: nowrap;
+}
+
+.rowIconButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    min-height: 24px;
+    padding: 0.2rem 0.45rem;
+    border-radius: 0.35rem;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--surface));
+    color: hsl(var(--foreground));
+    font-size: 0.72rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.rowIconButton:hover:not(:disabled) {
+    border-color: hsl(var(--primary) / 0.45);
+    color: hsl(var(--primary));
+}
+
+.rowIconButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 .cellEditIcon {
     position: absolute;
     top: 0.5rem;

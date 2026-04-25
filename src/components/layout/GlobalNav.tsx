@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { GraduationCap, ScanLine, Sparkles, ClipboardCheck, ClipboardList, School } from 'lucide-react';
+import { Database, GraduationCap, ScanLine, Sparkles, ClipboardCheck, ClipboardList, School } from 'lucide-react';
 import clsx from 'clsx';
 import { SharedRosterSync } from '@/components/providers/SharedRosterSync';
 import styles from './GlobalNav.module.css';
@@ -26,6 +26,12 @@ const mainSections: Array<{
         label: '학생 관찰 기록',
         icon: ClipboardList,
         description: '학생 카드 보드, 관찰 메모'
+    },
+    {
+        href: '/student-data',
+        label: '학생 데이터',
+        icon: Database,
+        description: '성적, 멘토링, 쿠키'
     },
     {
         href: '/write',
@@ -65,6 +71,7 @@ export function GlobalNav() {
         if (href === '/observation-board') {
             return pathname.startsWith('/observation-board') || pathname.startsWith('/observations');
         }
+        if (href === '/student-data') return pathname.startsWith('/student-data');
         if (href === '/ocr') return pathname.startsWith('/ocr');
         if (href === '/eval-check') return pathname.startsWith('/eval-check');
         if (href === '/dashboard') return pathname.startsWith('/dashboard') || pathname.startsWith('/school') || pathname.startsWith('/students');

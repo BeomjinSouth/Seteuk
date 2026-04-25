@@ -2,7 +2,7 @@ import { google } from 'googleapis';
 import { promises as fs } from 'fs';
 import path from 'path';
 
-// Google Sheets API 초기화
+// Google Sheets API initialization
 export function getAuth() {
     return new google.auth.GoogleAuth({
         credentials: {
@@ -63,22 +63,24 @@ async function withLocalFallback<T>(sheetName: string, operation: string, callba
 
 // Sheet names
 export const SHEETS = {
-    STUDENTS: '\uD559\uC0DD', // 학생
-    CLASSES: '\uBC18', // 반
-    RECORDS: '\uC138\uD2B9', // 세특
-    SETTINGS: '\uC124\uC815', // 설정
-    EXAMPLES: '\uC608\uC2DC\uC591\uC2DD', // 예시양식
-    ASSESSMENTS: '\uD3C9\uAC00\uACFC\uC81C', // 평가과제
-    OBSERVATIONS: '\uAD00\uC230\uBA54\uBAA8', // 관찰메모
-    OCR_EVALUATIONS: 'OCR\uD3C9\uAC00', // OCR평가
-    // 평가 점검 시스템 시트
-    EVAL_CHECK_SETTINGS: 'EC_\uC124\uC815', // EC_설정
-    EVAL_CHECK_DOCUMENTS: 'EC_\uBB38\uC11C', // EC_문서
-    EVAL_CHECK_RESOURCES: 'EC_\uB9AC\uC18C\uC2A4', // EC_리소스
-    EVAL_CHECK_QUESTIONS: 'EC_\uBB38\uD56D', // EC_문항
-    EVAL_CHECK_ISSUES: 'EC_\uBB38\uC81C\uC810_\uC694\uC57D', // EC_문제점_요약
-    EVAL_CHECK_RULES: 'EC_\uADDC\uCE59', // EC_규칙
-    EVAL_CHECK_LOGS: 'EC_\uC791\uC5C5\uB85C\uADF8', // EC_작업로그
+    STUDENTS: '\uD559\uC0DD', // students
+    CLASSES: '\uBC18', // classes
+    RECORDS: '\uC138\uD2B9', // records
+    SETTINGS: '\uC124\uC815', // settings
+    EXAMPLES: '\uC608\uC2DC\uC591\uC2DD', // examples
+    ASSESSMENTS: '\uD3C9\uAC00\uACFC\uC81C', // assessments
+    OBSERVATIONS: '\uAD00\uC230\uBA54\uBAA8', // observation notes
+    STUDENT_DATA: '\uD559\uC0DD\uB370\uC774\uD130', // student data
+    COOKIE_LEDGER: '\uCFE0\uD0A4\uC6D0\uC7A5', // cookie ledger
+    COOKIE_REWARDS: '\uCFE0\uD0A4\uC0C1\uD488', // cookie rewards
+    OCR_EVALUATIONS: 'OCR\uD3C9\uAC00', // OCR evaluations
+    EVAL_CHECK_SETTINGS: 'EC_\uC124\uC815', // eval-check settings
+    EVAL_CHECK_DOCUMENTS: 'EC_\uBB38\uC11C', // eval-check documents
+    EVAL_CHECK_RESOURCES: 'EC_\uB9AC\uC18C\uC2A4', // eval-check resources
+    EVAL_CHECK_QUESTIONS: 'EC_\uBB38\uD56D', // eval-check questions
+    EVAL_CHECK_ISSUES: 'EC_\uBB38\uC81C\uC810_\uC694\uC57D', // eval-check issue summaries
+    EVAL_CHECK_RULES: 'EC_\uADDC\uCE59', // eval-check rules
+    EVAL_CHECK_LOGS: 'EC_\uC791\uC5C5\uB85C\uADF8', // eval-check logs
 } as const;
 
 /**

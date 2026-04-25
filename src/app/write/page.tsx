@@ -10,7 +10,7 @@ import { ForbiddenCheckModal } from '@/components/ForbiddenCheckModal';
 import { SimilarityModal, SimilarityResult } from '@/components/SimilarityModal';
 import { getContentHash } from '@/components/KeywordHighlighter';
 import { useAppStore } from '@/lib/store';
-import { SubjectRecord, CompetencySegment } from '@/types';
+import { SubjectRecord, CompetencySegment, StudentDataEntry } from '@/types';
 import type { OCREvaluation } from '@/types/ocr';
 import { generateDraft, performSpellCheck, checkForbiddenWords, reviewAndImproveRecord } from '@/lib/write-logic';
 import { applyCheckResultToRecord } from '@/lib/check-utils';
@@ -71,7 +71,7 @@ function WritePageContent() {
     const [isBulkChecking, setIsBulkChecking] = useState(false);
     const [isForbiddenModalOpen, setIsForbiddenModalOpen] = useState(false);
     const [forbiddenResults, setForbiddenResults] = useState<Map<string, { word: string; suggestion: string; reason: string }[]>>(new Map());
-    const [isCompetencyAnalyzing, setIsCompetencyAnalyzing] = useState(false);
+    const [competencyAnalyzingIds, setCompetencyAnalyzingIds] = useState<Set<string>>(new Set());
     const [isCheckingSimilarity, setIsCheckingSimilarity] = useState(false);
     const [isBulkAdjusting, setIsBulkAdjusting] = useState(false);
     const [isBulkReviewImproving, setIsBulkReviewImproving] = useState(false);
@@ -80,6 +80,7 @@ function WritePageContent() {
     const [similaritySuggestions, setSimilaritySuggestions] = useState<Map<string, { similarityAnalysis: string; student1Suggestion: string; student2Suggestion: string }>>(new Map());
 
     const currentSemester: 1 | 2 = selectedSemester === '1' ? 1 : 2;
+    const isCompetencyAnalyzing = competencyAnalyzingIds.size > 0;
     const currentTeacherClasses = useMemo(
         () => getTeacherClasses(classes, teacher, selectedSemester),
         [classes, selectedSemester, teacher]
@@ -221,6 +222,7 @@ function WritePageContent() {
                 const studentGrade = student.grade || teachingClass.grade || 1;
                 const curriculumData = getCurriculumContent(studentGrade, currentSemester);
                 const evaluations = await getOcrEvaluations(studentGrade, currentSemester);
+                let studentDataEntries: StudentDataEntry[] = [];
 
                 let ocrEvaluationContext = undefined;
                 for (const evaluation of evaluations) {
@@ -239,6 +241,26 @@ function WritePageContent() {
                     }
                 }
 
+                if (teacher?.school && teacher.teacherKey) {
+                    try {
+                        const params = new URLSearchParams({
+                            school: teacher.school,
+                            teacherKey: teacher.teacherKey,
+                            classId: teachingClass.id,
+                            semester: String(currentSemester),
+                            studentId,
+                            includeInAi: 'true',
+                        });
+                        const response = await fetch(`/api/student-data?${params.toString()}`, { cache: 'no-store' });
+                        if (response.ok) {
+                            const payload = await response.json() as { data?: StudentDataEntry[]; entries?: StudentDataEntry[] };
+                            studentDataEntries = payload.data || payload.entries || [];
+                        }
+                    } catch (error) {
+                        console.error('Failed to load student data for generation', studentId, error);
+                    }
+                }
+
                 const result = await generateDraft(
                     studentId,
                     student.name,
@@ -247,6 +269,7 @@ function WritePageContent() {
                     exampleTemplate,
                     curriculumData?.content,
                     ocrEvaluationContext,
+                    studentDataEntries,
                     {
                         teacherKey: teacher?.teacherKey,
                         classId: teachingClass.id,
@@ -450,6 +473,47 @@ function WritePageContent() {
         setSelectedStudents(new Set());
     };
 
+    const analyzeCompetencyRecord = async (record: SubjectRecord) => {
+        setCompetencyAnalyzingIds((prev) => new Set(prev).add(record.studentId));
+        try {
+            const response = await fetch('/api/competency', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text: record.content }),
+            });
+            if (!response.ok) return;
+            const data = await response.json();
+            if (!data.segments || data.segments.length === 0) return;
+
+            updateRecord({
+                ...record,
+                competencyAnalysis: {
+                    segments: data.segments as CompetencySegment[],
+                    analyzedAt: new Date().toISOString(),
+                    contentHash: getContentHash(record.content),
+                },
+            });
+        } catch (error) {
+            console.error('Competency analysis failed', record.studentId, error);
+        } finally {
+            setCompetencyAnalyzingIds((prev) => {
+                const next = new Set(prev);
+                next.delete(record.studentId);
+                return next;
+            });
+        }
+    };
+
+    const handleAnalyzeCompetency = (studentId: string) => {
+        const record = getStudentRecord(studentId);
+        if (!record?.content || record.content.length < 10) {
+            alert('분석할 세특 내용이 충분하지 않습니다.');
+            return;
+        }
+
+        void analyzeCompetencyRecord(record);
+    };
+
     const handleBulkCompetencyAnalysis = async () => {
         const targets = Array.from(selectedStudents)
             .map((studentId) => getStudentRecord(studentId))
@@ -460,31 +524,7 @@ function WritePageContent() {
             return;
         }
 
-        setIsCompetencyAnalyzing(true);
-        await mapWithConcurrency(targets, DEFAULT_CONCURRENCY_LIMIT, async (record) => {
-            try {
-                const response = await fetch('/api/competency', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ text: record.content }),
-                });
-                if (!response.ok) return;
-                const data = await response.json();
-                if (!data.segments || data.segments.length === 0) return;
-
-                updateRecord({
-                    ...record,
-                    competencyAnalysis: {
-                        segments: data.segments as CompetencySegment[],
-                        analyzedAt: new Date().toISOString(),
-                        contentHash: getContentHash(record.content),
-                    },
-                });
-            } catch (error) {
-                console.error('Competency analysis failed', record.studentId, error);
-            }
-        });
-        setIsCompetencyAnalyzing(false);
+        await mapWithConcurrency(targets, DEFAULT_CONCURRENCY_LIMIT, analyzeCompetencyRecord);
     };
 
     const handleSimilarityCheck = async () => {
@@ -712,6 +752,8 @@ function WritePageContent() {
                                         onSaveEdit={saveEdit}
                                         onCancelEdit={() => setEditingCell(null)}
                                         onEditValueChange={setEditValue}
+                                        onAnalyzeCompetency={handleAnalyzeCompetency}
+                                        isCompetencyAnalyzing={competencyAnalyzingIds.has(student.id)}
                                     />
                                 )) : (
                                     <tr><td colSpan={7} style={{ textAlign: 'center', padding: '2rem' }}>표시할 학생이 없습니다.</td></tr>

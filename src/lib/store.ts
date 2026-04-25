@@ -357,7 +357,7 @@ export const useAppStore = create<AppState>()(
 
                         // Keep max 10 versions
                         const history = [...(existingRecord.history || []), historyEntry].slice(-10);
-                        updatedRecord = { ...record, history };
+                        updatedRecord = { ...record, history, competencyAnalysis: undefined };
                     } else if (existingRecord.history) {
                         // Preserve existing history
                         updatedRecord = { ...record, history: existingRecord.history };

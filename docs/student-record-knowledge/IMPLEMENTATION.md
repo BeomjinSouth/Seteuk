@@ -42,6 +42,9 @@
 - `src/app/api/admin/reindex/route.ts`
 - `src/app/api/admin/crawl-status/route.ts`
 - `src/app/api/admin/quality-report/route.ts`
+- `src/app/api/student-data/route.ts`
+- `src/app/api/cookies/route.ts`
+- `src/app/api/cookie-rewards/route.ts`
 - admin crawl copies the regenerated knowledge JSON into `web/output` and clears the in-process knowledge cache after success
 - admin crawl uses `KNOWLEDGE_PACKAGE_DIR` when provided, otherwise `../student-record-knowledge`, and returns 503 if the package is unavailable
 - admin routes use `ADMIN_API_TOKEN` in production and accept `Authorization: Bearer <token>` or `x-admin-token`
@@ -55,6 +58,7 @@
 - `src/app/eval-check/page.tsx`
 - `src/app/observation-board/page.tsx`
 - `src/app/observations/page.tsx`
+- `src/app/student-data/page.tsx`
 - `src/components/layout/AppShell.tsx`
 - raw match list shown in the pages
 - local vs hosted search comparison available
@@ -62,11 +66,15 @@
 - the sidebar/workspace label is `생기부 상담 점검`
 - counsel chat and record review now share one `/counsel-chat` workspace with a mode switch, and `/record-review` redirects into that workspace
 - `search-inspector` remains available only as an internal diagnostics route and is no longer shown in the sidebar
-- main navigation groups those tools under `AI 세특 생성`
-- top navigation order is `학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검 (개발중)`
+- main navigation groups counsel/review tools under `AI 세특 생성`
+- top navigation order is `학교 정보 -> 학생 관찰 기록 -> 학생 데이터 -> AI 세특 생성 -> 평가 점검 (개발중)`
 - `평가 점검 (개발중)` is rendered as a disabled nav item, and direct `/eval-check` access redirects to `/dashboard`
 - `/ocr` stays available as a route, but `GlobalNav` currently filters the OCR tab out of the visible main navigation
 - student management is limited to roster upload and teaching-class connection; the student board now lives in `/observation-board`
+- `학생 데이터` is a top-level tab for teacher-owned notes, grades, mentor matches, and school-shared cookie/reward operations
+- student data APIs store teacher-owned rows in `학생데이터`, shared cookie transactions in `쿠키원장`, and shared reward definitions in `쿠키상품`
+- `/write` fetches only current `teacherKey + classId + semester + studentId` rows marked `includeInAi=true` before calling `/api/generate`
+- competency highlighting renders against the source text so invalid AI segment indexes cannot drop text from the display
 - school roster data syncs through `/api/students` into shared sheet-backed storage, while teaching-class connections remain teacher-specific in local app state
 - repeated uploads for the same school are merged server-side by roster key and return add/update/skip counts so overlapping students do not duplicate
 - in `/observation-board`, single click selects students and double click opens observation writing; same-class multi-selection enters batch observation entry

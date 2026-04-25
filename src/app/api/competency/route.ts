@@ -30,6 +30,43 @@ interface AnalyzeResponse {
     segments: CompetencySegment[];
 }
 
+function normalizeSegments(text: string, segments: CompetencySegment[]): CompetencySegment[] {
+    let cursor = 0;
+
+    return segments
+        .filter(seg => seg.text && seg.type && ['knowledge', 'process', 'attitude'].includes(seg.type))
+        .map((seg) => {
+            let startIndex = typeof seg.startIndex === 'number' ? seg.startIndex : -1;
+            let endIndex = typeof seg.endIndex === 'number' ? seg.endIndex : -1;
+            const exactSlice = startIndex >= cursor
+                && endIndex > startIndex
+                && endIndex <= text.length
+                && text.slice(startIndex, endIndex) === seg.text;
+
+            if (!exactSlice) {
+                const foundAt = text.indexOf(seg.text, cursor);
+                if (foundAt >= 0) {
+                    startIndex = foundAt;
+                    endIndex = foundAt + seg.text.length;
+                }
+            }
+
+            if (startIndex < cursor || endIndex <= startIndex || endIndex > text.length) {
+                return null;
+            }
+
+            cursor = endIndex;
+
+            return {
+                text: text.slice(startIndex, endIndex),
+                type: seg.type as CompetencyType,
+                startIndex,
+                endIndex,
+            };
+        })
+        .filter((seg): seg is CompetencySegment => seg !== null);
+}
+
 const ANALYZE_PROMPT = `당신은 한국 교육과정 역량 분류 전문가입니다. 주어진 텍스트(행동특성 및 종합의견)를 분석하여 **문장 전체를 하나로 분류하지 말고**, 문장 내 의미가 구절(clause) 단위로 가지는 역량 유형으로 분류해주세요.
 
 ## 역량 유형 정의
@@ -139,15 +176,7 @@ export async function POST(request: NextRequest) {
         try {
             const result: AnalyzeResponse = JSON.parse(content);
 
-            // Validate and clean up segments
-            const validatedSegments = result.segments
-                .filter(seg => seg.text && seg.type && ['knowledge', 'process', 'attitude'].includes(seg.type))
-                .map(seg => ({
-                    text: seg.text,
-                    type: seg.type as CompetencyType,
-                    startIndex: typeof seg.startIndex === 'number' ? seg.startIndex : text.indexOf(seg.text),
-                    endIndex: typeof seg.endIndex === 'number' ? seg.endIndex : text.indexOf(seg.text) + seg.text.length
-                }));
+            const validatedSegments = normalizeSegments(text, result.segments || []);
 
             return NextResponse.json({
                 success: true,

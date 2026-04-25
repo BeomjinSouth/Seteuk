@@ -17,6 +17,7 @@ import {
     Moon,
     ClipboardCheck,
     ClipboardList,
+    Database,
     MessageSquareQuote
 } from 'lucide-react';
 import clsx from 'clsx';
@@ -34,6 +35,10 @@ const schoolNavItems = [
 const observationNavItems = [
     { href: '/observation-board', label: '학생 카드 보드', icon: Users },
     { href: '/observations', label: '관찰 메모', icon: ClipboardList },
+];
+
+const studentDataNavItems = [
+    { href: '/student-data', label: '학생 데이터', icon: Database },
 ];
 
 // LNB for AI 세특 생성 section
@@ -73,6 +78,7 @@ export function Sidebar() {
 
     const isSchoolSection = pathname.startsWith('/dashboard') || pathname.startsWith('/school') || pathname.startsWith('/students');
     const isObservationSection = pathname.startsWith('/observation-board') || pathname.startsWith('/observations');
+    const isStudentDataSection = pathname.startsWith('/student-data');
     const isEvalCheckSection = pathname.startsWith('/eval-check');
 
     let activeNavItems;
@@ -84,6 +90,9 @@ export function Sidebar() {
     } else if (isObservationSection) {
         activeNavItems = observationNavItems;
         sectionLabel = '학생 관찰 기록';
+    } else if (isStudentDataSection) {
+        activeNavItems = studentDataNavItems;
+        sectionLabel = '학생 데이터';
     } else if (isEvalCheckSection) {
         activeNavItems = evalCheckNavItems;
         sectionLabel = '평가 점검';
@@ -124,7 +133,7 @@ export function Sidebar() {
             </nav>
 
             {/* Show examples only for Seteuk section */}
-            {!isSchoolSection && !isObservationSection && !isEvalCheckSection && (
+            {!isSchoolSection && !isObservationSection && !isStudentDataSection && !isEvalCheckSection && (
                 <div className={styles.examplesSection}>
                     <Link
                         href="/examples"

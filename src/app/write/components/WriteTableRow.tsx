@@ -1,7 +1,7 @@
 import { SubjectRecord, Student } from '@/types';
-import { Edit3 } from 'lucide-react';
+import { Brain, Edit3 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import { CompetencyHighlighter } from '@/components/KeywordHighlighter';
+import { CompetencyHighlighter, getContentHash } from '@/components/KeywordHighlighter';
 import styles from '../page.module.css';
 
 interface WriteTableRowProps {
@@ -17,6 +17,28 @@ interface WriteTableRowProps {
     onSaveEdit: (studentId: string, field: 'data' | 'content') => void;
     onCancelEdit: () => void;
     onEditValueChange: (value: string) => void;
+    onAnalyzeCompetency: (studentId: string) => void;
+    isCompetencyAnalyzing: boolean;
+}
+
+function getCompetencySummary(record?: SubjectRecord): string {
+    if (!record?.content || !record.competencyAnalysis?.segments.length) return '';
+    if (record.competencyAnalysis.contentHash !== getContentHash(record.content)) return '';
+
+    const totals = { knowledge: 0, process: 0, attitude: 0 };
+    let totalLength = 0;
+    record.competencyAnalysis.segments.forEach((segment) => {
+        totals[segment.type] += segment.text.length;
+        totalLength += segment.text.length;
+    });
+
+    if (totalLength === 0) return '';
+
+    return [
+        `지식 ${Math.round((totals.knowledge / totalLength) * 100)}%`,
+        `과정 ${Math.round((totals.process / totalLength) * 100)}%`,
+        `태도 ${Math.round((totals.attitude / totalLength) * 100)}%`,
+    ].join(' · ');
 }
 
 export function WriteTableRow({
@@ -32,6 +54,8 @@ export function WriteTableRow({
     onSaveEdit,
     onCancelEdit,
     onEditValueChange,
+    onAnalyzeCompetency,
+    isCompetencyAnalyzing,
 }: WriteTableRowProps) {
     const isEditingData = editingCell?.studentId === student.id && editingCell?.field === 'data';
     const isEditingContent = editingCell?.studentId === student.id && editingCell?.field === 'content';
@@ -43,6 +67,11 @@ export function WriteTableRow({
         .join(', ');
 
     const displayData = [customData, otherData].filter(Boolean).join('\n');
+    const hasContent = !!record?.content?.trim();
+    const hasFreshCompetency = !!record?.competencyAnalysis?.segments.length
+        && record.competencyAnalysis.contentHash === getContentHash(record.content);
+    const hasStaleCompetency = !!record?.competencyAnalysis?.segments.length && !hasFreshCompetency;
+    const competencySummary = getCompetencySummary(record);
 
     return (
         <tr className={`${isSelected ? styles.rowSelected : ''}`}>
@@ -125,6 +154,27 @@ export function WriteTableRow({
                         className={styles.editableCell}
                         onClick={() => onStartEdit(student.id, 'content', record?.content || '')}
                     >
+                        {hasContent && (
+                            <div className={styles.contentMetaRow}>
+                                <span className={`${styles.analysisBadge} ${hasFreshCompetency ? styles.analysisBadgeDone : styles.analysisBadgeNeeded}`}>
+                                    {hasFreshCompetency ? '역량 분석 완료' : hasStaleCompetency ? '수정 후 재분석 필요' : '역량 분석 필요'}
+                                </span>
+                                {competencySummary && <span className={styles.analysisSummary}>{competencySummary}</span>}
+                                <button
+                                    type="button"
+                                    className={styles.rowIconButton}
+                                    onClick={(event) => {
+                                        event.stopPropagation();
+                                        onAnalyzeCompetency(student.id);
+                                    }}
+                                    disabled={isCompetencyAnalyzing}
+                                    title="이 학생 세특 역량 분석"
+                                >
+                                    <Brain size={13} />
+                                    {isCompetencyAnalyzing ? '분석 중' : '분석'}
+                                </button>
+                            </div>
+                        )}
                         {record?.content ? (
                             <CompetencyHighlighter
                                 text={record.content}

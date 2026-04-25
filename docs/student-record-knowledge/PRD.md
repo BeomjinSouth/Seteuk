@@ -71,6 +71,9 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - `/api/admin/quality-report`: implemented for knowledge quality checks
 - `/api/admin/*`: protected by `ADMIN_API_TOKEN` in production
 - student management scope: roster upload + teaching-class connection only
+- top-level student data tab: implemented for teacher-owned notes, grades, mentor matches, and school-shared cookies/rewards
+- `AI 반영` student data from the current teacher/class/semester is included in seteuk generation; cookie data is excluded by default
+- competency color analysis: implemented as source-text-safe highlighting with per-row analysis status
 - school roster uploads are shared per school, so other teachers at the same school can reuse the uploaded roster without uploading again
 - repeated roster uploads for the same school are merged by roster key, so overlapping students are skipped instead of duplicated
 - student board location: `/observation-board`

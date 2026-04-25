@@ -30,6 +30,10 @@ Run `npm run sync:knowledge-docs` from the web repo to refresh it.
 - `web` 앱 생기부 점검 API 구현
 - `web` 앱 상담/점검 통합 작업공간 구현
 - `web` 앱 운영 API(`/api/admin/crawl`, `/api/admin/reindex`, `/api/admin/crawl-status`, `/api/admin/quality-report`) 구현
+- `web` 앱 학생 데이터 탭 구현
+- 교사별 학생 개별 데이터, 학교 공용 쿠키 원장/상품 API 구현
+- 세특 생성 시 현재 교사가 `AI 반영`으로 선택한 학생 데이터 컨텍스트 주입 구현
+- 세특 역량 분석 색상 체크의 원문 기준 렌더링과 행 단위 분석 상태 표시 구현
 
 다음 단계:
 
@@ -105,9 +109,13 @@ STAR FAQ/Q&A
 - [`web/src/app/api/admin/reindex/route.ts`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/api/admin/reindex/route.ts)
 - [`web/src/app/api/admin/crawl-status/route.ts`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/api/admin/crawl-status/route.ts)
 - [`web/src/app/api/admin/quality-report/route.ts`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/api/admin/quality-report/route.ts)
+- [`web/src/app/api/student-data/route.ts`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/api/student-data/route.ts)
+- [`web/src/app/api/cookies/route.ts`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/api/cookies/route.ts)
+- [`web/src/app/api/cookie-rewards/route.ts`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/api/cookie-rewards/route.ts)
 - [`web/src/app/counsel-chat/page.tsx`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/counsel-chat/page.tsx)
 - [`web/src/app/record-review/page.tsx`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/record-review/page.tsx)
 - [`web/src/app/write/page.tsx`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/write/page.tsx)
+- [`web/src/app/student-data/page.tsx`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/student-data/page.tsx)
 - [`web/src/lib/knowledge-base.ts`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/lib/knowledge-base.ts)
 
 운영 API 메모:
@@ -117,7 +125,7 @@ STAR FAQ/Q&A
 
 페이지 보조 기능:
 
-- 상단 `GlobalNav`는 `학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검` 순서로 고정한다.
+- 상단 `GlobalNav`는 `학교 정보 -> 학생 관찰 기록 -> 학생 데이터 -> AI 세특 생성 -> 평가 점검` 순서로 고정한다.
 - `평가 점검`은 탭에 `평가 점검 (개발중)`으로 표시하지만 비활성 상태로 렌더링하고, `/eval-check` 직접 접근은 `/dashboard`로 리다이렉트한다.
 - 학습지 OCR route(`/ocr`)와 관련 코드는 유지하되, 현재는 `GlobalNav` 렌더링에서 제외해 화면 탭으로는 노출하지 않는다.
 - `AI 세특 생성` 공통 앱 셸(`GlobalNav + Sidebar`) 안에서 `/write`, `/counsel-chat`, `/review`, `/export`를 사용자 탭으로 제공하고, 상담과 점검은 `/counsel-chat` 내부 모드 전환으로 통합한다.
@@ -127,6 +135,8 @@ STAR FAQ/Q&A
 - URL query prefill 지원
 - 세특 작성 탭의 `RAG 점검·개선` 버튼은 `/api/record-review`의 `includeImprovedDraft` 흐름을 재사용
 - 세특 작성 탭의 `유사도` 버튼은 선택 학생 초안을 문장 단위로 비교하고, 다른 학생 간 90% 이상 동일한 문장만 모달에 노출한다.
+- `학생 데이터` 탭은 학기/담당 학급/학생 선택 후 개별 메모, 성적, 멘토·멘티, 쿠키·상품을 관리한다.
+- `학생 데이터` 탭의 성적/메모/멘토링은 현재 교사 전용 데이터이며, 쿠키 원장과 상품은 학교 공용 데이터다.
 
 ## 4.4 교사 작업공간 컨텍스트 모델
 
@@ -137,6 +147,8 @@ STAR FAQ/Q&A
 - teaching class: 로그인한 교사의 `teacherKey + subject + semester + grade/class` 조합으로 생성되는 담당 수업 반
 - observation: `studentId + teacherKey + teachingClassId`를 포함하는 수업 기록
 - subject record: `studentId + teacherKey + teachingClassId + semester`를 포함하는 세특 초안/확정본
+- student data: `studentId + teacherKey + teachingClassId + semester`를 포함하는 교사 전용 성적/메모/멘토링 데이터
+- cookie ledger/reward: `school + studentId` 기준으로 공유되는 학교 공용 쿠키 거래/상품 데이터
 
 핵심 규칙:
 
@@ -152,7 +164,25 @@ STAR FAQ/Q&A
 - 수동 입력 row에서는 학년도/학년/반/번호 같은 중복 메타 필드를 다시 노출하지 않고, 태그는 버튼형 선택과 교사 직접 추가를 함께 제공한다.
 - 학습 메모와 관찰 메모는 teaching class 단위로 저장한다.
 - 세특 AI 생성 API는 현재 교사의 `teacherKey`와 `teachingClassId`를 전달하고, 같은 맥락의 관찰 메모만 불러온다.
+- 세특 AI 생성 전 `/api/student-data`에서 현재 교사의 `includeInAi=true` 항목만 불러오고, `/api/generate` 프롬프트의 `[학생 개별 데이터]`에 추가한다.
+- 쿠키 원장과 상품 데이터는 기본적으로 세특 생성 컨텍스트에 넣지 않는다.
 - 로컬 개발 모드에서는 Google Sheets API 호출이 실패할 때 `.local-sheet-store.json`으로 자동 fallback해 웹앱 흐름을 중단하지 않는다.
+
+## 4.6 학생 데이터와 쿠키 모델
+
+Google Sheets 저장소에는 다음 시트를 사용한다.
+
+- `학생데이터`: `id, school, teacherKey, classId, semester, studentId, kind, title, occurredAt, includeInAi, payloadJson, createdAt, updatedAt`
+- `쿠키원장`: `id, school, studentId, amount, type, reason, rewardId, teacherKey, createdAt`
+- `쿠키상품`: `id, school, name, cost, active, createdAt, updatedAt`
+
+운영 규칙:
+
+- `kind`는 `note`, `grade`, `mentor_match`를 사용한다.
+- 성적 payload는 `examName, examDate, score, maxScore, level, memo`를 저장한다.
+- 멘토링 payload는 `mentorStudentId, menteeStudentId, memo`를 저장한다.
+- 같은 교사/학급/학기에서 한 멘티는 하나의 멘토 매칭만 유지한다.
+- 쿠키 교환은 잔액이 충분할 때만 원장에 `redeem` 거래를 추가한다.
 
 ## 4.5 OpenAI 모델/비전 기준
 
@@ -387,6 +417,8 @@ UI 흐름:
 6. 세특 생성 호출 시 `studentId`, `teacherKey`, `teachingClassId`로 관찰 메모 필터링
 7. AI 프롬프트에 학습 메모 + 수업 기록 + OCR 평가 컨텍스트를 함께 주입
 8. 작성된 세특은 `write` 탭에서 선택 후 `RAG 점검·개선`을 실행해 공개 근거 기반 개선본으로 갱신 가능
+9. 현재 교사가 `학생 데이터` 탭에서 `AI 반영`으로 선택한 학생별 메모/성적/멘토링을 함께 주입
+10. 생성 후 역량 분석은 행 단위 또는 일괄로 실행하며, 세특 원문 기준 지식·과정·태도 색상 밑줄과 비율을 표시
 
 ## 11. 운영 도구
 

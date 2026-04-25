@@ -46,6 +46,50 @@ function calculatePercentages(segments: CompetencySegment[]): Record<CompetencyT
     };
 }
 
+type DisplayPart = {
+    text: string;
+    type?: CompetencyType;
+};
+
+function buildDisplayParts(text: string, segments: CompetencySegment[]): DisplayPart[] {
+    const parts: DisplayPart[] = [];
+    let cursor = 0;
+
+    segments.forEach((segment) => {
+        let start = segment.startIndex;
+        let end = segment.endIndex;
+        const hasValidIndex = Number.isFinite(start)
+            && Number.isFinite(end)
+            && start >= cursor
+            && end > start
+            && end <= text.length
+            && text.slice(start, end) === segment.text;
+
+        if (!hasValidIndex) {
+            const foundAt = segment.text ? text.indexOf(segment.text, cursor) : -1;
+            if (foundAt < 0) return;
+            start = foundAt;
+            end = foundAt + segment.text.length;
+        }
+
+        if (start > cursor) {
+            parts.push({ text: text.slice(cursor, start) });
+        }
+
+        parts.push({
+            text: text.slice(start, end),
+            type: segment.type,
+        });
+        cursor = end;
+    });
+
+    if (cursor < text.length) {
+        parts.push({ text: text.slice(cursor) });
+    }
+
+    return parts.filter((part) => part.text.length > 0);
+}
+
 // 간단한 해시 함수 (내용 변경 감지용)
 function simpleHash(str: string): string {
     let hash = 0;
@@ -231,8 +275,12 @@ export function CompetencyHighlighter({
             )}
 
             <div className={styles.highlightedText}>
-                {segments.map((segment, index) => {
-                    const { label, underlineColor } = competencyLabels[segment.type];
+                {buildDisplayParts(text, segments).map((part, index) => {
+                    if (!part.type) {
+                        return <span key={index}>{part.text}</span>;
+                    }
+
+                    const { label, underlineColor } = competencyLabels[part.type];
                     return (
                         <span
                             key={index}
@@ -245,7 +293,7 @@ export function CompetencyHighlighter({
                             }}
                             title={label}
                         >
-                            {segment.text}
+                            {part.text}
                         </span>
                     );
                 })}
