@@ -44,6 +44,10 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - metadata endpoint
 - raw search endpoint
 - search evaluation endpoint
+- admin recrawl endpoint
+- admin reindex endpoint
+- admin crawl-status endpoint
+- admin quality-report endpoint
 
 ## Current State
 
@@ -55,8 +59,15 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - `/record-review`: implemented as a compatibility redirect to `/counsel-chat?mode=review`
 - `/write`: RAG review-improve action implemented
 - `/search-inspector`: retained as an internal diagnostics page and removed from the sidebar
-- top navigation order: `학교 정보` -> `학생 관찰 기록` -> `AI 세특 생성` -> `평가 점검`
+- top navigation order: `학교 정보` -> `학생 관찰 기록` -> `AI 세특 생성` -> `평가 점검 (개발중)`
+- `평가 점검 (개발중)` remains visible but is disabled and does not link to `/eval-check`
+- `/eval-check`: redirects to `/dashboard` when entered directly
 - `/ocr` remains implemented, but the tab is currently hidden from the top navigation
+- `/api/admin/crawl`: implemented for knowledge recrawls, defaulting to refreshed cache
+- `/api/admin/reindex`: implemented for hosted vector store sync
+- `/api/admin/crawl-status`: implemented for source snapshot/status checks
+- `/api/admin/quality-report`: implemented for knowledge quality checks
+- `/api/admin/*`: protected by `ADMIN_API_TOKEN` in production
 - student management scope: roster upload + teaching-class connection only
 - school roster uploads are shared per school, so other teachers at the same school can reuse the uploaded roster without uploading again
 - repeated roster uploads for the same school are merged by roster key, so overlapping students are skipped instead of duplicated

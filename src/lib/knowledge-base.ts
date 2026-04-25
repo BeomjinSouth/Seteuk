@@ -47,6 +47,10 @@ const LOW_SIGNAL_TOKENS = new Set([
     '사용',
     '처리',
 ]);
+
+export function clearKnowledgeDatasetCache() {
+    datasetCache = null;
+}
 const QUERY_SYNONYMS: Record<string, string[]> = {
     세특: ['세부능력특기사항', '세부 능력 및 특기사항', '행동특성 및 종합의견'],
     생기부: ['학생부', '학교생활기록부'],

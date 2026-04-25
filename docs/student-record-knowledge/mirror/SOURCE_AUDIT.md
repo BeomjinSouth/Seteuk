@@ -22,16 +22,17 @@ Run `npm run sync:knowledge-docs` from the web repo to refresh it.
 
 ## 2. 실제 수집 관찰 결과
 
-2026-03-20 KST 전체 수집 기준:
+2026-04-25 KST 전체 재수집 기준:
 
 - FAQ 항목 수: 50
-- Q&A 마지막 페이지: 174
-- Q&A 전체 글 수: 2,087
-- 공개 글 수: 947
-- 비밀글 수: 1,140
-- 답변 포함 공개 지식: 934
-- title-based dedupe 후 canonical 지식: 928
-- 공개 미답변/작성중: 63
+- Q&A 마지막 페이지: 278
+- Q&A 전체 글 수: 3,330
+- 공개 글 수: 1,502
+- 비밀글 수: 1,828
+- 답변 포함 공개 지식: 1,500
+- title-based dedupe 후 canonical 지식: 1,488
+- 공개 미답변/작성중: 52
+- 접근 불가/비밀글 메타데이터: 1,828
 
 ## 3. 구조 관찰
 
@@ -77,13 +78,18 @@ Run `npm run sync:knowledge-docs` from the web repo to refresh it.
 
 ## 6. 중복 및 버전 관찰
 
-2026 데이터 전체에서 title-based 기준으로 충돌 그룹 6건이 확인됐다.
+2026-04-25 재수집 데이터 전체에서 title-based 기준으로 충돌 그룹 11건이 확인됐다.
 
+- 봉사활동 실적 입력
+- 개명
+- 창의적 체험활동상황에서 '시간'이 삭제된다는 것의 의미
+- 위탁학생 출결관리
 - 정원 외 학적관리
 - 창의적 체험활동 누가기록
 - 전출학생
 - 면제 처리 날짜
 - 출결특기사항
+- 출결 특기사항
 - 진로활동 특기사항 기재
 
 처리 원칙:
@@ -91,6 +97,7 @@ Run `npm run sync:knowledge-docs` from the web repo to refresh it.
 - 기본은 최신 날짜 우선
 - 필요 시 운영 옵션으로 FAQ 우선 가능
 - 학교급/연도 차이가 크면 version 유지
+- 원천 라벨이 `초등`, `중등`, `고등`으로 짧게 내려오면 각각 `초등학교`, `중학교`, `고등학교`로 표준화
 
 ## 7. 구현 시 주의점
 
@@ -98,6 +105,7 @@ Run `npm run sync:knowledge-docs` from the web repo to refresh it.
 - 인접 글 제목은 본문으로 저장하지 않음
 - FAQ 날짜 부재를 설계에 반영해야 함
 - 게시글 수는 실시간으로 변할 수 있으므로 관측 시점 기록 필요
+- 최신화 재수집에는 기존 HTML 캐시가 새 글을 가리지 않도록 `--refreshCache`를 사용
 
 ## 8. 관련 파일
 

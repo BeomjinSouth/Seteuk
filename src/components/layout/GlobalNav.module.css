@@ -69,6 +69,17 @@
     background: hsl(var(--muted) / 0.5);
 }
 
+.navItemDisabled {
+    opacity: 0.48;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.navItemDisabled:hover {
+    color: hsl(var(--muted-foreground));
+    background: transparent;
+}
+
 .navItemActive {
     color: hsl(var(--primary));
     background: hsl(var(--primary) / 0.1);

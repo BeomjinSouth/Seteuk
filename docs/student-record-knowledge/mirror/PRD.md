@@ -190,6 +190,7 @@ Run `npm run sync:knowledge-docs` from the web repo to refresh it.
 - 학생 관리: 학교 전체 명부 업로드 + 교사별 담당 학급 연결
 - 학생 관찰 기록: 학생 카드 보드 + 관찰 메모
 - 상단 주요 탭 순서: 학교 정보 → 학생 관찰 기록 → AI 세특 생성 → 평가 점검
+- 평가 점검은 탭에 `평가 점검 (개발중)`으로 보이지만 현재 접근 차단 상태이며, 직접 `/eval-check`로 들어오면 `/dashboard`로 이동한다.
 - 학습지 OCR은 `/ocr` 경로와 기능 코드를 유지하되, 현재는 상단 탭에서 숨김 처리한다.
 - 학생 카드 보드: 클릭으로 학생 선택, 더블클릭으로 관찰 기록 작성 진입
 - 수업별 관찰 메모 저장
@@ -243,9 +244,12 @@ Run `npm run sync:knowledge-docs` from the web repo to refresh it.
 
 ### FR-6. 운영
 
-- 재수집 실행 가능
-- 품질 리포트 생성 가능
-- 실패 문서 재처리 가능
+- `/api/admin/crawl`에서 `--refreshCache` 기반 재수집 실행 가능
+- `/api/admin/crawl-status`에서 최신 산출 통계 확인 가능
+- `/api/admin/quality-report`에서 canonical/knowledge unit 품질 리포트 생성 가능
+- `/api/admin/reindex`에서 hosted vector store 재인덱싱 가능
+- 배포 환경의 운영 API는 `ADMIN_API_TOKEN`으로 보호되어야 함
+- 실패 문서 재처리는 이후 운영 UI 단계에서 보완
 
 ### FR-7. 교사별 담당 학급과 세특 컨텍스트
 
@@ -312,6 +316,7 @@ Run `npm run sync:knowledge-docs` from the web repo to refresh it.
 3. 답변에 citation이 포함됨
 4. review 결과가 schema에 맞게 반환됨
 5. 운영자가 재수집/재인덱싱 가능
+6. 개발중인 평가 점검 화면은 탭과 직접 URL 모두에서 기능 진입이 차단됨
 
 ## 16. 참고 링크
 

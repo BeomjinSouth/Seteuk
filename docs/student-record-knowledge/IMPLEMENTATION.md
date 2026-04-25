@@ -37,6 +37,13 @@
 - `src/app/api/search-openai/route.ts`
 - `src/app/api/counsel-chat/route.ts`
 - `src/app/api/record-review/route.ts`
+- `src/app/api/admin/crawl/route.ts`
+- `src/app/api/admin/reindex/route.ts`
+- `src/app/api/admin/crawl-status/route.ts`
+- `src/app/api/admin/quality-report/route.ts`
+- admin crawl copies the regenerated knowledge JSON into `web/output` and clears the in-process knowledge cache after success
+- admin crawl uses `KNOWLEDGE_PACKAGE_DIR` when provided, otherwise `../student-record-knowledge`, and returns 503 if the package is unavailable
+- admin routes use `ADMIN_API_TOKEN` in production and accept `Authorization: Bearer <token>` or `x-admin-token`
 
 ### UI
 
@@ -44,6 +51,7 @@
 - `src/app/record-review/page.tsx`
 - `src/app/write/page.tsx`
 - `src/app/search-inspector/page.tsx`
+- `src/app/eval-check/page.tsx`
 - `src/app/observation-board/page.tsx`
 - `src/app/observations/page.tsx`
 - `src/components/layout/AppShell.tsx`
@@ -54,7 +62,8 @@
 - counsel chat and record review now share one `/counsel-chat` workspace with a mode switch, and `/record-review` redirects into that workspace
 - `search-inspector` remains available only as an internal diagnostics route and is no longer shown in the sidebar
 - main navigation groups those tools under `AI 세특 생성`
-- top navigation order is `학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검`
+- top navigation order is `학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검 (개발중)`
+- `평가 점검 (개발중)` is rendered as a disabled nav item, and direct `/eval-check` access redirects to `/dashboard`
 - `/ocr` stays available as a route, but `GlobalNav` currently filters the OCR tab out of the visible main navigation
 - student management is limited to roster upload and teaching-class connection; the student board now lives in `/observation-board`
 - school roster data syncs through `/api/students` into shared sheet-backed storage, while teaching-class connections remain teacher-specific in local app state
@@ -76,6 +85,8 @@
 - retrieval test set in `src/data/knowledge-eval-cases.ts`
 - evaluation runner in `src/lib/knowledge-eval.ts`
 - evaluation API in `/api/search-eval`
+- operational quality summary in `/api/admin/quality-report`
+- current crawl snapshot in `/api/admin/crawl-status`
 
 ## Next Steps
 

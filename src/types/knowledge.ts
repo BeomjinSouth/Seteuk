@@ -7,6 +7,7 @@ export interface KnowledgeUnitPolicyAnchor {
 export interface KnowledgeUnitSourceDocument {
     document_id: string;
     relation_type: 'primary' | 'duplicate' | 'versioned';
+    primary: boolean;
 }
 
 export interface KnowledgeUnit {
@@ -79,6 +80,7 @@ export interface KnowledgeDataset {
         concurrency: number;
         delayMs: number;
         preferFaqOnConflict: boolean;
+        refreshCache?: boolean;
     };
     stats: KnowledgeDatasetStats;
     canonicalEntries: CanonicalKnowledgeEntry[];

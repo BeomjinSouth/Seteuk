@@ -13,6 +13,7 @@ const mainSections: Array<{
     icon: typeof School;
     description: string;
     hidden?: boolean;
+    disabled?: boolean;
 }> = [
     {
         href: '/dashboard',
@@ -34,9 +35,10 @@ const mainSections: Array<{
     },
     {
         href: '/eval-check',
-        label: '평가 점검',
+        label: '평가 점검 (개발중)',
         icon: ClipboardCheck,
-        description: '시험지 오류 점검, 수정 제안'
+        description: '시험지 오류 점검, 수정 제안',
+        disabled: true
     },
     {
         href: '/ocr',
@@ -96,7 +98,21 @@ export function GlobalNav() {
                     <nav className={styles.mainNav}>
                         {mainSections.filter((section) => !section.hidden).map((section) => {
                             const Icon = section.icon;
-                            const active = isActive(section.href);
+                            const active = !section.disabled && isActive(section.href);
+
+                            if (section.disabled) {
+                                return (
+                                    <span
+                                        key={section.href}
+                                        className={clsx(styles.navItem, styles.navItemDisabled)}
+                                        aria-disabled="true"
+                                        title="개발중"
+                                    >
+                                        <Icon size={18} />
+                                        <span className={styles.navLabel}>{section.label}</span>
+                                    </span>
+                                );
+                            }
 
                             return (
                                 <Link

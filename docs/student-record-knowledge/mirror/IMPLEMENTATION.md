@@ -19,12 +19,17 @@ Run `npm run sync:knowledge-docs` from the web repo to refresh it.
 
 - FAQ/Q&A 수집 스크립트
 - 캐시 저장
+- 캐시 무시 최신 재수집 옵션(`--refreshCache`)
 - 비밀글 분기
 - Markdown/JSON 산출
+- 최신 날짜 우선 dedupe와 선택적 FAQ 우선 옵션
+- 대표 답변 기준 `sourceUrls[0]`/`sources[0]`/`source_documents.primary` 정렬
+- 인사말/상투 문구를 제외한 `rule_summary` 추출
 - `web` 앱 지식 로더 구현
 - `web` 앱 상담 API 구현
 - `web` 앱 생기부 점검 API 구현
 - `web` 앱 상담/점검 통합 작업공간 구현
+- `web` 앱 운영 API(`/api/admin/crawl`, `/api/admin/reindex`, `/api/admin/crawl-status`, `/api/admin/quality-report`) 구현
 
 다음 단계:
 
@@ -96,14 +101,24 @@ STAR FAQ/Q&A
 - [`web/src/app/api/search/route.ts`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/api/search/route.ts)
 - [`web/src/app/api/counsel-chat/route.ts`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/api/counsel-chat/route.ts)
 - [`web/src/app/api/record-review/route.ts`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/api/record-review/route.ts)
+- [`web/src/app/api/admin/crawl/route.ts`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/api/admin/crawl/route.ts)
+- [`web/src/app/api/admin/reindex/route.ts`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/api/admin/reindex/route.ts)
+- [`web/src/app/api/admin/crawl-status/route.ts`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/api/admin/crawl-status/route.ts)
+- [`web/src/app/api/admin/quality-report/route.ts`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/api/admin/quality-report/route.ts)
 - [`web/src/app/counsel-chat/page.tsx`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/counsel-chat/page.tsx)
 - [`web/src/app/record-review/page.tsx`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/record-review/page.tsx)
 - [`web/src/app/write/page.tsx`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/write/page.tsx)
 - [`web/src/lib/knowledge-base.ts`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/lib/knowledge-base.ts)
 
+운영 API 메모:
+
+- `/api/admin/crawl`은 재수집 성공 후 `web/output/star-moe-knowledge-YYYY.json` 번들 스냅샷을 갱신하고 웹 프로세스의 지식 캐시를 초기화한다.
+- `/api/admin/crawl`은 `KNOWLEDGE_PACKAGE_DIR`이 있으면 해당 경로를 쓰고, 없으면 기본 형제 폴더 `../student-record-knowledge`를 사용한다.
+
 페이지 보조 기능:
 
 - 상단 `GlobalNav`는 `학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검` 순서로 고정한다.
+- `평가 점검`은 탭에 `평가 점검 (개발중)`으로 표시하지만 비활성 상태로 렌더링하고, `/eval-check` 직접 접근은 `/dashboard`로 리다이렉트한다.
 - 학습지 OCR route(`/ocr`)와 관련 코드는 유지하되, 현재는 `GlobalNav` 렌더링에서 제외해 화면 탭으로는 노출하지 않는다.
 - `AI 세특 생성` 공통 앱 셸(`GlobalNav + Sidebar`) 안에서 `/write`, `/counsel-chat`, `/review`, `/export`를 사용자 탭으로 제공하고, 상담과 점검은 `/counsel-chat` 내부 모드 전환으로 통합한다.
 - `/counsel-chat` 사용자 탭 라벨은 `생기부 상담 점검`으로 노출한다.
@@ -166,15 +181,19 @@ STAR FAQ/Q&A
 - URL 단위 HTML 캐시 저장
 - 동일 URL 재요청 최소화
 - 구조 변경 분석 시 캐시와 실응답 비교 가능
+- 최신 Q&A 반영 작업은 `--refreshCache`로 기존 캐시 읽기를 건너뛰고 같은 경로에 새 HTML을 덮어쓴다.
 
 ## 5.4 관찰 결과
 
-2026-03-20 KST 전체 수집 기준:
+2026-04-25 KST 전체 재수집 기준:
 
-- 마지막 페이지: 174
-- 전체 글: 2,087
-- 공개 글: 947
-- 비밀글: 1,140
+- 마지막 페이지: 278
+- 전체 글: 3,330
+- 공개 글: 1,502
+- 비밀글: 1,828
+- 답변 포함 공개 지식: 1,500
+- canonical 지식/knowledge unit: 1,488
+- 공개 미답변/작성중: 52
 
 ## 6. 정규화 및 중복 통합
 
@@ -183,6 +202,7 @@ STAR FAQ/Q&A
 - 원문 의미를 바꾸는 요약 금지
 - 질문/답변/근거 분리
 - 학교급/구분/상태/날짜 정규화
+- `초등`, `중등`, `고등` 원천 라벨은 각각 `초등학교`, `중학교`, `고등학교`로 표준화
 - 비밀글은 metadata only
 
 ## 6.2 중복 판단 기준
@@ -198,8 +218,9 @@ STAR FAQ/Q&A
 - 동일 질문 + 다른 답변: version conflict
 - 기본은 최신 날짜 우선
 - 필요 시 운영 옵션으로 FAQ 우선 가능
+- 대표 답변으로 선택된 출처가 `sources[0]`, `sourceUrls[0]`, `source_documents`의 `primary: true` 항목에 일관되게 배치됨
 
-현재 2026 데이터에서는 title-based 기준으로 6개 충돌 그룹이 관찰됐다.
+현재 2026 데이터에서는 title-based 기준으로 11개 충돌 그룹이 관찰됐다.
 
 ## 6.3 version 처리
 
@@ -232,10 +253,23 @@ STAR FAQ/Q&A
 - `duplicateCount`
 - `variantCount`
 - `sources[]`
+- `sourceUrls[]` (`sourceUrls[0]`은 대표 답변 출처)
 
 별도 산출물:
 
 - `output/star-moe-knowledge-units-YYYY.json`
+
+knowledge unit 핵심 필드:
+
+- `knowledge_unit_id`
+- `canonical_title`
+- `canonical_question`
+- `canonical_answer`
+- `rule_summary`
+- `school_level_scope`
+- `category_scope`
+- `policy_anchors[]`
+- `source_documents[]` (`relation_type: "primary"` 항목은 `primary: true`)
 
 ## 7.2 review result
 
@@ -367,6 +401,11 @@ UI 흐름:
 - 실패 문서 재처리
 - 인덱스 재생성
 - 품질 리포트
+
+운영 보안:
+
+- `/api/admin/*`는 `ADMIN_API_TOKEN`이 설정된 환경에서 `Authorization: Bearer <token>` 또는 `x-admin-token` 헤더를 요구한다.
+- 로컬 개발(`NODE_ENV !== "production"`)에서는 토큰 없이도 호출할 수 있으나, 배포 환경에서는 `ADMIN_API_TOKEN` 미설정 시 admin API가 503을 반환한다.
 
 ## 12. 평가 체계
 

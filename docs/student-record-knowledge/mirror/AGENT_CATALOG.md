@@ -121,9 +121,12 @@ Run `npm run sync:knowledge-docs` from the web repo to refresh it.
 
 - 재수집, 재인덱싱, 실패 문서 복구, 품질 점검을 담당한다.
 
-향후 구현 위치:
+현재 구현 위치:
 
 - `web/src/app/api/admin/*`
+
+향후 구현 위치:
+
 - `web` 관리 화면
 
 ## 오케스트레이션
