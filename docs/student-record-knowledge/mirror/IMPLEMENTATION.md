@@ -22,7 +22,7 @@ Run `npm run sync:knowledge-docs` from the web repo to refresh it.
 - 캐시 무시 최신 재수집 옵션(`--refreshCache`)
 - 비밀글 분기
 - Markdown/JSON 산출
-- 최신 날짜 우선 dedupe와 선택적 FAQ 우선 옵션
+- 보수적 질문 그룹 키 기반 dedupe, 최신 날짜 우선 대표 답변, 선택적 FAQ 우선 옵션
 - 대표 답변 기준 `sourceUrls[0]`/`sources[0]`/`source_documents.primary` 정렬
 - 인사말/상투 문구를 제외한 `rule_summary` 추출
 - `web` 앱 지식 로더 구현
@@ -192,8 +192,8 @@ STAR FAQ/Q&A
 - 공개 글: 1,502
 - 비밀글: 1,828
 - 답변 포함 공개 지식: 1,500
-- canonical 지식/knowledge unit: 1,488
-- 공개 미답변/작성중: 52
+- canonical 지식/knowledge unit: 1,451
+- 공개 미답변/작성중: 51
 
 ## 6. 정규화 및 중복 통합
 
@@ -209,8 +209,10 @@ STAR FAQ/Q&A
 
 현재 구현 기본값:
 
-- 제목 우선 매칭
+- 제목/질문 기반 보수적 질문 그룹 키 매칭
 - 제목이 비어 있으면 질문 본문 사용
+- `(재상담)` 접두어, 공백/문장부호, 제목 끝의 `문의/관련/질문/가능 여부` 같은 일반 표현은 같은 질문 후보로 정규화
+- 학교급과 구분이 완전히 무관하면 자동으로 같은 그룹에 넣지 않음
 
 대표 규칙:
 
@@ -220,7 +222,7 @@ STAR FAQ/Q&A
 - 필요 시 운영 옵션으로 FAQ 우선 가능
 - 대표 답변으로 선택된 출처가 `sources[0]`, `sourceUrls[0]`, `source_documents`의 `primary: true` 항목에 일관되게 배치됨
 
-현재 2026 데이터에서는 title-based 기준으로 11개 충돌 그룹이 관찰됐다.
+현재 2026 데이터에서는 보수적 질문 그룹 키 기준으로 46개 중복/충돌 그룹이 관찰됐다.
 
 ## 6.3 version 처리
 
@@ -310,6 +312,7 @@ knowledge unit 핵심 필드:
 현재 구현 상태:
 
 - 현재는 로컬 `knowledge JSON`을 읽어 lexical retrieval + OpenAI Responses API를 결합한 MVP를 구현했다.
+- 로컬 lexical retrieval은 공백/문장부호 차이로 같은 질문이 밀리지 않도록 compact match 점수를 함께 사용한다.
 - 배포된 `web` 앱은 `web/output/star-moe-knowledge-YYYY.json` 번들 스냅샷을 우선 읽고, 로컬 개발에서는 `../student-record-knowledge/output/...` 또는 `KNOWLEDGE_JSON_PATH`로 fallback한다.
 - 모델 프롬프트에는 검색된 상위 근거만 넣고 전체 knowledge JSON 본문을 매 요청마다 그대로 주입하지 않는다.
 - 추후 검색 품질과 운영 편의성이 더 중요해지면 File Search 또는 외부 vector DB로 전환 가능하다.

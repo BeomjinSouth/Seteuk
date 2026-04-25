@@ -12,6 +12,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - Never use private posts as answer evidence
 - Prefer the latest public answer when the same question has conflicting answers
 - Treat FAQ as policy-shaped guidance and public Q&A as case-shaped support
+- Group near-duplicate public Q&A titles conservatively when only spacing, `(재상담)`, or generic inquiry suffixes differ
 
 ## User Types
 
@@ -55,6 +56,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - `/api/record-review`: implemented
 - `/api/search`: implemented
 - `/api/search-eval`: implemented
+- conservative similar-question dedupe: implemented for canonical and pending Q&A outputs
 - `/counsel-chat`: implemented as the combined counsel/review workspace
 - `/record-review`: implemented as a compatibility redirect to `/counsel-chat?mode=review`
 - `/write`: RAG review-improve action implemented

@@ -14,7 +14,8 @@
 - prefers the bundled `web/output` snapshot, then falls back to the sibling knowledge repo or `KNOWLEDGE_JSON_PATH`
 - loads knowledge JSON
 - applies school-level, category, and year filters
-- uses lexical retrieval, synonym expansion, concept constraints, and scoring
+- uses lexical retrieval, compact spacing-insensitive matching, synonym expansion, concept constraints, and scoring
+- consumes canonical entries that already merge conservative similar-question groups from the crawler
 
 ### Reranking
 
@@ -79,6 +80,7 @@
 - review responses must include issues, risk level, and rewrite guidance
 - improved drafts must stay inside the original facts plus public evidence
 - record review first tries category-filtered matches and falls back to school-level public evidence when the category slice is empty
+- similar Q&A grouping is conservative: spacing, `(재상담)`, and generic inquiry suffixes can merge; unrelated school levels or categories stay separate
 
 ## Quality Loop
 

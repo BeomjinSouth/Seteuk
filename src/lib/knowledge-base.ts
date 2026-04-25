@@ -151,6 +151,10 @@ function normalizeText(value: string): string {
         .trim();
 }
 
+function compactText(value: string): string {
+    return normalizeText(value).replace(/[^\p{L}\p{N}]+/gu, '');
+}
+
 function tokenize(value: string): string[] {
     return normalizeText(value)
         .split(/[^\p{L}\p{N}]+/u)
@@ -254,12 +258,21 @@ function scoreEntry(entry: RetrievedKnowledgeEvidence, params: SearchParams): nu
     const categoryText = entry.categories.map(normalizeText).join(' ');
     const schoolText = entry.schoolLevels.map(normalizeText).join(' ');
     const policyText = entry.policyAnchors.map((anchor) => normalizeText(anchor.rule)).join(' ');
+    const compactQuery = compactText(params.query);
+    const compactTitle = compactText(entry.title);
+    const compactQuestion = compactText(entry.question);
+    const compactAnswer = compactText(entry.answer);
 
     let score = 0;
 
     if (title.includes(normalizedQuery)) score += 80;
     if (question.includes(normalizedQuery)) score += 48;
     if (answer.includes(normalizedQuery)) score += 20;
+    if (compactQuery.length >= 4) {
+        if (compactTitle.includes(compactQuery)) score += 88;
+        if (compactQuestion.includes(compactQuery)) score += 52;
+        if (compactAnswer.includes(compactQuery)) score += 18;
+    }
 
     for (const token of tokens) {
         const titleWeight = LOW_SIGNAL_TOKENS.has(token) ? 2 : 14;

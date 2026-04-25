@@ -216,6 +216,7 @@ Run `npm run sync:knowledge-docs` from the web repo to refresh it.
 ### FR-3. 중복 통합
 
 - 동일 질문은 묶는다.
+- 띄어쓰기, `(재상담)` 접두어, 일반 문의 꼬리 표현만 다른 질문은 보수적 질문 그룹 키로 묶는다.
 - 동일 질문 + 다른 답변은 versioned knowledge로 남긴다.
 - 학교급/연도 차이를 무시하고 강제 통합하지 않는다.
 

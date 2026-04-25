@@ -2,15 +2,15 @@
 
 ## Source Snapshot
 
-- generatedAt: 2026-04-25T00:46:07.037Z
+- generatedAt: 2026-04-25T01:04:06.576Z
 - year: 2026
 - qnaLastPage: 278
 - qnaListed: 3330
 - qnaPublic: 1502
 - qnaSecret: 1828
-- canonicalEntries: 1488
-- knowledgeUnits: 1488
-- pendingPublicEntries: 52
+- canonicalEntries: 1451
+- knowledgeUnits: 1451
+- pendingPublicEntries: 51
 - inaccessibleEntries: 1828
 
 ## Web Status
@@ -43,7 +43,8 @@
 
 ## Recent Changes
 
-- 2026-04-25: refreshed the 2026 STAR snapshot with cache refresh; Q&A now has 278 pages, 3,330 listed posts, and 1,488 knowledge units
+- 2026-04-25: refreshed the 2026 STAR snapshot with cache refresh; Q&A now has 278 pages, 3,330 listed posts, and 1,451 knowledge units
+- 2026-04-25: added conservative similar-question grouping for spacing, `(재상담)`, and generic inquiry suffix variants
 - 2026-04-25: changed conflict resolution to default to the latest public answer, with FAQ priority only when explicitly requested
 - 2026-04-25: aligned representative citations so `sources[0]`, `sourceUrls[0]`, and `source_documents.primary` point to the selected answer source
 - 2026-04-25: added admin recrawl, reindex, crawl-status, and quality-report APIs
