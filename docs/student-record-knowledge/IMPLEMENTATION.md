@@ -51,6 +51,7 @@
 
 ### UI
 
+- `src/app/page.tsx`
 - `src/app/counsel-chat/page.tsx`
 - `src/app/record-review/page.tsx`
 - `src/app/write/page.tsx`
@@ -80,6 +81,14 @@
 - in `/observation-board`, single click selects students and double click opens observation writing; same-class multi-selection enters batch observation entry
 - `/observations` manual compose renders one editable row per selected student and stores row-specific date, lesson topic, selected tag, and memo
 - `/api/record-review` can optionally return `improvedDraft` for the write-tab review-improve action
+
+### Login And Roster Onboarding
+
+- `src/lib/seongho-auth.ts` centralizes the 성호중학교 login contract: `학교=성호중학교`, `아이디=한글 이름`, `비밀번호=123123`.
+- `src/app/page.tsx` no longer accepts arbitrary school/subject logins or demo bypass from the login screen; successful login stores a `seongho-school` session and routes to `/students`.
+- `src/components/layout/GlobalNav.tsx` checks authenticated pages for a valid 성호중학교 session and redirects stale/invalid local sessions back to login.
+- `src/app/students/page.tsx` detects 성호중학교 mode, hides the upload dropzone, loads `/api/students?school=성호중학교`, and lets the teacher register selected classes immediately.
+- `scripts/import-seongho-roster.mjs` imports the local 2026 1/2/3학년 명렬표 workbooks into the shared sheet-backed `학생` roster without committing student names into the repo.
 
 ## Response Policy
 

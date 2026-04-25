@@ -20,6 +20,13 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - subject teachers
 - record-review staff
 
+## Login And Roster Flow
+
+- The shipped school login is limited to `성호중학교`.
+- A teacher logs in with `학교=성호중학교`, `아이디=본인 한글 이름`, `비밀번호=123123`.
+- Successful login opens student management directly so the teacher can select 담당 학급 without uploading a roster.
+- The 2026 성호중학교 1/2/3학년 명렬표 is managed as a school-shared roster; teachers register their own teaching classes from that roster.
+
 ## Scope
 
 ### Counsel chatbot
@@ -75,6 +82,8 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - `AI 반영` student data from the current teacher/class/semester is included in seteuk generation; cookie data is excluded by default
 - competency color analysis: implemented as source-text-safe highlighting with per-row analysis status
 - school roster uploads are shared per school, so other teachers at the same school can reuse the uploaded roster without uploading again
+- 성호중학교 login is password-gated and opens the roster/class registration flow directly
+- 성호중학교 teachers use the preloaded 2026 grade rosters and do not need the upload step
 - repeated roster uploads for the same school are merged by roster key, so overlapping students are skipped instead of duplicated
 - student board location: `/observation-board`
 - observation board interaction: single click selects, double click opens observation writing, and same-class multi-selection supports batch entry

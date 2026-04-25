@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useAppStore } from '@/lib/store';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -23,6 +23,7 @@ import {
     getTeacherClasses,
     getUniqueHomeroomOptions,
 } from '@/lib/teacher-context';
+import { SEONGHO_SCHOOL_NAME, isSeonghoSchool } from '@/lib/seongho-auth';
 import styles from './page.module.css';
 
 function extractClassNumber(classStr: string | number): number {
@@ -89,6 +90,9 @@ export default function StudentsPage() {
     } | null>(null);
     const [isDragging, setIsDragging] = useState(false);
     const [isUploading, setIsUploading] = useState(false);
+    const [isSharedRosterLoading, setIsSharedRosterLoading] = useState(false);
+
+    const isSeonghoRosterMode = isSeonghoSchool(teacher?.school);
 
     const teacherClasses = useMemo(
         () => getTeacherClasses(classes, teacher),
@@ -108,6 +112,63 @@ export default function StudentsPage() {
         ),
         [selectedSemester, teacherClasses]
     );
+
+    const seonghoRosterStats = useMemo(() => {
+        const counts = new Map<number, number>();
+        students
+            .filter((student) => isSeonghoSchool(student.school))
+            .forEach((student) => {
+                if (!student.grade) return;
+                counts.set(student.grade, (counts.get(student.grade) || 0) + 1);
+            });
+
+        return Array.from(counts.entries())
+            .sort(([a], [b]) => a - b)
+            .map(([grade, count]) => ({ grade, count }));
+    }, [students]);
+
+    useEffect(() => {
+        if (!teacher?.school || !isSeonghoSchool(teacher.school)) return;
+
+        const controller = new AbortController();
+
+        const loadSeonghoRoster = async () => {
+            setIsSharedRosterLoading(true);
+
+            try {
+                const params = new URLSearchParams({ school: SEONGHO_SCHOOL_NAME });
+                const response = await fetch(`/api/students?${params.toString()}`, {
+                    cache: 'no-store',
+                    signal: controller.signal,
+                });
+
+                if (!response.ok) {
+                    return;
+                }
+
+                const payload = await response.json() as { students?: Student[] };
+                if (Array.isArray(payload.students) && payload.students.length > 0) {
+                    replaceRosterStudentsForSchool(SEONGHO_SCHOOL_NAME, payload.students);
+                }
+            } catch (error) {
+                if (!controller.signal.aborted) {
+                    setUploadResult({
+                        success: false,
+                        message: '성호중학교 공용 명렬표를 불러오지 못했습니다.',
+                        details: [String(error)],
+                    });
+                }
+            } finally {
+                if (!controller.signal.aborted) {
+                    setIsSharedRosterLoading(false);
+                }
+            }
+        };
+
+        void loadSeonghoRoster();
+
+        return () => controller.abort();
+    }, [replaceRosterStudentsForSchool, teacher?.school]);
 
     const handleDownloadTemplate = () => {
         const template = [
@@ -390,77 +451,130 @@ export default function StudentsPage() {
                 </div>
             </header>
 
-            <section className={styles.uploadSection}>
-                <div className={styles.uploadHeader}>
-                    <div>
-                        <h2><FileSpreadsheet size={20} /> 학교 학생 명부 업로드</h2>
-                        <p className={styles.assignmentHint}>한 번 업로드하면 같은 학교 다른 사용자에게도 자동 반영됩니다.</p>
+            {isSeonghoRosterMode ? (
+                <section className={styles.uploadSection}>
+                    <div className={styles.uploadHeader}>
+                        <div>
+                            <h2><FileSpreadsheet size={20} /> 성호중학교 2026 명렬표</h2>
+                            <p className={styles.assignmentHint}>
+                                로그인한 교사는 아래에서 담당 학급만 선택해 등록합니다.
+                            </p>
+                        </div>
                     </div>
-                    <div className={styles.uploadActions}>
-                        <Button variant="secondary" onClick={handleDownloadTemplate} disabled={isUploading}>
-                            <Download size={16} /> 템플릿 다운로드
-                        </Button>
-                        <Button variant="ghost" onClick={handleSeedDemoRoster} disabled={isUploading}>
-                            <FlaskConical size={16} /> 데모 명부 채우기
-                        </Button>
+
+                    <div className={styles.presetStats}>
+                        {isSharedRosterLoading && seonghoRosterStats.length === 0 ? (
+                            <span className={styles.presetStat}>명렬표 불러오는 중</span>
+                        ) : seonghoRosterStats.length > 0 ? (
+                            seonghoRosterStats.map((item) => (
+                                <span key={item.grade} className={styles.presetStat}>
+                                    {item.grade}학년 {item.count}명
+                                </span>
+                            ))
+                        ) : (
+                            <span className={styles.presetStat}>등록된 명렬표 없음</span>
+                        )}
                     </div>
-                </div>
 
-                <div
-                    className={`${styles.dropzone} ${isDragging ? styles.dropzoneActive : ''}`}
-                    onDragOver={handleDragOver}
-                    onDragLeave={handleDragLeave}
-                    onDrop={handleDrop}
-                >
-                    <Upload size={48} className={styles.dropzoneIcon} />
-                    <p className={styles.dropzoneText}>
-                        전교 명부 엑셀을 드래그하거나 클릭하여 업로드
-                    </p>
-                    <p className={styles.dropzoneHint}>
-                        {isUploading ? '학교 공용 명부를 저장하는 중입니다...' : '필수 열: 학교, 학년, 반, 번호, 이름'}
-                    </p>
-                    <input
-                        type="file"
-                        accept=".xlsx,.xls"
-                        onChange={handleFileInput}
-                        disabled={isUploading}
-                        className={styles.fileInput}
-                    />
-                </div>
+                    <AnimatePresence>
+                        {uploadResult && (
+                            <motion.div
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0 }}
+                                className={`${styles.uploadResult} ${uploadResult.success ? styles.success : styles.error}`}
+                            >
+                                {uploadResult.success ? <CheckCircle2 size={20} /> : <AlertCircle size={20} />}
+                                <div>
+                                    <p className={styles.resultMessage}>{uploadResult.message}</p>
+                                    {uploadResult.details && (
+                                        <ul className={styles.resultDetails}>
+                                            {uploadResult.details.slice(0, 5).map((detail, index) => (
+                                                <li key={index}>{detail}</li>
+                                            ))}
+                                            {uploadResult.details.length > 5 && (
+                                                <li>... 외 {uploadResult.details.length - 5}건</li>
+                                            )}
+                                        </ul>
+                                    )}
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </section>
+            ) : (
+                <section className={styles.uploadSection}>
+                    <div className={styles.uploadHeader}>
+                        <div>
+                            <h2><FileSpreadsheet size={20} /> 학교 학생 명부 업로드</h2>
+                            <p className={styles.assignmentHint}>한 번 업로드하면 같은 학교 다른 사용자에게도 자동 반영됩니다.</p>
+                        </div>
+                        <div className={styles.uploadActions}>
+                            <Button variant="secondary" onClick={handleDownloadTemplate} disabled={isUploading}>
+                                <Download size={16} /> 템플릿 다운로드
+                            </Button>
+                            <Button variant="ghost" onClick={handleSeedDemoRoster} disabled={isUploading}>
+                                <FlaskConical size={16} /> 데모 명부 채우기
+                            </Button>
+                        </div>
+                    </div>
 
-                <AnimatePresence>
-                    {uploadResult && (
-                        <motion.div
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0 }}
-                            className={`${styles.uploadResult} ${uploadResult.success ? styles.success : styles.error}`}
-                        >
-                            {uploadResult.success ? <CheckCircle2 size={20} /> : <AlertCircle size={20} />}
-                            <div>
-                                <p className={styles.resultMessage}>{uploadResult.message}</p>
-                                {uploadResult.details && (
-                                    <ul className={styles.resultDetails}>
-                                        {uploadResult.details.slice(0, 5).map((detail, index) => (
-                                            <li key={index}>{detail}</li>
-                                        ))}
-                                        {uploadResult.details.length > 5 && (
-                                            <li>... 외 {uploadResult.details.length - 5}건</li>
-                                        )}
-                                    </ul>
-                                )}
-                            </div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-            </section>
+                    <div
+                        className={`${styles.dropzone} ${isDragging ? styles.dropzoneActive : ''}`}
+                        onDragOver={handleDragOver}
+                        onDragLeave={handleDragLeave}
+                        onDrop={handleDrop}
+                    >
+                        <Upload size={48} className={styles.dropzoneIcon} />
+                        <p className={styles.dropzoneText}>
+                            전교 명부 엑셀을 드래그하거나 클릭하여 업로드
+                        </p>
+                        <p className={styles.dropzoneHint}>
+                            {isUploading ? '학교 공용 명부를 저장하는 중입니다...' : '필수 열: 학교, 학년, 반, 번호, 이름'}
+                        </p>
+                        <input
+                            type="file"
+                            accept=".xlsx,.xls"
+                            onChange={handleFileInput}
+                            disabled={isUploading}
+                            className={styles.fileInput}
+                        />
+                    </div>
+
+                    <AnimatePresence>
+                        {uploadResult && (
+                            <motion.div
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0 }}
+                                className={`${styles.uploadResult} ${uploadResult.success ? styles.success : styles.error}`}
+                            >
+                                {uploadResult.success ? <CheckCircle2 size={20} /> : <AlertCircle size={20} />}
+                                <div>
+                                    <p className={styles.resultMessage}>{uploadResult.message}</p>
+                                    {uploadResult.details && (
+                                        <ul className={styles.resultDetails}>
+                                            {uploadResult.details.slice(0, 5).map((detail, index) => (
+                                                <li key={index}>{detail}</li>
+                                            ))}
+                                            {uploadResult.details.length > 5 && (
+                                                <li>... 외 {uploadResult.details.length - 5}건</li>
+                                            )}
+                                        </ul>
+                                    )}
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </section>
+            )}
 
             <section className={styles.assignmentSection}>
                 <div className={styles.assignmentHeader}>
                     <div>
                         <h2><Link2 size={20} /> 담당 수업 학급 가져오기</h2>
                         <p className={styles.assignmentHint}>
-                            {teacher?.subject || '로그인한 과목'} 학급만 연결합니다.
+                            {isSeonghoRosterMode ? '선택한 학급을 내 작업공간에 등록합니다.' : `${teacher?.subject || '로그인한 과목'} 학급만 연결합니다.`}
                         </p>
                     </div>
                     <div className={styles.semesterToggle}>
@@ -483,7 +597,7 @@ export default function StudentsPage() {
 
                 {homeroomOptions.length === 0 ? (
                     <div className={styles.emptyAssignment}>
-                        <p>먼저 학교 학생 명부를 업로드하세요.</p>
+                        <p>{isSeonghoRosterMode ? '성호중학교 명렬표를 불러오고 있습니다.' : '먼저 학교 학생 명부를 업로드하세요.'}</p>
                     </div>
                 ) : (
                     <>
@@ -514,7 +628,7 @@ export default function StudentsPage() {
                         <div className={styles.assignmentActions}>
                             <span>{selectedHomerooms.size}개 학급 선택</span>
                             <Button onClick={handleImportTeachingClasses} disabled={!teacher || selectedHomerooms.size === 0}>
-                                <Users size={16} /> 담당 학급 가져오기
+                                <Users size={16} /> {isSeonghoRosterMode ? '선택 학급 등록' : '담당 학급 가져오기'}
                             </Button>
                         </div>
                     </>

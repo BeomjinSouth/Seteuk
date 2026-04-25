@@ -1,10 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useEffect } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 import { Database, GraduationCap, ScanLine, Sparkles, ClipboardCheck, ClipboardList, School } from 'lucide-react';
 import clsx from 'clsx';
 import { SharedRosterSync } from '@/components/providers/SharedRosterSync';
+import { useAppStore } from '@/lib/store';
+import { isAuthorizedSeonghoTeacher } from '@/lib/seongho-auth';
 import styles from './GlobalNav.module.css';
 
 const mainSections: Array<{
@@ -65,6 +68,21 @@ const mainSections: Array<{
  */
 export function GlobalNav() {
     const pathname = usePathname();
+    const router = useRouter();
+    const teacher = useAppStore((state) => state.teacher);
+    const logout = useAppStore((state) => state.logout);
+
+    useEffect(() => {
+        if (!teacher) {
+            router.replace('/');
+            return;
+        }
+
+        if (!isAuthorizedSeonghoTeacher(teacher)) {
+            logout();
+            router.replace('/');
+        }
+    }, [logout, router, teacher]);
 
     // Helper to determine if a section is active
     const isActive = (href: string) => {

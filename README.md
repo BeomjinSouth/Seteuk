@@ -12,10 +12,18 @@ npm run dev
 
 Open `http://localhost:3000`.
 
+## Login
+
+- 학교: `성호중학교`
+- 아이디: 교사 본인 한글 이름
+- 비밀번호: `123123`
+- 로그인 성공 시 `/students`에서 2026 성호중학교 명렬표 기반 학급을 선택 등록한다.
+
 ## App Navigation
 
-- top navigation order: `학교 정보` -> `학생 관찰 기록` -> `AI 세특 생성` -> `평가 점검` -> `학습지 OCR`
+- top navigation order: `학교 정보` -> `학생 관찰 기록` -> `학생 데이터` -> `AI 세특 생성` -> `평가 점검 (개발중)`
 - `학생 관리` now handles roster upload and teaching-class connection only
+- 성호중학교 교사는 업로드 없이 공용 2026 명렬표에서 학급만 선택한다
 - the student card board moved to `/observation-board`, and observation notes stay in `/observations`
 - in `/observation-board`, single click selects a student and double click opens observation writing; if multiple same-class students are selected, double click opens batch observation entry
 - `/observations` manual entry uses per-student rows with roster/date fields plus `수업 주제`, selected `태그`, and `기타 메모`
@@ -25,6 +33,20 @@ Open `http://localhost:3000`.
 Set these in local `.env.local` and in the Vercel project settings.
 
 - `OPENAI_API_KEY`
+
+## Roster Import
+
+To refresh the shared 성호중학교 roster from local workbook files placed one directory above `web`, run:
+
+```bash
+node scripts/import-seongho-roster.mjs
+```
+
+Expected source files:
+
+- `2026 1학년 명렬표(Ver.2).xlsx`
+- `2026 2학년 명렬표.xlsx`
+- `2026 3학년 명렬표(수정).xlsx`
 
 Notes:
 

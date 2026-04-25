@@ -3,6 +3,7 @@ import { persist } from 'zustand/middleware';
 import { ClassGroup, Student, SubjectRecord, SubjectRecordHistorySource, TeacherProfile } from '@/types';
 import { buildTeacherKey } from '@/lib/teacher-context';
 import { createDemoWorkspaceSeed } from '@/lib/demo-workspace';
+import { SEONGHO_AUTH_MODE, isSeonghoSchool } from '@/lib/seongho-auth';
 
 // Admin configuration
 export const ADMIN_CONFIG = {
@@ -19,9 +20,7 @@ export const ADMIN_CONFIG = {
  */
 export function isAdmin(teacher: TeacherProfile | null): boolean {
     if (!teacher) return false;
-    // Allow '성호중' as an alias for '성호중학교'
-    const isSchoolMatch = teacher.school === ADMIN_CONFIG.school || teacher.school === '성호중';
-    return teacher.name === ADMIN_CONFIG.name && isSchoolMatch;
+    return teacher.name === ADMIN_CONFIG.name && isSeonghoSchool(teacher.school);
 }
 
 // Notification types
@@ -154,7 +153,7 @@ export const useAppStore = create<AppState>()(
             login: (name, subject, school) => set(() => {
                 const teacherKey = buildTeacherKey({ name, subject, school });
                 return {
-                    teacher: { id: teacherKey, teacherKey, name, subject, school }
+                    teacher: { id: teacherKey, teacherKey, name, subject, school, authMode: SEONGHO_AUTH_MODE }
                 };
             }),
 

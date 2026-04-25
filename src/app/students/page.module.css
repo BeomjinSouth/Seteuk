@@ -149,6 +149,24 @@
     flex-wrap: wrap;
 }
 
+.presetStats {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.presetStat {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid hsl(var(--border));
+    border-radius: 999px;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.55rem 0.9rem;
+}
+
 .uploadHeader h2 {
     display: flex;
     align-items: center;

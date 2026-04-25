@@ -6,36 +6,36 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { useAppStore } from '@/lib/store';
-import { Sparkles, ArrowRight, GraduationCap, FlaskConical } from 'lucide-react';
+import {
+  SEONGHO_DEFAULT_SUBJECT,
+  SEONGHO_SCHOOL_NAME,
+  validateSeonghoLogin,
+} from '@/lib/seongho-auth';
+import { Sparkles, ArrowRight, GraduationCap } from 'lucide-react';
 import styles from './page.module.css';
 
 export default function LoginPage() {
   const router = useRouter();
   const login = useAppStore((state) => state.login);
-  const seedDemoWorkspace = useAppStore((state) => state.seedDemoWorkspace);
-  const [name, setName] = useState('');
-  const [subject, setSubject] = useState('');
-  const [school, setSchool] = useState('');
+  const [userId, setUserId] = useState('');
+  const [school, setSchool] = useState(SEONGHO_SCHOOL_NAME);
+  const [password, setPassword] = useState('');
+  const [loginError, setLoginError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !subject || !school) return;
+    const result = validateSeonghoLogin({ school, userId, password });
+    if (!result.ok) {
+      setLoginError(result.message);
+      return;
+    }
 
     setIsLoading(true);
-    await new Promise(r => setTimeout(r, 800));
+    await new Promise(r => setTimeout(r, 250));
 
-    login(name, subject, school);
-    router.push('/dashboard');
-  };
-
-  const handleDemoStart = async () => {
-    setIsLoading(true);
-    await new Promise(r => setTimeout(r, 300));
-
-    login('박범진', '생명과학I', '성호중학교');
-    seedDemoWorkspace();
-    router.push('/observation-board');
+    login(result.teacherName, SEONGHO_DEFAULT_SUBJECT, result.school);
+    router.push('/students');
   };
 
   return (
@@ -88,23 +88,34 @@ export default function LoginPage() {
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <Input
             label="학교명"
-            placeholder="예: 서울고등학교"
+            placeholder="성호중학교"
             value={school}
-            onChange={(e) => setSchool(e.target.value)}
+            onChange={(e) => {
+              setSchool(e.target.value);
+              setLoginError('');
+            }}
             required
           />
           <Input
-            label="이름"
-            placeholder="예: 김선생"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            label="아이디"
+            placeholder="한글 이름"
+            value={userId}
+            onChange={(e) => {
+              setUserId(e.target.value);
+              setLoginError('');
+            }}
             required
           />
           <Input
-            label="담당 과목"
-            placeholder="예: 생명과학I"
-            value={subject}
-            onChange={(e) => setSubject(e.target.value)}
+            label="비밀번호"
+            type="password"
+            placeholder="비밀번호"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              setLoginError('');
+            }}
+            error={loginError}
             required
           />
 
@@ -114,17 +125,7 @@ export default function LoginPage() {
             isLoading={isLoading}
             style={{ height: '48px', fontSize: '1rem' }}
           >
-            작업공간 시작하기 <ArrowRight size={18} />
-          </Button>
-          <Button
-            type="button"
-            variant="secondary"
-            className="w-full"
-            onClick={handleDemoStart}
-            disabled={isLoading}
-            style={{ height: '48px', fontSize: '0.95rem' }}
-          >
-            <FlaskConical size={18} /> 데모 체험 바로 시작
+            로그인 <ArrowRight size={18} />
           </Button>
         </form>
 

@@ -12,4 +12,6 @@ export interface TeacherProfile {
     subject: string;
     /** School name. */
     school: string;
+    /** Login provider used to create the teacher session. */
+    authMode?: 'seongho-school';
 }
