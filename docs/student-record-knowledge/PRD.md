@@ -89,5 +89,6 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - observation board interaction: dense desktop board targeting roughly 6 columns x 3~4 rows at 1440px+, single click selects, double click opens observation writing, and same-class multi-selection supports batch entry
 - observation board cards show student number/name, latest representative tag, last observation date, memo count, and selected state while keeping destructive actions out of the primary card flow
 - observation board 2 location: `/observation-board-2`
-- observation board 2 interaction: example-image-inspired mentor/mentee pairing board with class chips, group cards, and clickable session status cells for participation and strong performance marks
+- observation board 2 interaction: example-image-matched classroom dashboard shell with its own illustrated left rail, mentor/mentee activity mode, and clickable session status cells for participation and strong performance marks
+- observation board 2 observation mode: the existing observation-record workflow is integrated as an internal `관찰 기록` tab with class/search filters, student multi-select, common date/topic/tags, per-student memo rows, recent record list, detail modal, and delete action while preserving the observation-board-2 visual language
 - manual observation entry uses common date/topic/tags at the top and per-student rows for individual tags plus observation memo
