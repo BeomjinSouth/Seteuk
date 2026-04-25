@@ -1,7 +1,7 @@
 'use client';
 
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import type { ReactNode } from 'react';
 import { useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
@@ -33,10 +33,11 @@ import { useAppStore } from '@/lib/store';
 import { isAuthorizedSeonghoTeacher } from '@/lib/seongho-auth';
 import { getStudentsInTeachingClass, getTeacherClasses } from '@/lib/teacher-context';
 import { ClassGroup, Observation, Student } from '@/types';
+import { StudentDataEntry } from '@/types/student-data';
 import styles from './page.module.css';
 
 type MarkState = 'none' | 'participated' | 'excellent';
-type BoardMode = 'mentor' | 'records';
+type BoardMode = 'home' | 'mentor' | 'growth' | 'stats' | 'notice' | 'settings' | 'records';
 
 interface ObservationDraftRow {
     lessonTopic: string;
@@ -48,6 +49,25 @@ interface ObservationCardStats {
     count: number;
     latest?: Observation;
 }
+
+interface NoticeItem {
+    id: string;
+    title: string;
+    body: string;
+    dueDate: string;
+    completed: boolean;
+    createdAt: string;
+}
+
+type GrowthTimelineItem = {
+    id: string;
+    studentId: string;
+    type: 'observation' | 'note' | 'grade' | 'mentor_match';
+    title: string;
+    body: string;
+    date: string;
+    meta: string;
+};
 
 const sessions = [
     { id: 'session-1', label: '1차시', date: '5/2 (금)', topic: '서로 알아가기' },
@@ -118,6 +138,37 @@ function formatShortDate(value?: string) {
     return `${String(date.getMonth() + 1).padStart(2, '0')}.${String(date.getDate()).padStart(2, '0')}`;
 }
 
+function formatFullDate(value?: string) {
+    if (!value) return '날짜 없음';
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return value;
+    return `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, '0')}.${String(date.getDate()).padStart(2, '0')}`;
+}
+
+function getStudentDataTimestamp(entry?: StudentDataEntry) {
+    if (!entry) return 0;
+    const value = entry.occurredAt || entry.createdAt || entry.updatedAt;
+    const date = new Date(value);
+    return Number.isNaN(date.getTime()) ? 0 : date.getTime();
+}
+
+function getNoticeStorageKey(teacherKey?: string) {
+    return `observation-board-2-notices:${teacherKey || 'guest'}`;
+}
+
+function getBoardModeTitle(mode: BoardMode) {
+    const titles: Record<BoardMode, string> = {
+        home: '관찰2 홈',
+        mentor: '학생 관찰 기록',
+        growth: '성장 기록',
+        stats: '통계 보기',
+        notice: '알림장',
+        settings: '설정',
+        records: '관찰 기록 작성',
+    };
+    return titles[mode];
+}
+
 function sortStudents(a: Student, b: Student) {
     return (a.grade ?? 0) - (b.grade ?? 0)
         || (a.classNumber ?? 0) - (b.classNumber ?? 0)
@@ -144,6 +195,12 @@ export default function ObservationBoard2Page() {
     const [customTagOptions, setCustomTagOptions] = useState<string[]>([]);
     const [studentDrafts, setStudentDrafts] = useState<Record<string, ObservationDraftRow>>({});
     const [selectedObservation, setSelectedObservation] = useState<Observation | null>(null);
+    const [studentDataEntries, setStudentDataEntries] = useState<StudentDataEntry[]>([]);
+    const [isLoadingStudentData, setIsLoadingStudentData] = useState(false);
+    const [visibleRosterCount, setVisibleRosterCount] = useState(6);
+    const [noticeDraft, setNoticeDraft] = useState({ title: '', body: '', dueDate: today() });
+    const [notices, setNotices] = useState<NoticeItem[]>([]);
+    const [loadedNoticeKey, setLoadedNoticeKey] = useState('');
 
     useEffect(() => {
         setIsStoreReady(useAppStore.persist.hasHydrated());
@@ -268,9 +325,127 @@ export default function ObservationBoard2Page() {
         }, 0)
     ), 0);
 
+    const studentLookup = useMemo(() => {
+        const map = new Map<string, Student>();
+        [...fallbackStudents, ...students, ...teacherStudents].forEach((student) => {
+            map.set(student.id, student);
+        });
+        return map;
+    }, [students, teacherStudents]);
+
+    const scopedStudentDataEntries = useMemo(
+        () => studentDataEntries
+            .filter((entry) => selectedClassId === 'all' || entry.classId === selectedClassId)
+            .sort((a, b) => getStudentDataTimestamp(b) - getStudentDataTimestamp(a)),
+        [studentDataEntries, selectedClassId]
+    );
+
+    const growthTimeline = useMemo<GrowthTimelineItem[]>(() => {
+        const fromObservations = filteredObservations.map((observation) => ({
+            id: `observation-${observation.id}`,
+            studentId: observation.studentId,
+            type: 'observation' as const,
+            title: observation.lessonTopic || '관찰 메모',
+            body: observation.memo,
+            date: observation.date || observation.createdAt,
+            meta: observation.tags.length > 0 ? observation.tags.slice(0, 3).join(', ') : '수업 관찰',
+        }));
+
+        const fromStudentData = scopedStudentDataEntries.map((entry) => {
+            const payloadMemo = entry.payload?.memo || '';
+            const gradeSummary = entry.kind === 'grade'
+                ? [entry.payload?.examName, entry.payload?.score && `${entry.payload.score}점`, entry.payload?.level]
+                    .filter(Boolean)
+                    .join(' · ')
+                : '';
+            const mentorSummary = entry.kind === 'mentor_match'
+                ? `멘토 ${entry.payload?.mentorStudentId || '-'} · 멘티 ${entry.payload?.menteeStudentId || '-'}`
+                : '';
+
+            return {
+                id: `data-${entry.id}`,
+                studentId: entry.studentId,
+                type: entry.kind,
+                title: entry.title || (entry.kind === 'grade' ? '성적 기록' : entry.kind === 'mentor_match' ? '멘토링 기록' : '누적 메모'),
+                body: payloadMemo || gradeSummary || mentorSummary || '기록 내용 없음',
+                date: entry.occurredAt || entry.createdAt,
+                meta: entry.kind === 'grade' ? '성적' : entry.kind === 'mentor_match' ? '멘토링' : '메모',
+            };
+        });
+
+        const normalizedQuery = searchQuery.trim().toLowerCase();
+
+        return [...fromObservations, ...fromStudentData]
+            .filter((item) => {
+                if (!normalizedQuery) return true;
+                const student = studentLookup.get(item.studentId);
+                return [student?.name, item.title, item.body, item.meta]
+                    .filter(Boolean)
+                    .join(' ')
+                    .toLowerCase()
+                    .includes(normalizedQuery);
+            })
+            .sort((a, b) => {
+                const aTime = new Date(a.date).getTime();
+                const bTime = new Date(b.date).getTime();
+                return (Number.isNaN(bTime) ? 0 : bTime) - (Number.isNaN(aTime) ? 0 : aTime);
+            });
+    }, [filteredObservations, scopedStudentDataEntries, searchQuery, studentLookup]);
+
+    const tagStats = useMemo(() => {
+        const counts = new Map<string, number>();
+        scopedObservations.forEach((observation) => {
+            observation.tags.forEach((tag) => counts.set(tag, (counts.get(tag) ?? 0) + 1));
+        });
+        return Array.from(counts.entries())
+            .map(([tag, count]) => ({ tag, count }))
+            .sort((a, b) => b.count - a.count)
+            .slice(0, 8);
+    }, [scopedObservations]);
+
+    const currentMarkCounts = useMemo(() => (
+        featuredStudents.reduce(
+            (result, student, studentIndex) => {
+                sessions.forEach((session, sessionIndex) => {
+                    const mark = marks[`${student.id}:${session.id}`] ?? getDefaultMark(studentIndex, sessionIndex);
+                    if (mark === 'participated') result.participated += 1;
+                    if (mark === 'excellent') result.excellent += 1;
+                });
+                return result;
+            },
+            { participated: 0, excellent: 0 }
+        )
+    ), [featuredStudents, marks]);
+
+    const todayObservationCount = filteredObservations.filter((observation) => observation.date === today()).length;
+    const incompleteNoticeCount = notices.filter((notice) => !notice.completed).length;
+
     useEffect(() => {
         void loadObservations();
     }, []);
+
+    useEffect(() => {
+        if (!teacher?.teacherKey) return;
+        void loadStudentData();
+    }, [teacher?.teacherKey, teacher?.school]);
+
+    useEffect(() => {
+        const storageKey = getNoticeStorageKey(teacher?.teacherKey);
+        setLoadedNoticeKey(storageKey);
+
+        try {
+            const saved = window.localStorage.getItem(storageKey);
+            setNotices(saved ? JSON.parse(saved) as NoticeItem[] : []);
+        } catch (error) {
+            console.error('Failed to load observation board notices:', error);
+            setNotices([]);
+        }
+    }, [teacher?.teacherKey]);
+
+    useEffect(() => {
+        if (!loadedNoticeKey) return;
+        window.localStorage.setItem(loadedNoticeKey, JSON.stringify(notices));
+    }, [loadedNoticeKey, notices]);
 
     useEffect(() => {
         setStudentDrafts((prev) => {
@@ -294,6 +469,27 @@ export default function ObservationBoard2Page() {
             console.error('Failed to load observations:', error);
         } finally {
             setIsLoadingObservations(false);
+        }
+    };
+
+    const loadStudentData = async () => {
+        if (!teacher?.teacherKey) return;
+
+        setIsLoadingStudentData(true);
+        try {
+            const params = new URLSearchParams({
+                teacherKey: teacher.teacherKey,
+            });
+            if (teacher.school) params.set('school', teacher.school);
+            const response = await fetch(`/api/student-data?${params.toString()}`);
+            const data = await response.json();
+            if (data.success) {
+                setStudentDataEntries((data.data || data.entries || []) as StudentDataEntry[]);
+            }
+        } catch (error) {
+            console.error('Failed to load student data entries:', error);
+        } finally {
+            setIsLoadingStudentData(false);
         }
     };
 
@@ -488,101 +684,113 @@ export default function ObservationBoard2Page() {
         }
     };
 
-    return (
-        <div className={styles.dashboardShell}>
-            {teacher && <SharedRosterSync />}
-            <ClassroomSidebar activeMode={activeMode} onModeChange={setActiveMode} />
+    const handleAddNotice = () => {
+        const title = noticeDraft.title.trim();
+        const body = noticeDraft.body.trim();
+        if (!title && !body) return;
 
-            <main className={styles.dashboardMain}>
-                <header className={styles.dashboardHeader}>
-                    <div className={styles.titleCluster}>
-                        <span className={styles.eyebrow}>
-                            <ClipboardList size={18} />
-                            학생 기록 관찰 2
-                        </span>
-                        <h1>학생 관찰 기록</h1>
-                        <p>
-                            {teacher?.subject || '수업'} · {teacherClasses.length || 0}개 담당 학급 ·
-                            관찰2 디자인 안에서 멘토·멘티 활동과 개별 관찰 메모를 함께 관리합니다.
-                        </p>
-                    </div>
-                    <div className={styles.headerActions} aria-label="상단 도구">
-                        <button type="button">
-                            <Sparkles size={17} />
-                            우정 배지
-                        </button>
-                        <button type="button">
-                            <Bell size={17} />
-                            알림
-                        </button>
-                        <button type="button">
-                            <UserRound size={17} />
-                            선생님
-                        </button>
-                    </div>
-                </header>
+        setNotices((prev) => [
+            {
+                id: `notice-${Date.now()}`,
+                title: title || '제목 없는 알림',
+                body,
+                dueDate: noticeDraft.dueDate || today(),
+                completed: false,
+                createdAt: new Date().toISOString(),
+            },
+            ...prev,
+        ]);
+        setNoticeDraft({ title: '', body: '', dueDate: today() });
+    };
 
-                <section className={styles.modeTabs} aria-label="학생 기록 관찰 2 보기">
-                    <button
-                        type="button"
-                        className={activeMode === 'mentor' ? styles.modeTabActive : ''}
-                        onClick={() => setActiveMode('mentor')}
-                    >
-                        <Handshake size={18} />
-                        멘토·멘티 활동
-                    </button>
-                    <button
-                        type="button"
-                        className={activeMode === 'records' ? styles.modeTabActive : ''}
-                        onClick={() => setActiveMode('records')}
-                    >
-                        <ClipboardList size={18} />
-                        관찰 기록
-                    </button>
-                </section>
+    const renderBoardContent = () => {
+        if (activeMode === 'home') {
+            return (
+                <HomeDashboard
+                    teacherClasses={teacherClasses}
+                    teacherStudents={teacherStudents}
+                    observations={filteredObservations}
+                    todayObservationCount={todayObservationCount}
+                    currentMarkCounts={currentMarkCounts}
+                    incompleteNoticeCount={incompleteNoticeCount}
+                    onModeChange={setActiveMode}
+                />
+            );
+        }
 
-                <section className={styles.classRail} aria-label="담당 학급 선택">
-                    <button
-                        type="button"
-                        className={`${styles.classChip} ${selectedClassId === 'all' ? styles.classChipActive : ''}`}
-                        onClick={() => handleClassChange('all')}
-                    >
-                        전체
-                        <span>{teacherStudents.length || fallbackStudents.length}</span>
-                    </button>
-                    {teacherClasses.map((cls) => (
-                        <button
-                            key={cls.id}
-                            type="button"
-                            className={`${styles.classChip} ${selectedClassId === cls.id ? styles.classChipActive : ''}`}
-                            onClick={() => handleClassChange(cls.id)}
-                        >
-                            {cls.grade}-{cls.classNumber}
-                            <span>{getStudentsInTeachingClass(students, cls).length}</span>
-                        </button>
-                    ))}
-                    <label className={styles.searchBox}>
-                        <Search size={17} />
-                        <input
-                            type="search"
-                            value={searchQuery}
-                            onChange={(event) => setSearchQuery(event.target.value)}
-                            placeholder="학생 이름, 메모 검색"
-                        />
-                    </label>
-                </section>
+        if (activeMode === 'growth') {
+            return (
+                <GrowthDashboard
+                    teacherClasses={teacherClasses}
+                    selectedClassId={selectedClassId}
+                    searchQuery={searchQuery}
+                    timeline={growthTimeline}
+                    isLoading={isLoadingStudentData}
+                    studentLookup={studentLookup}
+                    onClassChange={handleClassChange}
+                    onSearchChange={setSearchQuery}
+                />
+            );
+        }
 
-                {activeMode === 'mentor' ? (
-                    <MentorActivityView
-                        boardStudents={boardStudents}
-                        featuredStudents={featuredStudents}
-                        mentorGroups={mentorGroups}
-                        marks={marks}
-                        selectedClass={selectedClass}
-                        totalExcellent={totalExcellent}
-                        onUpdateMark={updateMark}
+        if (activeMode === 'stats') {
+            return (
+                <StatsDashboard
+                    observations={filteredObservations}
+                    students={filteredStudents}
+                    tagStats={tagStats}
+                    currentMarkCounts={currentMarkCounts}
+                    latestObservation={filteredObservations[0]}
+                    studentStats={observationStatsByStudent}
+                    getStudentDisplay={getStudentDisplay}
+                    onModeChange={setActiveMode}
+                />
+            );
+        }
+
+        if (activeMode === 'notice') {
+            return (
+                <NoticeBoard
+                    notices={notices}
+                    draft={noticeDraft}
+                    onDraftChange={setNoticeDraft}
+                    onAddNotice={handleAddNotice}
+                    onToggleNotice={(id) => setNotices((prev) => prev.map((notice) => (
+                        notice.id === id ? { ...notice, completed: !notice.completed } : notice
+                    )))}
+                    onDeleteNotice={(id) => setNotices((prev) => prev.filter((notice) => notice.id !== id))}
+                />
+            );
+        }
+
+        if (activeMode === 'settings') {
+            return (
+                <SettingsDashboard
+                    teacherClasses={teacherClasses}
+                    selectedClassId={selectedClassId}
+                    visibleRosterCount={visibleRosterCount}
+                    noticesCount={notices.length}
+                    hasRealStudents={teacherStudents.length > 0}
+                    onClassChange={handleClassChange}
+                    onVisibleRosterCountChange={setVisibleRosterCount}
+                    onResetMarks={() => setMarks({})}
+                    onClearNotices={() => setNotices([])}
+                    onModeChange={setActiveMode}
+                />
+            );
+        }
+
+        if (activeMode === 'records') {
+            return (
+                <>
+                    <FilterStrip
+                        teacherClasses={teacherClasses}
+                        teacherStudents={teacherStudents}
+                        selectedClassId={selectedClassId}
+                        searchQuery={searchQuery}
+                        onClassChange={handleClassChange}
+                        onSearchChange={setSearchQuery}
                     />
-                ) : (
                     <ObservationRecordsView
                         filteredStudents={filteredStudents}
                         selectedStudentIds={selectedStudentIds}
@@ -613,7 +821,54 @@ export default function ObservationBoard2Page() {
                         onOpenDetail={setSelectedObservation}
                         onDelete={handleDeleteObservation}
                     />
-                )}
+                </>
+            );
+        }
+
+        return (
+            <MentorActivityView
+                boardStudents={boardStudents}
+                featuredStudents={featuredStudents}
+                mentorGroups={mentorGroups}
+                marks={marks}
+                selectedClass={selectedClass}
+                totalExcellent={totalExcellent}
+                visibleRosterCount={visibleRosterCount}
+                onUpdateMark={updateMark}
+            />
+        );
+    };
+
+    return (
+        <div className={styles.dashboardShell}>
+            {teacher && <SharedRosterSync />}
+            <ClassroomSidebar activeMode={activeMode} onModeChange={setActiveMode} />
+
+            <main className={styles.dashboardMain}>
+                <header className={styles.dashboardHeader}>
+                    <div className={styles.titleCluster}>
+                        <span className={styles.titleIcon}>
+                            <ClipboardList size={34} />
+                        </span>
+                        <h1>{getBoardModeTitle(activeMode)}</h1>
+                    </div>
+                    <div className={styles.headerActions} aria-label="상단 도구">
+                        <button type="button">
+                            <Sparkles size={17} />
+                            우정 배지
+                        </button>
+                        <button type="button">
+                            <Bell size={17} />
+                            알림
+                        </button>
+                        <button type="button">
+                            <UserRound size={17} />
+                            선생님
+                        </button>
+                    </div>
+                </header>
+
+                {renderBoardContent()}
             </main>
 
             <AnimatePresence>
@@ -640,21 +895,21 @@ function ClassroomSidebar({
 }) {
     return (
         <aside className={styles.classroomSidebar}>
-            <div className={styles.logoBlock}>
-                <div className={styles.logoBadge}>
-                    <Star size={20} />
-                </div>
-                <div>
-                    <strong>우리반</strong>
-                    <span>관찰기록</span>
-                </div>
-            </div>
+            <img
+                src="/observation-board-2/sidebar-logo.png"
+                alt="우리반 관찰기록"
+                className={styles.sidebarLogoImage}
+            />
 
             <nav className={styles.sidebarNav} aria-label="관찰2 사이드 메뉴">
-                <Link href="/dashboard">
+                <button
+                    type="button"
+                    className={activeMode === 'home' ? styles.sidebarNavActive : ''}
+                    onClick={() => onModeChange('home')}
+                >
                     <Home size={18} />
                     홈
-                </Link>
+                </button>
                 <button
                     type="button"
                     className={activeMode === 'mentor' ? styles.sidebarNavActive : ''}
@@ -665,39 +920,559 @@ function ClassroomSidebar({
                 </button>
                 <button
                     type="button"
-                    className={activeMode === 'records' ? styles.sidebarNavActive : ''}
-                    onClick={() => onModeChange('records')}
+                    className={activeMode === 'growth' ? styles.sidebarNavActive : ''}
+                    onClick={() => onModeChange('growth')}
                 >
-                    <BookOpen size={18} />
-                    관찰 기록 작성
-                </button>
-                <Link href="/student-data">
                     <Users size={18} />
                     성장 기록
-                </Link>
-                <Link href="/write">
+                </button>
+                <button
+                    type="button"
+                    className={activeMode === 'stats' ? styles.sidebarNavActive : ''}
+                    onClick={() => onModeChange('stats')}
+                >
                     <BarChart3 size={18} />
                     통계 보기
-                </Link>
-                <Link href="/dashboard">
+                </button>
+                <button
+                    type="button"
+                    className={activeMode === 'notice' ? styles.sidebarNavActive : ''}
+                    onClick={() => onModeChange('notice')}
+                >
                     <Megaphone size={18} />
                     알림장
-                </Link>
-                <Link href="/settings">
+                </button>
+                <button
+                    type="button"
+                    className={activeMode === 'settings' ? styles.sidebarNavActive : ''}
+                    onClick={() => onModeChange('settings')}
+                >
                     <Settings size={18} />
                     설정
-                </Link>
+                </button>
             </nav>
 
-            <div className={styles.sidebarIllustration} aria-hidden="true">
-                <div className={styles.sunShape} />
-                <div className={styles.treeShape} />
-                <div className={styles.childOne} />
-                <div className={styles.childTwo} />
-                <div className={styles.childThree} />
-                <span>함께 자라는 교실</span>
-            </div>
+            <img
+                src="/observation-board-2/sidebar-kids.png"
+                alt=""
+                className={styles.sidebarKidsImage}
+                aria-hidden="true"
+            />
         </aside>
+    );
+}
+
+function FilterStrip({
+    teacherClasses,
+    teacherStudents,
+    selectedClassId,
+    searchQuery,
+    onClassChange,
+    onSearchChange,
+}: {
+    teacherClasses: ClassGroup[];
+    teacherStudents: Student[];
+    selectedClassId: string;
+    searchQuery: string;
+    onClassChange: (classId: string) => void;
+    onSearchChange: (value: string) => void;
+}) {
+    return (
+        <section className={styles.filterStrip} aria-label="관찰2 필터">
+            <button
+                type="button"
+                className={`${styles.classChip} ${selectedClassId === 'all' ? styles.classChipActive : ''}`}
+                onClick={() => onClassChange('all')}
+            >
+                전체
+                <span>{teacherStudents.length || fallbackStudents.length}</span>
+            </button>
+            {teacherClasses.map((cls) => (
+                <button
+                    key={cls.id}
+                    type="button"
+                    className={`${styles.classChip} ${selectedClassId === cls.id ? styles.classChipActive : ''}`}
+                    onClick={() => onClassChange(cls.id)}
+                >
+                    {cls.grade}-{cls.classNumber}
+                    <span>{getStudentsInTeachingClass(teacherStudents, cls).length}</span>
+                </button>
+            ))}
+            <label className={styles.searchBox}>
+                <Search size={17} />
+                <input
+                    type="search"
+                    value={searchQuery}
+                    onChange={(event) => onSearchChange(event.target.value)}
+                    placeholder="학생 이름, 메모 검색"
+                />
+            </label>
+        </section>
+    );
+}
+
+function HomeDashboard({
+    teacherClasses,
+    teacherStudents,
+    observations,
+    todayObservationCount,
+    currentMarkCounts,
+    incompleteNoticeCount,
+    onModeChange,
+}: {
+    teacherClasses: ClassGroup[];
+    teacherStudents: Student[];
+    observations: Observation[];
+    todayObservationCount: number;
+    currentMarkCounts: { participated: number; excellent: number };
+    incompleteNoticeCount: number;
+    onModeChange: (mode: BoardMode) => void;
+}) {
+    return (
+        <section className={styles.dashboardView}>
+            <div className={styles.homeSummaryGrid}>
+                <SummaryCard icon={<Users size={24} />} label="담당 학급" value={`${teacherClasses.length}개`} tone="blue" />
+                <SummaryCard icon={<UserRound size={24} />} label="학생 수" value={`${teacherStudents.length || fallbackStudents.length}명`} tone="green" />
+                <SummaryCard icon={<ClipboardList size={24} />} label="최근 관찰 기록" value={`${observations.length}건`} tone="yellow" />
+                <SummaryCard icon={<Bell size={24} />} label="미완료 알림" value={`${incompleteNoticeCount}건`} tone="pink" />
+            </div>
+
+            <div className={styles.homeContentGrid}>
+                <article className={styles.homePanel}>
+                    <div className={styles.panelTitle}>
+                        <Sparkles size={22} />
+                        <div>
+                            <h2>오늘 활동 요약</h2>
+                            <p>관찰2 안에서 바로 확인하는 수업 상태</p>
+                        </div>
+                    </div>
+                    <div className={styles.todayStrip}>
+                        <span>
+                            <Triangle size={18} />
+                            참여 {currentMarkCounts.participated}회
+                        </span>
+                        <span>
+                            <Circle size={18} />
+                            매우 잘함 {currentMarkCounts.excellent}회
+                        </span>
+                        <span>
+                            <ClipboardList size={18} />
+                            오늘 메모 {todayObservationCount}건
+                        </span>
+                    </div>
+                    <div className={styles.quickActionGrid}>
+                        <button type="button" onClick={() => onModeChange('mentor')}>
+                            <ClipboardList size={18} />
+                            학생 관찰 기록
+                        </button>
+                        <button type="button" onClick={() => onModeChange('growth')}>
+                            <Users size={18} />
+                            성장 기록
+                        </button>
+                        <button type="button" onClick={() => onModeChange('stats')}>
+                            <BarChart3 size={18} />
+                            통계 보기
+                        </button>
+                        <button type="button" onClick={() => onModeChange('records')}>
+                            <BookOpen size={18} />
+                            관찰 메모 작성
+                        </button>
+                        <button type="button" onClick={() => onModeChange('notice')}>
+                            <Megaphone size={18} />
+                            알림장
+                        </button>
+                    </div>
+                </article>
+
+                <article className={styles.homePanel}>
+                    <div className={styles.panelTitle}>
+                        <ClipboardList size={22} />
+                        <div>
+                            <h2>최근 관찰 메모</h2>
+                            <p>최근 저장된 개별 기록</p>
+                        </div>
+                    </div>
+                    <div className={styles.compactList}>
+                        {observations.slice(0, 5).map((observation) => (
+                            <div key={observation.id} className={styles.compactItem}>
+                                <strong>{observation.lessonTopic || '관찰 메모'}</strong>
+                                <span>{formatShortDate(observation.date || observation.createdAt)} · {observation.memo.slice(0, 56)}</span>
+                            </div>
+                        ))}
+                        {observations.length === 0 && <div className={styles.emptyList}>아직 관찰 메모가 없습니다.</div>}
+                    </div>
+                </article>
+            </div>
+        </section>
+    );
+}
+
+function SummaryCard({
+    icon,
+    label,
+    value,
+    tone,
+}: {
+    icon: ReactNode;
+    label: string;
+    value: string;
+    tone: 'blue' | 'green' | 'yellow' | 'pink';
+}) {
+    return (
+        <article className={`${styles.summaryCard} ${styles[`summary-${tone}`]}`}>
+            <span>{icon}</span>
+            <div>
+                <strong>{value}</strong>
+                <em>{label}</em>
+            </div>
+        </article>
+    );
+}
+
+function GrowthDashboard({
+    teacherClasses,
+    selectedClassId,
+    searchQuery,
+    timeline,
+    isLoading,
+    studentLookup,
+    onClassChange,
+    onSearchChange,
+}: {
+    teacherClasses: ClassGroup[];
+    selectedClassId: string;
+    searchQuery: string;
+    timeline: GrowthTimelineItem[];
+    isLoading: boolean;
+    studentLookup: Map<string, Student>;
+    onClassChange: (classId: string) => void;
+    onSearchChange: (value: string) => void;
+}) {
+    return (
+        <section className={styles.dashboardView}>
+            <FilterStrip
+                teacherClasses={teacherClasses}
+                teacherStudents={Array.from(studentLookup.values())}
+                selectedClassId={selectedClassId}
+                searchQuery={searchQuery}
+                onClassChange={onClassChange}
+                onSearchChange={onSearchChange}
+            />
+            <div className={styles.growthLayout}>
+                <article className={styles.growthHero}>
+                    <div className={styles.panelTitle}>
+                        <Sparkles size={22} />
+                        <div>
+                            <h2>학생별 누적 성장 흐름</h2>
+                            <p>관찰 메모, 성적, 개별 메모, 멘토링 기록을 한 화면에 모았습니다.</p>
+                        </div>
+                    </div>
+                    <div className={styles.growthMetricRow}>
+                        <span>전체 항목 <strong>{timeline.length}</strong></span>
+                        <span>관찰 <strong>{timeline.filter((item) => item.type === 'observation').length}</strong></span>
+                        <span>학생 데이터 <strong>{timeline.filter((item) => item.type !== 'observation').length}</strong></span>
+                    </div>
+                </article>
+
+                <div className={styles.timelineList}>
+                    {isLoading && <div className={styles.emptyList}>성장 기록을 불러오는 중입니다.</div>}
+                    {!isLoading && timeline.length === 0 && <div className={styles.emptyList}>표시할 누적 기록이 없습니다.</div>}
+                    {timeline.slice(0, 18).map((item) => {
+                        const student = studentLookup.get(item.studentId);
+                        return (
+                            <article key={item.id} className={styles.timelineCard}>
+                                <span className={styles.timelineAvatar}>{student ? getInitials(student.name) : '?'}</span>
+                                <div>
+                                    <div className={styles.timelineMeta}>
+                                        <strong>{student?.name || '학생 정보 없음'}</strong>
+                                        <em>{formatFullDate(item.date)} · {item.meta}</em>
+                                    </div>
+                                    <h3>{item.title}</h3>
+                                    <p>{item.body}</p>
+                                </div>
+                            </article>
+                        );
+                    })}
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function StatsDashboard({
+    observations,
+    students,
+    tagStats,
+    currentMarkCounts,
+    latestObservation,
+    studentStats,
+    getStudentDisplay,
+    onModeChange,
+}: {
+    observations: Observation[];
+    students: Student[];
+    tagStats: Array<{ tag: string; count: number }>;
+    currentMarkCounts: { participated: number; excellent: number };
+    latestObservation?: Observation;
+    studentStats: Map<string, ObservationCardStats>;
+    getStudentDisplay: (studentId: string) => string;
+    onModeChange: (mode: BoardMode) => void;
+}) {
+    const topStudentStats = students
+        .map((student) => ({ student, count: studentStats.get(student.id)?.count ?? 0 }))
+        .sort((a, b) => b.count - a.count)
+        .slice(0, 6);
+    const maxTagCount = Math.max(...tagStats.map((item) => item.count), 1);
+    const maxStudentCount = Math.max(...topStudentStats.map((item) => item.count), 1);
+
+    return (
+        <section className={styles.dashboardView}>
+            <div className={styles.homeSummaryGrid}>
+                <SummaryCard icon={<ClipboardList size={24} />} label="관찰 기록" value={`${observations.length}건`} tone="blue" />
+                <SummaryCard icon={<Triangle size={24} />} label="참여 표시" value={`${currentMarkCounts.participated}회`} tone="green" />
+                <SummaryCard icon={<Circle size={24} />} label="매우 잘함" value={`${currentMarkCounts.excellent}회`} tone="pink" />
+                <SummaryCard icon={<CalendarDays size={24} />} label="최근 기록일" value={formatShortDate(latestObservation?.date || latestObservation?.createdAt)} tone="yellow" />
+            </div>
+
+            <div className={styles.statsGrid}>
+                <article className={styles.statsPanel}>
+                    <div className={styles.panelTitle}>
+                        <BarChart3 size={22} />
+                        <div>
+                            <h2>학생별 기록 수</h2>
+                            <p>누적 관찰 메모 기준</p>
+                        </div>
+                    </div>
+                    <div className={styles.barList}>
+                        {topStudentStats.map(({ student, count }) => (
+                            <div key={student.id} className={styles.barRow}>
+                                <span>{student.name}</span>
+                                <div><i style={{ width: `${Math.max(8, (count / maxStudentCount) * 100)}%` }} /></div>
+                                <em>{count}</em>
+                            </div>
+                        ))}
+                    </div>
+                </article>
+
+                <article className={styles.statsPanel}>
+                    <div className={styles.panelTitle}>
+                        <Sparkles size={22} />
+                        <div>
+                            <h2>태그 빈도</h2>
+                            <p>최근 관찰 메모에서 자주 나온 키워드</p>
+                        </div>
+                    </div>
+                    <div className={styles.barList}>
+                        {tagStats.length === 0 && <div className={styles.emptyList}>태그 데이터가 없습니다.</div>}
+                        {tagStats.map((item) => (
+                            <div key={item.tag} className={styles.barRow}>
+                                <span>{item.tag}</span>
+                                <div><i style={{ width: `${Math.max(8, (item.count / maxTagCount) * 100)}%` }} /></div>
+                                <em>{item.count}</em>
+                            </div>
+                        ))}
+                    </div>
+                </article>
+
+                <article className={styles.statsPanel}>
+                    <div className={styles.panelTitle}>
+                        <ClipboardList size={22} />
+                        <div>
+                            <h2>최근 기록</h2>
+                            <p>통계에서 바로 기록 작성으로 이동할 수 있습니다.</p>
+                        </div>
+                    </div>
+                    <div className={styles.compactList}>
+                        {observations.slice(0, 4).map((observation) => (
+                            <div key={observation.id} className={styles.compactItem}>
+                                <strong>{getStudentDisplay(observation.studentId)}</strong>
+                                <span>{formatShortDate(observation.date)} · {observation.lessonTopic || observation.memo.slice(0, 40)}</span>
+                            </div>
+                        ))}
+                    </div>
+                    <button type="button" className={styles.primaryActionButton} onClick={() => onModeChange('records')}>
+                        <BookOpen size={17} />
+                        관찰 메모 작성
+                    </button>
+                </article>
+            </div>
+        </section>
+    );
+}
+
+function NoticeBoard({
+    notices,
+    draft,
+    onDraftChange,
+    onAddNotice,
+    onToggleNotice,
+    onDeleteNotice,
+}: {
+    notices: NoticeItem[];
+    draft: { title: string; body: string; dueDate: string };
+    onDraftChange: (draft: { title: string; body: string; dueDate: string }) => void;
+    onAddNotice: () => void;
+    onToggleNotice: (id: string) => void;
+    onDeleteNotice: (id: string) => void;
+}) {
+    return (
+        <section className={styles.dashboardView}>
+            <div className={styles.noticeLayout}>
+                <article className={styles.noticeForm}>
+                    <div className={styles.panelTitle}>
+                        <Megaphone size={22} />
+                        <div>
+                            <h2>알림 작성</h2>
+                            <p>관찰2 전용 알림은 이 브라우저에 저장됩니다.</p>
+                        </div>
+                    </div>
+                    <input
+                        type="text"
+                        value={draft.title}
+                        onChange={(event) => onDraftChange({ ...draft, title: event.target.value })}
+                        placeholder="알림 제목"
+                    />
+                    <textarea
+                        value={draft.body}
+                        onChange={(event) => onDraftChange({ ...draft, body: event.target.value })}
+                        placeholder="전달할 내용"
+                    />
+                    <input
+                        type="date"
+                        value={draft.dueDate}
+                        onChange={(event) => onDraftChange({ ...draft, dueDate: event.target.value })}
+                    />
+                    <button type="button" onClick={onAddNotice}>
+                        <Plus size={17} />
+                        알림 추가
+                    </button>
+                </article>
+
+                <div className={styles.noticeList}>
+                    {notices.length === 0 && <div className={styles.emptyList}>작성된 알림이 없습니다.</div>}
+                    {notices.map((notice) => (
+                        <article key={notice.id} className={`${styles.noticeCard} ${notice.completed ? styles.noticeDone : ''}`}>
+                            <button type="button" onClick={() => onToggleNotice(notice.id)} aria-label="완료 상태 변경">
+                                <CheckCircle2 size={19} />
+                            </button>
+                            <div>
+                                <strong>{notice.title}</strong>
+                                <span>{formatFullDate(notice.dueDate)} · {notice.completed ? '완료' : '진행 중'}</span>
+                                {notice.body && <p>{notice.body}</p>}
+                            </div>
+                            <button type="button" onClick={() => onDeleteNotice(notice.id)} aria-label="알림 삭제">
+                                <Trash2 size={18} />
+                            </button>
+                        </article>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function SettingsDashboard({
+    teacherClasses,
+    selectedClassId,
+    visibleRosterCount,
+    noticesCount,
+    hasRealStudents,
+    onClassChange,
+    onVisibleRosterCountChange,
+    onResetMarks,
+    onClearNotices,
+    onModeChange,
+}: {
+    teacherClasses: ClassGroup[];
+    selectedClassId: string;
+    visibleRosterCount: number;
+    noticesCount: number;
+    hasRealStudents: boolean;
+    onClassChange: (classId: string) => void;
+    onVisibleRosterCountChange: (count: number) => void;
+    onResetMarks: () => void;
+    onClearNotices: () => void;
+    onModeChange: (mode: BoardMode) => void;
+}) {
+    return (
+        <section className={styles.dashboardView}>
+            <div className={styles.settingsGrid}>
+                <article className={styles.settingPanel}>
+                    <div className={styles.panelTitle}>
+                        <Settings size={22} />
+                        <div>
+                            <h2>기본 선택 학급</h2>
+                            <p>멘토·멘티 화면에 사용할 학급 범위를 고릅니다.</p>
+                        </div>
+                    </div>
+                    <div className={styles.classButtonGrid}>
+                        <button
+                            type="button"
+                            className={selectedClassId === 'all' ? styles.classChipActive : ''}
+                            onClick={() => onClassChange('all')}
+                        >
+                            전체 담당 학급
+                        </button>
+                        {teacherClasses.map((cls) => (
+                            <button
+                                key={cls.id}
+                                type="button"
+                                className={selectedClassId === cls.id ? styles.classChipActive : ''}
+                                onClick={() => onClassChange(cls.id)}
+                            >
+                                {cls.grade}학년 {cls.classNumber}반
+                            </button>
+                        ))}
+                    </div>
+                </article>
+
+                <article className={styles.settingPanel}>
+                    <div className={styles.panelTitle}>
+                        <Users size={22} />
+                        <div>
+                            <h2>표시 학생 수</h2>
+                            <p>학생 목록 패널에 처음 보이는 인원을 조정합니다.</p>
+                        </div>
+                    </div>
+                    <div className={styles.segmentedControl}>
+                        {[6, 8, 10, 12].map((count) => (
+                            <button
+                                key={count}
+                                type="button"
+                                className={visibleRosterCount === count ? styles.segmentedActive : ''}
+                                onClick={() => onVisibleRosterCountChange(count)}
+                            >
+                                {count}명
+                            </button>
+                        ))}
+                    </div>
+                </article>
+
+                <article className={styles.settingPanel}>
+                    <div className={styles.panelTitle}>
+                        <Sparkles size={22} />
+                        <div>
+                            <h2>데이터 상태</h2>
+                            <p>{hasRealStudents ? '실제 명렬표 데이터를 사용 중입니다.' : '샘플 학생 데이터로 화면을 유지 중입니다.'}</p>
+                        </div>
+                    </div>
+                    <div className={styles.settingActions}>
+                        <button type="button" onClick={onResetMarks}>
+                            <Triangle size={17} />
+                            △/○ 초기화
+                        </button>
+                        <button type="button" onClick={onClearNotices} disabled={noticesCount === 0}>
+                            <Trash2 size={17} />
+                            알림장 초기화
+                        </button>
+                        <button type="button" onClick={() => onModeChange('records')}>
+                            <BookOpen size={17} />
+                            관찰 메모 작성 열기
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </section>
     );
 }
 
@@ -708,6 +1483,7 @@ function MentorActivityView({
     marks,
     selectedClass,
     totalExcellent,
+    visibleRosterCount,
     onUpdateMark,
 }: {
     boardStudents: Student[];
@@ -721,6 +1497,7 @@ function MentorActivityView({
     marks: Record<string, MarkState>;
     selectedClass?: ClassGroup;
     totalExcellent: number;
+    visibleRosterCount: number;
     onUpdateMark: (studentId: string, sessionId: string, fallback: MarkState) => void;
 }) {
     return (
@@ -770,7 +1547,7 @@ function MentorActivityView({
                             <span>{boardStudents.length}명</span>
                         </div>
                         <div className={styles.rosterGrid}>
-                            {boardStudents.slice(0, 10).map((student) => (
+                            {boardStudents.slice(0, visibleRosterCount).map((student) => (
                                 <div key={student.id} className={styles.rosterItem}>
                                     <span>{getInitials(student.name)}</span>
                                     {student.name}

@@ -43,8 +43,9 @@
 - 성호중학교 roster onboarding: 2026 1/2/3학년 명렬표를 공용 학생 명부에 반영했고 성호중학교 교사는 업로드 없이 학급을 선택 등록
 - observation board interaction: 고밀도 보드(1440px+에서 약 6열) + 카드 클릭 선택 + 더블클릭 관찰 기록 작성 + 같은 학급 다중 선택 일괄 저장 지원
 - observation board card state: 번호/이름, 최근 대표 태그, 마지막 기록일, 관찰 메모 수, 선택 상태 표시
-- observation board 2 tab: `/observation-board-2`에서 예시 PNG에 맞춘 독립형 교실 대시보드, 멘토·멘티 활동 모드, 차시별 활동 기록 표, 참여/매우 잘함 클릭 표시 지원
-- observation board 2 records mode: 기존 관찰 기록 기능을 내부 `관찰 기록` 탭으로 통합해 학급/검색 필터, 학생 다중 선택, 공통 날짜/주제/태그, 학생별 메모 입력, 최근 기록 목록, 상세 보기, 삭제 지원
+- observation board 2 tab: `/observation-board-2`에서 예시 PNG에 맞춘 독립형 교실 대시보드, 기본 `학생 관찰 기록` 멘토·멘티 활동판, 차시별 활동 기록 표, 참여/매우 잘함 클릭 표시 지원
+- observation board 2 internal dashboards: 왼쪽 메뉴가 URL 이동 없이 `홈`, `학생 관찰 기록`, `성장 기록`, `통계 보기`, `알림장`, `설정` 화면을 전환하며, 성장 기록/통계/알림장/설정 대시보드 구현
+- observation board 2 records mode: 기존 관찰 기록 기능은 사이드바에서 숨긴 내부 `records` 모드로 유지하고, 홈/설정 빠른 이동에서 학급/검색 필터, 학생 다중 선택, 공통 날짜/주제/태그, 학생별 메모 입력, 최근 기록 목록, 상세 보기, 삭제 지원
 - observation compose layout: 상단 공통 날짜/수업 주제/공통 태그 + 학생별 개별 태그/관찰 메모 row editor
 - lexical retrieval: implemented
 - AI reranking: implemented
@@ -63,7 +64,7 @@
 - 2026-04-25: kept `평가 점검` visible as `평가 점검 (개발중)` but blocked tab navigation and direct `/eval-check` access
 - 2026-04-25: added `학생 데이터` tab, student-data/cookie APIs, teacher-scoped AI context injection, and safer competency color highlighting
 - 2026-04-25: added `학생 기록 관찰 2` next to the observation tab with a mentor/mentee activity-board design based on the provided dashboard example
-- 2026-04-25: restyled `학생 기록 관찰 2` to match the provided PNG dashboard more closely and integrated the existing observation-record workflow as an internal `관찰 기록` mode
+- 2026-04-25: rebuilt `학생 기록 관찰 2` around the PNG-like default mentor/mentee screen, internal-only sidebar dashboards, localStorage notice board, growth timeline, stats view, and hidden observation compose mode
 - 2026-04-25: redesigned `학생 관찰 기록` into a dense classroom board with batch observation entry and common-context manual compose
 - 2026-03-25: changed student roster upload to sync through shared school storage and merge overlapping uploads by roster key
 - 2026-03-25: renamed the counsel/review workspace label to `생기부 상담 점검` and removed the hero stat cards from the page header

@@ -165,8 +165,13 @@ STAR FAQ/Q&A
 - 학생 관리 UI는 학교 명부 업로드와 teaching class 연결만 담당한다.
 - 별도 `학생 관찰 기록` 섹션에서 학생 카드 보드(`/observation-board`)와 관찰 메모(`/observations`)를 제공한다.
 - `학생 기록 관찰 2`(`/observation-board-2`)는 예시 PNG 톤의 독립형 교실 대시보드이며, 공통 앱 셸 대신 자체 왼쪽 일러스트 레일과 교실형 헤더를 사용한다.
-- `/observation-board-2` 내부에는 `멘토·멘티 활동`과 `관찰 기록` 모드가 있고, 전자는 멘토·멘티 구성판, 차시별 활동 기록 표, 참여/매우 잘함 상태 버튼을 제공한다.
-- `/observation-board-2`의 `관찰 기록` 모드는 기존 관찰 기록 흐름을 관찰2 디자인 안으로 통합해 학급/검색 필터, 학생 다중 선택, 공통 날짜/수업 주제/공통 태그, 학생별 태그/메모 입력, 최근 기록 목록, 상세 모달, 삭제를 제공한다.
+- `/observation-board-2`의 기본 진입 화면은 `학생 관찰 기록`이며, 상단 내부 탭/학급 칩/검색바 없이 PNG형 멘토·멘티 구성판, 차시별 △/○ 활동 기록 표, 활동 기록 안내 배너를 바로 보여준다.
+- `/observation-board-2`의 왼쪽 레일은 `home | mentor | growth | stats | notice | settings | records` 내부 상태를 전환하며, 사이드바에는 `홈`, `학생 관찰 기록`, `성장 기록`, `통계 보기`, `알림장`, `설정`만 노출한다.
+- `/observation-board-2`의 `records` 모드는 기존 관찰 기록 흐름을 관찰2 디자인 안으로 통합하되, 기본 사이드바에서 숨기고 `홈` 빠른 이동 또는 `설정` 보조 버튼으로 진입한다.
+- `/observation-board-2`의 `growth` 모드는 `/api/observations`와 `/api/student-data`의 `note`, `grade`, `mentor_match` 데이터를 합쳐 학생별 누적 타임라인을 구성한다.
+- `/observation-board-2`의 `stats` 모드는 관찰 기록 수, 학생별 기록 수, 태그 빈도, 최근 기록일, 현재 화면의 △/○ 표시 개수를 카드와 막대형 차트로 계산한다.
+- `/observation-board-2`의 `notice` 모드는 서버 API 없이 `observation-board-2-notices:${teacherKey}` localStorage 키로 공지 작성/완료 상태를 유지한다.
+- `/observation-board-2`의 멘토·멘티 패널, 활동 기록 패널, 학생 목록 트레이는 콘텐츠가 늘어날 때 내부 스크롤을 사용해 PNG형 첫 화면 구조가 무너지지 않게 한다.
 - 학생 카드 보드는 데스크톱 1440px 이상에서 약 6열 x 3~4행을 한 화면에 볼 수 있는 고밀도 그리드로 렌더링한다.
 - 학생 카드에서는 번호/이름, 최근 대표 태그, 마지막 기록일, 관찰 메모 수, 선택 상태를 표시하며 삭제 같은 위험 액션은 기본 카드 동선에서 제외한다.
 - 학생 카드에서는 클릭으로 선택 상태를 토글하고, 더블클릭 시 `/observations`로 query prefill 이동한다.

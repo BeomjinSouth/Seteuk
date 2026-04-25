@@ -75,8 +75,14 @@
 - student management is limited to roster upload and teaching-class connection; the student board now lives in `/observation-board`
 - `/observation-board` is a dense classroom board targeting roughly 6 columns x 3~4 rows at 1440px+, with a sticky toolbar for class selection, search, select all, clear selection, and batch observation entry
 - observation cards show student number/name, latest representative tag, last observation date, memo count, and selected state; destructive student deletion is not part of the primary card interaction
-- `/observation-board-2` is a standalone visual observation dashboard based on the provided classroom example; it uses an illustrated left rail, classroom header utilities, class chips, mentor/mentee group cards, a session table, and participation/strong-performance mark buttons while reusing teacher class/student data from the shared store
-- `/observation-board-2` also contains an internal `관찰 기록` mode that ports the previous observation-record workflow into the same visual system: class/search filters, student multi-select, common date/topic/tags, per-student memo rows, recent observation list, detail modal, and delete action
+- `/observation-board-2` is a standalone visual observation dashboard based on the provided classroom example; it uses an illustrated left rail, classroom header utilities, mentor/mentee group cards, a session table, and participation/strong-performance mark buttons while reusing teacher class/student data from the shared store
+- `/observation-board-2` defaults to the PNG-like `학생 관찰 기록` screen and removes the earlier top eyebrow, internal mode tabs, class chips, and search bar from that first mentor/mentee view
+- `/observation-board-2` manages internal board modes (`home`, `mentor`, `growth`, `stats`, `notice`, `settings`, `records`) without leaving the route; the visible sidebar exposes only `홈`, `학생 관찰 기록`, `성장 기록`, `통계 보기`, `알림장`, and `설정`
+- `/observation-board-2` uses cropped raster assets from the provided PNG for the left logo, lower sidebar illustration, and activity-guide illustration while keeping text, cards, buttons, and tables as HTML/CSS
+- `/observation-board-2` `growth` mode fetches `/api/observations` and `/api/student-data` to combine observation notes with teacher-owned note/grade/mentor_match rows in a student timeline
+- `/observation-board-2` `stats` mode computes observation counts, student record counts, tag frequencies, latest record date, and current △/○ marks from the loaded observations and local mark state
+- `/observation-board-2` `notice` mode stores announcements in `localStorage` with the key `observation-board-2-notices:${teacherKey}` and supports create, complete, and delete in the internal dashboard
+- `/observation-board-2` `records` mode ports the previous observation-record workflow into the same visual system, but is only reachable from home/settings quick actions so it does not disturb the PNG-matched default screen
 - `/observations` manual entry uses common date/topic/tags at the top and keeps per-student rows focused on individual tags plus observation memo
 - `학생 데이터` is a top-level tab for teacher-owned notes, grades, mentor matches, and school-shared cookie/reward operations
 - student data APIs store teacher-owned rows in `학생데이터`, shared cookie transactions in `쿠키원장`, and shared reward definitions in `쿠키상품`

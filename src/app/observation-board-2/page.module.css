@@ -1360,7 +1360,777 @@
     color: #bd3535;
 }
 
+.dashboardShell {
+    grid-template-columns: 210px minmax(0, 1fr);
+    background:
+        radial-gradient(circle at 70% 5%, rgba(255, 242, 194, 0.22), transparent 26%),
+        linear-gradient(180deg, #ffffff 0%, #f8fcff 100%);
+}
+
+.classroomSidebar {
+    padding: 0;
+    border-right: 2px solid #a9d8f5;
+    background: #ecf8ff;
+    box-shadow: 10px 0 26px rgba(50, 128, 196, 0.1);
+}
+
+.sidebarLogoImage {
+    display: block;
+    width: 100%;
+    height: 132px;
+    object-fit: cover;
+    border-bottom: 1px solid rgba(116, 192, 236, 0.45);
+}
+
+.sidebarNav {
+    gap: 1.42rem;
+    margin-top: 2.55rem;
+    padding: 0 0.85rem;
+}
+
+.sidebarNav button {
+    min-height: 50px;
+    border-radius: 20px;
+    background: transparent;
+    color: #142e56;
+    padding: 0 0.72rem;
+    font-size: 0.94rem;
+    box-shadow: none;
+}
+
+.sidebarNav button svg {
+    width: 28px;
+    height: 28px;
+    color: #2a88d8;
+    filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.7));
+}
+
+.sidebarNav button:nth-child(3) svg {
+    color: #4fae5d;
+}
+
+.sidebarNav button:nth-child(4) svg {
+    color: #4b9bdc;
+}
+
+.sidebarNav button:nth-child(5) svg {
+    color: #e49b18;
+}
+
+.sidebarNav button:nth-child(6) svg {
+    color: #6a9bc6;
+}
+
+.sidebarNav button:hover,
+.sidebarNavActive {
+    border-color: #207fe0 !important;
+    background: #4aa5f5 !important;
+    color: #ffffff !important;
+    box-shadow: 0 10px 20px rgba(30, 120, 210, 0.23);
+}
+
+.sidebarNavActive svg,
+.sidebarNav button:hover svg {
+    color: #ffffff !important;
+}
+
+.sidebarKidsImage {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.dashboardMain {
+    min-height: 100vh;
+    overflow-y: auto;
+    padding: 1.55rem 1rem 2.65rem 1.05rem;
+}
+
+.dashboardHeader {
+    min-height: 58px;
+    align-items: flex-start;
+    padding: 0 0.18rem 0.85rem;
+}
+
+.titleCluster {
+    display: flex;
+    align-items: center;
+    gap: 0.82rem;
+}
+
+.titleIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    border: 2px solid #5ba8e9;
+    border-radius: 8px;
+    background: #e8f6ff;
+    color: #075fae;
+    box-shadow: inset 0 0 0 4px #ffffff, 0 7px 14px rgba(40, 128, 205, 0.12);
+}
+
+.dashboardHeader h1 {
+    margin: 0;
+    color: #093b83;
+    font-size: clamp(2rem, 2.45vw, 2.55rem);
+    line-height: 1.05;
+    text-shadow: 0 2px 0 rgba(255, 255, 255, 0.85);
+}
+
+.headerActions {
+    padding-top: 0.1rem;
+    gap: 1.25rem;
+}
+
+.headerActions button {
+    min-height: 54px;
+    border-color: #f0c58b;
+    border-radius: 18px;
+    background: #ffffff;
+    padding: 0 1.15rem;
+    font-size: 1rem;
+    box-shadow: 0 8px 18px rgba(144, 95, 34, 0.08);
+}
+
+.workspace {
+    grid-template-columns: 384px minmax(0, 1fr);
+    gap: 1.08rem;
+}
+
+.mentorPanel,
+.recordPanel {
+    max-height: calc(100vh - 182px);
+    overflow-y: auto;
+    border-color: #b6d7f0;
+    border-radius: 18px;
+    box-shadow: 0 10px 24px rgba(52, 134, 202, 0.1);
+}
+
+.mentorPanel {
+    padding: 0.82rem;
+}
+
+.recordPanel {
+    padding: 0.82rem;
+}
+
+.panelTitle {
+    justify-content: center;
+}
+
+.mentorPanel > .panelTitle,
+.recordHeader .panelTitle {
+    border-radius: 18px;
+    background: linear-gradient(180deg, #e2f3ff 0%, #f7fcff 100%);
+    padding: 0.68rem 0.75rem;
+}
+
+.recordHeader .panelTitle {
+    justify-content: flex-start;
+    background: transparent;
+    padding: 0;
+}
+
+.panelTitle h2 {
+    color: #063f8d;
+    font-size: 1.42rem;
+}
+
+.panelTitle p {
+    color: #5d7795;
+}
+
+.yellowNotice,
+.sessionNote {
+    border-color: #f4c94d;
+    border-radius: 12px;
+    background: #fff8d9;
+    font-size: 0.93rem;
+}
+
+.groupStack {
+    gap: 0.85rem;
+}
+
+.groupCard {
+    border-radius: 17px;
+}
+
+.groupHeader {
+    min-height: 42px;
+    font-size: 1.2rem;
+}
+
+.pairRow {
+    min-height: 110px;
+}
+
+.studentToken {
+    min-height: 60px;
+    border-radius: 12px;
+}
+
+.rosterTray {
+    max-height: 224px;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #fbfdff;
+}
+
+.rosterGrid {
+    max-height: 146px;
+    overflow-y: auto;
+    padding-right: 0.2rem;
+}
+
+.recordHeader {
+    align-items: center;
+}
+
+.legend {
+    gap: 1rem;
+    font-size: 0.92rem;
+}
+
+.tableShell {
+    border-color: #b6d7f0;
+    border-radius: 13px;
+}
+
+.activityTable {
+    grid-template-columns: 52px 102px repeat(5, minmax(104px, 1fr)) 66px;
+    min-width: 845px;
+}
+
+.tableHeaderCell,
+.sessionHeader,
+.addSessionButton {
+    min-height: 68px;
+    background: #f1f8ff;
+}
+
+.studentNameCell,
+.markButton,
+.rowSpacer {
+    min-height: 73px;
+}
+
+.markButton svg {
+    stroke-width: 1.8;
+}
+
+.guideBanner {
+    position: relative;
+    min-height: 132px;
+    overflow: hidden;
+    border-color: #9bcff2;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #ffffff 0%, #f7fcff 100%);
+    padding: 1.1rem 25rem 1.1rem 1.65rem;
+}
+
+.guideBanner::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: min(420px, 42%);
+    height: 176px;
+    background: url("/observation-board-2/guide-hands.png") right bottom / contain no-repeat;
+    pointer-events: none;
+}
+
+.guideBanner strong {
+    border-radius: 14px;
+    background: #5aa9f3;
+    color: #ffffff;
+    padding: 0.55rem 1rem;
+    font-size: 1.1rem;
+}
+
+.guideBanner span {
+    font-size: 0.98rem;
+}
+
+.filterStrip {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    overflow-x: auto;
+    margin: 0 0 0.95rem;
+    padding: 0.12rem 0.05rem 0.35rem;
+}
+
+.dashboardView {
+    display: grid;
+    gap: 1rem;
+}
+
+.homeSummaryGrid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.8rem;
+}
+
+.summaryCard,
+.homePanel,
+.growthHero,
+.statsPanel,
+.noticeForm,
+.noticeCard,
+.settingPanel {
+    border: 2px solid var(--board-line);
+    border-radius: 16px;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fcff 100%);
+    box-shadow: 0 12px 26px rgba(52, 134, 202, 0.1);
+}
+
+.summaryCard {
+    display: flex;
+    align-items: center;
+    gap: 0.78rem;
+    min-height: 96px;
+    padding: 0.9rem;
+}
+
+.summaryCard > span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: #eef7ff;
+}
+
+.summaryCard strong,
+.summaryCard em {
+    display: block;
+}
+
+.summaryCard strong {
+    color: #102f58;
+    font-size: 1.45rem;
+    font-weight: 900;
+}
+
+.summaryCard em {
+    color: #617d98;
+    font-size: 0.82rem;
+    font-style: normal;
+    font-weight: 900;
+}
+
+.summary-blue > span {
+    color: var(--board-blue);
+    background: #e8f6ff;
+}
+
+.summary-green > span {
+    color: #4b9c3f;
+    background: #effde9;
+}
+
+.summary-yellow > span {
+    color: #d58a00;
+    background: #fff6d1;
+}
+
+.summary-pink > span {
+    color: #e64b73;
+    background: #fff0f5;
+}
+
+.homeContentGrid,
+.noticeLayout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+    gap: 1rem;
+    align-items: start;
+}
+
+.homePanel,
+.growthHero,
+.statsPanel,
+.noticeForm,
+.settingPanel {
+    padding: 1rem;
+}
+
+.todayStrip {
+    display: flex;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+    margin-top: 0.95rem;
+}
+
+.todayStrip span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    min-height: 38px;
+    border: 2px solid #cfe3f4;
+    border-radius: 999px;
+    background: #ffffff;
+    padding: 0 0.72rem;
+    color: #284765;
+    font-weight: 900;
+}
+
+.quickActionGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.62rem;
+    margin-top: 1rem;
+}
+
+.quickActionGrid button,
+.primaryActionButton,
+.noticeForm button,
+.settingActions button,
+.classButtonGrid button,
+.segmentedControl button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.42rem;
+    min-height: 42px;
+    border: 2px solid #b8daf4;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #18375d;
+    font: inherit;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.quickActionGrid button:hover,
+.primaryActionButton:hover,
+.noticeForm button:hover,
+.settingActions button:hover {
+    border-color: var(--board-blue);
+    background: #eaf7ff;
+}
+
+.compactList {
+    display: grid;
+    gap: 0.55rem;
+    margin-top: 0.9rem;
+}
+
+.compactItem {
+    border: 1px solid #d9e9f4;
+    border-radius: 12px;
+    background: #ffffff;
+    padding: 0.68rem 0.78rem;
+}
+
+.compactItem strong,
+.compactItem span {
+    display: block;
+}
+
+.compactItem strong {
+    color: var(--board-blue-deep);
+    font-weight: 900;
+}
+
+.compactItem span {
+    overflow: hidden;
+    margin-top: 0.15rem;
+    color: #617d98;
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.growthLayout {
+    display: grid;
+    gap: 1rem;
+}
+
+.growthMetricRow {
+    display: flex;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+    margin-top: 0.9rem;
+}
+
+.growthMetricRow span {
+    border-radius: 999px;
+    background: #eef8ff;
+    padding: 0.42rem 0.75rem;
+    color: #34526f;
+    font-weight: 900;
+}
+
+.growthMetricRow strong {
+    color: var(--board-blue-deep);
+}
+
+.timelineList {
+    display: grid;
+    gap: 0.72rem;
+    max-height: calc(100vh - 255px);
+    overflow-y: auto;
+    padding-right: 0.25rem;
+}
+
+.timelineCard {
+    display: grid;
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 0.72rem;
+    border: 2px solid #d4e7f5;
+    border-radius: 16px;
+    background: #ffffff;
+    padding: 0.82rem;
+}
+
+.timelineAvatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #ffe7bf;
+    color: #6d3f05;
+    font-weight: 900;
+}
+
+.timelineMeta {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.timelineMeta strong {
+    color: #063f8d;
+    font-weight: 900;
+}
+
+.timelineMeta em {
+    color: #6a8299;
+    font-size: 0.78rem;
+    font-style: normal;
+    font-weight: 800;
+}
+
+.timelineCard h3 {
+    margin: 0.22rem 0 0.18rem;
+    color: #203c5f;
+    font-size: 1rem;
+}
+
+.timelineCard p {
+    margin: 0;
+    color: #465f7b;
+    font-size: 0.9rem;
+    font-weight: 750;
+    line-height: 1.55;
+}
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.barList {
+    display: grid;
+    gap: 0.72rem;
+    margin-top: 0.95rem;
+}
+
+.barRow {
+    display: grid;
+    grid-template-columns: 80px minmax(0, 1fr) 32px;
+    align-items: center;
+    gap: 0.55rem;
+    color: #284765;
+    font-size: 0.84rem;
+    font-weight: 900;
+}
+
+.barRow div {
+    height: 12px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #e7f1f9;
+}
+
+.barRow i {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #5aa9f3, #8fd46a);
+}
+
+.barRow em {
+    color: var(--board-blue-deep);
+    font-style: normal;
+    text-align: right;
+}
+
+.primaryActionButton {
+    width: 100%;
+    margin-top: 0.85rem;
+    border-color: #70be68;
+    background: #effde9;
+    color: #235d29;
+}
+
+.noticeForm {
+    display: grid;
+    gap: 0.7rem;
+}
+
+.noticeForm input,
+.noticeForm textarea {
+    width: 100%;
+    border: 2px solid #cbe0f1;
+    border-radius: 12px;
+    background: #ffffff;
+    color: var(--board-ink);
+    font: inherit;
+    font-weight: 750;
+    outline: none;
+}
+
+.noticeForm input {
+    min-height: 42px;
+    padding: 0 0.78rem;
+}
+
+.noticeForm textarea {
+    min-height: 126px;
+    padding: 0.72rem 0.78rem;
+    resize: vertical;
+}
+
+.noticeForm button {
+    border-color: #f0bf42;
+    background: #fff7d6;
+}
+
+.noticeList {
+    display: grid;
+    gap: 0.72rem;
+    max-height: calc(100vh - 180px);
+    overflow-y: auto;
+    padding-right: 0.2rem;
+}
+
+.noticeCard {
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr) 38px;
+    gap: 0.62rem;
+    align-items: start;
+    padding: 0.82rem;
+}
+
+.noticeCard button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 2px solid #cfe2f1;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #4f7799;
+    cursor: pointer;
+}
+
+.noticeCard button:last-child {
+    color: #d14a4a;
+}
+
+.noticeCard strong,
+.noticeCard span {
+    display: block;
+}
+
+.noticeCard strong {
+    color: #17325b;
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.noticeCard span {
+    margin-top: 0.12rem;
+    color: #6a8299;
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.noticeCard p {
+    margin: 0.55rem 0 0;
+    color: #415c78;
+    line-height: 1.5;
+}
+
+.noticeDone {
+    opacity: 0.72;
+    background: #f5fbf2;
+}
+
+.noticeDone strong {
+    text-decoration: line-through;
+}
+
+.settingsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    align-items: start;
+}
+
+.classButtonGrid,
+.segmentedControl,
+.settingActions {
+    display: grid;
+    gap: 0.55rem;
+    margin-top: 0.9rem;
+}
+
+.classButtonGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.segmentedControl {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.segmentedActive {
+    border-color: var(--board-blue) !important;
+    background: #e8f6ff !important;
+    color: var(--board-blue-deep) !important;
+}
+
+.settingActions button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
 @media (max-width: 1280px) {
+    .workspace {
+        grid-template-columns: 360px minmax(0, 1fr);
+    }
+
+    .statsGrid,
+    .settingsGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .recordsWorkspace {
         grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
     }
@@ -1381,9 +2151,16 @@
         padding: 0.85rem;
     }
 
+    .sidebarLogoImage,
+    .sidebarKidsImage {
+        display: none;
+    }
+
     .sidebarNav {
         display: flex;
         overflow-x: auto;
+        gap: 0.5rem;
+        margin-top: 0;
         padding-bottom: 0.2rem;
     }
 
@@ -1400,6 +2177,21 @@
     .recordsWorkspace {
         grid-template-columns: 1fr;
     }
+
+    .mentorPanel,
+    .recordPanel,
+    .noticeList,
+    .timelineList {
+        max-height: none;
+    }
+
+    .homeSummaryGrid,
+    .homeContentGrid,
+    .noticeLayout,
+    .statsGrid,
+    .settingsGrid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 760px) {
@@ -1412,6 +2204,14 @@
     .guideBanner {
         align-items: flex-start;
         flex-direction: column;
+    }
+
+    .titleCluster {
+        align-items: flex-start;
+    }
+
+    .dashboardHeader h1 {
+        font-size: 2rem;
     }
 
     .modeTabs {
@@ -1430,6 +2230,26 @@
     .classChip,
     .searchBox {
         width: 100%;
+    }
+
+    .filterStrip {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .quickActionGrid,
+    .homeSummaryGrid,
+    .classButtonGrid,
+    .segmentedControl {
+        grid-template-columns: 1fr;
+    }
+
+    .guideBanner {
+        padding: 1rem;
+    }
+
+    .guideBanner::after {
+        display: none;
     }
 
     .pairRow,
