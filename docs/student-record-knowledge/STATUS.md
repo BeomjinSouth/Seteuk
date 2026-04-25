@@ -30,7 +30,7 @@
 - /eval-check route: redirects to /dashboard while the feature is in development
 - write page integration: implemented
 - search inspector diagnostics route: implemented but hidden from the sidebar
-- main navigation integration: 학교 정보 -> 학생 관찰 기록 -> 학생 데이터 -> AI 세특 생성 -> 평가 점검 (개발중) 순서 적용
+- main navigation integration: 학교 정보 -> 학생 관찰 기록 -> 학생 기록 관찰 2 -> 학생 데이터 -> AI 세특 생성 -> 평가 점검 (개발중) 순서 적용
 - student data tab: implemented with teacher-owned notes/grades/mentor matches and school-shared cookies/rewards
 - student data APIs: `/api/student-data`, `/api/cookies`, `/api/cookie-rewards` implemented with Google Sheets/local fallback storage
 - write generation context: current teacher `AI 반영` student data is injected into `/api/generate`; cookie data is excluded by default
@@ -41,8 +41,10 @@
 - shared roster sync: 학교 공용 명부를 /api/students + 시트 저장소로 동기화하고 같은 학교 사용자가 함께 사용하며, 중복 업로드는 학적 키 기준으로 병합
 - 성호중학교 login: 학교/한글 이름/비밀번호 `123123`만 허용하고 성공 시 /students 학급 등록으로 진입
 - 성호중학교 roster onboarding: 2026 1/2/3학년 명렬표를 공용 학생 명부에 반영했고 성호중학교 교사는 업로드 없이 학급을 선택 등록
-- observation board interaction: 카드 클릭 선택 + 더블클릭 관찰 기록 작성 + 같은 학급 다중 선택 일괄 저장 지원
-- observation compose layout: 학생별 row editor + 선택형 태그 + 날짜 기본값 오늘
+- observation board interaction: 고밀도 보드(1440px+에서 약 6열) + 카드 클릭 선택 + 더블클릭 관찰 기록 작성 + 같은 학급 다중 선택 일괄 저장 지원
+- observation board card state: 번호/이름, 최근 대표 태그, 마지막 기록일, 관찰 메모 수, 선택 상태 표시
+- observation board 2 tab: `/observation-board-2`에서 예시 이미지 기반 멘토·멘티 구성판, 차시별 활동 기록 표, 참여/매우 잘함 클릭 표시 지원
+- observation compose layout: 상단 공통 날짜/수업 주제/공통 태그 + 학생별 개별 태그/관찰 메모 row editor
 - lexical retrieval: implemented
 - AI reranking: implemented
 - bundled knowledge snapshot for deployed runtime: implemented
@@ -59,6 +61,8 @@
 - 2026-04-25: added production token guard for `/api/admin/*` routes
 - 2026-04-25: kept `평가 점검` visible as `평가 점검 (개발중)` but blocked tab navigation and direct `/eval-check` access
 - 2026-04-25: added `학생 데이터` tab, student-data/cookie APIs, teacher-scoped AI context injection, and safer competency color highlighting
+- 2026-04-25: added `학생 기록 관찰 2` next to the observation tab with a mentor/mentee activity-board design based on the provided dashboard example
+- 2026-04-25: redesigned `학생 관찰 기록` into a dense classroom board with batch observation entry and common-context manual compose
 - 2026-03-25: changed student roster upload to sync through shared school storage and merge overlapping uploads by roster key
 - 2026-03-25: renamed the counsel/review workspace label to `생기부 상담 점검` and removed the hero stat cards from the page header
 - 2026-03-25: made knowledge loading prefer `web/output/star-moe-knowledge-2026.json` and bundle that snapshot during sync so deployed routes stop looking for `/var/student-record-knowledge/...`

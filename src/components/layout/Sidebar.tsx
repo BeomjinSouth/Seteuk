@@ -18,6 +18,7 @@ import {
     ClipboardCheck,
     ClipboardList,
     Database,
+    Handshake,
     MessageSquareQuote
 } from 'lucide-react';
 import clsx from 'clsx';
@@ -35,6 +36,10 @@ const schoolNavItems = [
 const observationNavItems = [
     { href: '/observation-board', label: '학생 카드 보드', icon: Users },
     { href: '/observations', label: '관찰 메모', icon: ClipboardList },
+];
+
+const observation2NavItems = [
+    { href: '/observation-board-2', label: '멘토·멘티 활동판', icon: Handshake },
 ];
 
 const studentDataNavItems = [
@@ -75,11 +80,13 @@ export function Sidebar() {
     const activeEvalTab = typeof window === 'undefined'
         ? 'settings'
         : new URLSearchParams(window.location.search).get('tab') ?? 'settings';
+    const matchesRoute = (route: string) => pathname === route || pathname.startsWith(`${route}/`);
 
-    const isSchoolSection = pathname.startsWith('/dashboard') || pathname.startsWith('/school') || pathname.startsWith('/students');
-    const isObservationSection = pathname.startsWith('/observation-board') || pathname.startsWith('/observations');
-    const isStudentDataSection = pathname.startsWith('/student-data');
-    const isEvalCheckSection = pathname.startsWith('/eval-check');
+    const isSchoolSection = matchesRoute('/dashboard') || matchesRoute('/school') || matchesRoute('/students');
+    const isObservationSection = matchesRoute('/observation-board') || matchesRoute('/observations');
+    const isObservation2Section = matchesRoute('/observation-board-2');
+    const isStudentDataSection = matchesRoute('/student-data');
+    const isEvalCheckSection = matchesRoute('/eval-check');
 
     let activeNavItems;
     let sectionLabel;
@@ -90,6 +97,9 @@ export function Sidebar() {
     } else if (isObservationSection) {
         activeNavItems = observationNavItems;
         sectionLabel = '학생 관찰 기록';
+    } else if (isObservation2Section) {
+        activeNavItems = observation2NavItems;
+        sectionLabel = '학생 기록 관찰 2';
     } else if (isStudentDataSection) {
         activeNavItems = studentDataNavItems;
         sectionLabel = '학생 데이터';
@@ -133,7 +143,7 @@ export function Sidebar() {
             </nav>
 
             {/* Show examples only for Seteuk section */}
-            {!isSchoolSection && !isObservationSection && !isStudentDataSection && !isEvalCheckSection && (
+            {!isSchoolSection && !isObservationSection && !isObservation2Section && !isStudentDataSection && !isEvalCheckSection && (
                 <div className={styles.examplesSection}>
                     <Link
                         href="/examples"

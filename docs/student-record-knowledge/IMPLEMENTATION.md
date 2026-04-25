@@ -58,6 +58,7 @@
 - `src/app/search-inspector/page.tsx`
 - `src/app/eval-check/page.tsx`
 - `src/app/observation-board/page.tsx`
+- `src/app/observation-board-2/page.tsx`
 - `src/app/observations/page.tsx`
 - `src/app/student-data/page.tsx`
 - `src/components/layout/AppShell.tsx`
@@ -68,10 +69,14 @@
 - counsel chat and record review now share one `/counsel-chat` workspace with a mode switch, and `/record-review` redirects into that workspace
 - `search-inspector` remains available only as an internal diagnostics route and is no longer shown in the sidebar
 - main navigation groups counsel/review tools under `AI 세특 생성`
-- top navigation order is `학교 정보 -> 학생 관찰 기록 -> 학생 데이터 -> AI 세특 생성 -> 평가 점검 (개발중)`
+- top navigation order is `학교 정보 -> 학생 관찰 기록 -> 학생 기록 관찰 2 -> 학생 데이터 -> AI 세특 생성 -> 평가 점검 (개발중)`
 - `평가 점검 (개발중)` is rendered as a disabled nav item, and direct `/eval-check` access redirects to `/dashboard`
 - `/ocr` stays available as a route, but `GlobalNav` currently filters the OCR tab out of the visible main navigation
 - student management is limited to roster upload and teaching-class connection; the student board now lives in `/observation-board`
+- `/observation-board` is a dense classroom board targeting roughly 6 columns x 3~4 rows at 1440px+, with a sticky toolbar for class selection, search, select all, clear selection, and batch observation entry
+- observation cards show student number/name, latest representative tag, last observation date, memo count, and selected state; destructive student deletion is not part of the primary card interaction
+- `/observation-board-2` is a separate visual observation tab based on the provided classroom dashboard example; it renders mentor/mentee group cards, a session table, participation/strong-performance mark buttons, and class chips while reusing teacher class/student data from the shared store
+- `/observations` manual entry uses common date/topic/tags at the top and keeps per-student rows focused on individual tags plus observation memo
 - `학생 데이터` is a top-level tab for teacher-owned notes, grades, mentor matches, and school-shared cookie/reward operations
 - student data APIs store teacher-owned rows in `학생데이터`, shared cookie transactions in `쿠키원장`, and shared reward definitions in `쿠키상품`
 - `/write` fetches only current `teacherKey + classId + semester + studentId` rows marked `includeInAi=true` before calling `/api/generate`

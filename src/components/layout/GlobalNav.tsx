@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import { Database, GraduationCap, ScanLine, Sparkles, ClipboardCheck, ClipboardList, School } from 'lucide-react';
+import { Database, GraduationCap, ScanLine, Sparkles, ClipboardCheck, ClipboardList, Handshake, School } from 'lucide-react';
 import clsx from 'clsx';
 import { SharedRosterSync } from '@/components/providers/SharedRosterSync';
 import { useAppStore } from '@/lib/store';
@@ -29,6 +29,12 @@ const mainSections: Array<{
         label: '학생 관찰 기록',
         icon: ClipboardList,
         description: '학생 카드 보드, 관찰 메모'
+    },
+    {
+        href: '/observation-board-2',
+        label: '학생 기록 관찰 2',
+        icon: Handshake,
+        description: '멘토·멘티 활동 기록판'
     },
     {
         href: '/student-data',
@@ -87,7 +93,12 @@ export function GlobalNav() {
     // Helper to determine if a section is active
     const isActive = (href: string) => {
         if (href === '/observation-board') {
-            return pathname.startsWith('/observation-board') || pathname.startsWith('/observations');
+            return pathname === '/observation-board'
+                || pathname.startsWith('/observation-board/')
+                || pathname.startsWith('/observations');
+        }
+        if (href === '/observation-board-2') {
+            return pathname === '/observation-board-2' || pathname.startsWith('/observation-board-2/');
         }
         if (href === '/student-data') return pathname.startsWith('/student-data');
         if (href === '/ocr') return pathname.startsWith('/ocr');

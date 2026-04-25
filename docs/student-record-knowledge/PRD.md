@@ -68,7 +68,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - `/record-review`: implemented as a compatibility redirect to `/counsel-chat?mode=review`
 - `/write`: RAG review-improve action implemented
 - `/search-inspector`: retained as an internal diagnostics page and removed from the sidebar
-- top navigation order: `학교 정보` -> `학생 관찰 기록` -> `AI 세특 생성` -> `평가 점검 (개발중)`
+- top navigation order: `학교 정보` -> `학생 관찰 기록` -> `학생 기록 관찰 2` -> `학생 데이터` -> `AI 세특 생성` -> `평가 점검 (개발중)`
 - `평가 점검 (개발중)` remains visible but is disabled and does not link to `/eval-check`
 - `/eval-check`: redirects to `/dashboard` when entered directly
 - `/ocr` remains implemented, but the tab is currently hidden from the top navigation
@@ -86,5 +86,8 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - 성호중학교 teachers use the preloaded 2026 grade rosters and do not need the upload step
 - repeated roster uploads for the same school are merged by roster key, so overlapping students are skipped instead of duplicated
 - student board location: `/observation-board`
-- observation board interaction: single click selects, double click opens observation writing, and same-class multi-selection supports batch entry
-- manual observation entry uses per-student rows with roster/date fields plus lesson topic, selected tag, and free memo
+- observation board interaction: dense desktop board targeting roughly 6 columns x 3~4 rows at 1440px+, single click selects, double click opens observation writing, and same-class multi-selection supports batch entry
+- observation board cards show student number/name, latest representative tag, last observation date, memo count, and selected state while keeping destructive actions out of the primary card flow
+- observation board 2 location: `/observation-board-2`
+- observation board 2 interaction: example-image-inspired mentor/mentee pairing board with class chips, group cards, and clickable session status cells for participation and strong performance marks
+- manual observation entry uses common date/topic/tags at the top and per-student rows for individual tags plus observation memo
