@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import type { ReactNode } from 'react';
+import type { DragEvent, ReactNode } from 'react';
 import { useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
@@ -68,6 +68,22 @@ type GrowthTimelineItem = {
     date: string;
     meta: string;
 };
+
+type MentorRole = 'mentor' | 'mentee';
+
+interface MentorGroupAssignment {
+    id: string;
+    title: string;
+    mentorId?: string;
+    menteeId?: string;
+}
+
+interface MentorGroupView {
+    id: string;
+    title: string;
+    mentor?: Student;
+    mentee?: Student;
+}
 
 const sessions = [
     { id: 'session-1', label: '1차시', date: '5/2 (금)', topic: '서로 알아가기' },
@@ -169,6 +185,18 @@ function getBoardModeTitle(mode: BoardMode) {
     return titles[mode];
 }
 
+function buildMentorAssignments(studentsForBoard: Student[]): MentorGroupAssignment[] {
+    const rows = (studentsForBoard.length > 0 ? studentsForBoard : fallbackStudents).slice(0, 6);
+    const groupCount = Math.max(3, Math.ceil(rows.length / 2));
+
+    return Array.from({ length: groupCount }, (_, groupIndex) => ({
+        id: `group-${groupIndex + 1}`,
+        title: `${groupIndex + 1}조`,
+        mentorId: rows[groupIndex * 2]?.id,
+        menteeId: rows[groupIndex * 2 + 1]?.id,
+    }));
+}
+
 function sortStudents(a: Student, b: Student) {
     return (a.grade ?? 0) - (b.grade ?? 0)
         || (a.classNumber ?? 0) - (b.classNumber ?? 0)
@@ -201,6 +229,7 @@ export default function ObservationBoard2Page() {
     const [noticeDraft, setNoticeDraft] = useState({ title: '', body: '', dueDate: today() });
     const [notices, setNotices] = useState<NoticeItem[]>([]);
     const [loadedNoticeKey, setLoadedNoticeKey] = useState('');
+    const [mentorAssignments, setMentorAssignments] = useState<MentorGroupAssignment[]>([]);
 
     useEffect(() => {
         setIsStoreReady(useAppStore.persist.hasHydrated());
@@ -237,6 +266,14 @@ export default function ObservationBoard2Page() {
         return Array.from(map.values()).sort(sortStudents);
     }, [students, teacherClasses]);
 
+    const studentLookup = useMemo(() => {
+        const map = new Map<string, Student>();
+        [...fallbackStudents, ...students, ...teacherStudents].forEach((student) => {
+            map.set(student.id, student);
+        });
+        return map;
+    }, [students, teacherStudents]);
+
     const selectedClass = teacherClasses.find((cls) => cls.id === selectedClassId);
 
     const boardStudents = useMemo(() => {
@@ -256,15 +293,20 @@ export default function ObservationBoard2Page() {
 
     const featuredStudents = filteredStudents.slice(0, 6);
 
-    const mentorGroups = useMemo(() => {
-        const rows = featuredStudents.length > 0 ? featuredStudents : fallbackStudents;
-        return Array.from({ length: Math.ceil(rows.length / 2) }, (_, groupIndex) => ({
-            id: `group-${groupIndex + 1}`,
-            title: `${groupIndex + 1}조`,
-            mentor: rows[groupIndex * 2],
-            mentee: rows[groupIndex * 2 + 1],
-        })).filter((group) => group.mentor);
-    }, [featuredStudents]);
+    const defaultMentorAssignments = useMemo(
+        () => buildMentorAssignments(featuredStudents.length > 0 ? featuredStudents : fallbackStudents),
+        [featuredStudents]
+    );
+
+    const mentorGroups = useMemo<MentorGroupView[]>(() => {
+        const source = mentorAssignments.length > 0 ? mentorAssignments : defaultMentorAssignments;
+        return source.map((group) => ({
+            id: group.id,
+            title: group.title,
+            mentor: group.mentorId ? studentLookup.get(group.mentorId) : undefined,
+            mentee: group.menteeId ? studentLookup.get(group.menteeId) : undefined,
+        }));
+    }, [defaultMentorAssignments, mentorAssignments, studentLookup]);
 
     const selectedStudents = useMemo(
         () => filteredStudents.filter((student) => selectedStudentIds.has(student.id)),
@@ -317,21 +359,15 @@ export default function ObservationBoard2Page() {
             .sort((a, b) => getObservationTimestamp(b) - getObservationTimestamp(a));
     }, [scopedObservations, searchQuery, students]);
 
-    const totalExcellent = featuredStudents.reduce((sum, student, studentIndex) => (
+    const assignedMentorStudents = mentorGroups.flatMap((group) => [group.mentor, group.mentee]).filter(Boolean) as Student[];
+
+    const totalExcellent = assignedMentorStudents.reduce((sum, student, studentIndex) => (
         sum + sessions.reduce((sessionSum, session, sessionIndex) => {
             const key = `${student.id}:${session.id}`;
             const mark = marks[key] ?? getDefaultMark(studentIndex, sessionIndex);
             return sessionSum + (mark === 'excellent' ? 1 : 0);
         }, 0)
     ), 0);
-
-    const studentLookup = useMemo(() => {
-        const map = new Map<string, Student>();
-        [...fallbackStudents, ...students, ...teacherStudents].forEach((student) => {
-            map.set(student.id, student);
-        });
-        return map;
-    }, [students, teacherStudents]);
 
     const scopedStudentDataEntries = useMemo(
         () => studentDataEntries
@@ -428,6 +464,19 @@ export default function ObservationBoard2Page() {
         if (!teacher?.teacherKey) return;
         void loadStudentData();
     }, [teacher?.teacherKey, teacher?.school]);
+
+    useEffect(() => {
+        const availableIds = new Set(boardStudents.map((student) => student.id));
+
+        setMentorAssignments((prev) => {
+            const assignedIds = prev.flatMap((group) => [group.mentorId, group.menteeId]).filter(Boolean) as string[];
+            const canKeepPrevious = prev.length > 0
+                && assignedIds.length > 0
+                && assignedIds.every((studentId) => availableIds.has(studentId));
+
+            return canKeepPrevious ? prev : defaultMentorAssignments;
+        });
+    }, [boardStudents, defaultMentorAssignments]);
 
     useEffect(() => {
         const storageKey = getNoticeStorageKey(teacher?.teacherKey);
@@ -703,6 +752,50 @@ export default function ObservationBoard2Page() {
         setNoticeDraft({ title: '', body: '', dueDate: today() });
     };
 
+    const handleAssignMentorStudent = (studentId: string, targetGroupId: string, targetRole: MentorRole) => {
+        setMentorAssignments((prev) => {
+            const source = prev.length > 0 ? prev : defaultMentorAssignments;
+            let sourceGroupId: string | undefined;
+            let sourceRole: MentorRole | undefined;
+            let replacedStudentId: string | undefined;
+
+            source.forEach((group) => {
+                if (group.mentorId === studentId) {
+                    sourceGroupId = group.id;
+                    sourceRole = 'mentor';
+                }
+                if (group.menteeId === studentId) {
+                    sourceGroupId = group.id;
+                    sourceRole = 'mentee';
+                }
+                if (group.id === targetGroupId) {
+                    replacedStudentId = targetRole === 'mentor' ? group.mentorId : group.menteeId;
+                }
+            });
+
+            if (sourceGroupId === targetGroupId && sourceRole === targetRole) return source;
+
+            return source.map((group) => {
+                const next = { ...group };
+
+                if (next.mentorId === studentId) next.mentorId = undefined;
+                if (next.menteeId === studentId) next.menteeId = undefined;
+
+                if (sourceGroupId && sourceRole && replacedStudentId && group.id === sourceGroupId) {
+                    if (sourceRole === 'mentor') next.mentorId = replacedStudentId;
+                    else next.menteeId = replacedStudentId;
+                }
+
+                if (group.id === targetGroupId) {
+                    if (targetRole === 'mentor') next.mentorId = studentId;
+                    else next.menteeId = studentId;
+                }
+
+                return next;
+            });
+        });
+    };
+
     const renderBoardContent = () => {
         if (activeMode === 'home') {
             return (
@@ -834,6 +927,7 @@ export default function ObservationBoard2Page() {
                 selectedClass={selectedClass}
                 totalExcellent={totalExcellent}
                 visibleRosterCount={visibleRosterCount}
+                onAssignStudent={handleAssignMentorStudent}
                 onUpdateMark={updateMark}
             />
         );
@@ -1484,22 +1578,31 @@ function MentorActivityView({
     selectedClass,
     totalExcellent,
     visibleRosterCount,
+    onAssignStudent,
     onUpdateMark,
 }: {
     boardStudents: Student[];
     featuredStudents: Student[];
-    mentorGroups: Array<{
-        id: string;
-        title: string;
-        mentor: Student;
-        mentee?: Student;
-    }>;
+    mentorGroups: MentorGroupView[];
     marks: Record<string, MarkState>;
     selectedClass?: ClassGroup;
     totalExcellent: number;
     visibleRosterCount: number;
+    onAssignStudent: (studentId: string, groupId: string, role: MentorRole) => void;
     onUpdateMark: (studentId: string, sessionId: string, fallback: MarkState) => void;
 }) {
+    const startStudentDrag = (event: DragEvent<HTMLElement>, studentId: string) => {
+        event.dataTransfer.setData('text/plain', studentId);
+        event.dataTransfer.effectAllowed = 'move';
+    };
+
+    const dropStudent = (event: DragEvent<HTMLElement>, groupId: string, role: MentorRole) => {
+        event.preventDefault();
+        const studentId = event.dataTransfer.getData('text/plain');
+        if (!studentId) return;
+        onAssignStudent(studentId, groupId, role);
+    };
+
     return (
         <>
             <main className={styles.workspace}>
@@ -1522,20 +1625,32 @@ function MentorActivityView({
                             <motion.article
                                 key={group.id}
                                 className={styles.groupCard}
-                                initial={{ opacity: 0, y: 8 }}
+                                initial={false}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.04 }}
+                                transition={{ duration: 0.12 }}
                             >
                                 <div className={styles.groupHeader}>
                                     <strong>{group.title}</strong>
                                     <Star size={17} />
                                 </div>
                                 <div className={styles.pairRow}>
-                                    <StudentToken student={group.mentor} role="멘토" tone="blue" />
+                                    <StudentToken
+                                        student={group.mentor}
+                                        role="멘토"
+                                        tone="blue"
+                                        onDragStart={(event, studentId) => startStudentDrag(event, studentId)}
+                                        onDrop={(event) => dropStudent(event, group.id, 'mentor')}
+                                    />
                                     <div className={styles.handshakeMark}>
                                         <Handshake size={22} />
                                     </div>
-                                    <StudentToken student={group.mentee} role="멘티" tone="pink" />
+                                    <StudentToken
+                                        student={group.mentee}
+                                        role="멘티"
+                                        tone="pink"
+                                        onDragStart={(event, studentId) => startStudentDrag(event, studentId)}
+                                        onDrop={(event) => dropStudent(event, group.id, 'mentee')}
+                                    />
                                 </div>
                             </motion.article>
                         ))}
@@ -1548,7 +1663,13 @@ function MentorActivityView({
                         </div>
                         <div className={styles.rosterGrid}>
                             {boardStudents.slice(0, visibleRosterCount).map((student) => (
-                                <div key={student.id} className={styles.rosterItem}>
+                                <div
+                                    key={student.id}
+                                    className={styles.rosterItem}
+                                    draggable
+                                    onDragStart={(event) => startStudentDrag(event, student.id)}
+                                    title={`${student.name} 드래그`}
+                                >
                                     <span>{getInitials(student.name)}</span>
                                     {student.name}
                                 </div>
@@ -1908,22 +2029,42 @@ function StudentToken({
     student,
     role,
     tone,
+    onDragStart,
+    onDrop,
 }: {
     student?: Student;
     role: string;
     tone: 'blue' | 'pink';
+    onDragStart: (event: DragEvent<HTMLElement>, studentId: string) => void;
+    onDrop: (event: DragEvent<HTMLElement>) => void;
 }) {
+    const handleDragOver = (event: DragEvent<HTMLElement>) => {
+        event.preventDefault();
+        event.dataTransfer.dropEffect = 'move';
+    };
+
     if (!student) {
         return (
-            <div className={`${styles.studentToken} ${styles.emptyToken}`}>
+            <div
+                className={`${styles.studentToken} ${styles.emptyToken}`}
+                onDragOver={handleDragOver}
+                onDrop={onDrop}
+            >
                 <span className={styles.roleLabel}>{role}</span>
-                <strong>대기</strong>
+                <strong>여기에 놓기</strong>
             </div>
         );
     }
 
     return (
-        <div className={`${styles.studentToken} ${tone === 'blue' ? styles.tokenBlue : styles.tokenPink}`}>
+        <div
+            className={`${styles.studentToken} ${tone === 'blue' ? styles.tokenBlue : styles.tokenPink}`}
+            draggable
+            onDragStart={(event) => onDragStart(event, student.id)}
+            onDragOver={handleDragOver}
+            onDrop={onDrop}
+            title={`${student.name} 드래그해서 자리 바꾸기`}
+        >
             <span className={styles.avatar}>{getInitials(student.name)}</span>
             <span className={styles.roleLabel}>{role}</span>
             <strong>{student.name}</strong>

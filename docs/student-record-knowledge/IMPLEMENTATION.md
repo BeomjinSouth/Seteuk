@@ -83,6 +83,8 @@
 - `/observation-board-2` `stats` mode computes observation counts, student record counts, tag frequencies, latest record date, and current △/○ marks from the loaded observations and local mark state
 - `/observation-board-2` `notice` mode stores announcements in `localStorage` with the key `observation-board-2-notices:${teacherKey}` and supports create, complete, and delete in the internal dashboard
 - `/observation-board-2` `records` mode ports the previous observation-record workflow into the same visual system, but is only reachable from home/settings quick actions so it does not disturb the PNG-matched default screen
+- `/observation-board-2` loads `MaplestoryLight.ttf` and `MaplestoryBold.ttf` from `public/fonts` and applies the Maplestory family across the classroom dashboard
+- `/observation-board-2` stores mentor/mentee slot assignments in local React state and uses HTML5 drag/drop so a student token or roster item can be dropped onto any mentor/mentee slot
 - `/observations` manual entry uses common date/topic/tags at the top and keeps per-student rows focused on individual tags plus observation memo
 - `학생 데이터` is a top-level tab for teacher-owned notes, grades, mentor matches, and school-shared cookie/reward operations
 - student data APIs store teacher-owned rows in `학생데이터`, shared cookie transactions in `쿠키원장`, and shared reward definitions in `쿠키상품`

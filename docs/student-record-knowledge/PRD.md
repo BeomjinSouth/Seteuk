@@ -95,4 +95,5 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - observation board 2 stats dashboard: summarizes observation counts, student counts, tag frequency, latest record date, and current △/○ activity marks with cards and compact bars
 - observation board 2 notice dashboard: stores announcements and completion state in browser localStorage under `observation-board-2-notices:${teacherKey}`
 - observation board 2 observation compose: the existing observation-record workflow remains available from home/settings quick actions as an internal `records` mode rather than a visible sidebar tab
+- observation board 2 mentor matching: uses the provided Maplestory TTF and supports dragging student names from mentor/mentee cards or the roster into mentor/mentee slots
 - manual observation entry uses common date/topic/tags at the top and per-student rows for individual tags plus observation memo

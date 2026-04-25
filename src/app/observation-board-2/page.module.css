@@ -1,3 +1,27 @@
+@font-face {
+    font-family: "Maplestory";
+    src: url("/fonts/MaplestoryLight.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Maplestory";
+    src: url("/fonts/MaplestoryBold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Maplestory";
+    src: url("/fonts/MaplestoryBold.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
 .dashboardShell {
     min-height: 100vh;
     display: grid;
@@ -18,6 +42,9 @@
     --board-pink: #ff82aa;
     --board-red: #f25454;
     --board-violet: #8d7af2;
+    font-family: "Maplestory", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    letter-spacing: 0;
+    word-break: keep-all;
 }
 
 .classroomSidebar {
@@ -2119,6 +2146,180 @@
 .settingActions button:disabled {
     opacity: 0.45;
     cursor: not-allowed;
+}
+
+.dashboardMain {
+    padding: 1.18rem 1rem 1.4rem 1.05rem;
+}
+
+.dashboardHeader {
+    min-height: 50px;
+    padding-bottom: 0.62rem;
+}
+
+.titleIcon {
+    width: 50px;
+    height: 50px;
+}
+
+.dashboardHeader h1 {
+    font-size: clamp(1.95rem, 2.25vw, 2.42rem);
+}
+
+.headerActions button {
+    min-width: 126px;
+    min-height: 48px;
+    padding: 0 1rem;
+    white-space: nowrap;
+}
+
+.mentorPanel,
+.recordPanel {
+    max-height: calc(100vh - 226px);
+}
+
+.mentorPanel,
+.recordPanel,
+.homePanel,
+.growthHero,
+.statsPanel,
+.noticeForm,
+.settingPanel {
+    overflow-wrap: anywhere;
+}
+
+.mentorPanel > .panelTitle,
+.recordHeader .panelTitle {
+    padding: 0.55rem 0.68rem;
+}
+
+.panelTitle h2 {
+    line-height: 1.12;
+}
+
+.panelTitle p,
+.sessionHeader span,
+.sessionHeader em,
+.studentNameCell div > span,
+.roleLabel {
+    line-height: 1.25;
+}
+
+.yellowNotice,
+.sessionNote {
+    min-height: 34px;
+    line-height: 1.45;
+}
+
+.groupStack {
+    gap: 0.52rem;
+}
+
+.groupHeader {
+    min-height: 30px;
+    font-size: 0.98rem;
+}
+
+.pairRow {
+    min-height: 64px;
+    padding: 0.36rem 0.5rem;
+}
+
+.studentToken {
+    min-height: 48px;
+    cursor: grab;
+}
+
+.studentToken:active,
+.rosterItem:active {
+    cursor: grabbing;
+}
+
+.studentToken strong {
+    white-space: normal;
+}
+
+.emptyToken {
+    cursor: copy;
+}
+
+.tokenBlue:hover,
+.tokenPink:hover,
+.rosterItem:hover {
+    border-color: #2f86d8;
+    box-shadow: 0 8px 16px rgba(47, 134, 216, 0.16);
+    transform: translateY(-1px);
+}
+
+.rosterTray {
+    max-height: 204px;
+    padding: 0.6rem;
+}
+
+.rosterGrid {
+    max-height: 130px;
+}
+
+.rosterItem {
+    cursor: grab;
+    transition: border-color 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
+}
+
+.recordHeader {
+    margin-bottom: 0.55rem;
+}
+
+.activityTable {
+    width: 100%;
+    grid-template-columns: 48px 92px repeat(5, minmax(82px, 1fr)) 54px;
+    min-width: 0;
+}
+
+.tableHeaderCell,
+.sessionHeader,
+.addSessionButton {
+    min-height: 60px;
+}
+
+.studentNameCell,
+.markButton,
+.rowSpacer {
+    min-height: 59px;
+}
+
+.studentNameCell strong {
+    white-space: normal;
+}
+
+.smallAvatar {
+    width: 24px;
+    height: 24px;
+}
+
+.markButton svg {
+    width: 25px;
+    height: 25px;
+}
+
+.guideBanner {
+    min-height: 104px;
+    margin-top: 0.66rem;
+    padding: 0.86rem 20rem 0.86rem 1.42rem;
+}
+
+.guideBanner::after {
+    width: min(330px, 35%);
+    height: 138px;
+}
+
+.guideBanner div {
+    row-gap: 0.4rem;
+}
+
+.guideBanner p {
+    max-width: 260px;
+    line-height: 1.45;
+    text-align: left;
 }
 
 @media (max-width: 1280px) {
