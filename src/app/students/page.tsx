@@ -21,10 +21,13 @@ import {
     buildHomeroomClassId,
     buildTeachingClassId,
     getTeacherClasses,
+    getStudentsInTeachingClass,
     getUniqueHomeroomOptions,
 } from '@/lib/teacher-context';
 import { SEONGHO_SCHOOL_NAME, isSeonghoSchool } from '@/lib/seongho-auth';
 import styles from './page.module.css';
+
+type SharedRosterStatus = 'idle' | 'loading' | 'loaded' | 'empty' | 'error';
 
 function extractClassNumber(classStr: string | number): number {
     if (typeof classStr === 'number') return classStr;
@@ -91,6 +94,7 @@ export default function StudentsPage() {
     const [isDragging, setIsDragging] = useState(false);
     const [isUploading, setIsUploading] = useState(false);
     const [isSharedRosterLoading, setIsSharedRosterLoading] = useState(false);
+    const [sharedRosterStatus, setSharedRosterStatus] = useState<SharedRosterStatus>('idle');
 
     const isSeonghoRosterMode = isSeonghoSchool(teacher?.school);
 
@@ -134,6 +138,7 @@ export default function StudentsPage() {
 
         const loadSeonghoRoster = async () => {
             setIsSharedRosterLoading(true);
+            setSharedRosterStatus('loading');
 
             try {
                 const params = new URLSearchParams({ school: SEONGHO_SCHOOL_NAME });
@@ -143,15 +148,26 @@ export default function StudentsPage() {
                 });
 
                 if (!response.ok) {
-                    return;
+                    const payload = await response.json().catch(() => null) as { error?: string } | null;
+                    throw new Error(payload?.error || `명렬표 API 오류 (${response.status})`);
                 }
 
                 const payload = await response.json() as { students?: Student[] };
                 if (Array.isArray(payload.students) && payload.students.length > 0) {
-                    replaceRosterStudentsForSchool(SEONGHO_SCHOOL_NAME, payload.students);
+                    const normalizedStudents = payload.students.map((student) => ({
+                        ...student,
+                        school: isSeonghoSchool(student.school) ? SEONGHO_SCHOOL_NAME : student.school,
+                    }));
+
+                    replaceRosterStudentsForSchool(SEONGHO_SCHOOL_NAME, normalizedStudents);
+                    setSharedRosterStatus('loaded');
+                    return;
                 }
+
+                setSharedRosterStatus('empty');
             } catch (error) {
                 if (!controller.signal.aborted) {
+                    setSharedRosterStatus('error');
                     setUploadResult({
                         success: false,
                         message: '성호중학교 공용 명렬표를 불러오지 못했습니다.',
@@ -169,6 +185,26 @@ export default function StudentsPage() {
 
         return () => controller.abort();
     }, [replaceRosterStudentsForSchool, teacher?.school]);
+
+    const emptyAssignmentMessage = useMemo(() => {
+        if (!isSeonghoRosterMode) {
+            return '먼저 학교 학생 명부를 업로드하세요.';
+        }
+
+        if (sharedRosterStatus === 'loading') {
+            return '성호중학교 명렬표를 불러오고 있습니다.';
+        }
+
+        if (sharedRosterStatus === 'error') {
+            return '성호중학교 명렬표를 불러오지 못했습니다. 위 오류 내용을 확인하세요.';
+        }
+
+        if (sharedRosterStatus === 'empty') {
+            return '성호중학교 공용 명렬표가 아직 등록되지 않았습니다.';
+        }
+
+        return '담당 학급을 표시할 명렬표가 없습니다.';
+    }, [isSeonghoRosterMode, sharedRosterStatus]);
 
     const handleDownloadTemplate = () => {
         const template = [
@@ -384,11 +420,18 @@ export default function StudentsPage() {
                 subjectName: teacher.subject,
                 semester: selectedSemester,
                 year,
-                studentCount: students.filter((student) =>
-                    student.school === teacher.school
-                    && student.grade === grade
-                    && student.classNumber === classNumber
-                ).length,
+                studentCount: getStudentsInTeachingClass(students, {
+                    id: teacherClassId,
+                    kind: 'teaching',
+                    school: teacher.school,
+                    teacherKey: teacher.teacherKey,
+                    grade,
+                    classNumber,
+                    subjectName: teacher.subject,
+                    semester: selectedSemester,
+                    year,
+                    studentCount: 0,
+                }).length,
             });
         });
 
@@ -471,6 +514,10 @@ export default function StudentsPage() {
                                     {item.grade}학년 {item.count}명
                                 </span>
                             ))
+                        ) : sharedRosterStatus === 'error' ? (
+                            <span className={styles.presetStat}>명렬표 불러오기 실패</span>
+                        ) : sharedRosterStatus === 'empty' ? (
+                            <span className={styles.presetStat}>명렬표 데이터 없음</span>
                         ) : (
                             <span className={styles.presetStat}>등록된 명렬표 없음</span>
                         )}
@@ -597,7 +644,7 @@ export default function StudentsPage() {
 
                 {homeroomOptions.length === 0 ? (
                     <div className={styles.emptyAssignment}>
-                        <p>{isSeonghoRosterMode ? '성호중학교 명렬표를 불러오고 있습니다.' : '먼저 학교 학생 명부를 업로드하세요.'}</p>
+                        <p>{emptyAssignmentMessage}</p>
                     </div>
                 ) : (
                     <>

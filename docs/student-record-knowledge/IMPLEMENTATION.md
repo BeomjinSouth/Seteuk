@@ -102,8 +102,8 @@
 
 - `src/lib/seongho-auth.ts` centralizes the 성호중학교 login contract: `학교=성호중학교`, `아이디=한글 이름`, `비밀번호=123123`.
 - `src/app/page.tsx` no longer accepts arbitrary school/subject logins or demo bypass from the login screen; successful login stores a `seongho-school` session and routes to `/students`.
-- `src/components/layout/GlobalNav.tsx` checks authenticated pages for a valid 성호중학교 session and redirects stale/invalid local sessions back to login.
-- `src/app/students/page.tsx` detects 성호중학교 mode, hides the upload dropzone, loads `/api/students?school=성호중학교`, and lets the teacher register selected classes immediately.
+- `src/components/layout/GlobalNav.tsx` waits for persisted auth hydration before checking authenticated pages, then redirects stale/invalid local sessions back to login.
+- `src/app/students/page.tsx` detects 성호중학교 mode, hides the upload dropzone, loads `/api/students?school=성호중학교`, shows explicit loading/empty/error roster states, and lets the teacher register selected classes immediately.
 - `scripts/import-seongho-roster.mjs` imports the local 2026 1/2/3학년 명렬표 workbooks into the shared sheet-backed `학생` roster without committing student names into the repo.
 
 ## Response Policy

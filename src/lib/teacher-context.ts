@@ -57,9 +57,11 @@ export function getTeacherClasses(
 }
 
 export function getStudentsInTeachingClass(students: Student[], cls: ClassGroup): Student[] {
+    const classSchoolKey = slugify(cls.school || '');
+
     return students
         .filter((student) =>
-            student.school === cls.school
+            slugify(student.school || '') === classSchoolKey
             && student.grade === cls.grade
             && student.classNumber === cls.classNumber
         )
@@ -73,9 +75,10 @@ export function getLearningDataForClass(student: Student, classId?: string): Rec
 
 export function getUniqueHomeroomOptions(students: Student[], school?: string) {
     const map = new Map<string, { key: string; grade: number; classNumber: number; count: number }>();
+    const schoolKey = school ? slugify(school) : '';
 
     students.forEach((student) => {
-        if (school && student.school !== school) return;
+        if (schoolKey && slugify(student.school || '') !== schoolKey) return;
         const grade = student.grade || 0;
         const classNumber = student.classNumber || 0;
         if (grade <= 0 || classNumber <= 0) return;

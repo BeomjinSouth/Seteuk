@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { useAppStore } from '@/lib/store';
+import { isSeonghoSchool, SEONGHO_SCHOOL_NAME } from '@/lib/seongho-auth';
 import { Student } from '@/types';
 
 export function SharedRosterSync() {
@@ -30,7 +31,12 @@ export function SharedRosterSync() {
                     return;
                 }
 
-                replaceRosterStudentsForSchool(teacher.school, payload.students);
+                const normalizedStudents = payload.students.map((student) => ({
+                    ...student,
+                    school: isSeonghoSchool(student.school) ? SEONGHO_SCHOOL_NAME : student.school,
+                }));
+
+                replaceRosterStudentsForSchool(teacher.school, normalizedStudents);
             } catch (error) {
                 if (!controller.signal.aborted) {
                     console.error('Shared roster sync failed:', error);

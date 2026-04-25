@@ -23,6 +23,10 @@ export function isAdmin(teacher: TeacherProfile | null): boolean {
     return teacher.name === ADMIN_CONFIG.name && isSeonghoSchool(teacher.school);
 }
 
+function normalizeSchoolKey(value?: string): string {
+    return (value || '').trim().replace(/\s+/g, '').toLowerCase();
+}
+
 // Notification types
 export interface AdminNotification {
     id: string;
@@ -51,6 +55,7 @@ export interface CurriculumContent {
 interface AppState {
     // Auth
     teacher: TeacherProfile | null;
+    hasHydrated: boolean;
 
     // Data
     classes: ClassGroup[];
@@ -75,6 +80,7 @@ interface AppState {
     // Actions
     login: (name: string, subject: string, school: string) => void;
     logout: () => void;
+    setHasHydrated: (hasHydrated: boolean) => void;
     seedDemoWorkspace: () => string | null;
 
     addClass: (cls: ClassGroup) => void;
@@ -141,6 +147,7 @@ export const useAppStore = create<AppState>()(
     persist(
         (set, get) => ({
             teacher: null,
+            hasHydrated: false,
             classes: [],
             students: [],
             records: [],
@@ -158,6 +165,7 @@ export const useAppStore = create<AppState>()(
             }),
 
             logout: () => set({ teacher: null }),
+            setHasHydrated: (hasHydrated) => set({ hasHydrated }),
 
             seedDemoWorkspace: () => {
                 const teacher = get().teacher;
@@ -269,10 +277,10 @@ export const useAppStore = create<AppState>()(
             }),
 
             replaceRosterStudentsForSchool: (school, newStudents) => set((state) => {
-                const schoolKey = school.replace(/\s+/g, '').toLowerCase();
+                const schoolKey = normalizeSchoolKey(school);
                 const incomingIds = new Set(newStudents.map((student) => student.id));
                 const nextStudents = state.students.filter((student) =>
-                    student.school !== school
+                    normalizeSchoolKey(student.school) !== schoolKey
                     && !incomingIds.has(student.id)
                     && !student.id.startsWith(`student-${schoolKey}-`)
                 );
@@ -464,6 +472,9 @@ export const useAppStore = create<AppState>()(
                 forbiddenWords: state.forbiddenWords,
                 keywords: state.keywords,
             }),
+            onRehydrateStorage: () => (state) => {
+                state?.setHasHydrated(true);
+            },
         }
     )
 );

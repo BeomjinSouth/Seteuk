@@ -41,6 +41,8 @@
 - shared roster sync: 학교 공용 명부를 /api/students + 시트 저장소로 동기화하고 같은 학교 사용자가 함께 사용하며, 중복 업로드는 학적 키 기준으로 병합
 - 성호중학교 login: 학교/한글 이름/비밀번호 `123123`만 허용하고 성공 시 /students 학급 등록으로 진입
 - 성호중학교 roster onboarding: 2026 1/2/3학년 명렬표를 공용 학생 명부에 반영했고 성호중학교 교사는 업로드 없이 학급을 선택 등록
+- 성호중학교 roster load resilience: /students 명렬표 로딩/빈 데이터/오류 상태를 명확히 표시하고, 학교명 비교는 정규화된 값으로 처리
+- auth hydration: authenticated pages wait for persisted store hydration before redirecting, so /students refresh keeps the logged-in session
 - observation board interaction: 고밀도 보드(1440px+에서 약 6열) + 카드 클릭 선택 + 더블클릭 관찰 기록 작성 + 같은 학급 다중 선택 일괄 저장 지원
 - observation board card state: 번호/이름, 최근 대표 태그, 마지막 기록일, 관찰 메모 수, 선택 상태 표시
 - observation board 2 tab: `/observation-board-2`에서 예시 PNG에 맞춘 독립형 교실 대시보드, 기본 `학생 관찰 기록` 활동판, 모둠 추가, 차시별 활동 기록 표, 참여/매우 잘함 클릭 표시 지원
@@ -58,6 +60,7 @@
 
 ## Recent Changes
 
+- 2026-04-25: made 성호중학교 roster loading errors visible, normalized school matching for shared rosters, and prevented authenticated pages from redirecting before local session hydration
 - 2026-04-25: restricted login to 성호중학교 teacher-name/password credentials and redirected successful login to class registration
 - 2026-04-25: imported the 2026 성호중학교 1/2/3학년 명렬표 into the shared roster store for no-upload class registration
 - 2026-04-25: refreshed the 2026 STAR snapshot with cache refresh; Q&A now has 278 pages, 3,330 listed posts, and 1,451 knowledge units

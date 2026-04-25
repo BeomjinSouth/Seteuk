@@ -76,9 +76,12 @@ export function GlobalNav() {
     const pathname = usePathname();
     const router = useRouter();
     const teacher = useAppStore((state) => state.teacher);
+    const hasHydrated = useAppStore((state) => state.hasHydrated);
     const logout = useAppStore((state) => state.logout);
 
     useEffect(() => {
+        if (!hasHydrated) return;
+
         if (!teacher) {
             router.replace('/');
             return;
@@ -88,7 +91,11 @@ export function GlobalNav() {
             logout();
             router.replace('/');
         }
-    }, [logout, router, teacher]);
+    }, [hasHydrated, logout, router, teacher]);
+
+    if (!hasHydrated) {
+        return null;
+    }
 
     // Helper to determine if a section is active
     const isActive = (href: string) => {
