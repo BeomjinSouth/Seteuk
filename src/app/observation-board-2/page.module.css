@@ -2840,31 +2840,35 @@
 
 @media (max-width: 1120px) {
     .dashboardShell {
-        grid-template-columns: 1fr;
+        grid-template-columns: 210px minmax(900px, 1fr);
+        min-width: 1110px;
     }
 
     .classroomSidebar {
-        position: relative;
-        height: auto;
-        padding: 0.85rem;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        padding: 0;
+        overflow: hidden;
     }
 
     .sidebarLogoImage,
     .sidebarKidsImage {
-        display: none;
+        display: block;
     }
 
     .sidebarNav {
-        display: flex;
-        overflow-x: auto;
-        gap: 0.5rem;
-        margin-top: 0;
-        padding-bottom: 0.2rem;
+        display: grid;
+        overflow-x: visible;
+        gap: 1.34rem;
+        margin-top: 2.45rem;
+        padding: 0 0.86rem;
     }
 
     .sidebarNav a,
     .sidebarNav button {
-        flex: 0 0 auto;
+        flex: initial;
+        min-height: 64px;
     }
 
     .sidebarIllustration {
@@ -2873,7 +2877,7 @@
 
     .workspace,
     .recordsWorkspace {
-        grid-template-columns: 1fr;
+        grid-template-columns: 360px minmax(0, 1fr);
     }
 
     .mentorPanel,
