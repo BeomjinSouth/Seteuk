@@ -165,13 +165,14 @@ STAR FAQ/Q&A
 - 학생 관리 UI는 학교 명부 업로드와 teaching class 연결만 담당한다.
 - 별도 `학생 관찰 기록` 섹션에서 학생 카드 보드(`/observation-board`)와 관찰 메모(`/observations`)를 제공한다.
 - `학생 기록 관찰 2`(`/observation-board-2`)는 예시 PNG 톤의 독립형 교실 대시보드이며, 공통 앱 셸 대신 자체 왼쪽 일러스트 레일과 교실형 헤더를 사용한다.
-- `/observation-board-2`의 기본 진입 화면은 `학생 관찰 기록`이며, 상단 내부 탭/학급 칩/검색바 없이 PNG형 멘토·멘티 구성판, 차시별 △/○ 활동 기록 표, 활동 기록 안내 배너를 바로 보여준다.
-- `/observation-board-2`의 왼쪽 레일은 `home | mentor | growth | stats | notice | settings | records` 내부 상태를 전환하며, 사이드바에는 `홈`, `학생 관찰 기록`, `성장 기록`, `통계 보기`, `알림장`, `설정`만 노출한다.
+- `/observation-board-2`의 기본 진입 화면은 `멘토 멘티 활동 기록`이며, 상단 내부 탭/학급 칩/검색바 없이 PNG형 멘토·멘티 구성판, 차시별 △/○ 활동 기록 표, 활동 기록 안내 배너를 바로 보여준다.
+- `/observation-board-2`의 왼쪽 레일은 `home | mentor | growth | stats | notice | settings | records` 내부 상태를 전환하며, 사이드바에는 `홈`, `멘토 멘티 활동 기록`, `성장 기록`, `통계 보기`, `알림장`, `설정`만 노출한다.
 - `/observation-board-2`의 `records` 모드는 기존 관찰 기록 흐름을 관찰2 디자인 안으로 통합하되, 기본 사이드바에서 숨기고 `홈` 빠른 이동 또는 `설정` 보조 버튼으로 진입한다.
-- `/observation-board-2`의 `growth` 모드는 `/api/observations`와 `/api/student-data`의 `note`, `grade`, `mentor_match` 데이터를 합쳐 학생별 누적 타임라인을 구성한다.
-- `/observation-board-2`의 `stats` 모드는 관찰 기록 수, 학생별 기록 수, 태그 빈도, 최근 기록일, 현재 화면의 △/○ 표시 개수를 카드와 막대형 차트로 계산한다.
+- `/observation-board-2`의 `growth` 모드는 `/api/observations`와 `/api/student-data`의 `note`, `grade`, `mentor_match` 데이터를 합쳐 학생별 누적 타임라인을 구성하고, 담당 학생별 관찰 공백/최근 메모/△·○ 반응 요약 카드를 함께 렌더링한다.
+- `/observation-board-2`의 `stats` 모드는 관찰 기록 수, 학생별 기록 수, 태그 빈도, 최근 기록일, 현재 화면의 △/○ 표시 개수, 기록 우선 학생, 모둠별 활동 균형을 카드와 막대형 차트로 계산한다.
 - `/observation-board-2`의 `notice` 모드는 서버 API 없이 `observation-board-2-notices:${teacherKey}` localStorage 키로 공지 작성/완료 상태를 유지한다.
-- `/observation-board-2`의 멘토·멘티 패널, 활동 기록 패널, 학생 목록 트레이는 콘텐츠가 늘어날 때 내부 스크롤을 사용해 PNG형 첫 화면 구조가 무너지지 않게 한다.
+- `/observation-board-2`의 멘토·멘티 패널, 활동 기록 패널, 학생 목록 트레이는 콘텐츠가 늘어날 때 내부 스크롤을 사용해 PNG형 첫 화면 구조가 무너지지 않게 하며, `모둠 추가` 버튼으로 빈 멘토/멘티 슬롯을 만들 수 있다.
+- `/observation-board-2`는 담당 학급에 속하지 않는 학생과 샘플 학생을 멘토·멘티, 관찰 작성, 성장 기록, 통계 대상에서 제외한다.
 - `/observation-board-2`는 `public/fonts/MaplestoryLight.ttf`, `public/fonts/MaplestoryBold.ttf`를 `@font-face`로 로드하고, 기본 교실 대시보드 전체에 Maplestory 글꼴을 적용한다.
 - `/observation-board-2`의 멘토·멘티 배치는 React local state로 관리하며, HTML5 drag/drop으로 학생 토큰 또는 학생 목록 항목을 멘토/멘티 슬롯에 놓으면 기존 배치를 교체하거나 이동한다.
 - 학생 카드 보드는 데스크톱 1440px 이상에서 약 6열 x 3~4행을 한 화면에 볼 수 있는 고밀도 그리드로 렌더링한다.

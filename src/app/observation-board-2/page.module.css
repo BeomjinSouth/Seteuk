@@ -2322,14 +2322,273 @@
     text-align: left;
 }
 
+.teacherChip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.42rem;
+    min-height: 48px;
+    border: 2px solid #b8daf4;
+    border-radius: 16px;
+    background: #ffffff;
+    color: #174774;
+    padding: 0 1rem;
+    font-weight: 900;
+    box-shadow: 0 8px 18px rgba(44, 122, 190, 0.08);
+    white-space: nowrap;
+}
+
+.teacherChip svg {
+    color: #2a88d8;
+}
+
+.addGroupButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.38rem;
+    width: 100%;
+    min-height: 42px;
+    margin-top: 0.62rem;
+    border: 2px solid #8cc9f0;
+    border-radius: 14px;
+    background: #eaf7ff;
+    color: #075fae;
+    font: inherit;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.addGroupButton:hover {
+    border-color: #2f86d8;
+    background: #ffffff;
+}
+
+.mentorEmptyState,
+.rosterEmptyState {
+    border: 2px dashed #b8daf4;
+    border-radius: 14px;
+    background: #ffffff;
+    color: #476985;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    font-weight: 900;
+    line-height: 1.55;
+    text-align: center;
+}
+
+.rosterEmptyState {
+    grid-column: 1 / -1;
+}
+
+.growthStudentGrid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.8rem;
+}
+
+.growthStudentGrid > .emptyList {
+    grid-column: 1 / -1;
+}
+
+.growthStudentCard {
+    display: grid;
+    gap: 0.72rem;
+    border: 2px solid #d4e7f5;
+    border-radius: 16px;
+    background: #ffffff;
+    padding: 0.82rem;
+    box-shadow: 0 10px 22px rgba(52, 134, 202, 0.08);
+}
+
+.growthStudentCard > div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 0.62rem;
+    min-width: 0;
+}
+
+.growthStudentCard strong,
+.growthStudentCard em {
+    display: block;
+}
+
+.growthStudentCard strong {
+    color: #063f8d;
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.growthStudentCard em {
+    margin-top: 0.12rem;
+    color: #6a8299;
+    font-size: 0.78rem;
+    font-style: normal;
+    font-weight: 800;
+}
+
+.growthStudentCard dl {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.42rem;
+    margin: 0;
+}
+
+.growthStudentCard dl div {
+    border-radius: 12px;
+    background: #eef8ff;
+    padding: 0.5rem 0.4rem;
+    text-align: center;
+}
+
+.growthStudentCard dt {
+    color: #5a748e;
+    font-size: 0.72rem;
+    font-weight: 900;
+}
+
+.growthStudentCard dd {
+    margin: 0.16rem 0 0;
+    color: #0b4989;
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.growthStudentCard p {
+    display: -webkit-box;
+    overflow: hidden;
+    margin: 0;
+    color: #425e79;
+    font-size: 0.84rem;
+    font-weight: 800;
+    line-height: 1.5;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.statsInsightGrid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 1rem;
+}
+
+.statsPillList {
+    display: flex;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+    margin-top: 0.9rem;
+}
+
+.statsPillList button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    min-height: 38px;
+    border: 2px solid #cbe0f1;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #1b3c61;
+    padding: 0 0.75rem;
+    font: inherit;
+    font-size: 0.84rem;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.statsPillList button:hover {
+    border-color: #2f86d8;
+    background: #eaf7ff;
+}
+
+.statsPillList span {
+    color: #2f86d8;
+}
+
+.groupBalanceList {
+    display: grid;
+    gap: 0.64rem;
+    margin-top: 0.9rem;
+}
+
+.groupBalanceRow {
+    display: grid;
+    grid-template-columns: 52px minmax(92px, 0.8fr) minmax(110px, 1fr) minmax(138px, auto);
+    align-items: center;
+    gap: 0.55rem;
+    color: #284765;
+    font-size: 0.84rem;
+    font-weight: 900;
+}
+
+.groupBalanceRow strong {
+    color: #063f8d;
+}
+
+.groupBalanceRow span {
+    overflow: hidden;
+    color: #607b96;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.groupBalanceRow div {
+    height: 12px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #e7f1f9;
+}
+
+.groupBalanceRow i {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #5aa9f3, #ff82aa);
+}
+
+.groupBalanceRow em {
+    color: #315a80;
+    font-style: normal;
+    text-align: right;
+}
+
+.guideBanner {
+    padding-right: 16rem;
+}
+
+.guideBanner::after {
+    top: 50%;
+    right: 1rem;
+    bottom: auto;
+    width: min(250px, 24%);
+    height: 96px;
+    transform: translateY(-50%);
+}
+
+.guideBanner p {
+    max-width: none;
+}
+
 @media (max-width: 1280px) {
     .workspace {
         grid-template-columns: 360px minmax(0, 1fr);
     }
 
     .statsGrid,
-    .settingsGrid {
+    .settingsGrid,
+    .growthStudentGrid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .statsInsightGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .groupBalanceRow {
+        grid-template-columns: 48px minmax(90px, 1fr) minmax(120px, 1.2fr);
+    }
+
+    .groupBalanceRow em {
+        grid-column: 2 / -1;
+        text-align: left;
     }
 
     .recordsWorkspace {
@@ -2457,7 +2716,9 @@
     .composeTopBar,
     .selectionActions,
     .studentRecordGrid,
-    .rosterGrid {
+    .rosterGrid,
+    .growthStudentGrid,
+    .statsInsightGrid {
         grid-template-columns: 1fr;
     }
 

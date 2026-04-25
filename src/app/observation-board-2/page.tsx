@@ -50,6 +50,11 @@ interface ObservationCardStats {
     latest?: Observation;
 }
 
+interface MarkSummary {
+    participated: number;
+    excellent: number;
+}
+
 interface NoticeItem {
     id: string;
     title: string;
@@ -91,15 +96,6 @@ const sessions = [
     { id: 'session-3', label: '3차시', date: '5/16 (금)', topic: '책 함께 읽기' },
     { id: 'session-4', label: '4차시', date: '5/23 (금)', topic: '미션 활동' },
     { id: 'session-5', label: '5차시', date: '5/30 (금)', topic: '마무리 나누기' },
-];
-
-const fallbackStudents: Student[] = [
-    { id: 'sample-1', classId: 'sample', number: 1, name: '김민지', grade: 1, classNumber: 1, learningData: {} },
-    { id: 'sample-2', classId: 'sample', number: 2, name: '이도윤', grade: 1, classNumber: 1, learningData: {} },
-    { id: 'sample-3', classId: 'sample', number: 3, name: '박서준', grade: 1, classNumber: 1, learningData: {} },
-    { id: 'sample-4', classId: 'sample', number: 4, name: '최하은', grade: 1, classNumber: 1, learningData: {} },
-    { id: 'sample-5', classId: 'sample', number: 5, name: '정우진', grade: 1, classNumber: 1, learningData: {} },
-    { id: 'sample-6', classId: 'sample', number: 6, name: '한서아', grade: 1, classNumber: 1, learningData: {} },
 ];
 
 const observationTagOptions = [
@@ -175,7 +171,7 @@ function getNoticeStorageKey(teacherKey?: string) {
 function getBoardModeTitle(mode: BoardMode) {
     const titles: Record<BoardMode, string> = {
         home: '관찰2 홈',
-        mentor: '학생 관찰 기록',
+        mentor: '멘토 멘티 활동 기록',
         growth: '성장 기록',
         stats: '통계 보기',
         notice: '알림장',
@@ -186,7 +182,9 @@ function getBoardModeTitle(mode: BoardMode) {
 }
 
 function buildMentorAssignments(studentsForBoard: Student[]): MentorGroupAssignment[] {
-    const rows = (studentsForBoard.length > 0 ? studentsForBoard : fallbackStudents).slice(0, 6);
+    const rows = studentsForBoard.slice(0, 6);
+    if (rows.length === 0) return [];
+
     const groupCount = Math.max(3, Math.ceil(rows.length / 2));
 
     return Array.from({ length: groupCount }, (_, groupIndex) => ({
@@ -268,7 +266,7 @@ export default function ObservationBoard2Page() {
 
     const studentLookup = useMemo(() => {
         const map = new Map<string, Student>();
-        [...fallbackStudents, ...students, ...teacherStudents].forEach((student) => {
+        [...students, ...teacherStudents].forEach((student) => {
             map.set(student.id, student);
         });
         return map;
@@ -281,7 +279,7 @@ export default function ObservationBoard2Page() {
             ? getStudentsInTeachingClass(students, selectedClass)
             : teacherStudents;
 
-        return classStudents.length > 0 ? classStudents : fallbackStudents;
+        return classStudents;
     }, [selectedClass, students, teacherStudents]);
 
     const filteredStudents = useMemo(() => {
@@ -294,7 +292,7 @@ export default function ObservationBoard2Page() {
     const featuredStudents = filteredStudents.slice(0, 6);
 
     const defaultMentorAssignments = useMemo(
-        () => buildMentorAssignments(featuredStudents.length > 0 ? featuredStudents : fallbackStudents),
+        () => buildMentorAssignments(featuredStudents),
         [featuredStudents]
     );
 
@@ -313,6 +311,11 @@ export default function ObservationBoard2Page() {
         [filteredStudents, selectedStudentIds]
     );
 
+    const activeStudentIds = useMemo(
+        () => new Set(boardStudents.map((student) => student.id)),
+        [boardStudents]
+    );
+
     const availableTagOptions = useMemo(
         () => Array.from(new Set([...observationTagOptions, ...customTagOptions])),
         [customTagOptions]
@@ -321,9 +324,10 @@ export default function ObservationBoard2Page() {
     const scopedObservations = useMemo(
         () => observations.filter((observation) =>
             (!teacher?.teacherKey || !observation.teacherKey || observation.teacherKey === teacher.teacherKey)
+            && activeStudentIds.has(observation.studentId)
             && (selectedClassId === 'all' || observation.classId === selectedClassId)
         ),
-        [observations, selectedClassId, teacher]
+        [activeStudentIds, observations, selectedClassId, teacher]
     );
 
     const observationStatsByStudent = useMemo(() => {
@@ -348,7 +352,7 @@ export default function ObservationBoard2Page() {
         return scopedObservations
             .filter((observation) => {
                 if (!normalizedQuery) return true;
-                const student = students.find((item) => item.id === observation.studentId);
+                const student = studentLookup.get(observation.studentId);
                 return [
                     student?.name,
                     observation.lessonTopic,
@@ -357,23 +361,41 @@ export default function ObservationBoard2Page() {
                 ].filter(Boolean).join(' ').toLowerCase().includes(normalizedQuery);
             })
             .sort((a, b) => getObservationTimestamp(b) - getObservationTimestamp(a));
-    }, [scopedObservations, searchQuery, students]);
+    }, [scopedObservations, searchQuery, studentLookup]);
 
-    const assignedMentorStudents = mentorGroups.flatMap((group) => [group.mentor, group.mentee]).filter(Boolean) as Student[];
+    const assignedMentorStudents = useMemo(
+        () => mentorGroups.flatMap((group) => [group.mentor, group.mentee]).filter(Boolean) as Student[],
+        [mentorGroups]
+    );
 
-    const totalExcellent = assignedMentorStudents.reduce((sum, student, studentIndex) => (
-        sum + sessions.reduce((sessionSum, session, sessionIndex) => {
-            const key = `${student.id}:${session.id}`;
-            const mark = marks[key] ?? getDefaultMark(studentIndex, sessionIndex);
-            return sessionSum + (mark === 'excellent' ? 1 : 0);
-        }, 0)
+    const markStatsByStudent = useMemo(() => {
+        const stats = new Map<string, MarkSummary>();
+
+        assignedMentorStudents.forEach((student, studentIndex) => {
+            const summary = { participated: 0, excellent: 0 };
+            sessions.forEach((session, sessionIndex) => {
+                const mark = marks[`${student.id}:${session.id}`] ?? getDefaultMark(studentIndex, sessionIndex);
+                if (mark === 'participated') summary.participated += 1;
+                if (mark === 'excellent') summary.excellent += 1;
+            });
+            stats.set(student.id, summary);
+        });
+
+        return stats;
+    }, [assignedMentorStudents, marks]);
+
+    const totalExcellent = Array.from(markStatsByStudent.values()).reduce((sum, summary) => (
+        sum + summary.excellent
     ), 0);
 
     const scopedStudentDataEntries = useMemo(
         () => studentDataEntries
-            .filter((entry) => selectedClassId === 'all' || entry.classId === selectedClassId)
+            .filter((entry) =>
+                activeStudentIds.has(entry.studentId)
+                && (selectedClassId === 'all' || entry.classId === selectedClassId)
+            )
             .sort((a, b) => getStudentDataTimestamp(b) - getStudentDataTimestamp(a)),
-        [studentDataEntries, selectedClassId]
+        [activeStudentIds, studentDataEntries, selectedClassId]
     );
 
     const growthTimeline = useMemo<GrowthTimelineItem[]>(() => {
@@ -440,18 +462,14 @@ export default function ObservationBoard2Page() {
     }, [scopedObservations]);
 
     const currentMarkCounts = useMemo(() => (
-        featuredStudents.reduce(
-            (result, student, studentIndex) => {
-                sessions.forEach((session, sessionIndex) => {
-                    const mark = marks[`${student.id}:${session.id}`] ?? getDefaultMark(studentIndex, sessionIndex);
-                    if (mark === 'participated') result.participated += 1;
-                    if (mark === 'excellent') result.excellent += 1;
-                });
-                return result;
-            },
+        Array.from(markStatsByStudent.values()).reduce(
+            (result, summary) => ({
+                participated: result.participated + summary.participated,
+                excellent: result.excellent + summary.excellent,
+            }),
             { participated: 0, excellent: 0 }
         )
-    ), [featuredStudents, marks]);
+    ), [markStatsByStudent]);
 
     const todayObservationCount = filteredObservations.filter((observation) => observation.date === today()).length;
     const incompleteNoticeCount = notices.filter((notice) => !notice.completed).length;
@@ -471,8 +489,7 @@ export default function ObservationBoard2Page() {
         setMentorAssignments((prev) => {
             const assignedIds = prev.flatMap((group) => [group.mentorId, group.menteeId]).filter(Boolean) as string[];
             const canKeepPrevious = prev.length > 0
-                && assignedIds.length > 0
-                && assignedIds.every((studentId) => availableIds.has(studentId));
+                && (assignedIds.length === 0 || assignedIds.every((studentId) => availableIds.has(studentId)));
 
             return canKeepPrevious ? prev : defaultMentorAssignments;
         });
@@ -591,8 +608,7 @@ export default function ObservationBoard2Page() {
     };
 
     const getStudentDisplay = (studentId: string) => {
-        const student = students.find((item) => item.id === studentId)
-            || fallbackStudents.find((item) => item.id === studentId);
+        const student = studentLookup.get(studentId);
         if (!student) return '알 수 없는 학생';
         return `${student.number}번 ${student.name}`;
     };
@@ -796,6 +812,20 @@ export default function ObservationBoard2Page() {
         });
     };
 
+    const handleAddMentorGroup = () => {
+        setMentorAssignments((prev) => {
+            const source = prev.length > 0 ? prev : defaultMentorAssignments;
+            const nextNumber = source.length + 1;
+            return [
+                ...source,
+                {
+                    id: `group-${Date.now()}`,
+                    title: `${nextNumber}조`,
+                },
+            ];
+        });
+    };
+
     const renderBoardContent = () => {
         if (activeMode === 'home') {
             return (
@@ -815,11 +845,15 @@ export default function ObservationBoard2Page() {
             return (
                 <GrowthDashboard
                     teacherClasses={teacherClasses}
+                    teacherStudents={teacherStudents}
+                    students={filteredStudents}
                     selectedClassId={selectedClassId}
                     searchQuery={searchQuery}
                     timeline={growthTimeline}
                     isLoading={isLoadingStudentData}
                     studentLookup={studentLookup}
+                    observationStatsByStudent={observationStatsByStudent}
+                    markStatsByStudent={markStatsByStudent}
                     onClassChange={handleClassChange}
                     onSearchChange={setSearchQuery}
                 />
@@ -835,6 +869,8 @@ export default function ObservationBoard2Page() {
                     currentMarkCounts={currentMarkCounts}
                     latestObservation={filteredObservations[0]}
                     studentStats={observationStatsByStudent}
+                    mentorGroups={mentorGroups}
+                    markStatsByStudent={markStatsByStudent}
                     getStudentDisplay={getStudentDisplay}
                     onModeChange={setActiveMode}
                 />
@@ -928,6 +964,7 @@ export default function ObservationBoard2Page() {
                 totalExcellent={totalExcellent}
                 visibleRosterCount={visibleRosterCount}
                 onAssignStudent={handleAssignMentorStudent}
+                onAddGroup={handleAddMentorGroup}
                 onUpdateMark={updateMark}
             />
         );
@@ -946,19 +983,11 @@ export default function ObservationBoard2Page() {
                         </span>
                         <h1>{getBoardModeTitle(activeMode)}</h1>
                     </div>
-                    <div className={styles.headerActions} aria-label="상단 도구">
-                        <button type="button">
-                            <Sparkles size={17} />
-                            우정 배지
-                        </button>
-                        <button type="button">
-                            <Bell size={17} />
-                            알림
-                        </button>
-                        <button type="button">
+                    <div className={styles.headerActions} aria-label="사용자 정보">
+                        <span className={styles.teacherChip}>
                             <UserRound size={17} />
-                            선생님
-                        </button>
+                            {teacher?.name || '선생님'}
+                        </span>
                     </div>
                 </header>
 
@@ -1010,7 +1039,7 @@ function ClassroomSidebar({
                     onClick={() => onModeChange('mentor')}
                 >
                     <ClipboardList size={18} />
-                    학생 관찰 기록
+                    멘토 멘티 활동 기록
                 </button>
                 <button
                     type="button"
@@ -1079,7 +1108,7 @@ function FilterStrip({
                 onClick={() => onClassChange('all')}
             >
                 전체
-                <span>{teacherStudents.length || fallbackStudents.length}</span>
+                <span>{teacherStudents.length}</span>
             </button>
             {teacherClasses.map((cls) => (
                 <button
@@ -1126,7 +1155,7 @@ function HomeDashboard({
         <section className={styles.dashboardView}>
             <div className={styles.homeSummaryGrid}>
                 <SummaryCard icon={<Users size={24} />} label="담당 학급" value={`${teacherClasses.length}개`} tone="blue" />
-                <SummaryCard icon={<UserRound size={24} />} label="학생 수" value={`${teacherStudents.length || fallbackStudents.length}명`} tone="green" />
+                <SummaryCard icon={<UserRound size={24} />} label="학생 수" value={`${teacherStudents.length}명`} tone="green" />
                 <SummaryCard icon={<ClipboardList size={24} />} label="최근 관찰 기록" value={`${observations.length}건`} tone="yellow" />
                 <SummaryCard icon={<Bell size={24} />} label="미완료 알림" value={`${incompleteNoticeCount}건`} tone="pink" />
             </div>
@@ -1157,7 +1186,7 @@ function HomeDashboard({
                     <div className={styles.quickActionGrid}>
                         <button type="button" onClick={() => onModeChange('mentor')}>
                             <ClipboardList size={18} />
-                            학생 관찰 기록
+                            멘토 멘티 활동 기록
                         </button>
                         <button type="button" onClick={() => onModeChange('growth')}>
                             <Users size={18} />
@@ -1225,28 +1254,43 @@ function SummaryCard({
 
 function GrowthDashboard({
     teacherClasses,
+    teacherStudents,
+    students,
     selectedClassId,
     searchQuery,
     timeline,
     isLoading,
     studentLookup,
+    observationStatsByStudent,
+    markStatsByStudent,
     onClassChange,
     onSearchChange,
 }: {
     teacherClasses: ClassGroup[];
+    teacherStudents: Student[];
+    students: Student[];
     selectedClassId: string;
     searchQuery: string;
     timeline: GrowthTimelineItem[];
     isLoading: boolean;
     studentLookup: Map<string, Student>;
+    observationStatsByStudent: Map<string, ObservationCardStats>;
+    markStatsByStudent: Map<string, MarkSummary>;
     onClassChange: (classId: string) => void;
     onSearchChange: (value: string) => void;
 }) {
+    const recordedStudentCount = students.filter((student) => (
+        (observationStatsByStudent.get(student.id)?.count ?? 0) > 0
+        || (markStatsByStudent.get(student.id)?.participated ?? 0) > 0
+        || (markStatsByStudent.get(student.id)?.excellent ?? 0) > 0
+    )).length;
+    const needsRecordCount = Math.max(0, students.length - recordedStudentCount);
+
     return (
         <section className={styles.dashboardView}>
             <FilterStrip
                 teacherClasses={teacherClasses}
-                teacherStudents={Array.from(studentLookup.values())}
+                teacherStudents={teacherStudents}
                 selectedClassId={selectedClassId}
                 searchQuery={searchQuery}
                 onClassChange={onClassChange}
@@ -1258,15 +1302,52 @@ function GrowthDashboard({
                         <Sparkles size={22} />
                         <div>
                             <h2>학생별 누적 성장 흐름</h2>
-                            <p>관찰 메모, 성적, 개별 메모, 멘토링 기록을 한 화면에 모았습니다.</p>
+                            <p>관찰 공백, 최근 메모, 멘토 활동 반응을 학생별로 같이 봅니다.</p>
                         </div>
                     </div>
                     <div className={styles.growthMetricRow}>
-                        <span>전체 항목 <strong>{timeline.length}</strong></span>
-                        <span>관찰 <strong>{timeline.filter((item) => item.type === 'observation').length}</strong></span>
-                        <span>학생 데이터 <strong>{timeline.filter((item) => item.type !== 'observation').length}</strong></span>
+                        <span>담당 학생 <strong>{students.length}</strong></span>
+                        <span>기록 있는 학생 <strong>{recordedStudentCount}</strong></span>
+                        <span>기록 필요 <strong>{needsRecordCount}</strong></span>
+                        <span>누적 항목 <strong>{timeline.length}</strong></span>
                     </div>
                 </article>
+
+                <div className={styles.growthStudentGrid}>
+                    {students.length === 0 && (
+                        <div className={styles.emptyList}>담당 학급 학생이 없습니다. 먼저 담당 학급을 등록하세요.</div>
+                    )}
+                    {students.slice(0, 8).map((student) => {
+                        const observationStats = observationStatsByStudent.get(student.id);
+                        const markStats = markStatsByStudent.get(student.id) ?? { participated: 0, excellent: 0 };
+                        return (
+                            <article key={student.id} className={styles.growthStudentCard}>
+                                <div>
+                                    <span className={styles.timelineAvatar}>{getInitials(student.name)}</span>
+                                    <div>
+                                        <strong>{student.name}</strong>
+                                        <em>{student.grade}학년 {student.classNumber}반 {student.number}번</em>
+                                    </div>
+                                </div>
+                                <dl>
+                                    <div>
+                                        <dt>관찰</dt>
+                                        <dd>{observationStats?.count ?? 0}건</dd>
+                                    </div>
+                                    <div>
+                                        <dt>참여</dt>
+                                        <dd>{markStats.participated}회</dd>
+                                    </div>
+                                    <div>
+                                        <dt>매우 잘함</dt>
+                                        <dd>{markStats.excellent}회</dd>
+                                    </div>
+                                </dl>
+                                <p>{observationStats?.latest?.memo || '아직 개별 관찰 메모가 없습니다.'}</p>
+                            </article>
+                        );
+                    })}
+                </div>
 
                 <div className={styles.timelineList}>
                     {isLoading && <div className={styles.emptyList}>성장 기록을 불러오는 중입니다.</div>}
@@ -1300,6 +1381,8 @@ function StatsDashboard({
     currentMarkCounts,
     latestObservation,
     studentStats,
+    mentorGroups,
+    markStatsByStudent,
     getStudentDisplay,
     onModeChange,
 }: {
@@ -1309,6 +1392,8 @@ function StatsDashboard({
     currentMarkCounts: { participated: number; excellent: number };
     latestObservation?: Observation;
     studentStats: Map<string, ObservationCardStats>;
+    mentorGroups: MentorGroupView[];
+    markStatsByStudent: Map<string, MarkSummary>;
     getStudentDisplay: (studentId: string) => string;
     onModeChange: (mode: BoardMode) => void;
 }) {
@@ -1316,8 +1401,31 @@ function StatsDashboard({
         .map((student) => ({ student, count: studentStats.get(student.id)?.count ?? 0 }))
         .sort((a, b) => b.count - a.count)
         .slice(0, 6);
+    const studentsNeedingRecords = students
+        .filter((student) => (studentStats.get(student.id)?.count ?? 0) === 0)
+        .slice(0, 8);
+    const groupBalanceStats = mentorGroups.map((group) => {
+        const groupStudents = [group.mentor, group.mentee].filter(Boolean) as Student[];
+        const summary = groupStudents.reduce(
+            (result, student) => {
+                const markSummary = markStatsByStudent.get(student.id) ?? { participated: 0, excellent: 0 };
+                return {
+                    participated: result.participated + markSummary.participated,
+                    excellent: result.excellent + markSummary.excellent,
+                };
+            },
+            { participated: 0, excellent: 0 }
+        );
+
+        return {
+            title: group.title,
+            names: groupStudents.map((student) => student.name).join(' · ') || '학생 미배정',
+            ...summary,
+        };
+    });
     const maxTagCount = Math.max(...tagStats.map((item) => item.count), 1);
     const maxStudentCount = Math.max(...topStudentStats.map((item) => item.count), 1);
+    const maxGroupCount = Math.max(...groupBalanceStats.map((item) => item.participated + item.excellent), 1);
 
     return (
         <section className={styles.dashboardView}>
@@ -1326,6 +1434,53 @@ function StatsDashboard({
                 <SummaryCard icon={<Triangle size={24} />} label="참여 표시" value={`${currentMarkCounts.participated}회`} tone="green" />
                 <SummaryCard icon={<Circle size={24} />} label="매우 잘함" value={`${currentMarkCounts.excellent}회`} tone="pink" />
                 <SummaryCard icon={<CalendarDays size={24} />} label="최근 기록일" value={formatShortDate(latestObservation?.date || latestObservation?.createdAt)} tone="yellow" />
+            </div>
+
+            <div className={styles.statsInsightGrid}>
+                <article className={styles.statsPanel}>
+                    <div className={styles.panelTitle}>
+                        <UserRound size={22} />
+                        <div>
+                            <h2>먼저 살펴볼 학생</h2>
+                            <p>관찰 메모가 아직 없는 담당 학생입니다.</p>
+                        </div>
+                    </div>
+                    <div className={styles.statsPillList}>
+                        {studentsNeedingRecords.length === 0 && <div className={styles.emptyList}>모든 표시 학생에게 관찰 메모가 있습니다.</div>}
+                        {studentsNeedingRecords.map((student) => (
+                            <button key={student.id} type="button" onClick={() => onModeChange('records')}>
+                                <span>{student.number}번</span>
+                                {student.name}
+                            </button>
+                        ))}
+                    </div>
+                </article>
+
+                <article className={styles.statsPanel}>
+                    <div className={styles.panelTitle}>
+                        <Handshake size={22} />
+                        <div>
+                            <h2>모둠별 활동 균형</h2>
+                            <p>멘토·멘티 표의 △/○ 표시가 어느 모둠에 몰렸는지 봅니다.</p>
+                        </div>
+                    </div>
+                    <div className={styles.groupBalanceList}>
+                        {groupBalanceStats.length === 0 && <div className={styles.emptyList}>아직 모둠이 없습니다.</div>}
+                        {groupBalanceStats.map((group) => {
+                            const total = group.participated + group.excellent;
+                            return (
+                                <div key={group.title} className={styles.groupBalanceRow}>
+                                    <strong>{group.title}</strong>
+                                    <span>{group.names}</span>
+                                    <div>
+                                        <i style={{ width: `${Math.max(8, (total / maxGroupCount) * 100)}%` }} />
+                                    </div>
+                                    <em>참여 {group.participated} · 매우 잘함 {group.excellent}</em>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </article>
             </div>
 
             <div className={styles.statsGrid}>
@@ -1547,7 +1702,7 @@ function SettingsDashboard({
                         <Sparkles size={22} />
                         <div>
                             <h2>데이터 상태</h2>
-                            <p>{hasRealStudents ? '실제 명렬표 데이터를 사용 중입니다.' : '샘플 학생 데이터로 화면을 유지 중입니다.'}</p>
+                            <p>{hasRealStudents ? '실제 명렬표 데이터를 사용 중입니다.' : '담당 학급 학생이 아직 없습니다.'}</p>
                         </div>
                     </div>
                     <div className={styles.settingActions}>
@@ -1579,6 +1734,7 @@ function MentorActivityView({
     totalExcellent,
     visibleRosterCount,
     onAssignStudent,
+    onAddGroup,
     onUpdateMark,
 }: {
     boardStudents: Student[];
@@ -1589,6 +1745,7 @@ function MentorActivityView({
     totalExcellent: number;
     visibleRosterCount: number;
     onAssignStudent: (studentId: string, groupId: string, role: MentorRole) => void;
+    onAddGroup: () => void;
     onUpdateMark: (studentId: string, sessionId: string, fallback: MarkState) => void;
 }) {
     const startStudentDrag = (event: DragEvent<HTMLElement>, studentId: string) => {
@@ -1611,7 +1768,7 @@ function MentorActivityView({
                         <Users size={22} />
                         <div>
                             <h2>멘토·멘티 구성</h2>
-                            <p>{featuredStudents.length}명 표시</p>
+                            <p>{featuredStudents.length}명 표시 · 전체 {boardStudents.length}명</p>
                         </div>
                     </div>
 
@@ -1621,6 +1778,11 @@ function MentorActivityView({
                     </div>
 
                     <div className={styles.groupStack}>
+                        {mentorGroups.length === 0 && (
+                            <div className={styles.mentorEmptyState}>
+                                담당 학급 학생이 없습니다. 수업 학급을 먼저 등록하면 멘토·멘티를 구성할 수 있습니다.
+                            </div>
+                        )}
                         {mentorGroups.map((group, index) => (
                             <motion.article
                                 key={group.id}
@@ -1656,12 +1818,20 @@ function MentorActivityView({
                         ))}
                     </div>
 
+                    <button type="button" className={styles.addGroupButton} onClick={onAddGroup}>
+                        <Plus size={17} />
+                        모둠 추가
+                    </button>
+
                     <div className={styles.rosterTray}>
                         <div className={styles.trayTitle}>
                             학생 목록
                             <span>{boardStudents.length}명</span>
                         </div>
                         <div className={styles.rosterGrid}>
+                            {boardStudents.length === 0 && (
+                                <div className={styles.rosterEmptyState}>담당 학급 학생만 여기에 표시됩니다.</div>
+                            )}
                             {boardStudents.slice(0, visibleRosterCount).map((student) => (
                                 <div
                                     key={student.id}
