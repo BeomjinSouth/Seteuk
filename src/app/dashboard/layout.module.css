@@ -11,3 +11,14 @@
     background: hsl(var(--background));
     min-height: calc(100vh - 56px);
 }
+
+@media (max-width: 900px) {
+    .layout {
+        display: block;
+    }
+
+    .main {
+        margin-left: 0;
+        width: 100%;
+    }
+}

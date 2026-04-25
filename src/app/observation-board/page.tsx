@@ -6,27 +6,49 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useAppStore } from '@/lib/store';
 import { motion } from 'framer-motion';
 import {
+    CalendarDays,
+    CheckCircle2,
+    Clock3,
     Users,
     Search,
-    Trash2,
     ClipboardList,
+    PenLine,
+    X,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Observation, Student } from '@/types';
 import {
-    getLearningDataForClass,
     getTeacherClasses,
     getStudentsInTeachingClass,
 } from '@/lib/teacher-context';
-import styles from '../students/page.module.css';
+import styles from './page.module.css';
+
+interface ObservationCardStats {
+    count: number;
+    latest?: Observation;
+    tags: string[];
+}
+
+function formatShortDate(value?: string) {
+    if (!value) return '기록 전';
+
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return value;
+
+    return `${String(date.getMonth() + 1).padStart(2, '0')}.${String(date.getDate()).padStart(2, '0')}`;
+}
+
+function getObservationTimestamp(observation: Observation) {
+    const dateValue = observation.date || observation.createdAt;
+    const date = new Date(dateValue);
+    return Number.isNaN(date.getTime()) ? 0 : date.getTime();
+}
 
 export default function ObservationBoardPage() {
     const router = useRouter();
     const {
         classes,
         students,
-        records,
-        removeStudent,
         teacher,
     } = useAppStore();
     const [selectedClass, setSelectedClass] = useState<string>('all');
@@ -43,6 +65,24 @@ export default function ObservationBoardPage() {
         () => getTeacherClasses(classes, teacher),
         [classes, teacher]
     );
+
+    const allTeacherStudents = useMemo(() => {
+        const visibleStudents = teacherClasses.reduce<Student[]>((acc, cls) => {
+            getStudentsInTeachingClass(students, cls).forEach((student) => {
+                if (!acc.some((item) => item.id === student.id)) {
+                    acc.push(student);
+                }
+            });
+            return acc;
+        }, []);
+
+        return visibleStudents.sort((a, b) =>
+            (a.grade ?? 0) - (b.grade ?? 0)
+            || (a.classNumber ?? 0) - (b.classNumber ?? 0)
+            || a.number - b.number
+            || a.name.localeCompare(b.name)
+        );
+    }, [students, teacherClasses]);
 
     useEffect(() => {
         const loadObservations = async () => {
@@ -79,23 +119,23 @@ export default function ObservationBoardPage() {
         if (!teacher) return [];
 
         const visibleStudents = selectedClass === 'all'
-            ? teacherClasses.reduce<Student[]>((acc, cls) => {
-                getStudentsInTeachingClass(students, cls).forEach((student) => {
-                    if (!acc.some((item) => item.id === student.id)) {
-                        acc.push(student);
-                    }
-                });
-                return acc;
-            }, [])
+            ? allTeacherStudents
             : (() => {
                 const matchedClass = teacherClasses.find((cls) => cls.id === selectedClass);
                 return matchedClass ? getStudentsInTeachingClass(students, matchedClass) : [];
             })();
 
-        return visibleStudents.filter((student) =>
-            student.name.toLowerCase().includes(searchQuery.toLowerCase())
-        );
-    }, [searchQuery, selectedClass, students, teacher, teacherClasses]);
+        return visibleStudents
+            .filter((student) =>
+                student.name.toLowerCase().includes(searchQuery.toLowerCase())
+            )
+            .sort((a, b) =>
+                (a.grade ?? 0) - (b.grade ?? 0)
+                || (a.classNumber ?? 0) - (b.classNumber ?? 0)
+                || a.number - b.number
+                || a.name.localeCompare(b.name)
+            );
+    }, [allTeacherStudents, searchQuery, selectedClass, students, teacher, teacherClasses]);
 
     const scopedObservations = useMemo(
         () => observations.filter((observation) =>
@@ -105,24 +145,6 @@ export default function ObservationBoardPage() {
         ),
         [observations, teacher]
     );
-
-    const getDataCount = (student: Student) => {
-        if (selectedClass !== 'all') {
-            return Object.keys(getLearningDataForClass(student, selectedClass)).length;
-        }
-
-        const relatedClassIds = teacherClasses
-            .filter((cls) =>
-                cls.school === student.school
-                && cls.grade === student.grade
-                && cls.classNumber === student.classNumber
-            )
-            .map((cls) => cls.id);
-
-        return relatedClassIds.reduce((count, classId) => {
-            return count + Object.keys(getLearningDataForClass(student, classId)).length;
-        }, 0);
-    };
 
     const getTeachingClassForStudent = (student: Student) => {
         const matchingClasses = teacherClasses.filter((cls) =>
@@ -138,33 +160,73 @@ export default function ObservationBoardPage() {
         return matchingClasses[0];
     };
 
-    const getObservationCount = (student: Student, classId?: string) => {
-        return scopedObservations.filter((observation) =>
-            observation.studentId === student.id
-            && (!classId || observation.classId === classId)
-        ).length;
-    };
+    const observationStatsByClass = useMemo(() => {
+        const stats = new Map<string, ObservationCardStats>();
 
-    const getRecordForStudent = (student: Student, classId?: string) => {
-        return records.find((record) =>
-            record.studentId === student.id
-            && (!classId || record.classId === classId)
-            && (!teacher?.teacherKey || !record.teacherKey || record.teacherKey === teacher.teacherKey)
-        );
-    };
+        scopedObservations.forEach((observation) => {
+            const key = `${observation.studentId}:${observation.classId}`;
+            const current = stats.get(key) ?? {
+                count: 0,
+                latest: undefined,
+                tags: [],
+            };
+            const tagSet = new Set(current.tags);
 
-    const getRecordStatusLabel = (student: Student, classId?: string) => {
-        const record = getRecordForStudent(student, classId);
-        if (!record) return '초안 전';
-        if (record.status === 'confirmed') return '확정 완료';
-        if (record.status === 'checked') return '검토 완료';
-        return '초안 작성';
-    };
+            observation.tags.forEach((tag) => {
+                if (tagSet.size < 3) tagSet.add(tag);
+            });
 
-    const handleDeleteStudent = (student: Student) => {
-        if (confirm(`"${student.name}" 학생을 삭제하시겠습니까?\n삭제하면 복원할 수 없습니다.`)) {
-            removeStudent(student.id);
+            const latest = current.latest
+                && getObservationTimestamp(current.latest) > getObservationTimestamp(observation)
+                ? current.latest
+                : observation;
+
+            stats.set(key, {
+                count: current.count + 1,
+                latest,
+                tags: Array.from(tagSet),
+            });
+        });
+
+        return stats;
+    }, [scopedObservations]);
+
+    const getObservationStats = (student: Student, classId?: string): ObservationCardStats => {
+        if (classId) {
+            return observationStatsByClass.get(`${student.id}:${classId}`) ?? { count: 0, tags: [] };
         }
+
+        const classIds = teacherClasses
+            .filter((cls) =>
+                cls.school === student.school
+                && cls.grade === student.grade
+                && cls.classNumber === student.classNumber
+            )
+            .map((cls) => cls.id);
+
+        return classIds.reduce<ObservationCardStats>((acc, classId) => {
+            const next = observationStatsByClass.get(`${student.id}:${classId}`);
+            if (!next) return acc;
+
+            const tagSet = new Set([...acc.tags, ...next.tags]);
+            const latest = !acc.latest
+                || (next.latest && getObservationTimestamp(next.latest) > getObservationTimestamp(acc.latest))
+                ? next.latest
+                : acc.latest;
+
+            return {
+                count: acc.count + next.count,
+                latest,
+                tags: Array.from(tagSet).slice(0, 3),
+            };
+        }, { count: 0, tags: [] });
+    };
+
+    const handleClassChange = (classId: string) => {
+        setSelectedClass(classId);
+        const emptySelection = new Set<string>();
+        selectedStudentIdsRef.current = emptySelection;
+        setSelectedStudentIds(emptySelection);
     };
 
     const toggleStudentSelection = (studentId: string) => {
@@ -177,6 +239,8 @@ export default function ObservationBoardPage() {
     };
 
     const toggleSelectAllStudents = () => {
+        if (filteredStudents.length === 0) return;
+
         if (selectedStudentIds.size === filteredStudents.length) {
             const emptySelection = new Set<string>();
             selectedStudentIdsRef.current = emptySelection;
@@ -189,11 +253,7 @@ export default function ObservationBoardPage() {
         setSelectedStudentIds(nextSelection);
     };
 
-    const handleDeleteSelectedStudents = () => {
-        if (selectedStudentIds.size === 0) return;
-        if (!confirm(`선택한 ${selectedStudentIds.size}명의 학생을 삭제하시겠습니까?`)) return;
-        Array.from(selectedStudentIds).forEach((studentId) => removeStudent(studentId));
-
+    const clearSelectedStudents = () => {
         const emptySelection = new Set<string>();
         selectedStudentIdsRef.current = emptySelection;
         setSelectedStudentIds(emptySelection);
@@ -221,6 +281,40 @@ export default function ObservationBoardPage() {
             query.set('studentIds', selectedStudentsInSameClass.join(','));
         } else {
             query.set('studentId', student.id);
+        }
+
+        router.push(`/observations?${query.toString()}#compose`);
+    };
+
+    const resolveClassIdForSelectedStudents = (selectedStudents: Student[]) => {
+        if (selectedClass !== 'all') return selectedClass;
+
+        const classIds = new Set(
+            selectedStudents
+                .map((student) => getTeachingClassForStudent(student)?.id)
+                .filter(Boolean)
+        );
+
+        return classIds.size === 1 ? Array.from(classIds)[0] : '';
+    };
+
+    const openSelectedObservationComposer = () => {
+        flushPendingStudentSelection();
+
+        const selectedStudents = filteredStudents.filter((student) => selectedStudentIdsRef.current.has(student.id));
+        if (selectedStudents.length === 0) return;
+
+        const classId = resolveClassIdForSelectedStudents(selectedStudents);
+        if (!classId) {
+            alert('한 번에 기록하려면 같은 수업 학급 학생만 선택하세요.');
+            return;
+        }
+
+        const query = new URLSearchParams({ classId });
+        if (selectedStudents.length > 1) {
+            query.set('studentIds', selectedStudents.map((student) => student.id).join(','));
+        } else {
+            query.set('studentId', selectedStudents[0].id);
         }
 
         router.push(`/observations?${query.toString()}#compose`);
@@ -269,35 +363,98 @@ export default function ObservationBoardPage() {
         <div className={styles.page}>
             <header className={styles.header}>
                 <div>
-                    <h1 className={styles.title}>학생 카드 보드</h1>
+                    <h1 className={styles.title}>학생 관찰 기록</h1>
                     <p className={styles.subtitle}>
-                        클릭: 선택 · 더블클릭: 기록 작성
+                        {teacher?.subject || '수업'} · {teacherClasses.length}개 담당 학급
                     </p>
+                </div>
+                <div className={styles.headerStats}>
+                    <div>
+                        <strong>{filteredStudents.length}</strong>
+                        <span>표시 학생</span>
+                    </div>
+                    <div>
+                        <strong>{selectedStudentIds.size}</strong>
+                        <span>선택</span>
+                    </div>
+                    <div>
+                        <strong>{scopedObservations.length}</strong>
+                        <span>누적 기록</span>
+                    </div>
                 </div>
             </header>
 
-            <section className={styles.listSection}>
-                <div className={styles.listHeader}>
-                    <h2><Users size={20} /> 담당 학급 학생 ({filteredStudents.length}명)</h2>
-                    <div className={styles.filters}>
+            <section className={styles.boardWorkspace}>
+                <div className={styles.boardToolbar}>
+                    <div className={styles.boardTabs} aria-label="담당 학급">
+                        <button
+                            type="button"
+                            className={`${styles.boardTab} ${selectedClass === 'all' ? styles.boardTabActive : ''}`}
+                            onClick={() => handleClassChange('all')}
+                        >
+                            전체
+                            <span>{allTeacherStudents.length}</span>
+                        </button>
+                        {teacherClasses.map((cls) => {
+                            const classStudents = getStudentsInTeachingClass(students, cls);
+                            return (
+                                <button
+                                    type="button"
+                                    key={cls.id}
+                                    className={`${styles.boardTab} ${selectedClass === cls.id ? styles.boardTabActive : ''}`}
+                                    onClick={() => handleClassChange(cls.id)}
+                                >
+                                    {cls.grade}-{cls.classNumber}
+                                    <span>{classStudents.length}</span>
+                                </button>
+                            );
+                        })}
+                    </div>
+                    <div className={styles.boardControls}>
                         <div className={styles.searchBox}>
                             <Search size={18} className={styles.searchIcon} />
                             <input
                                 type="text"
-                                placeholder="이름 검색..."
+                                placeholder="이름 검색"
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 className={styles.searchInput}
                             />
                         </div>
+                        <button
+                            type="button"
+                            className={styles.toolbarButton}
+                            onClick={toggleSelectAllStudents}
+                            disabled={filteredStudents.length === 0}
+                        >
+                            <Users size={16} />
+                            {selectedStudentIds.size === filteredStudents.length && filteredStudents.length > 0 ? '전체 해제' : '전체 선택'}
+                        </button>
+                        <button
+                            type="button"
+                            className={styles.iconButton}
+                            onClick={clearSelectedStudents}
+                            disabled={selectedStudentIds.size === 0}
+                            title="선택 해제"
+                            aria-label="선택 해제"
+                        >
+                            <X size={16} />
+                        </button>
+                        <Button
+                            size="sm"
+                            onClick={openSelectedObservationComposer}
+                            disabled={selectedStudentIds.size === 0}
+                        >
+                            <PenLine size={16} />
+                            기록하기
+                        </Button>
                     </div>
                 </div>
 
                 {teacherClasses.length === 0 ? (
                     <div className={styles.emptyList}>
                         <Users size={48} />
-                        <p>아직 연결된 담당 수업 학급이 없습니다.</p>
-                        <p className={styles.hint}>학생 관리에서 학급을 연결하세요.</p>
+                        <p>연결된 담당 수업 학급이 없습니다.</p>
                         <Link href="/students" className={styles.summaryLink}>
                             학생 관리로 이동
                         </Link>
@@ -306,137 +463,87 @@ export default function ObservationBoardPage() {
                     <div className={styles.emptyList}>
                         <Users size={48} />
                         <p>조건에 맞는 학생이 없습니다.</p>
-                        <p className={styles.hint}>학급 또는 검색어를 확인하세요.</p>
                     </div>
                 ) : (
-                    <>
-                        <div className={styles.boardTabs}>
-                            <button
-                                type="button"
-                                className={`${styles.boardTab} ${selectedClass === 'all' ? styles.boardTabActive : ''}`}
-                                onClick={() => setSelectedClass('all')}
-                            >
-                                전체
-                                <span>{filteredStudents.length}</span>
-                            </button>
-                            {teacherClasses.map((cls) => {
-                                const classStudents = getStudentsInTeachingClass(students, cls);
-                                return (
-                                    <button
-                                        type="button"
-                                        key={cls.id}
-                                        className={`${styles.boardTab} ${selectedClass === cls.id ? styles.boardTabActive : ''}`}
-                                        onClick={() => setSelectedClass(cls.id)}
-                                    >
-                                        {cls.grade}-{cls.classNumber}
-                                        <span>{classStudents.length}</span>
-                                    </button>
-                                );
-                            })}
-                        </div>
+                    <div className={styles.studentBoardGrid}>
+                        {filteredStudents.map((student, index) => {
+                            const teachingClass = getTeachingClassForStudent(student);
+                            const stats = getObservationStats(student, teachingClass?.id);
+                            const latestTag = stats.latest?.tags[0] || stats.tags[0] || '기록 전';
+                            const latestTopic = stats.latest?.lessonTopic || teachingClass?.subjectName || teacher?.subject || '수업';
+                            const isSelected = selectedStudentIds.has(student.id);
 
-                        <div className={styles.boardSummary}>
-                            <span>
-                                클릭: 선택 · 더블클릭: 기록 작성. 여러 명 선택 시 같은 학급 학생을 함께 기록합니다.
-                            </span>{' '}
-                            <Link href="/students" className={styles.summaryLink}>
-                                학생 관리
-                            </Link>
-                        </div>
+                            return (
+                                <motion.div
+                                    key={student.id}
+                                    initial={{ opacity: 0, y: 8 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: Math.min(index * 0.01, 0.2) }}
+                                    className={`${styles.studentCard} ${isSelected ? styles.studentCardSelected : ''}`}
+                                    role="button"
+                                    tabIndex={0}
+                                    aria-pressed={isSelected}
+                                    aria-label={`${student.name}, 관찰 기록 ${stats.count}개, 최근 ${latestTag}`}
+                                    onClick={() => handleStudentCardClick(student.id)}
+                                    onDoubleClick={() => handleStudentCardDoubleClick(student)}
+                                    onKeyDown={(event) => {
+                                        if (event.key === ' ') {
+                                            event.preventDefault();
+                                            toggleStudentSelection(student.id);
+                                        }
+                                        if (event.key === 'Enter') {
+                                            event.preventDefault();
+                                            openObservationComposer(student);
+                                        }
+                                    }}
+                                >
+                                    <div className={styles.studentCardTop}>
+                                        <input
+                                            type="checkbox"
+                                            className={styles.cardCheckbox}
+                                            checked={isSelected}
+                                            onClick={(event) => event.stopPropagation()}
+                                            onDoubleClick={(event) => event.stopPropagation()}
+                                            onChange={() => toggleStudentSelection(student.id)}
+                                            aria-label={`${student.name} 선택`}
+                                        />
+                                        <span className={styles.studentNumber}>{student.number}</span>
+                                        {isSelected && (
+                                            <CheckCircle2 className={styles.selectedIcon} size={18} aria-hidden="true" />
+                                        )}
+                                    </div>
 
-                        <div className={styles.boardBulkActions}>
-                            <Button variant="secondary" onClick={toggleSelectAllStudents}>
-                                <Users size={16} />
-                                {selectedStudentIds.size === filteredStudents.length ? '전체 선택 해제' : '전체 선택'}
-                            </Button>
-                            <Button
-                                variant="ghost"
-                                onClick={handleDeleteSelectedStudents}
-                                disabled={selectedStudentIds.size === 0}
-                            >
-                                <Trash2 size={16} />
-                                선택 삭제
-                            </Button>
-                        </div>
+                                    <div className={styles.studentCardName}>{student.name}</div>
+                                    <div className={styles.studentCardMeta}>
+                                        {student.grade}학년 {student.classNumber}반 · {teachingClass?.subjectName || teacher?.subject}
+                                    </div>
 
-                        <div className={styles.studentBoardGrid}>
-                            {filteredStudents.map((student, index) => {
-                                const dataCount = getDataCount(student);
-                                const teachingClass = getTeachingClassForStudent(student);
-                                const observationCount = getObservationCount(student, teachingClass?.id);
-                                const recordStatus = getRecordStatusLabel(student, teachingClass?.id);
-                                return (
-                                    <motion.div
-                                        key={student.id}
-                                        initial={{ opacity: 0, y: 10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: index * 0.02 }}
-                                        className={`${styles.studentCard} ${selectedStudentIds.has(student.id) ? styles.studentCardSelected : ''}`}
-                                        role="button"
-                                        tabIndex={0}
-                                        aria-pressed={selectedStudentIds.has(student.id)}
-                                        aria-label={`${student.name}, 메모 ${observationCount}개, AI 입력 ${dataCount}, ${recordStatus}`}
-                                        title="클릭하면 선택, 더블클릭하면 관찰 기록 작성"
-                                        onClick={() => handleStudentCardClick(student.id)}
-                                        onDoubleClick={() => handleStudentCardDoubleClick(student)}
-                                        onKeyDown={(event) => {
-                                            if (event.key === ' ') {
-                                                event.preventDefault();
-                                                toggleStudentSelection(student.id);
-                                            }
-                                            if (event.key === 'Enter') {
-                                                event.preventDefault();
-                                                openObservationComposer(student);
-                                            }
-                                        }}
-                                    >
-                                        <div className={styles.studentCardTop}>
-                                            <input
-                                                type="checkbox"
-                                                className={styles.cardCheckbox}
-                                                checked={selectedStudentIds.has(student.id)}
-                                                onClick={(event) => event.stopPropagation()}
-                                                onDoubleClick={(event) => event.stopPropagation()}
-                                                onChange={() => toggleStudentSelection(student.id)}
-                                            />
-                                            <div className={styles.studentBadge}>
-                                                {student.grade}학년 {student.classNumber}반
-                                            </div>
+                                    <div className={`${styles.latestTag} ${stats.count === 0 ? styles.latestTagEmpty : ''}`}>
+                                        {latestTag}
+                                    </div>
+                                    <div className={styles.latestTopic}>{latestTopic}</div>
+
+                                    <div className={styles.cardStatRow}>
+                                        <span>
+                                            <ClipboardList size={14} />
+                                            {stats.count}개
+                                        </span>
+                                        <span>
+                                            <CalendarDays size={14} />
+                                            {formatShortDate(stats.latest?.date || stats.latest?.createdAt)}
+                                        </span>
+                                    </div>
+
+                                    {stats.latest?.createdAt && (
+                                        <div className={styles.cardUpdatedAt}>
+                                            <Clock3 size={13} />
+                                            {formatShortDate(stats.latest.createdAt)}
                                         </div>
-
-                                        <div className={styles.studentAvatar}>
-                                            {student.name.slice(0, 1)}
-                                        </div>
-                                        <div className={styles.studentCardName}>{student.name}</div>
-                                        <div className={styles.studentCardMeta}>
-                                            {student.number}번 · {teachingClass?.subjectName || teacher?.subject}
-                                        </div>
-
-                                        <div className={styles.cardMemoStat}>
-                                            <span className={styles.cardMemoLabel}>
-                                                <ClipboardList size={16} /> 메모
-                                            </span>
-                                            <div className={styles.cardMemoValue}>
-                                                {observationCount}
-                                                <small>개</small>
-                                            </div>
-                                        </div>
-
-                                        <button
-                                            className={styles.cardDeleteButton}
-                                            title="삭제"
-                                            onClick={(event) => {
-                                                event.stopPropagation();
-                                                handleDeleteStudent(student);
-                                            }}
-                                        >
-                                            <Trash2 size={14} /> 삭제
-                                        </button>
-                                    </motion.div>
-                                );
-                            })}
-                        </div>
-                    </>
+                                    )}
+                                </motion.div>
+                            );
+                        })}
+                    </div>
                 )}
             </section>
         </div>

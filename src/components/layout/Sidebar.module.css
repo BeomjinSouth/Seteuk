@@ -462,3 +462,9 @@
 .observationList::-webkit-scrollbar-thumb:hover {
     background: hsl(var(--muted-foreground));
 }
+
+@media (max-width: 900px) {
+    .sidebar {
+        display: none;
+    }
+}

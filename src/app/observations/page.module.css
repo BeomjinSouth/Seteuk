@@ -1,6 +1,6 @@
 .page {
     padding: 1rem 2rem 2rem;
-    max-width: 1200px;
+    max-width: 1440px;
     margin: 0 auto;
     --observations-muted: hsl(var(--foreground) / 0.78);
     --observations-subtle: hsl(var(--foreground) / 0.68);
@@ -82,6 +82,25 @@
     gap: 0.75rem;
 }
 
+.composeTopBar {
+    display: grid;
+    grid-template-columns: minmax(180px, 1.2fr) minmax(160px, 0.8fr) minmax(120px, auto) minmax(72px, auto);
+    align-items: end;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+}
+
+.commonContextGrid {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.4fr);
+    gap: 0.75rem;
+    align-items: start;
+}
+
+.commonTopicField input {
+    min-height: 42px;
+}
+
 .composeField {
     display: flex;
     flex-direction: column;
@@ -146,14 +165,26 @@
 }
 
 .targetSummary {
-    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.25rem;
+    min-height: 42px;
+    border: 1px solid hsl(var(--border));
+    border-radius: 8px;
+    background: hsl(var(--background));
     color: hsl(var(--foreground));
+    padding: 0.5rem 0.8rem;
 }
 
-.targetHint {
-    margin-top: 0.5rem;
-    font-size: 0.8rem;
-    color: var(--observations-subtle);
+.targetSummary strong {
+    font-size: 1.3rem;
+    line-height: 1;
+}
+
+.targetSummary span {
+    color: var(--observations-muted);
+    font-size: 0.82rem;
 }
 
 .entryList {
@@ -172,19 +203,19 @@
 }
 
 .entryRow {
-    padding: 1rem;
+    padding: 0.85rem;
     border: 1px solid hsl(var(--border));
-    border-radius: 12px;
+    border-radius: 8px;
     background: hsl(var(--background));
 }
 
 .entryHeader {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 0.75rem;
     justify-content: space-between;
-    margin-bottom: 0.85rem;
-    padding-bottom: 0.85rem;
+    margin-bottom: 0.65rem;
+    padding-bottom: 0.65rem;
     border-bottom: 1px solid hsl(var(--border));
 }
 
@@ -198,6 +229,7 @@
 }
 
 .entryStudentName {
+    margin: 0;
     font-size: 1rem;
     font-weight: 700;
     color: hsl(var(--foreground));
@@ -209,6 +241,19 @@
     color: var(--observations-muted);
 }
 
+.entryContextBadge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    border-radius: 999px;
+    background: hsl(var(--accent));
+    color: var(--observations-muted);
+    padding: 0.25rem 0.65rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
 .entryMetaGrid,
 .entryEditorGrid {
     display: grid;
@@ -218,6 +263,7 @@
 
 .entryEditorGrid {
     margin-top: 0.75rem;
+    grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
 }
 
 .entryCell {
@@ -247,7 +293,7 @@
 }
 
 .entryCell textarea {
-    min-height: 120px;
+    min-height: 104px;
     resize: vertical;
 }
 
@@ -268,7 +314,11 @@
 }
 
 .entryEditorGrid > .entryCell:has(.tagButtonGroup) {
-    grid-column: 1 / -1;
+    grid-column: auto;
+}
+
+.entryEditorGrid > .entryCellFull {
+    grid-column: auto;
 }
 
 .hiddenTagSelect {
@@ -278,11 +328,11 @@
 .tagButtonGroup {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.4rem;
 }
 
 .tagButton {
-    padding: 0.5rem 0.8rem;
+    padding: 0.42rem 0.68rem;
     border: 1px solid hsl(var(--border));
     border-radius: 999px;
     background: hsl(var(--card));
@@ -309,8 +359,8 @@
 .customTagRow {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 0.75rem;
+    gap: 0.45rem;
+    margin-top: 0.55rem;
 }
 
 .customTagRow input {
@@ -322,8 +372,8 @@
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    padding: 0.7rem 0.9rem;
-    border-radius: 10px;
+    padding: 0.64rem 0.85rem;
+    border-radius: 8px;
     border: 1px solid hsl(var(--border));
     background: hsl(var(--card));
     color: hsl(var(--foreground));
@@ -344,16 +394,16 @@
 
 .studentSelectionGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 0.6rem;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.45rem;
 }
 
 .studentOption {
     display: flex;
     align-items: center;
     gap: 0.6rem;
-    padding: 0.75rem 0.85rem;
-    border-radius: 10px;
+    padding: 0.55rem 0.65rem;
+    border-radius: 8px;
     border: 1px solid hsl(var(--border));
     background: hsl(var(--background));
     cursor: pointer;
@@ -893,8 +943,14 @@
         align-items: flex-start;
     }
 
+    .composeTopBar,
+    .commonContextGrid {
+        grid-template-columns: 1fr;
+    }
+
     .entryHeader {
         flex-direction: column;
+        align-items: flex-start;
     }
 
     .entryHeader > .entryCell:last-child {
@@ -925,7 +981,7 @@
 
     .entryMetaGrid,
     .entryEditorGrid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: 1fr;
     }
 
     .entryCellWide,

@@ -82,6 +82,10 @@ function ObservationsPageContent() {
     const [formStudentIds, setFormStudentIds] = useState<string[]>(initialStudentIds);
     const today = useMemo(() => new Date().toISOString().split('T')[0], []);
     const [studentDrafts, setStudentDrafts] = useState<Record<string, ObservationDraftRow>>({});
+    const [commonDate, setCommonDate] = useState(today);
+    const [commonLessonTopic, setCommonLessonTopic] = useState('');
+    const [commonTags, setCommonTags] = useState<string[]>([]);
+    const [commonCustomTagInput, setCommonCustomTagInput] = useState('');
     const [customTagOptions, setCustomTagOptions] = useState<string[]>([]);
     const [customTagInputs, setCustomTagInputs] = useState<Record<string, string>>({});
 
@@ -302,6 +306,26 @@ function ObservationsPageContent() {
         });
     };
 
+    const toggleCommonTag = (tag: string) => {
+        const normalizedTag = tag.trim();
+        if (!normalizedTag) return;
+
+        setCommonTags((prev) =>
+            prev.includes(normalizedTag)
+                ? prev.filter((item) => item !== normalizedTag)
+                : [...prev, normalizedTag]
+        );
+    };
+
+    const addCommonCustomTag = () => {
+        const nextTag = commonCustomTagInput.trim();
+        if (!nextTag) return;
+
+        setCustomTagOptions((prev) => (prev.includes(nextTag) ? prev : [...prev, nextTag]));
+        setCommonTags((prev) => (prev.includes(nextTag) ? prev : [...prev, nextTag]));
+        setCommonCustomTagInput('');
+    };
+
     const addCustomTagForStudent = (studentId: string) => {
         const nextTag = (customTagInputs[studentId] || '').trim();
         if (!nextTag) return;
@@ -352,7 +376,8 @@ function ObservationsPageContent() {
         try {
             const results = await Promise.all(
                 selectedTargetStudents.map(async (student) => {
-                    const draft = studentDrafts[student.id];
+                    const draft = studentDrafts[student.id] ?? createEmptyDraft(commonDate || today);
+                    const mergedTags = Array.from(new Set([...commonTags, ...(draft.tags || [])]));
                     const response = await fetch('/api/observations', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
@@ -361,11 +386,11 @@ function ObservationsPageContent() {
                             classId: formClassId,
                             teacherKey: teacher.teacherKey,
                             subjectName: targetClass.subjectName,
-                            lessonTopic: draft.lessonTopic.trim() || undefined,
-                            date: draft.date || today,
+                            lessonTopic: commonLessonTopic.trim() || draft.lessonTopic.trim() || undefined,
+                            date: commonDate || draft.date || today,
                             memo: draft.memo.trim(),
                             evidenceType: 'process',
-                            tags: draft.tags,
+                            tags: mergedTags,
                             sourceType: 'manual',
                         }),
                     });
@@ -404,6 +429,9 @@ function ObservationsPageContent() {
             });
             alert(`${results.length}명에게 수업 기록을 저장했습니다.`);
             setCustomTagInputs({});
+            setCommonLessonTopic('');
+            setCommonTags([]);
+            setCommonCustomTagInput('');
             await fetchData();
         } catch (error) {
             console.error('Failed to save observation:', error);
@@ -474,7 +502,7 @@ function ObservationsPageContent() {
                     <h2><Plus size={18} /> 수업 기록 추가</h2>
                     <span>{teacher?.subject || '과목'} · {teacherClasses.length}개 학급 연결됨</span>
                 </div>
-                <div className={styles.composeGrid}>
+                <div className={styles.composeTopBar}>
                     <div className={styles.composeField}>
                         <label>수업 학급</label>
                         <select value={formClassId} onChange={(e) => setFormClassId(e.target.value)}>
@@ -487,15 +515,15 @@ function ObservationsPageContent() {
                         </select>
                     </div>
                     <div className={styles.composeField}>
-                        <label>선택 학생</label>
-                        <div className={styles.targetSummary}>
-                            {selectedTargetStudents.length > 0
-                                ? `${selectedTargetStudents.length}명 선택됨`
-                                : '선택된 학생이 없습니다.'}
-                        </div>
+                        <label>날짜</label>
+                        <input
+                            type="date"
+                            value={commonDate}
+                            onChange={(e) => setCommonDate(e.target.value)}
+                        />
                     </div>
                     <div className={styles.composeField}>
-                        <label>선택 제어</label>
+                        <label>선택 학생</label>
                         <button
                             type="button"
                             className={styles.inlineSelectButton}
@@ -504,6 +532,61 @@ function ObservationsPageContent() {
                         >
                             {formStudents.length > 0 && formStudentIds.length === formStudents.length ? '전체 해제' : '전체 선택'}
                         </button>
+                    </div>
+                    <div className={styles.targetSummary}>
+                        <strong>{selectedTargetStudents.length}</strong>
+                        <span>명</span>
+                    </div>
+                </div>
+                <div className={styles.commonContextGrid}>
+                    <div className={`${styles.composeField} ${styles.commonTopicField}`}>
+                        <label>수업 주제</label>
+                        <input
+                            type="text"
+                            value={commonLessonTopic}
+                            onChange={(e) => setCommonLessonTopic(e.target.value)}
+                            placeholder="예: 효소 반응 탐구, 발표 활동"
+                        />
+                    </div>
+                    <div className={styles.composeField}>
+                        <label>공통 태그</label>
+                        <div className={styles.tagButtonGroup}>
+                            {availableTagOptions.map((tag) => {
+                                const isSelected = commonTags.includes(tag);
+                                return (
+                                    <button
+                                        key={tag}
+                                        type="button"
+                                        className={`${styles.tagButton} ${isSelected ? styles.tagButtonSelected : ''}`}
+                                        onClick={() => toggleCommonTag(tag)}
+                                    >
+                                        {tag}
+                                    </button>
+                                );
+                            })}
+                        </div>
+                        <div className={styles.customTagRow}>
+                            <input
+                                type="text"
+                                value={commonCustomTagInput}
+                                onChange={(e) => setCommonCustomTagInput(e.target.value)}
+                                onKeyDown={(e) => {
+                                    if (e.key === 'Enter') {
+                                        e.preventDefault();
+                                        addCommonCustomTag();
+                                    }
+                                }}
+                                placeholder="공통 태그 추가"
+                            />
+                            <button
+                                type="button"
+                                className={styles.addTagButton}
+                                onClick={addCommonCustomTag}
+                            >
+                                <Plus size={14} />
+                                추가
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div className={styles.composeField}>
@@ -526,9 +609,6 @@ function ObservationsPageContent() {
                             );
                         })}
                     </div>
-                    <p className={styles.targetHint}>
-                        저장하면 학생별 기록으로 따로 저장됩니다.
-                    </p>
                 </div>
                 <div className={styles.entryList}>
                     {selectedTargetStudents.length === 0 ? (
@@ -542,49 +622,17 @@ function ObservationsPageContent() {
                         return (
                             <div key={student.id} className={styles.entryRow}>
                                 <div className={styles.entryHeader}>
-                                    <p className={styles.entryStudentName}>{student.name}</p>
-                                    <p className={styles.entryStudentMeta}>{student.number}번 학생</p>
-                                    <div className={`${styles.entryCell} ${styles.entryCellFull}`}>
-                                        <label>학년도</label>
-                                        <input type="text" value={String(targetClass?.year || '')} readOnly />
+                                    <div>
+                                        <p className={styles.entryStudentName}>{student.name}</p>
+                                        <p className={styles.entryStudentMeta}>
+                                            {student.grade || targetClass?.grade}학년 {student.classNumber || targetClass?.classNumber}반 {student.number}번
+                                        </p>
                                     </div>
-                                    <div className={styles.entryCell}>
-                                        <label>학년</label>
-                                        <input type="text" value={String(student.grade || targetClass?.grade || '')} readOnly />
-                                    </div>
-                                    <div className={styles.entryCell}>
-                                        <label>반</label>
-                                        <input type="text" value={String(student.classNumber || targetClass?.classNumber || '')} readOnly />
-                                    </div>
-                                    <div className={styles.entryCell}>
-                                        <label>번호</label>
-                                        <input type="text" value={String(student.number)} readOnly />
-                                    </div>
-                                    <div className={`${styles.entryCell} ${styles.entryCellWide}`}>
-                                        <label>이름</label>
-                                        <input type="text" value={student.name} readOnly />
-                                    </div>
-                                    <div className={styles.entryCell}>
-                                        <label>날짜</label>
-                                        <input
-                                            type="date"
-                                            value={draft.date}
-                                            onChange={(e) => updateStudentDraft(student.id, 'date', e.target.value)}
-                                        />
-                                    </div>
+                                    <span className={styles.entryContextBadge}>{commonDate}</span>
                                 </div>
                                 <div className={styles.entryEditorGrid}>
-                                    <div className={`${styles.entryCell} ${styles.entryCellWide}`}>
-                                        <label>수업 주제</label>
-                                        <input
-                                            type="text"
-                                            value={draft.lessonTopic}
-                                            onChange={(e) => updateStudentDraft(student.id, 'lessonTopic', e.target.value)}
-                                            placeholder="예: 효소 반응 탐구, 발표 활동"
-                                        />
-                                    </div>
                                     <div className={styles.entryCell}>
-                                        <label>태그</label>
+                                        <label>개별 태그</label>
                                         <div className={styles.tagButtonGroup}>
                                             {availableTagOptions.map((tag) => {
                                                 const isSelected = selectedTags.includes(tag);
@@ -644,7 +692,7 @@ function ObservationsPageContent() {
                                         </select>
                                     </div>
                                     <div className={`${styles.entryCell} ${styles.entryCellFull}`}>
-                                        <label>기타 메모</label>
+                                        <label>관찰 메모</label>
                                         <textarea
                                             value={draft.memo}
                                             onChange={(e) => updateStudentDraft(student.id, 'memo', e.target.value)}
