@@ -90,9 +90,10 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - observation board cards show student number/name, latest representative tag, last observation date, memo count, and selected state while keeping destructive actions out of the primary card flow
 - observation board 2 location: `/observation-board-2`
 - observation board 2 interaction: example-image-matched classroom dashboard shell with its own illustrated left rail, default `학생 관찰 기록` mentor/mentee activity screen, and clickable session status cells for participation and strong performance marks
-- observation board 2 navigation: the left rail switches internal screens only (`홈`, `멘토 멘티 활동 기록`, `성장 기록`, `통계 보기`, `알림장`, `설정`) and does not route out of `/observation-board-2`
+- observation board 2 navigation: the left rail switches internal screens only (`홈`, `학생 관찰 기록`, `성장 기록`, `통계 보기`, `알림장`, `설정`) and does not route out of `/observation-board-2`
 - observation board 2 data scope: mentor matching, observation compose, growth, and stats show only students from the current teacher's assigned classes; the board no longer backfills sample students when no assigned roster exists
-- observation board 2 mentor workflow: the default screen is `멘토 멘티 활동 기록`, supports adding empty groups, and lets teachers drag student tokens between mentor/mentee slots
+- observation board 2 mentor workflow: the default screen is `학생 관찰 기록`, supports adding empty groups, and lets teachers drag student tokens between mentor/mentee slots
+- observation board 2 sessions: each session header supports direct teacher entry for date and activity content, and the `+` header button adds another session column
 - observation board 2 growth/stats: growth surfaces per-student record gaps, latest notes, and △/○ activity reactions; stats surfaces record-priority students and group activity balance in addition to counts and tag bars
 - observation board 2 growth dashboard: merges `/api/observations` and `/api/student-data` note/grade/mentor_match rows into a student timeline with class and search filters
 - observation board 2 stats dashboard: summarizes observation counts, student counts, tag frequency, latest record date, and current △/○ activity marks with cards and compact bars

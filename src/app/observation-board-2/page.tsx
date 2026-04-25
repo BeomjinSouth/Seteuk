@@ -55,6 +55,13 @@ interface MarkSummary {
     excellent: number;
 }
 
+interface ActivitySession {
+    id: string;
+    label: string;
+    date: string;
+    topic: string;
+}
+
 interface NoticeItem {
     id: string;
     title: string;
@@ -90,7 +97,7 @@ interface MentorGroupView {
     mentee?: Student;
 }
 
-const sessions = [
+const defaultActivitySessions: ActivitySession[] = [
     { id: 'session-1', label: '1차시', date: '5/2 (금)', topic: '서로 알아가기' },
     { id: 'session-2', label: '2차시', date: '5/9 (금)', topic: '협동 게임' },
     { id: 'session-3', label: '3차시', date: '5/16 (금)', topic: '책 함께 읽기' },
@@ -168,10 +175,37 @@ function getNoticeStorageKey(teacherKey?: string) {
     return `observation-board-2-notices:${teacherKey || 'guest'}`;
 }
 
+function getSessionStorageKey(teacherKey?: string) {
+    return `observation-board-2-sessions:${teacherKey || 'guest'}`;
+}
+
+function normalizeActivitySessions(value: unknown): ActivitySession[] {
+    if (!Array.isArray(value)) return defaultActivitySessions;
+
+    const normalized = value
+        .map((item, index) => {
+            if (!item || typeof item !== 'object') return null;
+            const session = item as Partial<ActivitySession>;
+            return {
+                id: typeof session.id === 'string' && session.id.trim()
+                    ? session.id
+                    : `session-${index + 1}`,
+                label: typeof session.label === 'string' && session.label.trim()
+                    ? session.label
+                    : `${index + 1}차시`,
+                date: typeof session.date === 'string' ? session.date : '',
+                topic: typeof session.topic === 'string' ? session.topic : '',
+            };
+        })
+        .filter(Boolean) as ActivitySession[];
+
+    return normalized.length > 0 ? normalized : defaultActivitySessions;
+}
+
 function getBoardModeTitle(mode: BoardMode) {
     const titles: Record<BoardMode, string> = {
         home: '관찰2 홈',
-        mentor: '멘토 멘티 활동 기록',
+        mentor: '학생 관찰 기록',
         growth: '성장 기록',
         stats: '통계 보기',
         notice: '알림장',
@@ -228,6 +262,8 @@ export default function ObservationBoard2Page() {
     const [notices, setNotices] = useState<NoticeItem[]>([]);
     const [loadedNoticeKey, setLoadedNoticeKey] = useState('');
     const [mentorAssignments, setMentorAssignments] = useState<MentorGroupAssignment[]>([]);
+    const [activitySessions, setActivitySessions] = useState<ActivitySession[]>(defaultActivitySessions);
+    const [loadedSessionKey, setLoadedSessionKey] = useState('');
 
     useEffect(() => {
         setIsStoreReady(useAppStore.persist.hasHydrated());
@@ -373,7 +409,7 @@ export default function ObservationBoard2Page() {
 
         assignedMentorStudents.forEach((student, studentIndex) => {
             const summary = { participated: 0, excellent: 0 };
-            sessions.forEach((session, sessionIndex) => {
+            activitySessions.forEach((session, sessionIndex) => {
                 const mark = marks[`${student.id}:${session.id}`] ?? getDefaultMark(studentIndex, sessionIndex);
                 if (mark === 'participated') summary.participated += 1;
                 if (mark === 'excellent') summary.excellent += 1;
@@ -382,7 +418,7 @@ export default function ObservationBoard2Page() {
         });
 
         return stats;
-    }, [assignedMentorStudents, marks]);
+    }, [activitySessions, assignedMentorStudents, marks]);
 
     const totalExcellent = Array.from(markStatsByStudent.values()).reduce((sum, summary) => (
         sum + summary.excellent
@@ -512,6 +548,25 @@ export default function ObservationBoard2Page() {
         if (!loadedNoticeKey) return;
         window.localStorage.setItem(loadedNoticeKey, JSON.stringify(notices));
     }, [loadedNoticeKey, notices]);
+
+    useEffect(() => {
+        const storageKey = getSessionStorageKey(teacher?.teacherKey);
+        setLoadedSessionKey(storageKey);
+
+        try {
+            const saved = window.localStorage.getItem(storageKey)
+                ?? window.localStorage.getItem(getSessionStorageKey());
+            setActivitySessions(saved ? normalizeActivitySessions(JSON.parse(saved)) : defaultActivitySessions);
+        } catch (error) {
+            console.error('Failed to load observation board sessions:', error);
+            setActivitySessions(defaultActivitySessions);
+        }
+    }, [teacher?.teacherKey]);
+
+    useEffect(() => {
+        if (!loadedSessionKey) return;
+        window.localStorage.setItem(loadedSessionKey, JSON.stringify(activitySessions));
+    }, [activitySessions, loadedSessionKey]);
 
     useEffect(() => {
         setStudentDrafts((prev) => {
@@ -826,6 +881,44 @@ export default function ObservationBoard2Page() {
         });
     };
 
+    const persistActivitySessions = (nextSessions: ActivitySession[]) => {
+        if (typeof window === 'undefined') return;
+
+        try {
+            const storageKeys = new Set([
+                loadedSessionKey,
+                getSessionStorageKey(teacher?.teacherKey),
+            ].filter(Boolean));
+            storageKeys.forEach((storageKey) => {
+                window.localStorage.setItem(storageKey, JSON.stringify(nextSessions));
+            });
+        } catch (error) {
+            console.error('Failed to save observation board sessions:', error);
+        }
+    };
+
+    const handleUpdateSession = (sessionId: string, field: 'date' | 'topic', value: string) => {
+        const nextSessions = activitySessions.map((session) => (
+            session.id === sessionId ? { ...session, [field]: value } : session
+        ));
+        setActivitySessions(nextSessions);
+        persistActivitySessions(nextSessions);
+    };
+
+    const handleAddSession = () => {
+        const nextSessions = [
+            ...activitySessions,
+            {
+                id: `session-${Date.now()}`,
+                label: `${activitySessions.length + 1}차시`,
+                date: '',
+                topic: '',
+            },
+        ];
+        setActivitySessions(nextSessions);
+        persistActivitySessions(nextSessions);
+    };
+
     const renderBoardContent = () => {
         if (activeMode === 'home') {
             return (
@@ -959,12 +1052,15 @@ export default function ObservationBoard2Page() {
                 boardStudents={boardStudents}
                 featuredStudents={featuredStudents}
                 mentorGroups={mentorGroups}
+                sessions={activitySessions}
                 marks={marks}
                 selectedClass={selectedClass}
                 totalExcellent={totalExcellent}
                 visibleRosterCount={visibleRosterCount}
                 onAssignStudent={handleAssignMentorStudent}
                 onAddGroup={handleAddMentorGroup}
+                onAddSession={handleAddSession}
+                onUpdateSession={handleUpdateSession}
                 onUpdateMark={updateMark}
             />
         );
@@ -979,14 +1075,24 @@ export default function ObservationBoard2Page() {
                 <header className={styles.dashboardHeader}>
                     <div className={styles.titleCluster}>
                         <span className={styles.titleIcon}>
-                            <ClipboardList size={34} />
+                            <img src="/observation-board-2/title-clipboard.png" alt="" aria-hidden="true" />
                         </span>
                         <h1>{getBoardModeTitle(activeMode)}</h1>
                     </div>
                     <div className={styles.headerActions} aria-label="사용자 정보">
+                        <img src="/observation-board-2/header-cloud.png" alt="" className={styles.headerCloud} aria-hidden="true" />
+                        <button type="button" className={styles.referenceHeaderButton}>
+                            <img src="/observation-board-2/header-badge.png" alt="" aria-hidden="true" />
+                            우정 배지
+                        </button>
+                        <button type="button" className={styles.referenceHeaderButton}>
+                            <img src="/observation-board-2/header-bell.png" alt="" aria-hidden="true" />
+                            알림
+                        </button>
                         <span className={styles.teacherChip}>
-                            <UserRound size={17} />
-                            {teacher?.name || '선생님'}
+                            <img src="/observation-board-2/header-teacher.png" alt="" aria-hidden="true" />
+                            선생님
+                            <span aria-hidden="true">⌄</span>
                         </span>
                     </div>
                 </header>
@@ -1030,7 +1136,7 @@ function ClassroomSidebar({
                     className={activeMode === 'home' ? styles.sidebarNavActive : ''}
                     onClick={() => onModeChange('home')}
                 >
-                    <Home size={18} />
+                    <img src="/observation-board-2/nav-home.png" alt="" aria-hidden="true" />
                     홈
                 </button>
                 <button
@@ -1038,15 +1144,15 @@ function ClassroomSidebar({
                     className={activeMode === 'mentor' ? styles.sidebarNavActive : ''}
                     onClick={() => onModeChange('mentor')}
                 >
-                    <ClipboardList size={18} />
-                    멘토 멘티 활동 기록
+                    <img src="/observation-board-2/nav-record.png" alt="" aria-hidden="true" />
+                    학생 관찰 기록
                 </button>
                 <button
                     type="button"
                     className={activeMode === 'growth' ? styles.sidebarNavActive : ''}
                     onClick={() => onModeChange('growth')}
                 >
-                    <Users size={18} />
+                    <img src="/observation-board-2/nav-growth.png" alt="" aria-hidden="true" />
                     성장 기록
                 </button>
                 <button
@@ -1054,7 +1160,7 @@ function ClassroomSidebar({
                     className={activeMode === 'stats' ? styles.sidebarNavActive : ''}
                     onClick={() => onModeChange('stats')}
                 >
-                    <BarChart3 size={18} />
+                    <img src="/observation-board-2/nav-stats.png" alt="" aria-hidden="true" />
                     통계 보기
                 </button>
                 <button
@@ -1062,7 +1168,7 @@ function ClassroomSidebar({
                     className={activeMode === 'notice' ? styles.sidebarNavActive : ''}
                     onClick={() => onModeChange('notice')}
                 >
-                    <Megaphone size={18} />
+                    <img src="/observation-board-2/nav-notice.png" alt="" aria-hidden="true" />
                     알림장
                 </button>
                 <button
@@ -1070,7 +1176,7 @@ function ClassroomSidebar({
                     className={activeMode === 'settings' ? styles.sidebarNavActive : ''}
                     onClick={() => onModeChange('settings')}
                 >
-                    <Settings size={18} />
+                    <img src="/observation-board-2/nav-settings.png" alt="" aria-hidden="true" />
                     설정
                 </button>
             </nav>
@@ -1186,7 +1292,7 @@ function HomeDashboard({
                     <div className={styles.quickActionGrid}>
                         <button type="button" onClick={() => onModeChange('mentor')}>
                             <ClipboardList size={18} />
-                            멘토 멘티 활동 기록
+                            학생 관찰 기록
                         </button>
                         <button type="button" onClick={() => onModeChange('growth')}>
                             <Users size={18} />
@@ -1729,23 +1835,29 @@ function MentorActivityView({
     boardStudents,
     featuredStudents,
     mentorGroups,
+    sessions,
     marks,
     selectedClass,
     totalExcellent,
     visibleRosterCount,
     onAssignStudent,
     onAddGroup,
+    onAddSession,
+    onUpdateSession,
     onUpdateMark,
 }: {
     boardStudents: Student[];
     featuredStudents: Student[];
     mentorGroups: MentorGroupView[];
+    sessions: ActivitySession[];
     marks: Record<string, MarkState>;
     selectedClass?: ClassGroup;
     totalExcellent: number;
     visibleRosterCount: number;
     onAssignStudent: (studentId: string, groupId: string, role: MentorRole) => void;
     onAddGroup: () => void;
+    onAddSession: () => void;
+    onUpdateSession: (sessionId: string, field: 'date' | 'topic', value: string) => void;
     onUpdateMark: (studentId: string, sessionId: string, fallback: MarkState) => void;
 }) {
     const startStudentDrag = (event: DragEvent<HTMLElement>, studentId: string) => {
@@ -1765,7 +1877,7 @@ function MentorActivityView({
             <main className={styles.workspace}>
                 <section className={styles.mentorPanel}>
                     <div className={styles.panelTitle}>
-                        <Users size={22} />
+                        <img src="/observation-board-2/panel-kids.png" alt="" className={styles.panelTitleImage} aria-hidden="true" />
                         <div>
                             <h2>멘토·멘티 구성</h2>
                             <p>{featuredStudents.length}명 표시 · 전체 {boardStudents.length}명</p>
@@ -1774,7 +1886,7 @@ function MentorActivityView({
 
                     <div className={styles.yellowNotice}>
                         <Handshake size={18} />
-                        서로 도와가며 활동할 수 있도록 2명씩 짝을 구성합니다.
+                        학생을 드래그해서 멘토와 멘티를 연결해 보세요!
                     </div>
 
                     <div className={styles.groupStack}>
@@ -1851,7 +1963,7 @@ function MentorActivityView({
                 <section className={styles.recordPanel}>
                     <div className={styles.recordHeader}>
                         <div className={styles.panelTitle}>
-                            <ClipboardList size={24} />
+                            <img src="/observation-board-2/panel-record.png" alt="" className={styles.panelTitleImage} aria-hidden="true" />
                             <div>
                                 <h2>멘토·멘티 활동 기록</h2>
                                 <p>{sessions.length}차시 · 매우 잘함 {totalExcellent}회</p>
@@ -1871,22 +1983,55 @@ function MentorActivityView({
 
                     <div className={styles.sessionNote}>
                         <CalendarDays size={18} />
-                        <span>{selectedClass ? `${selectedClass.grade}학년 ${selectedClass.classNumber}반` : '전체 담당 학급'}</span>
+                        <span>차시를 클릭해서 오늘의 활동을 기록해 보세요!</span>
                     </div>
 
                     <div className={styles.tableShell}>
-                        <div className={styles.activityTable} role="table" aria-label="멘토·멘티 차시별 활동 기록">
+                        <div
+                            className={styles.activityTable}
+                            role="table"
+                            aria-label="멘토·멘티 차시별 활동 기록"
+                            style={{
+                                gridTemplateColumns: `46px 86px repeat(${sessions.length}, minmax(96px, 1fr)) 72px`,
+                                minWidth: `${Math.max(700, 204 + sessions.length * 96)}px`,
+                            }}
+                        >
                             <div className={styles.tableHeaderCell} role="columnheader">차시</div>
                             {sessions.map((session) => (
-                                <div key={session.id} className={styles.sessionHeader} role="columnheader">
+                                <div key={session.id} className={styles.sessionNumberHeader} role="columnheader">
                                     <strong>{session.label}</strong>
-                                    <span>{session.date}</span>
-                                    <em>{session.topic}</em>
                                 </div>
                             ))}
-                            <button type="button" className={styles.addSessionButton} aria-label="차시 추가">
+                            <button type="button" className={styles.addSessionButton} aria-label="차시 추가" onClick={onAddSession}>
                                 <Plus size={20} />
+                                <span>추가</span>
                             </button>
+
+                            <div className={styles.sessionRowLabel}>날짜 (선택)</div>
+                            {sessions.map((session) => (
+                                <label key={`${session.id}-date`} className={styles.sessionEditCell}>
+                                    <input
+                                        type="text"
+                                        value={session.date}
+                                        onChange={(event) => onUpdateSession(session.id, 'date', event.target.value)}
+                                        placeholder="날짜"
+                                        aria-label={`${session.label} 날짜`}
+                                    />
+                                </label>
+                            ))}
+
+                            <div className={styles.sessionRowLabel}>주제 (선택)</div>
+                            {sessions.map((session) => (
+                                <label key={`${session.id}-topic`} className={styles.sessionEditCell}>
+                                    <input
+                                        type="text"
+                                        value={session.topic}
+                                        onChange={(event) => onUpdateSession(session.id, 'topic', event.target.value)}
+                                        placeholder="내용"
+                                        aria-label={`${session.label} 내용`}
+                                    />
+                                </label>
+                            ))}
 
                             {mentorGroups.map((group, groupIndex) => (
                                 <ActivityGroupRows
@@ -1894,6 +2039,7 @@ function MentorActivityView({
                                     groupTitle={group.title}
                                     groupIndex={groupIndex}
                                     students={[group.mentor, group.mentee].filter(Boolean) as Student[]}
+                                    sessions={sessions}
                                     marks={marks}
                                     onUpdateMark={onUpdateMark}
                                 />
@@ -2246,12 +2392,14 @@ function ActivityGroupRows({
     groupTitle,
     groupIndex,
     students,
+    sessions,
     marks,
     onUpdateMark,
 }: {
     groupTitle: string;
     groupIndex: number;
     students: Student[];
+    sessions: ActivitySession[];
     marks: Record<string, MarkState>;
     onUpdateMark: (studentId: string, sessionId: string, fallback: MarkState) => void;
 }) {
