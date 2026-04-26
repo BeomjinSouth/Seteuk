@@ -51,6 +51,7 @@
 - observation board 2 responsive sidebar: 1120px 이하에서도 PNG 기준의 왼쪽 세로 사이드바를 유지하고 상단 가로 메뉴로 접지 않음
 - observation board 2 data scope: 멘토·멘티, 관찰 작성, 성장 기록, 통계는 현재 교사의 담당 학급 학생만 표시하고 담당 학생이 없을 때 샘플 학생으로 대체하지 않음
 - observation board 2 growth/stats usefulness: 성장 기록은 학생별 관찰 공백/최근 메모/△·○ 반응을 보여주고, 통계 보기는 기록 우선 학생과 모둠별 활동 균형을 함께 표시
+- observation board 2 growth modal: `성장 기록 작성`은 기준 이미지형 dimmed overlay, 선택 학생 동물 칩, 중립 쿠키 카드 3개, 선택 메모, `이전`/`저장하기` 버튼을 제공
 - observation board 2 stats class scope: 통계 보기는 compact 학급 선택 메뉴를 제공하고 담당 학급 하나를 기본 범위로 사용해 모둠별 활동 균형을 학급별로 확인함
 - observation board 2 editable sessions: 차시 표 헤더에서 날짜/활동 내용을 직접 입력하고 `+` 버튼으로 차시 열을 추가하며, 교사별 localStorage에 유지
 - observation board 2 records mode: 기존 관찰 기록 기능은 사이드바에서 숨긴 내부 `records` 모드로 유지하고, 통계 보기 빠른 이동에서 학급/검색 필터, 학생 다중 선택, 공통 날짜/주제/태그, 학생별 메모 입력, 최근 기록 목록, 상세 보기, 삭제 지원
@@ -64,6 +65,7 @@
 
 ## Recent Changes
 
+- 2026-04-26: matched the observation-board-2 `성장 기록 작성` modal to the provided reference UI, including centered dialog sizing, selected-student animal chips, neutral cookie cards, optional memo, and footer actions
 - 2026-04-26: removed the old top-level `학생 관찰 기록` card-board tab, renamed the classroom dashboard tab to `학생 관찰 기록`, and redirected `/observation-board` and `/observations` to `/observation-board-2`
 - 2026-04-26: restyled the `/write` AI 세특 작성 tab to match the provided screenshot, including the wider app shell, class chip toolbar, paginated table, and prompt-style AI input/content cells
 - 2026-04-26: removed the top-level `학생 데이터` tab and `/student-data` page, and stopped write/growth flows from loading student-data tab entries

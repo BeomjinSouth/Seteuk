@@ -2820,18 +2820,19 @@
 
 .selectedGrowthChip {
     display: grid;
-    grid-template-columns: 35px minmax(84px, auto) 22px;
-    gap: 0.15rem 0.42rem;
+    grid-template-columns: 35px minmax(0, 1fr) 18px;
+    gap: 0.12rem 0.38rem;
     align-items: center;
-    min-width: 146px;
+    width: 142px;
     border: 2px solid #dce8f4;
     border-radius: 10px;
     background: #ffffff;
-    padding: 0.42rem 0.5rem;
+    padding: 0.42rem 0.45rem;
 }
 
 .selectedGrowthChip .growthChipAvatar {
-    grid-row: span 2;
+    grid-column: 1;
+    grid-row: 1 / span 2;
 }
 
 .growthChipAvatar {
@@ -2850,6 +2851,8 @@
 }
 
 .selectedGrowthChip strong {
+    grid-column: 2;
+    grid-row: 1;
     overflow: hidden;
     color: #1a416f;
     font-size: 0.88rem;
@@ -2858,14 +2861,20 @@
 }
 
 .selectedGrowthChip em {
+    grid-column: 2;
+    grid-row: 2;
+    overflow: hidden;
     color: #708296;
     font-size: 0.7rem;
     font-style: normal;
     font-weight: 800;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .selectedGrowthChip button {
-    grid-row: span 2;
+    grid-column: 3;
+    grid-row: 1 / span 2;
 }
 
 .cookieRewardSection {

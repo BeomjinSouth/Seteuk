@@ -170,6 +170,7 @@ STAR FAQ/Q&A
 - `/observation-board-2`의 왼쪽 레일은 `mentor | growth | stats | notice | settings | records` 내부 상태를 전환하며, 사이드바에는 `학생 관찰 기록`, `성장 기록`, `통계 보기`, `알림장`, `설정`만 노출한다. 1120px 이하에서도 이 레일을 상단 가로 메뉴로 접지 않고 PNG 기준의 왼쪽 세로 사이드바로 유지한다.
 - `/observation-board-2`의 `records` 모드는 기존 관찰 기록 흐름을 교실 대시보드 디자인 안으로 통합하되, 기본 사이드바에서 별도 항목으로 노출하지 않고 `성장 기록` 내부 작성 모달 또는 `설정` 보조 버튼으로 진입한다.
 - `/observation-board-2`의 `growth` 모드는 `/api/observations`의 관찰 메모만으로 학생별 누적 타임라인을 구성하고, 담당 학생별 관찰 공백/최근 메모/△·○ 반응 요약 카드와 선택 학생 대상 `성장 기록 작성` 모달을 함께 렌더링한다.
+- `성장 기록 작성` 모달은 기준 이미지와 맞춘 고정 폭/높이의 dimmed overlay dialog이며, 제목 아이콘, 3단계 stepper, 선택 학생 동물 칩, 중립 상태로 시작하는 쿠키 선택 카드 3개, 선택 메모 박스, 좌우 하단 버튼을 CSS로 구성한다.
 - `/observation-board-2`의 `stats` 모드는 관찰 기록 수, 학생별 기록 수, 태그 빈도, 최근 기록일, 현재 화면의 △/○ 표시 개수, 기록 우선 학생, 모둠별 활동 균형을 카드와 막대형 차트로 계산한다.
 - `/observation-board-2`의 `stats` 모드는 compact 학급 선택 메뉴를 제공하며, 진입 시 담당 학급 하나를 기본 범위로 잡아 전체 담당 학급의 모둠이 한 화면에 모두 펼쳐지지 않게 한다.
 - `/observation-board-2`의 `notice` 모드는 서버 API 없이 `observation-board-2-notices:${teacherKey}` localStorage 키로 공지 작성/완료 상태를 유지한다.

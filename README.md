@@ -26,7 +26,7 @@ Open `http://localhost:3000`.
 - `학생 관리` now handles roster upload and teaching-class connection only
 - 성호중학교 교사는 업로드 없이 공용 2026 명렬표에서 학급만 선택한다
 - `학생 관찰 기록` opens `/observation-board-2`; legacy `/observation-board` and `/observations` direct entries redirect there
-- in `/observation-board-2`, the sidebar shows only `학생 관찰 기록`, `성장 기록`, and `통계 보기`; `홈`, `알림장`, and `설정` are hidden, and `성장 기록` opens a selected-student `성장 기록 작성` modal for observation memo writing
+- in `/observation-board-2`, the sidebar shows only `학생 관찰 기록`, `성장 기록`, and `통계 보기`; `홈`, `알림장`, and `설정` are hidden, and `성장 기록` opens a selected-student `성장 기록 작성` modal matching the provided reference UI with animal chips, cookie cards, optional memo, and bottom actions
 - in `/observation-board-2`, the mentor/mentee activity screen uses a compact single-class selector instead of a long class-chip rail, shows one selected class at a time, and lets teachers optionally cap how many students are auto-paired/listed
 - observation memo entry uses the internal `records` mode with per-student rows plus `수업 주제`, selected `태그`, and `기타 메모`
 - `/write` uses the screenshot-style AI 세특 작성 workspace with class chips, AI/RAG/check action buttons, prompt-style editable AI input/content cells, and 10명씩 보기 pagination
