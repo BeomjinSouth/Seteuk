@@ -14,6 +14,7 @@ import {
     Circle,
     ClipboardList,
     Cloud,
+    Cookie,
     Eye,
     Handshake,
     Megaphone,
@@ -64,6 +65,7 @@ interface ObservationDraftRow {
 
 interface ObservationCardStats {
     count: number;
+    cookieCount: number;
     latest?: Observation;
 }
 
@@ -103,6 +105,18 @@ interface MentorGroupView {
 
 const visibleRosterCountOptions: VisibleRosterCount[] = ['all', 24, 16, 12, 8, 6];
 
+const markCookieValues: Record<MarkState, number> = {
+    none: 0,
+    participated: 1,
+    excellent: 2,
+};
+
+const markCookieLabels: Record<MarkState, string> = {
+    none: '활동하지 않음',
+    participated: '참여함',
+    excellent: '매우 잘함',
+};
+
 const observationTagOptions = [
     '참여',
     '발표',
@@ -130,15 +144,30 @@ function getInitials(name: string) {
     return name.length > 2 ? name.slice(1) : name;
 }
 
-function getDefaultMark(studentIndex: number, sessionIndex: number): MarkState {
-    const pattern: MarkState[] = ['participated', 'excellent', 'participated', 'none', 'excellent'];
-    return pattern[(studentIndex + sessionIndex) % pattern.length];
+function formatStudentNumber(number: number) {
+    return String(number).padStart(2, '0');
+}
+
+function getGrowthCookieCount(observation: Observation) {
+    return observation.tags.reduce((sum, tag) => {
+        const match = tag.match(/쿠키\s*(\d+)개/);
+        if (!match) return sum;
+        return sum + Number(match[1]);
+    }, 0);
+}
+
+function getDefaultMark(_studentIndex: number, _sessionIndex: number): MarkState {
+    return 'none';
 }
 
 function getNextMark(mark: MarkState): MarkState {
     if (mark === 'none') return 'participated';
     if (mark === 'participated') return 'excellent';
     return 'none';
+}
+
+function getCookieDelta(previousMark: MarkState, nextMark: MarkState) {
+    return markCookieValues[nextMark] - markCookieValues[previousMark];
 }
 
 function getObservationTimestamp(observation?: Observation) {
@@ -343,9 +372,10 @@ export default function ObservationBoard2Page() {
         const stats = new Map<string, ObservationCardStats>();
 
         scopedObservations.forEach((observation) => {
-            const current = stats.get(observation.studentId) ?? { count: 0 };
+            const current = stats.get(observation.studentId) ?? { count: 0, cookieCount: 0 };
             stats.set(observation.studentId, {
                 count: current.count + 1,
+                cookieCount: current.cookieCount + getGrowthCookieCount(observation),
                 latest: getObservationTimestamp(current.latest) > getObservationTimestamp(observation)
                     ? current.latest
                     : observation,
@@ -607,12 +637,59 @@ export default function ObservationBoard2Page() {
         setMentorAssignments([]);
     };
 
-    const updateMark = (studentId: string, sessionId: string, fallback: MarkState) => {
-        const key = `${studentId}:${sessionId}`;
+    const syncMarkCookieDelta = async (
+        studentId: string,
+        session: ActivitySession,
+        previousMark: MarkState,
+        nextMark: MarkState
+    ) => {
+        if (!teacher) return;
+
+        const delta = getCookieDelta(previousMark, nextMark);
+        if (delta === 0) return;
+
+        const student = studentLookup.get(studentId);
+        const reason = [
+            '멘토·멘티 활동 자동 반영',
+            session.label,
+            markCookieLabels[previousMark],
+            '→',
+            markCookieLabels[nextMark],
+        ].join(' ');
+
+        try {
+            const response = await fetch('/api/cookies', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    school: student?.school || teacher.school,
+                    studentId,
+                    teacherKey: teacher.teacherKey,
+                    type: delta > 0 ? 'award' : 'adjust',
+                    amount: delta,
+                    reason,
+                }),
+            });
+            const data = await response.json().catch(() => null) as { success?: boolean; error?: string } | null;
+            if (!response.ok || !data?.success) {
+                throw new Error(data?.error || '쿠키 원장 반영 실패');
+            }
+        } catch (error) {
+            console.error('Failed to sync observation mark cookie delta:', error);
+            alert('활동 표시는 저장했지만 쿠키 자동 반영에 실패했습니다. 잠시 후 다시 표시를 조정해 주세요.');
+        }
+    };
+
+    const updateMark = (studentId: string, session: ActivitySession, fallback: MarkState) => {
+        const key = `${studentId}:${session.id}`;
+        const previousMark = marks[key] ?? fallback;
+        const nextMark = getNextMark(previousMark);
+
         setMarks((prev) => ({
             ...prev,
-            [key]: getNextMark(prev[key] ?? fallback),
+            [key]: nextMark,
         }));
+        void syncMarkCookieDelta(studentId, session, previousMark, nextMark);
     };
 
     const toggleStudentSelection = (studentId: string) => {
@@ -1395,38 +1472,26 @@ function GrowthDashboard({
                         <div className={styles.emptyList}>담당 학급 학생이 없습니다. 먼저 담당 학급을 등록하세요.</div>
                     )}
                     {students.map((student) => {
-                        const observationStats = observationStatsByStudent.get(student.id);
+                        const observationStats = observationStatsByStudent.get(student.id) ?? { count: 0, cookieCount: 0 };
                         const markStats = markStatsByStudent.get(student.id) ?? { participated: 0, excellent: 0 };
+                        const cookieCount = observationStats.cookieCount + markStats.participated + (markStats.excellent * 2);
                         const isSelected = selectedStudentIds.has(student.id);
                         return (
                             <button
                                 key={student.id}
                                 type="button"
                                 className={`${styles.growthStudentCard} ${isSelected ? styles.growthStudentCardSelected : ''}`}
+                                aria-pressed={isSelected}
                                 onClick={() => onToggleStudent(student.id)}
                             >
-                                <div>
-                                    <span className={styles.timelineAvatar}>{getInitials(student.name)}</span>
-                                    <div>
-                                        <strong>{student.name}</strong>
-                                        <em>{student.grade}학년 {student.classNumber}반 {student.number}번</em>
-                                    </div>
-                                </div>
-                                <dl>
-                                    <div>
-                                        <dt>관찰</dt>
-                                        <dd>{observationStats?.count ?? 0}건</dd>
-                                    </div>
-                                    <div>
-                                        <dt>참여</dt>
-                                        <dd>{markStats.participated}회</dd>
-                                    </div>
-                                    <div>
-                                        <dt>매우 잘함</dt>
-                                        <dd>{markStats.excellent}회</dd>
-                                    </div>
-                                </dl>
-                                <p>{observationStats?.latest?.memo || '아직 개별 관찰 메모가 없습니다.'}</p>
+                                <span className={styles.growthStudentIndex}>{formatStudentNumber(student.number)}</span>
+                                <span className={styles.growthStudentName}>{student.name}</span>
+                                <span className={styles.growthStudentDivider} aria-hidden="true" />
+                                <span className={styles.growthStudentObservation}>관찰 {observationStats.count}건</span>
+                                <span className={styles.growthStudentCookie} aria-label={`쿠키 ${cookieCount}개`}>
+                                    <Cookie className={styles.growthStudentCookieIcon} size={18} aria-hidden="true" />
+                                    <strong>{cookieCount}</strong>
+                                </span>
                             </button>
                         );
                     })}
@@ -2041,7 +2106,7 @@ function MentorActivityView({
     onAddGroup: () => void;
     onAddSession: () => void;
     onUpdateSession: (sessionId: string, field: 'date' | 'topic', value: string) => void;
-    onUpdateMark: (studentId: string, sessionId: string, fallback: MarkState) => void;
+    onUpdateMark: (studentId: string, session: ActivitySession, fallback: MarkState) => void;
 }) {
     const rosterStudents = getVisibleRosterStudents(boardStudents, visibleRosterCount);
 
@@ -2165,18 +2230,18 @@ function MentorActivityView({
                         <div className={styles.legend}>
                             <span>
                                 <Triangle size={18} />
-                                참여함
+                                참여함 +1 쿠키
                             </span>
                             <span>
                                 <Circle size={18} />
-                                매우 잘함
+                                매우 잘함 +2 쿠키
                             </span>
                         </div>
                     </div>
 
                     <div className={styles.sessionNote}>
                         <CalendarDays size={18} />
-                        <span>차시를 클릭해서 오늘의 활동을 기록해 보세요!</span>
+                        <span>차시를 클릭하면 활동 상태와 쿠키가 함께 반영됩니다.</span>
                     </div>
 
                     <div className={styles.tableShell}>
@@ -2247,12 +2312,13 @@ function MentorActivityView({
                     <strong>활동 기록 안내</strong>
                     <span>
                         <Triangle size={17} />
-                        참여
+                        참여 +1 쿠키
                     </span>
                     <span>
                         <Circle size={17} />
-                        매우 잘함
+                        매우 잘함 +2 쿠키
                     </span>
+                    <span>빈칸 0 쿠키</span>
                 </div>
                 <p>
                     함께 성장하는 우리, 최고예요!
@@ -2348,7 +2414,7 @@ function ObservationRecordsView({
 
                 <div className={styles.studentRecordGrid}>
                     {filteredStudents.map((student, index) => {
-                        const stats = observationStatsByStudent.get(student.id) ?? { count: 0 };
+                        const stats = observationStatsByStudent.get(student.id) ?? { count: 0, cookieCount: 0 };
                         const isSelected = selectedStudentIds.has(student.id);
                         return (
                             <motion.button
@@ -2594,7 +2660,7 @@ function ActivityGroupRows({
     students: Student[];
     sessions: ActivitySession[];
     marks: Record<string, MarkState>;
-    onUpdateMark: (studentId: string, sessionId: string, fallback: MarkState) => void;
+    onUpdateMark: (studentId: string, session: ActivitySession, fallback: MarkState) => void;
 }) {
     return (
         <>
@@ -2627,7 +2693,7 @@ function ActivityGroupRows({
                                     key={session.id}
                                     type="button"
                                     className={`${styles.markButton} ${styles[`mark-${mark}`]}`}
-                                    onClick={() => onUpdateMark(student.id, session.id, fallback)}
+                                    onClick={() => onUpdateMark(student.id, session, fallback)}
                                     aria-label={`${student.name} ${session.label} 활동 상태 변경`}
                                 >
                                     {mark === 'participated' && <Triangle size={28} />}

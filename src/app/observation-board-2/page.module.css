@@ -2502,8 +2502,8 @@
 
 .growthStudentGrid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0.8rem;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1.3rem 1.45rem;
 }
 
 .growthStudentGrid > .emptyList {
@@ -2511,89 +2511,107 @@
 }
 
 .growthStudentCard {
-    display: grid;
+    display: flex;
+    align-items: center;
     gap: 0.72rem;
-    border: 2px solid #d4e7f5;
-    border-radius: 16px;
+    min-height: 72px;
+    border: 1.5px solid #dfe8f4;
+    border-radius: 8px;
     background: #ffffff;
-    padding: 0.82rem;
+    padding: 0.78rem 1rem;
     color: inherit;
     font: inherit;
     text-align: left;
-    box-shadow: 0 10px 22px rgba(52, 134, 202, 0.08);
+    box-shadow: 0 1px 4px rgba(37, 74, 119, 0.04);
     cursor: pointer;
+    transition:
+        border-color 160ms ease,
+        background 160ms ease,
+        box-shadow 160ms ease,
+        transform 160ms ease;
 }
 
 .growthStudentCard:hover,
 .growthStudentCardSelected {
-    border-color: #347fd1;
-    background: #edf7ff;
-    box-shadow: inset 0 0 0 2px #9dd1f6, 0 12px 24px rgba(52, 134, 202, 0.13);
+    border-color: #b6cdec;
+    background: #f8fbff;
+    box-shadow: 0 8px 18px rgba(37, 74, 119, 0.08);
+    transform: translateY(-1px);
 }
 
-.growthStudentCard > div:first-child {
-    display: flex;
+.growthStudentCardSelected {
+    border-color: #86b6ec;
+    background: #f1f8ff;
+    box-shadow: inset 0 0 0 1px #bcdcff, 0 8px 18px rgba(37, 112, 183, 0.12);
+}
+
+.growthStudentCard:focus-visible {
+    outline: 3px solid rgba(47, 134, 216, 0.32);
+    outline-offset: 2px;
+}
+
+.growthStudentIndex {
+    display: inline-flex;
     align-items: center;
-    gap: 0.62rem;
-    min-width: 0;
-}
-
-.growthStudentCard strong,
-.growthStudentCard em {
-    display: block;
-}
-
-.growthStudentCard strong {
-    color: #063f8d;
-    font-size: 1rem;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #f6eddf;
+    color: #344b6f;
+    font-size: 0.86rem;
     font-weight: 900;
+    letter-spacing: 0;
 }
 
-.growthStudentCard em {
-    margin-top: 0.12rem;
-    color: #6a8299;
-    font-size: 0.78rem;
-    font-style: normal;
-    font-weight: 800;
-}
-
-.growthStudentCard dl {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.42rem;
-    margin: 0;
-}
-
-.growthStudentCard dl div {
-    border-radius: 12px;
-    background: #eef8ff;
-    padding: 0.5rem 0.4rem;
-    text-align: center;
-}
-
-.growthStudentCard dt {
-    color: #5a748e;
-    font-size: 0.72rem;
-    font-weight: 900;
-}
-
-.growthStudentCard dd {
-    margin: 0.16rem 0 0;
-    color: #0b4989;
-    font-size: 1rem;
-    font-weight: 900;
-}
-
-.growthStudentCard p {
-    display: -webkit-box;
+.growthStudentName {
     overflow: hidden;
-    margin: 0;
-    color: #425e79;
-    font-size: 0.84rem;
-    font-weight: 800;
-    line-height: 1.5;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    flex: 1 1 auto;
+    min-width: 58px;
+    color: #17325b;
+    font-size: 1.02rem;
+    font-weight: 900;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.growthStudentDivider {
+    flex: 0 0 auto;
+    width: 1px;
+    height: 22px;
+    background: #dce5ef;
+}
+
+.growthStudentObservation {
+    flex: 0 0 auto;
+    color: #667b93;
+    font-size: 0.88rem;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.growthStudentCookie {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.34rem;
+    flex: 0 0 auto;
+    color: #243a5c;
+    font-size: 0.94rem;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.growthStudentCookieIcon {
+    flex: 0 0 auto;
+    color: #b66d21;
+    stroke-width: 2.6;
+}
+
+.growthStudentCookie strong {
+    color: #253b61;
+    font-size: 0.94rem;
+    font-weight: 900;
 }
 
 .growthWriteDock {
@@ -3512,9 +3530,12 @@
     }
 
     .statsGrid,
-    .settingsGrid,
-    .growthStudentGrid {
+    .settingsGrid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .growthStudentGrid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .statsInsightGrid {
@@ -3679,6 +3700,23 @@
     .growthModalFooter {
         align-items: stretch;
         flex-direction: column;
+    }
+
+    .growthStudentGrid {
+        width: min(100%, calc(100vw - 240px));
+    }
+
+    .growthStudentCard {
+        gap: 0.55rem;
+        padding: 0.7rem 0.78rem;
+    }
+
+    .growthStudentName {
+        min-width: 50px;
+    }
+
+    .growthStudentObservation {
+        font-size: 0.8rem;
     }
 
     .handshakeMark {

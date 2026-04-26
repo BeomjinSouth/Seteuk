@@ -46,6 +46,8 @@ export async function POST(request: NextRequest) {
             );
         }
 
+        let transactionAmount = type === 'adjust' ? amount : Math.abs(amount);
+
         let rewardName = '';
         if (type === 'redeem') {
             const rewardId = String(body.rewardId || '');
@@ -67,14 +69,14 @@ export async function POST(request: NextRequest) {
                 );
             }
 
-            amount = reward.cost;
+            transactionAmount = reward.cost;
             rewardName = reward.name;
         }
 
         const transaction = await addCookieTransaction({
             school: String(body.school),
             studentId: String(body.studentId),
-            amount: Math.abs(amount),
+            amount: transactionAmount,
             type,
             reason: String(body.reason || rewardName || '쿠키 처리'),
             rewardId: body.rewardId ? String(body.rewardId) : undefined,
