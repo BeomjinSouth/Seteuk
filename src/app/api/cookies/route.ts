@@ -9,7 +9,6 @@ import { initializeSheets } from '@/lib/sheets/base';
 
 export async function GET(request: NextRequest) {
     try {
-        await initializeSheets();
         const { searchParams } = new URL(request.url);
         const school = searchParams.get('school') || undefined;
         const studentId = searchParams.get('studentId') || undefined;

@@ -15,7 +15,6 @@ function parseKind(value: unknown): StudentDataKind | null {
 
 export async function GET(request: NextRequest) {
     try {
-        await initializeSheets();
         const { searchParams } = new URL(request.url);
         const includeInAiParam = searchParams.get('includeInAi');
         const includeInAi = includeInAiParam === null

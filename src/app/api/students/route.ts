@@ -17,7 +17,6 @@ export async function GET(request: NextRequest) {
         const { searchParams } = new URL(request.url);
         const school = searchParams.get('school') || undefined;
         const grade = searchParams.get('grade');
-        await initializeSheets();
 
         const students = await getStudents({
             school,

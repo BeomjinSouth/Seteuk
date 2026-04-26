@@ -4,7 +4,6 @@ import { initializeSheets } from '@/lib/sheets/base';
 
 export async function GET(request: NextRequest) {
     try {
-        await initializeSheets();
         const { searchParams } = new URL(request.url);
         const activeOnlyParam = searchParams.get('activeOnly');
         const rewards = await getCookieRewards({

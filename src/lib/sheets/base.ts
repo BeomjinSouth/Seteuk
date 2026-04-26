@@ -2,12 +2,55 @@ import { google } from 'googleapis';
 import { promises as fs } from 'fs';
 import path from 'path';
 
+function stripWrappingQuotes(value: string): string {
+    const trimmed = value.trim();
+    const quotePairs: Array<[string, string]> = [
+        ['"', '"'],
+        ["'", "'"],
+        ['\\"', '\\"'],
+        ["\\'", "\\'"],
+    ];
+
+    const pair = quotePairs.find(([start, end]) =>
+        trimmed.startsWith(start)
+        && trimmed.endsWith(end)
+        && trimmed.length > start.length + end.length
+    );
+
+    return pair
+        ? trimmed.slice(pair[0].length, trimmed.length - pair[1].length)
+        : trimmed;
+}
+
+function normalizeGooglePrivateKey(raw?: string): string | undefined {
+    if (!raw) return undefined;
+
+    let privateKey = stripWrappingQuotes(raw)
+        .replace(/\\r\\n/g, '\n')
+        .replace(/\\n/g, '\n')
+        .replace(/\r\n/g, '\n')
+        .trim();
+
+    if (!privateKey.includes('BEGIN') && /^[A-Za-z0-9+/=\s]+$/.test(privateKey)) {
+        try {
+            const decoded = Buffer.from(privateKey, 'base64').toString('utf8').trim();
+            if (decoded.includes('BEGIN')) {
+                privateKey = decoded;
+            }
+        } catch {
+            // Keep the original value so GoogleAuth can surface the provider error.
+        }
+    }
+
+    return privateKey;
+}
+
 // Google Sheets API initialization
 export function getAuth() {
     return new google.auth.GoogleAuth({
         credentials: {
-            client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-            private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+            client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL?.trim(),
+            private_key: normalizeGooglePrivateKey(process.env.GOOGLE_PRIVATE_KEY),
         },
         scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
@@ -18,7 +61,7 @@ export function getSheets() {
     return google.sheets({ version: 'v4', auth });
 }
 
-export const SPREADSHEET_ID = process.env.GOOGLE_SPREADSHEET_ID!;
+export const SPREADSHEET_ID = process.env.GOOGLE_SPREADSHEET_ID?.trim() || '';
 const LOCAL_SHEET_STORE_PATH = path.join(process.cwd(), '.local-sheet-store.json');
 type LocalSheetStore = Record<string, string[][]>;
 

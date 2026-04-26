@@ -33,6 +33,12 @@ Open `http://localhost:3000`.
 Set these in local `.env.local` and in the Vercel project settings.
 
 - `OPENAI_API_KEY`
+- `GOOGLE_SERVICE_ACCOUNT_EMAIL`
+- `GOOGLE_PRIVATE_KEY`
+- `GOOGLE_SPREADSHEET_ID`
+- `NEXT_PUBLIC_SERVICE_ACCOUNT_EMAIL`
+
+Google Sheets keys may be pasted with `.env`-style wrapping quotes or escaped `\n` line breaks; the server normalizes those values at runtime before creating the Sheets client.
 
 ## Roster Import
 

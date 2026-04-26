@@ -33,6 +33,7 @@
 - main navigation integration: 학교 정보 -> 학생 관찰 기록 -> 학생 기록 관찰 2 -> 학생 데이터 -> AI 세특 생성 -> 평가 점검 (개발중) 순서 적용
 - student data tab: implemented with teacher-owned notes/grades/mentor matches and school-shared cookies/rewards
 - student data APIs: `/api/student-data`, `/api/cookies`, `/api/cookie-rewards` implemented with Google Sheets/local fallback storage
+- Google Sheets auth resilience: service account email/spreadsheet id are trimmed, private keys tolerate wrapping quotes, escaped newlines, and base64 PEM values, and read-only roster/student-data/cookie APIs no longer run sheet creation first
 - write generation context: current teacher `AI 반영` student data is injected into `/api/generate`; cookie data is excluded by default
 - competency color check: source-text-safe rendering, per-row analysis button/status, and stale analysis clearing implemented
 - eval-check tab visibility: visible as disabled `평가 점검 (개발중)` and excluded from active/click handling
@@ -60,6 +61,7 @@
 
 ## Recent Changes
 
+- 2026-04-26: fixed deployed Google Sheets private-key parsing for roster loading and made read-only Sheets APIs avoid unnecessary sheet initialization before reads
 - 2026-04-25: made 성호중학교 roster loading errors visible, normalized school matching for shared rosters, and prevented authenticated pages from redirecting before local session hydration
 - 2026-04-25: restricted login to 성호중학교 teacher-name/password credentials and redirected successful login to class registration
 - 2026-04-25: imported the 2026 성호중학교 1/2/3학년 명렬표 into the shared roster store for no-upload class registration
