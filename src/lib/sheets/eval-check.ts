@@ -127,7 +127,7 @@ export async function getEvalCheckDocuments(): Promise<EvalCheckDocumentRow[]> {
         fileHash: row[3],
         driveFolderId: row[4],
         driveOriginalFileId: row[5],
-        status: (row[6] as any) || 'pending',
+        status: (row[6] as EvalCheckDocumentRow['status']) || 'pending',
         progress: parseInt(row[7] || '0'),
         highRiskCount: parseInt(row[8] || '0'),
         manifestJsonFileId: row[9],

@@ -214,7 +214,7 @@ export default function SchoolInfoPage() {
         startDate.setDate(startDate.getDate() - firstDay.getDay());
 
         const weeks: Date[][] = [];
-        let currentDate = new Date(startDate);
+        const currentDate = new Date(startDate);
 
         while (currentDate <= lastDay || weeks.length < 6) {
             const week: Date[] = [];

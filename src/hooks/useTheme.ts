@@ -42,13 +42,12 @@ export function useTheme() {
     // Initialize theme from localStorage
     useEffect(() => {
         const stored = localStorage.getItem(THEME_KEY) as Theme | null;
-        if (stored && ['light', 'dark', 'system'].includes(stored)) {
-            setThemeState(stored);
-            applyTheme(stored);
-        } else {
-            applyTheme('system');
-        }
-        setMounted(true);
+        const nextTheme = stored && ['light', 'dark', 'system'].includes(stored) ? stored : 'system';
+        applyTheme(nextTheme);
+        queueMicrotask(() => {
+            setThemeState(nextTheme);
+            setMounted(true);
+        });
     }, []);
 
     // Listen for system theme changes

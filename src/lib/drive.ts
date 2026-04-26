@@ -1,5 +1,7 @@
 'use server';
 
+import crypto from 'node:crypto';
+import { Readable } from 'node:stream';
 import { google, drive_v3 } from 'googleapis';
 
 /**
@@ -219,7 +221,7 @@ export async function uploadFile({
         },
         media: {
             mimeType,
-            body: require('stream').Readable.from(buffer),
+            body: Readable.from(buffer),
         },
         fields: 'id',
         ...sharedDriveOptions,
@@ -399,7 +401,7 @@ export async function updateFile(
         fileId,
         media: {
             mimeType,
-            body: require('stream').Readable.from(buffer),
+            body: Readable.from(buffer),
         },
         ...sharedDriveOptions,
     });
@@ -462,7 +464,6 @@ export async function generateDocumentFolderName(
  * @returns The hex string of the hash.
  */
 export async function generateFileHash(content: ArrayBuffer): Promise<string> {
-    const crypto = require('crypto');
     const hash = crypto.createHash('sha256');
     hash.update(Buffer.from(content));
     return hash.digest('hex');

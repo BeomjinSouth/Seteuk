@@ -137,8 +137,10 @@ export function CompetencyHighlighter({
         if (savedAnalysis && savedAnalysis.segments.length > 0) {
             const currentHash = simpleHash(text);
             if (savedAnalysis.contentHash === currentHash) {
-                setSegments(savedAnalysis.segments);
-                setIsAnalyzed(true);
+                queueMicrotask(() => {
+                    setSegments(savedAnalysis.segments);
+                    setIsAnalyzed(true);
+                });
             }
         }
     }, [savedAnalysis, text]);
@@ -183,7 +185,9 @@ export function CompetencyHighlighter({
     // Auto-analyze if enabled and no saved analysis
     useEffect(() => {
         if (autoAnalyze && text && !isAnalyzed && !savedAnalysis) {
-            analyzeText();
+            queueMicrotask(() => {
+                void analyzeText();
+            });
         }
     }, [autoAnalyze, text, isAnalyzed, savedAnalysis, analyzeText]);
 
@@ -192,13 +196,17 @@ export function CompetencyHighlighter({
         if (savedAnalysis) {
             const currentHash = simpleHash(text);
             if (savedAnalysis.contentHash !== currentHash) {
-                setSegments([]);
-                setIsAnalyzed(false);
-                setError(null);
+                queueMicrotask(() => {
+                    setSegments([]);
+                    setIsAnalyzed(false);
+                    setError(null);
+                });
             }
         } else if (!isAnalyzed) {
-            setSegments([]);
-            setError(null);
+            queueMicrotask(() => {
+                setSegments([]);
+                setError(null);
+            });
         }
     }, [text, savedAnalysis, isAnalyzed]);
 

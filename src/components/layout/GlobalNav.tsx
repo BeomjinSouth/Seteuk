@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import { Bell, ChevronDown, Database, GraduationCap, ScanLine, Sparkles, ClipboardCheck, ClipboardList, Handshake, School, UserRound } from 'lucide-react';
+import { Bell, ChevronDown, GraduationCap, ScanLine, Sparkles, ClipboardCheck, ClipboardList, School, UserRound } from 'lucide-react';
 import clsx from 'clsx';
 import { SharedRosterSync } from '@/components/providers/SharedRosterSync';
 import { useAppStore } from '@/lib/store';
@@ -25,22 +25,10 @@ const mainSections: Array<{
         description: '대시보드, 학교·학생 정보'
     },
     {
-        href: '/observation-board',
+        href: '/observation-board-2',
         label: '학생 관찰 기록',
         icon: ClipboardList,
-        description: '학생 카드 보드, 관찰 메모'
-    },
-    {
-        href: '/observation-board-2',
-        label: '학생 기록 관찰 2',
-        icon: Handshake,
         description: '멘토·멘티 활동 기록판'
-    },
-    {
-        href: '/student-data',
-        label: '학생 데이터',
-        icon: Database,
-        description: '성적, 멘토링, 쿠키'
     },
     {
         href: '/write',
@@ -100,15 +88,9 @@ export function GlobalNav() {
 
     // Helper to determine if a section is active
     const isActive = (href: string) => {
-        if (href === '/observation-board') {
-            return pathname === '/observation-board'
-                || pathname.startsWith('/observation-board/')
-                || pathname.startsWith('/observations');
-        }
         if (href === '/observation-board-2') {
             return pathname === '/observation-board-2' || pathname.startsWith('/observation-board-2/');
         }
-        if (href === '/student-data') return pathname.startsWith('/student-data');
         if (href === '/ocr') return pathname.startsWith('/ocr');
         if (href === '/eval-check') return pathname.startsWith('/eval-check');
         if (href === '/dashboard') return pathname.startsWith('/dashboard') || pathname.startsWith('/school') || pathname.startsWith('/students');

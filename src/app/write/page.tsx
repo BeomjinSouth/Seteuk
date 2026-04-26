@@ -10,7 +10,7 @@ import { ForbiddenCheckModal } from '@/components/ForbiddenCheckModal';
 import { SimilarityModal, SimilarityResult } from '@/components/SimilarityModal';
 import { getContentHash } from '@/components/KeywordHighlighter';
 import { useAppStore } from '@/lib/store';
-import { SubjectRecord, CompetencySegment, StudentDataEntry } from '@/types';
+import { SubjectRecord, CompetencySegment } from '@/types';
 import type { OCREvaluation } from '@/types/ocr';
 import { generateDraft, performSpellCheck, checkForbiddenWords, reviewAndImproveRecord } from '@/lib/write-logic';
 import { applyCheckResultToRecord } from '@/lib/check-utils';
@@ -276,8 +276,6 @@ function WritePageContent() {
                 const studentGrade = student.grade || teachingClass.grade || 1;
                 const curriculumData = getCurriculumContent(studentGrade, currentSemester);
                 const evaluations = await getOcrEvaluations(studentGrade, currentSemester);
-                let studentDataEntries: StudentDataEntry[] = [];
-
                 let ocrEvaluationContext = undefined;
                 for (const evaluation of evaluations) {
                     const studentResult = evaluation.batchGradingResult?.results?.find(
@@ -295,26 +293,6 @@ function WritePageContent() {
                     }
                 }
 
-                if (teacher?.school && teacher.teacherKey) {
-                    try {
-                        const params = new URLSearchParams({
-                            school: teacher.school,
-                            teacherKey: teacher.teacherKey,
-                            classId: teachingClass.id,
-                            semester: String(currentSemester),
-                            studentId,
-                            includeInAi: 'true',
-                        });
-                        const response = await fetch(`/api/student-data?${params.toString()}`, { cache: 'no-store' });
-                        if (response.ok) {
-                            const payload = await response.json() as { data?: StudentDataEntry[]; entries?: StudentDataEntry[] };
-                            studentDataEntries = payload.data || payload.entries || [];
-                        }
-                    } catch (error) {
-                        console.error('Failed to load student data for generation', studentId, error);
-                    }
-                }
-
                 const result = await generateDraft(
                     studentId,
                     student.name,
@@ -323,7 +301,6 @@ function WritePageContent() {
                     exampleTemplate,
                     curriculumData?.content,
                     ocrEvaluationContext,
-                    studentDataEntries,
                     {
                         teacherKey: teacher?.teacherKey,
                         classId: teachingClass.id,

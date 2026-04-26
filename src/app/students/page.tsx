@@ -227,7 +227,7 @@ export default function StudentsPage() {
         seedDemoWorkspace();
         setUploadResult({
             success: true,
-            message: '데모 명부와 학급을 불러왔습니다. 학생 카드 보드를 확인하세요.',
+                message: '데모 명부와 학급을 불러왔습니다. 학생 관찰 기록을 확인하세요.',
         });
     };
 
@@ -438,7 +438,7 @@ export default function StudentsPage() {
         setSelectedHomerooms(new Set());
         setUploadResult({
             success: true,
-            message: `${importedCount}개 학급을 연결했습니다. 학생 카드 보드를 확인하세요.`,
+                    message: `${importedCount}개 학급을 연결했습니다. 학생 관찰 기록을 확인하세요.`,
         });
     };
 
@@ -690,17 +690,17 @@ export default function StudentsPage() {
                 {teacherClasses.length === 0 ? (
                     <div className={styles.emptyList}>
                         <Users size={48} />
-                        <p>학급을 연결하면 학생 카드 보드가 열립니다.</p>
-                        <p className={styles.hint}>연결 후 학생 카드 보드로 이동하세요.</p>
+                        <p>학급을 연결하면 학생 관찰 기록이 열립니다.</p>
+                        <p className={styles.hint}>연결 후 학생 관찰 기록으로 이동하세요.</p>
                     </div>
                 ) : (
                     <div className={styles.emptyAssignment}>
                         <p>담당 수업 학급 {teacherClasses.length}개 연결됨</p>
                         <p className={styles.hint}>
-                            학생 카드 보드에서 확인하세요.
+                            학생 관찰 기록에서 확인하세요.
                         </p>
-                        <Link href="/observation-board" className={styles.summaryLink}>
-                            학생 카드 보드
+                        <Link href="/observation-board-2" className={styles.summaryLink}>
+                            학생 관찰 기록
                         </Link>
                     </div>
                 )}

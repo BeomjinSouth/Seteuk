@@ -60,9 +60,11 @@ export function SpellCheckModal({
     // Reset state when modal opens
     useEffect(() => {
         if (isOpen) {
-            setSelectedFixes(new Map());
-            setAppliedErrors(new Set());
-            setExpandedError(errors[0]?.id || null);
+            queueMicrotask(() => {
+                setSelectedFixes(new Map());
+                setAppliedErrors(new Set());
+                setExpandedError(errors[0]?.id || null);
+            });
         }
     }, [isOpen, errors]);
 

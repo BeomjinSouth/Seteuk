@@ -23,15 +23,14 @@ try {
 const pdfParseModule = require('pdf-parse');
 const pdfParse = pdfParseModule.default || pdfParseModule;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type PdfJsLib = any;
+type PdfJsLib = typeof import('pdfjs-dist/legacy/build/pdf.mjs');
 
 let pdfjsLibPromise: Promise<PdfJsLib> | null = null;
 
 /**
  * Dynamically loads the ESM build of PDF.js for Node.js usage.
  */
-async function loadPdfJs(): Promise<any> {
+async function loadPdfJs(): Promise<PdfJsLib> {
     // pdfjs-dist v5.x does not have legacy/build/pdf.js(CJS), so we use ESM (.mjs) only
     return import('pdfjs-dist/legacy/build/pdf.mjs');
 }
@@ -103,7 +102,7 @@ export async function convertPdfToImages(
             disableWorker: true,
             useSystemFonts: true,
             isEvalSupported: false,
-        }).promise;
+        } as unknown as Parameters<typeof pdfjs.getDocument>[0]).promise;
 
         const pageImages: string[] = [];
         for (let pageNum = 1; pageNum <= pdfDoc.numPages; pageNum++) {

@@ -15,8 +15,6 @@ import {
     Sun,
     Moon,
     ClipboardCheck,
-    ClipboardList,
-    Database,
     Handshake,
     MessageSquareQuote,
     Sparkles
@@ -32,17 +30,8 @@ const schoolNavItems = [
     { href: '/students', label: '학생 관리', icon: Users },
 ];
 
-const observationNavItems = [
-    { href: '/observation-board', label: '학생 카드 보드', icon: Users },
-    { href: '/observations', label: '관찰 메모', icon: ClipboardList },
-];
-
 const observation2NavItems = [
-    { href: '/observation-board-2', label: '멘토·멘티 활동판', icon: Handshake },
-];
-
-const studentDataNavItems = [
-    { href: '/student-data', label: '학생 데이터', icon: Database },
+    { href: '/observation-board-2', label: '학생 관찰 기록', icon: Handshake },
 ];
 
 // LNB for AI 세특 생성 section
@@ -81,9 +70,7 @@ export function Sidebar() {
     const matchesRoute = (route: string) => pathname === route || pathname.startsWith(`${route}/`);
 
     const isSchoolSection = matchesRoute('/dashboard') || matchesRoute('/school') || matchesRoute('/students');
-    const isObservationSection = matchesRoute('/observation-board') || matchesRoute('/observations');
     const isObservation2Section = matchesRoute('/observation-board-2');
-    const isStudentDataSection = matchesRoute('/student-data');
     const isEvalCheckSection = matchesRoute('/eval-check');
 
     let activeNavItems;
@@ -92,15 +79,9 @@ export function Sidebar() {
     if (isSchoolSection) {
         activeNavItems = schoolNavItems;
         sectionLabel = '학교 정보';
-    } else if (isObservationSection) {
-        activeNavItems = observationNavItems;
-        sectionLabel = '학생 관찰 기록';
     } else if (isObservation2Section) {
         activeNavItems = observation2NavItems;
-        sectionLabel = '학생 기록 관찰 2';
-    } else if (isStudentDataSection) {
-        activeNavItems = studentDataNavItems;
-        sectionLabel = '학생 데이터';
+        sectionLabel = '학생 관찰 기록';
     } else if (isEvalCheckSection) {
         activeNavItems = evalCheckNavItems;
         sectionLabel = '평가 점검';
@@ -141,7 +122,7 @@ export function Sidebar() {
             </nav>
 
             {/* Show examples only for Seteuk section */}
-            {!isSchoolSection && !isObservationSection && !isObservation2Section && !isStudentDataSection && !isEvalCheckSection && (
+            {!isSchoolSection && !isObservation2Section && !isEvalCheckSection && (
                 <div className={styles.examplesSection}>
                     <Link
                         href="/examples"
@@ -196,7 +177,7 @@ export function Sidebar() {
                 </button>
             </div>
 
-            {!isSchoolSection && !isObservationSection && !isObservation2Section && !isStudentDataSection && !isEvalCheckSection && (
+            {!isSchoolSection && !isObservation2Section && !isEvalCheckSection && (
                 <Link href="/examples" className={styles.guideCard}>
                     <div className={styles.guideText}>
                         <strong>AI 세특 생성<br />가이드</strong>

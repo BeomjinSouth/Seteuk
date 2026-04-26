@@ -6,7 +6,6 @@ import {
     performSpellCheckRequest,
 } from '@/lib/check-utils';
 import { OPENAI_STANDARD_MODEL, normalizeOpenAIModel } from '@/lib/openai-models';
-import type { StudentDataEntry } from '@/types';
 
 type ReasoningEffort = 'none' | 'low' | 'medium' | 'high' | 'xhigh';
 
@@ -98,7 +97,6 @@ export async function generateDraft(
             overallFeedback?: string;
         };
     },
-    studentDataEntries?: StudentDataEntry[],
     context?: {
         teacherKey?: string;
         classId?: string;
@@ -123,7 +121,6 @@ export async function generateDraft(
                 reasoningEffort: settings.reasoningEffort,
                 includeObservations: true,
                 ocrEvaluationContext,
-                studentDataEntries,
                 teacherKey: context?.teacherKey,
                 classId: context?.classId,
             }),

@@ -3314,9 +3314,22 @@
 }
 
 .headerCloud {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 64px;
     height: 55px;
-    object-fit: contain;
+    flex: 0 0 auto;
+    color: #9fc9ef;
+    filter: drop-shadow(0 4px 0 rgba(255, 255, 255, 0.72));
+}
+
+.headerCloud svg {
+    width: 64px;
+    height: 55px;
+    fill: #edf7ff;
+    stroke: currentColor;
+    stroke-width: 1.8;
 }
 
 .referenceHeaderButton,
@@ -3338,16 +3351,52 @@
     white-space: nowrap;
 }
 
-.referenceHeaderButton img {
+.headerIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 34px;
     height: 34px;
-    object-fit: contain;
+    flex: 0 0 34px;
+    overflow: hidden;
 }
 
-.teacherChip img {
+.headerIcon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    stroke-width: 2.2;
+}
+
+.referenceHeaderButton .headerIcon svg,
+.teacherChip .headerIcon svg {
+    color: inherit;
+}
+
+.badgeIcon {
+    color: #2f73b8;
+}
+
+.noticeIcon {
+    color: #f1a51d;
+}
+
+.teacherIcon {
     width: 38px;
     height: 38px;
-    object-fit: contain;
+    flex-basis: 38px;
+    border: 2px solid #f0c59d;
+    border-radius: 999px;
+    background: #fff4e8;
+    color: #9d5e37;
+    padding: 0.28rem;
+}
+
+.teacherChip > svg {
+    width: 16px;
+    height: 16px;
+    color: #0e4b83;
+    stroke-width: 2.6;
 }
 
 .panelTitleImage {

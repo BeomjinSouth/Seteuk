@@ -6,11 +6,14 @@ import { useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
     BarChart3,
+    Bell,
     BookOpen,
     CalendarDays,
     CheckCircle2,
+    ChevronDown,
     Circle,
     ClipboardList,
+    Cloud,
     Eye,
     Handshake,
     Megaphone,
@@ -1112,19 +1115,27 @@ export default function ObservationBoard2Page() {
                         <h1>{getBoardModeTitle(activeMode)}</h1>
                     </div>
                     <div className={styles.headerActions} aria-label="사용자 정보">
-                        <img src="/observation-board-2/header-cloud.png" alt="" className={styles.headerCloud} aria-hidden="true" />
+                        <span className={styles.headerCloud} aria-hidden="true">
+                            <Cloud size={60} />
+                        </span>
                         <button type="button" className={styles.referenceHeaderButton}>
-                            <img src="/observation-board-2/header-badge.png" alt="" aria-hidden="true" />
+                            <span className={`${styles.headerIcon} ${styles.badgeIcon}`} aria-hidden="true">
+                                <Handshake size={28} />
+                            </span>
                             우정 배지
                         </button>
                         <button type="button" className={styles.referenceHeaderButton}>
-                            <img src="/observation-board-2/header-bell.png" alt="" aria-hidden="true" />
+                            <span className={`${styles.headerIcon} ${styles.noticeIcon}`} aria-hidden="true">
+                                <Bell size={27} />
+                            </span>
                             알림
                         </button>
                         <span className={styles.teacherChip}>
-                            <img src="/observation-board-2/header-teacher.png" alt="" aria-hidden="true" />
+                            <span className={`${styles.headerIcon} ${styles.teacherIcon}`} aria-hidden="true">
+                                <UserRound size={26} />
+                            </span>
                             선생님
-                            <span aria-hidden="true">⌄</span>
+                            <ChevronDown size={16} aria-hidden="true" />
                         </span>
                     </div>
                 </header>
@@ -1352,12 +1363,6 @@ function GrowthDashboard({
     onSaveGrowthRecord: (cookieCount: number, memo: string) => Promise<boolean>;
 }) {
     const [isComposerOpen, setIsComposerOpen] = useState(false);
-    const recordedStudentCount = students.filter((student) => (
-        (observationStatsByStudent.get(student.id)?.count ?? 0) > 0
-        || (markStatsByStudent.get(student.id)?.participated ?? 0) > 0
-        || (markStatsByStudent.get(student.id)?.excellent ?? 0) > 0
-    )).length;
-    const needsRecordCount = Math.max(0, students.length - recordedStudentCount);
 
     return (
         <section className={styles.dashboardView}>
@@ -1370,39 +1375,11 @@ function GrowthDashboard({
                 onSearchChange={onSearchChange}
             />
             <div className={styles.growthLayout}>
-                <article className={styles.growthHero}>
-                    <div className={styles.panelTitle}>
-                        <Sparkles size={22} />
-                        <div>
-                            <h2>학생별 누적 성장 흐름</h2>
-                            <p>관찰 공백, 최근 메모, 멘토 활동 반응을 학생별로 같이 봅니다.</p>
-                        </div>
-                    </div>
-                    <div className={styles.growthMetricRow}>
-                        <span>담당 학생 <strong>{students.length}</strong></span>
-                        <span>기록 있는 학생 <strong>{recordedStudentCount}</strong></span>
-                        <span>기록 필요 <strong>{needsRecordCount}</strong></span>
-                        <span>누적 항목 <strong>{timeline.length}</strong></span>
-                    </div>
-                    <div className={styles.growthHeroActions}>
-                        <button
-                            type="button"
-                            className={styles.primaryActionButton}
-                            onClick={() => setIsComposerOpen(true)}
-                            disabled={students.length === 0}
-                        >
-                            <Star size={17} />
-                            성장 기록 작성
-                        </button>
-                        <span>학생 카드 선택 후 작성할 수 있습니다.</span>
-                    </div>
-                </article>
-
                 <div className={styles.growthStudentGrid}>
                     {students.length === 0 && (
                         <div className={styles.emptyList}>담당 학급 학생이 없습니다. 먼저 담당 학급을 등록하세요.</div>
                     )}
-                    {students.slice(0, 8).map((student) => {
+                    {students.map((student) => {
                         const observationStats = observationStatsByStudent.get(student.id);
                         const markStats = markStatsByStudent.get(student.id) ?? { participated: 0, excellent: 0 };
                         const isSelected = selectedStudentIds.has(student.id);

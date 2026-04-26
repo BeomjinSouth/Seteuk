@@ -223,7 +223,7 @@ export default function DashboardPage() {
                         <div className={styles.emptyActions}>
                             <Link href="/students">
                                 <Button className="mt-4">
-                                    <Plus size={18} /> 학생 데이터 업로드
+                                    <Plus size={18} /> 학생 명부 등록
                                 </Button>
                             </Link>
                             <Button
@@ -231,7 +231,7 @@ export default function DashboardPage() {
                                 className="mt-4"
                                 onClick={() => {
                                     seedDemoWorkspace();
-                                    window.location.href = '/observation-board';
+                                    window.location.href = '/observation-board-2';
                                 }}
                             >
                                 <FlaskConical size={18} /> 데모 작업공간 채우기

@@ -3,7 +3,6 @@ import { getOpenAIClient, hasOpenAIApiKey } from '@/lib/openai-client';
 import { OPENAI_STANDARD_MODEL, normalizeOpenAIModel } from '@/lib/openai-models';
 import { getAssessments, getObservationsForContext } from '@/lib/sheets';
 import { getPromptCacheParams } from '@/lib/prompt-cache';
-import type { StudentDataEntry, StudentGradePayload, StudentMentorPayload, StudentNotePayload } from '@/types';
 
 const DEFAULT_MODEL = OPENAI_STANDARD_MODEL;
 const DEFAULT_MAX_OUTPUT_TOKENS = 1000;
@@ -77,7 +76,6 @@ export async function POST(request: NextRequest) {
         maxOutputTokens?: number;
         reasoningEffort?: 'none' | 'low' | 'medium' | 'high' | 'xhigh';
         includeObservations?: boolean;  // NEW: Whether to include observations
-        studentDataEntries?: StudentDataEntry[];
         // OCR Evaluation Context for integration
         ocrEvaluationContext?: {
             achievementStandards?: Array<{
@@ -127,7 +125,6 @@ export async function POST(request: NextRequest) {
         maxOutputTokens,
         reasoningEffort,
         includeObservations = true,  // Default to true
-        studentDataEntries,
         ocrEvaluationContext,  // OCR evaluation data
     } = body;
 
@@ -177,11 +174,6 @@ export async function POST(request: NextRequest) {
                 userPrompt += `\n- ${key}: ${learningData[key]}`;
             }
         }
-    }
-
-    if (Array.isArray(studentDataEntries) && studentDataEntries.length > 0) {
-        userPrompt += `\n\n[학생 개별 데이터]\n${formatStudentDataEntries(studentDataEntries)}`;
-        userPrompt += '\n\n// 학생 개별 데이터는 현재 교사가 AI 반영으로 선택한 항목만 포함됩니다.';
     }
 
     // Add observations if available
@@ -326,39 +318,6 @@ ${exampleTemplates.join('\n\n')}
     }
 }
 
-function formatStudentDataEntries(entries: StudentDataEntry[]): string {
-    return entries
-        .filter((entry) => entry.includeInAi)
-        .map((entry) => {
-            if (entry.kind === 'grade') {
-                const payload = entry.payload as StudentGradePayload;
-                const scoreText = payload.score || payload.maxScore
-                    ? `${payload.score || '-'}${payload.maxScore ? `/${payload.maxScore}` : ''}`
-                    : '';
-                const pieces = [
-                    payload.examName || entry.title,
-                    payload.examDate || entry.occurredAt,
-                    scoreText ? `점수 ${scoreText}` : '',
-                    payload.level ? `수준 ${payload.level}` : '',
-                    payload.memo ? `메모 ${payload.memo}` : '',
-                ].filter(Boolean);
-                return `- 성적: ${pieces.join(' · ')}`;
-            }
-
-            if (entry.kind === 'mentor_match') {
-                const payload = entry.payload as StudentMentorPayload;
-                const pieces = [
-                    entry.title,
-                    payload.memo ? `메모 ${payload.memo}` : '',
-                ].filter(Boolean);
-                return `- 멘토링: ${pieces.join(' · ')}`;
-            }
-
-            const payload = entry.payload as StudentNotePayload;
-            return `- 개별 메모: ${entry.title || entry.occurredAt} · ${payload.memo || ''}`.trim();
-        })
-        .join('\n');
-}
 
 // Fallback content generator - properly uses learning data
 function generateFallbackContent(

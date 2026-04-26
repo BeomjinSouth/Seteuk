@@ -54,6 +54,7 @@ import {
     ModelAnswerBundle,
     ModelAnswerPayload,
     ModelAnswerOption,
+    ModelAnswerQuestion,
     StudentMappingItem,
     Student,
     PreliminaryGradingResult,
@@ -277,7 +278,7 @@ const normalizeModelAnswer = (value: unknown): ModelAnswerBundle | null => {
 
     const normalizeQuestions = (questionsValue: unknown) => {
         const questions = Array.isArray(questionsValue) ? questionsValue : [];
-        return questions.map((question: any, index: number) => {
+        return questions.map((question: Partial<ModelAnswerQuestion>, index: number) => {
             const normalizedAnswers = Array.isArray(question.answers) && question.answers.length > 0
                 ? question.answers
                 : (question.answer ? [{ label: '표준 답안', content: question.answer }] : []);

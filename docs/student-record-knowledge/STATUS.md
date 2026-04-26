@@ -50,7 +50,7 @@
 - observation board 2 internal dashboards: 왼쪽 메뉴가 URL 이동 없이 `학생 관찰 기록`, `성장 기록`, `통계 보기` 화면만 전환하며, `홈`, `알림장`, `설정` 항목은 현재 사이드바에서 숨김
 - observation board 2 responsive sidebar: 1120px 이하에서도 PNG 기준의 왼쪽 세로 사이드바를 유지하고 상단 가로 메뉴로 접지 않음
 - observation board 2 data scope: 멘토·멘티, 관찰 작성, 성장 기록, 통계는 현재 교사의 담당 학급 학생만 표시하고 담당 학생이 없을 때 샘플 학생으로 대체하지 않음
-- observation board 2 growth/stats usefulness: 성장 기록은 학생별 관찰 공백/최근 메모/△·○ 반응을 보여주고, 통계 보기는 기록 우선 학생과 모둠별 활동 균형을 함께 표시
+- observation board 2 growth/stats usefulness: 성장 기록은 상단 요약 박스 없이 선택 학급/검색 조건의 모든 학생 카드를 표시하며 학생별 관찰 공백/최근 메모/△·○ 반응을 보여주고, 통계 보기는 기록 우선 학생과 모둠별 활동 균형을 함께 표시
 - observation board 2 growth modal: `성장 기록 작성`은 기준 이미지형 dimmed overlay, 선택 학생 동물 칩, 중립 쿠키 카드 3개, 선택 메모, `이전`/`저장하기` 버튼을 제공
 - observation board 2 stats class scope: 통계 보기는 compact 학급 선택 메뉴를 제공하고 담당 학급 하나를 기본 범위로 사용해 모둠별 활동 균형을 학급별로 확인함
 - observation board 2 editable sessions: 차시 표 헤더에서 날짜/활동 내용을 직접 입력하고 `+` 버튼으로 차시 열을 추가하며, 교사별 localStorage에 유지
@@ -58,6 +58,7 @@
 - observation board 2 drag matching/font: Maplestory TTF 적용, 학생 토큰/학생 목록 드래그로 멘토·멘티 조와 역할 재배치 지원
 - observation board 2 mentor scope/display: 기본 멘토 화면은 가로로 긴 학급 칩 대신 compact 단일 학급 선택 메뉴를 사용하고, 전체 담당 학급 합산 대신 선택 학급 학생만 멘토·멘티 조와 학생 목록에 표시함
 - observation board 2 sidebar icons: 사이드바 메뉴 아이콘을 잘림/흰 배경이 있는 PNG 조각 대신 HTML/CSS 렌더링 아이콘으로 표시
+- observation board 2 header icons: 헤더 액션 아이콘을 잘림/글자 조각이 섞인 PNG 대신 lucide SVG 아이콘으로 표시
 - observation compose layout: 상단 공통 날짜/수업 주제/공통 태그 + 학생별 개별 태그/관찰 메모 row editor
 - lexical retrieval: implemented
 - AI reranking: implemented
@@ -65,6 +66,8 @@
 
 ## Recent Changes
 
+- 2026-04-26: replaced clipped observation-board-2 header PNG icons with clean lucide SVG icons so header buttons do not show stray lines or overlapping text fragments
+- 2026-04-26: removed the observation-board-2 growth summary hero section and lifted the eight-card cap so all filtered 담당 학생 cards render
 - 2026-04-26: matched the observation-board-2 `성장 기록 작성` modal to the provided reference UI, including centered dialog sizing, selected-student animal chips, neutral cookie cards, optional memo, and footer actions
 - 2026-04-26: removed the old top-level `학생 관찰 기록` card-board tab, renamed the classroom dashboard tab to `학생 관찰 기록`, and redirected `/observation-board` and `/observations` to `/observation-board-2`
 - 2026-04-26: restyled the `/write` AI 세특 작성 tab to match the provided screenshot, including the wider app shell, class chip toolbar, paginated table, and prompt-style AI input/content cells

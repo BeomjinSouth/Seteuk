@@ -10,6 +10,31 @@ const nextConfig: NextConfig & {
     '/api/**': ['./output/**/*.json'],
   },
 
+  async redirects() {
+    return [
+      {
+        source: '/observation-board',
+        destination: '/observation-board-2',
+        permanent: false,
+      },
+      {
+        source: '/observation-board/:path*',
+        destination: '/observation-board-2',
+        permanent: false,
+      },
+      {
+        source: '/observations',
+        destination: '/observation-board-2',
+        permanent: false,
+      },
+      {
+        source: '/observations/:path*',
+        destination: '/observation-board-2',
+        permanent: false,
+      },
+    ];
+  },
+
   /**
    * 핵심: 서버 번들링에서 pdfjs-dist를 제외(외부 패키지로 취급)해서
    * pdf.worker.mjs가 .next/chunks로 “이사”되지 않게 함.
