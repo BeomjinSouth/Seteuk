@@ -62,6 +62,7 @@
 ## Recent Changes
 
 - 2026-04-26: fixed deployed Google Sheets private-key parsing for roster loading and made read-only Sheets APIs avoid unnecessary sheet initialization before reads
+- 2026-04-26: restored Vercel production environment variables for Google Sheets/OpenAI from the local runtime config, redeployed production, and verified the 성호중학교 roster API returns 847 students
 - 2026-04-25: made 성호중학교 roster loading errors visible, normalized school matching for shared rosters, and prevented authenticated pages from redirecting before local session hydration
 - 2026-04-25: restricted login to 성호중학교 teacher-name/password credentials and redirected successful login to class registration
 - 2026-04-25: imported the 2026 성호중학교 1/2/3학년 명렬표 into the shared roster store for no-upload class registration
