@@ -30,9 +30,9 @@ Run `npm run sync:knowledge-docs` from the web repo to refresh it.
 - `web` 앱 생기부 점검 API 구현
 - `web` 앱 상담/점검 통합 작업공간 구현
 - `web` 앱 운영 API(`/api/admin/crawl`, `/api/admin/reindex`, `/api/admin/crawl-status`, `/api/admin/quality-report`) 구현
-- `web` 앱 학생 데이터 탭 구현
-- 교사별 학생 개별 데이터, 학교 공용 쿠키 원장/상품 API 구현
-- 세특 생성 시 현재 교사가 `AI 반영`으로 선택한 학생 데이터 컨텍스트 주입 구현
+- `web` 앱 상단 `학생 데이터` 탭과 `/student-data` 화면 제거
+- 교사별 학생 개별 데이터, 학교 공용 쿠키 원장/상품 API는 레거시 저장소 호환용으로 유지
+- 세특 생성 시 별도 학생 데이터 탭 입력값 주입 제거
 - 세특 역량 분석 색상 체크의 원문 기준 렌더링과 행 단위 분석 상태 표시 구현
 - 성호중학교 전용 로그인과 2026 명렬표 기반 학급 선택 등록 구현
 
@@ -116,7 +116,6 @@ STAR FAQ/Q&A
 - [`web/src/app/counsel-chat/page.tsx`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/counsel-chat/page.tsx)
 - [`web/src/app/record-review/page.tsx`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/record-review/page.tsx)
 - [`web/src/app/write/page.tsx`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/write/page.tsx)
-- [`web/src/app/student-data/page.tsx`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/app/student-data/page.tsx)
 - [`web/src/lib/knowledge-base.ts`](/Users/pbj95/Desktop/cursor/seteuk(2026)/web/src/lib/knowledge-base.ts)
 
 운영 API 메모:
@@ -126,7 +125,7 @@ STAR FAQ/Q&A
 
 페이지 보조 기능:
 
-- 상단 `GlobalNav`는 `학교 정보 -> 학생 관찰 기록 -> 학생 기록 관찰 2 -> 학생 데이터 -> AI 세특 생성 -> 평가 점검` 순서로 고정한다.
+- 상단 `GlobalNav`는 `학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검` 순서로 고정한다.
 - `평가 점검`은 탭에 `평가 점검 (개발중)`으로 표시하지만 비활성 상태로 렌더링하고, `/eval-check` 직접 접근은 `/dashboard`로 리다이렉트한다.
 - 학습지 OCR route(`/ocr`)와 관련 코드는 유지하되, 현재는 `GlobalNav` 렌더링에서 제외해 화면 탭으로는 노출하지 않는다.
 - `AI 세특 생성` 공통 앱 셸(`GlobalNav + Sidebar`) 안에서 `/write`, `/counsel-chat`, `/review`, `/export`를 사용자 탭으로 제공하고, 상담과 점검은 `/counsel-chat` 내부 모드 전환으로 통합한다.
@@ -136,8 +135,8 @@ STAR FAQ/Q&A
 - URL query prefill 지원
 - 세특 작성 탭의 `RAG 점검·개선` 버튼은 `/api/record-review`의 `includeImprovedDraft` 흐름을 재사용
 - 세특 작성 탭의 `유사도` 버튼은 선택 학생 초안을 문장 단위로 비교하고, 다른 학생 간 90% 이상 동일한 문장만 모달에 노출한다.
-- `학생 데이터` 탭은 학기/담당 학급/학생 선택 후 개별 메모, 성적, 멘토·멘티, 쿠키·상품을 관리한다.
-- `학생 데이터` 탭의 성적/메모/멘토링은 현재 교사 전용 데이터이며, 쿠키 원장과 상품은 학교 공용 데이터다.
+- 별도 상단 `학생 데이터` 탭과 `/student-data` 화면은 제공하지 않는다.
+- 레거시 학생 데이터/쿠키 API는 저장소 호환을 위해 남기되, 현재 사용자 탭과 세특 생성 컨텍스트에서는 사용하지 않는다.
 - 로그인은 `학교=성호중학교`, `아이디=본인 한글 이름`, `비밀번호=123123`만 허용한다.
 - 로그인 성공 후 `/students`로 이동해 2026 성호중학교 공용 명렬표에서 학급을 선택 등록한다.
 - 성호중학교 모드의 학생 관리 화면은 업로드 드롭존을 숨기고, 공용 명렬표 상태와 학급 등록 UI를 우선 표시한다.
@@ -151,8 +150,8 @@ STAR FAQ/Q&A
 - teaching class: 로그인한 교사의 `teacherKey + subject + semester + grade/class` 조합으로 생성되는 담당 수업 반
 - observation: `studentId + teacherKey + teachingClassId`를 포함하는 수업 기록
 - subject record: `studentId + teacherKey + teachingClassId + semester`를 포함하는 세특 초안/확정본
-- student data: `studentId + teacherKey + teachingClassId + semester`를 포함하는 교사 전용 성적/메모/멘토링 데이터
-- cookie ledger/reward: `school + studentId` 기준으로 공유되는 학교 공용 쿠키 거래/상품 데이터
+- legacy student data: `studentId + teacherKey + teachingClassId + semester`를 포함하는 과거 교사 전용 성적/메모/멘토링 데이터
+- legacy cookie ledger/reward: `school + studentId` 기준으로 공유되는 과거 학교 공용 쿠키 거래/상품 데이터
 
 핵심 규칙:
 
@@ -163,47 +162,47 @@ STAR FAQ/Q&A
 - 같은 학교에서 명부를 다시 업로드하면 기존 공용 명부와 `학교/학년/반/번호` 기준으로 병합하고, 동일 학생은 건너뛰며 이름 등 학적 정보가 달라진 경우만 갱신한다.
 - 교사별 담당 학급은 명부에서 선택해 연결하며, 학생 목록은 teaching class의 학년/반 기준으로 동적으로 계산한다.
 - 학생 관리 UI는 학교 명부 업로드와 teaching class 연결만 담당한다.
-- 별도 `학생 관찰 기록` 섹션에서 학생 카드 보드(`/observation-board`)와 관찰 메모(`/observations`)를 제공한다.
-- `학생 기록 관찰 2`(`/observation-board-2`)는 예시 PNG 톤의 독립형 교실 대시보드이며, 공통 앱 셸 대신 자체 왼쪽 일러스트 레일과 교실형 헤더를 사용한다.
-- `/observation-board-2`의 기본 진입 화면은 `학생 관찰 기록`이며, 상단 내부 탭/학급 칩/검색바 없이 PNG형 멘토·멘티 구성판, 차시별 △/○ 활동 기록 표, 활동 기록 안내 배너를 바로 보여준다.
-- `/observation-board-2`의 왼쪽 레일은 `home | mentor | growth | stats | notice | settings | records` 내부 상태를 전환하며, 사이드바에는 `홈`, `학생 관찰 기록`, `성장 기록`, `통계 보기`, `알림장`, `설정`만 노출한다. 1120px 이하에서도 이 레일을 상단 가로 메뉴로 접지 않고 PNG 기준의 왼쪽 세로 사이드바로 유지한다.
-- `/observation-board-2`의 `records` 모드는 기존 관찰 기록 흐름을 관찰2 디자인 안으로 통합하되, 기본 사이드바에서 숨기고 `홈` 빠른 이동 또는 `설정` 보조 버튼으로 진입한다.
-- `/observation-board-2`의 `growth` 모드는 `/api/observations`와 `/api/student-data`의 `note`, `grade`, `mentor_match` 데이터를 합쳐 학생별 누적 타임라인을 구성하고, 담당 학생별 관찰 공백/최근 메모/△·○ 반응 요약 카드를 함께 렌더링한다.
+- 상단 `학생 관찰 기록` 탭은 `/observation-board-2`의 독립형 교실 대시보드로 연결한다.
+- 기존 `/observation-board`와 `/observations` 직접 진입은 `/observation-board-2`로 리다이렉트한다.
+- `학생 관찰 기록`(`/observation-board-2`)은 예시 PNG 톤의 독립형 교실 대시보드이며, 공통 앱 셸 대신 자체 왼쪽 일러스트 레일과 교실형 헤더를 사용한다.
+- `/observation-board-2`의 기본 진입 화면은 `학생 관찰 기록`이며, 상단 내부 탭/가로로 긴 학급 칩/검색바 없이 PNG형 멘토·멘티 구성판, 차시별 △/○ 활동 기록 표, 활동 기록 안내 배너를 바로 보여준다.
+- `/observation-board-2`의 기본 멘토 화면은 전체 담당 학급 합산 옵션을 노출하지 않고, 담당 학급 하나를 고르는 compact select로 멘토·멘티 카드, 활동 기록표, 학생 목록 트레이의 범위를 결정한다.
+- `/observation-board-2`의 왼쪽 레일은 `mentor | growth | stats | notice | settings | records` 내부 상태를 전환하며, 사이드바에는 `학생 관찰 기록`, `성장 기록`, `통계 보기`, `알림장`, `설정`만 노출한다. 1120px 이하에서도 이 레일을 상단 가로 메뉴로 접지 않고 PNG 기준의 왼쪽 세로 사이드바로 유지한다.
+- `/observation-board-2`의 `records` 모드는 기존 관찰 기록 흐름을 교실 대시보드 디자인 안으로 통합하되, 기본 사이드바에서 별도 항목으로 노출하지 않고 `성장 기록` 내부 작성 모달 또는 `설정` 보조 버튼으로 진입한다.
+- `/observation-board-2`의 `growth` 모드는 `/api/observations`의 관찰 메모만으로 학생별 누적 타임라인을 구성하고, 담당 학생별 관찰 공백/최근 메모/△·○ 반응 요약 카드와 선택 학생 대상 `성장 기록 작성` 모달을 함께 렌더링한다.
 - `/observation-board-2`의 `stats` 모드는 관찰 기록 수, 학생별 기록 수, 태그 빈도, 최근 기록일, 현재 화면의 △/○ 표시 개수, 기록 우선 학생, 모둠별 활동 균형을 카드와 막대형 차트로 계산한다.
+- `/observation-board-2`의 `stats` 모드는 compact 학급 선택 메뉴를 제공하며, 진입 시 담당 학급 하나를 기본 범위로 잡아 전체 담당 학급의 모둠이 한 화면에 모두 펼쳐지지 않게 한다.
 - `/observation-board-2`의 `notice` 모드는 서버 API 없이 `observation-board-2-notices:${teacherKey}` localStorage 키로 공지 작성/완료 상태를 유지한다.
 - `/observation-board-2`의 멘토·멘티 패널, 활동 기록 패널, 학생 목록 트레이는 콘텐츠가 늘어날 때 내부 스크롤을 사용해 PNG형 첫 화면 구조가 무너지지 않게 하며, `모둠 추가` 버튼으로 빈 멘토/멘티 슬롯을 만들 수 있다.
 - `/observation-board-2`는 담당 학급에 속하지 않는 학생과 샘플 학생을 멘토·멘티, 관찰 작성, 성장 기록, 통계 대상에서 제외한다.
 - `/observation-board-2`는 `public/fonts/MaplestoryLight.ttf`, `public/fonts/MaplestoryBold.ttf`를 `@font-face`로 로드하고, 기본 교실 대시보드 전체에 Maplestory 글꼴을 적용한다.
 - `/observation-board-2`의 멘토·멘티 배치는 React local state로 관리하며, HTML5 drag/drop으로 학생 토큰 또는 학생 목록 항목을 멘토/멘티 슬롯에 놓으면 기존 배치를 교체하거나 이동한다.
 - `/observation-board-2`의 차시 목록은 React state와 `observation-board-2-sessions:${teacherKey}` localStorage 키로 관리하며, 표 헤더의 날짜/내용 입력과 `+` 차시 추가 버튼으로 수정한다.
-- 학생 카드 보드는 데스크톱 1440px 이상에서 약 6열 x 3~4행을 한 화면에 볼 수 있는 고밀도 그리드로 렌더링한다.
-- 학생 카드에서는 번호/이름, 최근 대표 태그, 마지막 기록일, 관찰 메모 수, 선택 상태를 표시하며 삭제 같은 위험 액션은 기본 카드 동선에서 제외한다.
-- 학생 카드에서는 클릭으로 선택 상태를 토글하고, 더블클릭 시 `/observations`로 query prefill 이동한다.
-- 보드 상단 도구막대는 학급 선택, 이름 검색, 전체 선택, 선택 해제, 선택 학생 기록하기를 한 줄에서 처리한다.
-- 여러 학생이 선택된 상태에서 선택된 카드 중 하나를 더블클릭하면 같은 teaching class 학생 ID들을 `studentIds` query로 넘겨 일괄 관찰 기록 작성 모드로 진입한다.
-- `/observations`의 수동 입력 섹션은 상단 공통 맥락에서 `날짜`, `수업 주제`, 공통 태그를 먼저 입력하고, 선택된 학생별 row editor에서는 개별 태그와 `관찰 메모`만 빠르게 편집한다.
+- 관찰 기록 작성은 `/observation-board-2` 내부의 `records` 모드에서 학급/검색 필터, 학생 다중 선택, 공통 날짜/수업 주제/태그, 학생별 관찰 메모 입력으로 처리한다.
+- 예전 카드형 보드와 `/observations` 수동 작성 화면은 상단 탭에서 제거하고, 직접 URL 접근 시 새 `학생 관찰 기록` 화면으로 이동시킨다.
 - 수동 입력 row에서는 학년도/학년/반/번호 같은 중복 메타 필드를 다시 노출하지 않고, 공통 태그와 개별 태그 모두 버튼형 선택과 교사 직접 추가를 함께 제공한다.
 - 학습 메모와 관찰 메모는 teaching class 단위로 저장한다.
 - 세특 AI 생성 API는 현재 교사의 `teacherKey`와 `teachingClassId`를 전달하고, 같은 맥락의 관찰 메모만 불러온다.
-- 세특 AI 생성 전 `/api/student-data`에서 현재 교사의 `includeInAi=true` 항목만 불러오고, `/api/generate` 프롬프트의 `[학생 개별 데이터]`에 추가한다.
-- 쿠키 원장과 상품 데이터는 기본적으로 세특 생성 컨텍스트에 넣지 않는다.
+- 세특 AI 생성은 `/api/student-data`를 조회하지 않고 관찰 메모, 학습 데이터, OCR 평가 컨텍스트만 프롬프트에 추가한다.
+- 쿠키 원장과 상품 데이터는 세특 생성 컨텍스트에 넣지 않는다.
 - 로컬 개발 모드에서는 Google Sheets API 호출이 실패할 때 `.local-sheet-store.json`으로 자동 fallback해 웹앱 흐름을 중단하지 않는다.
 
-## 4.6 학생 데이터와 쿠키 모델
+## 4.6 레거시 학생 데이터와 쿠키 모델
 
-Google Sheets 저장소에는 다음 시트를 사용한다.
+Google Sheets 저장소에는 과거 데이터 호환을 위해 다음 시트를 유지한다. 현재 상단 탭이나 세특 생성 흐름에서는 이 저장소를 조회하지 않는다.
 
 - `학생데이터`: `id, school, teacherKey, classId, semester, studentId, kind, title, occurredAt, includeInAi, payloadJson, createdAt, updatedAt`
 - `쿠키원장`: `id, school, studentId, amount, type, reason, rewardId, teacherKey, createdAt`
 - `쿠키상품`: `id, school, name, cost, active, createdAt, updatedAt`
 
-운영 규칙:
+레거시 저장 규칙:
 
 - `kind`는 `note`, `grade`, `mentor_match`를 사용한다.
 - 성적 payload는 `examName, examDate, score, maxScore, level, memo`를 저장한다.
 - 멘토링 payload는 `mentorStudentId, menteeStudentId, memo`를 저장한다.
 - 같은 교사/학급/학기에서 한 멘티는 하나의 멘토 매칭만 유지한다.
 - 쿠키 교환은 잔액이 충분할 때만 원장에 `redeem` 거래를 추가한다.
+- 신규 사용자 흐름에서는 `/student-data` 화면과 쿠키 관리 UI를 노출하지 않는다.
 
 ## 4.5 OpenAI 모델/비전 기준
 
@@ -438,7 +437,7 @@ UI 흐름:
 6. 세특 생성 호출 시 `studentId`, `teacherKey`, `teachingClassId`로 관찰 메모 필터링
 7. AI 프롬프트에 학습 메모 + 수업 기록 + OCR 평가 컨텍스트를 함께 주입
 8. 작성된 세특은 `write` 탭에서 선택 후 `RAG 점검·개선`을 실행해 공개 근거 기반 개선본으로 갱신 가능
-9. 현재 교사가 `학생 데이터` 탭에서 `AI 반영`으로 선택한 학생별 메모/성적/멘토링을 함께 주입
+9. 별도 학생 데이터 탭 입력값은 조회하지 않는다.
 10. 생성 후 역량 분석은 행 단위 또는 일괄로 실행하며, 세특 원문 기준 지식·과정·태도 색상 밑줄과 비율을 표시
 11. `/write` 화면은 제공된 AI 세특 작성기 스크린샷을 기준으로 넓은 앱 셸, 교사/알림 상단 영역, 반 선택 칩 툴바, AI/RAG/맞춤법/금지어/역량/삭제 버튼, 프롬프트형 AI 입력/세특 내용 셀, 10명 단위 페이지네이션을 렌더링한다.
 

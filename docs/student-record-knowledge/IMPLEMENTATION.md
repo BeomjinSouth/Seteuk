@@ -60,7 +60,6 @@
 - `src/app/observation-board/page.tsx`
 - `src/app/observation-board-2/page.tsx`
 - `src/app/observations/page.tsx`
-- `src/app/student-data/page.tsx`
 - `src/components/layout/AppShell.tsx`
 - raw match list shown in the pages
 - local vs hosted search comparison available
@@ -69,37 +68,36 @@
 - counsel chat and record review now share one `/counsel-chat` workspace with a mode switch, and `/record-review` redirects into that workspace
 - `search-inspector` remains available only as an internal diagnostics route and is no longer shown in the sidebar
 - main navigation groups counsel/review tools under `AI 세특 생성`
-- top navigation order is `학교 정보 -> 학생 관찰 기록 -> 학생 기록 관찰 2 -> 학생 데이터 -> AI 세특 생성 -> 평가 점검 (개발중)`
+- top navigation order is `학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검 (개발중)`
 - `평가 점검 (개발중)` is rendered as a disabled nav item, and direct `/eval-check` access redirects to `/dashboard`
 - `/ocr` stays available as a route, but `GlobalNav` currently filters the OCR tab out of the visible main navigation
-- student management is limited to roster upload and teaching-class connection; the student board now lives in `/observation-board`
-- `/observation-board` is a dense classroom board targeting roughly 6 columns x 3~4 rows at 1440px+, with a sticky toolbar for class selection, search, select all, clear selection, and batch observation entry
-- observation cards show student number/name, latest representative tag, last observation date, memo count, and selected state; destructive student deletion is not part of the primary card interaction
-- `/observation-board-2` is a standalone visual observation dashboard based on the provided classroom example; it uses an illustrated left rail, a simplified teacher chip, mentor/mentee group cards, a session table, and participation/strong-performance mark buttons while reusing teacher class/student data from the shared store
+- student management is limited to roster upload and teaching-class connection; the visible student observation tab now lives in `/observation-board-2`
+- legacy `/observation-board` and `/observations` direct entry redirects to `/observation-board-2`
+- `/observation-board-2` is the standalone visual `학생 관찰 기록` dashboard based on the provided classroom example; it uses an illustrated left rail, a simplified teacher chip, mentor/mentee group cards, a session table, and participation/strong-performance mark buttons while reusing teacher class/student data from the shared store
 - `/observation-board-2` defaults to the PNG-like `학생 관찰 기록` screen and removes the earlier top eyebrow, internal mode tabs, class chips, and search bar from that first mentor/mentee view while preserving the PNG-style header buttons
-- `/observation-board-2` manages internal board modes (`home`, `mentor`, `growth`, `stats`, `notice`, `settings`, `records`) without leaving the route; the visible sidebar exposes only `홈`, `학생 관찰 기록`, `성장 기록`, `통계 보기`, `알림장`, and `설정`, and remains a left vertical rail instead of collapsing into a top strip at narrower desktop widths
+- `/observation-board-2` manages internal board modes (`mentor`, `growth`, `stats`, `notice`, `settings`, `records`) without leaving the route; the visible sidebar exposes only `학생 관찰 기록`, `성장 기록`, and `통계 보기`, keeping the earlier `홈`, `알림장`, and `설정` entries hidden, and remains a left vertical rail instead of collapsing into a top strip at narrower desktop widths
 - `/observation-board-2` uses cropped raster assets from the provided PNG for the left logo, lower sidebar illustration, and activity-guide illustration while keeping text, cards, buttons, sidebar action icons, and tables as HTML/CSS
-- `/observation-board-2` `growth` mode fetches `/api/observations` and `/api/student-data` to combine observation notes with teacher-owned note/grade/mentor_match rows in a student timeline, then adds per-student cards for record gaps, latest notes, and △/○ activity reaction counts
+- `/observation-board-2` `growth` mode fetches `/api/observations` to build a student timeline from observation notes, then adds per-student cards for record gaps, latest notes, △/○ activity reaction counts, and a selected-student `성장 기록 작성` modal
 - `/observation-board-2` `stats` mode computes observation counts, student record counts, tag frequencies, latest record date, current △/○ marks, students needing records, and mentor-group activity balance from the loaded observations and local mark state
-- `/observation-board-2` `notice` mode stores announcements in `localStorage` with the key `observation-board-2-notices:${teacherKey}` and supports create, complete, and delete in the internal dashboard
-- `/observation-board-2` `records` mode ports the previous observation-record workflow into the same visual system, but is only reachable from home/settings quick actions so it does not disturb the PNG-matched default screen
+- `/observation-board-2` `stats` mode includes the same compact single-class selector pattern as the mentor board and defaults to one assigned class, so group-balance rows stay scoped by class instead of aggregating every assigned class
+- `/observation-board-2` `notice` mode stores announcements in `localStorage` with the key `observation-board-2-notices:${teacherKey}` and supports create, complete, and delete internally, but is not exposed in the current sidebar
+- `/observation-board-2` `records` mode ports the previous observation-record workflow into the same visual system, but is only reachable from stats quick actions so it does not disturb the PNG-matched default screen
 - `/observation-board-2` loads `MaplestoryLight.ttf` and `MaplestoryBold.ttf` from `public/fonts` and applies the Maplestory family across the classroom dashboard
 - `/observation-board-2` stores mentor/mentee slot assignments in local React state, supports adding an empty group, and uses HTML5 drag/drop so a student token or roster item can be dropped onto any mentor/mentee slot
-- `/observation-board-2` shows a compact class scope selector inside the default mentor panel; changing the scope filters the mentor pairs, activity table, growth/stats data, and roster tray to all assigned students or one selected class
-- `/observation-board-2` defaults the mentor screen to all students in the selected scope; the visible-student count setting remains available as an optional cap for default mentor pair generation and the roster tray
+- `/observation-board-2` shows a compact single-class selector inside the default mentor panel instead of a long horizontal class-chip rail; changing the selected class filters the mentor pairs, activity table, and roster tray to that class only
+- `/observation-board-2` defaults the mentor screen to one selected 담당 학급 rather than an all-assigned-classes aggregate; the visible-student count setting remains available as an optional cap for default mentor pair generation and the roster tray
 - `/observation-board-2` filters mentor matching, observation compose, growth, and stats to the current teacher's assigned class students only; it does not display sample students when no assigned class roster exists
 - `/observation-board-2` stores editable session headers in local React state and persists them to `observation-board-2-sessions:${teacherKey}`; teachers edit session date/content inline and add columns with the `+` button
-- `/observations` manual entry uses common date/topic/tags at the top and keeps per-student rows focused on individual tags plus observation memo
-- `학생 데이터` is a top-level tab for teacher-owned notes, grades, mentor matches, and school-shared cookie/reward operations
-- student data APIs store teacher-owned rows in `학생데이터`, shared cookie transactions in `쿠키원장`, and shared reward definitions in `쿠키상품`
+- manual observation entry is reached from `/observation-board-2` internal `records` mode and uses common date/topic/tags at the top with per-student rows focused on individual tags plus observation memo
+- the top-level `학생 데이터` tab and `/student-data` page are removed
+- student data/cookie APIs remain as legacy storage compatibility endpoints, but current user navigation and write generation do not use them
 - Google Sheets runtime credentials are normalized before client creation so Vercel values pasted with wrapping quotes or escaped newlines still produce a valid private key.
 - read-only roster/student-data/cookie APIs skip sheet-creation initialization and read existing sheets directly; mutations still initialize missing sheets before writing.
-- `/write` fetches only current `teacherKey + classId + semester + studentId` rows marked `includeInAi=true` before calling `/api/generate`
+- `/write` does not fetch student-data tab entries before calling `/api/generate`
 - competency highlighting renders against the source text so invalid AI segment indexes cannot drop text from the display
 - school roster data syncs through `/api/students` into shared sheet-backed storage, while teaching-class connections remain teacher-specific in local app state
 - repeated uploads for the same school are merged server-side by roster key and return add/update/skip counts so overlapping students do not duplicate
-- in `/observation-board`, single click selects students and double click opens observation writing; same-class multi-selection enters batch observation entry
-- `/observations` manual compose renders one editable row per selected student and stores row-specific date, lesson topic, selected tag, and memo
+- old `/observation-board` card-board and `/observations` compose routes are no longer user-facing and redirect to `/observation-board-2`
 - `/api/record-review` can optionally return `improvedDraft` for the write-tab review-improve action
 - `/write` renders the AI 세특 작성 tab as a screenshot-matched workspace: wider app sidebar, teacher/notification top chrome, class chip toolbar, AI/RAG/spell/forbidden/competency/delete actions, rounded table rows, editable AI input/content cells, and 10명씩 보기 pagination
 

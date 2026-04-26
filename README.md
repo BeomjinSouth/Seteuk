@@ -21,13 +21,14 @@ Open `http://localhost:3000`.
 
 ## App Navigation
 
-- top navigation order: `학교 정보` -> `학생 관찰 기록` -> `학생 기록 관찰 2` -> `학생 데이터` -> `AI 세특 생성` -> `평가 점검 (개발중)`
+- top navigation order: `학교 정보` -> `학생 관찰 기록` -> `AI 세특 생성` -> `평가 점검 (개발중)`
+- `/student-data` and the top-level `학생 데이터` tab are removed; write generation no longer loads student-data tab entries.
 - `학생 관리` now handles roster upload and teaching-class connection only
 - 성호중학교 교사는 업로드 없이 공용 2026 명렬표에서 학급만 선택한다
-- the student card board moved to `/observation-board`, and observation notes stay in `/observations`
-- in `/observation-board`, single click selects a student and double click opens observation writing; if multiple same-class students are selected, double click opens batch observation entry
-- in `/observation-board-2`, the mentor/mentee activity screen can be scoped to all assigned classes or one selected class, shows all scoped students by default, and lets teachers optionally cap how many students are auto-paired/listed
-- `/observations` manual entry uses per-student rows with roster/date fields plus `수업 주제`, selected `태그`, and `기타 메모`
+- `학생 관찰 기록` opens `/observation-board-2`; legacy `/observation-board` and `/observations` direct entries redirect there
+- in `/observation-board-2`, the sidebar shows only `학생 관찰 기록`, `성장 기록`, and `통계 보기`; `홈`, `알림장`, and `설정` are hidden, and `성장 기록` opens a selected-student `성장 기록 작성` modal for observation memo writing
+- in `/observation-board-2`, the mentor/mentee activity screen uses a compact single-class selector instead of a long class-chip rail, shows one selected class at a time, and lets teachers optionally cap how many students are auto-paired/listed
+- observation memo entry uses the internal `records` mode with per-student rows plus `수업 주제`, selected `태그`, and `기타 메모`
 - `/write` uses the screenshot-style AI 세특 작성 workspace with class chips, AI/RAG/check action buttons, prompt-style editable AI input/content cells, and 10명씩 보기 pagination
 
 ## Environment Variables

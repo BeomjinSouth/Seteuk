@@ -31,31 +31,31 @@
 - write page integration: implemented
 - write page screenshot UI: implemented with class chips, 10-row pagination, rounded AI input/content table rows, AI 세특 guide sidebar card, and top teacher/notification chrome
 - search inspector diagnostics route: implemented but hidden from the sidebar
-- main navigation integration: 학교 정보 -> 학생 관찰 기록 -> 학생 기록 관찰 2 -> 학생 데이터 -> AI 세특 생성 -> 평가 점검 (개발중) 순서 적용
-- student data tab: implemented with teacher-owned notes/grades/mentor matches and school-shared cookies/rewards
-- student data APIs: `/api/student-data`, `/api/cookies`, `/api/cookie-rewards` implemented with Google Sheets/local fallback storage
+- main navigation integration: 학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검 (개발중) 순서 적용
+- student data tab: removed along with `/student-data`; write generation no longer loads student-data tab entries
+- student data APIs: `/api/student-data`, `/api/cookies`, `/api/cookie-rewards` retained as legacy Google Sheets/local fallback storage endpoints
 - Google Sheets auth resilience: service account email/spreadsheet id are trimmed, private keys tolerate wrapping quotes, escaped newlines, and base64 PEM values, and read-only roster/student-data/cookie APIs no longer run sheet creation first
-- write generation context: current teacher `AI 반영` student data is injected into `/api/generate`; cookie data is excluded by default
+- write generation context: observation notes, learning data, and OCR evaluation context are injected into `/api/generate`; student-data tab entries are not loaded
 - competency color check: source-text-safe rendering, per-row analysis button/status, and stale analysis clearing implemented
 - eval-check tab visibility: visible as disabled `평가 점검 (개발중)` and excluded from active/click handling
 - OCR route visibility: /ocr route remains implemented, but the tab is hidden from the top navigation
-- student workspace split: 학생 관리는 명부/학급 연결만 담당하고 학생 카드 보드는 /observation-board로 분리
+- student workspace split: 학생 관리는 명부/학급 연결만 담당하고 학생 관찰 기록은 /observation-board-2로 제공
+- legacy observation routes: `/observation-board` and `/observations` redirect to `/observation-board-2`
 - shared roster sync: 학교 공용 명부를 /api/students + 시트 저장소로 동기화하고 같은 학교 사용자가 함께 사용하며, 중복 업로드는 학적 키 기준으로 병합
 - 성호중학교 login: 학교/한글 이름/비밀번호 `123123`만 허용하고 성공 시 /students 학급 등록으로 진입
 - 성호중학교 roster onboarding: 2026 1/2/3학년 명렬표를 공용 학생 명부에 반영했고 성호중학교 교사는 업로드 없이 학급을 선택 등록
 - 성호중학교 roster load resilience: /students 명렬표 로딩/빈 데이터/오류 상태를 명확히 표시하고, 학교명 비교는 정규화된 값으로 처리
 - auth hydration: authenticated pages wait for persisted store hydration before redirecting, so /students refresh keeps the logged-in session
-- observation board interaction: 고밀도 보드(1440px+에서 약 6열) + 카드 클릭 선택 + 더블클릭 관찰 기록 작성 + 같은 학급 다중 선택 일괄 저장 지원
-- observation board card state: 번호/이름, 최근 대표 태그, 마지막 기록일, 관찰 메모 수, 선택 상태 표시
-- observation board 2 tab: `/observation-board-2`에서 예시 PNG에 맞춘 독립형 교실 대시보드, 기본 `학생 관찰 기록` 활동판, 모둠 추가, 차시별 활동 기록 표, 참여/매우 잘함 클릭 표시 지원
-- observation board 2 internal dashboards: 왼쪽 메뉴가 URL 이동 없이 `홈`, `학생 관찰 기록`, `성장 기록`, `통계 보기`, `알림장`, `설정` 화면을 전환하며, 성장 기록/통계/알림장/설정 대시보드 구현
+- student observation tab: `/observation-board-2`에서 예시 PNG에 맞춘 독립형 교실 대시보드, 기본 `학생 관찰 기록` 활동판, 모둠 추가, 차시별 활동 기록 표, 참여/매우 잘함 클릭 표시 지원
+- observation board 2 internal dashboards: 왼쪽 메뉴가 URL 이동 없이 `학생 관찰 기록`, `성장 기록`, `통계 보기` 화면만 전환하며, `홈`, `알림장`, `설정` 항목은 현재 사이드바에서 숨김
 - observation board 2 responsive sidebar: 1120px 이하에서도 PNG 기준의 왼쪽 세로 사이드바를 유지하고 상단 가로 메뉴로 접지 않음
 - observation board 2 data scope: 멘토·멘티, 관찰 작성, 성장 기록, 통계는 현재 교사의 담당 학급 학생만 표시하고 담당 학생이 없을 때 샘플 학생으로 대체하지 않음
 - observation board 2 growth/stats usefulness: 성장 기록은 학생별 관찰 공백/최근 메모/△·○ 반응을 보여주고, 통계 보기는 기록 우선 학생과 모둠별 활동 균형을 함께 표시
+- observation board 2 stats class scope: 통계 보기는 compact 학급 선택 메뉴를 제공하고 담당 학급 하나를 기본 범위로 사용해 모둠별 활동 균형을 학급별로 확인함
 - observation board 2 editable sessions: 차시 표 헤더에서 날짜/활동 내용을 직접 입력하고 `+` 버튼으로 차시 열을 추가하며, 교사별 localStorage에 유지
-- observation board 2 records mode: 기존 관찰 기록 기능은 사이드바에서 숨긴 내부 `records` 모드로 유지하고, 홈/설정 빠른 이동에서 학급/검색 필터, 학생 다중 선택, 공통 날짜/주제/태그, 학생별 메모 입력, 최근 기록 목록, 상세 보기, 삭제 지원
+- observation board 2 records mode: 기존 관찰 기록 기능은 사이드바에서 숨긴 내부 `records` 모드로 유지하고, 통계 보기 빠른 이동에서 학급/검색 필터, 학생 다중 선택, 공통 날짜/주제/태그, 학생별 메모 입력, 최근 기록 목록, 상세 보기, 삭제 지원
 - observation board 2 drag matching/font: Maplestory TTF 적용, 학생 토큰/학생 목록 드래그로 멘토·멘티 조와 역할 재배치 지원
-- observation board 2 mentor scope/display: 기본 멘토 패널에서 전체 담당 학급 또는 특정 학급을 직접 선택할 수 있고, 기본값은 선택 범위의 전체 학생을 표시하며, 표시 학생 수 설정은 선택 시 학생 목록과 자동 멘토·멘티 조 생성 상한으로 반영됨
+- observation board 2 mentor scope/display: 기본 멘토 화면은 가로로 긴 학급 칩 대신 compact 단일 학급 선택 메뉴를 사용하고, 전체 담당 학급 합산 대신 선택 학급 학생만 멘토·멘티 조와 학생 목록에 표시함
 - observation board 2 sidebar icons: 사이드바 메뉴 아이콘을 잘림/흰 배경이 있는 PNG 조각 대신 HTML/CSS 렌더링 아이콘으로 표시
 - observation compose layout: 상단 공통 날짜/수업 주제/공통 태그 + 학생별 개별 태그/관찰 메모 row editor
 - lexical retrieval: implemented
@@ -64,7 +64,13 @@
 
 ## Recent Changes
 
+- 2026-04-26: removed the old top-level `학생 관찰 기록` card-board tab, renamed the classroom dashboard tab to `학생 관찰 기록`, and redirected `/observation-board` and `/observations` to `/observation-board-2`
 - 2026-04-26: restyled the `/write` AI 세특 작성 tab to match the provided screenshot, including the wider app shell, class chip toolbar, paginated table, and prompt-style AI input/content cells
+- 2026-04-26: removed the top-level `학생 데이터` tab and `/student-data` page, and stopped write/growth flows from loading student-data tab entries
+- 2026-04-26: removed the observation-board-2 sidebar home item and added a screenshot-guided `성장 기록 작성` modal to the `성장 기록` tab
+- 2026-04-26: hid the observation-board-2 sidebar `알림장` and `설정` items so the visible left rail is limited to `학생 관찰 기록`, `성장 기록`, and `통계 보기`
+- 2026-04-26: changed the observation-board-2 mentor class scope from a horizontal all-class chip rail to a compact single-class selector
+- 2026-04-26: added a compact class selector to observation-board-2 stats so group activity balance can be viewed by class instead of as one long all-class list
 - 2026-04-26: fixed observation-board-2 mentor display expansion beyond six students, moved class scope buttons into the mentor panel, defaulted the mentor roster to all scoped students, and replaced sidebar menu raster icons with unclipped rendered icons
 - 2026-04-26: fixed deployed Google Sheets private-key parsing for roster loading and made read-only Sheets APIs avoid unnecessary sheet initialization before reads
 - 2026-04-26: restored Vercel production environment variables for Google Sheets/OpenAI from the local runtime config, redeployed production, and verified the 성호중학교 roster API returns 847 students
@@ -78,10 +84,10 @@
 - 2026-04-25: added admin recrawl, reindex, crawl-status, and quality-report APIs
 - 2026-04-25: added production token guard for `/api/admin/*` routes
 - 2026-04-25: kept `평가 점검` visible as `평가 점검 (개발중)` but blocked tab navigation and direct `/eval-check` access
-- 2026-04-25: added `학생 데이터` tab, student-data/cookie APIs, teacher-scoped AI context injection, and safer competency color highlighting
-- 2026-04-25: added `학생 기록 관찰 2` next to the observation tab with a mentor/mentee activity-board design based on the provided dashboard example
-- 2026-04-25: rebuilt `학생 기록 관찰 2` around the PNG-like default mentor/mentee screen, internal-only sidebar dashboards, localStorage notice board, growth timeline, stats view, and hidden observation compose mode
-- 2026-04-25: applied Maplestory fonts to `학생 기록 관찰 2`, fixed cropped/wrapped dashboard areas, and added drag/drop mentor-mentee matching
+- 2026-04-25: added student-data/cookie APIs, teacher-scoped AI context injection, and safer competency color highlighting
+- 2026-04-25: added the classroom observation dashboard next to the original observation tab with a mentor/mentee activity-board design based on the provided dashboard example
+- 2026-04-25: rebuilt the classroom observation dashboard around the PNG-like default mentor/mentee screen, internal-only sidebar dashboards, localStorage notice board, growth timeline, stats view, and hidden observation compose mode
+- 2026-04-25: applied Maplestory fonts to the classroom observation dashboard, fixed cropped/wrapped dashboard areas, and added drag/drop mentor-mentee matching
 - 2026-04-25: restored the PNG-style `학생 관찰 기록` sidebar/header chrome, added group creation, restricted displays to assigned class students, and made growth/stats show actionable student and group signals
 - 2026-04-25: made observation-board-2 session headers editable for date/activity content and connected the `+` header button to add persisted session columns
 - 2026-04-25: kept the observation-board-2 sidebar as a left vertical rail at narrower desktop widths instead of collapsing it into a top strip

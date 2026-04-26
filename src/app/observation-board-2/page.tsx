@@ -6,7 +6,6 @@ import { useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
     BarChart3,
-    Bell,
     BookOpen,
     CalendarDays,
     CheckCircle2,
@@ -14,7 +13,6 @@ import {
     ClipboardList,
     Eye,
     Handshake,
-    Home,
     Megaphone,
     Plus,
     Save,
@@ -33,11 +31,10 @@ import { useAppStore } from '@/lib/store';
 import { isAuthorizedSeonghoTeacher } from '@/lib/seongho-auth';
 import { getStudentsInTeachingClass, getTeacherClasses } from '@/lib/teacher-context';
 import { ClassGroup, Observation, Student } from '@/types';
-import { StudentDataEntry } from '@/types/student-data';
 import styles from './page.module.css';
 
 type MarkState = 'none' | 'participated' | 'excellent';
-type BoardMode = 'home' | 'mentor' | 'growth' | 'stats' | 'notice' | 'settings' | 'records';
+type BoardMode = 'mentor' | 'growth' | 'stats' | 'notice' | 'settings' | 'records';
 type VisibleRosterCount = number | 'all';
 
 interface ObservationDraftRow {
@@ -167,13 +164,6 @@ function formatFullDate(value?: string) {
     return `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, '0')}.${String(date.getDate()).padStart(2, '0')}`;
 }
 
-function getStudentDataTimestamp(entry?: StudentDataEntry) {
-    if (!entry) return 0;
-    const value = entry.occurredAt || entry.createdAt || entry.updatedAt;
-    const date = new Date(value);
-    return Number.isNaN(date.getTime()) ? 0 : date.getTime();
-}
-
 function getNoticeStorageKey(teacherKey?: string) {
     return `observation-board-2-notices:${teacherKey || 'guest'}`;
 }
@@ -207,13 +197,12 @@ function normalizeActivitySessions(value: unknown): ActivitySession[] {
 
 function getBoardModeTitle(mode: BoardMode) {
     const titles: Record<BoardMode, string> = {
-        home: '관찰2 홈',
         mentor: '학생 관찰 기록',
         growth: '성장 기록',
         stats: '통계 보기',
         notice: '알림장',
         settings: '설정',
-        records: '관찰 기록 작성',
+        records: '관찰 메모 작성',
     };
     return titles[mode];
 }
@@ -264,8 +253,6 @@ export default function ObservationBoard2Page() {
     const [customTagOptions, setCustomTagOptions] = useState<string[]>([]);
     const [studentDrafts, setStudentDrafts] = useState<Record<string, ObservationDraftRow>>({});
     const [selectedObservation, setSelectedObservation] = useState<Observation | null>(null);
-    const [studentDataEntries, setStudentDataEntries] = useState<StudentDataEntry[]>([]);
-    const [isLoadingStudentData, setIsLoadingStudentData] = useState(false);
     const [visibleRosterCount, setVisibleRosterCount] = useState<VisibleRosterCount>('all');
     const [hasCustomMentorAssignments, setHasCustomMentorAssignments] = useState(false);
     const [noticeDraft, setNoticeDraft] = useState({ title: '', body: '', dueDate: today() });
@@ -437,16 +424,6 @@ export default function ObservationBoard2Page() {
         sum + summary.excellent
     ), 0);
 
-    const scopedStudentDataEntries = useMemo(
-        () => studentDataEntries
-            .filter((entry) =>
-                activeStudentIds.has(entry.studentId)
-                && (selectedClassId === 'all' || entry.classId === selectedClassId)
-            )
-            .sort((a, b) => getStudentDataTimestamp(b) - getStudentDataTimestamp(a)),
-        [activeStudentIds, studentDataEntries, selectedClassId]
-    );
-
     const growthTimeline = useMemo<GrowthTimelineItem[]>(() => {
         const fromObservations = filteredObservations.map((observation) => ({
             id: `observation-${observation.id}`,
@@ -458,31 +435,9 @@ export default function ObservationBoard2Page() {
             meta: observation.tags.length > 0 ? observation.tags.slice(0, 3).join(', ') : '수업 관찰',
         }));
 
-        const fromStudentData = scopedStudentDataEntries.map((entry) => {
-            const payloadMemo = entry.payload?.memo || '';
-            const gradeSummary = entry.kind === 'grade'
-                ? [entry.payload?.examName, entry.payload?.score && `${entry.payload.score}점`, entry.payload?.level]
-                    .filter(Boolean)
-                    .join(' · ')
-                : '';
-            const mentorSummary = entry.kind === 'mentor_match'
-                ? `멘토 ${entry.payload?.mentorStudentId || '-'} · 멘티 ${entry.payload?.menteeStudentId || '-'}`
-                : '';
-
-            return {
-                id: `data-${entry.id}`,
-                studentId: entry.studentId,
-                type: entry.kind,
-                title: entry.title || (entry.kind === 'grade' ? '성적 기록' : entry.kind === 'mentor_match' ? '멘토링 기록' : '누적 메모'),
-                body: payloadMemo || gradeSummary || mentorSummary || '기록 내용 없음',
-                date: entry.occurredAt || entry.createdAt,
-                meta: entry.kind === 'grade' ? '성적' : entry.kind === 'mentor_match' ? '멘토링' : '메모',
-            };
-        });
-
         const normalizedQuery = searchQuery.trim().toLowerCase();
 
-        return [...fromObservations, ...fromStudentData]
+        return fromObservations
             .filter((item) => {
                 if (!normalizedQuery) return true;
                 const student = studentLookup.get(item.studentId);
@@ -497,7 +452,7 @@ export default function ObservationBoard2Page() {
                 const bTime = new Date(b.date).getTime();
                 return (Number.isNaN(bTime) ? 0 : bTime) - (Number.isNaN(aTime) ? 0 : aTime);
             });
-    }, [filteredObservations, scopedStudentDataEntries, searchQuery, studentLookup]);
+    }, [filteredObservations, searchQuery, studentLookup]);
 
     const tagStats = useMemo(() => {
         const counts = new Map<string, number>();
@@ -520,17 +475,9 @@ export default function ObservationBoard2Page() {
         )
     ), [markStatsByStudent]);
 
-    const todayObservationCount = filteredObservations.filter((observation) => observation.date === today()).length;
-    const incompleteNoticeCount = notices.filter((notice) => !notice.completed).length;
-
     useEffect(() => {
         void loadObservations();
     }, []);
-
-    useEffect(() => {
-        if (!teacher?.teacherKey) return;
-        void loadStudentData();
-    }, [teacher?.teacherKey, teacher?.school]);
 
     useEffect(() => {
         const availableIds = new Set(boardStudents.map((student) => student.id));
@@ -608,33 +555,31 @@ export default function ObservationBoard2Page() {
         }
     };
 
-    const loadStudentData = async () => {
-        if (!teacher?.teacherKey) return;
-
-        setIsLoadingStudentData(true);
-        try {
-            const params = new URLSearchParams({
-                teacherKey: teacher.teacherKey,
-            });
-            if (teacher.school) params.set('school', teacher.school);
-            const response = await fetch(`/api/student-data?${params.toString()}`);
-            const data = await response.json();
-            if (data.success) {
-                setStudentDataEntries((data.data || data.entries || []) as StudentDataEntry[]);
-            }
-        } catch (error) {
-            console.error('Failed to load student data entries:', error);
-        } finally {
-            setIsLoadingStudentData(false);
-        }
-    };
-
     const handleClassChange = (classId: string) => {
         setSelectedClassId(classId);
         setSelectedStudentIds(new Set());
         setHasCustomMentorAssignments(false);
         setMentorAssignments([]);
     };
+
+    useEffect(() => {
+        if (activeMode !== 'mentor' && activeMode !== 'stats') return;
+
+        if (teacherClasses.length === 0) {
+            if (selectedClassId !== 'all') {
+                setSelectedClassId('all');
+            }
+            return;
+        }
+
+        const hasSelectedClass = teacherClasses.some((cls) => cls.id === selectedClassId);
+        if (!hasSelectedClass) {
+            setSelectedClassId(teacherClasses[0].id);
+            setSelectedStudentIds(new Set());
+            setHasCustomMentorAssignments(false);
+            setMentorAssignments([]);
+        }
+    }, [activeMode, selectedClassId, teacherClasses]);
 
     const handleVisibleRosterCountChange = (count: VisibleRosterCount) => {
         setVisibleRosterCount(count);
@@ -806,6 +751,65 @@ export default function ObservationBoard2Page() {
         }
     };
 
+    const handleSaveGrowthRecord = async (cookieCount: number, memo: string) => {
+        if (!teacher || selectedStudents.length === 0) {
+            alert('학생을 먼저 선택하세요.');
+            return false;
+        }
+
+        const missingClassStudents = selectedStudents.filter((student) => !getTeachingClassForStudent(student));
+        if (missingClassStudents.length > 0) {
+            alert('수업 학급을 찾을 수 없는 학생이 있습니다. 담당 학급을 먼저 선택하세요.');
+            return false;
+        }
+
+        const trimmedMemo = memo.trim();
+        const fallbackMemo = `성장 쿠키 ${cookieCount}개를 기록했습니다.`;
+
+        setIsSaving(true);
+        try {
+            const results = await Promise.all(selectedStudents.map(async (student) => {
+                const targetClass = getTeachingClassForStudent(student);
+                const response = await fetch('/api/observations', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        studentId: student.id,
+                        classId: targetClass?.id,
+                        teacherKey: teacher.teacherKey,
+                        subjectName: targetClass?.subjectName,
+                        lessonTopic: '성장 기록',
+                        date: today(),
+                        memo: trimmedMemo || fallbackMemo,
+                        evidenceType: 'process',
+                        tags: ['성장', `쿠키 ${cookieCount}개`],
+                        sourceType: 'manual',
+                    }),
+                });
+                const data = await response.json();
+                return response.ok && data.success;
+            }));
+
+            const failedCount = results.filter((result) => !result).length;
+            await loadObservations();
+
+            if (failedCount > 0) {
+                alert(`${selectedStudents.length - failedCount}명 저장, ${failedCount}명 저장 실패`);
+                return false;
+            }
+
+            setSelectedStudentIds(new Set());
+            alert(`${results.length}명의 성장 기록을 저장했습니다.`);
+            return true;
+        } catch (error) {
+            console.error('Failed to save growth records:', error);
+            alert('성장 기록 저장 중 오류가 발생했습니다.');
+            return false;
+        } finally {
+            setIsSaving(false);
+        }
+    };
+
     const handleDeleteObservation = async (id: string) => {
         if (!confirm('이 관찰 기록을 삭제할까요?')) return;
 
@@ -944,21 +948,40 @@ export default function ObservationBoard2Page() {
         persistActivitySessions(nextSessions);
     };
 
-    const renderBoardContent = () => {
-        if (activeMode === 'home') {
-            return (
-                <HomeDashboard
-                    teacherClasses={teacherClasses}
-                    teacherStudents={teacherStudents}
-                    observations={filteredObservations}
-                    todayObservationCount={todayObservationCount}
-                    currentMarkCounts={currentMarkCounts}
-                    incompleteNoticeCount={incompleteNoticeCount}
-                    onModeChange={setActiveMode}
-                />
-            );
-        }
+    const renderObservationRecordsView = () => (
+        <ObservationRecordsView
+            filteredStudents={filteredStudents}
+            selectedStudentIds={selectedStudentIds}
+            selectedStudents={selectedStudents}
+            observations={filteredObservations}
+            observationStatsByStudent={observationStatsByStudent}
+            isLoadingObservations={isLoadingObservations}
+            commonDate={commonDate}
+            commonLessonTopic={commonLessonTopic}
+            commonTags={commonTags}
+            availableTagOptions={availableTagOptions}
+            customTagInput={customTagInput}
+            studentDrafts={studentDrafts}
+            isSaving={isSaving}
+            getClassDisplay={getClassDisplay}
+            getStudentDisplay={getStudentDisplay}
+            onToggleStudent={toggleStudentSelection}
+            onToggleAll={toggleSelectAll}
+            onClearSelected={() => setSelectedStudentIds(new Set())}
+            onCommonDateChange={setCommonDate}
+            onCommonLessonTopicChange={setCommonLessonTopic}
+            onToggleCommonTag={toggleCommonTag}
+            onCustomTagInputChange={setCustomTagInput}
+            onAddCustomTag={addCustomTag}
+            onToggleStudentTag={toggleStudentTag}
+            onUpdateStudentDraft={updateStudentDraft}
+            onSave={handleSaveManualObservations}
+            onOpenDetail={setSelectedObservation}
+            onDelete={handleDeleteObservation}
+        />
+    );
 
+    const renderBoardContent = () => {
         if (activeMode === 'growth') {
             return (
                 <GrowthDashboard
@@ -968,12 +991,18 @@ export default function ObservationBoard2Page() {
                     selectedClassId={selectedClassId}
                     searchQuery={searchQuery}
                     timeline={growthTimeline}
-                    isLoading={isLoadingStudentData}
+                    isLoading={isLoadingObservations}
                     studentLookup={studentLookup}
                     observationStatsByStudent={observationStatsByStudent}
                     markStatsByStudent={markStatsByStudent}
+                    selectedStudentIds={selectedStudentIds}
+                    selectedStudents={selectedStudents}
+                    isSaving={isSaving}
                     onClassChange={handleClassChange}
                     onSearchChange={setSearchQuery}
+                    onToggleStudent={toggleStudentSelection}
+                    onClearSelected={() => setSelectedStudentIds(new Set())}
+                    onSaveGrowthRecord={handleSaveGrowthRecord}
                 />
             );
         }
@@ -981,6 +1010,9 @@ export default function ObservationBoard2Page() {
         if (activeMode === 'stats') {
             return (
                 <StatsDashboard
+                    teacherClasses={teacherClasses}
+                    teacherStudents={teacherStudents}
+                    selectedClassId={selectedClassId}
                     observations={filteredObservations}
                     students={filteredStudents}
                     tagStats={tagStats}
@@ -990,6 +1022,7 @@ export default function ObservationBoard2Page() {
                     mentorGroups={mentorGroups}
                     markStatsByStudent={markStatsByStudent}
                     getStudentDisplay={getStudentDisplay}
+                    onClassChange={handleClassChange}
                     onModeChange={setActiveMode}
                 />
             );
@@ -1038,36 +1071,7 @@ export default function ObservationBoard2Page() {
                         onClassChange={handleClassChange}
                         onSearchChange={setSearchQuery}
                     />
-                    <ObservationRecordsView
-                        filteredStudents={filteredStudents}
-                        selectedStudentIds={selectedStudentIds}
-                        selectedStudents={selectedStudents}
-                        observations={filteredObservations}
-                        observationStatsByStudent={observationStatsByStudent}
-                        isLoadingObservations={isLoadingObservations}
-                        commonDate={commonDate}
-                        commonLessonTopic={commonLessonTopic}
-                        commonTags={commonTags}
-                        availableTagOptions={availableTagOptions}
-                        customTagInput={customTagInput}
-                        studentDrafts={studentDrafts}
-                        isSaving={isSaving}
-                        getClassDisplay={getClassDisplay}
-                        getStudentDisplay={getStudentDisplay}
-                        onToggleStudent={toggleStudentSelection}
-                        onToggleAll={toggleSelectAll}
-                        onClearSelected={() => setSelectedStudentIds(new Set())}
-                        onCommonDateChange={setCommonDate}
-                        onCommonLessonTopicChange={setCommonLessonTopic}
-                        onToggleCommonTag={toggleCommonTag}
-                        onCustomTagInputChange={setCustomTagInput}
-                        onAddCustomTag={addCustomTag}
-                        onToggleStudentTag={toggleStudentTag}
-                        onUpdateStudentDraft={updateStudentDraft}
-                        onSave={handleSaveManualObservations}
-                        onOpenDetail={setSelectedObservation}
-                        onDelete={handleDeleteObservation}
-                    />
+                    {renderObservationRecordsView()}
                 </>
             );
         }
@@ -1151,12 +1155,9 @@ function ClassroomSidebar({
     onModeChange: (mode: BoardMode) => void;
 }) {
     const navItems: Array<{ mode: BoardMode; label: string; icon: ReactNode }> = [
-        { mode: 'home', label: '홈', icon: <Home size={34} strokeWidth={2.35} /> },
         { mode: 'mentor', label: '학생 관찰 기록', icon: <ClipboardList size={34} strokeWidth={2.35} /> },
         { mode: 'growth', label: '성장 기록', icon: <Sparkles size={34} strokeWidth={2.35} /> },
         { mode: 'stats', label: '통계 보기', icon: <BarChart3 size={34} strokeWidth={2.35} /> },
-        { mode: 'notice', label: '알림장', icon: <Megaphone size={34} strokeWidth={2.35} /> },
-        { mode: 'settings', label: '설정', icon: <Settings size={34} strokeWidth={2.35} /> },
     ];
 
     return (
@@ -1240,138 +1241,51 @@ function FilterStrip({
     );
 }
 
-function MentorClassScope({
+function ClassScopeSelect({
     teacherClasses,
     teacherStudents,
     selectedClassId,
     onClassChange,
+    ariaLabel = '학급 선택',
+    selectLabel = '담당 학급',
 }: {
     teacherClasses: ClassGroup[];
     teacherStudents: Student[];
     selectedClassId: string;
     onClassChange: (classId: string) => void;
+    ariaLabel?: string;
+    selectLabel?: string;
 }) {
+    const selectedClass = teacherClasses.find((cls) => cls.id === selectedClassId) ?? teacherClasses[0];
+    const selectedClassStudentCount = selectedClass
+        ? getStudentsInTeachingClass(teacherStudents, selectedClass).length
+        : 0;
+
     return (
-        <section className={styles.mentorScopeBar} aria-label="멘토 화면 학급 선택">
+        <section className={styles.mentorScopeBar} aria-label={ariaLabel}>
             <span className={styles.scopeLabel}>
                 <Users size={16} />
                 학급 선택
             </span>
-            <button
-                type="button"
-                className={`${styles.classChip} ${selectedClassId === 'all' ? styles.classChipActive : ''}`}
-                onClick={() => onClassChange('all')}
-            >
-                전체 담당 학급
-                <span>{teacherStudents.length}</span>
-            </button>
-            {teacherClasses.map((cls) => (
-                <button
-                    key={cls.id}
-                    type="button"
-                    className={`${styles.classChip} ${selectedClassId === cls.id ? styles.classChipActive : ''}`}
-                    onClick={() => onClassChange(cls.id)}
+            <label className={styles.mentorClassSelect}>
+                <span>{selectLabel}</span>
+                <select
+                    value={selectedClass?.id ?? ''}
+                    onChange={(event) => onClassChange(event.target.value)}
+                    disabled={teacherClasses.length === 0}
                 >
-                    {cls.grade}학년 {cls.classNumber}반
-                    <span>{getStudentsInTeachingClass(teacherStudents, cls).length}</span>
-                </button>
-            ))}
-        </section>
-    );
-}
-
-function HomeDashboard({
-    teacherClasses,
-    teacherStudents,
-    observations,
-    todayObservationCount,
-    currentMarkCounts,
-    incompleteNoticeCount,
-    onModeChange,
-}: {
-    teacherClasses: ClassGroup[];
-    teacherStudents: Student[];
-    observations: Observation[];
-    todayObservationCount: number;
-    currentMarkCounts: { participated: number; excellent: number };
-    incompleteNoticeCount: number;
-    onModeChange: (mode: BoardMode) => void;
-}) {
-    return (
-        <section className={styles.dashboardView}>
-            <div className={styles.homeSummaryGrid}>
-                <SummaryCard icon={<Users size={24} />} label="담당 학급" value={`${teacherClasses.length}개`} tone="blue" />
-                <SummaryCard icon={<UserRound size={24} />} label="학생 수" value={`${teacherStudents.length}명`} tone="green" />
-                <SummaryCard icon={<ClipboardList size={24} />} label="최근 관찰 기록" value={`${observations.length}건`} tone="yellow" />
-                <SummaryCard icon={<Bell size={24} />} label="미완료 알림" value={`${incompleteNoticeCount}건`} tone="pink" />
-            </div>
-
-            <div className={styles.homeContentGrid}>
-                <article className={styles.homePanel}>
-                    <div className={styles.panelTitle}>
-                        <Sparkles size={22} />
-                        <div>
-                            <h2>오늘 활동 요약</h2>
-                            <p>관찰2 안에서 바로 확인하는 수업 상태</p>
-                        </div>
-                    </div>
-                    <div className={styles.todayStrip}>
-                        <span>
-                            <Triangle size={18} />
-                            참여 {currentMarkCounts.participated}회
-                        </span>
-                        <span>
-                            <Circle size={18} />
-                            매우 잘함 {currentMarkCounts.excellent}회
-                        </span>
-                        <span>
-                            <ClipboardList size={18} />
-                            오늘 메모 {todayObservationCount}건
-                        </span>
-                    </div>
-                    <div className={styles.quickActionGrid}>
-                        <button type="button" onClick={() => onModeChange('mentor')}>
-                            <ClipboardList size={18} />
-                            학생 관찰 기록
-                        </button>
-                        <button type="button" onClick={() => onModeChange('growth')}>
-                            <Users size={18} />
-                            성장 기록
-                        </button>
-                        <button type="button" onClick={() => onModeChange('stats')}>
-                            <BarChart3 size={18} />
-                            통계 보기
-                        </button>
-                        <button type="button" onClick={() => onModeChange('records')}>
-                            <BookOpen size={18} />
-                            관찰 메모 작성
-                        </button>
-                        <button type="button" onClick={() => onModeChange('notice')}>
-                            <Megaphone size={18} />
-                            알림장
-                        </button>
-                    </div>
-                </article>
-
-                <article className={styles.homePanel}>
-                    <div className={styles.panelTitle}>
-                        <ClipboardList size={22} />
-                        <div>
-                            <h2>최근 관찰 메모</h2>
-                            <p>최근 저장된 개별 기록</p>
-                        </div>
-                    </div>
-                    <div className={styles.compactList}>
-                        {observations.slice(0, 5).map((observation) => (
-                            <div key={observation.id} className={styles.compactItem}>
-                                <strong>{observation.lessonTopic || '관찰 메모'}</strong>
-                                <span>{formatShortDate(observation.date || observation.createdAt)} · {observation.memo.slice(0, 56)}</span>
-                            </div>
-                        ))}
-                        {observations.length === 0 && <div className={styles.emptyList}>아직 관찰 메모가 없습니다.</div>}
-                    </div>
-                </article>
-            </div>
+                    {teacherClasses.length === 0 && <option value="">담당 학급 없음</option>}
+                    {teacherClasses.map((cls) => (
+                        <option key={cls.id} value={cls.id}>
+                            {cls.grade}학년 {cls.classNumber}반
+                        </option>
+                    ))}
+                </select>
+            </label>
+            <span className={styles.mentorScopeCount}>
+                <strong>{selectedClassStudentCount}</strong>
+                명
+            </span>
         </section>
     );
 }
@@ -1409,8 +1323,14 @@ function GrowthDashboard({
     studentLookup,
     observationStatsByStudent,
     markStatsByStudent,
+    selectedStudentIds,
+    selectedStudents,
+    isSaving,
     onClassChange,
     onSearchChange,
+    onToggleStudent,
+    onClearSelected,
+    onSaveGrowthRecord,
 }: {
     teacherClasses: ClassGroup[];
     teacherStudents: Student[];
@@ -1422,9 +1342,16 @@ function GrowthDashboard({
     studentLookup: Map<string, Student>;
     observationStatsByStudent: Map<string, ObservationCardStats>;
     markStatsByStudent: Map<string, MarkSummary>;
+    selectedStudentIds: Set<string>;
+    selectedStudents: Student[];
+    isSaving: boolean;
     onClassChange: (classId: string) => void;
     onSearchChange: (value: string) => void;
+    onToggleStudent: (studentId: string) => void;
+    onClearSelected: () => void;
+    onSaveGrowthRecord: (cookieCount: number, memo: string) => Promise<boolean>;
 }) {
+    const [isComposerOpen, setIsComposerOpen] = useState(false);
     const recordedStudentCount = students.filter((student) => (
         (observationStatsByStudent.get(student.id)?.count ?? 0) > 0
         || (markStatsByStudent.get(student.id)?.participated ?? 0) > 0
@@ -1457,6 +1384,18 @@ function GrowthDashboard({
                         <span>기록 필요 <strong>{needsRecordCount}</strong></span>
                         <span>누적 항목 <strong>{timeline.length}</strong></span>
                     </div>
+                    <div className={styles.growthHeroActions}>
+                        <button
+                            type="button"
+                            className={styles.primaryActionButton}
+                            onClick={() => setIsComposerOpen(true)}
+                            disabled={students.length === 0}
+                        >
+                            <Star size={17} />
+                            성장 기록 작성
+                        </button>
+                        <span>학생 카드 선택 후 작성할 수 있습니다.</span>
+                    </div>
                 </article>
 
                 <div className={styles.growthStudentGrid}>
@@ -1466,8 +1405,14 @@ function GrowthDashboard({
                     {students.slice(0, 8).map((student) => {
                         const observationStats = observationStatsByStudent.get(student.id);
                         const markStats = markStatsByStudent.get(student.id) ?? { participated: 0, excellent: 0 };
+                        const isSelected = selectedStudentIds.has(student.id);
                         return (
-                            <article key={student.id} className={styles.growthStudentCard}>
+                            <button
+                                key={student.id}
+                                type="button"
+                                className={`${styles.growthStudentCard} ${isSelected ? styles.growthStudentCardSelected : ''}`}
+                                onClick={() => onToggleStudent(student.id)}
+                            >
                                 <div>
                                     <span className={styles.timelineAvatar}>{getInitials(student.name)}</span>
                                     <div>
@@ -1490,9 +1435,24 @@ function GrowthDashboard({
                                     </div>
                                 </dl>
                                 <p>{observationStats?.latest?.memo || '아직 개별 관찰 메모가 없습니다.'}</p>
-                            </article>
+                            </button>
                         );
                     })}
+                </div>
+
+                <div className={styles.growthWriteDock}>
+                    <div>
+                        <strong>선택한 학생 {selectedStudents.length}명</strong>
+                        <span>성장 기록 작성 모달에서 쿠키와 간단 메모를 함께 남깁니다.</span>
+                    </div>
+                    <button
+                        type="button"
+                        onClick={() => setIsComposerOpen(true)}
+                        disabled={selectedStudents.length === 0}
+                    >
+                        <Sparkles size={17} />
+                        성장 기록 작성
+                    </button>
                 </div>
 
                 <div className={styles.timelineList}>
@@ -1516,11 +1476,182 @@ function GrowthDashboard({
                     })}
                 </div>
             </div>
+            {isComposerOpen && (
+                <GrowthRecordModal
+                    selectedStudents={selectedStudents}
+                    isSaving={isSaving}
+                    onRemoveStudent={onToggleStudent}
+                    onClearSelected={onClearSelected}
+                    onClose={() => setIsComposerOpen(false)}
+                    onSave={onSaveGrowthRecord}
+                />
+            )}
         </section>
     );
 }
 
+const growthCookieOptions = [
+    { count: 1, label: '쿠키 1개', description: '조금씩 성장했어요' },
+    { count: 2, label: '쿠키 2개', description: '잘 해냈어요!' },
+    { count: 3, label: '쿠키 3개', description: '정말 멋져요! 최고!' },
+];
+
+const growthStudentAvatars = ['🐻', '🐱', '🐰', '🐶', '🦊', '🐼'];
+
+function GrowthRecordModal({
+    selectedStudents,
+    isSaving,
+    onRemoveStudent,
+    onClearSelected,
+    onClose,
+    onSave,
+}: {
+    selectedStudents: Student[];
+    isSaving: boolean;
+    onRemoveStudent: (studentId: string) => void;
+    onClearSelected: () => void;
+    onClose: () => void;
+    onSave: (cookieCount: number, memo: string) => Promise<boolean>;
+}) {
+    const [cookieCount, setCookieCount] = useState<number | null>(null);
+    const [memo, setMemo] = useState('');
+
+    const handleSave = async () => {
+        if (!cookieCount) {
+            alert('쿠키를 선택해 주세요.');
+            return;
+        }
+        const saved = await onSave(cookieCount, memo);
+        if (saved) onClose();
+    };
+
+    return (
+        <div className={styles.growthModalBackdrop} role="presentation">
+            <motion.section
+                className={styles.growthRecordModal}
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="growth-record-title"
+                initial={{ opacity: 0, y: 18, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 18, scale: 0.98 }}
+                transition={{ duration: 0.18 }}
+            >
+                <header className={styles.growthModalHeader}>
+                    <h2 id="growth-record-title">
+                        <img src="/observation-board-2/title-clipboard.png" alt="" aria-hidden="true" />
+                        성장 기록 작성
+                    </h2>
+                    <button type="button" onClick={onClose} aria-label="성장 기록 작성 닫기">
+                        <X size={24} />
+                    </button>
+                </header>
+
+                <div className={styles.growthStepper} aria-label="성장 기록 작성 단계">
+                    {['학생 선택', '성장 기록 작성', '완료'].map((step, index) => (
+                        <span
+                            key={step}
+                            className={index === 1 ? styles.growthStepActive : index === 0 ? styles.growthStepDone : ''}
+                        >
+                            <i>{index + 1}</i>
+                            {step}
+                        </span>
+                    ))}
+                </div>
+
+                <section className={styles.selectedGrowthStudents}>
+                    <div>
+                        <strong>선택한 학생 {selectedStudents.length}명</strong>
+                        {selectedStudents.length > 0 && (
+                            <button type="button" onClick={onClearSelected} aria-label="선택 학생 전체 해제">
+                                <X size={14} />
+                            </button>
+                        )}
+                    </div>
+                    <div className={styles.selectedGrowthChipList}>
+                        {selectedStudents.length === 0 && (
+                            <p>뒤 화면의 학생 카드를 선택하면 여기에 표시됩니다.</p>
+                        )}
+                        {selectedStudents.map((student, index) => (
+                            <span key={student.id} className={styles.selectedGrowthChip}>
+                                <span className={styles.growthChipAvatar} aria-hidden="true">
+                                    {growthStudentAvatars[index % growthStudentAvatars.length]}
+                                </span>
+                                <strong>{student.name}</strong>
+                                <em>{student.grade}학년 {student.classNumber}반</em>
+                                <button
+                                    type="button"
+                                    onClick={() => onRemoveStudent(student.id)}
+                                    aria-label={`${student.name} 선택 해제`}
+                                >
+                                    <X size={14} />
+                                </button>
+                            </span>
+                        ))}
+                    </div>
+                </section>
+
+                <section className={styles.cookieRewardSection}>
+                    <h3>
+                        <Star size={20} />
+                        이번에 우리 반이 함께 잘한 것
+                    </h3>
+                    <p>해당하는 쿠키를 1~3개 선택해 주세요!</p>
+                    <div className={styles.cookieOptionGrid}>
+                        {growthCookieOptions.map((option) => (
+                            <button
+                                key={option.count}
+                                type="button"
+                                className={cookieCount === option.count ? styles.cookieOptionActive : ''}
+                                onClick={() => setCookieCount(option.count)}
+                            >
+                                <span className={styles.cookieCheckBox} aria-hidden="true" />
+                                <span className={styles.cookieCluster} aria-hidden="true">
+                                    {Array.from({ length: option.count }).map((_, index) => (
+                                        <i key={index} />
+                                    ))}
+                                </span>
+                                <strong>{option.label}</strong>
+                                <em>{option.description}</em>
+                            </button>
+                        ))}
+                    </div>
+                </section>
+
+                <label className={styles.growthMemoBox}>
+                    <span>선택 사항</span>
+                    <strong>우리 반이 특히 잘한 점을 간단히 기록해 보세요 (선택)</strong>
+                    <textarea
+                        value={memo}
+                        maxLength={100}
+                        onChange={(event) => setMemo(event.target.value)}
+                        placeholder="예) 친구를 도와주었어요, 발표를 자신있게 했어요, 정리정돈을 잘했어요 등"
+                    />
+                    <em>{memo.length}/100</em>
+                </label>
+
+                <footer className={styles.growthModalFooter}>
+                    <button type="button" onClick={onClose}>
+                        이전
+                    </button>
+                    <button
+                        type="button"
+                        onClick={handleSave}
+                        disabled={isSaving || selectedStudents.length === 0}
+                    >
+                        <Sparkles size={17} />
+                        {isSaving ? '저장 중' : '저장하기'}
+                    </button>
+                </footer>
+            </motion.section>
+        </div>
+    );
+}
+
 function StatsDashboard({
+    teacherClasses,
+    teacherStudents,
+    selectedClassId,
     observations,
     students,
     tagStats,
@@ -1530,8 +1661,12 @@ function StatsDashboard({
     mentorGroups,
     markStatsByStudent,
     getStudentDisplay,
+    onClassChange,
     onModeChange,
 }: {
+    teacherClasses: ClassGroup[];
+    teacherStudents: Student[];
+    selectedClassId: string;
     observations: Observation[];
     students: Student[];
     tagStats: Array<{ tag: string; count: number }>;
@@ -1541,6 +1676,7 @@ function StatsDashboard({
     mentorGroups: MentorGroupView[];
     markStatsByStudent: Map<string, MarkSummary>;
     getStudentDisplay: (studentId: string) => string;
+    onClassChange: (classId: string) => void;
     onModeChange: (mode: BoardMode) => void;
 }) {
     const topStudentStats = students
@@ -1575,6 +1711,15 @@ function StatsDashboard({
 
     return (
         <section className={styles.dashboardView}>
+            <ClassScopeSelect
+                teacherClasses={teacherClasses}
+                teacherStudents={teacherStudents}
+                selectedClassId={selectedClassId}
+                onClassChange={onClassChange}
+                ariaLabel="통계 보기 학급 선택"
+                selectLabel="통계 학급"
+            />
+
             <div className={styles.homeSummaryGrid}>
                 <SummaryCard icon={<ClipboardList size={24} />} label="관찰 기록" value={`${observations.length}건`} tone="blue" />
                 <SummaryCard icon={<Triangle size={24} />} label="참여 표시" value={`${currentMarkCounts.participated}회`} tone="green" />
@@ -1932,11 +2077,12 @@ function MentorActivityView({
                         </div>
                     </div>
 
-                    <MentorClassScope
+                    <ClassScopeSelect
                         teacherClasses={teacherClasses}
                         teacherStudents={teacherStudents}
                         selectedClassId={selectedClassId}
                         onClassChange={onClassChange}
+                        ariaLabel="멘토 화면 학급 선택"
                     />
 
                     <div className={styles.yellowNotice}>
@@ -1950,7 +2096,7 @@ function MentorActivityView({
                                 담당 학급 학생이 없습니다. 수업 학급을 먼저 등록하면 멘토·멘티를 구성할 수 있습니다.
                             </div>
                         )}
-                        {mentorGroups.map((group, index) => (
+                        {mentorGroups.map((group) => (
                             <motion.article
                                 key={group.id}
                                 className={styles.groupCard}
@@ -2236,7 +2382,7 @@ function ObservationRecordsView({
                 <div className={styles.panelTitle}>
                     <BookOpen size={22} />
                     <div>
-                        <h2>관찰 기록 작성</h2>
+                        <h2>관찰 메모 작성</h2>
                         <p>관찰2 분위기에 맞춘 일괄 메모 입력</p>
                     </div>
                 </div>

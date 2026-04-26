@@ -69,7 +69,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - `/write`: RAG review-improve action implemented
 - `/write`: AI 세특 작성 화면 is aligned to the provided table workspace design with class chips, screenshot-style action toolbar, 10-row pagination, top teacher/notification chrome, and the AI 세특 guide card in the sidebar
 - `/search-inspector`: retained as an internal diagnostics page and removed from the sidebar
-- top navigation order: `학교 정보` -> `학생 관찰 기록` -> `학생 기록 관찰 2` -> `학생 데이터` -> `AI 세특 생성` -> `평가 점검 (개발중)`
+- top navigation order: `학교 정보` -> `학생 관찰 기록` -> `AI 세특 생성` -> `평가 점검 (개발중)`
 - `평가 점검 (개발중)` remains visible but is disabled and does not link to `/eval-check`
 - `/eval-check`: redirects to `/dashboard` when entered directly
 - `/ocr` remains implemented, but the tab is currently hidden from the top navigation
@@ -79,27 +79,26 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - `/api/admin/quality-report`: implemented for knowledge quality checks
 - `/api/admin/*`: protected by `ADMIN_API_TOKEN` in production
 - student management scope: roster upload + teaching-class connection only
-- top-level student data tab: implemented for teacher-owned notes, grades, mentor matches, and school-shared cookies/rewards
-- `AI 반영` student data from the current teacher/class/semester is included in seteuk generation; cookie data is excluded by default
+- top-level student data tab: removed, including the `/student-data` page
+- seteuk generation does not load student-data tab entries; it uses observation notes, learning data, and OCR evaluation context
 - competency color analysis: implemented as source-text-safe highlighting with per-row analysis status
 - school roster uploads are shared per school, so other teachers at the same school can reuse the uploaded roster without uploading again
 - 성호중학교 login is password-gated and opens the roster/class registration flow directly
 - 성호중학교 teachers use the preloaded 2026 grade rosters and do not need the upload step
 - repeated roster uploads for the same school are merged by roster key, so overlapping students are skipped instead of duplicated
-- student board location: `/observation-board`
-- observation board interaction: dense desktop board targeting roughly 6 columns x 3~4 rows at 1440px+, single click selects, double click opens observation writing, and same-class multi-selection supports batch entry
-- observation board cards show student number/name, latest representative tag, last observation date, memo count, and selected state while keeping destructive actions out of the primary card flow
-- observation board 2 location: `/observation-board-2`
-- observation board 2 interaction: example-image-matched classroom dashboard shell with its own illustrated left rail, default `학생 관찰 기록` mentor/mentee activity screen, and clickable session status cells for participation and strong performance marks
-- observation board 2 navigation: the left rail switches internal screens only (`홈`, `학생 관찰 기록`, `성장 기록`, `통계 보기`, `알림장`, `설정`), does not route out of `/observation-board-2`, and stays as the PNG-style vertical sidebar even in narrower browser windows
-- observation board 2 data scope: mentor matching, observation compose, growth, and stats show only students from the current teacher's assigned classes; the board no longer backfills sample students when no assigned roster exists
-- observation board 2 mentor workflow: the default screen is `학생 관찰 기록`, supports selecting all assigned classes or one class at a time, supports adding empty groups, and lets teachers drag student tokens between mentor/mentee slots
-- observation board 2 mentor display scope: the selected class scope controls the mentor/mentee cards, activity table, and roster tray; the default mentor screen shows all students in the selected scope, while the visible-student count setting can optionally cap the auto-paired/listed students
-- observation board 2 sessions: each session header supports direct teacher entry for date and activity content, and the `+` header button adds another session column
-- observation board 2 growth/stats: growth surfaces per-student record gaps, latest notes, and △/○ activity reactions; stats surfaces record-priority students and group activity balance in addition to counts and tag bars
-- observation board 2 growth dashboard: merges `/api/observations` and `/api/student-data` note/grade/mentor_match rows into a student timeline with class and search filters
-- observation board 2 stats dashboard: summarizes observation counts, student counts, tag frequency, latest record date, and current △/○ activity marks with cards and compact bars
-- observation board 2 notice dashboard: stores announcements and completion state in browser localStorage under `observation-board-2-notices:${teacherKey}`
-- observation board 2 observation compose: the existing observation-record workflow remains available from home/settings quick actions as an internal `records` mode rather than a visible sidebar tab
-- observation board 2 mentor matching: uses the provided Maplestory TTF and supports dragging student names from mentor/mentee cards or the roster into mentor/mentee slots
+- student observation tab location: `/observation-board-2`
+- legacy `/observation-board` and `/observations` direct entry redirects to `/observation-board-2`
+- student observation interaction: example-image-matched classroom dashboard shell with its own illustrated left rail, default `학생 관찰 기록` mentor/mentee activity screen, and clickable session status cells for participation and strong performance marks
+- student observation navigation: the left rail switches internal screens only (`학생 관찰 기록`, `성장 기록`, `통계 보기`), hides the earlier `홈`, `알림장`, and `설정` entries, does not route out of `/observation-board-2`, and stays as the PNG-style vertical sidebar even in narrower browser windows
+- student observation data scope: mentor matching, observation compose, growth, and stats show only students from the current teacher's assigned classes; the board no longer backfills sample students when no assigned roster exists
+- student observation mentor workflow: the default screen is `학생 관찰 기록`, uses a compact single-class selector instead of a long horizontal class-chip row, supports adding empty groups, and lets teachers drag student tokens between mentor/mentee slots
+- student observation mentor display scope: the selected class controls the mentor/mentee cards, activity table, and roster tray; the default mentor screen does not expose an all-assigned-classes aggregate view, while the visible-student count setting can optionally cap the auto-paired/listed students
+- student observation sessions: each session header supports direct teacher entry for date and activity content, and the `+` header button adds another session column
+- student observation growth/stats: growth surfaces per-student record gaps, latest notes, △/○ activity reactions, and an in-tab `성장 기록 작성` modal for selected students; stats surfaces record-priority students and group activity balance in addition to counts and tag bars
+- student observation stats scope: stats uses a compact class selector and defaults to one assigned class instead of opening all assigned class groups at once
+- student observation growth dashboard: builds the student timeline from `/api/observations` with class and search filters
+- student observation stats dashboard: summarizes observation counts, student counts, tag frequency, latest record date, and current △/○ activity marks with cards and compact bars
+- student observation notice dashboard: announcement storage remains implemented under `observation-board-2-notices:${teacherKey}`, but the notice board is not exposed in the current sidebar
+- student observation compose: the existing observation-record workflow remains available from stats quick actions as an internal `records` mode rather than a visible sidebar tab
+- student observation mentor matching: uses the provided Maplestory TTF and supports dragging student names from mentor/mentee cards or the roster into mentor/mentee slots
 - manual observation entry uses common date/topic/tags at the top and per-student rows for individual tags plus observation memo
