@@ -1467,6 +1467,21 @@ function GrowthDashboard({
                 onSearchChange={onSearchChange}
             />
             <div className={styles.growthLayout}>
+                <div className={styles.growthWriteDock}>
+                    <div>
+                        <strong>선택한 학생 {selectedStudents.length}명</strong>
+                        <span>성장 기록 작성 모달에서 쿠키와 간단 메모를 함께 남깁니다.</span>
+                    </div>
+                    <button
+                        type="button"
+                        onClick={() => setIsComposerOpen(true)}
+                        disabled={selectedStudents.length === 0}
+                    >
+                        <Sparkles size={17} />
+                        성장 기록 작성
+                    </button>
+                </div>
+
                 <div className={styles.growthStudentGrid}>
                     {students.length === 0 && (
                         <div className={styles.emptyList}>담당 학급 학생이 없습니다. 먼저 담당 학급을 등록하세요.</div>
@@ -1495,21 +1510,6 @@ function GrowthDashboard({
                             </button>
                         );
                     })}
-                </div>
-
-                <div className={styles.growthWriteDock}>
-                    <div>
-                        <strong>선택한 학생 {selectedStudents.length}명</strong>
-                        <span>성장 기록 작성 모달에서 쿠키와 간단 메모를 함께 남깁니다.</span>
-                    </div>
-                    <button
-                        type="button"
-                        onClick={() => setIsComposerOpen(true)}
-                        disabled={selectedStudents.length === 0}
-                    >
-                        <Sparkles size={17} />
-                        성장 기록 작성
-                    </button>
                 </div>
 
                 <div className={styles.timelineList}>

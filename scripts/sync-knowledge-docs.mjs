@@ -131,6 +131,7 @@ async function syncStatus() {
     '',
     '## Recent Changes',
     '',
+    '- 2026-04-26: moved the observation-board-2 growth record action dock above the student grid so selected students can be saved without scrolling past the roster',
     '- 2026-04-26: changed observation-board-2 △/○ activity marks from raw prompt entries into interpreted mentor/mentee activity summaries for `/write` and `/api/generate`',
     '- 2026-04-26: connected observation-board-2 mentor/mentee activity marks to automatic cookie ledger deltas using blank=0, △=1, and ○=2',
     '- 2026-04-26: changed observation-board-2 growth student cards to show compact per-student cookie counts from growth records and current activity marks',
