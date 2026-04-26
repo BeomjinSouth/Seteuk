@@ -26,7 +26,7 @@ Open `http://localhost:3000`.
 - 성호중학교 교사는 업로드 없이 공용 2026 명렬표에서 학급만 선택한다
 - the student card board moved to `/observation-board`, and observation notes stay in `/observations`
 - in `/observation-board`, single click selects a student and double click opens observation writing; if multiple same-class students are selected, double click opens batch observation entry
-- in `/observation-board-2`, the mentor/mentee activity screen can be scoped to all assigned classes or one selected class, and the visible-student count setting controls how many students are auto-paired/listed
+- in `/observation-board-2`, the mentor/mentee activity screen can be scoped to all assigned classes or one selected class, shows all scoped students by default, and lets teachers optionally cap how many students are auto-paired/listed
 - `/observations` manual entry uses per-student rows with roster/date fields plus `수업 주제`, selected `태그`, and `기타 메모`
 - `/write` uses the screenshot-style AI 세특 작성 workspace with class chips, AI/RAG/check action buttons, prompt-style editable AI input/content cells, and 10명씩 보기 pagination
 

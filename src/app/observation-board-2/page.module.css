@@ -1717,7 +1717,7 @@
     align-items: center;
     gap: 0.48rem;
     overflow-x: auto;
-    margin: 0 0 0.92rem;
+    margin: 0.62rem 0 0.92rem;
     border: 2px solid #b6d7f0;
     border-radius: 18px;
     background: linear-gradient(180deg, #ffffff 0%, #f5fbff 100%);

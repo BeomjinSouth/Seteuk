@@ -85,8 +85,8 @@
 - `/observation-board-2` `records` mode ports the previous observation-record workflow into the same visual system, but is only reachable from home/settings quick actions so it does not disturb the PNG-matched default screen
 - `/observation-board-2` loads `MaplestoryLight.ttf` and `MaplestoryBold.ttf` from `public/fonts` and applies the Maplestory family across the classroom dashboard
 - `/observation-board-2` stores mentor/mentee slot assignments in local React state, supports adding an empty group, and uses HTML5 drag/drop so a student token or roster item can be dropped onto any mentor/mentee slot
-- `/observation-board-2` shows a compact class scope selector on the default mentor screen; changing the scope filters the mentor pairs, activity table, growth/stats data, and roster tray to all assigned students or one selected class
-- `/observation-board-2` applies the visible-student count setting to the default mentor pair generation and roster tray so the mentor screen can expand beyond the first six students
+- `/observation-board-2` shows a compact class scope selector inside the default mentor panel; changing the scope filters the mentor pairs, activity table, growth/stats data, and roster tray to all assigned students or one selected class
+- `/observation-board-2` defaults the mentor screen to all students in the selected scope; the visible-student count setting remains available as an optional cap for default mentor pair generation and the roster tray
 - `/observation-board-2` filters mentor matching, observation compose, growth, and stats to the current teacher's assigned class students only; it does not display sample students when no assigned class roster exists
 - `/observation-board-2` stores editable session headers in local React state and persists them to `observation-board-2-sessions:${teacherKey}`; teachers edit session date/content inline and add columns with the `+` button
 - `/observations` manual entry uses common date/topic/tags at the top and keeps per-student rows focused on individual tags plus observation memo

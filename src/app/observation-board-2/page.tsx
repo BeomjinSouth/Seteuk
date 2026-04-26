@@ -38,6 +38,7 @@ import styles from './page.module.css';
 
 type MarkState = 'none' | 'participated' | 'excellent';
 type BoardMode = 'home' | 'mentor' | 'growth' | 'stats' | 'notice' | 'settings' | 'records';
+type VisibleRosterCount = number | 'all';
 
 interface ObservationDraftRow {
     lessonTopic: string;
@@ -96,6 +97,8 @@ interface MentorGroupView {
     mentor?: Student;
     mentee?: Student;
 }
+
+const visibleRosterCountOptions: VisibleRosterCount[] = ['all', 24, 16, 12, 8, 6];
 
 const defaultActivitySessions: ActivitySession[] = [
     { id: 'session-1', label: '1차시', date: '5/2 (금)', topic: '서로 알아가기' },
@@ -229,6 +232,12 @@ function buildMentorAssignments(studentsForBoard: Student[]): MentorGroupAssignm
     }));
 }
 
+function getVisibleRosterStudents<T>(studentsForBoard: T[], visibleRosterCount: VisibleRosterCount) {
+    return visibleRosterCount === 'all'
+        ? studentsForBoard
+        : studentsForBoard.slice(0, visibleRosterCount);
+}
+
 function sortStudents(a: Student, b: Student) {
     return (a.grade ?? 0) - (b.grade ?? 0)
         || (a.classNumber ?? 0) - (b.classNumber ?? 0)
@@ -257,7 +266,7 @@ export default function ObservationBoard2Page() {
     const [selectedObservation, setSelectedObservation] = useState<Observation | null>(null);
     const [studentDataEntries, setStudentDataEntries] = useState<StudentDataEntry[]>([]);
     const [isLoadingStudentData, setIsLoadingStudentData] = useState(false);
-    const [visibleRosterCount, setVisibleRosterCount] = useState(6);
+    const [visibleRosterCount, setVisibleRosterCount] = useState<VisibleRosterCount>('all');
     const [hasCustomMentorAssignments, setHasCustomMentorAssignments] = useState(false);
     const [noticeDraft, setNoticeDraft] = useState({ title: '', body: '', dueDate: today() });
     const [notices, setNotices] = useState<NoticeItem[]>([]);
@@ -327,7 +336,7 @@ export default function ObservationBoard2Page() {
     }, [boardStudents, searchQuery]);
 
     const featuredStudents = useMemo(
-        () => filteredStudents.slice(0, visibleRosterCount),
+        () => getVisibleRosterStudents(filteredStudents, visibleRosterCount),
         [filteredStudents, visibleRosterCount]
     );
 
@@ -627,7 +636,7 @@ export default function ObservationBoard2Page() {
         setMentorAssignments([]);
     };
 
-    const handleVisibleRosterCountChange = (count: number) => {
+    const handleVisibleRosterCountChange = (count: VisibleRosterCount) => {
         setVisibleRosterCount(count);
         setHasCustomMentorAssignments(false);
         setMentorAssignments([]);
@@ -1771,11 +1780,11 @@ function SettingsDashboard({
 }: {
     teacherClasses: ClassGroup[];
     selectedClassId: string;
-    visibleRosterCount: number;
+    visibleRosterCount: VisibleRosterCount;
     noticesCount: number;
     hasRealStudents: boolean;
     onClassChange: (classId: string) => void;
-    onVisibleRosterCountChange: (count: number) => void;
+    onVisibleRosterCountChange: (count: VisibleRosterCount) => void;
     onResetMarks: () => void;
     onClearNotices: () => void;
     onModeChange: (mode: BoardMode) => void;
@@ -1821,14 +1830,14 @@ function SettingsDashboard({
                         </div>
                     </div>
                     <div className={styles.segmentedControl}>
-                        {[6, 8, 10, 12, 16, 24].map((count) => (
+                        {visibleRosterCountOptions.map((count) => (
                             <button
                                 key={count}
                                 type="button"
                                 className={visibleRosterCount === count ? styles.segmentedActive : ''}
                                 onClick={() => onVisibleRosterCountChange(count)}
                             >
-                                {count}명
+                                {count === 'all' ? '전체' : `${count}명`}
                             </button>
                         ))}
                     </div>
@@ -1889,7 +1898,7 @@ function MentorActivityView({
     sessions: ActivitySession[];
     marks: Record<string, MarkState>;
     totalExcellent: number;
-    visibleRosterCount: number;
+    visibleRosterCount: VisibleRosterCount;
     onAssignStudent: (studentId: string, groupId: string, role: MentorRole) => void;
     onClassChange: (classId: string) => void;
     onAddGroup: () => void;
@@ -1897,6 +1906,8 @@ function MentorActivityView({
     onUpdateSession: (sessionId: string, field: 'date' | 'topic', value: string) => void;
     onUpdateMark: (studentId: string, sessionId: string, fallback: MarkState) => void;
 }) {
+    const rosterStudents = getVisibleRosterStudents(boardStudents, visibleRosterCount);
+
     const startStudentDrag = (event: DragEvent<HTMLElement>, studentId: string) => {
         event.dataTransfer.setData('text/plain', studentId);
         event.dataTransfer.effectAllowed = 'move';
@@ -1911,13 +1922,6 @@ function MentorActivityView({
 
     return (
         <>
-            <MentorClassScope
-                teacherClasses={teacherClasses}
-                teacherStudents={teacherStudents}
-                selectedClassId={selectedClassId}
-                onClassChange={onClassChange}
-            />
-
             <main className={styles.workspace}>
                 <section className={styles.mentorPanel}>
                     <div className={styles.panelTitle}>
@@ -1927,6 +1931,13 @@ function MentorActivityView({
                             <p>{featuredStudents.length}명 표시 · 전체 {boardStudents.length}명</p>
                         </div>
                     </div>
+
+                    <MentorClassScope
+                        teacherClasses={teacherClasses}
+                        teacherStudents={teacherStudents}
+                        selectedClassId={selectedClassId}
+                        onClassChange={onClassChange}
+                    />
 
                     <div className={styles.yellowNotice}>
                         <Handshake size={18} />
@@ -1988,7 +1999,7 @@ function MentorActivityView({
                             {boardStudents.length === 0 && (
                                 <div className={styles.rosterEmptyState}>담당 학급 학생만 여기에 표시됩니다.</div>
                             )}
-                            {boardStudents.slice(0, visibleRosterCount).map((student) => (
+                            {rosterStudents.map((student) => (
                                 <div
                                     key={student.id}
                                     className={styles.rosterItem}

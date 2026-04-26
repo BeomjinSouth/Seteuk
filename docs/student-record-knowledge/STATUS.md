@@ -55,7 +55,7 @@
 - observation board 2 editable sessions: 차시 표 헤더에서 날짜/활동 내용을 직접 입력하고 `+` 버튼으로 차시 열을 추가하며, 교사별 localStorage에 유지
 - observation board 2 records mode: 기존 관찰 기록 기능은 사이드바에서 숨긴 내부 `records` 모드로 유지하고, 홈/설정 빠른 이동에서 학급/검색 필터, 학생 다중 선택, 공통 날짜/주제/태그, 학생별 메모 입력, 최근 기록 목록, 상세 보기, 삭제 지원
 - observation board 2 drag matching/font: Maplestory TTF 적용, 학생 토큰/학생 목록 드래그로 멘토·멘티 조와 역할 재배치 지원
-- observation board 2 mentor scope/display: 기본 멘토 화면에서 전체 담당 학급 또는 특정 학급을 직접 선택할 수 있고, 표시 학생 수 설정이 학생 목록과 자동 멘토·멘티 조 생성에 함께 반영됨
+- observation board 2 mentor scope/display: 기본 멘토 패널에서 전체 담당 학급 또는 특정 학급을 직접 선택할 수 있고, 기본값은 선택 범위의 전체 학생을 표시하며, 표시 학생 수 설정은 선택 시 학생 목록과 자동 멘토·멘티 조 생성 상한으로 반영됨
 - observation board 2 sidebar icons: 사이드바 메뉴 아이콘을 잘림/흰 배경이 있는 PNG 조각 대신 HTML/CSS 렌더링 아이콘으로 표시
 - observation compose layout: 상단 공통 날짜/수업 주제/공통 태그 + 학생별 개별 태그/관찰 메모 row editor
 - lexical retrieval: implemented
@@ -65,7 +65,7 @@
 ## Recent Changes
 
 - 2026-04-26: restyled the `/write` AI 세특 작성 tab to match the provided screenshot, including the wider app shell, class chip toolbar, paginated table, and prompt-style AI input/content cells
-- 2026-04-26: fixed observation-board-2 mentor display expansion beyond six students, added class scope buttons to the default mentor screen, and replaced sidebar menu raster icons with unclipped rendered icons
+- 2026-04-26: fixed observation-board-2 mentor display expansion beyond six students, moved class scope buttons into the mentor panel, defaulted the mentor roster to all scoped students, and replaced sidebar menu raster icons with unclipped rendered icons
 - 2026-04-26: fixed deployed Google Sheets private-key parsing for roster loading and made read-only Sheets APIs avoid unnecessary sheet initialization before reads
 - 2026-04-26: restored Vercel production environment variables for Google Sheets/OpenAI from the local runtime config, redeployed production, and verified the 성호중학교 roster API returns 847 students
 - 2026-04-25: made 성호중학교 roster loading errors visible, normalized school matching for shared rosters, and prevented authenticated pages from redirecting before local session hydration
