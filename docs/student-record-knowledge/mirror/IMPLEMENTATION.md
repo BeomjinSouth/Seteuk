@@ -179,12 +179,13 @@ STAR FAQ/Q&A
 - `/observation-board-2`는 `public/fonts/MaplestoryLight.ttf`, `public/fonts/MaplestoryBold.ttf`를 `@font-face`로 로드하고, 기본 교실 대시보드 전체에 Maplestory 글꼴을 적용한다.
 - `/observation-board-2`의 멘토·멘티 배치는 React local state로 관리하며, HTML5 drag/drop으로 학생 토큰 또는 학생 목록 항목을 멘토/멘티 슬롯에 놓으면 기존 배치를 교체하거나 이동한다.
 - `/observation-board-2`의 차시 목록은 React state와 `observation-board-2-sessions:${teacherKey}` localStorage 키로 관리하며, 표 헤더의 날짜/내용 입력과 `+` 차시 추가 버튼으로 수정한다.
+- `/observation-board-2`의 차시별 △/○ 활동 표시는 `observation-board-2-marks:${teacherKey}` localStorage 키로 보존하고, `/write` 세특 생성 요청 시 선택 학생의 활동판 기록만 `observationBoardContext`로 `/api/generate`에 전달한다.
 - 관찰 기록 작성은 `/observation-board-2` 내부의 `records` 모드에서 학급/검색 필터, 학생 다중 선택, 공통 날짜/수업 주제/태그, 학생별 관찰 메모 입력으로 처리한다.
 - 예전 카드형 보드와 `/observations` 수동 작성 화면은 상단 탭에서 제거하고, 직접 URL 접근 시 새 `학생 관찰 기록` 화면으로 이동시킨다.
 - 수동 입력 row에서는 학년도/학년/반/번호 같은 중복 메타 필드를 다시 노출하지 않고, 공통 태그와 개별 태그 모두 버튼형 선택과 교사 직접 추가를 함께 제공한다.
 - 학습 메모와 관찰 메모는 teaching class 단위로 저장한다.
-- 세특 AI 생성 API는 현재 교사의 `teacherKey`와 `teachingClassId`를 전달하고, 같은 맥락의 관찰 메모만 불러온다.
-- 세특 AI 생성은 `/api/student-data`를 조회하지 않고 관찰 메모, 학습 데이터, OCR 평가 컨텍스트만 프롬프트에 추가한다.
+- 세특 AI 생성 API는 현재 교사의 `teacherKey`와 `teachingClassId`를 전달하고, 같은 맥락의 관찰 메모를 불러오며 브라우저에 저장된 학생별 활동판 △/○ 기록을 요청 본문으로 함께 받는다.
+- 세특 AI 생성은 `/api/student-data`를 조회하지 않고 관찰 메모, 학생 관찰 기록 활동판의 차시별 △/○ 기록, 학습 데이터, OCR 평가 컨텍스트만 프롬프트에 추가한다.
 - 쿠키 원장과 상품 데이터는 세특 생성 컨텍스트에 넣지 않는다.
 - 로컬 개발 모드에서는 Google Sheets API 호출이 실패할 때 `.local-sheet-store.json`으로 자동 fallback해 웹앱 흐름을 중단하지 않는다.
 
@@ -436,11 +437,12 @@ UI 흐름:
 4. 교사가 담당 학급을 선택하면 teaching class 생성
 5. 관찰 메모 저장 시 `teacherKey`, `teachingClassId`, `lessonTopic`, `subjectName` 저장
 6. 세특 생성 호출 시 `studentId`, `teacherKey`, `teachingClassId`로 관찰 메모 필터링
-7. AI 프롬프트에 학습 메모 + 수업 기록 + OCR 평가 컨텍스트를 함께 주입
-8. 작성된 세특은 `write` 탭에서 선택 후 `RAG 점검·개선`을 실행해 공개 근거 기반 개선본으로 갱신 가능
-9. 별도 학생 데이터 탭 입력값은 조회하지 않는다.
-10. 생성 후 역량 분석은 행 단위 또는 일괄로 실행하며, 세특 원문 기준 지식·과정·태도 색상 밑줄과 비율을 표시
-11. `/write` 화면은 제공된 AI 세특 작성기 스크린샷을 기준으로 넓은 앱 셸, 교사/알림 상단 영역, 반 선택 칩 툴바, AI/RAG/맞춤법/금지어/역량/삭제 버튼, 프롬프트형 AI 입력/세특 내용 셀, 10명 단위 페이지네이션을 렌더링한다.
+7. `/write` 클라이언트는 `observation-board-2-sessions:${teacherKey}`와 `observation-board-2-marks:${teacherKey}`에서 선택 학생의 차시별 △/○ 활동판 기록을 읽어 `observationBoardContext`로 전달
+8. AI 프롬프트에 학습 메모 + 수업 기록 + 학생 관찰 기록 활동판 + OCR 평가 컨텍스트를 함께 주입
+9. 작성된 세특은 `write` 탭에서 선택 후 `RAG 점검·개선`을 실행해 공개 근거 기반 개선본으로 갱신 가능
+10. 별도 학생 데이터 탭 입력값은 조회하지 않는다.
+11. 생성 후 역량 분석은 행 단위 또는 일괄로 실행하며, 세특 원문 기준 지식·과정·태도 색상 밑줄과 비율을 표시
+12. `/write` 화면은 제공된 AI 세특 작성기 스크린샷을 기준으로 넓은 앱 셸, 교사/알림 상단 영역, 반 선택 칩 툴바, AI/RAG/맞춤법/금지어/역량/삭제 버튼, 프롬프트형 AI 입력/세특 내용 셀, 10명 단위 페이지네이션을 렌더링한다.
 
 ## 11. 운영 도구
 

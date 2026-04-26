@@ -32,13 +32,23 @@ import {
 import { SharedRosterSync } from '@/components/providers/SharedRosterSync';
 import { useAppStore } from '@/lib/store';
 import { isAuthorizedSeonghoTeacher } from '@/lib/seongho-auth';
+import {
+    DEFAULT_OBSERVATION_BOARD_ACTIVITY_SESSIONS as defaultActivitySessions,
+    getObservationBoardMarkStorageKey,
+    getObservationBoardSessionStorageKey,
+    normalizeObservationBoardActivitySessions,
+    normalizeObservationBoardMarks,
+    type ObservationBoardActivitySession,
+    type ObservationBoardMarkState,
+} from '@/lib/observation-board-ai-context';
 import { getStudentsInTeachingClass, getTeacherClasses } from '@/lib/teacher-context';
 import { ClassGroup, Observation, Student } from '@/types';
 import styles from './page.module.css';
 
-type MarkState = 'none' | 'participated' | 'excellent';
+type MarkState = ObservationBoardMarkState;
 type BoardMode = 'mentor' | 'growth' | 'stats' | 'notice' | 'settings' | 'records';
 type VisibleRosterCount = number | 'all';
+type ActivitySession = ObservationBoardActivitySession;
 
 interface ObservationDraftRow {
     lessonTopic: string;
@@ -54,13 +64,6 @@ interface ObservationCardStats {
 interface MarkSummary {
     participated: number;
     excellent: number;
-}
-
-interface ActivitySession {
-    id: string;
-    label: string;
-    date: string;
-    topic: string;
 }
 
 interface NoticeItem {
@@ -99,14 +102,6 @@ interface MentorGroupView {
 }
 
 const visibleRosterCountOptions: VisibleRosterCount[] = ['all', 24, 16, 12, 8, 6];
-
-const defaultActivitySessions: ActivitySession[] = [
-    { id: 'session-1', label: '1차시', date: '5/2 (금)', topic: '서로 알아가기' },
-    { id: 'session-2', label: '2차시', date: '5/9 (금)', topic: '협동 게임' },
-    { id: 'session-3', label: '3차시', date: '5/16 (금)', topic: '책 함께 읽기' },
-    { id: 'session-4', label: '4차시', date: '5/23 (금)', topic: '미션 활동' },
-    { id: 'session-5', label: '5차시', date: '5/30 (금)', topic: '마무리 나누기' },
-];
 
 const observationTagOptions = [
     '참여',
@@ -169,33 +164,6 @@ function formatFullDate(value?: string) {
 
 function getNoticeStorageKey(teacherKey?: string) {
     return `observation-board-2-notices:${teacherKey || 'guest'}`;
-}
-
-function getSessionStorageKey(teacherKey?: string) {
-    return `observation-board-2-sessions:${teacherKey || 'guest'}`;
-}
-
-function normalizeActivitySessions(value: unknown): ActivitySession[] {
-    if (!Array.isArray(value)) return defaultActivitySessions;
-
-    const normalized = value
-        .map((item, index) => {
-            if (!item || typeof item !== 'object') return null;
-            const session = item as Partial<ActivitySession>;
-            return {
-                id: typeof session.id === 'string' && session.id.trim()
-                    ? session.id
-                    : `session-${index + 1}`,
-                label: typeof session.label === 'string' && session.label.trim()
-                    ? session.label
-                    : `${index + 1}차시`,
-                date: typeof session.date === 'string' ? session.date : '',
-                topic: typeof session.topic === 'string' ? session.topic : '',
-            };
-        })
-        .filter(Boolean) as ActivitySession[];
-
-    return normalized.length > 0 ? normalized : defaultActivitySessions;
 }
 
 function getBoardModeTitle(mode: BoardMode) {
@@ -264,6 +232,7 @@ export default function ObservationBoard2Page() {
     const [mentorAssignments, setMentorAssignments] = useState<MentorGroupAssignment[]>([]);
     const [activitySessions, setActivitySessions] = useState<ActivitySession[]>(defaultActivitySessions);
     const [loadedSessionKey, setLoadedSessionKey] = useState('');
+    const [loadedMarkKey, setLoadedMarkKey] = useState('');
 
     useEffect(() => {
         setIsStoreReady(useAppStore.persist.hasHydrated());
@@ -515,13 +484,13 @@ export default function ObservationBoard2Page() {
     }, [loadedNoticeKey, notices]);
 
     useEffect(() => {
-        const storageKey = getSessionStorageKey(teacher?.teacherKey);
+        const storageKey = getObservationBoardSessionStorageKey(teacher?.teacherKey);
         setLoadedSessionKey(storageKey);
 
         try {
             const saved = window.localStorage.getItem(storageKey)
-                ?? window.localStorage.getItem(getSessionStorageKey());
-            setActivitySessions(saved ? normalizeActivitySessions(JSON.parse(saved)) : defaultActivitySessions);
+                ?? window.localStorage.getItem(getObservationBoardSessionStorageKey());
+            setActivitySessions(saved ? normalizeObservationBoardActivitySessions(JSON.parse(saved)) : defaultActivitySessions);
         } catch (error) {
             console.error('Failed to load observation board sessions:', error);
             setActivitySessions(defaultActivitySessions);
@@ -532,6 +501,25 @@ export default function ObservationBoard2Page() {
         if (!loadedSessionKey) return;
         window.localStorage.setItem(loadedSessionKey, JSON.stringify(activitySessions));
     }, [activitySessions, loadedSessionKey]);
+
+    useEffect(() => {
+        const storageKey = getObservationBoardMarkStorageKey(teacher?.teacherKey);
+        setLoadedMarkKey(storageKey);
+
+        try {
+            const saved = window.localStorage.getItem(storageKey)
+                ?? window.localStorage.getItem(getObservationBoardMarkStorageKey());
+            setMarks(saved ? normalizeObservationBoardMarks(JSON.parse(saved)) : {});
+        } catch (error) {
+            console.error('Failed to load observation board marks:', error);
+            setMarks({});
+        }
+    }, [teacher?.teacherKey]);
+
+    useEffect(() => {
+        if (!loadedMarkKey) return;
+        window.localStorage.setItem(loadedMarkKey, JSON.stringify(marks));
+    }, [loadedMarkKey, marks]);
 
     useEffect(() => {
         setStudentDrafts((prev) => {
@@ -919,7 +907,7 @@ export default function ObservationBoard2Page() {
         try {
             const storageKeys = new Set([
                 loadedSessionKey,
-                getSessionStorageKey(teacher?.teacherKey),
+                getObservationBoardSessionStorageKey(teacher?.teacherKey),
             ].filter(Boolean));
             storageKeys.forEach((storageKey) => {
                 window.localStorage.setItem(storageKey, JSON.stringify(nextSessions));

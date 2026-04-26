@@ -5,6 +5,7 @@ import {
     ForbiddenIssue,
     performSpellCheckRequest,
 } from '@/lib/check-utils';
+import { readObservationBoardAiContext } from '@/lib/observation-board-ai-context';
 import { OPENAI_STANDARD_MODEL, normalizeOpenAIModel } from '@/lib/openai-models';
 
 type ReasoningEffort = 'none' | 'low' | 'medium' | 'high' | 'xhigh';
@@ -103,6 +104,10 @@ export async function generateDraft(
     }
 ): Promise<{ content: string; observationCount: number }> {
     const settings = getAISettings();
+    const observationBoardContext = readObservationBoardAiContext({
+        studentId,
+        teacherKey: context?.teacherKey,
+    });
 
     try {
         const response = await fetch('/api/generate', {
@@ -120,6 +125,7 @@ export async function generateDraft(
                 maxOutputTokens: settings.maxOutputTokens,
                 reasoningEffort: settings.reasoningEffort,
                 includeObservations: true,
+                observationBoardContext,
                 ocrEvaluationContext,
                 teacherKey: context?.teacherKey,
                 classId: context?.classId,
@@ -141,9 +147,8 @@ export async function generateDraft(
     await new Promise((resolve) => setTimeout(resolve, 1500 + Math.random() * 1000));
 
     // Build content from learning data
-    const dataEntries = Object.entries(learningData)
-        .filter(([_, value]) => value && value.trim())
-        .map(([_, value]) => value)
+    const dataEntries = Object.values(learningData)
+        .filter((value) => value && value.trim())
         .join(' ');
 
     const baseContent = dataEntries || '수업에 성실하게 참여함';

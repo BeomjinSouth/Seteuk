@@ -1,6 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getOpenAIClient, hasOpenAIApiKey } from '@/lib/openai-client';
 import { OPENAI_STANDARD_MODEL, normalizeOpenAIModel } from '@/lib/openai-models';
+import {
+    countObservationBoardContextItems,
+    formatObservationBoardContextForPrompt,
+    type ObservationBoardAiContext,
+} from '@/lib/observation-board-ai-context';
 import { getAssessments, getObservationsForContext } from '@/lib/sheets';
 import { getPromptCacheParams } from '@/lib/prompt-cache';
 
@@ -19,7 +24,7 @@ const DEFAULT_SYSTEM_PROMPT = `당신은 한국 고등학교 교사로서 교과
 4. 350~500자 내외로 작성합니다.
 5. 비교/서열의 표현, 확정의 표현은 지양합니다.
 6. "최고", "가장", "천재" 등의 금지어를 사용하지 않습니다.
-7. 관찰메모가 존재하면, 그 내용을 근거로 구체적인 예시를 활용합니다.
+7. 관찰메모나 학생 관찰 기록 활동판 기록이 존재하면, 그 내용을 근거로 구체적인 예시를 활용합니다.
 
 세특 구성 요소 (4가지를 모두 포함):
 - 성취수준: 학생의 교과 목표의 달성한 정도
@@ -27,7 +32,7 @@ const DEFAULT_SYSTEM_PROMPT = `당신은 한국 고등학교 교사로서 교과
 - 역량: 발휘된 특별한 역량 (문제해결, 추론, 창의·융합, 의사소통, 정보처리, 태도 등)
 - 교사 총평: 학생의 성장과 발전 가능성
 
-입력받은 학생의 학습 데이터와 관찰메모를 바탕으로 세특을 생성해 주세요.`;
+입력받은 학생의 학습 데이터, 관찰메모, 활동판 기록을 바탕으로 세특을 생성해 주세요.`;
 
 /**
  * Generates subject-specific student assessment records (Se-teuk) using AI.
@@ -48,6 +53,7 @@ const DEFAULT_SYSTEM_PROMPT = `당신은 한국 고등학교 교사로서 교과
  *   - curriculumContent?: string (Important for context)
  *   - ocrEvaluationContext?: object (OCR analysis results)
  *   - includeObservations?: boolean (Default: true)
+ *   - observationBoardContext?: object (학생 관찰 기록 활동판 △/○ records)
  *   - model?: string
  *   - systemPrompt?: string
  *   - maxOutputTokens?: number
@@ -76,6 +82,7 @@ export async function POST(request: NextRequest) {
         maxOutputTokens?: number;
         reasoningEffort?: 'none' | 'low' | 'medium' | 'high' | 'xhigh';
         includeObservations?: boolean;  // NEW: Whether to include observations
+        observationBoardContext?: ObservationBoardAiContext;
         // OCR Evaluation Context for integration
         ocrEvaluationContext?: {
             achievementStandards?: Array<{
@@ -125,6 +132,7 @@ export async function POST(request: NextRequest) {
         maxOutputTokens,
         reasoningEffort,
         includeObservations = true,  // Default to true
+        observationBoardContext,
         ocrEvaluationContext,  // OCR evaluation data
     } = body;
 
@@ -179,6 +187,12 @@ export async function POST(request: NextRequest) {
     // Add observations if available
     if (observationsText) {
         userPrompt += `\n\n[관찰 메모]\n${observationsText}\n\n// 관찰 메모는 수업 중 학생을 직접 관찰하고 기록한 내용입니다.\n// 관찰 내용을 근거로 구체적인 사례와 역량을 포함하여 세특을 작성해 주세요.`;
+    }
+
+    const observationBoardText = formatObservationBoardContextForPrompt(observationBoardContext);
+    const observationBoardContextCount = countObservationBoardContextItems(observationBoardContext);
+    if (observationBoardText) {
+        userPrompt += `\n\n[학생 관찰 기록 활동판]\n${observationBoardText}\n\n// 활동판 기록은 교사가 차시별 활동 표에서 남긴 △ 참여함 / ○ 매우 잘함 표시입니다.\n// 반복적으로 확인되는 참여, 협력, 성장 흐름을 세특의 참고 근거로 활용하되, 기록에 없는 사실을 새로 만들지 마세요.`;
     }
 
     // Add curriculum content if provided
@@ -265,7 +279,8 @@ ${exampleTemplates.join('\n\n')}
             success: true,
             content: generateFallbackContent(studentName, subjectName, learningData),
             fallback: true,
-            message: 'API 키가 설정되지 않아 기본 템플릿을 사용합니다.'
+            message: 'API 키가 설정되지 않아 기본 템플릿을 사용합니다.',
+            observationBoardContextCount,
         });
     }
 
@@ -299,6 +314,7 @@ ${exampleTemplates.join('\n\n')}
             model: actualModel,
             usedObservationIds,  // NEW: IDs of observations used
             observationCount: usedObservationIds.length,  // NEW: Count of observations used
+            observationBoardContextCount,
             tokenUsage: {
                 prompt: response.usage?.input_tokens || 0,
                 completion: response.usage?.output_tokens || 0,
@@ -313,7 +329,8 @@ ${exampleTemplates.join('\n\n')}
             success: true,
             content: generateFallbackContent(studentName, subjectName, learningData),
             fallback: true,
-            error: 'API 호출 실패로 기본 템플릿을 사용했습니다.'
+            error: 'API 호출 실패로 기본 템플릿을 사용했습니다.',
+            observationBoardContextCount,
         });
     }
 }
