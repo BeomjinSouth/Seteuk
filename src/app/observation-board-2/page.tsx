@@ -216,7 +216,7 @@ function getBoardModeTitle(mode: BoardMode) {
 }
 
 function buildMentorAssignments(studentsForBoard: Student[]): MentorGroupAssignment[] {
-    const rows = studentsForBoard.slice(0, 6);
+    const rows = studentsForBoard;
     if (rows.length === 0) return [];
 
     const groupCount = Math.max(3, Math.ceil(rows.length / 2));
@@ -258,6 +258,7 @@ export default function ObservationBoard2Page() {
     const [studentDataEntries, setStudentDataEntries] = useState<StudentDataEntry[]>([]);
     const [isLoadingStudentData, setIsLoadingStudentData] = useState(false);
     const [visibleRosterCount, setVisibleRosterCount] = useState(6);
+    const [hasCustomMentorAssignments, setHasCustomMentorAssignments] = useState(false);
     const [noticeDraft, setNoticeDraft] = useState({ title: '', body: '', dueDate: today() });
     const [notices, setNotices] = useState<NoticeItem[]>([]);
     const [loadedNoticeKey, setLoadedNoticeKey] = useState('');
@@ -325,7 +326,10 @@ export default function ObservationBoard2Page() {
             .sort(sortStudents);
     }, [boardStudents, searchQuery]);
 
-    const featuredStudents = filteredStudents.slice(0, 6);
+    const featuredStudents = useMemo(
+        () => filteredStudents.slice(0, visibleRosterCount),
+        [filteredStudents, visibleRosterCount]
+    );
 
     const defaultMentorAssignments = useMemo(
         () => buildMentorAssignments(featuredStudents),
@@ -527,9 +531,11 @@ export default function ObservationBoard2Page() {
             const canKeepPrevious = prev.length > 0
                 && (assignedIds.length === 0 || assignedIds.every((studentId) => availableIds.has(studentId)));
 
+            if (!hasCustomMentorAssignments) return defaultMentorAssignments;
+
             return canKeepPrevious ? prev : defaultMentorAssignments;
         });
-    }, [boardStudents, defaultMentorAssignments]);
+    }, [boardStudents, defaultMentorAssignments, hasCustomMentorAssignments]);
 
     useEffect(() => {
         const storageKey = getNoticeStorageKey(teacher?.teacherKey);
@@ -617,6 +623,14 @@ export default function ObservationBoard2Page() {
     const handleClassChange = (classId: string) => {
         setSelectedClassId(classId);
         setSelectedStudentIds(new Set());
+        setHasCustomMentorAssignments(false);
+        setMentorAssignments([]);
+    };
+
+    const handleVisibleRosterCountChange = (count: number) => {
+        setVisibleRosterCount(count);
+        setHasCustomMentorAssignments(false);
+        setMentorAssignments([]);
     };
 
     const updateMark = (studentId: string, sessionId: string, fallback: MarkState) => {
@@ -824,6 +838,7 @@ export default function ObservationBoard2Page() {
     };
 
     const handleAssignMentorStudent = (studentId: string, targetGroupId: string, targetRole: MentorRole) => {
+        setHasCustomMentorAssignments(true);
         setMentorAssignments((prev) => {
             const source = prev.length > 0 ? prev : defaultMentorAssignments;
             let sourceGroupId: string | undefined;
@@ -868,6 +883,7 @@ export default function ObservationBoard2Page() {
     };
 
     const handleAddMentorGroup = () => {
+        setHasCustomMentorAssignments(true);
         setMentorAssignments((prev) => {
             const source = prev.length > 0 ? prev : defaultMentorAssignments;
             const nextNumber = source.length + 1;
@@ -994,7 +1010,7 @@ export default function ObservationBoard2Page() {
                     noticesCount={notices.length}
                     hasRealStudents={teacherStudents.length > 0}
                     onClassChange={handleClassChange}
-                    onVisibleRosterCountChange={setVisibleRosterCount}
+                    onVisibleRosterCountChange={handleVisibleRosterCountChange}
                     onResetMarks={() => setMarks({})}
                     onClearNotices={() => setNotices([])}
                     onModeChange={setActiveMode}
@@ -1049,15 +1065,18 @@ export default function ObservationBoard2Page() {
 
         return (
             <MentorActivityView
+                teacherClasses={teacherClasses}
+                teacherStudents={teacherStudents}
+                selectedClassId={selectedClassId}
                 boardStudents={boardStudents}
                 featuredStudents={featuredStudents}
                 mentorGroups={mentorGroups}
                 sessions={activitySessions}
                 marks={marks}
-                selectedClass={selectedClass}
                 totalExcellent={totalExcellent}
                 visibleRosterCount={visibleRosterCount}
                 onAssignStudent={handleAssignMentorStudent}
+                onClassChange={handleClassChange}
                 onAddGroup={handleAddMentorGroup}
                 onAddSession={handleAddSession}
                 onUpdateSession={handleUpdateSession}
@@ -1122,6 +1141,15 @@ function ClassroomSidebar({
     activeMode: BoardMode;
     onModeChange: (mode: BoardMode) => void;
 }) {
+    const navItems: Array<{ mode: BoardMode; label: string; icon: ReactNode }> = [
+        { mode: 'home', label: '홈', icon: <Home size={34} strokeWidth={2.35} /> },
+        { mode: 'mentor', label: '학생 관찰 기록', icon: <ClipboardList size={34} strokeWidth={2.35} /> },
+        { mode: 'growth', label: '성장 기록', icon: <Sparkles size={34} strokeWidth={2.35} /> },
+        { mode: 'stats', label: '통계 보기', icon: <BarChart3 size={34} strokeWidth={2.35} /> },
+        { mode: 'notice', label: '알림장', icon: <Megaphone size={34} strokeWidth={2.35} /> },
+        { mode: 'settings', label: '설정', icon: <Settings size={34} strokeWidth={2.35} /> },
+    ];
+
     return (
         <aside className={styles.classroomSidebar}>
             <img
@@ -1131,54 +1159,17 @@ function ClassroomSidebar({
             />
 
             <nav className={styles.sidebarNav} aria-label="관찰2 사이드 메뉴">
-                <button
-                    type="button"
-                    className={activeMode === 'home' ? styles.sidebarNavActive : ''}
-                    onClick={() => onModeChange('home')}
-                >
-                    <img src="/observation-board-2/nav-home.png" alt="" aria-hidden="true" />
-                    홈
-                </button>
-                <button
-                    type="button"
-                    className={activeMode === 'mentor' ? styles.sidebarNavActive : ''}
-                    onClick={() => onModeChange('mentor')}
-                >
-                    <img src="/observation-board-2/nav-record.png" alt="" aria-hidden="true" />
-                    학생 관찰 기록
-                </button>
-                <button
-                    type="button"
-                    className={activeMode === 'growth' ? styles.sidebarNavActive : ''}
-                    onClick={() => onModeChange('growth')}
-                >
-                    <img src="/observation-board-2/nav-growth.png" alt="" aria-hidden="true" />
-                    성장 기록
-                </button>
-                <button
-                    type="button"
-                    className={activeMode === 'stats' ? styles.sidebarNavActive : ''}
-                    onClick={() => onModeChange('stats')}
-                >
-                    <img src="/observation-board-2/nav-stats.png" alt="" aria-hidden="true" />
-                    통계 보기
-                </button>
-                <button
-                    type="button"
-                    className={activeMode === 'notice' ? styles.sidebarNavActive : ''}
-                    onClick={() => onModeChange('notice')}
-                >
-                    <img src="/observation-board-2/nav-notice.png" alt="" aria-hidden="true" />
-                    알림장
-                </button>
-                <button
-                    type="button"
-                    className={activeMode === 'settings' ? styles.sidebarNavActive : ''}
-                    onClick={() => onModeChange('settings')}
-                >
-                    <img src="/observation-board-2/nav-settings.png" alt="" aria-hidden="true" />
-                    설정
-                </button>
+                {navItems.map((item) => (
+                    <button
+                        key={item.mode}
+                        type="button"
+                        className={activeMode === item.mode ? styles.sidebarNavActive : ''}
+                        onClick={() => onModeChange(item.mode)}
+                    >
+                        {item.icon}
+                        {item.label}
+                    </button>
+                ))}
             </nav>
 
             <img
@@ -1236,6 +1227,46 @@ function FilterStrip({
                     placeholder="학생 이름, 메모 검색"
                 />
             </label>
+        </section>
+    );
+}
+
+function MentorClassScope({
+    teacherClasses,
+    teacherStudents,
+    selectedClassId,
+    onClassChange,
+}: {
+    teacherClasses: ClassGroup[];
+    teacherStudents: Student[];
+    selectedClassId: string;
+    onClassChange: (classId: string) => void;
+}) {
+    return (
+        <section className={styles.mentorScopeBar} aria-label="멘토 화면 학급 선택">
+            <span className={styles.scopeLabel}>
+                <Users size={16} />
+                학급 선택
+            </span>
+            <button
+                type="button"
+                className={`${styles.classChip} ${selectedClassId === 'all' ? styles.classChipActive : ''}`}
+                onClick={() => onClassChange('all')}
+            >
+                전체 담당 학급
+                <span>{teacherStudents.length}</span>
+            </button>
+            {teacherClasses.map((cls) => (
+                <button
+                    key={cls.id}
+                    type="button"
+                    className={`${styles.classChip} ${selectedClassId === cls.id ? styles.classChipActive : ''}`}
+                    onClick={() => onClassChange(cls.id)}
+                >
+                    {cls.grade}학년 {cls.classNumber}반
+                    <span>{getStudentsInTeachingClass(teacherStudents, cls).length}</span>
+                </button>
+            ))}
         </section>
     );
 }
@@ -1790,7 +1821,7 @@ function SettingsDashboard({
                         </div>
                     </div>
                     <div className={styles.segmentedControl}>
-                        {[6, 8, 10, 12].map((count) => (
+                        {[6, 8, 10, 12, 16, 24].map((count) => (
                             <button
                                 key={count}
                                 type="button"
@@ -1832,29 +1863,35 @@ function SettingsDashboard({
 }
 
 function MentorActivityView({
+    teacherClasses,
+    teacherStudents,
+    selectedClassId,
     boardStudents,
     featuredStudents,
     mentorGroups,
     sessions,
     marks,
-    selectedClass,
     totalExcellent,
     visibleRosterCount,
     onAssignStudent,
+    onClassChange,
     onAddGroup,
     onAddSession,
     onUpdateSession,
     onUpdateMark,
 }: {
+    teacherClasses: ClassGroup[];
+    teacherStudents: Student[];
+    selectedClassId: string;
     boardStudents: Student[];
     featuredStudents: Student[];
     mentorGroups: MentorGroupView[];
     sessions: ActivitySession[];
     marks: Record<string, MarkState>;
-    selectedClass?: ClassGroup;
     totalExcellent: number;
     visibleRosterCount: number;
     onAssignStudent: (studentId: string, groupId: string, role: MentorRole) => void;
+    onClassChange: (classId: string) => void;
     onAddGroup: () => void;
     onAddSession: () => void;
     onUpdateSession: (sessionId: string, field: 'date' | 'topic', value: string) => void;
@@ -1874,6 +1911,13 @@ function MentorActivityView({
 
     return (
         <>
+            <MentorClassScope
+                teacherClasses={teacherClasses}
+                teacherStudents={teacherStudents}
+                selectedClassId={selectedClassId}
+                onClassChange={onClassChange}
+            />
+
             <main className={styles.workspace}>
                 <section className={styles.mentorPanel}>
                     <div className={styles.panelTitle}>

@@ -1712,6 +1712,34 @@
     padding: 0.12rem 0.05rem 0.35rem;
 }
 
+.mentorScopeBar {
+    display: flex;
+    align-items: center;
+    gap: 0.48rem;
+    overflow-x: auto;
+    margin: 0 0 0.92rem;
+    border: 2px solid #b6d7f0;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #ffffff 0%, #f5fbff 100%);
+    padding: 0.5rem 0.6rem;
+}
+
+.scopeLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.32rem;
+    flex: 0 0 auto;
+    color: #174774;
+    font-size: 0.86rem;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.mentorScopeBar .classChip {
+    min-height: 36px;
+    border-radius: 12px;
+}
+
 .dashboardView {
     display: grid;
     gap: 1rem;
@@ -2611,11 +2639,30 @@
     line-height: 1.12;
 }
 
-.sidebarNav button img {
+.sidebarNav button svg {
     width: 48px;
     height: 48px;
     flex: 0 0 auto;
-    object-fit: contain;
+    color: #1266b1;
+    padding: 0.28rem;
+    border-radius: 16px;
+    background: transparent;
+}
+
+.sidebarNav button:nth-child(3) svg {
+    color: #308d49;
+}
+
+.sidebarNav button:nth-child(4) svg {
+    color: #227ed2;
+}
+
+.sidebarNav button:nth-child(5) svg {
+    color: #dd8d00;
+}
+
+.sidebarNav button:nth-child(6) svg {
+    color: #587c9e;
 }
 
 .sidebarNav button:hover,
@@ -2624,6 +2671,12 @@
     background: #44a5f4 !important;
     color: #ffffff !important;
     box-shadow: inset 0 -3px 0 rgba(18, 82, 157, 0.12), 0 8px 16px rgba(40, 126, 205, 0.18) !important;
+}
+
+.sidebarNav button:hover svg,
+.sidebarNavActive svg {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.14);
 }
 
 .dashboardMain {
@@ -2934,7 +2987,8 @@
         width: 100%;
     }
 
-    .filterStrip {
+    .filterStrip,
+    .mentorScopeBar {
         align-items: stretch;
         flex-direction: column;
     }
