@@ -89,14 +89,14 @@
 - `/observation-board-2` defaults the mentor screen to one selected 담당 학급 rather than an all-assigned-classes aggregate; the visible-student count setting remains available as an optional cap for default mentor pair generation and the roster tray
 - `/observation-board-2` filters mentor matching, observation compose, growth, and stats to the current teacher's assigned class students only; it does not display sample students when no assigned class roster exists
 - `/observation-board-2` stores editable session headers in local React state and persists them to `observation-board-2-sessions:${teacherKey}`; teachers edit session date/content inline and add columns with the `+` button
-- `/observation-board-2` persists teacher-clicked student △/○ activity marks to `observation-board-2-marks:${teacherKey}` so `/write` can pass the selected student's activity-board records into `/api/generate`
+- `/observation-board-2` persists teacher-clicked student △/○ activity marks to `observation-board-2-marks:${teacherKey}` and class-scoped mentor/mentee assignments to `observation-board-2-mentor-assignments:${teacherKey}` so `/write` can derive the selected student's mentor/mentee activity summary for `/api/generate`
 - manual observation entry is reached from `/observation-board-2` internal `records` mode and uses common date/topic/tags at the top with per-student rows focused on individual tags plus observation memo
 - the top-level `학생 데이터` tab and `/student-data` page are removed
 - student data/cookie APIs remain as legacy storage compatibility endpoints, but current user navigation and write generation do not use them
 - Google Sheets runtime credentials are normalized before client creation so Vercel values pasted with wrapping quotes or escaped newlines still produce a valid private key.
 - read-only roster/student-data/cookie APIs skip sheet-creation initialization and read existing sheets directly; mutations still initialize missing sheets before writing.
 - `/write` does not fetch student-data tab entries before calling `/api/generate`
-- `/write` reads the teacher-scoped observation-board session headers and student △/○ marks from localStorage, sends them as `observationBoardContext`, and `/api/generate` adds them to the 세특 prompt as `학생 관찰 기록 활동판`
+- `/write` reads the teacher-scoped observation-board session headers, student △/○ marks, and mentor/mentee assignments from localStorage, sends a derived `observationBoardContext`, and `/api/generate` adds it to the 세특 prompt as `멘토·멘티 활동 해석`
 - competency highlighting renders against the source text so invalid AI segment indexes cannot drop text from the display
 - school roster data syncs through `/api/students` into shared sheet-backed storage, while teaching-class connections remain teacher-specific in local app state
 - repeated uploads for the same school are merged server-side by roster key and return add/update/skip counts so overlapping students do not duplicate

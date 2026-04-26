@@ -107,6 +107,7 @@ export async function generateDraft(
     const observationBoardContext = readObservationBoardAiContext({
         studentId,
         teacherKey: context?.teacherKey,
+        classId: context?.classId,
     });
 
     try {

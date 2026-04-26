@@ -16,9 +16,41 @@ export interface ObservationBoardSessionMark {
     markLabel: string;
 }
 
+export type ObservationBoardMentorRole = 'mentor' | 'mentee';
+
+export interface ObservationBoardMentorAssignment {
+    id: string;
+    title: string;
+    mentorId?: string;
+    menteeId?: string;
+}
+
+export type ObservationBoardMentorAssignmentsByClass = Record<string, ObservationBoardMentorAssignment[]>;
+
+export interface ObservationBoardRoleContext {
+    role: ObservationBoardMentorRole;
+    roleLabel: string;
+    groupTitle?: string;
+    classId?: string;
+}
+
+export interface ObservationBoardDerivedSummary {
+    totalSessions: number;
+    markedSessions: number;
+    participatedCount: number;
+    excellentCount: number;
+    participationRate: number;
+    trend: 'improving' | 'steady' | 'declining' | 'limited';
+    summaryLines: string[];
+    writingGuidance: string[];
+    roleContext?: ObservationBoardRoleContext;
+}
+
 export interface ObservationBoardAiContext {
     source: 'observation-board-2';
     sessionMarks: ObservationBoardSessionMark[];
+    derivedSummary: ObservationBoardDerivedSummary;
+    roleContext?: ObservationBoardRoleContext;
 }
 
 export const DEFAULT_OBSERVATION_BOARD_ACTIVITY_SESSIONS: ObservationBoardActivitySession[] = [
@@ -40,6 +72,10 @@ export function getObservationBoardSessionStorageKey(teacherKey?: string) {
 
 export function getObservationBoardMarkStorageKey(teacherKey?: string) {
     return `observation-board-2-marks:${teacherKey || 'guest'}`;
+}
+
+export function getObservationBoardMentorAssignmentStorageKey(teacherKey?: string) {
+    return `observation-board-2-mentor-assignments:${teacherKey || 'guest'}`;
 }
 
 function parseJsonValue(raw: string | null): unknown {
@@ -87,9 +123,181 @@ export function normalizeObservationBoardMarks(value: unknown): Record<string, O
     return normalized;
 }
 
+export function normalizeObservationBoardMentorAssignmentsByClass(
+    value: unknown
+): ObservationBoardMentorAssignmentsByClass {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return {};
+
+    const normalized: ObservationBoardMentorAssignmentsByClass = {};
+    Object.entries(value as Record<string, unknown>).forEach(([classId, assignments]) => {
+        if (!Array.isArray(assignments)) return;
+
+        const normalizedAssignments = assignments
+            .map((item, index) => {
+                if (!item || typeof item !== 'object') return null;
+                const assignment = item as Partial<ObservationBoardMentorAssignment>;
+                return {
+                    id: typeof assignment.id === 'string' && assignment.id.trim()
+                        ? assignment.id
+                        : `group-${index + 1}`,
+                    title: typeof assignment.title === 'string' && assignment.title.trim()
+                        ? assignment.title
+                        : `${index + 1}조`,
+                    mentorId: typeof assignment.mentorId === 'string' && assignment.mentorId.trim()
+                        ? assignment.mentorId
+                        : undefined,
+                    menteeId: typeof assignment.menteeId === 'string' && assignment.menteeId.trim()
+                        ? assignment.menteeId
+                        : undefined,
+                };
+            })
+            .filter(Boolean) as ObservationBoardMentorAssignment[];
+
+        if (normalizedAssignments.length > 0) {
+            normalized[classId] = normalizedAssignments;
+        }
+    });
+
+    return normalized;
+}
+
+export function areObservationBoardMentorAssignmentsEqual(
+    a: ObservationBoardMentorAssignment[] = [],
+    b: ObservationBoardMentorAssignment[] = []
+): boolean {
+    return JSON.stringify(a) === JSON.stringify(b);
+}
+
+function findRoleContext(input: {
+    assignmentsByClass: ObservationBoardMentorAssignmentsByClass;
+    studentId: string;
+    classId?: string;
+}): ObservationBoardRoleContext | undefined {
+    const classIds = input.classId
+        ? [input.classId, ...Object.keys(input.assignmentsByClass).filter((classId) => classId !== input.classId)]
+        : Object.keys(input.assignmentsByClass);
+
+    for (const classId of classIds) {
+        const assignments = input.assignmentsByClass[classId] ?? [];
+        for (const assignment of assignments) {
+            if (assignment.mentorId === input.studentId) {
+                return {
+                    role: 'mentor',
+                    roleLabel: '멘토',
+                    groupTitle: assignment.title,
+                    classId,
+                };
+            }
+
+            if (assignment.menteeId === input.studentId) {
+                return {
+                    role: 'mentee',
+                    roleLabel: '멘티',
+                    groupTitle: assignment.title,
+                    classId,
+                };
+            }
+        }
+    }
+
+    return undefined;
+}
+
+function getMarkScore(mark?: ObservationBoardMarkState): number {
+    if (mark === 'excellent') return 2;
+    if (mark === 'participated') return 1;
+    return 0;
+}
+
+function average(values: number[]): number {
+    if (values.length === 0) return 0;
+    return values.reduce((sum, value) => sum + value, 0) / values.length;
+}
+
+function getTrend(input: {
+    sessions: ObservationBoardActivitySession[];
+    markLookup: Map<string, ObservationBoardMarkState>;
+    markedSessions: number;
+}): ObservationBoardDerivedSummary['trend'] {
+    if (input.sessions.length < 3 || input.markedSessions < 2) return 'limited';
+
+    const firstCut = Math.max(1, Math.ceil(input.sessions.length / 3));
+    const lastStart = Math.max(firstCut, Math.floor((input.sessions.length * 2) / 3));
+    const firstScores = input.sessions.slice(0, firstCut).map((session) => getMarkScore(input.markLookup.get(session.id)));
+    const lastScores = input.sessions.slice(lastStart).map((session) => getMarkScore(input.markLookup.get(session.id)));
+    const delta = average(lastScores) - average(firstScores);
+
+    if (delta >= 0.35) return 'improving';
+    if (delta <= -0.35) return 'declining';
+    return 'steady';
+}
+
+function buildDerivedSummary(input: {
+    sessions: ObservationBoardActivitySession[];
+    sessionMarks: ObservationBoardSessionMark[];
+    roleContext?: ObservationBoardRoleContext;
+}): ObservationBoardDerivedSummary {
+    const totalSessions = input.sessions.length;
+    const markedSessions = input.sessionMarks.length;
+    const participatedCount = input.sessionMarks.filter((item) => item.mark === 'participated').length;
+    const excellentCount = input.sessionMarks.filter((item) => item.mark === 'excellent').length;
+    const participationRate = totalSessions > 0 ? markedSessions / totalSessions : 0;
+    const markLookup = new Map(input.sessionMarks.map((item) => [item.sessionId, item.mark as ObservationBoardMarkState]));
+    const trend = getTrend({ sessions: input.sessions, markLookup, markedSessions });
+    const participationPercent = Math.round(participationRate * 100);
+    const summaryLines: string[] = [
+        `총 ${totalSessions}차시 중 ${markedSessions}차시에 활동 참여 신호가 기록되었고, 이 중 ${excellentCount}차시는 적극적이고 안정적인 참여로 볼 수 있는 표시가 남아 있습니다.`,
+    ];
+
+    if (participationRate >= 0.8) {
+        summaryLines.push('멘토·멘티 상호작용 활동에 꾸준히 참여한 흐름이 뚜렷해 성실성과 활동 지속성을 보여주는 자료로 해석할 수 있습니다.');
+    } else if (participationRate >= 0.5) {
+        summaryLines.push(`활동 참여 신호가 전체 차시의 약 ${participationPercent}%에서 확인되어 관계 기반 활동에 일정하게 참여한 자료로 해석할 수 있습니다.`);
+    } else {
+        summaryLines.push('활동 참여 신호가 많지는 않으므로 단정적인 표현보다 관찰 가능한 참여 태도 중심으로 조심스럽게 활용해야 합니다.');
+    }
+
+    if (excellentCount >= 3) {
+        summaryLines.push('적극적 참여 표시가 반복되어 책임감, 관계적 참여, 협력 태도와 연결해 서술할 수 있습니다.');
+    } else if (excellentCount > 0) {
+        summaryLines.push('일부 차시에서 적극적 참여 표시가 있어 활동에 몰입한 순간을 태도 근거로 활용할 수 있습니다.');
+    } else if (participatedCount > 0) {
+        summaryLines.push('참여 표시를 중심으로 꾸준함과 기본적인 활동 성실성을 표현하는 데 활용합니다.');
+    }
+
+    if (trend === 'improving') {
+        summaryLines.push('초반보다 후반 활동 신호가 좋아져 활동 적응과 참여 태도의 성장을 조심스럽게 반영할 수 있습니다.');
+    } else if (trend === 'steady' && participationRate >= 0.5) {
+        summaryLines.push('차시 전반에 걸쳐 참여 흐름이 비교적 안정적으로 유지된 자료입니다.');
+    } else if (trend === 'declining') {
+        summaryLines.push('후반 신호가 약해진 흐름이 있으므로 성장 단정보다는 확인된 참여 장면 위주로만 활용합니다.');
+    }
+
+    if (input.roleContext) {
+        summaryLines.push(`${input.roleContext.groupTitle ? `${input.roleContext.groupTitle}에서 ` : ''}${input.roleContext.roleLabel} 역할로 배치된 맥락이 있어 역할 수행과 관계 참여를 함께 고려할 수 있습니다.`);
+    }
+
+    return {
+        totalSessions,
+        markedSessions,
+        participatedCount,
+        excellentCount,
+        participationRate,
+        trend,
+        summaryLines,
+        writingGuidance: [
+            '차시명과 △/○ 표시를 그대로 나열하지 말고 성실성, 책임감, 관계적 참여, 협력 태도, 활동 지속성, 성장 흐름으로 해석합니다.',
+            '멘토·멘티 활동 기록만으로 교과 지식 성취나 리더십을 단정하지 않습니다.',
+            '관찰 메모나 학습 데이터가 함께 있으면 그 구체 장면을 중심에 두고 활동판 해석은 태도 근거로 보조합니다.',
+        ],
+        roleContext: input.roleContext,
+    };
+}
+
 export function readObservationBoardAiContext(input: {
     studentId: string;
     teacherKey?: string;
+    classId?: string;
 }): ObservationBoardAiContext | undefined {
     if (typeof window === 'undefined') return undefined;
 
@@ -97,9 +305,17 @@ export function readObservationBoardAiContext(input: {
         ?? window.localStorage.getItem(getObservationBoardSessionStorageKey());
     const markRaw = window.localStorage.getItem(getObservationBoardMarkStorageKey(input.teacherKey))
         ?? window.localStorage.getItem(getObservationBoardMarkStorageKey());
+    const assignmentRaw = window.localStorage.getItem(getObservationBoardMentorAssignmentStorageKey(input.teacherKey))
+        ?? window.localStorage.getItem(getObservationBoardMentorAssignmentStorageKey());
 
     const sessions = normalizeObservationBoardActivitySessions(parseJsonValue(sessionRaw));
     const marks = normalizeObservationBoardMarks(parseJsonValue(markRaw));
+    const assignmentsByClass = normalizeObservationBoardMentorAssignmentsByClass(parseJsonValue(assignmentRaw));
+    const roleContext = findRoleContext({
+        assignmentsByClass,
+        studentId: input.studentId,
+        classId: input.classId,
+    });
     const sessionMarks = sessions.flatMap((session) => {
         const mark = marks[`${input.studentId}:${session.id}`];
         if (mark !== 'participated' && mark !== 'excellent') return [];
@@ -115,20 +331,26 @@ export function readObservationBoardAiContext(input: {
     });
 
     if (sessionMarks.length === 0) return undefined;
+    const derivedSummary = buildDerivedSummary({ sessions, sessionMarks, roleContext });
 
     return {
         source: 'observation-board-2',
         sessionMarks,
+        derivedSummary,
+        roleContext,
     };
 }
 
 export function formatObservationBoardContextForPrompt(context?: ObservationBoardAiContext): string {
-    if (!context?.sessionMarks?.length) return '';
+    if (!context?.derivedSummary?.summaryLines.length) return '';
 
-    return context.sessionMarks.map((item) => {
-        const sessionParts = [item.label, item.date, item.topic].filter(Boolean).join(' / ');
-        return `• ${sessionParts}: ${item.markLabel}`;
-    }).join('\n');
+    return [
+        '[활동 해석 요약]',
+        ...context.derivedSummary.summaryLines.map((line) => `• ${line}`),
+        '',
+        '[작성 지침]',
+        ...context.derivedSummary.writingGuidance.map((line) => `• ${line}`),
+    ].join('\n');
 }
 
 export function countObservationBoardContextItems(context?: ObservationBoardAiContext): number {

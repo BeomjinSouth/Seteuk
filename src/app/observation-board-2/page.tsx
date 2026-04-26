@@ -34,12 +34,18 @@ import { useAppStore } from '@/lib/store';
 import { isAuthorizedSeonghoTeacher } from '@/lib/seongho-auth';
 import {
     DEFAULT_OBSERVATION_BOARD_ACTIVITY_SESSIONS as defaultActivitySessions,
+    areObservationBoardMentorAssignmentsEqual,
     getObservationBoardMarkStorageKey,
+    getObservationBoardMentorAssignmentStorageKey,
     getObservationBoardSessionStorageKey,
     normalizeObservationBoardActivitySessions,
+    normalizeObservationBoardMentorAssignmentsByClass,
     normalizeObservationBoardMarks,
     type ObservationBoardActivitySession,
     type ObservationBoardMarkState,
+    type ObservationBoardMentorAssignment,
+    type ObservationBoardMentorAssignmentsByClass,
+    type ObservationBoardMentorRole,
 } from '@/lib/observation-board-ai-context';
 import { getStudentsInTeachingClass, getTeacherClasses } from '@/lib/teacher-context';
 import { ClassGroup, Observation, Student } from '@/types';
@@ -85,14 +91,8 @@ type GrowthTimelineItem = {
     meta: string;
 };
 
-type MentorRole = 'mentor' | 'mentee';
-
-interface MentorGroupAssignment {
-    id: string;
-    title: string;
-    mentorId?: string;
-    menteeId?: string;
-}
+type MentorRole = ObservationBoardMentorRole;
+type MentorGroupAssignment = ObservationBoardMentorAssignment;
 
 interface MentorGroupView {
     id: string;
@@ -225,14 +225,15 @@ export default function ObservationBoard2Page() {
     const [studentDrafts, setStudentDrafts] = useState<Record<string, ObservationDraftRow>>({});
     const [selectedObservation, setSelectedObservation] = useState<Observation | null>(null);
     const [visibleRosterCount, setVisibleRosterCount] = useState<VisibleRosterCount>('all');
-    const [hasCustomMentorAssignments, setHasCustomMentorAssignments] = useState(false);
     const [noticeDraft, setNoticeDraft] = useState({ title: '', body: '', dueDate: today() });
     const [notices, setNotices] = useState<NoticeItem[]>([]);
     const [loadedNoticeKey, setLoadedNoticeKey] = useState('');
     const [mentorAssignments, setMentorAssignments] = useState<MentorGroupAssignment[]>([]);
+    const [mentorAssignmentsByClass, setMentorAssignmentsByClass] = useState<ObservationBoardMentorAssignmentsByClass>({});
     const [activitySessions, setActivitySessions] = useState<ActivitySession[]>(defaultActivitySessions);
     const [loadedSessionKey, setLoadedSessionKey] = useState('');
     const [loadedMarkKey, setLoadedMarkKey] = useState('');
+    const [loadedMentorAssignmentKey, setLoadedMentorAssignmentKey] = useState('');
 
     useEffect(() => {
         setIsStoreReady(useAppStore.persist.hasHydrated());
@@ -453,17 +454,48 @@ export default function ObservationBoard2Page() {
 
     useEffect(() => {
         const availableIds = new Set(boardStudents.map((student) => student.id));
+        const savedAssignments = selectedClassId === 'all' ? [] : mentorAssignmentsByClass[selectedClassId] ?? [];
+        const assignedIds = savedAssignments.flatMap((group) => [group.mentorId, group.menteeId]).filter(Boolean) as string[];
+        const canUseSavedAssignments = savedAssignments.length > 0
+            && (assignedIds.length === 0 || assignedIds.every((studentId) => availableIds.has(studentId)));
 
-        setMentorAssignments((prev) => {
-            const assignedIds = prev.flatMap((group) => [group.mentorId, group.menteeId]).filter(Boolean) as string[];
-            const canKeepPrevious = prev.length > 0
-                && (assignedIds.length === 0 || assignedIds.every((studentId) => availableIds.has(studentId)));
+        setMentorAssignments(canUseSavedAssignments ? savedAssignments : defaultMentorAssignments);
+    }, [boardStudents, defaultMentorAssignments, mentorAssignmentsByClass, selectedClassId]);
 
-            if (!hasCustomMentorAssignments) return defaultMentorAssignments;
+    useEffect(() => {
+        const storageKey = getObservationBoardMentorAssignmentStorageKey(teacher?.teacherKey);
+        setLoadedMentorAssignmentKey(storageKey);
 
-            return canKeepPrevious ? prev : defaultMentorAssignments;
+        try {
+            const saved = window.localStorage.getItem(storageKey)
+                ?? window.localStorage.getItem(getObservationBoardMentorAssignmentStorageKey());
+            setMentorAssignmentsByClass(saved
+                ? normalizeObservationBoardMentorAssignmentsByClass(JSON.parse(saved))
+                : {});
+        } catch (error) {
+            console.error('Failed to load mentor assignments:', error);
+            setMentorAssignmentsByClass({});
+        }
+    }, [teacher?.teacherKey]);
+
+    useEffect(() => {
+        if (!loadedMentorAssignmentKey) return;
+        window.localStorage.setItem(loadedMentorAssignmentKey, JSON.stringify(mentorAssignmentsByClass));
+    }, [loadedMentorAssignmentKey, mentorAssignmentsByClass]);
+
+    useEffect(() => {
+        if (selectedClassId === 'all' || mentorAssignments.length === 0) return;
+
+        setMentorAssignmentsByClass((prev) => {
+            const current = prev[selectedClassId] ?? [];
+            if (areObservationBoardMentorAssignmentsEqual(current, mentorAssignments)) return prev;
+
+            return {
+                ...prev,
+                [selectedClassId]: mentorAssignments,
+            };
         });
-    }, [boardStudents, defaultMentorAssignments, hasCustomMentorAssignments]);
+    }, [mentorAssignments, selectedClassId]);
 
     useEffect(() => {
         const storageKey = getNoticeStorageKey(teacher?.teacherKey);
@@ -549,7 +581,6 @@ export default function ObservationBoard2Page() {
     const handleClassChange = (classId: string) => {
         setSelectedClassId(classId);
         setSelectedStudentIds(new Set());
-        setHasCustomMentorAssignments(false);
         setMentorAssignments([]);
     };
 
@@ -567,14 +598,12 @@ export default function ObservationBoard2Page() {
         if (!hasSelectedClass) {
             setSelectedClassId(teacherClasses[0].id);
             setSelectedStudentIds(new Set());
-            setHasCustomMentorAssignments(false);
             setMentorAssignments([]);
         }
     }, [activeMode, selectedClassId, teacherClasses]);
 
     const handleVisibleRosterCountChange = (count: VisibleRosterCount) => {
         setVisibleRosterCount(count);
-        setHasCustomMentorAssignments(false);
         setMentorAssignments([]);
     };
 
@@ -842,7 +871,6 @@ export default function ObservationBoard2Page() {
     };
 
     const handleAssignMentorStudent = (studentId: string, targetGroupId: string, targetRole: MentorRole) => {
-        setHasCustomMentorAssignments(true);
         setMentorAssignments((prev) => {
             const source = prev.length > 0 ? prev : defaultMentorAssignments;
             let sourceGroupId: string | undefined;
@@ -887,7 +915,6 @@ export default function ObservationBoard2Page() {
     };
 
     const handleAddMentorGroup = () => {
-        setHasCustomMentorAssignments(true);
         setMentorAssignments((prev) => {
             const source = prev.length > 0 ? prev : defaultMentorAssignments;
             const nextNumber = source.length + 1;

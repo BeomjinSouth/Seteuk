@@ -24,7 +24,9 @@ const DEFAULT_SYSTEM_PROMPT = `당신은 한국 고등학교 교사로서 교과
 4. 350~500자 내외로 작성합니다.
 5. 비교/서열의 표현, 확정의 표현은 지양합니다.
 6. "최고", "가장", "천재" 등의 금지어를 사용하지 않습니다.
-7. 관찰메모나 학생 관찰 기록 활동판 기록이 존재하면, 그 내용을 근거로 구체적인 예시를 활용합니다.
+7. 관찰메모나 멘토·멘티 활동 해석이 존재하면, 그 내용을 근거로 구체적인 예시와 태도 흐름을 활용합니다.
+8. 멘토·멘티 활동은 차시별 표시를 나열하지 말고 성실성, 책임감, 관계적 참여, 협력 태도, 활동 지속성, 성장 흐름으로 녹여 씁니다.
+9. 활동판 기록만으로 교과 지식 성취, 리더십, 우수성을 단정하거나 기록에 없는 사실을 새로 만들지 않습니다.
 
 세특 구성 요소 (4가지를 모두 포함):
 - 성취수준: 학생의 교과 목표의 달성한 정도
@@ -32,7 +34,7 @@ const DEFAULT_SYSTEM_PROMPT = `당신은 한국 고등학교 교사로서 교과
 - 역량: 발휘된 특별한 역량 (문제해결, 추론, 창의·융합, 의사소통, 정보처리, 태도 등)
 - 교사 총평: 학생의 성장과 발전 가능성
 
-입력받은 학생의 학습 데이터, 관찰메모, 활동판 기록을 바탕으로 세특을 생성해 주세요.`;
+입력받은 학생의 학습 데이터, 관찰메모, 멘토·멘티 활동 해석을 바탕으로 세특을 생성해 주세요.`;
 
 /**
  * Generates subject-specific student assessment records (Se-teuk) using AI.
@@ -53,7 +55,7 @@ const DEFAULT_SYSTEM_PROMPT = `당신은 한국 고등학교 교사로서 교과
  *   - curriculumContent?: string (Important for context)
  *   - ocrEvaluationContext?: object (OCR analysis results)
  *   - includeObservations?: boolean (Default: true)
- *   - observationBoardContext?: object (학생 관찰 기록 활동판 △/○ records)
+ *   - observationBoardContext?: object (멘토·멘티 활동판 해석 context)
  *   - model?: string
  *   - systemPrompt?: string
  *   - maxOutputTokens?: number
@@ -192,7 +194,7 @@ export async function POST(request: NextRequest) {
     const observationBoardText = formatObservationBoardContextForPrompt(observationBoardContext);
     const observationBoardContextCount = countObservationBoardContextItems(observationBoardContext);
     if (observationBoardText) {
-        userPrompt += `\n\n[학생 관찰 기록 활동판]\n${observationBoardText}\n\n// 활동판 기록은 교사가 차시별 활동 표에서 남긴 △ 참여함 / ○ 매우 잘함 표시입니다.\n// 반복적으로 확인되는 참여, 협력, 성장 흐름을 세특의 참고 근거로 활용하되, 기록에 없는 사실을 새로 만들지 마세요.`;
+        userPrompt += `\n\n[멘토·멘티 활동 해석]\n${observationBoardText}\n\n// 이 섹션은 교사가 차시별 활동 표에 남긴 △/○ 기록을 해석한 요약입니다.\n// 차시명이나 △/○를 그대로 나열하지 말고, 관계 기반 활동에서 드러난 성실성·책임감·협력 태도·활동 지속성·성장 흐름으로 자연스럽게 반영하세요.\n// 활동판 기록만으로 교과 지식 성취나 리더십을 단정하지 말고, 관찰 메모와 학습 데이터가 있으면 그 구체 장면을 우선하세요.`;
     }
 
     // Add curriculum content if provided

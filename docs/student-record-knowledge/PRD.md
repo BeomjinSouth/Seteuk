@@ -80,7 +80,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - `/api/admin/*`: protected by `ADMIN_API_TOKEN` in production
 - student management scope: roster upload + teaching-class connection only
 - top-level student data tab: removed, including the `/student-data` page
-- seteuk generation does not load student-data tab entries; it uses observation notes, observation-board session △/○ marks, learning data, and OCR evaluation context
+- seteuk generation does not load student-data tab entries; it uses observation notes, interpreted mentor/mentee activity summaries derived from observation-board △/○ marks, learning data, and OCR evaluation context
 - competency color analysis: implemented as source-text-safe highlighting with per-row analysis status
 - school roster uploads are shared per school, so other teachers at the same school can reuse the uploaded roster without uploading again
 - 성호중학교 login is password-gated and opens the roster/class registration flow directly
@@ -93,7 +93,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - student observation data scope: mentor matching, observation compose, growth, and stats show only students from the current teacher's assigned classes; the board no longer backfills sample students when no assigned roster exists
 - student observation mentor workflow: the default screen is `학생 관찰 기록`, uses a compact single-class selector instead of a long horizontal class-chip row, supports adding empty groups, and lets teachers drag student tokens between mentor/mentee slots
 - student observation mentor display scope: the selected class controls the mentor/mentee cards, activity table, and roster tray; the default mentor screen does not expose an all-assigned-classes aggregate view, while the visible-student count setting can optionally cap the auto-paired/listed students
-- student observation sessions: each session header supports direct teacher entry for date and activity content, the `+` header button adds another session column, and teacher-clicked student △/○ marks are carried into `/write` generation as AI input data
+- student observation sessions: each session header supports direct teacher entry for date and activity content, the `+` header button adds another session column, and teacher-clicked student △/○ marks are converted into attitude/participation summaries for `/write` generation
 - student observation growth/stats: growth opens with the selected class/search filtered student card grid, shows every matching 담당 학생 without a fixed eight-student cap, surfaces per-student record gaps, latest notes, △/○ activity reactions, and a screenshot-matched in-tab `성장 기록 작성` modal for selected students with animal chips, neutral cookie cards, optional memo, and bottom action buttons; stats surfaces record-priority students and group activity balance in addition to counts and tag bars
 - student observation stats scope: stats uses a compact class selector and defaults to one assigned class instead of opening all assigned class groups at once
 - student observation growth dashboard: builds the student timeline from `/api/observations` with class and search filters
