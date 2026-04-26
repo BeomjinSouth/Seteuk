@@ -1,15 +1,15 @@
 .layout {
     display: flex;
     min-height: 100vh;
-    padding-top: 56px;
+    padding-top: 88px;
     /* GNB height */
 }
 
 .main {
     flex: 1;
-    margin-left: 260px;
+    margin-left: 300px;
     background: hsl(var(--background));
-    min-height: calc(100vh - 56px);
+    min-height: calc(100vh - 88px);
 }
 
 @media (max-width: 900px) {

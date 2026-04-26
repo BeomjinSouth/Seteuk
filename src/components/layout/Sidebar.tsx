@@ -5,7 +5,6 @@ import { usePathname } from 'next/navigation';
 import {
     LayoutDashboard,
     Users,
-    FileEdit,
     CheckCircle,
     Download,
     LogOut,
@@ -19,10 +18,10 @@ import {
     ClipboardList,
     Database,
     Handshake,
-    MessageSquareQuote
+    MessageSquareQuote,
+    Sparkles
 } from 'lucide-react';
 import clsx from 'clsx';
-import { useAppStore } from '@/lib/store';
 import { useTheme } from '@/hooks/useTheme';
 import styles from './Sidebar.module.css';
 
@@ -48,7 +47,7 @@ const studentDataNavItems = [
 
 // LNB for AI 세특 생성 section
 const seteukNavItems = [
-    { href: '/write', label: '세특 작성', icon: FileEdit },
+    { href: '/write', label: '세특 작성', icon: Sparkles },
     { href: '/counsel-chat', label: '생기부 상담 점검', icon: MessageSquareQuote },
     { href: '/review', label: '검토/확정', icon: CheckCircle },
     { href: '/export', label: '내보내기', icon: Download },
@@ -75,7 +74,6 @@ const toolsItems = [
  */
 export function Sidebar() {
     const pathname = usePathname();
-    const teacher = useAppStore((state) => state.teacher);
     const { resolvedTheme, toggleTheme, mounted } = useTheme();
     const activeEvalTab = typeof window === 'undefined'
         ? 'settings'
@@ -151,10 +149,10 @@ export function Sidebar() {
                     >
                         <FileText size={18} />
                         <span>AI 예시 양식</span>
-                        <span className={styles.exampleBadge}>퓨샷</span>
+                        <span className={styles.exampleBadge}>NEW</span>
                     </Link>
                     {/* Moved Tools Items */}
-                    <div style={{ marginLeft: '12px', marginTop: '4px' }}>
+                    <div className={styles.toolList}>
                         {toolsItems.map((item) => {
                             const Icon = item.icon;
                             const isActive = pathname === item.href;
@@ -198,18 +196,19 @@ export function Sidebar() {
                 </button>
             </div>
 
-            {/* User Section */}
-            <div className={styles.userSection}>
-                <div className={styles.userInfo}>
-                    <div className={styles.avatar}>
-                        {teacher?.name?.charAt(0) || '?'}
+            {!isSchoolSection && !isObservationSection && !isObservation2Section && !isStudentDataSection && !isEvalCheckSection && (
+                <Link href="/examples" className={styles.guideCard}>
+                    <div className={styles.guideText}>
+                        <strong>AI 세특 생성<br />가이드</strong>
+                        <span>더 똑똑하게 활용하는 방법</span>
                     </div>
-                    <div>
-                        <p className={styles.userName}>{teacher?.name || '로그인 필요'}</p>
-                        <p className={styles.userSubject}>{teacher?.subject || ''}</p>
+                    <div className={styles.guideArt} aria-hidden="true">
+                        <span className={styles.guideSheetOne} />
+                        <span className={styles.guideSheetTwo} />
                     </div>
-                </div>
-            </div>
+                    <span className={styles.guideArrow}>›</span>
+                </Link>
+            )}
         </aside>
     );
 }

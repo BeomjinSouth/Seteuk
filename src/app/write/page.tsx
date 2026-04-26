@@ -1,9 +1,9 @@
 'use client';
 
-import { Suspense, useCallback, useMemo, useState } from 'react';
+import { Suspense, useCallback, useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Loader2, Settings } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Loader2, Settings, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { SpellCheckModal, SpellError } from '@/components/SpellCheckModal';
 import { ForbiddenCheckModal } from '@/components/ForbiddenCheckModal';
@@ -38,6 +38,8 @@ function inferSchoolLevel(schoolName?: string): '초등학교' | '중학교' | '
     return '고등학교';
 }
 
+const PAGE_SIZE_OPTIONS = [10, 20, 50];
+
 function WritePageContent() {
     const searchParams = useSearchParams();
     const classFilter = searchParams.get('classId');
@@ -55,8 +57,10 @@ function WritePageContent() {
         getCurriculumContent,
     } = useAppStore();
 
-    const [selectedSemester, setSelectedSemester] = useState<'1' | '2'>('2');
+    const [selectedSemester, setSelectedSemester] = useState<'1' | '2'>('1');
     const [selectedGradeClass, setSelectedGradeClass] = useState<string>(classFilter || 'all');
+    const [currentPage, setCurrentPage] = useState(1);
+    const [pageSize, setPageSize] = useState(10);
     const [selectedStudents, setSelectedStudents] = useState<Set<string>>(
         () => new Set(studentFilter ? [studentFilter] : [])
     );
@@ -126,6 +130,32 @@ function WritePageContent() {
         });
         return Array.from(uniqueStudents.values()).sort((a, b) => (a.number || 0) - (b.number || 0));
     }, [currentTeacherClasses, selectedGradeClass, teacher, validStudents]);
+
+    const totalPages = useMemo(
+        () => Math.max(1, Math.ceil(filteredStudents.length / pageSize)),
+        [filteredStudents.length, pageSize]
+    );
+
+    const paginatedStudents = useMemo(() => {
+        const startIndex = (currentPage - 1) * pageSize;
+        return filteredStudents.slice(startIndex, startIndex + pageSize);
+    }, [currentPage, filteredStudents, pageSize]);
+
+    const visiblePageNumbers = useMemo(() => {
+        const maxVisible = 4;
+        const maxStart = Math.max(1, totalPages - maxVisible + 1);
+        const start = Math.min(Math.max(1, currentPage - 1), maxStart);
+        const end = Math.min(totalPages, start + maxVisible - 1);
+        return Array.from({ length: end - start + 1 }, (_, index) => start + index);
+    }, [currentPage, totalPages]);
+
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [selectedGradeClass, selectedSemester, pageSize]);
+
+    useEffect(() => {
+        setCurrentPage((page) => Math.min(page, totalPages));
+    }, [totalPages]);
     const totalTeacherStudents = useMemo(() => {
         const uniqueStudents = new Set<string>();
         currentTeacherClasses.forEach((cls) => {
@@ -174,12 +204,36 @@ function WritePageContent() {
         });
     };
 
-    const toggleSelectAll = () => {
-        if (selectedStudents.size === filteredStudents.length && filteredStudents.length > 0) {
-            setSelectedStudents(new Set());
+    const togglePageStudents = () => {
+        if (paginatedStudents.length === 0) return;
+
+        setSelectedStudents((prev) => {
+            const next = new Set(prev);
+            const isCurrentPageSelected = paginatedStudents.every((student) => next.has(student.id));
+
+            if (isCurrentPageSelected) {
+                paginatedStudents.forEach((student) => next.delete(student.id));
+                return next;
+            }
+
+            paginatedStudents.forEach((student) => next.add(student.id));
+            return next;
+        });
+    };
+
+    const handleGradeClassChange = (value: string) => {
+        setSelectedGradeClass(value);
+        setSelectedStudents(new Set());
+    };
+
+    const isCurrentPageSelected = paginatedStudents.length > 0
+        && paginatedStudents.every((student) => selectedStudents.has(student.id));
+
+    const goToPage = (page: number) => {
+        if (page < 1 || page > totalPages) {
             return;
         }
-        setSelectedStudents(new Set(filteredStudents.map((student) => student.id)));
+        setCurrentPage(page);
     };
 
     const handleGenerateDrafts = async () => {
@@ -678,7 +732,10 @@ function WritePageContent() {
         <div className={styles.page}>
             <header className={styles.header}>
                 <div className={styles.headerTitle}>
-                    <h1>AI 세특 작성기</h1>
+                    <h1>
+                        AI 세특 작성기
+                        <Sparkles size={26} className={styles.titleSparkle} />
+                    </h1>
                     <div className={styles.semesterToggle}>
                         <button className={`${styles.semesterBtn} ${selectedSemester === '1' ? styles.semesterBtnActive : ''}`} onClick={() => setSelectedSemester('1')}>
                             1학기
@@ -689,7 +746,7 @@ function WritePageContent() {
                     </div>
                 </div>
                 <div className={styles.headerActions}>
-                    <Button variant="ghost" onClick={() => { window.location.href = '/settings/ai'; }}>
+                    <Button variant="secondary" className={styles.aiSettingsButton} onClick={() => { window.location.href = '/settings/ai'; }}>
                         <Settings size={18} />
                         AI 설정
                     </Button>
@@ -700,11 +757,11 @@ function WritePageContent() {
                 <WriteToolbar
                     gradeClassTabs={gradeClassTabs}
                     selectedGradeClass={selectedGradeClass}
-                    onGradeClassChange={setSelectedGradeClass}
+                    onGradeClassChange={handleGradeClassChange}
                     totalCount={totalTeacherStudents}
                     selectedCount={selectedStudents.size}
-                    isAllSelected={selectedStudents.size === filteredStudents.length && filteredStudents.length > 0}
-                    onToggleSelectAll={toggleSelectAll}
+                    isAllSelected={isCurrentPageSelected}
+                    onToggleSelectAll={togglePageStudents}
                     onGenerate={handleGenerateDrafts}
                     onBulkReviewImprove={handleBulkReviewImprove}
                     onBulkSpellCheck={handleBulkSpellCheck}
@@ -727,17 +784,22 @@ function WritePageContent() {
                         <table className={styles.dataTable}>
                             <thead className={styles.tableHeader}>
                                 <tr>
-                                    <th className={styles.checkboxCell}><input type="checkbox" className={styles.tableCheckbox} checked={selectedStudents.size === filteredStudents.length && filteredStudents.length > 0} onChange={toggleSelectAll} /></th>
+                                    <th className={styles.checkboxCell}><input type="checkbox" className={styles.tableCheckbox} checked={isCurrentPageSelected} onChange={togglePageStudents} /></th>
                                     <th className={styles.classCell}>반</th>
                                     <th className={styles.numberCell}>번호</th>
                                     <th className={styles.nameCell}>이름</th>
                                     <th className={styles.subjectCell}>과목</th>
-                                    <th className={styles.dataCell}>AI 입력 데이터</th>
-                                    <th className={styles.contentCell}>세특 내용</th>
+                                    <th className={styles.dataCell}>
+                                        <span className={styles.headerWithInfo}>AI 입력 데이터 <span className={styles.infoHint}>i</span></span>
+                                    </th>
+                                    <th className={styles.contentCell}>
+                                        <span className={styles.headerWithInfo}>세특 내용 <span className={styles.infoHint}>i</span></span>
+                                    </th>
+                                    <th className={styles.actionCell} aria-label="행 작업" />
                                 </tr>
                             </thead>
                             <tbody className={styles.tableBody}>
-                                {filteredStudents.length > 0 ? filteredStudents.map((student) => (
+                                {paginatedStudents.length > 0 ? paginatedStudents.map((student) => (
                                     <WriteTableRow
                                         key={student.id}
                                         student={student}
@@ -756,10 +818,58 @@ function WritePageContent() {
                                         isCompetencyAnalyzing={competencyAnalyzingIds.has(student.id)}
                                     />
                                 )) : (
-                                    <tr><td colSpan={7} style={{ textAlign: 'center', padding: '2rem' }}>표시할 학생이 없습니다.</td></tr>
+                                    <tr><td colSpan={8} className={styles.emptyTableCell}>표시할 학생이 없습니다.</td></tr>
                                 )}
                             </tbody>
                         </table>
+                    </div>
+                    <div className={styles.tableFooter}>
+                        <div className={styles.footerLeft}>
+                            <span>전체 {filteredStudents.length}명</span>
+                            <label className={styles.pageSizeSelectWrap}>
+                                <select
+                                    value={pageSize}
+                                    onChange={(event) => setPageSize(Number(event.target.value))}
+                                    className={styles.pageSizeSelect}
+                                    aria-label="페이지당 학생 수"
+                                >
+                                    {PAGE_SIZE_OPTIONS.map((option) => (
+                                        <option key={option} value={option}>{option}명씩 보기</option>
+                                    ))}
+                                </select>
+                            </label>
+                        </div>
+                        <nav className={styles.pagination} aria-label="학생 목록 페이지">
+                            <button
+                                type="button"
+                                className={styles.pageNavButton}
+                                onClick={() => goToPage(currentPage - 1)}
+                                disabled={currentPage === 1}
+                                aria-label="이전 페이지"
+                            >
+                                <ChevronLeft size={18} />
+                            </button>
+                            {visiblePageNumbers.map((page) => (
+                                <button
+                                    type="button"
+                                    key={page}
+                                    className={`${styles.pageNumberButton} ${page === currentPage ? styles.pageNumberButtonActive : ''}`}
+                                    onClick={() => goToPage(page)}
+                                    aria-current={page === currentPage ? 'page' : undefined}
+                                >
+                                    {page}
+                                </button>
+                            ))}
+                            <button
+                                type="button"
+                                className={styles.pageNavButton}
+                                onClick={() => goToPage(currentPage + 1)}
+                                disabled={currentPage === totalPages}
+                                aria-label="다음 페이지"
+                            >
+                                <ChevronRight size={18} />
+                            </button>
+                        </nav>
                     </div>
                 </div>
             </motion.div>

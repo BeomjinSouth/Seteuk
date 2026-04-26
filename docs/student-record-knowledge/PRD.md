@@ -67,6 +67,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - `/counsel-chat`: implemented as the combined counsel/review workspace
 - `/record-review`: implemented as a compatibility redirect to `/counsel-chat?mode=review`
 - `/write`: RAG review-improve action implemented
+- `/write`: AI 세특 작성 화면 is aligned to the provided table workspace design with class chips, screenshot-style action toolbar, 10-row pagination, top teacher/notification chrome, and the AI 세특 guide card in the sidebar
 - `/search-inspector`: retained as an internal diagnostics page and removed from the sidebar
 - top navigation order: `학교 정보` -> `학생 관찰 기록` -> `학생 기록 관찰 2` -> `학생 데이터` -> `AI 세특 생성` -> `평가 점검 (개발중)`
 - `평가 점검 (개발중)` remains visible but is disabled and does not link to `/eval-check`

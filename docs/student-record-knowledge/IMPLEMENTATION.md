@@ -101,6 +101,7 @@
 - in `/observation-board`, single click selects students and double click opens observation writing; same-class multi-selection enters batch observation entry
 - `/observations` manual compose renders one editable row per selected student and stores row-specific date, lesson topic, selected tag, and memo
 - `/api/record-review` can optionally return `improvedDraft` for the write-tab review-improve action
+- `/write` renders the AI 세특 작성 tab as a screenshot-matched workspace: wider app sidebar, teacher/notification top chrome, class chip toolbar, AI/RAG/spell/forbidden/competency/delete actions, rounded table rows, editable AI input/content cells, and 10명씩 보기 pagination
 
 ### Login And Roster Onboarding
 

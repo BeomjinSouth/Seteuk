@@ -1,4 +1,4 @@
-import { Sparkles, SpellCheck, ShieldAlert, Trash2, Brain, Copy, Plus, Minus, SearchCheck } from 'lucide-react';
+import { ChevronDown, Search, SearchCheck, Shield, Sparkles, SpellCheck, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import styles from '../page.module.css';
 
@@ -40,30 +40,24 @@ export function WriteToolbar({
     selectedGradeClass,
     onGradeClassChange,
     totalCount,
-    selectedCount,
-    isAllSelected,
-    onToggleSelectAll,
     onGenerate,
     onBulkReviewImprove,
     onBulkSpellCheck,
     onBulkForbiddenCheck,
     onBulkCompetencyAnalysis,
-    onSimilarityCheck,
-    similarityTargetLabel,
-    onBulkAdjust,
     onDeleteLearningData,
     isGenerating,
     isBulkReviewImproving,
     isBulkChecking,
     isCompetencyAnalyzing,
-    isCheckingSimilarity,
-    isBulkAdjusting,
 }: WriteToolbarProps) {
     return (
         <div className={styles.toolbarRow}>
             <div className={styles.toolbarLeft}>
+                <span className={styles.toolbarLabel}>반 선택</span>
                 <div className={styles.toolbarTabs}>
                     <button
+                        type="button"
                         className={`${styles.tabBtn} ${selectedGradeClass === 'all' ? styles.tabBtnActive : ''}`}
                         onClick={() => onGradeClassChange('all')}
                     >
@@ -71,6 +65,7 @@ export function WriteToolbar({
                     </button>
                     {gradeClassTabs.map((tab) => (
                         <button
+                            type="button"
                             key={tab.value}
                             className={`${styles.tabBtn} ${selectedGradeClass === tab.value ? styles.tabBtnActive : ''}`}
                             onClick={() => onGradeClassChange(tab.value)}
@@ -78,24 +73,23 @@ export function WriteToolbar({
                             {tab.label} <span className={styles.tabCount}>{tab.count}</span>
                         </button>
                     ))}
+                    <button
+                        type="button"
+                        className={styles.classMoreBtn}
+                        title="다른 반 보기"
+                        aria-label="다른 반 보기"
+                    >
+                        <ChevronDown size={18} />
+                    </button>
                 </div>
             </div>
 
             <div className={styles.toolbarCenter}>
-                <label className={styles.selectAllLabel}>
-                    <input
-                        type="checkbox"
-                        checked={isAllSelected}
-                        onChange={onToggleSelectAll}
-                        className={styles.tableCheckbox}
-                    />
-                    전체 선택
-                </label>
-
                 <Button
                     onClick={onGenerate}
-                    disabled={selectedCount === 0 || isGenerating}
-                    className={styles.generateBtn}
+                    disabled={isGenerating}
+                    className={styles.toolbarActionPrimary}
+                    size="sm"
                 >
                     <Sparkles size={16} />
                     AI 세특 생성
@@ -103,21 +97,21 @@ export function WriteToolbar({
 
                 <Button
                     onClick={onBulkReviewImprove}
-                    disabled={selectedCount === 0 || isBulkReviewImproving}
+                    disabled={isBulkReviewImproving}
                     isLoading={isBulkReviewImproving}
-                    className={styles.reviewImproveBtn}
+                    className={styles.toolbarActionReview}
+                    size="sm"
                 >
-                    <SearchCheck size={16} />
+                    <Search size={16} />
                     RAG 점검·개선
                 </Button>
-
-                <div className={styles.toolbarDivider} />
 
                 <Button
                     variant="secondary"
                     size="sm"
                     onClick={onBulkSpellCheck}
-                    disabled={selectedCount === 0 || isBulkChecking}
+                    disabled={isBulkChecking}
+                    className={styles.toolbarActionSecondary}
                 >
                     <SpellCheck size={16} />
                     맞춤법
@@ -127,9 +121,10 @@ export function WriteToolbar({
                     variant="secondary"
                     size="sm"
                     onClick={onBulkForbiddenCheck}
-                    disabled={selectedCount === 0 || isBulkChecking}
+                    disabled={isBulkChecking}
+                    className={styles.toolbarActionSecondary}
                 >
-                    <ShieldAlert size={16} />
+                    <Shield size={16} />
                     금지어
                 </Button>
 
@@ -137,56 +132,23 @@ export function WriteToolbar({
                     variant="secondary"
                     size="sm"
                     onClick={onBulkCompetencyAnalysis}
-                    disabled={selectedCount === 0 || isCompetencyAnalyzing}
+                    disabled={isCompetencyAnalyzing}
                     isLoading={isCompetencyAnalyzing}
+                    className={styles.toolbarActionSecondary}
                 >
-                    <Brain size={16} />
-                    역량 분석
-                </Button>
-
-                <Button
-                    variant="secondary"
-                    size="sm"
-                    onClick={onSimilarityCheck}
-                    disabled={isCheckingSimilarity}
-                    isLoading={isCheckingSimilarity}
-                    title={similarityTargetLabel}
-                >
-                    <Copy size={16} />
-                    유사도 ({similarityTargetLabel})
-                </Button>
-
-                <div className={styles.toolbarDivider} />
-
-                <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => onBulkAdjust('expand')}
-                    disabled={selectedCount === 0 || isBulkAdjusting}
-                    title="선택 학생 내용 늘리기"
-                >
-                    <Plus size={16} />
-                </Button>
-
-                <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => onBulkAdjust('shorten')}
-                    disabled={selectedCount === 0 || isBulkAdjusting}
-                    title="선택 학생 내용 줄이기"
-                >
-                    <Minus size={16} />
+                    <SearchCheck size={16} />
+                    역량
                 </Button>
             </div>
 
             <div className={styles.toolbarRight}>
                 <button
+                    type="button"
                     className={styles.deleteBtn}
                     onClick={onDeleteLearningData}
-                    disabled={selectedCount === 0}
                 >
                     <Trash2 size={16} />
-                    AI 생성용 데이터 삭제
+                    데이터 삭제
                 </button>
             </div>
         </div>

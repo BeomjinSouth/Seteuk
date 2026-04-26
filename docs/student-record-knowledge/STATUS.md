@@ -29,6 +29,7 @@
 - /record-review compatibility redirect: implemented
 - /eval-check route: redirects to /dashboard while the feature is in development
 - write page integration: implemented
+- write page screenshot UI: implemented with class chips, 10-row pagination, rounded AI input/content table rows, AI 세특 guide sidebar card, and top teacher/notification chrome
 - search inspector diagnostics route: implemented but hidden from the sidebar
 - main navigation integration: 학교 정보 -> 학생 관찰 기록 -> 학생 기록 관찰 2 -> 학생 데이터 -> AI 세특 생성 -> 평가 점검 (개발중) 순서 적용
 - student data tab: implemented with teacher-owned notes/grades/mentor matches and school-shared cookies/rewards
@@ -63,6 +64,7 @@
 
 ## Recent Changes
 
+- 2026-04-26: restyled the `/write` AI 세특 작성 tab to match the provided screenshot, including the wider app shell, class chip toolbar, paginated table, and prompt-style AI input/content cells
 - 2026-04-26: fixed observation-board-2 mentor display expansion beyond six students, added class scope buttons to the default mentor screen, and replaced sidebar menu raster icons with unclipped rendered icons
 - 2026-04-26: fixed deployed Google Sheets private-key parsing for roster loading and made read-only Sheets APIs avoid unnecessary sheet initialization before reads
 - 2026-04-26: restored Vercel production environment variables for Google Sheets/OpenAI from the local runtime config, redeployed production, and verified the 성호중학교 roster API returns 847 students

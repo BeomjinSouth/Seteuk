@@ -1,5 +1,5 @@
 import { SubjectRecord, Student } from '@/types';
-import { Brain, Edit3 } from 'lucide-react';
+import { Brain, ChevronRight, Edit3, FileText, MoreVertical, Plus, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { CompetencyHighlighter, getContentHash } from '@/components/KeywordHighlighter';
 import styles from '../page.module.css';
@@ -74,8 +74,7 @@ export function WriteTableRow({
     const competencySummary = getCompetencySummary(record);
 
     return (
-        <tr className={`${isSelected ? styles.rowSelected : ''}`}>
-            {/* Checkbox */}
+        <tr className={`${styles.tableRow} ${isSelected ? styles.rowSelected : ''}`}>
             <td className={styles.checkboxCell}>
                 <input
                     type="checkbox"
@@ -85,27 +84,22 @@ export function WriteTableRow({
                 />
             </td>
 
-            {/* Class Number */}
             <td className={styles.classCell}>
                 <span className={styles.cellClass}>{student.classNumber}</span>
             </td>
 
-            {/* Student Number */}
             <td className={styles.numberCell}>
                 <span className={styles.cellNumber}>{student.number}</span>
             </td>
 
-            {/* Name */}
             <td className={styles.nameCell}>
                 <span className={styles.cellName}>{student.name}</span>
             </td>
 
-            {/* Subject */}
             <td className={styles.subjectCell}>
                 <span className={styles.cellSubject}>{subjectName}</span>
             </td>
 
-            {/* Learning Data */}
             <td className={styles.dataCell}>
                 {isEditingData ? (
                     <div>
@@ -121,17 +115,18 @@ export function WriteTableRow({
                         </div>
                     </div>
                 ) : (
-                    <div
-                        className={styles.editableCell}
+                    <button
+                        type="button"
+                        className={`${styles.dataPrompt} ${displayData ? styles.dataPromptFilled : ''}`}
                         onClick={() => onStartEdit(student.id, 'data', learningData?.customData || '')}
                     >
-                        {displayData || <span className={styles.placeholder}>클릭하여 입력...</span>}
-                        <span className={styles.cellEditIcon}><Edit3 size={12} /></span>
-                    </div>
+                        <FileText size={20} className={styles.promptIcon} />
+                        <span>{displayData || 'AI가 생성할 정보를\n입력해주세요'}</span>
+                        <Plus size={18} className={styles.promptPlusIcon} />
+                    </button>
                 )}
             </td>
 
-            {/* Content (세특) */}
             <td className={styles.contentCell}>
                 {isEditingContent ? (
                     <div>
@@ -151,46 +146,77 @@ export function WriteTableRow({
                     </div>
                 ) : (
                     <div
-                        className={styles.editableCell}
+                        role="button"
+                        tabIndex={0}
+                        className={`${styles.contentPrompt} ${hasContent ? styles.contentPromptFilled : ''}`}
                         onClick={() => onStartEdit(student.id, 'content', record?.content || '')}
+                        onKeyDown={(event) => {
+                            if (event.key === 'Enter' || event.key === ' ') {
+                                event.preventDefault();
+                                onStartEdit(student.id, 'content', record?.content || '');
+                            }
+                        }}
                     >
-                        {hasContent && (
-                            <div className={styles.contentMetaRow}>
-                                <span className={`${styles.analysisBadge} ${hasFreshCompetency ? styles.analysisBadgeDone : styles.analysisBadgeNeeded}`}>
-                                    {hasFreshCompetency ? '역량 분석 완료' : hasStaleCompetency ? '수정 후 재분석 필요' : '역량 분석 필요'}
+                        <Sparkles size={21} className={styles.contentPromptIcon} />
+                        {hasContent ? (
+                            <span className={styles.contentPreview}>
+                                <span className={styles.contentMetaRow}>
+                                    <span className={`${styles.analysisBadge} ${hasFreshCompetency ? styles.analysisBadgeDone : styles.analysisBadgeNeeded}`}>
+                                        {hasFreshCompetency ? '역량 분석 완료' : hasStaleCompetency ? '재분석 필요' : '역량 분석 필요'}
+                                    </span>
+                                    {competencySummary && <span className={styles.analysisSummary}>{competencySummary}</span>}
+                                    <span
+                                        role="button"
+                                        tabIndex={0}
+                                        className={styles.rowIconButton}
+                                        onClick={(event) => {
+                                            event.stopPropagation();
+                                            if (isCompetencyAnalyzing) return;
+                                            onAnalyzeCompetency(student.id);
+                                        }}
+                                        onKeyDown={(event) => {
+                                            if (event.key === 'Enter' || event.key === ' ') {
+                                                event.preventDefault();
+                                                event.stopPropagation();
+                                                if (isCompetencyAnalyzing) return;
+                                                onAnalyzeCompetency(student.id);
+                                            }
+                                        }}
+                                        aria-disabled={isCompetencyAnalyzing}
+                                        title="이 학생 세특 역량 분석"
+                                    >
+                                        <Brain size={13} />
+                                        {isCompetencyAnalyzing ? '분석 중' : '분석'}
+                                    </span>
                                 </span>
-                                {competencySummary && <span className={styles.analysisSummary}>{competencySummary}</span>}
-                                <button
-                                    type="button"
-                                    className={styles.rowIconButton}
-                                    onClick={(event) => {
-                                        event.stopPropagation();
-                                        onAnalyzeCompetency(student.id);
-                                    }}
-                                    disabled={isCompetencyAnalyzing}
-                                    title="이 학생 세특 역량 분석"
-                                >
-                                    <Brain size={13} />
-                                    {isCompetencyAnalyzing ? '분석 중' : '분석'}
-                                </button>
-                            </div>
-                        )}
-                        {record?.content ? (
-                            <CompetencyHighlighter
-                                text={record.content}
-                                showLegend={false}
-                                hideAnalyzeButton={true}
-                                savedAnalysis={record.competencyAnalysis ? {
-                                    segments: record.competencyAnalysis.segments,
-                                    contentHash: record.competencyAnalysis.contentHash,
-                                } : undefined}
-                            />
+                                <CompetencyHighlighter
+                                    text={record?.content || ''}
+                                    showLegend={false}
+                                    hideAnalyzeButton={true}
+                                    savedAnalysis={record?.competencyAnalysis ? {
+                                        segments: record.competencyAnalysis.segments,
+                                        contentHash: record.competencyAnalysis.contentHash,
+                                    } : undefined}
+                                />
+                            </span>
                         ) : (
-                            <span className={styles.placeholder}>클릭하여 입력...</span>
+                            <span className={styles.contentPlaceholder}>
+                                <strong>AI로 세특 내용을</strong>
+                                <span>생성해보세요</span>
+                            </span>
                         )}
-                        <span className={styles.cellEditIcon}><Edit3 size={12} /></span>
+                        <span className={styles.contentArrow}>
+                            <ChevronRight size={18} />
+                        </span>
+                        <Edit3 size={12} className={styles.cellEditIcon} />
                     </div>
                 )}
+            </td>
+
+            <td className={styles.actionCell}>
+                <button type="button" className={styles.rowMenuButton} aria-label={`${student.name} 행 메뉴`}>
+                    <MoreVertical size={18} />
+                </button>
             </td>
         </tr>
     );

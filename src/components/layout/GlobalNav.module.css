@@ -3,18 +3,19 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 56px;
-    background: hsl(var(--surface));
-    border-bottom: 1px solid hsl(var(--border));
+    height: 88px;
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid #e7ebf4;
     z-index: 100;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 8px 26px rgba(35, 45, 78, 0.04);
 }
 
 .gnbInner {
     display: flex;
     align-items: center;
     height: 100%;
-    padding: 0 1.5rem;
+    padding: 0 1.35rem;
     max-width: 100%;
 }
 
@@ -22,15 +23,15 @@
 .logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.7rem;
     text-decoration: none;
-    margin-right: 2rem;
+    margin-right: 2.2rem;
 }
 
 .logoIcon {
-    width: 32px;
-    height: 32px;
-    border-radius: 8px;
+    width: 36px;
+    height: 36px;
+    border-radius: 0.7rem;
     background: linear-gradient(135deg, #8b5cf6, #6366f1);
     display: flex;
     align-items: center;
@@ -38,16 +39,17 @@
 }
 
 .logoText {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: hsl(var(--foreground));
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #151a2d;
+    letter-spacing: 0;
 }
 
 /* Main Navigation */
 .mainNav {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1.25rem;
     min-width: 0;
     overflow-x: auto;
     scrollbar-width: none;
@@ -61,20 +63,21 @@
     display: flex;
     flex: 0 0 auto;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
+    gap: 0.55rem;
+    min-height: 2.9rem;
+    padding: 0 1.05rem;
+    border-radius: 0.6rem;
     text-decoration: none;
-    color: hsl(var(--muted-foreground));
-    font-size: 0.9rem;
-    font-weight: 500;
+    color: #606a7e;
+    font-size: 0.93rem;
+    font-weight: 800;
     transition: all 0.2s ease;
     position: relative;
 }
 
 .navItem:hover {
-    color: hsl(var(--foreground));
-    background: hsl(var(--muted) / 0.5);
+    color: #252c3d;
+    background: #f5f6fb;
 }
 
 .navItemDisabled {
@@ -89,27 +92,102 @@
 }
 
 .navItemActive {
-    color: hsl(var(--primary));
-    background: hsl(var(--primary) / 0.1);
+    color: #7a60ee;
+    background: #f5f1ff;
 }
 
 .navItemActive::after {
-    content: '';
-    position: absolute;
-    bottom: -13px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: hsl(var(--primary));
-    border-radius: 2px 2px 0 0;
+    display: none;
 }
 
 .navLabel {
-    font-weight: 500;
+    font-weight: 800;
 }
 
 .spacer {
     flex: 1;
+}
+
+.rightArea {
+    display: flex;
+    align-items: center;
+    gap: 1.15rem;
+    margin-left: 1.25rem;
+}
+
+.notificationButton {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: #30374a;
+    cursor: pointer;
+}
+
+.notificationButton:hover {
+    background: #f5f6fb;
+}
+
+.notificationDot {
+    position: absolute;
+    top: 0.46rem;
+    right: 0.52rem;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 999px;
+    background: #f04462;
+    box-shadow: 0 0 0 3px #fff;
+}
+
+.teacherMenu {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    min-width: 9.5rem;
+}
+
+.teacherAvatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.55rem;
+    height: 2.55rem;
+    border-radius: 999px;
+    background:
+        radial-gradient(circle at 36% 28%, rgba(255, 255, 255, 0.7), transparent 30%),
+        linear-gradient(135deg, #8066f2, #b4a4ff);
+    color: #fff;
+    font-weight: 900;
+    box-shadow: 0 8px 18px rgba(116, 87, 232, 0.22);
+}
+
+.teacherText {
+    display: flex;
+    flex-direction: column;
+    gap: 0.08rem;
+    line-height: 1.2;
+}
+
+.teacherText strong {
+    color: #242b3d;
+    font-size: 0.93rem;
+    font-weight: 900;
+}
+
+.teacherText span {
+    color: #7b8497;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.teacherChevron {
+    color: #7f8798;
+    flex: 0 0 auto;
 }
 
 /* Mobile */
@@ -124,5 +202,15 @@
 
     .navItem {
         padding: 0.5rem 0.75rem;
+    }
+
+    .rightArea {
+        gap: 0.3rem;
+        margin-left: 0.5rem;
+    }
+
+    .teacherText,
+    .teacherChevron {
+        display: none;
     }
 }

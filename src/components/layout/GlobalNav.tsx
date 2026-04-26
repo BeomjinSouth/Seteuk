@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import { Database, GraduationCap, ScanLine, Sparkles, ClipboardCheck, ClipboardList, Handshake, School } from 'lucide-react';
+import { Bell, ChevronDown, Database, GraduationCap, ScanLine, Sparkles, ClipboardCheck, ClipboardList, Handshake, School, UserRound } from 'lucide-react';
 import clsx from 'clsx';
 import { SharedRosterSync } from '@/components/providers/SharedRosterSync';
 import { useAppStore } from '@/lib/store';
@@ -76,6 +76,7 @@ export function GlobalNav() {
     const pathname = usePathname();
     const router = useRouter();
     const teacher = useAppStore((state) => state.teacher);
+    const adminNotifications = useAppStore((state) => state.adminNotifications);
     const hasHydrated = useAppStore((state) => state.hasHydrated);
     const logout = useAppStore((state) => state.logout);
 
@@ -175,6 +176,25 @@ export function GlobalNav() {
 
                     {/* Spacer */}
                     <div className={styles.spacer} />
+
+                    <div className={styles.rightArea}>
+                        <button type="button" className={styles.notificationButton} aria-label="알림">
+                            <Bell size={23} />
+                            {adminNotifications.some((notification) => notification.status === 'pending') && (
+                                <span className={styles.notificationDot} />
+                            )}
+                        </button>
+                        <div className={styles.teacherMenu}>
+                            <div className={styles.teacherAvatar}>
+                                {teacher?.name ? teacher.name.charAt(0) : <UserRound size={18} />}
+                            </div>
+                            <div className={styles.teacherText}>
+                                <strong>{teacher?.name || '로그인 필요'}</strong>
+                                <span>{teacher?.subject || '담당 교과'}</span>
+                            </div>
+                            <ChevronDown size={18} className={styles.teacherChevron} />
+                        </div>
+                    </div>
                 </div>
             </header>
         </>
