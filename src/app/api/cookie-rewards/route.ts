@@ -1,13 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getCookieRewards, saveCookieReward } from '@/lib/sheets';
 import { initializeSheets } from '@/lib/sheets/base';
+import { rejectWhenDifferentSchool, requireTeacherSession } from '@/lib/auth/guards';
 
 export async function GET(request: NextRequest) {
     try {
+        const session = await requireTeacherSession();
+        if (!session.ok) return session.response;
+
         const { searchParams } = new URL(request.url);
         const activeOnlyParam = searchParams.get('activeOnly');
+        const school = searchParams.get('school') || undefined;
+        const schoolGuard = rejectWhenDifferentSchool(session.teacher.school, school);
+        if (schoolGuard) return schoolGuard;
         const rewards = await getCookieRewards({
-            school: searchParams.get('school') || undefined,
+            school,
             activeOnly: activeOnlyParam === 'true',
         });
 
@@ -23,9 +30,14 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
     try {
+        const session = await requireTeacherSession();
+        if (!session.ok) return session.response;
+
         await initializeSheets();
         const body = await request.json();
         const cost = Number(body.cost);
+        const schoolGuard = rejectWhenDifferentSchool(session.teacher.school, body.school ? String(body.school) : undefined);
+        if (schoolGuard) return schoolGuard;
 
         if (!body.school || !body.name || !Number.isFinite(cost) || cost <= 0) {
             return NextResponse.json(

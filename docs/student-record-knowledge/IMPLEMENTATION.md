@@ -85,6 +85,9 @@
 - `/observation-board-2` `records` mode ports the previous observation-record workflow into the same visual system, but is only reachable from stats quick actions so it does not disturb the PNG-matched default screen
 - `/observation-board-2` loads `MaplestoryLight.ttf` and `MaplestoryBold.ttf` from `public/fonts` and applies the Maplestory family across the classroom dashboard
 - `/observation-board-2` stores mentor/mentee slot assignments in local React state, supports adding an empty group, and uses HTML5 drag/drop so a student token or roster item can be dropped onto any mentor/mentee slot
+- `/observation-board-2` persists mentor/mentee edits explicitly per selected class when a teacher drops a student or adds a group, avoiding effect-driven overwrites of saved assignments
+- `/observation-board-2` exposes a selected-class `배치 전체 초기화` action that removes the saved custom pairing and returns the board to automatic pairing while preserving existing △/○ marks
+- `/observation-board-2` stores marked-session pairing snapshots in `observation-board-2-mentor-assignment-snapshots:${teacherKey}` so mid-year pairing changes do not rewrite the role/group context of previously recorded sessions
 - `/observation-board-2` shows a compact single-class selector inside the default mentor panel instead of a long horizontal class-chip rail; changing the selected class filters the mentor pairs, activity table, and roster tray to that class only
 - `/observation-board-2` defaults the mentor screen to one selected 담당 학급 rather than an all-assigned-classes aggregate; the visible-student count setting remains available as an optional cap for default mentor pair generation and the roster tray
 - `/observation-board-2` filters mentor matching, observation compose, growth, and stats to the current teacher's assigned class students only; it does not display sample students when no assigned class roster exists
@@ -96,8 +99,12 @@
 - student data/cookie APIs remain as legacy storage compatibility endpoints, but current user navigation and write generation do not use them
 - Google Sheets runtime credentials are normalized before client creation so Vercel values pasted with wrapping quotes or escaped newlines still produce a valid private key.
 - read-only roster/student-data/cookie APIs skip sheet-creation initialization and read existing sheets directly; mutations still initialize missing sheets before writing.
+- Supabase runtime storage is supported through `src/lib/supabase/*`; when `SUPABASE_URL`/`SUPABASE_PROJECT_ID` and `SUPABASE_SECRET_KEY` are configured, `src/lib/sheets/base.ts` reads and writes `sheet_rows` instead of Google Sheets.
+- `/api/workspace-state` and `/api/observation-board-state` persist Zustand workspace state plus observation-board local state into `app_state_documents`.
+- Login now also creates a signed HTTP-only `seteuk-session` cookie, and storage APIs check the server session's school or teacher key before accepting data.
+- Existing Google Sheets data can be migrated with `scripts/migrate-google-sheets-to-supabase.mjs` after applying `supabase/migrations/202604270001_initial_seteuk_storage.sql`.
 - `/write` does not fetch student-data tab entries before calling `/api/generate`
-- `/write` reads the teacher-scoped observation-board session headers, student △/○ marks, and mentor/mentee assignments from localStorage, sends a derived `observationBoardContext`, and `/api/generate` adds it to the 세특 prompt as `멘토·멘티 활동 해석`
+- `/write` reads the teacher-scoped observation-board session headers, student △/○ marks, current mentor/mentee assignments, and per-session assignment snapshots from localStorage, sends a derived `observationBoardContext`, and `/api/generate` adds it to the 세특 prompt as `멘토·멘티 활동 해석`
 - competency highlighting renders against the source text so invalid AI segment indexes cannot drop text from the display
 - school roster data syncs through `/api/students` into shared sheet-backed storage, while teaching-class connections remain teacher-specific in local app state
 - repeated uploads for the same school are merged server-side by roster key and return add/update/skip counts so overlapping students do not duplicate

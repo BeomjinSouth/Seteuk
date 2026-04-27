@@ -34,6 +34,9 @@
 - main navigation integration: 학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검 (개발중) 순서 적용
 - student data tab: removed along with `/student-data`; write generation no longer loads student-data tab entries
 - student data APIs: `/api/student-data`, `/api/cookies`, `/api/cookie-rewards` retained as legacy Google Sheets/local fallback storage endpoints
+- Supabase runtime store: implemented behind `SUPABASE_URL`/`SUPABASE_PROJECT_ID` + `SUPABASE_SECRET_KEY`, with `sheet_rows` preserving existing API contracts and Google Sheets as fallback when Supabase is not configured
+- workspace/observation-board state sync: implemented via `/api/workspace-state`, `/api/observation-board-state`, `WorkspaceSupabaseSync`, and observation-board save/load hooks
+- server session guard: login issues a signed HTTP-only `seteuk-session` cookie and key storage APIs validate school/teacher scope before writes
 - Google Sheets auth resilience: service account email/spreadsheet id are trimmed, private keys tolerate wrapping quotes, escaped newlines, and base64 PEM values, and read-only roster/student-data/cookie APIs no longer run sheet creation first
 - write generation context: observation notes, interpreted mentor/mentee activity summaries derived from observation-board △/○ marks, learning data, and OCR evaluation context are injected into `/api/generate`; student-data tab entries are not loaded
 - competency color check: source-text-safe rendering, per-row analysis button/status, and stale analysis clearing implemented
@@ -68,6 +71,7 @@
 
 ## Recent Changes
 
+- 2026-04-27: added Supabase-backed runtime storage, workspace/observation-board state sync, signed server sessions, and a Google Sheets to Supabase migration script
 - 2026-04-26: moved the observation-board-2 growth record action dock above the student grid so selected students can be saved without scrolling past the roster
 - 2026-04-26: changed observation-board-2 △/○ activity marks from raw prompt entries into interpreted mentor/mentee activity summaries for `/write` and `/api/generate`
 - 2026-04-26: connected observation-board-2 mentor/mentee activity marks to automatic cookie ledger deltas using blank=0, △=1, and ○=2

@@ -302,6 +302,9 @@ Run `npm run sync:knowledge-docs` from the web repo to refresh it.
 - 출처 기반 설명 가능성
 - 결과 재현성
 - 비밀글 안전 처리
+- Supabase 저장소 전환 후에도 기존 API 응답 계약 유지
+- 교사별 서버 세션을 기준으로 학교/교사 범위 데이터 접근 제한
+- 브라우저 localStorage에 있던 교사 작업공간과 관찰판 상태의 서버 동기화
 
 ## 12. 성공 지표
 

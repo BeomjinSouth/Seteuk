@@ -7,6 +7,7 @@ import {
     updateObservation,
     deleteObservation,
 } from '@/lib/sheets';
+import { rejectWhenDifferentTeacher, requireTeacherSession } from '@/lib/auth/guards';
 
 // GET - 관찰 메모 조회
 /**
@@ -20,10 +21,15 @@ import {
  *   - data: Array of Observation objects
  */
 export async function GET(request: NextRequest) {
+    const session = await requireTeacherSession();
+    if (!session.ok) return session.response;
+
     const searchParams = request.nextUrl.searchParams;
     const studentId = searchParams.get('studentId');
     const teacherKey = searchParams.get('teacherKey') || undefined;
     const classId = searchParams.get('classId') || undefined;
+    const teacherGuard = rejectWhenDifferentTeacher(session.teacher.teacherKey, teacherKey);
+    if (teacherGuard) return teacherGuard;
 
     try {
         let observations;
@@ -35,10 +41,13 @@ export async function GET(request: NextRequest) {
         } else {
             observations = await getObservations();
         }
+        const visibleObservations = observations.filter((observation) =>
+            !observation.teacherKey || observation.teacherKey === session.teacher.teacherKey
+        );
 
         return NextResponse.json({
             success: true,
-            data: observations,
+            data: visibleObservations,
         });
     } catch (error) {
         console.error('Failed to get observations:', error);
@@ -73,6 +82,9 @@ export async function GET(request: NextRequest) {
  */
 export async function POST(request: NextRequest) {
     try {
+        const session = await requireTeacherSession();
+        if (!session.ok) return session.response;
+
         const body = await request.json();
         const {
             studentId,
@@ -89,6 +101,8 @@ export async function POST(request: NextRequest) {
             ocrData,
             imageUrl,
         } = body;
+        const teacherGuard = rejectWhenDifferentTeacher(session.teacher.teacherKey, teacherKey);
+        if (teacherGuard) return teacherGuard;
 
         if (!studentId || !classId || !teacherKey || !date || !memo) {
             return NextResponse.json(
@@ -146,8 +160,13 @@ export async function POST(request: NextRequest) {
  */
 export async function PUT(request: NextRequest) {
     try {
+        const session = await requireTeacherSession();
+        if (!session.ok) return session.response;
+
         const body = await request.json();
         const { id, ...data } = body;
+        const teacherGuard = rejectWhenDifferentTeacher(session.teacher.teacherKey, data.teacherKey);
+        if (teacherGuard) return teacherGuard;
 
         if (!id) {
             return NextResponse.json(
@@ -188,6 +207,9 @@ export async function PUT(request: NextRequest) {
  *   - message: string
  */
 export async function DELETE(request: NextRequest) {
+    const session = await requireTeacherSession();
+    if (!session.ok) return session.response;
+
     const searchParams = request.nextUrl.searchParams;
     const id = searchParams.get('id');
 

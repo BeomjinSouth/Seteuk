@@ -118,6 +118,17 @@ interface AppState {
     setKeywords: (keywords: string[]) => void;
     addKeyword: (keyword: string) => void;
     removeKeyword: (keyword: string) => void;
+
+    replaceSyncedWorkspaceState: (data: Partial<Pick<AppState,
+        'classes'
+        | 'students'
+        | 'records'
+        | 'exampleTemplate'
+        | 'curriculumContents'
+        | 'adminNotifications'
+        | 'forbiddenWords'
+        | 'keywords'
+    >>) => void;
 }
 
 // Default example template for few-shot learning
@@ -457,6 +468,17 @@ export const useAppStore = create<AppState>()(
 
             removeKeyword: (keyword) => set((state) => ({
                 keywords: state.keywords.filter(k => k !== keyword)
+            })),
+
+            replaceSyncedWorkspaceState: (data) => set((state) => ({
+                classes: Array.isArray(data.classes) ? data.classes : state.classes,
+                students: Array.isArray(data.students) ? data.students : state.students,
+                records: Array.isArray(data.records) ? data.records : state.records,
+                exampleTemplate: typeof data.exampleTemplate === 'string' ? data.exampleTemplate : state.exampleTemplate,
+                curriculumContents: Array.isArray(data.curriculumContents) ? data.curriculumContents : state.curriculumContents,
+                adminNotifications: Array.isArray(data.adminNotifications) ? data.adminNotifications : state.adminNotifications,
+                forbiddenWords: Array.isArray(data.forbiddenWords) ? data.forbiddenWords : state.forbiddenWords,
+                keywords: Array.isArray(data.keywords) ? data.keywords : state.keywords,
             })),
         }),
         {

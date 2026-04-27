@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getRecords, saveRecord } from '@/lib/sheets';
+import { rejectWhenDifferentTeacher, requireTeacherSession } from '@/lib/auth/guards';
 
 /**
  * Retrieves all student records (drafts/completed).
@@ -10,7 +11,12 @@ import { getRecords, saveRecord } from '@/lib/sheets';
  */
 export async function GET() {
     try {
-        const records = await getRecords();
+        const session = await requireTeacherSession();
+        if (!session.ok) return session.response;
+
+        const records = (await getRecords()).filter((record) =>
+            !record.teacherKey || record.teacherKey === session.teacher.teacherKey
+        );
         return NextResponse.json({ success: true, records });
     } catch (error) {
         console.error('Get records error:', error);
@@ -36,8 +42,13 @@ export async function GET() {
  */
 export async function POST(request: NextRequest) {
     try {
+        const session = await requireTeacherSession();
+        if (!session.ok) return session.response;
+
         const body = await request.json();
         const { id, studentId, classId, teacherKey, content, status } = body;
+        const teacherGuard = rejectWhenDifferentTeacher(session.teacher.teacherKey, teacherKey);
+        if (teacherGuard) return teacherGuard;
 
         if (!studentId || !classId) {
             return NextResponse.json(
@@ -50,7 +61,7 @@ export async function POST(request: NextRequest) {
             id: id || `r-${Date.now()}`,
             studentId,
             classId,
-            teacherKey,
+            teacherKey: teacherKey || session.teacher.teacherKey,
             content: content || '',
             status: status || 'draft',
             lastUpdated: new Date().toISOString(),

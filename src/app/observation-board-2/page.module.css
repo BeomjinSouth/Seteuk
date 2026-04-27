@@ -2461,14 +2461,21 @@
     color: #2a88d8;
 }
 
-.addGroupButton {
+.mentorActionRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.48rem;
+    margin-top: 0.62rem;
+}
+
+.addGroupButton,
+.resetMentorButton {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.38rem;
     width: 100%;
     min-height: 42px;
-    margin-top: 0.62rem;
     border: 2px solid #8cc9f0;
     border-radius: 14px;
     background: #eaf7ff;
@@ -2478,7 +2485,14 @@
     cursor: pointer;
 }
 
-.addGroupButton:hover {
+.resetMentorButton {
+    border-color: #f0bf7c;
+    background: #fff7e8;
+    color: #8c4d00;
+}
+
+.addGroupButton:hover,
+.resetMentorButton:hover {
     border-color: #2f86d8;
     background: #ffffff;
 }

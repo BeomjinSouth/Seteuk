@@ -5,6 +5,7 @@ import {
     updateAssessment,
     deleteAssessment,
 } from '@/lib/sheets';
+import { requireTeacherSession } from '@/lib/auth/guards';
 
 // GET - 평가 과제 조회
 // GET - 평가 과제 조회
@@ -17,6 +18,9 @@ import {
  */
 export async function GET() {
     try {
+        const session = await requireTeacherSession();
+        if (!session.ok) return session.response;
+
         const assessments = await getAssessments();
 
         return NextResponse.json({
@@ -52,6 +56,9 @@ export async function GET() {
  */
 export async function POST(request: NextRequest) {
     try {
+        const session = await requireTeacherSession();
+        if (!session.ok) return session.response;
+
         const body = await request.json();
         const {
             title,
@@ -107,6 +114,9 @@ export async function POST(request: NextRequest) {
  */
 export async function PUT(request: NextRequest) {
     try {
+        const session = await requireTeacherSession();
+        if (!session.ok) return session.response;
+
         const body = await request.json();
         const { id, ...data } = body;
 
@@ -144,6 +154,9 @@ export async function PUT(request: NextRequest) {
  *   - message: string
  */
 export async function DELETE(request: NextRequest) {
+    const session = await requireTeacherSession();
+    if (!session.ok) return session.response;
+
     const searchParams = request.nextUrl.searchParams;
     const id = searchParams.get('id');
 

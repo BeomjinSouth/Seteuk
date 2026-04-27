@@ -32,10 +32,27 @@ export default function LoginPage() {
     }
 
     setIsLoading(true);
-    await new Promise(r => setTimeout(r, 250));
+    try {
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ school, userId, password }),
+      });
+      const payload = await response.json() as { success?: boolean; error?: string };
 
-    login(result.teacherName, SEONGHO_DEFAULT_SUBJECT, result.school);
-    router.push('/students');
+      if (!response.ok || !payload.success) {
+        setLoginError(payload.error || '로그인에 실패했습니다.');
+        return;
+      }
+
+      login(result.teacherName, SEONGHO_DEFAULT_SUBJECT, result.school);
+      router.push('/students');
+    } catch (error) {
+      console.error('Login failed:', error);
+      setLoginError('로그인 세션을 만들지 못했습니다.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

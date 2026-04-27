@@ -6,12 +6,18 @@ import {
     getCookieTransactions,
 } from '@/lib/sheets';
 import { initializeSheets } from '@/lib/sheets/base';
+import { rejectWhenDifferentSchool, rejectWhenDifferentTeacher, requireTeacherSession } from '@/lib/auth/guards';
 
 export async function GET(request: NextRequest) {
     try {
+        const session = await requireTeacherSession();
+        if (!session.ok) return session.response;
+
         const { searchParams } = new URL(request.url);
         const school = searchParams.get('school') || undefined;
         const studentId = searchParams.get('studentId') || undefined;
+        const schoolGuard = rejectWhenDifferentSchool(session.teacher.school, school);
+        if (schoolGuard) return schoolGuard;
         const transactions = await getCookieTransactions({ school, studentId });
         const balances = calculateCookieBalances(transactions);
 
@@ -27,9 +33,16 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
     try {
+        const session = await requireTeacherSession();
+        if (!session.ok) return session.response;
+
         await initializeSheets();
         const body = await request.json();
         const type = body.type;
+        const schoolGuard = rejectWhenDifferentSchool(session.teacher.school, body.school ? String(body.school) : undefined);
+        if (schoolGuard) return schoolGuard;
+        const teacherGuard = rejectWhenDifferentTeacher(session.teacher.teacherKey, body.teacherKey ? String(body.teacherKey) : undefined);
+        if (teacherGuard) return teacherGuard;
 
         if (!body.school || !body.studentId || !body.teacherKey || (type !== 'award' && type !== 'redeem' && type !== 'adjust')) {
             return NextResponse.json(
@@ -38,7 +51,7 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        let amount = Number(body.amount);
+        const amount = Number(body.amount);
         if (!Number.isFinite(amount) || amount === 0) {
             return NextResponse.json(
                 { success: false, error: '쿠키 수량이 올바르지 않습니다.' },

@@ -1,6 +1,14 @@
 import { google } from 'googleapis';
 import { promises as fs } from 'fs';
 import path from 'path';
+import { isSupabaseConfigured } from '@/lib/supabase/config';
+import {
+    appendSupabaseSheetRow,
+    deleteSupabaseSheetRows,
+    readSupabaseSheet,
+    updateSupabaseSheetRow,
+    writeSupabaseSheet,
+} from '@/lib/supabase/sheet-store';
 
 function stripWrappingQuotes(value: string): string {
     const trimmed = value.trim();
@@ -150,6 +158,10 @@ export function columnNumberToLetters(n: number): string {
  * @returns 2D array of string values.
  */
 export async function readSheet(sheetName: string): Promise<string[][]> {
+    if (isSupabaseConfigured()) {
+        return readSupabaseSheet(sheetName);
+    }
+
     try {
         const sheets = getSheets();
         const response = await sheets.spreadsheets.values.get({
@@ -178,6 +190,11 @@ export async function readSheet(sheetName: string): Promise<string[][]> {
  * @param values - Array of values to append (one row).
  */
 export async function appendRow(sheetName: string, values: string[]): Promise<void> {
+    if (isSupabaseConfigured()) {
+        await appendSupabaseSheetRow(sheetName, values);
+        return;
+    }
+
     try {
         const sheets = getSheets();
         await sheets.spreadsheets.values.append({
@@ -204,6 +221,11 @@ export async function appendRow(sheetName: string, values: string[]): Promise<vo
  * @param values - Full sheet payload, including header rows when needed.
  */
 export async function writeSheet(sheetName: string, values: string[][]): Promise<void> {
+    if (isSupabaseConfigured()) {
+        await writeSupabaseSheet(sheetName, values);
+        return;
+    }
+
     try {
         const sheets = getSheets();
         await sheets.spreadsheets.values.clear({
@@ -244,6 +266,11 @@ export async function writeSheet(sheetName: string, values: string[][]): Promise
  * @param values - Values to update.
  */
 export async function updateRow(sheetName: string, rowIndex: number, values: string[]): Promise<void> {
+    if (isSupabaseConfigured()) {
+        await updateSupabaseSheetRow(sheetName, rowIndex, values);
+        return;
+    }
+
     try {
         const sheets = getSheets();
 
@@ -276,6 +303,11 @@ export async function updateRow(sheetName: string, rowIndex: number, values: str
  * @param rowIndex - 1-based row index to delete.
  */
 export async function deleteRow(sheetName: string, rowIndex: number): Promise<void> {
+    if (isSupabaseConfigured()) {
+        await deleteSupabaseSheetRows(sheetName, [rowIndex]);
+        return;
+    }
+
     try {
         const sheets = getSheets();
         await sheets.spreadsheets.batchUpdate({
@@ -305,6 +337,10 @@ export async function deleteRow(sheetName: string, rowIndex: number): Promise<vo
  * Retrieves the numeric Sheet ID (gid) by sheet name.
  */
 export async function getSheetId(sheetName: string): Promise<number> {
+    if (isSupabaseConfigured()) {
+        return 0;
+    }
+
     try {
         const sheets = getSheets();
         const response = await sheets.spreadsheets.get({
@@ -329,6 +365,11 @@ export async function getSheetId(sheetName: string): Promise<number> {
  */
 export async function deleteRows(sheetName: string, rowIndices: number[]): Promise<void> {
     if (rowIndices.length === 0) return;
+
+    if (isSupabaseConfigured()) {
+        await deleteSupabaseSheetRows(sheetName, rowIndices);
+        return;
+    }
 
     try {
         const sheetId = await getSheetId(sheetName);
@@ -366,6 +407,10 @@ export async function deleteRows(sheetName: string, rowIndices: number[]): Promi
  * Creates any missing sheets.
  */
 export async function initializeSheets(): Promise<{ created: string[]; errors: string[] }> {
+    if (isSupabaseConfigured()) {
+        return { created: [], errors: [] };
+    }
+
     try {
         const sheets = getSheets();
         const response = await sheets.spreadsheets.get({

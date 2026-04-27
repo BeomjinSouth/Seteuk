@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { addStudent, getStudents, mergeStudentsForSchool, updateStudent } from '@/lib/sheets';
 import { initializeSheets } from '@/lib/sheets/base';
+import { rejectWhenDifferentSchool, requireTeacherSession } from '@/lib/auth/guards';
 
 /**
  * Retrieves student list.
@@ -14,9 +15,14 @@ import { initializeSheets } from '@/lib/sheets/base';
  */
 export async function GET(request: NextRequest) {
     try {
+        const session = await requireTeacherSession();
+        if (!session.ok) return session.response;
+
         const { searchParams } = new URL(request.url);
         const school = searchParams.get('school') || undefined;
         const grade = searchParams.get('grade');
+        const schoolGuard = rejectWhenDifferentSchool(session.teacher.school, school);
+        if (schoolGuard) return schoolGuard;
 
         const students = await getStudents({
             school,
@@ -48,12 +54,17 @@ export async function GET(request: NextRequest) {
  */
 export async function POST(request: NextRequest) {
     try {
+        const session = await requireTeacherSession();
+        if (!session.ok) return session.response;
+
         const body = await request.json();
         await initializeSheets();
 
         if (body.mode === 'merge_school_roster') {
             const school = typeof body.school === 'string' ? body.school.trim() : '';
             const students = Array.isArray(body.students) ? body.students : [];
+            const schoolGuard = rejectWhenDifferentSchool(session.teacher.school, school);
+            if (schoolGuard) return schoolGuard;
 
             if (!school || students.length === 0) {
                 return NextResponse.json(
@@ -67,6 +78,8 @@ export async function POST(request: NextRequest) {
         }
 
         const { classId, number, name, learningData, grade, school, classNumber, classLearningData } = body;
+        const schoolGuard = rejectWhenDifferentSchool(session.teacher.school, school);
+        if (schoolGuard) return schoolGuard;
 
         if (!classId || !number || !name) {
             return NextResponse.json(
@@ -108,8 +121,13 @@ export async function POST(request: NextRequest) {
  */
 export async function PUT(request: NextRequest) {
     try {
+        const session = await requireTeacherSession();
+        if (!session.ok) return session.response;
+
         const body = await request.json();
         const { id, ...data } = body;
+        const schoolGuard = rejectWhenDifferentSchool(session.teacher.school, data.school);
+        if (schoolGuard) return schoolGuard;
         await initializeSheets();
 
         if (!id) {

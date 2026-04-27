@@ -6,6 +6,7 @@ import {
 } from '@/lib/sheets';
 import { initializeSheets } from '@/lib/sheets/base';
 import { StudentDataKind, StudentDataPayload } from '@/types';
+import { rejectWhenDifferentSchool, rejectWhenDifferentTeacher, requireTeacherSession } from '@/lib/auth/guards';
 
 function parseKind(value: unknown): StudentDataKind | null {
     return value === 'note' || value === 'grade' || value === 'mentor_match'
@@ -15,15 +16,25 @@ function parseKind(value: unknown): StudentDataKind | null {
 
 export async function GET(request: NextRequest) {
     try {
+        const session = await requireTeacherSession();
+        if (!session.ok) return session.response;
+
         const { searchParams } = new URL(request.url);
         const includeInAiParam = searchParams.get('includeInAi');
         const includeInAi = includeInAiParam === null
             ? undefined
             : includeInAiParam === 'true';
 
+        const school = searchParams.get('school') || undefined;
+        const teacherKey = searchParams.get('teacherKey') || undefined;
+        const schoolGuard = rejectWhenDifferentSchool(session.teacher.school, school);
+        if (schoolGuard) return schoolGuard;
+        const teacherGuard = rejectWhenDifferentTeacher(session.teacher.teacherKey, teacherKey);
+        if (teacherGuard) return teacherGuard;
+
         const entries = await getStudentDataEntries({
-            school: searchParams.get('school') || undefined,
-            teacherKey: searchParams.get('teacherKey') || undefined,
+            school,
+            teacherKey: teacherKey || session.teacher.teacherKey,
             classId: searchParams.get('classId') || undefined,
             semester: searchParams.get('semester') === '1' || searchParams.get('semester') === '2'
                 ? searchParams.get('semester') as '1' | '2'
@@ -44,9 +55,16 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
     try {
+        const session = await requireTeacherSession();
+        if (!session.ok) return session.response;
+
         await initializeSheets();
         const body = await request.json();
         const kind = parseKind(body.kind);
+        const schoolGuard = rejectWhenDifferentSchool(session.teacher.school, body.school ? String(body.school) : undefined);
+        if (schoolGuard) return schoolGuard;
+        const teacherGuard = rejectWhenDifferentTeacher(session.teacher.teacherKey, body.teacherKey ? String(body.teacherKey) : undefined);
+        if (teacherGuard) return teacherGuard;
 
         if (!kind || !body.school || !body.teacherKey || !body.classId || !body.studentId) {
             return NextResponse.json(
@@ -92,6 +110,9 @@ export async function PUT(request: NextRequest) {
 
 export async function DELETE(request: NextRequest) {
     try {
+        const session = await requireTeacherSession();
+        if (!session.ok) return session.response;
+
         await initializeSheets();
         const id = request.nextUrl.searchParams.get('id');
         if (!id) {

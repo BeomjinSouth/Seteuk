@@ -208,6 +208,15 @@ Google Sheets 저장소에는 과거 데이터 호환을 위해 다음 시트를
 - 쿠키 교환은 잔액이 충분할 때만 원장에 `redeem` 거래를 추가한다.
 - 신규 사용자 흐름에서는 `/student-data` 화면과 쿠키 관리 UI를 노출하지 않는다.
 
+## 4.7 Supabase 저장소 전환
+
+- 웹앱은 `SUPABASE_URL` 또는 `SUPABASE_PROJECT_ID`, 그리고 서버 전용 `SUPABASE_SECRET_KEY`가 설정되면 Google Sheets 대신 Supabase를 기본 저장소로 사용한다.
+- 기존 `src/lib/sheets/*` 호출 계약은 유지하고, `sheet_rows(sheet_name, row_index, cells)` 호환 테이블에 기존 시트 행을 JSONB 배열로 저장한다.
+- 브라우저에 있던 교사 작업공간 상태는 `/api/workspace-state`, 관찰판 차시/표시/멘토배치/공지 상태는 `/api/observation-board-state`를 통해 `app_state_documents`에 동기화한다.
+- 성호중학교 로그인은 기존 입력 방식 그대로 유지하되, 성공 시 서버에서 서명된 HTTP-only `seteuk-session` 쿠키를 발급하고 저장 API는 이 세션의 학교/교사 범위를 검사한다.
+- 기존 Google Sheets 데이터는 `scripts/migrate-google-sheets-to-supabase.mjs`로 Supabase `sheet_rows`에 이관한다.
+- Supabase 원격 마이그레이션에는 프로젝트 DB 비밀번호와 CLI/관리 토큰이 필요하며, 노출된 토큰은 폐기 후 새 값으로 환경변수에만 보관한다.
+
 ## 4.5 OpenAI 모델/비전 기준
 
 - 웹앱의 OpenAI 기반 생성, 점검, OCR, 채점 흐름은 모두 `gpt-5.4-mini`를 기본 모델로 사용한다.

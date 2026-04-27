@@ -6,6 +6,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { Bell, ChevronDown, GraduationCap, ScanLine, Sparkles, ClipboardCheck, ClipboardList, School, UserRound } from 'lucide-react';
 import clsx from 'clsx';
 import { SharedRosterSync } from '@/components/providers/SharedRosterSync';
+import { WorkspaceSupabaseSync } from '@/components/providers/WorkspaceSupabaseSync';
 import { useAppStore } from '@/lib/store';
 import { isAuthorizedSeonghoTeacher } from '@/lib/seongho-auth';
 import styles from './GlobalNav.module.css';
@@ -82,6 +83,38 @@ export function GlobalNav() {
         }
     }, [hasHydrated, logout, router, teacher]);
 
+    useEffect(() => {
+        if (!hasHydrated || !teacher || !isAuthorizedSeonghoTeacher(teacher)) return;
+
+        const controller = new AbortController();
+
+        const verifyServerSession = async () => {
+            try {
+                const response = await fetch('/api/auth/session', {
+                    cache: 'no-store',
+                    signal: controller.signal,
+                });
+                if (!response.ok) throw new Error('Session check failed');
+
+                const payload = await response.json() as { teacher?: { teacherKey?: string } | null };
+                if (payload.teacher?.teacherKey !== teacher.teacherKey) {
+                    logout();
+                    router.replace('/');
+                }
+            } catch (error) {
+                if (!controller.signal.aborted) {
+                    console.error('Server session check failed:', error);
+                    logout();
+                    router.replace('/');
+                }
+            }
+        };
+
+        void verifyServerSession();
+
+        return () => controller.abort();
+    }, [hasHydrated, logout, router, teacher]);
+
     if (!hasHydrated) {
         return null;
     }
@@ -110,6 +143,7 @@ export function GlobalNav() {
     return (
         <>
             <SharedRosterSync />
+            <WorkspaceSupabaseSync />
             <header className={styles.gnb}>
                 <div className={styles.gnbInner}>
                     {/* Logo */}

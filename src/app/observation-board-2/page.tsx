@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import type { DragEvent, ReactNode } from 'react';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
     BarChart3,
@@ -19,6 +19,7 @@ import {
     Handshake,
     Megaphone,
     Plus,
+    RotateCcw,
     Save,
     Search,
     Settings,
@@ -38,13 +39,16 @@ import {
     areObservationBoardMentorAssignmentsEqual,
     getObservationBoardMarkStorageKey,
     getObservationBoardMentorAssignmentStorageKey,
+    getObservationBoardMentorAssignmentSnapshotStorageKey,
     getObservationBoardSessionStorageKey,
     normalizeObservationBoardActivitySessions,
+    normalizeObservationBoardMentorAssignmentSnapshotsByClass,
     normalizeObservationBoardMentorAssignmentsByClass,
     normalizeObservationBoardMarks,
     type ObservationBoardActivitySession,
     type ObservationBoardMarkState,
     type ObservationBoardMentorAssignment,
+    type ObservationBoardMentorAssignmentSnapshotsByClass,
     type ObservationBoardMentorAssignmentsByClass,
     type ObservationBoardMentorRole,
 } from '@/lib/observation-board-ai-context';
@@ -81,6 +85,14 @@ interface NoticeItem {
     dueDate: string;
     completed: boolean;
     createdAt: string;
+}
+
+interface ObservationBoardRemoteState {
+    activitySessions: ActivitySession[];
+    marks: Record<string, MarkState>;
+    mentorAssignmentsByClass: ObservationBoardMentorAssignmentsByClass;
+    mentorAssignmentSnapshotsByClass: ObservationBoardMentorAssignmentSnapshotsByClass;
+    notices: NoticeItem[];
 }
 
 type GrowthTimelineItem = {
@@ -156,7 +168,7 @@ function getGrowthCookieCount(observation: Observation) {
     }, 0);
 }
 
-function getDefaultMark(_studentIndex: number, _sessionIndex: number): MarkState {
+function getDefaultMark(): MarkState {
     return 'none';
 }
 
@@ -221,6 +233,14 @@ function buildMentorAssignments(studentsForBoard: Student[]): MentorGroupAssignm
     }));
 }
 
+function cloneMentorAssignments(assignments: MentorGroupAssignment[]): MentorGroupAssignment[] {
+    return assignments.map((assignment) => ({ ...assignment }));
+}
+
+function isActiveMark(mark?: MarkState) {
+    return mark === 'participated' || mark === 'excellent';
+}
+
 function getVisibleRosterStudents<T>(studentsForBoard: T[], visibleRosterCount: VisibleRosterCount) {
     return visibleRosterCount === 'all'
         ? studentsForBoard
@@ -259,10 +279,15 @@ export default function ObservationBoard2Page() {
     const [loadedNoticeKey, setLoadedNoticeKey] = useState('');
     const [mentorAssignments, setMentorAssignments] = useState<MentorGroupAssignment[]>([]);
     const [mentorAssignmentsByClass, setMentorAssignmentsByClass] = useState<ObservationBoardMentorAssignmentsByClass>({});
+    const [mentorAssignmentSnapshotsByClass, setMentorAssignmentSnapshotsByClass] =
+        useState<ObservationBoardMentorAssignmentSnapshotsByClass>({});
     const [activitySessions, setActivitySessions] = useState<ActivitySession[]>(defaultActivitySessions);
     const [loadedSessionKey, setLoadedSessionKey] = useState('');
     const [loadedMarkKey, setLoadedMarkKey] = useState('');
     const [loadedMentorAssignmentKey, setLoadedMentorAssignmentKey] = useState('');
+    const [loadedMentorAssignmentSnapshotKey, setLoadedMentorAssignmentSnapshotKey] = useState('');
+    const [isRemoteBoardLoaded, setIsRemoteBoardLoaded] = useState(false);
+    const lastRemoteBoardPayloadRef = useRef('');
 
     useEffect(() => {
         setIsStoreReady(useAppStore.persist.hasHydrated());
@@ -281,6 +306,33 @@ export default function ObservationBoard2Page() {
             logout();
             router.replace('/');
         }
+
+        const controller = new AbortController();
+        const verifyServerSession = async () => {
+            try {
+                const response = await fetch('/api/auth/session', {
+                    cache: 'no-store',
+                    signal: controller.signal,
+                });
+                if (!response.ok) throw new Error('Session check failed');
+
+                const payload = await response.json() as { teacher?: { teacherKey?: string } | null };
+                if (payload.teacher?.teacherKey !== teacher.teacherKey) {
+                    logout();
+                    router.replace('/');
+                }
+            } catch (error) {
+                if (!controller.signal.aborted) {
+                    console.error('Server session check failed:', error);
+                    logout();
+                    router.replace('/');
+                }
+            }
+        };
+
+        void verifyServerSession();
+
+        return () => controller.abort();
     }, [isStoreReady, logout, router, teacher]);
 
     const teacherClasses = useMemo(
@@ -317,16 +369,20 @@ export default function ObservationBoard2Page() {
         return classStudents;
     }, [selectedClass, students, teacherStudents]);
 
+    const sortedBoardStudents = useMemo(
+        () => [...boardStudents].sort(sortStudents),
+        [boardStudents]
+    );
+
     const filteredStudents = useMemo(() => {
         const normalizedQuery = searchQuery.trim().toLowerCase();
-        return boardStudents
+        return sortedBoardStudents
             .filter((student) => !normalizedQuery || student.name.toLowerCase().includes(normalizedQuery))
-            .sort(sortStudents);
-    }, [boardStudents, searchQuery]);
+    }, [searchQuery, sortedBoardStudents]);
 
     const featuredStudents = useMemo(
-        () => getVisibleRosterStudents(filteredStudents, visibleRosterCount),
-        [filteredStudents, visibleRosterCount]
+        () => getVisibleRosterStudents(sortedBoardStudents, visibleRosterCount),
+        [sortedBoardStudents, visibleRosterCount]
     );
 
     const defaultMentorAssignments = useMemo(
@@ -334,15 +390,19 @@ export default function ObservationBoard2Page() {
         [featuredStudents]
     );
 
+    const currentMentorAssignments = useMemo(
+        () => mentorAssignments.length > 0 ? mentorAssignments : defaultMentorAssignments,
+        [defaultMentorAssignments, mentorAssignments]
+    );
+
     const mentorGroups = useMemo<MentorGroupView[]>(() => {
-        const source = mentorAssignments.length > 0 ? mentorAssignments : defaultMentorAssignments;
-        return source.map((group) => ({
+        return currentMentorAssignments.map((group) => ({
             id: group.id,
             title: group.title,
             mentor: group.mentorId ? studentLookup.get(group.mentorId) : undefined,
             mentee: group.menteeId ? studentLookup.get(group.menteeId) : undefined,
         }));
-    }, [defaultMentorAssignments, mentorAssignments, studentLookup]);
+    }, [currentMentorAssignments, studentLookup]);
 
     const selectedStudents = useMemo(
         () => filteredStudents.filter((student) => selectedStudentIds.has(student.id)),
@@ -402,18 +462,13 @@ export default function ObservationBoard2Page() {
             .sort((a, b) => getObservationTimestamp(b) - getObservationTimestamp(a));
     }, [scopedObservations, searchQuery, studentLookup]);
 
-    const assignedMentorStudents = useMemo(
-        () => mentorGroups.flatMap((group) => [group.mentor, group.mentee]).filter(Boolean) as Student[],
-        [mentorGroups]
-    );
-
     const markStatsByStudent = useMemo(() => {
         const stats = new Map<string, MarkSummary>();
 
-        assignedMentorStudents.forEach((student, studentIndex) => {
+        sortedBoardStudents.forEach((student) => {
             const summary = { participated: 0, excellent: 0 };
-            activitySessions.forEach((session, sessionIndex) => {
-                const mark = marks[`${student.id}:${session.id}`] ?? getDefaultMark(studentIndex, sessionIndex);
+            activitySessions.forEach((session) => {
+                const mark = marks[`${student.id}:${session.id}`] ?? getDefaultMark();
                 if (mark === 'participated') summary.participated += 1;
                 if (mark === 'excellent') summary.excellent += 1;
             });
@@ -421,7 +476,7 @@ export default function ObservationBoard2Page() {
         });
 
         return stats;
-    }, [activitySessions, assignedMentorStudents, marks]);
+    }, [activitySessions, marks, sortedBoardStudents]);
 
     const totalExcellent = Array.from(markStatsByStudent.values()).reduce((sum, summary) => (
         sum + summary.excellent
@@ -489,7 +544,7 @@ export default function ObservationBoard2Page() {
         const canUseSavedAssignments = savedAssignments.length > 0
             && (assignedIds.length === 0 || assignedIds.every((studentId) => availableIds.has(studentId)));
 
-        setMentorAssignments(canUseSavedAssignments ? savedAssignments : defaultMentorAssignments);
+        setMentorAssignments(cloneMentorAssignments(canUseSavedAssignments ? savedAssignments : defaultMentorAssignments));
     }, [boardStudents, defaultMentorAssignments, mentorAssignmentsByClass, selectedClassId]);
 
     useEffect(() => {
@@ -514,18 +569,25 @@ export default function ObservationBoard2Page() {
     }, [loadedMentorAssignmentKey, mentorAssignmentsByClass]);
 
     useEffect(() => {
-        if (selectedClassId === 'all' || mentorAssignments.length === 0) return;
+        const storageKey = getObservationBoardMentorAssignmentSnapshotStorageKey(teacher?.teacherKey);
+        setLoadedMentorAssignmentSnapshotKey(storageKey);
 
-        setMentorAssignmentsByClass((prev) => {
-            const current = prev[selectedClassId] ?? [];
-            if (areObservationBoardMentorAssignmentsEqual(current, mentorAssignments)) return prev;
+        try {
+            const saved = window.localStorage.getItem(storageKey)
+                ?? window.localStorage.getItem(getObservationBoardMentorAssignmentSnapshotStorageKey());
+            setMentorAssignmentSnapshotsByClass(saved
+                ? normalizeObservationBoardMentorAssignmentSnapshotsByClass(JSON.parse(saved))
+                : {});
+        } catch (error) {
+            console.error('Failed to load mentor assignment snapshots:', error);
+            setMentorAssignmentSnapshotsByClass({});
+        }
+    }, [teacher?.teacherKey]);
 
-            return {
-                ...prev,
-                [selectedClassId]: mentorAssignments,
-            };
-        });
-    }, [mentorAssignments, selectedClassId]);
+    useEffect(() => {
+        if (!loadedMentorAssignmentSnapshotKey) return;
+        window.localStorage.setItem(loadedMentorAssignmentSnapshotKey, JSON.stringify(mentorAssignmentSnapshotsByClass));
+    }, [loadedMentorAssignmentSnapshotKey, mentorAssignmentSnapshotsByClass]);
 
     useEffect(() => {
         const storageKey = getNoticeStorageKey(teacher?.teacherKey);
@@ -583,6 +645,94 @@ export default function ObservationBoard2Page() {
         window.localStorage.setItem(loadedMarkKey, JSON.stringify(marks));
     }, [loadedMarkKey, marks]);
 
+    const remoteBoardPayload = useMemo<ObservationBoardRemoteState>(() => ({
+        activitySessions,
+        marks,
+        mentorAssignmentsByClass,
+        mentorAssignmentSnapshotsByClass,
+        notices,
+    }), [
+        activitySessions,
+        marks,
+        mentorAssignmentsByClass,
+        mentorAssignmentSnapshotsByClass,
+        notices,
+    ]);
+
+    useEffect(() => {
+        if (!isStoreReady || !teacher?.teacherKey) return;
+
+        const controller = new AbortController();
+        setIsRemoteBoardLoaded(false);
+
+        const loadRemoteBoardState = async () => {
+            try {
+                const response = await fetch('/api/observation-board-state', {
+                    cache: 'no-store',
+                    signal: controller.signal,
+                });
+                if (!response.ok) return;
+
+                const body = await response.json() as {
+                    configured?: boolean;
+                    data?: Partial<ObservationBoardRemoteState> | null;
+                };
+                if (!body.configured || !body.data || Object.keys(body.data).length === 0) return;
+
+                const nextState: ObservationBoardRemoteState = {
+                    activitySessions: normalizeObservationBoardActivitySessions(body.data.activitySessions),
+                    marks: normalizeObservationBoardMarks(body.data.marks),
+                    mentorAssignmentsByClass: normalizeObservationBoardMentorAssignmentsByClass(body.data.mentorAssignmentsByClass),
+                    mentorAssignmentSnapshotsByClass: normalizeObservationBoardMentorAssignmentSnapshotsByClass(body.data.mentorAssignmentSnapshotsByClass),
+                    notices: Array.isArray(body.data.notices) ? body.data.notices as NoticeItem[] : [],
+                };
+
+                setActivitySessions(nextState.activitySessions);
+                setMarks(nextState.marks);
+                setMentorAssignmentsByClass(nextState.mentorAssignmentsByClass);
+                setMentorAssignmentSnapshotsByClass(nextState.mentorAssignmentSnapshotsByClass);
+                setNotices(nextState.notices);
+                lastRemoteBoardPayloadRef.current = JSON.stringify(nextState);
+            } catch (error) {
+                if (!controller.signal.aborted) {
+                    console.error('Observation board Supabase sync load failed:', error);
+                }
+            } finally {
+                if (!controller.signal.aborted) {
+                    setIsRemoteBoardLoaded(true);
+                }
+            }
+        };
+
+        void loadRemoteBoardState();
+
+        return () => controller.abort();
+    }, [isStoreReady, teacher?.teacherKey]);
+
+    useEffect(() => {
+        if (!isStoreReady || !teacher?.teacherKey || !isRemoteBoardLoaded) return;
+
+        const serializedPayload = JSON.stringify(remoteBoardPayload);
+        if (serializedPayload === lastRemoteBoardPayloadRef.current) return;
+
+        const timeout = window.setTimeout(() => {
+            lastRemoteBoardPayloadRef.current = serializedPayload;
+            void fetch('/api/observation-board-state', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    teacherKey: teacher.teacherKey,
+                    data: remoteBoardPayload,
+                }),
+            }).catch((error) => {
+                console.error('Observation board Supabase sync save failed:', error);
+                lastRemoteBoardPayloadRef.current = '';
+            });
+        }, 900);
+
+        return () => window.clearTimeout(timeout);
+    }, [isRemoteBoardLoaded, isStoreReady, remoteBoardPayload, teacher?.teacherKey]);
+
     useEffect(() => {
         setStudentDrafts((prev) => {
             const next: Record<string, ObservationDraftRow> = {};
@@ -637,6 +787,80 @@ export default function ObservationBoard2Page() {
         setMentorAssignments([]);
     };
 
+    const commitMentorAssignments = (nextAssignments: MentorGroupAssignment[]) => {
+        const normalizedAssignments = cloneMentorAssignments(nextAssignments);
+        setMentorAssignments(normalizedAssignments);
+
+        if (selectedClassId === 'all') return;
+        setMentorAssignmentsByClass((prev) => {
+            const current = prev[selectedClassId] ?? [];
+            if (areObservationBoardMentorAssignmentsEqual(current, normalizedAssignments)) return prev;
+
+            return {
+                ...prev,
+                [selectedClassId]: normalizedAssignments,
+            };
+        });
+    };
+
+    const captureSessionAssignmentSnapshot = (
+        classId: string,
+        sessionId: string,
+        assignments: MentorGroupAssignment[]
+    ) => {
+        if (classId === 'all' || assignments.length === 0) return;
+
+        const snapshot = cloneMentorAssignments(assignments);
+        setMentorAssignmentSnapshotsByClass((prev) => {
+            if (prev[classId]?.[sessionId]?.length) return prev;
+
+            return {
+                ...prev,
+                [classId]: {
+                    ...(prev[classId] ?? {}),
+                    [sessionId]: snapshot,
+                },
+            };
+        });
+    };
+
+    const captureMarkedSessionAssignmentSnapshots = (
+        classId: string,
+        assignments: MentorGroupAssignment[]
+    ) => {
+        if (classId === 'all' || assignments.length === 0) return;
+
+        const assignedStudentIds = new Set(
+            assignments
+                .flatMap((assignment) => [assignment.mentorId, assignment.menteeId])
+                .filter(Boolean) as string[]
+        );
+        if (assignedStudentIds.size === 0) return;
+
+        const sessionIdsToCapture = activitySessions
+            .filter((session) => Array.from(assignedStudentIds).some((studentId) =>
+                isActiveMark(marks[`${studentId}:${session.id}`])
+            ))
+            .map((session) => session.id);
+
+        if (sessionIdsToCapture.length === 0) return;
+
+        const snapshot = cloneMentorAssignments(assignments);
+        setMentorAssignmentSnapshotsByClass((prev) => {
+            const classSnapshots = prev[classId] ?? {};
+            const missingSessionIds = sessionIdsToCapture.filter((sessionId) => !classSnapshots[sessionId]?.length);
+            if (missingSessionIds.length === 0) return prev;
+
+            return {
+                ...prev,
+                [classId]: {
+                    ...classSnapshots,
+                    ...Object.fromEntries(missingSessionIds.map((sessionId) => [sessionId, snapshot])),
+                },
+            };
+        });
+    };
+
     const syncMarkCookieDelta = async (
         studentId: string,
         session: ActivitySession,
@@ -684,6 +908,10 @@ export default function ObservationBoard2Page() {
         const key = `${studentId}:${session.id}`;
         const previousMark = marks[key] ?? fallback;
         const nextMark = getNextMark(previousMark);
+
+        if (isActiveMark(nextMark)) {
+            captureSessionAssignmentSnapshot(selectedClassId, session.id, currentMentorAssignments);
+        }
 
         setMarks((prev) => ({
             ...prev,
@@ -948,60 +1176,87 @@ export default function ObservationBoard2Page() {
     };
 
     const handleAssignMentorStudent = (studentId: string, targetGroupId: string, targetRole: MentorRole) => {
-        setMentorAssignments((prev) => {
-            const source = prev.length > 0 ? prev : defaultMentorAssignments;
-            let sourceGroupId: string | undefined;
-            let sourceRole: MentorRole | undefined;
-            let replacedStudentId: string | undefined;
+        if (selectedClassId === 'all') {
+            alert('멘토·멘티 배치를 바꾸려면 먼저 학급을 선택해 주세요.');
+            return;
+        }
 
-            source.forEach((group) => {
-                if (group.mentorId === studentId) {
-                    sourceGroupId = group.id;
-                    sourceRole = 'mentor';
-                }
-                if (group.menteeId === studentId) {
-                    sourceGroupId = group.id;
-                    sourceRole = 'mentee';
-                }
-                if (group.id === targetGroupId) {
-                    replacedStudentId = targetRole === 'mentor' ? group.mentorId : group.menteeId;
-                }
-            });
+        const source = cloneMentorAssignments(currentMentorAssignments);
+        let sourceGroupId: string | undefined;
+        let sourceRole: MentorRole | undefined;
+        let replacedStudentId: string | undefined;
 
-            if (sourceGroupId === targetGroupId && sourceRole === targetRole) return source;
-
-            return source.map((group) => {
-                const next = { ...group };
-
-                if (next.mentorId === studentId) next.mentorId = undefined;
-                if (next.menteeId === studentId) next.menteeId = undefined;
-
-                if (sourceGroupId && sourceRole && replacedStudentId && group.id === sourceGroupId) {
-                    if (sourceRole === 'mentor') next.mentorId = replacedStudentId;
-                    else next.menteeId = replacedStudentId;
-                }
-
-                if (group.id === targetGroupId) {
-                    if (targetRole === 'mentor') next.mentorId = studentId;
-                    else next.menteeId = studentId;
-                }
-
-                return next;
-            });
+        source.forEach((group) => {
+            if (group.mentorId === studentId) {
+                sourceGroupId = group.id;
+                sourceRole = 'mentor';
+            }
+            if (group.menteeId === studentId) {
+                sourceGroupId = group.id;
+                sourceRole = 'mentee';
+            }
+            if (group.id === targetGroupId) {
+                replacedStudentId = targetRole === 'mentor' ? group.mentorId : group.menteeId;
+            }
         });
+
+        if (sourceGroupId === targetGroupId && sourceRole === targetRole) return;
+
+        captureMarkedSessionAssignmentSnapshots(selectedClassId, source);
+
+        const nextAssignments = source.map((group) => {
+            const next = { ...group };
+
+            if (next.mentorId === studentId) next.mentorId = undefined;
+            if (next.menteeId === studentId) next.menteeId = undefined;
+
+            if (sourceGroupId && sourceRole && replacedStudentId && group.id === sourceGroupId) {
+                if (sourceRole === 'mentor') next.mentorId = replacedStudentId;
+                else next.menteeId = replacedStudentId;
+            }
+
+            if (group.id === targetGroupId) {
+                if (targetRole === 'mentor') next.mentorId = studentId;
+                else next.menteeId = studentId;
+            }
+
+            return next;
+        });
+
+        commitMentorAssignments(nextAssignments);
     };
 
     const handleAddMentorGroup = () => {
-        setMentorAssignments((prev) => {
-            const source = prev.length > 0 ? prev : defaultMentorAssignments;
-            const nextNumber = source.length + 1;
-            return [
-                ...source,
-                {
-                    id: `group-${Date.now()}`,
-                    title: `${nextNumber}조`,
-                },
-            ];
+        const source = cloneMentorAssignments(currentMentorAssignments);
+        const nextNumber = source.length + 1;
+        commitMentorAssignments([
+            ...source,
+            {
+                id: `group-${Date.now()}`,
+                title: `${nextNumber}조`,
+            },
+        ]);
+    };
+
+    const handleResetMentorAssignments = () => {
+        if (selectedClassId === 'all' || !selectedClass) {
+            alert('초기화할 학급을 먼저 선택해 주세요.');
+            return;
+        }
+
+        if (!confirm('현재 학급의 멘토·멘티 배치 전체를 자동 편성으로 초기화할까요?\n이미 기록된 △/○ 활동 표시는 지우지 않고, 과거 차시는 당시 배치 이력으로 보존합니다.')) {
+            return;
+        }
+
+        captureMarkedSessionAssignmentSnapshots(selectedClassId, currentMentorAssignments);
+        const nextDefaultAssignments = buildMentorAssignments(featuredStudents);
+
+        setMentorAssignments(nextDefaultAssignments);
+        setMentorAssignmentsByClass((prev) => {
+            if (!prev[selectedClassId]) return prev;
+            const next = { ...prev };
+            delete next[selectedClassId];
+            return next;
         });
     };
 
@@ -1186,6 +1441,7 @@ export default function ObservationBoard2Page() {
                 onAssignStudent={handleAssignMentorStudent}
                 onClassChange={handleClassChange}
                 onAddGroup={handleAddMentorGroup}
+                onResetAssignments={handleResetMentorAssignments}
                 onAddSession={handleAddSession}
                 onUpdateSession={handleUpdateSession}
                 onUpdateMark={updateMark}
@@ -2087,6 +2343,7 @@ function MentorActivityView({
     onAssignStudent,
     onClassChange,
     onAddGroup,
+    onResetAssignments,
     onAddSession,
     onUpdateSession,
     onUpdateMark,
@@ -2104,6 +2361,7 @@ function MentorActivityView({
     onAssignStudent: (studentId: string, groupId: string, role: MentorRole) => void;
     onClassChange: (classId: string) => void;
     onAddGroup: () => void;
+    onResetAssignments: () => void;
     onAddSession: () => void;
     onUpdateSession: (sessionId: string, field: 'date' | 'topic', value: string) => void;
     onUpdateMark: (studentId: string, session: ActivitySession, fallback: MarkState) => void;
@@ -2188,10 +2446,16 @@ function MentorActivityView({
                         ))}
                     </div>
 
-                    <button type="button" className={styles.addGroupButton} onClick={onAddGroup}>
-                        <Plus size={17} />
-                        모둠 추가
-                    </button>
+                    <div className={styles.mentorActionRow}>
+                        <button type="button" className={styles.addGroupButton} onClick={onAddGroup}>
+                            <Plus size={17} />
+                            모둠 추가
+                        </button>
+                        <button type="button" className={styles.resetMentorButton} onClick={onResetAssignments}>
+                            <RotateCcw size={17} />
+                            배치 전체 초기화
+                        </button>
+                    </div>
 
                     <div className={styles.rosterTray}>
                         <div className={styles.trayTitle}>
@@ -2291,11 +2555,10 @@ function MentorActivityView({
                                 </label>
                             ))}
 
-                            {mentorGroups.map((group, groupIndex) => (
+                            {mentorGroups.map((group) => (
                                 <ActivityGroupRows
                                     key={group.id}
                                     groupTitle={group.title}
-                                    groupIndex={groupIndex}
                                     students={[group.mentor, group.mentee].filter(Boolean) as Student[]}
                                     sessions={sessions}
                                     marks={marks}
@@ -2649,14 +2912,12 @@ function StudentToken({
 
 function ActivityGroupRows({
     groupTitle,
-    groupIndex,
     students,
     sessions,
     marks,
     onUpdateMark,
 }: {
     groupTitle: string;
-    groupIndex: number;
     students: Student[];
     sessions: ActivitySession[];
     marks: Record<string, MarkState>;
@@ -2665,7 +2926,6 @@ function ActivityGroupRows({
     return (
         <>
             {students.map((student, studentIndex) => {
-                const absoluteStudentIndex = groupIndex * 2 + studentIndex;
                 return (
                     <div className={styles.studentRow} role="row" key={student.id}>
                         {studentIndex === 0 && (
@@ -2684,8 +2944,8 @@ function ActivityGroupRows({
                                 <span>{studentIndex === 0 ? '멘토' : '멘티'}</span>
                             </div>
                         </div>
-                        {sessions.map((session, sessionIndex) => {
-                            const fallback = getDefaultMark(absoluteStudentIndex, sessionIndex);
+                        {sessions.map((session) => {
+                            const fallback = getDefaultMark();
                             const mark = marks[`${student.id}:${session.id}`] ?? fallback;
 
                             return (

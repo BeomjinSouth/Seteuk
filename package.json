@@ -10,6 +10,7 @@
     "sync:knowledge-docs": "node scripts/sync-knowledge-docs.mjs"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.104.1",
     "canvas": "^3.2.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.26",

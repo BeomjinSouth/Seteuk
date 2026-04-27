@@ -14,6 +14,7 @@ export interface ObservationBoardSessionMark {
     topic?: string;
     mark: Exclude<ObservationBoardMarkState, 'none'>;
     markLabel: string;
+    roleContext?: ObservationBoardRoleContext;
 }
 
 export type ObservationBoardMentorRole = 'mentor' | 'mentee';
@@ -26,6 +27,10 @@ export interface ObservationBoardMentorAssignment {
 }
 
 export type ObservationBoardMentorAssignmentsByClass = Record<string, ObservationBoardMentorAssignment[]>;
+export type ObservationBoardMentorAssignmentSnapshotsByClass = Record<
+    string,
+    Record<string, ObservationBoardMentorAssignment[]>
+>;
 
 export interface ObservationBoardRoleContext {
     role: ObservationBoardMentorRole;
@@ -44,6 +49,7 @@ export interface ObservationBoardDerivedSummary {
     summaryLines: string[];
     writingGuidance: string[];
     roleContext?: ObservationBoardRoleContext;
+    roleContexts: ObservationBoardRoleContext[];
 }
 
 export interface ObservationBoardAiContext {
@@ -76,6 +82,10 @@ export function getObservationBoardMarkStorageKey(teacherKey?: string) {
 
 export function getObservationBoardMentorAssignmentStorageKey(teacherKey?: string) {
     return `observation-board-2-mentor-assignments:${teacherKey || 'guest'}`;
+}
+
+export function getObservationBoardMentorAssignmentSnapshotStorageKey(teacherKey?: string) {
+    return `observation-board-2-mentor-assignment-snapshots:${teacherKey || 'guest'}`;
 }
 
 function parseJsonValue(raw: string | null): unknown {
@@ -161,6 +171,34 @@ export function normalizeObservationBoardMentorAssignmentsByClass(
     return normalized;
 }
 
+export function normalizeObservationBoardMentorAssignmentSnapshotsByClass(
+    value: unknown
+): ObservationBoardMentorAssignmentSnapshotsByClass {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return {};
+
+    const normalized: ObservationBoardMentorAssignmentSnapshotsByClass = {};
+    Object.entries(value as Record<string, unknown>).forEach(([classId, sessionSnapshots]) => {
+        if (!sessionSnapshots || typeof sessionSnapshots !== 'object' || Array.isArray(sessionSnapshots)) return;
+
+        const normalizedSessionSnapshots: Record<string, ObservationBoardMentorAssignment[]> = {};
+        Object.entries(sessionSnapshots as Record<string, unknown>).forEach(([sessionId, assignments]) => {
+            const normalizedAssignments = normalizeObservationBoardMentorAssignmentsByClass({
+                [classId]: assignments,
+            })[classId];
+
+            if (normalizedAssignments?.length) {
+                normalizedSessionSnapshots[sessionId] = normalizedAssignments;
+            }
+        });
+
+        if (Object.keys(normalizedSessionSnapshots).length > 0) {
+            normalized[classId] = normalizedSessionSnapshots;
+        }
+    });
+
+    return normalized;
+}
+
 export function areObservationBoardMentorAssignmentsEqual(
     a: ObservationBoardMentorAssignment[] = [],
     b: ObservationBoardMentorAssignment[] = []
@@ -201,6 +239,47 @@ function findRoleContext(input: {
     }
 
     return undefined;
+}
+
+function findSessionRoleContext(input: {
+    snapshotsByClass: ObservationBoardMentorAssignmentSnapshotsByClass;
+    studentId: string;
+    sessionId: string;
+    classId?: string;
+}): ObservationBoardRoleContext | undefined {
+    const classIds = input.classId
+        ? [input.classId, ...Object.keys(input.snapshotsByClass).filter((classId) => classId !== input.classId)]
+        : Object.keys(input.snapshotsByClass);
+
+    for (const classId of classIds) {
+        const assignments = input.snapshotsByClass[classId]?.[input.sessionId];
+        if (!assignments?.length) continue;
+
+        const roleContext = findRoleContext({
+            assignmentsByClass: { [classId]: assignments },
+            studentId: input.studentId,
+            classId,
+        });
+
+        if (roleContext) return roleContext;
+    }
+
+    return undefined;
+}
+
+function getUniqueRoleContexts(sessionMarks: ObservationBoardSessionMark[]): ObservationBoardRoleContext[] {
+    const roleContexts = new Map<string, ObservationBoardRoleContext>();
+    sessionMarks.forEach((sessionMark) => {
+        if (!sessionMark.roleContext) return;
+        const key = [
+            sessionMark.roleContext.classId || '',
+            sessionMark.roleContext.groupTitle || '',
+            sessionMark.roleContext.role,
+        ].join(':');
+        roleContexts.set(key, sessionMark.roleContext);
+    });
+
+    return Array.from(roleContexts.values());
 }
 
 function getMarkScore(mark?: ObservationBoardMarkState): number {
@@ -245,6 +324,8 @@ function buildDerivedSummary(input: {
     const markLookup = new Map(input.sessionMarks.map((item) => [item.sessionId, item.mark as ObservationBoardMarkState]));
     const trend = getTrend({ sessions: input.sessions, markLookup, markedSessions });
     const participationPercent = Math.round(participationRate * 100);
+    const roleContexts = getUniqueRoleContexts(input.sessionMarks);
+    const primaryRoleContext = input.roleContext ?? roleContexts[roleContexts.length - 1];
     const summaryLines: string[] = [
         `총 ${totalSessions}차시 중 ${markedSessions}차시에 활동 참여 신호가 기록되었고, 이 중 ${excellentCount}차시는 적극적이고 안정적인 참여로 볼 수 있는 표시가 남아 있습니다.`,
     ];
@@ -273,8 +354,10 @@ function buildDerivedSummary(input: {
         summaryLines.push('후반 신호가 약해진 흐름이 있으므로 성장 단정보다는 확인된 참여 장면 위주로만 활용합니다.');
     }
 
-    if (input.roleContext) {
-        summaryLines.push(`${input.roleContext.groupTitle ? `${input.roleContext.groupTitle}에서 ` : ''}${input.roleContext.roleLabel} 역할로 배치된 맥락이 있어 역할 수행과 관계 참여를 함께 고려할 수 있습니다.`);
+    if (roleContexts.length > 1) {
+        summaryLines.push('멘토·멘티 배치가 중간에 변경된 이력이 있어 각 차시는 기록 당시의 조와 역할 기준으로 해석합니다.');
+    } else if (primaryRoleContext) {
+        summaryLines.push(`${primaryRoleContext.groupTitle ? `${primaryRoleContext.groupTitle}에서 ` : ''}${primaryRoleContext.roleLabel} 역할로 배치된 맥락이 있어 역할 수행과 관계 참여를 함께 고려할 수 있습니다.`);
     }
 
     return {
@@ -290,7 +373,8 @@ function buildDerivedSummary(input: {
             '멘토·멘티 활동 기록만으로 교과 지식 성취나 리더십을 단정하지 않습니다.',
             '관찰 메모나 학습 데이터가 함께 있으면 그 구체 장면을 중심에 두고 활동판 해석은 태도 근거로 보조합니다.',
         ],
-        roleContext: input.roleContext,
+        roleContext: primaryRoleContext,
+        roleContexts,
     };
 }
 
@@ -307,10 +391,13 @@ export function readObservationBoardAiContext(input: {
         ?? window.localStorage.getItem(getObservationBoardMarkStorageKey());
     const assignmentRaw = window.localStorage.getItem(getObservationBoardMentorAssignmentStorageKey(input.teacherKey))
         ?? window.localStorage.getItem(getObservationBoardMentorAssignmentStorageKey());
+    const assignmentSnapshotRaw = window.localStorage.getItem(getObservationBoardMentorAssignmentSnapshotStorageKey(input.teacherKey))
+        ?? window.localStorage.getItem(getObservationBoardMentorAssignmentSnapshotStorageKey());
 
     const sessions = normalizeObservationBoardActivitySessions(parseJsonValue(sessionRaw));
     const marks = normalizeObservationBoardMarks(parseJsonValue(markRaw));
     const assignmentsByClass = normalizeObservationBoardMentorAssignmentsByClass(parseJsonValue(assignmentRaw));
+    const snapshotsByClass = normalizeObservationBoardMentorAssignmentSnapshotsByClass(parseJsonValue(assignmentSnapshotRaw));
     const roleContext = findRoleContext({
         assignmentsByClass,
         studentId: input.studentId,
@@ -320,6 +407,13 @@ export function readObservationBoardAiContext(input: {
         const mark = marks[`${input.studentId}:${session.id}`];
         if (mark !== 'participated' && mark !== 'excellent') return [];
 
+        const sessionRoleContext = findSessionRoleContext({
+            snapshotsByClass,
+            studentId: input.studentId,
+            sessionId: session.id,
+            classId: input.classId,
+        }) ?? roleContext;
+
         return [{
             sessionId: session.id,
             label: session.label,
@@ -327,6 +421,7 @@ export function readObservationBoardAiContext(input: {
             topic: session.topic || undefined,
             mark,
             markLabel: markLabels[mark],
+            roleContext: sessionRoleContext,
         }];
     });
 
@@ -347,6 +442,18 @@ export function formatObservationBoardContextForPrompt(context?: ObservationBoar
     return [
         '[활동 해석 요약]',
         ...context.derivedSummary.summaryLines.map((line) => `• ${line}`),
+        '',
+        '[차시별 기록]',
+        ...context.sessionMarks.map((item) => {
+            const details = [
+                item.date,
+                item.topic,
+                item.roleContext
+                    ? `${item.roleContext.groupTitle ? `${item.roleContext.groupTitle} ` : ''}${item.roleContext.roleLabel}`
+                    : undefined,
+            ].filter(Boolean).join(' / ');
+            return `• ${item.label}: ${item.markLabel}${details ? ` (${details})` : ''}`;
+        }),
         '',
         '[작성 지침]',
         ...context.derivedSummary.writingGuidance.map((line) => `• ${line}`),
