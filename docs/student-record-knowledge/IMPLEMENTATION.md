@@ -38,6 +38,8 @@
 - `src/app/api/search-openai/route.ts`
 - `src/app/api/counsel-chat/route.ts`
 - `src/app/api/record-review/route.ts`
+- `src/app/api/generate/route.ts`
+- `src/lib/prompts/seteuk.ts`
 - `src/app/api/admin/crawl/route.ts`
 - `src/app/api/admin/reindex/route.ts`
 - `src/app/api/admin/crawl-status/route.ts`
@@ -105,6 +107,9 @@
 - Existing Google Sheets data can be migrated with `scripts/migrate-google-sheets-to-supabase.mjs` after applying `supabase/migrations/202604270001_initial_seteuk_storage.sql`.
 - `/write` does not fetch student-data tab entries before calling `/api/generate`
 - `/write` reads the teacher-scoped observation-board session headers, student △/○ marks, current mentor/mentee assignments, and per-session assignment snapshots from localStorage, sends a derived `observationBoardContext`, and `/api/generate` adds it to the 세특 prompt as `멘토·멘티 활동 해석`
+- `/api/generate`, `/settings/ai`, and `src/lib/write-logic.ts` share `SETEUK_DEFAULT_SYSTEM_PROMPT` from `src/lib/prompts/seteuk.ts`; the current prompt version is `strict-observation-v1`
+- AI prompt overrides are stored in browser `ai_system_prompt`; missing values or exact legacy defaults are resolved to `strict-observation-v1`, and settings saves also record `ai_system_prompt_version`
+- `/api/generate` treats curriculum content as context only when tied to observed data and passes OCR context without raw score/grade totals, keeping score/rank/award/test-item wording out of generated drafts
 - competency highlighting renders against the source text so invalid AI segment indexes cannot drop text from the display
 - school roster data syncs through `/api/students` into shared sheet-backed storage, while teaching-class connections remain teacher-specific in local app state
 - repeated uploads for the same school are merged server-side by roster key and return add/update/skip counts so overlapping students do not duplicate

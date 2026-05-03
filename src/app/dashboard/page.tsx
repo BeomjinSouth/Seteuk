@@ -18,6 +18,11 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
+import {
+    SETEUK_DEFAULT_SYSTEM_PROMPT_VERSION,
+    SETEUK_SYSTEM_PROMPT_STORAGE_KEY,
+    SETEUK_SYSTEM_PROMPT_VERSION_STORAGE_KEY,
+} from '@/lib/prompts/seteuk';
 import { getStudentsInTeachingClass, getTeacherClasses } from '@/lib/teacher-context';
 import styles from './page.module.css';
 
@@ -70,7 +75,8 @@ export default function DashboardPage() {
         // For setting requests, save the new value
         const notification = adminNotifications.find(n => n.id === id);
         if (notification?.type === 'setting_request') {
-            localStorage.setItem('ai_system_prompt', newValue);
+            localStorage.setItem(SETEUK_SYSTEM_PROMPT_STORAGE_KEY, newValue);
+            localStorage.setItem(SETEUK_SYSTEM_PROMPT_VERSION_STORAGE_KEY, SETEUK_DEFAULT_SYSTEM_PROMPT_VERSION);
         }
         updateNotificationStatus(id, 'approved');
     };

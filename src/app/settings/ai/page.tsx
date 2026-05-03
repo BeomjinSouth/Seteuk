@@ -15,19 +15,17 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { OPENAI_STANDARD_MODEL, normalizeOpenAIModel } from '@/lib/openai-models';
+import {
+    resolveSeteukSystemPrompt,
+    SETEUK_DEFAULT_SYSTEM_PROMPT,
+    SETEUK_DEFAULT_SYSTEM_PROMPT_VERSION,
+    SETEUK_SYSTEM_PROMPT_STORAGE_KEY,
+    SETEUK_SYSTEM_PROMPT_VERSION_STORAGE_KEY,
+} from '@/lib/prompts/seteuk';
 import { ADMIN_CONFIG, isAdmin, useAppStore } from '@/lib/store';
 import styles from './page.module.css';
 
 type ReasoningEffort = 'none' | 'low' | 'medium' | 'high' | 'xhigh';
-
-const DEFAULT_SYSTEM_PROMPT = `당신은 중등 교사 업무를 지원하는 교과 세특 작성 도우미입니다.
-
-작성 원칙:
-1. 학생의 학습 과정과 성장을 구체적으로 서술합니다.
-2. 관찰 근거가 드러나는 표현을 사용합니다.
-3. 비교/서열/과장 표현은 피합니다.
-4. 분량은 350~500자 내외를 권장합니다.
-5. 단정적 표현 대신 과정 중심의 문장을 우선합니다.`;
 
 const DEFAULT_MODEL = OPENAI_STANDARD_MODEL;
 const DEFAULT_MAX_TOKENS = 1000;
@@ -42,13 +40,13 @@ const REASONING_OPTIONS: Array<{ value: ReasoningEffort; label: string; descript
 ];
 
 function loadStoredSettings() {
-    const savedPrompt = localStorage.getItem('ai_system_prompt');
+    const savedPrompt = localStorage.getItem(SETEUK_SYSTEM_PROMPT_STORAGE_KEY);
     const savedModel = localStorage.getItem('ai_model');
     const savedMaxTokens = Number.parseInt(localStorage.getItem('ai_max_tokens') || '', 10);
     const savedReasoningEffort = localStorage.getItem('ai_reasoning_effort') as ReasoningEffort | null;
 
     return {
-        systemPrompt: savedPrompt || DEFAULT_SYSTEM_PROMPT,
+        systemPrompt: resolveSeteukSystemPrompt(savedPrompt),
         model: normalizeOpenAIModel(savedModel),
         maxTokens: Number.isFinite(savedMaxTokens)
             ? Math.min(3000, Math.max(200, savedMaxTokens))
@@ -63,7 +61,7 @@ export default function AISettingsPage() {
     const { teacher, addNotification } = useAppStore();
     const isAdminUser = isAdmin(teacher);
 
-    const [systemPrompt, setSystemPrompt] = useState(DEFAULT_SYSTEM_PROMPT);
+    const [systemPrompt, setSystemPrompt] = useState(SETEUK_DEFAULT_SYSTEM_PROMPT);
     const [model, setModel] = useState(DEFAULT_MODEL);
     const [maxTokens, setMaxTokens] = useState(DEFAULT_MAX_TOKENS);
     const [reasoningEffort, setReasoningEffort] = useState<ReasoningEffort>(DEFAULT_REASONING_EFFORT);
@@ -93,7 +91,8 @@ export default function AISettingsPage() {
     const handleSave = () => {
         if (!isAdminUser) return;
 
-        localStorage.setItem('ai_system_prompt', systemPrompt);
+        localStorage.setItem(SETEUK_SYSTEM_PROMPT_STORAGE_KEY, systemPrompt);
+        localStorage.setItem(SETEUK_SYSTEM_PROMPT_VERSION_STORAGE_KEY, SETEUK_DEFAULT_SYSTEM_PROMPT_VERSION);
         localStorage.setItem('ai_model', normalizeOpenAIModel(model));
         localStorage.setItem('ai_max_tokens', String(Math.min(3000, Math.max(200, maxTokens || DEFAULT_MAX_TOKENS))));
         localStorage.setItem('ai_reasoning_effort', reasoningEffort);
@@ -131,7 +130,7 @@ export default function AISettingsPage() {
         if (!isAdminUser) return;
         if (!confirm('AI 설정을 기본값으로 초기화할까요?')) return;
 
-        setSystemPrompt(DEFAULT_SYSTEM_PROMPT);
+        setSystemPrompt(SETEUK_DEFAULT_SYSTEM_PROMPT);
         setModel(DEFAULT_MODEL);
         setMaxTokens(DEFAULT_MAX_TOKENS);
         setReasoningEffort(DEFAULT_REASONING_EFFORT);

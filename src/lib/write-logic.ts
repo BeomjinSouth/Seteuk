@@ -7,6 +7,7 @@ import {
 } from '@/lib/check-utils';
 import { readObservationBoardAiContext } from '@/lib/observation-board-ai-context';
 import { OPENAI_STANDARD_MODEL, normalizeOpenAIModel } from '@/lib/openai-models';
+import { resolveSeteukSystemPrompt, SETEUK_SYSTEM_PROMPT_STORAGE_KEY } from '@/lib/prompts/seteuk';
 
 type ReasoningEffort = 'none' | 'low' | 'medium' | 'high' | 'xhigh';
 
@@ -29,7 +30,7 @@ interface ReviewAndImproveParams {
 export function getAISettings(): AISettings {
     if (typeof window === 'undefined') {
         return {
-            systemPrompt: '',
+            systemPrompt: resolveSeteukSystemPrompt(null),
             model: OPENAI_STANDARD_MODEL,
             maxOutputTokens: 1000,
             reasoningEffort: 'low',
@@ -54,7 +55,7 @@ export function getAISettings(): AISettings {
         : 1000;
 
     return {
-        systemPrompt: localStorage.getItem('ai_system_prompt') || '',
+        systemPrompt: resolveSeteukSystemPrompt(localStorage.getItem(SETEUK_SYSTEM_PROMPT_STORAGE_KEY)),
         model: normalizeOpenAIModel(localStorage.getItem('ai_model')),
         maxOutputTokens,
         reasoningEffort,

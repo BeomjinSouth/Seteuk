@@ -30,6 +30,7 @@
 - /eval-check route: redirects to /dashboard while the feature is in development
 - write page integration: implemented
 - write page screenshot UI: implemented with class chips, 10-row pagination, rounded AI input/content table rows, AI 세특 guide sidebar card, and top teacher/notification chrome
+- seteuk default prompt: implemented as shared `strict-observation-v1` teacher observation record policy in `src/lib/prompts/seteuk.ts`
 - search inspector diagnostics route: implemented but hidden from the sidebar
 - main navigation integration: 학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검 (개발중) 순서 적용
 - student data tab: removed along with `/student-data`; write generation no longer loads student-data tab entries
@@ -71,6 +72,7 @@
 
 ## Recent Changes
 
+- 2026-05-03: centralized the AI 세특 작성 default prompt as `strict-observation-v1` and connected `/api/generate`, `/settings/ai`, and write generation to the shared value
 - 2026-04-27: added Supabase-backed runtime storage, workspace/observation-board state sync, signed server sessions, and a Google Sheets to Supabase migration script
 - 2026-04-26: moved the observation-board-2 growth record action dock above the student grid so selected students can be saved without scrolling past the roster
 - 2026-04-26: changed observation-board-2 △/○ activity marks from raw prompt entries into interpreted mentor/mentee activity summaries for `/write` and `/api/generate`

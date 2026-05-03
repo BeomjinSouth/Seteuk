@@ -135,6 +135,9 @@ STAR FAQ/Q&A
 - URL query prefill 지원
 - 세특 작성 탭의 `RAG 점검·개선` 버튼은 `/api/record-review`의 `includeImprovedDraft` 흐름을 재사용
 - 세특 작성 탭의 `유사도` 버튼은 선택 학생 초안을 문장 단위로 비교하고, 다른 학생 간 90% 이상 동일한 문장만 모달에 노출한다.
+- 세특 작성 기본 시스템 프롬프트는 `web/src/lib/prompts/seteuk.ts`의 `SETEUK_DEFAULT_SYSTEM_PROMPT`가 단일 소스이며, `/api/generate`, `src/lib/write-logic.ts`, `/settings/ai`가 같은 값을 참조한다.
+- 프롬프트 버전은 `strict-observation-v1`로 기록하고, 브라우저 저장 키는 `ai_system_prompt`와 `ai_system_prompt_version`을 사용한다. 저장값이 없거나 예전 기본 프롬프트와 정확히 일치하면 새 기본 프롬프트로 해석한다.
+- 세특 생성 프롬프트는 제공된 관찰 데이터만 근거로 삼고 점수/등급/등수/수상/시험 문항 표현을 출력에서 배제한다. OCR 컨텍스트는 점수 자체보다 성취기준, 기준 요소, 피드백 텍스트 중심으로 전달한다.
 - 별도 상단 `학생 데이터` 탭과 `/student-data` 화면은 제공하지 않는다.
 - 레거시 학생 데이터/쿠키 API는 저장소 호환을 위해 남기되, 현재 사용자 탭과 세특 생성 컨텍스트에서는 사용하지 않는다.
 - 로그인은 `학교=성호중학교`, `아이디=본인 한글 이름`, `비밀번호=123123`만 허용한다.
@@ -449,7 +452,7 @@ UI 흐름:
 5. 관찰 메모 저장 시 `teacherKey`, `teachingClassId`, `lessonTopic`, `subjectName` 저장
 6. 세특 생성 호출 시 `studentId`, `teacherKey`, `teachingClassId`로 관찰 메모 필터링
 7. `/write` 클라이언트는 `observation-board-2-sessions:${teacherKey}`, `observation-board-2-marks:${teacherKey}`, `observation-board-2-mentor-assignments:${teacherKey}`에서 선택 학생의 활동판 기록과 역할 맥락을 읽어 성실성, 활동 지속성, 관계 참여, 역할 수행, 성장 흐름 중심 `derivedSummary`를 만든 뒤 `observationBoardContext`로 전달
-8. AI 프롬프트에 학습 메모 + 수업 기록 + 멘토·멘티 활동 해석 요약 + OCR 평가 컨텍스트를 함께 주입하며, 차시명과 △/○ 표시를 그대로 나열하지 못하게 지시
+8. AI 프롬프트에 학습 메모 + 수업 기록 + 멘토·멘티 활동 해석 요약 + OCR 평가 컨텍스트를 함께 주입하되, `strict-observation-v1` 기본 프롬프트로 차시명/△·○ 표시의 단순 나열, 점수/등급/시험 문항 표현, 관찰되지 않은 사실 창작을 금지한다.
 9. 작성된 세특은 `write` 탭에서 선택 후 `RAG 점검·개선`을 실행해 공개 근거 기반 개선본으로 갱신 가능
 10. 별도 학생 데이터 탭 입력값은 조회하지 않는다.
 11. 생성 후 역량 분석은 행 단위 또는 일괄로 실행하며, 세특 원문 기준 지식·과정·태도 색상 밑줄과 비율을 표시

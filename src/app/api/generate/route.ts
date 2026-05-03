@@ -8,33 +8,13 @@ import {
 } from '@/lib/observation-board-ai-context';
 import { getAssessments, getObservationsForContext } from '@/lib/sheets';
 import { getPromptCacheParams } from '@/lib/prompt-cache';
+import { resolveSeteukSystemPrompt } from '@/lib/prompts/seteuk';
 
 const DEFAULT_MODEL = OPENAI_STANDARD_MODEL;
 const DEFAULT_MAX_OUTPUT_TOKENS = 1000;
 const DEFAULT_REASONING_EFFORT: 'none' | 'low' | 'medium' | 'high' | 'xhigh' = 'low';
 const ALLOWED_REASONING_EFFORTS = new Set(['none', 'low', 'medium', 'high', 'xhigh']);
-
-// Default system prompt
-const DEFAULT_SYSTEM_PROMPT = `당신은 한국 고등학교 교사로서 교과 세특(교과세부능력 및 특기사항)을 작성하는 AI 어시스턴트입니다.
-
-세특 작성 원칙:
-1. 학생의 학습 과정과 성장을 구체적으로 기술합니다.
-2. 과정 중심 평가 용어를 활용합니다.
-3. 객관적이고 긍정적인 서술을 사용합니다.
-4. 350~500자 내외로 작성합니다.
-5. 비교/서열의 표현, 확정의 표현은 지양합니다.
-6. "최고", "가장", "천재" 등의 금지어를 사용하지 않습니다.
-7. 관찰메모나 멘토·멘티 활동 해석이 존재하면, 그 내용을 근거로 구체적인 예시와 태도 흐름을 활용합니다.
-8. 멘토·멘티 활동은 차시별 표시를 나열하지 말고 성실성, 책임감, 관계적 참여, 협력 태도, 활동 지속성, 성장 흐름으로 녹여 씁니다.
-9. 활동판 기록만으로 교과 지식 성취, 리더십, 우수성을 단정하거나 기록에 없는 사실을 새로 만들지 않습니다.
-
-세특 구성 요소 (4가지를 모두 포함):
-- 성취수준: 학생의 교과 목표의 달성한 정도
-- 수행 과정 및 결과: 구체적인 학습 행동과 그 결과
-- 역량: 발휘된 특별한 역량 (문제해결, 추론, 창의·융합, 의사소통, 정보처리, 태도 등)
-- 교사 총평: 학생의 성장과 발전 가능성
-
-입력받은 학생의 학습 데이터, 관찰메모, 멘토·멘티 활동 해석을 바탕으로 세특을 생성해 주세요.`;
+const PROHIBITED_FALLBACK_EVIDENCE_PATTERN = /점수|총점|원점수|평균|성취율|등급|등수|석차|백분위|수상|상훈|대회|문항 번호|문제 번호|세부 문항|평가 결과/;
 
 /**
  * Generates subject-specific student assessment records (Se-teuk) using AI.
@@ -199,7 +179,7 @@ export async function POST(request: NextRequest) {
 
     // Add curriculum content if provided
     if (curriculumContent && curriculumContent.trim()) {
-        userPrompt += `\n\n[중요] 이번 학기 교육과정 내용 :\n${curriculumContent}\n\n// 교육과정 내용에 포함된 핵심 개념과 학습 내용을 반드시 세특에 포함하여 작성해 주세요.\n- 교육과정에 명시된 단원명, 개념, 활동을 구체적으로 언급하세요.\n- 학생이 해당 내용을 어떻게 이해하고 적용했는지 서술하세요.\n- 교육과정 내용과 학생의 학습 데이터를 연결하여 작성하세요.`;
+        userPrompt += `\n\n[중요] 이번 학기 교육과정 내용 :\n${curriculumContent}\n\n// 교육과정은 활동 맥락을 파악하기 위한 참고자료입니다.\n- 단원명, 개념, 활동은 관찰 메모나 학습 데이터와 직접 연결될 때만 언급하세요.\n- 학생이 해당 내용을 어떻게 이해하고 적용했는지는 입력 자료에 관찰된 근거가 있을 때만 서술하세요.\n- 교육과정 내용만으로 학생의 성취, 태도, 역량을 새로 만들지 마세요.`;
     } else {
         userPrompt += `\n\n위 정보를 바탕으로 교과 세특을 작성해 주세요.`;
     }
@@ -227,20 +207,12 @@ export async function POST(request: NextRequest) {
         // Student's grading result
         if (ocrEvaluationContext.studentResult) {
             const result = ocrEvaluationContext.studentResult;
-            ocrContextText += `\n\n학생 평가 결과:`;
-            if (result.achievementLevel) {
-                ocrContextText += `\n - 성취수준: ${result.achievementLevel}`;
-            }
-            if (result.totalScore !== undefined && result.maxTotalScore !== undefined) {
-                ocrContextText += `\n - 총점: ${result.totalScore}/${result.maxTotalScore}점`;
-            }
-            if (result.scores && result.scores.length > 0) {
-                ocrContextText += '\n- 세부 점수:';
-                result.scores.forEach(s => {
-                    ocrContextText += `\n  • ${s.criteriaElement}: ${s.score}/${s.maxScore}점`;
-                    if (s.feedback) {
-                        ocrContextText += ` - ${s.feedback}`;
-                    }
+            ocrContextText += `\n\n학생 피드백 참고자료:`;
+            const feedbacks = result.scores?.filter(s => !!s.feedback?.trim()) || [];
+            if (feedbacks.length > 0) {
+                ocrContextText += '\n- 세부 피드백:';
+                feedbacks.forEach(s => {
+                    ocrContextText += `\n  • ${s.criteriaElement}: ${s.feedback}`;
                 });
             }
             if (result.overallFeedback) {
@@ -249,7 +221,7 @@ export async function POST(request: NextRequest) {
         }
 
         userPrompt += ocrContextText;
-        userPrompt += '\n\n위 수행평가 결과와 피드백을 참고하여, 학생의 성취 수준과 구체적인 수행 내용을 세특에 반영해 주세요.';
+        userPrompt += '\n\n위 OCR 참고자료는 관찰 근거가 있는 수행 내용과 피드백만 세특 맥락으로 활용하고, 점수·등급·성취수준·문항 번호처럼 학교생활기록부에 부적절한 정보는 출력하지 마세요.';
     }
 
     // Add example templates if provided
@@ -261,9 +233,7 @@ ${exampleTemplates.join('\n\n')}
     }
 
     // Use custom system prompt if provided, otherwise use default
-    const finalSystemPrompt = systemPrompt && systemPrompt.trim()
-        ? systemPrompt
-        : DEFAULT_SYSTEM_PROMPT;
+    const finalSystemPrompt = resolveSeteukSystemPrompt(systemPrompt);
 
     // Normalize any legacy/persisted model selection to the current standard model.
     const actualModel = normalizeOpenAIModel(model || DEFAULT_MODEL);
@@ -291,7 +261,7 @@ ${exampleTemplates.join('\n\n')}
         console.log(`Calling OpenAI with model: ${actualModel}`);
         console.log(`Learning data:`, learningData);
 
-        const cacheParams = getPromptCacheParams('generate:v1', [
+        const cacheParams = getPromptCacheParams('generate:v2', [
             finalSystemPrompt,
             subjectName || '',
             actualModel,
@@ -348,17 +318,20 @@ function generateFallbackContent(
     let dataText = '';
 
     if (learningData && Object.keys(learningData).length > 0) {
-        const values = Object.values(learningData).filter(v => v && v.trim());
+        const values = Object.entries(learningData)
+            .filter(([, value]) => !!value?.trim())
+            .filter(([key, value]) => !PROHIBITED_FALLBACK_EVIDENCE_PATTERN.test(`${key} ${value}`))
+            .map(([, value]) => value.trim());
         if (values.length > 0) {
             dataText = values.join('. ');
         }
     }
 
     if (!dataText) {
-        dataText = '수업에 성실하게 참여하며 학습 활동에 적극적으로 임함';
+        return '충분한 정보가 제공되지 않아 관찰 기록 작성이 어려움.';
     }
 
     const subject = subjectName || '해당 교과';
 
-    return `${studentName} 학생은 ${dataText}. ${subject} 수업에서 적극적인 학습 태도를 보이며 다양한 탐구 활동에서 주도적으로 참여하는 모습이 인상적이었음. 수업 과정에서 정확한 관찰력과 논리적인 분석 능력을 발휘하고 조별 활동에서 원활하게 소통하며 협력하는 과제 수행을 성실하고 꾸준하게 임하며 어려운 문제에도 포기하지 않고 끝까지 해결하려는 자세가 돋보임.`;
+    return `${subject} 활동에서 제공된 관찰 자료를 바탕으로 ${dataText} 내용을 기록함. 입력된 학습 자료와 관찰 메모 범위 안에서 수행 내용과 참여 과정을 정리함.`;
 }
