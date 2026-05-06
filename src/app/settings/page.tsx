@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     Type,
@@ -14,12 +14,22 @@ import {
     Lock,
     MessageSquare,
     Send,
-    Highlighter
+    Highlighter,
+    UserCog
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { useAppStore, isAdmin, ADMIN_CONFIG } from '@/lib/store';
 import styles from './page.module.css';
+
+type AdminRoleUser = {
+    school: string;
+    teacherKey: string;
+    teacherName: string;
+    bootstrap: boolean;
+    active: boolean;
+    grantedAt: string | null;
+};
 
 /**
  * Settings Page Component
@@ -44,9 +54,10 @@ export default function SettingsPage() {
         addNotification,
         keywords,
         addKeyword,
-        removeKeyword
+        removeKeyword,
+        adminStatus
     } = useAppStore();
-    const isAdminUser = isAdmin(teacher);
+    const isAdminUser = adminStatus.isAdmin || isAdmin(teacher);
 
     const [settings, setSettings] = useState({
         maxCharacters: 500,
@@ -62,6 +73,10 @@ export default function SettingsPage() {
     const [newAlternative, setNewAlternative] = useState('');
     const [reviewMemo, setReviewMemo] = useState('');
     const [saved, setSaved] = useState(false);
+    const [adminUsers, setAdminUsers] = useState<AdminRoleUser[]>([]);
+    const [newAdminName, setNewAdminName] = useState('');
+    const [adminMessage, setAdminMessage] = useState('');
+    const [adminLoading, setAdminLoading] = useState(false);
 
     // Request modal state
     const [showRequestModal, setShowRequestModal] = useState(false);
@@ -73,6 +88,36 @@ export default function SettingsPage() {
 
     // Keyword state
     const [newKeyword, setNewKeyword] = useState('');
+
+    useEffect(() => {
+        if (!isAdminUser) {
+            setAdminUsers([]);
+            return;
+        }
+
+        const controller = new AbortController();
+
+        const loadAdmins = async () => {
+            try {
+                const response = await fetch('/api/admin-users', {
+                    cache: 'no-store',
+                    signal: controller.signal,
+                });
+                if (!response.ok) return;
+
+                const body = await response.json() as { admins?: AdminRoleUser[] };
+                setAdminUsers(Array.isArray(body.admins) ? body.admins : []);
+            } catch (error) {
+                if (!controller.signal.aborted) {
+                    console.error('Admin users load failed:', error);
+                }
+            }
+        };
+
+        void loadAdmins();
+
+        return () => controller.abort();
+    }, [isAdminUser]);
 
     const localWords = localWordsDraft ?? forbiddenWords.map((word) => ({
         word,
@@ -112,6 +157,54 @@ export default function SettingsPage() {
     // Remove keyword
     const handleRemoveKeyword = (keyword: string) => {
         removeKeyword(keyword);
+    };
+
+    const handleAddAdmin = async () => {
+        if (!isAdminUser || !newAdminName.trim()) return;
+
+        setAdminLoading(true);
+        setAdminMessage('');
+        try {
+            const response = await fetch('/api/admin-users', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ teacherName: newAdminName.trim() }),
+            });
+            const body = await response.json() as { admins?: AdminRoleUser[]; error?: string };
+            if (!response.ok) throw new Error(body.error || '관리자 추가에 실패했습니다.');
+
+            setAdminUsers(Array.isArray(body.admins) ? body.admins : []);
+            setNewAdminName('');
+            setAdminMessage('관리자 권한을 추가했습니다.');
+        } catch (error) {
+            setAdminMessage(error instanceof Error ? error.message : '관리자 추가에 실패했습니다.');
+        } finally {
+            setAdminLoading(false);
+        }
+    };
+
+    const handleRevokeAdmin = async (admin: AdminRoleUser) => {
+        if (!isAdminUser || admin.bootstrap) return;
+        if (!confirm(`${admin.teacherName} 교사의 관리자 권한을 해제할까요?`)) return;
+
+        setAdminLoading(true);
+        setAdminMessage('');
+        try {
+            const response = await fetch('/api/admin-users', {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ teacherKey: admin.teacherKey }),
+            });
+            const body = await response.json() as { admins?: AdminRoleUser[]; error?: string };
+            if (!response.ok) throw new Error(body.error || '관리자 해제에 실패했습니다.');
+
+            setAdminUsers(Array.isArray(body.admins) ? body.admins : []);
+            setAdminMessage('관리자 권한을 해제했습니다.');
+        } catch (error) {
+            setAdminMessage(error instanceof Error ? error.message : '관리자 해제에 실패했습니다.');
+        } finally {
+            setAdminLoading(false);
+        }
     };
 
     // Submit modification request
@@ -260,6 +353,57 @@ export default function SettingsPage() {
             </AnimatePresence>
 
             <div className={styles.sections}>
+                {isAdminUser && (
+                    <section className={styles.section}>
+                        <div className={styles.sectionHeader}>
+                            <h2><UserCog size={20} /> 관리자 권한</h2>
+                        </div>
+                        <p className={styles.sectionHint}>
+                            성호중학교 교사 이름으로 관리자 권한을 추가하거나 해제합니다.
+                        </p>
+
+                        <div className={styles.addWordForm}>
+                            <Input
+                                placeholder="교사 이름 입력"
+                                value={newAdminName}
+                                onChange={(event) => setNewAdminName(event.target.value)}
+                                onKeyDown={(event) => event.key === 'Enter' && handleAddAdmin()}
+                            />
+                            <Button variant="secondary" onClick={handleAddAdmin} disabled={adminLoading || !newAdminName.trim()}>
+                                <Plus size={18} /> 관리자 추가
+                            </Button>
+                        </div>
+
+                        {adminMessage && (
+                            <p className={styles.adminMessage}>{adminMessage}</p>
+                        )}
+
+                        <div className={styles.adminList}>
+                            {adminUsers.map((admin) => (
+                                <div key={admin.teacherKey} className={styles.adminItem}>
+                                    <div>
+                                        <strong>{admin.teacherName}</strong>
+                                        <span>{admin.school}</span>
+                                    </div>
+                                    {admin.bootstrap ? (
+                                        <span className={styles.bootstrapBadge}>해제 불가</span>
+                                    ) : (
+                                        <button
+                                            type="button"
+                                            className={styles.removeBtn}
+                                            onClick={() => handleRevokeAdmin(admin)}
+                                            disabled={adminLoading}
+                                            aria-label={`${admin.teacherName} 관리자 해제`}
+                                        >
+                                            <X size={16} />
+                                        </button>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
                 {/* Character Limit Settings */}
                 <section className={styles.section}>
                     <h2><Type size={20} /> 글자수 정책</h2>

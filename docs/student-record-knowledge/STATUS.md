@@ -31,13 +31,16 @@
 - write page integration: implemented
 - write page screenshot UI: implemented with class chips, 10-row pagination, rounded AI input/content table rows, AI 세특 guide sidebar card, and top teacher/notification chrome
 - seteuk default prompt: implemented as shared `strict-observation-v1` teacher observation record policy in `src/lib/prompts/seteuk.ts`
+- seteuk prompt mode: `/settings/ai` now offers `기본 설정` and `내 프롬프트`; teacher-private prompt mode/body sync through workspace state
+- admin role management: `/api/admin-users` and `/settings` support admin list/grant/revoke with non-revocable bootstrap admin `박범진`
 - search inspector diagnostics route: implemented but hidden from the sidebar
 - main navigation integration: 학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검 (개발중) 순서 적용
 - student data tab: removed along with `/student-data`; write generation no longer loads student-data tab entries
-- student data APIs: `/api/student-data`, `/api/cookies`, `/api/cookie-rewards` retained as legacy Google Sheets/local fallback storage endpoints
-- Supabase runtime store: implemented behind `SUPABASE_URL`/`SUPABASE_PROJECT_ID` + `SUPABASE_SECRET_KEY`, with `sheet_rows` preserving existing API contracts and Google Sheets as fallback when Supabase is not configured
-- workspace/observation-board state sync: implemented via `/api/workspace-state`, `/api/observation-board-state`, `WorkspaceSupabaseSync`, and observation-board save/load hooks
+- student data APIs: `/api/student-data`, `/api/cookies`, `/api/cookie-rewards` retained as storage compatibility endpoints
+- Supabase runtime store: implemented behind `SUPABASE_URL`/`SUPABASE_PROJECT_ID` + `SUPABASE_SECRET_KEY`, with production runtime fixed to Supabase-only and `503` returned when required storage is missing
+- workspace/observation-board state sync: implemented via `/api/workspace-state`, `/api/observation-board-state`, `WorkspaceSupabaseSync`, and observation-board save/load hooks; workspace sync includes teacher prompt mode/body
 - server session guard: login issues a signed HTTP-only `seteuk-session` cookie and key storage APIs validate school/teacher scope before writes
+- forbidden words: default list centralized in `src/lib/forbidden-words.ts` and reused by the store plus `/api/forbidden`
 - Google Sheets auth resilience: service account email/spreadsheet id are trimmed, private keys tolerate wrapping quotes, escaped newlines, and base64 PEM values, and read-only roster/student-data/cookie APIs no longer run sheet creation first
 - write generation context: observation notes, interpreted mentor/mentee activity summaries derived from observation-board △/○ marks, learning data, and OCR evaluation context are injected into `/api/generate`; student-data tab entries are not loaded
 - competency color check: source-text-safe rendering, per-row analysis button/status, and stale analysis clearing implemented
@@ -72,6 +75,7 @@
 
 ## Recent Changes
 
+- 2026-05-06: added Supabase-backed admin grants, teacher prompt mode selection, production Supabase-only storage checks, centralized forbidden-word defaults, sensitive-log reduction, and `docs/TEACHER_GUIDE.md`
 - 2026-05-03: centralized the AI 세특 작성 default prompt as `strict-observation-v1` and connected `/api/generate`, `/settings/ai`, and write generation to the shared value
 - 2026-04-27: added Supabase-backed runtime storage, workspace/observation-board state sync, signed server sessions, and a Google Sheets to Supabase migration script
 - 2026-04-26: moved the observation-board-2 growth record action dock above the student grid so selected students can be saved without scrolling past the roster

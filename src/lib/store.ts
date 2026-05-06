@@ -4,6 +4,9 @@ import { ClassGroup, Student, SubjectRecord, SubjectRecordHistorySource, Teacher
 import { buildTeacherKey } from '@/lib/teacher-context';
 import { createDemoWorkspaceSeed } from '@/lib/demo-workspace';
 import { SEONGHO_AUTH_MODE, isSeonghoSchool } from '@/lib/seongho-auth';
+import { DEFAULT_FORBIDDEN_WORDS } from '@/lib/forbidden-words';
+
+export type SeteukPromptMode = 'default' | 'personal';
 
 // Admin configuration
 export const ADMIN_CONFIG = {
@@ -64,6 +67,14 @@ interface AppState {
 
     // AI Settings
     exampleTemplate: string;
+    seteukPromptMode: SeteukPromptMode;
+    personalSeteukPrompt: string;
+
+    // Server-loaded admin status
+    adminStatus: {
+        loaded: boolean;
+        isAdmin: boolean;
+    };
 
     // Curriculum content by grade/semester
     curriculumContents: CurriculumContent[];
@@ -99,6 +110,9 @@ interface AppState {
     getRecord: (studentId: string) => SubjectRecord | undefined;
 
     setExampleTemplate: (template: string) => void;
+    setSeteukPromptMode: (mode: SeteukPromptMode) => void;
+    setPersonalSeteukPrompt: (prompt: string) => void;
+    setAdminStatus: (status: { loaded: boolean; isAdmin: boolean }) => void;
 
     // Curriculum content actions
     setCurriculumContent: (grade: number, semester: 1 | 2, content: string) => void;
@@ -124,6 +138,8 @@ interface AppState {
         | 'students'
         | 'records'
         | 'exampleTemplate'
+        | 'seteukPromptMode'
+        | 'personalSeteukPrompt'
         | 'curriculumContents'
         | 'adminNotifications'
         | 'forbiddenWords'
@@ -141,8 +157,12 @@ const DEFAULT_EXAMPLE_TEMPLATE = `[예시 세특]
 - 학생의 성장과 변화 중심 기술
 - 과목 특성을 반영한 용어 사용`;
 
-// Default forbidden words
-const DEFAULT_FORBIDDEN_WORDS = ['최고', '가장', '천재', '완벽', '1등', '꼴찌', '못함'];
+const LEGACY_DEFAULT_FORBIDDEN_WORDS = ['최고', '가장', '천재', '완벽', '1등', '꼴찌', '못함'];
+
+function isLegacyDefaultForbiddenWords(words?: string[]): boolean {
+    if (!Array.isArray(words) || words.length !== LEGACY_DEFAULT_FORBIDDEN_WORDS.length) return false;
+    return LEGACY_DEFAULT_FORBIDDEN_WORDS.every((word, index) => words[index] === word);
+}
 
 /**
  * Main application state store using Zustand.
@@ -163,6 +183,12 @@ export const useAppStore = create<AppState>()(
             students: [],
             records: [],
             exampleTemplate: DEFAULT_EXAMPLE_TEMPLATE,
+            seteukPromptMode: 'default',
+            personalSeteukPrompt: '',
+            adminStatus: {
+                loaded: false,
+                isAdmin: false,
+            },
             curriculumContents: [],
             adminNotifications: [],
             forbiddenWords: DEFAULT_FORBIDDEN_WORDS,
@@ -171,11 +197,15 @@ export const useAppStore = create<AppState>()(
             login: (name, subject, school) => set(() => {
                 const teacherKey = buildTeacherKey({ name, subject, school });
                 return {
-                    teacher: { id: teacherKey, teacherKey, name, subject, school, authMode: SEONGHO_AUTH_MODE }
+                    teacher: { id: teacherKey, teacherKey, name, subject, school, authMode: SEONGHO_AUTH_MODE },
+                    adminStatus: { loaded: false, isAdmin: false },
                 };
             }),
 
-            logout: () => set({ teacher: null }),
+            logout: () => set({
+                teacher: null,
+                adminStatus: { loaded: false, isAdmin: false },
+            }),
             setHasHydrated: (hasHydrated) => set({ hasHydrated }),
 
             seedDemoWorkspace: () => {
@@ -391,6 +421,9 @@ export const useAppStore = create<AppState>()(
             getRecord: (studentId) => get().records.find(r => r.studentId === studentId),
 
             setExampleTemplate: (template) => set({ exampleTemplate: template }),
+            setSeteukPromptMode: (mode) => set({ seteukPromptMode: mode }),
+            setPersonalSeteukPrompt: (prompt) => set({ personalSeteukPrompt: prompt }),
+            setAdminStatus: (status) => set({ adminStatus: status }),
 
             // Curriculum content
             setCurriculumContent: (grade, semester, content) => set((state) => {
@@ -475,6 +508,12 @@ export const useAppStore = create<AppState>()(
                 students: Array.isArray(data.students) ? data.students : state.students,
                 records: Array.isArray(data.records) ? data.records : state.records,
                 exampleTemplate: typeof data.exampleTemplate === 'string' ? data.exampleTemplate : state.exampleTemplate,
+                seteukPromptMode: data.seteukPromptMode === 'personal' || data.seteukPromptMode === 'default'
+                    ? data.seteukPromptMode
+                    : state.seteukPromptMode,
+                personalSeteukPrompt: typeof data.personalSeteukPrompt === 'string'
+                    ? data.personalSeteukPrompt
+                    : state.personalSeteukPrompt,
                 curriculumContents: Array.isArray(data.curriculumContents) ? data.curriculumContents : state.curriculumContents,
                 adminNotifications: Array.isArray(data.adminNotifications) ? data.adminNotifications : state.adminNotifications,
                 forbiddenWords: Array.isArray(data.forbiddenWords) ? data.forbiddenWords : state.forbiddenWords,
@@ -489,12 +528,17 @@ export const useAppStore = create<AppState>()(
                 students: state.students,
                 records: state.records,
                 exampleTemplate: state.exampleTemplate,
+                seteukPromptMode: state.seteukPromptMode,
+                personalSeteukPrompt: state.personalSeteukPrompt,
                 curriculumContents: state.curriculumContents,
                 adminNotifications: state.adminNotifications,
                 forbiddenWords: state.forbiddenWords,
                 keywords: state.keywords,
             }),
             onRehydrateStorage: () => (state) => {
+                if (isLegacyDefaultForbiddenWords(state?.forbiddenWords)) {
+                    state?.setForbiddenWords(DEFAULT_FORBIDDEN_WORDS);
+                }
                 state?.setHasHydrated(true);
             },
         }

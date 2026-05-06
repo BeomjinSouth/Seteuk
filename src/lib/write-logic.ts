@@ -7,7 +7,8 @@ import {
 } from '@/lib/check-utils';
 import { readObservationBoardAiContext } from '@/lib/observation-board-ai-context';
 import { OPENAI_STANDARD_MODEL, normalizeOpenAIModel } from '@/lib/openai-models';
-import { resolveSeteukSystemPrompt, SETEUK_SYSTEM_PROMPT_STORAGE_KEY } from '@/lib/prompts/seteuk';
+import { resolveSeteukSystemPrompt } from '@/lib/prompts/seteuk';
+import { useAppStore } from '@/lib/store';
 
 type ReasoningEffort = 'none' | 'low' | 'medium' | 'high' | 'xhigh';
 
@@ -53,9 +54,13 @@ export function getAISettings(): AISettings {
     const maxOutputTokens = Number.isFinite(parsedMaxOutputTokens)
         ? Math.max(200, Math.min(3000, parsedMaxOutputTokens))
         : 1000;
+    const { seteukPromptMode, personalSeteukPrompt } = useAppStore.getState();
+    const selectedSystemPrompt = seteukPromptMode === 'personal' && personalSeteukPrompt.trim()
+        ? personalSeteukPrompt
+        : null;
 
     return {
-        systemPrompt: resolveSeteukSystemPrompt(localStorage.getItem(SETEUK_SYSTEM_PROMPT_STORAGE_KEY)),
+        systemPrompt: resolveSeteukSystemPrompt(selectedSystemPrompt),
         model: normalizeOpenAIModel(localStorage.getItem('ai_model')),
         maxOutputTokens,
         reasoningEffort,

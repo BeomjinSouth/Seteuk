@@ -1,12 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getTeacherSession } from '@/lib/auth/session';
-import { isSupabaseConfigured } from '@/lib/supabase/config';
+import { isSupabaseConfigured, isSupabaseRequiredButMissing } from '@/lib/supabase/config';
 import { getAppStateDocument, upsertAppStateDocument } from '@/lib/supabase/state-store';
+
+function supabaseMissingResponse() {
+    return NextResponse.json({
+        success: false,
+        configured: false,
+        error: '운영 환경에서는 Supabase 저장소 설정이 필요합니다.',
+    }, { status: 503 });
+}
 
 export async function GET() {
     const teacher = await getTeacherSession();
     if (!teacher) {
         return NextResponse.json({ success: false, error: '로그인이 필요합니다.' }, { status: 401 });
+    }
+
+    if (isSupabaseRequiredButMissing()) {
+        return supabaseMissingResponse();
     }
 
     if (!isSupabaseConfigured()) {
@@ -26,6 +38,10 @@ export async function PUT(request: NextRequest) {
     const teacher = await getTeacherSession();
     if (!teacher) {
         return NextResponse.json({ success: false, error: '로그인이 필요합니다.' }, { status: 401 });
+    }
+
+    if (isSupabaseRequiredButMissing()) {
+        return supabaseMissingResponse();
     }
 
     if (!isSupabaseConfigured()) {

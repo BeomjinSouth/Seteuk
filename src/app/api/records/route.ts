@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getRecords, saveRecord } from '@/lib/sheets';
 import { rejectWhenDifferentTeacher, requireTeacherSession } from '@/lib/auth/guards';
+import { isSupabaseRequiredButMissing } from '@/lib/supabase/config';
+import { supabaseRequiredResponse } from '@/lib/supabase/required-response';
 
 /**
  * Retrieves all student records (drafts/completed).
@@ -13,6 +15,7 @@ export async function GET() {
     try {
         const session = await requireTeacherSession();
         if (!session.ok) return session.response;
+        if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         const records = (await getRecords()).filter((record) =>
             !record.teacherKey || record.teacherKey === session.teacher.teacherKey
@@ -44,6 +47,7 @@ export async function POST(request: NextRequest) {
     try {
         const session = await requireTeacherSession();
         if (!session.ok) return session.response;
+        if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         const body = await request.json();
         const { id, studentId, classId, teacherKey, content, status } = body;

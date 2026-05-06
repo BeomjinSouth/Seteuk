@@ -318,7 +318,7 @@ function WritePageContent() {
                     lastUpdated: new Date().toISOString(),
                 }, 'ai');
             } catch (error) {
-                console.error('Generation failed', studentId, error);
+                console.error('Generation failed:', error);
             } finally {
                 setGeneratingIds((prev) => {
                     const next = new Set(prev);
@@ -390,7 +390,7 @@ function WritePageContent() {
                 }, 'improve');
             } catch (error) {
                 failureCount += 1;
-                console.error('Review and improve failed', record.studentId, error);
+                console.error('Review and improve failed:', error);
             }
         });
 
@@ -525,7 +525,7 @@ function WritePageContent() {
                 },
             });
         } catch (error) {
-            console.error('Competency analysis failed', record.studentId, error);
+            console.error('Competency analysis failed:', error);
         } finally {
             setCompetencyAnalyzingIds((prev) => {
                 const next = new Set(prev);
@@ -631,7 +631,7 @@ function WritePageContent() {
                     lastUpdated: new Date().toISOString(),
                 }, direction === 'expand' ? 'expand' : 'shorten');
             } catch (error) {
-                console.error('Bulk adjust failed', record.studentId, error);
+                console.error('Bulk adjust failed:', error);
             }
         });
         setIsBulkAdjusting(false);

@@ -210,15 +210,19 @@ export async function POST(request: NextRequest) {
         recordRequest();
 
         // 재시도 로직이 포함된 맞춤법 검사 실행
-        console.log('[Speller] 검사 시작, 텍스트 길이:', text.length, '서비스:', service);
+        if (process.env.NODE_ENV !== 'production') {
+            console.log('[Speller] 검사 시작, 텍스트 길이:', text.length, '서비스:', service);
+        }
         const { results: rawResults, usedService } = await spellCheckWithRetry(
             text,
             service as 'daum' | 'pnu'
         );
-        console.log('[Speller] 검사 완료, 원본 결과 수:', rawResults.length, '사용 서비스:', usedService);
+        if (process.env.NODE_ENV !== 'production') {
+            console.log('[Speller] 검사 완료, 원본 결과 수:', rawResults.length, '사용 서비스:', usedService);
+        }
 
         // 원본 결과 상세 로그
-        if (rawResults.length > 0) {
+        if (process.env.NODE_ENV !== 'production' && rawResults.length > 0) {
             console.log('[Speller] 원본 결과:', JSON.stringify(rawResults, null, 2));
         }
 
@@ -261,7 +265,9 @@ export async function POST(request: NextRequest) {
             };
         }).filter(s => s.suggestions.length > 0); // 제안이 없는 항목은 제거
 
-        console.log('[Speller] 변환된 suggestions:', JSON.stringify(suggestions, null, 2));
+        if (process.env.NODE_ENV !== 'production') {
+            console.log('[Speller] 변환된 suggestions 수:', suggestions.length);
+        }
 
         // 대체 서비스 사용 시 알림 메시지 포함
         const response: {

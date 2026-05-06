@@ -252,7 +252,7 @@ JSON 형식으로만 응답해 주세요.`;
         try {
             parsedResult = JSON.parse(responseText);
         } catch {
-            console.error('Failed to parse grading response:', responseText);
+            console.error('Failed to parse grading response.');
             return NextResponse.json(
                 { success: false, error: '채점 결과를 파싱하는데 실패했습니다.' },
                 { status: 500 }

@@ -1,7 +1,7 @@
 import { google } from 'googleapis';
 import { promises as fs } from 'fs';
 import path from 'path';
-import { isSupabaseConfigured } from '@/lib/supabase/config';
+import { isSupabaseConfigured, isSupabaseRequiredButMissing } from '@/lib/supabase/config';
 import {
     appendSupabaseSheetRow,
     deleteSupabaseSheetRows,
@@ -75,6 +75,12 @@ type LocalSheetStore = Record<string, string[][]>;
 
 function shouldUseLocalSheetFallback() {
     return process.env.NODE_ENV !== 'production';
+}
+
+function assertProductionStorageConfigured() {
+    if (isSupabaseRequiredButMissing()) {
+        throw new Error('운영 환경에서는 Supabase 저장소 설정이 필요합니다.');
+    }
 }
 
 async function readLocalSheetStore(): Promise<LocalSheetStore> {
@@ -158,6 +164,8 @@ export function columnNumberToLetters(n: number): string {
  * @returns 2D array of string values.
  */
 export async function readSheet(sheetName: string): Promise<string[][]> {
+    assertProductionStorageConfigured();
+
     if (isSupabaseConfigured()) {
         return readSupabaseSheet(sheetName);
     }
@@ -190,6 +198,8 @@ export async function readSheet(sheetName: string): Promise<string[][]> {
  * @param values - Array of values to append (one row).
  */
 export async function appendRow(sheetName: string, values: string[]): Promise<void> {
+    assertProductionStorageConfigured();
+
     if (isSupabaseConfigured()) {
         await appendSupabaseSheetRow(sheetName, values);
         return;
@@ -221,6 +231,8 @@ export async function appendRow(sheetName: string, values: string[]): Promise<vo
  * @param values - Full sheet payload, including header rows when needed.
  */
 export async function writeSheet(sheetName: string, values: string[][]): Promise<void> {
+    assertProductionStorageConfigured();
+
     if (isSupabaseConfigured()) {
         await writeSupabaseSheet(sheetName, values);
         return;
@@ -266,6 +278,8 @@ export async function writeSheet(sheetName: string, values: string[][]): Promise
  * @param values - Values to update.
  */
 export async function updateRow(sheetName: string, rowIndex: number, values: string[]): Promise<void> {
+    assertProductionStorageConfigured();
+
     if (isSupabaseConfigured()) {
         await updateSupabaseSheetRow(sheetName, rowIndex, values);
         return;
@@ -303,6 +317,8 @@ export async function updateRow(sheetName: string, rowIndex: number, values: str
  * @param rowIndex - 1-based row index to delete.
  */
 export async function deleteRow(sheetName: string, rowIndex: number): Promise<void> {
+    assertProductionStorageConfigured();
+
     if (isSupabaseConfigured()) {
         await deleteSupabaseSheetRows(sheetName, [rowIndex]);
         return;
@@ -337,6 +353,8 @@ export async function deleteRow(sheetName: string, rowIndex: number): Promise<vo
  * Retrieves the numeric Sheet ID (gid) by sheet name.
  */
 export async function getSheetId(sheetName: string): Promise<number> {
+    assertProductionStorageConfigured();
+
     if (isSupabaseConfigured()) {
         return 0;
     }
@@ -365,6 +383,7 @@ export async function getSheetId(sheetName: string): Promise<number> {
  */
 export async function deleteRows(sheetName: string, rowIndices: number[]): Promise<void> {
     if (rowIndices.length === 0) return;
+    assertProductionStorageConfigured();
 
     if (isSupabaseConfigured()) {
         await deleteSupabaseSheetRows(sheetName, rowIndices);
@@ -407,6 +426,8 @@ export async function deleteRows(sheetName: string, rowIndices: number[]): Promi
  * Creates any missing sheets.
  */
 export async function initializeSheets(): Promise<{ created: string[]; errors: string[] }> {
+    assertProductionStorageConfigured();
+
     if (isSupabaseConfigured()) {
         return { created: [], errors: [] };
     }

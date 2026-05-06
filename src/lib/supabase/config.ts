@@ -28,6 +28,14 @@ export function isSupabaseConfigured(): boolean {
     return Boolean(getSupabaseUrl() && getSupabaseSecretKey());
 }
 
+export function isProductionRuntime(): boolean {
+    return process.env.NODE_ENV === 'production';
+}
+
+export function isSupabaseRequiredButMissing(): boolean {
+    return isProductionRuntime() && !isSupabaseConfigured();
+}
+
 export function getSupabaseConfigSummary() {
     return {
         projectId: getSupabaseProjectId(),

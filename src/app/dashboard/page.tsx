@@ -18,11 +18,6 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
-import {
-    SETEUK_DEFAULT_SYSTEM_PROMPT_VERSION,
-    SETEUK_SYSTEM_PROMPT_STORAGE_KEY,
-    SETEUK_SYSTEM_PROMPT_VERSION_STORAGE_KEY,
-} from '@/lib/prompts/seteuk';
 import { getStudentsInTeachingClass, getTeacherClasses } from '@/lib/teacher-context';
 import styles from './page.module.css';
 
@@ -47,9 +42,10 @@ export default function DashboardPage() {
         adminNotifications,
         updateNotificationStatus,
         seedDemoWorkspace,
+        adminStatus,
     } = useAppStore();
 
-    const isAdminUser = isAdmin(teacher);
+    const isAdminUser = adminStatus.isAdmin || isAdmin(teacher);
     const pendingNotifications = adminNotifications.filter(n => n.status === 'pending');
     const teacherClasses = getTeacherClasses(classes, teacher);
 
@@ -71,13 +67,7 @@ export default function DashboardPage() {
     const pendingReviewCount = teacherRecords.filter(r => r.status === 'checked').length;
 
     // Handle notification actions
-    const handleApprove = (id: string, newValue: string) => {
-        // For setting requests, save the new value
-        const notification = adminNotifications.find(n => n.id === id);
-        if (notification?.type === 'setting_request') {
-            localStorage.setItem(SETEUK_SYSTEM_PROMPT_STORAGE_KEY, newValue);
-            localStorage.setItem(SETEUK_SYSTEM_PROMPT_VERSION_STORAGE_KEY, SETEUK_DEFAULT_SYSTEM_PROMPT_VERSION);
-        }
+    const handleApprove = (id: string) => {
         updateNotificationStatus(id, 'approved');
     };
 
@@ -167,7 +157,7 @@ export default function DashboardPage() {
                                 <div className={styles.notificationActions}>
                                     <Button
                                         size="sm"
-                                        onClick={() => handleApprove(notif.id, notif.newValue)}
+                                        onClick={() => handleApprove(notif.id)}
                                     >
                                         <Check size={14} /> 승인
                                     </Button>

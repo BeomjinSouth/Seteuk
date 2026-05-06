@@ -114,7 +114,7 @@ JSON 형식으로만 응답해 주세요.`;
         try {
             parsedResult = JSON.parse(responseText);
         } catch {
-            console.error('Failed to parse PDF split response:', responseText);
+            console.error('Failed to parse PDF split response.');
             return NextResponse.json(
                 { success: false, error: 'PDF 분석 결과를 파싱하는데 실패했습니다.' },
                 { status: 500 }

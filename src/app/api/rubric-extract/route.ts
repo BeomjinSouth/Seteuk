@@ -105,7 +105,9 @@ export async function POST(request: NextRequest) {
     }
 
     try {
-        console.log('Extracting rubric from image...');
+        if (process.env.NODE_ENV !== 'production') {
+            console.log('Extracting rubric from image...');
+        }
         const openai = getOpenAIClient();
 
         const imageContent = image
@@ -140,11 +142,12 @@ export async function POST(request: NextRequest) {
 
         try {
             result = JSON.parse(content);
-            console.log('Rubric extraction result:', JSON.stringify(result, null, 2));
-            console.log('Achievement standards count:', result.achievementStandards?.length || 0);
-            console.log('Scoring criteria count:', result.scoringCriteria?.length || 0);
+            if (process.env.NODE_ENV !== 'production') {
+                console.log('Achievement standards count:', result.achievementStandards?.length || 0);
+                console.log('Scoring criteria count:', result.scoringCriteria?.length || 0);
+            }
         } catch {
-            console.error('Failed to parse rubric extraction response:', content);
+            console.error('Failed to parse rubric extraction response.');
             result = {
                 achievementStandards: [],
                 scoringCriteria: [],
@@ -199,5 +202,4 @@ function generateDemoExtraction() {
         confidence: 'low'
     };
 }
-
 

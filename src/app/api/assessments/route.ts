@@ -6,6 +6,8 @@ import {
     deleteAssessment,
 } from '@/lib/sheets';
 import { requireTeacherSession } from '@/lib/auth/guards';
+import { isSupabaseRequiredButMissing } from '@/lib/supabase/config';
+import { supabaseRequiredResponse } from '@/lib/supabase/required-response';
 
 // GET - 평가 과제 조회
 // GET - 평가 과제 조회
@@ -20,6 +22,7 @@ export async function GET() {
     try {
         const session = await requireTeacherSession();
         if (!session.ok) return session.response;
+        if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         const assessments = await getAssessments();
 
@@ -58,6 +61,7 @@ export async function POST(request: NextRequest) {
     try {
         const session = await requireTeacherSession();
         if (!session.ok) return session.response;
+        if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         const body = await request.json();
         const {
@@ -116,6 +120,7 @@ export async function PUT(request: NextRequest) {
     try {
         const session = await requireTeacherSession();
         if (!session.ok) return session.response;
+        if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         const body = await request.json();
         const { id, ...data } = body;
@@ -156,6 +161,7 @@ export async function PUT(request: NextRequest) {
 export async function DELETE(request: NextRequest) {
     const session = await requireTeacherSession();
     if (!session.ok) return session.response;
+    if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
     const searchParams = request.nextUrl.searchParams;
     const id = searchParams.get('id');

@@ -136,7 +136,11 @@ STAR FAQ/Q&A
 - 세특 작성 탭의 `RAG 점검·개선` 버튼은 `/api/record-review`의 `includeImprovedDraft` 흐름을 재사용
 - 세특 작성 탭의 `유사도` 버튼은 선택 학생 초안을 문장 단위로 비교하고, 다른 학생 간 90% 이상 동일한 문장만 모달에 노출한다.
 - 세특 작성 기본 시스템 프롬프트는 `web/src/lib/prompts/seteuk.ts`의 `SETEUK_DEFAULT_SYSTEM_PROMPT`가 단일 소스이며, `/api/generate`, `src/lib/write-logic.ts`, `/settings/ai`가 같은 값을 참조한다.
-- 프롬프트 버전은 `strict-observation-v1`로 기록하고, 브라우저 저장 키는 `ai_system_prompt`와 `ai_system_prompt_version`을 사용한다. 저장값이 없거나 예전 기본 프롬프트와 정확히 일치하면 새 기본 프롬프트로 해석한다.
+- `/settings/ai`는 `기본 설정`과 `내 프롬프트` 두 선택 버튼을 제공한다. 기본 설정은 읽기 전용 `strict-observation-v1`을 사용하고, 내 프롬프트는 교사 본인 workspace state의 `seteukPromptMode`, `personalSeteukPrompt`로 저장해 Supabase 동기화 대상에 포함한다.
+- 모델, max output tokens, reasoning effort는 기존처럼 관리자 전용 설정으로 유지한다.
+- 프롬프트 버전은 `strict-observation-v1`로 기록하며, 예전 `ai_system_prompt` 기본값이 남아 있어도 새 기본 프롬프트로 해석한다.
+- 관리자 권한은 `web/src/lib/admin-roles.ts`, `/api/admin-users`, `/api/admin-users/me`, `admin_role_grants` 테이블로 관리한다. 최초 관리자 `성호중학교 / 박범진`은 bootstrap role로 유지하고 해제할 수 없다.
+- 기본 금지어는 `web/src/lib/forbidden-words.ts`에 모아 store와 `/api/forbidden`이 같은 목록을 사용한다.
 - 세특 생성 프롬프트는 제공된 관찰 데이터만 근거로 삼고 점수/등급/등수/수상/시험 문항 표현을 출력에서 배제한다. OCR 컨텍스트는 점수 자체보다 성취기준, 기준 요소, 피드백 텍스트 중심으로 전달한다.
 - 별도 상단 `학생 데이터` 탭과 `/student-data` 화면은 제공하지 않는다.
 - 레거시 학생 데이터/쿠키 API는 저장소 호환을 위해 남기되, 현재 사용자 탭과 세특 생성 컨텍스트에서는 사용하지 않는다.
@@ -213,11 +217,13 @@ Google Sheets 저장소에는 과거 데이터 호환을 위해 다음 시트를
 
 ## 4.7 Supabase 저장소 전환
 
-- 웹앱은 `SUPABASE_URL` 또는 `SUPABASE_PROJECT_ID`, 그리고 서버 전용 `SUPABASE_SECRET_KEY`가 설정되면 Google Sheets 대신 Supabase를 기본 저장소로 사용한다.
+- 웹앱은 production runtime에서 `SUPABASE_URL` 또는 `SUPABASE_PROJECT_ID`, 그리고 서버 전용 `SUPABASE_SECRET_KEY`를 필수로 요구한다. 누락 시 주요 저장 API는 503을 반환하고 Google Sheets runtime fallback을 사용하지 않는다.
+- Google Sheets 코드는 로컬 개발 fallback과 성호중학교 명렬표 import/migration 보조 경로로만 유지한다.
 - 기존 `src/lib/sheets/*` 호출 계약은 유지하고, `sheet_rows(sheet_name, row_index, cells)` 호환 테이블에 기존 시트 행을 JSONB 배열로 저장한다.
-- 브라우저에 있던 교사 작업공간 상태는 `/api/workspace-state`, 관찰판 차시/표시/멘토배치/공지 상태는 `/api/observation-board-state`를 통해 `app_state_documents`에 동기화한다.
+- 브라우저에 있던 교사 작업공간 상태와 세특 프롬프트 선택/개인 프롬프트는 `/api/workspace-state`, 관찰판 차시/표시/멘토배치/공지 상태는 `/api/observation-board-state`를 통해 `app_state_documents`에 동기화한다.
 - 성호중학교 로그인은 기존 입력 방식 그대로 유지하되, 성공 시 서버에서 서명된 HTTP-only `seteuk-session` 쿠키를 발급하고 저장 API는 이 세션의 학교/교사 범위를 검사한다.
 - 기존 Google Sheets 데이터는 `scripts/migrate-google-sheets-to-supabase.mjs`로 Supabase `sheet_rows`에 이관한다.
+- 관리자 권한 테이블은 `web/supabase/migrations/202605060001_admin_role_grants.sql`에서 추가한다.
 - Supabase 원격 마이그레이션에는 프로젝트 DB 비밀번호와 CLI/관리 토큰이 필요하며, 노출된 토큰은 폐기 후 새 값으로 환경변수에만 보관한다.
 
 ## 4.5 OpenAI 모델/비전 기준

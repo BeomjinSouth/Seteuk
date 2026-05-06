@@ -39,7 +39,11 @@
 - `src/app/api/counsel-chat/route.ts`
 - `src/app/api/record-review/route.ts`
 - `src/app/api/generate/route.ts`
+- `src/app/api/admin-users/route.ts`
+- `src/app/api/admin-users/me/route.ts`
 - `src/lib/prompts/seteuk.ts`
+- `src/lib/admin-roles.ts`
+- `src/lib/forbidden-words.ts`
 - `src/app/api/admin/crawl/route.ts`
 - `src/app/api/admin/reindex/route.ts`
 - `src/app/api/admin/crawl-status/route.ts`
@@ -101,14 +105,17 @@
 - student data/cookie APIs remain as legacy storage compatibility endpoints, but current user navigation and write generation do not use them
 - Google Sheets runtime credentials are normalized before client creation so Vercel values pasted with wrapping quotes or escaped newlines still produce a valid private key.
 - read-only roster/student-data/cookie APIs skip sheet-creation initialization and read existing sheets directly; mutations still initialize missing sheets before writing.
-- Supabase runtime storage is supported through `src/lib/supabase/*`; when `SUPABASE_URL`/`SUPABASE_PROJECT_ID` and `SUPABASE_SECRET_KEY` are configured, `src/lib/sheets/base.ts` reads and writes `sheet_rows` instead of Google Sheets.
-- `/api/workspace-state` and `/api/observation-board-state` persist Zustand workspace state plus observation-board local state into `app_state_documents`.
+- Supabase runtime storage is supported through `src/lib/supabase/*`; production requires `SUPABASE_URL`/`SUPABASE_PROJECT_ID` plus `SUPABASE_SECRET_KEY`, and `src/lib/sheets/base.ts` blocks Google Sheets runtime fallback in production.
+- `/api/workspace-state` and `/api/observation-board-state` persist Zustand workspace state plus observation-board local state into `app_state_documents`, returning `503` when production Supabase storage is missing.
 - Login now also creates a signed HTTP-only `seteuk-session` cookie, and storage APIs check the server session's school or teacher key before accepting data.
-- Existing Google Sheets data can be migrated with `scripts/migrate-google-sheets-to-supabase.mjs` after applying `supabase/migrations/202604270001_initial_seteuk_storage.sql`.
+- Existing Google Sheets data can be migrated with `scripts/migrate-google-sheets-to-supabase.mjs` after applying `supabase/migrations/202604270001_initial_seteuk_storage.sql`; Google Sheets is otherwise retained for local dev/import/migration only.
+- Admin grants are stored in `admin_role_grants` from `supabase/migrations/202605060001_admin_role_grants.sql`; server APIs verify the signed session with `isAdminTeacher` before listing, granting, or revoking admins, and the bootstrap `박범진` role cannot be revoked.
 - `/write` does not fetch student-data tab entries before calling `/api/generate`
 - `/write` reads the teacher-scoped observation-board session headers, student △/○ marks, current mentor/mentee assignments, and per-session assignment snapshots from localStorage, sends a derived `observationBoardContext`, and `/api/generate` adds it to the 세특 prompt as `멘토·멘티 활동 해석`
 - `/api/generate`, `/settings/ai`, and `src/lib/write-logic.ts` share `SETEUK_DEFAULT_SYSTEM_PROMPT` from `src/lib/prompts/seteuk.ts`; the current prompt version is `strict-observation-v1`
-- AI prompt overrides are stored in browser `ai_system_prompt`; missing values or exact legacy defaults are resolved to `strict-observation-v1`, and settings saves also record `ai_system_prompt_version`
+- `/settings/ai` exposes two prompt choices: `기본 설정` uses read-only `strict-observation-v1`, while `내 프롬프트` stores `seteukPromptMode` and `personalSeteukPrompt` in teacher workspace state and Supabase sync payloads.
+- Model, max output tokens, and reasoning effort remain admin-only settings stored in browser runtime settings.
+- Default forbidden words are centralized in `src/lib/forbidden-words.ts` and used by both Zustand store defaults and `/api/forbidden`.
 - `/api/generate` treats curriculum content as context only when tied to observed data and passes OCR context without raw score/grade totals, keeping score/rank/award/test-item wording out of generated drafts
 - competency highlighting renders against the source text so invalid AI segment indexes cannot drop text from the display
 - school roster data syncs through `/api/students` into shared sheet-backed storage, while teaching-class connections remain teacher-specific in local app state

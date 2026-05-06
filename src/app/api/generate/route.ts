@@ -258,8 +258,9 @@ ${exampleTemplates.join('\n\n')}
 
     try {
         const openai = getOpenAIClient();
-        console.log(`Calling OpenAI with model: ${actualModel}`);
-        console.log(`Learning data:`, learningData);
+        if (process.env.NODE_ENV !== 'production') {
+            console.log(`Calling OpenAI with model: ${actualModel}`);
+        }
 
         const cacheParams = getPromptCacheParams('generate:v2', [
             finalSystemPrompt,

@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { addStudent, getStudents, mergeStudentsForSchool, updateStudent } from '@/lib/sheets';
 import { initializeSheets } from '@/lib/sheets/base';
 import { rejectWhenDifferentSchool, requireTeacherSession } from '@/lib/auth/guards';
+import { isSupabaseRequiredButMissing } from '@/lib/supabase/config';
+import { supabaseRequiredResponse } from '@/lib/supabase/required-response';
 
 /**
  * Retrieves student list.
@@ -17,6 +19,7 @@ export async function GET(request: NextRequest) {
     try {
         const session = await requireTeacherSession();
         if (!session.ok) return session.response;
+        if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         const { searchParams } = new URL(request.url);
         const school = searchParams.get('school') || undefined;
@@ -56,6 +59,7 @@ export async function POST(request: NextRequest) {
     try {
         const session = await requireTeacherSession();
         if (!session.ok) return session.response;
+        if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         const body = await request.json();
         await initializeSheets();
@@ -123,6 +127,7 @@ export async function PUT(request: NextRequest) {
     try {
         const session = await requireTeacherSession();
         if (!session.ok) return session.response;
+        if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         const body = await request.json();
         const { id, ...data } = body;

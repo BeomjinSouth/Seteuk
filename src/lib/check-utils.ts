@@ -1,5 +1,6 @@
 ﻿import { SpellError } from '@/components/SpellCheckModal';
 import { SubjectRecord } from '@/types';
+import { DEFAULT_FORBIDDEN_WORDS } from '@/lib/forbidden-words';
 
 export interface ForbiddenIssue {
     word: string;
@@ -127,12 +128,8 @@ export async function checkForbiddenWordsRequest(
         console.error('Forbidden check request failed:', error);
     }
 
-        const fallbackWords = Array.from(new Set([
-        '최고',
-        '최상',
-        '천재',
-        '완벽',
-        '1등',
+    const fallbackWords = Array.from(new Set([
+        ...DEFAULT_FORBIDDEN_WORDS,
         ...customForbiddenWords
             .filter((word) => typeof word === 'string')
             .map((word) => word.trim())

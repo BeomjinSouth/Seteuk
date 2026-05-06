@@ -1,15 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { checkForbiddenExpressions } from '@/lib/openai';
-
-const HARDCODED_FORBIDDEN_WORDS = [
-    '최고',
-    '최상',
-    '1등',
-    '천재',
-    '완벽',
-    '결코',
-    '가장',
-];
+import { DEFAULT_FORBIDDEN_WORDS } from '@/lib/forbidden-words';
 
 function findEnglishWords(text: string): Array<{ word: string; suggestion: string; reason: string }> {
     const ignored = new Set(['AI', 'IT', 'DNA', 'RNA', 'ICT', 'STEAM', 'SW', 'AR', 'VR']);
@@ -78,7 +69,7 @@ export async function POST(request: NextRequest) {
         }
 
         const mergedForbiddenWords = Array.from(new Set([
-            ...HARDCODED_FORBIDDEN_WORDS,
+            ...DEFAULT_FORBIDDEN_WORDS,
             ...customForbiddenWords,
         ]));
 

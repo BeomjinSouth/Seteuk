@@ -39,17 +39,21 @@ Open `http://localhost:3000`.
 Set these in local `.env.local` and in the Vercel project settings.
 
 - `OPENAI_API_KEY`
+- `ADMIN_API_TOKEN`
+- `AUTH_SESSION_SECRET`
+- `SUPABASE_URL` or `SUPABASE_PROJECT_ID`
+- `SUPABASE_SECRET_KEY`
+
+Production runtime is Supabase-only. If Supabase is not configured in production, workspace/student/record storage APIs return a clear `503` instead of falling back to Google Sheets.
+
+Google Sheets variables are optional and kept only for roster import or Google-to-Supabase migration helpers:
+
 - `GOOGLE_SERVICE_ACCOUNT_EMAIL`
 - `GOOGLE_PRIVATE_KEY`
 - `GOOGLE_SPREADSHEET_ID`
 - `NEXT_PUBLIC_SERVICE_ACCOUNT_EMAIL`
-- `SUPABASE_PROJECT_ID` or `SUPABASE_URL`
-- `SUPABASE_SECRET_KEY`
-- `AUTH_SESSION_SECRET`
 
-Google Sheets keys may be pasted with `.env`-style wrapping quotes or escaped `\n` line breaks; the server normalizes those values at runtime before creating the Sheets client.
-
-When Supabase variables are present, the app uses Supabase as the primary runtime store through `sheet_rows` and `app_state_documents`. Google Sheets remains a legacy/import fallback when Supabase is not configured.
+Google Sheets keys may be pasted with `.env`-style wrapping quotes or escaped `\n` line breaks; migration/import helpers normalize those values before creating the Sheets client.
 
 ## Roster Import
 
@@ -73,13 +77,28 @@ Notes:
 
 ## Supabase Migration
 
-Apply `supabase/migrations/202604270001_initial_seteuk_storage.sql` to the Supabase project, then migrate existing Google Sheets rows:
+Apply the Supabase migrations to the project:
+
+- `supabase/migrations/202604270001_initial_seteuk_storage.sql`
+- `supabase/migrations/202605060001_admin_role_grants.sql`
+
+Then migrate existing Google Sheets rows if needed:
 
 ```bash
 node scripts/migrate-google-sheets-to-supabase.mjs
 ```
 
 The shared project ref is `qobfezoqxgsedkpddhzs`. Do not commit Supabase secret keys or personal access tokens.
+
+## Operations
+
+- Bootstrap admin: `성호중학교 / 박범진`
+- Admins manage additional admins in `/settings`; the bootstrap admin cannot be revoked.
+- `/settings/ai` uses two prompt choices: `기본 설정` reads `strict-observation-v1`, and `내 프롬프트` stores a teacher-private prompt in workspace state.
+- Model, max output tokens, and reasoning effort remain admin-only generation settings.
+- Default forbidden words are shared from `src/lib/forbidden-words.ts` by the store and `/api/forbidden`.
+
+See `docs/TEACHER_GUIDE.md` for teacher-facing operating steps.
 
 ## Verification
 

@@ -1513,8 +1513,9 @@ export default function OCRPage() {
     };
 
     const handleMappingConfirm = () => {
-        // Mapping is confirmed, ready for batch grading
-        console.log('Mapping confirmed:', mappingItems);
+        if (process.env.NODE_ENV !== 'production') {
+            console.log('Mapping confirmed count:', mappingItems.length);
+        }
     };
 
     const handleStartBatchGrading = async () => {
@@ -1555,7 +1556,7 @@ export default function OCRPage() {
                     errorCount++;
                 }
             } catch (err) {
-                console.error(`Error grading ${item.mappedStudentName}: `, err);
+                console.error('Batch grading item failed:', err);
                 errorCount++;
             } finally {
                 completed++;

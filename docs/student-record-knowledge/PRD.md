@@ -69,6 +69,9 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - `/write`: RAG review-improve action implemented
 - `/write`: AI 세특 작성 화면 is aligned to the provided table workspace design with class chips, screenshot-style action toolbar, 10-row pagination, top teacher/notification chrome, and the AI 세특 guide card in the sidebar
 - `/write`: default seteuk generation prompt uses the `strict-observation-v1` teacher observation record policy; it uses only provided observation data and excludes score/rank/award/test-item/student-level wording
+- `/settings/ai`: teachers choose exactly one of `기본 설정` and `내 프롬프트`; the default is read-only `strict-observation-v1`, while the personal prompt is teacher-private and synced in workspace state
+- `/settings`: admins can grant/revoke additional 성호중학교 admins by teacher name; bootstrap admin `박범진` is non-revocable
+- `/api/admin-users`: implemented for admin list, grant, revoke, and server-loaded admin status
 - `/search-inspector`: retained as an internal diagnostics page and removed from the sidebar
 - top navigation order: `학교 정보` -> `학생 관찰 기록` -> `AI 세특 생성` -> `평가 점검 (개발중)`
 - `평가 점검 (개발중)` remains visible but is disabled and does not link to `/eval-check`
@@ -107,5 +110,6 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - student observation compose: the existing observation-record workflow remains available from stats quick actions as an internal `records` mode rather than a visible sidebar tab
 - student observation mentor matching: uses the provided Maplestory TTF and supports dragging student names from mentor/mentee cards or the roster into mentor/mentee slots
 - manual observation entry uses common date/topic/tags at the top and per-student rows for individual tags plus observation memo
-- runtime storage: Supabase can be enabled with server-only env vars while preserving existing API response contracts; Google Sheets remains a fallback when Supabase is not configured
-- browser state sync: workspace state and observation-board sessions/marks/mentor assignments/notices sync to Supabase after login through signed server sessions
+- runtime storage: production is Supabase-only and returns `503` when Supabase env is missing; Google Sheets is retained only for local fallback and import/migration helpers
+- browser state sync: workspace state, teacher prompt mode/body, and observation-board sessions/marks/mentor assignments/notices sync to Supabase after login through signed server sessions
+- forbidden expression defaults: the store and `/api/forbidden` share the same default list covering 과장, 서열/점수, 부정 낙인, 미래 예측, and 직접 조언 표현

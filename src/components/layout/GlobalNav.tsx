@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { Bell, ChevronDown, GraduationCap, ScanLine, Sparkles, ClipboardCheck, ClipboardList, School, UserRound } from 'lucide-react';
 import clsx from 'clsx';
+import { AdminStatusSync } from '@/components/providers/AdminStatusSync';
 import { SharedRosterSync } from '@/components/providers/SharedRosterSync';
 import { WorkspaceSupabaseSync } from '@/components/providers/WorkspaceSupabaseSync';
 import { useAppStore } from '@/lib/store';
@@ -142,6 +143,7 @@ export function GlobalNav() {
 
     return (
         <>
+            <AdminStatusSync />
             <SharedRosterSync />
             <WorkspaceSupabaseSync />
             <header className={styles.gnb}>

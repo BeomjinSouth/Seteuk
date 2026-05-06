@@ -8,6 +8,8 @@ type WorkspacePayload = Pick<ReturnType<typeof useAppStore.getState>,
     | 'students'
     | 'records'
     | 'exampleTemplate'
+    | 'seteukPromptMode'
+    | 'personalSeteukPrompt'
     | 'curriculumContents'
     | 'adminNotifications'
     | 'forbiddenWords'
@@ -23,6 +25,8 @@ export function WorkspaceSupabaseSync() {
         students: state.students,
         records: state.records,
         exampleTemplate: state.exampleTemplate,
+        seteukPromptMode: state.seteukPromptMode,
+        personalSeteukPrompt: state.personalSeteukPrompt,
         curriculumContents: state.curriculumContents,
         adminNotifications: state.adminNotifications,
         forbiddenWords: state.forbiddenWords,

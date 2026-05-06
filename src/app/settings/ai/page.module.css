@@ -109,6 +109,37 @@
 }
 
 /* Info Box */
+.promptModeGroup {
+    display: inline-flex;
+    padding: 0.25rem;
+    gap: 0.25rem;
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.6rem;
+    background: hsl(var(--background));
+    margin-bottom: 1rem;
+}
+
+.promptModeButton {
+    min-width: 110px;
+    padding: 0.55rem 0.85rem;
+    border: 0;
+    border-radius: 0.45rem;
+    background: transparent;
+    color: hsl(var(--foreground-muted));
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.promptModeButton:hover {
+    color: hsl(var(--foreground));
+    background: hsl(var(--surface-hover));
+}
+
+.promptModeButtonActive {
+    color: hsl(var(--primary));
+    background: hsl(var(--primary) / 0.1);
+}
+
 .infoBox {
     display: flex;
     align-items: center;

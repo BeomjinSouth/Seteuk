@@ -7,6 +7,8 @@ import {
 import { initializeSheets } from '@/lib/sheets/base';
 import { StudentDataKind, StudentDataPayload } from '@/types';
 import { rejectWhenDifferentSchool, rejectWhenDifferentTeacher, requireTeacherSession } from '@/lib/auth/guards';
+import { isSupabaseRequiredButMissing } from '@/lib/supabase/config';
+import { supabaseRequiredResponse } from '@/lib/supabase/required-response';
 
 function parseKind(value: unknown): StudentDataKind | null {
     return value === 'note' || value === 'grade' || value === 'mentor_match'
@@ -18,6 +20,7 @@ export async function GET(request: NextRequest) {
     try {
         const session = await requireTeacherSession();
         if (!session.ok) return session.response;
+        if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         const { searchParams } = new URL(request.url);
         const includeInAiParam = searchParams.get('includeInAi');
@@ -57,6 +60,7 @@ export async function POST(request: NextRequest) {
     try {
         const session = await requireTeacherSession();
         if (!session.ok) return session.response;
+        if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         await initializeSheets();
         const body = await request.json();
@@ -112,6 +116,7 @@ export async function DELETE(request: NextRequest) {
     try {
         const session = await requireTeacherSession();
         if (!session.ok) return session.response;
+        if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         await initializeSheets();
         const id = request.nextUrl.searchParams.get('id');

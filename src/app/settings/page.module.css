@@ -450,3 +450,52 @@
     background: rgba(16, 185, 129, 0.1);
     border-radius: 0.25rem;
 }
+
+.adminMessage {
+    margin-bottom: 1rem;
+    font-size: 0.88rem;
+    color: hsl(var(--foreground-muted));
+}
+
+.adminList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.adminItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.85rem 1rem;
+    background: hsl(var(--background));
+    border-radius: 0.5rem;
+}
+
+.adminItem div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.adminItem strong {
+    font-size: 0.95rem;
+}
+
+.adminItem span {
+    font-size: 0.8rem;
+    color: hsl(var(--foreground-muted));
+}
+
+.bootstrapBadge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.55rem;
+    background: rgba(59, 130, 246, 0.1);
+    color: #2563eb;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+}

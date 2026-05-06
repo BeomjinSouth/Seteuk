@@ -6,23 +6,16 @@ import {
     Bot,
     Info,
     Lock,
-    MessageSquare,
     RotateCcw,
     Save,
-    Send,
     Sparkles,
-    X,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { OPENAI_STANDARD_MODEL, normalizeOpenAIModel } from '@/lib/openai-models';
 import {
-    resolveSeteukSystemPrompt,
     SETEUK_DEFAULT_SYSTEM_PROMPT,
-    SETEUK_DEFAULT_SYSTEM_PROMPT_VERSION,
-    SETEUK_SYSTEM_PROMPT_STORAGE_KEY,
-    SETEUK_SYSTEM_PROMPT_VERSION_STORAGE_KEY,
 } from '@/lib/prompts/seteuk';
-import { ADMIN_CONFIG, isAdmin, useAppStore } from '@/lib/store';
+import { ADMIN_CONFIG, isAdmin, SeteukPromptMode, useAppStore } from '@/lib/store';
 import styles from './page.module.css';
 
 type ReasoningEffort = 'none' | 'low' | 'medium' | 'high' | 'xhigh';
@@ -40,13 +33,11 @@ const REASONING_OPTIONS: Array<{ value: ReasoningEffort; label: string; descript
 ];
 
 function loadStoredSettings() {
-    const savedPrompt = localStorage.getItem(SETEUK_SYSTEM_PROMPT_STORAGE_KEY);
     const savedModel = localStorage.getItem('ai_model');
     const savedMaxTokens = Number.parseInt(localStorage.getItem('ai_max_tokens') || '', 10);
     const savedReasoningEffort = localStorage.getItem('ai_reasoning_effort') as ReasoningEffort | null;
 
     return {
-        systemPrompt: resolveSeteukSystemPrompt(savedPrompt),
         model: normalizeOpenAIModel(savedModel),
         maxTokens: Number.isFinite(savedMaxTokens)
             ? Math.min(3000, Math.max(200, savedMaxTokens))
@@ -58,23 +49,26 @@ function loadStoredSettings() {
 }
 
 export default function AISettingsPage() {
-    const { teacher, addNotification } = useAppStore();
-    const isAdminUser = isAdmin(teacher);
+    const {
+        teacher,
+        adminStatus,
+        seteukPromptMode,
+        personalSeteukPrompt,
+        setSeteukPromptMode,
+        setPersonalSeteukPrompt,
+    } = useAppStore();
+    const isAdminUser = adminStatus.isAdmin || isAdmin(teacher);
 
-    const [systemPrompt, setSystemPrompt] = useState(SETEUK_DEFAULT_SYSTEM_PROMPT);
+    const [promptMode, setPromptMode] = useState<SeteukPromptMode>(seteukPromptMode);
+    const [personalPromptDraft, setPersonalPromptDraft] = useState(personalSeteukPrompt);
     const [model, setModel] = useState(DEFAULT_MODEL);
     const [maxTokens, setMaxTokens] = useState(DEFAULT_MAX_TOKENS);
     const [reasoningEffort, setReasoningEffort] = useState<ReasoningEffort>(DEFAULT_REASONING_EFFORT);
     const [saved, setSaved] = useState(false);
 
-    const [showRequestModal, setShowRequestModal] = useState(false);
-    const [requestDescription, setRequestDescription] = useState('');
-    const [requestSent, setRequestSent] = useState(false);
-
     useEffect(() => {
         const nextSettings = loadStoredSettings();
         const frameId = window.requestAnimationFrame(() => {
-            setSystemPrompt(nextSettings.systemPrompt);
             setModel(nextSettings.model);
             setMaxTokens(nextSettings.maxTokens);
             setReasoningEffort(nextSettings.reasoningEffort);
@@ -83,54 +77,39 @@ export default function AISettingsPage() {
         return () => window.cancelAnimationFrame(frameId);
     }, []);
 
+    useEffect(() => {
+        setPromptMode(seteukPromptMode);
+        setPersonalPromptDraft(personalSeteukPrompt);
+    }, [personalSeteukPrompt, seteukPromptMode]);
+
     const reasoningDescription = useMemo(
         () => REASONING_OPTIONS.find((option) => option.value === reasoningEffort)?.description || '',
         [reasoningEffort]
     );
 
-    const handleSave = () => {
-        if (!isAdminUser) return;
+    const activePrompt = promptMode === 'personal'
+        ? personalPromptDraft
+        : SETEUK_DEFAULT_SYSTEM_PROMPT;
 
-        localStorage.setItem(SETEUK_SYSTEM_PROMPT_STORAGE_KEY, systemPrompt);
-        localStorage.setItem(SETEUK_SYSTEM_PROMPT_VERSION_STORAGE_KEY, SETEUK_DEFAULT_SYSTEM_PROMPT_VERSION);
-        localStorage.setItem('ai_model', normalizeOpenAIModel(model));
-        localStorage.setItem('ai_max_tokens', String(Math.min(3000, Math.max(200, maxTokens || DEFAULT_MAX_TOKENS))));
-        localStorage.setItem('ai_reasoning_effort', reasoningEffort);
+    const handleSave = () => {
+        setSeteukPromptMode(promptMode);
+        setPersonalSeteukPrompt(personalPromptDraft);
+
+        if (isAdminUser) {
+            localStorage.setItem('ai_model', normalizeOpenAIModel(model));
+            localStorage.setItem('ai_max_tokens', String(Math.min(3000, Math.max(200, maxTokens || DEFAULT_MAX_TOKENS))));
+            localStorage.setItem('ai_reasoning_effort', reasoningEffort);
+        }
 
         setSaved(true);
         setTimeout(() => setSaved(false), 2000);
     };
 
-    const handleSubmitRequest = () => {
-        if (!teacher || !requestDescription.trim()) return;
-
-        addNotification({
-            type: 'setting_request',
-            requester: {
-                name: teacher.name,
-                school: teacher.school,
-                subject: teacher.subject,
-            },
-            content: requestDescription,
-            originalValue: [
-                `model=${normalizeOpenAIModel(localStorage.getItem('ai_model'))}`,
-                `maxOutputTokens=${localStorage.getItem('ai_max_tokens') || DEFAULT_MAX_TOKENS}`,
-                `reasoningEffort=${localStorage.getItem('ai_reasoning_effort') || DEFAULT_REASONING_EFFORT}`,
-            ].join(', '),
-            newValue: requestDescription,
-        });
-
-        setShowRequestModal(false);
-        setRequestDescription('');
-        setRequestSent(true);
-        setTimeout(() => setRequestSent(false), 3000);
-    };
-
     const handleReset = () => {
-        if (!isAdminUser) return;
         if (!confirm('AI 설정을 기본값으로 초기화할까요?')) return;
 
-        setSystemPrompt(SETEUK_DEFAULT_SYSTEM_PROMPT);
+        setPromptMode('default');
+        setPersonalPromptDraft('');
         setModel(DEFAULT_MODEL);
         setMaxTokens(DEFAULT_MAX_TOKENS);
         setReasoningEffort(DEFAULT_REASONING_EFFORT);
@@ -145,26 +124,18 @@ export default function AISettingsPage() {
                         세특 생성 AI 설정입니다.
                         {!isAdminUser && (
                             <span className={styles.adminNote}>
-                                <Lock size={14} /> 관리자({ADMIN_CONFIG.name})만 수정 가능합니다.
+                                <Lock size={14} /> 생성 파라미터는 관리자({ADMIN_CONFIG.name})만 수정 가능
                             </span>
                         )}
                     </p>
                 </div>
                 <div className={styles.headerActions}>
-                    {isAdminUser ? (
-                        <>
-                            <Button variant="secondary" onClick={handleReset}>
-                                <RotateCcw size={16} /> 기본값
-                            </Button>
-                            <Button onClick={handleSave}>
-                                <Save size={16} /> 저장
-                            </Button>
-                        </>
-                    ) : (
-                        <Button onClick={() => setShowRequestModal(true)} disabled={requestSent}>
-                            <MessageSquare size={16} /> {requestSent ? '요청 완료' : '수정 요청'}
-                        </Button>
-                    )}
+                    <Button variant="secondary" onClick={handleReset}>
+                        <RotateCcw size={16} /> 기본값
+                    </Button>
+                    <Button onClick={handleSave}>
+                        <Save size={16} /> 저장
+                    </Button>
                 </div>
             </header>
 
@@ -177,63 +148,6 @@ export default function AISettingsPage() {
                         className={styles.savedToast}
                     >
                         설정이 저장되었습니다.
-                    </motion.div>
-                )}
-                {requestSent && (
-                    <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0 }}
-                        className={styles.requestToast}
-                    >
-                        설정 변경 요청을 관리자에게 전송했습니다.
-                    </motion.div>
-                )}
-            </AnimatePresence>
-
-            <AnimatePresence>
-                {showRequestModal && (
-                    <motion.div
-                        className={styles.modalBackdrop}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        onClick={() => setShowRequestModal(false)}
-                    >
-                        <motion.div
-                            className={styles.modal}
-                            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                            animate={{ opacity: 1, scale: 1, y: 0 }}
-                            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                            onClick={(event) => event.stopPropagation()}
-                        >
-                            <div className={styles.modalHeader}>
-                                <h2><MessageSquare size={20} /> AI 설정 수정 요청</h2>
-                                <button className={styles.closeBtn} onClick={() => setShowRequestModal(false)}>
-                                    <X size={20} />
-                                </button>
-                            </div>
-                            <div className={styles.modalBody}>
-                                <p className={styles.modalDesc}>
-                                    어떤 항목을 어떻게 바꾸고 싶은지 적어주세요.
-                                </p>
-                                <textarea
-                                    className={styles.requestTextarea}
-                                    value={requestDescription}
-                                    onChange={(event) => setRequestDescription(event.target.value)}
-                                    placeholder={'예시:\n- maxOutputTokens를 1200으로 조정\n- reasoningEffort를 medium으로 변경\n- 프롬프트에 금지 표현 지침 추가'}
-                                    rows={8}
-                                />
-                            </div>
-                            <div className={styles.modalFooter}>
-                                <Button variant="secondary" onClick={() => setShowRequestModal(false)}>
-                                    취소
-                                </Button>
-                                <Button onClick={handleSubmitRequest} disabled={!requestDescription.trim()}>
-                                    <Send size={16} /> 요청 보내기
-                                </Button>
-                            </div>
-                        </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>
@@ -261,25 +175,46 @@ export default function AISettingsPage() {
 
             <section className={styles.section}>
                 <h2><Bot size={20} /> 시스템 프롬프트</h2>
-                <p className={styles.sectionDesc}>생성 기준을 설정합니다.</p>
+                <p className={styles.sectionDesc}>세특 생성에 사용할 기준을 선택합니다.</p>
+
+                <div className={styles.promptModeGroup} role="group" aria-label="세특 프롬프트 선택">
+                    <button
+                        type="button"
+                        className={`${styles.promptModeButton} ${promptMode === 'default' ? styles.promptModeButtonActive : ''}`}
+                        onClick={() => setPromptMode('default')}
+                    >
+                        기본 설정
+                    </button>
+                    <button
+                        type="button"
+                        className={`${styles.promptModeButton} ${promptMode === 'personal' ? styles.promptModeButtonActive : ''}`}
+                        onClick={() => setPromptMode('personal')}
+                    >
+                        내 프롬프트
+                    </button>
+                </div>
 
                 <div className={styles.infoBox}>
                     <Info size={16} />
-                    <span>모든 세특 생성에 공통 적용됩니다.</span>
+                    <span>
+                        {promptMode === 'default'
+                            ? 'strict-observation-v1 기본 설정을 읽기 전용으로 사용합니다.'
+                            : '저장한 개인 프롬프트는 본인 계정의 세특 생성에만 사용됩니다.'}
+                    </span>
                 </div>
 
                 <textarea
                     className={styles.promptTextarea}
-                    value={systemPrompt}
-                    onChange={(event) => setSystemPrompt(event.target.value)}
+                    value={activePrompt}
+                    onChange={(event) => setPersonalPromptDraft(event.target.value)}
                     rows={15}
-                    placeholder="시스템 프롬프트를 입력하세요."
-                    readOnly={!isAdminUser}
+                    placeholder="본인이 사용할 세특 작성 프롬프트를 입력하세요."
+                    readOnly={promptMode === 'default'}
                 />
 
                 <div className={styles.charCount}>
-                    {systemPrompt.length}자
-                    {!isAdminUser && <span className={styles.readOnlyLabel}>읽기 전용</span>}
+                    {activePrompt.length}자
+                    {promptMode === 'default' && <span className={styles.readOnlyLabel}>읽기 전용</span>}
                 </div>
             </section>
 

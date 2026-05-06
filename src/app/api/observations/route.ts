@@ -8,6 +8,8 @@ import {
     deleteObservation,
 } from '@/lib/sheets';
 import { rejectWhenDifferentTeacher, requireTeacherSession } from '@/lib/auth/guards';
+import { isSupabaseRequiredButMissing } from '@/lib/supabase/config';
+import { supabaseRequiredResponse } from '@/lib/supabase/required-response';
 
 // GET - 관찰 메모 조회
 /**
@@ -23,6 +25,7 @@ import { rejectWhenDifferentTeacher, requireTeacherSession } from '@/lib/auth/gu
 export async function GET(request: NextRequest) {
     const session = await requireTeacherSession();
     if (!session.ok) return session.response;
+    if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
     const searchParams = request.nextUrl.searchParams;
     const studentId = searchParams.get('studentId');
@@ -84,6 +87,7 @@ export async function POST(request: NextRequest) {
     try {
         const session = await requireTeacherSession();
         if (!session.ok) return session.response;
+        if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         const body = await request.json();
         const {
@@ -162,6 +166,7 @@ export async function PUT(request: NextRequest) {
     try {
         const session = await requireTeacherSession();
         if (!session.ok) return session.response;
+        if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         const body = await request.json();
         const { id, ...data } = body;
@@ -209,6 +214,7 @@ export async function PUT(request: NextRequest) {
 export async function DELETE(request: NextRequest) {
     const session = await requireTeacherSession();
     if (!session.ok) return session.response;
+    if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
     const searchParams = request.nextUrl.searchParams;
     const id = searchParams.get('id');

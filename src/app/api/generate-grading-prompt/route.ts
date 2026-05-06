@@ -148,7 +148,7 @@ JSON 형식으로만 응답해 주세요.`;
         try {
             parsedResult = JSON.parse(responseText);
         } catch {
-            console.error('Failed to parse generate prompt response:', responseText);
+            console.error('Failed to parse generate prompt response.');
             return NextResponse.json(
                 { success: false, error: '프롬프트 생성 결과를 파싱하는데 실패했습니다.' },
                 { status: 500 }
