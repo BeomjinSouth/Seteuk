@@ -75,6 +75,7 @@
 
 ## Recent Changes
 
+- 2026-05-10: fixed the post-login client-side crash on `/students` by making `WorkspaceSupabaseSync` subscribe to stable store slices instead of returning a fresh selector object every render; production login flow now renders the student roster with no page errors.
 - 2026-05-10: applied Supabase migrations, migrated Google Sheets rows into Supabase (`학생` 850 sheet rows, 847 returned roster students), and verified production `/api/auth/login`, `/api/auth/session`, and `/api/students?school=성호중학교` all return 200.
 - 2026-05-10: added Vercel Production Supabase runtime envs and redeployed production (`dpl_7T2Pt81eUTyQXp4cYCwG9yVDB8UM`); `/api/auth/login` and session remain 200, and `/api/students` now reaches Supabase but fails because the project has not applied `supabase/migrations/202604270001_initial_seteuk_storage.sql`.
 - 2026-05-06: added Supabase-backed admin grants, teacher prompt mode selection, production Supabase-only storage checks, centralized forbidden-word defaults, sensitive-log reduction, and `docs/TEACHER_GUIDE.md`

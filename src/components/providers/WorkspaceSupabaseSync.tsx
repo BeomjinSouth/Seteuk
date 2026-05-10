@@ -20,21 +20,43 @@ export function WorkspaceSupabaseSync() {
     const teacher = useAppStore((state) => state.teacher);
     const hasHydrated = useAppStore((state) => state.hasHydrated);
     const replaceSyncedWorkspaceState = useAppStore((state) => state.replaceSyncedWorkspaceState);
-    const payload: WorkspacePayload = useAppStore((state) => ({
-        classes: state.classes,
-        students: state.students,
-        records: state.records,
-        exampleTemplate: state.exampleTemplate,
-        seteukPromptMode: state.seteukPromptMode,
-        personalSeteukPrompt: state.personalSeteukPrompt,
-        curriculumContents: state.curriculumContents,
-        adminNotifications: state.adminNotifications,
-        forbiddenWords: state.forbiddenWords,
-        keywords: state.keywords,
-    }));
+    const classes = useAppStore((state) => state.classes);
+    const students = useAppStore((state) => state.students);
+    const records = useAppStore((state) => state.records);
+    const exampleTemplate = useAppStore((state) => state.exampleTemplate);
+    const seteukPromptMode = useAppStore((state) => state.seteukPromptMode);
+    const personalSeteukPrompt = useAppStore((state) => state.personalSeteukPrompt);
+    const curriculumContents = useAppStore((state) => state.curriculumContents);
+    const adminNotifications = useAppStore((state) => state.adminNotifications);
+    const forbiddenWords = useAppStore((state) => state.forbiddenWords);
+    const keywords = useAppStore((state) => state.keywords);
     const [isRemoteLoaded, setIsRemoteLoaded] = useState(false);
     const lastSyncedPayloadRef = useRef('');
     const teacherKey = teacher?.teacherKey || '';
+
+    const payload: WorkspacePayload = useMemo(() => ({
+        classes,
+        students,
+        records,
+        exampleTemplate,
+        seteukPromptMode,
+        personalSeteukPrompt,
+        curriculumContents,
+        adminNotifications,
+        forbiddenWords,
+        keywords,
+    }), [
+        classes,
+        students,
+        records,
+        exampleTemplate,
+        seteukPromptMode,
+        personalSeteukPrompt,
+        curriculumContents,
+        adminNotifications,
+        forbiddenWords,
+        keywords,
+    ]);
 
     const serializedPayload = useMemo(() => JSON.stringify(payload), [payload]);
 
