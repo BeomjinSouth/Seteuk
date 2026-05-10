@@ -75,6 +75,7 @@
 
 ## Recent Changes
 
+- 2026-05-10: added `AUTH_SESSION_SECRET` to Vercel Production/Development, redeployed production (`dpl_5ssqHjnMNcJZVbrwgtzcBZrCHANL`), and verified `/api/auth/login` plus `/api/auth/session` return 200; follow-up required because Vercel still lacks Supabase runtime envs, so `/api/students` returns 503 after login.
 - 2026-05-06: added Supabase-backed admin grants, teacher prompt mode selection, production Supabase-only storage checks, centralized forbidden-word defaults, sensitive-log reduction, and `docs/TEACHER_GUIDE.md`
 - 2026-05-03: centralized the AI 세특 작성 default prompt as `strict-observation-v1` and connected `/api/generate`, `/settings/ai`, and write generation to the shared value
 - 2026-04-27: added Supabase-backed runtime storage, workspace/observation-board state sync, signed server sessions, and a Google Sheets to Supabase migration script
@@ -122,6 +123,7 @@
 
 ## Next
 
+- add Vercel `SUPABASE_URL` or `SUPABASE_PROJECT_ID` plus `SUPABASE_SECRET_KEY`, redeploy production, and verify `/api/students?school=성호중학교` after login
 - smoke test the admin APIs behind the deployed runtime configuration
 - improve retrieval ranking for difficult query classes
 - replace lexical-first retrieval with vector or hosted file search
