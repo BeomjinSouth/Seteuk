@@ -929,6 +929,10 @@ export default function ObservationBoard2Page() {
         });
     };
 
+    const selectSingleStudent = (studentId: string) => {
+        setSelectedStudentIds(new Set([studentId]));
+    };
+
     const toggleSelectAll = () => {
         if (filteredStudents.length === 0) return;
         if (selectedStudentIds.size === filteredStudents.length) {
@@ -1351,6 +1355,7 @@ export default function ObservationBoard2Page() {
                     onClassChange={handleClassChange}
                     onSearchChange={setSearchQuery}
                     onToggleStudent={toggleStudentSelection}
+                    onSelectSingleStudent={selectSingleStudent}
                     onClearSelected={() => setSelectedStudentIds(new Set())}
                     onSaveGrowthRecord={handleSaveGrowthRecord}
                 />
@@ -1688,6 +1693,7 @@ function GrowthDashboard({
     onClassChange,
     onSearchChange,
     onToggleStudent,
+    onSelectSingleStudent,
     onClearSelected,
     onSaveGrowthRecord,
 }: {
@@ -1707,6 +1713,7 @@ function GrowthDashboard({
     onClassChange: (classId: string) => void;
     onSearchChange: (value: string) => void;
     onToggleStudent: (studentId: string) => void;
+    onSelectSingleStudent: (studentId: string) => void;
     onClearSelected: () => void;
     onSaveGrowthRecord: (cookieCount: number, memo: string) => Promise<boolean>;
 }) {
@@ -1754,6 +1761,10 @@ function GrowthDashboard({
                                 className={`${styles.growthStudentCard} ${isSelected ? styles.growthStudentCardSelected : ''}`}
                                 aria-pressed={isSelected}
                                 onClick={() => onToggleStudent(student.id)}
+                                onDoubleClick={() => {
+                                    onSelectSingleStudent(student.id);
+                                    setIsComposerOpen(true);
+                                }}
                             >
                                 <span className={styles.growthStudentIndex}>{formatStudentNumber(student.number)}</span>
                                 <span className={styles.growthStudentName}>{student.name}</span>

@@ -57,13 +57,16 @@
 - observation board 2 internal dashboards: 왼쪽 메뉴가 URL 이동 없이 `학생 관찰 기록`, `성장 기록`, `통계 보기` 화면만 전환하며, `홈`, `알림장`, `설정` 항목은 현재 사이드바에서 숨김
 - observation board 2 responsive sidebar: 1120px 이하에서도 PNG 기준의 왼쪽 세로 사이드바를 유지하고 상단 가로 메뉴로 접지 않음
 - observation board 2 data scope: 멘토·멘티, 관찰 작성, 성장 기록, 통계는 현재 교사의 담당 학급 학생만 표시하고 담당 학생이 없을 때 샘플 학생으로 대체하지 않음
-- observation board 2 growth/stats usefulness: 성장 기록은 학생별 관찰 공백/쿠키 수/△·○ 반응을 보여주고, 통계 보기는 기록 우선 학생과 모둠별 활동 균형을 함께 표시
+- observation board 2 growth/stats usefulness: 성장 기록은 학생별 관찰 공백/쿠키 수/△·○ 반응을 보여주고, 통계 보기는 관찰 메모가 0건이거나 현재 선택 학급 평균의 절반 미만인 기록 우선 학생과 모둠별 활동 균형을 함께 표시
 - observation board 2 growth modal: `성장 기록 작성`은 기준 이미지형 dimmed overlay, 선택 학생 동물 칩, 중립 쿠키 카드 3개, 선택 메모, `이전`/`저장하기` 버튼을 제공
+- observation board 2 growth quick compose: 성장 기록 학생 카드를 더블클릭하면 해당 학생 1명만 선택한 상태로 `성장 기록 작성` 모달을 즉시 표시
 - observation board 2 stats class scope: 통계 보기는 compact 학급 선택 메뉴를 제공하고 담당 학급 하나를 기본 범위로 사용해 모둠별 활동 균형을 학급별로 확인함
 - observation board 2 editable sessions: 차시 표 헤더에서 날짜/활동 내용을 직접 입력하고 `+` 버튼으로 차시 열을 추가하며, 교사별 localStorage에 유지
 - observation board 2 AI input link: 차시별 학생 △/○ 클릭 기록은 `observation-board-2-marks:${teacherKey}`에, 멘토·멘티 배치는 `observation-board-2-mentor-assignments:${teacherKey}`에 유지되고 `/write` 세특 생성 시 해석 요약으로 전달됨
+- observation board 2 mentor empty/delete: 멘토·멘티 배치는 로그인 교사별/학급별로만 읽고 저장하며, 모둠 삭제와 `모둠 비우기`는 선택 학급을 명시적인 빈 상태로 유지함
 - observation board 2 cookie automation: 차시별 활동 칸은 빈칸 0개, △ 참여함 1개, ○ 매우 잘함 2개 기준으로 쿠키 원장에 자동 반영되며, 상태 수정 시 차액만 기록함
-- observation board 2 records mode: 기존 관찰 기록 기능은 사이드바에서 숨긴 내부 `records` 모드로 유지하고, 통계 보기 빠른 이동에서 학급/검색 필터, 학생 다중 선택, 공통 날짜/주제/태그, 학생별 메모 입력, 최근 기록 목록, 상세 보기, 삭제 지원
+- observation board 2 stats recent-record action: 통계 보기 `최근 기록` CTA는 기존 `records` 작성 화면 대신 `성장 기록` 화면으로 전환
+- observation board 2 records mode: 기존 관찰 기록 기능은 사이드바에서 숨긴 내부 `records` 모드로 유지하고, 학급/검색 필터, 학생 다중 선택, 공통 날짜/주제/태그, 학생별 메모 입력, 최근 기록 목록, 상세 보기, 삭제 지원
 - observation board 2 drag matching/font: Maplestory TTF 적용, 학생 토큰/학생 목록 드래그로 멘토·멘티 조와 역할 재배치 지원
 - observation board 2 mentor scope/display: 기본 멘토 화면은 가로로 긴 학급 칩 대신 compact 단일 학급 선택 메뉴를 사용하고, 전체 담당 학급 합산 대신 선택 학급 학생만 멘토·멘티 조와 학생 목록에 표시함
 - observation board 2 sidebar icons: 사이드바 메뉴 아이콘을 잘림/흰 배경이 있는 PNG 조각 대신 HTML/CSS 렌더링 아이콘으로 표시
@@ -75,6 +78,10 @@
 
 ## Recent Changes
 
+- 2026-05-10: updated observation-board-2 stats priority students to show only students with zero observation memos or fewer than half of the selected class average; removed the previous fixed 8-student cap
+- 2026-05-10: added single-student quick compose from the observation-board-2 growth card grid; double-clicking a student now selects only that student and opens `성장 기록 작성` immediately
+- 2026-05-10: changed the observation-board-2 stats `최근 기록` CTA to switch to `성장 기록` instead of opening the old observation memo compose screen
+- 2026-05-10: changed observation-board-2 mentor reset to `모둠 비우기`, preserved explicit empty class assignments, removed guest mentor-assignment fallback, and added per-group deletion
 - 2026-05-10: fixed the post-login client-side crash on `/students` by making `WorkspaceSupabaseSync` subscribe to stable store slices instead of returning a fresh selector object every render; production login flow now renders the student roster with no page errors.
 - 2026-05-10: applied Supabase migrations, migrated Google Sheets rows into Supabase (`학생` 850 sheet rows, 847 returned roster students), and verified production `/api/auth/login`, `/api/auth/session`, and `/api/students?school=성호중학교` all return 200.
 - 2026-05-10: added Vercel Production Supabase runtime envs and redeployed production (`dpl_7T2Pt81eUTyQXp4cYCwG9yVDB8UM`); `/api/auth/login` and session remain 200, and `/api/students` now reaches Supabase but fails because the project has not applied `supabase/migrations/202604270001_initial_seteuk_storage.sql`.
