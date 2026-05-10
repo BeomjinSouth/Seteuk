@@ -68,8 +68,8 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - `/record-review`: implemented as a compatibility redirect to `/counsel-chat?mode=review`
 - `/write`: RAG review-improve action implemented
 - `/write`: AI 세특 작성 화면 is aligned to the provided table workspace design with class chips, screenshot-style action toolbar, 10-row pagination, top teacher/notification chrome, and the AI 세특 guide card in the sidebar
-- `/write`: default seteuk generation prompt uses the `strict-observation-v1` teacher observation record policy; it uses only provided observation data and excludes score/rank/award/test-item/student-level wording
-- `/settings/ai`: teachers choose exactly one of `기본 설정` and `내 프롬프트`; the default is read-only `strict-observation-v1`, while the personal prompt is teacher-private and synced in workspace state
+- `/write`: default seteuk generation prompt uses the `cross-curricular-seteuk-v1` cross-curricular observation record policy; it uses only provided observation data, adjusts length and competency wording to the amount of evidence, and excludes score/rank/award/test-item/student-level/unsupported subject-concept wording
+- `/settings/ai`: teachers choose exactly one of `기본 설정` and `내 프롬프트`; the default is read-only `cross-curricular-seteuk-v1`, while the personal prompt is teacher-private and synced in workspace state
 - `/settings`: admins can grant/revoke additional 성호중학교 admins by teacher name; bootstrap admin `박범진` is non-revocable
 - `/api/admin-users`: implemented for admin list, grant, revoke, and server-loaded admin status
 - `/search-inspector`: retained as an internal diagnostics page and removed from the sidebar
@@ -85,7 +85,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - student management scope: roster upload + teaching-class connection only
 - top-level student data tab: removed, including the `/student-data` page
 - seteuk generation does not load student-data tab entries; it uses observation notes, interpreted mentor/mentee activity summaries derived from observation-board △/○ marks, learning data, and OCR evaluation context
-- AI settings stores admin overrides in browser storage, while empty or legacy default values resolve back to the shared `strict-observation-v1` default prompt
+- AI settings stores admin overrides in browser storage, while empty or legacy default values resolve back to the shared `cross-curricular-seteuk-v1` default prompt
 - competency color analysis: implemented as source-text-safe highlighting with per-row analysis status
 - school roster uploads are shared per school, so other teachers at the same school can reuse the uploaded roster without uploading again
 - 성호중학교 login is password-gated and opens the roster/class registration flow directly

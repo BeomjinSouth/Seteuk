@@ -14,6 +14,7 @@ import { Button } from '@/components/ui/Button';
 import { OPENAI_STANDARD_MODEL, normalizeOpenAIModel } from '@/lib/openai-models';
 import {
     SETEUK_DEFAULT_SYSTEM_PROMPT,
+    SETEUK_DEFAULT_SYSTEM_PROMPT_VERSION,
 } from '@/lib/prompts/seteuk';
 import { ADMIN_CONFIG, isAdmin, SeteukPromptMode, useAppStore } from '@/lib/store';
 import styles from './page.module.css';
@@ -78,8 +79,12 @@ export default function AISettingsPage() {
     }, []);
 
     useEffect(() => {
-        setPromptMode(seteukPromptMode);
-        setPersonalPromptDraft(personalSeteukPrompt);
+        const frameId = window.requestAnimationFrame(() => {
+            setPromptMode(seteukPromptMode);
+            setPersonalPromptDraft(personalSeteukPrompt);
+        });
+
+        return () => window.cancelAnimationFrame(frameId);
     }, [personalSeteukPrompt, seteukPromptMode]);
 
     const reasoningDescription = useMemo(
@@ -198,7 +203,7 @@ export default function AISettingsPage() {
                     <Info size={16} />
                     <span>
                         {promptMode === 'default'
-                            ? 'strict-observation-v1 기본 설정을 읽기 전용으로 사용합니다.'
+                            ? `${SETEUK_DEFAULT_SYSTEM_PROMPT_VERSION} 기본 설정을 읽기 전용으로 사용합니다.`
                             : '저장한 개인 프롬프트는 본인 계정의 세특 생성에만 사용됩니다.'}
                     </span>
                 </div>

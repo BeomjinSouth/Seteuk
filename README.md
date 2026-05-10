@@ -94,7 +94,7 @@ The shared project ref is `qobfezoqxgsedkpddhzs`. Do not commit Supabase secret 
 
 - Bootstrap admin: `성호중학교 / 박범진`
 - Admins manage additional admins in `/settings`; the bootstrap admin cannot be revoked.
-- `/settings/ai` uses two prompt choices: `기본 설정` reads `strict-observation-v1`, and `내 프롬프트` stores a teacher-private prompt in workspace state.
+- `/settings/ai` uses two prompt choices: `기본 설정` reads `cross-curricular-seteuk-v1`, and `내 프롬프트` stores a teacher-private prompt in workspace state.
 - Model, max output tokens, and reasoning effort remain admin-only generation settings.
 - Default forbidden words are shared from `src/lib/forbidden-words.ts` by the store and `/api/forbidden`.
 
