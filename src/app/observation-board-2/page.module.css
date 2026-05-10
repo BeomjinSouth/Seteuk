@@ -504,9 +504,10 @@
 .groupHeader {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 0.35rem;
     min-height: 34px;
+    padding: 0 0.38rem 0 0.72rem;
     border-bottom: 1px solid rgba(173, 203, 229, 0.55);
     background: rgba(255, 255, 255, 0.76);
     color: var(--board-blue-deep);
@@ -514,9 +515,37 @@
     font-weight: 900;
 }
 
-.groupHeader svg {
+.groupTitle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    min-width: 0;
+}
+
+.groupTitle svg {
     fill: var(--board-yellow);
     stroke: #eda100;
+}
+
+.deleteGroupButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    flex: 0 0 28px;
+    border: 1px solid rgba(185, 98, 98, 0.34);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.74);
+    color: #b63d3d;
+    cursor: pointer;
+}
+
+.deleteGroupButton:hover {
+    border-color: #d15b5b;
+    background: #fff1f1;
+    color: #9d2424;
 }
 
 .pairRow {
@@ -565,6 +594,10 @@
     background: #ffe7bf;
     color: #6d3f05;
     font-weight: 900;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0;
+    line-height: 1;
+    text-align: center;
 }
 
 .avatar {
@@ -2052,6 +2085,10 @@
     background: #ffe7bf;
     color: #6d3f05;
     font-weight: 900;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0;
+    line-height: 1;
+    text-align: center;
 }
 
 .timelineMeta {

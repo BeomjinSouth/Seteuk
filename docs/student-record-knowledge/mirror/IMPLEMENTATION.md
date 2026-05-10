@@ -187,9 +187,12 @@ STAR FAQ/Q&A
 - `/observation-board-2`의 멘토·멘티 패널, 활동 기록 패널, 학생 목록 트레이는 콘텐츠가 늘어날 때 내부 스크롤을 사용해 PNG형 첫 화면 구조가 무너지지 않게 하며, `모둠 추가` 버튼으로 빈 멘토/멘티 슬롯을 만들 수 있다.
 - `/observation-board-2`는 담당 학급에 속하지 않는 학생과 샘플 학생을 멘토·멘티, 관찰 작성, 성장 기록, 통계 대상에서 제외한다.
 - `/observation-board-2`는 `public/fonts/MaplestoryLight.ttf`, `public/fonts/MaplestoryBold.ttf`를 `@font-face`로 로드하고, 기본 교실 대시보드 전체에 Maplestory 글꼴을 적용한다.
+- `/observation-board-2`의 노란 원형 학생 배지는 이름 초성 대신 학적 번호를 표시하며, 멘토 카드/학생 목록/활동 기록표/성장 타임라인/관찰 메모 row 모두 같은 중앙 정렬 숫자 규칙을 따른다.
 - `/observation-board-2`의 멘토·멘티 배치는 React local state로 관리하며, HTML5 drag/drop으로 학생 토큰 또는 학생 목록 항목을 멘토/멘티 슬롯에 놓으면 기존 배치를 교체하거나 이동한다.
+- `/observation-board-2`의 멘토·멘티 모둠은 각 카드의 삭제 버튼으로 제거할 수 있으며, 마지막 모둠 삭제나 `모둠 비우기`는 해당 교사/학급 키에 빈 배열을 저장해 자동 배치 fallback과 구분한다.
 - `/observation-board-2`의 차시 목록은 React state와 `observation-board-2-sessions:${teacherKey}` localStorage 키로 관리하며, 표 헤더의 날짜/내용 입력과 `+` 차시 추가 버튼으로 수정한다.
 - `/observation-board-2`의 차시별 △/○ 활동 표시는 `observation-board-2-marks:${teacherKey}` localStorage 키로 보존하고, 멘토·멘티 배치는 `observation-board-2-mentor-assignments:${teacherKey}`에 학급별로 보존한다.
+- `/observation-board-2`는 멘토·멘티 배치와 배치 스냅샷을 로그인 교사의 `teacherKey` 저장소에서만 읽고, guest/다른 교사 localStorage fallback을 사용하지 않아 같은 1학년 1반도 교사마다 다른 구성을 유지한다.
 - `/observation-board-2`의 차시별 활동 표시는 기본값을 빈칸으로 두며, 교사가 빈칸/△/○ 상태를 바꿀 때 빈칸 0개, △ 참여함 1개, ○ 매우 잘함 2개 규칙으로 이전 상태와 새 상태의 쿠키 차액을 `/api/cookies`에 기록한다.
 - 관찰 기록 작성은 `/observation-board-2` 내부의 `records` 모드에서 학급/검색 필터, 학생 다중 선택, 공통 날짜/수업 주제/태그, 학생별 관찰 메모 입력으로 처리한다.
 - 예전 카드형 보드와 `/observations` 수동 작성 화면은 상단 탭에서 제거하고, 직접 URL 접근 시 새 `학생 관찰 기록` 화면으로 이동시킨다.

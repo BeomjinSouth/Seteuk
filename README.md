@@ -28,7 +28,7 @@ Open `http://localhost:3000`.
 - `학생 관찰 기록` opens `/observation-board-2`; legacy `/observation-board` and `/observations` direct entries redirect there
 - in `/observation-board-2`, the sidebar shows only `학생 관찰 기록`, `성장 기록`, and `통계 보기`; `홈`, `알림장`, and `설정` are hidden, and `성장 기록` shows all selected class/search filtered student cards with current cookie counts before opening a selected-student `성장 기록 작성` modal matching the provided reference UI with animal chips, cookie cards, optional memo, and bottom actions
 - in `/observation-board-2`, the mentor/mentee activity screen uses a compact single-class selector instead of a long class-chip rail, shows one selected class at a time, and lets teachers optionally cap how many students are auto-paired/listed
-- mentor/mentee drag changes are saved per teacher/class, and `배치 전체 초기화` resets the selected class back to automatic pairing without deleting △/○ activity marks
+- mentor/mentee drag changes are saved per teacher/class, group cards can be deleted, and `모둠 비우기` keeps the selected class explicitly empty without deleting △/○ activity marks
 - when mentor/mentee pairing changes midway, marked sessions keep a pairing snapshot so `/write` interprets past sessions by the role/group that existed when they were recorded
 - mentor/mentee activity marks automatically update the cookie ledger by delta: blank=0, △ 참여함=1, ○ 매우 잘함=2
 - observation memo entry uses the internal `records` mode with per-student rows plus `수업 주제`, selected `태그`, and `기타 메모`

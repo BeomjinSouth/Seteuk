@@ -152,10 +152,6 @@ function createEmptyDraft(): ObservationDraftRow {
     };
 }
 
-function getInitials(name: string) {
-    return name.length > 2 ? name.slice(1) : name;
-}
-
 function formatStudentNumber(number: number) {
     return String(number).padStart(2, '0');
 }
@@ -235,6 +231,13 @@ function buildMentorAssignments(studentsForBoard: Student[]): MentorGroupAssignm
 
 function cloneMentorAssignments(assignments: MentorGroupAssignment[]): MentorGroupAssignment[] {
     return assignments.map((assignment) => ({ ...assignment }));
+}
+
+function hasClassMentorAssignments(
+    assignmentsByClass: ObservationBoardMentorAssignmentsByClass,
+    classId: string
+) {
+    return Object.prototype.hasOwnProperty.call(assignmentsByClass, classId);
 }
 
 function isActiveMark(mark?: MarkState) {
@@ -390,10 +393,7 @@ export default function ObservationBoard2Page() {
         [featuredStudents]
     );
 
-    const currentMentorAssignments = useMemo(
-        () => mentorAssignments.length > 0 ? mentorAssignments : defaultMentorAssignments,
-        [defaultMentorAssignments, mentorAssignments]
-    );
+    const currentMentorAssignments = mentorAssignments;
 
     const mentorGroups = useMemo<MentorGroupView[]>(() => {
         return currentMentorAssignments.map((group) => ({
@@ -539,9 +539,11 @@ export default function ObservationBoard2Page() {
 
     useEffect(() => {
         const availableIds = new Set(boardStudents.map((student) => student.id));
-        const savedAssignments = selectedClassId === 'all' ? [] : mentorAssignmentsByClass[selectedClassId] ?? [];
+        const hasSavedAssignments = selectedClassId !== 'all'
+            && hasClassMentorAssignments(mentorAssignmentsByClass, selectedClassId);
+        const savedAssignments = hasSavedAssignments ? mentorAssignmentsByClass[selectedClassId] ?? [] : [];
         const assignedIds = savedAssignments.flatMap((group) => [group.mentorId, group.menteeId]).filter(Boolean) as string[];
-        const canUseSavedAssignments = savedAssignments.length > 0
+        const canUseSavedAssignments = hasSavedAssignments
             && (assignedIds.length === 0 || assignedIds.every((studentId) => availableIds.has(studentId)));
 
         setMentorAssignments(cloneMentorAssignments(canUseSavedAssignments ? savedAssignments : defaultMentorAssignments));
@@ -552,8 +554,7 @@ export default function ObservationBoard2Page() {
         setLoadedMentorAssignmentKey(storageKey);
 
         try {
-            const saved = window.localStorage.getItem(storageKey)
-                ?? window.localStorage.getItem(getObservationBoardMentorAssignmentStorageKey());
+            const saved = window.localStorage.getItem(storageKey);
             setMentorAssignmentsByClass(saved
                 ? normalizeObservationBoardMentorAssignmentsByClass(JSON.parse(saved))
                 : {});
@@ -573,8 +574,7 @@ export default function ObservationBoard2Page() {
         setLoadedMentorAssignmentSnapshotKey(storageKey);
 
         try {
-            const saved = window.localStorage.getItem(storageKey)
-                ?? window.localStorage.getItem(getObservationBoardMentorAssignmentSnapshotStorageKey());
+            const saved = window.localStorage.getItem(storageKey);
             setMentorAssignmentSnapshotsByClass(saved
                 ? normalizeObservationBoardMentorAssignmentSnapshotsByClass(JSON.parse(saved))
                 : {});
@@ -793,8 +793,9 @@ export default function ObservationBoard2Page() {
 
         if (selectedClassId === 'all') return;
         setMentorAssignmentsByClass((prev) => {
-            const current = prev[selectedClassId] ?? [];
-            if (areObservationBoardMentorAssignmentsEqual(current, normalizedAssignments)) return prev;
+            const hasCurrent = hasClassMentorAssignments(prev, selectedClassId);
+            const current = hasCurrent ? prev[selectedClassId] ?? [] : [];
+            if (hasCurrent && areObservationBoardMentorAssignmentsEqual(current, normalizedAssignments)) return prev;
 
             return {
                 ...prev,
@@ -1242,26 +1243,36 @@ export default function ObservationBoard2Page() {
         ]);
     };
 
+    const handleDeleteMentorGroup = (groupId: string) => {
+        if (selectedClassId === 'all') {
+            alert('멘토·멘티 모둠을 삭제하려면 먼저 학급을 선택해 주세요.');
+            return;
+        }
+
+        const source = cloneMentorAssignments(currentMentorAssignments);
+        const targetGroup = source.find((group) => group.id === groupId);
+        if (!targetGroup) return;
+
+        if (!confirm(`${targetGroup.title} 모둠을 삭제할까요?\n이미 기록된 △/○ 활동 표시는 지우지 않습니다.`)) {
+            return;
+        }
+
+        captureMarkedSessionAssignmentSnapshots(selectedClassId, source);
+        commitMentorAssignments(source.filter((group) => group.id !== groupId));
+    };
+
     const handleResetMentorAssignments = () => {
         if (selectedClassId === 'all' || !selectedClass) {
             alert('초기화할 학급을 먼저 선택해 주세요.');
             return;
         }
 
-        if (!confirm('현재 학급의 멘토·멘티 배치 전체를 자동 편성으로 초기화할까요?\n이미 기록된 △/○ 활동 표시는 지우지 않고, 과거 차시는 당시 배치 이력으로 보존합니다.')) {
+        if (!confirm('현재 학급의 멘토·멘티 모둠과 배치를 모두 비울까요?\n이미 기록된 △/○ 활동 표시는 지우지 않고, 과거 차시는 당시 배치 이력으로 보존합니다.')) {
             return;
         }
 
         captureMarkedSessionAssignmentSnapshots(selectedClassId, currentMentorAssignments);
-        const nextDefaultAssignments = buildMentorAssignments(featuredStudents);
-
-        setMentorAssignments(nextDefaultAssignments);
-        setMentorAssignmentsByClass((prev) => {
-            if (!prev[selectedClassId]) return prev;
-            const next = { ...prev };
-            delete next[selectedClassId];
-            return next;
-        });
+        commitMentorAssignments([]);
     };
 
     const persistActivitySessions = (nextSessions: ActivitySession[]) => {
@@ -1446,6 +1457,7 @@ export default function ObservationBoard2Page() {
                 onAssignStudent={handleAssignMentorStudent}
                 onClassChange={handleClassChange}
                 onAddGroup={handleAddMentorGroup}
+                onDeleteGroup={handleDeleteMentorGroup}
                 onResetAssignments={handleResetMentorAssignments}
                 onAddSession={handleAddSession}
                 onUpdateSession={handleUpdateSession}
@@ -1786,7 +1798,7 @@ function GrowthDashboard({
                         const student = studentLookup.get(item.studentId);
                         return (
                             <article key={item.id} className={styles.timelineCard}>
-                                <span className={styles.timelineAvatar}>{student ? getInitials(student.name) : '?'}</span>
+                                <span className={styles.timelineAvatar}>{student ? formatStudentNumber(student.number) : '?'}</span>
                                 <div>
                                     <div className={styles.timelineMeta}>
                                         <strong>{student?.name || '학생 정보 없음'}</strong>
@@ -2147,7 +2159,7 @@ function StatsDashboard({
                         <ClipboardList size={22} />
                         <div>
                             <h2>최근 기록</h2>
-                            <p>통계에서 바로 기록 작성으로 이동할 수 있습니다.</p>
+                            <p>통계에서 바로 성장 기록으로 이동할 수 있습니다.</p>
                         </div>
                     </div>
                     <div className={styles.compactList}>
@@ -2158,9 +2170,9 @@ function StatsDashboard({
                             </div>
                         ))}
                     </div>
-                    <button type="button" className={styles.primaryActionButton} onClick={() => onModeChange('records')}>
-                        <BookOpen size={17} />
-                        관찰 메모 작성
+                    <button type="button" className={styles.primaryActionButton} onClick={() => onModeChange('growth')}>
+                        <Sparkles size={17} />
+                        성장 기록으로 이동
                     </button>
                 </article>
             </div>
@@ -2358,6 +2370,7 @@ function MentorActivityView({
     onAssignStudent,
     onClassChange,
     onAddGroup,
+    onDeleteGroup,
     onResetAssignments,
     onAddSession,
     onUpdateSession,
@@ -2376,6 +2389,7 @@ function MentorActivityView({
     onAssignStudent: (studentId: string, groupId: string, role: MentorRole) => void;
     onClassChange: (classId: string) => void;
     onAddGroup: () => void;
+    onDeleteGroup: (groupId: string) => void;
     onResetAssignments: () => void;
     onAddSession: () => void;
     onUpdateSession: (sessionId: string, field: 'date' | 'topic', value: string) => void;
@@ -2423,7 +2437,9 @@ function MentorActivityView({
                     <div className={styles.groupStack}>
                         {mentorGroups.length === 0 && (
                             <div className={styles.mentorEmptyState}>
-                                담당 학급 학생이 없습니다. 수업 학급을 먼저 등록하면 멘토·멘티를 구성할 수 있습니다.
+                                {boardStudents.length === 0
+                                    ? '해당 학급 학생이 없습니다. 수업 학급을 먼저 등록하면 멘토·멘티를 구성할 수 있습니다.'
+                                    : '멘토·멘티 모둠이 비어 있습니다. 모둠 추가를 눌러 새 모둠을 만들 수 있습니다.'}
                             </div>
                         )}
                         {mentorGroups.map((group) => (
@@ -2435,8 +2451,19 @@ function MentorActivityView({
                                 transition={{ duration: 0.12 }}
                             >
                                 <div className={styles.groupHeader}>
-                                    <strong>{group.title}</strong>
-                                    <Star size={17} />
+                                    <span className={styles.groupTitle}>
+                                        <strong>{group.title}</strong>
+                                        <Star size={17} />
+                                    </span>
+                                    <button
+                                        type="button"
+                                        className={styles.deleteGroupButton}
+                                        onClick={() => onDeleteGroup(group.id)}
+                                        title="모둠 삭제"
+                                        aria-label={`${group.title} 모둠 삭제`}
+                                    >
+                                        <Trash2 size={15} />
+                                    </button>
                                 </div>
                                 <div className={styles.pairRow}>
                                     <StudentToken
@@ -2468,7 +2495,7 @@ function MentorActivityView({
                         </button>
                         <button type="button" className={styles.resetMentorButton} onClick={onResetAssignments}>
                             <RotateCcw size={17} />
-                            배치 전체 초기화
+                            모둠 비우기
                         </button>
                     </div>
 
@@ -2489,7 +2516,7 @@ function MentorActivityView({
                                     onDragStart={(event) => startStudentDrag(event, student.id)}
                                     title={`${student.name} 드래그`}
                                 >
-                                    <span>{getInitials(student.name)}</span>
+                                    <span>{formatStudentNumber(student.number)}</span>
                                     {student.name}
                                 </div>
                             ))}
@@ -2785,7 +2812,7 @@ function ObservationRecordsView({
                             return (
                                 <article key={student.id} className={styles.draftRow}>
                                     <div className={styles.draftStudent}>
-                                        <span>{getInitials(student.name)}</span>
+                                        <span>{formatStudentNumber(student.number)}</span>
                                         <div>
                                             <strong>{student.name}</strong>
                                             <small>{student.number}번</small>
@@ -2918,7 +2945,7 @@ function StudentToken({
             onDrop={onDrop}
             title={`${student.name} 드래그해서 자리 바꾸기`}
         >
-            <span className={styles.avatar}>{getInitials(student.name)}</span>
+            <span className={styles.avatar}>{formatStudentNumber(student.number)}</span>
             <span className={styles.roleLabel}>{role}</span>
             <strong>{student.name}</strong>
         </div>
@@ -2953,7 +2980,7 @@ function ActivityGroupRows({
                             </div>
                         )}
                         <div className={styles.studentNameCell}>
-                            <span className={styles.smallAvatar}>{getInitials(student.name)}</span>
+                            <span className={styles.smallAvatar}>{formatStudentNumber(student.number)}</span>
                             <div>
                                 <strong>{student.name}</strong>
                                 <span>{studentIndex === 0 ? '멘토' : '멘티'}</span>

@@ -141,6 +141,10 @@ export function normalizeObservationBoardMentorAssignmentsByClass(
     const normalized: ObservationBoardMentorAssignmentsByClass = {};
     Object.entries(value as Record<string, unknown>).forEach(([classId, assignments]) => {
         if (!Array.isArray(assignments)) return;
+        if (assignments.length === 0) {
+            normalized[classId] = [];
+            return;
+        }
 
         const normalizedAssignments = assignments
             .map((item, index) => {
