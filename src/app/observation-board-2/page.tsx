@@ -2007,9 +2007,13 @@ function StatsDashboard({
         .map((student) => ({ student, count: studentStats.get(student.id)?.count ?? 0 }))
         .sort((a, b) => b.count - a.count)
         .slice(0, 6);
+    const averageObservationCount = students.length > 0
+        ? students.reduce((sum, student) => sum + (studentStats.get(student.id)?.count ?? 0), 0) / students.length
+        : 0;
+    const lowObservationThreshold = averageObservationCount / 2;
     const studentsNeedingRecords = students
-        .filter((student) => (studentStats.get(student.id)?.count ?? 0) === 0)
-        .slice(0, 8);
+        .map((student) => ({ student, count: studentStats.get(student.id)?.count ?? 0 }))
+        .filter(({ count }) => count === 0 || count < lowObservationThreshold);
     const groupBalanceStats = mentorGroups.map((group) => {
         const groupStudents = [group.mentor, group.mentee].filter(Boolean) as Student[];
         const summary = groupStudents.reduce(
@@ -2057,12 +2061,12 @@ function StatsDashboard({
                         <UserRound size={22} />
                         <div>
                             <h2>먼저 살펴볼 학생</h2>
-                            <p>관찰 메모가 아직 없는 담당 학생입니다.</p>
+                            <p>관찰 메모가 없거나 평균의 절반 미만인 담당 학생입니다.</p>
                         </div>
                     </div>
                     <div className={styles.statsPillList}>
-                        {studentsNeedingRecords.length === 0 && <div className={styles.emptyList}>모든 표시 학생에게 관찰 메모가 있습니다.</div>}
-                        {studentsNeedingRecords.map((student) => (
+                        {studentsNeedingRecords.length === 0 && <div className={styles.emptyList}>기록이 부족한 표시 학생이 없습니다.</div>}
+                        {studentsNeedingRecords.map(({ student }) => (
                             <button key={student.id} type="button" onClick={() => onModeChange('records')}>
                                 <span>{student.number}번</span>
                                 {student.name}
