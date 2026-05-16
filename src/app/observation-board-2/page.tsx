@@ -2641,7 +2641,25 @@ function MentorActivityView({
     onUpdateSession: (sessionId: string, field: 'date' | 'topic', value: string) => void;
     onUpdateMark: (studentId: string, session: ActivitySession, fallback: MarkState) => void;
 }) {
-    const rosterStudents = getVisibleRosterStudents(boardStudents, visibleRosterCount);
+    const editingMemberIds = useMemo(
+        () => new Set(editingGroupMembers.map((member) => member.studentId)),
+        [editingGroupMembers]
+    );
+    const availableRosterStudents = useMemo(() => {
+        const assignedStudentIds = new Set<string>();
+        mentorGroups.forEach((group) => {
+            group.members.forEach((member) => {
+                assignedStudentIds.add(member.student.id);
+            });
+        });
+        editingMemberIds.forEach((studentId) => assignedStudentIds.add(studentId));
+
+        return boardStudents.filter((student) => !assignedStudentIds.has(student.id));
+    }, [boardStudents, editingMemberIds, mentorGroups]);
+    const rosterStudents = useMemo(
+        () => getVisibleRosterStudents(availableRosterStudents, visibleRosterCount),
+        [availableRosterStudents, visibleRosterCount]
+    );
     const [activeTab, setActiveTab] = useState<MentorActivityTab>('groups');
 
     const startStudentDrag = (event: DragEvent<HTMLElement>, studentId: string) => {
@@ -2662,7 +2680,6 @@ function MentorActivityView({
         onStageGroupStudent(studentId);
     };
     const editingGroup = mentorGroups.find((group) => group.id === editingGroupId);
-    const editingMemberIds = new Set(editingGroupMembers.map((member) => member.studentId));
 
     return (
         <>
@@ -2882,11 +2899,14 @@ function MentorActivityView({
                         <div className={styles.rosterTray}>
                             <div className={styles.trayTitle}>
                                 학생 목록
-                                <span>{boardStudents.length}명</span>
+                                <span>{availableRosterStudents.length}명</span>
                             </div>
                             <div className={styles.rosterGrid}>
                                 {boardStudents.length === 0 && (
                                     <div className={styles.rosterEmptyState}>담당 학급 학생만 여기에 표시됩니다.</div>
+                                )}
+                                {boardStudents.length > 0 && availableRosterStudents.length === 0 && (
+                                    <div className={styles.rosterEmptyState}>모둠에 배정되지 않은 학생이 없습니다.</div>
                                 )}
                                 {rosterStudents.map((student) => (
                                     <div
