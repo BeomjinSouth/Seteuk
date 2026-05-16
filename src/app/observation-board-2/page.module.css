@@ -480,6 +480,7 @@
 
 .groupStack {
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.72rem;
     margin-top: 0.78rem;
 }
@@ -528,6 +529,21 @@
     stroke: #eda100;
 }
 
+.groupTitle em {
+    display: inline-flex;
+    align-items: center;
+    min-height: 22px;
+    border: 1px solid #f0ca62;
+    border-radius: 999px;
+    background: #fff7d8;
+    color: #8c5a00;
+    padding: 0 0.36rem;
+    font-size: 0.7rem;
+    font-style: normal;
+    font-weight: 900;
+}
+
+.editGroupButton,
 .deleteGroupButton {
     display: inline-flex;
     align-items: center;
@@ -538,8 +554,23 @@
     border: 1px solid rgba(185, 98, 98, 0.34);
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.74);
-    color: #b63d3d;
+    color: var(--board-blue-deep);
     cursor: pointer;
+}
+
+.editGroupButton {
+    margin-left: auto;
+    border-color: rgba(47, 134, 216, 0.32);
+}
+
+.deleteGroupButton {
+    color: #b63d3d;
+}
+
+.editGroupButton:hover {
+    border-color: var(--board-blue);
+    background: #eef8ff;
+    color: #075fae;
 }
 
 .deleteGroupButton:hover {
@@ -549,11 +580,71 @@
 }
 
 .pairRow {
-    display: grid;
+    display: none;
     grid-template-columns: minmax(0, 1fr) 38px minmax(0, 1fr);
     align-items: center;
     gap: 0.45rem;
     padding: 0.68rem;
+}
+
+.memberGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.4rem;
+    padding: 0.55rem;
+}
+
+.groupMemberToken,
+.emptyMemberSlot {
+    display: grid;
+    align-items: center;
+    min-width: 0;
+    min-height: 42px;
+    border: 2px solid #dbeaf3;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.groupMemberToken {
+    grid-template-columns: 26px minmax(0, 1fr);
+    column-gap: 0.36rem;
+    padding: 0.32rem;
+    cursor: grab;
+}
+
+.groupMemberToken strong,
+.groupMemberToken em {
+    display: block;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.groupMemberToken strong {
+    color: #152d53;
+    font-size: 0.78rem;
+    font-weight: 900;
+}
+
+.groupMemberToken em {
+    color: #567291;
+    font-size: 0.64rem;
+    font-style: normal;
+    font-weight: 900;
+}
+
+.emptyMemberSlot {
+    grid-column: 1 / -1;
+    justify-content: center;
+    grid-auto-flow: column;
+    gap: 0.34rem;
+    border-style: dashed;
+    color: #5b7692;
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 900;
+    cursor: pointer;
 }
 
 .studentToken {
@@ -644,6 +735,130 @@
     padding: 0.72rem;
 }
 
+.groupEditPanel {
+    margin-top: 0.78rem;
+    border: 2px solid #f0ca62;
+    border-radius: 8px;
+    background: #fffdf3;
+    padding: 0.7rem;
+}
+
+.groupEditHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.55rem;
+}
+
+.groupEditHeader strong,
+.groupEditHeader span {
+    display: block;
+}
+
+.groupEditHeader strong {
+    color: var(--board-blue-deep);
+    font-size: 0.92rem;
+    font-weight: 900;
+}
+
+.groupEditHeader span {
+    margin-top: 0.1rem;
+    color: #7a6a2d;
+    font-size: 0.72rem;
+    font-weight: 900;
+}
+
+.groupEditHeader button,
+.groupEditMember button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: 1px solid #e3c36c;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #8c5a00;
+    cursor: pointer;
+}
+
+.groupEditMembers {
+    display: grid;
+    gap: 0.38rem;
+    margin-top: 0.55rem;
+}
+
+.groupEditMember {
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr) auto 28px;
+    align-items: center;
+    gap: 0.42rem;
+    min-height: 38px;
+    border: 1px solid #f0e0a5;
+    border-radius: 8px;
+    background: #ffffff;
+    padding: 0.28rem 0.35rem;
+}
+
+.groupEditMember strong {
+    overflow: hidden;
+    color: #17325b;
+    font-size: 0.82rem;
+    font-weight: 900;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.groupEditMember em {
+    color: #68809a;
+    font-size: 0.68rem;
+    font-style: normal;
+    font-weight: 900;
+}
+
+.groupEditEmpty {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    min-height: 46px;
+    border: 2px dashed #f0ca62;
+    border-radius: 8px;
+    color: #7a6a2d;
+    font-size: 0.78rem;
+    font-weight: 900;
+    text-align: center;
+}
+
+.groupEditActions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.42rem;
+    margin-top: 0.56rem;
+}
+
+.groupEditActions button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.32rem;
+    min-height: 36px;
+    border: 2px solid #8cc9f0;
+    border-radius: 8px;
+    background: #eaf7ff;
+    color: #075fae;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.groupEditActions button:last-child {
+    border-color: #e6d08b;
+    background: #fff9df;
+    color: #7a5a12;
+}
+
 .trayTitle {
     display: flex;
     align-items: center;
@@ -678,6 +893,12 @@
     padding: 0.32rem 0.5rem;
     font-size: 0.8rem;
     font-weight: 900;
+}
+
+.rosterItemSelected {
+    border-color: #f0ca62;
+    background: #fff7d8;
+    color: #7a5200;
 }
 
 .rosterItem span,
