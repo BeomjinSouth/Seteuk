@@ -3005,10 +3005,11 @@ function MentorActivityView({
                                     </label>
                                 ))}
 
-                                {mentorGroups.map((group) => (
+                                {mentorGroups.map((group, groupIndex) => (
                                     <ActivityGroupRows
                                         key={group.id}
                                         groupTitle={group.title}
+                                        groupIndex={groupIndex}
                                         members={group.members}
                                         sessions={sessions}
                                         marks={marks}
@@ -3401,12 +3402,14 @@ function GroupMemberToken({
 
 function ActivityGroupRows({
     groupTitle,
+    groupIndex,
     members,
     sessions,
     marks,
     onUpdateMark,
 }: {
     groupTitle: string;
+    groupIndex: number;
     members: MentorGroupMemberView[];
     sessions: ActivitySession[];
     marks: Record<string, MarkState>;
@@ -3418,18 +3421,26 @@ function ActivityGroupRows({
         <>
             {members.map((member, studentIndex) => {
                 const student = member.student;
+                const groupToneClass = groupIndex % 2 === 0
+                    ? styles.activityGroupOdd
+                    : styles.activityGroupEven;
+                const groupEdgeClass = [
+                    studentIndex === 0 ? styles.activityGroupStart : '',
+                    studentIndex === members.length - 1 ? styles.activityGroupEnd : '',
+                ].filter(Boolean).join(' ');
+
                 return (
                     <div className={styles.studentRow} role="row" key={student.id}>
                         {studentIndex === 0 && (
                             <div
-                                className={styles.groupLabel}
+                                className={`${styles.groupLabel} ${groupToneClass} ${styles.activityGroupStart} ${styles.activityGroupEnd}`}
                                 role="rowheader"
                                 style={{ gridRow: `span ${members.length}` }}
                             >
                                 {groupTitle}
                             </div>
                         )}
-                        <div className={styles.studentNameCell}>
+                        <div className={`${styles.studentNameCell} ${groupToneClass} ${groupEdgeClass}`}>
                             <span className={styles.smallAvatar}>{formatStudentNumber(student.number)}</span>
                             <div>
                                 <strong>{student.name}</strong>
@@ -3444,7 +3455,7 @@ function ActivityGroupRows({
                                 <button
                                     key={session.id}
                                     type="button"
-                                    className={`${styles.markButton} ${styles[`mark-${mark}`]}`}
+                                    className={`${styles.markButton} ${styles[`mark-${mark}`]} ${groupToneClass} ${groupEdgeClass}`}
                                     onClick={() => onUpdateMark(student.id, session, fallback)}
                                     aria-label={`${student.name} ${session.label} 활동 상태 변경`}
                                 >
@@ -3453,7 +3464,7 @@ function ActivityGroupRows({
                                 </button>
                             );
                         })}
-                        <div className={styles.rowSpacer} aria-hidden="true" />
+                        <div className={`${styles.rowSpacer} ${groupToneClass} ${groupEdgeClass}`} aria-hidden="true" />
                     </div>
                 );
             })}
