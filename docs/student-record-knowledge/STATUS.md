@@ -86,6 +86,7 @@
 ## Recent Changes
 
 - 2026-05-17: verification passed for the group-row banding update with `cmd /c npx tsc --noEmit --pretty false`, local `/observation-board-2` and `/api/auth/session` route smoke checks on port 3008, and Browser DOM/console checks with no runtime overlay or console errors; Browser reached the login screen and screenshot capture worked, but local form fill was blocked by the Browser virtual clipboard limitation.
+- 2026-05-17: deployed the activity group-row banding update to Vercel production as `dpl_9CTFqVNSM2h6WJN5kDzEXEvP6UFY`; verified the live alias `https://seteuk-zgyj.vercel.app` is Ready and `/observation-board-2` returns 200.
 - 2026-05-17: improved `/observation-board-2` activity-record readability by alternating mentor group table bands between soft green and soft blue, with stronger group start/end borders so odd/even groups are easier to distinguish.
 - 2026-05-17: verification passed for `cmd /c npx tsc --noEmit --pretty false`, local `/observation-board-2` and `/api/auth/session` route smoke checks on port 3007, and Browser DOM/console checks with no runtime overlay or console errors; Browser screenshot capture timed out in the current in-app session.
 - 2026-05-17: deployed the assigned-student roster filtering fix to Vercel production as `dpl_2Jaf2SpnsVvgbUm8JkdPqnyCs74a`; verified the live alias `https://seteuk-zgyj.vercel.app` is Ready and `/observation-board-2` returns 200.
