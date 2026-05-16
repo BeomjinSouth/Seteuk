@@ -144,6 +144,10 @@ function isObservationBoardMentorRole(value: unknown): value is ObservationBoard
     return value === 'mentor' || value === 'mentee' || value === 'member';
 }
 
+function getDefaultObservationBoardMentorRole(index: number): ObservationBoardMentorRole {
+    return index === 0 ? 'mentor' : 'mentee';
+}
+
 export function getObservationBoardAssignmentMembers(
     assignment: Partial<ObservationBoardMentorAssignment> | undefined
 ): ObservationBoardGroupMember[] {
@@ -156,7 +160,7 @@ export function getObservationBoardAssignmentMembers(
         seen.add(studentId);
         members.push({
             studentId,
-            role: isObservationBoardMentorRole(role) ? role : 'member',
+            role: isObservationBoardMentorRole(role) ? role : getDefaultObservationBoardMentorRole(fallbackOrder),
             order: typeof order === 'number' && Number.isFinite(order) ? order : fallbackOrder,
         });
     };

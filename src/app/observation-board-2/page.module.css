@@ -619,6 +619,27 @@
     font-weight: 900;
 }
 
+.roleSelect {
+    width: 100%;
+    min-width: 0;
+    height: 22px;
+    border: 1px solid #d8e5f0;
+    border-radius: 999px;
+    background: #f8fbff;
+    color: #405979;
+    padding: 0 0.34rem;
+    font: inherit;
+    font-size: 0.64rem;
+    font-weight: 900;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.roleSelect:focus {
+    outline: 2px solid rgba(47, 134, 216, 0.24);
+    outline-offset: 1px;
+}
+
 .emptyMemberSlot {
     grid-column: 1 / -1;
     justify-content: center;
@@ -630,6 +651,12 @@
     font-size: 0.8rem;
     font-weight: 900;
     cursor: pointer;
+}
+
+.emptyMemberSlot:hover {
+    border-color: #8cc9f0;
+    background: #f4fbff;
+    color: #174774;
 }
 
 .studentToken {
@@ -799,6 +826,12 @@
     font-size: 0.68rem;
     font-style: normal;
     font-weight: 900;
+}
+
+.groupEditMember .roleSelect {
+    width: 78px;
+    height: 26px;
+    font-size: 0.66rem;
 }
 
 .groupEditEmpty {

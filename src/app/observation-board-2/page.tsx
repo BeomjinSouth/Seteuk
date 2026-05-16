@@ -277,10 +277,8 @@ function getLegacySlotIds(members: ObservationBoardGroupMember[]) {
     return { mentorId, menteeId };
 }
 
-function getGroupRoleByIndex(index: number): MentorRole {
-    if (index === 0) return 'mentor';
-    if (index === 1) return 'mentee';
-    return 'member';
+function getDefaultGroupRoleByIndex(index: number): MentorRole {
+    return index === 0 ? 'mentor' : 'mentee';
 }
 
 function normalizeGroupMembers(members: ObservationBoardGroupMember[]) {
@@ -289,7 +287,7 @@ function normalizeGroupMembers(members: ObservationBoardGroupMember[]) {
         .slice(0, maxMentorGroupMembers)
         .map((member, index) => ({
             studentId: member.studentId,
-            role: getGroupRoleByIndex(index),
+            role: member.role || getDefaultGroupRoleByIndex(index),
             order: index,
         }));
 }
@@ -314,6 +312,12 @@ function getRoleLabel(role: MentorRole) {
     if (role === 'mentee') return '멘티';
     return '모둠원';
 }
+
+const mentorRoleOptions: { value: MentorRole; label: string }[] = [
+    { value: 'mentor', label: '멘토' },
+    { value: 'mentee', label: '멘티' },
+    { value: 'member', label: '모둠원' },
+];
 
 function hasClassMentorAssignments(
     assignmentsByClass: ObservationBoardMentorAssignmentsByClass,
@@ -1278,55 +1282,81 @@ export default function ObservationBoard2Page() {
         setNoticeDraft({ title: '', body: '', dueDate: today() });
     };
 
-    const handleAssignMentorStudent = (studentId: string, targetGroupId: string, targetRole: MentorRole) => {
+    const handleAddStudentToMentorGroup = (studentId: string, targetGroupId: string) => {
         if (selectedClassId === 'all') {
             alert('멘토·멘티 배치를 바꾸려면 먼저 학급을 선택해 주세요.');
             return;
         }
 
         const source = cloneMentorAssignments(currentMentorAssignments);
-        let sourceGroupId: string | undefined;
-        let sourceRole: MentorRole | undefined;
-        let replacedStudentId: string | undefined;
+        const targetGroup = source.find((group) => group.id === targetGroupId);
+        if (!targetGroup) return;
 
-        source.forEach((group) => {
-            if (group.mentorId === studentId) {
-                sourceGroupId = group.id;
-                sourceRole = 'mentor';
-            }
-            if (group.menteeId === studentId) {
-                sourceGroupId = group.id;
-                sourceRole = 'mentee';
-            }
-            if (group.id === targetGroupId) {
-                replacedStudentId = targetRole === 'mentor' ? group.mentorId : group.menteeId;
-            }
-        });
+        const targetMembers = getObservationBoardAssignmentMembers(targetGroup);
+        if (targetMembers.some((member) => member.studentId === studentId)) return;
 
-        if (sourceGroupId === targetGroupId && sourceRole === targetRole) return;
+        if (targetMembers.length >= maxMentorGroupMembers) {
+            alert('한 모둠에는 최대 4명까지 넣을 수 있습니다.');
+            return;
+        }
 
         captureMarkedSessionAssignmentSnapshots(selectedClassId, source);
 
         const nextAssignments = source.map((group) => {
-            const next = { ...group };
-
-            if (next.mentorId === studentId) next.mentorId = undefined;
-            if (next.menteeId === studentId) next.menteeId = undefined;
-
-            if (sourceGroupId && sourceRole && replacedStudentId && group.id === sourceGroupId) {
-                if (sourceRole === 'mentor') next.mentorId = replacedStudentId;
-                else next.menteeId = replacedStudentId;
-            }
+            const remainingMembers = getObservationBoardAssignmentMembers(group)
+                .filter((member) => member.studentId !== studentId);
 
             if (group.id === targetGroupId) {
-                if (targetRole === 'mentor') next.mentorId = studentId;
-                else next.menteeId = studentId;
+                return withGroupMembers(group, [
+                    ...remainingMembers,
+                    {
+                        studentId,
+                        role: getDefaultGroupRoleByIndex(remainingMembers.length),
+                        order: remainingMembers.length,
+                    },
+                ]);
             }
 
-            return next;
+            return withGroupMembers(group, remainingMembers);
         });
 
         commitMentorAssignments(nextAssignments);
+        if (editingMentorGroupId === targetGroupId) {
+            setEditingMentorGroupMembers(getObservationBoardAssignmentMembers(
+                nextAssignments.find((group) => group.id === targetGroupId)
+            ));
+        }
+    };
+
+    const handleUpdateMentorGroupMemberRole = (groupId: string, studentId: string, role: MentorRole) => {
+        if (selectedClassId === 'all') return;
+
+        const source = cloneMentorAssignments(currentMentorAssignments);
+        const targetGroup = source.find((group) => group.id === groupId);
+        if (!targetGroup) return;
+
+        captureMarkedSessionAssignmentSnapshots(selectedClassId, source);
+
+        const nextAssignments = source.map((group) => {
+            if (group.id !== groupId) return group;
+            const members = getObservationBoardAssignmentMembers(group).map((member) =>
+                member.studentId === studentId ? { ...member, role } : member
+            );
+            return withGroupMembers(group, members);
+        });
+
+        commitMentorAssignments(nextAssignments);
+        if (editingMentorGroupId === groupId) {
+            setEditingMentorGroupMembers((prev) => normalizeGroupMembers(
+                prev.map((member) => member.studentId === studentId ? { ...member, role } : member)
+            ));
+        }
+    };
+
+    const handleUpdateEditingMentorGroupMemberRole = (studentId: string, role: MentorRole) => {
+        setEditingMentorGroupMembers((prev) => normalizeGroupMembers(
+            prev.map((member) => member.studentId === studentId ? { ...member, role } : member)
+        ));
     };
 
     const handleEditMentorGroup = (groupId: string) => {
@@ -1361,7 +1391,7 @@ export default function ObservationBoard2Page() {
                 ...prev,
                 {
                     studentId,
-                    role: getGroupRoleByIndex(prev.length),
+                    role: getDefaultGroupRoleByIndex(prev.length),
                     order: prev.length,
                 },
             ];
@@ -1376,8 +1406,8 @@ export default function ObservationBoard2Page() {
 
     const handleSaveMentorGroupEdit = () => {
         if (!editingMentorGroupId || selectedClassId === 'all') return;
-        if (editingMentorGroupMembers.length === 1) {
-            alert('모둠은 비워두거나 2~4명으로 저장할 수 있습니다.');
+        if (editingMentorGroupMembers.length > maxMentorGroupMembers) {
+            alert('한 모둠에는 최대 4명까지 넣을 수 있습니다.');
             return;
         }
 
@@ -1640,7 +1670,9 @@ export default function ObservationBoard2Page() {
                 marks={marks}
                 totalExcellent={totalExcellent}
                 visibleRosterCount={visibleRosterCount}
-                onAssignStudent={handleAssignMentorStudent}
+                onAddStudentToGroup={handleAddStudentToMentorGroup}
+                onChangeMemberRole={handleUpdateMentorGroupMemberRole}
+                onChangeEditingMemberRole={handleUpdateEditingMentorGroupMemberRole}
                 onEditGroup={handleEditMentorGroup}
                 onStageGroupStudent={handleStageMentorGroupStudent}
                 onRemoveGroupStudent={handleRemoveMentorGroupStudent}
@@ -2565,7 +2597,9 @@ function MentorActivityView({
     marks,
     totalExcellent,
     visibleRosterCount,
-    onAssignStudent,
+    onAddStudentToGroup,
+    onChangeMemberRole,
+    onChangeEditingMemberRole,
     onEditGroup,
     onStageGroupStudent,
     onRemoveGroupStudent,
@@ -2591,7 +2625,9 @@ function MentorActivityView({
     marks: Record<string, MarkState>;
     totalExcellent: number;
     visibleRosterCount: VisibleRosterCount;
-    onAssignStudent: (studentId: string, groupId: string, role: MentorRole) => void;
+    onAddStudentToGroup: (studentId: string, groupId: string) => void;
+    onChangeMemberRole: (groupId: string, studentId: string, role: MentorRole) => void;
+    onChangeEditingMemberRole: (studentId: string, role: MentorRole) => void;
     onEditGroup: (groupId: string) => void;
     onStageGroupStudent: (studentId: string) => void;
     onRemoveGroupStudent: (studentId: string) => void;
@@ -2613,11 +2649,11 @@ function MentorActivityView({
         event.dataTransfer.effectAllowed = 'move';
     };
 
-    const dropStudent = (event: DragEvent<HTMLElement>, groupId: string, role: MentorRole) => {
+    const dropStudentToGroup = (event: DragEvent<HTMLElement>, groupId: string) => {
         event.preventDefault();
         const studentId = event.dataTransfer.getData('text/plain');
         if (!studentId) return;
-        onAssignStudent(studentId, groupId, role);
+        onAddStudentToGroup(studentId, groupId);
     };
     const dropStudentToEditor = (event: DragEvent<HTMLElement>) => {
         event.preventDefault();
@@ -2728,10 +2764,12 @@ function MentorActivityView({
                                         </button>
                                     </div>
                                     <div className={styles.memberGrid}>
-                                        {group.members.length === 0 && (
+                                        {group.members.length < maxMentorGroupMembers && (
                                             <button
                                                 type="button"
                                                 className={styles.emptyMemberSlot}
+                                                onDragOver={(event) => event.preventDefault()}
+                                                onDrop={(event) => dropStudentToGroup(event, group.id)}
                                                 onClick={() => onEditGroup(group.id)}
                                             >
                                                 <UserPlus size={16} />
@@ -2743,6 +2781,7 @@ function MentorActivityView({
                                                 key={member.student.id}
                                                 member={member}
                                                 onDragStart={(event, studentId) => startStudentDrag(event, studentId)}
+                                                onRoleChange={(studentId, role) => onChangeMemberRole(group.id, studentId, role)}
                                             />
                                         ))}
                                     </div>
@@ -2752,7 +2791,7 @@ function MentorActivityView({
                                             role="멘토"
                                             tone="blue"
                                             onDragStart={(event, studentId) => startStudentDrag(event, studentId)}
-                                            onDrop={(event) => dropStudent(event, group.id, 'mentor')}
+                                            onDrop={(event) => dropStudentToGroup(event, group.id)}
                                         />
                                         <div className={styles.handshakeMark}>
                                             <Handshake size={22} />
@@ -2762,7 +2801,7 @@ function MentorActivityView({
                                             role="멘티"
                                             tone="pink"
                                             onDragStart={(event, studentId) => startStudentDrag(event, studentId)}
-                                            onDrop={(event) => dropStudent(event, group.id, 'mentee')}
+                                            onDrop={(event) => dropStudentToGroup(event, group.id)}
                                         />
                                     </div>
                                 </motion.article>
@@ -2799,7 +2838,16 @@ function MentorActivityView({
                                             <div key={member.studentId} className={styles.groupEditMember}>
                                                 <span className={styles.smallAvatar}>{formatStudentNumber(student.number)}</span>
                                                 <strong>{student.name}</strong>
-                                                <em>{getRoleLabel(member.role)}</em>
+                                                <select
+                                                    className={styles.roleSelect}
+                                                    value={member.role}
+                                                    onChange={(event) => onChangeEditingMemberRole(member.studentId, event.target.value as MentorRole)}
+                                                    aria-label={`${student.name} 역할 선택`}
+                                                >
+                                                    {mentorRoleOptions.map((option) => (
+                                                        <option key={option.value} value={option.value}>{option.label}</option>
+                                                    ))}
+                                                </select>
                                                 <button type="button" onClick={() => onRemoveGroupStudent(member.studentId)} aria-label="학생 제거">
                                                     <MinusCircle size={15} />
                                                 </button>
@@ -3298,9 +3346,11 @@ function StudentToken({
 function GroupMemberToken({
     member,
     onDragStart,
+    onRoleChange,
 }: {
     member: MentorGroupMemberView;
     onDragStart: (event: DragEvent<HTMLElement>, studentId: string) => void;
+    onRoleChange: (studentId: string, role: MentorRole) => void;
 }) {
     return (
         <div
@@ -3312,7 +3362,18 @@ function GroupMemberToken({
             <span className={styles.smallAvatar}>{formatStudentNumber(member.student.number)}</span>
             <div>
                 <strong>{member.student.name}</strong>
-                <em>{getRoleLabel(member.role)}</em>
+                <select
+                    className={styles.roleSelect}
+                    value={member.role}
+                    onPointerDown={(event) => event.stopPropagation()}
+                    onClick={(event) => event.stopPropagation()}
+                    onChange={(event) => onRoleChange(member.student.id, event.target.value as MentorRole)}
+                    aria-label={`${member.student.name} 역할 선택`}
+                >
+                    {mentorRoleOptions.map((option) => (
+                        <option key={option.value} value={option.value}>{option.label}</option>
+                    ))}
+                </select>
             </div>
         </div>
     );
