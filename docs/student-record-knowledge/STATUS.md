@@ -85,6 +85,7 @@
 
 ## Recent Changes
 
+- 2026-05-16: fixed `/observation-board-2` left sidebar clipping so the fourth `모둠 편성` menu button stays visible above the lower illustration; Browser verification confirmed the desktop sidebar screenshot, `모둠 편성` click transition, no console errors, and 390x844 viewport DOM visibility. `cmd /c npx tsc --noEmit`, local `/observation-board-2`, and `/api/auth/session` route smoke checks passed. Vercel settings were not changed because this is a CSS-only layout fix.
 - 2026-05-16: split `/observation-board-2` default `학생 관찰 기록` into two internal tabs, `멘토·멘티 구성` and `활동 기록`, so the mentor cards and wide session table no longer render side by side and clip on narrow screens
 - 2026-05-16: verification passed for `cmd /c npx tsc --noEmit --pretty false`, local route smoke on `http://localhost:3005/observation-board-2`, and Browser/IAB checks confirming both new internal tabs render one panel at a time
 - 2026-05-16: refined local font usage across the app; copied selected fonts into `public/fonts`, removed the Google Inter import, set Noto Sans KR as the body font, Gmarket Sans for navigation/headings/buttons, PureunJeonnam for notice copy, and limited Maplestory to playful classroom-board accents on `/observation-board-2`

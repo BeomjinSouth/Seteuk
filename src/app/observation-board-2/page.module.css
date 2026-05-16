@@ -3615,20 +3615,26 @@
 }
 
 .classroomSidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
     background: #ecf8ff;
     box-shadow: none;
 }
 
 .sidebarNav {
-    gap: 1.34rem;
-    margin-top: 2.45rem;
+    position: relative;
+    z-index: 1;
+    flex: 0 0 auto;
+    gap: clamp(0.72rem, 2vh, 1.34rem);
+    margin-top: clamp(1.1rem, 3.5vh, 2.45rem);
     padding: 0 0.86rem;
 }
 
 .sidebarNav button {
     justify-content: flex-start;
     gap: 0.66rem;
-    min-height: 64px;
+    min-height: clamp(54px, 8vh, 64px);
     border-radius: 24px;
     background: transparent;
     color: #092b59;
@@ -3675,6 +3681,16 @@
 .sidebarNavActive svg {
     color: #ffffff !important;
     background: rgba(255, 255, 255, 0.14);
+}
+
+.sidebarKidsImage {
+    position: static;
+    z-index: 0;
+    flex: 0 1 auto;
+    width: 100%;
+    height: clamp(190px, 33vh, 300px);
+    margin-top: auto;
+    object-fit: cover;
 }
 
 .dashboardMain {
@@ -3966,15 +3982,15 @@
     .sidebarNav {
         display: grid;
         overflow-x: visible;
-        gap: 1.34rem;
-        margin-top: 2.45rem;
+        gap: clamp(0.72rem, 2vh, 1.34rem);
+        margin-top: clamp(1.1rem, 3.5vh, 2.45rem);
         padding: 0 0.86rem;
     }
 
     .sidebarNav a,
     .sidebarNav button {
         flex: initial;
-        min-height: 64px;
+        min-height: clamp(54px, 8vh, 64px);
     }
 
     .sidebarIllustration {
