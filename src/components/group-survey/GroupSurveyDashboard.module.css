@@ -1,6 +1,7 @@
 .dashboard {
     display: grid;
     gap: 1rem;
+    font-family: var(--font-body);
 }
 
 .topBar,
@@ -29,6 +30,7 @@
 .panelHeader h3 {
     margin: 0;
     color: #073b82;
+    font-family: var(--font-display);
     font-size: 1.45rem;
     font-weight: 900;
     letter-spacing: 0;
@@ -58,7 +60,8 @@
     border-radius: 12px;
     background: #ffffff;
     color: #17325b;
-    font: inherit;
+    font-family: var(--font-display);
+    font-size: 0.9rem;
     font-weight: 900;
     outline: 0;
     padding: 0 0.7rem;
@@ -86,6 +89,7 @@
 .linkPanel strong {
     display: block;
     color: #102f64;
+    font-family: var(--font-display);
     font-size: 1.2rem;
     font-weight: 900;
 }
@@ -121,7 +125,7 @@
     background: #ffffff;
     color: #17325b;
     padding: 0 0.72rem;
-    font: inherit;
+    font-family: var(--font-display);
     font-size: 0.82rem;
     font-weight: 900;
     line-height: 1;
@@ -157,6 +161,7 @@
     background: #fff7d6;
     color: #674900;
     padding: 0.7rem 0.9rem;
+    font-family: var(--font-soft);
     font-size: 0.86rem;
     font-weight: 900;
 }
@@ -187,6 +192,7 @@
 
 .summaryTile strong {
     color: #073b82;
+    font-family: var(--font-display);
     font-size: 1.8rem;
     font-weight: 900;
     line-height: 1;
@@ -294,7 +300,7 @@
     border-radius: 50%;
     background: #ffffff;
     color: #073b82;
-    font: inherit;
+    font-family: var(--font-display);
     font-size: 0.74rem;
     font-weight: 900;
     line-height: 1;
@@ -452,7 +458,8 @@
     border: 0;
     background: transparent;
     color: inherit;
-    font: inherit;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
     text-align: left;
 }
 
@@ -624,6 +631,7 @@
 .emptyState h2 {
     margin: 0;
     color: #073b82;
+    font-family: var(--font-display);
 }
 
 .emptyState p {

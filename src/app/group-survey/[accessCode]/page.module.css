@@ -5,7 +5,7 @@
         radial-gradient(circle at 88% 6%, rgba(255, 212, 90, 0.22), transparent 20rem),
         linear-gradient(180deg, #f6fbff 0%, #ffffff 100%);
     color: #17325b;
-    font-family: "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+    font-family: var(--font-body);
     letter-spacing: 0;
     word-break: keep-all;
 }
@@ -56,6 +56,7 @@
     background: #fff7d6;
     color: #815a00;
     padding: 0 0.75rem;
+    font-family: var(--font-soft);
     font-size: 0.84rem;
     font-weight: 900;
 }
@@ -66,6 +67,7 @@
 .surveyHeader h2,
 .donePanel h2 {
     margin: 0;
+    font-family: var(--font-display);
     letter-spacing: 0;
 }
 
@@ -155,7 +157,7 @@
     border-radius: 12px;
     background: #ffffff;
     color: #17325b;
-    font: inherit;
+    font-family: var(--font-body);
     font-size: 1.04rem;
     font-weight: 900;
     outline: 0;
@@ -177,7 +179,8 @@
     min-height: 48px;
     border: 0;
     border-radius: 12px;
-    font: inherit;
+    font-family: var(--font-display);
+    font-size: 1rem;
     font-weight: 900;
     cursor: pointer;
 }
@@ -235,6 +238,7 @@
     background: #fff7d6;
     padding: 0.72rem 0.9rem;
     color: #745200 !important;
+    font-family: var(--font-soft);
 }
 
 .confirmActions {
@@ -267,6 +271,7 @@
     border-radius: 10px;
     background: #f6fbff;
     color: #315a80;
+    font-family: var(--font-display);
     font-size: 0.78rem;
     font-weight: 900;
     text-align: center;
@@ -326,6 +331,7 @@
     border-radius: 12px;
     background: #f8fcff;
     color: #315a80;
+    font-family: var(--font-display);
     font-size: 1rem;
     font-weight: 900;
     cursor: pointer;

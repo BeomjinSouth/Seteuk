@@ -10,6 +10,7 @@
     top: 88px;
     /* Below GNB */
     box-shadow: 10px 0 28px rgba(35, 45, 78, 0.03);
+    font-family: var(--font-display);
 }
 
 /* Section Label (LNB Header) */

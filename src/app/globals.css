@@ -1,6 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@font-face {
+  font-family: "Noto Sans KR Local";
+  src: url("/fonts/NotoSansKR-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gmarket Sans Local";
+  src: url("/fonts/GmarketSansTTFLight.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gmarket Sans Local";
+  src: url("/fonts/GmarketSansTTFMedium.ttf") format("truetype");
+  font-weight: 500 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gmarket Sans Local";
+  src: url("/fonts/GmarketSansTTFBold.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pureun Jeonnam Local";
+  src: url("/fonts/PureunJeonnam.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pureun Jeonnam Local";
+  src: url("/fonts/PureunJeonnam-Medium.ttf") format("truetype");
+  font-weight: 500 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pureun Jeonnam Local";
+  src: url("/fonts/PureunJeonnam-Bold.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Maplestory Local";
+  src: url("/fonts/MaplestoryLight.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Maplestory Local";
+  src: url("/fonts/MaplestoryBold.ttf") format("truetype");
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
+  --font-body: "Noto Sans KR Local", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  --font-display: "Gmarket Sans Local", var(--font-body);
+  --font-soft: "Pureun Jeonnam Local", var(--font-body);
+  --font-maple: "Maplestory Local", var(--font-body);
+  --font-mono: "Consolas", "Monaco", "SFMono-Regular", monospace;
+
   /* Core Colors */
   --primary: 250 80% 60%;
   --primary-foreground: 210 40% 98%;
@@ -141,7 +217,7 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   -webkit-font-smoothing: antialiased;

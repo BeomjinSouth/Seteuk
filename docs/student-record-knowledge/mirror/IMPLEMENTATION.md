@@ -186,7 +186,7 @@ STAR FAQ/Q&A
 - `/observation-board-2`의 `notice` 모드는 서버 API 없이 `observation-board-2-notices:${teacherKey}` localStorage 키로 공지 작성/완료 상태를 유지한다.
 - `/observation-board-2`의 멘토·멘티 패널, 활동 기록 패널, 학생 목록 트레이는 콘텐츠가 늘어날 때 내부 스크롤을 사용해 PNG형 첫 화면 구조가 무너지지 않게 하며, `모둠 추가` 버튼으로 빈 멘토/멘티 슬롯을 만들 수 있다.
 - `/observation-board-2`는 담당 학급에 속하지 않는 학생과 샘플 학생을 멘토·멘티, 관찰 작성, 성장 기록, 통계 대상에서 제외한다.
-- `/observation-board-2`는 `public/fonts/MaplestoryLight.ttf`, `public/fonts/MaplestoryBold.ttf`를 `@font-face`로 로드하고, 기본 교실 대시보드 전체에 Maplestory 글꼴을 적용한다.
+- `/observation-board-2`는 `globals.css`의 로컬 글꼴 변수를 사용한다. 본문/표/폼은 Noto Sans KR, 헤더와 주요 컨트롤은 Gmarket Sans, 안내/공지 문장은 PureunJeonnam, 학생 토큰·사이드바 메뉴·번호 배지·활동 마크 버튼 같은 교실 보드 포인트만 Maplestory 글꼴을 적용한다.
 - `/observation-board-2`의 노란 원형 학생 배지는 이름 초성 대신 학적 번호를 표시하며, 멘토 카드/학생 목록/활동 기록표/성장 타임라인/관찰 메모 row 모두 같은 중앙 정렬 숫자 규칙을 따른다.
 - `/observation-board-2`의 멘토·멘티 배치는 React local state로 관리하며, HTML5 drag/drop으로 학생 토큰 또는 학생 목록 항목을 멘토/멘티 슬롯에 놓으면 기존 배치를 교체하거나 이동한다.
 - `/observation-board-2`의 멘토·멘티 모둠은 각 카드의 삭제 버튼으로 제거할 수 있으며, 마지막 모둠 삭제나 `모둠 비우기`는 해당 교사/학급 키에 빈 배열을 저장해 자동 배치 fallback과 구분한다.

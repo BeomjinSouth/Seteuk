@@ -68,7 +68,7 @@
 - observation board 2 cookie automation: 차시별 활동 칸은 빈칸 0개, △ 참여함 1개, ○ 매우 잘함 2개 기준으로 쿠키 원장에 자동 반영되며, 상태 수정 시 차액만 기록함
 - observation board 2 stats recent-record action: 통계 보기 `최근 기록` CTA는 기존 `records` 작성 화면 대신 `성장 기록` 화면으로 전환
 - observation board 2 records mode: 기존 관찰 기록 기능은 사이드바에서 숨긴 내부 `records` 모드로 유지하고, 학급/검색 필터, 학생 다중 선택, 공통 날짜/주제/태그, 학생별 메모 입력, 최근 기록 목록, 상세 보기, 삭제 지원
-- observation board 2 drag matching/font: Maplestory TTF 적용, 학생 토큰/학생 목록 드래그로 멘토·멘티 조와 역할 재배치 지원
+- observation board 2 drag matching/font: local Korean font stack 적용, Maplestory는 학생 토큰/번호 배지/사이드바/활동 마크 버튼 포인트에만 제한, 학생 토큰/학생 목록 드래그로 멘토·멘티 조와 역할 재배치 지원
 - observation board 2 numbered badges: 멘토 카드, 학생 목록, 활동 기록표, 성장 타임라인, 관찰 메모 row의 노란 원형 학생 배지는 이름 초성 대신 학적 번호를 중앙 정렬해 표시
 - observation board 2 mentor scope/display: 기본 멘토 화면은 가로로 긴 학급 칩 대신 compact 단일 학급 선택 메뉴를 사용하고, 전체 담당 학급 합산 대신 선택 학급 학생만 멘토·멘티 조와 학생 목록에 표시함
 - observation board 2 sidebar icons: 사이드바 메뉴 아이콘을 잘림/흰 배경이 있는 PNG 조각 대신 HTML/CSS 렌더링 아이콘으로 표시
@@ -85,13 +85,16 @@
 
 ## Recent Changes
 
+- 2026-05-16: refined local font usage across the app; copied selected fonts into `public/fonts`, removed the Google Inter import, set Noto Sans KR as the body font, Gmarket Sans for navigation/headings/buttons, PureunJeonnam for notice copy, and limited Maplestory to playful classroom-board accents on `/observation-board-2`
+- 2026-05-16: verification passed for `cmd /c npx tsc --noEmit`, local HTTP route smoke on `/`, `/write`, `/observation-board-2`, and `/group-survey/local-font-smoke`, plus `playwright-cli` desktop/mobile checks confirming local font loading, no sampled button overflow, and Maplestory limited to sidebar/classroom-board accent selectors; Browser plugin was not exposed by tool discovery, so the visual smoke used `playwright-cli`
+- 2026-05-16: `npm run sync:knowledge-docs` was not run because `../student-record-knowledge` is not present next to this Git checkout; top-level docs, mirror docs, and `scripts/sync-knowledge-docs.mjs` were updated manually. Vercel settings were not changed because this only adds static font assets and CSS
 - 2026-05-16: added the Skill-Will public survey route, group-survey APIs, Supabase migration, observation-board-2 `모둠 편성` dashboard, and `docs/student-record-knowledge/GROUP_SURVEY.md`
 - 2026-05-16: completed observation-board-2 flexible group editing inside the existing classroom dashboard style; mentor groups now render 2~4 member tokens, selected-group edit panels save only one group, activity rows/stats read every group member, and legacy mentor/mentee slots normalize into the new member list
 - 2026-05-16: fixed observation-board-2 UI clipping around growth student cards, group-survey link action buttons, and compact mentor group member tokens so labels stay inside their cards/buttons at dense classroom-dashboard sizes
 - 2026-05-16: deployed the dashboard text-clipping fix to Vercel production and verified `https://seteuk-zgyj.vercel.app` returns 200 with the live alias on a Ready deployment
 - 2026-05-16: simplified the `모둠 편성` dashboard to a class-scoped coordinate-plane view with student points and compact Skill/status controls; recommendation, partner suggestion, current-group feedback, and apply-to-observation-board controls are no longer exposed in the dashboard; `cmd /c npx tsc --noEmit --pretty false` passed after the simplification
 - 2026-05-16: changed the coordinate-plane UI copy to Korean-only student-friendly labels: horizontal ends now read `도움이 더 필요해요` and `친구에게 설명할 수 있어요`, vertical ends now read `끝까지 해보려는 마음 낮음/높음`, and the 1/2/3 Skill buttons now show their meanings directly
-- 2026-05-16: verification passed for `cmd /c npx tsc --noEmit --pretty false` and local route smoke covering login, teacher survey session creation, student identify, survey submit, Skill save, and recommendation generation with a temporary roster fixture; browser visual smoke was not run because the Browser tool was not exposed by tool discovery and Playwright is not installed
+- 2026-05-16: verification passed for `cmd /c npx tsc --noEmit --pretty false` and local route smoke covering login, teacher survey session creation, student identify, survey submit, Skill save, and recommendation generation with a temporary roster fixture
 - 2026-05-16: GitHub commits are pushed through a temporary checkout because `C:\Users\pbj95\Desktop\Seteuk-main` itself is not a `.git` repository
 - 2026-05-10: changed observation-board-2 yellow circular student badges from Korean name initials to centered roster numbers across mentor cards, roster tray, activity rows, growth timeline, and observation memo rows
 - 2026-05-10: added single-student quick compose from the observation-board-2 growth card grid; double-clicking a student now selects only that student and opens `성장 기록 작성` immediately
@@ -134,7 +137,7 @@
 - 2026-04-25: added student-data/cookie APIs, teacher-scoped AI context injection, and safer competency color highlighting
 - 2026-04-25: added the classroom observation dashboard next to the original observation tab with a mentor/mentee activity-board design based on the provided dashboard example
 - 2026-04-25: rebuilt the classroom observation dashboard around the PNG-like default mentor/mentee screen, internal-only sidebar dashboards, localStorage notice board, growth timeline, stats view, and hidden observation compose mode
-- 2026-04-25: applied Maplestory fonts to the classroom observation dashboard, fixed cropped/wrapped dashboard areas, and added drag/drop mentor-mentee matching
+- 2026-04-25: introduced classroom observation dashboard typography, fixed cropped/wrapped dashboard areas, and added drag/drop mentor-mentee matching
 - 2026-04-25: restored the PNG-style `학생 관찰 기록` sidebar/header chrome, added group creation, restricted displays to assigned class students, and made growth/stats show actionable student and group signals
 - 2026-04-25: made observation-board-2 session headers editable for date/activity content and connected the `+` header button to add persisted session columns
 - 2026-04-25: kept the observation-board-2 sidebar as a left vertical rail at narrower desktop widths instead of collapsing it into a top strip

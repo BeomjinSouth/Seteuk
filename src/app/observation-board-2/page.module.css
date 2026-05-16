@@ -1,27 +1,3 @@
-@font-face {
-    font-family: "Maplestory";
-    src: url("/fonts/MaplestoryLight.ttf") format("truetype");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Maplestory";
-    src: url("/fonts/MaplestoryBold.ttf") format("truetype");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Maplestory";
-    src: url("/fonts/MaplestoryBold.ttf") format("truetype");
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-}
-
 .dashboardShell {
     min-height: 100vh;
     display: grid;
@@ -42,7 +18,11 @@
     --board-pink: #ff82aa;
     --board-red: #f25454;
     --board-violet: #8d7af2;
-    font-family: "Maplestory", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    --board-font-body: var(--font-body);
+    --board-font-display: var(--font-display);
+    --board-font-soft: var(--font-soft);
+    --board-font-play: var(--font-maple);
+    font-family: var(--board-font-body);
     letter-spacing: 0;
     word-break: keep-all;
 }
@@ -4023,4 +4003,65 @@
         grid-template-columns: 1fr;
         gap: 0.16rem;
     }
+}
+
+.dashboardHeader h1,
+.panelTitle h2,
+.groupTitle,
+.recordHeader,
+.trayTitle,
+.teacherChip,
+.headerActions button,
+.modeTabs button,
+.classChip,
+.selectionActions button,
+.composeActions button,
+.observationActions button,
+.customTagBox button,
+.detailModal footer button,
+.detailModal header button,
+.groupEditHeader strong,
+.growthWriteDock strong,
+.growthModalHeader h2,
+.quickActionGrid button,
+.primaryActionButton,
+.noticeForm button,
+.settingActions button,
+.classButtonGrid button,
+.segmentedControl button,
+.growthModalFooter button,
+.statsPillList button,
+.cookieOptionGrid button,
+.addGroupButton,
+.resetMentorButton,
+.tableHeaderCell,
+.sessionHeader,
+.addSessionButton,
+.groupLabel {
+    font-family: var(--board-font-display);
+}
+
+.yellowNotice,
+.sessionNote,
+.guideBanner,
+.guideBanner p,
+.mentorEmptyState,
+.rosterEmptyState,
+.growthWriteDock span {
+    font-family: var(--board-font-soft);
+}
+
+.logoBlock,
+.sidebarNav,
+.avatar,
+.smallAvatar,
+.draftStudent span,
+.rosterItem span,
+.studentToken,
+.groupMemberToken,
+.emptyMemberSlot,
+.markButton,
+.timelineAvatar,
+.growthStudentIndex {
+    font-family: var(--board-font-play);
 }

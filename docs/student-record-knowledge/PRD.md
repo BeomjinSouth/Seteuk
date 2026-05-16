@@ -119,7 +119,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - student observation stats dashboard: summarizes observation counts, student counts, tag frequency, latest record date, and current △/○ activity marks with cards and compact bars
 - student observation notice dashboard: announcement storage remains implemented under `observation-board-2-notices:${teacherKey}`, but the notice board is not exposed in the current sidebar
 - student observation compose: the existing observation-record workflow remains an internal `records` mode rather than a visible sidebar tab; visible stats quick actions route teachers back to `성장 기록`
-- student observation mentor matching: uses the provided Maplestory TTF and supports dragging student names from mentor/mentee cards or the roster into mentor/mentee slots
+- student observation mentor matching: uses local Korean fonts, limits MapleStory to playful classroom-board accents, and supports dragging student names from mentor/mentee cards or the roster into mentor/mentee slots
 - group survey: `/group-survey/[accessCode]` public student survey implemented with grade/class/number identification, name confirmation, and 12-question submission
 - group survey dashboard: `/observation-board-2` exposes `모둠 편성` as a class-scoped Skill-Will coordinate plane with survey session controls, submission status, and quick Skill input
 - group survey storage: Supabase migration added for survey sessions, responses, teacher Skill scores, and recommendation run history
