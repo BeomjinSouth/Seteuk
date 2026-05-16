@@ -86,6 +86,7 @@
 ## Recent Changes
 
 - 2026-05-17: verification passed for `cmd /c npx tsc --noEmit --pretty false`, local `/observation-board-2` and `/api/auth/session` route smoke checks on port 3007, and Browser DOM/console checks with no runtime overlay or console errors; Browser screenshot capture timed out in the current in-app session.
+- 2026-05-17: deployed the assigned-student roster filtering fix to Vercel production as `dpl_2Jaf2SpnsVvgbUm8JkdPqnyCs74a`; verified the live alias `https://seteuk-zgyj.vercel.app` is Ready and `/observation-board-2` returns 200.
 - 2026-05-17: filtered the `/observation-board-2` mentor group student roster so students already assigned to any group disappear from the addable `학생 목록`; the tray count now reflects only unassigned students.
 
 - 2026-05-16: fixed `/observation-board-2` left sidebar clipping so the fourth `모둠 편성` menu button stays visible above the lower illustration; Browser verification confirmed the desktop sidebar screenshot, `모둠 편성` click transition, no console errors, and 390x844 viewport DOM visibility. `cmd /c npx tsc --noEmit`, local `/observation-board-2`, and `/api/auth/session` route smoke checks passed. Vercel settings were not changed because this is a CSS-only layout fix.
