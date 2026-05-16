@@ -68,7 +68,8 @@
 - observation board 2 cookie automation: 차시별 활동 칸은 빈칸 0개, △ 참여함 1개, ○ 매우 잘함 2개 기준으로 쿠키 원장에 자동 반영되며, 상태 수정 시 차액만 기록함
 - observation board 2 stats recent-record action: 통계 보기 `최근 기록` CTA는 기존 `records` 작성 화면 대신 `성장 기록` 화면으로 전환
 - observation board 2 records mode: 기존 관찰 기록 기능은 사이드바에서 숨긴 내부 `records` 모드로 유지하고, 학급/검색 필터, 학생 다중 선택, 공통 날짜/주제/태그, 학생별 메모 입력, 최근 기록 목록, 상세 보기, 삭제 지원
-- observation board 2 drag matching/font: local Korean font stack 적용, Maplestory는 학생 토큰/번호 배지/사이드바/활동 마크 버튼 포인트에만 제한, 학생 토큰/학생 목록 드래그로 멘토·멘티 조와 역할 재배치 지원
+- global typography: `globals.css`에서 Maplestory Light/Bold를 로드하고 body/control 및 `--font-body`, `--font-display`, `--font-soft` 기본값으로 적용
+- observation board 2 drag matching/font: Maplestory 기본 폰트 스택을 상속하며, 학생 토큰/학생 목록 드래그로 멘토·멘티 조와 역할 재배치 지원
 - observation board 2 numbered badges: 멘토 카드, 학생 목록, 활동 기록표, 성장 타임라인, 관찰 메모 row의 노란 원형 학생 배지는 이름 초성 대신 학적 번호를 중앙 정렬해 표시
 - observation board 2 mentor scope/display: 기본 멘토 화면은 가로로 긴 학급 칩 대신 compact 단일 학급 선택 메뉴를 사용하고, 전체 담당 학급 합산 대신 선택 학급 학생만 멘토·멘티 조와 학생 목록에 표시함
 - observation board 2 sidebar icons: 사이드바 메뉴 아이콘을 잘림/흰 배경이 있는 PNG 조각 대신 HTML/CSS 렌더링 아이콘으로 표시
@@ -85,6 +86,9 @@
 
 ## Recent Changes
 
+- 2026-05-17: applied the local Maplestory font as the app-wide default by mapping shared font variables to Maplestory, inheriting the font for native form controls, and keeping route-local classroom dashboard typography on the shared global font stack.
+- 2026-05-17: verification passed for `cmd /c npx tsc --noEmit --pretty false`, HTTP 200 route smoke on `http://localhost:3005/students`, `http://localhost:3005/observation-board-2`, and `/api/auth/session`, plus Playwright-on-Edge checks confirming login and student-management heading/body/button/input samples all compute to the Maplestory font. Browser plugin tools were not exposed by tool discovery, so visual verification used Playwright CLI/Edge; temporary screenshots were removed before handoff. Vercel settings were not changed because this is a local CSS/font-token update.
+- 2026-05-17: `npm run sync:knowledge-docs` was not run because `../student-record-knowledge` is not present next to this checkout and no mirror source files were changed.
 - 2026-05-17: verification passed for the group-row banding update with `cmd /c npx tsc --noEmit --pretty false`, local `/observation-board-2` and `/api/auth/session` route smoke checks on port 3008, and Browser DOM/console checks with no runtime overlay or console errors; Browser reached the login screen and screenshot capture worked, but local form fill was blocked by the Browser virtual clipboard limitation.
 - 2026-05-17: deployed the activity group-row banding update to Vercel production as `dpl_9CTFqVNSM2h6WJN5kDzEXEvP6UFY`; verified the live alias `https://seteuk-zgyj.vercel.app` is Ready and `/observation-board-2` returns 200.
 - 2026-05-17: improved `/observation-board-2` activity-record readability by alternating mentor group table bands between soft green and soft blue, with stronger group start/end borders so odd/even groups are easier to distinguish.

@@ -71,10 +71,11 @@
 }
 
 :root {
-  --font-body: "Noto Sans KR Local", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
-  --font-display: "Gmarket Sans Local", var(--font-body);
-  --font-soft: "Pureun Jeonnam Local", var(--font-body);
-  --font-maple: "Maplestory Local", var(--font-body);
+  --font-maple: "Maplestory Local", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  --font-body: var(--font-maple);
+  --font-display: var(--font-maple);
+  --font-soft: var(--font-maple);
+  --font-noto-sans-kr: var(--font-maple);
   --font-mono: "Consolas", "Monaco", "SFMono-Regular", monospace;
 
   /* Core Colors */
@@ -224,6 +225,13 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
 }
 
 /* --- Components --- */
