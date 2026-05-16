@@ -606,10 +606,14 @@
 }
 
 .groupMemberToken {
-    grid-template-columns: 26px minmax(0, 1fr);
-    column-gap: 0.36rem;
-    padding: 0.32rem;
+    grid-template-columns: 24px minmax(0, 1fr);
+    column-gap: 0.3rem;
+    padding: 0.28rem 0.3rem;
     cursor: grab;
+}
+
+.groupMemberToken > div {
+    min-width: 0;
 }
 
 .groupMemberToken strong,
@@ -623,8 +627,9 @@
 
 .groupMemberToken strong {
     color: #152d53;
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     font-weight: 900;
+    line-height: 1.08;
 }
 
 .groupMemberToken em {
@@ -2783,14 +2788,17 @@
 }
 
 .growthStudentCard {
-    display: flex;
+    display: grid;
+    grid-template-columns: 38px minmax(68px, 1fr) 1px minmax(70px, auto) minmax(34px, auto);
     align-items: center;
-    gap: 0.72rem;
+    column-gap: 0.58rem;
+    overflow: hidden;
+    min-width: 0;
     min-height: 72px;
     border: 1.5px solid #dfe8f4;
     border-radius: 8px;
     background: #ffffff;
-    padding: 0.78rem 1rem;
+    padding: 0.78rem 0.82rem;
     color: inherit;
     font: inherit;
     text-align: left;
@@ -2839,50 +2847,54 @@
 
 .growthStudentName {
     overflow: hidden;
-    flex: 1 1 auto;
-    min-width: 58px;
+    min-width: 0;
     color: #17325b;
     font-size: 1.02rem;
     font-weight: 900;
+    line-height: 1.12;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 .growthStudentDivider {
-    flex: 0 0 auto;
     width: 1px;
     height: 22px;
     background: #dce5ef;
 }
 
 .growthStudentObservation {
-    flex: 0 0 auto;
+    overflow: hidden;
+    min-width: 0;
     color: #667b93;
-    font-size: 0.88rem;
+    font-size: 0.84rem;
     font-weight: 900;
+    text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 .growthStudentCookie {
     display: inline-flex;
     align-items: center;
-    gap: 0.34rem;
-    flex: 0 0 auto;
+    justify-content: flex-end;
+    gap: 0.2rem;
+    min-width: 0;
     color: #243a5c;
-    font-size: 0.94rem;
+    font-size: 0.84rem;
     font-weight: 900;
     white-space: nowrap;
 }
 
 .growthStudentCookieIcon {
-    flex: 0 0 auto;
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
     color: #b66d21;
     stroke-width: 2.6;
 }
 
 .growthStudentCookie strong {
     color: #253b61;
-    font-size: 0.94rem;
+    font-size: 0.84rem;
     font-weight: 900;
 }
 
@@ -3979,16 +3991,28 @@
     }
 
     .growthStudentCard {
-        gap: 0.55rem;
-        padding: 0.7rem 0.78rem;
+        grid-template-columns: 34px minmax(58px, 1fr) 1px minmax(62px, auto) minmax(28px, auto);
+        column-gap: 0.42rem;
+        padding: 0.68rem 0.62rem;
     }
 
     .growthStudentName {
-        min-width: 50px;
+        font-size: 0.92rem;
     }
 
     .growthStudentObservation {
-        font-size: 0.8rem;
+        font-size: 0.76rem;
+    }
+
+    .growthStudentCookie,
+    .growthStudentCookie strong {
+        font-size: 0.76rem;
+    }
+
+    .growthStudentCookieIcon {
+        width: 14px;
+        height: 14px;
+        flex-basis: 14px;
     }
 
     .handshakeMark {

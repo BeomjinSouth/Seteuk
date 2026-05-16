@@ -103,6 +103,7 @@
     justify-content: flex-end;
     gap: 0.5rem;
     flex-wrap: wrap;
+    min-width: 0;
 }
 
 .linkActions button,
@@ -112,15 +113,29 @@
     align-items: center;
     justify-content: center;
     gap: 0.36rem;
+    box-sizing: border-box;
+    min-width: 82px;
     min-height: 38px;
     border: 2px solid #b8daf4;
     border-radius: 10px;
     background: #ffffff;
     color: #17325b;
+    padding: 0 0.72rem;
     font: inherit;
     font-size: 0.82rem;
     font-weight: 900;
+    line-height: 1;
+    white-space: nowrap;
     cursor: pointer;
+}
+
+.linkActions button svg,
+.panelHeader button svg,
+.recommendActions button svg,
+.skillButtons button svg {
+    width: 17px;
+    height: 17px;
+    flex: 0 0 auto;
 }
 
 .linkActions button:hover,
