@@ -17,13 +17,20 @@ export interface ObservationBoardSessionMark {
     roleContext?: ObservationBoardRoleContext;
 }
 
-export type ObservationBoardMentorRole = 'mentor' | 'mentee';
+export type ObservationBoardMentorRole = 'mentor' | 'mentee' | 'member';
+
+export interface ObservationBoardGroupMember {
+    studentId: string;
+    role: ObservationBoardMentorRole;
+    order: number;
+}
 
 export interface ObservationBoardMentorAssignment {
     id: string;
     title: string;
     mentorId?: string;
     menteeId?: string;
+    members?: ObservationBoardGroupMember[];
 }
 
 export type ObservationBoardMentorAssignmentsByClass = Record<string, ObservationBoardMentorAssignment[]>;
@@ -133,6 +140,53 @@ export function normalizeObservationBoardMarks(value: unknown): Record<string, O
     return normalized;
 }
 
+function isObservationBoardMentorRole(value: unknown): value is ObservationBoardMentorRole {
+    return value === 'mentor' || value === 'mentee' || value === 'member';
+}
+
+export function getObservationBoardAssignmentMembers(
+    assignment: Partial<ObservationBoardMentorAssignment> | undefined
+): ObservationBoardGroupMember[] {
+    if (!assignment) return [];
+
+    const members: ObservationBoardGroupMember[] = [];
+    const seen = new Set<string>();
+    const addMember = (studentId: unknown, role: unknown, order: unknown, fallbackOrder: number) => {
+        if (typeof studentId !== 'string' || !studentId.trim() || seen.has(studentId)) return;
+        seen.add(studentId);
+        members.push({
+            studentId,
+            role: isObservationBoardMentorRole(role) ? role : 'member',
+            order: typeof order === 'number' && Number.isFinite(order) ? order : fallbackOrder,
+        });
+    };
+
+    if (Array.isArray(assignment.members)) {
+        assignment.members.forEach((member, index) => {
+            if (!member || typeof member !== 'object') return;
+            const groupMember = member as Partial<ObservationBoardGroupMember>;
+            addMember(groupMember.studentId, groupMember.role, groupMember.order, index);
+        });
+    }
+
+    addMember(assignment.mentorId, 'mentor', members.length, members.length);
+    addMember(assignment.menteeId, 'mentee', members.length, members.length);
+
+    return members
+        .sort((a, b) => a.order - b.order)
+        .slice(0, 4)
+        .map((member, index) => ({ ...member, order: index }));
+}
+
+function getLegacySlotIds(members: ObservationBoardGroupMember[]) {
+    const mentorId = members.find((member) => member.role === 'mentor')?.studentId
+        ?? members[0]?.studentId;
+    const menteeId = members.find((member) => member.role === 'mentee')?.studentId
+        ?? members.find((member) => member.studentId !== mentorId)?.studentId;
+
+    return { mentorId, menteeId };
+}
+
 export function normalizeObservationBoardMentorAssignmentsByClass(
     value: unknown
 ): ObservationBoardMentorAssignmentsByClass {
@@ -150,6 +204,8 @@ export function normalizeObservationBoardMentorAssignmentsByClass(
             .map((item, index) => {
                 if (!item || typeof item !== 'object') return null;
                 const assignment = item as Partial<ObservationBoardMentorAssignment>;
+                const members = getObservationBoardAssignmentMembers(assignment);
+                const legacySlots = getLegacySlotIds(members);
                 return {
                     id: typeof assignment.id === 'string' && assignment.id.trim()
                         ? assignment.id
@@ -157,12 +213,9 @@ export function normalizeObservationBoardMentorAssignmentsByClass(
                     title: typeof assignment.title === 'string' && assignment.title.trim()
                         ? assignment.title
                         : `${index + 1}조`,
-                    mentorId: typeof assignment.mentorId === 'string' && assignment.mentorId.trim()
-                        ? assignment.mentorId
-                        : undefined,
-                    menteeId: typeof assignment.menteeId === 'string' && assignment.menteeId.trim()
-                        ? assignment.menteeId
-                        : undefined,
+                    mentorId: legacySlots.mentorId,
+                    menteeId: legacySlots.menteeId,
+                    members,
                 };
             })
             .filter(Boolean) as ObservationBoardMentorAssignment[];
@@ -222,6 +275,21 @@ function findRoleContext(input: {
     for (const classId of classIds) {
         const assignments = input.assignmentsByClass[classId] ?? [];
         for (const assignment of assignments) {
+            const member = getObservationBoardAssignmentMembers(assignment)
+                .find((item) => item.studentId === input.studentId);
+            if (member) {
+                return {
+                    role: member.role,
+                    roleLabel: member.role === 'mentor'
+                        ? '멘토'
+                        : member.role === 'mentee'
+                            ? '멘티'
+                            : '모둠원',
+                    groupTitle: assignment.title,
+                    classId,
+                };
+            }
+
             if (assignment.mentorId === input.studentId) {
                 return {
                     role: 'mentor',

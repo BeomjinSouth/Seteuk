@@ -1,0 +1,2 @@
+student_id,name,skill_1to3,w1,w2,w3,w4,w5,w6,w7,w8,a1,a2,a3,a4,will_avg,will_level,agency_avg,dot_size,x_axis,y_axis,note
+S001,예시,2,4,4,3,4,3,4,3,4,3,3,4,3,"=AVERAGE(D2:K2)","=IF(P2<2.5,""챙김 지원 필요"",IF(P2<3.5,""보통"",""책임감 높음""))","=AVERAGE(L2:O2)","=IF(R2<2.5,""작은 점"",IF(R2<3.5,""중간 점"",""큰 점""))","=C2","=P2","교사용 내부 자료"

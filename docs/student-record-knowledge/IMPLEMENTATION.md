@@ -51,6 +51,9 @@
 - `src/app/api/student-data/route.ts`
 - `src/app/api/cookies/route.ts`
 - `src/app/api/cookie-rewards/route.ts`
+- `src/app/api/group-survey/identify/route.ts`
+- `src/app/api/group-survey/submit/route.ts`
+- `src/app/api/group-survey/teacher/route.ts`
 - admin crawl copies the regenerated knowledge JSON into `web/output` and clears the in-process knowledge cache after success
 - admin crawl uses `KNOWLEDGE_PACKAGE_DIR` when provided, otherwise `../student-record-knowledge`, and returns 503 if the package is unavailable
 - admin routes use `ADMIN_API_TOKEN` in production and accept `Authorization: Bearer <token>` or `x-admin-token`
@@ -65,6 +68,9 @@
 - `src/app/eval-check/page.tsx`
 - `src/app/observation-board/page.tsx`
 - `src/app/observation-board-2/page.tsx`
+- `src/app/group-survey/[accessCode]/page.tsx`
+- `src/app/group-survey/[accessCode]/GroupSurveyPageClient.tsx`
+- `src/components/group-survey/GroupSurveyDashboard.tsx`
 - `src/app/observations/page.tsx`
 - `src/components/layout/AppShell.tsx`
 - raw match list shown in the pages
@@ -81,17 +87,18 @@
 - legacy `/observation-board` and `/observations` direct entry redirects to `/observation-board-2`
 - `/observation-board-2` is the standalone visual `학생 관찰 기록` dashboard based on the provided classroom example; it uses an illustrated left rail, a simplified teacher chip, mentor/mentee group cards, a session table, and participation/strong-performance mark buttons while reusing teacher class/student data from the shared store
 - `/observation-board-2` defaults to the PNG-like `학생 관찰 기록` screen and removes the earlier top eyebrow, internal mode tabs, class chips, and search bar from that first mentor/mentee view while preserving the PNG-style header buttons
-- `/observation-board-2` manages internal board modes (`mentor`, `growth`, `stats`, `notice`, `settings`, `records`) without leaving the route; the visible sidebar exposes only `학생 관찰 기록`, `성장 기록`, and `통계 보기`, keeping the earlier `홈`, `알림장`, and `설정` entries hidden, and remains a left vertical rail instead of collapsing into a top strip at narrower desktop widths
+- `/observation-board-2` manages internal board modes (`mentor`, `growth`, `stats`, `grouping`, `notice`, `settings`, `records`) without leaving the route; the visible sidebar exposes `학생 관찰 기록`, `성장 기록`, `통계 보기`, and `모둠 편성`, keeping the earlier `홈`, `알림장`, and `설정` entries hidden, and remains a left vertical rail instead of collapsing into a top strip at narrower desktop widths
 - `/observation-board-2` uses cropped raster assets from the provided PNG for the left logo, lower sidebar illustration, and activity-guide illustration while keeping text, cards, buttons, sidebar action icons, and tables as HTML/CSS
 - `/observation-board-2` `growth` mode fetches `/api/observations` to build a student timeline from observation notes, then shows all selected class/search filtered student cards without a fixed eight-card cap, includes per-student record counts, current cookie count, △/○ activity reaction counts, and provides a selected-student `성장 기록 작성` modal
 - the `성장 기록 작성` modal is styled to the provided reference image with a dimmed overlay, fixed desktop dialog sizing, title clipboard icon, 3-step progress row, selected-student animal chips, three neutral cookie option cards, optional memo field, and `이전`/`저장하기` footer actions
 - `/observation-board-2` `stats` mode computes observation counts, student record counts, tag frequencies, latest record date, current △/○ marks, students needing records, and mentor-group activity balance from the loaded observations and local mark state
+- `/observation-board-2` `grouping` mode renders a simplified Skill-Will class dashboard, including survey link/code, session status, 제출률, 미응답 수, 좌표평면, and compact 학생별 Skill 입력
 - `/observation-board-2` `stats` mode includes the same compact single-class selector pattern as the mentor board and defaults to one assigned class, so group-balance rows stay scoped by class instead of aggregating every assigned class
 - `/observation-board-2` `notice` mode stores announcements in `localStorage` with the key `observation-board-2-notices:${teacherKey}` and supports create, complete, and delete internally, but is not exposed in the current sidebar
 - `/observation-board-2` `records` mode ports the previous observation-record workflow into the same visual system, but the visible stats `최근 기록` CTA now switches to `growth` so it does not send teachers into the old compose screen
 - `/observation-board-2` loads `MaplestoryLight.ttf` and `MaplestoryBold.ttf` from `public/fonts` and applies the Maplestory family across the classroom dashboard
 - `/observation-board-2` renders roster numbers, not name initials, inside the yellow circular student badges used by mentor cards, the roster tray, activity rows, growth timeline avatars, and observation draft rows; numeric badge text is centered with fixed circular dimensions
-- `/observation-board-2` stores mentor/mentee slot assignments in local React state, supports adding an empty group or deleting an existing group, and uses HTML5 drag/drop so a student token or roster item can be dropped onto any mentor/mentee slot
+- `/observation-board-2` stores mentor/mentee group assignments in local React state, supports adding an empty group, deleting an existing group, editing only a selected group, and uses HTML5 drag/drop so student tokens can be placed into 2-4 member groups while preserving previous 2-slot saved data through normalization
 - `/observation-board-2` persists mentor/mentee edits explicitly per selected class when a teacher drops a student or adds a group, avoiding effect-driven overwrites of saved assignments
 - `/observation-board-2` exposes a selected-class `모둠 비우기` action that saves an explicit empty assignment array for that teacher/class while preserving existing △/○ marks and historical session snapshots
 - `/observation-board-2` stores marked-session pairing snapshots in `observation-board-2-mentor-assignment-snapshots:${teacherKey}` so mid-year pairing changes do not rewrite the role/group context of previously recorded sessions
@@ -100,6 +107,11 @@
 - `/observation-board-2` filters mentor matching, observation compose, growth, and stats to the current teacher's assigned class students only; it does not display sample students when no assigned class roster exists
 - `/observation-board-2` stores editable session headers in local React state and persists them to `observation-board-2-sessions:${teacherKey}`; teachers edit session date/content inline and add columns with the `+` button
 - `/observation-board-2` persists teacher-clicked student △/○ activity marks to `observation-board-2-marks:${teacherKey}` and class-scoped mentor/mentee assignments to `observation-board-2-mentor-assignments:${teacherKey}` so `/write` can derive the selected student's mentor/mentee activity summary for `/api/generate`; mentor assignments and snapshots are read only from the logged-in teacher's key, so the same class can be configured differently by teacher
+- `/group-survey/[accessCode]` is a public student-only page; it asks for grade/class/number, confirms the matched name, and submits the 12 Skill-Will package questions without exposing Skill, evaluation, ability, grade, or coordinate language
+- `src/lib/group-survey.ts` centralizes the 12 questions, scoring, coordinate labels, and grouping helper functions; the current dashboard uses it only for scoring/profile construction and the Skill-Will coordinate view
+- `src/lib/group-survey-token.ts` issues short-lived HMAC submit tokens after successful roster identification
+- `src/lib/supabase/group-survey-store.ts` stores survey sessions, responses, Skill scores, and recommendation runs in Supabase; local development without Supabase uses an in-memory store for smoke tests, while production still requires Supabase
+- `supabase/migrations/202605160001_group_survey.sql` creates `group_survey_sessions`, `group_survey_responses`, `group_student_skill_scores`, and `grouping_recommendation_runs`
 - `/observation-board-2` treats blank activity cells as 0 cookies, △ 참여함 as 1 cookie, and ○ 매우 잘함 as 2 cookies; when a teacher changes a cell, the UI posts only the delta to `/api/cookies`, using `award` for increases and negative `adjust` for corrections
 - manual observation entry remains in `/observation-board-2` internal `records` mode and uses common date/topic/tags at the top with per-student rows focused on individual tags plus observation memo
 - the top-level `학생 데이터` tab and `/student-data` page are removed

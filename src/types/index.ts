@@ -5,3 +5,4 @@ export * from './record';
 export * from './student-data';
 export * from './ocr';
 export * from './eval-check';
+export * from './group-survey';

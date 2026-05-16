@@ -19,6 +19,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - homeroom teachers
 - subject teachers
 - record-review staff
+- students who only need to submit a public group survey
 
 ## Login And Roster Flow
 
@@ -56,6 +57,15 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - admin reindex endpoint
 - admin crawl-status endpoint
 - admin quality-report endpoint
+
+### Skill-Will group survey
+
+- public student survey at `/group-survey/[accessCode]`
+- student identification by grade, class, and number against the 성호중학교 roster
+- name confirmation before submission
+- 12-question Will/participation-agency survey based on `Skill-Will_모둠편성_설문_패키지/01_학생용/student_survey.md`
+- teacher-only grouping dashboard inside `/observation-board-2`
+- class-level submission status, quick Skill input, and a Skill-Will coordinate plane showing students as points
 
 ## Current State
 
@@ -97,6 +107,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - student observation navigation: the left rail switches internal screens only (`학생 관찰 기록`, `성장 기록`, `통계 보기`), hides the earlier `홈`, `알림장`, and `설정` entries, does not route out of `/observation-board-2`, and stays as the PNG-style vertical sidebar even in narrower browser windows
 - student observation data scope: mentor matching, observation compose, growth, and stats show only students from the current teacher's assigned classes; the board no longer backfills sample students when no assigned roster exists
 - student observation mentor workflow: the default screen is `학생 관찰 기록`, uses a compact single-class selector instead of a long horizontal class-chip row, shows roster numbers centered inside circular student badges, supports adding empty groups, deleting existing groups, and lets teachers drag student tokens between mentor/mentee slots
+- student observation group workflow: mentor/mentee groups support 2-4 students per group, allow editing only a selected group without rebuilding the whole board, and preserve existing activity marks when groups are emptied or regrouped
 - student observation mentor display scope: the selected class controls the mentor/mentee cards, activity table, and roster tray; the default mentor screen does not expose an all-assigned-classes aggregate view, while the visible-student count setting can optionally cap the auto-paired/listed students
 - student observation mentor editing: teachers can drag students between mentor/mentee slots, persist the edited pairing per teacher/class, and clear the selected class to an explicit empty group state without deleting △/○ activity marks; the same grade/class may have different mentor/mentee assignments for each teacher
 - student observation mentor history: when pairing changes after activity marks exist, marked sessions keep the pairing snapshot from the time of recording so later `/write` generation interprets past sessions by the original role/group and later sessions by the new role/group
@@ -109,6 +120,9 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - student observation notice dashboard: announcement storage remains implemented under `observation-board-2-notices:${teacherKey}`, but the notice board is not exposed in the current sidebar
 - student observation compose: the existing observation-record workflow remains an internal `records` mode rather than a visible sidebar tab; visible stats quick actions route teachers back to `성장 기록`
 - student observation mentor matching: uses the provided Maplestory TTF and supports dragging student names from mentor/mentee cards or the roster into mentor/mentee slots
+- group survey: `/group-survey/[accessCode]` public student survey implemented with grade/class/number identification, name confirmation, and 12-question submission
+- group survey dashboard: `/observation-board-2` exposes `모둠 편성` as a class-scoped Skill-Will coordinate plane with survey session controls, submission status, and quick Skill input
+- group survey storage: Supabase migration added for survey sessions, responses, teacher Skill scores, and recommendation run history
 - manual observation entry uses common date/topic/tags at the top and per-student rows for individual tags plus observation memo
 - runtime storage: production is Supabase-only and returns `503` when Supabase env is missing; Google Sheets is retained only for local fallback and import/migration helpers
 - browser state sync: workspace state, teacher prompt mode/body, and observation-board sessions/marks/mentor assignments/notices sync to Supabase after login through signed server sessions
