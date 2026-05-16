@@ -73,8 +73,8 @@
 - observation board 2 mentor scope/display: 기본 멘토 화면은 가로로 긴 학급 칩 대신 compact 단일 학급 선택 메뉴를 사용하고, 전체 담당 학급 합산 대신 선택 학급 학생만 멘토·멘티 조와 학생 목록에 표시함
 - observation board 2 sidebar icons: 사이드바 메뉴 아이콘을 잘림/흰 배경이 있는 PNG 조각 대신 HTML/CSS 렌더링 아이콘으로 표시
 - observation board 2 header icons: 헤더 액션 아이콘을 잘림/글자 조각이 섞인 PNG 대신 lucide SVG 아이콘으로 표시
-- Skill-Will group survey: `/group-survey/[accessCode]` public student survey, roster identification, name confirmation, short submit token, and 12-question submission implemented
-- Skill-Will grouping dashboard: `/observation-board-2` left rail includes `모둠 편성`; teachers can create/close survey sessions, view submission status, enter Skill, and inspect the selected class as points on the Skill-Will coordinate plane
+- Skill-Will group survey: `/group-survey/[accessCode]` public student survey, shared-link roster identification, name confirmation, short submit token, and 12-question submission implemented
+- Skill-Will grouping dashboard: `/observation-board-2` left rail includes `모둠 편성`; teachers can create/close a shared survey link, view class-filtered submission status, enter Skill, and inspect the selected class as points on the Skill-Will coordinate plane
 - Skill-Will storage: Supabase migration `202605160001_group_survey.sql` adds survey sessions, responses, teacher Skill scores, and recommendation run history
 - Skill-Will public API privacy: public survey APIs return only name-confirmation/submission results and do not expose roster lists or class response lists
 - production links: GitHub `https://github.com/BeomjinSouth/Seteuk`, Vercel project `https://vercel.com/beomjinsouths-projects/seteuk-zgyj`, live site `https://seteuk-zgyj.vercel.app`, Supabase project `qobfezoqxgsedkpddhzs`
@@ -94,6 +94,8 @@
 - 2026-05-16: deployed the dashboard text-clipping fix to Vercel production and verified `https://seteuk-zgyj.vercel.app` returns 200 with the live alias on a Ready deployment
 - 2026-05-16: simplified the `모둠 편성` dashboard to a class-scoped coordinate-plane view with student points and compact Skill/status controls; recommendation, partner suggestion, current-group feedback, and apply-to-observation-board controls are no longer exposed in the dashboard; `cmd /c npx tsc --noEmit --pretty false` passed after the simplification
 - 2026-05-16: changed the coordinate-plane UI copy to Korean-only student-friendly labels: horizontal ends now read `도움이 더 필요해요` and `친구에게 설명할 수 있어요`, vertical ends now read `끝까지 해보려는 마음 낮음/높음`, and the 1/2/3 Skill buttons now show their meanings directly
+- 2026-05-16: changed group-survey links from class-specific links to shared links; students enter grade/class/number and responses are stored under the matched roster class, while the teacher dashboard filters by the selected class
+- 2026-05-16: verified the shared-link flow locally: a link created from one selected class accepted a 3학년 1반 student, submitted the survey, and returned the response with grade 3/class 1 in the teacher payload
 - 2026-05-16: verification passed for `cmd /c npx tsc --noEmit --pretty false` and local route smoke covering login, teacher survey session creation, student identify, survey submit, Skill save, and recommendation generation with a temporary roster fixture
 - 2026-05-16: GitHub commits are pushed through a temporary checkout because `C:\Users\pbj95\Desktop\Seteuk-main` itself is not a `.git` repository
 - 2026-05-10: changed observation-board-2 yellow circular student badges from Korean name initials to centered roster numbers across mentor cards, roster tray, activity rows, growth timeline, and observation memo rows

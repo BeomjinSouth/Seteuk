@@ -297,6 +297,8 @@ export async function updateGroupSurveySessionStatus(input: {
 export async function upsertGroupSurveyResponse(input: {
     session: GroupSurveySession;
     studentId: string;
+    grade: number;
+    classNumber: number;
     number: number;
     name: string;
     answers: SurveyAnswerValue[];
@@ -308,8 +310,8 @@ export async function upsertGroupSurveyResponse(input: {
         sessionId: input.session.id,
         studentId: input.studentId,
         school: input.session.school,
-        grade: input.session.grade,
-        classNumber: input.session.classNumber,
+        grade: input.grade,
+        classNumber: input.classNumber,
         number: input.number,
         name: input.name,
         answers: input.answers,

@@ -51,13 +51,6 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        if (session.grade !== grade || session.classNumber !== classNumber) {
-            return NextResponse.json(
-                { success: false, error: '이 설문은 입력한 학급용 설문이 아닙니다.' },
-                { status: 403 }
-            );
-        }
-
         const students = await getStudents({ school: session.school, grade });
         const student = students.find((item) =>
             item.classNumber === classNumber

@@ -102,8 +102,11 @@ export function GroupSurveyDashboard({
     const submittedCount = profiles.filter((profile) => profile.response).length;
     const missingResponseCount = profiles.length - submittedCount;
     const missingSkillProfiles = profiles.filter((profile) => profile.response && !profile.skillScore);
-    const meanWill = responses.length > 0
-        ? responses.reduce((sum, response) => sum + response.willAvg, 0) / responses.length
+    const classResponses = profiles
+        .map((profile) => profile.response)
+        .filter((response): response is GroupSurveyResponse => Boolean(response));
+    const meanWill = classResponses.length > 0
+        ? classResponses.reduce((sum, response) => sum + response.willAvg, 0) / classResponses.length
         : 0;
     const selectedProfile = profiles.find((profile) => profile.student.id === selectedStudentId);
 
@@ -259,13 +262,13 @@ export function GroupSurveyDashboard({
                     <span className={styles.panelIcon}><Link2 size={22} /></span>
                     <div>
                         <strong>{activeSession ? activeSession.accessCode : '설문 링크 없음'}</strong>
-                        <p>{surveyLink || '학급용 설문 링크를 먼저 만들어 주세요.'}</p>
+                        <p>{surveyLink || '학생들이 함께 사용할 공통 설문 링크를 먼저 만들어 주세요.'}</p>
                     </div>
                 </div>
                 <div className={styles.linkActions}>
                     <button type="button" onClick={handleCreateSession} disabled={isWorking}>
                         {isWorking ? <Loader2 size={17} className={styles.spin} /> : <Link2 size={17} />}
-                        새 링크
+                        공통 링크
                     </button>
                     <button type="button" onClick={handleCopyLink} disabled={!surveyLink}>
                         <ClipboardCopy size={17} />

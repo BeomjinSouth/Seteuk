@@ -2,11 +2,11 @@
 
 ## Purpose
 
-`/group-survey/[accessCode]` is a public student-only survey link for group formation. Students do not enter the main 세특 or observation board workspace. They identify themselves with grade, class, and number, confirm the matched name, and submit the 12 survey items. Teachers use `/observation-board-2` > `모둠 편성` to review class-level status, enter Skill scores, and inspect the class Skill-Will plane.
+`/group-survey/[accessCode]` is a public student-only survey link for group formation. Students do not enter the main 세특 or observation board workspace. A single shared link can be used by multiple classes: students identify themselves with grade, class, and number, the server matches the roster, and the response is stored with the matched class. Teachers use `/observation-board-2` > `모둠 편성` to review class-level status, enter Skill scores, and inspect the class Skill-Will plane.
 
 ## Student Flow
 
-1. The teacher creates a class survey session and receives an `accessCode`.
+1. The teacher creates a shared survey session and receives an `accessCode`.
 2. The student opens `/group-survey/[accessCode]`.
 3. The student enters grade, class, and number.
 4. The server checks the 성호중학교 roster and returns only name-confirmation data plus a short-lived submit token.
@@ -18,7 +18,7 @@ The student page must not expose Skill, evaluation, ability, grade/rank, or coor
 
 Teachers can use the `모둠 편성` screen to:
 
-- create, copy, open, and close survey sessions
+- create, copy, open, and close the shared survey link
 - see submission rate and missing-response count
 - enter Skill 1-3 for each student as needed
 - view all plottable students as points on the class Skill-Will coordinate plane
@@ -41,7 +41,7 @@ Teachers can use the `모둠 편성` screen to:
 
 Migration: `supabase/migrations/202605160001_group_survey.sql`
 
-- `group_survey_sessions`: survey links, classes, teacher ownership, and status
+- `group_survey_sessions`: shared survey links, teacher ownership, and status
 - `group_survey_responses`: 12 answers, `will_avg`, `agency_avg`, and submit timestamps
 - `group_student_skill_scores`: teacher-entered Skill 1-3
 - `grouping_recommendation_runs`: recommendation results and run history
@@ -67,6 +67,8 @@ Public APIs do not return roster lists or class response lists.
 ## Dashboard Scope
 
 The current teacher dashboard is intentionally simple: it shows the selected class as a coordinate plane and a compact student status list. It does not expose automatic group generation, partner recommendations, current-group feedback, or apply-to-observation-board controls.
+
+The student-facing link is not limited to one class. The selected class in the teacher dashboard only filters which matched roster students and responses are displayed.
 
 ## Verification
 

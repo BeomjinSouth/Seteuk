@@ -62,10 +62,11 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 
 - public student survey at `/group-survey/[accessCode]`
 - student identification by grade, class, and number against the 성호중학교 roster
+- one shared survey link can collect responses from multiple classes; responses are stored with the matched roster grade/class/number
 - name confirmation before submission
 - 12-question Will/participation-agency survey based on `Skill-Will_모둠편성_설문_패키지/01_학생용/student_survey.md`
 - teacher-only grouping dashboard inside `/observation-board-2`
-- class-level submission status, quick Skill input, and a Skill-Will coordinate plane showing students as points
+- class-level dashboard filtering, submission status, quick Skill input, and a Skill-Will coordinate plane showing students as points
 
 ## Current State
 
@@ -120,7 +121,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - student observation notice dashboard: announcement storage remains implemented under `observation-board-2-notices:${teacherKey}`, but the notice board is not exposed in the current sidebar
 - student observation compose: the existing observation-record workflow remains an internal `records` mode rather than a visible sidebar tab; visible stats quick actions route teachers back to `성장 기록`
 - student observation mentor matching: uses local Korean fonts, limits MapleStory to playful classroom-board accents, and supports dragging student names from mentor/mentee cards or the roster into mentor/mentee slots
-- group survey: `/group-survey/[accessCode]` public student survey implemented with grade/class/number identification, name confirmation, and 12-question submission
+- group survey: `/group-survey/[accessCode]` public student survey implemented with shared-link grade/class/number identification, name confirmation, and 12-question submission
 - group survey dashboard: `/observation-board-2` exposes `모둠 편성` as a class-scoped Skill-Will coordinate plane with survey session controls, submission status, and quick Skill input
 - group survey storage: Supabase migration added for survey sessions, responses, teacher Skill scores, and recommendation run history
 - manual observation entry uses common date/topic/tags at the top and per-student rows for individual tags plus observation memo

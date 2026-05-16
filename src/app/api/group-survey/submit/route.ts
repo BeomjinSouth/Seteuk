@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const students = await getStudents({ school: session.school, grade: session.grade });
+        const students = await getStudents({ school: session.school });
         const student = students.find((item) => item.id === tokenPayload.studentId);
         if (!student) {
             return NextResponse.json(
@@ -62,6 +62,8 @@ export async function POST(request: NextRequest) {
         const response = await upsertGroupSurveyResponse({
             session,
             studentId: student.id,
+            grade: student.grade || session.grade,
+            classNumber: student.classNumber || session.classNumber,
             number: student.number,
             name: student.name,
             answers,

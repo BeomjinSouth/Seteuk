@@ -36,7 +36,6 @@ async function loadClassSurveyPayload(input: {
 }) {
     const sessions = await listGroupSurveySessions({
         teacherKey: input.teacherKey,
-        classId: input.classId,
     });
     const activeSession = input.sessionId
         ? sessions.find((session) => session.id === input.sessionId)
@@ -109,24 +108,18 @@ export async function POST(request: NextRequest) {
         };
 
         if (body.action === 'create_session') {
-            if (!body.classId || !body.grade || !body.classNumber) {
-                return NextResponse.json(
-                    { success: false, error: '학급 정보가 필요합니다.' },
-                    { status: 400 }
-                );
-            }
-
             const surveySession = await createGroupSurveySession({
                 school: session.teacher.school,
                 teacherKey: session.teacher.teacherKey,
                 teacherName: session.teacher.name,
-                classId: body.classId,
-                grade: Number(body.grade),
-                classNumber: Number(body.classNumber),
+                classId: 'all',
+                grade: 1,
+                classNumber: 1,
+                title: '전체 학급 함께 배우기 설문',
             });
             const payload = await loadClassSurveyPayload({
                 teacherKey: session.teacher.teacherKey,
-                classId: body.classId,
+                classId: body.classId || 'all',
                 sessionId: surveySession.id,
             });
 
