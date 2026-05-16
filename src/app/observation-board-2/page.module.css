@@ -1657,12 +1657,55 @@
     box-shadow: 10px 0 26px rgba(50, 128, 196, 0.1);
 }
 
-.sidebarLogoImage {
-    display: block;
+.sidebarLogoBlock {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
     width: 100%;
     height: 132px;
-    object-fit: cover;
+    padding: 1.35rem 1rem 1rem;
     border-bottom: 1px solid rgba(116, 192, 236, 0.45);
+    background:
+        radial-gradient(circle at 18% 24%, rgba(255, 245, 178, 0.95) 0 15%, transparent 16%),
+        linear-gradient(180deg, #e7f8ff 0%, #d8efff 100%);
+}
+
+.sidebarLogoIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    flex: 0 0 auto;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #f0b43a;
+    box-shadow: 0 8px 18px rgba(42, 136, 216, 0.16);
+}
+
+.sidebarLogoIcon svg {
+    fill: #fff2a3;
+}
+
+.sidebarLogoText {
+    display: grid;
+    gap: 0.08rem;
+    min-width: 0;
+    line-height: 1;
+}
+
+.sidebarLogoText strong {
+    font-size: 1.22rem;
+    font-weight: 900;
+    color: #17376d;
+}
+
+.sidebarLogoText em {
+    font-size: 1.72rem;
+    font-style: normal;
+    font-weight: 900;
+    color: #f08b2e;
+    text-shadow: 0 2px 0 #ffffff;
 }
 
 .sidebarNav {
@@ -3838,9 +3881,12 @@
         overflow: hidden;
     }
 
-    .sidebarLogoImage,
     .sidebarKidsImage {
         display: block;
+    }
+
+    .sidebarLogoBlock {
+        display: flex;
     }
 
     .sidebarNav {

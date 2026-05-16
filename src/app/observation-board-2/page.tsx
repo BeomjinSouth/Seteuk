@@ -1729,11 +1729,15 @@ function ClassroomSidebar({
 
     return (
         <aside className={styles.classroomSidebar}>
-            <img
-                src="/observation-board-2/sidebar-logo.png"
-                alt="우리반 관찰기록"
-                className={styles.sidebarLogoImage}
-            />
+            <div className={styles.sidebarLogoBlock} aria-label="학급 관찰기록">
+                <span className={styles.sidebarLogoIcon} aria-hidden="true">
+                    <Star size={36} strokeWidth={2.45} />
+                </span>
+                <span className={styles.sidebarLogoText}>
+                    <strong>학급</strong>
+                    <em>관찰기록</em>
+                </span>
+            </div>
 
             <nav className={styles.sidebarNav} aria-label="관찰2 사이드 메뉴">
                 {navItems.map((item) => (
@@ -2121,7 +2125,7 @@ function GrowthRecordModal({
                 <section className={styles.cookieRewardSection}>
                     <h3>
                         <Star size={20} />
-                        이번에 우리 반이 함께 잘한 것
+                        이번 활동에서 함께 잘한 것
                     </h3>
                     <p>해당하는 쿠키를 1~3개 선택해 주세요!</p>
                     <div className={styles.cookieOptionGrid}>
@@ -2147,7 +2151,7 @@ function GrowthRecordModal({
 
                 <label className={styles.growthMemoBox}>
                     <span>선택 사항</span>
-                    <strong>우리 반이 특히 잘한 점을 간단히 기록해 보세요 (선택)</strong>
+                    <strong>이번 활동에서 특히 잘한 점을 간단히 기록해 보세요 (선택)</strong>
                     <textarea
                         value={memo}
                         maxLength={100}

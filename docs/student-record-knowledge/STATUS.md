@@ -58,7 +58,7 @@
 - observation board 2 responsive sidebar: 1120px 이하에서도 PNG 기준의 왼쪽 세로 사이드바를 유지하고 상단 가로 메뉴로 접지 않음
 - observation board 2 data scope: 멘토·멘티, 관찰 작성, 성장 기록, 통계는 현재 교사의 담당 학급 학생만 표시하고 담당 학생이 없을 때 샘플 학생으로 대체하지 않음
 - observation board 2 growth/stats usefulness: 성장 기록은 학생별 관찰 공백/쿠키 수/△·○ 반응을 보여주고, 통계 보기는 기록 우선 학생과 모둠별 활동 균형을 함께 표시
-- observation board 2 growth modal: `성장 기록 작성`은 기준 이미지형 dimmed overlay, 선택 학생 동물 칩, 중립 쿠키 카드 3개, 선택 메모, `이전`/`저장하기` 버튼을 제공
+- observation board 2 growth modal: `성장 기록 작성`은 기준 이미지형 dimmed overlay, 선택 학생 동물 칩, 중립 쿠키 카드 3개, 활동 중심 칭찬 문구, 선택 메모, `이전`/`저장하기` 버튼을 제공
 - observation board 2 growth quick compose: 성장 기록 학생 카드를 더블클릭하면 해당 학생 1명만 선택한 상태로 `성장 기록 작성` 모달을 즉시 표시
 - observation board 2 stats class scope: 통계 보기는 compact 학급 선택 메뉴를 제공하고 담당 학급 하나를 기본 범위로 사용해 모둠별 활동 균형을 학급별로 확인함
 - observation board 2 editable sessions: 차시 표 헤더에서 날짜/활동 내용을 직접 입력하고 `+` 버튼으로 차시 열을 추가하며, 교사별 localStorage에 유지
@@ -94,6 +94,8 @@
 - 2026-05-16: deployed the dashboard text-clipping fix to Vercel production and verified `https://seteuk-zgyj.vercel.app` returns 200 with the live alias on a Ready deployment
 - 2026-05-16: simplified the `모둠 편성` dashboard to a class-scoped coordinate-plane view with student points and compact Skill/status controls; recommendation, partner suggestion, current-group feedback, and apply-to-observation-board controls are no longer exposed in the dashboard; `cmd /c npx tsc --noEmit --pretty false` passed after the simplification
 - 2026-05-16: changed the coordinate-plane UI copy to Korean-only student-friendly labels: horizontal ends now read `도움이 더 필요해요` and `친구에게 설명할 수 있어요`, vertical ends now read `끝까지 해보려는 마음 낮음/높음`, and the 1/2/3 Skill buttons now show their meanings directly
+- 2026-05-16: replaced the growth-record modal's `우리 반` wording with activity-focused copy and changed the sidebar logo from a text-baked raster image to rendered `학급 관찰기록`
+- 2026-05-16: verified the growth-record wording update with `cmd /c npx tsc --noEmit --pretty false`, `/observation-board-2` HTTP 200, and Browser interaction smoke opening the `성장 기록 작성` modal with no console errors
 - 2026-05-16: changed group-survey links from class-specific links to shared links; students enter grade/class/number and responses are stored under the matched roster class, while the teacher dashboard filters by the selected class
 - 2026-05-16: verified the shared-link flow locally: a link created from one selected class accepted a 3학년 1반 student, submitted the survey, and returned the response with grade 3/class 1 in the teacher payload
 - 2026-05-16: verification passed for `cmd /c npx tsc --noEmit --pretty false` and local route smoke covering login, teacher survey session creation, student identify, survey submit, Skill save, and recommendation generation with a temporary roster fixture
