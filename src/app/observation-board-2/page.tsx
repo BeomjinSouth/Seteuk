@@ -2673,6 +2673,10 @@ function MentorActivityView({
         if (!studentId) return;
         onAddStudentToGroup(studentId, groupId);
     };
+    const allowStudentDrop = (event: DragEvent<HTMLElement>) => {
+        event.preventDefault();
+        event.dataTransfer.dropEffect = 'move';
+    };
     const dropStudentToEditor = (event: DragEvent<HTMLElement>) => {
         event.preventDefault();
         const studentId = event.dataTransfer.getData('text/plain');
@@ -2751,6 +2755,9 @@ function MentorActivityView({
                                 <motion.article
                                     key={group.id}
                                     className={styles.groupCard}
+                                    onDragOver={allowStudentDrop}
+                                    onDrop={(event) => dropStudentToGroup(event, group.id)}
+                                    title={`${group.title} 모둠에 학생 드래그`}
                                     initial={false}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.12 }}
@@ -2780,19 +2787,7 @@ function MentorActivityView({
                                             <Trash2 size={15} />
                                         </button>
                                     </div>
-                                    <div className={styles.memberGrid}>
-                                        {group.members.length < maxMentorGroupMembers && (
-                                            <button
-                                                type="button"
-                                                className={styles.emptyMemberSlot}
-                                                onDragOver={(event) => event.preventDefault()}
-                                                onDrop={(event) => dropStudentToGroup(event, group.id)}
-                                                onClick={() => onEditGroup(group.id)}
-                                            >
-                                                <UserPlus size={16} />
-                                                학생 추가
-                                            </button>
-                                        )}
+                                    <div className={`${styles.memberGrid} ${group.members.length === 0 ? styles.memberGridEmpty : ''}`}>
                                         {group.members.map((member) => (
                                             <GroupMemberToken
                                                 key={member.student.id}

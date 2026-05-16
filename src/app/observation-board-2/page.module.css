@@ -470,6 +470,12 @@
     border: 2px solid #c8e7ad;
     border-radius: 8px;
     background: var(--board-green-soft);
+    transition: border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.groupCard:hover {
+    border-color: #86c969;
+    box-shadow: 0 6px 16px rgba(61, 102, 40, 0.12);
 }
 
 .groupCard:nth-child(2) {
@@ -570,12 +576,17 @@
 .memberGrid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-content: start;
     gap: 0.4rem;
+    min-height: 58px;
     padding: 0.55rem;
 }
 
-.groupMemberToken,
-.emptyMemberSlot {
+.memberGridEmpty {
+    background: rgba(255, 255, 255, 0.28);
+}
+
+.groupMemberToken {
     display: grid;
     align-items: center;
     min-width: 0;
@@ -638,25 +649,6 @@
 .roleSelect:focus {
     outline: 2px solid rgba(47, 134, 216, 0.24);
     outline-offset: 1px;
-}
-
-.emptyMemberSlot {
-    grid-column: 1 / -1;
-    justify-content: center;
-    grid-auto-flow: column;
-    gap: 0.34rem;
-    border-style: dashed;
-    color: #5b7692;
-    font: inherit;
-    font-size: 0.8rem;
-    font-weight: 900;
-    cursor: pointer;
-}
-
-.emptyMemberSlot:hover {
-    border-color: #8cc9f0;
-    background: #f4fbff;
-    color: #174774;
 }
 
 .studentToken {
@@ -4293,7 +4285,6 @@
 .rosterItem span,
 .studentToken,
 .groupMemberToken,
-.emptyMemberSlot,
 .markButton,
 .timelineAvatar,
 .growthStudentIndex {

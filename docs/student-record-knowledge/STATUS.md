@@ -64,7 +64,7 @@
 - observation board 2 editable sessions: 차시 표 헤더에서 날짜/활동 내용을 직접 입력하고 `+` 버튼으로 차시 열을 추가하며, 교사별 localStorage에 유지
 - observation board 2 AI input link: 차시별 학생 △/○ 클릭 기록은 `observation-board-2-marks:${teacherKey}`에, 멘토·멘티 배치는 `observation-board-2-mentor-assignments:${teacherKey}`에 유지되고 `/write` 세특 생성 시 해석 요약으로 전달됨
 - observation board 2 mentor empty/delete: 멘토·멘티 배치는 로그인 교사별/학급별로만 읽고 저장하며, 모둠 삭제와 `모둠 비우기`는 선택 학급을 명시적인 빈 상태로 유지함
-- observation board 2 group editing: 2~4명 모둠, 선택 모둠만 수정, 부분 저장, 기존 △/○ 활동 기록 보존을 기존 교실 대시보드 UI 톤 안에서 구현 완료
+- observation board 2 group editing: 2~4명 모둠, 선택 모둠만 수정, 부분 저장, 학생 추가 칸 없는 모둠 카드 직접 드롭, 기존 △/○ 활동 기록 보존을 기존 교실 대시보드 UI 톤 안에서 구현 완료
 - observation board 2 cookie automation: 차시별 활동 칸은 빈칸 0개, △ 참여함 1개, ○ 매우 잘함 2개 기준으로 쿠키 원장에 자동 반영되며, 상태 수정 시 차액만 기록함
 - observation board 2 stats recent-record action: 통계 보기 `최근 기록` CTA는 기존 `records` 작성 화면 대신 `성장 기록` 화면으로 전환
 - observation board 2 records mode: 기존 관찰 기록 기능은 사이드바에서 숨긴 내부 `records` 모드로 유지하고, 학급/검색 필터, 학생 다중 선택, 공통 날짜/주제/태그, 학생별 메모 입력, 최근 기록 목록, 상세 보기, 삭제 지원
@@ -106,7 +106,8 @@
 - 2026-05-16: `npm run sync:knowledge-docs` was not run because `../student-record-knowledge` is not present next to this Git checkout; top-level docs, mirror docs, and `scripts/sync-knowledge-docs.mjs` were updated manually. Vercel settings were not changed because this only adds static font assets and CSS
 - 2026-05-16: added the Skill-Will public survey route, group-survey APIs, Supabase migration, observation-board-2 `모둠 편성` dashboard, and `docs/student-record-knowledge/GROUP_SURVEY.md`
 - 2026-05-16: completed observation-board-2 flexible group editing inside the existing classroom dashboard style; mentor groups now render 2~4 member tokens, selected-group edit panels save only one group, activity rows/stats read every group member, and legacy mentor/mentee slots normalize into the new member list
-- 2026-05-17: updated observation-board-2 group editing so dragging a roster student into a group's `학생 추가` drop zone immediately adds one member, and each group member can manually switch role between mentor, mentee, and group member while new additions default to first mentor and later mentees
+- 2026-05-17: removed the observation-board-2 group card `학생 추가` drop zone; dragging a roster or group student directly onto the target group card now moves/adds one member, and each group member can manually switch role between mentor, mentee, and group member while new additions default to first mentor and later mentees
+- 2026-05-17: verification passed for `cmd /c npx tsc --noEmit --pretty false`, HTTP 200 route smoke on `http://localhost:3006/observation-board-2`, and Browser DOM/click/screenshot checks confirming an added empty group card renders without `학생 추가`, exposes the group-card drop surface, and logs no console errors.
 - 2026-05-17: deployed the group drop-target and member-role controls to Vercel production as `dpl_CAVCkN6TJUrvVRYo5Af5X7gyktC9`; verified the live alias `https://seteuk-zgyj.vercel.app` is Ready and `/observation-board-2` returns 200
 - 2026-05-16: fixed observation-board-2 UI clipping around growth student cards, group-survey link action buttons, and compact mentor group member tokens so labels stay inside their cards/buttons at dense classroom-dashboard sizes
 - 2026-05-16: deployed the dashboard text-clipping fix to Vercel production and verified `https://seteuk-zgyj.vercel.app` returns 200 with the live alias on a Ready deployment
