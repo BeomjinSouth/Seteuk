@@ -64,6 +64,7 @@ import styles from './page.module.css';
 
 type MarkState = ObservationBoardMarkState;
 type BoardMode = 'mentor' | 'growth' | 'stats' | 'grouping' | 'notice' | 'settings' | 'records';
+type MentorActivityTab = 'groups' | 'records';
 type VisibleRosterCount = number | 'all';
 type ActivitySession = ObservationBoardActivitySession;
 
@@ -2605,6 +2606,7 @@ function MentorActivityView({
     onUpdateMark: (studentId: string, session: ActivitySession, fallback: MarkState) => void;
 }) {
     const rosterStudents = getVisibleRosterStudents(boardStudents, visibleRosterCount);
+    const [activeTab, setActiveTab] = useState<MentorActivityTab>('groups');
 
     const startStudentDrag = (event: DragEvent<HTMLElement>, studentId: string) => {
         event.dataTransfer.setData('text/plain', studentId);
@@ -2628,306 +2630,349 @@ function MentorActivityView({
 
     return (
         <>
-            <main className={styles.workspace}>
-                <section className={styles.mentorPanel}>
-                    <div className={styles.panelTitle}>
-                        <img src="/observation-board-2/panel-kids.png" alt="" className={styles.panelTitleImage} aria-hidden="true" />
-                        <div>
-                            <h2>멘토·멘티 구성</h2>
-                            <p>{featuredStudents.length}명 표시 · 전체 {boardStudents.length}명</p>
-                        </div>
-                    </div>
+            <div className={styles.mentorTabHeader} role="tablist" aria-label="멘토·멘티 화면 선택">
+                <button
+                    id="mentor-groups-tab"
+                    type="button"
+                    role="tab"
+                    aria-selected={activeTab === 'groups'}
+                    aria-controls="mentor-groups-panel"
+                    className={`${styles.mentorTabButton} ${activeTab === 'groups' ? styles.mentorTabButtonActive : ''}`}
+                    onClick={() => setActiveTab('groups')}
+                >
+                    <Users size={20} />
+                    멘토·멘티 구성
+                </button>
+                <button
+                    id="mentor-records-tab"
+                    type="button"
+                    role="tab"
+                    aria-selected={activeTab === 'records'}
+                    aria-controls="mentor-records-panel"
+                    className={`${styles.mentorTabButton} ${activeTab === 'records' ? styles.mentorTabButtonActive : ''}`}
+                    onClick={() => setActiveTab('records')}
+                >
+                    <ClipboardList size={20} />
+                    활동 기록
+                </button>
+            </div>
 
-                    <ClassScopeSelect
-                        teacherClasses={teacherClasses}
-                        teacherStudents={teacherStudents}
-                        selectedClassId={selectedClassId}
-                        onClassChange={onClassChange}
-                        ariaLabel="멘토 화면 학급 선택"
-                    />
-
-                    <div className={styles.yellowNotice}>
-                        <Handshake size={18} />
-                        학생을 드래그해서 멘토와 멘티를 연결해 보세요!
-                    </div>
-
-                    <div className={styles.groupStack}>
-                        {mentorGroups.length === 0 && (
-                            <div className={styles.mentorEmptyState}>
-                                {boardStudents.length === 0
-                                    ? '해당 학급 학생이 없습니다. 수업 학급을 먼저 등록하면 멘토·멘티를 구성할 수 있습니다.'
-                                    : '멘토·멘티 모둠이 비어 있습니다. 모둠 추가를 눌러 새 모둠을 만들 수 있습니다.'}
+            <main className={styles.mentorTabWorkspace}>
+                {activeTab === 'groups' && (
+                    <section
+                        id="mentor-groups-panel"
+                        role="tabpanel"
+                        aria-labelledby="mentor-groups-tab"
+                        className={styles.mentorPanel}
+                    >
+                        <div className={styles.panelTitle}>
+                            <img src="/observation-board-2/panel-kids.png" alt="" className={styles.panelTitleImage} aria-hidden="true" />
+                            <div>
+                                <h2>멘토·멘티 구성</h2>
+                                <p>{featuredStudents.length}명 표시 · 전체 {boardStudents.length}명</p>
                             </div>
-                        )}
-                        {mentorGroups.map((group) => (
-                            <motion.article
-                                key={group.id}
-                                className={styles.groupCard}
-                                initial={false}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.12 }}
-                            >
-                                <div className={styles.groupHeader}>
-                                    <span className={styles.groupTitle}>
-                                        <strong>{group.title}</strong>
-                                        <Star size={17} />
-                                        <em>{group.members.length}명</em>
-                                    </span>
-                                    <button
-                                        type="button"
-                                        className={styles.editGroupButton}
-                                        onClick={() => onEditGroup(group.id)}
-                                        title="모둠 수정"
-                                        aria-label={`${group.title} 모둠 수정`}
-                                    >
-                                        <Pencil size={15} />
-                                    </button>
-                                    <button
-                                        type="button"
-                                        className={styles.deleteGroupButton}
-                                        onClick={() => onDeleteGroup(group.id)}
-                                        title="모둠 삭제"
-                                        aria-label={`${group.title} 모둠 삭제`}
-                                    >
-                                        <Trash2 size={15} />
-                                    </button>
+                        </div>
+
+                        <ClassScopeSelect
+                            teacherClasses={teacherClasses}
+                            teacherStudents={teacherStudents}
+                            selectedClassId={selectedClassId}
+                            onClassChange={onClassChange}
+                            ariaLabel="멘토 화면 학급 선택"
+                        />
+
+                        <div className={styles.yellowNotice}>
+                            <Handshake size={18} />
+                            학생을 드래그해서 멘토와 멘티를 연결해 보세요!
+                        </div>
+
+                        <div className={styles.groupStack}>
+                            {mentorGroups.length === 0 && (
+                                <div className={styles.mentorEmptyState}>
+                                    {boardStudents.length === 0
+                                        ? '해당 학급 학생이 없습니다. 수업 학급을 먼저 등록하면 멘토·멘티를 구성할 수 있습니다.'
+                                        : '멘토·멘티 모둠이 비어 있습니다. 모둠 추가를 눌러 새 모둠을 만들 수 있습니다.'}
                                 </div>
-                                <div className={styles.memberGrid}>
-                                    {group.members.length === 0 && (
+                            )}
+                            {mentorGroups.map((group) => (
+                                <motion.article
+                                    key={group.id}
+                                    className={styles.groupCard}
+                                    initial={false}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.12 }}
+                                >
+                                    <div className={styles.groupHeader}>
+                                        <span className={styles.groupTitle}>
+                                            <strong>{group.title}</strong>
+                                            <Star size={17} />
+                                            <em>{group.members.length}명</em>
+                                        </span>
                                         <button
                                             type="button"
-                                            className={styles.emptyMemberSlot}
+                                            className={styles.editGroupButton}
                                             onClick={() => onEditGroup(group.id)}
+                                            title="모둠 수정"
+                                            aria-label={`${group.title} 모둠 수정`}
                                         >
-                                            <UserPlus size={16} />
-                                            학생 추가
+                                            <Pencil size={15} />
                                         </button>
-                                    )}
-                                    {group.members.map((member) => (
-                                        <GroupMemberToken
-                                            key={member.student.id}
-                                            member={member}
-                                            onDragStart={(event, studentId) => startStudentDrag(event, studentId)}
-                                        />
-                                    ))}
-                                </div>
-                                <div className={styles.pairRow}>
-                                    <StudentToken
-                                        student={group.mentor}
-                                        role="멘토"
-                                        tone="blue"
-                                        onDragStart={(event, studentId) => startStudentDrag(event, studentId)}
-                                        onDrop={(event) => dropStudent(event, group.id, 'mentor')}
-                                    />
-                                    <div className={styles.handshakeMark}>
-                                        <Handshake size={22} />
+                                        <button
+                                            type="button"
+                                            className={styles.deleteGroupButton}
+                                            onClick={() => onDeleteGroup(group.id)}
+                                            title="모둠 삭제"
+                                            aria-label={`${group.title} 모둠 삭제`}
+                                        >
+                                            <Trash2 size={15} />
+                                        </button>
                                     </div>
-                                    <StudentToken
-                                        student={group.mentee}
-                                        role="멘티"
-                                        tone="pink"
-                                        onDragStart={(event, studentId) => startStudentDrag(event, studentId)}
-                                        onDrop={(event) => dropStudent(event, group.id, 'mentee')}
-                                    />
-                                </div>
-                            </motion.article>
-                        ))}
-                    </div>
-
-                    {editingGroup && (
-                        <div
-                            className={styles.groupEditPanel}
-                            onDragOver={(event) => event.preventDefault()}
-                            onDrop={dropStudentToEditor}
-                        >
-                            <div className={styles.groupEditHeader}>
-                                <div>
-                                    <strong>{editingGroup.title} 선택 모둠만 수정</strong>
-                                    <span>{editingGroupMembers.length}/4명 · 학생 목록에서 더블클릭하거나 드래그</span>
-                                </div>
-                                <button type="button" onClick={onCancelGroupEdit} aria-label="수정 취소">
-                                    <X size={16} />
-                                </button>
-                            </div>
-                            <div className={styles.groupEditMembers}>
-                                {editingGroupMembers.length === 0 && (
-                                    <div className={styles.groupEditEmpty}>
-                                        <UserPlus size={18} />
-                                        학생을 여기에 끌어 놓으세요.
-                                    </div>
-                                )}
-                                {editingGroupMembers.map((member) => {
-                                    const student = boardStudents.find((item) => item.id === member.studentId);
-                                    if (!student) return null;
-
-                                    return (
-                                        <div key={member.studentId} className={styles.groupEditMember}>
-                                            <span className={styles.smallAvatar}>{formatStudentNumber(student.number)}</span>
-                                            <strong>{student.name}</strong>
-                                            <em>{getRoleLabel(member.role)}</em>
-                                            <button type="button" onClick={() => onRemoveGroupStudent(member.studentId)} aria-label="학생 제거">
-                                                <MinusCircle size={15} />
+                                    <div className={styles.memberGrid}>
+                                        {group.members.length === 0 && (
+                                            <button
+                                                type="button"
+                                                className={styles.emptyMemberSlot}
+                                                onClick={() => onEditGroup(group.id)}
+                                            >
+                                                <UserPlus size={16} />
+                                                학생 추가
                                             </button>
+                                        )}
+                                        {group.members.map((member) => (
+                                            <GroupMemberToken
+                                                key={member.student.id}
+                                                member={member}
+                                                onDragStart={(event, studentId) => startStudentDrag(event, studentId)}
+                                            />
+                                        ))}
+                                    </div>
+                                    <div className={styles.pairRow}>
+                                        <StudentToken
+                                            student={group.mentor}
+                                            role="멘토"
+                                            tone="blue"
+                                            onDragStart={(event, studentId) => startStudentDrag(event, studentId)}
+                                            onDrop={(event) => dropStudent(event, group.id, 'mentor')}
+                                        />
+                                        <div className={styles.handshakeMark}>
+                                            <Handshake size={22} />
                                         </div>
-                                    );
-                                })}
-                            </div>
-                            <div className={styles.groupEditActions}>
-                                <button type="button" onClick={onSaveGroupEdit}>
-                                    <Save size={16} />
-                                    이 모둠만 저장
-                                </button>
-                                <button type="button" onClick={onCancelGroupEdit}>
-                                    <X size={16} />
-                                    변경 취소
-                                </button>
-                            </div>
-                        </div>
-                    )}
-
-                    <div className={styles.mentorActionRow}>
-                        <button type="button" className={styles.addGroupButton} onClick={onAddGroup}>
-                            <Plus size={17} />
-                            모둠 추가
-                        </button>
-                        <button type="button" className={styles.resetMentorButton} onClick={onResetAssignments}>
-                            <RotateCcw size={17} />
-                            모둠 비우기
-                        </button>
-                    </div>
-
-                    <div className={styles.rosterTray}>
-                        <div className={styles.trayTitle}>
-                            학생 목록
-                            <span>{boardStudents.length}명</span>
-                        </div>
-                        <div className={styles.rosterGrid}>
-                            {boardStudents.length === 0 && (
-                                <div className={styles.rosterEmptyState}>담당 학급 학생만 여기에 표시됩니다.</div>
-                            )}
-                            {rosterStudents.map((student) => (
-                                <div
-                                    key={student.id}
-                                    className={`${styles.rosterItem} ${editingMemberIds.has(student.id) ? styles.rosterItemSelected : ''}`}
-                                    draggable
-                                    onDragStart={(event) => startStudentDrag(event, student.id)}
-                                    onDoubleClick={() => onStageGroupStudent(student.id)}
-                                    title={`${student.name} 드래그`}
-                                >
-                                    <span>{formatStudentNumber(student.number)}</span>
-                                    {student.name}
-                                </div>
+                                        <StudentToken
+                                            student={group.mentee}
+                                            role="멘티"
+                                            tone="pink"
+                                            onDragStart={(event, studentId) => startStudentDrag(event, studentId)}
+                                            onDrop={(event) => dropStudent(event, group.id, 'mentee')}
+                                        />
+                                    </div>
+                                </motion.article>
                             ))}
                         </div>
-                    </div>
-                </section>
 
-                <section className={styles.recordPanel}>
-                    <div className={styles.recordHeader}>
-                        <div className={styles.panelTitle}>
-                            <img src="/observation-board-2/panel-record.png" alt="" className={styles.panelTitleImage} aria-hidden="true" />
-                            <div>
-                                <h2>멘토·멘티 활동 기록</h2>
-                                <p>{sessions.length}차시 · 매우 잘함 {totalExcellent}회</p>
-                            </div>
-                        </div>
-                        <div className={styles.legend}>
-                            <span>
-                                <Triangle size={18} />
-                                참여함 +1 쿠키
-                            </span>
-                            <span>
-                                <Circle size={18} />
-                                매우 잘함 +2 쿠키
-                            </span>
-                        </div>
-                    </div>
-
-                    <div className={styles.sessionNote}>
-                        <CalendarDays size={18} />
-                        <span>차시를 클릭하면 활동 상태와 쿠키가 함께 반영됩니다.</span>
-                    </div>
-
-                    <div className={styles.tableShell}>
-                        <div
-                            className={styles.activityTable}
-                            role="table"
-                            aria-label="멘토·멘티 차시별 활동 기록"
-                            style={{
-                                gridTemplateColumns: `46px 86px repeat(${sessions.length}, minmax(96px, 1fr)) 72px`,
-                                minWidth: `${Math.max(700, 204 + sessions.length * 96)}px`,
-                            }}
-                        >
-                            <div className={styles.tableHeaderCell} role="columnheader">차시</div>
-                            {sessions.map((session) => (
-                                <div key={session.id} className={styles.sessionNumberHeader} role="columnheader">
-                                    <strong>{session.label}</strong>
+                        {editingGroup && (
+                            <div
+                                className={styles.groupEditPanel}
+                                onDragOver={(event) => event.preventDefault()}
+                                onDrop={dropStudentToEditor}
+                            >
+                                <div className={styles.groupEditHeader}>
+                                    <div>
+                                        <strong>{editingGroup.title} 선택 모둠만 수정</strong>
+                                        <span>{editingGroupMembers.length}/4명 · 학생 목록에서 더블클릭하거나 드래그</span>
+                                    </div>
+                                    <button type="button" onClick={onCancelGroupEdit} aria-label="수정 취소">
+                                        <X size={16} />
+                                    </button>
                                 </div>
-                            ))}
-                            <button type="button" className={styles.addSessionButton} aria-label="차시 추가" onClick={onAddSession}>
-                                <Plus size={20} />
-                                <span>추가</span>
+                                <div className={styles.groupEditMembers}>
+                                    {editingGroupMembers.length === 0 && (
+                                        <div className={styles.groupEditEmpty}>
+                                            <UserPlus size={18} />
+                                            학생을 여기에 끌어 놓으세요.
+                                        </div>
+                                    )}
+                                    {editingGroupMembers.map((member) => {
+                                        const student = boardStudents.find((item) => item.id === member.studentId);
+                                        if (!student) return null;
+
+                                        return (
+                                            <div key={member.studentId} className={styles.groupEditMember}>
+                                                <span className={styles.smallAvatar}>{formatStudentNumber(student.number)}</span>
+                                                <strong>{student.name}</strong>
+                                                <em>{getRoleLabel(member.role)}</em>
+                                                <button type="button" onClick={() => onRemoveGroupStudent(member.studentId)} aria-label="학생 제거">
+                                                    <MinusCircle size={15} />
+                                                </button>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                                <div className={styles.groupEditActions}>
+                                    <button type="button" onClick={onSaveGroupEdit}>
+                                        <Save size={16} />
+                                        이 모둠만 저장
+                                    </button>
+                                    <button type="button" onClick={onCancelGroupEdit}>
+                                        <X size={16} />
+                                        변경 취소
+                                    </button>
+                                </div>
+                            </div>
+                        )}
+
+                        <div className={styles.mentorActionRow}>
+                            <button type="button" className={styles.addGroupButton} onClick={onAddGroup}>
+                                <Plus size={17} />
+                                모둠 추가
                             </button>
-
-                            <div className={styles.sessionRowLabel}>날짜 (선택)</div>
-                            {sessions.map((session) => (
-                                <label key={`${session.id}-date`} className={styles.sessionEditCell}>
-                                    <input
-                                        type="text"
-                                        value={session.date}
-                                        onChange={(event) => onUpdateSession(session.id, 'date', event.target.value)}
-                                        placeholder="날짜"
-                                        aria-label={`${session.label} 날짜`}
-                                    />
-                                </label>
-                            ))}
-
-                            <div className={styles.sessionRowLabel}>주제 (선택)</div>
-                            {sessions.map((session) => (
-                                <label key={`${session.id}-topic`} className={styles.sessionEditCell}>
-                                    <input
-                                        type="text"
-                                        value={session.topic}
-                                        onChange={(event) => onUpdateSession(session.id, 'topic', event.target.value)}
-                                        placeholder="내용"
-                                        aria-label={`${session.label} 내용`}
-                                    />
-                                </label>
-                            ))}
-
-                            {mentorGroups.map((group) => (
-                                <ActivityGroupRows
-                                    key={group.id}
-                                    groupTitle={group.title}
-                                    members={group.members}
-                                    sessions={sessions}
-                                    marks={marks}
-                                    onUpdateMark={onUpdateMark}
-                                />
-                            ))}
+                            <button type="button" className={styles.resetMentorButton} onClick={onResetAssignments}>
+                                <RotateCcw size={17} />
+                                모둠 비우기
+                            </button>
                         </div>
-                    </div>
-                </section>
+
+                        <div className={styles.rosterTray}>
+                            <div className={styles.trayTitle}>
+                                학생 목록
+                                <span>{boardStudents.length}명</span>
+                            </div>
+                            <div className={styles.rosterGrid}>
+                                {boardStudents.length === 0 && (
+                                    <div className={styles.rosterEmptyState}>담당 학급 학생만 여기에 표시됩니다.</div>
+                                )}
+                                {rosterStudents.map((student) => (
+                                    <div
+                                        key={student.id}
+                                        className={`${styles.rosterItem} ${editingMemberIds.has(student.id) ? styles.rosterItemSelected : ''}`}
+                                        draggable
+                                        onDragStart={(event) => startStudentDrag(event, student.id)}
+                                        onDoubleClick={() => onStageGroupStudent(student.id)}
+                                        title={`${student.name} 드래그`}
+                                    >
+                                        <span>{formatStudentNumber(student.number)}</span>
+                                        {student.name}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                )}
+
+                {activeTab === 'records' && (
+                    <section
+                        id="mentor-records-panel"
+                        role="tabpanel"
+                        aria-labelledby="mentor-records-tab"
+                        className={styles.recordPanel}
+                    >
+                        <div className={styles.recordHeader}>
+                            <div className={styles.panelTitle}>
+                                <img src="/observation-board-2/panel-record.png" alt="" className={styles.panelTitleImage} aria-hidden="true" />
+                                <div>
+                                    <h2>멘토·멘티 활동 기록</h2>
+                                    <p>{sessions.length}차시 · 매우 잘함 {totalExcellent}회</p>
+                                </div>
+                            </div>
+                            <div className={styles.legend}>
+                                <span>
+                                    <Triangle size={18} />
+                                    참여함 +1 쿠키
+                                </span>
+                                <span>
+                                    <Circle size={18} />
+                                    매우 잘함 +2 쿠키
+                                </span>
+                            </div>
+                        </div>
+
+                        <div className={styles.sessionNote}>
+                            <CalendarDays size={18} />
+                            <span>차시를 클릭하면 활동 상태와 쿠키가 함께 반영됩니다.</span>
+                        </div>
+
+                        <div className={styles.tableShell}>
+                            <div
+                                className={styles.activityTable}
+                                role="table"
+                                aria-label="멘토·멘티 차시별 활동 기록"
+                                style={{
+                                    gridTemplateColumns: `46px 86px repeat(${sessions.length}, minmax(96px, 1fr)) 72px`,
+                                    minWidth: `${Math.max(700, 204 + sessions.length * 96)}px`,
+                                }}
+                            >
+                                <div className={styles.tableHeaderCell} role="columnheader">차시</div>
+                                {sessions.map((session) => (
+                                    <div key={session.id} className={styles.sessionNumberHeader} role="columnheader">
+                                        <strong>{session.label}</strong>
+                                    </div>
+                                ))}
+                                <button type="button" className={styles.addSessionButton} aria-label="차시 추가" onClick={onAddSession}>
+                                    <Plus size={20} />
+                                    <span>추가</span>
+                                </button>
+
+                                <div className={styles.sessionRowLabel}>날짜 (선택)</div>
+                                {sessions.map((session) => (
+                                    <label key={`${session.id}-date`} className={styles.sessionEditCell}>
+                                        <input
+                                            type="text"
+                                            value={session.date}
+                                            onChange={(event) => onUpdateSession(session.id, 'date', event.target.value)}
+                                            placeholder="날짜"
+                                            aria-label={`${session.label} 날짜`}
+                                        />
+                                    </label>
+                                ))}
+
+                                <div className={styles.sessionRowLabel}>주제 (선택)</div>
+                                {sessions.map((session) => (
+                                    <label key={`${session.id}-topic`} className={styles.sessionEditCell}>
+                                        <input
+                                            type="text"
+                                            value={session.topic}
+                                            onChange={(event) => onUpdateSession(session.id, 'topic', event.target.value)}
+                                            placeholder="내용"
+                                            aria-label={`${session.label} 내용`}
+                                        />
+                                    </label>
+                                ))}
+
+                                {mentorGroups.map((group) => (
+                                    <ActivityGroupRows
+                                        key={group.id}
+                                        groupTitle={group.title}
+                                        members={group.members}
+                                        sessions={sessions}
+                                        marks={marks}
+                                        onUpdateMark={onUpdateMark}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                )}
             </main>
 
-            <section className={styles.guideBanner}>
-                <div>
-                    <strong>활동 기록 안내</strong>
-                    <span>
-                        <Triangle size={17} />
-                        참여 +1 쿠키
-                    </span>
-                    <span>
-                        <Circle size={17} />
-                        매우 잘함 +2 쿠키
-                    </span>
-                    <span>빈칸 0 쿠키</span>
-                </div>
-                <p>
-                    함께 성장하는 우리, 최고예요!
-                    <CheckCircle2 size={18} />
-                </p>
-            </section>
+            {activeTab === 'records' && (
+                <section className={styles.guideBanner}>
+                    <div>
+                        <strong>활동 기록 안내</strong>
+                        <span>
+                            <Triangle size={17} />
+                            참여 +1 쿠키
+                        </span>
+                        <span>
+                            <Circle size={17} />
+                            매우 잘함 +2 쿠키
+                        </span>
+                        <span>빈칸 0 쿠키</span>
+                    </div>
+                    <p>
+                        함께 성장하는 우리, 최고예요!
+                        <CheckCircle2 size={18} />
+                    </p>
+                </section>
+            )}
         </>
     );
 }

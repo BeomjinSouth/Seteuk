@@ -53,7 +53,7 @@
 - 성호중학교 roster onboarding: 2026 1/2/3학년 명렬표를 공용 학생 명부에 반영했고 성호중학교 교사는 업로드 없이 학급을 선택 등록
 - 성호중학교 roster load resilience: /students 명렬표 로딩/빈 데이터/오류 상태를 명확히 표시하고, 학교명 비교는 정규화된 값으로 처리
 - auth hydration: authenticated pages wait for persisted store hydration before redirecting, so /students refresh keeps the logged-in session
-- student observation tab: `/observation-board-2`에서 예시 PNG에 맞춘 독립형 교실 대시보드, 기본 `학생 관찰 기록` 활동판, 모둠 추가, 차시별 활동 기록 표, 참여/매우 잘함 클릭 표시 지원
+- student observation tab: `/observation-board-2`에서 예시 PNG에 맞춘 독립형 교실 대시보드, 기본 `학생 관찰 기록` 활동판, `멘토·멘티 구성`/`활동 기록` 2개 내부 탭, 모둠 추가, 차시별 활동 기록 표, 참여/매우 잘함 클릭 표시 지원
 - observation board 2 internal dashboards: 왼쪽 메뉴가 URL 이동 없이 `학생 관찰 기록`, `성장 기록`, `통계 보기` 화면만 전환하며, `홈`, `알림장`, `설정` 항목은 현재 사이드바에서 숨김
 - observation board 2 responsive sidebar: 1120px 이하에서도 PNG 기준의 왼쪽 세로 사이드바를 유지하고 상단 가로 메뉴로 접지 않음
 - observation board 2 data scope: 멘토·멘티, 관찰 작성, 성장 기록, 통계는 현재 교사의 담당 학급 학생만 표시하고 담당 학생이 없을 때 샘플 학생으로 대체하지 않음
@@ -85,6 +85,8 @@
 
 ## Recent Changes
 
+- 2026-05-16: split `/observation-board-2` default `학생 관찰 기록` into two internal tabs, `멘토·멘티 구성` and `활동 기록`, so the mentor cards and wide session table no longer render side by side and clip on narrow screens
+- 2026-05-16: verification passed for `cmd /c npx tsc --noEmit --pretty false`, local route smoke on `http://localhost:3005/observation-board-2`, and Browser/IAB checks confirming both new internal tabs render one panel at a time
 - 2026-05-16: refined local font usage across the app; copied selected fonts into `public/fonts`, removed the Google Inter import, set Noto Sans KR as the body font, Gmarket Sans for navigation/headings/buttons, PureunJeonnam for notice copy, and limited Maplestory to playful classroom-board accents on `/observation-board-2`
 - 2026-05-16: verification passed for `cmd /c npx tsc --noEmit`, local HTTP route smoke on `/`, `/write`, `/observation-board-2`, and `/group-survey/local-font-smoke`, plus `playwright-cli` desktop/mobile checks confirming local font loading, no sampled button overflow, and Maplestory limited to sidebar/classroom-board accent selectors; Browser plugin was not exposed by tool discovery, so the visual smoke used `playwright-cli`
 - 2026-05-16: `npm run sync:knowledge-docs` was not run because `../student-record-knowledge` is not present next to this Git checkout; top-level docs, mirror docs, and `scripts/sync-knowledge-docs.mjs` were updated manually. Vercel settings were not changed because this only adds static font assets and CSS
