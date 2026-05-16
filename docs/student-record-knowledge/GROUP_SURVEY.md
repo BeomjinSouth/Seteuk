@@ -26,8 +26,10 @@ Teachers can use the `모둠 편성` screen to:
 
 ## Coordinate Rules
 
+- Coordinate plane uses only the x-axis and y-axis; auxiliary grid lines are hidden
 - Coordinate screen labels the horizontal axis as `도움이 더 필요해요` to `친구에게 설명할 수 있어요`
 - Coordinate screen labels the vertical axis as `끝까지 해보려는 마음 낮음` to `끝까지 해보려는 마음 높음`
+- Axis endpoint labels include the teacher-facing meaning: `준비도 낮음/높음` and `참여 의지 낮음/높음`
 - Teacher Skill input uses 1 `도움 필요`, 2 `기본 가능`, 3 `설명 가능`
 - Will average is calculated from 1.0 to 5.0 but shown in the UI as `참여 의지`
 - Dot size: participation agency average

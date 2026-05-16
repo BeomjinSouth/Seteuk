@@ -226,13 +226,7 @@
     overflow: hidden;
     border: 2px solid #9fd3f0;
     border-radius: 16px;
-    background:
-        linear-gradient(90deg, transparent 32.9%, rgba(47, 134, 216, 0.13) 33%, rgba(47, 134, 216, 0.13) 33.35%, transparent 33.45%),
-        linear-gradient(90deg, transparent 66.2%, rgba(47, 134, 216, 0.13) 66.3%, rgba(47, 134, 216, 0.13) 66.65%, transparent 66.75%),
-        linear-gradient(0deg, transparent 24.9%, rgba(47, 134, 216, 0.1) 25%, rgba(47, 134, 216, 0.1) 25.3%, transparent 25.4%),
-        linear-gradient(0deg, transparent 49.8%, rgba(47, 134, 216, 0.13) 50%, rgba(47, 134, 216, 0.13) 50.35%, transparent 50.45%),
-        linear-gradient(0deg, transparent 74.8%, rgba(47, 134, 216, 0.1) 75%, rgba(47, 134, 216, 0.1) 75.3%, transparent 75.4%),
-        #fbfdff;
+    background: #fbfdff;
 }
 
 .midLineX,
@@ -256,38 +250,55 @@
     width: 2px;
 }
 
-.yAxisLabel,
-.yAxisLow,
-.xAxisLow,
-.xAxisHigh {
+.axisLabel {
     position: absolute;
     z-index: 2;
+    display: grid;
+    gap: 0.12rem;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.88);
+    background: rgba(255, 255, 255, 0.94);
     color: #315a80;
-    padding: 0.22rem 0.5rem;
+    padding: 0.34rem 0.62rem;
+    text-align: center;
+    box-shadow: 0 8px 18px rgba(112, 163, 205, 0.13);
+}
+
+.axisLabel b {
+    color: #102f64;
     font-size: 0.72rem;
     font-weight: 900;
 }
 
+.axisLabel em {
+    color: #4f6e8a;
+    font-size: 0.68rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 1.15;
+}
+
 .yAxisLabel {
-    left: 0.75rem;
-    top: 0.75rem;
+    left: calc(50% + 1.8rem);
+    top: 0.85rem;
+    text-align: left;
 }
 
 .yAxisLow {
-    left: 0.75rem;
-    bottom: 0.75rem;
+    left: calc(50% + 1.8rem);
+    bottom: 0.85rem;
+    text-align: left;
 }
 
 .xAxisLow {
-    left: 10%;
-    bottom: 0.75rem;
+    left: 7%;
+    top: calc(50% + 2rem);
+    transform: translateX(-20%);
 }
 
 .xAxisHigh {
-    right: 10%;
-    bottom: 0.75rem;
+    right: 7%;
+    top: calc(50% + 2rem);
+    transform: translateX(20%);
 }
 
 .point {

@@ -309,11 +309,26 @@ export function GroupSurveyDashboard({
                         </button>
                     </div>
 
-                    <div className={styles.coordinatePlane}>
-                        <span className={styles.yAxisLabel}>끝까지 해보려는 마음 높음</span>
-                        <span className={styles.yAxisLow}>끝까지 해보려는 마음 낮음</span>
-                        <span className={styles.xAxisLow}>도움이 더 필요해요</span>
-                        <span className={styles.xAxisHigh}>친구에게 설명할 수 있어요</span>
+                    <div
+                        className={styles.coordinatePlane}
+                        aria-label="가로축은 학습 준비도, 세로축은 참여 의지를 나타내는 좌표평면"
+                    >
+                        <span className={`${styles.axisLabel} ${styles.yAxisLabel}`}>
+                            <b>참여 의지 높음</b>
+                            <em>끝까지 해보려는 마음 높음</em>
+                        </span>
+                        <span className={`${styles.axisLabel} ${styles.yAxisLow}`}>
+                            <b>참여 의지 낮음</b>
+                            <em>끝까지 해보려는 마음 낮음</em>
+                        </span>
+                        <span className={`${styles.axisLabel} ${styles.xAxisLow}`}>
+                            <b>준비도 낮음</b>
+                            <em>도움이 더 필요해요</em>
+                        </span>
+                        <span className={`${styles.axisLabel} ${styles.xAxisHigh}`}>
+                            <b>준비도 높음</b>
+                            <em>친구에게 설명할 수 있어요</em>
+                        </span>
                         <div className={styles.midLineX} />
                         <div className={styles.midLineY} />
                         {plottedProfiles.length === 0 && (
