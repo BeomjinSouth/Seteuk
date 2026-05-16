@@ -43,8 +43,7 @@
     font-weight: 800;
 }
 
-.classSelect,
-.groupSizeControl {
+.classSelect {
     display: inline-grid;
     gap: 0.28rem;
     color: #315a80;
@@ -53,7 +52,6 @@
 }
 
 .classSelect select,
-.groupSizeControl input,
 .studentSelect {
     min-height: 42px;
     border: 2px solid #cde5f7;
@@ -99,8 +97,7 @@
     white-space: nowrap;
 }
 
-.linkActions,
-.recommendActions {
+.linkActions {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -110,7 +107,6 @@
 
 .linkActions button,
 .panelHeader button,
-.recommendActions button,
 .skillButtons button {
     display: inline-flex;
     align-items: center;
@@ -129,14 +125,12 @@
 
 .linkActions button:hover,
 .panelHeader button:hover,
-.recommendActions button:hover,
 .skillButtons button:hover {
     border-color: #2f86d8;
     background: #eaf7ff;
 }
 
-.linkActions button:disabled,
-.recommendActions button:disabled {
+.linkActions button:disabled {
     opacity: 0.48;
     cursor: not-allowed;
 }
@@ -244,7 +238,6 @@
 .yAxisLabel,
 .yAxisLow,
 .xAxisLow,
-.xAxisMid,
 .xAxisHigh {
     position: absolute;
     z-index: 2;
@@ -269,12 +262,6 @@
 .xAxisLow {
     left: 10%;
     bottom: 0.75rem;
-}
-
-.xAxisMid {
-    left: 50%;
-    bottom: 0.75rem;
-    transform: translateX(-50%);
 }
 
 .xAxisHigh {
@@ -391,6 +378,39 @@
     width: 100%;
 }
 
+.skillLegend {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.45rem;
+    margin-bottom: 0.75rem;
+}
+
+.skillLegend span {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 0.36rem;
+    border: 2px solid #d4e8f7;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #456580;
+    padding: 0.45rem 0.55rem;
+    font-size: 0.72rem;
+    font-weight: 900;
+    line-height: 1.25;
+}
+
+.skillLegend b {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 8px;
+    background: #eaf7ff;
+    color: #073b82;
+}
+
 .statusList {
     display: grid;
     gap: 0.5rem;
@@ -401,9 +421,9 @@
 
 .statusRow {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr);
     align-items: center;
-    gap: 0.55rem;
+    gap: 0.48rem;
     border: 2px solid #d4e8f7;
     border-radius: 14px;
     background: #ffffff;
@@ -539,31 +559,34 @@
 }
 
 .skillButtons {
-    display: inline-flex;
-    gap: 0.3rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.35rem;
 }
 
 .skillButtons button {
-    width: 34px;
-    height: 34px;
-    min-height: 34px;
-    padding: 0;
+    display: grid;
+    gap: 0.06rem;
+    min-height: 42px;
+    padding: 0.24rem 0.3rem;
+    line-height: 1.1;
+}
+
+.skillButtons button span {
+    font-size: 0.78rem;
+}
+
+.skillButtons button em {
+    color: inherit;
+    font-size: 0.62rem;
+    font-style: normal;
+    font-weight: 900;
 }
 
 .skillActive {
     border-color: #2f86d8 !important;
     background: #dff2ff !important;
     color: #073b82 !important;
-}
-
-.recommendActions {
-    justify-content: flex-start;
-}
-
-.recommendActions button:first-child {
-    border-color: #2f86d8;
-    background: #2f86d8;
-    color: #ffffff;
 }
 
 .excludedBox {
@@ -628,6 +651,10 @@
     }
 
     .summaryGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .skillLegend {
         grid-template-columns: 1fr;
     }
 

@@ -49,6 +49,11 @@ interface TeacherPayload {
 }
 
 const skillOptions: SkillScore[] = [1, 2, 3];
+const skillOptionLabels: Record<SkillScore, string> = {
+    1: '도움 필요',
+    2: '기본 가능',
+    3: '설명 가능',
+};
 
 function formatAvg(value?: number) {
     return value ? value.toFixed(2) : '-';
@@ -231,7 +236,7 @@ export function GroupSurveyDashboard({
         <section className={styles.dashboard}>
             <div className={styles.topBar}>
                 <div>
-                    <h2>학급별 Skill-Will 좌표</h2>
+                    <h2>학급별 모둠 참고 좌표</h2>
                     <p>선택한 학급 학생들을 좌표평면 위의 점으로 확인합니다.</p>
                 </div>
                 <label className={styles.classSelect}>
@@ -284,9 +289,9 @@ export function GroupSurveyDashboard({
 
             <div className={styles.summaryGrid}>
                 <SummaryTile label="전체 학생" value={`${profiles.length}명`} detail={`${selectedClass.grade}학년 ${selectedClass.classNumber}반`} />
-                <SummaryTile label="좌표 표시" value={`${plottedProfiles.length}명`} detail="설문+Skill 완료" />
+                <SummaryTile label="좌표 표시" value={`${plottedProfiles.length}명`} detail="설문+준비도 입력 완료" />
                 <SummaryTile label="미응답" value={`${missingResponseCount}명`} detail="학생 설문 대기" />
-                <SummaryTile label="Will 평균" value={meanWill ? meanWill.toFixed(2) : '-'} detail={getWillLevel(meanWill || undefined)} />
+                <SummaryTile label="참여 의지 평균" value={meanWill ? meanWill.toFixed(2) : '-'} detail={getWillLevel(meanWill || undefined)} />
             </div>
 
             <div className={styles.mainGrid}>
@@ -294,7 +299,7 @@ export function GroupSurveyDashboard({
                     <div className={styles.panelHeader}>
                         <div>
                             <h3>좌표평면</h3>
-                            <p>X축 Skill, Y축 Will, 점 크기는 참여 주도성입니다.</p>
+                            <p>가로축은 학습 준비도, 세로축은 참여 의지, 점 크기는 참여 주도성입니다.</p>
                         </div>
                         <button type="button" onClick={() => loadSurveyState(activeSessionId || undefined)} disabled={isLoading}>
                             <RefreshCw size={16} className={isLoading ? styles.spin : ''} />
@@ -302,16 +307,15 @@ export function GroupSurveyDashboard({
                     </div>
 
                     <div className={styles.coordinatePlane}>
-                        <span className={styles.yAxisLabel}>Will 높음</span>
-                        <span className={styles.yAxisLow}>Will 낮음</span>
-                        <span className={styles.xAxisLow}>도움 필요</span>
-                        <span className={styles.xAxisMid}>기본 가능</span>
-                        <span className={styles.xAxisHigh}>설명 가능</span>
+                        <span className={styles.yAxisLabel}>끝까지 해보려는 마음 높음</span>
+                        <span className={styles.yAxisLow}>끝까지 해보려는 마음 낮음</span>
+                        <span className={styles.xAxisLow}>도움이 더 필요해요</span>
+                        <span className={styles.xAxisHigh}>친구에게 설명할 수 있어요</span>
                         <div className={styles.midLineX} />
                         <div className={styles.midLineY} />
                         {plottedProfiles.length === 0 && (
                             <div className={styles.planeEmpty}>
-                                설문 제출과 Skill 입력이 완료되면 학생 점이 표시됩니다.
+                                설문 제출과 준비도 입력이 완료되면 학생 점이 표시됩니다.
                             </div>
                         )}
                         {plottedProfiles.map((profile) => {
@@ -329,7 +333,7 @@ export function GroupSurveyDashboard({
                                         width: coordinate.size,
                                         height: coordinate.size,
                                     }}
-                                    title={`${profile.student.number}번 ${profile.student.name} / ${getSkillLabel(profile.skillScore)} / Will ${formatAvg(profile.willAvg)} / ${getAgencySizeLabel(profile.agencyAvg)}`}
+                                    title={`${profile.student.number}번 ${profile.student.name} / ${getSkillLabel(profile.skillScore)} / 참여 의지 ${formatAvg(profile.willAvg)} / ${getAgencySizeLabel(profile.agencyAvg)}`}
                                     onClick={() => setSelectedStudentId(profile.student.id)}
                                 >
                                     {profile.student.number}
@@ -347,7 +351,7 @@ export function GroupSurveyDashboard({
                     {selectedProfile && (
                         <div className={styles.selectedCard}>
                             <strong>{selectedProfile.student.number}번 {selectedProfile.student.name}</strong>
-                            <span>{getSkillLabel(selectedProfile.skillScore)} · Will {formatAvg(selectedProfile.willAvg)} · {getAgencySizeLabel(selectedProfile.agencyAvg)}</span>
+                            <span>{getSkillLabel(selectedProfile.skillScore)} · 참여 의지 {formatAvg(selectedProfile.willAvg)} · {getAgencySizeLabel(selectedProfile.agencyAvg)}</span>
                         </div>
                     )}
                 </article>
@@ -356,8 +360,14 @@ export function GroupSurveyDashboard({
                     <div className={styles.panelHeader}>
                         <div>
                             <h3>학생 표시 상태</h3>
-                            <p>학급 전체 학생을 확인하고, 좌표에 필요한 Skill만 빠르게 입력합니다.</p>
+                            <p>학급 전체 학생을 확인하고, 좌표에 필요한 학습 준비도를 빠르게 입력합니다.</p>
                         </div>
+                    </div>
+
+                    <div className={styles.skillLegend}>
+                        <span><b>1</b> 도움이 더 필요해요</span>
+                        <span><b>2</b> 기본 활동은 할 수 있어요</span>
+                        <span><b>3</b> 친구에게 설명할 수 있어요</span>
                     </div>
 
                     <div className={styles.statusList}>
@@ -376,7 +386,7 @@ export function GroupSurveyDashboard({
                                             {profile.response ? (
                                                 <>
                                                     <CheckCircle2 size={14} />
-                                                    Will {formatAvg(profile.willAvg)}
+                                                    참여 의지 {formatAvg(profile.willAvg)}
                                                 </>
                                             ) : '미응답'}
                                         </span>
@@ -390,7 +400,8 @@ export function GroupSurveyDashboard({
                                                 onClick={() => handleSkillChange(profile.student.id, score)}
                                                 title={getSkillLabel(score)}
                                             >
-                                                {score}
+                                                <span>{score}</span>
+                                                <em>{skillOptionLabels[score]}</em>
                                             </button>
                                         ))}
                                     </div>
@@ -401,7 +412,7 @@ export function GroupSurveyDashboard({
 
                     {missingSkillProfiles.length > 0 && (
                         <div className={styles.excludedBox}>
-                            <strong>Skill 입력 대기</strong>
+                            <strong>학습 준비도 입력 대기</strong>
                             <span>{missingSkillProfiles.map((profile) => `${profile.student.number}번 ${profile.student.name}`).join(', ')}</span>
                         </div>
                     )}
