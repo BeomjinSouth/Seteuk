@@ -38,6 +38,9 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - year filter
 - citation-backed answer
 - visible raw search results
+- Graph RAG mode that visualizes the question, ontology concepts, retrieved knowledge units, public source documents, and answer grounding path
+- answer highlighting that opens the exact supporting source excerpt and source link in a right-side viewer
+- answer font-size slider for classroom display and accessibility
 
 ### Record review
 
@@ -76,6 +79,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - `/api/search-eval`: implemented
 - conservative similar-question dedupe: implemented for canonical and pending Q&A outputs
 - `/counsel-chat`: implemented as the combined counsel/review workspace
+- `/counsel-chat`: Graph RAG mode implemented with ontology/data-flow graph, highlighted grounded answer spans, source excerpt viewer, and answer font-size slider
 - `/record-review`: implemented as a compatibility redirect to `/counsel-chat?mode=review`
 - `/write`: RAG review-improve action implemented
 - `/write`: AI 세특 작성 화면 is aligned to the provided table workspace design with class chips, screenshot-style action toolbar, 10-row pagination, top teacher/notification chrome, and the AI 세특 guide card in the sidebar

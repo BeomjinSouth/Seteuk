@@ -134,6 +134,54 @@ export interface CounselChatResponse {
     error?: string;
 }
 
+export type GraphRagNodeType = 'query' | 'ontology' | 'knowledge' | 'source' | 'answer';
+
+export interface GraphRagNode {
+    id: string;
+    type: GraphRagNodeType;
+    label: string;
+    sublabel: string | null;
+    weight: number;
+    matchId?: string;
+    sourceUrl?: string | null;
+}
+
+export interface GraphRagEdge {
+    id: string;
+    from: string;
+    to: string;
+    label: string;
+    strength: number;
+}
+
+export interface GraphRagFlowStep {
+    id: string;
+    label: string;
+    description: string;
+    count: number;
+}
+
+export interface GraphRagAnswerSpan {
+    id: string;
+    text: string;
+    knowledgeUnitId: string | null;
+    sourceTitle: string | null;
+    sourceUrl: string | null;
+    sourceBoard: 'faq' | 'qa' | 'mixed' | null;
+    evidenceLabel: string;
+    excerpt: string;
+    confidence: 'high' | 'medium' | 'low';
+}
+
+export interface GraphRagResponse extends CounselChatResponse {
+    graph: {
+        nodes: GraphRagNode[];
+        edges: GraphRagEdge[];
+        flow: GraphRagFlowStep[];
+    };
+    answerSpans: GraphRagAnswerSpan[];
+}
+
 export interface RecordReviewIssue {
     severity: 'low' | 'medium' | 'high';
     issueType:

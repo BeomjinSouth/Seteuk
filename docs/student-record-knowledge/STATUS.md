@@ -26,6 +26,7 @@
 - admin quality-report API: implemented
 - admin API guard: production calls require `ADMIN_API_TOKEN` via bearer or `x-admin-token` header
 - counsel/review workspace page: implemented
+- Graph RAG counsel mode: `/counsel-chat` now includes a Graph RAG tab with `/api/counsel-chat/graph`, ontology/data-flow graph visualization, clickable highlighted answer spans, right-side source excerpt viewer, and answer font-size slider
 - /record-review compatibility redirect: implemented
 - /eval-check route: redirects to /dashboard while the feature is in development
 - write page integration: implemented
@@ -86,6 +87,8 @@
 
 ## Recent Changes
 
+- 2026-05-28: added a Graph RAG mode to `/counsel-chat`, including a new `/api/counsel-chat/graph` route, ontology/data-flow graph nodes over retrieved public knowledge, click-to-source highlighted answer spans, and a font-size slider for answer readability.
+- 2026-05-28: verification passed for `cmd /c npx tsc --noEmit --pretty false`, local HTTP 200 route smoke on `/counsel-chat?mode=graph`, local `/api/counsel-chat/graph` POST returning graph nodes, answer spans, and citations, plus Playwright-on-Edge authenticated UI smoke confirming Graph RAG generation, source viewer link, highlight click, font slider `22px`, and no console errors. Browser plugin tools were not exposed by tool discovery, so visual/interaction verification used Playwright with Microsoft Edge. `npm run sync:knowledge-docs` was not run because `../student-record-knowledge/docs` is not present next to this checkout and no mirrored docs were changed. Vercel settings were not changed.
 - 2026-05-28: changed `/observation-board-2` activity-session headers from one teacher-wide array to class-specific `classId -> sessions` storage, so 3-1 and 3-2 can keep different dates and activity topics; existing teacher-wide session arrays are migrated to the first assigned class to preserve already-entered 3-1 records.
 - 2026-05-28: verification passed for `cmd /c npx tsc --noEmit --pretty false`, HTTP 200 route smoke on `http://localhost:3009/observation-board-2` and `/api/auth/session`, and Browser checks with a local 3-1/3-2 roster fixture confirming each class keeps different first-session date/topic values with no console errors.
 - 2026-05-28: `npm run sync:knowledge-docs` was not run because `../student-record-knowledge/docs` is not present next to this checkout and no mirror source files changed.

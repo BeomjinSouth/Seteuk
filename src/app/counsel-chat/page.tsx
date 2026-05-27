@@ -1,28 +1,43 @@
 'use client';
 
-import { useEffect, useState, useTransition } from 'react';
+import { useEffect, useMemo, useState, useTransition } from 'react';
 import { motion } from 'framer-motion';
 import {
     AlertTriangle,
+    BrainCircuit,
     Bot,
     CalendarRange,
     CheckCircle2,
+    FileText,
     GraduationCap,
+    Highlighter,
     Link2,
     MessageSquareQuote,
+    Network,
+    PanelRightOpen,
+    Route,
     SearchCheck,
+    SlidersHorizontal,
     Tag
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import type {
     CounselChatResponse,
+    GraphRagAnswerSpan,
+    GraphRagNode,
+    GraphRagResponse,
     KnowledgeMeta,
     RecordReviewIssue,
     RecordReviewResponse,
 } from '@/types/knowledge';
 import styles from './page.module.css';
 
-type AssistantMode = 'counsel' | 'review';
+type AssistantMode = 'counsel' | 'review' | 'graph';
+
+type PositionedGraphNode = GraphRagNode & {
+    x: number;
+    y: number;
+};
 
 const SAMPLE_QUESTIONS = [
     '출석인정 결석의 증빙 서류는 어디까지 필요한가요?',
@@ -60,6 +75,230 @@ const ISSUE_TYPE_LABELS: Record<RecordReviewIssue['issueType'], string> = {
     needs_manual_review: '수동 확인 필요',
 };
 
+const GRAPH_NODE_LABELS: Record<GraphRagNode['type'], string> = {
+    query: '질문',
+    ontology: '온톨로지',
+    knowledge: '지식',
+    source: '출처',
+    answer: '답변',
+};
+
+function buildGraphLayout(nodes: GraphRagNode[]): PositionedGraphNode[] {
+    const layerX: Record<GraphRagNode['type'], number> = {
+        query: 14,
+        ontology: 34,
+        knowledge: 55,
+        source: 74,
+        answer: 91,
+    };
+    const layerOrder: GraphRagNode['type'][] = ['query', 'ontology', 'knowledge', 'source', 'answer'];
+
+    return layerOrder.flatMap((type) => {
+        const layerNodes = nodes.filter((node) => node.type === type);
+        if (layerNodes.length === 0) return [];
+        const gap = Math.min(22, 72 / Math.max(layerNodes.length - 1, 1));
+        const startY = layerNodes.length === 1 ? 50 : 50 - (gap * (layerNodes.length - 1)) / 2;
+
+        return layerNodes.map((node, index) => ({
+            ...node,
+            x: layerX[type],
+            y: Math.max(10, Math.min(90, startY + index * gap)),
+        }));
+    });
+}
+
+function getSourceViewerTitle(span: GraphRagAnswerSpan | undefined): string {
+    if (!span) return '근거 없음';
+    return span.sourceTitle || span.evidenceLabel;
+}
+
+function GraphRagResultView({
+    result,
+    answerFontSize,
+    onAnswerFontSizeChange,
+}: {
+    result: GraphRagResponse;
+    answerFontSize: number;
+    onAnswerFontSizeChange: (size: number) => void;
+}) {
+    const [selectedSpanId, setSelectedSpanId] = useState(result.answerSpans[0]?.id ?? '');
+    const positionedNodes = useMemo(() => buildGraphLayout(result.graph.nodes), [result.graph.nodes]);
+    const nodeMap = useMemo(
+        () => new Map(positionedNodes.map((node) => [node.id, node])),
+        [positionedNodes],
+    );
+    const selectedSpan = result.answerSpans.find((span) => span.id === selectedSpanId) ?? result.answerSpans[0];
+
+    useEffect(() => {
+        setSelectedSpanId(result.answerSpans[0]?.id ?? '');
+    }, [result]);
+
+    const selectLinkedSpan = (matchId: string | undefined) => {
+        if (!matchId) return;
+        const nextSpan = result.answerSpans.find((span) => span.knowledgeUnitId === matchId);
+        if (nextSpan) setSelectedSpanId(nextSpan.id);
+    };
+
+    return (
+        <motion.section
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            className={styles.graphResultShell}
+        >
+            <div className={styles.graphMainColumn}>
+                <article className={styles.graphCard}>
+                    <div className={styles.graphCardHeader}>
+                        <div>
+                            <span className={styles.panelKicker}>Graph RAG</span>
+                            <h2>질문에서 근거까지 이어지는 지식 그래프</h2>
+                        </div>
+                        <Network size={20} />
+                    </div>
+
+                    <div className={styles.flowStrip}>
+                        {result.graph.flow.map((step) => (
+                            <div key={step.id} className={styles.flowStep}>
+                                <span className={styles.flowCount}>{step.count}</span>
+                                <strong>{step.label}</strong>
+                                <p>{step.description}</p>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className={styles.graphCanvas}>
+                        <svg className={styles.graphEdges} viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                            {result.graph.edges.map((edge) => {
+                                const from = nodeMap.get(edge.from);
+                                const to = nodeMap.get(edge.to);
+                                if (!from || !to) return null;
+                                return (
+                                    <line
+                                        key={edge.id}
+                                        x1={from.x}
+                                        y1={from.y}
+                                        x2={to.x}
+                                        y2={to.y}
+                                        className={styles.graphEdge}
+                                        strokeWidth={Math.min(2.6, 0.8 + edge.strength * 0.28)}
+                                    />
+                                );
+                            })}
+                        </svg>
+                        {positionedNodes.map((node) => (
+                            <button
+                                key={node.id}
+                                type="button"
+                                className={`${styles.graphNode} ${styles[`graphNode_${node.type}`]}`}
+                                style={{ left: `${node.x}%`, top: `${node.y}%` }}
+                                onClick={() => selectLinkedSpan(node.matchId)}
+                                title={node.sublabel ?? node.label}
+                            >
+                                <span>{GRAPH_NODE_LABELS[node.type]}</span>
+                                <strong>{node.label}</strong>
+                                {node.sublabel && <small>{node.sublabel}</small>}
+                            </button>
+                        ))}
+                    </div>
+                </article>
+
+                <article className={styles.graphCard}>
+                    <div className={styles.graphCardHeader}>
+                        <div>
+                            <span className={styles.panelKicker}>Grounded Answer</span>
+                            <h2>형광펜 근거 답변</h2>
+                        </div>
+                        <label className={styles.fontControl}>
+                            <SlidersHorizontal size={16} />
+                            <input
+                                type="range"
+                                min={14}
+                                max={24}
+                                value={answerFontSize}
+                                onChange={(event) => onAnswerFontSizeChange(Number(event.target.value))}
+                                aria-label="답변 글자 크기"
+                            />
+                            <span>{answerFontSize}px</span>
+                        </label>
+                    </div>
+
+                    {result.conflictNote && (
+                        <div className={styles.noticeBox}>
+                            <strong>주의</strong>
+                            <p>{result.conflictNote}</p>
+                        </div>
+                    )}
+
+                    <div className={styles.highlightedAnswer} style={{ fontSize: `${answerFontSize}px` }}>
+                        {result.answerSpans.map((span) => (
+                            <button
+                                key={span.id}
+                                type="button"
+                                className={`${styles.highlightSpan} ${styles[`confidence_${span.confidence}`]} ${selectedSpan?.id === span.id ? styles.highlightSpanActive : ''}`}
+                                onClick={() => setSelectedSpanId(span.id)}
+                            >
+                                <Highlighter size={14} />
+                                {span.text}
+                            </button>
+                        ))}
+                    </div>
+                </article>
+            </div>
+
+            <aside className={`${styles.citationPanel} ${styles.sourceViewer}`}>
+                <div className={styles.citationHeader}>
+                    <h3>출처 뷰어</h3>
+                    <PanelRightOpen size={16} />
+                </div>
+
+                <div className={styles.sourceViewerBody}>
+                    <div className={styles.sourceViewerTitle}>
+                        <FileText size={18} />
+                        <strong>{getSourceViewerTitle(selectedSpan)}</strong>
+                    </div>
+                    {selectedSpan && (
+                        <>
+                            <div className={styles.sourceMetaGrid}>
+                                <span>{selectedSpan.evidenceLabel}</span>
+                                <span>신뢰도 {selectedSpan.confidence}</span>
+                            </div>
+                            <blockquote>{selectedSpan.excerpt}</blockquote>
+                            {selectedSpan.sourceUrl && (
+                                <a
+                                    className={styles.sourceLink}
+                                    href={selectedSpan.sourceUrl}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    <Link2 size={14} /> 원문 출처 열기
+                                </a>
+                            )}
+                        </>
+                    )}
+                </div>
+
+                {result.matches.length > 0 && (
+                    <div className={styles.matchPanel}>
+                        <h4>그래프 지식유닛</h4>
+                        <div className={styles.matchList}>
+                            {result.matches.map((match) => (
+                                <button
+                                    key={match.knowledgeUnitId}
+                                    type="button"
+                                    className={styles.matchCardButton}
+                                    onClick={() => selectLinkedSpan(match.knowledgeUnitId)}
+                                >
+                                    <span>{match.title}</span>
+                                    <strong>{match.score} pts</strong>
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                )}
+            </aside>
+        </motion.section>
+    );
+}
+
 function CounselChatPageContent() {
     const [mode, setMode] = useState<AssistantMode>('counsel');
     const [meta, setMeta] = useState<KnowledgeMeta | null>(null);
@@ -70,9 +309,12 @@ function CounselChatPageContent() {
     const [recordText, setRecordText] = useState(SAMPLE_RECORD_TEXTS[0]);
     const [counselResult, setCounselResult] = useState<CounselChatResponse | null>(null);
     const [reviewResult, setReviewResult] = useState<RecordReviewResponse | null>(null);
+    const [graphResult, setGraphResult] = useState<GraphRagResponse | null>(null);
+    const [answerFontSize, setAnswerFontSize] = useState(16);
     const [error, setError] = useState<string | null>(null);
     const [isCounselPending, startCounselTransition] = useTransition();
     const [isReviewPending, startReviewTransition] = useTransition();
+    const [isGraphPending, startGraphTransition] = useTransition();
 
     useEffect(() => {
         const searchParams = new URLSearchParams(window.location.search);
@@ -84,6 +326,7 @@ function CounselChatPageContent() {
         const presetYear = searchParams.get('year');
 
         if (presetMode === 'review') setMode('review');
+        else if (presetMode === 'graph') setMode('graph');
         else if (presetMode === 'counsel') setMode('counsel');
         else if (presetText) setMode('review');
         else setMode('counsel');
@@ -158,7 +401,34 @@ function CounselChatPageContent() {
         });
     };
 
+    const handleGraphSubmit = () => {
+        setError(null);
+        startGraphTransition(async () => {
+            try {
+                const response = await fetch('/api/counsel-chat/graph', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        question,
+                        schoolLevel,
+                        category: category || undefined,
+                        year: Number(year),
+                    }),
+                });
+                const data = await response.json();
+                if (!response.ok || !data.success) {
+                    throw new Error(data.error || 'Graph RAG 답변 생성에 실패했습니다.');
+                }
+                setGraphResult(data);
+            } catch (err) {
+                setError(err instanceof Error ? err.message : 'Graph RAG 답변 생성에 실패했습니다.');
+            }
+        });
+    };
+
     const isCounselMode = mode === 'counsel';
+    const isReviewMode = mode === 'review';
+    const isGraphMode = mode === 'graph';
 
     return (
         <div className={styles.page}>
@@ -184,13 +454,24 @@ function CounselChatPageContent() {
                         </button>
                         <button
                             type="button"
-                            className={`${styles.modeButton} ${!isCounselMode ? styles.modeButtonActive : ''}`}
+                            className={`${styles.modeButton} ${isReviewMode ? styles.modeButtonActive : ''}`}
                             onClick={() => setMode('review')}
                         >
                             <SearchCheck size={18} />
                             <span className={styles.modeButtonCopy}>
                                 <strong>문구 점검</strong>
                                 <span>위험 요소와 수정 방향</span>
+                            </span>
+                        </button>
+                        <button
+                            type="button"
+                            className={`${styles.modeButton} ${isGraphMode ? styles.modeButtonActive : ''}`}
+                            onClick={() => setMode('graph')}
+                        >
+                            <BrainCircuit size={18} />
+                            <span className={styles.modeButtonCopy}>
+                                <strong>Graph RAG</strong>
+                                <span>온톨로지·출처 뷰어</span>
                             </span>
                         </button>
                     </div>
@@ -253,7 +534,7 @@ function CounselChatPageContent() {
                             </Button>
                         </div>
                     </>
-                ) : (
+                ) : isReviewMode ? (
                     <>
                         <div className={styles.panelHeader}>
                             <div>
@@ -281,6 +562,37 @@ function CounselChatPageContent() {
                         <div className={styles.actions}>
                             <Button onClick={handleReviewSubmit} isLoading={isReviewPending}>
                                 <SearchCheck size={16} /> 근거 기반 점검 실행
+                            </Button>
+                        </div>
+                    </>
+                ) : (
+                    <>
+                        <div className={styles.panelHeader}>
+                            <div>
+                                <span className={styles.panelKicker}>Ontology + RAG</span>
+                                <h2>Graph RAG 질문</h2>
+                            </div>
+                        </div>
+
+                        <textarea
+                            className={styles.inputArea}
+                            value={question}
+                            onChange={(event) => setQuestion(event.target.value)}
+                            placeholder="Graph RAG로 근거 흐름까지 확인할 질문을 입력하세요."
+                            rows={6}
+                        />
+
+                        <div className={styles.sampleRow}>
+                            {SAMPLE_QUESTIONS.map((sample) => (
+                                <button key={sample} className={styles.sampleChip} onClick={() => setQuestion(sample)}>
+                                    {sample}
+                                </button>
+                            ))}
+                        </div>
+
+                        <div className={styles.actions}>
+                            <Button onClick={handleGraphSubmit} isLoading={isGraphPending}>
+                                <Route size={16} /> Graph RAG 답변 생성
                             </Button>
                         </div>
                     </>
@@ -347,7 +659,7 @@ function CounselChatPageContent() {
                 </motion.section>
             )}
 
-            {!isCounselMode && reviewResult && (
+            {isReviewMode && reviewResult && (
                 <motion.section
                     initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -439,6 +751,14 @@ function CounselChatPageContent() {
                         )}
                     </aside>
                 </motion.section>
+            )}
+
+            {isGraphMode && graphResult && (
+                <GraphRagResultView
+                    result={graphResult}
+                    answerFontSize={answerFontSize}
+                    onAnswerFontSizeChange={setAnswerFontSize}
+                />
             )}
         </div>
     );

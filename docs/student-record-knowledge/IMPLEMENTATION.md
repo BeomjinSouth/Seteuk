@@ -37,6 +37,7 @@
 - `src/app/api/search-eval/route.ts`
 - `src/app/api/search-openai/route.ts`
 - `src/app/api/counsel-chat/route.ts`
+- `src/app/api/counsel-chat/graph/route.ts`
 - `src/app/api/record-review/route.ts`
 - `src/app/api/generate/route.ts`
 - `src/app/api/admin-users/route.ts`
@@ -78,6 +79,9 @@
 - query-string prefill supported
 - the sidebar/workspace label is `생기부 상담 점검`
 - counsel chat and record review now share one `/counsel-chat` workspace with a mode switch, and `/record-review` redirects into that workspace
+- `/counsel-chat` includes a `Graph RAG` mode that calls `/api/counsel-chat/graph`, builds a lightweight ontology graph from school level, category, year, policy anchors, retrieved knowledge units, and public source documents, and shows data flow from question to grounded answer
+- Graph RAG answers are split into clickable highlighted spans; each span opens the mapped source title, public excerpt, confidence level, and source URL in a right-side viewer
+- Graph RAG mode includes a native range slider for answer font size so teachers can enlarge or shrink the grounded answer without changing the browser zoom
 - `search-inspector` remains available only as an internal diagnostics route and is no longer shown in the sidebar
 - main navigation groups counsel/review tools under `AI 세특 생성`
 - top navigation order is `학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검 (개발중)`
@@ -153,6 +157,7 @@
 
 - If there is no public evidence, do not fabricate an answer
 - counsel responses must include citations
+- Graph RAG responses must use the same public-only evidence policy as counsel chat; graph nodes and highlighted excerpts are an explanation layer over retrieved public FAQ/Q&A evidence, not a separate private source
 - review responses must include issues, risk level, and rewrite guidance
 - improved drafts must stay inside the original facts plus public evidence
 - record review first tries category-filtered matches and falls back to school-level public evidence when the category slice is empty
