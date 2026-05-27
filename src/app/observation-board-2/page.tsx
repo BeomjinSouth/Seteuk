@@ -41,15 +41,18 @@ import { isAuthorizedSeonghoTeacher } from '@/lib/seongho-auth';
 import {
     DEFAULT_OBSERVATION_BOARD_ACTIVITY_SESSIONS as defaultActivitySessions,
     areObservationBoardMentorAssignmentsEqual,
+    getObservationBoardActivitySessionsForClass,
     getObservationBoardAssignmentMembers,
     getObservationBoardMarkStorageKey,
     getObservationBoardMentorAssignmentStorageKey,
     getObservationBoardMentorAssignmentSnapshotStorageKey,
     getObservationBoardSessionStorageKey,
     normalizeObservationBoardActivitySessions,
+    normalizeObservationBoardActivitySessionsByClass,
     normalizeObservationBoardMentorAssignmentSnapshotsByClass,
     normalizeObservationBoardMentorAssignmentsByClass,
     normalizeObservationBoardMarks,
+    type ObservationBoardActivitySessionsByClass,
     type ObservationBoardActivitySession,
     type ObservationBoardGroupMember,
     type ObservationBoardMarkState,
@@ -95,7 +98,8 @@ interface NoticeItem {
 }
 
 interface ObservationBoardRemoteState {
-    activitySessions: ActivitySession[];
+    activitySessionsByClass: ObservationBoardActivitySessionsByClass;
+    activitySessions?: ActivitySession[];
     marks: Record<string, MarkState>;
     mentorAssignmentsByClass: ObservationBoardMentorAssignmentsByClass;
     mentorAssignmentSnapshotsByClass: ObservationBoardMentorAssignmentSnapshotsByClass;
@@ -372,7 +376,8 @@ export default function ObservationBoard2Page() {
     const [mentorAssignmentsByClass, setMentorAssignmentsByClass] = useState<ObservationBoardMentorAssignmentsByClass>({});
     const [mentorAssignmentSnapshotsByClass, setMentorAssignmentSnapshotsByClass] =
         useState<ObservationBoardMentorAssignmentSnapshotsByClass>({});
-    const [activitySessions, setActivitySessions] = useState<ActivitySession[]>(defaultActivitySessions);
+    const [activitySessionsByClass, setActivitySessionsByClass] = useState<ObservationBoardActivitySessionsByClass>({});
+    const [legacyActivitySessions, setLegacyActivitySessions] = useState<ActivitySession[] | null>(null);
     const [loadedSessionKey, setLoadedSessionKey] = useState('');
     const [loadedMarkKey, setLoadedMarkKey] = useState('');
     const [loadedMentorAssignmentKey, setLoadedMentorAssignmentKey] = useState('');
@@ -451,6 +456,13 @@ export default function ObservationBoard2Page() {
     }, [students, teacherStudents]);
 
     const selectedClass = teacherClasses.find((cls) => cls.id === selectedClassId);
+    const activitySessions = useMemo(
+        () => getObservationBoardActivitySessionsForClass({
+            sessionsByClass: activitySessionsByClass,
+            classId: selectedClassId,
+        }),
+        [activitySessionsByClass, selectedClassId]
+    );
 
     const boardStudents = useMemo(() => {
         const classStudents = selectedClass
@@ -712,17 +724,40 @@ export default function ObservationBoard2Page() {
         try {
             const saved = window.localStorage.getItem(storageKey)
                 ?? window.localStorage.getItem(getObservationBoardSessionStorageKey());
-            setActivitySessions(saved ? normalizeObservationBoardActivitySessions(JSON.parse(saved)) : defaultActivitySessions);
+            const parsedSessions = saved ? JSON.parse(saved) : undefined;
+            setActivitySessionsByClass(normalizeObservationBoardActivitySessionsByClass(parsedSessions));
+            setLegacyActivitySessions(Array.isArray(parsedSessions)
+                ? normalizeObservationBoardActivitySessions(parsedSessions)
+                : null);
         } catch (error) {
             console.error('Failed to load observation board sessions:', error);
-            setActivitySessions(defaultActivitySessions);
+            setActivitySessionsByClass({});
+            setLegacyActivitySessions(null);
         }
     }, [teacher?.teacherKey]);
 
     useEffect(() => {
-        if (!loadedSessionKey) return;
-        window.localStorage.setItem(loadedSessionKey, JSON.stringify(activitySessions));
-    }, [activitySessions, loadedSessionKey]);
+        if (!loadedSessionKey || legacyActivitySessions) return;
+        window.localStorage.setItem(loadedSessionKey, JSON.stringify(activitySessionsByClass));
+    }, [activitySessionsByClass, legacyActivitySessions, loadedSessionKey]);
+
+    useEffect(() => {
+        if (!legacyActivitySessions || teacherClasses.length === 0) return;
+
+        const targetClassId = selectedClassId !== 'all'
+            && teacherClasses.some((cls) => cls.id === selectedClassId)
+            ? selectedClassId
+            : teacherClasses[0].id;
+
+        setActivitySessionsByClass((prev) => {
+            if (Object.keys(prev).length > 0 || prev[targetClassId]?.length) return prev;
+            return {
+                ...prev,
+                [targetClassId]: legacyActivitySessions,
+            };
+        });
+        setLegacyActivitySessions(null);
+    }, [legacyActivitySessions, selectedClassId, teacherClasses]);
 
     useEffect(() => {
         const storageKey = getObservationBoardMarkStorageKey(teacher?.teacherKey);
@@ -744,13 +779,13 @@ export default function ObservationBoard2Page() {
     }, [loadedMarkKey, marks]);
 
     const remoteBoardPayload = useMemo<ObservationBoardRemoteState>(() => ({
-        activitySessions,
+        activitySessionsByClass,
         marks,
         mentorAssignmentsByClass,
         mentorAssignmentSnapshotsByClass,
         notices,
     }), [
-        activitySessions,
+        activitySessionsByClass,
         marks,
         mentorAssignmentsByClass,
         mentorAssignmentSnapshotsByClass,
@@ -778,14 +813,20 @@ export default function ObservationBoard2Page() {
                 if (!body.configured || !body.data || Object.keys(body.data).length === 0) return;
 
                 const nextState: ObservationBoardRemoteState = {
-                    activitySessions: normalizeObservationBoardActivitySessions(body.data.activitySessions),
+                    activitySessionsByClass: normalizeObservationBoardActivitySessionsByClass(body.data.activitySessionsByClass),
                     marks: normalizeObservationBoardMarks(body.data.marks),
                     mentorAssignmentsByClass: normalizeObservationBoardMentorAssignmentsByClass(body.data.mentorAssignmentsByClass),
                     mentorAssignmentSnapshotsByClass: normalizeObservationBoardMentorAssignmentSnapshotsByClass(body.data.mentorAssignmentSnapshotsByClass),
                     notices: Array.isArray(body.data.notices) ? body.data.notices as NoticeItem[] : [],
                 };
 
-                setActivitySessions(nextState.activitySessions);
+                setActivitySessionsByClass(nextState.activitySessionsByClass);
+                setLegacyActivitySessions(
+                    Object.keys(nextState.activitySessionsByClass).length === 0
+                        && Array.isArray(body.data.activitySessions)
+                        ? normalizeObservationBoardActivitySessions(body.data.activitySessions)
+                        : null
+                );
                 setMarks(nextState.marks);
                 setMentorAssignmentsByClass(nextState.mentorAssignmentsByClass);
                 setMentorAssignmentSnapshotsByClass(nextState.mentorAssignmentSnapshotsByClass);
@@ -808,7 +849,7 @@ export default function ObservationBoard2Page() {
     }, [isStoreReady, teacher?.teacherKey]);
 
     useEffect(() => {
-        if (!isStoreReady || !teacher?.teacherKey || !isRemoteBoardLoaded) return;
+        if (!isStoreReady || !teacher?.teacherKey || !isRemoteBoardLoaded || legacyActivitySessions) return;
 
         const serializedPayload = JSON.stringify(remoteBoardPayload);
         if (serializedPayload === lastRemoteBoardPayloadRef.current) return;
@@ -829,7 +870,7 @@ export default function ObservationBoard2Page() {
         }, 900);
 
         return () => window.clearTimeout(timeout);
-    }, [isRemoteBoardLoaded, isStoreReady, remoteBoardPayload, teacher?.teacherKey]);
+    }, [isRemoteBoardLoaded, isStoreReady, legacyActivitySessions, remoteBoardPayload, teacher?.teacherKey]);
 
     useEffect(() => {
         setStudentDrafts((prev) => {
@@ -1478,7 +1519,7 @@ export default function ObservationBoard2Page() {
         handleCancelMentorGroupEdit();
     };
 
-    const persistActivitySessions = (nextSessions: ActivitySession[]) => {
+    const persistActivitySessionsByClass = (nextSessionsByClass: ObservationBoardActivitySessionsByClass) => {
         if (typeof window === 'undefined') return;
 
         try {
@@ -1487,33 +1528,47 @@ export default function ObservationBoard2Page() {
                 getObservationBoardSessionStorageKey(teacher?.teacherKey),
             ].filter(Boolean));
             storageKeys.forEach((storageKey) => {
-                window.localStorage.setItem(storageKey, JSON.stringify(nextSessions));
+                window.localStorage.setItem(storageKey, JSON.stringify(nextSessionsByClass));
             });
         } catch (error) {
             console.error('Failed to save observation board sessions:', error);
         }
     };
 
+    const updateActivitySessionsForSelectedClass = (
+        updater: (sessions: ActivitySession[]) => ActivitySession[]
+    ) => {
+        if (selectedClassId === 'all') return;
+
+        setActivitySessionsByClass((prev) => {
+            const currentSessions = prev[selectedClassId] ?? defaultActivitySessions;
+            const nextSessionsByClass = {
+                ...prev,
+                [selectedClassId]: updater(currentSessions),
+            };
+            persistActivitySessionsByClass(nextSessionsByClass);
+            return nextSessionsByClass;
+        });
+    };
+
     const handleUpdateSession = (sessionId: string, field: 'date' | 'topic', value: string) => {
-        const nextSessions = activitySessions.map((session) => (
-            session.id === sessionId ? { ...session, [field]: value } : session
+        updateActivitySessionsForSelectedClass((sessions) => (
+            sessions.map((session) => (
+                session.id === sessionId ? { ...session, [field]: value } : session
+            ))
         ));
-        setActivitySessions(nextSessions);
-        persistActivitySessions(nextSessions);
     };
 
     const handleAddSession = () => {
-        const nextSessions = [
-            ...activitySessions,
+        updateActivitySessionsForSelectedClass((sessions) => [
+            ...sessions,
             {
                 id: `session-${Date.now()}`,
-                label: `${activitySessions.length + 1}차시`,
+                label: `${sessions.length + 1}차시`,
                 date: '',
                 topic: '',
             },
-        ];
-        setActivitySessions(nextSessions);
-        persistActivitySessions(nextSessions);
+        ]);
     };
 
     const renderObservationRecordsView = () => (

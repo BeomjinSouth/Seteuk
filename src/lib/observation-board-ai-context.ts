@@ -38,6 +38,7 @@ export type ObservationBoardMentorAssignmentSnapshotsByClass = Record<
     string,
     Record<string, ObservationBoardMentorAssignment[]>
 >;
+export type ObservationBoardActivitySessionsByClass = Record<string, ObservationBoardActivitySession[]>;
 
 export interface ObservationBoardRoleContext {
     role: ObservationBoardMentorRole;
@@ -125,6 +126,37 @@ export function normalizeObservationBoardActivitySessions(value: unknown): Obser
         .filter(Boolean) as ObservationBoardActivitySession[];
 
     return normalized.length > 0 ? normalized : DEFAULT_OBSERVATION_BOARD_ACTIVITY_SESSIONS;
+}
+
+export function normalizeObservationBoardActivitySessionsByClass(
+    value: unknown
+): ObservationBoardActivitySessionsByClass {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return {};
+
+    const normalized: ObservationBoardActivitySessionsByClass = {};
+    Object.entries(value as Record<string, unknown>).forEach(([classId, sessions]) => {
+        if (!classId.trim()) return;
+        normalized[classId] = normalizeObservationBoardActivitySessions(sessions);
+    });
+
+    return normalized;
+}
+
+export function getObservationBoardActivitySessionsForClass(input: {
+    sessionsByClass: ObservationBoardActivitySessionsByClass;
+    classId?: string;
+    fallbackSessions?: ObservationBoardActivitySession[];
+}): ObservationBoardActivitySession[] {
+    if (input.classId && input.classId !== 'all') {
+        return input.sessionsByClass[input.classId]
+            ?? input.fallbackSessions
+            ?? DEFAULT_OBSERVATION_BOARD_ACTIVITY_SESSIONS;
+    }
+
+    const firstClassSessions = Object.values(input.sessionsByClass)[0];
+    return input.fallbackSessions
+        ?? firstClassSessions
+        ?? DEFAULT_OBSERVATION_BOARD_ACTIVITY_SESSIONS;
 }
 
 export function normalizeObservationBoardMarks(value: unknown): Record<string, ObservationBoardMarkState> {
@@ -470,7 +502,16 @@ export function readObservationBoardAiContext(input: {
     const assignmentSnapshotRaw = window.localStorage.getItem(getObservationBoardMentorAssignmentSnapshotStorageKey(input.teacherKey))
         ?? window.localStorage.getItem(getObservationBoardMentorAssignmentSnapshotStorageKey());
 
-    const sessions = normalizeObservationBoardActivitySessions(parseJsonValue(sessionRaw));
+    const sessionValue = parseJsonValue(sessionRaw);
+    const sessionsByClass = normalizeObservationBoardActivitySessionsByClass(sessionValue);
+    const legacySessions = Array.isArray(sessionValue)
+        ? normalizeObservationBoardActivitySessions(sessionValue)
+        : undefined;
+    const sessions = getObservationBoardActivitySessionsForClass({
+        sessionsByClass,
+        classId: input.classId,
+        fallbackSessions: legacySessions,
+    });
     const marks = normalizeObservationBoardMarks(parseJsonValue(markRaw));
     const assignmentsByClass = normalizeObservationBoardMentorAssignmentsByClass(parseJsonValue(assignmentRaw));
     const snapshotsByClass = normalizeObservationBoardMentorAssignmentSnapshotsByClass(parseJsonValue(assignmentSnapshotRaw));

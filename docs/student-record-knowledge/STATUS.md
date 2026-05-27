@@ -61,7 +61,7 @@
 - observation board 2 growth modal: `성장 기록 작성`은 기준 이미지형 dimmed overlay, 선택 학생 동물 칩, 중립 쿠키 카드 3개, 활동 중심 칭찬 문구, 선택 메모, `이전`/`저장하기` 버튼을 제공
 - observation board 2 growth quick compose: 성장 기록 학생 카드를 더블클릭하면 해당 학생 1명만 선택한 상태로 `성장 기록 작성` 모달을 즉시 표시
 - observation board 2 stats class scope: 통계 보기는 compact 학급 선택 메뉴를 제공하고 담당 학급 하나를 기본 범위로 사용해 모둠별 활동 균형을 학급별로 확인함
-- observation board 2 editable sessions: 차시 표 헤더에서 날짜/활동 내용을 직접 입력하고 `+` 버튼으로 차시 열을 추가하며, 교사별 localStorage에 유지
+- observation board 2 editable sessions: 차시 표 헤더에서 날짜/활동 내용을 직접 입력하고 `+` 버튼으로 차시 열을 추가하며, 같은 교사 안에서도 선택 학급별로 별도 저장
 - observation board 2 AI input link: 차시별 학생 △/○ 클릭 기록은 `observation-board-2-marks:${teacherKey}`에, 멘토·멘티 배치는 `observation-board-2-mentor-assignments:${teacherKey}`에 유지되고 `/write` 세특 생성 시 해석 요약으로 전달됨
 - observation board 2 mentor empty/delete: 멘토·멘티 배치는 로그인 교사별/학급별로만 읽고 저장하며, 모둠 삭제와 `모둠 비우기`는 선택 학급을 명시적인 빈 상태로 유지함
 - observation board 2 group editing: 2~4명 모둠, 선택 모둠만 수정, 부분 저장, 학생 추가 칸 없는 모둠 카드 직접 드롭, 기존 △/○ 활동 기록 보존을 기존 교실 대시보드 UI 톤 안에서 구현 완료
@@ -86,6 +86,9 @@
 
 ## Recent Changes
 
+- 2026-05-28: changed `/observation-board-2` activity-session headers from one teacher-wide array to class-specific `classId -> sessions` storage, so 3-1 and 3-2 can keep different dates and activity topics; existing teacher-wide session arrays are migrated to the first assigned class to preserve already-entered 3-1 records.
+- 2026-05-28: verification passed for `cmd /c npx tsc --noEmit --pretty false`, HTTP 200 route smoke on `http://localhost:3009/observation-board-2` and `/api/auth/session`, and Browser checks with a local 3-1/3-2 roster fixture confirming each class keeps different first-session date/topic values with no console errors.
+- 2026-05-28: `npm run sync:knowledge-docs` was not run because `../student-record-knowledge/docs` is not present next to this checkout and no mirror source files changed.
 - 2026-05-17: applied the local Maplestory font as the app-wide default by mapping shared font variables to Maplestory, inheriting the font for native form controls, and keeping route-local classroom dashboard typography on the shared global font stack.
 - 2026-05-17: adjusted the global Maplestory `@font-face` weight ranges so every weight below `700` resolves to `MaplestoryLight.ttf`, while `700` through `900` continue to use `MaplestoryBold.ttf`.
 - 2026-05-17: verification passed for `cmd /c npx tsc --noEmit --pretty false`, HTTP 200 route smoke on `http://localhost:3005/students`, `http://localhost:3005/observation-board-2`, and `/api/auth/session`, plus Playwright-on-Edge checks confirming the loaded Maplestory faces are `100 699` and `700 900` and student-management `600` text remains on the below-700 Light range. Vercel settings were not changed because this is a CSS font-weight mapping update.
