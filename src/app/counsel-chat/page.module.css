@@ -7,17 +7,19 @@
     --answer-highlight-medium: hsl(var(--page-warning) / 0.2);
     --answer-highlight-low: hsl(var(--page-warning) / 0.16);
     --answer-highlight-active: hsl(var(--page-warning) / 0.32);
-    --graph-canvas-start: 208 42% 97%;
-    --graph-canvas-end: 250 35% 99%;
-    --graph-dot: 215 28% 78%;
-    --graph-node-bg: 0 0% 100%;
-    --graph-node-border: 215 22% 86%;
-    --graph-node-shadow: 222 47% 11%;
-    --graph-edge-halo: 0 0% 100%;
-    --graph-edge-query-ontology: 201 89% 48%;
-    --graph-edge-ontology-knowledge: 158 78% 35%;
-    --graph-edge-knowledge-source: 33 94% 53%;
-    --graph-edge-source-answer: 42 95% 46%;
+    --graph-canvas-start: 222 24% 10%;
+    --graph-canvas-end: 222 32% 6%;
+    --graph-dot: 210 18% 52%;
+    --graph-map-edge: 210 20% 70%;
+    --graph-map-edge-active: 38 70% 55%;
+    --graph-map-query: 207 70% 52%;
+    --graph-map-ontology: 202 72% 58%;
+    --graph-map-knowledge: 216 52% 64%;
+    --graph-map-source: 210 16% 78%;
+    --graph-map-answer: 42 82% 59%;
+    --graph-map-keyword: 212 16% 76%;
+    --graph-map-label: 210 32% 92%;
+    --graph-map-shadow: 0 0% 0%;
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -29,17 +31,19 @@
     --answer-highlight-medium: hsl(var(--page-warning) / 0.28);
     --answer-highlight-low: hsl(var(--page-warning) / 0.22);
     --answer-highlight-active: hsl(var(--page-warning) / 0.44);
-    --graph-canvas-start: 222 47% 8%;
-    --graph-canvas-end: 224 53% 12%;
-    --graph-dot: 217 33% 34%;
-    --graph-node-bg: 222 47% 12%;
-    --graph-node-border: 217 33% 23%;
-    --graph-node-shadow: 0 0% 0%;
-    --graph-edge-halo: 222 47% 7%;
-    --graph-edge-query-ontology: 199 95% 62%;
-    --graph-edge-ontology-knowledge: 158 78% 48%;
-    --graph-edge-knowledge-source: 35 96% 60%;
-    --graph-edge-source-answer: 45 96% 58%;
+    --graph-canvas-start: 222 33% 9%;
+    --graph-canvas-end: 224 45% 6%;
+    --graph-dot: 217 26% 44%;
+    --graph-map-edge: 213 24% 74%;
+    --graph-map-edge-active: 38 80% 62%;
+    --graph-map-query: 207 82% 64%;
+    --graph-map-ontology: 201 78% 64%;
+    --graph-map-knowledge: 216 58% 70%;
+    --graph-map-source: 211 20% 82%;
+    --graph-map-answer: 42 88% 63%;
+    --graph-map-keyword: 213 18% 78%;
+    --graph-map-label: 210 40% 96%;
+    --graph-map-shadow: 0 0% 0%;
 }
 
 .hero {
@@ -390,142 +394,198 @@
 
 .graphCanvas {
     position: relative;
-    min-height: 560px;
-    overflow-x: auto;
-    overflow-y: hidden;
+    min-height: 600px;
+    overflow: hidden;
     border-radius: 1rem;
-    border: 1px solid hsl(var(--border));
+    border: 1px solid hsl(220 18% 24% / 0.9);
     background:
-        radial-gradient(circle at center, hsl(var(--graph-dot) / 0.34) 0 1px, transparent 1.25px),
-        radial-gradient(circle at 12% 18%, hsl(var(--page-accent) / 0.13), transparent 30%),
-        radial-gradient(circle at 82% 76%, hsl(var(--page-warning) / 0.12), transparent 28%),
+        radial-gradient(circle at 50% 52%, hsl(var(--graph-map-query) / 0.16), transparent 22%),
+        radial-gradient(circle at 30% 24%, hsl(var(--graph-map-ontology) / 0.1), transparent 24%),
+        radial-gradient(circle at 78% 72%, hsl(var(--graph-map-answer) / 0.11), transparent 26%),
+        radial-gradient(circle at center, hsl(var(--graph-dot) / 0.35) 0 1px, transparent 1.2px),
         linear-gradient(135deg, hsl(var(--graph-canvas-start)), hsl(var(--graph-canvas-end)));
-    background-size: 28px 28px, auto, auto, auto;
+    background-size: auto, auto, auto, 24px 24px, auto;
+    box-shadow: inset 0 0 0 1px hsl(0 0% 100% / 0.04), inset 0 -42px 110px hsl(0 0% 0% / 0.28);
 }
 
 .graphStage {
     position: relative;
-    width: max(100%, 980px);
-    height: 560px;
+    width: 100%;
+    height: 600px;
+    isolation: isolate;
 }
 
-.graphEdges {
+.graphMap {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
+    display: block;
 }
 
-.graphEdgeGroup {
-    fill: none;
-}
-
-.graphEdgeHalo {
-    stroke: hsl(var(--graph-edge-halo) / 0.86);
+.graphMapEdge {
+    stroke: hsl(var(--graph-map-edge) / var(--edge-opacity));
     stroke-linecap: round;
-    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+    filter: drop-shadow(0 0 3px hsl(var(--graph-map-edge) / 0.16));
 }
 
-.graphEdge {
-    stroke: var(--edge-color);
-    opacity: var(--edge-opacity);
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    filter: drop-shadow(0 2px 2px hsl(var(--graph-node-shadow) / 0.1));
+.graphMapEdgeSatellite {
+    stroke: hsl(var(--graph-map-edge) / calc(var(--edge-opacity) * 0.72));
 }
 
-.graphNode {
-    position: absolute;
-    z-index: 1;
-    width: 8.75rem;
-    min-height: 4rem;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.25rem;
-    padding: 0.65rem 0.7rem;
-    border-radius: 0.85rem;
-    border: 1px solid hsl(var(--graph-node-border));
-    background: hsl(var(--graph-node-bg) / 0.96);
-    color: hsl(var(--foreground));
-    box-shadow: 0 14px 30px hsl(var(--graph-node-shadow) / 0.1);
-    text-align: left;
-    font: inherit;
+.graphMapEdgeActive {
+    stroke: hsl(var(--graph-map-edge-active) / 0.9);
+    filter: drop-shadow(0 0 6px hsl(var(--graph-map-edge-active) / 0.35));
+}
+
+.graphMapNode {
+    opacity: var(--node-opacity);
+    outline: none;
+}
+
+.graphMapNode circle {
+    fill: hsl(var(--graph-map-keyword) / 0.78);
+    stroke: hsl(210 32% 92% / 0.54);
+    stroke-width: 0.9;
+    transform-box: fill-box;
+    transform-origin: center;
+    vector-effect: non-scaling-stroke;
+    filter: drop-shadow(0 0 5px hsl(var(--graph-map-keyword) / 0.26));
     cursor: pointer;
-    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.18s ease, stroke 0.18s ease, filter 0.18s ease, opacity 0.18s ease;
 }
 
 .resultAnchor {
     scroll-margin-top: 5.75rem;
 }
 
-.graphNode:hover {
-    transform: translate(-50%, -52%);
-    border-color: hsl(var(--page-accent) / 0.32);
-    box-shadow: 0 18px 36px hsl(var(--foreground) / 0.12);
+.graphMapNodeInteractive:hover circle,
+.graphMapNodeInteractive:focus-visible circle {
+    transform: scale(1.42);
+    stroke: hsl(0 0% 100% / 0.9);
+    filter: drop-shadow(0 0 9px hsl(var(--graph-map-edge-active) / 0.44));
 }
 
-.graphNode span {
-    width: fit-content;
-    padding: 0.14rem 0.45rem;
-    border-radius: 999px;
-    font-size: 0.68rem;
+.graphMapNodeActive circle {
+    transform: scale(1.55);
+    stroke: hsl(var(--graph-map-edge-active));
+    filter: drop-shadow(0 0 12px hsl(var(--graph-map-edge-active) / 0.62));
+}
+
+.graphMapNode_query circle {
+    fill: hsl(var(--graph-map-query));
+    stroke: hsl(var(--graph-map-query) / 0.88);
+    filter: drop-shadow(0 0 18px hsl(var(--graph-map-query) / 0.64));
+}
+
+.graphMapNode_ontology circle {
+    fill: hsl(var(--graph-map-ontology));
+    filter: drop-shadow(0 0 10px hsl(var(--graph-map-ontology) / 0.42));
+}
+
+.graphMapNode_knowledge circle {
+    fill: hsl(var(--graph-map-knowledge));
+    filter: drop-shadow(0 0 9px hsl(var(--graph-map-knowledge) / 0.38));
+}
+
+.graphMapNode_source circle {
+    fill: hsl(var(--graph-map-source));
+    filter: drop-shadow(0 0 8px hsl(var(--graph-map-source) / 0.32));
+}
+
+.graphMapNode_answer circle {
+    fill: hsl(var(--graph-map-answer));
+    stroke: hsl(43 100% 78% / 0.88);
+    filter: drop-shadow(0 0 14px hsl(var(--graph-map-answer) / 0.58));
+}
+
+.graphMapNode_keyword circle {
+    fill: hsl(var(--graph-map-keyword) / 0.68);
+}
+
+.graphMapNodeLabel {
+    fill: hsl(var(--graph-map-label) / 0.92);
+    stroke: hsl(var(--graph-canvas-end) / 0.82);
+    stroke-width: 4px;
+    paint-order: stroke;
+    font-size: 20px;
     font-weight: 800;
-    color: hsl(var(--page-accent));
-    background: hsl(var(--page-accent) / 0.1);
+    text-anchor: middle;
+    letter-spacing: 0;
+    pointer-events: none;
 }
 
-.graphNode strong {
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    font-size: 0.82rem;
-    line-height: 1.35;
+.graphMapHud {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 0.45rem;
+    z-index: 1;
 }
 
-.graphNode small {
-    color: hsl(var(--foreground-muted));
-    font-size: 0.7rem;
-    line-height: 1.35;
+.graphMapHud span {
+    padding: 0.38rem 0.58rem;
+    border-radius: 999px;
+    border: 1px solid hsl(210 28% 84% / 0.16);
+    background: hsl(222 32% 9% / 0.62);
+    color: hsl(210 30% 90% / 0.86);
+    font-size: 0.74rem;
+    font-weight: 800;
 }
 
-.graphNode_query {
-    border-color: hsl(var(--page-accent) / 0.35);
+.graphMapLegend {
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 0.7rem;
+    max-width: calc(100% - 2rem);
+    padding: 0.58rem 0.7rem;
+    border-radius: 999px;
+    border: 1px solid hsl(210 28% 84% / 0.14);
+    background: hsl(222 32% 8% / 0.66);
+    color: hsl(210 30% 90% / 0.86);
+    backdrop-filter: blur(10px);
 }
 
-.graphNode_ontology {
-    border-color: hsl(var(--page-success) / 0.34);
+.graphMapLegendItem {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.74rem;
+    font-weight: 800;
 }
 
-.graphNode_ontology span {
-    color: hsl(var(--page-success));
-    background: hsl(var(--page-success) / 0.11);
+.graphMapLegendDot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: hsl(var(--graph-map-keyword));
+    box-shadow: 0 0 8px currentColor;
 }
 
-.graphNode_knowledge {
-    border-color: hsl(var(--page-review) / 0.32);
+.graphMapLegendDot_query {
+    background: hsl(var(--graph-map-query));
 }
 
-.graphNode_knowledge span {
-    color: hsl(var(--page-review));
-    background: hsl(var(--page-review) / 0.12);
+.graphMapLegendDot_ontology {
+    background: hsl(var(--graph-map-ontology));
 }
 
-.graphNode_source {
-    border-color: hsl(var(--page-warning) / 0.34);
+.graphMapLegendDot_knowledge {
+    background: hsl(var(--graph-map-knowledge));
 }
 
-.graphNode_source span {
-    color: hsl(var(--page-warning));
-    background: hsl(var(--page-warning) / 0.12);
+.graphMapLegendDot_source {
+    background: hsl(var(--graph-map-source));
 }
 
-.graphNode_answer {
-    width: 7rem;
-    border-color: hsl(var(--page-accent) / 0.38);
-    background: linear-gradient(180deg, hsl(var(--page-accent) / 0.12), hsl(var(--graph-node-bg) / 0.96));
+.graphMapLegendDot_answer {
+    background: hsl(var(--graph-map-answer));
 }
 
 .fontControl {
@@ -1048,13 +1108,17 @@
     }
 
     .graphCanvas {
-        min-height: 640px;
-        overflow-x: auto;
+        min-height: 540px;
     }
 
     .graphStage {
-        width: 980px;
-        height: 640px;
+        width: 100%;
+        height: 540px;
+    }
+
+    .graphMapLegend {
+        right: 1rem;
+        border-radius: 1rem;
     }
 
     .sourceViewer {

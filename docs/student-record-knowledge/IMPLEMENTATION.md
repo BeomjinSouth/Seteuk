@@ -79,7 +79,7 @@
 - query-string prefill supported
 - the sidebar/workspace label is `생기부 상담 점검`
 - counsel chat and record review now share one `/counsel-chat` workspace with a mode switch, and `/record-review` redirects into that workspace
-- `/counsel-chat` includes a `Graph RAG` mode that calls `/api/counsel-chat/graph`, renders the generated answer first, then shows a supplementary lightweight ontology graph from school level, category, year, policy anchors, retrieved knowledge units, and public source documents
+- `/counsel-chat` includes a `Graph RAG` mode that calls `/api/counsel-chat/graph`, renders the generated answer first, then shows a supplementary Obsidian-like knowledge map from school level, category, year, policy anchors, retrieved knowledge units, public source documents, and client-derived keyword satellite nodes
 - Graph RAG answers are split into answer spans; only spans whose retrieved source score and stricter lexical overlap both pass the grounding threshold are rendered as clickable citation-style highlights with compact inline citation markers, while ungrounded spans remain plain text
 - Graph RAG grounding filters low-signal meta terms such as public/source/evidence/check phrasing so generic advice sentences are less likely to be highlighted as if they had exact source support
 - Graph RAG answer highlights and selected source excerpts use cloned line-fragment text decoration with a near-full-height fill so wrapped Korean text appears as separate highlighter strokes instead of one large rectangle or a half-height underline
@@ -87,8 +87,8 @@
 - The right-side viewer also lists the answer annotations separately from the raw search candidates, and raw candidates are tucked behind a disclosure control
 - After a Graph RAG answer is generated, the long question composer collapses to a current-question summary with a `질문 수정` action so the answer and source viewer are immediately visible
 - Graph RAG mode includes a native range slider for answer font size so teachers can enlarge or shrink the grounded answer without changing the browser zoom
-- Graph RAG ontology/data-flow graph edges render as theme-aware curved SVG paths with separate halo and foreground strokes; edge weight, color, and opacity encode the relationship layer while avoiding node overlap
-- Graph RAG page-level tokens define separate light/dark graph canvases, node surfaces, edge colors, and highlight opacity, while `globals.css` sets explicit `color-scheme` for manual and system theme states
+- Graph RAG supplementary graph now renders as a dark Obsidian-style SVG network: central question/answer hubs, small circular ontology/knowledge/source nodes, derived keyword satellites, fine straight links, active source highlighting, compact counts, and a restrained blue/slate/amber legend instead of rectangular flowchart node cards
+- Graph RAG page-level tokens define dark graph canvas, node colors, edge colors, and highlight opacity, while `globals.css` sets explicit `color-scheme` for manual and system theme states
 - `search-inspector` remains available only as an internal diagnostics route and is no longer shown in the sidebar
 - main navigation groups counsel/review tools under `AI 세특 생성`
 - top navigation order is `학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검 (개발중)`

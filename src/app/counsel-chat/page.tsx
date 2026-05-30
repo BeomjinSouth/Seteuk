@@ -27,6 +27,7 @@ import { Button } from '@/components/ui/Button';
 import type {
     CounselChatResponse,
     GraphRagAnswerSpan,
+    GraphRagEdge,
     GraphRagNode,
     GraphRagResponse,
     KnowledgeMeta,
@@ -37,10 +38,40 @@ import styles from './page.module.css';
 
 type AssistantMode = 'counsel' | 'review' | 'graph';
 
-type PositionedGraphNode = GraphRagNode & {
+type GraphMapNodeType = GraphRagNode['type'] | 'keyword';
+
+type GraphMapNode = {
+    id: string;
+    type: GraphMapNodeType;
+    label: string;
+    sublabel: string | null;
     x: number;
     y: number;
+    radius: number;
+    opacity: number;
+    isCore: boolean;
+    matchId?: string;
+    sourceUrl?: string | null;
 };
+
+type GraphMapEdge = {
+    id: string;
+    from: string;
+    to: string;
+    strength: number;
+    kind: 'primary' | 'satellite';
+    matchId?: string;
+};
+
+type GraphMap = {
+    nodes: GraphMapNode[];
+    edges: GraphMapEdge[];
+};
+
+const GRAPH_MAP_WIDTH = 1000;
+const GRAPH_MAP_HEIGHT = 620;
+const GRAPH_MAP_CENTER_X = GRAPH_MAP_WIDTH / 2;
+const GRAPH_MAP_CENTER_Y = GRAPH_MAP_HEIGHT / 2;
 
 const SAMPLE_QUESTIONS = [
     '출석인정 결석의 증빙 서류는 어디까지 필요한가요?',
@@ -78,48 +109,228 @@ const ISSUE_TYPE_LABELS: Record<RecordReviewIssue['issueType'], string> = {
     needs_manual_review: '수동 확인 필요',
 };
 
-const GRAPH_NODE_LABELS: Record<GraphRagNode['type'], string> = {
+const GRAPH_NODE_LABELS: Record<GraphMapNodeType, string> = {
     query: '질문',
     ontology: '기준',
     knowledge: '지식',
     source: '출처',
     answer: '답변',
+    keyword: '연결어',
 };
 
-function buildGraphLayout(nodes: GraphRagNode[]): PositionedGraphNode[] {
-    const layerX: Record<GraphRagNode['type'], number> = {
-        query: 8,
-        ontology: 29,
-        knowledge: 51,
-        source: 73,
-        answer: 92.5,
+function clampNumber(value: number, min: number, max: number): number {
+    return Math.max(min, Math.min(max, value));
+}
+
+function hashString(value: string): number {
+    let hash = 2166136261;
+    for (let index = 0; index < value.length; index += 1) {
+        hash ^= value.charCodeAt(index);
+        hash = Math.imul(hash, 16777619);
+    }
+    return hash >>> 0;
+}
+
+function hashUnit(value: string, salt: string | number): number {
+    return (hashString(`${value}:${salt}`) % 10000) / 10000;
+}
+
+function compactMapLabel(value: string, maxLength = 34): string {
+    const normalized = value.replace(/\s+/g, ' ').trim();
+    if (normalized.length <= maxLength) return normalized;
+    return `${normalized.slice(0, maxLength - 1)}…`;
+}
+
+function extractKeywordLabels(value: string, fallback: string | null, limit: number): string[] {
+    const raw = `${value} ${fallback ?? ''}`
+        .normalize('NFKC')
+        .replace(/[^\p{L}\p{N}\s]/gu, ' ')
+        .split(/\s+/)
+        .map((item) => item.trim())
+        .filter((item) => item.length >= 2 && !['FAQ', 'QNA', 'QA'].includes(item.toUpperCase()));
+    const seen = new Set<string>();
+    const keywords: string[] = [];
+
+    for (const item of raw) {
+        const label = item.length > 8 ? item.slice(0, 8) : item;
+        if (seen.has(label)) continue;
+        seen.add(label);
+        keywords.push(label);
+        if (keywords.length >= limit) return keywords;
+    }
+
+    return keywords.length > 0 ? keywords : [fallback ?? value];
+}
+
+function graphNodeRadius(node: GraphRagNode): number {
+    if (node.type === 'query') return 10.5;
+    if (node.type === 'answer') return 9.2;
+    if (node.type === 'ontology') return 6.8;
+    if (node.type === 'knowledge') return 5.8;
+    return 5;
+}
+
+function addGraphMapNode(
+    nodeMap: Map<string, GraphMapNode>,
+    node: GraphRagNode,
+    x: number,
+    y: number,
+): GraphMapNode {
+    const nextNode: GraphMapNode = {
+        id: node.id,
+        type: node.type,
+        label: node.label,
+        sublabel: node.sublabel,
+        x: clampNumber(x, 48, GRAPH_MAP_WIDTH - 48),
+        y: clampNumber(y, 42, GRAPH_MAP_HEIGHT - 42),
+        radius: graphNodeRadius(node),
+        opacity: 1,
+        isCore: true,
+        matchId: node.matchId,
+        sourceUrl: node.sourceUrl,
     };
-    const layerOrder: GraphRagNode['type'][] = ['query', 'ontology', 'knowledge', 'source', 'answer'];
+    nodeMap.set(nextNode.id, nextNode);
+    return nextNode;
+}
 
-    return layerOrder.flatMap((type) => {
-        const layerNodes = nodes.filter((node) => node.type === type);
-        if (layerNodes.length === 0) return [];
-        const gap = Math.min(24, 84 / Math.max(layerNodes.length - 1, 1));
-        const startY = layerNodes.length === 1 ? 50 : 50 - (gap * (layerNodes.length - 1)) / 2;
+function buildObsidianGraphMap(nodes: GraphRagNode[], edges: GraphRagEdge[]): GraphMap {
+    const nodeMap = new Map<string, GraphMapNode>();
+    const query = nodes.find((node) => node.type === 'query');
+    const answer = nodes.find((node) => node.type === 'answer');
+    const ontologyNodes = nodes.filter((node) => node.type === 'ontology');
+    const knowledgeNodes = nodes.filter((node) => node.type === 'knowledge');
+    const sourceNodes = nodes.filter((node) => node.type === 'source');
+    const otherNodes = nodes.filter((node) => !['query', 'answer', 'ontology', 'knowledge', 'source'].includes(node.type));
 
-        return layerNodes.map((node, index) => ({
-            ...node,
-            x: layerX[type],
-            y: Math.max(8, Math.min(92, startY + index * gap)),
-        }));
+    if (query) addGraphMapNode(nodeMap, query, GRAPH_MAP_CENTER_X, GRAPH_MAP_CENTER_Y);
+    if (answer) addGraphMapNode(nodeMap, answer, GRAPH_MAP_CENTER_X + 70, GRAPH_MAP_CENTER_Y + 34);
+
+    ontologyNodes.forEach((node, index) => {
+        const total = Math.max(ontologyNodes.length, 1);
+        const angle = -Math.PI / 2 + (index / total) * Math.PI * 2 + (hashUnit(node.id, 'angle') - 0.5) * 0.4;
+        const radius = 118 + hashUnit(node.id, 'radius') * 38;
+        addGraphMapNode(
+            nodeMap,
+            node,
+            GRAPH_MAP_CENTER_X + Math.cos(angle) * radius,
+            GRAPH_MAP_CENTER_Y + Math.sin(angle) * radius,
+        );
     });
-}
 
-function buildGraphEdgePath(from: PositionedGraphNode, to: PositionedGraphNode): string {
-    const midX = (from.x + to.x) / 2;
-    return `M ${from.x} ${from.y} C ${midX} ${from.y}, ${midX} ${to.y}, ${to.x} ${to.y}`;
-}
+    knowledgeNodes.forEach((node, index) => {
+        const linkedOntology = edges
+            .filter((edge) => edge.to === node.id)
+            .map((edge) => nodeMap.get(edge.from))
+            .filter((item): item is GraphMapNode => Boolean(item));
+        const anchor = linkedOntology[0];
+        const total = Math.max(knowledgeNodes.length, 1);
+        const fallbackAngle = -0.4 + (index / total) * Math.PI * 2 + (hashUnit(node.id, 'angle') - 0.5) * 0.5;
+        const angle = anchor
+            ? Math.atan2(anchor.y - GRAPH_MAP_CENTER_Y, anchor.x - GRAPH_MAP_CENTER_X) + (hashUnit(node.id, 'spread') - 0.5) * 0.85
+            : fallbackAngle;
+        const radius = 210 + hashUnit(node.id, 'radius') * 70;
+        addGraphMapNode(
+            nodeMap,
+            node,
+            GRAPH_MAP_CENTER_X + Math.cos(angle) * radius,
+            GRAPH_MAP_CENTER_Y + Math.sin(angle) * radius,
+        );
+    });
 
-function getGraphEdgeColor(from: PositionedGraphNode, to: PositionedGraphNode): string {
-    if (from.type === 'source' || to.type === 'answer') return 'hsl(var(--graph-edge-source-answer) / 0.88)';
-    if (from.type === 'knowledge' || to.type === 'source') return 'hsl(var(--graph-edge-knowledge-source) / 0.8)';
-    if (from.type === 'ontology' || to.type === 'knowledge') return 'hsl(var(--graph-edge-ontology-knowledge) / 0.74)';
-    return 'hsl(var(--graph-edge-query-ontology) / 0.78)';
+    sourceNodes.forEach((node, index) => {
+        const linkedKnowledge = knowledgeNodes.find((knowledge) => knowledge.matchId === node.matchId);
+        const anchor = linkedKnowledge ? nodeMap.get(linkedKnowledge.id) : undefined;
+        const total = Math.max(sourceNodes.length, 1);
+        const fallbackAngle = 0.35 + (index / total) * Math.PI * 2 + (hashUnit(node.id, 'angle') - 0.5) * 0.55;
+        const angle = anchor
+            ? Math.atan2(anchor.y - GRAPH_MAP_CENTER_Y, anchor.x - GRAPH_MAP_CENTER_X) + (hashUnit(node.id, 'spread') - 0.5) * 0.75
+            : fallbackAngle;
+        const radius = anchor ? 82 + hashUnit(node.id, 'radius') * 34 : 280 + hashUnit(node.id, 'radius') * 60;
+        addGraphMapNode(
+            nodeMap,
+            node,
+            (anchor?.x ?? GRAPH_MAP_CENTER_X) + Math.cos(angle) * radius,
+            (anchor?.y ?? GRAPH_MAP_CENTER_Y) + Math.sin(angle) * radius,
+        );
+    });
+
+    otherNodes.forEach((node, index) => {
+        const total = Math.max(otherNodes.length, 1);
+        const angle = (index / total) * Math.PI * 2 + hashUnit(node.id, 'angle') * 0.6;
+        const radius = 250 + hashUnit(node.id, 'radius') * 90;
+        addGraphMapNode(
+            nodeMap,
+            node,
+            GRAPH_MAP_CENTER_X + Math.cos(angle) * radius,
+            GRAPH_MAP_CENTER_Y + Math.sin(angle) * radius,
+        );
+    });
+
+    const graphEdges: GraphMapEdge[] = edges
+        .filter((edge) => nodeMap.has(edge.from) && nodeMap.has(edge.to))
+        .map((edge) => {
+            const from = nodeMap.get(edge.from);
+            const to = nodeMap.get(edge.to);
+            return {
+                id: edge.id,
+                from: edge.from,
+                to: edge.to,
+                strength: edge.strength,
+                kind: 'primary',
+                matchId: from?.matchId ?? to?.matchId,
+            };
+        });
+
+    const satelliteParents = [...nodeMap.values()].filter((node) => node.type !== 'query' && node.type !== 'answer');
+    for (const parent of satelliteParents) {
+        const satelliteCount = parent.type === 'ontology' ? 5 : parent.type === 'knowledge' ? 6 : 4;
+        const labels = extractKeywordLabels(parent.label, parent.sublabel, satelliteCount);
+        let previousSatelliteId = '';
+
+        labels.forEach((label, index) => {
+            const angle = hashUnit(parent.id, `satellite-angle-${index}`) * Math.PI * 2;
+            const radius = 34 + hashUnit(parent.id, `satellite-radius-${index}`) * (parent.type === 'knowledge' ? 74 : 58);
+            const satelliteId = `${parent.id}:keyword:${index}`;
+            const satellite: GraphMapNode = {
+                id: satelliteId,
+                type: 'keyword',
+                label,
+                sublabel: parent.label,
+                x: clampNumber(parent.x + Math.cos(angle) * radius, 20, GRAPH_MAP_WIDTH - 20),
+                y: clampNumber(parent.y + Math.sin(angle) * radius, 20, GRAPH_MAP_HEIGHT - 20),
+                radius: 2.1 + hashUnit(parent.id, `satellite-size-${index}`) * 1.5,
+                opacity: 0.52 + hashUnit(parent.id, `satellite-opacity-${index}`) * 0.3,
+                isCore: false,
+                matchId: parent.matchId,
+                sourceUrl: parent.sourceUrl,
+            };
+            nodeMap.set(satelliteId, satellite);
+            graphEdges.push({
+                id: `${parent.id}:to:${satelliteId}`,
+                from: parent.id,
+                to: satelliteId,
+                strength: 0.62,
+                kind: 'satellite',
+                matchId: parent.matchId,
+            });
+            if (previousSatelliteId && hashUnit(satelliteId, 'chain') > 0.42) {
+                graphEdges.push({
+                    id: `${previousSatelliteId}:to:${satelliteId}`,
+                    from: previousSatelliteId,
+                    to: satelliteId,
+                    strength: 0.38,
+                    kind: 'satellite',
+                    matchId: parent.matchId,
+                });
+            }
+            previousSatelliteId = satelliteId;
+        });
+    }
+
+    return {
+        nodes: [...nodeMap.values()],
+        edges: graphEdges,
+    };
 }
 
 function getSourceViewerTitle(span: GraphRagAnswerSpan | undefined): string {
@@ -154,14 +365,18 @@ function GraphRagResultView({
         [groundedSpans],
     );
     const [selectedSpanId, setSelectedSpanId] = useState(groundedSpans[0]?.id ?? '');
-    const positionedNodes = useMemo(() => buildGraphLayout(result.graph.nodes), [result.graph.nodes]);
-    const nodeMap = useMemo(
-        () => new Map(positionedNodes.map((node) => [node.id, node])),
-        [positionedNodes],
+    const graphMap = useMemo(
+        () => buildObsidianGraphMap(result.graph.nodes, result.graph.edges),
+        [result.graph.edges, result.graph.nodes],
+    );
+    const graphMapNodeById = useMemo(
+        () => new Map(graphMap.nodes.map((node) => [node.id, node])),
+        [graphMap.nodes],
     );
     const selectedSpan = groundedSpans.find((span) => span.id === selectedSpanId) ?? groundedSpans[0];
     const selectedCitationIndex = selectedSpan ? citationIndexBySpan.get(selectedSpan.id) : undefined;
     const plainSpanCount = result.answerSpans.length - groundedSpans.length;
+    const selectedMatchId = selectedSpan?.knowledgeUnitId ?? null;
 
     useEffect(() => {
         setSelectedSpanId(groundedSpans[0]?.id ?? '');
@@ -257,7 +472,7 @@ function GraphRagResultView({
                     <div className={styles.graphCardHeader}>
                         <div>
                             <span className={styles.panelKicker}>근거 지도</span>
-                            <h2>보조 지식 그래프</h2>
+                            <h2>옵시디언형 지식 맵</h2>
                         </div>
                         <Network size={20} />
                     </div>
@@ -274,48 +489,86 @@ function GraphRagResultView({
 
                     <div className={styles.graphCanvas}>
                         <div className={styles.graphStage}>
-                            <svg className={styles.graphEdges} viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                                {result.graph.edges.map((edge) => {
-                                    const from = nodeMap.get(edge.from);
-                                    const to = nodeMap.get(edge.to);
+                            <svg
+                                className={styles.graphMap}
+                                viewBox={`0 0 ${GRAPH_MAP_WIDTH} ${GRAPH_MAP_HEIGHT}`}
+                                preserveAspectRatio="xMidYMid meet"
+                                role="img"
+                                aria-label="Graph RAG 근거 연결 지도"
+                            >
+                                {graphMap.edges.map((edge) => {
+                                    const from = graphMapNodeById.get(edge.from);
+                                    const to = graphMapNodeById.get(edge.to);
                                     if (!from || !to) return null;
-                                    const edgeWidth = Math.min(3.9, 1.05 + edge.strength * 0.46);
+                                    const isActive = Boolean(selectedMatchId && edge.matchId === selectedMatchId);
                                     const edgeStyle = {
-                                        '--edge-color': getGraphEdgeColor(from, to),
-                                        '--edge-opacity': Math.min(0.92, 0.5 + edge.strength * 0.08),
+                                        '--edge-opacity': edge.kind === 'satellite'
+                                            ? Math.min(0.34, 0.16 + edge.strength * 0.08)
+                                            : Math.min(0.72, 0.28 + edge.strength * 0.1),
                                     } as CSSProperties;
-                                    const path = buildGraphEdgePath(from, to);
                                     return (
-                                        <g key={edge.id} className={styles.graphEdgeGroup}>
-                                            <path
-                                                d={path}
-                                                className={styles.graphEdgeHalo}
-                                                strokeWidth={edgeWidth + 2}
-                                            />
-                                            <path
-                                                d={path}
-                                                className={styles.graphEdge}
-                                                strokeWidth={edgeWidth}
-                                                style={edgeStyle}
-                                            />
+                                        <line
+                                            key={edge.id}
+                                            x1={from.x}
+                                            y1={from.y}
+                                            x2={to.x}
+                                            y2={to.y}
+                                            className={`${styles.graphMapEdge} ${edge.kind === 'satellite' ? styles.graphMapEdgeSatellite : ''} ${isActive ? styles.graphMapEdgeActive : ''}`}
+                                            strokeWidth={edge.kind === 'satellite' ? 0.7 : Math.min(1.55, 0.52 + edge.strength * 0.14)}
+                                            style={edgeStyle}
+                                        />
+                                    );
+                                })}
+                                {graphMap.nodes.map((node) => {
+                                    const isActive = Boolean(selectedMatchId && node.matchId === selectedMatchId);
+                                    const isInteractive = Boolean(node.matchId);
+                                    const label = `${GRAPH_NODE_LABELS[node.type]} · ${node.label}`;
+                                    const nodeStyle = {
+                                        '--node-opacity': node.opacity,
+                                    } as CSSProperties;
+
+                                    return (
+                                        <g
+                                            key={node.id}
+                                            className={`${styles.graphMapNode} ${styles[`graphMapNode_${node.type}`]} ${isActive ? styles.graphMapNodeActive : ''} ${isInteractive ? styles.graphMapNodeInteractive : ''}`}
+                                            tabIndex={node.isCore && isInteractive ? 0 : undefined}
+                                            role={node.isCore && isInteractive ? 'button' : undefined}
+                                            aria-label={label}
+                                            style={nodeStyle}
+                                            onClick={() => selectLinkedSpan(node.matchId)}
+                                            onKeyDown={(event) => {
+                                                if (!node.matchId || (event.key !== 'Enter' && event.key !== ' ')) return;
+                                                event.preventDefault();
+                                                selectLinkedSpan(node.matchId);
+                                            }}
+                                        >
+                                            <title>{node.sublabel ? `${label} · ${node.sublabel}` : label}</title>
+                                            <circle cx={node.x} cy={node.y} r={node.radius} />
+                                            {node.isCore && (node.type === 'query' || node.type === 'answer') && (
+                                                <text
+                                                    className={styles.graphMapNodeLabel}
+                                                    x={node.x}
+                                                    y={node.y + node.radius + 20}
+                                                >
+                                                    {GRAPH_NODE_LABELS[node.type]}
+                                                </text>
+                                            )}
                                         </g>
                                     );
                                 })}
                             </svg>
-                            {positionedNodes.map((node) => (
-                                <button
-                                    key={node.id}
-                                    type="button"
-                                    className={`${styles.graphNode} ${styles[`graphNode_${node.type}`]}`}
-                                    style={{ left: `${node.x}%`, top: `${node.y}%` }}
-                                    onClick={() => selectLinkedSpan(node.matchId)}
-                                    title={node.sublabel ?? node.label}
-                                >
-                                    <span>{GRAPH_NODE_LABELS[node.type]}</span>
-                                    <strong>{node.label}</strong>
-                                    {node.sublabel && <small>{node.sublabel}</small>}
-                                </button>
-                            ))}
+                            <div className={styles.graphMapHud}>
+                                <span>노드 {graphMap.nodes.length}</span>
+                                <span>연결 {graphMap.edges.length}</span>
+                            </div>
+                            <div className={styles.graphMapLegend}>
+                                {(['query', 'ontology', 'knowledge', 'source', 'answer'] as GraphMapNodeType[]).map((type) => (
+                                    <span key={type} className={styles.graphMapLegendItem}>
+                                        <i className={`${styles.graphMapLegendDot} ${styles[`graphMapLegendDot_${type}`]}`} />
+                                        {GRAPH_NODE_LABELS[type]}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </article>
