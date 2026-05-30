@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState, useTransition } from 'react';
+import { useEffect, useMemo, useRef, useState, useTransition } from 'react';
 import { motion } from 'framer-motion';
 import {
     AlertTriangle,
@@ -8,14 +8,18 @@ import {
     Bot,
     CalendarRange,
     CheckCircle2,
+    ChevronDown,
     FileText,
     GraduationCap,
     Link2,
+    ListChecks,
     MessageSquareQuote,
     Network,
     PanelRightOpen,
+    Quote,
     Route,
     SearchCheck,
+    ShieldCheck,
     SlidersHorizontal,
     Tag
 } from 'lucide-react';
@@ -76,7 +80,7 @@ const ISSUE_TYPE_LABELS: Record<RecordReviewIssue['issueType'], string> = {
 
 const GRAPH_NODE_LABELS: Record<GraphRagNode['type'], string> = {
     query: '질문',
-    ontology: '온톨로지',
+    ontology: '기준',
     knowledge: '지식',
     source: '출처',
     answer: '답변',
@@ -88,7 +92,7 @@ function buildGraphLayout(nodes: GraphRagNode[]): PositionedGraphNode[] {
         ontology: 29,
         knowledge: 51,
         source: 73,
-        answer: 92,
+        answer: 92.5,
     };
     const layerOrder: GraphRagNode['type'][] = ['query', 'ontology', 'knowledge', 'source', 'answer'];
 
@@ -128,14 +132,15 @@ function GraphRagResultView({
         () => result.answerSpans.filter(isGroundedSpan),
         [result.answerSpans],
     );
-    const citationIndexByMatch = useMemo(() => {
+    const citationIndexBySpan = useMemo(() => {
         const indexes = new Map<string, number>();
-        for (const span of groundedSpans) {
-            if (!span.knowledgeUnitId || indexes.has(span.knowledgeUnitId)) continue;
-            indexes.set(span.knowledgeUnitId, indexes.size + 1);
-        }
+        groundedSpans.forEach((span, index) => indexes.set(span.id, index + 1));
         return indexes;
     }, [groundedSpans]);
+    const uniqueSourceCount = useMemo(
+        () => new Set(groundedSpans.map((span) => span.knowledgeUnitId).filter(Boolean)).size,
+        [groundedSpans],
+    );
     const [selectedSpanId, setSelectedSpanId] = useState(groundedSpans[0]?.id ?? '');
     const positionedNodes = useMemo(() => buildGraphLayout(result.graph.nodes), [result.graph.nodes]);
     const nodeMap = useMemo(
@@ -143,6 +148,8 @@ function GraphRagResultView({
         [positionedNodes],
     );
     const selectedSpan = groundedSpans.find((span) => span.id === selectedSpanId) ?? groundedSpans[0];
+    const selectedCitationIndex = selectedSpan ? citationIndexBySpan.get(selectedSpan.id) : undefined;
+    const plainSpanCount = result.answerSpans.length - groundedSpans.length;
 
     useEffect(() => {
         setSelectedSpanId(groundedSpans[0]?.id ?? '');
@@ -164,8 +171,8 @@ function GraphRagResultView({
                 <article className={styles.graphCard}>
                     <div className={styles.graphCardHeader}>
                         <div>
-                            <span className={styles.panelKicker}>Grounded Answer</span>
-                            <h2>출처 주석형 답변</h2>
+                            <span className={styles.panelKicker}>출처 주석 답변</span>
+                            <h2>답변을 먼저 읽고, 근거는 문장 옆에서 확인</h2>
                         </div>
                         <label className={styles.fontControl}>
                             <SlidersHorizontal size={16} />
@@ -181,6 +188,24 @@ function GraphRagResultView({
                         </label>
                     </div>
 
+                    <div className={styles.groundingOverview}>
+                        <div className={styles.groundingMetric}>
+                            <ShieldCheck size={16} />
+                            <strong>{groundedSpans.length}</strong>
+                            <span>근거 표시 문장</span>
+                        </div>
+                        <div className={styles.groundingMetric}>
+                            <FileText size={16} />
+                            <strong>{uniqueSourceCount}</strong>
+                            <span>직접 연결 출처</span>
+                        </div>
+                        <div className={styles.groundingMetric}>
+                            <Quote size={16} />
+                            <strong>{plainSpanCount}</strong>
+                            <span>일반 답변 문장</span>
+                        </div>
+                    </div>
+
                     {result.conflictNote && (
                         <div className={styles.noticeBox}>
                             <strong>주의</strong>
@@ -191,9 +216,7 @@ function GraphRagResultView({
                     <div className={styles.highlightedAnswer} style={{ fontSize: `${answerFontSize}px` }}>
                         {result.answerSpans.map((span, index) => {
                             const grounded = isGroundedSpan(span);
-                            const citationIndex = span.knowledgeUnitId
-                                ? citationIndexByMatch.get(span.knowledgeUnitId)
-                                : undefined;
+                            const citationIndex = grounded ? citationIndexBySpan.get(span.id) : undefined;
 
                             return (
                                 <span key={span.id} className={styles.answerSegment}>
@@ -206,7 +229,7 @@ function GraphRagResultView({
                                         >
                                             <span>{span.text}</span>
                                             {citationIndex && (
-                                                <sup className={styles.citationMark}>근거 {citationIndex}</sup>
+                                                <sup className={styles.citationMark}>[{citationIndex}]</sup>
                                             )}
                                         </button>
                                     ) : (
@@ -221,7 +244,7 @@ function GraphRagResultView({
                 <article className={styles.graphCard}>
                     <div className={styles.graphCardHeader}>
                         <div>
-                            <span className={styles.panelKicker}>Graph RAG</span>
+                            <span className={styles.panelKicker}>근거 지도</span>
                             <h2>보조 지식 그래프</h2>
                         </div>
                         <Network size={20} />
@@ -278,11 +301,14 @@ function GraphRagResultView({
 
             <aside className={`${styles.citationPanel} ${styles.sourceViewer}`}>
                 <div className={styles.citationHeader}>
-                    <h3>출처 뷰어</h3>
+                    <h3>선택한 근거</h3>
                     <PanelRightOpen size={16} />
                 </div>
 
                 <div className={styles.sourceViewerBody}>
+                    {selectedCitationIndex && (
+                        <span className={styles.selectedCitationBadge}>근거 {selectedCitationIndex}</span>
+                    )}
                     <div className={styles.sourceViewerTitle}>
                         <FileText size={18} />
                         <strong>{getSourceViewerTitle(selectedSpan)}</strong>
@@ -293,6 +319,7 @@ function GraphRagResultView({
                                 <span>{selectedSpan.evidenceLabel}</span>
                                 <span>신뢰도 {selectedSpan.confidence}</span>
                             </div>
+                            <strong className={styles.excerptLabel}>원문 발췌</strong>
                             <blockquote>{selectedSpan.excerpt}</blockquote>
                             {selectedSpan.sourceUrl && (
                                 <a
@@ -312,9 +339,35 @@ function GraphRagResultView({
                     )}
                 </div>
 
+                {groundedSpans.length > 0 && (
+                    <div className={styles.groundedList}>
+                        <div className={styles.groundedListHeader}>
+                            <ListChecks size={16} />
+                            <h4>답변 주석</h4>
+                        </div>
+                        {groundedSpans.map((span) => {
+                            const citationIndex = citationIndexBySpan.get(span.id);
+                            return (
+                                <button
+                                    key={span.id}
+                                    type="button"
+                                    className={`${styles.groundedItem} ${selectedSpan?.id === span.id ? styles.groundedItemActive : ''}`}
+                                    onClick={() => setSelectedSpanId(span.id)}
+                                >
+                                    <span>근거 {citationIndex}</span>
+                                    <strong>{span.text}</strong>
+                                </button>
+                            );
+                        })}
+                    </div>
+                )}
+
                 {result.matches.length > 0 && (
-                    <div className={styles.matchPanel}>
-                        <h4>그래프 지식유닛</h4>
+                    <details className={styles.matchPanel}>
+                        <summary>
+                            <span>검색 후보 {result.matches.length}개</span>
+                            <ChevronDown size={16} />
+                        </summary>
                         <div className={styles.matchList}>
                             {result.matches.map((match) => (
                                 <button
@@ -328,7 +381,7 @@ function GraphRagResultView({
                                 </button>
                             ))}
                         </div>
-                    </div>
+                    </details>
                 )}
             </aside>
         </motion.section>
@@ -351,6 +404,7 @@ function CounselChatPageContent() {
     const [isCounselPending, startCounselTransition] = useTransition();
     const [isReviewPending, startReviewTransition] = useTransition();
     const [isGraphPending, startGraphTransition] = useTransition();
+    const graphResultRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         const searchParams = new URLSearchParams(window.location.search);
@@ -386,6 +440,14 @@ function CounselChatPageContent() {
 
         void loadMeta();
     }, []);
+
+    useEffect(() => {
+        if (!graphResult || mode !== 'graph') return;
+        const timer = window.setTimeout(() => {
+            graphResultRef.current?.scrollIntoView({ behavior: 'auto', block: 'start' });
+        }, 50);
+        return () => window.clearTimeout(timer);
+    }, [graphResult, mode]);
 
     const handleCounselSubmit = () => {
         setError(null);
@@ -439,6 +501,7 @@ function CounselChatPageContent() {
 
     const handleGraphSubmit = () => {
         setError(null);
+        setGraphResult(null);
         startGraphTransition(async () => {
             try {
                 const response = await fetch('/api/counsel-chat/graph', {
@@ -470,7 +533,7 @@ function CounselChatPageContent() {
         <div className={styles.page}>
             <section className={styles.hero}>
                 <div className={styles.heroCopy}>
-                    <span className={styles.kicker}>One Workspace, Two Jobs</span>
+                    <span className={styles.kicker}>학생부 상담 Q&A</span>
                     <h1 className={styles.title}>생기부 상담 점검</h1>
                     <p className={styles.subtitle}>
                         질문 답변과 문장 점검을 한 화면에서 처리합니다.
@@ -506,8 +569,8 @@ function CounselChatPageContent() {
                         >
                             <BrainCircuit size={18} />
                             <span className={styles.modeButtonCopy}>
-                                <strong>Graph RAG</strong>
-                                <span>출처 주석·온톨로지</span>
+                                <strong>출처 주석 답변</strong>
+                                <span>하이라이트·원문 발췌</span>
                             </span>
                         </button>
                     </div>
@@ -601,17 +664,31 @@ function CounselChatPageContent() {
                             </Button>
                         </div>
                     </>
+                ) : isGraphMode && graphResult ? (
+                    <div className={styles.submittedQuestionBar}>
+                        <div>
+                            <span className={styles.submittedQuestionLabel}>현재 질문</span>
+                            <strong>{question}</strong>
+                        </div>
+                        <button
+                            type="button"
+                            className={styles.secondaryAction}
+                            onClick={() => setGraphResult(null)}
+                        >
+                            질문 수정
+                        </button>
+                    </div>
                 ) : (
                     <>
                         <div className={styles.panelHeader}>
                             <div>
-                                <span className={styles.panelKicker}>Ontology + RAG</span>
-                                <h2>출처 주석형 질문</h2>
+                                <span className={styles.panelKicker}>출처 연결</span>
+                                <h2>출처 주석 답변 질문</h2>
                             </div>
                         </div>
 
                         <textarea
-                            className={styles.inputArea}
+                            className={`${styles.inputArea} ${styles.compactQuestionArea}`}
                             value={question}
                             onChange={(event) => setQuestion(event.target.value)}
                             placeholder="질문을 입력하면 근거가 확인된 답변 문장에만 출처 주석을 붙입니다."
@@ -790,11 +867,13 @@ function CounselChatPageContent() {
             )}
 
             {isGraphMode && graphResult && (
-                <GraphRagResultView
-                    result={graphResult}
-                    answerFontSize={answerFontSize}
-                    onAnswerFontSizeChange={setAnswerFontSize}
-                />
+                <div ref={graphResultRef} className={styles.resultAnchor}>
+                    <GraphRagResultView
+                        result={graphResult}
+                        answerFontSize={answerFontSize}
+                        onAnswerFontSizeChange={setAnswerFontSize}
+                    />
+                </div>
             )}
         </div>
     );

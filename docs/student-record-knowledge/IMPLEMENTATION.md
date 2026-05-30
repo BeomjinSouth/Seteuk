@@ -80,8 +80,10 @@
 - the sidebar/workspace label is `생기부 상담 점검`
 - counsel chat and record review now share one `/counsel-chat` workspace with a mode switch, and `/record-review` redirects into that workspace
 - `/counsel-chat` includes a `Graph RAG` mode that calls `/api/counsel-chat/graph`, renders the generated answer first, then shows a supplementary lightweight ontology graph from school level, category, year, policy anchors, retrieved knowledge units, and public source documents
-- Graph RAG answers are split into answer spans; only spans whose retrieved source score and lexical overlap both pass the grounding threshold are rendered as clickable citation-style highlights, while ungrounded spans remain plain text
+- Graph RAG answers are split into answer spans; only spans whose retrieved source score and lexical overlap both pass the grounding threshold are rendered as clickable citation-style highlights with compact inline citation markers, while ungrounded spans remain plain text
 - Clicking a highlighted answer span opens the mapped source title, public excerpt, confidence level, and source URL in a right-side viewer
+- The right-side viewer also lists the answer annotations separately from the raw search candidates, and raw candidates are tucked behind a disclosure control
+- After a Graph RAG answer is generated, the long question composer collapses to a current-question summary with a `질문 수정` action so the answer and source viewer are immediately visible
 - Graph RAG mode includes a native range slider for answer font size so teachers can enlarge or shrink the grounded answer without changing the browser zoom
 - `search-inspector` remains available only as an internal diagnostics route and is no longer shown in the sidebar
 - main navigation groups counsel/review tools under `AI 세특 생성`

@@ -36,8 +36,7 @@
     border-radius: 999px;
     font-size: 0.75rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    letter-spacing: 0;
 }
 
 .kicker {
@@ -189,6 +188,10 @@
     line-height: 1.75;
 }
 
+.compactQuestionArea {
+    min-height: 150px;
+}
+
 .inputArea::placeholder {
     color: hsl(var(--foreground-muted) / 0.9);
 }
@@ -216,6 +219,49 @@
     background: hsl(var(--page-accent) / 0.14);
 }
 
+.submittedQuestionBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.1rem;
+    border-radius: 1rem;
+    border: 1px solid hsl(var(--page-accent) / 0.18);
+    background: hsl(var(--page-accent) / 0.06);
+}
+
+.submittedQuestionBar div {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.submittedQuestionBar strong {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: hsl(var(--foreground));
+}
+
+.submittedQuestionLabel {
+    color: hsl(var(--page-accent));
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+.secondaryAction {
+    flex: 0 0 auto;
+    padding: 0.58rem 0.8rem;
+    border-radius: 0.75rem;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--surface));
+    color: hsl(var(--foreground));
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+}
+
 .actions {
     display: flex;
     justify-content: flex-end;
@@ -237,7 +283,7 @@
 
 .graphResultShell {
     display: grid;
-    grid-template-columns: minmax(0, 1.55fr) minmax(320px, 0.8fr);
+    grid-template-columns: minmax(0, 1.42fr) minmax(360px, 0.78fr);
     gap: 1rem;
     align-items: start;
 }
@@ -311,8 +357,8 @@
 
 .graphCanvas {
     position: relative;
-    min-height: 680px;
-    overflow-x: auto;
+    min-height: 560px;
+    overflow-x: hidden;
     overflow-y: hidden;
     border-radius: 1rem;
     border: 1px solid hsl(var(--border));
@@ -327,8 +373,8 @@
 
 .graphStage {
     position: relative;
-    width: max(100%, 1280px);
-    height: 680px;
+    width: 100%;
+    height: 560px;
 }
 
 .graphEdges {
@@ -346,8 +392,8 @@
 .graphNode {
     position: absolute;
     z-index: 1;
-    width: 11rem;
-    min-height: 4.35rem;
+    width: clamp(7.25rem, 8.9vw, 8.75rem);
+    min-height: 4rem;
     transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
@@ -363,6 +409,10 @@
     font: inherit;
     cursor: pointer;
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resultAnchor {
+    scroll-margin-top: 5.75rem;
 }
 
 .graphNode:hover {
@@ -382,6 +432,10 @@
 }
 
 .graphNode strong {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     font-size: 0.82rem;
     line-height: 1.35;
 }
@@ -424,6 +478,7 @@
 }
 
 .graphNode_answer {
+    width: 7rem;
     border-color: hsl(var(--page-accent) / 0.38);
     background: hsl(var(--page-accent) / 0.08);
 }
@@ -443,9 +498,50 @@
     accent-color: hsl(var(--page-accent));
 }
 
+.groundingOverview {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.7rem;
+    margin-bottom: 1rem;
+}
+
+.groundingMetric {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    align-items: center;
+    gap: 0.45rem;
+    min-width: 0;
+    padding: 0.7rem 0.8rem;
+    border-radius: 0.9rem;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--surface-hover) / 0.72);
+    color: hsl(var(--foreground-muted));
+}
+
+.groundingMetric svg {
+    color: hsl(var(--page-accent));
+}
+
+.groundingMetric strong {
+    color: hsl(var(--foreground));
+    font-size: 1rem;
+}
+
+.groundingMetric span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
 .highlightedAnswer {
     display: block;
-    line-height: 2;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid hsl(var(--border));
+    background: linear-gradient(180deg, hsl(var(--surface-hover) / 0.55), hsl(var(--surface) / 0.96));
+    line-height: 2.05;
     color: hsl(var(--foreground));
 }
 
@@ -457,11 +553,12 @@
 .highlightSpan {
     display: inline;
     appearance: none;
+    --highlight-fill: hsl(var(--page-warning) / 0.3);
     max-width: 100%;
     padding: 0.08em 0.28em;
     border: 1px solid transparent;
     border-radius: 0.28rem;
-    background: linear-gradient(180deg, transparent 18%, hsl(var(--page-warning) / 0.25) 18%, hsl(var(--page-warning) / 0.25) 88%, transparent 88%);
+    background: linear-gradient(180deg, transparent 16%, var(--highlight-fill) 16%, var(--highlight-fill) 88%, transparent 88%);
     color: hsl(var(--foreground));
     font: inherit;
     line-height: inherit;
@@ -473,30 +570,27 @@
 
 .highlightSpan:hover,
 .highlightSpanActive {
-    border-color: hsl(var(--page-warning) / 0.4);
+    border-color: hsl(var(--page-accent) / 0.38);
     background: hsl(var(--page-warning) / 0.22);
-    box-shadow: 0 0 0 3px hsl(var(--page-warning) / 0.12);
+    box-shadow: 0 0 0 3px hsl(var(--page-accent) / 0.1);
 }
 
 .confidence_high {
-    background: linear-gradient(180deg, transparent 18%, hsl(var(--page-success) / 0.2) 18%, hsl(var(--page-success) / 0.2) 88%, transparent 88%);
+    --highlight-fill: hsl(var(--page-warning) / 0.34);
 }
 
 .confidence_medium {
-    background: linear-gradient(180deg, transparent 18%, hsl(var(--page-warning) / 0.25) 18%, hsl(var(--page-warning) / 0.25) 88%, transparent 88%);
+    --highlight-fill: hsl(var(--page-warning) / 0.26);
 }
 
 .confidence_low {
-    background: linear-gradient(180deg, transparent 18%, hsl(var(--page-review) / 0.16) 18%, hsl(var(--page-review) / 0.16) 88%, transparent 88%);
+    --highlight-fill: hsl(var(--page-warning) / 0.18);
 }
 
 .citationMark {
-    margin-left: 0.25rem;
-    padding: 0.05rem 0.3rem;
-    border-radius: 999px;
+    margin-left: 0.18rem;
     color: hsl(var(--page-accent));
-    background: hsl(var(--page-accent) / 0.1);
-    font-size: 0.68em;
+    font-size: 0.72em;
     font-weight: 800;
     line-height: 1;
     white-space: nowrap;
@@ -511,6 +605,17 @@
     display: flex;
     flex-direction: column;
     gap: 0.9rem;
+}
+
+.selectedCitationBadge {
+    display: inline-flex;
+    width: fit-content;
+    padding: 0.28rem 0.55rem;
+    border-radius: 999px;
+    color: hsl(var(--page-accent));
+    background: hsl(var(--page-accent) / 0.1);
+    font-size: 0.78rem;
+    font-weight: 800;
 }
 
 .sourceViewerTitle {
@@ -540,6 +645,11 @@
     line-height: 1.45;
 }
 
+.excerptLabel {
+    color: hsl(var(--foreground));
+    font-size: 0.86rem;
+}
+
 .sourceViewer blockquote {
     margin: 0;
     padding: 1rem;
@@ -556,6 +666,63 @@
     background: hsl(var(--surface-hover));
     color: hsl(var(--foreground-muted));
     line-height: 1.65;
+}
+
+.groundedList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding-top: 1rem;
+    border-top: 1px solid hsl(var(--border));
+}
+
+.groundedListHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.groundedListHeader svg {
+    color: hsl(var(--page-accent));
+}
+
+.groundedListHeader h4 {
+    margin: 0;
+}
+
+.groundedItem {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.75rem 0.85rem;
+    border-radius: 0.85rem;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--surface-hover) / 0.72);
+    color: hsl(var(--foreground));
+    text-align: left;
+    font: inherit;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.groundedItem span {
+    color: hsl(var(--page-accent));
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+.groundedItem strong {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 1.45;
+    font-size: 0.86rem;
+}
+
+.groundedItemActive {
+    border-color: hsl(var(--page-accent) / 0.36);
+    background: hsl(var(--page-accent) / 0.08);
 }
 
 .sourceLink {
@@ -757,8 +924,27 @@
     padding-top: 1rem;
 }
 
-.matchPanel h4 {
+.matchPanel summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+    cursor: pointer;
+    color: hsl(var(--foreground-muted));
+    font-weight: 800;
+    list-style: none;
+}
+
+.matchPanel summary::-webkit-details-marker {
+    display: none;
+}
+
+.matchPanel[open] summary {
     margin-bottom: 0.75rem;
+}
+
+.matchPanel[open] summary svg {
+    transform: rotate(180deg);
 }
 
 .matchCard {
@@ -791,12 +977,13 @@
     }
 
     .graphCanvas {
-        min-height: 720px;
+        min-height: 640px;
+        overflow-x: auto;
     }
 
     .graphStage {
-        width: 1080px;
-        height: 720px;
+        width: 980px;
+        height: 640px;
     }
 
     .sourceViewer {
@@ -810,5 +997,18 @@
     .fontControl {
         width: 100%;
         min-width: 0;
+    }
+
+    .groundingOverview {
+        grid-template-columns: 1fr;
+    }
+
+    .submittedQuestionBar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .secondaryAction {
+        width: 100%;
     }
 }

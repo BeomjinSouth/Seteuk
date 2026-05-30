@@ -252,13 +252,13 @@ export function buildGraphRagGraph(
         },
         {
             id: 'ontology',
-            label: '온톨로지 정렬',
+            label: '기준 정렬',
             description: '학교급, 영역, 기준연도, 정책 앵커를 그래프 노드로 묶습니다.',
             count: ontologyTerms.length,
         },
         {
             id: 'retrieval',
-            label: 'RAG 후보',
+            label: '검색 후보',
             description: '공개 FAQ/Q&A 기반 지식유닛을 검색하고 점수화합니다.',
             count: matches.length,
         },

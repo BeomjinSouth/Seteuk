@@ -41,6 +41,8 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - Graph RAG mode that answers the teacher question first, then adds citation-style highlights only to answer spans with a direct public source match
 - supplementary ontology/data-flow graph that visualizes the question, ontology concepts, retrieved knowledge units, public source documents, and answer grounding path without replacing the answer
 - answer highlighting that opens the exact supporting source excerpt and source link in a right-side viewer; answer spans without a strong public-source match remain plain text
+- after a source-annotated answer is generated, the long question composer collapses to the current-question summary so the answer and source viewer become the primary workspace
+- highlighted answer spans use compact citation markers and a right-side "answer annotations" list so teachers can move between cited answer parts without reading raw search results first
 - answer font-size slider for classroom display and accessibility
 
 ### Record review
@@ -80,7 +82,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - `/api/search-eval`: implemented
 - conservative similar-question dedupe: implemented for canonical and pending Q&A outputs
 - `/counsel-chat`: implemented as the combined counsel/review workspace
-- `/counsel-chat`: Graph RAG mode implemented with answer-first citation annotations, highlighted grounded answer spans only when a direct public source match exists, source excerpt viewer, answer font-size slider, and supplementary ontology/data-flow graph
+- `/counsel-chat`: Graph RAG mode implemented with answer-first citation annotations, highlighted grounded answer spans only when a direct public source match exists, compact citation markers, source excerpt viewer, answer annotation list, answer font-size slider, collapsed current-question state after generation, and supplementary ontology/data-flow graph
 - `/record-review`: implemented as a compatibility redirect to `/counsel-chat?mode=review`
 - `/write`: RAG review-improve action implemented
 - `/write`: AI 세특 작성 화면 is aligned to the provided table workspace design with class chips, screenshot-style action toolbar, 10-row pagination, top teacher/notification chrome, and the AI 세특 guide card in the sidebar
