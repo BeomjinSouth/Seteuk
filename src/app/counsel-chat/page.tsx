@@ -10,7 +10,6 @@ import {
     CheckCircle2,
     FileText,
     GraduationCap,
-    Highlighter,
     Link2,
     MessageSquareQuote,
     Network,
@@ -85,24 +84,24 @@ const GRAPH_NODE_LABELS: Record<GraphRagNode['type'], string> = {
 
 function buildGraphLayout(nodes: GraphRagNode[]): PositionedGraphNode[] {
     const layerX: Record<GraphRagNode['type'], number> = {
-        query: 14,
-        ontology: 34,
-        knowledge: 55,
-        source: 74,
-        answer: 91,
+        query: 8,
+        ontology: 29,
+        knowledge: 51,
+        source: 73,
+        answer: 92,
     };
     const layerOrder: GraphRagNode['type'][] = ['query', 'ontology', 'knowledge', 'source', 'answer'];
 
     return layerOrder.flatMap((type) => {
         const layerNodes = nodes.filter((node) => node.type === type);
         if (layerNodes.length === 0) return [];
-        const gap = Math.min(22, 72 / Math.max(layerNodes.length - 1, 1));
+        const gap = Math.min(24, 84 / Math.max(layerNodes.length - 1, 1));
         const startY = layerNodes.length === 1 ? 50 : 50 - (gap * (layerNodes.length - 1)) / 2;
 
         return layerNodes.map((node, index) => ({
             ...node,
             x: layerX[type],
-            y: Math.max(10, Math.min(90, startY + index * gap)),
+            y: Math.max(8, Math.min(92, startY + index * gap)),
         }));
     });
 }
@@ -110,6 +109,10 @@ function buildGraphLayout(nodes: GraphRagNode[]): PositionedGraphNode[] {
 function getSourceViewerTitle(span: GraphRagAnswerSpan | undefined): string {
     if (!span) return '근거 없음';
     return span.sourceTitle || span.evidenceLabel;
+}
+
+function isGroundedSpan(span: GraphRagAnswerSpan): boolean {
+    return Boolean(span.knowledgeUnitId && span.sourceTitle && span.excerpt);
 }
 
 function GraphRagResultView({
@@ -121,21 +124,33 @@ function GraphRagResultView({
     answerFontSize: number;
     onAnswerFontSizeChange: (size: number) => void;
 }) {
-    const [selectedSpanId, setSelectedSpanId] = useState(result.answerSpans[0]?.id ?? '');
+    const groundedSpans = useMemo(
+        () => result.answerSpans.filter(isGroundedSpan),
+        [result.answerSpans],
+    );
+    const citationIndexByMatch = useMemo(() => {
+        const indexes = new Map<string, number>();
+        for (const span of groundedSpans) {
+            if (!span.knowledgeUnitId || indexes.has(span.knowledgeUnitId)) continue;
+            indexes.set(span.knowledgeUnitId, indexes.size + 1);
+        }
+        return indexes;
+    }, [groundedSpans]);
+    const [selectedSpanId, setSelectedSpanId] = useState(groundedSpans[0]?.id ?? '');
     const positionedNodes = useMemo(() => buildGraphLayout(result.graph.nodes), [result.graph.nodes]);
     const nodeMap = useMemo(
         () => new Map(positionedNodes.map((node) => [node.id, node])),
         [positionedNodes],
     );
-    const selectedSpan = result.answerSpans.find((span) => span.id === selectedSpanId) ?? result.answerSpans[0];
+    const selectedSpan = groundedSpans.find((span) => span.id === selectedSpanId) ?? groundedSpans[0];
 
     useEffect(() => {
-        setSelectedSpanId(result.answerSpans[0]?.id ?? '');
-    }, [result]);
+        setSelectedSpanId(groundedSpans[0]?.id ?? '');
+    }, [groundedSpans]);
 
     const selectLinkedSpan = (matchId: string | undefined) => {
         if (!matchId) return;
-        const nextSpan = result.answerSpans.find((span) => span.knowledgeUnitId === matchId);
+        const nextSpan = groundedSpans.find((span) => span.knowledgeUnitId === matchId);
         if (nextSpan) setSelectedSpanId(nextSpan.id);
     };
 
@@ -149,63 +164,8 @@ function GraphRagResultView({
                 <article className={styles.graphCard}>
                     <div className={styles.graphCardHeader}>
                         <div>
-                            <span className={styles.panelKicker}>Graph RAG</span>
-                            <h2>질문에서 근거까지 이어지는 지식 그래프</h2>
-                        </div>
-                        <Network size={20} />
-                    </div>
-
-                    <div className={styles.flowStrip}>
-                        {result.graph.flow.map((step) => (
-                            <div key={step.id} className={styles.flowStep}>
-                                <span className={styles.flowCount}>{step.count}</span>
-                                <strong>{step.label}</strong>
-                                <p>{step.description}</p>
-                            </div>
-                        ))}
-                    </div>
-
-                    <div className={styles.graphCanvas}>
-                        <svg className={styles.graphEdges} viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                            {result.graph.edges.map((edge) => {
-                                const from = nodeMap.get(edge.from);
-                                const to = nodeMap.get(edge.to);
-                                if (!from || !to) return null;
-                                return (
-                                    <line
-                                        key={edge.id}
-                                        x1={from.x}
-                                        y1={from.y}
-                                        x2={to.x}
-                                        y2={to.y}
-                                        className={styles.graphEdge}
-                                        strokeWidth={Math.min(2.6, 0.8 + edge.strength * 0.28)}
-                                    />
-                                );
-                            })}
-                        </svg>
-                        {positionedNodes.map((node) => (
-                            <button
-                                key={node.id}
-                                type="button"
-                                className={`${styles.graphNode} ${styles[`graphNode_${node.type}`]}`}
-                                style={{ left: `${node.x}%`, top: `${node.y}%` }}
-                                onClick={() => selectLinkedSpan(node.matchId)}
-                                title={node.sublabel ?? node.label}
-                            >
-                                <span>{GRAPH_NODE_LABELS[node.type]}</span>
-                                <strong>{node.label}</strong>
-                                {node.sublabel && <small>{node.sublabel}</small>}
-                            </button>
-                        ))}
-                    </div>
-                </article>
-
-                <article className={styles.graphCard}>
-                    <div className={styles.graphCardHeader}>
-                        <div>
                             <span className={styles.panelKicker}>Grounded Answer</span>
-                            <h2>형광펜 근거 답변</h2>
+                            <h2>출처 주석형 답변</h2>
                         </div>
                         <label className={styles.fontControl}>
                             <SlidersHorizontal size={16} />
@@ -229,17 +189,89 @@ function GraphRagResultView({
                     )}
 
                     <div className={styles.highlightedAnswer} style={{ fontSize: `${answerFontSize}px` }}>
-                        {result.answerSpans.map((span) => (
-                            <button
-                                key={span.id}
-                                type="button"
-                                className={`${styles.highlightSpan} ${styles[`confidence_${span.confidence}`]} ${selectedSpan?.id === span.id ? styles.highlightSpanActive : ''}`}
-                                onClick={() => setSelectedSpanId(span.id)}
-                            >
-                                <Highlighter size={14} />
-                                {span.text}
-                            </button>
+                        {result.answerSpans.map((span, index) => {
+                            const grounded = isGroundedSpan(span);
+                            const citationIndex = span.knowledgeUnitId
+                                ? citationIndexByMatch.get(span.knowledgeUnitId)
+                                : undefined;
+
+                            return (
+                                <span key={span.id} className={styles.answerSegment}>
+                                    {index > 0 ? ' ' : ''}
+                                    {grounded ? (
+                                        <button
+                                            type="button"
+                                            className={`${styles.highlightSpan} ${styles[`confidence_${span.confidence}`]} ${selectedSpan?.id === span.id ? styles.highlightSpanActive : ''}`}
+                                            onClick={() => setSelectedSpanId(span.id)}
+                                        >
+                                            <span>{span.text}</span>
+                                            {citationIndex && (
+                                                <sup className={styles.citationMark}>근거 {citationIndex}</sup>
+                                            )}
+                                        </button>
+                                    ) : (
+                                        <span className={styles.plainAnswerSpan}>{span.text}</span>
+                                    )}
+                                </span>
+                            );
+                        })}
+                    </div>
+                </article>
+
+                <article className={styles.graphCard}>
+                    <div className={styles.graphCardHeader}>
+                        <div>
+                            <span className={styles.panelKicker}>Graph RAG</span>
+                            <h2>보조 지식 그래프</h2>
+                        </div>
+                        <Network size={20} />
+                    </div>
+
+                    <div className={styles.flowStrip}>
+                        {result.graph.flow.map((step) => (
+                            <div key={step.id} className={styles.flowStep}>
+                                <span className={styles.flowCount}>{step.count}</span>
+                                <strong>{step.label}</strong>
+                                <p>{step.description}</p>
+                            </div>
                         ))}
+                    </div>
+
+                    <div className={styles.graphCanvas}>
+                        <div className={styles.graphStage}>
+                            <svg className={styles.graphEdges} viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                                {result.graph.edges.map((edge) => {
+                                    const from = nodeMap.get(edge.from);
+                                    const to = nodeMap.get(edge.to);
+                                    if (!from || !to) return null;
+                                    return (
+                                        <line
+                                            key={edge.id}
+                                            x1={from.x}
+                                            y1={from.y}
+                                            x2={to.x}
+                                            y2={to.y}
+                                            className={styles.graphEdge}
+                                            strokeWidth={Math.min(2.6, 0.8 + edge.strength * 0.28)}
+                                        />
+                                    );
+                                })}
+                            </svg>
+                            {positionedNodes.map((node) => (
+                                <button
+                                    key={node.id}
+                                    type="button"
+                                    className={`${styles.graphNode} ${styles[`graphNode_${node.type}`]}`}
+                                    style={{ left: `${node.x}%`, top: `${node.y}%` }}
+                                    onClick={() => selectLinkedSpan(node.matchId)}
+                                    title={node.sublabel ?? node.label}
+                                >
+                                    <span>{GRAPH_NODE_LABELS[node.type]}</span>
+                                    <strong>{node.label}</strong>
+                                    {node.sublabel && <small>{node.sublabel}</small>}
+                                </button>
+                            ))}
+                        </div>
                     </div>
                 </article>
             </div>
@@ -255,7 +287,7 @@ function GraphRagResultView({
                         <FileText size={18} />
                         <strong>{getSourceViewerTitle(selectedSpan)}</strong>
                     </div>
-                    {selectedSpan && (
+                    {selectedSpan ? (
                         <>
                             <div className={styles.sourceMetaGrid}>
                                 <span>{selectedSpan.evidenceLabel}</span>
@@ -273,6 +305,10 @@ function GraphRagResultView({
                                 </a>
                             )}
                         </>
+                    ) : (
+                        <div className={styles.sourceViewerEmpty}>
+                            직접 연결된 공개 근거가 있는 문장이 없습니다.
+                        </div>
                     )}
                 </div>
 
@@ -284,7 +320,7 @@ function GraphRagResultView({
                                 <button
                                     key={match.knowledgeUnitId}
                                     type="button"
-                                    className={styles.matchCardButton}
+                                    className={`${styles.matchCardButton} ${selectedSpan?.knowledgeUnitId === match.knowledgeUnitId ? styles.matchCardButtonActive : ''}`}
                                     onClick={() => selectLinkedSpan(match.knowledgeUnitId)}
                                 >
                                     <span>{match.title}</span>
@@ -471,7 +507,7 @@ function CounselChatPageContent() {
                             <BrainCircuit size={18} />
                             <span className={styles.modeButtonCopy}>
                                 <strong>Graph RAG</strong>
-                                <span>온톨로지·출처 뷰어</span>
+                                <span>출처 주석·온톨로지</span>
                             </span>
                         </button>
                     </div>
@@ -570,7 +606,7 @@ function CounselChatPageContent() {
                         <div className={styles.panelHeader}>
                             <div>
                                 <span className={styles.panelKicker}>Ontology + RAG</span>
-                                <h2>Graph RAG 질문</h2>
+                                <h2>출처 주석형 질문</h2>
                             </div>
                         </div>
 
@@ -578,7 +614,7 @@ function CounselChatPageContent() {
                             className={styles.inputArea}
                             value={question}
                             onChange={(event) => setQuestion(event.target.value)}
-                            placeholder="Graph RAG로 근거 흐름까지 확인할 질문을 입력하세요."
+                            placeholder="질문을 입력하면 근거가 확인된 답변 문장에만 출처 주석을 붙입니다."
                             rows={6}
                         />
 
@@ -592,7 +628,7 @@ function CounselChatPageContent() {
 
                         <div className={styles.actions}>
                             <Button onClick={handleGraphSubmit} isLoading={isGraphPending}>
-                                <Route size={16} /> Graph RAG 답변 생성
+                                <Route size={16} /> 출처 주석 답변 생성
                             </Button>
                         </div>
                     </>

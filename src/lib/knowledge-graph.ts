@@ -19,6 +19,10 @@ const LOW_SIGNAL_TOKENS = new Set([
     '확인',
 ]);
 
+const MIN_GROUNDED_MATCH_SCORE = 2;
+const MIN_GROUNDED_TOKEN_COVERAGE = 0.18;
+const MIN_GROUNDED_RETRIEVAL_SCORE = 40;
+
 function normalizeText(value: string): string {
     return value
         .normalize('NFKC')
@@ -298,6 +302,14 @@ function scoreSegmentAgainstMatch(segment: string, match: RetrievedKnowledgeEvid
     return tokens.reduce((score, token) => score + (combined.includes(token) ? 1 : 0), 0);
 }
 
+function hasGroundedSourceMatch(segment: string, score: number, retrievalScore: number): boolean {
+    if (retrievalScore < MIN_GROUNDED_RETRIEVAL_SCORE) return false;
+    const tokens = tokenize(segment);
+    if (tokens.length === 0) return false;
+    const coverage = score / tokens.length;
+    return score >= MIN_GROUNDED_MATCH_SCORE && coverage >= MIN_GROUNDED_TOKEN_COVERAGE;
+}
+
 function extractBestExcerpt(segment: string, match: RetrievedKnowledgeEvidence): string {
     const sourceText = (match.answer || match.snippet || match.ruleSummary || match.question)
         .replace(/\s+/g, ' ')
@@ -353,6 +365,20 @@ export function buildGraphRagAnswerSpans(
             .sort((a, b) => b.score - a.score || b.match.score - a.match.score);
         const best = scored[0]?.match ?? primaryMatch;
         const score = scored[0]?.score ?? 0;
+
+        if (!hasGroundedSourceMatch(segment, score, best.score)) {
+            return {
+                id: `span:${index}`,
+                text: segment,
+                knowledgeUnitId: null,
+                sourceTitle: null,
+                sourceUrl: null,
+                sourceBoard: null,
+                evidenceLabel: '직접 연결된 공개 근거 없음',
+                excerpt: '답변 문장과 공개 원문 발췌 사이의 핵심어 연결이 충분하지 않아 출처 주석을 표시하지 않았습니다.',
+                confidence: 'low',
+            };
+        }
 
         return {
             id: `span:${index}`,

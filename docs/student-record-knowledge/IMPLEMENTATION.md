@@ -79,8 +79,9 @@
 - query-string prefill supported
 - the sidebar/workspace label is `생기부 상담 점검`
 - counsel chat and record review now share one `/counsel-chat` workspace with a mode switch, and `/record-review` redirects into that workspace
-- `/counsel-chat` includes a `Graph RAG` mode that calls `/api/counsel-chat/graph`, builds a lightweight ontology graph from school level, category, year, policy anchors, retrieved knowledge units, and public source documents, and shows data flow from question to grounded answer
-- Graph RAG answers are split into clickable highlighted spans; each span opens the mapped source title, public excerpt, confidence level, and source URL in a right-side viewer
+- `/counsel-chat` includes a `Graph RAG` mode that calls `/api/counsel-chat/graph`, renders the generated answer first, then shows a supplementary lightweight ontology graph from school level, category, year, policy anchors, retrieved knowledge units, and public source documents
+- Graph RAG answers are split into answer spans; only spans whose retrieved source score and lexical overlap both pass the grounding threshold are rendered as clickable citation-style highlights, while ungrounded spans remain plain text
+- Clicking a highlighted answer span opens the mapped source title, public excerpt, confidence level, and source URL in a right-side viewer
 - Graph RAG mode includes a native range slider for answer font size so teachers can enlarge or shrink the grounded answer without changing the browser zoom
 - `search-inspector` remains available only as an internal diagnostics route and is no longer shown in the sidebar
 - main navigation groups counsel/review tools under `AI 세특 생성`
@@ -158,6 +159,7 @@
 - If there is no public evidence, do not fabricate an answer
 - counsel responses must include citations
 - Graph RAG responses must use the same public-only evidence policy as counsel chat; graph nodes and highlighted excerpts are an explanation layer over retrieved public FAQ/Q&A evidence, not a separate private source
+- Graph RAG answer spans must not be highlighted merely because a retrieved source exists; the span must pass the source-match threshold, otherwise it renders as normal answer text without an inline source annotation
 - review responses must include issues, risk level, and rewrite guidance
 - improved drafts must stay inside the original facts plus public evidence
 - record review first tries category-filtered matches and falls back to school-level public evidence when the category slice is empty

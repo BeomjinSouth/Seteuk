@@ -311,8 +311,9 @@
 
 .graphCanvas {
     position: relative;
-    min-height: 470px;
-    overflow: hidden;
+    min-height: 680px;
+    overflow-x: auto;
+    overflow-y: hidden;
     border-radius: 1rem;
     border: 1px solid hsl(var(--border));
     background:
@@ -322,6 +323,12 @@
         radial-gradient(circle at 80% 80%, hsl(var(--page-review) / 0.1), transparent 24%),
         hsl(var(--surface-hover) / 0.45);
     background-size: 42px 42px, 42px 42px, auto, auto, auto;
+}
+
+.graphStage {
+    position: relative;
+    width: max(100%, 1280px);
+    height: 680px;
 }
 
 .graphEdges {
@@ -339,7 +346,7 @@
 .graphNode {
     position: absolute;
     z-index: 1;
-    width: 8.8rem;
+    width: 11rem;
     min-height: 4.35rem;
     transform: translate(-50%, -50%);
     display: flex;
@@ -437,57 +444,62 @@
 }
 
 .highlightedAnswer {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    gap: 0.45rem;
-    line-height: 1.9;
+    display: block;
+    line-height: 2;
+    color: hsl(var(--foreground));
+}
+
+.answerSegment,
+.plainAnswerSpan {
+    display: inline;
 }
 
 .highlightSpan {
-    display: inline-flex;
-    align-items: flex-start;
-    gap: 0.35rem;
+    display: inline;
+    appearance: none;
     max-width: 100%;
-    padding: 0.12rem 0.3rem;
+    padding: 0.08em 0.28em;
     border: 1px solid transparent;
-    border-radius: 0.35rem;
-    background: hsl(var(--page-warning) / 0.2);
+    border-radius: 0.28rem;
+    background: linear-gradient(180deg, transparent 18%, hsl(var(--page-warning) / 0.25) 18%, hsl(var(--page-warning) / 0.25) 88%, transparent 88%);
     color: hsl(var(--foreground));
     font: inherit;
     line-height: inherit;
+    vertical-align: baseline;
     text-align: left;
     cursor: pointer;
     transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.highlightSpan svg {
-    flex: 0 0 auto;
-    margin-top: 0.42em;
-    color: hsl(var(--page-warning));
-}
-
 .highlightSpan:hover,
 .highlightSpanActive {
     border-color: hsl(var(--page-warning) / 0.4);
-    background: hsl(var(--page-warning) / 0.34);
+    background: hsl(var(--page-warning) / 0.22);
     box-shadow: 0 0 0 3px hsl(var(--page-warning) / 0.12);
 }
 
 .confidence_high {
-    background: hsl(var(--page-success) / 0.18);
-}
-
-.confidence_high svg {
-    color: hsl(var(--page-success));
+    background: linear-gradient(180deg, transparent 18%, hsl(var(--page-success) / 0.2) 18%, hsl(var(--page-success) / 0.2) 88%, transparent 88%);
 }
 
 .confidence_medium {
-    background: hsl(var(--page-warning) / 0.2);
+    background: linear-gradient(180deg, transparent 18%, hsl(var(--page-warning) / 0.25) 18%, hsl(var(--page-warning) / 0.25) 88%, transparent 88%);
 }
 
 .confidence_low {
-    background: hsl(var(--page-review) / 0.14);
+    background: linear-gradient(180deg, transparent 18%, hsl(var(--page-review) / 0.16) 18%, hsl(var(--page-review) / 0.16) 88%, transparent 88%);
+}
+
+.citationMark {
+    margin-left: 0.25rem;
+    padding: 0.05rem 0.3rem;
+    border-radius: 999px;
+    color: hsl(var(--page-accent));
+    background: hsl(var(--page-accent) / 0.1);
+    font-size: 0.68em;
+    font-weight: 800;
+    line-height: 1;
+    white-space: nowrap;
 }
 
 .sourceViewer {
@@ -538,6 +550,14 @@
     line-height: 1.75;
 }
 
+.sourceViewerEmpty {
+    padding: 1rem;
+    border-radius: 0.9rem;
+    background: hsl(var(--surface-hover));
+    color: hsl(var(--foreground-muted));
+    line-height: 1.65;
+}
+
 .sourceLink {
     display: inline-flex;
     align-items: center;
@@ -575,6 +595,11 @@
     white-space: nowrap;
     color: hsl(var(--foreground-muted));
     font-size: 0.84rem;
+}
+
+.matchCardButtonActive {
+    border-color: hsl(var(--page-accent) / 0.35);
+    background: hsl(var(--page-accent) / 0.08);
 }
 
 .answerHeader,
@@ -766,7 +791,12 @@
     }
 
     .graphCanvas {
-        min-height: 620px;
+        min-height: 720px;
+    }
+
+    .graphStage {
+        width: 1080px;
+        height: 720px;
     }
 
     .sourceViewer {
