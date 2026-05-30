@@ -80,7 +80,9 @@
 - the sidebar/workspace label is `생기부 상담 점검`
 - counsel chat and record review now share one `/counsel-chat` workspace with a mode switch, and `/record-review` redirects into that workspace
 - `/counsel-chat` includes a `Graph RAG` mode that calls `/api/counsel-chat/graph`, renders the generated answer first, then shows a supplementary lightweight ontology graph from school level, category, year, policy anchors, retrieved knowledge units, and public source documents
-- Graph RAG answers are split into answer spans; only spans whose retrieved source score and lexical overlap both pass the grounding threshold are rendered as clickable citation-style highlights with compact inline citation markers, while ungrounded spans remain plain text
+- Graph RAG answers are split into answer spans; only spans whose retrieved source score and stricter lexical overlap both pass the grounding threshold are rendered as clickable citation-style highlights with compact inline citation markers, while ungrounded spans remain plain text
+- Graph RAG grounding filters low-signal meta terms such as public/source/evidence/check phrasing so generic advice sentences are less likely to be highlighted as if they had exact source support
+- Graph RAG answer highlights and selected source excerpts use cloned line-fragment text decoration so wrapped text appears as separate highlighter strokes instead of one large rectangle
 - Clicking a highlighted answer span opens the mapped source title, public excerpt, confidence level, and source URL in a right-side viewer
 - The right-side viewer also lists the answer annotations separately from the raw search candidates, and raw candidates are tucked behind a disclosure control
 - After a Graph RAG answer is generated, the long question composer collapses to a current-question summary with a `질문 수정` action so the answer and source viewer are immediately visible
@@ -161,7 +163,7 @@
 - If there is no public evidence, do not fabricate an answer
 - counsel responses must include citations
 - Graph RAG responses must use the same public-only evidence policy as counsel chat; graph nodes and highlighted excerpts are an explanation layer over retrieved public FAQ/Q&A evidence, not a separate private source
-- Graph RAG answer spans must not be highlighted merely because a retrieved source exists; the span must pass the source-match threshold, otherwise it renders as normal answer text without an inline source annotation
+- Graph RAG answer spans must not be highlighted merely because a retrieved source exists; the span must pass the source-match threshold after low-signal terms are filtered, otherwise it renders as normal answer text without an inline source annotation
 - review responses must include issues, risk level, and rewrite guidance
 - improved drafts must stay inside the original facts plus public evidence
 - record review first tries category-filtered matches and falls back to school-level public evidence when the category slice is empty

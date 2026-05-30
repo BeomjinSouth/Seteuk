@@ -358,7 +358,7 @@
 .graphCanvas {
     position: relative;
     min-height: 560px;
-    overflow-x: hidden;
+    overflow-x: auto;
     overflow-y: hidden;
     border-radius: 1rem;
     border: 1px solid hsl(var(--border));
@@ -373,7 +373,7 @@
 
 .graphStage {
     position: relative;
-    width: 100%;
+    width: max(100%, 980px);
     height: 560px;
 }
 
@@ -392,7 +392,7 @@
 .graphNode {
     position: absolute;
     z-index: 1;
-    width: clamp(7.25rem, 8.9vw, 8.75rem);
+    width: 8.75rem;
     min-height: 4rem;
     transform: translate(-50%, -50%);
     display: flex;
@@ -555,24 +555,42 @@
     appearance: none;
     --highlight-fill: hsl(var(--page-warning) / 0.3);
     max-width: 100%;
-    padding: 0.08em 0.28em;
-    border: 1px solid transparent;
-    border-radius: 0.28rem;
-    background: linear-gradient(180deg, transparent 16%, var(--highlight-fill) 16%, var(--highlight-fill) 88%, transparent 88%);
+    padding: 0;
+    border: 0;
+    background: transparent;
     color: hsl(var(--foreground));
     font: inherit;
     line-height: inherit;
     vertical-align: baseline;
     text-align: left;
     cursor: pointer;
-    transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.highlightSpan:hover,
-.highlightSpanActive {
-    border-color: hsl(var(--page-accent) / 0.38);
-    background: hsl(var(--page-warning) / 0.22);
-    box-shadow: 0 0 0 3px hsl(var(--page-accent) / 0.1);
+.highlightText {
+    padding: 0.02em 0.16em 0.08em;
+    border-radius: 0.18rem;
+    background: linear-gradient(180deg, transparent 46%, var(--highlight-fill) 46%, var(--highlight-fill) 90%, transparent 90%);
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    transition: background 0.18s ease, text-decoration-color 0.18s ease;
+}
+
+.highlightSpan:hover .highlightText,
+.highlightSpanActive .highlightText {
+    background: linear-gradient(180deg, transparent 40%, hsl(var(--page-warning) / 0.42) 40%, hsl(var(--page-warning) / 0.42) 92%, transparent 92%);
+    text-decoration-line: underline;
+    text-decoration-color: hsl(var(--page-accent) / 0.55);
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.18em;
+}
+
+.highlightSpan:focus-visible {
+    outline: none;
+}
+
+.highlightSpan:focus-visible .highlightText {
+    outline: 2px solid hsl(var(--page-accent) / 0.42);
+    outline-offset: 0.14em;
 }
 
 .confidence_high {
@@ -655,9 +673,17 @@
     padding: 1rem;
     border-left: 4px solid hsl(var(--page-warning));
     border-radius: 0.8rem;
-    background: hsl(var(--page-warning) / 0.11);
+    background: hsl(var(--surface-hover) / 0.72);
     color: hsl(var(--foreground));
     line-height: 1.75;
+}
+
+.sourceExcerptText {
+    padding: 0.02em 0.16em 0.08em;
+    border-radius: 0.18rem;
+    background: linear-gradient(180deg, transparent 48%, hsl(var(--page-warning) / 0.3) 48%, hsl(var(--page-warning) / 0.3) 91%, transparent 91%);
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
 }
 
 .sourceViewerEmpty {

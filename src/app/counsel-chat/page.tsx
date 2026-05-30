@@ -227,7 +227,7 @@ function GraphRagResultView({
                                             className={`${styles.highlightSpan} ${styles[`confidence_${span.confidence}`]} ${selectedSpan?.id === span.id ? styles.highlightSpanActive : ''}`}
                                             onClick={() => setSelectedSpanId(span.id)}
                                         >
-                                            <span>{span.text}</span>
+                                            <span className={styles.highlightText}>{span.text}</span>
                                             {citationIndex && (
                                                 <sup className={styles.citationMark}>[{citationIndex}]</sup>
                                             )}
@@ -320,7 +320,9 @@ function GraphRagResultView({
                                 <span>신뢰도 {selectedSpan.confidence}</span>
                             </div>
                             <strong className={styles.excerptLabel}>원문 발췌</strong>
-                            <blockquote>{selectedSpan.excerpt}</blockquote>
+                            <blockquote>
+                                <span className={styles.sourceExcerptText}>{selectedSpan.excerpt}</span>
+                            </blockquote>
                             {selectedSpan.sourceUrl && (
                                 <a
                                     className={styles.sourceLink}

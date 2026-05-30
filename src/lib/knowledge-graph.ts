@@ -17,10 +17,23 @@ const LOW_SIGNAL_TOKENS = new Set([
     '활동',
     '경우',
     '확인',
+    '공개',
+    '근거',
+    '출처',
+    '추가',
+    '추가로',
+    '비슷한',
+    '함께',
+    '검토',
+    '검토하는',
+    '안전',
+    '안전합니다',
+    '가장',
+    '가까운',
 ]);
 
-const MIN_GROUNDED_MATCH_SCORE = 2;
-const MIN_GROUNDED_TOKEN_COVERAGE = 0.18;
+const MIN_GROUNDED_MATCH_SCORE = 3;
+const MIN_GROUNDED_TOKEN_COVERAGE = 0.28;
 const MIN_GROUNDED_RETRIEVAL_SCORE = 40;
 
 function normalizeText(value: string): string {
