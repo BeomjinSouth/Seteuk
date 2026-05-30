@@ -71,6 +71,7 @@
 }
 
 :root {
+  color-scheme: light;
   --font-maple: "Maplestory Local", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
   --font-body: var(--font-maple);
   --font-display: var(--font-maple);
@@ -134,6 +135,7 @@
 /* Dark mode via system preference */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
+    color-scheme: dark;
     --background: 224 71% 4%;
     --surface: 222 47% 11%;
     --surface-hover: 217 33% 17%;
@@ -172,8 +174,13 @@
   }
 }
 
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
 /* Dark mode via manual toggle */
 :root[data-theme="dark"] {
+  color-scheme: dark;
   --background: 224 71% 4%;
   --surface: 222 47% 11%;
   --surface-hover: 217 33% 17%;

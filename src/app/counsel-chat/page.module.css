@@ -3,10 +3,43 @@
     --page-review: 33 94% 53%;
     --page-success: 158 78% 35%;
     --page-warning: 42 95% 52%;
+    --answer-highlight-high: hsl(var(--page-warning) / 0.24);
+    --answer-highlight-medium: hsl(var(--page-warning) / 0.2);
+    --answer-highlight-low: hsl(var(--page-warning) / 0.16);
+    --answer-highlight-active: hsl(var(--page-warning) / 0.32);
+    --graph-canvas-start: 208 42% 97%;
+    --graph-canvas-end: 250 35% 99%;
+    --graph-dot: 215 28% 78%;
+    --graph-node-bg: 0 0% 100%;
+    --graph-node-border: 215 22% 86%;
+    --graph-node-shadow: 222 47% 11%;
+    --graph-edge-halo: 0 0% 100%;
+    --graph-edge-query-ontology: 201 89% 48%;
+    --graph-edge-ontology-knowledge: 158 78% 35%;
+    --graph-edge-knowledge-source: 33 94% 53%;
+    --graph-edge-source-answer: 42 95% 46%;
     padding: 2rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+}
+
+:global(:root[data-theme="dark"]) .page {
+    --answer-highlight-high: hsl(var(--page-warning) / 0.34);
+    --answer-highlight-medium: hsl(var(--page-warning) / 0.28);
+    --answer-highlight-low: hsl(var(--page-warning) / 0.22);
+    --answer-highlight-active: hsl(var(--page-warning) / 0.44);
+    --graph-canvas-start: 222 47% 8%;
+    --graph-canvas-end: 224 53% 12%;
+    --graph-dot: 217 33% 34%;
+    --graph-node-bg: 222 47% 12%;
+    --graph-node-border: 217 33% 23%;
+    --graph-node-shadow: 0 0% 0%;
+    --graph-edge-halo: 222 47% 7%;
+    --graph-edge-query-ontology: 199 95% 62%;
+    --graph-edge-ontology-knowledge: 158 78% 48%;
+    --graph-edge-knowledge-source: 35 96% 60%;
+    --graph-edge-source-answer: 45 96% 58%;
 }
 
 .hero {
@@ -363,12 +396,11 @@
     border-radius: 1rem;
     border: 1px solid hsl(var(--border));
     background:
-        linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px),
-        linear-gradient(180deg, hsl(var(--border) / 0.24) 1px, transparent 1px),
-        radial-gradient(circle at 10% 15%, hsl(var(--page-accent) / 0.12), transparent 26%),
-        radial-gradient(circle at 80% 80%, hsl(var(--page-review) / 0.1), transparent 24%),
-        hsl(var(--surface-hover) / 0.45);
-    background-size: 42px 42px, 42px 42px, auto, auto, auto;
+        radial-gradient(circle at center, hsl(var(--graph-dot) / 0.34) 0 1px, transparent 1.25px),
+        radial-gradient(circle at 12% 18%, hsl(var(--page-accent) / 0.13), transparent 30%),
+        radial-gradient(circle at 82% 76%, hsl(var(--page-warning) / 0.12), transparent 28%),
+        linear-gradient(135deg, hsl(var(--graph-canvas-start)), hsl(var(--graph-canvas-end)));
+    background-size: 28px 28px, auto, auto, auto;
 }
 
 .graphStage {
@@ -384,9 +416,22 @@
     height: 100%;
 }
 
-.graphEdge {
-    stroke: hsl(var(--foreground-muted) / 0.34);
+.graphEdgeGroup {
+    fill: none;
+}
+
+.graphEdgeHalo {
+    stroke: hsl(var(--graph-edge-halo) / 0.86);
     stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.graphEdge {
+    stroke: var(--edge-color);
+    opacity: var(--edge-opacity);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 2px 2px hsl(var(--graph-node-shadow) / 0.1));
 }
 
 .graphNode {
@@ -401,10 +446,10 @@
     gap: 0.25rem;
     padding: 0.65rem 0.7rem;
     border-radius: 0.85rem;
-    border: 1px solid hsl(var(--border));
-    background: hsl(var(--surface) / 0.96);
+    border: 1px solid hsl(var(--graph-node-border));
+    background: hsl(var(--graph-node-bg) / 0.96);
     color: hsl(var(--foreground));
-    box-shadow: 0 14px 30px hsl(var(--foreground) / 0.08);
+    box-shadow: 0 14px 30px hsl(var(--graph-node-shadow) / 0.1);
     text-align: left;
     font: inherit;
     cursor: pointer;
@@ -480,7 +525,7 @@
 .graphNode_answer {
     width: 7rem;
     border-color: hsl(var(--page-accent) / 0.38);
-    background: hsl(var(--page-accent) / 0.08);
+    background: linear-gradient(180deg, hsl(var(--page-accent) / 0.12), hsl(var(--graph-node-bg) / 0.96));
 }
 
 .fontControl {
@@ -553,7 +598,7 @@
 .highlightSpan {
     display: inline;
     appearance: none;
-    --highlight-fill: hsl(var(--page-warning) / 0.3);
+    --highlight-fill: var(--answer-highlight-medium);
     max-width: 100%;
     padding: 0;
     border: 0;
@@ -567,9 +612,9 @@
 }
 
 .highlightText {
-    padding: 0.02em 0.16em 0.08em;
+    padding: 0.03em 0.18em 0.1em;
     border-radius: 0.18rem;
-    background: linear-gradient(180deg, transparent 46%, var(--highlight-fill) 46%, var(--highlight-fill) 90%, transparent 90%);
+    background: linear-gradient(180deg, transparent 12%, var(--highlight-fill) 12%, var(--highlight-fill) 94%, transparent 94%);
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
     transition: background 0.18s ease, text-decoration-color 0.18s ease;
@@ -577,7 +622,7 @@
 
 .highlightSpan:hover .highlightText,
 .highlightSpanActive .highlightText {
-    background: linear-gradient(180deg, transparent 40%, hsl(var(--page-warning) / 0.42) 40%, hsl(var(--page-warning) / 0.42) 92%, transparent 92%);
+    background: linear-gradient(180deg, transparent 8%, var(--answer-highlight-active) 8%, var(--answer-highlight-active) 96%, transparent 96%);
     text-decoration-line: underline;
     text-decoration-color: hsl(var(--page-accent) / 0.55);
     text-decoration-thickness: 0.08em;
@@ -594,15 +639,15 @@
 }
 
 .confidence_high {
-    --highlight-fill: hsl(var(--page-warning) / 0.34);
+    --highlight-fill: var(--answer-highlight-high);
 }
 
 .confidence_medium {
-    --highlight-fill: hsl(var(--page-warning) / 0.26);
+    --highlight-fill: var(--answer-highlight-medium);
 }
 
 .confidence_low {
-    --highlight-fill: hsl(var(--page-warning) / 0.18);
+    --highlight-fill: var(--answer-highlight-low);
 }
 
 .citationMark {
@@ -679,9 +724,9 @@
 }
 
 .sourceExcerptText {
-    padding: 0.02em 0.16em 0.08em;
+    padding: 0.03em 0.18em 0.1em;
     border-radius: 0.18rem;
-    background: linear-gradient(180deg, transparent 48%, hsl(var(--page-warning) / 0.3) 48%, hsl(var(--page-warning) / 0.3) 91%, transparent 91%);
+    background: linear-gradient(180deg, transparent 12%, var(--answer-highlight-medium) 12%, var(--answer-highlight-medium) 94%, transparent 94%);
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
 }

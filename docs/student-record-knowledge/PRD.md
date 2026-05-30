@@ -42,9 +42,11 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - supplementary ontology/data-flow graph that visualizes the question, ontology concepts, retrieved knowledge units, public source documents, and answer grounding path without replacing the answer
 - answer highlighting that opens the exact supporting source excerpt and source link in a right-side viewer; answer spans without a strong public-source match remain plain text
 - highlighted answer and source-excerpt text should render as line-fragment highlighter marks, not as one large rectangular block around wrapped text
+- highlighted answer and source-excerpt text should use a near-full-height highlighter fill so the mark does not cut through only the lower half of Korean text
 - after a source-annotated answer is generated, the long question composer collapses to the current-question summary so the answer and source viewer become the primary workspace
 - highlighted answer spans use compact citation markers and a right-side "answer annotations" list so teachers can move between cited answer parts without reading raw search results first
 - answer font-size slider for classroom display and accessibility
+- ontology/data-flow graph edges should use theme-aware curved strokes with visible weight and color differences so relationships remain readable in both light and dark mode
 
 ### Record review
 
@@ -83,7 +85,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - `/api/search-eval`: implemented
 - conservative similar-question dedupe: implemented for canonical and pending Q&A outputs
 - `/counsel-chat`: implemented as the combined counsel/review workspace
-- `/counsel-chat`: Graph RAG mode implemented with answer-first citation annotations, highlighted grounded answer spans only when a direct public source match exists, line-fragment highlighter rendering for wrapped answer/source text, compact citation markers, source excerpt viewer, answer annotation list, answer font-size slider, collapsed current-question state after generation, and supplementary ontology/data-flow graph
+- `/counsel-chat`: Graph RAG mode implemented with answer-first citation annotations, highlighted grounded answer spans only when a direct public source match exists, near-full-height line-fragment highlighter rendering for wrapped answer/source text, compact citation markers, source excerpt viewer, answer annotation list, answer font-size slider, collapsed current-question state after generation, and supplementary theme-aware ontology/data-flow graph
 - `/record-review`: implemented as a compatibility redirect to `/counsel-chat?mode=review`
 - `/write`: RAG review-improve action implemented
 - `/write`: AI 세특 작성 화면 is aligned to the provided table workspace design with class chips, screenshot-style action toolbar, 10-row pagination, top teacher/notification chrome, and the AI 세특 guide card in the sidebar

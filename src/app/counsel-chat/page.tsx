@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState, useTransition } from 'react';
+import { type CSSProperties, useEffect, useMemo, useRef, useState, useTransition } from 'react';
 import { motion } from 'framer-motion';
 import {
     AlertTriangle,
@@ -108,6 +108,18 @@ function buildGraphLayout(nodes: GraphRagNode[]): PositionedGraphNode[] {
             y: Math.max(8, Math.min(92, startY + index * gap)),
         }));
     });
+}
+
+function buildGraphEdgePath(from: PositionedGraphNode, to: PositionedGraphNode): string {
+    const midX = (from.x + to.x) / 2;
+    return `M ${from.x} ${from.y} C ${midX} ${from.y}, ${midX} ${to.y}, ${to.x} ${to.y}`;
+}
+
+function getGraphEdgeColor(from: PositionedGraphNode, to: PositionedGraphNode): string {
+    if (from.type === 'source' || to.type === 'answer') return 'hsl(var(--graph-edge-source-answer) / 0.88)';
+    if (from.type === 'knowledge' || to.type === 'source') return 'hsl(var(--graph-edge-knowledge-source) / 0.8)';
+    if (from.type === 'ontology' || to.type === 'knowledge') return 'hsl(var(--graph-edge-ontology-knowledge) / 0.74)';
+    return 'hsl(var(--graph-edge-query-ontology) / 0.78)';
 }
 
 function getSourceViewerTitle(span: GraphRagAnswerSpan | undefined): string {
@@ -267,16 +279,26 @@ function GraphRagResultView({
                                     const from = nodeMap.get(edge.from);
                                     const to = nodeMap.get(edge.to);
                                     if (!from || !to) return null;
+                                    const edgeWidth = Math.min(3.9, 1.05 + edge.strength * 0.46);
+                                    const edgeStyle = {
+                                        '--edge-color': getGraphEdgeColor(from, to),
+                                        '--edge-opacity': Math.min(0.92, 0.5 + edge.strength * 0.08),
+                                    } as CSSProperties;
+                                    const path = buildGraphEdgePath(from, to);
                                     return (
-                                        <line
-                                            key={edge.id}
-                                            x1={from.x}
-                                            y1={from.y}
-                                            x2={to.x}
-                                            y2={to.y}
-                                            className={styles.graphEdge}
-                                            strokeWidth={Math.min(2.6, 0.8 + edge.strength * 0.28)}
-                                        />
+                                        <g key={edge.id} className={styles.graphEdgeGroup}>
+                                            <path
+                                                d={path}
+                                                className={styles.graphEdgeHalo}
+                                                strokeWidth={edgeWidth + 2}
+                                            />
+                                            <path
+                                                d={path}
+                                                className={styles.graphEdge}
+                                                strokeWidth={edgeWidth}
+                                                style={edgeStyle}
+                                            />
+                                        </g>
                                     );
                                 })}
                             </svg>
