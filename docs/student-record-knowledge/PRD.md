@@ -47,7 +47,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - after a source-annotated answer is generated, the long question composer collapses to the current-question summary so the answer and source viewer become the primary workspace
 - highlighted answer spans use compact citation markers and a right-side "answer annotations" list so teachers can move between cited answer parts without reading raw search results first
 - answer font-size slider for classroom display and accessibility
-- the supplementary graph should read like a compact Obsidian network: dark canvas, small circular nodes, fine links, central question/answer hubs, and restrained blue/slate/amber labels/legend instead of saturated flowchart colors or large rectangular cards
+- the supplementary graph should read like a compact Obsidian network: dark canvas, small circular nodes, fine links, central question/answer hubs, restrained blue/slate/amber labels/legend, and balanced canvas coverage instead of saturated flowchart colors, large rectangular cards, a center-collapsed cluster, or large dead zones
 
 ### Record review
 
@@ -87,7 +87,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - `/api/search-eval`: implemented
 - conservative similar-question dedupe: implemented for canonical and pending Q&A outputs
 - `/counsel-chat`: implemented as the combined counsel/review workspace
-- `/counsel-chat`: Graph RAG mode implemented with answer-first citation annotations, highlighted grounded answer spans only when a direct public source match exists, near-full-height line-fragment highlighter rendering for wrapped answer/source text, compact citation markers, source excerpt viewer, answer annotation list, answer font-size slider, collapsed current-question state after generation, and a supplementary Obsidian-like knowledge map
+- `/counsel-chat`: Graph RAG mode implemented with answer-first citation annotations, highlighted grounded answer spans only when a direct public source match exists, near-full-height line-fragment highlighter rendering for wrapped answer/source text, compact citation markers, source excerpt viewer, answer annotation list, answer font-size slider, collapsed current-question state after generation, and a supplementary Obsidian-like knowledge map with bounds-based spread/recentering so the graph uses the canvas more evenly
 - Graph RAG offline labeling: `npm run label:graph-rag` generates deterministic labels for all 1,451 public canonical knowledge units, a typed graph JSON/JSONL, stats, and a 120-note Obsidian seed vault for manual review
 - `/record-review`: implemented as a compatibility redirect to `/counsel-chat?mode=review`
 - `/write`: RAG review-improve action implemented

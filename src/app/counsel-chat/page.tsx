@@ -69,9 +69,10 @@ type GraphMap = {
 };
 
 const GRAPH_MAP_WIDTH = 1000;
-const GRAPH_MAP_HEIGHT = 620;
+const GRAPH_MAP_HEIGHT = 1000;
 const GRAPH_MAP_CENTER_X = GRAPH_MAP_WIDTH / 2;
 const GRAPH_MAP_CENTER_Y = GRAPH_MAP_HEIGHT / 2;
+const GRAPH_MAP_PADDING = 30;
 
 const SAMPLE_QUESTIONS = [
     '출석인정 결석의 증빙 서류는 어디까지 필요한가요?',
@@ -182,7 +183,7 @@ function addGraphMapNode(
         label: node.label,
         sublabel: node.sublabel,
         x: clampNumber(x, 48, GRAPH_MAP_WIDTH - 48),
-        y: clampNumber(y, 42, GRAPH_MAP_HEIGHT - 42),
+        y: clampNumber(y, 48, GRAPH_MAP_HEIGHT - 48),
         radius: graphNodeRadius(node),
         opacity: 1,
         isCore: true,
@@ -191,6 +192,66 @@ function addGraphMapNode(
     };
     nodeMap.set(nextNode.id, nextNode);
     return nextNode;
+}
+
+function getGraphMapBounds(nodes: GraphMapNode[]) {
+    return {
+        minX: Math.min(...nodes.map((node) => node.x - node.radius)),
+        maxX: Math.max(...nodes.map((node) => node.x + node.radius)),
+        minY: Math.min(...nodes.map((node) => node.y - node.radius)),
+        maxY: Math.max(...nodes.map((node) => node.y + node.radius)),
+    };
+}
+
+function expandGraphMapToCanvas(nodeMap: Map<string, GraphMapNode>) {
+    const nodes = [...nodeMap.values()];
+    if (nodes.length === 0) return;
+
+    const bounds = getGraphMapBounds(nodes);
+    const currentWidth = Math.max(1, bounds.maxX - bounds.minX);
+    const currentHeight = Math.max(1, bounds.maxY - bounds.minY);
+    const targetWidth = GRAPH_MAP_WIDTH * 0.9;
+    const targetHeight = GRAPH_MAP_HEIGHT * 0.9;
+    const scaleX = clampNumber(targetWidth / currentWidth, 1, 1.85);
+    const scaleY = clampNumber(targetHeight / currentHeight, 1, 1.85);
+
+    for (const node of nodes) {
+        node.x = clampNumber(
+            GRAPH_MAP_CENTER_X + (node.x - GRAPH_MAP_CENTER_X) * scaleX,
+            GRAPH_MAP_PADDING + node.radius,
+            GRAPH_MAP_WIDTH - GRAPH_MAP_PADDING - node.radius,
+        );
+        node.y = clampNumber(
+            GRAPH_MAP_CENTER_Y + (node.y - GRAPH_MAP_CENTER_Y) * scaleY,
+            GRAPH_MAP_PADDING + node.radius,
+            GRAPH_MAP_HEIGHT - GRAPH_MAP_PADDING - node.radius,
+        );
+    }
+
+    const expandedBounds = getGraphMapBounds(nodes);
+    const offsetX = clampNumber(
+        GRAPH_MAP_CENTER_X - (expandedBounds.minX + expandedBounds.maxX) / 2,
+        GRAPH_MAP_PADDING - expandedBounds.minX,
+        GRAPH_MAP_WIDTH - GRAPH_MAP_PADDING - expandedBounds.maxX,
+    );
+    const offsetY = clampNumber(
+        GRAPH_MAP_CENTER_Y - (expandedBounds.minY + expandedBounds.maxY) / 2,
+        GRAPH_MAP_PADDING - expandedBounds.minY,
+        GRAPH_MAP_HEIGHT - GRAPH_MAP_PADDING - expandedBounds.maxY,
+    );
+
+    for (const node of nodes) {
+        node.x = clampNumber(
+            node.x + offsetX,
+            GRAPH_MAP_PADDING + node.radius,
+            GRAPH_MAP_WIDTH - GRAPH_MAP_PADDING - node.radius,
+        );
+        node.y = clampNumber(
+            node.y + offsetY,
+            GRAPH_MAP_PADDING + node.radius,
+            GRAPH_MAP_HEIGHT - GRAPH_MAP_PADDING - node.radius,
+        );
+    }
 }
 
 function buildObsidianGraphMap(nodes: GraphRagNode[], edges: GraphRagEdge[]): GraphMap {
@@ -203,12 +264,12 @@ function buildObsidianGraphMap(nodes: GraphRagNode[], edges: GraphRagEdge[]): Gr
     const otherNodes = nodes.filter((node) => !['query', 'answer', 'ontology', 'knowledge', 'source'].includes(node.type));
 
     if (query) addGraphMapNode(nodeMap, query, GRAPH_MAP_CENTER_X, GRAPH_MAP_CENTER_Y);
-    if (answer) addGraphMapNode(nodeMap, answer, GRAPH_MAP_CENTER_X + 70, GRAPH_MAP_CENTER_Y + 34);
+    if (answer) addGraphMapNode(nodeMap, answer, GRAPH_MAP_CENTER_X + 84, GRAPH_MAP_CENTER_Y + 52);
 
     ontologyNodes.forEach((node, index) => {
         const total = Math.max(ontologyNodes.length, 1);
         const angle = -Math.PI / 2 + (index / total) * Math.PI * 2 + (hashUnit(node.id, 'angle') - 0.5) * 0.4;
-        const radius = 118 + hashUnit(node.id, 'radius') * 38;
+        const radius = 190 + hashUnit(node.id, 'radius') * 74;
         addGraphMapNode(
             nodeMap,
             node,
@@ -228,7 +289,7 @@ function buildObsidianGraphMap(nodes: GraphRagNode[], edges: GraphRagEdge[]): Gr
         const angle = anchor
             ? Math.atan2(anchor.y - GRAPH_MAP_CENTER_Y, anchor.x - GRAPH_MAP_CENTER_X) + (hashUnit(node.id, 'spread') - 0.5) * 0.85
             : fallbackAngle;
-        const radius = 210 + hashUnit(node.id, 'radius') * 70;
+        const radius = 330 + hashUnit(node.id, 'radius') * 126;
         addGraphMapNode(
             nodeMap,
             node,
@@ -245,7 +306,7 @@ function buildObsidianGraphMap(nodes: GraphRagNode[], edges: GraphRagEdge[]): Gr
         const angle = anchor
             ? Math.atan2(anchor.y - GRAPH_MAP_CENTER_Y, anchor.x - GRAPH_MAP_CENTER_X) + (hashUnit(node.id, 'spread') - 0.5) * 0.75
             : fallbackAngle;
-        const radius = anchor ? 82 + hashUnit(node.id, 'radius') * 34 : 280 + hashUnit(node.id, 'radius') * 60;
+        const radius = anchor ? 122 + hashUnit(node.id, 'radius') * 76 : 410 + hashUnit(node.id, 'radius') * 116;
         addGraphMapNode(
             nodeMap,
             node,
@@ -257,7 +318,7 @@ function buildObsidianGraphMap(nodes: GraphRagNode[], edges: GraphRagEdge[]): Gr
     otherNodes.forEach((node, index) => {
         const total = Math.max(otherNodes.length, 1);
         const angle = (index / total) * Math.PI * 2 + hashUnit(node.id, 'angle') * 0.6;
-        const radius = 250 + hashUnit(node.id, 'radius') * 90;
+        const radius = 390 + hashUnit(node.id, 'radius') * 150;
         addGraphMapNode(
             nodeMap,
             node,
@@ -289,7 +350,7 @@ function buildObsidianGraphMap(nodes: GraphRagNode[], edges: GraphRagEdge[]): Gr
 
         labels.forEach((label, index) => {
             const angle = hashUnit(parent.id, `satellite-angle-${index}`) * Math.PI * 2;
-            const radius = 34 + hashUnit(parent.id, `satellite-radius-${index}`) * (parent.type === 'knowledge' ? 74 : 58);
+            const radius = 58 + hashUnit(parent.id, `satellite-radius-${index}`) * (parent.type === 'knowledge' ? 138 : 106);
             const satelliteId = `${parent.id}:keyword:${index}`;
             const satellite: GraphMapNode = {
                 id: satelliteId,
@@ -326,6 +387,8 @@ function buildObsidianGraphMap(nodes: GraphRagNode[], edges: GraphRagEdge[]): Gr
             previousSatelliteId = satelliteId;
         });
     }
+
+    expandGraphMapToCanvas(nodeMap);
 
     return {
         nodes: [...nodeMap.values()],

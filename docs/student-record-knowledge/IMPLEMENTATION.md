@@ -102,6 +102,7 @@
 - After a Graph RAG answer is generated, the long question composer collapses to a current-question summary with a `질문 수정` action so the answer and source viewer are immediately visible
 - Graph RAG mode includes a native range slider for answer font size so teachers can enlarge or shrink the grounded answer without changing the browser zoom
 - Graph RAG supplementary graph now renders as a dark Obsidian-style SVG network: central question/answer hubs, small circular ontology/knowledge/source nodes, derived keyword satellites, fine straight links, active source highlighting, compact counts, and a restrained blue/slate/amber legend instead of rectangular flowchart node cards
+- The Obsidian-style graph layout uses wider radial rings, node-radius-aware bounds expansion, and post-layout recentering so the visible node cloud fills the canvas more evenly instead of collapsing into the middle; the mobile graph stage uses viewport-width-based height to avoid excess vertical dead space
 - Graph RAG page-level tokens define dark graph canvas, node colors, edge colors, and highlight opacity, while `globals.css` sets explicit `color-scheme` for manual and system theme states
 - `search-inspector` remains available only as an internal diagnostics route and is no longer shown in the sidebar
 - main navigation groups counsel/review tools under `AI 세특 생성`
