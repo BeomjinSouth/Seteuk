@@ -16,6 +16,7 @@
 
 - chatbot and review use only canonical public knowledge
 - Graph RAG mode uses the same canonical public knowledge only; ontology nodes, graph edges, highlighted answer spans, and source excerpts are generated from retrieved public FAQ/Q&A evidence
+- offline Graph RAG labels are generated only from canonical public knowledge units and public source-document metadata; private posts are not emitted as evidence nodes or Obsidian notes
 - Graph RAG highlights only answer spans that pass both a retrieved-source score threshold and a direct public-source text-overlap threshold; low-signal source/meta wording is filtered before scoring, and answer spans without enough source support are kept unhighlighted so the UI does not imply unsupported precision
 - private posts are retained only for stats and operations
 - conflict resolution defaults to latest answer first

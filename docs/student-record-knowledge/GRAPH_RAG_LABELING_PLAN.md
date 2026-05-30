@@ -1,0 +1,142 @@
+# Graph RAG Labeling Plan
+
+## Purpose
+
+The current Graph RAG UI explains retrieved evidence as a network. This plan adds a lower, reusable labeling layer over the full STAR FAQ/Q&A knowledge snapshot so retrieval can use Obsidian-style nodes, tags, aliases, and typed edges instead of depending only on lexical matches and per-request graph construction.
+
+## Data Profile
+
+Current bundled snapshot:
+
+- generatedAt: `2026-04-25T01:04:06.576Z`
+- canonicalEntries: `1451`
+- knowledgeUnits: `1451`
+- public Q&A entries: `1502`
+- private/secret entries: `1828`, retained only for operations and never used as answer evidence
+- source boards: `qna=1401`, `faq=50`
+- policy anchors: `3523` total, average `2.43` per knowledge unit, max `11`
+- source document links: `1500` total
+- duplicate or versioned canonical entries: `46`
+
+Largest category clusters:
+
+- `창의적 체험활동상황`: `477`
+- `출결상황`: `248`
+- `교과학습발달상황`: `194`
+- `인적·학적사항`: `170`
+- `자료의 정정`: `170`
+- `수상경력`: `50`
+- `행동특성 및 종합의견`: `48`
+
+## Labeling Principles
+
+- Public-only: Graph RAG labels may point to public FAQ/Q&A evidence only. Private posts remain metadata-only and cannot become answer nodes.
+- Separate tags from edges: tags support filtering and faceting; typed edges support graph traversal.
+- Preserve citation lineage: every knowledge unit must retain source URL, source board, source document ids, and access level.
+- Prefer stable ids: use the existing derived `knowledgeUnitId` and deterministic concept/source ids so regenerated labels diff cleanly.
+- Treat automatic labels as first-pass labels: generated tags are useful for Graph RAG routing, but high-risk policy concepts need manual review before they become hard policy gates.
+- Keep Obsidian notes compact: the vault seed should expose graph links, summaries, and excerpts; the JSON label file remains the full machine-readable source.
+
+## Node Types
+
+- `knowledge_unit`: one canonical public FAQ/Q&A unit.
+- `category`: student-record category such as `출결상황` or `자료의 정정`.
+- `school_level`: `초등학교`, `중학교`, `고등학교`, or `공통`.
+- `source_board`: `faq` or `qna`.
+- `source_document`: public STAR source URL or source id.
+- `policy_anchor`: normalized policy-anchor rule extracted from the knowledge-unit artifact.
+- `domain_tag`: high-level domain label such as `domain/출결`, `domain/세특`, `domain/정정`.
+- `policy_tag`: operational policy label such as `policy/금지`, `policy/허용`, `policy/예외`.
+- `risk_tag`: review-risk label such as `risk/개인정보`, `risk/수상`, `risk/학교폭력`.
+- `workflow_tag`: workflow label such as `workflow/수동검수우선`, `workflow/인용핵심`.
+
+## Edge Types
+
+- `in_category`: knowledge unit -> category.
+- `applies_to_school_level`: knowledge unit -> school level.
+- `from_source_board`: knowledge unit -> source board.
+- `evidenced_by`: knowledge unit -> source document.
+- `has_policy_anchor`: knowledge unit -> policy anchor.
+- `has_domain_tag`: knowledge unit -> domain tag.
+- `has_policy_tag`: knowledge unit -> policy tag.
+- `has_risk_tag`: knowledge unit -> risk tag.
+- `has_workflow_tag`: knowledge unit -> workflow tag.
+- `same_question_variant`: knowledge unit -> duplicate/version family.
+
+## Obsidian Frontmatter Contract
+
+Each generated knowledge note should use this shape:
+
+```yaml
+---
+id: ku:<knowledgeUnitId>
+node_type: knowledge_unit
+source_board: qna
+access_level: public
+school_levels:
+  - 중학교
+categories:
+  - 출결상황
+effective_year: 2026
+graph_priority: 42
+tags:
+  - seteuk/knowledge
+  - source/qna
+  - domain/출결
+  - policy/금지
+relations:
+  in_category:
+    - category:출결상황
+  applies_to_school_level:
+    - school_level:중학교
+  evidenced_by:
+    - source:star-qna-114023
+confidence: source_public_auto_labeled
+---
+```
+
+## Labeling Phases
+
+1. **Automatic baseline labeling**
+   - Generate labels for all `1451` knowledge units from the bundled JSON.
+   - Generate deterministic graph edges for category, school level, source board, public source document, policy anchor, and heuristic domain/policy/risk/workflow labels.
+   - Produce a machine-readable graph JSON and JSONL.
+
+2. **Obsidian seed vault**
+   - Generate Markdown notes for the highest-priority knowledge units.
+   - Include concept notes for categories, school levels, source boards, domain tags, policy tags, risk tags, and workflow tags.
+   - Keep notes small enough for human review and Obsidian browsing.
+
+3. **Manual review pass**
+   - Review high-risk clusters first: `자료의 정정`, `출결상황`, `수상경력`, `학교폭력 조치상황 관리`, `자격증`.
+   - Promote reviewed labels from `auto` confidence to `reviewed`.
+   - Add explicit `exception_to`, `updates`, and `contradicts` edges where policy answers conflict or supersede one another.
+
+4. **Retrieval integration**
+   - Use graph labels to add query expansion, category narrowing, source-policy filtering, and neighbor traversal before reranking.
+   - Keep citation generation tied to the original public source URL rather than to derived graph labels alone.
+
+## Current Initial Implementation
+
+Initial labeling is generated by:
+
+```bash
+npm run label:graph-rag
+```
+
+Outputs:
+
+- `output/graph-rag-labels/graph-rag-labels-2026.json`
+- `output/graph-rag-labels/graph-rag-labels-2026.jsonl`
+- `output/graph-rag-labels/STATS.md`
+- `output/graph-rag-labels/obsidian-vault/`
+
+The JSON graph labels cover every canonical knowledge unit. The Obsidian vault is a review seed, not the final full vault.
+
+## Completion Criteria For This Layer
+
+- All canonical public knowledge units have deterministic graph labels.
+- The generated graph has typed nodes and edges with counts recorded in `STATS.md`.
+- The seed vault opens as plain Markdown and includes bidirectional-style wiki links for core concepts.
+- The source policy remains public-only and private posts are not emitted as evidence nodes.
+- The status and implementation docs record the labeling layer and verification command.

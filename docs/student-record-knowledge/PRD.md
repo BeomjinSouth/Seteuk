@@ -40,6 +40,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - visible raw search results
 - Graph RAG mode that answers the teacher question first, then adds citation-style highlights only to answer spans with a direct public source match
 - supplementary Obsidian-like knowledge map that visualizes the question, ontology concepts, retrieved knowledge units, public source documents, answer grounding path, and derived keyword satellites without replacing the answer
+- offline Graph RAG labeling layer that converts the full public knowledge snapshot into Obsidian-style tags, aliases, concept nodes, source nodes, policy-anchor nodes, and typed edges for later retrieval expansion
 - answer highlighting that opens the exact supporting source excerpt and source link in a right-side viewer; answer spans without a strong public-source match remain plain text
 - highlighted answer and source-excerpt text should render as line-fragment highlighter marks, not as one large rectangular block around wrapped text
 - highlighted answer and source-excerpt text should use a near-full-height highlighter fill so the mark does not cut through only the lower half of Korean text
@@ -66,6 +67,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - admin reindex endpoint
 - admin crawl-status endpoint
 - admin quality-report endpoint
+- graph labeling generation command and review seed vault for data-maintenance workflows
 
 ### Skill-Will group survey
 
@@ -86,6 +88,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - conservative similar-question dedupe: implemented for canonical and pending Q&A outputs
 - `/counsel-chat`: implemented as the combined counsel/review workspace
 - `/counsel-chat`: Graph RAG mode implemented with answer-first citation annotations, highlighted grounded answer spans only when a direct public source match exists, near-full-height line-fragment highlighter rendering for wrapped answer/source text, compact citation markers, source excerpt viewer, answer annotation list, answer font-size slider, collapsed current-question state after generation, and a supplementary Obsidian-like knowledge map
+- Graph RAG offline labeling: `npm run label:graph-rag` generates deterministic labels for all 1,451 public canonical knowledge units, a typed graph JSON/JSONL, stats, and a 120-note Obsidian seed vault for manual review
 - `/record-review`: implemented as a compatibility redirect to `/counsel-chat?mode=review`
 - `/write`: RAG review-improve action implemented
 - `/write`: AI 세특 작성 화면 is aligned to the provided table workspace design with class chips, screenshot-style action toolbar, 10-row pagination, top teacher/notification chrome, and the AI 세특 guide card in the sidebar

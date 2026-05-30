@@ -3,6 +3,8 @@
 ## Data Sources
 
 - `output/star-moe-knowledge-2026.json` bundled into the web app for deployed runtime reads
+- `output/graph-rag-labels/graph-rag-labels-2026.json` generated offline from the bundled public knowledge snapshot for Graph RAG node/edge labels
+- `output/graph-rag-labels/obsidian-vault/` generated as a compact Obsidian-style review seed
 - `../student-record-knowledge/output/star-moe-knowledge-2026.json` used as the local fallback source during workspace development
 - `../student-record-knowledge/output/star-moe-knowledge-units-2026.json` kept upstream as the detailed knowledge-unit artifact
 
@@ -28,6 +30,18 @@
 - `src/lib/knowledge-hosted.ts`
 - syncs canonical knowledge into an OpenAI vector store in batches
 - searches the vector store and maps hosted hits back into app evidence objects
+
+### Graph RAG Labeling
+
+- `scripts/generate-graph-rag-labels.mjs`
+- package script: `npm run label:graph-rag`
+- reads `output/star-moe-knowledge-2026.json`
+- labels every canonical public knowledge unit with deterministic Obsidian-style metadata: source board, access level, school levels, categories, effective year, aliases, public source URLs, policy anchors, graph-priority score, and auto-generated domain/policy/risk/workflow tags
+- emits typed graph nodes and edges for `knowledge_unit`, `category`, `school_level`, `source_board`, `source_document`, `policy_anchor`, domain/policy/risk/workflow tags, and duplicate/version families
+- writes machine-readable full outputs to `output/graph-rag-labels/graph-rag-labels-2026.json` and `output/graph-rag-labels/graph-rag-labels-2026.jsonl`
+- writes `output/graph-rag-labels/STATS.md` with label, node, edge, source, category, and priority-review counts
+- writes a 120-note review seed vault under `output/graph-rag-labels/obsidian-vault/`; the full label set remains in JSON so the repo does not depend on manually maintaining thousands of Markdown notes
+- current labels are `source_public_auto_labeled`; high-risk or conflicting policy clusters should be manually reviewed before using them as hard retrieval gates
 
 ### APIs
 
@@ -178,9 +192,11 @@
 - evaluation API in `/api/search-eval`
 - operational quality summary in `/api/admin/quality-report`
 - current crawl snapshot in `/api/admin/crawl-status`
+- graph-label generation smoke via `npm run label:graph-rag`
 
 ## Next Steps
 
-1. improve difficult query ranking classes
-2. decide when hosted retrieval is good enough to become the default provider
-3. automate doc mirroring further if the workflow expands
+1. manually review high-risk Graph RAG label clusters and promote reviewed labels from `source_public_auto_labeled`
+2. use graph labels for retrieval expansion and category/source-policy narrowing before reranking
+3. decide when hosted retrieval is good enough to become the default provider
+4. automate doc mirroring further if the workflow expands
