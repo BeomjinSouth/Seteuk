@@ -15,6 +15,7 @@
 - `src/lib/knowledge-base.ts`
 - prefers the bundled `web/output` snapshot, then falls back to the sibling knowledge repo or `KNOWLEDGE_JSON_PATH`
 - loads knowledge JSON
+- caches the merged evidence records with the dataset so per-query search does not rebuild all knowledge-unit ids
 - applies school-level, category, and year filters
 - uses lexical retrieval, compact spacing-insensitive matching, synonym expansion, concept constraints, and scoring
 - consumes canonical entries that already merge conservative similar-question groups from the crawler
@@ -24,17 +25,21 @@
 - `src/lib/knowledge-rerank.ts`
 - uses OpenAI Responses API when available
 - reranks top lexical candidates before final answer or review generation
+- counsel chat and Graph RAG skip AI reranking only for lexical-only high-confidence matches with a public citation URL; record review keeps reranking
 
 ### Hosted Retrieval Preparation
 
 - `src/lib/knowledge-hosted.ts`
 - syncs canonical knowledge into an OpenAI vector store in batches
 - searches the vector store and maps hosted hits back into app evidence objects
+- hosted hits include `knowledge_unit_id` attributes for stable joins back to local evidence and graph labels; older uploaded files can still fall back to title matching
+- answer-generating routes use RRF-based hybrid fusion when hosted results are available, so vector and lexical candidates are merged by rank rather than raw score scale
 
 ### Graph RAG Labeling
 
 - `scripts/generate-graph-rag-labels.mjs`
 - package script: `npm run label:graph-rag`
+- shares query/domain rules with runtime detection through `src/data/knowledge-domain-rules.json`
 - reads `output/star-moe-knowledge-2026.json`
 - labels every canonical public knowledge unit with deterministic Obsidian-style metadata: source board, access level, school levels, categories, effective year, aliases, public source URLs, policy anchors, graph-priority score, and auto-generated domain/policy/risk/workflow tags
 - emits typed graph nodes and edges for `knowledge_unit`, `category`, `school_level`, `source_board`, `source_document`, `policy_anchor`, domain/policy/risk/workflow tags, and duplicate/version families
@@ -191,6 +196,7 @@
 - retrieval test set in `src/data/knowledge-eval-cases.ts`
 - evaluation runner in `src/lib/knowledge-eval.ts`
 - evaluation API in `/api/search-eval`
+- `/api/search-eval?mode=lexical|hybrid&limit=8` compares local lexical search with the hybrid RRF path and reports hit@1, hit@3, recall@k, MRR, failures, matched titles, unit ids, and source URLs
 - operational quality summary in `/api/admin/quality-report`
 - current crawl snapshot in `/api/admin/crawl-status`
 - graph-label generation smoke via `npm run label:graph-rag`
@@ -198,6 +204,6 @@
 ## Next Steps
 
 1. manually review high-risk Graph RAG label clusters and promote reviewed labels from `source_public_auto_labeled`
-2. use graph labels for retrieval expansion and category/source-policy narrowing before reranking
+2. monitor the expanded retrieval eval set before further scoring changes
 3. decide when hosted retrieval is good enough to become the default provider
 4. automate doc mirroring further if the workflow expands

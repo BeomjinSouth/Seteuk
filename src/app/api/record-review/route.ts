@@ -4,8 +4,10 @@ export const dynamic = 'force-dynamic';
 import { NextRequest, NextResponse } from 'next/server';
 import OpenAI from 'openai';
 import { getPromptCacheParams } from '@/lib/prompt-cache';
-import { buildCitations, searchKnowledgeBase } from '@/lib/knowledge-base';
+import { buildCitations } from '@/lib/knowledge-base';
+import { formatGraphLabelsForPrompt } from '@/lib/knowledge-labels';
 import { rerankMatchesWithAI } from '@/lib/knowledge-rerank';
+import { searchKnowledgeForRecordReview } from '@/lib/knowledge-search';
 import type { RecordReviewIssue, RecordReviewResponse, RetrievedKnowledgeEvidence } from '@/types/knowledge';
 
 const DEFAULT_MODEL = 'gpt-5.4-mini';
@@ -64,14 +66,18 @@ function normalizeIssue(raw: unknown): RecordReviewIssue | null {
 
 function buildEvidenceText(matches: RetrievedKnowledgeEvidence[]): string {
     return matches
-        .map((match, index) => [
-            `[근거 ${index + 1}]`,
-            `제목: ${match.title}`,
-            `학교급: ${match.schoolLevels.join(', ')}`,
-            `구분: ${match.categories.join(', ') || '-'}`,
-            `기준 연도: ${match.effectiveYear ?? '미상'}`,
-            `요약: ${match.ruleSummary || match.snippet}`,
-        ].join('\n'))
+        .map((match, index) => {
+            const labels = formatGraphLabelsForPrompt(match.graphLabels);
+            return [
+                `[근거 ${index + 1}]`,
+                `제목: ${match.title}`,
+                `학교급: ${match.schoolLevels.join(', ')}`,
+                `구분: ${match.categories.join(', ') || '-'}`,
+                `기준 연도: ${match.effectiveYear ?? '미상'}`,
+                labels ? `분류 라벨: ${labels}` : '',
+                `요약: ${match.ruleSummary || match.snippet}`,
+            ].filter(Boolean).join('\n');
+        })
         .join('\n\n');
 }
 
@@ -290,22 +296,16 @@ export async function POST(request: NextRequest) {
     const subjectName = body.subjectName?.trim() || undefined;
 
     try {
-        let matches = await searchKnowledgeBase({
-            query: recordText,
+        // Sentence-level retrieval: one risky sentence should not be drowned
+        // out by the rest of the paragraph. Falls back across categories and
+        // augments with hosted vector search internally.
+        let matches = await searchKnowledgeForRecordReview({
+            recordText,
             schoolLevel,
             category,
             year,
             limit: MATCH_LIMIT,
         });
-
-        if (matches.length === 0 && category) {
-            matches = await searchKnowledgeBase({
-                query: recordText,
-                schoolLevel,
-                year,
-                limit: MATCH_LIMIT,
-            });
-        }
 
         if (matches.length === 0) {
             return NextResponse.json(buildNoEvidenceReview(recordText, schoolLevel, category, year, includeImprovedDraft));
@@ -379,12 +379,16 @@ export async function POST(request: NextRequest) {
                 .filter((issue): issue is RecordReviewIssue => issue !== null)
             : [];
 
-        const riskLevel = raw.riskLevel === 'high' || raw.riskLevel === 'medium' ? raw.riskLevel : 'low';
-        const status = raw.status === 'revise'
+        // Unrecognized model output must not pass silently — default to manual review.
+        const riskLevel = raw.riskLevel === 'high' || raw.riskLevel === 'medium' || raw.riskLevel === 'low'
+            ? raw.riskLevel
+            : 'medium';
+        const status = raw.status === 'pass'
+            || raw.status === 'revise'
             || raw.status === 'caution'
             || raw.status === 'needs_manual_review'
             ? raw.status
-            : 'pass';
+            : 'needs_manual_review';
 
         const payload: RecordReviewResponse = {
             success: true,

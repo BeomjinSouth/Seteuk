@@ -84,11 +84,12 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - `/api/counsel-chat`: implemented
 - `/api/record-review`: implemented
 - `/api/search`: implemented
-- `/api/search-eval`: implemented
+- `/api/search-eval`: implemented with lexical/hybrid provider comparison, configurable top-k limit, hit@1, hit@3, recall@k, MRR, and failed-case details
 - conservative similar-question dedupe: implemented for canonical and pending Q&A outputs
 - `/counsel-chat`: implemented as the combined counsel/review workspace
 - `/counsel-chat`: Graph RAG mode implemented with answer-first citation annotations, highlighted grounded answer spans only when a direct public source match exists, near-full-height line-fragment highlighter rendering for wrapped answer/source text, compact citation markers, source excerpt viewer, answer annotation list, answer font-size slider, collapsed current-question state after generation, and a supplementary Obsidian-like knowledge map with bounds-based spread/recentering so the graph uses the canvas more evenly
 - Graph RAG offline labeling: `npm run label:graph-rag` generates deterministic labels for all 1,451 public canonical knowledge units, a typed graph JSON/JSONL, stats, and a 120-note Obsidian seed vault for manual review
+- counsel and Graph RAG retrieval use RRF-based hybrid fusion when hosted vector search is configured; if hosted search is unavailable, lexical retrieval remains the fail-open default
 - `/record-review`: implemented as a compatibility redirect to `/counsel-chat?mode=review`
 - `/write`: RAG review-improve action implemented
 - `/write`: AI 세특 작성 화면 is aligned to the provided table workspace design with class chips, screenshot-style action toolbar, 10-row pagination, top teacher/notification chrome, and the AI 세특 guide card in the sidebar

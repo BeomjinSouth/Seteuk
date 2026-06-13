@@ -87,6 +87,13 @@ export interface KnowledgeDataset {
     knowledgeUnits: KnowledgeUnit[];
 }
 
+export interface KnowledgeGraphLabels {
+    domainTags: string[];
+    policyTags: string[];
+    riskTags: string[];
+    workflowTags: string[];
+}
+
 export interface RetrievedKnowledgeEvidence {
     knowledgeUnitId: string;
     title: string;
@@ -103,6 +110,8 @@ export interface RetrievedKnowledgeEvidence {
     sourceUrls: string[];
     sources: CanonicalKnowledgeSource[];
     policyAnchors: KnowledgeUnitPolicyAnchor[];
+    /** Offline graph-rag-labels tags (domain/policy/risk/workflow), when available. */
+    graphLabels?: KnowledgeGraphLabels;
     score: number;
     snippet: string;
 }
@@ -224,6 +233,8 @@ export interface KnowledgeEvalCase {
     category?: string;
     year: number;
     expectedTitleKeywords: string[];
+    expectedKnowledgeUnitIds?: string[];
+    expectedSourceUrls?: string[];
     notes?: string;
 }
 
@@ -231,16 +242,26 @@ export interface KnowledgeEvalCaseResult {
     id: string;
     query: string;
     expectedTitleKeywords: string[];
+    expectedKnowledgeUnitIds?: string[];
+    expectedSourceUrls?: string[];
     matchedTitles: string[];
+    matchedKnowledgeUnitIds: string[];
+    matchedSourceUrls: string[];
     top1Matched: boolean;
     top3Matched: boolean;
+    topKMatched: boolean;
+    recallAtK: number;
     reciprocalRank: number;
 }
 
 export interface KnowledgeEvalReport {
+    provider: 'lexical' | 'hybrid';
+    limit: number;
     caseCount: number;
     hitAt1: number;
     hitAt3: number;
+    recallAtK: number;
     meanReciprocalRank: number;
+    failures: KnowledgeEvalCaseResult[];
     results: KnowledgeEvalCaseResult[];
 }

@@ -5,7 +5,7 @@
 - year: 2026
 - labeledKnowledgeUnits: 1451
 - graphNodes: 4593
-- graphEdges: 19969
+- graphEdges: 19989
 - obsidianSeedNotes: 120
 
 ## Source Boards
@@ -51,11 +51,11 @@
 | domain/정정 | 679 |
 | domain/창체 | 666 |
 | domain/학적 | 594 |
-| domain/출결 | 499 |
+| domain/출결 | 512 |
 | domain/행특 | 347 |
 | domain/수상 | 165 |
 | domain/학교폭력 | 121 |
-| domain/특수학교 | 111 |
+| domain/특수학교 | 118 |
 | domain/독서 | 107 |
 | domain/자유학기 | 88 |
 | domain/자격증 | 22 |
@@ -87,7 +87,7 @@
 
 | relation | count |
 | --- | ---: |
-| has_domain_tag | 4196 |
+| has_domain_tag | 4216 |
 | has_policy_anchor | 3507 |
 | has_policy_tag | 2577 |
 | has_risk_tag | 1561 |

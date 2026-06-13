@@ -20,6 +20,7 @@
 - write review-improve action: implemented
 - raw search API: implemented
 - search eval API: implemented
+- search eval API provider comparison: `/api/search-eval?mode=lexical|hybrid&limit=8` reports hit@1, hit@3, recall@k, MRR, failures, matched titles, unit ids, and source URLs
 - admin crawl API: implemented
 - admin reindex API: implemented
 - admin crawl-status API: implemented
@@ -27,7 +28,7 @@
 - admin API guard: production calls require `ADMIN_API_TOKEN` via bearer or `x-admin-token` header
 - counsel/review workspace page: implemented
 - Graph RAG counsel mode: `/counsel-chat` now includes a source-annotated Q&A tab with `/api/counsel-chat/graph`, answer-first citation annotations, highlighted answer spans only when a direct public source match exists, near-full-height line-fragment highlighter rendering for wrapped answer/source text, compact citation markers, right-side source excerpt viewer, answer annotation list, answer font-size slider, collapsed current-question state after generation, and a supplementary Obsidian-like knowledge map visualization with bounds-based spread/recentering to avoid a center-collapsed graph or large dead zones
-- Graph RAG offline labeling layer: `npm run label:graph-rag` generates deterministic Obsidian-style labels for all 1,451 public canonical knowledge units, 4,593 graph nodes, 19,969 typed edges, JSON/JSONL label outputs, stats, and a 120-note review seed vault
+- Graph RAG offline labeling layer: `npm run label:graph-rag` generates deterministic Obsidian-style labels for all 1,451 public canonical knowledge units, 4,593 graph nodes, 19,989 typed edges, JSON/JSONL label outputs, stats, and a 120-note review seed vault
 - /record-review compatibility redirect: implemented
 - /eval-check route: redirects to /dashboard while the feature is in development
 - write page integration: implemented
@@ -83,11 +84,14 @@
 - production links: GitHub `https://github.com/BeomjinSouth/Seteuk`, Vercel project `https://vercel.com/beomjinsouths-projects/seteuk-zgyj`, live site `https://seteuk-zgyj.vercel.app`, Supabase project `qobfezoqxgsedkpddhzs`
 - observation compose layout: 상단 공통 날짜/수업 주제/공통 태그 + 학생별 개별 태그/관찰 메모 row editor
 - lexical retrieval: implemented
+- hybrid retrieval RRF: implemented for counsel chat, Graph RAG, and record-review hosted augmentation; hosted/vector search remains fail-open to lexical-only when env is not configured
 - AI reranking: implemented
 - bundled knowledge snapshot for deployed runtime: implemented
 
 ## Recent Changes
 
+- 2026-06-13: implemented retrieval quality and performance improvements: hybrid search now uses Reciprocal Rank Fusion instead of raw lexical/vector score comparison, merged evidence records are cached with the loaded dataset, record-review segment search runs in parallel, Graph RAG answer grounding precomputes match text per retrieved source, answer span splitting handles single newlines, query/domain rules are shared through `src/data/knowledge-domain-rules.json`, and counsel/Graph RAG skip AI reranking only for lexical-only high-confidence matches with a public citation URL.
+- 2026-06-13: expanded the retrieval evaluation loop to 32 representative cases and added `/api/search-eval?mode=lexical|hybrid&limit=8` provider comparison with hit@1, hit@3, recall@k, MRR, failure details, matched titles, knowledge unit ids, and source URLs. Verification passed for `cmd /c npx tsc --noEmit --pretty false`, `cmd /c npm run label:graph-rag` (1,451 labels, 4,593 nodes, 19,989 edges), local `http://localhost:3457/api/search-eval?mode=lexical&limit=8` and `mode=hybrid` both returning hit@1 `0.875`, hit@3 `0.90625`, recall@8 `1`, MRR `0.9015997023809523`, and zero failures, plus local route smokes for `/api/counsel-chat`, `/api/counsel-chat/graph`, and `/api/record-review`. Hosted vector smoke used fail-open behavior because `OPENAI_API_KEY` and `OPENAI_VECTOR_STORE_ID` were not set in the shell. `npm run sync:knowledge-docs` was not run because `../student-record-knowledge/docs` is not present next to this checkout.
 - 2026-05-30: rebalanced the Obsidian-like Graph RAG knowledge map so the node cloud uses the canvas more evenly. The layout now uses wider radial rings, node-radius-aware bounds expansion, post-layout recentering, and a viewport-width-based mobile graph height. Verification passed with `cmd /c npx tsc --noEmit --pretty false`, `git diff --check`, local `/counsel-chat?mode=graph` HTTP 200, local `/api/counsel-chat/graph` POST returning 15 source graph nodes, 27 source edges, 3 answer spans, 8 citations, and Playwright/Chrome desktop+mobile rendered checks confirming 69 SVG circle nodes, 110 SVG links, 0 legacy graph cards, 0 core-node overlaps, no page overflow, no console errors, and graph coverage of about 87.4% width / 80.3% height. `npm run sync:knowledge-docs` was not run because `../student-record-knowledge/docs` is not present next to this checkout and no mirrored docs were changed.
 - 2026-05-30: pushed Graph RAG knowledge-map spread commit `c5b2cce` to GitHub main; Vercel production deployment `dpl_EcUohHWGCgFFrAxCd7eN8KyP3XVT` is Ready at `https://seteuk-zgyj-ops7cf67i-beomjinsouths-projects.vercel.app`, and the live alias `https://seteuk-zgyj.vercel.app` returns 200 for `/api/knowledge/meta` and `/counsel-chat?mode=graph`. Vercel settings were not changed.
 - 2026-05-30: added `docs/student-record-knowledge/GRAPH_RAG_LABELING_PLAN.md` and `scripts/generate-graph-rag-labels.mjs` to start the Obsidian-style Graph RAG data-labeling layer below the existing Graph RAG UI. The generator labels every canonical public knowledge unit with source, category, school-level, policy-anchor, domain, policy, risk, workflow, and priority-review metadata, then emits typed graph edges for Graph RAG traversal.

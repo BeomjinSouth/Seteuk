@@ -22,4 +22,5 @@
 - conflict resolution defaults to latest answer first
 - deployed web runtime reads a bundled knowledge snapshot from `web/output/star-moe-knowledge-2026.json`
 - local development can fall back to `../student-record-knowledge/output/star-moe-knowledge-2026.json` or `KNOWLEDGE_JSON_PATH`
-- hosted/vector retrieval exists as an optional path, but the default production answer flow is still lexical retrieval plus optional AI reranking
+- hosted/vector retrieval is an optional supplemental path; when available it is fused with local lexical retrieval by Reciprocal Rank Fusion so raw vector and lexical score scales do not compete directly
+- vector-store files uploaded before the `knowledge_unit_id` attribute existed can only fall back to title matching; resyncing the vector store is required for complete graph-label joins

@@ -8,10 +8,12 @@ import {
     buildCitations,
     buildConflictSummary,
     buildFallbackCounselAnswer,
-    searchKnowledgeBase,
 } from '@/lib/knowledge-base';
 import { buildGraphRagAnswerSpans, buildGraphRagGraph } from '@/lib/knowledge-graph';
+import { formatGraphLabelsForPrompt } from '@/lib/knowledge-labels';
 import { rerankMatchesWithAI } from '@/lib/knowledge-rerank';
+import { isHostedKnowledgeConfigured } from '@/lib/knowledge-hosted';
+import { searchKnowledgeHybrid, shouldSkipRerankForHighConfidenceLexical } from '@/lib/knowledge-search';
 import type { GraphRagResponse, RetrievedKnowledgeEvidence } from '@/types/knowledge';
 
 const DEFAULT_MODEL = 'gpt-5.4-mini';
@@ -26,6 +28,7 @@ function buildEvidenceText(matches: RetrievedKnowledgeEvidence[]): string {
     return matches
         .map((match, index) => {
             const anchors = match.policyAnchors.map((anchor) => `- ${anchor.rule}`).join('\n');
+            const labels = formatGraphLabelsForPrompt(match.graphLabels);
             return [
                 `[Graph Evidence ${index + 1}]`,
                 `knowledgeUnitId: ${match.knowledgeUnitId}`,
@@ -34,6 +37,7 @@ function buildEvidenceText(matches: RetrievedKnowledgeEvidence[]): string {
                 `학교급: ${match.schoolLevels.join(', ')}`,
                 `구분: ${match.categories.join(', ') || '-'}`,
                 `기준연도: ${match.effectiveYear ?? '미상'}`,
+                labels ? `분류 라벨: ${labels}` : '',
                 `질문: ${match.question}`,
                 `답변: ${match.answer}`,
                 match.ruleSummary ? `요약: ${match.ruleSummary}` : '',
@@ -84,7 +88,7 @@ export async function POST(request: NextRequest) {
     }
 
     try {
-        let matches = await searchKnowledgeBase({
+        let matches = await searchKnowledgeHybrid({
             query: question,
             schoolLevel: body.schoolLevel,
             category: body.category,
@@ -104,7 +108,8 @@ export async function POST(request: NextRequest) {
         }
 
         const client = getClient();
-        if (client) {
+        const skipRerank = !isHostedKnowledgeConfigured() && shouldSkipRerankForHighConfidenceLexical(matches);
+        if (client && !skipRerank) {
             matches = await rerankMatchesWithAI({
                 client,
                 query: question,

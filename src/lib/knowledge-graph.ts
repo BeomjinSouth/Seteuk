@@ -5,8 +5,12 @@ import type {
     GraphRagNode,
     RetrievedKnowledgeEvidence,
 } from '@/types/knowledge';
+import {
+    normalizeKnowledgeText as normalizeText,
+    tokenizeKnowledgeText,
+} from '@/lib/knowledge-text';
 
-const LOW_SIGNAL_TOKENS = new Set([
+const GROUNDING_LOW_SIGNAL_TOKENS = new Set([
     '학생',
     '기재',
     '관련',
@@ -36,19 +40,8 @@ const MIN_GROUNDED_MATCH_SCORE = 3;
 const MIN_GROUNDED_TOKEN_COVERAGE = 0.28;
 const MIN_GROUNDED_RETRIEVAL_SCORE = 40;
 
-function normalizeText(value: string): string {
-    return value
-        .normalize('NFKC')
-        .toLowerCase()
-        .replace(/\s+/g, ' ')
-        .trim();
-}
-
 function tokenize(value: string): string[] {
-    return normalizeText(value)
-        .split(/[^\p{L}\p{N}]+/u)
-        .map((token) => token.trim())
-        .filter((token) => token.length >= 2 && !LOW_SIGNAL_TOKENS.has(token));
+    return tokenizeKnowledgeText(value, { lowSignalTokens: GROUNDING_LOW_SIGNAL_TOKENS });
 }
 
 function uniqueBy<T>(items: T[], getKey: (item: T) => string): T[] {
@@ -143,6 +136,18 @@ function buildOntologyTerms(matches: RetrievedKnowledgeEvidence[]): Array<{
                 sublabel: '정책 앵커',
                 weight: (existing?.weight ?? 0) + 1,
                 matcher: (candidate) => candidate.policyAnchors.some((item) => compactLabel(item.rule, 24) === label),
+            });
+        }
+
+        for (const tag of match.graphLabels?.domainTags.slice(0, 3) ?? []) {
+            const id = `ontology:domain:${tag}`;
+            const existing = terms.get(id);
+            terms.set(id, {
+                id,
+                label: tag.replace(/^domain\//, ''),
+                sublabel: '도메인 라벨',
+                weight: (existing?.weight ?? 0) + 2,
+                matcher: (candidate) => candidate.graphLabels?.domainTags.includes(tag) ?? false,
             });
         }
     }
@@ -291,16 +296,43 @@ function splitAnswerText(answer: string): string[] {
     if (!normalized) return [];
 
     const pieces = normalized
-        .split(/(?<=[.!?。])\s+|\n{2,}/u)
+        .split(/(?<=[.!?。])\s+|\n+/u)
         .map((piece) => piece.trim())
         .filter(Boolean);
 
     return pieces.length > 0 ? pieces : [normalized];
 }
 
+type PreparedGroundingMatch = {
+    match: RetrievedKnowledgeEvidence;
+    combinedText: string;
+};
+
+function prepareGroundingMatches(matches: RetrievedKnowledgeEvidence[]): PreparedGroundingMatch[] {
+    return matches.map((match) => ({
+        match,
+        combinedText: normalizeText([
+            match.title,
+            match.question,
+            match.answer,
+            match.ruleSummary || '',
+            match.snippet,
+            match.categories.join(' '),
+            match.policyAnchors.map((anchor) => anchor.rule).join(' '),
+        ].join(' ')),
+    }));
+}
+
+function scoreTokensAgainstMatch(tokens: string[], prepared: PreparedGroundingMatch): number {
+    if (tokens.length === 0) return 0;
+    return tokens.reduce((score, token) => score + (prepared.combinedText.includes(token) ? 1 : 0), 0);
+}
+
 function scoreSegmentAgainstMatch(segment: string, match: RetrievedKnowledgeEvidence): number {
     const tokens = tokenize(segment);
-    const combined = normalizeText([
+    return scoreTokensAgainstMatch(tokens, {
+        match,
+        combinedText: normalizeText([
         match.title,
         match.question,
         match.answer,
@@ -308,18 +340,14 @@ function scoreSegmentAgainstMatch(segment: string, match: RetrievedKnowledgeEvid
         match.snippet,
         match.categories.join(' '),
         match.policyAnchors.map((anchor) => anchor.rule).join(' '),
-    ].join(' '));
-
-    if (tokens.length === 0) return 0;
-
-    return tokens.reduce((score, token) => score + (combined.includes(token) ? 1 : 0), 0);
+        ].join(' ')),
+    });
 }
 
-function hasGroundedSourceMatch(segment: string, score: number, retrievalScore: number): boolean {
+function hasGroundedSourceMatch(tokenCount: number, score: number, retrievalScore: number): boolean {
     if (retrievalScore < MIN_GROUNDED_RETRIEVAL_SCORE) return false;
-    const tokens = tokenize(segment);
-    if (tokens.length === 0) return false;
-    const coverage = score / tokens.length;
+    if (tokenCount === 0) return false;
+    const coverage = score / tokenCount;
     return score >= MIN_GROUNDED_MATCH_SCORE && coverage >= MIN_GROUNDED_TOKEN_COVERAGE;
 }
 
@@ -354,6 +382,7 @@ export function buildGraphRagAnswerSpans(
 ): GraphRagAnswerSpan[] {
     const segments = splitAnswerText(answer);
     const primaryMatch = matches[0];
+    const preparedMatches = prepareGroundingMatches(matches);
 
     if (matches.length === 0) {
         return segments.map((segment, index) => ({
@@ -370,16 +399,17 @@ export function buildGraphRagAnswerSpans(
     }
 
     return segments.map((segment, index) => {
-        const scored = matches
-            .map((match) => ({
-                match,
-                score: scoreSegmentAgainstMatch(segment, match),
+        const tokens = tokenize(segment);
+        const scored = preparedMatches
+            .map((prepared) => ({
+                match: prepared.match,
+                score: scoreTokensAgainstMatch(tokens, prepared),
             }))
             .sort((a, b) => b.score - a.score || b.match.score - a.match.score);
         const best = scored[0]?.match ?? primaryMatch;
         const score = scored[0]?.score ?? 0;
 
-        if (!hasGroundedSourceMatch(segment, score, best.score)) {
+        if (!hasGroundedSourceMatch(tokens.length, score, best.score)) {
             return {
                 id: `span:${index}`,
                 text: segment,

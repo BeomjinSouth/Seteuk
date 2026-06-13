@@ -1,6 +1,12 @@
 import crypto from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
+import { detectQueryDomainTags, loadKnowledgeGraphLabelMap } from '@/lib/knowledge-labels';
+import {
+    compactKnowledgeText as compactText,
+    normalizeKnowledgeText as normalizeText,
+    tokenizeKnowledgeText as tokenize,
+} from '@/lib/knowledge-text';
 import type {
     CanonicalKnowledgeEntry,
     Citation,
@@ -27,6 +33,7 @@ type CachedDataset = {
     key: string;
     loadedAt: number;
     data: KnowledgeDataset;
+    mergedRecords: RetrievedKnowledgeEvidence[];
 };
 
 let datasetCache: CachedDataset | null = null;
@@ -100,7 +107,7 @@ const CONCEPT_CONSTRAINTS: ConceptConstraint[] = [
     },
 ];
 
-function buildKnowledgeUnitId(entry: CanonicalKnowledgeEntry): string {
+export function buildKnowledgeUnitId(entry: CanonicalKnowledgeEntry): string {
     return crypto
         .createHash('sha1')
         .update(`${entry.sourceType}:${entry.questionKey}:${entry.title}`)
@@ -141,25 +148,6 @@ async function readKnowledgeDatasetFile(year: string): Promise<{ filePath: strin
     throw new Error(
         `Knowledge dataset not found. Checked: ${checkedPaths.join(', ')}. Run \`npm run sync:knowledge-docs\` in the web app or set KNOWLEDGE_JSON_PATH.`,
     );
-}
-
-function normalizeText(value: string): string {
-    return value
-        .normalize('NFKC')
-        .toLowerCase()
-        .replace(/\s+/g, ' ')
-        .trim();
-}
-
-function compactText(value: string): string {
-    return normalizeText(value).replace(/[^\p{L}\p{N}]+/gu, '');
-}
-
-function tokenize(value: string): string[] {
-    return normalizeText(value)
-        .split(/[^\p{L}\p{N}]+/u)
-        .map((token) => token.trim())
-        .filter((token) => token.length >= 2);
 }
 
 function expandQueryTokens(value: string): string[] {
@@ -330,11 +318,13 @@ export async function loadKnowledgeDataset(year: string = DEFAULT_YEAR): Promise
 
     const { text } = await readKnowledgeDatasetFile(year);
     const data = JSON.parse(text) as KnowledgeDataset;
+    const mergedRecords = mergeKnowledgeRecords(data);
 
     datasetCache = {
         key: cacheKey,
         loadedAt: Date.now(),
         data,
+        mergedRecords,
     };
 
     return data;
@@ -354,12 +344,18 @@ export async function getKnowledgeMeta(year: string = DEFAULT_YEAR): Promise<Kno
     };
 }
 
+const DOMAIN_LABEL_BASE_BOOST = 10;
+const DOMAIN_LABEL_EXTRA_BOOST = 4;
+
 export async function searchKnowledgeBase(params: SearchParams): Promise<RetrievedKnowledgeEvidence[]> {
     const year = params.year ? String(params.year) : DEFAULT_YEAR;
     const data = await loadKnowledgeDataset(year);
+    const mergedRecords = datasetCache?.data === data ? datasetCache.mergedRecords : mergeKnowledgeRecords(data);
     const constraints = detectConstraints(params.query);
+    const labelMap = await loadKnowledgeGraphLabelMap(year);
+    const queryDomains = detectQueryDomainTags(params.query);
 
-    return mergeKnowledgeRecords(data)
+    return mergedRecords
         .filter((entry) => matchesSchoolLevel(entry, params.schoolLevel))
         .filter((entry) => matchesCategory(entry, params.category))
         .filter((entry) => {
@@ -377,9 +373,23 @@ export async function searchKnowledgeBase(params: SearchParams): Promise<Retriev
             );
         })
         .map((entry) => {
-            const score = scoreEntry(entry, params);
+            const graphLabels = labelMap.get(entry.knowledgeUnitId);
+            let score = scoreEntry(entry, params);
+
+            // Graph label boost: entries whose offline domain tags overlap the
+            // query's detected domains rank higher. Only boosts entries that
+            // already matched lexically (score > 0) so labels never surface
+            // otherwise-unrelated documents on their own.
+            if (score > 0 && graphLabels && queryDomains.length > 0) {
+                const overlap = graphLabels.domainTags.filter((tag) => queryDomains.includes(tag)).length;
+                if (overlap > 0) {
+                    score += DOMAIN_LABEL_BASE_BOOST + (overlap - 1) * DOMAIN_LABEL_EXTRA_BOOST;
+                }
+            }
+
             return {
                 ...entry,
+                graphLabels,
                 score,
                 snippet: extractSnippet(`${entry.answer}\n${entry.question}`, tokenize(params.query)),
             };

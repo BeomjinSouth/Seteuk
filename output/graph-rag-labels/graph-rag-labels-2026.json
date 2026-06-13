@@ -1238,6 +1238,7 @@
       "graphLabels": {
         "domainTags": [
           "domain/창체",
+          "domain/출결",
           "domain/세특"
         ],
         "policyTags": [
@@ -1251,6 +1252,7 @@
         "seteuk/knowledge",
         "source/qna",
         "domain/창체",
+        "domain/출결",
         "domain/세특",
         "policy/허용"
       ],
@@ -14115,6 +14117,7 @@
       "graphLabels": {
         "domainTags": [
           "domain/창체",
+          "domain/출결",
           "domain/정정"
         ],
         "policyTags": [],
@@ -14128,6 +14131,7 @@
         "seteuk/knowledge",
         "source/qna",
         "domain/창체",
+        "domain/출결",
         "domain/정정",
         "risk/정정"
       ],
@@ -18719,7 +18723,8 @@
           "domain/출결",
           "domain/세특",
           "domain/정정",
-          "domain/자유학기"
+          "domain/자유학기",
+          "domain/특수학교"
         ],
         "policyTags": [
           "policy/금지"
@@ -18738,6 +18743,7 @@
         "domain/세특",
         "domain/정정",
         "domain/자유학기",
+        "domain/특수학교",
         "policy/금지",
         "risk/출결"
       ],
@@ -24097,7 +24103,8 @@
           "domain/출결",
           "domain/학적",
           "domain/정정",
-          "domain/학교폭력"
+          "domain/학교폭력",
+          "domain/특수학교"
         ],
         "policyTags": [],
         "riskTags": [
@@ -24116,6 +24123,7 @@
         "domain/학적",
         "domain/정정",
         "domain/학교폭력",
+        "domain/특수학교",
         "risk/출결",
         "risk/학교폭력",
         "workflow/고위험검토"
@@ -24546,6 +24554,7 @@
       "graphLabels": {
         "domainTags": [
           "domain/창체",
+          "domain/출결",
           "domain/세특",
           "domain/수상"
         ],
@@ -24566,6 +24575,7 @@
         "seteuk/knowledge",
         "source/qna",
         "domain/창체",
+        "domain/출결",
         "domain/세특",
         "domain/수상",
         "policy/금지",
@@ -25267,7 +25277,8 @@
           "domain/창체",
           "domain/출결",
           "domain/세특",
-          "domain/자유학기"
+          "domain/자유학기",
+          "domain/특수학교"
         ],
         "policyTags": [
           "policy/예외",
@@ -25286,6 +25297,7 @@
         "domain/출결",
         "domain/세특",
         "domain/자유학기",
+        "domain/특수학교",
         "policy/예외",
         "policy/증빙필요",
         "risk/출결"
@@ -26007,6 +26019,7 @@
       "graphLabels": {
         "domainTags": [
           "domain/창체",
+          "domain/출결",
           "domain/세특",
           "domain/독서"
         ],
@@ -26022,6 +26035,7 @@
         "seteuk/knowledge",
         "source/qna",
         "domain/창체",
+        "domain/출결",
         "domain/세특",
         "domain/독서",
         "policy/허용",
@@ -41168,7 +41182,8 @@
       ],
       "graphLabels": {
         "domainTags": [
-          "domain/출결"
+          "domain/출결",
+          "domain/특수학교"
         ],
         "policyTags": [
           "policy/최신기준확인"
@@ -41183,6 +41198,7 @@
         "seteuk/knowledge",
         "source/qna",
         "domain/출결",
+        "domain/특수학교",
         "policy/최신기준확인",
         "risk/출결"
       ],
@@ -44316,7 +44332,8 @@
       "graphLabels": {
         "domainTags": [
           "domain/출결",
-          "domain/정정"
+          "domain/정정",
+          "domain/특수학교"
         ],
         "policyTags": [
           "policy/증빙필요"
@@ -44332,6 +44349,7 @@
         "source/qna",
         "domain/출결",
         "domain/정정",
+        "domain/특수학교",
         "policy/증빙필요",
         "risk/출결"
       ],
@@ -48720,7 +48738,8 @@
       ],
       "graphLabels": {
         "domainTags": [
-          "domain/출결"
+          "domain/출결",
+          "domain/특수학교"
         ],
         "policyTags": [],
         "riskTags": [
@@ -48733,6 +48752,7 @@
         "seteuk/knowledge",
         "source/qna",
         "domain/출결",
+        "domain/특수학교",
         "risk/출결"
       ],
       "confidence": "source_public_auto_labeled",
@@ -71010,6 +71030,7 @@
       "graphLabels": {
         "domainTags": [
           "domain/창체",
+          "domain/출결",
           "domain/세특",
           "domain/수상"
         ],
@@ -71027,6 +71048,7 @@
         "seteuk/knowledge",
         "source/qna",
         "domain/창체",
+        "domain/출결",
         "domain/세특",
         "domain/수상",
         "policy/허용",
@@ -75677,6 +75699,7 @@
       "graphLabels": {
         "domainTags": [
           "domain/창체",
+          "domain/출결",
           "domain/세특"
         ],
         "policyTags": [
@@ -75692,6 +75715,7 @@
         "seteuk/knowledge",
         "source/qna",
         "domain/창체",
+        "domain/출결",
         "domain/세특",
         "policy/허용",
         "policy/예외",
@@ -76021,7 +76045,8 @@
       "graphLabels": {
         "domainTags": [
           "domain/출결",
-          "domain/세특"
+          "domain/세특",
+          "domain/특수학교"
         ],
         "policyTags": [
           "policy/예외"
@@ -76037,6 +76062,7 @@
         "source/qna",
         "domain/출결",
         "domain/세특",
+        "domain/특수학교",
         "policy/예외",
         "risk/출결"
       ],
@@ -80536,6 +80562,7 @@
       "graphLabels": {
         "domainTags": [
           "domain/창체",
+          "domain/출결",
           "domain/세특",
           "domain/수상",
           "domain/행특",
@@ -80556,6 +80583,7 @@
         "seteuk/knowledge",
         "source/qna",
         "domain/창체",
+        "domain/출결",
         "domain/세특",
         "domain/수상",
         "domain/행특",
@@ -88430,6 +88458,7 @@
       "graphLabels": {
         "domainTags": [
           "domain/창체",
+          "domain/출결",
           "domain/행특"
         ],
         "policyTags": [
@@ -88444,6 +88473,7 @@
         "seteuk/knowledge",
         "source/qna",
         "domain/창체",
+        "domain/출결",
         "domain/행특",
         "policy/금지",
         "policy/예외"
@@ -90412,6 +90442,7 @@
       "graphLabels": {
         "domainTags": [
           "domain/창체",
+          "domain/출결",
           "domain/세특",
           "domain/수상",
           "domain/행특"
@@ -90434,6 +90465,7 @@
         "seteuk/knowledge",
         "source/qna",
         "domain/창체",
+        "domain/출결",
         "domain/세특",
         "domain/수상",
         "domain/행특",
@@ -91194,6 +91226,7 @@
       "graphLabels": {
         "domainTags": [
           "domain/창체",
+          "domain/출결",
           "domain/세특"
         ],
         "policyTags": [
@@ -91207,6 +91240,7 @@
         "seteuk/knowledge",
         "source/qna",
         "domain/창체",
+        "domain/출결",
         "domain/세특",
         "policy/예외"
       ],
@@ -92396,6 +92430,7 @@
       ],
       "graphLabels": {
         "domainTags": [
+          "domain/출결",
           "domain/학적"
         ],
         "policyTags": [],
@@ -92406,6 +92441,7 @@
       "tags": [
         "seteuk/knowledge",
         "source/qna",
+        "domain/출결",
         "domain/학적"
       ],
       "confidence": "source_public_auto_labeled",
@@ -96929,6 +96965,7 @@
       "graphLabels": {
         "domainTags": [
           "domain/창체",
+          "domain/출결",
           "domain/세특",
           "domain/행특"
         ],
@@ -96943,6 +96980,7 @@
         "seteuk/knowledge",
         "source/qna",
         "domain/창체",
+        "domain/출결",
         "domain/세특",
         "domain/행특",
         "policy/금지"
@@ -110588,6 +110626,7 @@
       "graphLabels": {
         "domainTags": [
           "domain/창체",
+          "domain/출결",
           "domain/세특",
           "domain/행특"
         ],
@@ -110604,6 +110643,7 @@
         "seteuk/knowledge",
         "source/qna",
         "domain/창체",
+        "domain/출결",
         "domain/세특",
         "domain/행특",
         "policy/금지",
@@ -147382,6 +147422,13 @@
         "weight": 2
       },
       {
+        "id": "ku:13d5f07d57f0159d:has_domain_tag:domain_tag:3804022646c6",
+        "from": "ku:13d5f07d57f0159d",
+        "to": "domain_tag:3804022646c6",
+        "relation": "has_domain_tag",
+        "weight": 2
+      },
+      {
         "id": "ku:13d5f07d57f0159d:has_domain_tag:domain_tag:27531c4bb3f4",
         "from": "ku:13d5f07d57f0159d",
         "to": "domain_tag:27531c4bb3f4",
@@ -163147,6 +163194,13 @@
         "weight": 2
       },
       {
+        "id": "ku:f7c4d9e27926d7a4:has_domain_tag:domain_tag:3804022646c6",
+        "from": "ku:f7c4d9e27926d7a4",
+        "to": "domain_tag:3804022646c6",
+        "relation": "has_domain_tag",
+        "weight": 2
+      },
+      {
         "id": "ku:f7c4d9e27926d7a4:has_domain_tag:domain_tag:4a424382b2e2",
         "from": "ku:f7c4d9e27926d7a4",
         "to": "domain_tag:4a424382b2e2",
@@ -168601,6 +168655,13 @@
         "id": "ku:d170ed1b0fc0ba93:has_domain_tag:domain_tag:63929cae94d2",
         "from": "ku:d170ed1b0fc0ba93",
         "to": "domain_tag:63929cae94d2",
+        "relation": "has_domain_tag",
+        "weight": 2
+      },
+      {
+        "id": "ku:d170ed1b0fc0ba93:has_domain_tag:domain_tag:4f3c88e65a26",
+        "from": "ku:d170ed1b0fc0ba93",
+        "to": "domain_tag:4f3c88e65a26",
         "relation": "has_domain_tag",
         "weight": 2
       },
@@ -175135,6 +175196,13 @@
         "weight": 2
       },
       {
+        "id": "ku:83987f26bc0637bd:has_domain_tag:domain_tag:4f3c88e65a26",
+        "from": "ku:83987f26bc0637bd",
+        "to": "domain_tag:4f3c88e65a26",
+        "relation": "has_domain_tag",
+        "weight": 2
+      },
+      {
         "id": "ku:83987f26bc0637bd:has_risk_tag:risk_tag:cdd5082a3494",
         "from": "ku:83987f26bc0637bd",
         "to": "risk_tag:cdd5082a3494",
@@ -175647,6 +175715,13 @@
         "id": "ku:73677adfdf444edb:has_domain_tag:domain_tag:6feb35d7d737",
         "from": "ku:73677adfdf444edb",
         "to": "domain_tag:6feb35d7d737",
+        "relation": "has_domain_tag",
+        "weight": 2
+      },
+      {
+        "id": "ku:73677adfdf444edb:has_domain_tag:domain_tag:3804022646c6",
+        "from": "ku:73677adfdf444edb",
+        "to": "domain_tag:3804022646c6",
         "relation": "has_domain_tag",
         "weight": 2
       },
@@ -176590,6 +176665,13 @@
         "weight": 2
       },
       {
+        "id": "ku:589f117282124cb1:has_domain_tag:domain_tag:4f3c88e65a26",
+        "from": "ku:589f117282124cb1",
+        "to": "domain_tag:4f3c88e65a26",
+        "relation": "has_domain_tag",
+        "weight": 2
+      },
+      {
         "id": "ku:589f117282124cb1:has_policy_tag:policy_tag:42081c3d5aab",
         "from": "ku:589f117282124cb1",
         "to": "policy_tag:42081c3d5aab",
@@ -177422,6 +177504,13 @@
         "id": "ku:f1e32e2b943841fd:has_domain_tag:domain_tag:6feb35d7d737",
         "from": "ku:f1e32e2b943841fd",
         "to": "domain_tag:6feb35d7d737",
+        "relation": "has_domain_tag",
+        "weight": 2
+      },
+      {
+        "id": "ku:f1e32e2b943841fd:has_domain_tag:domain_tag:3804022646c6",
+        "from": "ku:f1e32e2b943841fd",
+        "to": "domain_tag:3804022646c6",
         "relation": "has_domain_tag",
         "weight": 2
       },
@@ -196401,6 +196490,13 @@
         "weight": 2
       },
       {
+        "id": "ku:45fdb5363a68feaa:has_domain_tag:domain_tag:4f3c88e65a26",
+        "from": "ku:45fdb5363a68feaa",
+        "to": "domain_tag:4f3c88e65a26",
+        "relation": "has_domain_tag",
+        "weight": 2
+      },
+      {
         "id": "ku:45fdb5363a68feaa:has_policy_tag:policy_tag:98ecb3decc31",
         "from": "ku:45fdb5363a68feaa",
         "to": "policy_tag:98ecb3decc31",
@@ -200280,6 +200376,13 @@
         "id": "ku:2b6aec78fb8a85ab:has_domain_tag:domain_tag:4a424382b2e2",
         "from": "ku:2b6aec78fb8a85ab",
         "to": "domain_tag:4a424382b2e2",
+        "relation": "has_domain_tag",
+        "weight": 2
+      },
+      {
+        "id": "ku:2b6aec78fb8a85ab:has_domain_tag:domain_tag:4f3c88e65a26",
+        "from": "ku:2b6aec78fb8a85ab",
+        "to": "domain_tag:4f3c88e65a26",
         "relation": "has_domain_tag",
         "weight": 2
       },
@@ -205621,6 +205724,13 @@
         "id": "ku:0eba5c289805614f:has_domain_tag:domain_tag:3804022646c6",
         "from": "ku:0eba5c289805614f",
         "to": "domain_tag:3804022646c6",
+        "relation": "has_domain_tag",
+        "weight": 2
+      },
+      {
+        "id": "ku:0eba5c289805614f:has_domain_tag:domain_tag:4f3c88e65a26",
+        "from": "ku:0eba5c289805614f",
+        "to": "domain_tag:4f3c88e65a26",
         "relation": "has_domain_tag",
         "weight": 2
       },
@@ -232607,6 +232717,13 @@
         "weight": 2
       },
       {
+        "id": "ku:b80456f93850cca7:has_domain_tag:domain_tag:3804022646c6",
+        "from": "ku:b80456f93850cca7",
+        "to": "domain_tag:3804022646c6",
+        "relation": "has_domain_tag",
+        "weight": 2
+      },
+      {
         "id": "ku:b80456f93850cca7:has_domain_tag:domain_tag:27531c4bb3f4",
         "from": "ku:b80456f93850cca7",
         "to": "domain_tag:27531c4bb3f4",
@@ -238193,6 +238310,13 @@
         "weight": 2
       },
       {
+        "id": "ku:a25a0881a4ce7799:has_domain_tag:domain_tag:3804022646c6",
+        "from": "ku:a25a0881a4ce7799",
+        "to": "domain_tag:3804022646c6",
+        "relation": "has_domain_tag",
+        "weight": 2
+      },
+      {
         "id": "ku:a25a0881a4ce7799:has_domain_tag:domain_tag:27531c4bb3f4",
         "from": "ku:a25a0881a4ce7799",
         "to": "domain_tag:27531c4bb3f4",
@@ -238627,6 +238751,13 @@
         "id": "ku:d0c23b4e2e577933:has_domain_tag:domain_tag:27531c4bb3f4",
         "from": "ku:d0c23b4e2e577933",
         "to": "domain_tag:27531c4bb3f4",
+        "relation": "has_domain_tag",
+        "weight": 2
+      },
+      {
+        "id": "ku:d0c23b4e2e577933:has_domain_tag:domain_tag:4f3c88e65a26",
+        "from": "ku:d0c23b4e2e577933",
+        "to": "domain_tag:4f3c88e65a26",
         "relation": "has_domain_tag",
         "weight": 2
       },
@@ -243879,6 +244010,13 @@
         "id": "ku:098e032b516669cb:has_domain_tag:domain_tag:6feb35d7d737",
         "from": "ku:098e032b516669cb",
         "to": "domain_tag:6feb35d7d737",
+        "relation": "has_domain_tag",
+        "weight": 2
+      },
+      {
+        "id": "ku:098e032b516669cb:has_domain_tag:domain_tag:3804022646c6",
+        "from": "ku:098e032b516669cb",
+        "to": "domain_tag:3804022646c6",
         "relation": "has_domain_tag",
         "weight": 2
       },
@@ -253080,6 +253218,13 @@
         "weight": 2
       },
       {
+        "id": "ku:1bca1061580a78eb:has_domain_tag:domain_tag:3804022646c6",
+        "from": "ku:1bca1061580a78eb",
+        "to": "domain_tag:3804022646c6",
+        "relation": "has_domain_tag",
+        "weight": 2
+      },
+      {
         "id": "ku:1bca1061580a78eb:has_domain_tag:domain_tag:7586d4054787",
         "from": "ku:1bca1061580a78eb",
         "to": "domain_tag:7586d4054787",
@@ -255353,6 +255498,13 @@
         "weight": 2
       },
       {
+        "id": "ku:5561a6490eacb10c:has_domain_tag:domain_tag:3804022646c6",
+        "from": "ku:5561a6490eacb10c",
+        "to": "domain_tag:3804022646c6",
+        "relation": "has_domain_tag",
+        "weight": 2
+      },
+      {
         "id": "ku:5561a6490eacb10c:has_domain_tag:domain_tag:27531c4bb3f4",
         "from": "ku:5561a6490eacb10c",
         "to": "domain_tag:27531c4bb3f4",
@@ -256298,6 +256450,13 @@
         "id": "ku:b4ad4fba865cd0f6:has_domain_tag:domain_tag:6feb35d7d737",
         "from": "ku:b4ad4fba865cd0f6",
         "to": "domain_tag:6feb35d7d737",
+        "relation": "has_domain_tag",
+        "weight": 2
+      },
+      {
+        "id": "ku:b4ad4fba865cd0f6:has_domain_tag:domain_tag:3804022646c6",
+        "from": "ku:b4ad4fba865cd0f6",
+        "to": "domain_tag:3804022646c6",
         "relation": "has_domain_tag",
         "weight": 2
       },
@@ -257731,6 +257890,13 @@
         "to": "policy-anchor:43d2884a9a9e",
         "relation": "has_policy_anchor",
         "weight": 3
+      },
+      {
+        "id": "ku:5d7542e6b64b4c85:has_domain_tag:domain_tag:3804022646c6",
+        "from": "ku:5d7542e6b64b4c85",
+        "to": "domain_tag:3804022646c6",
+        "relation": "has_domain_tag",
+        "weight": 2
       },
       {
         "id": "ku:5d7542e6b64b4c85:has_domain_tag:domain_tag:16ee513b4896",
@@ -263138,6 +263304,13 @@
         "id": "ku:b7065919d3274499:has_domain_tag:domain_tag:6feb35d7d737",
         "from": "ku:b7065919d3274499",
         "to": "domain_tag:6feb35d7d737",
+        "relation": "has_domain_tag",
+        "weight": 2
+      },
+      {
+        "id": "ku:b7065919d3274499:has_domain_tag:domain_tag:3804022646c6",
+        "from": "ku:b7065919d3274499",
+        "to": "domain_tag:3804022646c6",
         "relation": "has_domain_tag",
         "weight": 2
       },
@@ -279383,6 +279556,13 @@
         "id": "ku:08e437ddbcdf0d23:has_domain_tag:domain_tag:6feb35d7d737",
         "from": "ku:08e437ddbcdf0d23",
         "to": "domain_tag:6feb35d7d737",
+        "relation": "has_domain_tag",
+        "weight": 2
+      },
+      {
+        "id": "ku:08e437ddbcdf0d23:has_domain_tag:domain_tag:3804022646c6",
+        "from": "ku:08e437ddbcdf0d23",
+        "to": "domain_tag:3804022646c6",
         "relation": "has_domain_tag",
         "weight": 2
       },

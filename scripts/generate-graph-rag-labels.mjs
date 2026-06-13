@@ -1,4 +1,5 @@
 import crypto from 'node:crypto';
+import { readFileSync } from 'node:fs';
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
@@ -21,20 +22,9 @@ const inputPath = path.resolve(
 const outputRoot = path.resolve(repoRoot, String(args.get('output') || path.join('output', 'graph-rag-labels')));
 const vaultRoot = path.join(outputRoot, 'obsidian-vault');
 
-const DOMAIN_RULES = [
-  ['domain/창체', ['창의적 체험활동상황', '창체', '자율활동', '동아리', '봉사활동', '진로활동']],
-  ['domain/출결', ['출결상황', '출결', '결석', '지각', '조퇴', '개근', '정근', '미인정']],
-  ['domain/세특', ['교과학습발달상황', '세부능력', '특기사항', '세특', '성취도', '과목별']],
-  ['domain/학적', ['인적·학적사항', '학적', '전입', '전출', '재취학', '편입', '주민등록번호', '성명']],
-  ['domain/정정', ['자료의 정정', '정정', '정정대장', '증빙', '오류', '나이스']],
-  ['domain/수상', ['수상경력', '수상', '교과우수상', '표창', '상장']],
-  ['domain/행특', ['행동특성 및 종합의견', '행특', '행동특성', '종합의견']],
-  ['domain/독서', ['독서활동상황', '독서', '도서명', '저자']],
-  ['domain/학교폭력', ['학교폭력 조치상황 관리', '학교폭력', '학폭', '조치사항']],
-  ['domain/자격증', ['자격증', '국가직무능력표준', 'NCS', '직무능력']],
-  ['domain/자유학기', ['자유학기활동상황', '자유학기', '자유학년']],
-  ['domain/특수학교', ['일상생활 활동상황', '특수학교']],
-];
+const domainRulePath = path.join(repoRoot, 'src', 'data', 'knowledge-domain-rules.json');
+const DOMAIN_RULES = JSON.parse(readFileSync(domainRulePath, 'utf8')).domainRules
+  .map((rule) => [rule.tag, rule.keywords]);
 
 const POLICY_RULES = [
   ['policy/금지', ['기재할 수 없습니다', '기재 불가', '입력할 수 없습니다', '입력 불가', '미기재', '삭제', '제외', '금지', '불가']],
