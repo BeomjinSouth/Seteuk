@@ -330,6 +330,59 @@ function hasClassMentorAssignments(
     return Object.prototype.hasOwnProperty.call(assignmentsByClass, classId);
 }
 
+function isDefaultSession(session: ActivitySession, index: number) {
+    const defaultSession = defaultActivitySessions[index];
+    return !!defaultSession
+        && session.id === defaultSession.id
+        && session.label === defaultSession.label
+        && session.date === defaultSession.date
+        && session.topic === defaultSession.topic;
+}
+
+function hasCustomActivitySessions(sessions: ActivitySession[]) {
+    return sessions.length !== defaultActivitySessions.length
+        || sessions.some((session, index) => !isDefaultSession(session, index));
+}
+
+function mergeActivitySessions(localSessions: ActivitySession[], remoteSessions: ActivitySession[]) {
+    const localHasCustomData = hasCustomActivitySessions(localSessions);
+    const remoteHasCustomData = hasCustomActivitySessions(remoteSessions);
+
+    if (!localHasCustomData) return remoteSessions;
+    if (!remoteHasCustomData) return localSessions;
+
+    const localById = new Map(localSessions.map((session) => [session.id, session]));
+    const merged = remoteSessions.map((session) => localById.get(session.id) ?? session);
+    const mergedIds = new Set(merged.map((session) => session.id));
+    localSessions.forEach((session) => {
+        if (!mergedIds.has(session.id)) merged.push(session);
+    });
+    return merged;
+}
+
+function mergeActivitySessionsByClass(
+    localSessionsByClass: ObservationBoardActivitySessionsByClass,
+    remoteSessionsByClass: ObservationBoardActivitySessionsByClass
+) {
+    const merged: ObservationBoardActivitySessionsByClass = { ...remoteSessionsByClass };
+
+    Object.entries(localSessionsByClass).forEach(([classId, localSessions]) => {
+        const remoteSessions = merged[classId];
+        merged[classId] = remoteSessions
+            ? mergeActivitySessions(localSessions, remoteSessions)
+            : localSessions;
+    });
+
+    return merged;
+}
+
+function mergeRemoteRecord<T>(localRecord: Record<string, T>, remoteRecord: Record<string, T>) {
+    return {
+        ...remoteRecord,
+        ...localRecord,
+    };
+}
+
 function isActiveMark(mark?: MarkState) {
     return mark === 'participated' || mark === 'excellent';
 }
@@ -820,17 +873,17 @@ export default function ObservationBoard2Page() {
                     notices: Array.isArray(body.data.notices) ? body.data.notices as NoticeItem[] : [],
                 };
 
-                setActivitySessionsByClass(nextState.activitySessionsByClass);
+                setActivitySessionsByClass((prev) => mergeActivitySessionsByClass(prev, nextState.activitySessionsByClass));
                 setLegacyActivitySessions(
                     Object.keys(nextState.activitySessionsByClass).length === 0
                         && Array.isArray(body.data.activitySessions)
                         ? normalizeObservationBoardActivitySessions(body.data.activitySessions)
                         : null
                 );
-                setMarks(nextState.marks);
-                setMentorAssignmentsByClass(nextState.mentorAssignmentsByClass);
-                setMentorAssignmentSnapshotsByClass(nextState.mentorAssignmentSnapshotsByClass);
-                setNotices(nextState.notices);
+                setMarks((prev) => mergeRemoteRecord(prev, nextState.marks));
+                setMentorAssignmentsByClass((prev) => mergeRemoteRecord(prev, nextState.mentorAssignmentsByClass));
+                setMentorAssignmentSnapshotsByClass((prev) => mergeRemoteRecord(prev, nextState.mentorAssignmentSnapshotsByClass));
+                setNotices((prev) => (prev.length > 0 ? prev : nextState.notices));
                 lastRemoteBoardPayloadRef.current = JSON.stringify(nextState);
             } catch (error) {
                 if (!controller.signal.aborted) {

@@ -164,6 +164,50 @@ function isLegacyDefaultForbiddenWords(words?: string[]): boolean {
     return LEGACY_DEFAULT_FORBIDDEN_WORDS.every((word, index) => words[index] === word);
 }
 
+type IdentifiedItem = { id?: string };
+
+function mergeByIdPreservingLocal<T extends IdentifiedItem>(
+    localItems: T[],
+    remoteItems: unknown,
+    chooseItem?: (localItem: T, remoteItem: T) => T
+): T[] {
+    if (!Array.isArray(remoteItems) || remoteItems.length === 0) return localItems;
+
+    const merged = new Map<string, T>();
+    const order: string[] = [];
+
+    const addItem = (item: T) => {
+        if (!item?.id) return;
+        if (!merged.has(item.id)) order.push(item.id);
+        merged.set(item.id, item);
+    };
+
+    localItems.forEach(addItem);
+    (remoteItems as T[]).forEach((remoteItem) => {
+        if (!remoteItem?.id) return;
+        const current = merged.get(remoteItem.id);
+        if (!current) {
+            addItem(remoteItem);
+            return;
+        }
+        merged.set(remoteItem.id, chooseItem ? chooseItem(current, remoteItem) : { ...current, ...remoteItem });
+    });
+
+    return order.map((id) => merged.get(id)).filter(Boolean) as T[];
+}
+
+function chooseNewestRecord(localRecord: SubjectRecord, remoteRecord: SubjectRecord): SubjectRecord {
+    const localTime = Date.parse(localRecord.lastUpdated || '');
+    const remoteTime = Date.parse(remoteRecord.lastUpdated || '');
+
+    if (Number.isFinite(localTime) && Number.isFinite(remoteTime)) {
+        return remoteTime > localTime ? remoteRecord : localRecord;
+    }
+
+    if (remoteRecord.content?.trim() && !localRecord.content?.trim()) return remoteRecord;
+    return localRecord.content?.trim() ? localRecord : remoteRecord;
+}
+
 /**
  * Main application state store using Zustand.
  * Persists state to localStorage.
@@ -504,9 +548,9 @@ export const useAppStore = create<AppState>()(
             })),
 
             replaceSyncedWorkspaceState: (data) => set((state) => ({
-                classes: Array.isArray(data.classes) ? data.classes : state.classes,
-                students: Array.isArray(data.students) ? data.students : state.students,
-                records: Array.isArray(data.records) ? data.records : state.records,
+                classes: mergeByIdPreservingLocal(state.classes, data.classes),
+                students: mergeByIdPreservingLocal(state.students, data.students),
+                records: mergeByIdPreservingLocal(state.records, data.records, chooseNewestRecord),
                 exampleTemplate: typeof data.exampleTemplate === 'string' ? data.exampleTemplate : state.exampleTemplate,
                 seteukPromptMode: data.seteukPromptMode === 'personal' || data.seteukPromptMode === 'default'
                     ? data.seteukPromptMode
@@ -514,8 +558,8 @@ export const useAppStore = create<AppState>()(
                 personalSeteukPrompt: typeof data.personalSeteukPrompt === 'string'
                     ? data.personalSeteukPrompt
                     : state.personalSeteukPrompt,
-                curriculumContents: Array.isArray(data.curriculumContents) ? data.curriculumContents : state.curriculumContents,
-                adminNotifications: Array.isArray(data.adminNotifications) ? data.adminNotifications : state.adminNotifications,
+                curriculumContents: mergeByIdPreservingLocal(state.curriculumContents, data.curriculumContents),
+                adminNotifications: mergeByIdPreservingLocal(state.adminNotifications, data.adminNotifications),
                 forbiddenWords: Array.isArray(data.forbiddenWords) ? data.forbiddenWords : state.forbiddenWords,
                 keywords: Array.isArray(data.keywords) ? data.keywords : state.keywords,
             })),
