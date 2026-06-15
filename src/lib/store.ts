@@ -5,6 +5,7 @@ import { buildTeacherKey } from '@/lib/teacher-context';
 import { createDemoWorkspaceSeed } from '@/lib/demo-workspace';
 import { SEONGHO_AUTH_MODE, isSeonghoSchool } from '@/lib/seongho-auth';
 import { DEFAULT_FORBIDDEN_WORDS } from '@/lib/forbidden-words';
+import { SETEUK_DEFAULT_EXAMPLE_TEMPLATE } from '@/lib/prompts/seteuk';
 
 export type SeteukPromptMode = 'default' | 'personal';
 
@@ -147,8 +148,7 @@ interface AppState {
     >>) => void;
 }
 
-// Default example template for few-shot learning
-const DEFAULT_EXAMPLE_TEMPLATE = `[예시 세특]
+const LEGACY_STORE_DEFAULT_EXAMPLE_TEMPLATE = `[예시 세특]
 김철수 학생은 수업 시간에 집중력 있게 참여하며, 교사의 질문에 적극적으로 답변하는 모습을 보임. 특히 '세포의 구조와 기능' 단원에서 세포 소기관의 역할을 정확하게 이해하고, 이를 실생활 현상과 연결 지어 설명하는 능력이 돋보였음. 모둠 실험 활동에서 현미경 조작을 능숙하게 수행하며 동료들에게 관찰 방법을 안내하는 리더십을 발휘함. 탐구 보고서 작성 시 실험 결과를 체계적으로 정리하고 오차 원인을 논리적으로 분석하는 과학적 탐구 능력을 보여줌.
 
 [어미/어투 특징]
@@ -156,6 +156,28 @@ const DEFAULT_EXAMPLE_TEMPLATE = `[예시 세특]
 - 객관적이고 구체적인 서술
 - 학생의 성장과 변화 중심 기술
 - 과목 특성을 반영한 용어 사용`;
+
+const LEGACY_EXAMPLES_PAGE_DEFAULT_TEMPLATE = `${LEGACY_STORE_DEFAULT_EXAMPLE_TEMPLATE}
+
+[자주 사용하는 표현]
+- 적극적으로 참여함
+- 깊은 이해를 보여줌
+- 논리적으로 분석하는 능력
+- 협력하여 문제를 해결함
+- 탐구 능력을 발휘함`;
+
+const LEGACY_DEFAULT_EXAMPLE_TEMPLATES = new Set([
+    LEGACY_STORE_DEFAULT_EXAMPLE_TEMPLATE.trim(),
+    LEGACY_EXAMPLES_PAGE_DEFAULT_TEMPLATE.trim(),
+]);
+
+function resolveExampleTemplate(template?: string): string {
+    if (!template?.trim()) return SETEUK_DEFAULT_EXAMPLE_TEMPLATE;
+    if (LEGACY_DEFAULT_EXAMPLE_TEMPLATES.has(template.trim())) {
+        return SETEUK_DEFAULT_EXAMPLE_TEMPLATE;
+    }
+    return template;
+}
 
 const LEGACY_DEFAULT_FORBIDDEN_WORDS = ['최고', '가장', '천재', '완벽', '1등', '꼴찌', '못함'];
 
@@ -226,7 +248,7 @@ export const useAppStore = create<AppState>()(
             classes: [],
             students: [],
             records: [],
-            exampleTemplate: DEFAULT_EXAMPLE_TEMPLATE,
+            exampleTemplate: SETEUK_DEFAULT_EXAMPLE_TEMPLATE,
             seteukPromptMode: 'default',
             personalSeteukPrompt: '',
             adminStatus: {
@@ -551,7 +573,9 @@ export const useAppStore = create<AppState>()(
                 classes: mergeByIdPreservingLocal(state.classes, data.classes),
                 students: mergeByIdPreservingLocal(state.students, data.students),
                 records: mergeByIdPreservingLocal(state.records, data.records, chooseNewestRecord),
-                exampleTemplate: typeof data.exampleTemplate === 'string' ? data.exampleTemplate : state.exampleTemplate,
+                exampleTemplate: typeof data.exampleTemplate === 'string'
+                    ? resolveExampleTemplate(data.exampleTemplate)
+                    : state.exampleTemplate,
                 seteukPromptMode: data.seteukPromptMode === 'personal' || data.seteukPromptMode === 'default'
                     ? data.seteukPromptMode
                     : state.seteukPromptMode,
@@ -582,6 +606,9 @@ export const useAppStore = create<AppState>()(
             onRehydrateStorage: () => (state) => {
                 if (isLegacyDefaultForbiddenWords(state?.forbiddenWords)) {
                     state?.setForbiddenWords(DEFAULT_FORBIDDEN_WORDS);
+                }
+                if (state) {
+                    state.setExampleTemplate(resolveExampleTemplate(state.exampleTemplate));
                 }
                 state?.setHasHydrated(true);
             },

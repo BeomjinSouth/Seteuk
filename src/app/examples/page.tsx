@@ -12,25 +12,9 @@ import {
     GraduationCap
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { SETEUK_DEFAULT_EXAMPLE_TEMPLATE } from '@/lib/prompts/seteuk';
 import { useAppStore } from '@/lib/store';
 import styles from './page.module.css';
-
-// Default example template
-const DEFAULT_TEMPLATE = `[예시 세특]
-김철수 학생은 수업 시간에 집중력 있게 참여하며, 교사의 질문에 적극적으로 답변하는 모습을 보임. 특히 '세포의 구조와 기능' 단원에서 세포 소기관의 역할을 정확하게 이해하고, 이를 실생활 현상과 연결 지어 설명하는 능력이 돋보였음. 모둠 실험 활동에서 현미경 조작을 능숙하게 수행하며 동료들에게 관찰 방법을 안내하는 리더십을 발휘함. 탐구 보고서 작성 시 실험 결과를 체계적으로 정리하고 오차 원인을 논리적으로 분석하는 과학적 탐구 능력을 보여줌.
-
-[어미/어투 특징]
-- ~함, ~음, ~였음 등 명사형 어미 사용
-- 객관적이고 구체적인 서술
-- 학생의 성장과 변화 중심 기술
-- 과목 특성을 반영한 용어 사용
-
-[자주 사용하는 표현]
-- 적극적으로 참여함
-- 깊은 이해를 보여줌
-- 논리적으로 분석하는 능력
-- 협력하여 문제를 해결함
-- 탐구 능력을 발휘함`;
 
 // Tab types
 type TabType = 'template' | 'curriculum';
@@ -57,7 +41,7 @@ export default function ExamplesPage() {
     const [selectedGrade, setSelectedGrade] = useState<number>(1);
     const [selectedSemester, setSelectedSemester] = useState<1 | 2>(1);
     const [curriculumDrafts, setCurriculumDrafts] = useState<Record<string, string>>({});
-    const content = templateDraft ?? exampleTemplate ?? DEFAULT_TEMPLATE;
+    const content = templateDraft ?? exampleTemplate ?? SETEUK_DEFAULT_EXAMPLE_TEMPLATE;
     const selectedCurriculumKey = `${selectedGrade}-${selectedSemester}`;
     const curriculumText =
         curriculumDrafts[selectedCurriculumKey]
@@ -74,8 +58,8 @@ export default function ExamplesPage() {
     // Reset template
     const handleResetTemplate = () => {
         if (confirm('기본 예시로 초기화하시겠습니까?')) {
-            setTemplateDraft(DEFAULT_TEMPLATE);
-            setExampleTemplate(DEFAULT_TEMPLATE);
+            setTemplateDraft(SETEUK_DEFAULT_EXAMPLE_TEMPLATE);
+            setExampleTemplate(SETEUK_DEFAULT_EXAMPLE_TEMPLATE);
         }
     };
 
