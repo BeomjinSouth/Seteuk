@@ -91,6 +91,7 @@
 
 ## Recent Changes
 
+- 2026-06-16: added an official NCIC middle-school curriculum PDF collection under `교육과정 모음 정리본/2022_개정_중학교_교육과정_PDF/`, including 17 subject PDFs and 3 reference PDFs. The collection includes `DOWNLOAD_MANIFEST.md` and `manifest.json` with NCIC source URLs, attachment ids, file sizes, and SHA-256 hashes. Verification passed for PDF header/size checks and `cmd /c npx tsc --noEmit --pretty false`; route smoke tests and `npm run sync:knowledge-docs` were not run because this task did not change app code or mirrored student-record knowledge docs.
 - 2026-06-15: investigated missing AI seteuk / student-observation records. Local fallback sheet data was empty, while Chrome local-storage traces existed under the production `https://seteuk-zgyj.vercel.app` origin in more than one Chrome profile, so the likely loss mode is profile/origin mismatch or stale Supabase state overwriting browser-local state after login.
 - 2026-06-15: changed workspace Supabase hydration to merge classes, students, curriculum entries, notifications, and especially subject records instead of replacing local state with a remote array. Subject records now merge by id and keep the newest `lastUpdated`, preventing an empty remote `records` array from hiding browser-local AI seteuk drafts.
 - 2026-06-15: changed `/observation-board-2` Supabase hydration to merge remote activity sessions, marks, mentor assignments, snapshots, and notices with browser-local state so existing activity-board records are not erased by a default or stale remote payload.
