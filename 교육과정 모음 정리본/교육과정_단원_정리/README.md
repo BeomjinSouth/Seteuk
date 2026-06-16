@@ -5,6 +5,7 @@
 ## 산출물
 
 - `교과별_XLSX/`: 17개 교과별 엑셀 파일. 각 교과를 독립적으로 열어 볼 수 있는 주 산출물입니다.
+- `교과별_JSON/`: 17개 교과별 JSON 파일과 `index.json`. 각 교과 JSON은 `metadata`, `hierarchy`, `units`를 함께 담습니다.
 - `교과별_MD/`: 17개 교과별 Markdown 정리본.
 - `중학교_교과별_교육과정_단원_정리.xlsx`: 전체 교과를 한 번에 비교하기 위한 보조 통합표.
 - `unit_summary_data.json`: Markdown과 XLSX 생성을 위한 중간 데이터입니다. 출처 PDF명, URL, 해시, 페이지 정보를 포함합니다.
@@ -17,6 +18,13 @@
 - `단원목록`: 대단원, 중단원, 소단원, 성취기준 코드, 배우는 내용, 핵심 아이디어, 내용 요소, 성취기준 해설 요약, 적용 시 고려 사항, 출처.
 - `대단원요약`: 대단원별 중단원 수, 소단원 수, 핵심 아이디어.
 - `출처`: 원본 PDF, URL, 파일 크기, SHA-256, 행 수, 추출 메모.
+
+## 교과별 JSON 구성
+
+- `metadata`: 교과명, 생성일, 스키마 버전, 행 수, 대단원/중단원/소단원 수, 변환 규칙, 추출 예외, 출처 PDF 메타데이터.
+- `hierarchy`: 대단원 > 중단원 > 소단원 계층 구조. 탐색용으로 성취기준 코드, 배우는 내용, 출처를 함께 넣었습니다.
+- `units`: 원본 `unit_summary_data.json`의 행을 교과별로 나눈 canonical 배열입니다. `출처 URL`, `추출 메모`, 문자열 페이지 값까지 포함한 14개 원본 필드를 그대로 보존합니다.
+- `index.json`: 17개 교과 JSON의 파일명, 행 수, 대단원 수, 출처 PDF/URL/해시를 확인하는 인덱스입니다.
 
 ## 생성 기준
 
@@ -35,3 +43,5 @@
 - 교과별 XLSX 생성: `tools/build_subject_workbooks.mjs`
 - XLSX 필터/고정행 보정: `tools/fix_xlsx_features.py`
 - 교과별 XLSX 구조 검증: `tools/validate_subject_workbooks.py`
+- 교과별 JSON 생성: `tools/build_subject_json.py`
+- 교과별 JSON 구조 검증: `tools/validate_subject_json.py`

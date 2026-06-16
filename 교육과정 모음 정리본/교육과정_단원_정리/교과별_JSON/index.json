@@ -1,0 +1,201 @@
+{
+  "metadata": {
+    "schemaVersion": "1.0.0",
+    "title": "중학교 교과별 교육과정 단원 JSON 인덱스",
+    "generatedAt": "2026-06-16",
+    "scope": "2022 개정 중학교 교과 교육과정 PDF 17개",
+    "sourceData": "../unit_summary_data.json",
+    "subjectCount": 17,
+    "unitRowCount": 591,
+    "primaryOutput": "교과별 JSON 17개"
+  },
+  "subjects": [
+    {
+      "order": 1,
+      "subject": "국어",
+      "file": "01_국어_단원_정리.json",
+      "rowCount": 51,
+      "largeUnitCount": 6,
+      "middleUnitCount": 6,
+      "sourcePdf": "01_[별책5] 국어과 교육과정.pdf",
+      "sourceUrl": "https://ncic.re.kr/inv/org/download.do?year=2022&seq=10003584&orgType=ogi4",
+      "sourceSha256": "5c30ae42a973a8f912bae156b160cd16d56636b3a64af84c3bdc378c9b482544"
+    },
+    {
+      "order": 2,
+      "subject": "수학",
+      "file": "02_수학_단원_정리.json",
+      "rowCount": 60,
+      "largeUnitCount": 4,
+      "middleUnitCount": 4,
+      "sourcePdf": "02_[별책8] 수학과 교육과정.pdf",
+      "sourceUrl": "https://ncic.re.kr/inv/org/download.do?year=2022&seq=10003592&orgType=ogi4",
+      "sourceSha256": "ba7c7c63ad31ba0fd32e5eb8148d696dd73288acce111495c593298112f8f840"
+    },
+    {
+      "order": 3,
+      "subject": "영어",
+      "file": "03_영어_단원_정리.json",
+      "rowCount": 21,
+      "largeUnitCount": 2,
+      "middleUnitCount": 2,
+      "sourcePdf": "03_[별책14] 영어과 교육과정.pdf",
+      "sourceUrl": "https://ncic.re.kr/inv/org/download.do?year=2022&seq=10003602&orgType=ogi4",
+      "sourceSha256": "596d13897b002a4279a3e21f16396bdae7ac74988450f45fb348f87af943f92a"
+    },
+    {
+      "order": 4,
+      "subject": "사회",
+      "file": "04_사회_단원_정리.json",
+      "rowCount": 114,
+      "largeUnitCount": 3,
+      "middleUnitCount": 36,
+      "sourcePdf": "04_[별책7] 사회과 교육과정.pdf",
+      "sourceUrl": "https://ncic.re.kr/inv/org/download.do?year=2022&seq=10003806&orgType=ogi4",
+      "sourceSha256": "a852e8da3e6aea7d1c95690dcae140be02e014b779ac2e5cc0801200cfb16923"
+    },
+    {
+      "order": 5,
+      "subject": "도덕",
+      "file": "05_도덕_단원_정리.json",
+      "rowCount": 22,
+      "largeUnitCount": 4,
+      "middleUnitCount": 4,
+      "sourcePdf": "05_[별책6] 도덕과 교육과정.pdf",
+      "sourceUrl": "https://ncic.re.kr/inv/org/download.do?year=2022&seq=10003740&orgType=ogi4",
+      "sourceSha256": "0682710d786a0be26efdfbd835195e4871c71bc7c3c11f71427c7087c07a850e"
+    },
+    {
+      "order": 6,
+      "subject": "과학",
+      "file": "06_과학_단원_정리.json",
+      "rowCount": 87,
+      "largeUnitCount": 5,
+      "middleUnitCount": 23,
+      "sourcePdf": "06_[별책9] 과학과 교육과정.pdf",
+      "sourceUrl": "https://ncic.re.kr/inv/org/download.do?year=2022&seq=10003581&orgType=ogi4",
+      "sourceSha256": "0cf53427691d54366d6805767c428a15b0e817580807b4354947de7e3b58b738"
+    },
+    {
+      "order": 7,
+      "subject": "체육",
+      "file": "07_체육_단원_정리.json",
+      "rowCount": 51,
+      "largeUnitCount": 3,
+      "middleUnitCount": 3,
+      "sourcePdf": "07_[별책11] 체육과 교육과정.pdf",
+      "sourceUrl": "https://ncic.re.kr/inv/org/download.do?year=2022&seq=10003697&orgType=ogi4",
+      "sourceSha256": "49cdef2bbcdf1decb796204ab66a0b6a308cd2903ead7168dde892b1f48cf2fb"
+    },
+    {
+      "order": 8,
+      "subject": "음악",
+      "file": "08_음악_단원_정리.json",
+      "rowCount": 13,
+      "largeUnitCount": 3,
+      "middleUnitCount": 3,
+      "sourcePdf": "08_[별책12] 음악과 교육과정.pdf",
+      "sourceUrl": "https://ncic.re.kr/inv/org/download.do?year=2022&seq=10003594&orgType=ogi4",
+      "sourceSha256": "db2d03b4e2accfd442ca1297b84e43061feb1422659914e486e27f7b555f7bd6"
+    },
+    {
+      "order": 9,
+      "subject": "미술",
+      "file": "09_미술_단원_정리.json",
+      "rowCount": 13,
+      "largeUnitCount": 3,
+      "middleUnitCount": 3,
+      "sourcePdf": "09_[별책13] 미술과 교육과정.pdf",
+      "sourceUrl": "https://ncic.re.kr/inv/org/download.do?year=2022&seq=10003588&orgType=ogi4",
+      "sourceSha256": "b47363c9a1060b00777c6de555d972b509b64b886d7beca89460a552a33c77b2"
+    },
+    {
+      "order": 10,
+      "subject": "기술·가정",
+      "file": "10_기술·가정_단원_정리.json",
+      "rowCount": 52,
+      "largeUnitCount": 2,
+      "middleUnitCount": 4,
+      "sourcePdf": "10_[별책10] 실과(기술가정)정보과 교육과정.pdf",
+      "sourceUrl": "https://ncic.re.kr/inv/org/download.do?year=2022&seq=10003783&orgType=ogi4",
+      "sourceSha256": "842077c76b311f23d57e6e749a8e4ffbb3d59d37628c1646531301022cc36bfd"
+    },
+    {
+      "order": 11,
+      "subject": "정보",
+      "file": "11_정보_단원_정리.json",
+      "rowCount": 25,
+      "largeUnitCount": 5,
+      "middleUnitCount": 5,
+      "sourcePdf": "11_[별책10] 실과(기술가정)정보과 교육과정.pdf",
+      "sourceUrl": "https://ncic.re.kr/inv/org/download.do?year=2022&seq=10003785&orgType=ogi4",
+      "sourceSha256": "842077c76b311f23d57e6e749a8e4ffbb3d59d37628c1646531301022cc36bfd"
+    },
+    {
+      "order": 12,
+      "subject": "생활 외국어",
+      "file": "12_생활_외국어_단원_정리.json",
+      "rowCount": 5,
+      "largeUnitCount": 3,
+      "middleUnitCount": 5,
+      "sourcePdf": "12_[별책16] 제2외국어과 교육과정.pdf",
+      "sourceUrl": "https://ncic.re.kr/inv/org/download.do?year=2022&seq=10003721&orgType=ogi4",
+      "sourceSha256": "c8bc0650e5538de738972d6700f5de9a5dcde4b795510dfaa8abc3c42227c21e"
+    },
+    {
+      "order": 13,
+      "subject": "한문",
+      "file": "13_한문_단원_정리.json",
+      "rowCount": 12,
+      "largeUnitCount": 2,
+      "middleUnitCount": 2,
+      "sourcePdf": "13_[별책17] 한문과 교육과정.pdf",
+      "sourceUrl": "https://ncic.re.kr/inv/org/download.do?year=2022&seq=10003748&orgType=ogi4",
+      "sourceSha256": "e3466e192e1e3943b669ff627ae19c5f223d7f0fb8b2c52fe7bac63be13d7301"
+    },
+    {
+      "order": 14,
+      "subject": "환경",
+      "file": "14_환경_단원_정리.json",
+      "rowCount": 19,
+      "largeUnitCount": 5,
+      "middleUnitCount": 5,
+      "sourcePdf": "14_[별책18] 중학교 선택 교과 교육과정.pdf",
+      "sourceUrl": "https://ncic.re.kr/inv/org/download.do?year=2022&seq=10003767&orgType=ogi4",
+      "sourceSha256": "87beaa32402e0b35ddb2cf7c4604decc7d1273d8251cd333df6910cbc73518d4"
+    },
+    {
+      "order": 15,
+      "subject": "보건",
+      "file": "15_보건_단원_정리.json",
+      "rowCount": 26,
+      "largeUnitCount": 5,
+      "middleUnitCount": 5,
+      "sourcePdf": "15_[별책18] 중학교 선택 교과 교육과정.pdf",
+      "sourceUrl": "https://ncic.re.kr/inv/org/download.do?year=2022&seq=10003775&orgType=ogi4",
+      "sourceSha256": "87beaa32402e0b35ddb2cf7c4604decc7d1273d8251cd333df6910cbc73518d4"
+    },
+    {
+      "order": 16,
+      "subject": "진로와 직업",
+      "file": "16_진로와_직업_단원_정리.json",
+      "rowCount": 14,
+      "largeUnitCount": 3,
+      "middleUnitCount": 3,
+      "sourcePdf": "16_[별책18] 중학교 선택 교과 교육과정.pdf",
+      "sourceUrl": "https://ncic.re.kr/inv/org/download.do?year=2022&seq=10003773&orgType=ogi4",
+      "sourceSha256": "87beaa32402e0b35ddb2cf7c4604decc7d1273d8251cd333df6910cbc73518d4"
+    },
+    {
+      "order": 17,
+      "subject": "한국어 교육과정",
+      "file": "17_한국어_교육과정_단원_정리.json",
+      "rowCount": 6,
+      "largeUnitCount": 2,
+      "middleUnitCount": 6,
+      "sourcePdf": "17_[별책41] 한국어 교육과정(제2017-131호).pdf",
+      "sourceUrl": "https://ncic.re.kr/inv/org/download.do?year=2022&seq=10003606&orgType=ogi4",
+      "sourceSha256": "7032ec2307edfc5a3f94e97fe0f48df4bff22a98f884b3e8bdc2b94d618d2055"
+    }
+  ]
+}
