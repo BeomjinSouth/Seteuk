@@ -33,9 +33,9 @@
 - /eval-check route: redirects to /dashboard while the feature is in development
 - write page integration: implemented
 - write page screenshot UI: implemented with class chips, 10-row pagination, rounded AI input/content table rows, AI 세특 guide sidebar card, and top teacher/notification chrome
-- seteuk default prompt: implemented as shared `cross-curricular-seteuk-v2` teacher-review draft policy in `src/lib/prompts/seteuk.ts`
+- seteuk default prompt: implemented as shared `cross-curricular-seteuk-v2.1` teacher-review draft policy in `src/lib/prompts/seteuk.ts`
 - seteuk prompt mode: `/settings/ai` now offers `기본 설정` and `내 프롬프트`; teacher-private prompt mode/body sync through workspace state
-- seteuk example template: `src/lib/prompts/seteuk.ts`, `/examples`, and workspace state share a neutral observation-based default example; stored legacy default examples migrate to the v2 default while teacher-edited templates are preserved
+- seteuk example template: `src/lib/prompts/seteuk.ts`, `/examples`, and workspace state share a neutral observation-based default example with a short-input case; stored legacy default examples migrate to the v2.1 default while teacher-edited templates are preserved
 - admin role management: `/api/admin-users` and `/settings` support admin list/grant/revoke with non-revocable bootstrap admin `박범진`
 - search inspector diagnostics route: implemented but hidden from the sidebar
 - main navigation integration: 학교 정보 -> 학생 관찰 기록 -> AI 세특 생성 -> 평가 점검 (개발중) 순서 적용
@@ -91,6 +91,7 @@
 
 ## Recent Changes
 
+- 2026-06-16: refined the default AI 세특 prompt to `cross-curricular-seteuk-v2.1` after sparse real-world inputs produced overly generic attitude-only drafts. The prompt now treats provided subject, unit, curriculum topic, activity name, and material type as safe context anchors whenever at least one student-specific action is present, while still blocking unsupported claims that the student understood, applied, analyzed, led, or improved without direct evidence. `/api/generate` now labels the subject/context section explicitly and the no-key fallback includes subject/curriculum context instead of returning generic class-participation wording. `npm run sync:knowledge-docs` was not run because `../student-record-knowledge/docs` is not present next to this checkout.
 - 2026-06-16: added an official NCIC middle-school curriculum PDF collection under `교육과정 모음 정리본/2022_개정_중학교_교육과정_PDF/`, including 17 subject PDFs and 3 reference PDFs. The collection includes `DOWNLOAD_MANIFEST.md` and `manifest.json` with NCIC source URLs, attachment ids, file sizes, and SHA-256 hashes. Verification passed for PDF header/size checks and `cmd /c npx tsc --noEmit --pretty false`; route smoke tests and `npm run sync:knowledge-docs` were not run because this task did not change app code or mirrored student-record knowledge docs.
 - 2026-06-15: investigated missing AI seteuk / student-observation records. Local fallback sheet data was empty, while Chrome local-storage traces existed under the production `https://seteuk-zgyj.vercel.app` origin in more than one Chrome profile, so the likely loss mode is profile/origin mismatch or stale Supabase state overwriting browser-local state after login.
 - 2026-06-15: changed workspace Supabase hydration to merge classes, students, curriculum entries, notifications, and especially subject records instead of replacing local state with a remote array. Subject records now merge by id and keep the newest `lastUpdated`, preventing an empty remote `records` array from hiding browser-local AI seteuk drafts.

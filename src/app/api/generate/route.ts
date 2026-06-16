@@ -155,6 +155,7 @@ export async function POST(request: NextRequest) {
     }
 
     let userPrompt = `다음 정보를 바탕으로 ${studentName} 학생의 ${subjectName || ''} 교과 세특을 작성해 주세요.`;
+    userPrompt += `\n\n[교과/수업 맥락]\n- 교과: ${subjectName?.trim() || '미제공'}`;
 
     // Add learning data if provided
     if (learningData && Object.keys(learningData).length > 0) {
@@ -179,7 +180,7 @@ export async function POST(request: NextRequest) {
 
     // Add curriculum content if provided
     if (curriculumContent && curriculumContent.trim()) {
-        userPrompt += `\n\n[중요] 이번 학기 교육과정 내용 :\n${curriculumContent}\n\n// 교육과정은 활동 맥락을 파악하기 위한 참고자료입니다.\n- 단원명, 개념, 활동은 관찰 메모나 학습 데이터와 직접 연결될 때만 언급하세요.\n- 학생이 해당 내용을 어떻게 이해하고 적용했는지는 입력 자료에 관찰된 근거가 있을 때만 서술하세요.\n- 교육과정 내용만으로 학생의 성취, 태도, 역량을 새로 만들지 마세요.`;
+        userPrompt += `\n\n[중요] 이번 학기 교육과정 내용 :\n${curriculumContent}\n\n// 교육과정은 활동 맥락을 파악하기 위한 참고자료입니다.\n- 관찰 메모나 학습 데이터가 짧더라도, 학생별 수행 행동이 하나 이상 있으면 단원명·주제·활동명은 문장 맥락으로 활용하세요.\n- 단원명, 개념, 활동은 관찰 메모나 학습 데이터와 직접 연결될 때만 언급하세요.\n- 학생이 해당 내용을 어떻게 이해하고 적용했는지는 입력 자료에 관찰된 근거가 있을 때만 서술하세요.\n- 교육과정 내용만으로 학생의 성취, 태도, 역량을 새로 만들지 마세요.`;
     } else {
         userPrompt += `\n\n위 정보를 바탕으로 교과 세특을 작성해 주세요.`;
     }
@@ -249,7 +250,7 @@ ${exampleTemplates.join('\n\n')}
         console.log('No OpenAI API key, using fallback');
         return NextResponse.json({
             success: true,
-            content: generateFallbackContent(studentName, subjectName, learningData),
+            content: generateFallbackContent(studentName, subjectName, learningData, curriculumContent),
             fallback: true,
             message: 'API 키가 설정되지 않아 기본 템플릿을 사용합니다.',
             observationBoardContextCount,
@@ -300,7 +301,7 @@ ${exampleTemplates.join('\n\n')}
         // Return fallback with the learning data we already have
         return NextResponse.json({
             success: true,
-            content: generateFallbackContent(studentName, subjectName, learningData),
+            content: generateFallbackContent(studentName, subjectName, learningData, curriculumContent),
             fallback: true,
             error: 'API 호출 실패로 기본 템플릿을 사용했습니다.',
             observationBoardContextCount,
@@ -313,7 +314,8 @@ ${exampleTemplates.join('\n\n')}
 function generateFallbackContent(
     studentName: string,
     subjectName?: string,
-    learningData?: Record<string, string>
+    learningData?: Record<string, string>,
+    curriculumContent?: string
 ): string {
     // Extract meaningful data from learningData
     let dataText = '';
@@ -322,9 +324,9 @@ function generateFallbackContent(
         const values = Object.entries(learningData)
             .filter(([, value]) => !!value?.trim())
             .filter(([key, value]) => !PROHIBITED_FALLBACK_EVIDENCE_PATTERN.test(`${key} ${value}`))
-            .map(([, value]) => value.trim());
+            .flatMap(([, value]) => splitFallbackEvidence(value));
         if (values.length > 0) {
-            dataText = values.join('. ');
+            dataText = formatFallbackEvidence(values);
         }
     }
 
@@ -332,7 +334,59 @@ function generateFallbackContent(
         return '충분한 정보가 제공되지 않아 관찰 기록 작성이 어려움.';
     }
 
-    const subject = subjectName || '해당 교과';
+    const context = buildFallbackContext(subjectName, curriculumContent);
 
-    return `${subject} 활동에서 제공된 관찰 자료를 바탕으로 ${dataText} 내용을 기록함. 입력된 학습 자료와 관찰 메모 범위 안에서 수행 내용과 참여 과정을 정리함.`;
+    return `${context}에서 ${dataText}`;
+}
+
+function splitFallbackEvidence(value: string): string[] {
+    return value
+        .split(/[\n.;。]+/)
+        .map((item) => item.trim())
+        .filter(Boolean)
+        .slice(0, 5);
+}
+
+function formatFallbackEvidence(values: string[]): string {
+    const normalized = values
+        .map((value) => value
+            .replace(/\s+/g, ' ')
+            .replace(/(하였음|하였고|하였다|했음|했고|했다|함)$/u, '')
+            .trim()
+        )
+        .filter(Boolean);
+
+    const clauses = normalized.map(formatFallbackClause);
+
+    if (clauses.length === 0) return '제공된 관찰 내용을 기록함.';
+
+    return clauses.join(' ');
+}
+
+function formatFallbackClause(value: string): string {
+    if (/자료\s*조사/u.test(value)) return '자료 조사에 참여함.';
+    if (/활동지/u.test(value) && /제출/u.test(value)) return '활동지를 제출함.';
+    if (/활동지/u.test(value) && /(작성|정리)/u.test(value)) return '활동지 작성 과정에 참여함.';
+    if (/발표/u.test(value)) return '발표 활동에 참여함.';
+    if (/모둠|모둠활동/u.test(value)) return '모둠활동에 참여함.';
+    if (/태도/u.test(value) && /(좋|양호)/u.test(value)) return '수업 흐름에 맞추어 활동에 참여함.';
+
+    return `${value} 활동이 관찰됨.`;
+}
+
+function buildFallbackContext(subjectName?: string, curriculumContent?: string): string {
+    const subject = subjectName?.trim() || '해당 교과';
+    const curriculumLine = curriculumContent
+        ?.split(/\r?\n/)
+        .map((line) => line.replace(/^(?:[-*•]\s*|\d+[.)]\s*)+/, '').trim())
+        .find((line) => line.length > 0);
+
+    if (!curriculumLine) return `${subject} 수업`;
+
+    const compactCurriculum = curriculumLine
+        .replace(/\s+/g, ' ')
+        .slice(0, 40)
+        .trim();
+
+    return `${subject} 교과의 ${compactCurriculum} 맥락`;
 }
