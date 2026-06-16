@@ -6,6 +6,7 @@ import {
     performSpellCheckRequest,
 } from '@/lib/check-utils';
 import { readObservationBoardAiContext } from '@/lib/observation-board-ai-context';
+import type { CurriculumGenerationContext } from '@/lib/curriculum-context';
 import { OPENAI_STANDARD_MODEL, normalizeOpenAIModel } from '@/lib/openai-models';
 import { resolveSeteukSystemPrompt } from '@/lib/prompts/seteuk';
 import { useAppStore } from '@/lib/store';
@@ -108,6 +109,7 @@ export async function generateDraft(
         teacherKey?: string;
         classId?: string;
         gradeLevel?: number;
+        curriculumContext?: CurriculumGenerationContext;
     }
 ): Promise<{ content: string; observationCount: number }> {
     const settings = getAISettings();
@@ -138,6 +140,7 @@ export async function generateDraft(
                 teacherKey: context?.teacherKey,
                 classId: context?.classId,
                 gradeLevel: context?.gradeLevel,
+                curriculumContext: context?.curriculumContext,
             }),
         });
 

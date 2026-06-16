@@ -1624,6 +1624,131 @@
     justify-self: end;
 }
 
+.curriculumContextPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    padding: 1.05rem 1.2rem;
+    border: 1px solid #e7ebf4;
+    border-radius: 1.05rem;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 14px 32px rgba(35, 45, 78, 0.06);
+}
+
+.curriculumContextPanelMuted {
+    background: rgba(255, 255, 255, 0.72);
+}
+
+.curriculumContextHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.curriculumContextHeader>div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    min-width: 0;
+}
+
+.curriculumContextLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #7257e8;
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+.curriculumContextHeader strong {
+    color: #273044;
+    font-family: var(--font-display);
+    font-size: 0.98rem;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.curriculumContextCount {
+    flex: 0 0 auto;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    background: #f4f1ff;
+    color: #7257e8;
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+.curriculumUnitChips {
+    display: flex;
+    align-items: stretch;
+    gap: 0.6rem;
+    overflow-x: auto;
+    padding-bottom: 0.1rem;
+    scrollbar-width: thin;
+}
+
+.curriculumUnitChip {
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.16rem;
+    min-width: 11.5rem;
+    max-width: 15.5rem;
+    min-height: 3.5rem;
+    padding: 0.62rem 0.85rem;
+    border: 1px solid #e4e8f2;
+    border-radius: 0.85rem;
+    background: #fbfcff;
+    color: #2f3549;
+    text-align: left;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(29, 39, 73, 0.04);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.curriculumUnitChip:hover {
+    border-color: #cfc7ff;
+    box-shadow: 0 10px 22px rgba(101, 80, 220, 0.1);
+}
+
+.curriculumUnitChip span {
+    color: inherit;
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    font-weight: 800;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+}
+
+.curriculumUnitChip small {
+    color: #7b8498;
+    font-size: 0.75rem;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+.curriculumUnitChipActive {
+    border-color: transparent;
+    background: linear-gradient(135deg, #7657ef, #6f4be8);
+    color: #fff;
+    box-shadow: 0 12px 26px rgba(111, 75, 232, 0.28);
+}
+
+.curriculumUnitChipActive small {
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.curriculumContextEmpty {
+    margin: 0;
+    color: #788197;
+    font-size: 0.86rem;
+    line-height: 1.55;
+}
+
 .toolbarActionPrimary,
 .toolbarActionReview,
 .toolbarActionSecondary,
@@ -2145,6 +2270,15 @@
         overflow-x: auto;
         justify-content: flex-start;
         padding-bottom: 0.2rem;
+    }
+
+    .curriculumContextHeader {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .curriculumUnitChip {
+        min-width: 10.5rem;
     }
 
     .tableFooter {

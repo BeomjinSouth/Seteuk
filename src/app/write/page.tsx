@@ -3,7 +3,7 @@
 import { Suspense, useCallback, useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Loader2, Settings, Sparkles } from 'lucide-react';
+import { BookOpen, ChevronLeft, ChevronRight, Loader2, Settings, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { SpellCheckModal, SpellError } from '@/components/SpellCheckModal';
 import { ForbiddenCheckModal } from '@/components/ForbiddenCheckModal';
@@ -16,6 +16,12 @@ import { generateDraft, performSpellCheck, checkForbiddenWords, reviewAndImprove
 import { applyCheckResultToRecord } from '@/lib/check-utils';
 import { getRecordByStudentSemester } from '@/lib/record-utils';
 import { DEFAULT_CONCURRENCY_LIMIT, mapWithConcurrency } from '@/lib/concurrency';
+import {
+    DEFAULT_CURRICULUM_UNITS,
+    buildCurriculumGenerationContext,
+    getCurriculumUnitsForSubject,
+    mergeCurriculumUnits,
+} from '@/lib/curriculum-context';
 import { getLearningDataForClass, getStudentsInTeachingClass, getTeacherClasses } from '@/lib/teacher-context';
 import { WriteTableRow } from './components/WriteTableRow';
 import { WriteToolbar } from './components/WriteToolbar';
@@ -55,6 +61,10 @@ function WritePageContent() {
         teacher,
         forbiddenWords,
         getCurriculumContent,
+        curriculumUnitOverrides,
+        classCurriculumSelections,
+        setClassCurriculumSelection,
+        getClassCurriculumSelection,
     } = useAppStore();
 
     const [selectedSemester, setSelectedSemester] = useState<'1' | '2'>('1');
@@ -88,6 +98,35 @@ function WritePageContent() {
     const currentTeacherClasses = useMemo(
         () => getTeacherClasses(classes, teacher, selectedSemester),
         [classes, selectedSemester, teacher]
+    );
+    const mergedCurriculumUnits = useMemo(
+        () => mergeCurriculumUnits(DEFAULT_CURRICULUM_UNITS, curriculumUnitOverrides),
+        [curriculumUnitOverrides]
+    );
+    const selectedTeachingClass = useMemo(
+        () => selectedGradeClass === 'all'
+            ? undefined
+            : currentTeacherClasses.find((cls) => cls.id === selectedGradeClass),
+        [currentTeacherClasses, selectedGradeClass]
+    );
+    const selectedClassUnits = useMemo(() => {
+        if (!selectedTeachingClass) return [];
+        return getCurriculumUnitsForSubject({
+            units: mergedCurriculumUnits,
+            grade: selectedTeachingClass.grade,
+            semester: currentSemester,
+            subjectName: selectedTeachingClass.subjectName || '',
+        });
+    }, [currentSemester, mergedCurriculumUnits, selectedTeachingClass]);
+    const selectedClassSelection = useMemo(
+        () => selectedTeachingClass
+            ? getClassCurriculumSelection(selectedTeachingClass.id, currentSemester)
+            : undefined,
+        [classCurriculumSelections, currentSemester, getClassCurriculumSelection, selectedTeachingClass]
+    );
+    const selectedClassUnitIds = useMemo(
+        () => new Set(selectedClassSelection?.unitIds || []),
+        [selectedClassSelection]
     );
     const validStudents = useMemo(
         () =>
@@ -226,6 +265,17 @@ function WritePageContent() {
         setSelectedStudents(new Set());
     };
 
+    const handleToggleCurriculumUnit = (unitId: string) => {
+        if (!selectedTeachingClass) return;
+
+        const current = getClassCurriculumSelection(selectedTeachingClass.id, currentSemester)?.unitIds || [];
+        const next = current.includes(unitId)
+            ? current.filter((id) => id !== unitId)
+            : [...current, unitId];
+
+        setClassCurriculumSelection(selectedTeachingClass.id, currentSemester, next);
+    };
+
     const isCurrentPageSelected = paginatedStudents.length > 0
         && paginatedStudents.every((student) => selectedStudents.has(student.id));
 
@@ -275,6 +325,13 @@ function WritePageContent() {
 
                 const studentGrade = student.grade || teachingClass.grade || 1;
                 const curriculumData = getCurriculumContent(studentGrade, currentSemester);
+                const curriculumContext = buildCurriculumGenerationContext({
+                    units: mergedCurriculumUnits,
+                    grade: studentGrade,
+                    semester: currentSemester,
+                    subjectName: teachingClass.subjectName || '',
+                    selectedUnitIds: getClassCurriculumSelection(teachingClass.id, currentSemester)?.unitIds || [],
+                });
                 const evaluations = await getOcrEvaluations(studentGrade, currentSemester);
                 let ocrEvaluationContext = undefined;
                 for (const evaluation of evaluations) {
@@ -305,6 +362,7 @@ function WritePageContent() {
                         teacherKey: teacher?.teacherKey,
                         classId: teachingClass.id,
                         gradeLevel: studentGrade,
+                        curriculumContext,
                     }
                 );
 
@@ -756,6 +814,58 @@ function WritePageContent() {
                     isCheckingSimilarity={isCheckingSimilarity}
                     isBulkAdjusting={isBulkAdjusting}
                 />
+
+                <section className={`${styles.curriculumContextPanel} ${!selectedTeachingClass ? styles.curriculumContextPanelMuted : ''}`}>
+                    <div className={styles.curriculumContextHeader}>
+                        <div>
+                            <span className={styles.curriculumContextLabel}>
+                                <BookOpen size={16} />
+                                단원 context
+                            </span>
+                            <strong>
+                                {selectedTeachingClass
+                                    ? `${selectedTeachingClass.grade}학년 ${currentSemester}학기 ${selectedTeachingClass.subjectName || '교과 미지정'}`
+                                    : '반을 선택하면 단원 context를 지정할 수 있습니다'}
+                            </strong>
+                        </div>
+                        {selectedTeachingClass && (
+                            <span className={styles.curriculumContextCount}>
+                                {selectedClassUnitIds.size}개 선택
+                            </span>
+                        )}
+                    </div>
+
+                    {selectedTeachingClass ? (
+                        selectedClassUnits.length > 0 ? (
+                            <div className={styles.curriculumUnitChips}>
+                                {selectedClassUnits.map((unit) => {
+                                    const isSelected = selectedClassUnitIds.has(unit.id);
+                                    return (
+                                        <button
+                                            type="button"
+                                            key={unit.id}
+                                            className={`${styles.curriculumUnitChip} ${isSelected ? styles.curriculumUnitChipActive : ''}`}
+                                            onClick={() => handleToggleCurriculumUnit(unit.id)}
+                                            aria-pressed={isSelected}
+                                            title={unit.learningFocus || unit.concepts.join(', ')}
+                                        >
+                                            <span>{unit.unit}</span>
+                                            <small>{unit.concepts.slice(0, 3).join(' · ')}</small>
+                                        </button>
+                                    );
+                                })}
+                            </div>
+                        ) : (
+                            <p className={styles.curriculumContextEmpty}>
+                                이 학년·학기·교과에 등록된 단원이 없습니다. /examples의 단원 context 관리에서 JSON을 가져오거나 단원을 수정하세요.
+                            </p>
+                        )
+                    ) : (
+                        <p className={styles.curriculumContextEmpty}>
+                            전체 탭에서는 반별 단원 선택을 바꾸지 않습니다. 생성 시에는 각 학생이 속한 반에 저장된 단원 선택을 사용합니다.
+                        </p>
+                    )}
+                </section>
 
                 <div className={styles.tableContainer}>
                     <div className={styles.tableScrollArea}>

@@ -1,0 +1,198 @@
+{
+  "version": "2026-middle-school-v1",
+  "units": [
+    {
+      "id": "curr-1-1-math-expressions",
+      "grade": 1,
+      "semester": 1,
+      "subject": "수학",
+      "unit": "문자와 식",
+      "concepts": ["문자 사용", "식의 값", "일차식", "수량 관계"],
+      "learningFocus": "수량 관계를 문자식으로 나타내고 식의 의미를 설명함",
+      "activities": ["문제 상황의 조건을 문자로 표현", "식에 값을 대입해 의미 확인"]
+    },
+    {
+      "id": "curr-1-1-math-coordinate-graph",
+      "grade": 1,
+      "semester": 1,
+      "subject": "수학",
+      "unit": "좌표평면과 그래프",
+      "concepts": ["순서쌍", "좌표평면", "그래프 해석", "비례 관계"],
+      "learningFocus": "자료나 대응 관계를 좌표평면과 그래프로 나타내고 변화 양상을 해석함",
+      "activities": ["좌표 읽기와 점 표시", "그래프의 증가와 감소 설명"]
+    },
+    {
+      "id": "curr-1-2-math-geometry",
+      "grade": 1,
+      "semester": 2,
+      "subject": "수학",
+      "unit": "기본 도형",
+      "concepts": ["점과 선", "각", "위치 관계", "작도"],
+      "learningFocus": "기본 도형의 성질과 위치 관계를 확인하고 조건에 맞게 작도함"
+    },
+    {
+      "id": "curr-1-2-math-statistics",
+      "grade": 1,
+      "semester": 2,
+      "subject": "수학",
+      "unit": "자료의 정리와 해석",
+      "concepts": ["도수분포표", "히스토그램", "상대도수", "자료 해석"],
+      "learningFocus": "자료를 표와 그래프로 정리하고 분포의 특징을 설명함"
+    },
+    {
+      "id": "curr-2-1-math-linear-equations",
+      "grade": 2,
+      "semester": 1,
+      "subject": "수학",
+      "unit": "일차부등식과 연립일차방정식",
+      "concepts": ["부등식의 성질", "일차부등식", "연립일차방정식", "해의 의미"],
+      "learningFocus": "조건을 식으로 세우고 해의 의미를 문제 상황과 연결해 설명함"
+    },
+    {
+      "id": "curr-2-1-math-linear-function",
+      "grade": 2,
+      "semester": 1,
+      "subject": "수학",
+      "unit": "일차함수",
+      "concepts": ["함수", "일차함수", "기울기", "절편", "그래프"],
+      "learningFocus": "일차함수의 식과 그래프를 연결하고 변화율을 해석함"
+    },
+    {
+      "id": "curr-2-2-math-geometry-properties",
+      "grade": 2,
+      "semester": 2,
+      "subject": "수학",
+      "unit": "도형의 성질",
+      "concepts": ["삼각형", "사각형", "평행선", "각의 성질"],
+      "learningFocus": "도형의 조건과 성질을 근거로 관계를 설명함"
+    },
+    {
+      "id": "curr-2-2-math-probability",
+      "grade": 2,
+      "semester": 2,
+      "subject": "수학",
+      "unit": "확률",
+      "concepts": ["경우의 수", "확률", "사건", "자료 기반 판단"],
+      "learningFocus": "가능한 경우를 체계적으로 세고 사건의 확률을 구함"
+    },
+    {
+      "id": "curr-3-1-math-real-numbers",
+      "grade": 3,
+      "semester": 1,
+      "subject": "수학",
+      "unit": "제곱근과 실수",
+      "concepts": ["제곱근", "무리수", "실수", "근호 계산"],
+      "learningFocus": "제곱근과 실수의 성질을 이용해 수의 범위와 계산 과정을 설명함"
+    },
+    {
+      "id": "curr-3-1-math-quadratic",
+      "grade": 3,
+      "semester": 1,
+      "subject": "수학",
+      "unit": "이차방정식과 이차함수",
+      "concepts": ["이차방정식", "인수분해", "이차함수", "포물선"],
+      "learningFocus": "이차식의 구조와 그래프를 연결해 문제 해결 과정을 설명함"
+    },
+    {
+      "id": "curr-3-2-math-trigonometry",
+      "grade": 3,
+      "semester": 2,
+      "subject": "수학",
+      "unit": "삼각비",
+      "concepts": ["삼각비", "직각삼각형", "길이와 각", "실생활 측정"],
+      "learningFocus": "직각삼각형에서 변과 각의 관계를 이용해 길이나 거리를 구함"
+    },
+    {
+      "id": "curr-3-2-math-statistics",
+      "grade": 3,
+      "semester": 2,
+      "subject": "수학",
+      "unit": "통계",
+      "concepts": ["대푯값", "산포도", "상자그림", "자료 비교"],
+      "learningFocus": "자료의 중심과 흩어짐을 비교해 집단의 특징을 해석함"
+    },
+    {
+      "id": "curr-2-1-korean-expository-reading",
+      "grade": 2,
+      "semester": 1,
+      "subject": "국어",
+      "unit": "설명하는 글 읽기",
+      "concepts": ["중심 내용", "세부 정보", "글의 구조", "근거 확인"],
+      "learningFocus": "설명하는 글의 구조를 파악하고 중심 내용과 근거를 연결해 이해함",
+      "activities": ["문단별 중심 내용 표시", "질문을 통해 근거 확인"]
+    },
+    {
+      "id": "curr-2-1-korean-media-reading",
+      "grade": 2,
+      "semester": 1,
+      "subject": "국어",
+      "unit": "매체 자료 읽기",
+      "concepts": ["매체 표현", "정보의 신뢰성", "자료 비교", "의도 파악"],
+      "learningFocus": "매체 자료의 표현 방식과 정보 구성 의도를 확인함"
+    },
+    {
+      "id": "curr-3-1-science-chemical-reaction",
+      "grade": 3,
+      "semester": 1,
+      "subject": "과학",
+      "unit": "화학 반응의 규칙성",
+      "concepts": ["화학 반응", "질량 보존", "일정 성분비", "화학 반응식"],
+      "learningFocus": "실험 결과를 바탕으로 화학 반응에서 나타나는 양적 관계를 설명함",
+      "activities": ["반응 전후 질량 비교", "관찰 결과를 표로 정리"]
+    },
+    {
+      "id": "curr-3-1-science-motion-energy",
+      "grade": 3,
+      "semester": 1,
+      "subject": "과학",
+      "unit": "운동과 에너지",
+      "concepts": ["속력", "운동 방향", "힘", "에너지 전환"],
+      "learningFocus": "물체의 운동 자료를 해석하고 힘과 에너지 변화를 연결함"
+    },
+    {
+      "id": "curr-1-1-social-map-human-environment",
+      "grade": 1,
+      "semester": 1,
+      "subject": "사회",
+      "unit": "지도 읽기와 인간 생활",
+      "concepts": ["위치", "축척", "방위", "자연환경", "생활 모습"],
+      "learningFocus": "지도와 공간 자료를 활용해 지역의 자연환경과 생활 모습을 설명함"
+    },
+    {
+      "id": "curr-2-1-history-ancient-states",
+      "grade": 2,
+      "semester": 1,
+      "subject": "역사",
+      "unit": "선사 문화와 고대 국가",
+      "concepts": ["유물과 유적", "국가 형성", "통치 제도", "문화 교류"],
+      "learningFocus": "역사 자료를 근거로 시대 변화와 국가 형성 과정을 설명함"
+    },
+    {
+      "id": "curr-1-1-english-daily-communication",
+      "grade": 1,
+      "semester": 1,
+      "subject": "영어",
+      "unit": "일상생활 의사소통",
+      "concepts": ["인사와 소개", "요청과 응답", "중심 내용 파악", "간단한 문장 쓰기"],
+      "learningFocus": "일상 주제의 표현을 듣고 읽으며 필요한 정보를 묻고 답함"
+    },
+    {
+      "id": "curr-1-1-techhome-life-design",
+      "grade": 1,
+      "semester": 1,
+      "subject": "기술·가정",
+      "unit": "청소년의 발달과 생활 설계",
+      "concepts": ["청소년 발달", "자기 이해", "생활 관리", "관계 형성"],
+      "learningFocus": "청소년기의 변화와 생활 과제를 이해하고 실천 방안을 정리함"
+    },
+    {
+      "id": "curr-1-1-informatics-data-algorithm",
+      "grade": 1,
+      "semester": 1,
+      "subject": "정보",
+      "unit": "자료와 알고리즘",
+      "concepts": ["자료 표현", "문제 분해", "알고리즘", "순차와 반복"],
+      "learningFocus": "문제를 작은 절차로 나누고 알고리즘으로 표현함"
+    }
+  ]
+}

@@ -10,6 +10,16 @@
 
 ## Current Implementation
 
+### Curriculum Unit Context
+
+- `src/data/curriculum-context/default-middle-school-units.json` bundles the developer-provided unit catalog with `version` and `units`.
+- `src/lib/curriculum-context.ts` validates imported JSON, normalizes subject matching, generates ids for units without ids, rejects duplicate ids, merges default units with teacher overrides, filters units by grade/semester/subject, and compresses selected units for AI prompt context.
+- `src/lib/store.ts` persists `curriculumUnitOverrides` and `classCurriculumSelections` alongside the legacy `curriculumContents`. Class selections are keyed by `classId + semester`, while teacher edits are stored only as overrides so the bundled defaults remain immutable.
+- `src/components/providers/WorkspaceSupabaseSync.tsx` includes unit overrides and class selections in the workspace sync payload.
+- `/examples` exposes unit context management: JSON paste/upload validation, grade/semester/subject browsing, per-unit concept/focus/activity/standard edits, default restoration, and the old grade/semester memo as fallback context.
+- `/write` shows a unit context panel for the selected teaching class. Selected unit ids are saved per class/semester and passed to generation for each student in that class.
+- `/api/generate` accepts optional `curriculumContext`. Prompt context priority is `selectedUnits > curriculumContent > grade/subject hint`. Selected unit context is explicitly framed as lesson background, not student evidence.
+
 ### Loader
 
 - `src/lib/knowledge-base.ts`

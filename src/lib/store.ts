@@ -6,6 +6,13 @@ import { createDemoWorkspaceSeed } from '@/lib/demo-workspace';
 import { SEONGHO_AUTH_MODE, isSeonghoSchool } from '@/lib/seongho-auth';
 import { DEFAULT_FORBIDDEN_WORDS } from '@/lib/forbidden-words';
 import { SETEUK_DEFAULT_EXAMPLE_TEMPLATE } from '@/lib/prompts/seteuk';
+import {
+    buildClassCurriculumSelectionId,
+    type ClassCurriculumSelection,
+    type CurriculumSemester,
+    type CurriculumUnitContext,
+    type CurriculumUnitOverride,
+} from '@/lib/curriculum-context';
 
 export type SeteukPromptMode = 'default' | 'personal';
 
@@ -79,6 +86,8 @@ interface AppState {
 
     // Curriculum content by grade/semester
     curriculumContents: CurriculumContent[];
+    curriculumUnitOverrides: CurriculumUnitOverride[];
+    classCurriculumSelections: ClassCurriculumSelection[];
 
     // Admin notifications
     adminNotifications: AdminNotification[];
@@ -118,6 +127,11 @@ interface AppState {
     // Curriculum content actions
     setCurriculumContent: (grade: number, semester: 1 | 2, content: string) => void;
     getCurriculumContent: (grade: number, semester: 1 | 2) => CurriculumContent | undefined;
+    upsertCurriculumUnitOverride: (unit: CurriculumUnitContext) => void;
+    resetCurriculumUnitOverride: (unitId: string) => void;
+    importCurriculumUnitOverrides: (units: CurriculumUnitContext[]) => void;
+    setClassCurriculumSelection: (classId: string, semester: CurriculumSemester, unitIds: string[]) => void;
+    getClassCurriculumSelection: (classId: string, semester: CurriculumSemester) => ClassCurriculumSelection | undefined;
 
     // Admin notification actions
     addNotification: (notification: Omit<AdminNotification, 'id' | 'createdAt' | 'status'>) => void;
@@ -142,6 +156,8 @@ interface AppState {
         | 'seteukPromptMode'
         | 'personalSeteukPrompt'
         | 'curriculumContents'
+        | 'curriculumUnitOverrides'
+        | 'classCurriculumSelections'
         | 'adminNotifications'
         | 'forbiddenWords'
         | 'keywords'
@@ -278,6 +294,8 @@ export const useAppStore = create<AppState>()(
                 isAdmin: false,
             },
             curriculumContents: [],
+            curriculumUnitOverrides: [],
+            classCurriculumSelections: [],
             adminNotifications: [],
             forbiddenWords: DEFAULT_FORBIDDEN_WORDS,
             keywords: ['탐구', '협력', '분석', '창의', '문제해결', '의사소통', '비판적 사고'],
@@ -546,6 +564,69 @@ export const useAppStore = create<AppState>()(
             getCurriculumContent: (grade, semester) =>
                 get().curriculumContents.find(c => c.grade === grade && c.semester === semester),
 
+            upsertCurriculumUnitOverride: (unit) => set((state) => {
+                const override: CurriculumUnitOverride = {
+                    ...unit,
+                    isTeacherOverride: true,
+                    updatedAt: new Date().toISOString(),
+                };
+                const existingIndex = state.curriculumUnitOverrides.findIndex((item) => item.id === unit.id);
+                if (existingIndex < 0) {
+                    return { curriculumUnitOverrides: [...state.curriculumUnitOverrides, override] };
+                }
+
+                const nextOverrides = [...state.curriculumUnitOverrides];
+                nextOverrides[existingIndex] = override;
+                return { curriculumUnitOverrides: nextOverrides };
+            }),
+
+            resetCurriculumUnitOverride: (unitId) => set((state) => ({
+                curriculumUnitOverrides: state.curriculumUnitOverrides.filter((unit) => unit.id !== unitId),
+            })),
+
+            importCurriculumUnitOverrides: (units) => set((state) => {
+                const now = new Date().toISOString();
+                const incoming = units.map((unit): CurriculumUnitOverride => ({
+                    ...unit,
+                    isTeacherOverride: true,
+                    updatedAt: now,
+                }));
+                return {
+                    curriculumUnitOverrides: mergeByIdPreservingLocal(
+                        state.curriculumUnitOverrides,
+                        incoming,
+                        (_local, remote) => remote
+                    ),
+                };
+            }),
+
+            setClassCurriculumSelection: (classId, semester, unitIds) => set((state) => {
+                const id = buildClassCurriculumSelectionId(classId, semester);
+                const nextSelection: ClassCurriculumSelection = {
+                    id,
+                    classId,
+                    semester,
+                    unitIds: Array.from(new Set(unitIds.filter(Boolean))),
+                    updatedAt: new Date().toISOString(),
+                };
+
+                const existingIndex = state.classCurriculumSelections.findIndex((item) => item.id === id);
+                if (existingIndex < 0) {
+                    return {
+                        classCurriculumSelections: [...state.classCurriculumSelections, nextSelection],
+                    };
+                }
+
+                const nextSelections = [...state.classCurriculumSelections];
+                nextSelections[existingIndex] = nextSelection;
+                return { classCurriculumSelections: nextSelections };
+            }),
+
+            getClassCurriculumSelection: (classId, semester) =>
+                get().classCurriculumSelections.find((item) =>
+                    item.id === buildClassCurriculumSelectionId(classId, semester)
+                ),
+
             // Admin notifications
             addNotification: (notification) => set((state) => ({
                 adminNotifications: [
@@ -605,6 +686,16 @@ export const useAppStore = create<AppState>()(
                     ? data.personalSeteukPrompt
                     : state.personalSeteukPrompt,
                 curriculumContents: mergeByIdPreservingLocal(state.curriculumContents, data.curriculumContents),
+                curriculumUnitOverrides: mergeByIdPreservingLocal(
+                    state.curriculumUnitOverrides,
+                    data.curriculumUnitOverrides,
+                    (_local, remote) => remote
+                ),
+                classCurriculumSelections: mergeByIdPreservingLocal(
+                    state.classCurriculumSelections,
+                    data.classCurriculumSelections,
+                    (_local, remote) => remote
+                ),
                 adminNotifications: mergeByIdPreservingLocal(state.adminNotifications, data.adminNotifications),
                 forbiddenWords: Array.isArray(data.forbiddenWords) ? data.forbiddenWords : state.forbiddenWords,
                 keywords: Array.isArray(data.keywords) ? data.keywords : state.keywords,
@@ -621,6 +712,8 @@ export const useAppStore = create<AppState>()(
                 seteukPromptMode: state.seteukPromptMode,
                 personalSeteukPrompt: state.personalSeteukPrompt,
                 curriculumContents: state.curriculumContents,
+                curriculumUnitOverrides: state.curriculumUnitOverrides,
+                classCurriculumSelections: state.classCurriculumSelections,
                 adminNotifications: state.adminNotifications,
                 forbiddenWords: state.forbiddenWords,
                 keywords: state.keywords,
