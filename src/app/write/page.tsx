@@ -304,6 +304,7 @@ function WritePageContent() {
                     {
                         teacherKey: teacher?.teacherKey,
                         classId: teachingClass.id,
+                        gradeLevel: studentGrade,
                     }
                 );
 

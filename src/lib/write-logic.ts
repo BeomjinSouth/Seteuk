@@ -107,6 +107,7 @@ export async function generateDraft(
     context?: {
         teacherKey?: string;
         classId?: string;
+        gradeLevel?: number;
     }
 ): Promise<{ content: string; observationCount: number }> {
     const settings = getAISettings();
@@ -136,6 +137,7 @@ export async function generateDraft(
                 ocrEvaluationContext,
                 teacherKey: context?.teacherKey,
                 classId: context?.classId,
+                gradeLevel: context?.gradeLevel,
             }),
         });
 
