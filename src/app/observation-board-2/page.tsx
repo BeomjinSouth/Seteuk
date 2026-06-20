@@ -106,6 +106,23 @@ interface ObservationBoardRemoteState {
     notices: NoticeItem[];
 }
 
+interface ObservationBoardBackupSummary {
+    classCount: number;
+    sessionCount: number;
+    markCount: number;
+    activeMarkCount: number;
+    assignmentCount: number;
+    snapshotCount: number;
+}
+
+interface ObservationBoardBackupEntry {
+    id: string;
+    createdAt: string;
+    reason: string;
+    summary: ObservationBoardBackupSummary;
+    data: ObservationBoardRemoteState;
+}
+
 type GrowthTimelineItem = {
     id: string;
     studentId: string;
@@ -220,6 +237,107 @@ function formatFullDate(value?: string) {
 
 function getNoticeStorageKey(teacherKey?: string) {
     return `observation-board-2-notices:${teacherKey || 'guest'}`;
+}
+
+function getObservationBoardBackupStorageKey(teacherKey?: string) {
+    return `observation-board-2-backups:${teacherKey || 'guest'}`;
+}
+
+const maxObservationBoardBackups = 30;
+
+function normalizeObservationBoardRemoteState(value: unknown): ObservationBoardRemoteState {
+    if (!value || typeof value !== 'object') {
+        return {
+            activitySessionsByClass: {},
+            marks: {},
+            mentorAssignmentsByClass: {},
+            mentorAssignmentSnapshotsByClass: {},
+            notices: [],
+        };
+    }
+
+    const source = value as Partial<ObservationBoardRemoteState>;
+    const sessionSource = source.activitySessionsByClass ?? source.activitySessions;
+    return {
+        activitySessionsByClass: Array.isArray(sessionSource)
+            ? { __legacy__: normalizeObservationBoardActivitySessions(sessionSource) }
+            : normalizeObservationBoardActivitySessionsByClass(sessionSource),
+        marks: normalizeObservationBoardMarks(source.marks),
+        mentorAssignmentsByClass: normalizeObservationBoardMentorAssignmentsByClass(source.mentorAssignmentsByClass),
+        mentorAssignmentSnapshotsByClass: normalizeObservationBoardMentorAssignmentSnapshotsByClass(
+            source.mentorAssignmentSnapshotsByClass
+        ),
+        notices: Array.isArray(source.notices) ? source.notices as NoticeItem[] : [],
+    };
+}
+
+function summarizeObservationBoardState(data: ObservationBoardRemoteState): ObservationBoardBackupSummary {
+    const sessionCount = Object.values(data.activitySessionsByClass)
+        .reduce((sum, sessions) => sum + sessions.length, 0);
+    const marks = Object.values(data.marks);
+    const activeMarkCount = marks.filter(isActiveMark).length;
+    const assignmentCount = Object.values(data.mentorAssignmentsByClass)
+        .reduce((sum, assignments) => sum + assignments.length, 0);
+    const snapshotCount = Object.values(data.mentorAssignmentSnapshotsByClass)
+        .reduce((sum, classSnapshots) => sum + Object.keys(classSnapshots).length, 0);
+
+    return {
+        classCount: Object.keys(data.activitySessionsByClass).length,
+        sessionCount,
+        markCount: marks.length,
+        activeMarkCount,
+        assignmentCount,
+        snapshotCount,
+    };
+}
+
+function hasMeaningfulObservationBoardState(data: ObservationBoardRemoteState) {
+    const summary = summarizeObservationBoardState(data);
+    return summary.sessionCount > 0
+        || summary.markCount > 0
+        || summary.assignmentCount > 0
+        || summary.snapshotCount > 0
+        || data.notices.length > 0;
+}
+
+function isSuspiciousObservationBoardShrink(
+    previous: ObservationBoardRemoteState | null,
+    next: ObservationBoardRemoteState
+) {
+    if (!previous) return false;
+
+    const before = summarizeObservationBoardState(previous);
+    const after = summarizeObservationBoardState(next);
+    const lostSessions = before.sessionCount >= 5 && after.sessionCount === 0;
+    const lostMarks = before.markCount >= 20 && after.markCount === 0;
+    const lostAssignments = before.assignmentCount >= 4 && after.assignmentCount === 0;
+
+    return lostSessions || lostMarks || lostAssignments;
+}
+
+function normalizeObservationBoardBackups(value: unknown): ObservationBoardBackupEntry[] {
+    if (!Array.isArray(value)) return [];
+
+    return value
+        .map((item) => {
+            if (!item || typeof item !== 'object') return null;
+            const source = item as Partial<ObservationBoardBackupEntry>;
+            const data = normalizeObservationBoardRemoteState(source.data);
+            if (!source.id || !source.createdAt || !hasMeaningfulObservationBoardState(data)) return null;
+
+            return {
+                id: source.id,
+                createdAt: source.createdAt,
+                reason: typeof source.reason === 'string' && source.reason.trim()
+                    ? source.reason
+                    : '자동 백업',
+                summary: summarizeObservationBoardState(data),
+                data,
+            };
+        })
+        .filter((item): item is ObservationBoardBackupEntry => Boolean(item))
+        .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+        .slice(0, maxObservationBoardBackups);
 }
 
 function getBoardModeTitle(mode: BoardMode) {
@@ -423,6 +541,8 @@ export default function ObservationBoard2Page() {
     const [noticeDraft, setNoticeDraft] = useState({ title: '', body: '', dueDate: today() });
     const [notices, setNotices] = useState<NoticeItem[]>([]);
     const [loadedNoticeKey, setLoadedNoticeKey] = useState('');
+    const [observationBackups, setObservationBackups] = useState<ObservationBoardBackupEntry[]>([]);
+    const [loadedBackupKey, setLoadedBackupKey] = useState('');
     const [mentorAssignments, setMentorAssignments] = useState<MentorGroupAssignment[]>([]);
     const [editingMentorGroupId, setEditingMentorGroupId] = useState<string | null>(null);
     const [editingMentorGroupMembers, setEditingMentorGroupMembers] = useState<ObservationBoardGroupMember[]>([]);
@@ -437,6 +557,9 @@ export default function ObservationBoard2Page() {
     const [loadedMentorAssignmentSnapshotKey, setLoadedMentorAssignmentSnapshotKey] = useState('');
     const [isRemoteBoardLoaded, setIsRemoteBoardLoaded] = useState(false);
     const lastRemoteBoardPayloadRef = useRef('');
+    const lastObservationBackupPayloadRef = useRef('');
+    const lastSafeObservationBoardStateRef = useRef<ObservationBoardRemoteState | null>(null);
+    const allowNextObservationBoardShrinkRef = useRef(false);
 
     useEffect(() => {
         setIsStoreReady(useAppStore.persist.hasHydrated());
@@ -771,6 +894,24 @@ export default function ObservationBoard2Page() {
     }, [loadedNoticeKey, notices]);
 
     useEffect(() => {
+        const storageKey = getObservationBoardBackupStorageKey(teacher?.teacherKey);
+        setLoadedBackupKey(storageKey);
+
+        try {
+            const saved = window.localStorage.getItem(storageKey);
+            const backups = normalizeObservationBoardBackups(saved ? JSON.parse(saved) : undefined);
+            setObservationBackups(backups);
+            lastObservationBackupPayloadRef.current = backups[0]?.data
+                ? JSON.stringify(backups[0].data)
+                : '';
+        } catch (error) {
+            console.error('Failed to load observation board backups:', error);
+            setObservationBackups([]);
+            lastObservationBackupPayloadRef.current = '';
+        }
+    }, [teacher?.teacherKey]);
+
+    useEffect(() => {
         const storageKey = getObservationBoardSessionStorageKey(teacher?.teacherKey);
         setLoadedSessionKey(storageKey);
 
@@ -845,6 +986,40 @@ export default function ObservationBoard2Page() {
         notices,
     ]);
 
+    const persistObservationBackups = (nextBackups: ObservationBoardBackupEntry[]) => {
+        if (!loadedBackupKey || typeof window === 'undefined') return;
+        window.localStorage.setItem(loadedBackupKey, JSON.stringify(nextBackups));
+    };
+
+    const createObservationBackup = (reason: string, data: ObservationBoardRemoteState = remoteBoardPayload) => {
+        if (!hasMeaningfulObservationBoardState(data)) return false;
+
+        const serializedData = JSON.stringify(data);
+        const entry: ObservationBoardBackupEntry = {
+            id: `backup-${Date.now()}`,
+            createdAt: new Date().toISOString(),
+            reason,
+            summary: summarizeObservationBoardState(data),
+            data,
+        };
+
+        setObservationBackups((prev) => {
+            const next = [
+                entry,
+                ...prev.filter((backup) => JSON.stringify(backup.data) !== serializedData),
+            ].slice(0, maxObservationBoardBackups);
+            persistObservationBackups(next);
+            return next;
+        });
+        lastObservationBackupPayloadRef.current = serializedData;
+        return true;
+    };
+
+    const currentBackupSummary = useMemo(
+        () => summarizeObservationBoardState(remoteBoardPayload),
+        [remoteBoardPayload]
+    );
+
     useEffect(() => {
         if (!isStoreReady || !teacher?.teacherKey) return;
 
@@ -904,6 +1079,31 @@ export default function ObservationBoard2Page() {
     useEffect(() => {
         if (!isStoreReady || !teacher?.teacherKey || !isRemoteBoardLoaded || legacyActivitySessions) return;
 
+        const previousSafeState = lastSafeObservationBoardStateRef.current;
+        if (
+            isSuspiciousObservationBoardShrink(previousSafeState, remoteBoardPayload)
+            && !allowNextObservationBoardShrinkRef.current
+        ) {
+            if (previousSafeState) {
+                createObservationBackup('이상 저장 차단 전 백업', previousSafeState);
+                setActivitySessionsByClass(previousSafeState.activitySessionsByClass);
+                setMarks(previousSafeState.marks);
+                setMentorAssignmentsByClass(previousSafeState.mentorAssignmentsByClass);
+                setMentorAssignmentSnapshotsByClass(previousSafeState.mentorAssignmentSnapshotsByClass);
+                setNotices(previousSafeState.notices);
+            }
+            console.warn('Blocked suspicious observation-board shrink before remote sync.');
+            return;
+        }
+
+        if (allowNextObservationBoardShrinkRef.current) {
+            allowNextObservationBoardShrinkRef.current = false;
+        }
+
+        if (hasMeaningfulObservationBoardState(remoteBoardPayload)) {
+            lastSafeObservationBoardStateRef.current = remoteBoardPayload;
+        }
+
         const serializedPayload = JSON.stringify(remoteBoardPayload);
         if (serializedPayload === lastRemoteBoardPayloadRef.current) return;
 
@@ -924,6 +1124,20 @@ export default function ObservationBoard2Page() {
 
         return () => window.clearTimeout(timeout);
     }, [isRemoteBoardLoaded, isStoreReady, legacyActivitySessions, remoteBoardPayload, teacher?.teacherKey]);
+
+    useEffect(() => {
+        if (!isStoreReady || !teacher?.teacherKey || !loadedBackupKey || legacyActivitySessions) return;
+        if (!hasMeaningfulObservationBoardState(remoteBoardPayload)) return;
+
+        const serializedPayload = JSON.stringify(remoteBoardPayload);
+        if (serializedPayload === lastObservationBackupPayloadRef.current) return;
+
+        const timeout = window.setTimeout(() => {
+            createObservationBackup('자동 백업', remoteBoardPayload);
+        }, 20000);
+
+        return () => window.clearTimeout(timeout);
+    }, [isStoreReady, teacher?.teacherKey, loadedBackupKey, legacyActivitySessions, remoteBoardPayload]);
 
     useEffect(() => {
         setStudentDrafts((prev) => {
@@ -1567,6 +1781,8 @@ export default function ObservationBoard2Page() {
             return;
         }
 
+        createObservationBackup('멘토 배치 초기화 전 백업');
+        allowNextObservationBoardShrinkRef.current = true;
         captureMarkedSessionAssignmentSnapshots(selectedClassId, currentMentorAssignments);
         commitMentorAssignments([]);
         handleCancelMentorGroupEdit();
@@ -1622,6 +1838,48 @@ export default function ObservationBoard2Page() {
                 topic: '',
             },
         ]);
+    };
+
+    const handleManualBackup = () => {
+        const created = createObservationBackup('수동 백업');
+        alert(created
+            ? '현재 관찰보드 상태를 백업했습니다.'
+            : '백업할 관찰보드 데이터가 아직 없습니다.');
+    };
+
+    const handleRestoreBackup = (backupId: string) => {
+        const backup = observationBackups.find((item) => item.id === backupId);
+        if (!backup) return;
+
+        if (!confirm(`${new Date(backup.createdAt).toLocaleString()} 백업으로 관찰보드 데이터를 복원할까요?\n현재 상태도 복원 전 백업으로 먼저 저장됩니다.`)) {
+            return;
+        }
+
+        createObservationBackup('복원 전 백업');
+        allowNextObservationBoardShrinkRef.current = true;
+        setActivitySessionsByClass(backup.data.activitySessionsByClass);
+        setMarks(backup.data.marks);
+        setMentorAssignmentsByClass(backup.data.mentorAssignmentsByClass);
+        setMentorAssignmentSnapshotsByClass(backup.data.mentorAssignmentSnapshotsByClass);
+        setNotices(backup.data.notices);
+        lastRemoteBoardPayloadRef.current = '';
+        alert('백업을 복원했습니다. 잠시 뒤 서버 동기화도 다시 저장됩니다.');
+    };
+
+    const handleResetMarksWithBackup = () => {
+        if (Object.keys(marks).length === 0) return;
+        if (!confirm('활동 표시를 모두 초기화할까요?\n현재 상태는 먼저 백업됩니다.')) return;
+        createObservationBackup('활동 표시 초기화 전 백업');
+        allowNextObservationBoardShrinkRef.current = true;
+        setMarks({});
+    };
+
+    const handleClearNoticesWithBackup = () => {
+        if (notices.length === 0) return;
+        if (!confirm('알림장을 모두 초기화할까요?\n현재 상태는 먼저 백업됩니다.')) return;
+        createObservationBackup('알림장 초기화 전 백업');
+        allowNextObservationBoardShrinkRef.current = true;
+        setNotices([]);
     };
 
     const renderObservationRecordsView = () => (
@@ -1739,10 +1997,14 @@ export default function ObservationBoard2Page() {
                     visibleRosterCount={visibleRosterCount}
                     noticesCount={notices.length}
                     hasRealStudents={teacherStudents.length > 0}
+                    backups={observationBackups}
+                    currentBackupSummary={currentBackupSummary}
                     onClassChange={handleClassChange}
                     onVisibleRosterCountChange={handleVisibleRosterCountChange}
-                    onResetMarks={() => setMarks({})}
-                    onClearNotices={() => setNotices([])}
+                    onCreateBackup={handleManualBackup}
+                    onRestoreBackup={handleRestoreBackup}
+                    onResetMarks={handleResetMarksWithBackup}
+                    onClearNotices={handleClearNoticesWithBackup}
                     onModeChange={setActiveMode}
                 />
             );
@@ -1866,6 +2128,7 @@ function ClassroomSidebar({
         { mode: 'growth', label: '성장 기록', icon: <Sparkles size={34} strokeWidth={2.35} /> },
         { mode: 'stats', label: '통계 보기', icon: <BarChart3 size={34} strokeWidth={2.35} /> },
         { mode: 'grouping', label: '모둠 편성', icon: <Users size={34} strokeWidth={2.35} /> },
+        { mode: 'settings', label: '백업 복구', icon: <Save size={34} strokeWidth={2.35} /> },
     ];
 
     return (
@@ -2593,8 +2856,12 @@ function SettingsDashboard({
     visibleRosterCount,
     noticesCount,
     hasRealStudents,
+    backups,
+    currentBackupSummary,
     onClassChange,
     onVisibleRosterCountChange,
+    onCreateBackup,
+    onRestoreBackup,
     onResetMarks,
     onClearNotices,
     onModeChange,
@@ -2604,8 +2871,12 @@ function SettingsDashboard({
     visibleRosterCount: VisibleRosterCount;
     noticesCount: number;
     hasRealStudents: boolean;
+    backups: ObservationBoardBackupEntry[];
+    currentBackupSummary: ObservationBoardBackupSummary;
     onClassChange: (classId: string) => void;
     onVisibleRosterCountChange: (count: VisibleRosterCount) => void;
+    onCreateBackup: () => void;
+    onRestoreBackup: (backupId: string) => void;
     onResetMarks: () => void;
     onClearNotices: () => void;
     onModeChange: (mode: BoardMode) => void;
@@ -2685,6 +2956,46 @@ function SettingsDashboard({
                             <BookOpen size={17} />
                             관찰 메모 작성 열기
                         </button>
+                    </div>
+                </article>
+
+                <article className={styles.settingPanel}>
+                    <div className={styles.panelTitle}>
+                        <Save size={22} />
+                        <div>
+                            <h2>백업 및 복구</h2>
+                            <p>현재 관찰보드 상태를 자동으로 보관하고, 문제가 생기면 이전 상태로 되돌립니다.</p>
+                        </div>
+                    </div>
+                    <div className={styles.backupSummary}>
+                        <span>차시 {currentBackupSummary.sessionCount}개</span>
+                        <span>표시 {currentBackupSummary.markCount}칸</span>
+                        <span>활동 {currentBackupSummary.activeMarkCount}칸</span>
+                        <span>배치 {currentBackupSummary.assignmentCount}개</span>
+                    </div>
+                    <div className={styles.settingActions}>
+                        <button type="button" onClick={onCreateBackup}>
+                            <Save size={17} />
+                            지금 백업
+                        </button>
+                    </div>
+                    <div className={styles.backupList}>
+                        {backups.length === 0 ? (
+                            <p className={styles.emptyBackupText}>아직 저장된 백업이 없습니다.</p>
+                        ) : backups.slice(0, 6).map((backup) => (
+                            <div key={backup.id} className={styles.backupItem}>
+                                <div>
+                                    <strong>{new Date(backup.createdAt).toLocaleString()}</strong>
+                                    <span>{backup.reason}</span>
+                                    <small>
+                                        차시 {backup.summary.sessionCount}개 · 표시 {backup.summary.markCount}칸 · 배치 {backup.summary.assignmentCount}개
+                                    </small>
+                                </div>
+                                <button type="button" onClick={() => onRestoreBackup(backup.id)}>
+                                    복원
+                                </button>
+                            </div>
+                        ))}
                     </div>
                 </article>
             </div>
