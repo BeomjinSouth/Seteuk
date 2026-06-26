@@ -248,6 +248,26 @@ class AchievementCoverageTests(unittest.TestCase):
             ["legacy-coordinate-plane"],
         )
 
+    def test_duplicate_legacy_resolution_labels_are_reported(self) -> None:
+        rows = [
+            {"candidate_label": "addition"},
+            {"candidate_label": "ratio"},
+            {"candidate_label": "addition"},
+        ]
+
+        self.assertEqual(
+            validator.duplicate_legacy_resolution_labels(rows),
+            ["addition"],
+        )
+
+    def test_legacy_resolution_candidate_count_reports_rows(self) -> None:
+        rows = [
+            {"candidate_label": "addition"},
+            {"candidate_label": "ratio"},
+        ]
+
+        self.assertEqual(validator.legacy_resolution_candidate_count(rows), 2)
+
 
 if __name__ == "__main__":
     unittest.main()

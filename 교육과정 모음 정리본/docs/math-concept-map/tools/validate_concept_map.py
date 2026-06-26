@@ -14,6 +14,7 @@ import build_concept_evidence_depth as concept_evidence_depth
 import build_textbook_extraction_queue as textbook_extraction_queue
 import build_textbook_evidence_packet as textbook_evidence_packet
 import build_legacy_gap_audit as legacy_gap_audit
+import build_legacy_gap_resolution as legacy_gap_resolution
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -265,6 +266,15 @@ def duplicate_legacy_gap_ids(records: list[dict]) -> list[str]:
     return sorted({legacy_id for legacy_id in ids if ids.count(legacy_id) > 1})
 
 
+def duplicate_legacy_resolution_labels(records: list[dict]) -> list[str]:
+    labels = [str(record.get("candidate_label", "")) for record in records]
+    return sorted({label for label in labels if labels.count(label) > 1})
+
+
+def legacy_resolution_candidate_count(records: list[dict]) -> int:
+    return len(records)
+
+
 def main() -> None:
     data_path = OUT_DIR / "concepts.json"
     if not data_path.exists():
@@ -343,6 +353,8 @@ def main() -> None:
     textbook_evidence_packet_index_md = textbook_evidence_packet.TEXTBOOK_EVIDENCE_PACKET_DIR / "index.md"
     legacy_gap_audit_csv = OUT_DIR / "legacy-gap-audit.csv"
     legacy_gap_audit_md = OUT_DIR / "legacy-gap-audit.md"
+    legacy_gap_resolution_csv = OUT_DIR / "legacy-gap-resolution.csv"
+    legacy_gap_resolution_md = OUT_DIR / "legacy-gap-resolution.md"
     graph = OUT_DIR / "graph.mmd"
     if read_csv_count(concepts_csv) != len(concepts):
         fail("concepts.csv row count does not match concepts.json")
@@ -508,6 +520,32 @@ def main() -> None:
         fail("legacy-gap-audit.csv needs_review count does not match generated audit")
     if not legacy_gap_audit_md.exists() or "# Legacy Gap Audit" not in legacy_gap_audit_md.read_text(encoding="utf-8"):
         fail("legacy-gap-audit.md missing or invalid")
+    legacy_resolution_rows = read_csv_rows(legacy_gap_resolution_csv)
+    expected_legacy_resolution_rows = legacy_gap_resolution.legacy_gap_resolution_rows(
+        legacy_gap_rows,
+        concepts,
+    )
+    if len(legacy_resolution_rows) != len(expected_legacy_resolution_rows):
+        fail("legacy-gap-resolution.csv row count does not match generated unique candidates")
+    if legacy_resolution_rows and list(legacy_resolution_rows[0]) != legacy_gap_resolution.CSV_FIELDS:
+        fail("legacy-gap-resolution.csv fields do not match schema")
+    duplicate_resolution_labels = duplicate_legacy_resolution_labels(legacy_resolution_rows)
+    if duplicate_resolution_labels:
+        fail(f"legacy-gap-resolution.csv contains duplicate candidate labels: {duplicate_resolution_labels}")
+    if [row.get("candidate_label") for row in legacy_resolution_rows] != [
+        row.get("candidate_label") for row in expected_legacy_resolution_rows
+    ]:
+        fail("legacy-gap-resolution.csv candidate order does not match generated resolution audit")
+    if legacy_resolution_candidate_count(legacy_resolution_rows) != len(
+        {
+            legacy_gap_audit.normalize_label(row.get("legacy_label_ko", ""))
+            for row in legacy_gap_rows
+            if row.get("coverage_status") == "needs_review"
+        }
+    ):
+        fail("legacy-gap-resolution.csv candidate count does not match unique needs_review labels")
+    if not legacy_gap_resolution_md.exists() or "# Legacy Gap Resolution" not in legacy_gap_resolution_md.read_text(encoding="utf-8"):
+        fail("legacy-gap-resolution.md missing or invalid")
     source_ref_rows = read_csv_rows(source_ref_audit_csv)
     if len(source_ref_rows) != len(source_ref_audit.source_ref_summary_rows(concepts, edges)):
         fail("source-ref-audit.csv row count does not match generated source reference groups")

@@ -48,6 +48,8 @@
 - `textbook-evidence-packets/rank-01.csv`~`rank-33.csv`: 같은 패킷의 기계 판독용 CSV
 - `legacy-gap-audit.md`: 기존 로컬 위계도와 현재 공식 근거 concept map의 커버리지 비교 요약
 - `legacy-gap-audit.csv`: 기존 로컬 위계도 후보의 커버리지 감사 기계 판독용 CSV
+- `legacy-gap-resolution.md`: `legacy-gap-audit`의 `needs_review` 후보를 고유 label 단위로 접은 후속 검토 요약
+- `legacy-gap-resolution.csv`: 후속 검토 결과의 기계 판독용 CSV
 
 ## 갱신 방법
 
@@ -61,6 +63,7 @@ python docs/math-concept-map/tools/build_concept_evidence_depth.py
 python docs/math-concept-map/tools/build_textbook_extraction_queue.py
 python docs/math-concept-map/tools/build_textbook_evidence_packet.py --all
 python docs/math-concept-map/tools/build_legacy_gap_audit.py
+python docs/math-concept-map/tools/build_legacy_gap_resolution.py
 python docs/math-concept-map/tools/build_review_queue.py
 python docs/math-concept-map/tools/build_terminology_coverage.py
 python docs/math-concept-map/tools/build_unit_coverage.py
@@ -73,6 +76,7 @@ python docs/math-concept-map/tools/test_build_concept_evidence_depth.py
 python docs/math-concept-map/tools/test_build_textbook_extraction_queue.py
 python docs/math-concept-map/tools/test_build_textbook_evidence_packet.py
 python docs/math-concept-map/tools/test_build_legacy_gap_audit.py
+python docs/math-concept-map/tools/test_build_legacy_gap_resolution.py
 python docs/math-concept-map/tools/test_build_review_queue.py
 python docs/math-concept-map/tools/test_build_terminology_coverage.py
 python docs/math-concept-map/tools/test_build_unit_coverage.py
@@ -90,5 +94,7 @@ python docs/math-concept-map/tools/test_validate_concept_map.py
 `relationship-audit.*`는 포함·선수·표현·활용·대조·오개념 관계가 실제 edge로 연결되었는지와 고립 concept 여부를 점검한다.
 
 `legacy-gap-audit.*`는 기존 `수학_개념_위계도/data/math_concept_hierarchy.json`의 중학교 후보가 현재 공식 근거 기반 concept map의 `label_ko` 또는 `aliases`로 포괄되는지 점검한다. 이 파일은 보조 감사 자료이며, `needs_review` 항목은 공식 교육과정 또는 교과서 근거가 확인되기 전까지 concept으로 확정하지 않는다.
+
+`legacy-gap-resolution.*`는 `needs_review` 34개 row를 고유 label 12개로 접어 11개 기초 선수개념 후보와 1개 기존 concept alias 후보로 나눈다. 이 파일 역시 concept을 자동 추가하지 않고, 다음 공식 근거 확인과 병합 판단 순서를 정하는 용도다.
 
 교과서 PDF가 추가되면 단원별로 원문 전체를 전재하지 않고 개념명, 짧은 정의, 쪽수, 출처 파일 해시, 관계 근거만 반영한다.

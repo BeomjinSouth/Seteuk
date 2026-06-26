@@ -258,6 +258,25 @@
 | `source_note` | 기존 위계도 출처 메모와 비공식 보조 자료라는 주의 문구 |
 | `notes` | label/alias 매칭 방식 또는 미매칭 사유 |
 
+## Legacy Gap Resolution CSV
+
+`legacy-gap-resolution.csv`는 `legacy-gap-audit.csv`의 `needs_review` row를 고유 label 단위로 묶고, 다음 조치를 보수적으로 분류한 파생 감사 산출물이다. 이 산출물은 concept 자동 추가가 아니라 다음 공식 근거 확인 순서를 정하기 위한 검토층이다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `candidate_label` | 중복을 접은 후보 label |
+| `occurrence_count` | `legacy-gap-audit.csv`에서 같은 label로 나온 `needs_review` row 수 |
+| `legacy_domains` | 해당 후보가 등장한 기존 위계도 영역 목록. 세미콜론으로 구분한다. |
+| `legacy_units` | 해당 후보가 등장한 기존 성취기준 또는 단원 목록. 세미콜론으로 구분한다. |
+| `resolution_status` | `foundational_prerequisite_candidate`, `alias_candidate_for_existing_concept`, `source_detail_needed` |
+| `resolution_action` | `review_for_low_confidence_prerequisite_node`, `review_alias_on_existing_concept`, `inspect_official_source_before_decision` |
+| `candidate_concept_type` | 추가 검토 시 예상 concept type |
+| `candidate_confidence` | 추가 또는 alias 병합 검토 전 기본 신뢰도 |
+| `possible_existing_concept_ids` | label 부분 일치로 찾은 기존 concept 후보 id 목록. 세미콜론으로 구분한다. |
+| `possible_existing_concept_labels` | label 부분 일치로 찾은 기존 concept 후보 label 목록. 세미콜론으로 구분한다. |
+| `evidence_basis` | 현재 판단의 근거와 공식 근거 확인 필요성 |
+| `notes` | 분류 사유와 다음 작업 메모 |
+
 ## 신뢰도 기준
 
 - `high`: 공식 교육과정 또는 성취수준 문서에서 직접 확인되는 개념·관계

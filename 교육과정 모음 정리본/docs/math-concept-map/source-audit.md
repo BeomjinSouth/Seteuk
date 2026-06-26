@@ -105,3 +105,11 @@
 - 현재 감사 대상은 163개이며, `covered_by_label` 129개와 `needs_review` 34개로 분류된다. `covered_by_alias`는 현재 0개다.
 - 기존 로컬 위계도는 공식 교육과정 PDF나 교과서 원본이 아니므로 보조 후보 출처로만 사용한다. `needs_review` 항목은 공식 문서 또는 교과서 본문 근거가 확인되기 전까지 새 concept으로 확정하지 않는다.
 - 이번 작업은 기존 감사 산출물 생성과 검증 보강만 수행했으므로 PDF 원본, 다운로드 manifest, 공식 출처 선택 규칙은 변경하지 않았다.
+
+## Legacy Gap Resolution
+
+- `legacy-gap-resolution.md`와 `legacy-gap-resolution.csv`를 추가해 `legacy-gap-audit`의 `needs_review` 34개 row를 고유 label 12개로 접었다.
+- 현재 분류는 `foundational_prerequisite_candidate` 11개와 `alias_candidate_for_existing_concept` 1개이며, `source_detail_needed`는 0개다.
+- 기초 선수개념 후보는 약수, 배수, 사칙연산 이름, 비, 삼각형, 도형, 길이, 넓이처럼 현행 중학교 concept map의 하위·선수 관계에서 반복 등장하는 넓은 개념이다. 공식 근거 위치를 확인한 뒤 낮은 신뢰도의 선수개념 노드 또는 기존 노드의 상위/관련 관계로 처리한다.
+- `피타고라스`는 독립 concept으로 바로 추가하지 않고 `피타고라스 정리` 계열 기존 concept의 alias 후보로 검토한다.
+- 이번 작업도 보조 감사 산출물과 검증만 추가했으므로 PDF 원본, 다운로드 manifest, 공식 출처 선택 규칙은 변경하지 않았다.

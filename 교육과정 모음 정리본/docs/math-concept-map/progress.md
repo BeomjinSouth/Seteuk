@@ -204,3 +204,17 @@
 
 - legacy gap audit 단위 테스트 3개와 validator 단위 테스트 23개가 통과했다.
 - `legacy-gap-audit.md`와 `legacy-gap-audit.csv`는 기존 로컬 위계도 후보 163개 중 `needs_review` 34개를 보조 후보로 분리한다.
+
+## 2026-06-26 legacy gap resolution 보강
+
+- `build_legacy_gap_resolution.py`를 추가해 `legacy-gap-audit.csv`의 `needs_review` 34개 row를 고유 label 12개로 접었다.
+- 현재 12개 후보 중 11개는 `foundational_prerequisite_candidate`, 1개는 `alias_candidate_for_existing_concept`로 분류했다.
+- 기초 선수개념 후보는 공식 근거 확인 후 낮은 신뢰도의 선수개념 노드 또는 기존 개념의 상위/관련 관계로 처리할 수 있도록 보류했다.
+- `피타고라스`는 독립 노드가 아니라 `피타고라스 정리` 계열 기존 concept의 alias 후보로 검토하도록 분리했다.
+- `validate_concept_map.py`가 resolution audit row 수, schema, 중복 candidate label, 생성 순서, Markdown 산출물 존재 여부를 검증하도록 보강했다.
+- 이번 작업은 보조 감사 산출물과 검증만 추가했으므로 PDF 원본, 다운로드 manifest, 공식 출처 선택 규칙은 변경하지 않았다.
+
+## 2026-06-26 legacy gap resolution 검증 결과
+
+- legacy gap resolution 단위 테스트 4개와 validator 단위 테스트 25개가 통과했다.
+- `legacy-gap-resolution.md`와 `legacy-gap-resolution.csv`는 `needs_review` 34개 row를 고유 후보 12개로 축약하고, 다음 공식 근거 확인 대상을 분리한다.
