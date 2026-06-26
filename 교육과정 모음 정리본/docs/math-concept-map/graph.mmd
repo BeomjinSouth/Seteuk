@@ -116,6 +116,58 @@ flowchart LR
   m1_mis_slope_sign["기울기 부호와 그래프 방향 혼동"]
   m1_mis_x_y_intercept["x절편과 y절편 혼동"]
   m1_mis_intersection_solution["그래프의 교점과 연립방정식의 해를 분리해서 보는 오류"]
+  m1_factor_unit["다항식의 곱셈과 인수분해"]
+  m1_factor_polynomial_multiplication["다항식의 곱셈"]
+  m1_factor_factor["인수"]
+  m1_factor_factorization["인수분해"]
+  m1_factor_expansion_factorization_inverse["전개와 인수분해의 역관계"]
+  m1_factor_common_factor["공통인수"]
+  m1_factor_perfect_square_expression["완전제곱식"]
+  m1_factor_formula_scope["다항식의 곱셈과 인수분해 공식 범위"]
+  m1_factor_square_sum_formula["(a+b)^2 공식"]
+  m1_factor_square_difference_formula["(a-b)^2 공식"]
+  m1_factor_sum_difference_product_formula["(a+b)(a-b) 공식"]
+  m1_factor_binomial_product_xab["(x+a)(x+b) 공식"]
+  m1_factor_linear_product_axb_cxd["(ax+b)(cx+d) 공식"]
+  m1_factor_quadratic_expression["이차식"]
+  m1_mis_expansion_factorization_direction["전개와 인수분해 방향을 혼동하는 오류"]
+  m1_mis_factor_common_factor_missing["공통인수를 빠뜨리는 오류"]
+  m1_mis_factor_formula_pattern["곱셈·인수분해 공식을 기계적으로 끼워 맞추는 오류"]
+  m1_mis_perfect_square_sign["완전제곱식의 가운데 항 부호를 혼동하는 오류"]
+  m1_quad_eq_unit["이차방정식"]
+  m1_quad_eq_quadratic_equation["이차방정식"]
+  m1_quad_eq_quadratic_term["이차항"]
+  m1_quad_eq_standard_form["이차방정식의 식 표현"]
+  m1_quad_eq_solving["이차방정식 풀기"]
+  m1_quad_eq_solution["이차방정식의 해"]
+  m1_quad_eq_factorization_solving["인수분해를 이용한 이차방정식 풀이"]
+  m1_quad_eq_root_formula["근의 공식"]
+  m1_quad_eq_double_root["중근"]
+  m1_quad_eq_real_solution_scope["이차방정식의 실수 해 범위"]
+  m1_quad_eq_modeling["이차방정식 활용 문제 해결"]
+  m1_mis_quadratic_expression_equation["이차식과 이차방정식을 혼동하는 오류"]
+  m1_mis_quadratic_factorization_solution["인수분해한 식에서 해 조건을 빠뜨리는 오류"]
+  m1_mis_root_coefficient_relation_scope["근과 계수와의 관계를 중학교 범위로 오인하는 오류"]
+  m1_quad_func_unit["이차함수와 그 그래프"]
+  m1_quad_func_quadratic_function["이차함수"]
+  m1_quad_func_formula["이차함수의 식"]
+  m1_quad_func_y_fx["y=f(x)"]
+  m1_quad_func_graph["이차함수의 그래프"]
+  m1_quad_func_parabola["포물선"]
+  m1_quad_func_axis["축"]
+  m1_quad_func_vertex["꼭짓점"]
+  m1_quad_func_y_ax2_graph["y=ax^2 그래프"]
+  m1_quad_func_vertex_form["y=a(x-p)^2+q 꼴"]
+  m1_quad_func_general_form["y=ax^2+bx+c 꼴"]
+  m1_quad_func_graph_drawing["이차함수 그래프 그리기"]
+  m1_quad_func_graph_properties["이차함수 그래프의 성질"]
+  m1_quad_func_maximum["최댓값"]
+  m1_quad_func_minimum["최솟값"]
+  m1_quad_func_max_min_real_scope["이차함수 최댓값·최솟값의 실수 전체 범위"]
+  m1_quad_func_tech_tool_graph["공학 도구로 이차함수 그래프 탐구하기"]
+  m1_mis_quadratic_function_equation["이차함수와 이차방정식을 혼동하는 오류"]
+  m1_mis_axis_vertex["포물선의 축과 꼭짓점을 혼동하는 오류"]
+  m1_mis_max_min_scope["최댓값·최솟값의 범위를 임의로 확장하는 오류"]
   m1_coord_graph_unit["좌표평면과 그래프"]
   m1_coord_ordered_pair["순서쌍"]
   m1_coord_coordinate["좌표"]
@@ -338,6 +390,112 @@ flowchart LR
   m1_mis_x_y_intercept -- "혼동" --> m1_func_x_intercept
   m1_mis_x_y_intercept -- "혼동" --> m1_func_y_intercept
   m1_mis_intersection_solution -- "혼동" --> m1_func_system_graph_relation
+  m1_calc_unit -- "선수" --> m1_factor_unit
+  m1_factor_unit -- "선수" --> m1_quad_eq_unit
+  m1_eq_unit -- "선수" --> m1_quad_eq_unit
+  m1_func_unit -- "선수" --> m1_quad_func_unit
+  m1_coord_graph_unit -- "선수" --> m1_quad_func_unit
+  m1_quad_eq_unit -- "선수" --> m1_quad_func_unit
+  m1_factor_unit -- "포함" --> m1_factor_polynomial_multiplication
+  m1_factor_unit -- "포함" --> m1_factor_factor
+  m1_factor_unit -- "포함" --> m1_factor_factorization
+  m1_factor_unit -- "포함" --> m1_factor_expansion_factorization_inverse
+  m1_factor_unit -- "포함" --> m1_factor_common_factor
+  m1_factor_unit -- "포함" --> m1_factor_perfect_square_expression
+  m1_factor_unit -- "포함" --> m1_factor_formula_scope
+  m1_factor_unit -- "포함" --> m1_factor_quadratic_expression
+  m1_factor_formula_scope -- "포함" --> m1_factor_square_sum_formula
+  m1_factor_formula_scope -- "포함" --> m1_factor_square_difference_formula
+  m1_factor_formula_scope -- "포함" --> m1_factor_sum_difference_product_formula
+  m1_factor_formula_scope -- "포함" --> m1_factor_binomial_product_xab
+  m1_factor_formula_scope -- "포함" --> m1_factor_linear_product_axb_cxd
+  m1_calc_expansion -- "선수" --> m1_factor_polynomial_multiplication
+  m1_factor_polynomial_multiplication -- "사용" --> m1_factor_expansion_factorization_inverse
+  m1_factor_factorization -- "사용" --> m1_factor_expansion_factorization_inverse
+  m1_factor_polynomial_multiplication -- "대조" --> m1_factor_factorization
+  m1_factor_factorization -- "대조" --> m1_factor_polynomial_multiplication
+  m1_factor_factor -- "사용" --> m1_factor_factorization
+  m1_factor_common_factor -- "사용" --> m1_factor_factorization
+  m1_factor_perfect_square_expression -- "표현" --> m1_factor_square_sum_formula
+  m1_factor_perfect_square_expression -- "표현" --> m1_factor_square_difference_formula
+  m1_factor_square_sum_formula -- "사용" --> m1_factor_factorization
+  m1_factor_square_difference_formula -- "사용" --> m1_factor_factorization
+  m1_factor_sum_difference_product_formula -- "사용" --> m1_factor_factorization
+  m1_factor_binomial_product_xab -- "표현" --> m1_factor_quadratic_expression
+  m1_factor_linear_product_axb_cxd -- "표현" --> m1_factor_quadratic_expression
+  m1_factor_quadratic_expression -- "사용" --> m1_quad_eq_quadratic_equation
+  m1_mis_expansion_factorization_direction -- "혼동" --> m1_factor_expansion_factorization_inverse
+  m1_mis_factor_common_factor_missing -- "혼동" --> m1_factor_common_factor
+  m1_mis_factor_formula_pattern -- "혼동" --> m1_factor_formula_scope
+  m1_mis_perfect_square_sign -- "혼동" --> m1_factor_perfect_square_expression
+  m1_quad_eq_unit -- "포함" --> m1_quad_eq_quadratic_equation
+  m1_quad_eq_unit -- "포함" --> m1_quad_eq_quadratic_term
+  m1_quad_eq_unit -- "포함" --> m1_quad_eq_standard_form
+  m1_quad_eq_unit -- "포함" --> m1_quad_eq_solving
+  m1_quad_eq_unit -- "포함" --> m1_quad_eq_solution
+  m1_quad_eq_unit -- "포함" --> m1_quad_eq_factorization_solving
+  m1_quad_eq_unit -- "포함" --> m1_quad_eq_root_formula
+  m1_quad_eq_unit -- "포함" --> m1_quad_eq_double_root
+  m1_quad_eq_unit -- "포함" --> m1_quad_eq_real_solution_scope
+  m1_quad_eq_unit -- "포함" --> m1_quad_eq_modeling
+  m1_eq_equation -- "선수" --> m1_quad_eq_quadratic_equation
+  m1_factor_quadratic_expression -- "표현" --> m1_quad_eq_standard_form
+  m1_quad_eq_quadratic_term -- "사용" --> m1_quad_eq_standard_form
+  m1_quad_eq_quadratic_equation -- "사용" --> m1_quad_eq_solving
+  m1_quad_eq_solving -- "사용" --> m1_quad_eq_solution
+  m1_quad_eq_solution -- "동치" --> m1_eq_root
+  m1_factor_factorization -- "선수" --> m1_quad_eq_factorization_solving
+  m1_quad_eq_factorization_solving -- "사용" --> m1_quad_eq_solution
+  m1_quad_eq_root_formula -- "사용" --> m1_quad_eq_solving
+  m1_quad_eq_double_root -- "포함" --> m1_quad_eq_solution
+  m1_quad_eq_real_solution_scope -- "사용" --> m1_quad_eq_solution
+  m1_quad_eq_modeling -- "표현" --> m1_quad_eq_quadratic_equation
+  m1_quad_eq_solving -- "사용" --> m1_eq_solution_check
+  m1_mis_quadratic_expression_equation -- "혼동" --> m1_factor_quadratic_expression
+  m1_mis_quadratic_expression_equation -- "혼동" --> m1_quad_eq_quadratic_equation
+  m1_mis_quadratic_factorization_solution -- "혼동" --> m1_quad_eq_factorization_solving
+  m1_mis_root_coefficient_relation_scope -- "혼동" --> m1_quad_eq_root_formula
+  m1_quad_func_unit -- "포함" --> m1_quad_func_quadratic_function
+  m1_quad_func_unit -- "포함" --> m1_quad_func_formula
+  m1_quad_func_unit -- "포함" --> m1_quad_func_y_fx
+  m1_quad_func_unit -- "포함" --> m1_quad_func_graph
+  m1_quad_func_unit -- "포함" --> m1_quad_func_graph_drawing
+  m1_quad_func_unit -- "포함" --> m1_quad_func_graph_properties
+  m1_func_function -- "선수" --> m1_quad_func_quadratic_function
+  m1_factor_quadratic_expression -- "사용" --> m1_quad_func_formula
+  m1_quad_func_quadratic_function -- "표현" --> m1_quad_func_formula
+  m1_quad_func_quadratic_function -- "표현" --> m1_quad_func_graph
+  m1_quad_func_formula -- "표현" --> m1_quad_func_y_fx
+  m1_quad_func_formula -- "포함" --> m1_quad_func_y_ax2_graph
+  m1_quad_func_formula -- "포함" --> m1_quad_func_vertex_form
+  m1_quad_func_formula -- "포함" --> m1_quad_func_general_form
+  m1_coord_coordinate_plane -- "사용" --> m1_quad_func_graph
+  m1_graph_graph -- "선수" --> m1_quad_func_graph
+  m1_quad_func_graph -- "포함" --> m1_quad_func_parabola
+  m1_quad_func_graph -- "사용" --> m1_quad_func_graph_properties
+  m1_quad_func_graph -- "사용" --> m1_quad_func_graph_drawing
+  m1_quad_func_y_ax2_graph -- "사용" --> m1_quad_func_graph_drawing
+  m1_quad_func_vertex_form -- "사용" --> m1_quad_func_graph_drawing
+  m1_quad_func_general_form -- "사용" --> m1_quad_func_graph_properties
+  m1_func_parallel_translation -- "사용" --> m1_quad_func_vertex_form
+  m1_quad_func_graph_properties -- "포함" --> m1_quad_func_axis
+  m1_quad_func_graph_properties -- "포함" --> m1_quad_func_vertex
+  m1_quad_func_graph_properties -- "포함" --> m1_quad_func_maximum
+  m1_quad_func_graph_properties -- "포함" --> m1_quad_func_minimum
+  m1_quad_func_graph_properties -- "포함" --> m1_quad_func_max_min_real_scope
+  m1_quad_func_parabola -- "포함" --> m1_quad_func_axis
+  m1_quad_func_parabola -- "포함" --> m1_quad_func_vertex
+  m1_quad_func_axis -- "연관" --> m1_quad_func_vertex
+  m1_quad_func_maximum -- "대조" --> m1_quad_func_minimum
+  m1_quad_func_minimum -- "대조" --> m1_quad_func_maximum
+  m1_quad_func_vertex -- "사용" --> m1_quad_func_maximum
+  m1_quad_func_vertex -- "사용" --> m1_quad_func_minimum
+  m1_quad_func_tech_tool_graph -- "사용" --> m1_quad_func_graph_properties
+  m1_mis_quadratic_function_equation -- "혼동" --> m1_quad_func_quadratic_function
+  m1_mis_quadratic_function_equation -- "혼동" --> m1_quad_eq_quadratic_equation
+  m1_mis_axis_vertex -- "혼동" --> m1_quad_func_axis
+  m1_mis_axis_vertex -- "혼동" --> m1_quad_func_vertex
+  m1_mis_max_min_scope -- "혼동" --> m1_quad_func_max_min_real_scope
   m1_coord_graph_unit -- "포함" --> m1_coord_ordered_pair
   m1_coord_graph_unit -- "포함" --> m1_coord_coordinate
   m1_coord_graph_unit -- "포함" --> m1_coord_coordinate_plane
@@ -503,6 +661,58 @@ flowchart LR
   class m1_mis_slope_sign risk;
   class m1_mis_x_y_intercept risk;
   class m1_mis_intersection_solution risk;
+  class m1_factor_unit core;
+  class m1_factor_polynomial_multiplication procedure;
+  class m1_factor_factor default;
+  class m1_factor_factorization procedure;
+  class m1_factor_expansion_factorization_inverse default;
+  class m1_factor_common_factor default;
+  class m1_factor_perfect_square_expression default;
+  class m1_factor_formula_scope default;
+  class m1_factor_square_sum_formula default;
+  class m1_factor_square_difference_formula default;
+  class m1_factor_sum_difference_product_formula default;
+  class m1_factor_binomial_product_xab default;
+  class m1_factor_linear_product_axb_cxd default;
+  class m1_factor_quadratic_expression default;
+  class m1_mis_expansion_factorization_direction risk;
+  class m1_mis_factor_common_factor_missing risk;
+  class m1_mis_factor_formula_pattern risk;
+  class m1_mis_perfect_square_sign risk;
+  class m1_quad_eq_unit core;
+  class m1_quad_eq_quadratic_equation core;
+  class m1_quad_eq_quadratic_term default;
+  class m1_quad_eq_standard_form representation;
+  class m1_quad_eq_solving procedure;
+  class m1_quad_eq_solution default;
+  class m1_quad_eq_factorization_solving procedure;
+  class m1_quad_eq_root_formula default;
+  class m1_quad_eq_double_root default;
+  class m1_quad_eq_real_solution_scope default;
+  class m1_quad_eq_modeling procedure;
+  class m1_mis_quadratic_expression_equation risk;
+  class m1_mis_quadratic_factorization_solution risk;
+  class m1_mis_root_coefficient_relation_scope risk;
+  class m1_quad_func_unit core;
+  class m1_quad_func_quadratic_function core;
+  class m1_quad_func_formula representation;
+  class m1_quad_func_y_fx default;
+  class m1_quad_func_graph representation;
+  class m1_quad_func_parabola default;
+  class m1_quad_func_axis default;
+  class m1_quad_func_vertex default;
+  class m1_quad_func_y_ax2_graph representation;
+  class m1_quad_func_vertex_form representation;
+  class m1_quad_func_general_form representation;
+  class m1_quad_func_graph_drawing procedure;
+  class m1_quad_func_graph_properties default;
+  class m1_quad_func_maximum default;
+  class m1_quad_func_minimum default;
+  class m1_quad_func_max_min_real_scope default;
+  class m1_quad_func_tech_tool_graph procedure;
+  class m1_mis_quadratic_function_equation risk;
+  class m1_mis_axis_vertex risk;
+  class m1_mis_max_min_scope risk;
   class m1_coord_graph_unit core;
   class m1_coord_ordered_pair default;
   class m1_coord_coordinate default;
