@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -54,6 +55,17 @@ EDGE_TYPES = {
     "related_to",
 }
 CONFIDENCE = {"high", "medium", "low"}
+EXPECTED_ACHIEVEMENT_CODES = tuple(
+    [f"9수01-{number:02d}" for number in range(1, 11)]
+    + [f"9수02-{number:02d}" for number in range(1, 23)]
+    + [f"9수03-{number:02d}" for number in range(1, 20)]
+    + [f"9수04-{number:02d}" for number in range(1, 10)]
+)
+ACHIEVEMENT_CODE_RE = re.compile(r"9수(?P<domain>\d{2})-(?P<number>\d{2})")
+ACHIEVEMENT_RANGE_RE = re.compile(
+    r"9수(?P<start_domain>\d{2})-(?P<start_number>\d{2})\]?\s*~\s*\[?"
+    r"9수(?P<end_domain>\d{2})-(?P<end_number>\d{2})"
+)
 
 
 def fail(message: str) -> None:
@@ -64,6 +76,47 @@ def fail(message: str) -> None:
 def read_csv_count(path: Path) -> int:
     with path.open("r", encoding="utf-8-sig", newline="") as f:
         return sum(1 for _ in csv.DictReader(f))
+
+
+def achievement_code(domain: str, number: int) -> str:
+    return f"9수{domain}-{number:02d}"
+
+
+def expand_achievement_range(match: re.Match[str]) -> set[str]:
+    start_domain = match.group("start_domain")
+    end_domain = match.group("end_domain")
+    start_number = int(match.group("start_number"))
+    end_number = int(match.group("end_number"))
+
+    if start_domain != end_domain or start_number > end_number:
+        return {
+            achievement_code(start_domain, start_number),
+            achievement_code(end_domain, end_number),
+        }
+
+    return {
+        achievement_code(start_domain, number)
+        for number in range(start_number, end_number + 1)
+    }
+
+
+def collect_achievement_codes(records: list[dict]) -> set[str]:
+    codes: set[str] = set()
+    for record in records:
+        for ref in record.get("source_refs", []):
+            evidence = " ".join(
+                str(ref.get(key, ""))
+                for key in ["locator", "summary"]
+            )
+            for match in ACHIEVEMENT_RANGE_RE.finditer(evidence):
+                codes.update(expand_achievement_range(match))
+            codes.update(match.group(0) for match in ACHIEVEMENT_CODE_RE.finditer(evidence))
+    return codes
+
+
+def missing_achievement_codes(records: list[dict]) -> list[str]:
+    present = collect_achievement_codes(records)
+    return [code for code in EXPECTED_ACHIEVEMENT_CODES if code not in present]
 
 
 def main() -> None:
@@ -132,9 +185,14 @@ def main() -> None:
     if not graph.exists() or "flowchart LR" not in graph.read_text(encoding="utf-8"):
         fail("graph.mmd missing or invalid")
 
+    missing_codes = missing_achievement_codes(concepts)
+    if missing_codes:
+        fail(f"missing achievement-standard concept coverage: {missing_codes}")
+
     print(
         f"Validated {len(concepts)} concepts, {len(edges)} edges, "
-        f"{len(sources)} sources."
+        f"{len(sources)} sources, "
+        f"{len(EXPECTED_ACHIEVEMENT_CODES)} achievement standards."
     )
 
 

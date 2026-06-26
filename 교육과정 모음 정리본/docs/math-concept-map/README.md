@@ -30,6 +30,9 @@
 ```powershell
 python docs/math-concept-map/tools/build_pilot.py
 python docs/math-concept-map/tools/validate_concept_map.py
+python docs/math-concept-map/tools/test_validate_concept_map.py
 ```
+
+검증기는 필수 필드, id 중복, source/ref 무결성, CSV 행 수, Mermaid 파일, 2022 개정 중학교 수학 공식 성취기준 60개(`9수01-01`~`9수04-09`)의 concept 근거 커버리지를 확인한다.
 
 교과서 PDF가 추가되면 단원별로 원문 전체를 전재하지 않고 개념명, 짧은 정의, 쪽수, 출처 파일 해시, 관계 근거만 반영한다.
