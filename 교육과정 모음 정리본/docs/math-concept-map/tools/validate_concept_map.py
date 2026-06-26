@@ -7,6 +7,7 @@ import sys
 from pathlib import Path
 
 import build_terminology_coverage as terminology
+import build_relationship_audit as relationship_audit
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -147,6 +148,15 @@ def unit_group_count(records: list[dict]) -> int:
     )
 
 
+def isolated_concept_count(concepts: list[dict], edges: list[dict]) -> int:
+    concept_ids = {concept.get("id") for concept in concepts}
+    connected_ids = set()
+    for edge in edges:
+        connected_ids.add(edge.get("source_id"))
+        connected_ids.add(edge.get("target_id"))
+    return len(concept_ids - connected_ids)
+
+
 def main() -> None:
     data_path = OUT_DIR / "concepts.json"
     if not data_path.exists():
@@ -211,6 +221,8 @@ def main() -> None:
     term_coverage_md = OUT_DIR / "official-term-coverage.md"
     unit_coverage_csv = OUT_DIR / "unit-coverage.csv"
     unit_coverage_md = OUT_DIR / "unit-coverage.md"
+    relationship_audit_csv = OUT_DIR / "relationship-audit.csv"
+    relationship_audit_md = OUT_DIR / "relationship-audit.md"
     graph = OUT_DIR / "graph.mmd"
     if read_csv_count(concepts_csv) != len(concepts):
         fail("concepts.csv row count does not match concepts.json")
@@ -234,6 +246,23 @@ def main() -> None:
         fail("unit-coverage.csv concept counts do not sum to concepts.json")
     if not unit_coverage_md.exists() or "# 단원별 커버리지" not in unit_coverage_md.read_text(encoding="utf-8"):
         fail("unit-coverage.md missing or invalid")
+    relationship_rows = read_csv_rows(relationship_audit_csv)
+    if len(relationship_rows) != len(relationship_audit.RELATIONSHIP_TYPES):
+        fail("relationship-audit.csv row count does not match relationship type list")
+    if sum(int(row.get("edge_count", 0)) for row in relationship_rows) != len(edges):
+        fail("relationship-audit.csv edge counts do not sum to concepts.json")
+    missing_required_relationships = [
+        row["relationship_type"]
+        for row in relationship_rows
+        if row["relationship_type"] in relationship_audit.REQUIRED_GOAL_RELATIONSHIP_TYPES
+        and int(row.get("edge_count", 0)) == 0
+    ]
+    if missing_required_relationships:
+        fail(f"relationship-audit.csv missing required relationship types: {missing_required_relationships}")
+    if isolated_concept_count(concepts, edges):
+        fail("concept map contains isolated concepts without any edge")
+    if not relationship_audit_md.exists() or "# 관계 감사" not in relationship_audit_md.read_text(encoding="utf-8"):
+        fail("relationship-audit.md missing or invalid")
     if not graph.exists() or "flowchart LR" not in graph.read_text(encoding="utf-8"):
         fail("graph.mmd missing or invalid")
 

@@ -883,6 +883,7 @@ flowchart LR
   m1_coord_graph_unit -- "포함" --> m1_coord_ordered_pair
   m1_coord_graph_unit -- "포함" --> m1_coord_coordinate
   m1_coord_graph_unit -- "포함" --> m1_coord_coordinate_plane
+  m1_coord_graph_unit -- "포함" --> m1_coord_usefulness
   m1_coord_graph_unit -- "포함" --> m1_graph_graph
   m1_coord_graph_unit -- "포함" --> m1_prop_direct_proportion
   m1_coord_graph_unit -- "포함" --> m1_prop_inverse_proportion
@@ -901,6 +902,7 @@ flowchart LR
   m1_coord_quadrant -- "포함" --> m1_coord_quadrant_3
   m1_coord_quadrant -- "포함" --> m1_coord_quadrant_4
   m1_coord_axis -- "포함" --> m1_coord_axis_point
+  m1_coord_coordinate_plane -- "사용" --> m1_coord_usefulness
   m1_coord_coordinate_plane -- "표현" --> m1_graph_graph
   m1_graph_graph -- "사용" --> m1_graph_situation_graphing
   m1_graph_graph -- "사용" --> m1_graph_graph_interpretation

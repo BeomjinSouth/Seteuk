@@ -84,6 +84,12 @@ class AchievementCoverageTests(unittest.TestCase):
 
         self.assertEqual(validator.unit_group_count(records), 2)
 
+    def test_isolated_concept_count_reports_concepts_without_edges(self) -> None:
+        concepts = [{"id": "unit"}, {"id": "coord"}, {"id": "isolated"}]
+        edges = [{"source_id": "unit", "target_id": "coord"}]
+
+        self.assertEqual(validator.isolated_concept_count(concepts, edges), 1)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -100,6 +100,20 @@
 | `incoming_edge_count` | 다른 단원에서 이 단원으로 들어오는 edge 수 |
 | `outgoing_edge_count` | 이 단원에서 다른 단원으로 나가는 edge 수 |
 
+## Relationship Audit CSV
+
+`relationship-audit.csv`는 `concepts.json`의 edge를 관계 유형별로 요약한 파생 산출물이다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `relationship_type` | 관계 유형 |
+| `edge_count` | 해당 유형 edge 수 |
+| `high_confidence_count` | `high` 신뢰도 edge 수 |
+| `medium_confidence_count` | `medium` 신뢰도 edge 수 |
+| `low_confidence_count` | `low` 신뢰도 edge 수 |
+| `source_concept_count` | 해당 관계 유형에서 source로 등장하는 concept 수 |
+| `target_concept_count` | 해당 관계 유형에서 target으로 등장하는 concept 수 |
+
 ## 신뢰도 기준
 
 - `high`: 공식 교육과정 또는 성취수준 문서에서 직접 확인되는 개념·관계

@@ -112,6 +112,15 @@
 - `validate_concept_map.py`가 `unit-coverage.csv` 행 수와 `concept_count` 합계가 `concepts.json`과 일치하는지 검사하도록 보강했다.
 - 이번 작업은 기존 concept/edge를 재가공한 현황판 추가이므로 PDF 원본, 다운로드 manifest, 출처 선택 규칙은 변경하지 않았다.
 
+## 2026-06-26 관계 감사 보강
+
+- `build_relationship_audit.py`를 추가하여 edge를 관계 유형별로 `relationship-audit.md`와 `relationship-audit.csv`에 요약하게 했다.
+- `m1_coord_usefulness`가 고립 concept으로 남아 있어, `좌표평면과 그래프 -> 좌표 표현의 편리함` 포함 관계와 `좌표평면 -> 좌표 표현의 편리함` 활용 관계를 추가했다.
+- 현재 edge는 1217개이며, 목표 필수 관계 유형인 `contains`, `prerequisite_for`, `represented_by`, `used_in`, `contrasts_with`, `often_confused_with`가 모두 존재한다.
+- 현재 고립 concept은 0개다.
+- `validate_concept_map.py`가 관계 감사 CSV의 edge 합계, 필수 관계 유형 존재, 고립 concept 0개 조건을 검사하도록 보강했다.
+- 이번 작업은 기존 공식 교육과정 기반 concept을 더 잘 연결한 것이므로 PDF 원본, 다운로드 manifest, 출처 선택 규칙은 변경하지 않았다.
+
 ## 남은 작업
 
 - 2022 개정 중학교 수학 공식 교육과정 4개 영역은 모두 1차 반영되었다.
@@ -135,3 +144,4 @@
 - low 신뢰도 검토 큐 보강 결과: review queue 단위 테스트 2개와 validator 단위 테스트 4개가 통과하고, `review-queue.md`와 `review-queue.csv`가 `confidence: low` concept 66개를 포함한다.
 - 공식 용어·기호 커버리지 보강 결과: terminology coverage 단위 테스트 2개와 validator 단위 테스트 5개가 통과하고, `official-term-coverage.md`와 `official-term-coverage.csv`가 공식 용어·기호 168개 전체를 포함하며 `needs_concept` 항목은 0개다.
 - 단원별 커버리지 보강 결과: unit coverage 단위 테스트 2개와 validator 단위 테스트 6개가 통과하고, `unit-coverage.md`와 `unit-coverage.csv`가 학년·영역·단원 그룹 33개와 concept 총계 465개를 포함한다.
+- 관계 감사 보강 결과: relationship audit 단위 테스트 3개와 validator 단위 테스트 7개가 통과하고, `relationship-audit.md`와 `relationship-audit.csv`가 edge 1217개 전체와 고립 concept 0개 상태를 포함한다.

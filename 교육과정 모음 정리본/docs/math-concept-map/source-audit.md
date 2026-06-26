@@ -54,6 +54,7 @@
 - `review-queue.md`와 `review-queue.csv`는 위 잠정 노드 중 `confidence: low`인 66개 concept을 다음 교과서·출처 보강 우선순위로 모아 둔 파생 산출물이다.
 - `official-term-coverage.md`와 `official-term-coverage.csv`는 공식 문서 용어·기호 168개가 concept label 또는 alias로 연결되는지 추적하는 파생 산출물이다. 현재 `needs_concept` 항목은 없다.
 - `unit-coverage.md`와 `unit-coverage.csv`는 현재 concept/edge를 33개 학년·영역·단원 그룹으로 나누어 다음 교과서 원문 보강 단위를 추적하는 파생 산출물이다.
+- `relationship-audit.md`와 `relationship-audit.csv`는 현재 edge 1217개가 관계 유형별로 어떻게 분포하는지와 고립 concept이 없는지 추적하는 파생 산출물이다.
 
 ## 다음 출처 보강 순서
 

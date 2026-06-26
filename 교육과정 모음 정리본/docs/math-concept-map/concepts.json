@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-26T19:18:26",
+    "generated_at": "2026-06-26T19:32:52",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
     "concept_count": 465,
-    "edge_count": 1215
+    "edge_count": 1217
   },
   "sources": [
     {
@@ -29179,6 +29179,34 @@
       "confidence": "high"
     },
     {
+      "id": "m1_coord_graph_unit__contains__m1_coord_usefulness",
+      "source_id": "m1_coord_graph_unit",
+      "target_id": "m1_coord_usefulness",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "순서쌍과 좌표를 이해하고 편리함을 인식하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 35-36; achievement-standard explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "좌표 사용 예, 그래프의 증가·감소·주기적 변화, 표·식·그래프 변환을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "좌표평면과 그래프 section; [9수02-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "수직선과 좌표평면 위의 점을 좌표로 나타내거나 주어진 좌표를 점으로 나타내는 수행을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_coord_graph_unit__contains__m1_graph_graph",
       "source_id": "m1_coord_graph_unit",
       "target_id": "m1_graph_graph",
@@ -29501,6 +29529,28 @@
       ],
       "notes": "교과서 본문 근거 보강 필요",
       "confidence": "low"
+    },
+    {
+      "id": "m1_coord_coordinate_plane__used_in__m1_coord_usefulness",
+      "source_id": "m1_coord_coordinate_plane",
+      "target_id": "m1_coord_usefulness",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 35-36; achievement-standard explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "좌표 사용 예, 그래프의 증가·감소·주기적 변화, 표·식·그래프 변환을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "좌표평면과 그래프 section; [9수02-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "수직선과 좌표평면 위의 점을 좌표로 나타내거나 주어진 좌표를 점으로 나타내는 수행을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_coord_coordinate_plane__represented_by__m1_graph_graph",
