@@ -19,6 +19,10 @@ import {
     sanitizeSeteukLearningData,
     shouldUseSafeSeteukFallback,
 } from '@/lib/seteuk-input-safety';
+import {
+    formatSeteukExpressionVariationForPrompt,
+    resolveSeteukExpressionVariation,
+} from '@/lib/seteuk-expression-variation';
 
 const DEFAULT_MODEL = OPENAI_STANDARD_MODEL;
 const DEFAULT_MAX_OUTPUT_TOKENS = 1000;
@@ -263,6 +267,11 @@ export async function POST(request: NextRequest) {
     if (subjectContextHint) {
         userPrompt += `\n- 학년·교과 참고 주제: ${subjectContextHint}`;
     }
+
+    const expressionVariationPrompt = formatSeteukExpressionVariationForPrompt(
+        resolveSeteukExpressionVariation({ studentName, studentId, subjectName, classId }),
+    );
+    userPrompt += `\n\n${expressionVariationPrompt}`;
 
     // Add learning data if provided
     if (Object.keys(sanitizedLearningData).length > 0) {

@@ -196,17 +196,64 @@ Changes:
 | C10 | Broken-format art input: `색-면-구성//환경포스터? 초안 제출@@ 친구 의견 들음 ## 수정? 보완? 모름` | `색-면-구성을 바탕으로 환경포스터 초안을 제출하고 친구의 의견을 들음` | Recovers usable facts and no longer invents `수정·보완함` | None | No | Keep uncertainty stripping and revision-action scrub |
 | C11 | Good normal 사회 input with curriculum context and concrete observation | Specific paragraph about classifying photos, identifying causes, proposing signage/checklist, and adjusting solution after discussion | Preserves specificity and polished 세특 style; curriculum remains background | None | No | Preserve normal-input quality |
 
+### Loop 8-10: Expression Variation And Safety Regression
+
+Prompt version: `cross-curricular-seteuk-v2.7`
+
+Run files:
+
+- `docs/student-record-knowledge/prompt-qa-runs/batch-variation-v1.json`
+- `docs/student-record-knowledge/prompt-qa-runs/batch-variation-v2.json`
+- `docs/student-record-knowledge/prompt-qa-runs/batch-variation-v3-count-safety.json`
+- `docs/student-record-knowledge/prompt-qa-runs/batch-variation-v4-connector-safety.json`
+- `docs/student-record-knowledge/prompt-qa-runs/batch-variation-v5-generic-summary-safety.json`
+- `docs/student-record-knowledge/prompt-qa-runs/loop8-v2.7-expression-variation.json`
+- `docs/student-record-knowledge/prompt-qa-runs/loop9-v2.7-expression-variation-safety.json`
+- `docs/student-record-knowledge/prompt-qa-runs/loop10-v2.7-expression-variation-count-safety.json`
+
+Changes:
+
+- Added `src/lib/seteuk-expression-variation.ts` to assign a deterministic expression profile from student/class/subject context.
+- `/api/generate` injects a private `[표현 다양화 참고]` block so consecutive students do not all receive the same first sentence frame, action verb set, or sentence focus.
+- The system prompt now explicitly handles multiple-student generation: vary first phrase, verb choice, focus, and sentence length, but never at the cost of factual grounding.
+- Added output safety for awkward `수업 태도에 맞게`, raw `차시` count/frequency wording, repeated `이를 바탕으로`, and generic curriculum-summary sentences such as `지역 문제의 원인과 해결 방안...` when not directly present in source input.
+
+Final batch result:
+
+| Metric | Result |
+| --- | --- |
+| Cases | 12 사회 지역문제 조사 students |
+| Unique full content | 12 / 12 |
+| Unique opening frame | 12 / 12 |
+| Max opening-frame repeat | 1 |
+| Variation profiles used | 7 |
+| Max profile repeat | 3 |
+| Repeated 8-char n-grams | 0 |
+
+Final edge-case rerun:
+
+- C01/C02/C03/C07 still returned the safe fallback.
+- C06 still ignored exaggerated achievement requests.
+- C09 no longer exposed `45차시`, `각 차시마다`, unsupported quality adverbs, score/rank/award/future/personality content, or generic curriculum summary.
+- C10 still avoided invented `수정·보완함`.
+- C11 retained a specific normal-quality paragraph.
+
 ## Before/After Summary
 
 - Baseline failures were mostly evidence inflation: generic effort became `과제 수행`, `찾아 적음` became inferred media/output, long noisy input gained unsupported quality adverbs, and `친구 의견을 들음` became `보완함`.
 - Prompt revisions v2.4-v2.7 reduced most inflation but real API runs still varied on sparse/noisy cases.
 - Route safety now makes the riskiest inputs deterministic before model call and scrubs unsupported generated wording after model call without changing the `/api/generate` response contract.
 - Final loop keeps useful output for normal input while returning a safe fallback for absent, generic-only, subject-only, and contradictory evidence.
+- Expression variation profiles reduce same-frame output across multiple students while keeping input-only grounding and API response shape intact.
 
 ## Verification
 
 - `node scripts/run-seteuk-prompt-qa.mjs --out docs/student-record-knowledge/prompt-qa-runs/loop7-v2.7-output-safety-revision.json` passed 11 real local `/api/generate` cases against `gpt-5.4-mini`.
+- `node --experimental-strip-types scripts/run-seteuk-batch-variation-qa.mjs --endpoint http://127.0.0.1:3487/api/generate --out docs/student-record-knowledge/prompt-qa-runs/batch-variation-v5-generic-summary-safety.json` passed 12 real local `/api/generate` batch cases against `gpt-5.4-mini`.
+- `node scripts/run-seteuk-prompt-qa.mjs --endpoint http://127.0.0.1:3487/api/generate --out docs/student-record-knowledge/prompt-qa-runs/loop10-v2.7-expression-variation-count-safety.json` passed 11 edge/normal route cases after the expression variation changes.
 - `node scripts/check-seteuk-prompt-guards.mjs` passed.
+- `node scripts/check-seteuk-route-variation-hook.mjs` passed.
+- `node --experimental-strip-types scripts/check-seteuk-expression-variation.mjs` passed.
 - `node --experimental-strip-types scripts/check-seteuk-input-safety.mjs` passed. Node emitted a `MODULE_TYPELESS_PACKAGE_JSON` warning because the script imports a TypeScript file directly for local verification.
 - `cmd /c npx tsc --noEmit --pretty false` passed.
-- Route smoke passed for empty-input fallback, broken-format revision scrub, and `/write` HTTP 200 on local dev server `http://127.0.0.1:3485`.
+- Route smoke passed across local dev servers for empty-input fallback, broken-format revision scrub, meaningful generation safety, and `/write` HTTP 200; the clean main temp clone also passed no-key fallback and `/write` smoke on `http://127.0.0.1:3488`.

@@ -186,6 +186,20 @@ export function sanitizeGeneratedSeteukContent(
             .replace(/조정함/gu, '확인함');
     }
 
+    sanitized = sanitized.replace(/수업\s*태도에\s*맞게\s*/gu, '');
+    sanitized = sanitized
+        .replace(/[0-9０-９]+\s*차시\s*부터\s*[0-9０-９]+\s*차시\s*까지\s*/gu, '')
+        .replace(/[0-9０-９]+\s*차시\s*(동안|에\s*걸쳐|까지)?\s*/gu, '')
+        .replace(/각\s*차시마다\s*/gu, '');
+    sanitized = sanitized.replace(/이를\s*바탕으로\s*/gu, '');
+
+    if (!/지역\s*문제의\s*원인/u.test(sourceText)) {
+        sanitized = sanitized.replace(
+            /(?:^|[.]\s*)지역\s*문제의\s*원인(?:과|을)[^.。]*(?:정리|살펴|참여)함[.]?/gu,
+            '',
+        );
+    }
+
     return sanitized
         .replace(/\s{2,}/gu, ' ')
         .replace(/\s+([,.])/gu, '$1')

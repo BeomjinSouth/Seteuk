@@ -47,4 +47,28 @@ assert.equal(revisionScrubbed.includes('수정'), false);
 assert.equal(revisionScrubbed.includes('보완'), false);
 assert.equal(revisionScrubbed, '환경포스터 초안을 제출한 뒤 친구 의견을 듣고 내용을 확인함.');
 
+const awkwardAttitudeScrubbed = sanitizeGeneratedSeteukContent(
+  '수업 흐름에 맞추어 과제를 제출하고 수업 태도에 맞게 활동에 참여함.',
+  { customData: '수업 태도 좋음. 과제 제출함.' },
+);
+assert.equal(awkwardAttitudeScrubbed.includes('수업 태도에 맞게'), false);
+
+const countScrubbed = sanitizeGeneratedSeteukContent(
+  '45차시 동안 실험 관찰표에 물의 온도 변화를 기록함. 각 차시마다 확인한 변화를 표에 옮겨 적음.',
+  { customData: '실험 관찰표에 물의 온도 변화를 기록하고 결과를 표로 정리함.' },
+);
+assert.equal(/\d+\s*차시|각\s*차시마다/u.test(countScrubbed), false);
+
+const connectorScrubbed = sanitizeGeneratedSeteukContent(
+  '현장 사진을 원인별로 정리함. 이를 바탕으로 안내판 설치를 제안함.',
+  { customData: '현장 사진을 원인별로 정리하고 안내판 설치를 제안함.' },
+);
+assert.equal(connectorScrubbed.includes('이를 바탕으로'), false);
+
+const genericCurriculumSummaryScrubbed = sanitizeGeneratedSeteukContent(
+  '안내판 설치를 제안함. 지역 문제의 원인과 대안을 함께 정리함.',
+  { customData: '현장 사진을 분류하고 안내판 설치를 제안함.' },
+);
+assert.equal(genericCurriculumSummaryScrubbed.includes('지역 문제의 원인과'), false);
+
 console.log('Seteuk input safety checks passed.');

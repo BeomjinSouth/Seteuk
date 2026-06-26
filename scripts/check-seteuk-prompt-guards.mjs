@@ -16,6 +16,7 @@ const requiredSnippets = [
   '교육과정 문구를 최종 문장의 마무리 요약처럼 복사하지 않음',
   '“과제 수행함”은 입력에 과제 수행, 과제 제출, 과제 완료가 직접 제시된 경우에만 사용함',
   '입력이 “질문함”이면 질문 행동만 쓰고, 의견 제시나 의견 말하기로 바꾸지 않음',
+  '차시 수나 반복 횟수를 그대로 드러내지 않음',
 ];
 
 const missing = requiredSnippets.filter((snippet) => !source.includes(snippet));
