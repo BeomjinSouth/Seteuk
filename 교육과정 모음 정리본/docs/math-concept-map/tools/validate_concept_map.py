@@ -134,6 +134,19 @@ def term_needs_concept_count(records: list[dict]) -> int:
     return sum(1 for record in records if record.get("coverage_status") == "needs_concept")
 
 
+def unit_group_count(records: list[dict]) -> int:
+    return len(
+        {
+            (
+                record.get("grade"),
+                record.get("domain"),
+                record.get("unit"),
+            )
+            for record in records
+        }
+    )
+
+
 def main() -> None:
     data_path = OUT_DIR / "concepts.json"
     if not data_path.exists():
@@ -196,6 +209,8 @@ def main() -> None:
     review_queue_md = OUT_DIR / "review-queue.md"
     term_coverage_csv = OUT_DIR / "official-term-coverage.csv"
     term_coverage_md = OUT_DIR / "official-term-coverage.md"
+    unit_coverage_csv = OUT_DIR / "unit-coverage.csv"
+    unit_coverage_md = OUT_DIR / "unit-coverage.md"
     graph = OUT_DIR / "graph.mmd"
     if read_csv_count(concepts_csv) != len(concepts):
         fail("concepts.csv row count does not match concepts.json")
@@ -212,6 +227,13 @@ def main() -> None:
         fail("official-term-coverage.csv contains terms needing concepts")
     if not term_coverage_md.exists() or "# 공식 용어·기호 커버리지" not in term_coverage_md.read_text(encoding="utf-8"):
         fail("official-term-coverage.md missing or invalid")
+    unit_rows = read_csv_rows(unit_coverage_csv)
+    if len(unit_rows) != unit_group_count(concepts):
+        fail("unit-coverage.csv row count does not match concept unit groups")
+    if sum(int(row.get("concept_count", 0)) for row in unit_rows) != len(concepts):
+        fail("unit-coverage.csv concept counts do not sum to concepts.json")
+    if not unit_coverage_md.exists() or "# 단원별 커버리지" not in unit_coverage_md.read_text(encoding="utf-8"):
+        fail("unit-coverage.md missing or invalid")
     if not graph.exists() or "flowchart LR" not in graph.read_text(encoding="utf-8"):
         fail("graph.mmd missing or invalid")
 

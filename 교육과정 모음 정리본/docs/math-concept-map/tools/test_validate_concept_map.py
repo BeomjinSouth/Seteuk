@@ -75,6 +75,15 @@ class AchievementCoverageTests(unittest.TestCase):
 
         self.assertEqual(validator.term_needs_concept_count(rows), 1)
 
+    def test_unit_group_count_uses_grade_domain_and_unit(self) -> None:
+        records = [
+            {"grade": "중1", "domain": "수와 연산", "unit": "소인수분해"},
+            {"grade": "중1", "domain": "수와 연산", "unit": "소인수분해"},
+            {"grade": "중1", "domain": "변화와 관계", "unit": "소인수분해"},
+        ]
+
+        self.assertEqual(validator.unit_group_count(records), 2)
+
 
 if __name__ == "__main__":
     unittest.main()

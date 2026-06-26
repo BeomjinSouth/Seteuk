@@ -104,6 +104,14 @@
 - `validate_concept_map.py`가 공식 용어·기호 커버리지 행 수와 `needs_concept` 0개 조건을 검사하도록 보강했다.
 - 이번 작업은 공식 문서 용어·기호 목록에 대한 추적성을 보강한 것이므로 PDF 원본, 다운로드 manifest, 출처 선택 규칙은 변경하지 않았다.
 
+## 2026-06-26 단원별 커버리지 보강
+
+- `build_unit_coverage.py`를 추가하여 concept과 edge를 학년·영역·단원 단위로 `unit-coverage.md`와 `unit-coverage.csv`에 요약하게 했다.
+- 현재 단원 그룹은 33개이며, 영역별로 수와 연산 5개, 변화와 관계 11개, 도형과 측정 10개, 자료와 가능성 7개다.
+- 단원별 산출물은 concept 수, 신뢰도 분포, concept type 분포, 연결 성취기준, 내부·유입·유출 edge 수를 포함한다.
+- `validate_concept_map.py`가 `unit-coverage.csv` 행 수와 `concept_count` 합계가 `concepts.json`과 일치하는지 검사하도록 보강했다.
+- 이번 작업은 기존 concept/edge를 재가공한 현황판 추가이므로 PDF 원본, 다운로드 manifest, 출처 선택 규칙은 변경하지 않았다.
+
 ## 남은 작업
 
 - 2022 개정 중학교 수학 공식 교육과정 4개 영역은 모두 1차 반영되었다.
@@ -126,3 +134,4 @@
 - 커버리지 산출물 보강 결과: report 단위 테스트 2개가 통과하고, `achievement-coverage.md`와 `achievement-coverage.csv`가 공식 성취기준 60개 전체를 포함한다.
 - low 신뢰도 검토 큐 보강 결과: review queue 단위 테스트 2개와 validator 단위 테스트 4개가 통과하고, `review-queue.md`와 `review-queue.csv`가 `confidence: low` concept 66개를 포함한다.
 - 공식 용어·기호 커버리지 보강 결과: terminology coverage 단위 테스트 2개와 validator 단위 테스트 5개가 통과하고, `official-term-coverage.md`와 `official-term-coverage.csv`가 공식 용어·기호 168개 전체를 포함하며 `needs_concept` 항목은 0개다.
+- 단원별 커버리지 보강 결과: unit coverage 단위 테스트 2개와 validator 단위 테스트 6개가 통과하고, `unit-coverage.md`와 `unit-coverage.csv`가 학년·영역·단원 그룹 33개와 concept 총계 465개를 포함한다.

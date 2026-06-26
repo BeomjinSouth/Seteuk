@@ -81,6 +81,25 @@
 | `concept_labels` | 연결 concept 대표 한국어명 목록. 세미콜론으로 구분한다. |
 | `notes` | 범위 제외 또는 검토 메모 |
 
+## Unit Coverage CSV
+
+`unit-coverage.csv`는 `concepts.json`과 edge 데이터를 학년·영역·단원 단위로 요약한 파생 산출물이다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `grade` | 학년 또는 교육과정 학년군 |
+| `domain` | 교육과정 영역 |
+| `unit` | 단원 또는 성취기준 묶음 |
+| `concept_count` | 해당 단원에 속한 concept 수 |
+| `high_confidence_count` | `high` 신뢰도 concept 수 |
+| `medium_confidence_count` | `medium` 신뢰도 concept 수 |
+| `low_confidence_count` | `low` 신뢰도 concept 수 |
+| `*_count` | concept type별 concept 수 |
+| `achievement_codes` | 해당 단원 concept 근거에서 추출한 성취기준 코드 목록 |
+| `internal_edge_count` | 같은 단원 안에서 연결된 edge 수 |
+| `incoming_edge_count` | 다른 단원에서 이 단원으로 들어오는 edge 수 |
+| `outgoing_edge_count` | 이 단원에서 다른 단원으로 나가는 edge 수 |
+
 ## 신뢰도 기준
 
 - `high`: 공식 교육과정 또는 성취수준 문서에서 직접 확인되는 개념·관계
