@@ -26,17 +26,23 @@
 - `graph.mmd`: Mermaid 위계/관계 초안
 - `achievement-coverage.md`: 공식 성취기준별 연결 concept 요약
 - `achievement-coverage.csv`: 공식 성취기준별 연결 concept 기계 판독용 CSV
+- `review-queue.md`: `low` 신뢰도 concept의 교과서/출처 보강 검토 목록
+- `review-queue.csv`: 검토 목록 기계 판독용 CSV
 
 ## 갱신 방법
 
 ```powershell
 python docs/math-concept-map/tools/build_pilot.py
 python docs/math-concept-map/tools/build_coverage_report.py
+python docs/math-concept-map/tools/build_review_queue.py
 python docs/math-concept-map/tools/validate_concept_map.py
 python docs/math-concept-map/tools/test_build_coverage_report.py
+python docs/math-concept-map/tools/test_build_review_queue.py
 python docs/math-concept-map/tools/test_validate_concept_map.py
 ```
 
-검증기는 필수 필드, id 중복, source/ref 무결성, CSV 행 수, Mermaid 파일, 2022 개정 중학교 수학 공식 성취기준 60개(`9수01-01`~`9수04-09`)의 concept 근거 커버리지를 확인한다. `achievement-coverage.*`는 같은 성취기준 추출 로직을 사용해 사람용/기계용 검토 표로 재생성한다.
+검증기는 필수 필드, id 중복, source/ref 무결성, CSV 행 수, Mermaid 파일, 2022 개정 중학교 수학 공식 성취기준 60개(`9수01-01`~`9수04-09`)의 concept 근거 커버리지, `review-queue.csv`와 `low` 신뢰도 concept 수의 일치를 확인한다. `achievement-coverage.*`는 같은 성취기준 추출 로직을 사용해 사람용/기계용 검토 표로 재생성한다.
+
+`review-queue.*`는 아직 교과서 본문·예제·오답 근거로 확정하지 못한 `low` 신뢰도 concept을 모아 다음 출처 보강 순서를 정한다.
 
 교과서 PDF가 추가되면 단원별로 원문 전체를 전재하지 않고 개념명, 짧은 정의, 쪽수, 출처 파일 해시, 관계 근거만 반영한다.

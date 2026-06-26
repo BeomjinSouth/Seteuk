@@ -87,6 +87,15 @@
 - 현재 커버리지 산출물 기준 공식 성취기준 60개가 모두 concept 노드와 연결되어 있으며, 성취기준-concept 연결 수는 681개다.
 - 이번 작업은 기존 공식 교육과정 근거를 재가공한 것이므로 PDF 원본, 다운로드 manifest, 출처 선택 규칙은 변경하지 않았다.
 
+## 2026-06-26 low 신뢰도 검토 큐 보강
+
+- `build_review_queue.py`를 추가하여 `confidence: low`인 concept을 `review-queue.md`와 `review-queue.csv`로 재생성하게 했다.
+- 현재 검토 대상은 66개이며, 유형별로는 `misconception_risk` 65개와 `sub_concept` 1개다.
+- 영역별 검토 대상은 수와 연산 9개, 변화와 관계 36개, 도형과 측정 12개, 자료와 가능성 9개다.
+- `misconception_risk` 노드는 `textbook_evidence_needed`로 표시하여 교과서 예제·오답·문항 근거가 확보되면 우선 보강하도록 했다.
+- `validate_concept_map.py`가 `review-queue.csv` 행 수와 `confidence: low` concept 수의 일치를 검사하도록 보강했다.
+- 이번 작업은 기존 concept의 신뢰도와 notes를 재가공한 것이므로 PDF 원본, 다운로드 manifest, 출처 선택 규칙은 변경하지 않았다.
+
 ## 남은 작업
 
 - 2022 개정 중학교 수학 공식 교육과정 4개 영역은 모두 1차 반영되었다.
@@ -107,3 +116,4 @@
 - 추가 확장 7 검증 결과: 465개 concept, 1215개 edge, 4개 source 참조가 정상이며 중복 id와 깨진 참조가 없다.
 - 검증 보강 결과: 465개 concept, 1215개 edge, 4개 source 참조와 공식 성취기준 60개 concept 근거 커버리지가 정상이며, validator 단위 테스트 3개가 통과한다.
 - 커버리지 산출물 보강 결과: report 단위 테스트 2개가 통과하고, `achievement-coverage.md`와 `achievement-coverage.csv`가 공식 성취기준 60개 전체를 포함한다.
+- low 신뢰도 검토 큐 보강 결과: review queue 단위 테스트 2개와 validator 단위 테스트 4개가 통과하고, `review-queue.md`와 `review-queue.csv`가 `confidence: low` concept 66개를 포함한다.

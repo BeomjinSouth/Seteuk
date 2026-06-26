@@ -1,0 +1,92 @@
+# 검토 큐
+
+이 문서는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 출처 보강 때 먼저 확인할 대상을 정리한다.
+
+- 검토 대상 concept: 66개
+
+## 영역별 검토 대상
+
+| 영역 | concept 수 |
+|---|---:|
+| 수와 연산 | 9 |
+| 변화와 관계 | 36 |
+| 도형과 측정 | 12 |
+| 자료와 가능성 | 9 |
+
+## 유형별 검토 대상
+
+| concept_type | concept 수 |
+|---|---:|
+| misconception_risk | 65 |
+| sub_concept | 1 |
+
+## 검토 항목
+
+| concept_id | 영역 | 단원 | 유형 | 우선순위 | label_ko | notes |
+|---|---|---|---|---|---|---|
+| m1_mis_gcd_lcm_scope | 수와 연산 | 소인수분해 | misconception_risk | textbook_evidence_needed | 최대공약수·최소공배수 활용 문제를 범위로 오인하는 오류 | 공식 문서의 제외 범위를 학습 범위 관리용 오개념 위험으로 기록했다. |
+| m1_mis_prime_one | 수와 연산 | 소인수분해 | misconception_risk | textbook_evidence_needed | 1을 소수나 합성수로 보는 오류 |  |
+| m1_mis_finite_to_repeating_scope | 수와 연산 | 유리수와 순환소수 | misconception_risk | textbook_evidence_needed | 유한소수를 순환소수로 나타내는 활동을 범위로 오인하는 오류 | 공식 문서의 제외 범위를 학습 범위 관리용 오개념 위험으로 기록했다. |
+| m1_mis_absolute_value_positive | 수와 연산 | 정수와 유리수 | misconception_risk | textbook_evidence_needed | 절댓값을 항상 양수로만 말하는 오류 |  |
+| m1_mis_negative_order | 수와 연산 | 정수와 유리수 | misconception_risk | textbook_evidence_needed | 음수의 대소를 절댓값 크기로 판단하는 오류 |  |
+| m1_mis_sign_operation | 수와 연산 | 정수와 유리수 | misconception_risk | textbook_evidence_needed | 부호와 연산 기호를 혼동하는 오류 |  |
+| m1_mis_irrational_decimal | 수와 연산 | 제곱근과 실수 | misconception_risk | textbook_evidence_needed | 무한소수와 무리수를 같은 말로 보는 오류 |  |
+| m1_mis_radical_like_terms | 수와 연산 | 제곱근과 실수 | misconception_risk | textbook_evidence_needed | 근호 안의 수가 다른 제곱근을 동류항처럼 더하는 오류 |  |
+| m1_mis_radical_principal_root | 수와 연산 | 제곱근과 실수 | misconception_risk | textbook_evidence_needed | 근호가 나타내는 제곱근의 부호를 혼동하는 오류 |  |
+| m1_mis_expansion_factorization_direction | 변화와 관계 | 다항식의 곱셈과 인수분해 | misconception_risk | textbook_evidence_needed | 전개와 인수분해 방향을 혼동하는 오류 |  |
+| m1_mis_factor_common_factor_missing | 변화와 관계 | 다항식의 곱셈과 인수분해 | misconception_risk | textbook_evidence_needed | 공통인수를 빠뜨리는 오류 | 공식 문서의 공식 범위에서 추론한 오개념 위험이다. 교과서 예제와 문항 근거 확인이 필요하다. |
+| m1_mis_factor_formula_pattern | 변화와 관계 | 다항식의 곱셈과 인수분해 | misconception_risk | textbook_evidence_needed | 곱셈·인수분해 공식을 기계적으로 끼워 맞추는 오류 | 공식 문서의 공식 범위와 성취수준의 과정 설명 요구에서 추론한 오개념 위험이다. |
+| m1_mis_perfect_square_sign | 변화와 관계 | 다항식의 곱셈과 인수분해 | misconception_risk | textbook_evidence_needed | 완전제곱식의 가운데 항 부호를 혼동하는 오류 |  |
+| m1_mis_coefficient_constant_degree | 변화와 관계 | 문자의 사용과 식 | misconception_risk | textbook_evidence_needed | 계수·상수항·차수 혼동 | 용어 목록과 일차식 계산 성취수준을 바탕으로 둔 잠정 오개념 노드이다. |
+| m1_mis_letter_as_label_only | 변화와 관계 | 문자의 사용과 식 | misconception_risk | textbook_evidence_needed | 문자를 이름표로만 해석하는 오류 | 공식 문서의 문자와 일상 언어 비교 지도 유의점에서 추론한 위험이다. 교과서 도입 활동으로 보강 필요. |
+| m1_mis_like_terms | 변화와 관계 | 문자의 사용과 식 | misconception_risk | textbook_evidence_needed | 동류항이 아닌 항을 합치는 오류 | 성취수준의 일차식 계산 수행에서 발생할 수 있는 위험으로 추론했다. 교과서 예제와 오답 분석으로 보강 필요. |
+| m1_mis_exponent_base | 변화와 관계 | 식의 계산 | misconception_risk | textbook_evidence_needed | 밑이 다른 거듭제곱에 지수법칙을 잘못 적용하는 오류 | 성취수준에 '밑이 같은' 거듭제곱 계산이 드러나므로 잠정 오개념으로 기록했다. |
+| m1_mis_polynomial_like_terms | 변화와 관계 | 식의 계산 | misconception_risk | textbook_evidence_needed | 다항식에서 동류항 처리를 누락하는 오류 |  |
+| m1_mis_system_elimination_sign | 변화와 관계 | 연립일차방정식 | misconception_risk | textbook_evidence_needed | 가감법에서 부호와 계수 처리를 잘못하는 오류 |  |
+| m1_mis_system_one_equation_only | 변화와 관계 | 연립일차방정식 | misconception_risk | textbook_evidence_needed | 연립방정식의 해를 한 방정식만 만족해도 된다고 보는 오류 |  |
+| m1_mis_system_substitution | 변화와 관계 | 연립일차방정식 | misconception_risk | textbook_evidence_needed | 대입법에서 식 전체를 대입하지 않는 오류 |  |
+| m1_mis_quadratic_expression_equation | 변화와 관계 | 이차방정식 | misconception_risk | textbook_evidence_needed | 이차식과 이차방정식을 혼동하는 오류 |  |
+| m1_mis_quadratic_factorization_solution | 변화와 관계 | 이차방정식 | misconception_risk | textbook_evidence_needed | 인수분해한 식에서 해 조건을 빠뜨리는 오류 |  |
+| m1_mis_root_coefficient_relation_scope | 변화와 관계 | 이차방정식 | misconception_risk | textbook_evidence_needed | 근과 계수와의 관계를 중학교 범위로 오인하는 오류 | 공식 문서의 제외 범위를 학습 범위 관리용 오개념 위험으로 기록했다. |
+| m1_mis_axis_vertex | 변화와 관계 | 이차함수와 그 그래프 | misconception_risk | textbook_evidence_needed | 포물선의 축과 꼭짓점을 혼동하는 오류 |  |
+| m1_mis_max_min_scope | 변화와 관계 | 이차함수와 그 그래프 | misconception_risk | textbook_evidence_needed | 최댓값·최솟값의 범위를 임의로 확장하는 오류 |  |
+| m1_mis_quadratic_function_equation | 변화와 관계 | 이차함수와 그 그래프 | misconception_risk | textbook_evidence_needed | 이차함수와 이차방정식을 혼동하는 오류 |  |
+| m1_mis_expression_equation | 변화와 관계 | 일차방정식 | misconception_risk | textbook_evidence_needed | 식과 방정식 혼동 | 성취수준의 방정식·항등식·다항식 구별 요구에서 추론한 오개념 위험이다. |
+| m1_mis_solution_check | 변화와 관계 | 일차방정식 | misconception_risk | textbook_evidence_needed | 구한 해의 상황 적합성 확인 누락 |  |
+| m1_mis_transposition_sign | 변화와 관계 | 일차방정식 | misconception_risk | textbook_evidence_needed | 이항할 때 부호를 잘못 바꾸는 오류 | 이항 용어와 방정식 풀이 성취수준에서 추론했다. 실제 빈도는 교과서 문제와 학생 오답 자료 확인 필요. |
+| m1_mis_ineq_negative | 변화와 관계 | 일차부등식 | misconception_risk | textbook_evidence_needed | 음수를 곱하거나 나눌 때 부등호 방향을 바꾸지 않는 오류 | 공식 성취수준은 낮은 수준에서 양수 곱나눔을 언급한다. 음수 처리 오류는 교과서 본문과 예제로 보강해야 한다. |
+| m1_mis_ineq_solution_single_value | 변화와 관계 | 일차부등식 | misconception_risk | textbook_evidence_needed | 부등식의 해를 한 값으로만 이해하는 오류 | 부등식의 해와 방정식의 해를 대조해야 하는 수행에서 추론했다. |
+| m1_mis_all_relations_are_functions | 변화와 관계 | 일차함수와 그 그래프 | misconception_risk | textbook_evidence_needed | 모든 두 양의 관계를 함수로 보는 오류 |  |
+| m1_mis_function_linear_function | 변화와 관계 | 일차함수와 그 그래프 | misconception_risk | textbook_evidence_needed | 함수와 일차함수 혼동 |  |
+| m1_mis_function_value_input_output | 변화와 관계 | 일차함수와 그 그래프 | misconception_risk | textbook_evidence_needed | 함숫값과 입력값 혼동 |  |
+| m1_mis_slope_intercept | 변화와 관계 | 일차함수와 그 그래프 | misconception_risk | textbook_evidence_needed | 기울기와 절편 혼동 |  |
+| m1_mis_slope_sign | 변화와 관계 | 일차함수와 그 그래프 | misconception_risk | textbook_evidence_needed | 기울기 부호와 그래프 방향 혼동 |  |
+| m1_mis_x_y_intercept | 변화와 관계 | 일차함수와 그 그래프 | misconception_risk | textbook_evidence_needed | x절편과 y절편 혼동 |  |
+| m1_mis_intersection_solution | 변화와 관계 | 일차함수와 일차방정식의 관계 | misconception_risk | textbook_evidence_needed | 그래프의 교점과 연립방정식의 해를 분리해서 보는 오류 |  |
+| m1_mis_axis_quadrant | 변화와 관계 | 좌표평면과 그래프 | misconception_risk | textbook_evidence_needed | 축 위의 점을 사분면에 포함하는 오류 | 공식 문서에서 좌표축과 사분면 용어는 확인되지만, 오류 자체는 교과서·문항 근거 확인 전 잠정 노드이다. |
+| m1_mis_direct_inverse_generalization | 변화와 관계 | 좌표평면과 그래프 | misconception_risk | textbook_evidence_needed | 증가·감소만으로 정비례·반비례 판단 | 공식 문서의 정비례·반비례 관계 판단 요구와 변화 상태 해석 요구를 함께 본 추론이다. |
+| m1_mis_graph_picture | 변화와 관계 | 좌표평면과 그래프 | misconception_risk | textbook_evidence_needed | 그래프를 상황 그림으로만 보는 오류 | 그래프가 나타내는 상황을 설명하게 한다는 공식 문서 근거에서 추론한 오개념 위험이다. |
+| m1_mis_order_swap | 변화와 관계 | 좌표평면과 그래프 | misconception_risk | textbook_evidence_needed | 순서쌍의 순서 혼동 | 성취수준 문서의 '주어진 좌표를 점으로 나타내기' 수행에서 드러날 수 있는 위험으로 추론했다. 교과서 오개념 코너 확인 필요. |
+| m1_mis_representation_conversion | 변화와 관계 | 좌표평면과 그래프 | misconception_risk | textbook_evidence_needed | 표·식·그래프 변환 오류 | 상호 변환 활동과 표·식·그래프 성취수준에서 추론한 위험이다. 교과서 예제와 문항으로 보강 필요. |
+| m1_coord_axis_point | 변화와 관계 | 좌표평면과 그래프 | sub_concept | source_detail_needed | 축 위의 점 | 공식 문서에는 좌표축과 좌표평면 위의 점이 확인된다. '축 위의 점' 명명과 세부 처리는 교과서 본문 확인이 필요하다. |
+| m1_mis_corresponding_alternate_angles | 도형과 측정 | 기본 도형 | misconception_risk | textbook_evidence_needed | 동위각과 엇각의 위치를 혼동하는 오류 | 성취수준의 각 찾기와 크기 구하기 수행에서 추론한 위험이다. 교과서 오개념 코너 확인 필요. |
+| m1_mis_skew_parallel_lines | 도형과 측정 | 기본 도형 | misconception_risk | textbook_evidence_needed | 꼬인 위치와 평행을 같은 관계로 보는 오류 |  |
+| m1_mis_congruence_similarity | 도형과 측정 | 도형의 닮음 | misconception_risk | textbook_evidence_needed | 합동과 닮음을 같은 관계로 보는 오류 |  |
+| m1_mis_trig_angle_scope | 도형과 측정 | 삼각비 | misconception_risk | textbook_evidence_needed | 삼각비 각의 범위를 0도~90도 밖으로 확장하는 오류 | 교육과정 유의사항에 근거한 범위 관리 노드다. |
+| m1_mis_trig_relation_scope | 도형과 측정 | 삼각비 | misconception_risk | textbook_evidence_needed | 삼각비 사이의 관계를 교육과정 범위로 오해하는 오류 | 교육과정 유의사항은 삼각비 사이의 관계는 다루지 않는다고 명시한다. |
+| m1_mis_circumcenter_incenter | 도형과 측정 | 삼각형과 사각형의 성질 | misconception_risk | textbook_evidence_needed | 외심과 내심을 혼동하는 오류 |  |
+| m1_mis_proof_observation | 도형과 측정 | 삼각형과 사각형의 성질 | misconception_risk | textbook_evidence_needed | 관찰 결과와 증명을 같은 수준의 근거로 보는 오류 |  |
+| m1_mis_circle_proportion_scope | 도형과 측정 | 원의 성질 | misconception_risk | textbook_evidence_needed | 원과 비례에 관한 성질을 범위에 포함하는 오류 | 교육과정 유의사항에 근거한 범위 관리 노드다. |
+| m1_mis_tangent_radius | 도형과 측정 | 원의 성질 | misconception_risk | textbook_evidence_needed | 접선과 반지름의 수직 관계를 놓치는 오류 |  |
+| m1_mis_complex_area_volume_scope | 도형과 측정 | 입체도형의 성질 | misconception_risk | textbook_evidence_needed | 지나치게 복잡한 넓이·부피 변형 문제 범위 혼동 | 교수·학습 및 평가 유의사항에 근거한 범위 관리 노드다. |
+| m1_mis_surface_area_volume | 도형과 측정 | 입체도형의 성질 | misconception_risk | textbook_evidence_needed | 겉넓이와 부피를 같은 측정량으로 보는 오류 |  |
+| m1_mis_arc_chord | 도형과 측정 | 평면도형의 성질 | misconception_risk | textbook_evidence_needed | 호와 현을 같은 대상으로 보는 오류 |  |
+| m1_mis_or_and_counting_confusion | 자료와 가능성 | 경우의 수와 확률 | misconception_risk | textbook_evidence_needed | 또는과 동시에의 경우의 수를 혼동하는 오류 |  |
+| m1_mis_permutation_combination_scope | 자료와 가능성 | 경우의 수와 확률 | misconception_risk | textbook_evidence_needed | 복잡한 순열·조합 문제를 중학교 범위로 확정하는 오류 | 교육과정 유의사항에 근거한 범위 관리 노드다. |
+| m1_mis_probability_no_equal_likely | 자료와 가능성 | 경우의 수와 확률 | misconception_risk | textbook_evidence_needed | 동등 가능성 가정 없이 경우의 수 비율을 적용하는 오류 |  |
+| m1_mis_mean_only_representative | 자료와 가능성 | 대푯값 | misconception_risk | textbook_evidence_needed | 대푯값을 평균으로만 보는 오류 |  |
+| m1_mis_graph_scale_distortion | 자료와 가능성 | 도수분포표와 상대도수 | misconception_risk | textbook_evidence_needed | 눈금 왜곡 그래프를 그대로 해석하는 오류 | 교육과정의 '부적절한 눈금으로 자료를 부정확하게 나타낸 표나 그래프 오류 찾기'에 근거한 노드다. |
+| m1_mis_histogram_bar_graph | 자료와 가능성 | 도수분포표와 상대도수 | misconception_risk | textbook_evidence_needed | 히스토그램과 막대그래프를 같은 표현으로 보는 오류 | 공식 문서의 히스토그램 표현 요구에서 추론한 오개념 위험이다. 교과서 예제와 문항 근거 보강 필요. |
+| m1_mis_relative_frequency_frequency | 자료와 가능성 | 도수분포표와 상대도수 | misconception_risk | textbook_evidence_needed | 도수와 상대도수를 혼동하는 오류 |  |
+| m1_mis_variance_standard_deviation | 자료와 가능성 | 산포도 | misconception_risk | textbook_evidence_needed | 분산과 표준편차를 같은 값으로 보는 오류 |  |
+| m1_mis_correlation_causation | 자료와 가능성 | 상자그림과 산점도 | misconception_risk | textbook_evidence_needed | 상관관계를 원인과 결과로 단정하는 오류 | 공식 문서는 상관관계를 말하는 수준을 다룬다. 인과 판단 오류는 교과서 본문이나 문항 근거 보강 전까지 잠정 노드로 둔다. |

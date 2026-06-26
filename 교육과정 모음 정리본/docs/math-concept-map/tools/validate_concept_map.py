@@ -119,6 +119,10 @@ def missing_achievement_codes(records: list[dict]) -> list[str]:
     return [code for code in EXPECTED_ACHIEVEMENT_CODES if code not in present]
 
 
+def low_confidence_concept_count(records: list[dict]) -> int:
+    return sum(1 for record in records if record.get("confidence") == "low")
+
+
 def main() -> None:
     data_path = OUT_DIR / "concepts.json"
     if not data_path.exists():
@@ -177,11 +181,17 @@ def main() -> None:
 
     concepts_csv = OUT_DIR / "concepts.csv"
     edges_csv = OUT_DIR / "edges.csv"
+    review_queue_csv = OUT_DIR / "review-queue.csv"
+    review_queue_md = OUT_DIR / "review-queue.md"
     graph = OUT_DIR / "graph.mmd"
     if read_csv_count(concepts_csv) != len(concepts):
         fail("concepts.csv row count does not match concepts.json")
     if read_csv_count(edges_csv) != len(edges):
         fail("edges.csv row count does not match concepts.json")
+    if read_csv_count(review_queue_csv) != low_confidence_concept_count(concepts):
+        fail("review-queue.csv row count does not match low-confidence concepts")
+    if not review_queue_md.exists() or "# 검토 큐" not in review_queue_md.read_text(encoding="utf-8"):
+        fail("review-queue.md missing or invalid")
     if not graph.exists() or "flowchart LR" not in graph.read_text(encoding="utf-8"):
         fail("graph.mmd missing or invalid")
 

@@ -55,6 +55,16 @@ class AchievementCoverageTests(unittest.TestCase):
             {"9수04-02", "9수04-03", "9수04-04"},
         )
 
+    def test_low_confidence_count_matches_review_queue_scope(self) -> None:
+        records = [
+            {"confidence": "high"},
+            {"confidence": "low"},
+            {"confidence": "medium"},
+            {"confidence": "low"},
+        ]
+
+        self.assertEqual(validator.low_confidence_concept_count(records), 2)
+
 
 if __name__ == "__main__":
     unittest.main()

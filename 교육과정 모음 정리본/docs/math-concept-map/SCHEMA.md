@@ -50,6 +50,22 @@
 | `concept_ids` | 연결 concept id 목록. 세미콜론으로 구분한다. |
 | `concept_labels` | 연결 concept 대표 한국어명 목록. 세미콜론으로 구분한다. |
 
+## Review Queue CSV
+
+`review-queue.csv`는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 교과서·출처 보강 때 먼저 확인할 항목을 정리한 파생 산출물이다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `concept_id` | 검토 대상 concept id |
+| `label_ko` | 대표 한국어 개념명 |
+| `domain` | 교육과정 영역 |
+| `unit` | 단원 또는 성취기준 묶음 |
+| `concept_type` | concept 유형 |
+| `confidence` | 현재 신뢰도. 이 파일에서는 `low`만 포함한다. |
+| `review_priority` | `textbook_evidence_needed` 또는 `source_detail_needed` |
+| `notes` | 기존 concept notes |
+| `source_refs` | 현재 연결된 출처 id와 위치 요약 |
+
 ## 신뢰도 기준
 
 - `high`: 공식 교육과정 또는 성취수준 문서에서 직접 확인되는 개념·관계
