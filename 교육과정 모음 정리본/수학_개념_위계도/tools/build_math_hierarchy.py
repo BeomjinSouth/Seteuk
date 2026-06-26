@@ -327,14 +327,350 @@ def node_id(area: str, grade_band: str, label: str) -> str:
     return f"curr-{AREAS.index(area)+1}-{GRADE_BANDS.index(grade_band)+1}-{slug}"
 
 
+def concept_ref(area: str, grade_band: str, label: str) -> tuple[str, str, str]:
+    return (area, grade_band, label)
+
+
+CONCEPT_RELATIONS = [
+    {
+        "from": concept_ref("수와 연산", "초1-2", "네 자리 이하의 수"),
+        "to": concept_ref("수와 연산", "초3-4", "다섯 자리 이상의 수"),
+        "type": "prerequisite",
+        "label": "수 개념 확장",
+    },
+    {
+        "from": concept_ref("수와 연산", "초1-2", "네 자리 이하의 수"),
+        "to": concept_ref("수와 연산", "초3-4", "세 자리 수의 덧셈과 뺄셈"),
+        "type": "prerequisite",
+        "label": "자릿값 기반 계산",
+    },
+    {
+        "from": concept_ref("수와 연산", "초1-2", "두 자리 수 범위의 덧셈과 뺄셈"),
+        "to": concept_ref("수와 연산", "초3-4", "세 자리 수의 덧셈과 뺄셈"),
+        "type": "prerequisite",
+        "label": "계산 원리 확장",
+    },
+    {
+        "from": concept_ref("수와 연산", "초1-2", "한 자리 수의 곱셈"),
+        "to": concept_ref("수와 연산", "초3-4", "자연수의 곱셈과 나눗셈"),
+        "type": "prerequisite",
+        "label": "곱셈에서 나눗셈으로",
+    },
+    {
+        "from": concept_ref("수와 연산", "초3-4", "자연수의 곱셈과 나눗셈"),
+        "to": concept_ref("수와 연산", "초5-6", "약수와 배수"),
+        "type": "prerequisite",
+        "label": "곱셈 구조 분석",
+    },
+    {
+        "from": concept_ref("수와 연산", "초3-4", "자연수의 곱셈과 나눗셈"),
+        "to": concept_ref("수와 연산", "초5-6", "자연수의 혼합 계산"),
+        "type": "prerequisite",
+        "label": "연산 감각 통합",
+    },
+    {
+        "from": concept_ref("수와 연산", "초3-4", "분수"),
+        "to": concept_ref("수와 연산", "초3-4", "분모가 같은 분수의 덧셈과 뺄셈"),
+        "type": "prerequisite",
+        "label": "분수 표현에서 계산으로",
+    },
+    {
+        "from": concept_ref("수와 연산", "초3-4", "분모가 같은 분수의 덧셈과 뺄셈"),
+        "to": concept_ref("수와 연산", "초5-6", "분모가 다른 분수의 덧셈과 뺄셈"),
+        "type": "prerequisite",
+        "label": "통분 필요성",
+    },
+    {
+        "from": concept_ref("수와 연산", "초5-6", "분모가 다른 분수의 덧셈과 뺄셈"),
+        "to": concept_ref("수와 연산", "초5-6", "분수의 곱셈과 나눗셈"),
+        "type": "prerequisite",
+        "label": "분수 연산 확장",
+    },
+    {
+        "from": concept_ref("수와 연산", "초3-4", "소수"),
+        "to": concept_ref("수와 연산", "초3-4", "소수의 덧셈과 뺄셈"),
+        "type": "prerequisite",
+        "label": "소수 표현에서 계산으로",
+    },
+    {
+        "from": concept_ref("수와 연산", "초3-4", "소수의 덧셈과 뺄셈"),
+        "to": concept_ref("수와 연산", "초5-6", "소수의 곱셈과 나눗셈"),
+        "type": "prerequisite",
+        "label": "소수 연산 확장",
+    },
+    {
+        "from": concept_ref("수와 연산", "초5-6", "약수와 배수"),
+        "to": concept_ref("수와 연산", "중1-3", "소인수분해"),
+        "type": "prerequisite",
+        "label": "약수·배수 구조의 형식화",
+    },
+    {
+        "from": concept_ref("수와 연산", "초5-6", "분수의 곱셈과 나눗셈"),
+        "to": concept_ref("수와 연산", "중1-3", "정수와 유리수"),
+        "type": "prerequisite",
+        "label": "유리수 연산 준비",
+    },
+    {
+        "from": concept_ref("수와 연산", "초5-6", "소수의 곱셈과 나눗셈"),
+        "to": concept_ref("수와 연산", "중1-3", "유리수와 순환소수"),
+        "type": "prerequisite",
+        "label": "소수 표현의 확장",
+    },
+    {
+        "from": concept_ref("수와 연산", "중1-3", "정수와 유리수"),
+        "to": concept_ref("수와 연산", "중1-3", "제곱근과 실수"),
+        "type": "prerequisite",
+        "label": "수 체계 확장",
+    },
+    {
+        "from": concept_ref("수와 연산", "중1-3", "유리수와 순환소수"),
+        "to": concept_ref("수와 연산", "중1-3", "제곱근과 실수"),
+        "type": "prerequisite",
+        "label": "유리수와 무리수 구분",
+    },
+    {
+        "from": concept_ref("변화와 관계", "초1-2", "규칙"),
+        "to": concept_ref("변화와 관계", "초3-4", "규칙"),
+        "type": "prerequisite",
+        "label": "규칙 표현 확장",
+    },
+    {
+        "from": concept_ref("변화와 관계", "초3-4", "규칙"),
+        "to": concept_ref("변화와 관계", "초5-6", "대응 관계"),
+        "type": "prerequisite",
+        "label": "규칙에서 대응으로",
+    },
+    {
+        "from": concept_ref("변화와 관계", "초3-4", "동치 관계"),
+        "to": concept_ref("변화와 관계", "중1-3", "문자의 사용과 식"),
+        "type": "prerequisite",
+        "label": "등호 이해에서 식 표현으로",
+    },
+    {
+        "from": concept_ref("변화와 관계", "초5-6", "대응 관계"),
+        "to": concept_ref("변화와 관계", "중1-3", "좌표평면과 그래프"),
+        "type": "prerequisite",
+        "label": "대응을 표·그래프로 표현",
+    },
+    {
+        "from": concept_ref("변화와 관계", "초5-6", "대응 관계"),
+        "to": concept_ref("변화와 관계", "중1-3", "일차함수와 그 그래프"),
+        "type": "prerequisite",
+        "label": "함수 사고의 출발",
+    },
+    {
+        "from": concept_ref("수와 연산", "초3-4", "분수"),
+        "to": concept_ref("변화와 관계", "초5-6", "비와 비율"),
+        "type": "cross_area",
+        "label": "부분-전체 표현이 비율로 연결",
+    },
+    {
+        "from": concept_ref("수와 연산", "초3-4", "소수"),
+        "to": concept_ref("변화와 관계", "초5-6", "비와 비율"),
+        "type": "cross_area",
+        "label": "소수 표현이 비율 표현으로 연결",
+    },
+    {
+        "from": concept_ref("변화와 관계", "초5-6", "비와 비율"),
+        "to": concept_ref("변화와 관계", "초5-6", "비례식과 비례배분"),
+        "type": "prerequisite",
+        "label": "비율에서 비례 관계로",
+    },
+    {
+        "from": concept_ref("변화와 관계", "초5-6", "비례식과 비례배분"),
+        "to": concept_ref("변화와 관계", "중1-3", "일차방정식"),
+        "type": "prerequisite",
+        "label": "관계식을 풀기",
+    },
+    {
+        "from": concept_ref("변화와 관계", "중1-3", "문자의 사용과 식"),
+        "to": concept_ref("변화와 관계", "중1-3", "식의 계산"),
+        "type": "prerequisite",
+        "label": "식 조작",
+    },
+    {
+        "from": concept_ref("변화와 관계", "중1-3", "문자의 사용과 식"),
+        "to": concept_ref("변화와 관계", "중1-3", "일차방정식"),
+        "type": "prerequisite",
+        "label": "문자식에서 방정식으로",
+    },
+    {
+        "from": concept_ref("변화와 관계", "중1-3", "일차방정식"),
+        "to": concept_ref("변화와 관계", "중1-3", "연립일차방정식"),
+        "type": "prerequisite",
+        "label": "미지수와 식의 확장",
+    },
+    {
+        "from": concept_ref("변화와 관계", "중1-3", "좌표평면과 그래프"),
+        "to": concept_ref("변화와 관계", "중1-3", "일차함수와 그 그래프"),
+        "type": "prerequisite",
+        "label": "그래프 표현 기반",
+    },
+    {
+        "from": concept_ref("변화와 관계", "중1-3", "일차함수와 그 그래프"),
+        "to": concept_ref("변화와 관계", "중1-3", "일차함수와 일차방정식의 관계"),
+        "type": "prerequisite",
+        "label": "함수와 방정식 연결",
+    },
+    {
+        "from": concept_ref("변화와 관계", "중1-3", "연립일차방정식"),
+        "to": concept_ref("변화와 관계", "중1-3", "일차함수와 일차방정식의 관계"),
+        "type": "cross_link",
+        "label": "해와 그래프의 교점 연결",
+    },
+    {
+        "from": concept_ref("변화와 관계", "중1-3", "식의 계산"),
+        "to": concept_ref("변화와 관계", "중1-3", "다항식의 곱셈과 인수분해"),
+        "type": "prerequisite",
+        "label": "다항식 조작 확장",
+    },
+    {
+        "from": concept_ref("변화와 관계", "중1-3", "다항식의 곱셈과 인수분해"),
+        "to": concept_ref("변화와 관계", "중1-3", "이차방정식"),
+        "type": "prerequisite",
+        "label": "인수분해로 이차방정식 해결",
+    },
+    {
+        "from": concept_ref("변화와 관계", "중1-3", "이차방정식"),
+        "to": concept_ref("변화와 관계", "중1-3", "이차함수와 그 그래프"),
+        "type": "cross_link",
+        "label": "근과 그래프 해석 연결",
+    },
+    {
+        "from": concept_ref("도형과 측정", "초1-2", "평면도형과 그 구성 요소"),
+        "to": concept_ref("도형과 측정", "초3-4", "도형의 기초"),
+        "type": "prerequisite",
+        "label": "도형 구성 요소 정교화",
+    },
+    {
+        "from": concept_ref("도형과 측정", "초3-4", "도형의 기초"),
+        "to": concept_ref("도형과 측정", "중1-3", "기본 도형"),
+        "type": "prerequisite",
+        "label": "기초 용어 형식화",
+    },
+    {
+        "from": concept_ref("도형과 측정", "초3-4", "여러 가지 삼각형"),
+        "to": concept_ref("도형과 측정", "중1-3", "삼각형과 사각형의 성질"),
+        "type": "prerequisite",
+        "label": "도형 성질 정당화",
+    },
+    {
+        "from": concept_ref("도형과 측정", "초3-4", "여러 가지 사각형"),
+        "to": concept_ref("도형과 측정", "중1-3", "삼각형과 사각형의 성질"),
+        "type": "prerequisite",
+        "label": "사각형 성질 정당화",
+    },
+    {
+        "from": concept_ref("도형과 측정", "초3-4", "다각형"),
+        "to": concept_ref("도형과 측정", "중1-3", "평면도형의 성질"),
+        "type": "prerequisite",
+        "label": "다각형 성질 확장",
+    },
+    {
+        "from": concept_ref("도형과 측정", "초5-6", "합동과 대칭"),
+        "to": concept_ref("도형과 측정", "중1-3", "작도와 합동"),
+        "type": "prerequisite",
+        "label": "합동 개념의 엄밀화",
+    },
+    {
+        "from": concept_ref("변화와 관계", "초5-6", "비와 비율"),
+        "to": concept_ref("도형과 측정", "중1-3", "도형의 닮음"),
+        "type": "cross_area",
+        "label": "비율이 닮음비로 전이",
+    },
+    {
+        "from": concept_ref("도형과 측정", "중1-3", "도형의 닮음"),
+        "to": concept_ref("도형과 측정", "중1-3", "삼각비"),
+        "type": "prerequisite",
+        "label": "비율 관계의 삼각형 적용",
+    },
+    {
+        "from": concept_ref("도형과 측정", "중1-3", "피타고라스 정리"),
+        "to": concept_ref("도형과 측정", "중1-3", "삼각비"),
+        "type": "cross_link",
+        "label": "직각삼각형 관계",
+    },
+    {
+        "from": concept_ref("도형과 측정", "초3-4", "원의 구성 요소"),
+        "to": concept_ref("도형과 측정", "초5-6", "원주율과 원의 넓이"),
+        "type": "prerequisite",
+        "label": "원 구성 요소에서 측정으로",
+    },
+    {
+        "from": concept_ref("도형과 측정", "초5-6", "원주율과 원의 넓이"),
+        "to": concept_ref("도형과 측정", "중1-3", "원의 성질"),
+        "type": "prerequisite",
+        "label": "원 탐구 확장",
+    },
+    {
+        "from": concept_ref("자료와 가능성", "초1-2", "자료의 분류"),
+        "to": concept_ref("자료와 가능성", "초1-2", "표"),
+        "type": "prerequisite",
+        "label": "분류 결과 정리",
+    },
+    {
+        "from": concept_ref("자료와 가능성", "초1-2", "표"),
+        "to": concept_ref("자료와 가능성", "초3-4", "막대그래프"),
+        "type": "prerequisite",
+        "label": "표에서 그래프로",
+    },
+    {
+        "from": concept_ref("자료와 가능성", "초3-4", "막대그래프"),
+        "to": concept_ref("자료와 가능성", "초5-6", "평균"),
+        "type": "prerequisite",
+        "label": "자료 비교에서 대표값으로",
+    },
+    {
+        "from": concept_ref("자료와 가능성", "초5-6", "평균"),
+        "to": concept_ref("자료와 가능성", "중1-3", "대푯값"),
+        "type": "prerequisite",
+        "label": "대표값 확장",
+    },
+    {
+        "from": concept_ref("자료와 가능성", "초3-4", "꺾은선그래프"),
+        "to": concept_ref("자료와 가능성", "중1-3", "도수분포표와 상대도수"),
+        "type": "prerequisite",
+        "label": "분포 표현 준비",
+    },
+    {
+        "from": concept_ref("자료와 가능성", "초5-6", "가능성"),
+        "to": concept_ref("자료와 가능성", "중1-3", "경우의 수와 확률"),
+        "type": "prerequisite",
+        "label": "가능성의 수량화",
+    },
+    {
+        "from": concept_ref("수와 연산", "초3-4", "분수"),
+        "to": concept_ref("자료와 가능성", "초5-6", "가능성"),
+        "type": "cross_area",
+        "label": "가능성의 수 표현",
+    },
+    {
+        "from": concept_ref("변화와 관계", "중1-3", "좌표평면과 그래프"),
+        "to": concept_ref("자료와 가능성", "중1-3", "상자그림과 산점도"),
+        "type": "cross_area",
+        "label": "좌표 표현이 산점도로 전이",
+    },
+    {
+        "from": concept_ref("자료와 가능성", "중1-3", "도수분포표와 상대도수"),
+        "to": concept_ref("자료와 가능성", "중1-3", "산포도"),
+        "type": "prerequisite",
+        "label": "분포 비교에서 흩어짐으로",
+    },
+    {
+        "from": concept_ref("자료와 가능성", "중1-3", "산포도"),
+        "to": concept_ref("자료와 가능성", "중1-3", "상자그림과 산점도"),
+        "type": "cross_link",
+        "label": "분포와 관계 탐색",
+    },
+]
+
+
 def build_curriculum_nodes(standards: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     standards_by_area_grade: dict[tuple[str, str], list[dict[str, Any]]] = {}
     for standard in standards:
         standards_by_area_grade.setdefault((standard["area"], standard["gradeBand"]), []).append(standard)
 
     nodes: list[dict[str, Any]] = []
-    edges: list[dict[str, Any]] = []
-    previous_by_area: dict[str, str | None] = {area: None for area in AREAS}
     for area in AREAS:
         for grade_band in GRADE_BANDS:
             for order, label in enumerate(CONTENT_ELEMENTS[area][grade_band], start=1):
@@ -363,21 +699,35 @@ def build_curriculum_nodes(standards: list[dict[str, Any]]) -> tuple[list[dict[s
                     },
                     "order": order,
                     "textbookConceptCount": 0,
+                    "prerequisiteNodeIds": [],
+                    "successorNodeIds": [],
                 }
-                if previous_by_area[area]:
-                    node["prerequisiteNodeIds"] = [previous_by_area[area]]
-                    edges.append(
-                        {
-                            "from": previous_by_area[area],
-                            "to": current_id,
-                            "type": "area_sequence",
-                            "label": "같은 영역 안의 공식 학습 흐름",
-                        }
-                    )
-                else:
-                    node["prerequisiteNodeIds"] = []
                 nodes.append(node)
-                previous_by_area[area] = current_id
+
+    lookup = {(node["area"], node["gradeBand"], node["label"]): node for node in nodes}
+    edges: list[dict[str, Any]] = []
+    seen_edges: set[tuple[str, str, str]] = set()
+    for index, relation in enumerate(CONCEPT_RELATIONS, start=1):
+        source = lookup.get(relation["from"])
+        target = lookup.get(relation["to"])
+        if not source or not target:
+            continue
+        key = (source["id"], target["id"], relation["type"])
+        if key in seen_edges:
+            continue
+        seen_edges.add(key)
+        edges.append(
+            {
+                "id": f"edge-{index:03d}",
+                "from": source["id"],
+                "to": target["id"],
+                "type": relation["type"],
+                "label": relation["label"],
+                "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge",
+            }
+        )
+        target["prerequisiteNodeIds"].append(source["id"])
+        source["successorNodeIds"].append(target["id"])
     return nodes, edges
 
 
@@ -626,10 +976,18 @@ def build_markdown(data: dict[str, Any]) -> str:
         "",
         f"- 공식 교육과정 내용 요소: {counts['curriculumNodes']}개",
         f"- 공식 성취기준 고유 코드: {counts['achievementStandardsTotal']}개",
+        f"- 개념 관계 edge: {counts['conceptEdges']}개",
         f"- 교과서 세부개념 후보: {counts['textbookConcepts']}개",
         f"- 출처 원본 파일: {counts['sourceFiles']}개",
         "",
-        "교과서 원본이 아직 제공되지 않아 현재 HTML과 PDF는 공식 교육과정 위계와 교과서 수집 대기 상태를 함께 보여줍니다.",
+        "교과서 원본이 아직 제공되지 않아 현재 HTML과 PDF는 공식 교육과정 위계와 교과서 수집 대기 상태를 함께 보여줍니다. 위계는 한 줄짜리 진도선이 아니라 여러 선수개념이 합쳐지고 여러 후속개념으로 갈라지는 관계망으로 표현합니다.",
+        "",
+        "## 관계 지도 해석",
+        "",
+        "- `prerequisite`: 같은 영역 안에서 다음 개념을 직접 받치는 선수 관계",
+        "- `cross_area`: 수와 연산, 변화와 관계, 도형과 측정, 자료와 가능성 사이를 넘어 전이되는 관계",
+        "- `cross_link`: 같은 학년군 안팎에서 방정식-함수, 도형-측정처럼 서로 해석을 강화하는 관계",
+        "- 이 edge는 교육과정 내용 요소의 개념적 의존을 정리한 해석 자료이며, 교과서 원본이 추가되면 더 세분화합니다.",
         "",
         "## 영역별 공식 위계",
         "",
@@ -834,6 +1192,124 @@ def build_html(data: dict[str, Any]) -> str:
     .canvas {{
       padding: 18px;
       overflow: auto;
+    }}
+    .network-panel {{
+      min-width: 920px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfbf8;
+      margin-bottom: 18px;
+      overflow: hidden;
+    }}
+    .section-head {{
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      background: #fafaf6;
+    }}
+    .section-head h2 {{
+      margin: 0;
+      font-size: 18px;
+      color: #183b3c;
+    }}
+    .network-wrap {{
+      position: relative;
+      height: 540px;
+      background:
+        linear-gradient(to right, transparent 0 24%, rgba(216, 222, 215, 0.75) 24% 24.15%, transparent 24.15% 49%, rgba(216, 222, 215, 0.75) 49% 49.15%, transparent 49.15% 74%, rgba(216, 222, 215, 0.75) 74% 74.15%, transparent 74.15%),
+        #fffefa;
+    }}
+    .network-svg {{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }}
+    .network-edge {{
+      fill: none;
+      stroke: rgba(23, 111, 114, 0.35);
+      stroke-width: 1.4;
+    }}
+    .network-edge.cross_area {{
+      stroke: rgba(167, 96, 16, 0.48);
+      stroke-dasharray: 6 5;
+    }}
+    .network-edge.cross_link {{
+      stroke: rgba(72, 90, 150, 0.42);
+      stroke-dasharray: 2 4;
+    }}
+    .network-node {{
+      position: absolute;
+      width: 132px;
+      min-height: 44px;
+      transform: translate(-50%, -50%);
+      border: 1px solid #cdd8d3;
+      border-left: 4px solid var(--teal);
+      border-radius: 7px;
+      background: white;
+      padding: 7px 8px;
+      text-align: left;
+      cursor: pointer;
+      box-shadow: 0 5px 14px rgba(32, 33, 36, 0.06);
+    }}
+    .network-node:hover, .network-node:focus {{
+      outline: 2px solid #85bdb6;
+      outline-offset: 1px;
+      z-index: 3;
+    }}
+    .network-node.selected {{
+      background: #f0faf8;
+      border-color: #125b5f;
+      z-index: 4;
+    }}
+    .network-node strong {{
+      display: block;
+      font-size: 12px;
+      line-height: 1.25;
+    }}
+    .network-node span {{
+      color: var(--muted);
+      display: block;
+      font-size: 10px;
+      margin-top: 4px;
+    }}
+    .grade-axis {{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      padding: 10px 14px 0;
+      color: #3b403c;
+      font-weight: 800;
+      font-size: 12px;
+    }}
+    .grade-axis span {{
+      border-radius: 7px;
+      background: #edece5;
+      padding: 6px 8px;
+      text-align: center;
+    }}
+    .relationship-note {{
+      padding: 0 14px 12px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }}
+    .card-section-title {{
+      min-width: 920px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin: 2px 0 10px;
+    }}
+    .card-section-title h2 {{
+      margin: 0;
+      font-size: 18px;
+      color: #183b3c;
     }}
     .grid {{
       min-width: 920px;
@@ -1046,6 +1522,27 @@ def build_html(data: dict[str, Any]) -> str:
         <span class="pill teal">2022 공식 위계</span>
       </section>
       <section class="canvas">
+        <div class="network-panel">
+          <div class="section-head">
+            <h2>관계 지도</h2>
+            <span class="pill teal" id="networkMeta">선수·교차 관계</span>
+          </div>
+          <div class="grade-axis">
+            <span>초1-2</span>
+            <span>초3-4</span>
+            <span>초5-6</span>
+            <span>중1-3</span>
+          </div>
+          <div class="network-wrap" id="networkWrap">
+            <svg class="network-svg" id="networkSvg" aria-hidden="true"></svg>
+            <div id="networkNodes"></div>
+          </div>
+          <div class="relationship-note">실선은 직접 선수 관계, 점선은 영역을 넘어 전이되는 관계입니다. 이 관계는 단일 진도선이 아니라 여러 개념이 합쳐지고 갈라지는 교육과정 해석 지도입니다.</div>
+        </div>
+        <div class="card-section-title">
+          <h2>영역별 카드</h2>
+          <span class="pill">목록형 탐색</span>
+        </div>
         <div class="grid" id="hierarchyGrid"></div>
         <div id="textbookSection"></div>
       </section>
@@ -1066,6 +1563,22 @@ def build_html(data: dict[str, Any]) -> str:
     const grades = DATA.metadata.gradeBands;
     const nodesById = new Map(DATA.curriculum_nodes.map(node => [node.id, node]));
     const standardsByCode = new Map(DATA.achievement_standards.map(item => [item.code, item]));
+    const areaColors = {{
+      '수와 연산': '#4b8ccf',
+      '변화와 관계': '#399167',
+      '도형과 측정': '#c76d92',
+      '자료와 가능성': '#c79a35'
+    }};
+
+    function escapeHtml(value) {{
+      return String(value ?? '').replace(/[&<>"']/g, char => ({{
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      }}[char]));
+    }}
 
     function optionList(select, values) {{
       select.innerHTML = values.map(value => `<option value="${{value}}">${{value}}</option>`).join('');
@@ -1090,8 +1603,97 @@ def build_html(data: dict[str, Any]) -> str:
       const codes = node.achievementCodes || [];
       return `<button class="card ${{state.selectedId === node.id ? 'selected' : ''}}" data-id="${{node.id}}">
         <span class="card-title">${{node.label}}</span>
-        <span class="card-meta"><span>${{node.gradeBand}}</span><span>${{codes.length}}개 성취기준</span><span>${{node.textbookConceptCount || 0}}개 세부개념</span></span>
+        <span class="card-meta"><span>${{node.gradeBand}}</span><span>${{codes.length}}개 성취기준</span><span>선수 ${{(node.prerequisiteNodeIds || []).length}}</span><span>후속 ${{(node.successorNodeIds || []).length}}</span></span>
       </button>`;
+    }}
+
+    function edgeVisible(edge, visibleIds) {{
+      return visibleIds.has(edge.from) && visibleIds.has(edge.to);
+    }}
+
+    function networkNodesForState() {{
+      const connectedIds = new Set();
+      DATA.edges.forEach(edge => {{
+        connectedIds.add(edge.from);
+        connectedIds.add(edge.to);
+      }});
+      let nodes = DATA.curriculum_nodes
+        .filter(node => connectedIds.has(node.id))
+        .filter(matchesNode);
+      if (state.selectedId) {{
+        const selected = nodesById.get(state.selectedId);
+        const neighborIds = new Set([state.selectedId]);
+        DATA.edges.forEach(edge => {{
+          if (edge.from === state.selectedId) neighborIds.add(edge.to);
+          if (edge.to === state.selectedId) neighborIds.add(edge.from);
+        }});
+        const neighbors = [...neighborIds].map(id => nodesById.get(id)).filter(Boolean);
+        const merged = new Map(nodes.map(node => [node.id, node]));
+        neighbors.forEach(node => merged.set(node.id, node));
+        nodes = [...merged.values()];
+      }}
+      return nodes.sort((a, b) => {{
+        const gradeDelta = grades.indexOf(a.gradeBand) - grades.indexOf(b.gradeBand);
+        if (gradeDelta) return gradeDelta;
+        const areaDelta = areas.indexOf(a.area) - areas.indexOf(b.area);
+        if (areaDelta) return areaDelta;
+        return a.order - b.order;
+      }});
+    }}
+
+    function renderNetwork() {{
+      const wrap = document.getElementById('networkWrap');
+      const svg = document.getElementById('networkSvg');
+      const host = document.getElementById('networkNodes');
+      const meta = document.getElementById('networkMeta');
+      const width = Math.max(920, wrap.clientWidth || 920);
+      const height = 540;
+      const nodes = networkNodesForState();
+      const ids = new Set(nodes.map(node => node.id));
+      const edges = DATA.edges.filter(edge => edgeVisible(edge, ids));
+      const byGrade = new Map(grades.map(grade => [grade, []]));
+      nodes.forEach(node => byGrade.get(node.gradeBand)?.push(node));
+      const positions = new Map();
+      grades.forEach((grade, gradeIndex) => {{
+        const column = byGrade.get(grade) || [];
+        const usable = height - 96;
+        const step = column.length > 1 ? Math.min(58, usable / (column.length - 1)) : 0;
+        const total = step * Math.max(0, column.length - 1);
+        const start = 70 + Math.max(0, (usable - total) / 2);
+        column.forEach((node, index) => {{
+          positions.set(node.id, {{
+            x: Math.round(((gradeIndex + 0.5) / grades.length) * width),
+            y: Math.round(start + index * step)
+          }});
+        }});
+      }});
+      const marker = `<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="rgba(23,111,114,.52)"></path></marker></defs>`;
+      const edgePaths = edges.map(edge => {{
+        const a = positions.get(edge.from);
+        const b = positions.get(edge.to);
+        if (!a || !b) return '';
+        const dx = Math.max(80, Math.abs(b.x - a.x) * 0.48);
+        const curve = `M ${{a.x + 58}} ${{a.y}} C ${{a.x + dx}} ${{a.y}}, ${{b.x - dx}} ${{b.y}}, ${{b.x - 58}} ${{b.y}}`;
+        return `<path class="network-edge ${{edge.type}}" d="${{curve}}" marker-end="url(#arrow)"><title>${{escapeHtml(edge.label)}}</title></path>`;
+      }}).join('');
+      svg.setAttribute('viewBox', `0 0 ${{width}} ${{height}}`);
+      svg.innerHTML = marker + edgePaths;
+      host.innerHTML = nodes.map(node => {{
+        const pos = positions.get(node.id);
+        const selected = state.selectedId === node.id ? ' selected' : '';
+        return `<button class="network-node${{selected}}" data-id="${{node.id}}" style="left:${{pos.x}}px;top:${{pos.y}}px;border-left-color:${{areaColors[node.area] || '#176f72'}}">
+          <strong>${{escapeHtml(node.label)}}</strong>
+          <span>${{escapeHtml(node.area)}} · ${{escapeHtml(node.gradeBand)}}</span>
+        </button>`;
+      }}).join('');
+      host.querySelectorAll('.network-node').forEach(button => {{
+        button.addEventListener('click', () => {{
+          state.selectedId = button.dataset.id;
+          renderAll();
+          renderDetail(nodesById.get(state.selectedId));
+        }});
+      }});
+      meta.textContent = `${{edges.length}}개 관계 · ${{nodes.length}}개 개념`;
     }}
 
     function renderGrid() {{
@@ -1112,7 +1714,7 @@ def build_html(data: dict[str, Any]) -> str:
       grid.querySelectorAll('.card').forEach(button => {{
         button.addEventListener('click', () => {{
           state.selectedId = button.dataset.id;
-          renderGrid();
+          renderAll();
           renderDetail(nodesById.get(state.selectedId));
         }});
       }});
@@ -1143,7 +1745,15 @@ def build_html(data: dict[str, Any]) -> str:
       const codes = (node.achievementCodes || []).map(code => standardsByCode.get(code)).filter(Boolean);
       const codeHtml = codes.length ? codes.map(item => `<span class="code" title="${{item.summary}}">${{item.code}}</span>`).join('') : '<span class="subtle">연결 성취기준 없음</span>';
       const standardHtml = codes.slice(0, 8).map(item => `<li><strong>${{item.code}}</strong> ${{item.summary}}</li>`).join('');
-      const prereq = (node.prerequisiteNodeIds || []).map(id => nodesById.get(id)?.label).filter(Boolean).join(', ') || '없음';
+      const incoming = DATA.edges.filter(edge => edge.to === node.id);
+      const outgoing = DATA.edges.filter(edge => edge.from === node.id);
+      const relationList = edges => edges.length
+        ? `<ul>${{edges.map(edge => {{
+            const otherId = edge.to === node.id ? edge.from : edge.to;
+            const other = nodesById.get(otherId);
+            return `<li><strong>${{escapeHtml(other?.label || '')}}</strong> <span class="subtle">(${{escapeHtml(edge.label)}})</span></li>`;
+          }}).join('')}}</ul>`
+        : '<p class="subtle">없음</p>';
       panel.innerHTML = `
         <h2>${{node.label}}</h2>
         <span class="pill teal">${{node.gradeBand}}</span>
@@ -1158,7 +1768,11 @@ def build_html(data: dict[str, Any]) -> str:
         </div>
         <div class="detail-section">
           <h2>선수 흐름</h2>
-          <p>${{prereq}}</p>
+          ${{relationList(incoming)}}
+        </div>
+        <div class="detail-section">
+          <h2>후속·교차 흐름</h2>
+          ${{relationList(outgoing)}}
         </div>
         <div class="detail-section">
           <h2>출처</h2>
@@ -1184,6 +1798,7 @@ def build_html(data: dict[str, Any]) -> str:
 
     function renderAll() {{
       renderMetrics();
+      renderNetwork();
       renderGrid();
       renderTextbookSection();
       renderAccessNotice();
@@ -1262,7 +1877,7 @@ def build_pdf(data: dict[str, Any]) -> None:
     story.append(Paragraph("초1-중3 수학 개념 위계도", title))
     story.append(
         Paragraph(
-            f"공식 교육과정 내용 요소 {counts['curriculumNodes']}개, 성취기준 {counts['achievementStandardsTotal']}개를 골격으로 구성했습니다. 교과서 세부개념은 `교과서_원본/` 제공 파일 기준으로 갱신됩니다.",
+            f"공식 교육과정 내용 요소 {counts['curriculumNodes']}개, 성취기준 {counts['achievementStandardsTotal']}개, 개념 관계 edge {counts['conceptEdges']}개를 골격으로 구성했습니다. 교과서 세부개념은 `교과서_원본/` 제공 파일 기준으로 갱신됩니다.",
             body,
         )
     )
@@ -1272,6 +1887,7 @@ def build_pdf(data: dict[str, Any]) -> None:
         [pcell("구분"), pcell("값")],
         [pcell("교육과정 PDF"), pcell(Path(data["metadata"]["curriculumPdf"]["file"]).name)],
         [pcell("SHA-256"), pcell(data["metadata"]["curriculumPdf"]["sha256"][:24] + "...")],
+        [pcell("개념 관계 edge"), pcell(str(counts["conceptEdges"]))],
         [pcell("교과서 원본 파일"), pcell(str(counts["sourceFiles"]))],
         [pcell("교과서 세부개념 후보"), pcell(str(counts["textbookConcepts"]))],
     ]
@@ -1290,6 +1906,13 @@ def build_pdf(data: dict[str, Any]) -> None:
         )
     )
     story.append(table)
+    story.append(Paragraph("관계 지도 해석", heading))
+    story.append(
+        Paragraph(
+            "이 산출물의 위계는 한 줄짜리 진도선이 아니라 여러 선수개념이 합쳐지고 여러 후속개념으로 갈라지는 관계망입니다. 실선은 직접 선수 관계, 점선은 영역을 넘는 전이 또는 해석 연결을 뜻합니다.",
+            body,
+        )
+    )
 
     for area in AREAS:
         story.append(Paragraph(area, heading))
@@ -1355,6 +1978,9 @@ def write_outputs() -> None:
     for standard in standards:
         prefix = standard["code"][:2]
         standards_by_prefix[prefix] = standards_by_prefix.get(prefix, 0) + 1
+    edge_counts_by_type: dict[str, int] = {}
+    for edge in edges:
+        edge_counts_by_type[edge["type"]] = edge_counts_by_type.get(edge["type"], 0) + 1
 
     data = {
         "metadata": {
@@ -1375,6 +2001,8 @@ def write_outputs() -> None:
                 "curriculumNodes": len(curriculum_nodes),
                 "achievementStandardsTotal": len(standards),
                 "achievementStandardsByPrefix": standards_by_prefix,
+                "conceptEdges": len(edges),
+                "conceptEdgesByType": edge_counts_by_type,
                 "textbookConcepts": len(textbook_concepts),
                 "sourceFiles": len(sources),
                 "accessIssues": len(access_issues),
@@ -1413,7 +2041,7 @@ def write_outputs() -> None:
     (OUTPUT_DIR / "README.md").write_text(
         """# 수학 개념 위계도
 
-2022 개정 수학과 교육과정의 초1-중3 공식 위계를 바탕으로, 사용자가 제공한 교과서·익힘책·지도서 세부개념을 연결하는 산출물입니다.
+2022 개정 수학과 교육과정의 초1-중3 공식 위계를 바탕으로, 사용자가 제공한 교과서·익힘책·지도서 세부개념을 연결하는 산출물입니다. 위계는 한 줄짜리 순서가 아니라 여러 선수개념이 합쳐지고 갈라지는 관계 지도와 영역별 카드로 함께 제공합니다.
 
 ## 열기
 

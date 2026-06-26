@@ -154,6 +154,124 @@
       padding: 18px;
       overflow: auto;
     }
+    .network-panel {
+      min-width: 920px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfbf8;
+      margin-bottom: 18px;
+      overflow: hidden;
+    }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      background: #fafaf6;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: 18px;
+      color: #183b3c;
+    }
+    .network-wrap {
+      position: relative;
+      height: 540px;
+      background:
+        linear-gradient(to right, transparent 0 24%, rgba(216, 222, 215, 0.75) 24% 24.15%, transparent 24.15% 49%, rgba(216, 222, 215, 0.75) 49% 49.15%, transparent 49.15% 74%, rgba(216, 222, 215, 0.75) 74% 74.15%, transparent 74.15%),
+        #fffefa;
+    }
+    .network-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .network-edge {
+      fill: none;
+      stroke: rgba(23, 111, 114, 0.35);
+      stroke-width: 1.4;
+    }
+    .network-edge.cross_area {
+      stroke: rgba(167, 96, 16, 0.48);
+      stroke-dasharray: 6 5;
+    }
+    .network-edge.cross_link {
+      stroke: rgba(72, 90, 150, 0.42);
+      stroke-dasharray: 2 4;
+    }
+    .network-node {
+      position: absolute;
+      width: 132px;
+      min-height: 44px;
+      transform: translate(-50%, -50%);
+      border: 1px solid #cdd8d3;
+      border-left: 4px solid var(--teal);
+      border-radius: 7px;
+      background: white;
+      padding: 7px 8px;
+      text-align: left;
+      cursor: pointer;
+      box-shadow: 0 5px 14px rgba(32, 33, 36, 0.06);
+    }
+    .network-node:hover, .network-node:focus {
+      outline: 2px solid #85bdb6;
+      outline-offset: 1px;
+      z-index: 3;
+    }
+    .network-node.selected {
+      background: #f0faf8;
+      border-color: #125b5f;
+      z-index: 4;
+    }
+    .network-node strong {
+      display: block;
+      font-size: 12px;
+      line-height: 1.25;
+    }
+    .network-node span {
+      color: var(--muted);
+      display: block;
+      font-size: 10px;
+      margin-top: 4px;
+    }
+    .grade-axis {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      padding: 10px 14px 0;
+      color: #3b403c;
+      font-weight: 800;
+      font-size: 12px;
+    }
+    .grade-axis span {
+      border-radius: 7px;
+      background: #edece5;
+      padding: 6px 8px;
+      text-align: center;
+    }
+    .relationship-note {
+      padding: 0 14px 12px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .card-section-title {
+      min-width: 920px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin: 2px 0 10px;
+    }
+    .card-section-title h2 {
+      margin: 0;
+      font-size: 18px;
+      color: #183b3c;
+    }
     .grid {
       min-width: 920px;
       display: grid;
@@ -365,6 +483,27 @@
         <span class="pill teal">2022 공식 위계</span>
       </section>
       <section class="canvas">
+        <div class="network-panel">
+          <div class="section-head">
+            <h2>관계 지도</h2>
+            <span class="pill teal" id="networkMeta">선수·교차 관계</span>
+          </div>
+          <div class="grade-axis">
+            <span>초1-2</span>
+            <span>초3-4</span>
+            <span>초5-6</span>
+            <span>중1-3</span>
+          </div>
+          <div class="network-wrap" id="networkWrap">
+            <svg class="network-svg" id="networkSvg" aria-hidden="true"></svg>
+            <div id="networkNodes"></div>
+          </div>
+          <div class="relationship-note">실선은 직접 선수 관계, 점선은 영역을 넘어 전이되는 관계입니다. 이 관계는 단일 진도선이 아니라 여러 개념이 합쳐지고 갈라지는 교육과정 해석 지도입니다.</div>
+        </div>
+        <div class="card-section-title">
+          <h2>영역별 카드</h2>
+          <span class="pill">목록형 탐색</span>
+        </div>
         <div class="grid" id="hierarchyGrid"></div>
         <div id="textbookSection"></div>
       </section>
@@ -380,7 +519,7 @@
   <script id="hierarchyData" type="application/json">{
   "metadata": {
     "title": "초1-중3 수학 개념 위계도",
-    "generatedAt": "2026-06-26T14:55:39",
+    "generatedAt": "2026-06-26T15:16:26",
     "version": "1.0.0",
     "areas": [
       "수와 연산",
@@ -437,6 +576,12 @@
         "6수": 45,
         "9수": 60
       },
+      "conceptEdges": 55,
+      "conceptEdgesByType": {
+        "prerequisite": 46,
+        "cross_area": 5,
+        "cross_link": 4
+      },
       "textbookConcepts": 0,
       "sourceFiles": 0,
       "accessIssues": 1
@@ -475,7 +620,11 @@
       },
       "order": 1,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": []
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": [
+        "curr-1-2-다섯-자리-이상의-수",
+        "curr-1-2-세-자리-수의-덧셈과-뺄셈"
+      ]
     },
     {
       "id": "curr-1-1-두-자리-수-범위의-덧셈과-뺄셈",
@@ -503,8 +652,9 @@
       },
       "order": 2,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-1-1-네-자리-이하의-수"
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": [
+        "curr-1-2-세-자리-수의-덧셈과-뺄셈"
       ]
     },
     {
@@ -531,8 +681,9 @@
       },
       "order": 3,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-1-1-두-자리-수-범위의-덧셈과-뺄셈"
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": [
+        "curr-1-2-자연수의-곱셈과-나눗셈"
       ]
     },
     {
@@ -573,8 +724,9 @@
       "order": 1,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-1-1-한-자리-수의-곱셈"
-      ]
+        "curr-1-1-네-자리-이하의-수"
+      ],
+      "successorNodeIds": []
     },
     {
       "id": "curr-1-2-분수",
@@ -603,8 +755,11 @@
       },
       "order": 2,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-1-2-다섯-자리-이상의-수"
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": [
+        "curr-1-2-분모가-같은-분수의-덧셈과-뺄셈",
+        "curr-2-3-비와-비율",
+        "curr-4-3-가능성"
       ]
     },
     {
@@ -634,8 +789,10 @@
       },
       "order": 3,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-1-2-분수"
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": [
+        "curr-1-2-소수의-덧셈과-뺄셈",
+        "curr-2-3-비와-비율"
       ]
     },
     {
@@ -665,8 +822,10 @@
       "order": 4,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-1-2-소수"
-      ]
+        "curr-1-1-네-자리-이하의-수",
+        "curr-1-1-두-자리-수-범위의-덧셈과-뺄셈"
+      ],
+      "successorNodeIds": []
     },
     {
       "id": "curr-1-2-자연수의-곱셈과-나눗셈",
@@ -695,7 +854,11 @@
       "order": 5,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-1-2-세-자리-수의-덧셈과-뺄셈"
+        "curr-1-1-한-자리-수의-곱셈"
+      ],
+      "successorNodeIds": [
+        "curr-1-3-약수와-배수",
+        "curr-1-3-자연수의-혼합-계산"
       ]
     },
     {
@@ -729,7 +892,10 @@
       "order": 6,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-1-2-자연수의-곱셈과-나눗셈"
+        "curr-1-2-분수"
+      ],
+      "successorNodeIds": [
+        "curr-1-3-분모가-다른-분수의-덧셈과-뺄셈"
       ]
     },
     {
@@ -762,7 +928,10 @@
       "order": 7,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-1-2-분모가-같은-분수의-덧셈과-뺄셈"
+        "curr-1-2-소수"
+      ],
+      "successorNodeIds": [
+        "curr-1-3-소수의-곱셈과-나눗셈"
       ]
     },
     {
@@ -789,7 +958,10 @@
       "order": 1,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-1-2-소수의-덧셈과-뺄셈"
+        "curr-1-2-자연수의-곱셈과-나눗셈"
+      ],
+      "successorNodeIds": [
+        "curr-1-4-소인수분해"
       ]
     },
     {
@@ -828,9 +1000,8 @@
       },
       "order": 2,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-1-3-약수와-배수"
-      ]
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": []
     },
     {
       "id": "curr-1-3-자연수의-혼합-계산",
@@ -856,8 +1027,9 @@
       "order": 3,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-1-3-수의-범위와-올림-버림-반올림"
-      ]
+        "curr-1-2-자연수의-곱셈과-나눗셈"
+      ],
+      "successorNodeIds": []
     },
     {
       "id": "curr-1-3-분모가-다른-분수의-덧셈과-뺄셈",
@@ -890,7 +1062,10 @@
       "order": 4,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-1-3-자연수의-혼합-계산"
+        "curr-1-2-분모가-같은-분수의-덧셈과-뺄셈"
+      ],
+      "successorNodeIds": [
+        "curr-1-3-분수의-곱셈과-나눗셈"
       ]
     },
     {
@@ -928,6 +1103,9 @@
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
         "curr-1-3-분모가-다른-분수의-덧셈과-뺄셈"
+      ],
+      "successorNodeIds": [
+        "curr-1-4-정수와-유리수"
       ]
     },
     {
@@ -961,7 +1139,10 @@
       "order": 6,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-1-3-분수의-곱셈과-나눗셈"
+        "curr-1-2-소수의-덧셈과-뺄셈"
+      ],
+      "successorNodeIds": [
+        "curr-1-4-유리수와-순환소수"
       ]
     },
     {
@@ -988,8 +1169,9 @@
       "order": 1,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-1-3-소수의-곱셈과-나눗셈"
-      ]
+        "curr-1-3-약수와-배수"
+      ],
+      "successorNodeIds": []
     },
     {
       "id": "curr-1-4-정수와-유리수",
@@ -1018,7 +1200,10 @@
       "order": 2,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-1-4-소인수분해"
+        "curr-1-3-분수의-곱셈과-나눗셈"
+      ],
+      "successorNodeIds": [
+        "curr-1-4-제곱근과-실수"
       ]
     },
     {
@@ -1047,7 +1232,10 @@
       "order": 3,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-1-4-정수와-유리수"
+        "curr-1-3-소수의-곱셈과-나눗셈"
+      ],
+      "successorNodeIds": [
+        "curr-1-4-제곱근과-실수"
       ]
     },
     {
@@ -1075,8 +1263,10 @@
       "order": 4,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
+        "curr-1-4-정수와-유리수",
         "curr-1-4-유리수와-순환소수"
-      ]
+      ],
+      "successorNodeIds": []
     },
     {
       "id": "curr-2-1-규칙",
@@ -1101,7 +1291,10 @@
       },
       "order": 1,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": []
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": [
+        "curr-2-2-규칙"
+      ]
     },
     {
       "id": "curr-2-2-규칙",
@@ -1128,6 +1321,9 @@
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
         "curr-2-1-규칙"
+      ],
+      "successorNodeIds": [
+        "curr-2-3-대응-관계"
       ]
     },
     {
@@ -1154,8 +1350,9 @@
       },
       "order": 2,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-2-2-규칙"
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": [
+        "curr-2-4-문자의-사용과-식"
       ]
     },
     {
@@ -1185,7 +1382,11 @@
       "order": 1,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-2-2-동치-관계"
+        "curr-2-2-규칙"
+      ],
+      "successorNodeIds": [
+        "curr-2-4-좌표평면과-그래프",
+        "curr-2-4-일차함수와-그-그래프"
       ]
     },
     {
@@ -1214,7 +1415,12 @@
       "order": 2,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-2-3-대응-관계"
+        "curr-1-2-분수",
+        "curr-1-2-소수"
+      ],
+      "successorNodeIds": [
+        "curr-2-3-비례식과-비례배분",
+        "curr-3-4-도형의-닮음"
       ]
     },
     {
@@ -1244,6 +1450,9 @@
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
         "curr-2-3-비와-비율"
+      ],
+      "successorNodeIds": [
+        "curr-2-4-일차방정식"
       ]
     },
     {
@@ -1290,7 +1499,11 @@
       "order": 1,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-2-3-비례식과-비례배분"
+        "curr-2-2-동치-관계"
+      ],
+      "successorNodeIds": [
+        "curr-2-4-식의-계산",
+        "curr-2-4-일차방정식"
       ]
     },
     {
@@ -1324,7 +1537,11 @@
       "order": 2,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
+        "curr-2-3-비례식과-비례배분",
         "curr-2-4-문자의-사용과-식"
+      ],
+      "successorNodeIds": [
+        "curr-2-4-연립일차방정식"
       ]
     },
     {
@@ -1358,7 +1575,11 @@
       "order": 3,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-2-4-일차방정식"
+        "curr-2-3-대응-관계"
+      ],
+      "successorNodeIds": [
+        "curr-2-4-일차함수와-그-그래프",
+        "curr-4-4-상자그림과-산점도"
       ]
     },
     {
@@ -1405,7 +1626,10 @@
       "order": 4,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-2-4-좌표평면과-그래프"
+        "curr-2-4-문자의-사용과-식"
+      ],
+      "successorNodeIds": [
+        "curr-2-4-다항식의-곱셈과-인수분해"
       ]
     },
     {
@@ -1431,9 +1655,8 @@
       },
       "order": 5,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-2-4-식의-계산"
-      ]
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": []
     },
     {
       "id": "curr-2-4-연립일차방정식",
@@ -1466,7 +1689,10 @@
       "order": 6,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-2-4-일차부등식"
+        "curr-2-4-일차방정식"
+      ],
+      "successorNodeIds": [
+        "curr-2-4-일차함수와-일차방정식의-관계"
       ]
     },
     {
@@ -1503,7 +1729,11 @@
       "order": 7,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-2-4-연립일차방정식"
+        "curr-2-3-대응-관계",
+        "curr-2-4-좌표평면과-그래프"
+      ],
+      "successorNodeIds": [
+        "curr-2-4-일차함수와-일차방정식의-관계"
       ]
     },
     {
@@ -1542,8 +1772,10 @@
       "order": 8,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-2-4-일차함수와-그-그래프"
-      ]
+        "curr-2-4-일차함수와-그-그래프",
+        "curr-2-4-연립일차방정식"
+      ],
+      "successorNodeIds": []
     },
     {
       "id": "curr-2-4-다항식의-곱셈과-인수분해",
@@ -1571,7 +1803,10 @@
       "order": 9,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-2-4-일차함수와-일차방정식의-관계"
+        "curr-2-4-식의-계산"
+      ],
+      "successorNodeIds": [
+        "curr-2-4-이차방정식"
       ]
     },
     {
@@ -1606,6 +1841,9 @@
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
         "curr-2-4-다항식의-곱셈과-인수분해"
+      ],
+      "successorNodeIds": [
+        "curr-2-4-이차함수와-그-그래프"
       ]
     },
     {
@@ -1643,7 +1881,8 @@
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
         "curr-2-4-이차방정식"
-      ]
+      ],
+      "successorNodeIds": []
     },
     {
       "id": "curr-3-1-입체도형의-모양",
@@ -1667,7 +1906,8 @@
       },
       "order": 1,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": []
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": []
     },
     {
       "id": "curr-3-1-평면도형과-그-구성-요소",
@@ -1691,8 +1931,9 @@
       },
       "order": 2,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-3-1-입체도형의-모양"
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": [
+        "curr-3-2-도형의-기초"
       ]
     },
     {
@@ -1718,9 +1959,8 @@
       },
       "order": 3,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-3-1-평면도형과-그-구성-요소"
-      ]
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": []
     },
     {
       "id": "curr-3-1-시각과-시간-시-분",
@@ -1756,9 +1996,8 @@
       },
       "order": 4,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-3-1-양의-비교"
-      ]
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": []
     },
     {
       "id": "curr-3-1-길이-cm-m",
@@ -1786,9 +2025,8 @@
       },
       "order": 5,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-3-1-시각과-시간-시-분"
-      ]
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": []
     },
     {
       "id": "curr-3-2-도형의-기초",
@@ -1815,7 +2053,10 @@
       "order": 1,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-3-1-길이-cm-m"
+        "curr-3-1-평면도형과-그-구성-요소"
+      ],
+      "successorNodeIds": [
+        "curr-3-4-기본-도형"
       ]
     },
     {
@@ -1842,8 +2083,9 @@
       },
       "order": 2,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-3-2-도형의-기초"
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": [
+        "curr-3-3-원주율과-원의-넓이"
       ]
     },
     {
@@ -1871,8 +2113,9 @@
       },
       "order": 3,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-3-2-원의-구성-요소"
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": [
+        "curr-3-4-삼각형과-사각형의-성질"
       ]
     },
     {
@@ -1898,8 +2141,9 @@
       },
       "order": 4,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-3-2-여러-가지-삼각형"
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": [
+        "curr-3-4-삼각형과-사각형의-성질"
       ]
     },
     {
@@ -1948,8 +2192,9 @@
       },
       "order": 5,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-3-2-여러-가지-사각형"
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": [
+        "curr-3-4-평면도형의-성질"
       ]
     },
     {
@@ -1976,9 +2221,8 @@
       },
       "order": 6,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-3-2-다각형"
-      ]
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": []
     },
     {
       "id": "curr-3-2-시각과-시간-초",
@@ -2026,9 +2270,8 @@
       },
       "order": 7,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-3-2-평면도형의-이동"
-      ]
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": []
     },
     {
       "id": "curr-3-2-길이-mm-km",
@@ -2054,9 +2297,8 @@
       },
       "order": 8,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-3-2-시각과-시간-초"
-      ]
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": []
     },
     {
       "id": "curr-3-2-들이-L-mL",
@@ -2104,9 +2346,8 @@
       },
       "order": 9,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-3-2-길이-mm-km"
-      ]
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": []
     },
     {
       "id": "curr-3-2-무게-kg-g-t",
@@ -2154,9 +2395,8 @@
       },
       "order": 10,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-3-2-들이-L-mL"
-      ]
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": []
     },
     {
       "id": "curr-3-2-각도",
@@ -2204,9 +2444,8 @@
       },
       "order": 11,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-3-2-무게-kg-g-t"
-      ]
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": []
     },
     {
       "id": "curr-3-3-합동과-대칭",
@@ -2230,8 +2469,9 @@
       },
       "order": 1,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-3-2-각도"
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": [
+        "curr-3-4-작도와-합동"
       ]
     },
     {
@@ -2274,9 +2514,8 @@
       },
       "order": 2,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-3-3-합동과-대칭"
-      ]
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": []
     },
     {
       "id": "curr-3-3-각기둥과-각뿔",
@@ -2318,9 +2557,8 @@
       },
       "order": 3,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-3-3-직육면체와-정육면체"
-      ]
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": []
     },
     {
       "id": "curr-3-3-원기둥-원뿔-구",
@@ -2348,9 +2586,8 @@
       },
       "order": 4,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-3-3-각기둥과-각뿔"
-      ]
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": []
     },
     {
       "id": "curr-3-3-다각형의-둘레와-넓이",
@@ -2378,9 +2615,8 @@
       },
       "order": 5,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-3-3-원기둥-원뿔-구"
-      ]
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": []
     },
     {
       "id": "curr-3-3-원주율과-원의-넓이",
@@ -2413,7 +2649,10 @@
       "order": 6,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-3-3-다각형의-둘레와-넓이"
+        "curr-3-2-원의-구성-요소"
+      ],
+      "successorNodeIds": [
+        "curr-3-4-원의-성질"
       ]
     },
     {
@@ -2444,9 +2683,8 @@
       },
       "order": 7,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-3-3-원주율과-원의-넓이"
-      ]
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": []
     },
     {
       "id": "curr-3-4-기본-도형",
@@ -2473,8 +2711,9 @@
       "order": 1,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-3-3-직육면체와-정육면체의-겉넓이와-부피"
-      ]
+        "curr-3-2-도형의-기초"
+      ],
+      "successorNodeIds": []
     },
     {
       "id": "curr-3-4-작도와-합동",
@@ -2500,8 +2739,9 @@
       "order": 2,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-3-4-기본-도형"
-      ]
+        "curr-3-3-합동과-대칭"
+      ],
+      "successorNodeIds": []
     },
     {
       "id": "curr-3-4-평면도형의-성질",
@@ -2528,8 +2768,9 @@
       "order": 3,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-3-4-작도와-합동"
-      ]
+        "curr-3-2-다각형"
+      ],
+      "successorNodeIds": []
     },
     {
       "id": "curr-3-4-입체도형의-성질",
@@ -2555,9 +2796,8 @@
       },
       "order": 4,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-3-4-평면도형의-성질"
-      ]
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": []
     },
     {
       "id": "curr-3-4-삼각형과-사각형의-성질",
@@ -2588,8 +2828,10 @@
       "order": 5,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-3-4-입체도형의-성질"
-      ]
+        "curr-3-2-여러-가지-삼각형",
+        "curr-3-2-여러-가지-사각형"
+      ],
+      "successorNodeIds": []
     },
     {
       "id": "curr-3-4-도형의-닮음",
@@ -2617,7 +2859,10 @@
       "order": 6,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-3-4-삼각형과-사각형의-성질"
+        "curr-2-3-비와-비율"
+      ],
+      "successorNodeIds": [
+        "curr-3-4-삼각비"
       ]
     },
     {
@@ -2643,8 +2888,9 @@
       },
       "order": 7,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-3-4-도형의-닮음"
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": [
+        "curr-3-4-삼각비"
       ]
     },
     {
@@ -2674,8 +2920,10 @@
       "order": 8,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
+        "curr-3-4-도형의-닮음",
         "curr-3-4-피타고라스-정리"
-      ]
+      ],
+      "successorNodeIds": []
     },
     {
       "id": "curr-3-4-원의-성질",
@@ -2702,8 +2950,9 @@
       "order": 9,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-3-4-삼각비"
-      ]
+        "curr-3-3-원주율과-원의-넓이"
+      ],
+      "successorNodeIds": []
     },
     {
       "id": "curr-4-1-자료의-분류",
@@ -2728,7 +2977,10 @@
       },
       "order": 1,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": []
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": [
+        "curr-4-1-표"
+      ]
     },
     {
       "id": "curr-4-1-표",
@@ -2754,6 +3006,9 @@
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
         "curr-4-1-자료의-분류"
+      ],
+      "successorNodeIds": [
+        "curr-4-2-막대그래프"
       ]
     },
     {
@@ -2778,9 +3033,8 @@
       },
       "order": 3,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-4-1-표"
-      ]
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": []
     },
     {
       "id": "curr-4-2-그림그래프",
@@ -2806,9 +3060,8 @@
       },
       "order": 1,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-4-1-를-이용한-그래프"
-      ]
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": []
     },
     {
       "id": "curr-4-2-막대그래프",
@@ -2835,7 +3088,10 @@
       "order": 2,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-4-2-그림그래프"
+        "curr-4-1-표"
+      ],
+      "successorNodeIds": [
+        "curr-4-3-평균"
       ]
     },
     {
@@ -2862,8 +3118,9 @@
       },
       "order": 3,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-4-2-막대그래프"
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": [
+        "curr-4-4-도수분포표와-상대도수"
       ]
     },
     {
@@ -2889,7 +3146,10 @@
       "order": 1,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-4-2-꺾은선그래프"
+        "curr-4-2-막대그래프"
+      ],
+      "successorNodeIds": [
+        "curr-4-4-대푯값"
       ]
     },
     {
@@ -2915,9 +3175,8 @@
       },
       "order": 2,
       "textbookConceptCount": 0,
-      "prerequisiteNodeIds": [
-        "curr-4-3-평균"
-      ]
+      "prerequisiteNodeIds": [],
+      "successorNodeIds": []
     },
     {
       "id": "curr-4-3-가능성",
@@ -2944,7 +3203,10 @@
       "order": 3,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-4-3-띠그래프-원그래프"
+        "curr-1-2-분수"
+      ],
+      "successorNodeIds": [
+        "curr-4-4-경우의-수와-확률"
       ]
     },
     {
@@ -2978,8 +3240,9 @@
       "order": 1,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-4-3-가능성"
-      ]
+        "curr-4-3-평균"
+      ],
+      "successorNodeIds": []
     },
     {
       "id": "curr-4-4-도수분포표와-상대도수",
@@ -3006,7 +3269,10 @@
       "order": 2,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-4-4-대푯값"
+        "curr-4-2-꺾은선그래프"
+      ],
+      "successorNodeIds": [
+        "curr-4-4-산포도"
       ]
     },
     {
@@ -3032,8 +3298,9 @@
       "order": 3,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-4-4-도수분포표와-상대도수"
-      ]
+        "curr-4-3-가능성"
+      ],
+      "successorNodeIds": []
     },
     {
       "id": "curr-4-4-산포도",
@@ -3061,7 +3328,10 @@
       "order": 4,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
-        "curr-4-4-경우의-수와-확률"
+        "curr-4-4-도수분포표와-상대도수"
+      ],
+      "successorNodeIds": [
+        "curr-4-4-상자그림과-산점도"
       ]
     },
     {
@@ -3089,8 +3359,10 @@
       "order": 5,
       "textbookConceptCount": 0,
       "prerequisiteNodeIds": [
+        "curr-2-4-좌표평면과-그래프",
         "curr-4-4-산포도"
-      ]
+      ],
+      "successorNodeIds": []
     }
   ],
   "achievement_standards": [
@@ -5963,478 +6235,444 @@
   "textbook_concepts": [],
   "edges": [
     {
+      "id": "edge-001",
       "from": "curr-1-1-네-자리-이하의-수",
-      "to": "curr-1-1-두-자리-수-범위의-덧셈과-뺄셈",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-1-1-두-자리-수-범위의-덧셈과-뺄셈",
-      "to": "curr-1-1-한-자리-수의-곱셈",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-1-1-한-자리-수의-곱셈",
       "to": "curr-1-2-다섯-자리-이상의-수",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "수 개념 확장",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
-      "from": "curr-1-2-다섯-자리-이상의-수",
-      "to": "curr-1-2-분수",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-1-2-분수",
-      "to": "curr-1-2-소수",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-1-2-소수",
+      "id": "edge-002",
+      "from": "curr-1-1-네-자리-이하의-수",
       "to": "curr-1-2-세-자리-수의-덧셈과-뺄셈",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "자릿값 기반 계산",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
-      "from": "curr-1-2-세-자리-수의-덧셈과-뺄셈",
+      "id": "edge-003",
+      "from": "curr-1-1-두-자리-수-범위의-덧셈과-뺄셈",
+      "to": "curr-1-2-세-자리-수의-덧셈과-뺄셈",
+      "type": "prerequisite",
+      "label": "계산 원리 확장",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
+    },
+    {
+      "id": "edge-004",
+      "from": "curr-1-1-한-자리-수의-곱셈",
       "to": "curr-1-2-자연수의-곱셈과-나눗셈",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "곱셈에서 나눗셈으로",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
+      "id": "edge-005",
       "from": "curr-1-2-자연수의-곱셈과-나눗셈",
-      "to": "curr-1-2-분모가-같은-분수의-덧셈과-뺄셈",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-1-2-분모가-같은-분수의-덧셈과-뺄셈",
-      "to": "curr-1-2-소수의-덧셈과-뺄셈",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-1-2-소수의-덧셈과-뺄셈",
       "to": "curr-1-3-약수와-배수",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "곱셈 구조 분석",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
-      "from": "curr-1-3-약수와-배수",
-      "to": "curr-1-3-수의-범위와-올림-버림-반올림",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-1-3-수의-범위와-올림-버림-반올림",
+      "id": "edge-006",
+      "from": "curr-1-2-자연수의-곱셈과-나눗셈",
       "to": "curr-1-3-자연수의-혼합-계산",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "연산 감각 통합",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
-      "from": "curr-1-3-자연수의-혼합-계산",
+      "id": "edge-007",
+      "from": "curr-1-2-분수",
+      "to": "curr-1-2-분모가-같은-분수의-덧셈과-뺄셈",
+      "type": "prerequisite",
+      "label": "분수 표현에서 계산으로",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
+    },
+    {
+      "id": "edge-008",
+      "from": "curr-1-2-분모가-같은-분수의-덧셈과-뺄셈",
       "to": "curr-1-3-분모가-다른-분수의-덧셈과-뺄셈",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "통분 필요성",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
+      "id": "edge-009",
       "from": "curr-1-3-분모가-다른-분수의-덧셈과-뺄셈",
       "to": "curr-1-3-분수의-곱셈과-나눗셈",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "분수 연산 확장",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
-      "from": "curr-1-3-분수의-곱셈과-나눗셈",
+      "id": "edge-010",
+      "from": "curr-1-2-소수",
+      "to": "curr-1-2-소수의-덧셈과-뺄셈",
+      "type": "prerequisite",
+      "label": "소수 표현에서 계산으로",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
+    },
+    {
+      "id": "edge-011",
+      "from": "curr-1-2-소수의-덧셈과-뺄셈",
       "to": "curr-1-3-소수의-곱셈과-나눗셈",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "소수 연산 확장",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
-      "from": "curr-1-3-소수의-곱셈과-나눗셈",
+      "id": "edge-012",
+      "from": "curr-1-3-약수와-배수",
       "to": "curr-1-4-소인수분해",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "약수·배수 구조의 형식화",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
-      "from": "curr-1-4-소인수분해",
+      "id": "edge-013",
+      "from": "curr-1-3-분수의-곱셈과-나눗셈",
       "to": "curr-1-4-정수와-유리수",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "유리수 연산 준비",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
-      "from": "curr-1-4-정수와-유리수",
+      "id": "edge-014",
+      "from": "curr-1-3-소수의-곱셈과-나눗셈",
       "to": "curr-1-4-유리수와-순환소수",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "소수 표현의 확장",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
+      "id": "edge-015",
+      "from": "curr-1-4-정수와-유리수",
+      "to": "curr-1-4-제곱근과-실수",
+      "type": "prerequisite",
+      "label": "수 체계 확장",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
+    },
+    {
+      "id": "edge-016",
       "from": "curr-1-4-유리수와-순환소수",
       "to": "curr-1-4-제곱근과-실수",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "유리수와 무리수 구분",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
+      "id": "edge-017",
       "from": "curr-2-1-규칙",
       "to": "curr-2-2-규칙",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "규칙 표현 확장",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
+      "id": "edge-018",
       "from": "curr-2-2-규칙",
-      "to": "curr-2-2-동치-관계",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-2-2-동치-관계",
       "to": "curr-2-3-대응-관계",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "규칙에서 대응으로",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
+      "id": "edge-019",
+      "from": "curr-2-2-동치-관계",
+      "to": "curr-2-4-문자의-사용과-식",
+      "type": "prerequisite",
+      "label": "등호 이해에서 식 표현으로",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
+    },
+    {
+      "id": "edge-020",
       "from": "curr-2-3-대응-관계",
-      "to": "curr-2-3-비와-비율",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "to": "curr-2-4-좌표평면과-그래프",
+      "type": "prerequisite",
+      "label": "대응을 표·그래프로 표현",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
+      "id": "edge-021",
+      "from": "curr-2-3-대응-관계",
+      "to": "curr-2-4-일차함수와-그-그래프",
+      "type": "prerequisite",
+      "label": "함수 사고의 출발",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
+    },
+    {
+      "id": "edge-022",
+      "from": "curr-1-2-분수",
+      "to": "curr-2-3-비와-비율",
+      "type": "cross_area",
+      "label": "부분-전체 표현이 비율로 연결",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
+    },
+    {
+      "id": "edge-023",
+      "from": "curr-1-2-소수",
+      "to": "curr-2-3-비와-비율",
+      "type": "cross_area",
+      "label": "소수 표현이 비율 표현으로 연결",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
+    },
+    {
+      "id": "edge-024",
       "from": "curr-2-3-비와-비율",
       "to": "curr-2-3-비례식과-비례배분",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "비율에서 비례 관계로",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
+      "id": "edge-025",
       "from": "curr-2-3-비례식과-비례배분",
-      "to": "curr-2-4-문자의-사용과-식",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "to": "curr-2-4-일차방정식",
+      "type": "prerequisite",
+      "label": "관계식을 풀기",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
+      "id": "edge-026",
+      "from": "curr-2-4-문자의-사용과-식",
+      "to": "curr-2-4-식의-계산",
+      "type": "prerequisite",
+      "label": "식 조작",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
+    },
+    {
+      "id": "edge-027",
       "from": "curr-2-4-문자의-사용과-식",
       "to": "curr-2-4-일차방정식",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "문자식에서 방정식으로",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
+      "id": "edge-028",
       "from": "curr-2-4-일차방정식",
-      "to": "curr-2-4-좌표평면과-그래프",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-2-4-좌표평면과-그래프",
-      "to": "curr-2-4-식의-계산",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-2-4-식의-계산",
-      "to": "curr-2-4-일차부등식",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-2-4-일차부등식",
       "to": "curr-2-4-연립일차방정식",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "미지수와 식의 확장",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
-      "from": "curr-2-4-연립일차방정식",
+      "id": "edge-029",
+      "from": "curr-2-4-좌표평면과-그래프",
       "to": "curr-2-4-일차함수와-그-그래프",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "그래프 표현 기반",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
+      "id": "edge-030",
       "from": "curr-2-4-일차함수와-그-그래프",
       "to": "curr-2-4-일차함수와-일차방정식의-관계",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "함수와 방정식 연결",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
-      "from": "curr-2-4-일차함수와-일차방정식의-관계",
+      "id": "edge-031",
+      "from": "curr-2-4-연립일차방정식",
+      "to": "curr-2-4-일차함수와-일차방정식의-관계",
+      "type": "cross_link",
+      "label": "해와 그래프의 교점 연결",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
+    },
+    {
+      "id": "edge-032",
+      "from": "curr-2-4-식의-계산",
       "to": "curr-2-4-다항식의-곱셈과-인수분해",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "다항식 조작 확장",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
+      "id": "edge-033",
       "from": "curr-2-4-다항식의-곱셈과-인수분해",
       "to": "curr-2-4-이차방정식",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "인수분해로 이차방정식 해결",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
+      "id": "edge-034",
       "from": "curr-2-4-이차방정식",
       "to": "curr-2-4-이차함수와-그-그래프",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "cross_link",
+      "label": "근과 그래프 해석 연결",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
-      "from": "curr-3-1-입체도형의-모양",
-      "to": "curr-3-1-평면도형과-그-구성-요소",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
+      "id": "edge-035",
       "from": "curr-3-1-평면도형과-그-구성-요소",
-      "to": "curr-3-1-양의-비교",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-3-1-양의-비교",
-      "to": "curr-3-1-시각과-시간-시-분",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-3-1-시각과-시간-시-분",
-      "to": "curr-3-1-길이-cm-m",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-3-1-길이-cm-m",
       "to": "curr-3-2-도형의-기초",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "도형 구성 요소 정교화",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
+      "id": "edge-036",
       "from": "curr-3-2-도형의-기초",
-      "to": "curr-3-2-원의-구성-요소",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-3-2-원의-구성-요소",
-      "to": "curr-3-2-여러-가지-삼각형",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-3-2-여러-가지-삼각형",
-      "to": "curr-3-2-여러-가지-사각형",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-3-2-여러-가지-사각형",
-      "to": "curr-3-2-다각형",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-3-2-다각형",
-      "to": "curr-3-2-평면도형의-이동",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-3-2-평면도형의-이동",
-      "to": "curr-3-2-시각과-시간-초",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-3-2-시각과-시간-초",
-      "to": "curr-3-2-길이-mm-km",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-3-2-길이-mm-km",
-      "to": "curr-3-2-들이-L-mL",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-3-2-들이-L-mL",
-      "to": "curr-3-2-무게-kg-g-t",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-3-2-무게-kg-g-t",
-      "to": "curr-3-2-각도",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-3-2-각도",
-      "to": "curr-3-3-합동과-대칭",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-3-3-합동과-대칭",
-      "to": "curr-3-3-직육면체와-정육면체",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-3-3-직육면체와-정육면체",
-      "to": "curr-3-3-각기둥과-각뿔",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-3-3-각기둥과-각뿔",
-      "to": "curr-3-3-원기둥-원뿔-구",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-3-3-원기둥-원뿔-구",
-      "to": "curr-3-3-다각형의-둘레와-넓이",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-3-3-다각형의-둘레와-넓이",
-      "to": "curr-3-3-원주율과-원의-넓이",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-3-3-원주율과-원의-넓이",
-      "to": "curr-3-3-직육면체와-정육면체의-겉넓이와-부피",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-3-3-직육면체와-정육면체의-겉넓이와-부피",
       "to": "curr-3-4-기본-도형",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "기초 용어 형식화",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
-      "from": "curr-3-4-기본-도형",
-      "to": "curr-3-4-작도와-합동",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-3-4-작도와-합동",
-      "to": "curr-3-4-평면도형의-성질",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-3-4-평면도형의-성질",
-      "to": "curr-3-4-입체도형의-성질",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-3-4-입체도형의-성질",
+      "id": "edge-037",
+      "from": "curr-3-2-여러-가지-삼각형",
       "to": "curr-3-4-삼각형과-사각형의-성질",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "도형 성질 정당화",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
-      "from": "curr-3-4-삼각형과-사각형의-성질",
+      "id": "edge-038",
+      "from": "curr-3-2-여러-가지-사각형",
+      "to": "curr-3-4-삼각형과-사각형의-성질",
+      "type": "prerequisite",
+      "label": "사각형 성질 정당화",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
+    },
+    {
+      "id": "edge-039",
+      "from": "curr-3-2-다각형",
+      "to": "curr-3-4-평면도형의-성질",
+      "type": "prerequisite",
+      "label": "다각형 성질 확장",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
+    },
+    {
+      "id": "edge-040",
+      "from": "curr-3-3-합동과-대칭",
+      "to": "curr-3-4-작도와-합동",
+      "type": "prerequisite",
+      "label": "합동 개념의 엄밀화",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
+    },
+    {
+      "id": "edge-041",
+      "from": "curr-2-3-비와-비율",
       "to": "curr-3-4-도형의-닮음",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "cross_area",
+      "label": "비율이 닮음비로 전이",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
+      "id": "edge-042",
       "from": "curr-3-4-도형의-닮음",
-      "to": "curr-3-4-피타고라스-정리",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "to": "curr-3-4-삼각비",
+      "type": "prerequisite",
+      "label": "비율 관계의 삼각형 적용",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
+      "id": "edge-043",
       "from": "curr-3-4-피타고라스-정리",
       "to": "curr-3-4-삼각비",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "cross_link",
+      "label": "직각삼각형 관계",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
-      "from": "curr-3-4-삼각비",
+      "id": "edge-044",
+      "from": "curr-3-2-원의-구성-요소",
+      "to": "curr-3-3-원주율과-원의-넓이",
+      "type": "prerequisite",
+      "label": "원 구성 요소에서 측정으로",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
+    },
+    {
+      "id": "edge-045",
+      "from": "curr-3-3-원주율과-원의-넓이",
       "to": "curr-3-4-원의-성질",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "원 탐구 확장",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
+      "id": "edge-046",
       "from": "curr-4-1-자료의-분류",
       "to": "curr-4-1-표",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "분류 결과 정리",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
+      "id": "edge-047",
       "from": "curr-4-1-표",
-      "to": "curr-4-1-를-이용한-그래프",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-4-1-를-이용한-그래프",
-      "to": "curr-4-2-그림그래프",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-4-2-그림그래프",
       "to": "curr-4-2-막대그래프",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "표에서 그래프로",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
+      "id": "edge-048",
       "from": "curr-4-2-막대그래프",
-      "to": "curr-4-2-꺾은선그래프",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-4-2-꺾은선그래프",
       "to": "curr-4-3-평균",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "자료 비교에서 대표값으로",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
+      "id": "edge-049",
       "from": "curr-4-3-평균",
-      "to": "curr-4-3-띠그래프-원그래프",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-4-3-띠그래프-원그래프",
-      "to": "curr-4-3-가능성",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
-    },
-    {
-      "from": "curr-4-3-가능성",
       "to": "curr-4-4-대푯값",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "대표값 확장",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
-      "from": "curr-4-4-대푯값",
+      "id": "edge-050",
+      "from": "curr-4-2-꺾은선그래프",
       "to": "curr-4-4-도수분포표와-상대도수",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "분포 표현 준비",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
-      "from": "curr-4-4-도수분포표와-상대도수",
+      "id": "edge-051",
+      "from": "curr-4-3-가능성",
       "to": "curr-4-4-경우의-수와-확률",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "가능성의 수량화",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
-      "from": "curr-4-4-경우의-수와-확률",
+      "id": "edge-052",
+      "from": "curr-1-2-분수",
+      "to": "curr-4-3-가능성",
+      "type": "cross_area",
+      "label": "가능성의 수 표현",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
+    },
+    {
+      "id": "edge-053",
+      "from": "curr-2-4-좌표평면과-그래프",
+      "to": "curr-4-4-상자그림과-산점도",
+      "type": "cross_area",
+      "label": "좌표 표현이 산점도로 전이",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
+    },
+    {
+      "id": "edge-054",
+      "from": "curr-4-4-도수분포표와-상대도수",
       "to": "curr-4-4-산포도",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "prerequisite",
+      "label": "분포 비교에서 흩어짐으로",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     },
     {
+      "id": "edge-055",
       "from": "curr-4-4-산포도",
       "to": "curr-4-4-상자그림과-산점도",
-      "type": "area_sequence",
-      "label": "같은 영역 안의 공식 학습 흐름"
+      "type": "cross_link",
+      "label": "분포와 관계 탐색",
+      "basis": "교육과정 내용 요소의 개념적 선수·전이 관계를 수동 정리한 해석 edge"
     }
   ],
   "source_files": [],
@@ -6453,6 +6691,22 @@
     const grades = DATA.metadata.gradeBands;
     const nodesById = new Map(DATA.curriculum_nodes.map(node => [node.id, node]));
     const standardsByCode = new Map(DATA.achievement_standards.map(item => [item.code, item]));
+    const areaColors = {
+      '수와 연산': '#4b8ccf',
+      '변화와 관계': '#399167',
+      '도형과 측정': '#c76d92',
+      '자료와 가능성': '#c79a35'
+    };
+
+    function escapeHtml(value) {
+      return String(value ?? '').replace(/[&<>"']/g, char => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      }[char]));
+    }
 
     function optionList(select, values) {
       select.innerHTML = values.map(value => `<option value="${value}">${value}</option>`).join('');
@@ -6477,8 +6731,97 @@
       const codes = node.achievementCodes || [];
       return `<button class="card ${state.selectedId === node.id ? 'selected' : ''}" data-id="${node.id}">
         <span class="card-title">${node.label}</span>
-        <span class="card-meta"><span>${node.gradeBand}</span><span>${codes.length}개 성취기준</span><span>${node.textbookConceptCount || 0}개 세부개념</span></span>
+        <span class="card-meta"><span>${node.gradeBand}</span><span>${codes.length}개 성취기준</span><span>선수 ${(node.prerequisiteNodeIds || []).length}</span><span>후속 ${(node.successorNodeIds || []).length}</span></span>
       </button>`;
+    }
+
+    function edgeVisible(edge, visibleIds) {
+      return visibleIds.has(edge.from) && visibleIds.has(edge.to);
+    }
+
+    function networkNodesForState() {
+      const connectedIds = new Set();
+      DATA.edges.forEach(edge => {
+        connectedIds.add(edge.from);
+        connectedIds.add(edge.to);
+      });
+      let nodes = DATA.curriculum_nodes
+        .filter(node => connectedIds.has(node.id))
+        .filter(matchesNode);
+      if (state.selectedId) {
+        const selected = nodesById.get(state.selectedId);
+        const neighborIds = new Set([state.selectedId]);
+        DATA.edges.forEach(edge => {
+          if (edge.from === state.selectedId) neighborIds.add(edge.to);
+          if (edge.to === state.selectedId) neighborIds.add(edge.from);
+        });
+        const neighbors = [...neighborIds].map(id => nodesById.get(id)).filter(Boolean);
+        const merged = new Map(nodes.map(node => [node.id, node]));
+        neighbors.forEach(node => merged.set(node.id, node));
+        nodes = [...merged.values()];
+      }
+      return nodes.sort((a, b) => {
+        const gradeDelta = grades.indexOf(a.gradeBand) - grades.indexOf(b.gradeBand);
+        if (gradeDelta) return gradeDelta;
+        const areaDelta = areas.indexOf(a.area) - areas.indexOf(b.area);
+        if (areaDelta) return areaDelta;
+        return a.order - b.order;
+      });
+    }
+
+    function renderNetwork() {
+      const wrap = document.getElementById('networkWrap');
+      const svg = document.getElementById('networkSvg');
+      const host = document.getElementById('networkNodes');
+      const meta = document.getElementById('networkMeta');
+      const width = Math.max(920, wrap.clientWidth || 920);
+      const height = 540;
+      const nodes = networkNodesForState();
+      const ids = new Set(nodes.map(node => node.id));
+      const edges = DATA.edges.filter(edge => edgeVisible(edge, ids));
+      const byGrade = new Map(grades.map(grade => [grade, []]));
+      nodes.forEach(node => byGrade.get(node.gradeBand)?.push(node));
+      const positions = new Map();
+      grades.forEach((grade, gradeIndex) => {
+        const column = byGrade.get(grade) || [];
+        const usable = height - 96;
+        const step = column.length > 1 ? Math.min(58, usable / (column.length - 1)) : 0;
+        const total = step * Math.max(0, column.length - 1);
+        const start = 70 + Math.max(0, (usable - total) / 2);
+        column.forEach((node, index) => {
+          positions.set(node.id, {
+            x: Math.round(((gradeIndex + 0.5) / grades.length) * width),
+            y: Math.round(start + index * step)
+          });
+        });
+      });
+      const marker = `<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="rgba(23,111,114,.52)"></path></marker></defs>`;
+      const edgePaths = edges.map(edge => {
+        const a = positions.get(edge.from);
+        const b = positions.get(edge.to);
+        if (!a || !b) return '';
+        const dx = Math.max(80, Math.abs(b.x - a.x) * 0.48);
+        const curve = `M ${a.x + 58} ${a.y} C ${a.x + dx} ${a.y}, ${b.x - dx} ${b.y}, ${b.x - 58} ${b.y}`;
+        return `<path class="network-edge ${edge.type}" d="${curve}" marker-end="url(#arrow)"><title>${escapeHtml(edge.label)}</title></path>`;
+      }).join('');
+      svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+      svg.innerHTML = marker + edgePaths;
+      host.innerHTML = nodes.map(node => {
+        const pos = positions.get(node.id);
+        const selected = state.selectedId === node.id ? ' selected' : '';
+        return `<button class="network-node${selected}" data-id="${node.id}" style="left:${pos.x}px;top:${pos.y}px;border-left-color:${areaColors[node.area] || '#176f72'}">
+          <strong>${escapeHtml(node.label)}</strong>
+          <span>${escapeHtml(node.area)} · ${escapeHtml(node.gradeBand)}</span>
+        </button>`;
+      }).join('');
+      host.querySelectorAll('.network-node').forEach(button => {
+        button.addEventListener('click', () => {
+          state.selectedId = button.dataset.id;
+          renderAll();
+          renderDetail(nodesById.get(state.selectedId));
+        });
+      });
+      meta.textContent = `${edges.length}개 관계 · ${nodes.length}개 개념`;
     }
 
     function renderGrid() {
@@ -6499,7 +6842,7 @@
       grid.querySelectorAll('.card').forEach(button => {
         button.addEventListener('click', () => {
           state.selectedId = button.dataset.id;
-          renderGrid();
+          renderAll();
           renderDetail(nodesById.get(state.selectedId));
         });
       });
@@ -6530,7 +6873,15 @@
       const codes = (node.achievementCodes || []).map(code => standardsByCode.get(code)).filter(Boolean);
       const codeHtml = codes.length ? codes.map(item => `<span class="code" title="${item.summary}">${item.code}</span>`).join('') : '<span class="subtle">연결 성취기준 없음</span>';
       const standardHtml = codes.slice(0, 8).map(item => `<li><strong>${item.code}</strong> ${item.summary}</li>`).join('');
-      const prereq = (node.prerequisiteNodeIds || []).map(id => nodesById.get(id)?.label).filter(Boolean).join(', ') || '없음';
+      const incoming = DATA.edges.filter(edge => edge.to === node.id);
+      const outgoing = DATA.edges.filter(edge => edge.from === node.id);
+      const relationList = edges => edges.length
+        ? `<ul>${edges.map(edge => {
+            const otherId = edge.to === node.id ? edge.from : edge.to;
+            const other = nodesById.get(otherId);
+            return `<li><strong>${escapeHtml(other?.label || '')}</strong> <span class="subtle">(${escapeHtml(edge.label)})</span></li>`;
+          }).join('')}</ul>`
+        : '<p class="subtle">없음</p>';
       panel.innerHTML = `
         <h2>${node.label}</h2>
         <span class="pill teal">${node.gradeBand}</span>
@@ -6545,7 +6896,11 @@
         </div>
         <div class="detail-section">
           <h2>선수 흐름</h2>
-          <p>${prereq}</p>
+          ${relationList(incoming)}
+        </div>
+        <div class="detail-section">
+          <h2>후속·교차 흐름</h2>
+          ${relationList(outgoing)}
         </div>
         <div class="detail-section">
           <h2>출처</h2>
@@ -6571,6 +6926,7 @@
 
     function renderAll() {
       renderMetrics();
+      renderNetwork();
       renderGrid();
       renderTextbookSection();
       renderAccessNotice();
