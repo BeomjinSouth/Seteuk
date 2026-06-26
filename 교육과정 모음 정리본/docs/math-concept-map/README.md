@@ -42,8 +42,10 @@
 - `concept-evidence-depth.csv`: concept별 근거 깊이 기계 판독용 CSV
 - `textbook-extraction-queue.md`: 교과서 PDF 추가 후 단원별 원문 추출 우선순위
 - `textbook-extraction-queue.csv`: 교과서 원문 추출 우선순위 기계 판독용 CSV
-- `textbook-evidence-packets/rank-01.md`: 1순위 단원 `좌표평면과 그래프`의 교과서 근거 채움용 작업 패킷
-- `textbook-evidence-packets/rank-01.csv`: 같은 패킷의 기계 판독용 CSV
+- `textbook-evidence-packets/index.md`: 상위 우선순위 교과서 근거 패킷 인덱스
+- `textbook-evidence-packets/index.csv`: 같은 인덱스의 기계 판독용 CSV
+- `textbook-evidence-packets/rank-01.md`~`rank-05.md`: 상위 5개 단원 교과서 근거 채움용 작업 패킷
+- `textbook-evidence-packets/rank-01.csv`~`rank-05.csv`: 같은 패킷의 기계 판독용 CSV
 
 ## 갱신 방법
 
@@ -55,7 +57,7 @@ python docs/math-concept-map/tools/build_source_inventory.py
 python docs/math-concept-map/tools/build_source_ref_audit.py
 python docs/math-concept-map/tools/build_concept_evidence_depth.py
 python docs/math-concept-map/tools/build_textbook_extraction_queue.py
-python docs/math-concept-map/tools/build_textbook_evidence_packet.py
+python docs/math-concept-map/tools/build_textbook_evidence_packet.py --top-n 5
 python docs/math-concept-map/tools/build_review_queue.py
 python docs/math-concept-map/tools/build_terminology_coverage.py
 python docs/math-concept-map/tools/build_unit_coverage.py
@@ -73,7 +75,7 @@ python docs/math-concept-map/tools/test_build_unit_coverage.py
 python docs/math-concept-map/tools/test_validate_concept_map.py
 ```
 
-검증기는 필수 필드, id 중복, source/ref 무결성, CSV 행 수, Mermaid 파일, 2022 개정 중학교 수학 공식 성취기준 60개(`9수01-01`~`9수04-09`)의 concept 근거 커버리지, `review-queue.csv`와 `low` 신뢰도 concept 수의 일치, 공식 용어·기호 168개 중 concept 추가 검토 필요 항목이 없는지, `unit-coverage.csv`가 학년·영역·단원 그룹과 concept 총계를 보존하는지, `relationship-audit.csv`가 edge 총계와 필수 관계 유형을 보존하는지, 고립 concept이 없는지, `textbook-evidence-packets/rank-01.csv`가 1순위 단원 concept 40개를 모두 포함하고 현재 교과서 PDF 부재 상태에서는 모두 `pending_textbook_pdf`인지 확인한다. `achievement-coverage.*`는 같은 성취기준 추출 로직을 사용해 사람용/기계용 검토 표로 재생성한다.
+검증기는 필수 필드, id 중복, source/ref 무결성, CSV 행 수, Mermaid 파일, 2022 개정 중학교 수학 공식 성취기준 60개(`9수01-01`~`9수04-09`)의 concept 근거 커버리지, `review-queue.csv`와 `low` 신뢰도 concept 수의 일치, 공식 용어·기호 168개 중 concept 추가 검토 필요 항목이 없는지, `unit-coverage.csv`가 학년·영역·단원 그룹과 concept 총계를 보존하는지, `relationship-audit.csv`가 edge 총계와 필수 관계 유형을 보존하는지, 고립 concept이 없는지, `textbook-evidence-packets/index.csv`와 `rank-01.csv`~`rank-05.csv`가 상위 5개 단원 concept을 모두 포함하고 현재 교과서 PDF 부재 상태에서는 모두 `pending_textbook_pdf`인지 확인한다. `achievement-coverage.*`는 같은 성취기준 추출 로직을 사용해 사람용/기계용 검토 표로 재생성한다.
 
 `review-queue.*`는 아직 교과서 본문·예제·오답 근거로 확정하지 못한 `low` 신뢰도 concept을 모아 다음 출처 보강 순서를 정한다.
 

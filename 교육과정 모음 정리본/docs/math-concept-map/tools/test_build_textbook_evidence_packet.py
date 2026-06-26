@@ -149,6 +149,153 @@ class BuildTextbookEvidencePacketTests(unittest.TestCase):
         self.assertIn("좌표평면과 그래프", markdown)
         self.assertIn("coord", markdown)
 
+    def test_packet_set_builds_top_n_rank_packets(self) -> None:
+        queue_rows = [
+            {"rank": "1", "grade": "g1", "domain": "relation", "unit": "coordinate plane"},
+            {"rank": "2", "grade": "g1", "domain": "relation", "unit": "linear function"},
+            {"rank": "3", "grade": "g2", "domain": "probability", "unit": "probability"},
+        ]
+        concepts = [
+            {
+                "id": "coord",
+                "label_ko": "coordinate",
+                "concept_type": "term",
+                "grade": "g1",
+                "domain": "relation",
+                "unit": "coordinate plane",
+                "confidence": "high",
+                "source_refs": [],
+            },
+            {
+                "id": "slope",
+                "label_ko": "slope",
+                "concept_type": "property",
+                "grade": "g1",
+                "domain": "relation",
+                "unit": "linear function",
+                "confidence": "low",
+                "source_refs": [],
+            },
+            {
+                "id": "prob",
+                "label_ko": "probability",
+                "concept_type": "term",
+                "grade": "g2",
+                "domain": "probability",
+                "unit": "probability",
+                "confidence": "high",
+                "source_refs": [],
+            },
+        ]
+        evidence_rows = [
+            {"concept_id": "coord", "evidence_depth": "official_single_source", "needs_textbook_evidence": "yes"},
+            {"concept_id": "slope", "evidence_depth": "official_dual_source", "needs_textbook_evidence": "yes"},
+            {"concept_id": "prob", "evidence_depth": "official_dual_source", "needs_textbook_evidence": "yes"},
+        ]
+
+        packets = packet.textbook_evidence_packet_set(
+            concepts,
+            evidence_rows,
+            queue_rows,
+            top_n=2,
+        )
+
+        self.assertEqual([item["rank"] for item in packets], [1, 2])
+        self.assertEqual([item["rows"][0]["concept_id"] for item in packets], ["coord", "slope"])
+
+    def test_packet_index_and_packet_set_outputs_are_stable(self) -> None:
+        packets = [
+            {
+                "rank": 1,
+                "target": {
+                    "rank": "1",
+                    "grade": "g1",
+                    "domain": "relation",
+                    "unit": "coordinate plane",
+                    "priority_tier": "highest",
+                    "priority_score": "90",
+                },
+                "rows": [
+                    {
+                        "packet_rank": 1,
+                        "grade": "g1",
+                        "domain": "relation",
+                        "unit": "coordinate plane",
+                        "concept_id": "coord",
+                        "label_ko": "coordinate",
+                        "concept_type": "term",
+                        "confidence": "high",
+                        "evidence_depth": "official_single_source",
+                        "needs_textbook_evidence": "yes",
+                        "source_ref_count": "1",
+                        "current_source_refs": "",
+                        "extraction_status": "pending_textbook_pdf",
+                        "toc_ref": "",
+                        "learning_objective_ref": "",
+                        "definition_ref": "",
+                        "summary_ref": "",
+                        "example_ref": "",
+                        "term_explanation_ref": "",
+                        "problem_pattern_ref": "",
+                        "textbook_page_refs": "",
+                        "extraction_notes": "",
+                    }
+                ],
+            },
+            {
+                "rank": 2,
+                "target": {
+                    "rank": "2",
+                    "grade": "g1",
+                    "domain": "relation",
+                    "unit": "linear function",
+                    "priority_tier": "highest",
+                    "priority_score": "61",
+                },
+                "rows": [
+                    {
+                        "packet_rank": 2,
+                        "grade": "g1",
+                        "domain": "relation",
+                        "unit": "linear function",
+                        "concept_id": "slope",
+                        "label_ko": "slope",
+                        "concept_type": "property",
+                        "confidence": "low",
+                        "evidence_depth": "official_dual_source",
+                        "needs_textbook_evidence": "yes",
+                        "source_ref_count": "1",
+                        "current_source_refs": "",
+                        "extraction_status": "pending_textbook_pdf",
+                        "toc_ref": "",
+                        "learning_objective_ref": "",
+                        "definition_ref": "",
+                        "summary_ref": "",
+                        "example_ref": "",
+                        "term_explanation_ref": "",
+                        "problem_pattern_ref": "",
+                        "textbook_page_refs": "",
+                        "extraction_notes": "",
+                    }
+                ],
+            },
+        ]
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            output_dir = Path(temp_dir)
+            packet.write_packet_set(packets, output_dir)
+
+            with (output_dir / "index.csv").open("r", encoding="utf-8-sig", newline="") as f:
+                index_rows = list(csv.DictReader(f))
+
+            index_markdown = (output_dir / "index.md").read_text(encoding="utf-8")
+
+        self.assertEqual(list(index_rows[0]), packet.INDEX_FIELDS)
+        self.assertEqual([row["packet_csv"] for row in index_rows], ["rank-01.csv", "rank-02.csv"])
+        self.assertEqual(index_rows[1]["pending_textbook_evidence_count"], "1")
+        self.assertIn("# Textbook Evidence Packet Index", index_markdown)
+        self.assertIn("linear function", index_markdown)
+
 
 if __name__ == "__main__":
     unittest.main()

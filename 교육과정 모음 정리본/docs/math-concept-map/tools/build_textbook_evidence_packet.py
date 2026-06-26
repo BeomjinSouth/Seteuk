@@ -39,6 +39,21 @@ CSV_FIELDS = [
     "extraction_notes",
 ]
 
+INDEX_FIELDS = [
+    "rank",
+    "grade",
+    "domain",
+    "unit",
+    "concept_count",
+    "pending_textbook_evidence_count",
+    "low_confidence_count",
+    "priority_tier",
+    "priority_score",
+    "next_action",
+    "packet_csv",
+    "packet_md",
+]
+
 TEXTBOOK_SLOT_FIELDS = [
     "toc_ref",
     "learning_objective_ref",
@@ -204,24 +219,149 @@ def write_csv(rows: list[dict], path: Path) -> None:
         writer.writerows(rows)
 
 
-def packet_paths(rank: int) -> tuple[Path, Path]:
+def packet_paths(rank: int, output_dir: Path = TEXTBOOK_EVIDENCE_PACKET_DIR) -> tuple[Path, Path]:
     stem = f"rank-{rank:02d}"
     return (
-        TEXTBOOK_EVIDENCE_PACKET_DIR / f"{stem}.csv",
-        TEXTBOOK_EVIDENCE_PACKET_DIR / f"{stem}.md",
+        output_dir / f"{stem}.csv",
+        output_dir / f"{stem}.md",
     )
+
+
+def textbook_evidence_packet_set(
+    concepts: Iterable[dict],
+    evidence_rows: Iterable[dict],
+    queue_rows: Iterable[dict],
+    top_n: int,
+) -> list[dict]:
+    queue_row_list = list(queue_rows)
+    sorted_targets = sorted(queue_row_list, key=lambda row: int(row.get("rank", 0)))[:top_n]
+    concept_list = list(concepts)
+    evidence_row_list = list(evidence_rows)
+
+    packets: list[dict] = []
+    for target in sorted_targets:
+        rank = int(target.get("rank", 0))
+        packets.append(
+            {
+                "rank": rank,
+                "target": target,
+                "rows": textbook_evidence_packet_rows(
+                    concept_list,
+                    evidence_row_list,
+                    queue_row_list,
+                    rank=rank,
+                ),
+            }
+        )
+    return packets
+
+
+def packet_index_rows(packets: Iterable[dict]) -> list[dict]:
+    rows: list[dict] = []
+    for packet in packets:
+        rank = int(packet["rank"])
+        target = packet["target"]
+        packet_rows = packet["rows"]
+        csv_path, md_path = packet_paths(rank)
+        rows.append(
+            {
+                "rank": rank,
+                "grade": target.get("grade", ""),
+                "domain": target.get("domain", ""),
+                "unit": target.get("unit", ""),
+                "concept_count": len(packet_rows),
+                "pending_textbook_evidence_count": sum(
+                    1 for row in packet_rows if row.get("extraction_status") == "pending_textbook_pdf"
+                ),
+                "low_confidence_count": sum(1 for row in packet_rows if row.get("confidence") == "low"),
+                "priority_tier": target.get("priority_tier", ""),
+                "priority_score": target.get("priority_score", ""),
+                "next_action": target.get("next_action", ""),
+                "packet_csv": csv_path.name,
+                "packet_md": md_path.name,
+            }
+        )
+    return rows
+
+
+def render_index_markdown(rows: list[dict]) -> str:
+    total_concepts = sum(int(row["concept_count"]) for row in rows)
+    total_pending = sum(int(row["pending_textbook_evidence_count"]) for row in rows)
+    lines = [
+        "# Textbook Evidence Packet Index",
+        "",
+        "This generated index tracks the prepared unit-level textbook evidence packets.",
+        "",
+        "## Summary",
+        "",
+        f"- packets: {len(rows)}",
+        f"- concepts in packets: {total_concepts}",
+        f"- pending textbook evidence rows: {total_pending}",
+        "",
+        "## Packets",
+        "",
+        "| rank | grade | domain | unit | concepts | pending | low | tier | score | packet |",
+        "|---:|---|---|---|---:|---:|---:|---|---:|---|",
+    ]
+
+    for row in rows:
+        lines.append(
+            "| {rank} | {grade} | {domain} | {unit} | {concept_count} | "
+            "{pending_textbook_evidence_count} | {low_confidence_count} | "
+            "{priority_tier} | {priority_score} | {packet_md} |".format(**row)
+        )
+
+    lines.append("")
+    return "\n".join(lines)
+
+
+def write_index_csv(rows: list[dict], path: Path) -> None:
+    with path.open("w", encoding="utf-8-sig", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=INDEX_FIELDS)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def write_packet_set(packets: list[dict], output_dir: Path = TEXTBOOK_EVIDENCE_PACKET_DIR) -> None:
+    output_dir.mkdir(parents=True, exist_ok=True)
+    for packet in packets:
+        csv_path, md_path = packet_paths(int(packet["rank"]), output_dir)
+        write_csv(packet["rows"], csv_path)
+        md_path.write_text(render_markdown(packet["rows"], packet["target"]), encoding="utf-8")
+
+    index_rows = packet_index_rows(packets)
+    write_index_csv(index_rows, output_dir / "index.csv")
+    (output_dir / "index.md").write_text(render_index_markdown(index_rows), encoding="utf-8")
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build a unit-level textbook evidence packet.")
     parser.add_argument("--rank", type=int, default=1, help="textbook extraction queue rank")
+    parser.add_argument("--top-n", type=int, help="build packets for the top N queue ranks and write an index")
     args = parser.parse_args()
 
     queue_rows = read_csv_rows(TEXTBOOK_EXTRACTION_QUEUE_CSV)
+    concepts = read_concepts()
+    evidence_rows = read_csv_rows(CONCEPT_EVIDENCE_DEPTH_CSV)
+
+    if args.top_n:
+        packets = textbook_evidence_packet_set(
+            concepts,
+            evidence_rows,
+            queue_rows,
+            top_n=args.top_n,
+        )
+        write_packet_set(packets)
+        print(
+            f"Wrote {len(packets)} textbook evidence packets "
+            f"to {TEXTBOOK_EVIDENCE_PACKET_DIR}."
+        )
+        return
+
     target = target_unit(queue_rows, rank=args.rank)
     rows = textbook_evidence_packet_rows(
-        read_concepts(),
-        read_csv_rows(CONCEPT_EVIDENCE_DEPTH_CSV),
+        concepts,
+        evidence_rows,
         queue_rows,
         rank=args.rank,
     )

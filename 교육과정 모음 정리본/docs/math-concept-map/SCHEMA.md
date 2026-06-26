@@ -192,7 +192,7 @@
 
 ## Textbook Evidence Packet CSV
 
-`textbook-evidence-packets/rank-01.csv`는 `textbook-extraction-queue.csv`의 1순위 단원에 대해 교과서 목차·학습목표·본문 정의·정리·예제·용어 설명·문제 반복 패턴 근거를 채우기 위한 단원별 작업 패킷이다. 현재 `교과서_원본/`에 PDF가 없으므로 모든 row의 `extraction_status`는 `pending_textbook_pdf`이다.
+`textbook-evidence-packets/rank-01.csv`~`rank-05.csv`는 `textbook-extraction-queue.csv`의 상위 5개 단원에 대해 교과서 목차·학습목표·본문 정의·정리·예제·용어 설명·문제 반복 패턴 근거를 채우기 위한 단원별 작업 패킷이다. 현재 `교과서_원본/`에 PDF가 없으므로 모든 row의 `extraction_status`는 `pending_textbook_pdf`이다.
 
 | 필드 | 설명 |
 | --- | --- |
@@ -218,6 +218,25 @@
 | `problem_pattern_ref` | 문제에서 반복 출현하는 암묵 개념 근거 슬롯 |
 | `textbook_page_refs` | 교과서 파일명과 쪽수 근거 슬롯 |
 | `extraction_notes` | 추출 판단, 병합 후보, 신뢰도 조정 메모 |
+
+## Textbook Evidence Packet Index CSV
+
+`textbook-evidence-packets/index.csv`는 생성된 단원별 교과서 근거 패킷을 추적하는 인덱스이다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `rank` | 참조한 교과서 추출 queue 순위 |
+| `grade` | 학년 또는 교육과정 학년군 |
+| `domain` | 교육과정 영역 |
+| `unit` | 패킷 대상 단원 |
+| `concept_count` | 해당 패킷에 포함된 concept 수 |
+| `pending_textbook_evidence_count` | 아직 교과서 근거가 연결되지 않은 row 수 |
+| `low_confidence_count` | 해당 패킷 안의 `low` 신뢰도 concept 수 |
+| `priority_tier` | queue의 우선순위 등급 |
+| `priority_score` | queue의 우선순위 점수 |
+| `next_action` | 다음 교과서 추출 작업 유형 |
+| `packet_csv` | 단원별 패킷 CSV 파일명 |
+| `packet_md` | 단원별 패킷 Markdown 파일명 |
 
 ## 신뢰도 기준
 
