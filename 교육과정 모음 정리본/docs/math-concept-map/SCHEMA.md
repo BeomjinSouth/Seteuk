@@ -170,6 +170,26 @@
 | `evidence_depth` | `textbook_supported`, `official_dual_source`, `official_single_source`, `source_gap` |
 | `needs_textbook_evidence` | 교과서 본문·정리·예제·문제 근거 보강 필요 여부 |
 
+## Textbook Extraction Queue CSV
+
+`textbook-extraction-queue.csv`는 교과서 PDF가 추가되었을 때 단원별로 어떤 범위를 먼저 추출할지 정하는 파생 산출물이다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `rank` | 교과서 원문 추출 우선순위 |
+| `grade` | 학년 또는 교육과정 학년군 |
+| `domain` | 교육과정 영역 |
+| `unit` | 단원 또는 성취기준 묶음 |
+| `concept_count` | 해당 단원 concept 수 |
+| `needs_textbook_evidence_count` | 교과서 근거 보강이 필요한 concept 수 |
+| `low_confidence_count` | 해당 단원 `low` 신뢰도 concept 수 |
+| `official_single_source_count` | 공식 단일 출처에만 기대는 concept 수 |
+| `official_dual_source_count` | 교육과정과 성취수준 양쪽 공식 근거를 가진 concept 수 |
+| `textbook_supported_count` | 교과서 원문 근거가 연결된 concept 수 |
+| `priority_score` | `needs_textbook_evidence + low_confidence*4 + official_single_source*2` |
+| `priority_tier` | `highest`, `high`, `medium`, `low`, `complete` |
+| `next_action` | 다음 교과서 추출 작업 유형 |
+
 ## 신뢰도 기준
 
 - `high`: 공식 교육과정 또는 성취수준 문서에서 직접 확인되는 개념·관계

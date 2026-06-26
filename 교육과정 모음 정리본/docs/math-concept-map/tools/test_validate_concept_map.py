@@ -158,6 +158,23 @@ class AchievementCoverageTests(unittest.TestCase):
 
         self.assertEqual(validator.concept_evidence_depth_textbook_evidence_count(rows), 2)
 
+    def test_textbook_queue_unit_group_count_uses_grade_domain_unit(self) -> None:
+        rows = [
+            {"grade": "중1", "domain": "변화와 관계", "unit": "좌표평면과 그래프"},
+            {"grade": "중1", "domain": "변화와 관계", "unit": "좌표평면과 그래프"},
+            {"grade": "중1", "domain": "수와 연산", "unit": "정수와 유리수"},
+        ]
+
+        self.assertEqual(validator.textbook_queue_unit_group_count(rows), 2)
+
+    def test_textbook_queue_needs_textbook_count_sums_rows(self) -> None:
+        rows = [
+            {"needs_textbook_evidence_count": "2"},
+            {"needs_textbook_evidence_count": "3"},
+        ]
+
+        self.assertEqual(validator.textbook_queue_needs_textbook_count(rows), 5)
+
 
 if __name__ == "__main__":
     unittest.main()

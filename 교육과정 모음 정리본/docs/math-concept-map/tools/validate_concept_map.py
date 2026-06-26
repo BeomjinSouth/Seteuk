@@ -11,6 +11,7 @@ import build_relationship_audit as relationship_audit
 import build_source_inventory as source_inventory
 import build_source_ref_audit as source_ref_audit
 import build_concept_evidence_depth as concept_evidence_depth
+import build_textbook_extraction_queue as textbook_extraction_queue
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -203,6 +204,23 @@ def concept_evidence_depth_textbook_evidence_count(records: list[dict]) -> int:
     return sum(1 for record in records if record.get("has_textbook_evidence") == "yes")
 
 
+def textbook_queue_unit_group_count(records: list[dict]) -> int:
+    return len(
+        {
+            (
+                record.get("grade"),
+                record.get("domain"),
+                record.get("unit"),
+            )
+            for record in records
+        }
+    )
+
+
+def textbook_queue_needs_textbook_count(records: list[dict]) -> int:
+    return sum(int(record.get("needs_textbook_evidence_count", 0)) for record in records)
+
+
 def main() -> None:
     data_path = OUT_DIR / "concepts.json"
     if not data_path.exists():
@@ -275,6 +293,8 @@ def main() -> None:
     source_ref_audit_md = OUT_DIR / "source-ref-audit.md"
     concept_evidence_depth_csv = OUT_DIR / "concept-evidence-depth.csv"
     concept_evidence_depth_md = OUT_DIR / "concept-evidence-depth.md"
+    textbook_extraction_queue_csv = OUT_DIR / "textbook-extraction-queue.csv"
+    textbook_extraction_queue_md = OUT_DIR / "textbook-extraction-queue.md"
     graph = OUT_DIR / "graph.mmd"
     if read_csv_count(concepts_csv) != len(concepts):
         fail("concepts.csv row count does not match concepts.json")
@@ -343,6 +363,19 @@ def main() -> None:
         fail("concept-evidence-depth.csv contains textbook evidence while textbook originals are empty")
     if not concept_evidence_depth_md.exists() or "# Concept Evidence Depth" not in concept_evidence_depth_md.read_text(encoding="utf-8"):
         fail("concept-evidence-depth.md missing or invalid")
+    textbook_queue_rows = read_csv_rows(textbook_extraction_queue_csv)
+    expected_textbook_queue_rows = textbook_extraction_queue.textbook_extraction_queue_rows(concept_evidence_rows)
+    if len(textbook_queue_rows) != len(expected_textbook_queue_rows):
+        fail("textbook-extraction-queue.csv row count does not match generated unit queue")
+    if textbook_queue_unit_group_count(textbook_queue_rows) != unit_group_count(concepts):
+        fail("textbook-extraction-queue.csv row count does not match concept unit groups")
+    expected_needs_textbook_count = sum(
+        1 for row in concept_evidence_rows if row.get("needs_textbook_evidence") == "yes"
+    )
+    if textbook_queue_needs_textbook_count(textbook_queue_rows) != expected_needs_textbook_count:
+        fail("textbook-extraction-queue.csv needs_textbook_evidence_count does not match concept evidence depth")
+    if not textbook_extraction_queue_md.exists() or "# Textbook Extraction Queue" not in textbook_extraction_queue_md.read_text(encoding="utf-8"):
+        fail("textbook-extraction-queue.md missing or invalid")
     source_ref_rows = read_csv_rows(source_ref_audit_csv)
     if len(source_ref_rows) != len(source_ref_audit.source_ref_summary_rows(concepts, edges)):
         fail("source-ref-audit.csv row count does not match generated source reference groups")

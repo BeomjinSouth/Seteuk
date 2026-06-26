@@ -77,6 +77,13 @@
 - 현재 `textbook_supported` concept은 0개이며, 465개 concept 모두 교과서 본문·정리·예제·문제 근거 보강이 필요하다.
 - 교과서 PDF가 추가되면 이 산출물에서 `needs_textbook_evidence`를 줄이는 방식으로 보강 진행률을 추적한다.
 
+## Textbook Extraction Queue
+
+- `textbook-extraction-queue.md`와 `textbook-extraction-queue.csv`를 추가해 교과서 PDF가 추가된 뒤의 단원별 원문 추출 우선순위를 추적한다.
+- 현재 큐는 33개 단원 그룹을 포함하며, 교과서 근거 보강 필요 concept 465개와 `low` 신뢰도 concept 66개를 반영한다.
+- 현재 최상위 우선 단원은 `좌표평면과 그래프`, `일차함수와 그 그래프`, `경우의 수와 확률`, `이차함수와 그 그래프`, `도수분포표와 상대도수`이다.
+- 교과서 PDF가 추가되면 큐 순서대로 목차, 학습목표, 본문 정의, 정리, 예제, 문제 반복 표현을 추출한다.
+
 ## 다음 출처 보강 순서
 
 1. `교과서_원본/`에 중1~중3 수학 교과서 PDF를 추가한다.
