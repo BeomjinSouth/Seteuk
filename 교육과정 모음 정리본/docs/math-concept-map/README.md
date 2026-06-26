@@ -52,6 +52,8 @@
 - `legacy-gap-resolution.csv`: 후속 검토 결과의 기계 판독용 CSV
 - `legacy-gap-integration-plan.md`: legacy gap resolution 후보를 보수적 통합 액션으로 바꾼 staging 계획
 - `legacy-gap-integration-plan.csv`: 같은 통합 계획의 기계 판독용 CSV
+- `legacy-gap-source-review.md`: legacy gap 통합 후보별 공식 근거 확인 위치와 검색어 검토 패킷
+- `legacy-gap-source-review.csv`: 같은 근거 확인 패킷의 기계 판독용 CSV
 
 ## 갱신 방법
 
@@ -67,6 +69,7 @@ python docs/math-concept-map/tools/build_textbook_evidence_packet.py --all
 python docs/math-concept-map/tools/build_legacy_gap_audit.py
 python docs/math-concept-map/tools/build_legacy_gap_resolution.py
 python docs/math-concept-map/tools/build_legacy_gap_integration_plan.py
+python docs/math-concept-map/tools/build_legacy_gap_source_review.py
 python docs/math-concept-map/tools/build_review_queue.py
 python docs/math-concept-map/tools/build_terminology_coverage.py
 python docs/math-concept-map/tools/build_unit_coverage.py
@@ -81,13 +84,14 @@ python docs/math-concept-map/tools/test_build_textbook_evidence_packet.py
 python docs/math-concept-map/tools/test_build_legacy_gap_audit.py
 python docs/math-concept-map/tools/test_build_legacy_gap_resolution.py
 python docs/math-concept-map/tools/test_build_legacy_gap_integration_plan.py
+python docs/math-concept-map/tools/test_build_legacy_gap_source_review.py
 python docs/math-concept-map/tools/test_build_review_queue.py
 python docs/math-concept-map/tools/test_build_terminology_coverage.py
 python docs/math-concept-map/tools/test_build_unit_coverage.py
 python docs/math-concept-map/tools/test_validate_concept_map.py
 ```
 
-검증기는 필수 필드, id 중복, source/ref 무결성, CSV 행 수, Mermaid 파일, 2022 개정 중학교 수학 공식 성취기준 60개(`9수01-01`~`9수04-09`)의 concept 근거 커버리지, `review-queue.csv`와 `low` 신뢰도 concept 수의 일치, 공식 용어·기호 168개 중 concept 추가 검토 필요 항목이 없는지, `unit-coverage.csv`가 학년·영역·단원 그룹과 concept 총계를 보존하는지, `relationship-audit.csv`가 edge 총계와 필수 관계 유형을 보존하는지, 고립 concept이 없는지, `textbook-evidence-packets/index.csv`와 `rank-01.csv`~`rank-33.csv`가 전체 33개 단원 concept 465개를 모두 포함하고 현재 교과서 PDF 부재 상태에서는 모두 `pending_textbook_pdf`인지, `legacy-gap-integration-plan.csv`가 resolution 후보 12개와 staging 액션을 보존하는지 확인한다. `achievement-coverage.*`는 같은 성취기준 추출 로직을 사용해 사람용/기계용 검토 표로 재생성한다.
+검증기는 필수 필드, id 중복, source/ref 무결성, CSV 행 수, Mermaid 파일, 2022 개정 중학교 수학 공식 성취기준 60개(`9수01-01`~`9수04-09`)의 concept 근거 커버리지, `review-queue.csv`와 `low` 신뢰도 concept 수의 일치, 공식 용어·기호 168개 중 concept 추가 검토 필요 항목이 없는지, `unit-coverage.csv`가 학년·영역·단원 그룹과 concept 총계를 보존하는지, `relationship-audit.csv`가 edge 총계와 필수 관계 유형을 보존하는지, 고립 concept이 없는지, `textbook-evidence-packets/index.csv`와 `rank-01.csv`~`rank-33.csv`가 전체 33개 단원 concept 465개를 모두 포함하고 현재 교과서 PDF 부재 상태에서는 모두 `pending_textbook_pdf`인지, `legacy-gap-integration-plan.csv`가 resolution 후보 12개와 staging 액션을 보존하는지, `legacy-gap-source-review.csv`가 integration 후보 12개의 공식 근거 확인 queue를 보존하는지 확인한다. `achievement-coverage.*`는 같은 성취기준 추출 로직을 사용해 사람용/기계용 검토 표로 재생성한다.
 
 `review-queue.*`는 아직 교과서 본문·예제·오답 근거로 확정하지 못한 `low` 신뢰도 concept을 모아 다음 출처 보강 순서를 정한다.
 
@@ -102,5 +106,7 @@ python docs/math-concept-map/tools/test_validate_concept_map.py
 `legacy-gap-resolution.*`는 `needs_review` 34개 row를 고유 label 12개로 접어 11개 기초 선수개념 후보와 1개 기존 concept alias 후보로 나눈다. 이 파일 역시 concept을 자동 추가하지 않고, 다음 공식 근거 확인과 병합 판단 순서를 정하는 용도다.
 
 `legacy-gap-integration-plan.*`는 resolution 후보 12개를 11개 `stage_prerequisite_node` 액션과 1개 `stage_alias_review` 액션으로 바꾼다. 제안 id는 `prereq_ratio`처럼 안정적인 ASCII id로 두되, 공식 근거 확인 전에는 `concepts.json`에 반영하지 않는다.
+
+`legacy-gap-source-review.*`는 통합 후보 12개별로 확인할 성취기준, 검색어, 기존 target concept의 source_refs를 모은다. `비`처럼 target concept이 비어 있는 후보는 공식 성취기준 단위 직접 검토가 필요하다는 상태를 남긴다.
 
 교과서 PDF가 추가되면 단원별로 원문 전체를 전재하지 않고 개념명, 짧은 정의, 쪽수, 출처 파일 해시, 관계 근거만 반영한다.

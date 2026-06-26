@@ -232,3 +232,17 @@
 
 - legacy gap integration plan 단위 테스트 5개와 validator 단위 테스트 27개가 통과했다.
 - `legacy-gap-integration-plan.md`와 `legacy-gap-integration-plan.csv`는 고유 후보 12개를 `stage_prerequisite_node` 11개와 `stage_alias_review` 1개로 분리한다.
+
+## 2026-06-26 legacy gap source review 보강
+
+- `build_legacy_gap_source_review.py`를 추가해 `legacy-gap-integration-plan.csv`의 12개 후보를 공식 근거 확인 queue로 변환했다.
+- target concept이 있는 후보는 기존 concept의 `source_refs`를 압축해 `target_source_refs`에 모아, 새 prerequisite node 또는 alias 확정 전 확인할 공식 문서 위치를 좁혔다.
+- `비` 후보는 현재 target concept id가 없어 `target_source_ref_count: 0`으로 남기고, 관련 성취기준을 직접 확인해야 한다는 notes를 기록했다.
+- 검토 상태는 `needs_official_prerequisite_confirmation` 11개와 `needs_alias_confirmation` 1개로 분리했다.
+- `validate_concept_map.py`가 source review row 수, schema, 중복 candidate label, 생성 순서, integration plan 후보 수와의 일치, Markdown 산출물 존재 여부를 검증하도록 보강했다.
+- 이번 작업은 보조 검토 산출물과 검증만 추가했으므로 PDF 원본, 다운로드 manifest, 공식 출처 선택 규칙은 변경하지 않았다.
+
+## 2026-06-26 legacy gap source review 검증 결과
+
+- legacy gap source review 단위 테스트 4개와 validator 단위 테스트 29개가 통과했다.
+- `legacy-gap-source-review.md`와 `legacy-gap-source-review.csv`는 integration 후보 12개의 공식 근거 확인 queue를 보존한다.

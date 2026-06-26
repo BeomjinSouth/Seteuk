@@ -121,3 +121,11 @@
 - 기초 선수개념 후보는 `prereq_divisor`, `prereq_ratio`처럼 안정적인 ASCII 제안 id를 부여했지만, 공식 근거 확인 전에는 `concepts.json`에 추가하지 않는다.
 - `피타고라스`는 `alias_on_existing_concept` 액션으로만 유지하며, 독립 노드 생성 대상에서 제외한다.
 - 이번 작업은 보조 감사 산출물과 검증만 추가했으므로 PDF 원본, 다운로드 manifest, 공식 출처 선택 규칙은 변경하지 않았다.
+
+## Legacy Gap Source Review
+
+- `legacy-gap-source-review.md`와 `legacy-gap-source-review.csv`를 추가해 integration 후보 12개별 공식 근거 확인 queue를 만들었다.
+- 현재 검토 상태는 `needs_official_prerequisite_confirmation` 11개와 `needs_alias_confirmation` 1개이며, `needs_source_detail`은 0개다.
+- target concept이 있는 후보는 기존 concept의 `source_refs`를 압축해 함께 기록하여, 새 prerequisite node 또는 alias 확정 전에 확인할 공식 문서 위치를 좁혔다.
+- `비` 후보는 현재 target concept id가 비어 있어, `9수02-07`, `9수03-12`, `9수03-14`~`9수03-17`, `9수04-08` 성취기준 단위 직접 검토가 필요하다고 남겼다.
+- 이번 작업도 보조 검토 산출물과 검증만 추가했으므로 PDF 원본, 다운로드 manifest, 공식 출처 선택 규칙은 변경하지 않았다.

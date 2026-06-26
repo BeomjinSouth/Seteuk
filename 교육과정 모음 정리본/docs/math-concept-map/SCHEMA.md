@@ -295,6 +295,26 @@
 | `source_ref_plan` | 공식 교육과정 또는 교과서 근거 확인 계획 |
 | `notes` | 통합 판단 전제와 보류 사유 |
 
+## Legacy Gap Source Review CSV
+
+`legacy-gap-source-review.csv`는 `legacy-gap-integration-plan.csv`의 후보를 공식 근거 확인 queue로 바꾼 파생 산출물이다. 후보별로 확인할 성취기준, 검색어, 기존 target concept의 source ref를 모아, 새 노드나 alias를 확정하기 전의 검토 경로를 추적한다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `candidate_label` | 검토 후보 label |
+| `integration_status` | integration plan의 staging 상태 |
+| `proposed_concept_id` | 새 선수개념 노드가 필요한 경우의 제안 id |
+| `target_relationship_type` | 제안된 관계 또는 alias 검토 유형 |
+| `review_status` | `needs_official_prerequisite_confirmation`, `needs_alias_confirmation`, `needs_source_detail` |
+| `review_priority` | `official_source_first`, `alias_review`, `source_detail_first` |
+| `legacy_units` | 확인할 기존 성취기준 또는 단원 목록. 세미콜론으로 구분한다. |
+| `search_terms` | 후보 label, 성취기준 코드, target concept label을 합친 검토 검색어 |
+| `target_concept_ids` | 기존 target concept id 목록. 세미콜론으로 구분한다. |
+| `target_source_ref_count` | target concept에서 수집한 source ref 수 |
+| `target_source_refs` | target concept id, source id, locator, summary를 압축한 근거 목록 |
+| `recommended_next_step` | `concepts.json` 갱신 전 수행할 확인 작업 |
+| `notes` | target concept 누락, 직접 성취기준 검토 필요 등 운영 메모 |
+
 ## 신뢰도 기준
 
 - `high`: 공식 교육과정 또는 성취수준 문서에서 직접 확인되는 개념·관계
