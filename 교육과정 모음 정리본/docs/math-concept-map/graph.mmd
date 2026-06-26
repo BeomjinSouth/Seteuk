@@ -1,0 +1,142 @@
+flowchart LR
+  classDef core fill:#e8f1ff,stroke:#2456a6,stroke-width:1px,color:#10213f;
+  classDef representation fill:#fff7df,stroke:#a86b00,stroke-width:1px,color:#2c2100;
+  classDef procedure fill:#e9f8ed,stroke:#2d7d46,stroke-width:1px,color:#102b18;
+  classDef risk fill:#ffecec,stroke:#b73535,stroke-width:1px,color:#3c1010;
+  classDef default fill:#f7f7f7,stroke:#666,stroke-width:1px,color:#222;
+
+  m1_coord_graph_unit["좌표평면과 그래프"]
+  m1_coord_ordered_pair["순서쌍"]
+  m1_coord_coordinate["좌표"]
+  m1_coord_number_line["수직선"]
+  m1_coord_coordinate_plane["좌표평면"]
+  m1_coord_point_location["점의 위치"]
+  m1_coord_x_coordinate["x좌표"]
+  m1_coord_y_coordinate["y좌표"]
+  m1_coord_origin["원점"]
+  m1_coord_axis["좌표축"]
+  m1_coord_x_axis["x축"]
+  m1_coord_y_axis["y축"]
+  m1_coord_quadrant["사분면"]
+  m1_coord_quadrant_1["제1사분면"]
+  m1_coord_quadrant_2["제2사분면"]
+  m1_coord_quadrant_3["제3사분면"]
+  m1_coord_quadrant_4["제4사분면"]
+  m1_coord_axis_point["축 위의 점"]
+  m1_coord_usefulness["좌표 표현의 편리함"]
+  m1_graph_graph["그래프"]
+  m1_graph_situation_graphing["상황을 그래프로 나타내기"]
+  m1_graph_graph_interpretation["그래프 해석"]
+  m1_graph_change_state["변화 상태"]
+  m1_graph_increase_decrease["증가와 감소"]
+  m1_graph_periodic_change["주기적 변화"]
+  m1_repr_table["표"]
+  m1_repr_expression["식"]
+  m1_repr_everyday_language["일상 언어"]
+  m1_repr_conversion["표·식·그래프 상호 변환"]
+  m1_prop_direct_proportion["정비례"]
+  m1_prop_inverse_proportion["반비례"]
+  m1_prop_proportion_relation["정비례·반비례 관계 판단"]
+  m1_context_speed_distance["속력과 거리 맥락"]
+  m1_context_speed_time["속력과 시간 맥락"]
+  m1_term_variable["변수"]
+  m1_mis_order_swap["순서쌍의 순서 혼동"]
+  m1_mis_axis_quadrant["축 위의 점을 사분면에 포함하는 오류"]
+  m1_mis_graph_picture["그래프를 상황 그림으로만 보는 오류"]
+  m1_mis_direct_inverse_generalization["증가·감소만으로 정비례·반비례 판단"]
+  m1_mis_representation_conversion["표·식·그래프 변환 오류"]
+
+  m1_coord_graph_unit -- "포함" --> m1_coord_ordered_pair
+  m1_coord_graph_unit -- "포함" --> m1_coord_coordinate
+  m1_coord_graph_unit -- "포함" --> m1_coord_coordinate_plane
+  m1_coord_graph_unit -- "포함" --> m1_graph_graph
+  m1_coord_graph_unit -- "포함" --> m1_prop_direct_proportion
+  m1_coord_graph_unit -- "포함" --> m1_prop_inverse_proportion
+  m1_coord_ordered_pair -- "선수" --> m1_coord_coordinate
+  m1_coord_number_line -- "선수" --> m1_coord_coordinate_plane
+  m1_coord_coordinate -- "사용" --> m1_coord_point_location
+  m1_coord_coordinate -- "포함" --> m1_coord_x_coordinate
+  m1_coord_coordinate -- "포함" --> m1_coord_y_coordinate
+  m1_coord_coordinate_plane -- "포함" --> m1_coord_origin
+  m1_coord_coordinate_plane -- "포함" --> m1_coord_axis
+  m1_coord_axis -- "포함" --> m1_coord_x_axis
+  m1_coord_axis -- "포함" --> m1_coord_y_axis
+  m1_coord_coordinate_plane -- "포함" --> m1_coord_quadrant
+  m1_coord_quadrant -- "포함" --> m1_coord_quadrant_1
+  m1_coord_quadrant -- "포함" --> m1_coord_quadrant_2
+  m1_coord_quadrant -- "포함" --> m1_coord_quadrant_3
+  m1_coord_quadrant -- "포함" --> m1_coord_quadrant_4
+  m1_coord_axis -- "포함" --> m1_coord_axis_point
+  m1_coord_coordinate_plane -- "표현" --> m1_graph_graph
+  m1_graph_graph -- "사용" --> m1_graph_situation_graphing
+  m1_graph_graph -- "사용" --> m1_graph_graph_interpretation
+  m1_graph_graph_interpretation -- "사용" --> m1_graph_change_state
+  m1_graph_change_state -- "포함" --> m1_graph_increase_decrease
+  m1_graph_change_state -- "포함" --> m1_graph_periodic_change
+  m1_repr_conversion -- "사용" --> m1_repr_table
+  m1_repr_conversion -- "사용" --> m1_repr_expression
+  m1_repr_conversion -- "사용" --> m1_graph_graph
+  m1_prop_direct_proportion -- "표현" --> m1_repr_table
+  m1_prop_direct_proportion -- "표현" --> m1_repr_expression
+  m1_prop_direct_proportion -- "표현" --> m1_graph_graph
+  m1_prop_inverse_proportion -- "표현" --> m1_repr_table
+  m1_prop_inverse_proportion -- "표현" --> m1_repr_expression
+  m1_prop_inverse_proportion -- "표현" --> m1_graph_graph
+  m1_prop_direct_proportion -- "대조" --> m1_prop_inverse_proportion
+  m1_prop_inverse_proportion -- "대조" --> m1_prop_direct_proportion
+  m1_prop_proportion_relation -- "사용" --> m1_prop_direct_proportion
+  m1_prop_proportion_relation -- "사용" --> m1_prop_inverse_proportion
+  m1_context_speed_distance -- "사용" --> m1_prop_proportion_relation
+  m1_context_speed_time -- "사용" --> m1_prop_proportion_relation
+  m1_term_variable -- "사용" --> m1_repr_expression
+  m1_coord_x_coordinate -- "혼동" --> m1_coord_y_coordinate
+  m1_mis_order_swap -- "혼동" --> m1_coord_ordered_pair
+  m1_mis_order_swap -- "혼동" --> m1_coord_x_coordinate
+  m1_mis_order_swap -- "혼동" --> m1_coord_y_coordinate
+  m1_mis_axis_quadrant -- "혼동" --> m1_coord_axis_point
+  m1_mis_axis_quadrant -- "혼동" --> m1_coord_quadrant
+  m1_mis_graph_picture -- "혼동" --> m1_graph_graph_interpretation
+  m1_mis_direct_inverse_generalization -- "혼동" --> m1_prop_proportion_relation
+  m1_mis_direct_inverse_generalization -- "혼동" --> m1_graph_increase_decrease
+  m1_mis_representation_conversion -- "혼동" --> m1_repr_conversion
+
+  class m1_coord_graph_unit core;
+  class m1_coord_ordered_pair default;
+  class m1_coord_coordinate default;
+  class m1_coord_number_line representation;
+  class m1_coord_coordinate_plane representation;
+  class m1_coord_point_location default;
+  class m1_coord_x_coordinate default;
+  class m1_coord_y_coordinate default;
+  class m1_coord_origin default;
+  class m1_coord_axis default;
+  class m1_coord_x_axis default;
+  class m1_coord_y_axis default;
+  class m1_coord_quadrant default;
+  class m1_coord_quadrant_1 default;
+  class m1_coord_quadrant_2 default;
+  class m1_coord_quadrant_3 default;
+  class m1_coord_quadrant_4 default;
+  class m1_coord_axis_point default;
+  class m1_coord_usefulness default;
+  class m1_graph_graph representation;
+  class m1_graph_situation_graphing procedure;
+  class m1_graph_graph_interpretation procedure;
+  class m1_graph_change_state default;
+  class m1_graph_increase_decrease default;
+  class m1_graph_periodic_change default;
+  class m1_repr_table representation;
+  class m1_repr_expression representation;
+  class m1_repr_everyday_language representation;
+  class m1_repr_conversion procedure;
+  class m1_prop_direct_proportion core;
+  class m1_prop_inverse_proportion core;
+  class m1_prop_proportion_relation procedure;
+  class m1_context_speed_distance default;
+  class m1_context_speed_time default;
+  class m1_term_variable default;
+  class m1_mis_order_swap risk;
+  class m1_mis_axis_quadrant risk;
+  class m1_mis_graph_picture risk;
+  class m1_mis_direct_inverse_generalization risk;
+  class m1_mis_representation_conversion risk;
