@@ -79,6 +79,14 @@
 - `source_refs`의 locator와 summary에서 성취기준 코드를 추출하고, `[9수04-02]~[9수04-04]`처럼 범위로 적힌 근거도 개별 코드로 확장해 검사한다.
 - `test_validate_concept_map.py`를 추가하여 성취기준 목록, 누락 코드 탐지, 범위 코드 확장 동작을 자동 테스트한다.
 
+## 2026-06-26 커버리지 산출물 보강
+
+- `build_coverage_report.py`를 추가하여 `concepts.json`의 성취기준 근거를 `achievement-coverage.md`와 `achievement-coverage.csv`로 재생성하게 했다.
+- `achievement-coverage.md`에는 영역별 성취기준 수, concept 연결 수, 성취기준별 연결 concept 목록과 신뢰도 분포를 기록한다.
+- `achievement-coverage.csv`에는 같은 내용을 기계 판독 가능한 행 단위로 저장한다.
+- 현재 커버리지 산출물 기준 공식 성취기준 60개가 모두 concept 노드와 연결되어 있으며, 성취기준-concept 연결 수는 681개다.
+- 이번 작업은 기존 공식 교육과정 근거를 재가공한 것이므로 PDF 원본, 다운로드 manifest, 출처 선택 규칙은 변경하지 않았다.
+
 ## 남은 작업
 
 - 2022 개정 중학교 수학 공식 교육과정 4개 영역은 모두 1차 반영되었다.
@@ -98,3 +106,4 @@
 - 추가 확장 6 검증 결과: 392개 concept, 918개 edge, 4개 source 참조가 정상이며 중복 id와 깨진 참조가 없다.
 - 추가 확장 7 검증 결과: 465개 concept, 1215개 edge, 4개 source 참조가 정상이며 중복 id와 깨진 참조가 없다.
 - 검증 보강 결과: 465개 concept, 1215개 edge, 4개 source 참조와 공식 성취기준 60개 concept 근거 커버리지가 정상이며, validator 단위 테스트 3개가 통과한다.
+- 커버리지 산출물 보강 결과: report 단위 테스트 2개가 통과하고, `achievement-coverage.md`와 `achievement-coverage.csv`가 공식 성취기준 60개 전체를 포함한다.

@@ -35,6 +35,21 @@
 | `notes` | 관계 해석 메모 |
 | `confidence` | `high`, `medium`, `low` |
 
+## Achievement Coverage CSV
+
+`achievement-coverage.csv`는 `concepts.json`의 `source_refs`에서 성취기준 코드를 추출해 만든 파생 산출물이다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `achievement_code` | 공식 성취기준 코드 |
+| `domain` | 성취기준이 속한 교육과정 영역 |
+| `concept_count` | 해당 성취기준 코드가 근거로 연결된 concept 수 |
+| `high_confidence_count` | 연결 concept 중 `high` 신뢰도 수 |
+| `medium_confidence_count` | 연결 concept 중 `medium` 신뢰도 수 |
+| `low_confidence_count` | 연결 concept 중 `low` 신뢰도 수 |
+| `concept_ids` | 연결 concept id 목록. 세미콜론으로 구분한다. |
+| `concept_labels` | 연결 concept 대표 한국어명 목록. 세미콜론으로 구분한다. |
+
 ## 신뢰도 기준
 
 - `high`: 공식 교육과정 또는 성취수준 문서에서 직접 확인되는 개념·관계
