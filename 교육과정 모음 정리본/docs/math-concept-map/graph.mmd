@@ -5,6 +5,74 @@ flowchart LR
   classDef risk fill:#ffecec,stroke:#b73535,stroke-width:1px,color:#3c1010;
   classDef default fill:#f7f7f7,stroke:#666,stroke-width:1px,color:#222;
 
+  m1_num_domain["수와 연산"]
+  m1_num_prime_factor_unit["소인수분해"]
+  m1_num_natural_number["자연수"]
+  m1_num_prime_number["소수"]
+  m1_num_composite_number["합성수"]
+  m1_num_prime_factor["소인수"]
+  m1_num_prime_factorization["소인수분해"]
+  m1_num_prime_factor_product["소인수의 곱으로 표현하기"]
+  m1_num_coprime["서로소"]
+  m1_num_gcd["최대공약수"]
+  m1_num_lcm["최소공배수"]
+  m1_num_find_gcd_lcm_prime_factorization["소인수분해로 최대공약수와 최소공배수 구하기"]
+  m1_mis_prime_one["1을 소수나 합성수로 보는 오류"]
+  m1_mis_gcd_lcm_scope["최대공약수·최소공배수 활용 문제를 범위로 오인하는 오류"]
+  m1_num_integer_rational_unit["정수와 유리수"]
+  m1_num_negative_need["음수의 필요성"]
+  m1_num_positive_number["양수"]
+  m1_num_negative_number["음수"]
+  m1_num_positive_integer["양의 정수"]
+  m1_num_negative_integer["음의 정수"]
+  m1_num_integer["정수"]
+  m1_num_rational_number["유리수"]
+  m1_num_positive_rational["양의 유리수"]
+  m1_num_negative_rational["음의 유리수"]
+  m1_num_number_line["수직선"]
+  m1_num_absolute_value["절댓값"]
+  m1_num_plus_sign["양의 부호"]
+  m1_num_minus_sign["음의 부호"]
+  m1_num_order_relation["정수와 유리수의 대소 관계"]
+  m1_num_four_operations["정수와 유리수의 사칙계산"]
+  m1_num_integer_rational_add_sub["정수와 유리수의 덧셈과 뺄셈"]
+  m1_num_integer_rational_mul_div["정수와 유리수의 곱셈과 나눗셈"]
+  m1_num_operation_laws["연산 법칙"]
+  m1_num_commutative_law["교환법칙"]
+  m1_num_associative_law["결합법칙"]
+  m1_num_distributive_law["분배법칙"]
+  m1_num_reciprocal["역수"]
+  m1_num_mixed_calculation["정수와 유리수의 혼합계산"]
+  m1_mis_sign_operation["부호와 연산 기호를 혼동하는 오류"]
+  m1_mis_absolute_value_positive["절댓값을 항상 양수로만 말하는 오류"]
+  m1_mis_negative_order["음수의 대소를 절댓값 크기로 판단하는 오류"]
+  m1_num_repeating_decimal_unit["유리수와 순환소수"]
+  m1_num_finite_decimal["유한소수"]
+  m1_num_infinite_decimal["무한소수"]
+  m1_num_repeating_decimal["순환소수"]
+  m1_num_repetend["순환마디"]
+  m1_num_repeating_decimal_notation["순환소수 표현"]
+  m1_num_rational_repeating_relation["유리수와 순환소수의 관계"]
+  m1_num_repeating_decimal_to_fraction["순환소수를 분수로 나타내기"]
+  m1_num_fraction_decimal_classification["분수가 유한소수 또는 순환소수로 나타나는지 구분하기"]
+  m1_mis_finite_to_repeating_scope["유한소수를 순환소수로 나타내는 활동을 범위로 오인하는 오류"]
+  m1_num_square_root_real_unit["제곱근과 실수"]
+  m1_num_square_root["제곱근"]
+  m1_num_square_root_property["제곱근의 성질"]
+  m1_num_radical_sign["근호"]
+  m1_num_compare_square_roots["제곱근의 대소 관계"]
+  m1_num_irrational_number["무리수"]
+  m1_num_real_number["실수"]
+  m1_num_rational_irrational_classification["유리수와 무리수의 구분"]
+  m1_num_real_order["실수의 대소 관계"]
+  m1_num_radical_expression["근호를 포함한 식"]
+  m1_num_radical_operations["근호를 포함한 식의 사칙계산"]
+  m1_num_rationalize_denominator["분모의 유리화"]
+  m1_num_square_root_calculator["계산기로 제곱근 값 구하기"]
+  m1_num_unit_square_diagonal["한 변의 길이가 1인 정사각형의 대각선"]
+  m1_mis_radical_principal_root["근호가 나타내는 제곱근의 부호를 혼동하는 오류"]
+  m1_mis_irrational_decimal["무한소수와 무리수를 같은 말로 보는 오류"]
+  m1_mis_radical_like_terms["근호 안의 수가 다른 제곱근을 동류항처럼 더하는 오류"]
   m1_expr_unit["문자의 사용과 식"]
   m1_expr_letter["문자"]
   m1_expr_literal_expression["문자를 사용한 식"]
@@ -209,6 +277,128 @@ flowchart LR
   m1_mis_direct_inverse_generalization["증가·감소만으로 정비례·반비례 판단"]
   m1_mis_representation_conversion["표·식·그래프 변환 오류"]
 
+  m1_num_domain -- "포함" --> m1_num_prime_factor_unit
+  m1_num_domain -- "포함" --> m1_num_integer_rational_unit
+  m1_num_domain -- "포함" --> m1_num_repeating_decimal_unit
+  m1_num_domain -- "포함" --> m1_num_square_root_real_unit
+  m1_num_prime_factor_unit -- "포함" --> m1_num_prime_number
+  m1_num_prime_factor_unit -- "포함" --> m1_num_composite_number
+  m1_num_prime_factor_unit -- "포함" --> m1_num_prime_factor
+  m1_num_prime_factor_unit -- "포함" --> m1_num_prime_factorization
+  m1_num_prime_factor_unit -- "포함" --> m1_num_coprime
+  m1_num_prime_factor_unit -- "포함" --> m1_num_gcd
+  m1_num_prime_factor_unit -- "포함" --> m1_num_lcm
+  m1_num_prime_factor_unit -- "포함" --> m1_num_find_gcd_lcm_prime_factorization
+  m1_num_natural_number -- "선수" --> m1_num_prime_number
+  m1_num_natural_number -- "선수" --> m1_num_composite_number
+  m1_num_prime_number -- "대조" --> m1_num_composite_number
+  m1_num_composite_number -- "대조" --> m1_num_prime_number
+  m1_num_prime_number -- "사용" --> m1_num_prime_factor
+  m1_num_prime_factor -- "사용" --> m1_num_prime_factorization
+  m1_calc_power -- "사용" --> m1_num_prime_factor_product
+  m1_calc_base -- "사용" --> m1_num_prime_factor_product
+  m1_calc_exponent -- "사용" --> m1_num_prime_factor_product
+  m1_num_prime_factorization -- "표현" --> m1_num_prime_factor_product
+  m1_num_prime_factorization -- "사용" --> m1_num_find_gcd_lcm_prime_factorization
+  m1_num_gcd -- "사용" --> m1_num_find_gcd_lcm_prime_factorization
+  m1_num_lcm -- "사용" --> m1_num_find_gcd_lcm_prime_factorization
+  m1_num_gcd -- "대조" --> m1_num_lcm
+  m1_num_lcm -- "대조" --> m1_num_gcd
+  m1_num_coprime -- "사용" --> m1_num_gcd
+  m1_mis_prime_one -- "혼동" --> m1_num_prime_number
+  m1_mis_prime_one -- "혼동" --> m1_num_composite_number
+  m1_mis_gcd_lcm_scope -- "혼동" --> m1_num_find_gcd_lcm_prime_factorization
+  m1_num_prime_factor_unit -- "선수" --> m1_num_integer_rational_unit
+  m1_num_integer_rational_unit -- "포함" --> m1_num_negative_need
+  m1_num_integer_rational_unit -- "포함" --> m1_num_positive_number
+  m1_num_integer_rational_unit -- "포함" --> m1_num_negative_number
+  m1_num_integer_rational_unit -- "포함" --> m1_num_integer
+  m1_num_integer_rational_unit -- "포함" --> m1_num_rational_number
+  m1_num_integer_rational_unit -- "포함" --> m1_num_number_line
+  m1_num_integer_rational_unit -- "포함" --> m1_num_absolute_value
+  m1_num_integer_rational_unit -- "포함" --> m1_num_plus_sign
+  m1_num_integer_rational_unit -- "포함" --> m1_num_minus_sign
+  m1_num_integer_rational_unit -- "포함" --> m1_num_order_relation
+  m1_num_integer_rational_unit -- "포함" --> m1_num_four_operations
+  m1_num_positive_number -- "대조" --> m1_num_negative_number
+  m1_num_negative_need -- "사용" --> m1_num_negative_number
+  m1_num_positive_number -- "포함" --> m1_num_positive_integer
+  m1_num_negative_number -- "포함" --> m1_num_negative_integer
+  m1_num_integer -- "포함" --> m1_num_positive_integer
+  m1_num_integer -- "포함" --> m1_num_negative_integer
+  m1_num_integer -- "선수" --> m1_num_rational_number
+  m1_num_rational_number -- "포함" --> m1_num_positive_rational
+  m1_num_rational_number -- "포함" --> m1_num_negative_rational
+  m1_num_number_line -- "사용" --> m1_num_order_relation
+  m1_num_absolute_value -- "사용" --> m1_num_order_relation
+  m1_num_order_relation -- "선수" --> m1_num_real_order
+  m1_num_plus_sign -- "대조" --> m1_num_minus_sign
+  m1_num_plus_sign -- "사용" --> m1_num_integer_rational_add_sub
+  m1_num_minus_sign -- "사용" --> m1_num_integer_rational_add_sub
+  m1_num_four_operations -- "포함" --> m1_num_integer_rational_add_sub
+  m1_num_four_operations -- "포함" --> m1_num_integer_rational_mul_div
+  m1_num_reciprocal -- "사용" --> m1_num_integer_rational_mul_div
+  m1_num_four_operations -- "사용" --> m1_num_operation_laws
+  m1_num_operation_laws -- "포함" --> m1_num_commutative_law
+  m1_num_operation_laws -- "포함" --> m1_num_associative_law
+  m1_num_operation_laws -- "포함" --> m1_num_distributive_law
+  m1_num_distributive_law -- "선수" --> m1_calc_expansion
+  m1_num_four_operations -- "사용" --> m1_num_mixed_calculation
+  m1_num_integer_rational_add_sub -- "사용" --> m1_num_mixed_calculation
+  m1_num_integer_rational_mul_div -- "사용" --> m1_num_mixed_calculation
+  m1_num_four_operations -- "선수" --> m1_calc_unit
+  m1_mis_sign_operation -- "혼동" --> m1_num_plus_sign
+  m1_mis_sign_operation -- "혼동" --> m1_num_minus_sign
+  m1_mis_absolute_value_positive -- "혼동" --> m1_num_absolute_value
+  m1_mis_negative_order -- "혼동" --> m1_num_order_relation
+  m1_num_integer_rational_unit -- "선수" --> m1_num_repeating_decimal_unit
+  m1_num_repeating_decimal_unit -- "포함" --> m1_num_finite_decimal
+  m1_num_repeating_decimal_unit -- "포함" --> m1_num_infinite_decimal
+  m1_num_repeating_decimal_unit -- "포함" --> m1_num_repeating_decimal
+  m1_num_repeating_decimal_unit -- "포함" --> m1_num_repetend
+  m1_num_repeating_decimal_unit -- "포함" --> m1_num_repeating_decimal_notation
+  m1_num_repeating_decimal_unit -- "포함" --> m1_num_rational_repeating_relation
+  m1_num_repeating_decimal_unit -- "포함" --> m1_num_repeating_decimal_to_fraction
+  m1_num_finite_decimal -- "대조" --> m1_num_infinite_decimal
+  m1_num_infinite_decimal -- "포함" --> m1_num_repeating_decimal
+  m1_num_repeating_decimal -- "포함" --> m1_num_repetend
+  m1_num_repeating_decimal -- "표현" --> m1_num_repeating_decimal_notation
+  m1_num_rational_number -- "사용" --> m1_num_rational_repeating_relation
+  m1_num_repeating_decimal -- "사용" --> m1_num_rational_repeating_relation
+  m1_num_repeating_decimal_to_fraction -- "표현" --> m1_num_rational_number
+  m1_num_fraction_decimal_classification -- "사용" --> m1_num_finite_decimal
+  m1_num_fraction_decimal_classification -- "사용" --> m1_num_repeating_decimal
+  m1_mis_finite_to_repeating_scope -- "혼동" --> m1_num_rational_repeating_relation
+  m1_num_repeating_decimal_unit -- "선수" --> m1_num_square_root_real_unit
+  m1_num_square_root_real_unit -- "포함" --> m1_num_square_root
+  m1_num_square_root_real_unit -- "포함" --> m1_num_square_root_property
+  m1_num_square_root_real_unit -- "포함" --> m1_num_radical_sign
+  m1_num_square_root_real_unit -- "포함" --> m1_num_compare_square_roots
+  m1_num_square_root_real_unit -- "포함" --> m1_num_irrational_number
+  m1_num_square_root_real_unit -- "포함" --> m1_num_real_number
+  m1_num_square_root_real_unit -- "포함" --> m1_num_real_order
+  m1_num_square_root_real_unit -- "포함" --> m1_num_radical_operations
+  m1_calc_power -- "선수" --> m1_num_square_root
+  m1_num_square_root -- "사용" --> m1_num_square_root_property
+  m1_num_square_root -- "표현" --> m1_num_radical_sign
+  m1_num_radical_sign -- "사용" --> m1_num_radical_expression
+  m1_num_square_root_property -- "사용" --> m1_num_compare_square_roots
+  m1_num_compare_square_roots -- "사용" --> m1_num_real_order
+  m1_num_unit_square_diagonal -- "표현" --> m1_num_irrational_number
+  m1_num_rational_number -- "대조" --> m1_num_irrational_number
+  m1_num_irrational_number -- "대조" --> m1_num_rational_number
+  m1_num_real_number -- "포함" --> m1_num_rational_number
+  m1_num_real_number -- "포함" --> m1_num_irrational_number
+  m1_num_real_number -- "사용" --> m1_num_rational_irrational_classification
+  m1_num_real_number -- "포함" --> m1_num_real_order
+  m1_num_radical_expression -- "사용" --> m1_num_radical_operations
+  m1_num_square_root_property -- "사용" --> m1_num_radical_operations
+  m1_num_radical_operations -- "사용" --> m1_num_rationalize_denominator
+  m1_num_square_root -- "사용" --> m1_num_square_root_calculator
+  m1_mis_radical_principal_root -- "혼동" --> m1_num_radical_sign
+  m1_mis_irrational_decimal -- "혼동" --> m1_num_infinite_decimal
+  m1_mis_irrational_decimal -- "혼동" --> m1_num_irrational_number
+  m1_mis_radical_like_terms -- "혼동" --> m1_num_radical_operations
   m1_expr_unit -- "포함" --> m1_expr_letter
   m1_expr_unit -- "포함" --> m1_expr_literal_expression
   m1_expr_unit -- "포함" --> m1_repr_expression
@@ -550,6 +740,74 @@ flowchart LR
   m1_mis_direct_inverse_generalization -- "혼동" --> m1_graph_increase_decrease
   m1_mis_representation_conversion -- "혼동" --> m1_repr_conversion
 
+  class m1_num_domain core;
+  class m1_num_prime_factor_unit core;
+  class m1_num_natural_number default;
+  class m1_num_prime_number default;
+  class m1_num_composite_number default;
+  class m1_num_prime_factor default;
+  class m1_num_prime_factorization procedure;
+  class m1_num_prime_factor_product representation;
+  class m1_num_coprime default;
+  class m1_num_gcd default;
+  class m1_num_lcm default;
+  class m1_num_find_gcd_lcm_prime_factorization procedure;
+  class m1_mis_prime_one risk;
+  class m1_mis_gcd_lcm_scope risk;
+  class m1_num_integer_rational_unit core;
+  class m1_num_negative_need default;
+  class m1_num_positive_number default;
+  class m1_num_negative_number default;
+  class m1_num_positive_integer default;
+  class m1_num_negative_integer default;
+  class m1_num_integer core;
+  class m1_num_rational_number core;
+  class m1_num_positive_rational default;
+  class m1_num_negative_rational default;
+  class m1_num_number_line representation;
+  class m1_num_absolute_value default;
+  class m1_num_plus_sign default;
+  class m1_num_minus_sign default;
+  class m1_num_order_relation default;
+  class m1_num_four_operations procedure;
+  class m1_num_integer_rational_add_sub procedure;
+  class m1_num_integer_rational_mul_div procedure;
+  class m1_num_operation_laws default;
+  class m1_num_commutative_law default;
+  class m1_num_associative_law default;
+  class m1_num_distributive_law default;
+  class m1_num_reciprocal default;
+  class m1_num_mixed_calculation procedure;
+  class m1_mis_sign_operation risk;
+  class m1_mis_absolute_value_positive risk;
+  class m1_mis_negative_order risk;
+  class m1_num_repeating_decimal_unit core;
+  class m1_num_finite_decimal default;
+  class m1_num_infinite_decimal default;
+  class m1_num_repeating_decimal default;
+  class m1_num_repetend default;
+  class m1_num_repeating_decimal_notation representation;
+  class m1_num_rational_repeating_relation default;
+  class m1_num_repeating_decimal_to_fraction procedure;
+  class m1_num_fraction_decimal_classification procedure;
+  class m1_mis_finite_to_repeating_scope risk;
+  class m1_num_square_root_real_unit core;
+  class m1_num_square_root core;
+  class m1_num_square_root_property default;
+  class m1_num_radical_sign default;
+  class m1_num_compare_square_roots procedure;
+  class m1_num_irrational_number core;
+  class m1_num_real_number core;
+  class m1_num_rational_irrational_classification procedure;
+  class m1_num_real_order default;
+  class m1_num_radical_expression representation;
+  class m1_num_radical_operations procedure;
+  class m1_num_rationalize_denominator procedure;
+  class m1_num_square_root_calculator procedure;
+  class m1_num_unit_square_diagonal representation;
+  class m1_mis_radical_principal_root risk;
+  class m1_mis_irrational_decimal risk;
+  class m1_mis_radical_like_terms risk;
   class m1_expr_unit core;
   class m1_expr_letter default;
   class m1_expr_literal_expression representation;
