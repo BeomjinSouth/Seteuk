@@ -121,6 +121,14 @@
 - `validate_concept_map.py`가 관계 감사 CSV의 edge 합계, 필수 관계 유형 존재, 고립 concept 0개 조건을 검사하도록 보강했다.
 - 이번 작업은 기존 공식 교육과정 기반 concept을 더 잘 연결한 것이므로 PDF 원본, 다운로드 manifest, 출처 선택 규칙은 변경하지 않았다.
 
+## 2026-06-26 출처 inventory 보강
+
+- `build_source_inventory.py`를 추가하여 현재 로컬 출처 파일 가용성을 `source-inventory.md`와 `source-inventory.csv`로 재생성하게 했다.
+- 현재 공식 수학과 교육과정 PDF, 성취수준 PDF, 수학 단원 정리 JSON은 `available`로 확인했다.
+- 현재 `교과서_원본/`은 `README.md`만 있고 교과서 PDF가 없어 `empty`로 확인했다.
+- `validate_concept_map.py`가 source inventory의 필수 source group과 상태값, Markdown 산출물 존재 여부를 검사하도록 보강했다.
+- 이번 작업은 출처 현황 기록만 보강한 것이므로 PDF 원본, 다운로드 manifest, 출처 선택 규칙은 변경하지 않았다.
+
 ## 남은 작업
 
 - 2022 개정 중학교 수학 공식 교육과정 4개 영역은 모두 1차 반영되었다.
@@ -145,3 +153,4 @@
 - 공식 용어·기호 커버리지 보강 결과: terminology coverage 단위 테스트 2개와 validator 단위 테스트 5개가 통과하고, `official-term-coverage.md`와 `official-term-coverage.csv`가 공식 용어·기호 168개 전체를 포함하며 `needs_concept` 항목은 0개다.
 - 단원별 커버리지 보강 결과: unit coverage 단위 테스트 2개와 validator 단위 테스트 6개가 통과하고, `unit-coverage.md`와 `unit-coverage.csv`가 학년·영역·단원 그룹 33개와 concept 총계 465개를 포함한다.
 - 관계 감사 보강 결과: relationship audit 단위 테스트 3개와 validator 단위 테스트 7개가 통과하고, `relationship-audit.md`와 `relationship-audit.csv`가 edge 1217개 전체와 고립 concept 0개 상태를 포함한다.
+- 출처 inventory 보강 결과: source inventory 단위 테스트 3개와 validator 단위 테스트 9개가 통과하고, `source-inventory.md`와 `source-inventory.csv`가 공식 출처 3개 `available`, 교과서 원본 1개 `empty` 상태를 포함한다.

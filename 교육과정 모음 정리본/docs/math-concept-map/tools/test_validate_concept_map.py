@@ -90,6 +90,29 @@ class AchievementCoverageTests(unittest.TestCase):
 
         self.assertEqual(validator.isolated_concept_count(concepts, edges), 1)
 
+    def test_missing_source_inventory_groups_are_reported(self) -> None:
+        rows = [
+            {"source_group": "curriculum_pdf", "status": "available"},
+            {"source_group": "achievement_pdf", "status": "available"},
+            {"source_group": "textbook_originals", "status": "empty"},
+        ]
+
+        self.assertEqual(
+            validator.missing_source_inventory_groups(rows),
+            ["unit_summary_json"],
+        )
+
+    def test_invalid_source_inventory_statuses_are_reported(self) -> None:
+        rows = [
+            {"source_group": "curriculum_pdf", "status": "available"},
+            {"source_group": "achievement_pdf", "status": "stale"},
+        ]
+
+        self.assertEqual(
+            validator.invalid_source_inventory_statuses(rows),
+            ["achievement_pdf:stale"],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

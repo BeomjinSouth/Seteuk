@@ -8,6 +8,7 @@ from pathlib import Path
 
 import build_terminology_coverage as terminology
 import build_relationship_audit as relationship_audit
+import build_source_inventory as source_inventory
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -58,6 +59,10 @@ EDGE_TYPES = {
     "related_to",
 }
 CONFIDENCE = {"high", "medium", "low"}
+SOURCE_INVENTORY_STATUSES = {"available", "empty", "missing"}
+REQUIRED_SOURCE_GROUPS = tuple(
+    spec["source_group"] for spec in source_inventory.SOURCE_SPECS
+)
 EXPECTED_ACHIEVEMENT_CODES = tuple(
     [f"9수01-{number:02d}" for number in range(1, 11)]
     + [f"9수02-{number:02d}" for number in range(1, 23)]
@@ -157,6 +162,20 @@ def isolated_concept_count(concepts: list[dict], edges: list[dict]) -> int:
     return len(concept_ids - connected_ids)
 
 
+def missing_source_inventory_groups(records: list[dict]) -> list[str]:
+    present = {record.get("source_group") for record in records}
+    return [group for group in REQUIRED_SOURCE_GROUPS if group not in present]
+
+
+def invalid_source_inventory_statuses(records: list[dict]) -> list[str]:
+    invalid: list[str] = []
+    for record in records:
+        status = record.get("status", "")
+        if status not in SOURCE_INVENTORY_STATUSES:
+            invalid.append(f"{record.get('source_group', '')}:{status}")
+    return invalid
+
+
 def main() -> None:
     data_path = OUT_DIR / "concepts.json"
     if not data_path.exists():
@@ -223,6 +242,8 @@ def main() -> None:
     unit_coverage_md = OUT_DIR / "unit-coverage.md"
     relationship_audit_csv = OUT_DIR / "relationship-audit.csv"
     relationship_audit_md = OUT_DIR / "relationship-audit.md"
+    source_inventory_csv = OUT_DIR / "source-inventory.csv"
+    source_inventory_md = OUT_DIR / "source-inventory.md"
     graph = OUT_DIR / "graph.mmd"
     if read_csv_count(concepts_csv) != len(concepts):
         fail("concepts.csv row count does not match concepts.json")
@@ -263,6 +284,15 @@ def main() -> None:
         fail("concept map contains isolated concepts without any edge")
     if not relationship_audit_md.exists() or "# 관계 감사" not in relationship_audit_md.read_text(encoding="utf-8"):
         fail("relationship-audit.md missing or invalid")
+    source_inventory_rows = read_csv_rows(source_inventory_csv)
+    missing_source_groups = missing_source_inventory_groups(source_inventory_rows)
+    if missing_source_groups:
+        fail(f"source-inventory.csv missing source groups: {missing_source_groups}")
+    invalid_source_statuses = invalid_source_inventory_statuses(source_inventory_rows)
+    if invalid_source_statuses:
+        fail(f"source-inventory.csv has invalid statuses: {invalid_source_statuses}")
+    if not source_inventory_md.exists() or "# Source Inventory" not in source_inventory_md.read_text(encoding="utf-8"):
+        fail("source-inventory.md missing or invalid")
     if not graph.exists() or "flowchart LR" not in graph.read_text(encoding="utf-8"):
         fail("graph.mmd missing or invalid")
 

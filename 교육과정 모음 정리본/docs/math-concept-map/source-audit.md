@@ -56,6 +56,13 @@
 - `unit-coverage.md`와 `unit-coverage.csv`는 현재 concept/edge를 33개 학년·영역·단원 그룹으로 나누어 다음 교과서 원문 보강 단위를 추적하는 파생 산출물이다.
 - `relationship-audit.md`와 `relationship-audit.csv`는 현재 edge 1217개가 관계 유형별로 어떻게 분포하는지와 고립 concept이 없는지 추적하는 파생 산출물이다.
 
+## Source Inventory Snapshot
+
+- `source-inventory.md`와 `source-inventory.csv`를 추가해 현재 로컬 출처 파일 가용성을 재생성 가능하게 기록했다.
+- 현재 `curriculum_pdf`, `achievement_pdf`, `unit_summary_json`은 `available`이다.
+- 현재 `textbook_originals`는 폴더 안에 `README.md`만 있고 PDF가 없어 `empty`이다.
+- 이번 작업은 출처 현황 기록만 보강했으므로 기존 PDF 원본, 다운로드 manifest, 출처 선택 규칙은 변경하지 않았다.
+
 ## 다음 출처 보강 순서
 
 1. `교과서_원본/`에 중1~중3 수학 교과서 PDF를 추가한다.

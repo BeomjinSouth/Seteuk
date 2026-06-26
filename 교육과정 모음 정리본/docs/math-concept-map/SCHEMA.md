@@ -114,6 +114,22 @@
 | `source_concept_count` | 해당 관계 유형에서 source로 등장하는 concept 수 |
 | `target_concept_count` | 해당 관계 유형에서 target으로 등장하는 concept 수 |
 
+## Source Inventory CSV
+
+`source-inventory.csv`는 현재 저장소에서 수학 개념 Map에 사용할 수 있는 로컬 출처 파일의 가용성을 요약한 파생 산출물이다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `source_group` | 출처 묶음 식별자. 예: `curriculum_pdf`, `achievement_pdf`, `unit_summary_json`, `textbook_originals` |
+| `title` | 사람이 읽는 출처 이름 |
+| `path` | 저장소 루트 기준 상대 경로 |
+| `file_count` | 해당 경로에서 확인한 전체 파일 수 |
+| `pdf_count` | 해당 경로에서 확인한 PDF 파일 수 |
+| `json_count` | 해당 경로에서 확인한 JSON 파일 수 |
+| `status` | `available`, `empty`, `missing` |
+| `use_for_concept_map` | 개념 Map 구축에서의 사용 목적 |
+| `notes` | 현재 상태에 대한 운영 메모 |
+
 ## 신뢰도 기준
 
 - `high`: 공식 교육과정 또는 성취수준 문서에서 직접 확인되는 개념·관계
