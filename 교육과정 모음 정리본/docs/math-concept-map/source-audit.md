@@ -98,3 +98,10 @@
 2. 목차, 단원 도입, 학습 목표, 본문 정의, 정리, 예제, 용어 설명을 우선 추출한다.
 3. 문제에서 반복되는 표현은 본문 개념과 연결하되, 원문 전재 없이 개념명과 짧은 요약만 남긴다.
 4. 출처 파일 해시와 쪽수를 `source_refs`에 추가한다.
+
+## Legacy Gap Audit
+
+- `legacy-gap-audit.md`와 `legacy-gap-audit.csv`를 추가해 기존 로컬 `수학_개념_위계도/data/math_concept_hierarchy.json`의 중학교 후보가 현재 공식 근거 기반 concept map에 이미 포함되어 있는지 비교했다.
+- 현재 감사 대상은 163개이며, `covered_by_label` 129개와 `needs_review` 34개로 분류된다. `covered_by_alias`는 현재 0개다.
+- 기존 로컬 위계도는 공식 교육과정 PDF나 교과서 원본이 아니므로 보조 후보 출처로만 사용한다. `needs_review` 항목은 공식 문서 또는 교과서 본문 근거가 확인되기 전까지 새 concept으로 확정하지 않는다.
+- 이번 작업은 기존 감사 산출물 생성과 검증 보강만 수행했으므로 PDF 원본, 다운로드 manifest, 공식 출처 선택 규칙은 변경하지 않았다.

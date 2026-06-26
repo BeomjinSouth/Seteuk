@@ -190,3 +190,17 @@
 - concept evidence depth 보강 결과: concept evidence depth 단위 테스트 3개와 validator 단위 테스트 14개가 통과하고, `concept-evidence-depth.md`와 `concept-evidence-depth.csv`가 concept 465개 전체와 교과서 근거 보강 필요 465개 상태를 포함한다.
 - textbook extraction queue 보강 결과: textbook extraction queue 단위 테스트 3개와 validator 단위 테스트 16개가 통과하고, `textbook-extraction-queue.md`와 `textbook-extraction-queue.csv`가 33개 단원 그룹과 교과서 근거 보강 필요 concept 465개를 포함한다.
 - textbook evidence packet 보강 결과: textbook evidence packet 단위 테스트 6개와 validator 단위 테스트 21개가 통과하고, `textbook-evidence-packets/index.*` 및 `rank-01`~`rank-33` 패킷이 전체 33개 단원 concept 465개를 모두 포함하며 현재 모두 `pending_textbook_pdf` 상태임을 확인했다.
+
+## 2026-06-26 legacy gap audit 보강
+
+- `build_legacy_gap_audit.py`를 추가해 기존 로컬 `수학_개념_위계도/data/math_concept_hierarchy.json`의 중학교 후보와 현재 `concepts.json`의 `label_ko`/`aliases`를 비교한다.
+- 성취기준 문장 전체는 concept 후보로 쓰지 않고, 기존 위계도에 기록된 `conceptTags`와 중학교 `curriculum_nodes`, `textbook_concepts`만 감사 대상으로 삼았다.
+- `legacy-gap-audit.md`와 `legacy-gap-audit.csv`를 생성했으며, 현재 감사 대상 163개 중 129개는 `covered_by_label`, 34개는 `needs_review`, 0개는 `covered_by_alias`다.
+- `needs_review` 항목은 공식 교육과정 또는 교과서 근거 확인 전까지 concept으로 확정하지 않고, 다음 반복의 후보 목록으로만 유지한다.
+- `validate_concept_map.py`가 legacy gap audit row 수, schema, 중복 legacy id, 생성 순서, `needs_review` 수, Markdown 산출물 존재 여부를 검증하도록 보강했다.
+- 이번 작업은 보조 감사 산출물과 검증만 추가했으므로 PDF 원본, 다운로드 manifest, 공식 출처 선택 규칙은 변경하지 않았다.
+
+## 2026-06-26 legacy gap audit 검증 결과
+
+- legacy gap audit 단위 테스트 3개와 validator 단위 테스트 23개가 통과했다.
+- `legacy-gap-audit.md`와 `legacy-gap-audit.csv`는 기존 로컬 위계도 후보 163개 중 `needs_review` 34개를 보조 후보로 분리한다.

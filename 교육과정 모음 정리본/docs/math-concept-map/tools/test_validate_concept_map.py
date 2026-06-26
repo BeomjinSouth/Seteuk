@@ -226,6 +226,28 @@ class AchievementCoverageTests(unittest.TestCase):
 
         self.assertEqual(validator.textbook_packet_index_pending_count(rows), 5)
 
+    def test_legacy_gap_needs_review_count_reports_review_candidates(self) -> None:
+        rows = [
+            {"coverage_status": "covered_by_label"},
+            {"coverage_status": "needs_review"},
+            {"coverage_status": "covered_by_alias"},
+            {"coverage_status": "needs_review"},
+        ]
+
+        self.assertEqual(validator.legacy_gap_needs_review_count(rows), 2)
+
+    def test_duplicate_legacy_gap_ids_are_reported(self) -> None:
+        rows = [
+            {"legacy_id": "legacy-coordinate-plane"},
+            {"legacy_id": "legacy-axis-point"},
+            {"legacy_id": "legacy-coordinate-plane"},
+        ]
+
+        self.assertEqual(
+            validator.duplicate_legacy_gap_ids(rows),
+            ["legacy-coordinate-plane"],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

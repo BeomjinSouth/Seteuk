@@ -238,6 +238,26 @@
 | `packet_csv` | 단원별 패킷 CSV 파일명 |
 | `packet_md` | 단원별 패킷 Markdown 파일명 |
 
+## Legacy Gap Audit CSV
+
+`legacy-gap-audit.csv`는 기존 로컬 `수학_개념_위계도/data/math_concept_hierarchy.json`에서 중학교 범위 후보를 뽑아 현재 `concepts.json`의 `label_ko` 및 `aliases`와 비교한 파생 감사 산출물이다. 기존 위계도는 공식 근거가 아니므로, 이 파일의 `needs_review` 항목은 concept 추가 후보일 뿐이며 공식 교육과정 또는 교과서 근거 확인 전에는 확정하지 않는다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `legacy_record_type` | `curriculum_node`, `achievement_concept_tag`, `textbook_concept` 중 하나 |
+| `legacy_id` | 기존 위계도 record 또는 성취기준 tag에서 만든 안정 식별자 |
+| `legacy_label_ko` | 비교 대상 후보 label |
+| `legacy_grade` | 기존 위계도에 기록된 학년군 |
+| `legacy_domain` | 기존 위계도에 기록된 영역 |
+| `legacy_unit` | 기존 위계도에 기록된 단원 또는 성취기준 코드 |
+| `coverage_status` | `covered_by_label`, `covered_by_alias`, `needs_review` |
+| `matched_concept_ids` | 매칭된 현재 concept id 목록. 세미콜론으로 구분한다. |
+| `matched_concept_labels` | 매칭된 현재 concept label 목록. 세미콜론으로 구분한다. |
+| `candidate_action` | `no_action_existing_concept` 또는 `review_against_official_sources` |
+| `confidence` | 감사 판단 신뢰도. `needs_review`는 `low`로 둔다. |
+| `source_note` | 기존 위계도 출처 메모와 비공식 보조 자료라는 주의 문구 |
+| `notes` | label/alias 매칭 방식 또는 미매칭 사유 |
+
 ## 신뢰도 기준
 
 - `high`: 공식 교육과정 또는 성취수준 문서에서 직접 확인되는 개념·관계
