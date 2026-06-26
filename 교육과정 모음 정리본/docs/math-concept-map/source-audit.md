@@ -63,6 +63,13 @@
 - 현재 `textbook_originals`는 폴더 안에 `README.md`만 있고 PDF가 없어 `empty`이다.
 - 이번 작업은 출처 현황 기록만 보강했으므로 기존 PDF 원본, 다운로드 manifest, 출처 선택 규칙은 변경하지 않았다.
 
+## Source Reference Audit
+
+- `source-ref-audit.md`와 `source-ref-audit.csv`를 추가해 concept/edge의 `source_refs`를 출처와 근거 유형별로 추적한다.
+- 현재 source ref는 concept 1191개, edge 2918개, 총 4109개이다.
+- 현재 `locator` 누락은 0개, `summary` 누락은 0개이다.
+- 이 감사는 교과서 PDF가 추가되기 전에도 공식 문서 기반 개념과 관계가 어떤 근거 유형에 기대고 있는지 확인하기 위한 재생성 가능한 점검표이다.
+
 ## 다음 출처 보강 순서
 
 1. `교과서_원본/`에 중1~중3 수학 교과서 PDF를 추가한다.

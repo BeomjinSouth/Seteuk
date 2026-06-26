@@ -113,6 +113,25 @@ class AchievementCoverageTests(unittest.TestCase):
             ["achievement_pdf:stale"],
         )
 
+    def test_source_ref_count_counts_concept_and_edge_refs(self) -> None:
+        concepts = [
+            {"source_refs": [{"source_id": "curriculum_math_2022"}]},
+            {"source_refs": [{"source_id": "achievement_math_2022"}, {"source_id": "unit_summary_math_json"}]},
+        ]
+        edges = [
+            {"source_refs": [{"source_id": "curriculum_math_2022"}]},
+        ]
+
+        self.assertEqual(validator.source_ref_count(concepts, edges), 4)
+
+    def test_source_ref_audit_missing_detail_count_sums_locator_and_summary_gaps(self) -> None:
+        rows = [
+            {"missing_locator_count": "1", "missing_summary_count": "0"},
+            {"missing_locator_count": "0", "missing_summary_count": "2"},
+        ]
+
+        self.assertEqual(validator.source_ref_audit_missing_detail_count(rows), 3)
+
 
 if __name__ == "__main__":
     unittest.main()

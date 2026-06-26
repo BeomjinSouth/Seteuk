@@ -9,6 +9,7 @@ from pathlib import Path
 import build_terminology_coverage as terminology
 import build_relationship_audit as relationship_audit
 import build_source_inventory as source_inventory
+import build_source_ref_audit as source_ref_audit
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -176,6 +177,18 @@ def invalid_source_inventory_statuses(records: list[dict]) -> list[str]:
     return invalid
 
 
+def source_ref_count(concepts: list[dict], edges: list[dict]) -> int:
+    return sum(len(record.get("source_refs", [])) for record in concepts + edges)
+
+
+def source_ref_audit_missing_detail_count(records: list[dict]) -> int:
+    return sum(
+        int(record.get("missing_locator_count", 0))
+        + int(record.get("missing_summary_count", 0))
+        for record in records
+    )
+
+
 def main() -> None:
     data_path = OUT_DIR / "concepts.json"
     if not data_path.exists():
@@ -244,6 +257,8 @@ def main() -> None:
     relationship_audit_md = OUT_DIR / "relationship-audit.md"
     source_inventory_csv = OUT_DIR / "source-inventory.csv"
     source_inventory_md = OUT_DIR / "source-inventory.md"
+    source_ref_audit_csv = OUT_DIR / "source-ref-audit.csv"
+    source_ref_audit_md = OUT_DIR / "source-ref-audit.md"
     graph = OUT_DIR / "graph.mmd"
     if read_csv_count(concepts_csv) != len(concepts):
         fail("concepts.csv row count does not match concepts.json")
@@ -293,6 +308,15 @@ def main() -> None:
         fail(f"source-inventory.csv has invalid statuses: {invalid_source_statuses}")
     if not source_inventory_md.exists() or "# Source Inventory" not in source_inventory_md.read_text(encoding="utf-8"):
         fail("source-inventory.md missing or invalid")
+    source_ref_rows = read_csv_rows(source_ref_audit_csv)
+    if len(source_ref_rows) != len(source_ref_audit.source_ref_summary_rows(concepts, edges)):
+        fail("source-ref-audit.csv row count does not match generated source reference groups")
+    if sum(int(row.get("source_ref_count", 0)) for row in source_ref_rows) != source_ref_count(concepts, edges):
+        fail("source-ref-audit.csv source_ref_count does not match concepts.json")
+    if source_ref_audit_missing_detail_count(source_ref_rows):
+        fail("source-ref-audit.csv contains source refs missing locator or summary")
+    if not source_ref_audit_md.exists() or "# Source Reference Audit" not in source_ref_audit_md.read_text(encoding="utf-8"):
+        fail("source-ref-audit.md missing or invalid")
     if not graph.exists() or "flowchart LR" not in graph.read_text(encoding="utf-8"):
         fail("graph.mmd missing or invalid")
 

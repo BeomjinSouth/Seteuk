@@ -130,6 +130,23 @@
 | `use_for_concept_map` | 개념 Map 구축에서의 사용 목적 |
 | `notes` | 현재 상태에 대한 운영 메모 |
 
+## Source Reference Audit CSV
+
+`source-ref-audit.csv`는 `concepts.json`의 concept/edge `source_refs`를 출처와 근거 유형별로 요약한 파생 산출물이다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `record_kind` | `concept` 또는 `edge` |
+| `source_id` | `concepts.json`의 `sources`에 정의된 출처 id |
+| `evidence_kind` | `achievement_standard`, `achievement_level`, `term_list`, `teaching_note`, `assessment_item` 등 근거 유형 |
+| `source_ref_count` | 해당 묶음에 속한 source ref 수 |
+| `record_count` | 해당 묶음의 source ref를 가진 고유 concept 또는 edge 수 |
+| `high_confidence_record_count` | 해당 묶음에 속한 `high` 신뢰도 record 수 |
+| `medium_confidence_record_count` | 해당 묶음에 속한 `medium` 신뢰도 record 수 |
+| `low_confidence_record_count` | 해당 묶음에 속한 `low` 신뢰도 record 수 |
+| `missing_locator_count` | `locator`가 비어 있는 source ref 수 |
+| `missing_summary_count` | `summary`가 비어 있는 source ref 수 |
+
 ## 신뢰도 기준
 
 - `high`: 공식 교육과정 또는 성취수준 문서에서 직접 확인되는 개념·관계

@@ -36,6 +36,8 @@
 - `relationship-audit.csv`: 관계 유형별 edge 분포 기계 판독용 CSV
 - `source-inventory.md`: 현재 로컬 출처 파일 가용성 요약
 - `source-inventory.csv`: 현재 로컬 출처 파일 가용성 기계 판독용 CSV
+- `source-ref-audit.md`: concept/edge 출처 근거의 출처·근거 유형별 감사 요약
+- `source-ref-audit.csv`: concept/edge 출처 근거의 출처·근거 유형별 기계 판독용 CSV
 
 ## 갱신 방법
 
@@ -44,6 +46,7 @@ python docs/math-concept-map/tools/build_pilot.py
 python docs/math-concept-map/tools/build_coverage_report.py
 python docs/math-concept-map/tools/build_relationship_audit.py
 python docs/math-concept-map/tools/build_source_inventory.py
+python docs/math-concept-map/tools/build_source_ref_audit.py
 python docs/math-concept-map/tools/build_review_queue.py
 python docs/math-concept-map/tools/build_terminology_coverage.py
 python docs/math-concept-map/tools/build_unit_coverage.py
@@ -51,6 +54,7 @@ python docs/math-concept-map/tools/validate_concept_map.py
 python docs/math-concept-map/tools/test_build_coverage_report.py
 python docs/math-concept-map/tools/test_build_relationship_audit.py
 python docs/math-concept-map/tools/test_build_source_inventory.py
+python docs/math-concept-map/tools/test_build_source_ref_audit.py
 python docs/math-concept-map/tools/test_build_review_queue.py
 python docs/math-concept-map/tools/test_build_terminology_coverage.py
 python docs/math-concept-map/tools/test_build_unit_coverage.py

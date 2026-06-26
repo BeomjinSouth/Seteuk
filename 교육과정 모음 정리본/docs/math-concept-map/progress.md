@@ -129,6 +129,13 @@
 - `validate_concept_map.py`가 source inventory의 필수 source group과 상태값, Markdown 산출물 존재 여부를 검사하도록 보강했다.
 - 이번 작업은 출처 현황 기록만 보강한 것이므로 PDF 원본, 다운로드 manifest, 출처 선택 규칙은 변경하지 않았다.
 
+## 2026-06-26 source ref 감사 보강
+
+- `build_source_ref_audit.py`를 추가하여 concept/edge의 `source_refs`를 출처와 근거 유형별로 `source-ref-audit.md`와 `source-ref-audit.csv`에 요약하게 했다.
+- 현재 source ref는 concept 1191개와 edge 2918개, 총 4109개이며 `locator`와 `summary` 누락은 0개로 확인했다.
+- `validate_concept_map.py`가 source ref audit의 행 수, source ref 총계, locator/summary 누락 0개, Markdown 산출물 존재 여부를 검사하도록 보강했다.
+- 이번 작업은 기존 concept/edge의 출처 추적성 검증을 보강한 것이므로 PDF 원본, 다운로드 manifest, 출처 선택 규칙은 변경하지 않았다.
+
 ## 남은 작업
 
 - 2022 개정 중학교 수학 공식 교육과정 4개 영역은 모두 1차 반영되었다.
@@ -154,3 +161,4 @@
 - 단원별 커버리지 보강 결과: unit coverage 단위 테스트 2개와 validator 단위 테스트 6개가 통과하고, `unit-coverage.md`와 `unit-coverage.csv`가 학년·영역·단원 그룹 33개와 concept 총계 465개를 포함한다.
 - 관계 감사 보강 결과: relationship audit 단위 테스트 3개와 validator 단위 테스트 7개가 통과하고, `relationship-audit.md`와 `relationship-audit.csv`가 edge 1217개 전체와 고립 concept 0개 상태를 포함한다.
 - 출처 inventory 보강 결과: source inventory 단위 테스트 3개와 validator 단위 테스트 9개가 통과하고, `source-inventory.md`와 `source-inventory.csv`가 공식 출처 3개 `available`, 교과서 원본 1개 `empty` 상태를 포함한다.
+- source ref 감사 보강 결과: source ref audit 단위 테스트 3개와 validator 단위 테스트 11개가 통과하고, `source-ref-audit.md`와 `source-ref-audit.csv`가 source ref 4109개와 locator/summary 누락 0개 상태를 포함한다.
