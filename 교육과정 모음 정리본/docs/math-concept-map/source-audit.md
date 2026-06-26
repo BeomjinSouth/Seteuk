@@ -113,3 +113,11 @@
 - 기초 선수개념 후보는 약수, 배수, 사칙연산 이름, 비, 삼각형, 도형, 길이, 넓이처럼 현행 중학교 concept map의 하위·선수 관계에서 반복 등장하는 넓은 개념이다. 공식 근거 위치를 확인한 뒤 낮은 신뢰도의 선수개념 노드 또는 기존 노드의 상위/관련 관계로 처리한다.
 - `피타고라스`는 독립 concept으로 바로 추가하지 않고 `피타고라스 정리` 계열 기존 concept의 alias 후보로 검토한다.
 - 이번 작업도 보조 감사 산출물과 검증만 추가했으므로 PDF 원본, 다운로드 manifest, 공식 출처 선택 규칙은 변경하지 않았다.
+
+## Legacy Gap Integration Plan
+
+- `legacy-gap-integration-plan.md`와 `legacy-gap-integration-plan.csv`를 추가해 resolution 후보 12개를 통합 전 staging 액션으로 변환했다.
+- 현재 계획은 `stage_prerequisite_node` 11개와 `stage_alias_review` 1개이며, `wait_for_source_detail`은 0개다.
+- 기초 선수개념 후보는 `prereq_divisor`, `prereq_ratio`처럼 안정적인 ASCII 제안 id를 부여했지만, 공식 근거 확인 전에는 `concepts.json`에 추가하지 않는다.
+- `피타고라스`는 `alias_on_existing_concept` 액션으로만 유지하며, 독립 노드 생성 대상에서 제외한다.
+- 이번 작업은 보조 감사 산출물과 검증만 추가했으므로 PDF 원본, 다운로드 manifest, 공식 출처 선택 규칙은 변경하지 않았다.

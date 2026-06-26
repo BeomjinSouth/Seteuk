@@ -277,6 +277,24 @@
 | `evidence_basis` | 현재 판단의 근거와 공식 근거 확인 필요성 |
 | `notes` | 분류 사유와 다음 작업 메모 |
 
+## Legacy Gap Integration Plan CSV
+
+`legacy-gap-integration-plan.csv`는 `legacy-gap-resolution.csv`의 후보를 실제 반영 전 staging 액션으로 변환한 파생 산출물이다. 이 파일은 low-confidence 선수개념 노드 또는 alias 검토의 실행 순서를 정하지만, 공식 근거 확인 전에는 `concepts.json`을 갱신하지 않는다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `candidate_label` | resolution 후보 label |
+| `proposed_concept_id` | 새 선수개념 노드가 필요한 경우의 제안 id. alias 검토나 보류 항목은 비워 둔다. |
+| `proposed_concept_type` | 제안 노드의 예상 concept type |
+| `proposed_confidence` | 공식 근거 확인 전 기본 신뢰도 |
+| `integration_status` | `stage_prerequisite_node`, `stage_alias_review`, `wait_for_source_detail` |
+| `target_relationship_type` | `prerequisite_for`, `alias_on_existing_concept`, 또는 빈 값 |
+| `target_concept_ids` | 연결 또는 alias 검토 대상 기존 concept id 목록. 세미콜론으로 구분한다. |
+| `target_concept_labels` | 연결 또는 alias 검토 대상 기존 concept label 목록. 세미콜론으로 구분한다. |
+| `legacy_units` | 후보가 등장한 기존 성취기준 또는 단원 목록. 세미콜론으로 구분한다. |
+| `source_ref_plan` | 공식 교육과정 또는 교과서 근거 확인 계획 |
+| `notes` | 통합 판단 전제와 보류 사유 |
+
 ## 신뢰도 기준
 
 - `high`: 공식 교육과정 또는 성취수준 문서에서 직접 확인되는 개념·관계

@@ -218,3 +218,17 @@
 
 - legacy gap resolution 단위 테스트 4개와 validator 단위 테스트 25개가 통과했다.
 - `legacy-gap-resolution.md`와 `legacy-gap-resolution.csv`는 `needs_review` 34개 row를 고유 후보 12개로 축약하고, 다음 공식 근거 확인 대상을 분리한다.
+
+## 2026-06-26 legacy gap integration plan 보강
+
+- `build_legacy_gap_integration_plan.py`를 추가해 `legacy-gap-resolution.csv`의 고유 후보 12개를 통합 전 staging 액션으로 변환했다.
+- 11개 `foundational_prerequisite_candidate`는 `stage_prerequisite_node`로 두고, `prerequisite_for` 대상 기존 concept 목록을 보존했다.
+- 기초 선수개념 후보의 제안 id는 `prereq_multiplication`, `prereq_ratio`, `prereq_triangle`처럼 ASCII id로 안정화했다.
+- `피타고라스`는 새 독립 노드가 아니라 `stage_alias_review`와 `alias_on_existing_concept` 액션으로 유지했다.
+- `validate_concept_map.py`가 integration plan row 수, schema, 중복 candidate label, 생성 순서, resolution 후보 수와의 일치, Markdown 산출물 존재 여부를 검증하도록 보강했다.
+- 이번 작업은 보조 감사 산출물과 검증만 추가했으므로 PDF 원본, 다운로드 manifest, 공식 출처 선택 규칙은 변경하지 않았다.
+
+## 2026-06-26 legacy gap integration plan 검증 결과
+
+- legacy gap integration plan 단위 테스트 5개와 validator 단위 테스트 27개가 통과했다.
+- `legacy-gap-integration-plan.md`와 `legacy-gap-integration-plan.csv`는 고유 후보 12개를 `stage_prerequisite_node` 11개와 `stage_alias_review` 1개로 분리한다.
