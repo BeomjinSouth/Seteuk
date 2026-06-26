@@ -2,7 +2,7 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-26T18:56:31",
+    "generated_at": "2026-06-26T19:18:26",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
     "concept_count": 465,
     "edge_count": 1215
@@ -2389,6 +2389,7 @@
       "id": "m1_num_radical_sign",
       "label_ko": "근호",
       "aliases": [
+        "근호 기호",
         "radical sign",
         "√"
       ],

@@ -65,6 +65,16 @@ class AchievementCoverageTests(unittest.TestCase):
 
         self.assertEqual(validator.low_confidence_concept_count(records), 2)
 
+    def test_term_needs_concept_count_reports_uncovered_terms(self) -> None:
+        rows = [
+            {"coverage_status": "covered"},
+            {"coverage_status": "covered_by_alias"},
+            {"coverage_status": "needs_concept"},
+            {"coverage_status": "excluded_by_curriculum_scope"},
+        ]
+
+        self.assertEqual(validator.term_needs_concept_count(rows), 1)
+
 
 if __name__ == "__main__":
     unittest.main()

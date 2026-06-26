@@ -6,6 +6,8 @@ import re
 import sys
 from pathlib import Path
 
+import build_terminology_coverage as terminology
+
 
 ROOT = Path(__file__).resolve().parents[3]
 OUT_DIR = ROOT / "docs" / "math-concept-map"
@@ -78,6 +80,11 @@ def read_csv_count(path: Path) -> int:
         return sum(1 for _ in csv.DictReader(f))
 
 
+def read_csv_rows(path: Path) -> list[dict]:
+    with path.open("r", encoding="utf-8-sig", newline="") as f:
+        return list(csv.DictReader(f))
+
+
 def achievement_code(domain: str, number: int) -> str:
     return f"9수{domain}-{number:02d}"
 
@@ -121,6 +128,10 @@ def missing_achievement_codes(records: list[dict]) -> list[str]:
 
 def low_confidence_concept_count(records: list[dict]) -> int:
     return sum(1 for record in records if record.get("confidence") == "low")
+
+
+def term_needs_concept_count(records: list[dict]) -> int:
+    return sum(1 for record in records if record.get("coverage_status") == "needs_concept")
 
 
 def main() -> None:
@@ -183,6 +194,8 @@ def main() -> None:
     edges_csv = OUT_DIR / "edges.csv"
     review_queue_csv = OUT_DIR / "review-queue.csv"
     review_queue_md = OUT_DIR / "review-queue.md"
+    term_coverage_csv = OUT_DIR / "official-term-coverage.csv"
+    term_coverage_md = OUT_DIR / "official-term-coverage.md"
     graph = OUT_DIR / "graph.mmd"
     if read_csv_count(concepts_csv) != len(concepts):
         fail("concepts.csv row count does not match concepts.json")
@@ -192,6 +205,13 @@ def main() -> None:
         fail("review-queue.csv row count does not match low-confidence concepts")
     if not review_queue_md.exists() or "# 검토 큐" not in review_queue_md.read_text(encoding="utf-8"):
         fail("review-queue.md missing or invalid")
+    term_rows = read_csv_rows(term_coverage_csv)
+    if len(term_rows) != len(terminology.OFFICIAL_TERMS):
+        fail("official-term-coverage.csv row count does not match official term list")
+    if term_needs_concept_count(term_rows):
+        fail("official-term-coverage.csv contains terms needing concepts")
+    if not term_coverage_md.exists() or "# 공식 용어·기호 커버리지" not in term_coverage_md.read_text(encoding="utf-8"):
+        fail("official-term-coverage.md missing or invalid")
     if not graph.exists() or "flowchart LR" not in graph.read_text(encoding="utf-8"):
         fail("graph.mmd missing or invalid")
 

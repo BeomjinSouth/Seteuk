@@ -66,6 +66,21 @@
 | `notes` | 기존 concept notes |
 | `source_refs` | 현재 연결된 출처 id와 위치 요약 |
 
+## Official Term Coverage CSV
+
+`official-term-coverage.csv`는 공식 교육과정과 성취수준 문서에서 확인한 용어·기호가 `concepts.json`의 `label_ko` 또는 `aliases`로 연결되는지 확인한 파생 산출물이다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `term` | 공식 문서에서 확인한 용어 또는 기호 |
+| `domain` | 교육과정 영역 |
+| `source_locator` | 해당 용어·기호를 확인한 공식 문서 위치 요약 |
+| `coverage_status` | `covered`, `covered_by_alias`, `excluded_by_curriculum_scope`, `needs_concept` |
+| `concept_count` | 연결 concept 수 |
+| `concept_ids` | 연결 concept id 목록. 세미콜론으로 구분한다. |
+| `concept_labels` | 연결 concept 대표 한국어명 목록. 세미콜론으로 구분한다. |
+| `notes` | 범위 제외 또는 검토 메모 |
+
 ## 신뢰도 기준
 
 - `high`: 공식 교육과정 또는 성취수준 문서에서 직접 확인되는 개념·관계

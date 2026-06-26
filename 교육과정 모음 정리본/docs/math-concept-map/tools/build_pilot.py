@@ -1716,7 +1716,7 @@ CONCEPTS = [
     concept(
         "m1_num_radical_sign",
         "근호",
-        ["radical sign", "√"],
+        ["근호 기호", "radical sign", "√"],
         "term",
         "제곱근을 나타낼 때 사용하는 기호.",
         [CURR_NUMBER_TERMS, CURR_NUM_07, ACH_NUM_SQUARE_ROOT],

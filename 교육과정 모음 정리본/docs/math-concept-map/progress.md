@@ -96,6 +96,14 @@
 - `validate_concept_map.py`가 `review-queue.csv` 행 수와 `confidence: low` concept 수의 일치를 검사하도록 보강했다.
 - 이번 작업은 기존 concept의 신뢰도와 notes를 재가공한 것이므로 PDF 원본, 다운로드 manifest, 출처 선택 규칙은 변경하지 않았다.
 
+## 2026-06-26 공식 용어·기호 커버리지 보강
+
+- `build_terminology_coverage.py`를 추가하여 공식 문서에서 확인한 중학교 수학 용어·기호 168개를 `official-term-coverage.md`와 `official-term-coverage.csv`로 재생성하게 했다.
+- `근호 기호`가 별도 concept 없이 `근호` concept의 alias로 연결되도록 `m1_num_radical_sign`의 aliases에 추가했다.
+- 현재 공식 용어·기호 커버리지는 직접 연결 162개, alias 연결 4개, 교육과정 범위 제외 2개, concept 추가 검토 필요 0개다.
+- `validate_concept_map.py`가 공식 용어·기호 커버리지 행 수와 `needs_concept` 0개 조건을 검사하도록 보강했다.
+- 이번 작업은 공식 문서 용어·기호 목록에 대한 추적성을 보강한 것이므로 PDF 원본, 다운로드 manifest, 출처 선택 규칙은 변경하지 않았다.
+
 ## 남은 작업
 
 - 2022 개정 중학교 수학 공식 교육과정 4개 영역은 모두 1차 반영되었다.
@@ -117,3 +125,4 @@
 - 검증 보강 결과: 465개 concept, 1215개 edge, 4개 source 참조와 공식 성취기준 60개 concept 근거 커버리지가 정상이며, validator 단위 테스트 3개가 통과한다.
 - 커버리지 산출물 보강 결과: report 단위 테스트 2개가 통과하고, `achievement-coverage.md`와 `achievement-coverage.csv`가 공식 성취기준 60개 전체를 포함한다.
 - low 신뢰도 검토 큐 보강 결과: review queue 단위 테스트 2개와 validator 단위 테스트 4개가 통과하고, `review-queue.md`와 `review-queue.csv`가 `confidence: low` concept 66개를 포함한다.
+- 공식 용어·기호 커버리지 보강 결과: terminology coverage 단위 테스트 2개와 validator 단위 테스트 5개가 통과하고, `official-term-coverage.md`와 `official-term-coverage.csv`가 공식 용어·기호 168개 전체를 포함하며 `needs_concept` 항목은 0개다.
