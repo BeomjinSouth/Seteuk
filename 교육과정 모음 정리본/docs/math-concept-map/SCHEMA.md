@@ -190,6 +190,35 @@
 | `priority_tier` | `highest`, `high`, `medium`, `low`, `complete` |
 | `next_action` | 다음 교과서 추출 작업 유형 |
 
+## Textbook Evidence Packet CSV
+
+`textbook-evidence-packets/rank-01.csv`는 `textbook-extraction-queue.csv`의 1순위 단원에 대해 교과서 목차·학습목표·본문 정의·정리·예제·용어 설명·문제 반복 패턴 근거를 채우기 위한 단원별 작업 패킷이다. 현재 `교과서_원본/`에 PDF가 없으므로 모든 row의 `extraction_status`는 `pending_textbook_pdf`이다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `packet_rank` | 참조한 교과서 추출 queue 순위 |
+| `grade` | 학년 또는 교육과정 학년군 |
+| `domain` | 교육과정 영역 |
+| `unit` | 패킷 대상 단원 |
+| `concept_id` | 근거를 보강할 concept id |
+| `label_ko` | concept 한국어 이름 |
+| `concept_type` | concept 유형 |
+| `confidence` | 현재 concept 신뢰도 |
+| `evidence_depth` | 현재 공식/교과서 근거 깊이 |
+| `needs_textbook_evidence` | 교과서 본문·정리·예제·문제 근거 보강 필요 여부 |
+| `source_ref_count` | 현재 concept에 연결된 공식 근거 수 |
+| `current_source_refs` | 기존 공식 근거 요약 |
+| `extraction_status` | `pending_textbook_pdf` 또는 `textbook_evidence_linked` |
+| `toc_ref` | 교과서 목차 근거 슬롯 |
+| `learning_objective_ref` | 학습목표 근거 슬롯 |
+| `definition_ref` | 본문 정의 근거 슬롯 |
+| `summary_ref` | 정리/핵심 요약 근거 슬롯 |
+| `example_ref` | 예제 근거 슬롯 |
+| `term_explanation_ref` | 용어 설명 근거 슬롯 |
+| `problem_pattern_ref` | 문제에서 반복 출현하는 암묵 개념 근거 슬롯 |
+| `textbook_page_refs` | 교과서 파일명과 쪽수 근거 슬롯 |
+| `extraction_notes` | 추출 판단, 병합 후보, 신뢰도 조정 메모 |
+
 ## 신뢰도 기준
 
 - `high`: 공식 교육과정 또는 성취수준 문서에서 직접 확인되는 개념·관계

@@ -152,6 +152,14 @@
 - `validate_concept_map.py`가 queue 행 수, 단원 그룹 수, 교과서 근거 필요 concept 총계, Markdown 산출물 존재 여부를 검사하도록 보강했다.
 - 이번 작업은 교과서 원문 보강 순서를 정한 것이므로 PDF 원본, 다운로드 manifest, 출처 선택 규칙은 변경하지 않았다.
 
+## 2026-06-26 textbook evidence packet 보강
+
+- `build_textbook_evidence_packet.py`를 추가하여 `textbook-extraction-queue.csv`의 1순위 단원인 `좌표평면과 그래프`를 `textbook-evidence-packets/rank-01.md`와 `textbook-evidence-packets/rank-01.csv`로 분리했다.
+- 패킷은 해당 단원 concept 40개를 포함하며, `low` 신뢰도 concept 6개를 먼저 정렬한다.
+- 각 row에 목차, 학습목표, 본문 정의, 정리, 예제, 용어 설명, 문제 반복 패턴, 교과서 쪽수, 추출 메모 슬롯을 두어 교과서 PDF가 추가된 뒤 단원 단위로 근거를 채울 수 있게 했다.
+- 현재 `교과서_원본/`에 PDF가 없으므로 40개 row 모두 `pending_textbook_pdf` 상태로 유지했다.
+- `validate_concept_map.py`가 `rank-01` 패킷의 row 수, schema, concept 순서, 대상 단원 범위, 누락 concept, 교과서 원본 부재 시 pending 상태를 검증하도록 보강했다.
+
 ## 남은 작업
 
 - 2022 개정 중학교 수학 공식 교육과정 4개 영역은 모두 1차 반영되었다.
@@ -180,3 +188,4 @@
 - source ref 감사 보강 결과: source ref audit 단위 테스트 3개와 validator 단위 테스트 11개가 통과하고, `source-ref-audit.md`와 `source-ref-audit.csv`가 source ref 4109개와 locator/summary 누락 0개 상태를 포함한다.
 - concept evidence depth 보강 결과: concept evidence depth 단위 테스트 3개와 validator 단위 테스트 14개가 통과하고, `concept-evidence-depth.md`와 `concept-evidence-depth.csv`가 concept 465개 전체와 교과서 근거 보강 필요 465개 상태를 포함한다.
 - textbook extraction queue 보강 결과: textbook extraction queue 단위 테스트 3개와 validator 단위 테스트 16개가 통과하고, `textbook-extraction-queue.md`와 `textbook-extraction-queue.csv`가 33개 단원 그룹과 교과서 근거 보강 필요 concept 465개를 포함한다.
+- textbook evidence packet 보강 결과: textbook evidence packet 단위 테스트 3개와 validator 단위 테스트 18개가 통과하고, `textbook-evidence-packets/rank-01.md`와 `textbook-evidence-packets/rank-01.csv`가 `좌표평면과 그래프` concept 40개를 모두 포함하며 현재 모두 `pending_textbook_pdf` 상태임을 확인했다.

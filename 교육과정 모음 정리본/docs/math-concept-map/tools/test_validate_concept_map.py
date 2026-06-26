@@ -175,6 +175,29 @@ class AchievementCoverageTests(unittest.TestCase):
 
         self.assertEqual(validator.textbook_queue_needs_textbook_count(rows), 5)
 
+    def test_textbook_packet_missing_concepts_are_reported_for_target_unit(self) -> None:
+        concepts = [
+            {"id": "coord", "grade": "g1", "domain": "relation", "unit": "coordinate plane"},
+            {"id": "axis", "grade": "g1", "domain": "relation", "unit": "coordinate plane"},
+            {"id": "integer", "grade": "g1", "domain": "number", "unit": "integer"},
+        ]
+        packet_rows = [{"concept_id": "coord"}]
+        target = {"grade": "g1", "domain": "relation", "unit": "coordinate plane"}
+
+        self.assertEqual(
+            validator.textbook_packet_missing_concepts(concepts, packet_rows, target),
+            ["axis"],
+        )
+
+    def test_textbook_packet_pending_count_reports_pending_rows(self) -> None:
+        rows = [
+            {"extraction_status": "pending_textbook_pdf"},
+            {"extraction_status": "textbook_evidence_linked"},
+            {"extraction_status": "pending_textbook_pdf"},
+        ]
+
+        self.assertEqual(validator.textbook_packet_pending_count(rows), 2)
+
 
 if __name__ == "__main__":
     unittest.main()

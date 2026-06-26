@@ -12,6 +12,7 @@ import build_source_inventory as source_inventory
 import build_source_ref_audit as source_ref_audit
 import build_concept_evidence_depth as concept_evidence_depth
 import build_textbook_extraction_queue as textbook_extraction_queue
+import build_textbook_evidence_packet as textbook_evidence_packet
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -221,6 +222,26 @@ def textbook_queue_needs_textbook_count(records: list[dict]) -> int:
     return sum(int(record.get("needs_textbook_evidence_count", 0)) for record in records)
 
 
+def textbook_packet_missing_concepts(
+    concepts: list[dict],
+    packet_rows: list[dict],
+    target: dict,
+) -> list[str]:
+    target_ids = {
+        str(concept.get("id", ""))
+        for concept in concepts
+        if concept.get("grade") == target.get("grade")
+        and concept.get("domain") == target.get("domain")
+        and concept.get("unit") == target.get("unit")
+    }
+    present_ids = {str(row.get("concept_id", "")) for row in packet_rows}
+    return sorted(target_ids - present_ids)
+
+
+def textbook_packet_pending_count(records: list[dict]) -> int:
+    return sum(1 for record in records if record.get("extraction_status") == "pending_textbook_pdf")
+
+
 def main() -> None:
     data_path = OUT_DIR / "concepts.json"
     if not data_path.exists():
@@ -295,6 +316,7 @@ def main() -> None:
     concept_evidence_depth_md = OUT_DIR / "concept-evidence-depth.md"
     textbook_extraction_queue_csv = OUT_DIR / "textbook-extraction-queue.csv"
     textbook_extraction_queue_md = OUT_DIR / "textbook-extraction-queue.md"
+    textbook_evidence_packet_csv, textbook_evidence_packet_md = textbook_evidence_packet.packet_paths(1)
     graph = OUT_DIR / "graph.mmd"
     if read_csv_count(concepts_csv) != len(concepts):
         fail("concepts.csv row count does not match concepts.json")
@@ -376,6 +398,42 @@ def main() -> None:
         fail("textbook-extraction-queue.csv needs_textbook_evidence_count does not match concept evidence depth")
     if not textbook_extraction_queue_md.exists() or "# Textbook Extraction Queue" not in textbook_extraction_queue_md.read_text(encoding="utf-8"):
         fail("textbook-extraction-queue.md missing or invalid")
+    textbook_packet_target = textbook_evidence_packet.target_unit(textbook_queue_rows, rank=1)
+    textbook_packet_rows = read_csv_rows(textbook_evidence_packet_csv)
+    expected_textbook_packet_rows = textbook_evidence_packet.textbook_evidence_packet_rows(
+        concepts,
+        concept_evidence_rows,
+        textbook_queue_rows,
+        rank=1,
+    )
+    if len(textbook_packet_rows) != len(expected_textbook_packet_rows):
+        fail("rank-01 textbook evidence packet row count does not match generated packet")
+    if list(textbook_packet_rows[0]) != textbook_evidence_packet.CSV_FIELDS:
+        fail("rank-01 textbook evidence packet fields do not match schema")
+    if [row.get("concept_id") for row in textbook_packet_rows] != [
+        row.get("concept_id") for row in expected_textbook_packet_rows
+    ]:
+        fail("rank-01 textbook evidence packet concept order does not match generated packet")
+    missing_packet_concepts = textbook_packet_missing_concepts(
+        concepts,
+        textbook_packet_rows,
+        textbook_packet_target,
+    )
+    if missing_packet_concepts:
+        fail(f"rank-01 textbook evidence packet missing concept ids: {missing_packet_concepts}")
+    invalid_packet_units = [
+        row.get("concept_id", "")
+        for row in textbook_packet_rows
+        if row.get("grade") != textbook_packet_target.get("grade")
+        or row.get("domain") != textbook_packet_target.get("domain")
+        or row.get("unit") != textbook_packet_target.get("unit")
+    ]
+    if invalid_packet_units:
+        fail(f"rank-01 textbook evidence packet has rows outside target unit: {invalid_packet_units}")
+    if textbook_inventory_empty and textbook_packet_pending_count(textbook_packet_rows) != len(textbook_packet_rows):
+        fail("rank-01 textbook evidence packet must remain pending while textbook originals are empty")
+    if not textbook_evidence_packet_md.exists() or "# Textbook Evidence Packet" not in textbook_evidence_packet_md.read_text(encoding="utf-8"):
+        fail("rank-01 textbook evidence packet markdown missing or invalid")
     source_ref_rows = read_csv_rows(source_ref_audit_csv)
     if len(source_ref_rows) != len(source_ref_audit.source_ref_summary_rows(concepts, edges)):
         fail("source-ref-audit.csv row count does not match generated source reference groups")
