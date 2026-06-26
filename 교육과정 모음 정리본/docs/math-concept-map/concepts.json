@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-26T17:57:29",
-    "pilot_scope": "중학교 변화와 관계 > 좌표평면과 그래프",
-    "concept_count": 40,
-    "edge_count": 53
+    "generated_at": "2026-06-26T18:04:28",
+    "pilot_scope": "중학교 변화와 관계 > 문자의 사용과 식, 일차방정식, 좌표평면과 그래프",
+    "concept_count": 77,
+    "edge_count": 109
   },
   "sources": [
     {
@@ -37,6 +37,1451 @@
     }
   ],
   "concepts": [
+    {
+      "id": "m1_expr_unit",
+      "label_ko": "문자의 사용과 식",
+      "aliases": [
+        "문자와 식",
+        "문자식"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "문자의 사용과 식",
+      "concept_type": "core_concept",
+      "short_definition": "상황을 문자를 사용한 식으로 나타내고 식의 값을 구하며, 일차식의 계산으로 확장하는 단원.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다양한 상황을 문자를 사용한 식으로 나타내고 식의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차식의 덧셈과 뺄셈 원리를 이해하고 계산하는 성취기준"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [],
+      "related_ids": [
+        "m1_eq_unit",
+        "m1_coord_graph_unit"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_letter",
+      "label_ko": "문자",
+      "aliases": [
+        "문자 기호",
+        "letter"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "문자의 사용과 식",
+      "concept_type": "term",
+      "short_definition": "수나 양을 일반적으로 나타내기 위해 사용하는 기호.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다양한 상황을 문자를 사용한 식으로 나타내고 식의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "문자와 수, 문자와 일상 언어의 공통점과 차이점을 탐색하고 문자의 유용성을 인식하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "문자를 사용한 식으로 나타내기, 문자의 특징 이해, 식의 값 계산 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_expr_unit"
+      ],
+      "related_ids": [
+        "m1_term_variable",
+        "m1_repr_expression",
+        "m1_mis_letter_as_label_only"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_literal_expression",
+      "label_ko": "문자를 사용한 식",
+      "aliases": [
+        "문자식",
+        "문자와 식"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "문자의 사용과 식",
+      "concept_type": "representation",
+      "short_definition": "상황 속 수량 관계를 문자와 수학 기호를 써서 나타낸 식.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다양한 상황을 문자를 사용한 식으로 나타내고 식의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "문자를 사용한 식으로 나타내기, 문자의 특징 이해, 식의 값 계산 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_expr_letter"
+      ],
+      "parent_ids": [
+        "m1_expr_unit"
+      ],
+      "related_ids": [
+        "m1_repr_expression",
+        "m1_expr_value",
+        "m1_expr_usefulness"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_value",
+      "label_ko": "식의 값",
+      "aliases": [
+        "값",
+        "expression value"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "문자의 사용과 식",
+      "concept_type": "term",
+      "short_definition": "식의 문자에 특정한 수를 넣어 계산한 결과.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다양한 상황을 문자를 사용한 식으로 나타내고 식의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "문자를 사용한 식으로 나타내기, 문자의 특징 이해, 식의 값 계산 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_expr_literal_expression",
+        "m1_expr_substitution"
+      ],
+      "parent_ids": [
+        "m1_expr_unit"
+      ],
+      "related_ids": [
+        "m1_expr_substitution"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_substitution",
+      "label_ko": "대입",
+      "aliases": [
+        "값 대입",
+        "substitution"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "문자의 사용과 식",
+      "concept_type": "procedure",
+      "short_definition": "문자에 주어진 수를 넣어 식의 값을 구하거나 식을 확인하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다양한 상황을 문자를 사용한 식으로 나타내고 식의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "문자를 사용한 식으로 나타내기, 문자의 특징 이해, 식의 값 계산 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_expr_letter",
+        "m1_expr_literal_expression"
+      ],
+      "parent_ids": [
+        "m1_expr_unit"
+      ],
+      "related_ids": [
+        "m1_expr_value",
+        "m1_eq_solution_check"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_usefulness",
+      "label_ko": "문자를 사용한 식의 유용성",
+      "aliases": [
+        "문자식의 유용성",
+        "문자의 유용성"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "문자의 사용과 식",
+      "concept_type": "property",
+      "short_definition": "반복되거나 일반적인 수량 관계를 간결하게 표현하고 계산할 수 있게 하는 장점.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다양한 상황을 문자를 사용한 식으로 나타내고 식의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "문자와 수, 문자와 일상 언어의 공통점과 차이점을 탐색하고 문자의 유용성을 인식하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "문자를 사용한 식으로 나타내기, 문자의 특징 이해, 식의 값 계산 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_expr_unit"
+      ],
+      "related_ids": [
+        "m1_expr_literal_expression",
+        "m1_term_variable"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_term",
+      "label_ko": "항",
+      "aliases": [
+        "term"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "문자의 사용과 식",
+      "concept_type": "term",
+      "short_definition": "다항식에서 덧셈과 뺄셈으로 구분되는 각각의 부분.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_expr_polynomial"
+      ],
+      "related_ids": [
+        "m1_expr_coefficient",
+        "m1_expr_constant_term",
+        "m1_expr_like_terms"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_monomial",
+      "label_ko": "단항식",
+      "aliases": [
+        "monomial"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "문자의 사용과 식",
+      "concept_type": "sub_concept",
+      "short_definition": "하나의 항으로 이루어진 식.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_expr_polynomial"
+      ],
+      "related_ids": [
+        "m1_expr_term",
+        "m1_expr_polynomial"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_polynomial",
+      "label_ko": "다항식",
+      "aliases": [
+        "polynomial"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "문자의 사용과 식",
+      "concept_type": "core_concept",
+      "short_definition": "하나 이상의 항으로 이루어진 식.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_expr_unit"
+      ],
+      "related_ids": [
+        "m1_expr_monomial",
+        "m1_expr_term",
+        "m1_expr_linear_expression"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_constant_term",
+      "label_ko": "상수항",
+      "aliases": [
+        "constant term"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "문자의 사용과 식",
+      "concept_type": "term",
+      "short_definition": "문자를 포함하지 않는 항.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_expr_term"
+      ],
+      "parent_ids": [
+        "m1_expr_term"
+      ],
+      "related_ids": [
+        "m1_expr_coefficient",
+        "m1_mis_coefficient_constant_degree"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_coefficient",
+      "label_ko": "계수",
+      "aliases": [
+        "coefficient"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "문자의 사용과 식",
+      "concept_type": "term",
+      "short_definition": "문자를 포함한 항에서 문자에 곱해진 수 부분.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_expr_term"
+      ],
+      "parent_ids": [
+        "m1_expr_term"
+      ],
+      "related_ids": [
+        "m1_expr_constant_term",
+        "m1_expr_degree",
+        "m1_mis_coefficient_constant_degree"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_degree",
+      "label_ko": "차수",
+      "aliases": [
+        "degree"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "문자의 사용과 식",
+      "concept_type": "term",
+      "short_definition": "문자를 포함한 식에서 문자의 곱해진 정도를 나타내는 용어.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_expr_term"
+      ],
+      "parent_ids": [
+        "m1_expr_term"
+      ],
+      "related_ids": [
+        "m1_expr_linear_expression",
+        "m1_mis_coefficient_constant_degree"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_linear_expression",
+      "label_ko": "일차식",
+      "aliases": [
+        "linear expression"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "문자의 사용과 식",
+      "concept_type": "core_concept",
+      "short_definition": "차수가 1인 식을 중심으로 다루는 중학교 식 계산의 기본 대상.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차식의 덧셈과 뺄셈 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차식의 덧셈과 뺄셈 원리 이해, 계산, 과정 설명 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_expr_polynomial",
+        "m1_expr_degree"
+      ],
+      "parent_ids": [
+        "m1_expr_unit"
+      ],
+      "related_ids": [
+        "m1_expr_add_sub_linear_expression",
+        "m1_eq_linear_equation"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_like_terms",
+      "label_ko": "동류항",
+      "aliases": [
+        "like terms"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "문자의 사용과 식",
+      "concept_type": "term",
+      "short_definition": "문자 부분이 같아 더하거나 뺄 때 함께 모을 수 있는 항.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차식의 덧셈과 뺄셈 원리 이해, 계산, 과정 설명 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_expr_term",
+        "m1_expr_coefficient"
+      ],
+      "parent_ids": [
+        "m1_expr_linear_expression"
+      ],
+      "related_ids": [
+        "m1_expr_add_sub_linear_expression",
+        "m1_mis_like_terms"
+      ],
+      "notes": "동류항 계산의 세부 규칙은 교과서 본문과 예제 확인 후 보강한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_expr_add_sub_linear_expression",
+      "label_ko": "일차식의 덧셈과 뺄셈",
+      "aliases": [
+        "일차식 계산",
+        "일차식 더하기와 빼기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "문자의 사용과 식",
+      "concept_type": "procedure",
+      "short_definition": "일차식의 구조를 이용하여 덧셈과 뺄셈을 수행하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차식의 덧셈과 뺄셈 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차식의 덧셈과 뺄셈 원리 이해, 계산, 과정 설명 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_expr_linear_expression",
+        "m1_expr_like_terms"
+      ],
+      "parent_ids": [
+        "m1_expr_unit"
+      ],
+      "related_ids": [
+        "m1_mis_like_terms"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_mis_letter_as_label_only",
+      "label_ko": "문자를 이름표로만 해석하는 오류",
+      "aliases": [
+        "문자 의미 혼동",
+        "문자-일상 언어 혼동"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "문자의 사용과 식",
+      "concept_type": "misconception_risk",
+      "short_definition": "문자를 변하는 수나 일반화된 수가 아니라 물건의 이름표처럼만 해석하는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "문자와 수, 문자와 일상 언어의 공통점과 차이점을 탐색하고 문자의 유용성을 인식하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "문자를 사용한 식으로 나타내기, 문자의 특징 이해, 식의 값 계산 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_expr_letter"
+      ],
+      "parent_ids": [
+        "m1_expr_unit"
+      ],
+      "related_ids": [
+        "m1_expr_letter",
+        "m1_term_variable"
+      ],
+      "notes": "공식 문서의 문자와 일상 언어 비교 지도 유의점에서 추론한 위험이다. 교과서 도입 활동으로 보강 필요.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_like_terms",
+      "label_ko": "동류항이 아닌 항을 합치는 오류",
+      "aliases": [
+        "동류항 계산 오류",
+        "문자 부분 무시"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "문자의 사용과 식",
+      "concept_type": "misconception_risk",
+      "short_definition": "문자 부분이 다른 항을 계수만 보고 더하거나 빼는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차식의 덧셈과 뺄셈 원리 이해, 계산, 과정 설명 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_expr_like_terms"
+      ],
+      "parent_ids": [
+        "m1_expr_unit"
+      ],
+      "related_ids": [
+        "m1_expr_like_terms",
+        "m1_expr_add_sub_linear_expression"
+      ],
+      "notes": "성취수준의 일차식 계산 수행에서 발생할 수 있는 위험으로 추론했다. 교과서 예제와 오답 분석으로 보강 필요.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_coefficient_constant_degree",
+      "label_ko": "계수·상수항·차수 혼동",
+      "aliases": [
+        "계수와 상수항 혼동",
+        "차수 판단 오류"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "문자의 사용과 식",
+      "concept_type": "misconception_risk",
+      "short_definition": "항의 구성 요소를 구별하지 못해 일차식의 구조를 잘못 판단하는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차식의 덧셈과 뺄셈 원리 이해, 계산, 과정 설명 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_expr_coefficient",
+        "m1_expr_constant_term",
+        "m1_expr_degree"
+      ],
+      "parent_ids": [
+        "m1_expr_unit"
+      ],
+      "related_ids": [
+        "m1_expr_coefficient",
+        "m1_expr_constant_term",
+        "m1_expr_degree"
+      ],
+      "notes": "용어 목록과 일차식 계산 성취수준을 바탕으로 둔 잠정 오개념 노드이다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_eq_unit",
+      "label_ko": "일차방정식",
+      "aliases": [
+        "방정식과 일차방정식"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "core_concept",
+      "short_definition": "방정식과 해의 뜻, 등식의 성질을 이해하고 일차방정식을 풀어 문제를 해결하는 단원.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_expr_unit",
+        "m1_expr_linear_expression"
+      ],
+      "parent_ids": [],
+      "related_ids": [
+        "m1_coord_graph_unit"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_equality",
+      "label_ko": "등식",
+      "aliases": [
+        "equality"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "term",
+      "short_definition": "등호를 사용하여 두 식이나 값이 같음을 나타낸 식.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_repr_expression"
+      ],
+      "parent_ids": [
+        "m1_eq_unit"
+      ],
+      "related_ids": [
+        "m1_eq_equation",
+        "m1_eq_equality_properties",
+        "m1_mis_expression_equation"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_equation",
+      "label_ko": "방정식",
+      "aliases": [
+        "equation"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "core_concept",
+      "short_definition": "미지수의 값에 따라 참 또는 거짓이 되는 등식.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_eq_equality",
+        "m1_eq_unknown"
+      ],
+      "parent_ids": [
+        "m1_eq_unit"
+      ],
+      "related_ids": [
+        "m1_eq_solution",
+        "m1_eq_identity",
+        "m1_mis_expression_equation"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_unknown",
+      "label_ko": "미지수",
+      "aliases": [
+        "unknown"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "term",
+      "short_definition": "방정식에서 아직 값을 알지 못해 구하려는 문자.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_expr_letter"
+      ],
+      "parent_ids": [
+        "m1_eq_equation"
+      ],
+      "related_ids": [
+        "m1_term_variable",
+        "m1_eq_solution"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_solution",
+      "label_ko": "해",
+      "aliases": [
+        "solution"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "term",
+      "short_definition": "방정식을 참이 되게 하는 미지수의 값.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_eq_equation",
+        "m1_expr_substitution"
+      ],
+      "parent_ids": [
+        "m1_eq_equation"
+      ],
+      "related_ids": [
+        "m1_eq_root",
+        "m1_eq_solution_check"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_root",
+      "label_ko": "근",
+      "aliases": [
+        "root"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "term",
+      "short_definition": "방정식의 해를 가리키는 용어.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_eq_solution"
+      ],
+      "related_ids": [
+        "m1_eq_solution"
+      ],
+      "notes": "중학교 변화와 관계 용어 목록에는 해와 근이 모두 제시된다. 단원별 사용 차이는 교과서 확인 필요.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_identity",
+      "label_ko": "항등식",
+      "aliases": [
+        "identity"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "term",
+      "short_definition": "문자의 값에 관계없이 항상 참인 등식.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_eq_equality"
+      ],
+      "parent_ids": [
+        "m1_eq_unit"
+      ],
+      "related_ids": [
+        "m1_eq_equation"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_equality_properties",
+      "label_ko": "등식의 성질",
+      "aliases": [
+        "양변에 같은 수를 더하기",
+        "양변에 같은 수를 곱하기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "property",
+      "short_definition": "등식의 양변에 같은 연산을 해도 등식이 유지되는 성질.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_eq_equality"
+      ],
+      "parent_ids": [
+        "m1_eq_unit"
+      ],
+      "related_ids": [
+        "m1_eq_both_sides",
+        "m1_eq_solving_linear_equation"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_left_side",
+      "label_ko": "좌변",
+      "aliases": [
+        "left-hand side"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "term",
+      "short_definition": "등식이나 방정식에서 등호의 왼쪽에 있는 식.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_eq_equality"
+      ],
+      "related_ids": [
+        "m1_eq_right_side",
+        "m1_eq_both_sides"
+      ],
+      "notes": "공식 문서에서 교수·학습 상황에서 사용할 수 있는 용어로 제시된다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_right_side",
+      "label_ko": "우변",
+      "aliases": [
+        "right-hand side"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "term",
+      "short_definition": "등식이나 방정식에서 등호의 오른쪽에 있는 식.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_eq_equality"
+      ],
+      "related_ids": [
+        "m1_eq_left_side",
+        "m1_eq_both_sides"
+      ],
+      "notes": "공식 문서에서 교수·학습 상황에서 사용할 수 있는 용어로 제시된다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_both_sides",
+      "label_ko": "양변",
+      "aliases": [
+        "both sides"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "term",
+      "short_definition": "등식이나 방정식에서 등호의 왼쪽과 오른쪽 양쪽.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_eq_equality"
+      ],
+      "related_ids": [
+        "m1_eq_left_side",
+        "m1_eq_right_side",
+        "m1_eq_equality_properties"
+      ],
+      "notes": "공식 문서에서 교수·학습 상황에서 사용할 수 있는 용어로 제시된다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_transposition",
+      "label_ko": "이항",
+      "aliases": [
+        "항을 옮기기",
+        "transposition"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "procedure",
+      "short_definition": "방정식을 풀기 위해 항을 등호의 다른 쪽으로 옮기는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_eq_equality_properties",
+        "m1_expr_term"
+      ],
+      "parent_ids": [
+        "m1_eq_solving_linear_equation"
+      ],
+      "related_ids": [
+        "m1_mis_transposition_sign"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_linear_equation",
+      "label_ko": "일차방정식",
+      "aliases": [
+        "linear equation"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "core_concept",
+      "short_definition": "미지수에 대한 일차식으로 이루어진 방정식.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_eq_equation",
+        "m1_expr_linear_expression"
+      ],
+      "parent_ids": [
+        "m1_eq_unit"
+      ],
+      "related_ids": [
+        "m1_eq_solving_linear_equation",
+        "m1_eq_modeling_linear_equation"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_solving_linear_equation",
+      "label_ko": "일차방정식 풀기",
+      "aliases": [
+        "방정식 풀기",
+        "해 구하기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "procedure",
+      "short_definition": "등식의 성질과 이항 등을 이용해 일차방정식의 해를 구하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_eq_linear_equation",
+        "m1_eq_equality_properties"
+      ],
+      "parent_ids": [
+        "m1_eq_unit"
+      ],
+      "related_ids": [
+        "m1_eq_solution_check",
+        "m1_mis_transposition_sign"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_modeling_linear_equation",
+      "label_ko": "일차방정식 세우기",
+      "aliases": [
+        "문제의 뜻에 맞는 방정식 세우기",
+        "방정식 활용"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "procedure",
+      "short_definition": "문제 상황의 관계를 일차방정식으로 나타내는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_expr_literal_expression",
+        "m1_eq_linear_equation"
+      ],
+      "parent_ids": [
+        "m1_eq_unit"
+      ],
+      "related_ids": [
+        "m1_eq_solving_linear_equation",
+        "m1_eq_solution_check"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_solution_check",
+      "label_ko": "해의 확인",
+      "aliases": [
+        "해가 문제 상황에 적합한지 확인",
+        "검산"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "procedure",
+      "short_definition": "구한 해를 원래 방정식이나 문제 상황에 다시 대입하여 적합성을 확인하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_eq_solution",
+        "m1_expr_substitution"
+      ],
+      "parent_ids": [
+        "m1_eq_unit"
+      ],
+      "related_ids": [
+        "m1_mis_solution_check"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_mis_expression_equation",
+      "label_ko": "식과 방정식 혼동",
+      "aliases": [
+        "등식과 식 혼동",
+        "방정식 의미 혼동"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "misconception_risk",
+      "short_definition": "문자를 포함한 식, 등식, 방정식의 역할을 구별하지 못하는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_repr_expression",
+        "m1_eq_equality",
+        "m1_eq_equation"
+      ],
+      "parent_ids": [
+        "m1_eq_unit"
+      ],
+      "related_ids": [
+        "m1_repr_expression",
+        "m1_eq_equality",
+        "m1_eq_equation"
+      ],
+      "notes": "성취수준의 방정식·항등식·다항식 구별 요구에서 추론한 오개념 위험이다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_transposition_sign",
+      "label_ko": "이항할 때 부호를 잘못 바꾸는 오류",
+      "aliases": [
+        "이항 부호 오류",
+        "부호 처리 오류"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "misconception_risk",
+      "short_definition": "방정식을 풀 때 항을 옮기는 절차를 등식의 성질과 연결하지 못해 부호를 잘못 처리하는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_eq_transposition",
+        "m1_eq_equality_properties"
+      ],
+      "parent_ids": [
+        "m1_eq_unit"
+      ],
+      "related_ids": [
+        "m1_eq_transposition",
+        "m1_eq_solving_linear_equation"
+      ],
+      "notes": "이항 용어와 방정식 풀이 성취수준에서 추론했다. 실제 빈도는 교과서 문제와 학생 오답 자료 확인 필요.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_solution_check",
+      "label_ko": "구한 해의 상황 적합성 확인 누락",
+      "aliases": [
+        "해 확인 누락",
+        "문제 상황 검토 누락"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "misconception_risk",
+      "short_definition": "방정식의 해를 계산한 뒤 원래 문제 상황에 맞는지 확인하지 않는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_eq_solution_check"
+      ],
+      "parent_ids": [
+        "m1_eq_unit"
+      ],
+      "related_ids": [
+        "m1_eq_solution_check",
+        "m1_eq_modeling_linear_equation"
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
     {
       "id": "m1_coord_graph_unit",
       "label_ko": "좌표평면과 그래프",
@@ -98,7 +1543,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         },
         {
           "source_id": "achievement_math_2022",
@@ -141,7 +1586,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         },
         {
           "source_id": "achievement_math_2022",
@@ -223,7 +1668,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         },
         {
           "source_id": "achievement_math_2022",
@@ -302,7 +1747,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         },
         {
           "source_id": "achievement_math_2022",
@@ -341,7 +1786,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         },
         {
           "source_id": "achievement_math_2022",
@@ -380,7 +1825,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         }
       ],
       "prerequisite_ids": [],
@@ -411,7 +1856,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         }
       ],
       "prerequisite_ids": [],
@@ -443,7 +1888,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         }
       ],
       "prerequisite_ids": [],
@@ -474,7 +1919,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         }
       ],
       "prerequisite_ids": [],
@@ -504,7 +1949,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         }
       ],
       "prerequisite_ids": [
@@ -535,7 +1980,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         }
       ],
       "prerequisite_ids": [],
@@ -562,7 +2007,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         }
       ],
       "prerequisite_ids": [],
@@ -589,7 +2034,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         }
       ],
       "prerequisite_ids": [],
@@ -616,7 +2061,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         }
       ],
       "prerequisite_ids": [],
@@ -645,7 +2090,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         },
         {
           "source_id": "achievement_math_2022",
@@ -732,7 +2177,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         },
         {
           "source_id": "achievement_math_2022",
@@ -987,7 +2432,8 @@
       "label_ko": "식",
       "aliases": [
         "수식",
-        "관계식"
+        "관계식",
+        "문자식"
       ],
       "grade": "중1(교육과정 학년군: 중1-3)",
       "domain": "변화와 관계",
@@ -995,6 +2441,12 @@
       "concept_type": "representation",
       "short_definition": "두 양의 관계를 문자와 기호로 나타낸 표현.",
       "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다양한 상황을 문자를 사용한 식으로 나타내고 식의 값을 구하는 성취기준"
+        },
         {
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 35; [9수02-07]",
@@ -1009,6 +2461,12 @@
         },
         {
           "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "문자를 사용한 식으로 나타내기, 문자의 특징 이해, 식의 값 계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
           "locator": "좌표평면과 그래프 section; [9수02-07] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정비례·반비례 관계를 표, 식, 그래프로 나타내는 수준을 구분"
@@ -1016,9 +2474,12 @@
       ],
       "prerequisite_ids": [],
       "parent_ids": [
+        "m1_expr_unit",
         "m1_coord_graph_unit"
       ],
       "related_ids": [
+        "m1_expr_literal_expression",
+        "m1_expr_value",
         "m1_repr_table",
         "m1_graph_graph",
         "m1_repr_conversion"
@@ -1041,6 +2502,12 @@
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "문자와 수, 문자와 일상 언어의 공통점과 차이점을 탐색하고 문자의 유용성을 인식하게 함"
+        },
+        {
+          "source_id": "curriculum_math_2022",
           "locator": "printed pp. 35-36; achievement-standard explanation and considerations",
           "evidence_kind": "teaching_note",
           "summary": "좌표 사용 예, 그래프의 증가·감소·주기적 변화, 표·식·그래프 변환을 다룸"
@@ -1048,9 +2515,11 @@
       ],
       "prerequisite_ids": [],
       "parent_ids": [
+        "m1_expr_unit",
         "m1_coord_graph_unit"
       ],
       "related_ids": [
+        "m1_expr_letter",
         "m1_repr_table",
         "m1_graph_graph",
         "m1_repr_expression",
@@ -1122,7 +2591,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         },
         {
           "source_id": "achievement_math_2022",
@@ -1169,7 +2638,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         },
         {
           "source_id": "achievement_math_2022",
@@ -1317,22 +2786,42 @@
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다양한 상황을 문자를 사용한 식으로 나타내고 식의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "문자와 수, 문자와 일상 언어의 공통점과 차이점을 탐색하고 문자의 유용성을 인식하게 함"
         },
         {
           "source_id": "curriculum_math_2022",
           "locator": "printed pp. 35-36; achievement-standard explanation and considerations",
           "evidence_kind": "teaching_note",
           "summary": "좌표 사용 예, 그래프의 증가·감소·주기적 변화, 표·식·그래프 변환을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "문자를 사용한 식으로 나타내기, 문자의 특징 이해, 식의 값 계산 수준을 구분"
         }
       ],
       "prerequisite_ids": [],
       "parent_ids": [
+        "m1_expr_unit",
         "m1_coord_graph_unit"
       ],
       "related_ids": [
+        "m1_expr_letter",
         "m1_repr_expression",
         "m1_prop_direct_proportion",
         "m1_prop_inverse_proportion"
@@ -1357,7 +2846,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         },
         {
           "source_id": "achievement_math_2022",
@@ -1396,7 +2885,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         },
         {
           "source_id": "achievement_math_2022",
@@ -1552,6 +3041,1334 @@
   ],
   "edges": [
     {
+      "id": "m1_expr_unit__contains__m1_expr_letter",
+      "source_id": "m1_expr_unit",
+      "target_id": "m1_expr_letter",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다양한 상황을 문자를 사용한 식으로 나타내고 식의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "문자와 수, 문자와 일상 언어의 공통점과 차이점을 탐색하고 문자의 유용성을 인식하게 함"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_unit__contains__m1_expr_literal_expression",
+      "source_id": "m1_expr_unit",
+      "target_id": "m1_expr_literal_expression",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다양한 상황을 문자를 사용한 식으로 나타내고 식의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "문자를 사용한 식으로 나타내기, 문자의 특징 이해, 식의 값 계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_unit__contains__m1_repr_expression",
+      "source_id": "m1_expr_unit",
+      "target_id": "m1_repr_expression",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다양한 상황을 문자를 사용한 식으로 나타내고 식의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "문자를 사용한 식으로 나타내기, 문자의 특징 이해, 식의 값 계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_unit__contains__m1_expr_value",
+      "source_id": "m1_expr_unit",
+      "target_id": "m1_expr_value",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다양한 상황을 문자를 사용한 식으로 나타내고 식의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "문자를 사용한 식으로 나타내기, 문자의 특징 이해, 식의 값 계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_unit__contains__m1_expr_substitution",
+      "source_id": "m1_expr_unit",
+      "target_id": "m1_expr_substitution",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "문자를 사용한 식으로 나타내기, 문자의 특징 이해, 식의 값 계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_unit__contains__m1_expr_polynomial",
+      "source_id": "m1_expr_unit",
+      "target_id": "m1_expr_polynomial",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_unit__contains__m1_expr_linear_expression",
+      "source_id": "m1_expr_unit",
+      "target_id": "m1_expr_linear_expression",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차식의 덧셈과 뺄셈 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차식의 덧셈과 뺄셈 원리 이해, 계산, 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_unit__contains__m1_expr_add_sub_linear_expression",
+      "source_id": "m1_expr_unit",
+      "target_id": "m1_expr_add_sub_linear_expression",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차식의 덧셈과 뺄셈 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차식의 덧셈과 뺄셈 원리 이해, 계산, 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_letter__used_in__m1_expr_literal_expression",
+      "source_id": "m1_expr_letter",
+      "target_id": "m1_expr_literal_expression",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다양한 상황을 문자를 사용한 식으로 나타내고 식의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "문자를 사용한 식으로 나타내기, 문자의 특징 이해, 식의 값 계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_literal_expression__used_in__m1_expr_value",
+      "source_id": "m1_expr_literal_expression",
+      "target_id": "m1_expr_value",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다양한 상황을 문자를 사용한 식으로 나타내고 식의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "문자를 사용한 식으로 나타내기, 문자의 특징 이해, 식의 값 계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_substitution__used_in__m1_expr_value",
+      "source_id": "m1_expr_substitution",
+      "target_id": "m1_expr_value",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다양한 상황을 문자를 사용한 식으로 나타내고 식의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "문자를 사용한 식으로 나타내기, 문자의 특징 이해, 식의 값 계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_letter__used_in__m1_term_variable",
+      "source_id": "m1_expr_letter",
+      "target_id": "m1_term_variable",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다양한 상황을 문자를 사용한 식으로 나타내고 식의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "문자와 수, 문자와 일상 언어의 공통점과 차이점을 탐색하고 문자의 유용성을 인식하게 함"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_repr_everyday_language__represented_by__m1_expr_literal_expression",
+      "source_id": "m1_repr_everyday_language",
+      "target_id": "m1_expr_literal_expression",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다양한 상황을 문자를 사용한 식으로 나타내고 식의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "문자와 수, 문자와 일상 언어의 공통점과 차이점을 탐색하고 문자의 유용성을 인식하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "문자를 사용한 식으로 나타내기, 문자의 특징 이해, 식의 값 계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_literal_expression__used_in__m1_expr_usefulness",
+      "source_id": "m1_expr_literal_expression",
+      "target_id": "m1_expr_usefulness",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다양한 상황을 문자를 사용한 식으로 나타내고 식의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "문자와 수, 문자와 일상 언어의 공통점과 차이점을 탐색하고 문자의 유용성을 인식하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "문자를 사용한 식으로 나타내기, 문자의 특징 이해, 식의 값 계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_polynomial__contains__m1_expr_term",
+      "source_id": "m1_expr_polynomial",
+      "target_id": "m1_expr_term",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_polynomial__contains__m1_expr_monomial",
+      "source_id": "m1_expr_polynomial",
+      "target_id": "m1_expr_monomial",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_polynomial__contains__m1_expr_linear_expression",
+      "source_id": "m1_expr_polynomial",
+      "target_id": "m1_expr_linear_expression",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차식의 덧셈과 뺄셈 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차식의 덧셈과 뺄셈 원리 이해, 계산, 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_term__contains__m1_expr_constant_term",
+      "source_id": "m1_expr_term",
+      "target_id": "m1_expr_constant_term",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_term__contains__m1_expr_coefficient",
+      "source_id": "m1_expr_term",
+      "target_id": "m1_expr_coefficient",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_term__used_in__m1_expr_degree",
+      "source_id": "m1_expr_term",
+      "target_id": "m1_expr_degree",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_linear_expression__contains__m1_expr_like_terms",
+      "source_id": "m1_expr_linear_expression",
+      "target_id": "m1_expr_like_terms",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차식의 덧셈과 뺄셈 원리 이해, 계산, 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_expr_like_terms__used_in__m1_expr_add_sub_linear_expression",
+      "source_id": "m1_expr_like_terms",
+      "target_id": "m1_expr_add_sub_linear_expression",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차식의 덧셈과 뺄셈 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차식의 덧셈과 뺄셈 원리 이해, 계산, 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_expr_polynomial__prerequisite_for__m1_eq_equation",
+      "source_id": "m1_expr_polynomial",
+      "target_id": "m1_eq_equation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_expr_linear_expression__prerequisite_for__m1_eq_linear_equation",
+      "source_id": "m1_expr_linear_expression",
+      "target_id": "m1_eq_linear_equation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_literal_expression__prerequisite_for__m1_eq_modeling_linear_equation",
+      "source_id": "m1_expr_literal_expression",
+      "target_id": "m1_eq_modeling_linear_equation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_unit__prerequisite_for__m1_eq_unit",
+      "source_id": "m1_expr_unit",
+      "target_id": "m1_eq_unit",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_mis_letter_as_label_only__often_confused_with__m1_expr_letter",
+      "source_id": "m1_mis_letter_as_label_only",
+      "target_id": "m1_expr_letter",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "문자와 수, 문자와 일상 언어의 공통점과 차이점을 탐색하고 문자의 유용성을 인식하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "문자를 사용한 식으로 나타내기, 문자의 특징 이해, 식의 값 계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_like_terms__often_confused_with__m1_expr_like_terms",
+      "source_id": "m1_mis_like_terms",
+      "target_id": "m1_expr_like_terms",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차식의 덧셈과 뺄셈 원리 이해, 계산, 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_like_terms__often_confused_with__m1_expr_add_sub_linear_expression",
+      "source_id": "m1_mis_like_terms",
+      "target_id": "m1_expr_add_sub_linear_expression",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차식의 덧셈과 뺄셈 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차식의 덧셈과 뺄셈 원리 이해, 계산, 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_coefficient_constant_degree__often_confused_with__m1_expr_coefficient",
+      "source_id": "m1_mis_coefficient_constant_degree",
+      "target_id": "m1_expr_coefficient",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차식의 덧셈과 뺄셈 원리 이해, 계산, 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_coefficient_constant_degree__often_confused_with__m1_expr_constant_term",
+      "source_id": "m1_mis_coefficient_constant_degree",
+      "target_id": "m1_expr_constant_term",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차식의 덧셈과 뺄셈 원리 이해, 계산, 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_coefficient_constant_degree__often_confused_with__m1_expr_degree",
+      "source_id": "m1_mis_coefficient_constant_degree",
+      "target_id": "m1_expr_degree",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차식의 덧셈과 뺄셈 원리 이해, 계산, 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_eq_unit__contains__m1_eq_equality",
+      "source_id": "m1_eq_unit",
+      "target_id": "m1_eq_equality",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_unit__contains__m1_eq_equation",
+      "source_id": "m1_eq_unit",
+      "target_id": "m1_eq_equation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_unit__contains__m1_eq_equality_properties",
+      "source_id": "m1_eq_unit",
+      "target_id": "m1_eq_equality_properties",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_unit__contains__m1_eq_linear_equation",
+      "source_id": "m1_eq_unit",
+      "target_id": "m1_eq_linear_equation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_unit__contains__m1_eq_solving_linear_equation",
+      "source_id": "m1_eq_unit",
+      "target_id": "m1_eq_solving_linear_equation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_equality__prerequisite_for__m1_eq_equation",
+      "source_id": "m1_eq_equality",
+      "target_id": "m1_eq_equation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_unknown__used_in__m1_eq_equation",
+      "source_id": "m1_eq_unknown",
+      "target_id": "m1_eq_equation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_equation__contains__m1_eq_solution",
+      "source_id": "m1_eq_equation",
+      "target_id": "m1_eq_solution",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_solution__equivalent_to__m1_eq_root",
+      "source_id": "m1_eq_solution",
+      "target_id": "m1_eq_root",
+      "relationship_type": "equivalent_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "해와 근은 같은 방정식 맥락에서 함께 쓰이는 용어",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_equation__contrasts_with__m1_eq_identity",
+      "source_id": "m1_eq_equation",
+      "target_id": "m1_eq_identity",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_equality__used_in__m1_eq_equality_properties",
+      "source_id": "m1_eq_equality",
+      "target_id": "m1_eq_equality_properties",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_equality_properties__used_in__m1_eq_solving_linear_equation",
+      "source_id": "m1_eq_equality_properties",
+      "target_id": "m1_eq_solving_linear_equation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_left_side__contrasts_with__m1_eq_right_side",
+      "source_id": "m1_eq_left_side",
+      "target_id": "m1_eq_right_side",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_both_sides__used_in__m1_eq_equality_properties",
+      "source_id": "m1_eq_both_sides",
+      "target_id": "m1_eq_equality_properties",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_transposition__used_in__m1_eq_solving_linear_equation",
+      "source_id": "m1_eq_transposition",
+      "target_id": "m1_eq_solving_linear_equation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_linear_equation__used_in__m1_eq_solving_linear_equation",
+      "source_id": "m1_eq_linear_equation",
+      "target_id": "m1_eq_solving_linear_equation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_modeling_linear_equation__represented_by__m1_eq_linear_equation",
+      "source_id": "m1_eq_modeling_linear_equation",
+      "target_id": "m1_eq_linear_equation",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_solving_linear_equation__used_in__m1_eq_solution_check",
+      "source_id": "m1_eq_solving_linear_equation",
+      "target_id": "m1_eq_solution_check",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_substitution__used_in__m1_eq_solution_check",
+      "source_id": "m1_expr_substitution",
+      "target_id": "m1_eq_solution_check",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_unit__prerequisite_for__m1_coord_graph_unit",
+      "source_id": "m1_eq_unit",
+      "target_id": "m1_coord_graph_unit",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다양한 상황을 문자를 사용한 식으로 나타내고 식의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "순서쌍과 좌표를 이해하고 편리함을 인식하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정비례와 반비례 관계를 표, 식, 그래프로 나타내는 성취기준"
+        }
+      ],
+      "notes": "문자식과 방정식 이해가 표·식·그래프 표현과 정비례·반비례 관계 표현을 받친다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_mis_expression_equation__often_confused_with__m1_repr_expression",
+      "source_id": "m1_mis_expression_equation",
+      "target_id": "m1_repr_expression",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_expression_equation__often_confused_with__m1_eq_equation",
+      "source_id": "m1_mis_expression_equation",
+      "target_id": "m1_eq_equation",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_transposition_sign__often_confused_with__m1_eq_transposition",
+      "source_id": "m1_mis_transposition_sign",
+      "target_id": "m1_eq_transposition",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_solution_check__often_confused_with__m1_eq_solution_check",
+      "source_id": "m1_mis_solution_check",
+      "target_id": "m1_eq_solution_check",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_coord_graph_unit__contains__m1_coord_ordered_pair",
       "source_id": "m1_coord_graph_unit",
       "target_id": "m1_coord_ordered_pair",
@@ -1567,7 +4384,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         }
       ],
       "notes": "",
@@ -1589,7 +4406,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         }
       ],
       "notes": "",
@@ -1611,7 +4428,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         }
       ],
       "notes": "",
@@ -1633,7 +4450,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         }
       ],
       "notes": "",
@@ -1655,7 +4472,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         }
       ],
       "notes": "",
@@ -1677,7 +4494,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         }
       ],
       "notes": "",
@@ -1753,7 +4570,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         }
       ],
       "notes": "",
@@ -1769,7 +4586,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         }
       ],
       "notes": "",
@@ -1785,7 +4602,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         }
       ],
       "notes": "",
@@ -1801,7 +4618,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         }
       ],
       "notes": "",
@@ -1817,7 +4634,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         }
       ],
       "notes": "",
@@ -1833,7 +4650,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         }
       ],
       "notes": "",
@@ -1849,7 +4666,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         }
       ],
       "notes": "",
@@ -1865,7 +4682,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         }
       ],
       "notes": "",
@@ -1881,7 +4698,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         }
       ],
       "notes": "",
@@ -1897,7 +4714,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         }
       ],
       "notes": "",
@@ -1913,7 +4730,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         }
       ],
       "notes": "",
@@ -1929,7 +4746,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         },
         {
           "source_id": "achievement_math_2022",
@@ -2407,7 +5224,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         },
         {
           "source_id": "curriculum_math_2022",
@@ -2429,7 +5246,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         },
         {
           "source_id": "achievement_math_2022",
@@ -2451,7 +5268,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         },
         {
           "source_id": "achievement_math_2022",
@@ -2473,7 +5290,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         },
         {
           "source_id": "achievement_math_2022",
@@ -2495,7 +5312,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         },
         {
           "source_id": "achievement_math_2022",
@@ -2517,7 +5334,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         },
         {
           "source_id": "achievement_math_2022",
@@ -2539,7 +5356,7 @@
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; terms and symbols for 변화와 관계",
           "evidence_kind": "term_list",
-          "summary": "좌표, 순서쌍, x좌표, y좌표, 원점, 좌표축, x축, y축, 좌표평면, 사분면, 그래프, 정비례, 반비례 등을 다룸"
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프 등을 다룸"
         },
         {
           "source_id": "achievement_math_2022",

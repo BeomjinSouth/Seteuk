@@ -30,7 +30,7 @@
 | `id` | 관계 식별자 |
 | `source_id` | 출발 개념 id |
 | `target_id` | 도착 개념 id |
-| `relationship_type` | `contains`, `prerequisite_for`, `represented_by`, `used_in`, `contrasts_with`, `often_confused_with` |
+| `relationship_type` | `contains`, `prerequisite_for`, `represented_by`, `used_in`, `contrasts_with`, `often_confused_with`, `equivalent_to`, `related_to` |
 | `source_refs` | 관계 판단 근거 |
 | `notes` | 관계 해석 메모 |
 | `confidence` | `high`, `medium`, `low` |

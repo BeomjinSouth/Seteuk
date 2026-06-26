@@ -50,6 +50,8 @@ EDGE_TYPES = {
     "used_in",
     "contrasts_with",
     "often_confused_with",
+    "equivalent_to",
+    "related_to",
 }
 CONFIDENCE = {"high", "medium", "low"}
 
