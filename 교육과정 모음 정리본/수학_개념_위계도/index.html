@@ -1,0 +1,6589 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>초1-중3 수학 개념 위계도</title>
+  <style>
+    :root {
+      --bg: #f7f6f2;
+      --panel: #ffffff;
+      --ink: #202124;
+      --muted: #6f746f;
+      --line: #d8ded7;
+      --teal: #176f72;
+      --teal-soft: #e0f0ee;
+      --blue: #dfeaf8;
+      --green: #e4f0df;
+      --pink: #f5e4ec;
+      --yellow: #f5ead2;
+      --amber: #a76010;
+      --shadow: 0 12px 28px rgba(32, 33, 36, 0.08);
+      color-scheme: light;
+      font-family: "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    button, input, select { font: inherit; }
+    .app {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: minmax(220px, 280px) 1fr minmax(300px, 360px);
+      gap: 16px;
+      padding: 18px;
+    }
+    .sidebar, .detail, .main {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .sidebar, .detail {
+      border-radius: 8px;
+      padding: 16px;
+      align-self: start;
+      position: sticky;
+      top: 18px;
+      max-height: calc(100vh - 36px);
+      overflow: auto;
+    }
+    .main {
+      border-radius: 8px;
+      overflow: hidden;
+      min-width: 0;
+    }
+    .brand {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: #113d3f;
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+    }
+    h1 {
+      font-size: 22px;
+      line-height: 1.25;
+      margin: 0;
+      letter-spacing: 0;
+    }
+    h2 {
+      font-size: 15px;
+      margin: 18px 0 10px;
+      letter-spacing: 0;
+    }
+    .subtle { color: var(--muted); font-size: 12px; line-height: 1.5; }
+    .control {
+      display: grid;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    label { font-size: 12px; color: var(--muted); }
+    input, select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 10px 11px;
+      background: #fbfbf8;
+      color: var(--ink);
+    }
+    .status {
+      display: grid;
+      gap: 8px;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 26px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: #eef1ea;
+      color: #33413c;
+      font-size: 12px;
+      font-weight: 700;
+      width: fit-content;
+      max-width: 100%;
+    }
+    .pill.warn { background: #fff0cf; color: var(--amber); }
+    .pill.teal { background: var(--teal-soft); color: var(--teal); }
+    .topbar {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: start;
+    }
+    .topbar h1 { font-size: 26px; }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(82px, 1fr));
+      gap: 8px;
+      min-width: 360px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px;
+      background: #fafaf6;
+    }
+    .metric strong { display: block; font-size: 20px; }
+    .metric span { color: var(--muted); font-size: 11px; }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--line);
+    }
+    .canvas {
+      padding: 18px;
+      overflow: auto;
+    }
+    .grid {
+      min-width: 920px;
+      display: grid;
+      gap: 14px;
+    }
+    .grade-head {
+      display: grid;
+      grid-template-columns: 150px repeat(4, minmax(170px, 1fr));
+      gap: 10px;
+      align-items: stretch;
+    }
+    .grade-head div {
+      border-radius: 8px;
+      background: #edece5;
+      padding: 9px 12px;
+      font-weight: 800;
+      color: #3b403c;
+      min-height: 38px;
+    }
+    .area-row {
+      display: grid;
+      grid-template-columns: 150px repeat(4, minmax(170px, 1fr));
+      gap: 10px;
+      align-items: stretch;
+    }
+    .area-label {
+      border-radius: 8px;
+      padding: 12px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      min-height: 120px;
+      line-height: 1.35;
+    }
+    .area-0 .area-label { background: var(--blue); }
+    .area-1 .area-label { background: var(--green); }
+    .area-2 .area-label { background: var(--pink); }
+    .area-3 .area-label { background: var(--yellow); }
+    .lane {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px;
+      background: #fbfbf8;
+      min-height: 138px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .card {
+      width: 100%;
+      text-align: left;
+      border: 1px solid #d7ddd5;
+      border-left: 4px solid var(--teal);
+      border-radius: 7px;
+      background: white;
+      padding: 8px 9px;
+      cursor: pointer;
+      min-height: 54px;
+    }
+    .card:hover, .card:focus {
+      outline: 2px solid #85bdb6;
+      outline-offset: 1px;
+    }
+    .card.selected {
+      border-color: #125b5f;
+      background: #f0faf8;
+    }
+    .card-title {
+      display: block;
+      font-weight: 800;
+      font-size: 13px;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+    .card-meta {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+    .empty {
+      border: 1px dashed #cfd6ce;
+      border-radius: 8px;
+      padding: 14px;
+      color: var(--muted);
+      background: #fbfaf3;
+      line-height: 1.5;
+    }
+    .detail h2 {
+      font-size: 20px;
+      margin-top: 0;
+      color: #183b3c;
+    }
+    .detail-section {
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+      margin-top: 12px;
+    }
+    .code-list {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .code {
+      border-radius: 6px;
+      padding: 4px 6px;
+      background: #eef1ea;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .notice {
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 8px;
+      background: #fff7e6;
+      color: #6a3a00;
+      line-height: 1.5;
+      font-size: 13px;
+    }
+    .target {
+      margin-top: 14px;
+      display: grid;
+      gap: 8px;
+    }
+    .target img {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      display: block;
+    }
+    @media (max-width: 1120px) {
+      .app { grid-template-columns: 1fr; }
+      .sidebar, .detail { position: static; max-height: none; }
+      .metrics { min-width: 0; grid-template-columns: repeat(2, minmax(100px, 1fr)); }
+      .topbar { flex-direction: column; }
+    }
+    @media print {
+      body { background: white; }
+      .app { display: block; padding: 0; }
+      .sidebar { display: none; }
+      .detail { display: none; }
+      .main { box-shadow: none; border: none; }
+      .canvas { overflow: visible; }
+      .grid { min-width: 0; }
+      .grade-head, .area-row { grid-template-columns: 120px repeat(4, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="mark">수</div>
+        <div>
+          <h1>초1-중3 수학 개념 위계도</h1>
+          <div class="subtle">교육과정 골격 + 교과서 세부개념</div>
+        </div>
+      </div>
+
+      <div class="control">
+        <label for="search">검색</label>
+        <input id="search" type="search" placeholder="개념, 성취기준, 출판사 검색">
+      </div>
+      <div class="control">
+        <label for="areaFilter">영역</label>
+        <select id="areaFilter"></select>
+      </div>
+      <div class="control">
+        <label for="gradeFilter">학년군</label>
+        <select id="gradeFilter"></select>
+      </div>
+      <div class="control">
+        <label for="bookTypeFilter">책종</label>
+        <select id="bookTypeFilter"></select>
+      </div>
+
+      <div class="status">
+        <span class="pill teal" id="sourceStatus">교과서 원본 대기</span>
+        <span class="pill warn">중3 2015 현행 별도 표시</span>
+        <p class="subtle">교과서 원본을 `교과서_원본/`에 넣고 빌드 스크립트를 다시 실행하면 세부개념 카드가 추가됩니다.</p>
+      </div>
+
+      <div class="target">
+        <h2>목표 화면</h2>
+        <img src="assets/target-screen.png" alt="GPT Image로 생성한 16:9 목표 화면" onerror="this.style.display='none'">
+      </div>
+    </aside>
+
+    <main class="main">
+      <section class="topbar">
+        <div>
+          <h1>초1-중3 수학 개념 위계도</h1>
+          <p class="subtle">공식 내용 요소와 성취기준을 먼저 세우고, 제공된 교과서·익힘책·지도서의 사소한 개념을 아래층에 붙입니다.</p>
+        </div>
+        <div class="metrics">
+          <div class="metric"><strong id="metricNodes">0</strong><span>교육과정 노드</span></div>
+          <div class="metric"><strong id="metricCodes">0</strong><span>성취기준</span></div>
+          <div class="metric"><strong id="metricTextbook">0</strong><span>교과서 세부개념</span></div>
+          <div class="metric"><strong id="metricSources">0</strong><span>원본 파일</span></div>
+        </div>
+      </section>
+      <section class="legend">
+        <span class="pill">교과서</span>
+        <span class="pill">익힘책</span>
+        <span class="pill">지도서</span>
+        <span class="pill warn">2015 중3</span>
+        <span class="pill teal">2022 공식 위계</span>
+      </section>
+      <section class="canvas">
+        <div class="grid" id="hierarchyGrid"></div>
+        <div id="textbookSection"></div>
+      </section>
+    </main>
+
+    <aside class="detail" id="detailPanel">
+      <h2>개념을 선택하세요</h2>
+      <p class="subtle">카드를 클릭하면 연결 성취기준, 출처, 선수·후속 흐름이 여기에 표시됩니다.</p>
+      <div class="notice" id="accessNotice"></div>
+    </aside>
+  </div>
+
+  <script id="hierarchyData" type="application/json">{
+  "metadata": {
+    "title": "초1-중3 수학 개념 위계도",
+    "generatedAt": "2026-06-26T14:55:39",
+    "version": "1.0.0",
+    "areas": [
+      "수와 연산",
+      "변화와 관계",
+      "도형과 측정",
+      "자료와 가능성"
+    ],
+    "gradeBands": [
+      "초1-2",
+      "초3-4",
+      "초5-6",
+      "중1-3"
+    ],
+    "curriculumPdf": {
+      "file": "2022_개정_중학교_교육과정_PDF\\교과\\02_[별책8] 수학과 교육과정.pdf",
+      "sha256": "ba7c7c63ad31ba0fd32e5eb8148d696dd73288acce111495c593298112f8f840",
+      "fileSize": 1938993,
+      "pageCount": 263,
+      "pdfHeaderValid": true
+    },
+    "officialNotices": [
+      {
+        "title": "2025학년도 사용 검정 교과용도서 합격 결정 공고",
+        "url": "https://www.kosac.re.kr/menus/270/boards/386/posts/40455?bbIdx=40455&amp;brdType=R",
+        "note": "초등 3~4학년군과 중학교 수학 1 등 2022 개정 적용 교과서 확인용"
+      },
+      {
+        "title": "2026학년도 사용 검정 교과용도서 합격 결정 공고(중학교 수학 2)",
+        "url": "https://www.kosac.re.kr/menus/270/boards/386/posts/42156?bbIdx=28608&amp;brdCodeValue=&amp;brdType=R&amp;page=1&amp;searchField=titlecontent&amp;searchText=&amp;thisPage=30",
+        "note": "2026학년도 중학교 수학 2 검정 교과서 확인용"
+      },
+      {
+        "title": "2026학년도 사용 검정 교과용도서 합격 결정 공고(초등 5~6학년군)",
+        "url": "https://www.kosac.re.kr/menus/270/boards/386/posts/42428?page=1",
+        "note": "2026학년도 초등 5~6학년군 수학 검정 교과서 확인용"
+      }
+    ],
+    "textbookSourceRule": {
+      "folder": "교과서_원본/",
+      "filenamePattern": "교육과정_학년_출판사_책종_권.pdf",
+      "bookTypes": [
+        "교과서",
+        "익힘책",
+        "지도서"
+      ],
+      "middle3Policy": "2015 현행 중3 별도 표시"
+    },
+    "counts": {
+      "curriculumNodes": 83,
+      "achievementStandardsTotal": 181,
+      "achievementStandardsByPrefix": {
+        "2수": 29,
+        "4수": 47,
+        "6수": 45,
+        "9수": 60
+      },
+      "textbookConcepts": 0,
+      "sourceFiles": 0,
+      "accessIssues": 1
+    }
+  },
+  "curriculum_nodes": [
+    {
+      "id": "curr-1-1-네-자리-이하의-수",
+      "label": "네 자리 이하의 수",
+      "area": "수와 연산",
+      "gradeBand": "초1-2",
+      "conceptType": "curriculum_content_element",
+      "summary": "초1-2 수와 연산 영역의 핵심 내용 요소: 네 자리 이하의 수",
+      "coreIdeas": [
+        "사물의 양은 자연수, 분수, 소수 등으로 표현되며, 수는 자연수에서 정수, 유리수, 실수로 확장된다.",
+        "사칙계산은 자연수에서 정수, 유리수, 실수의 사칙계산으로 확장되며 연산의 성질이 일관되게 성립한다.",
+        "수와 사칙계산은 수학 학습의 기본이며 다양한 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "2수01-01",
+        "2수01-02",
+        "2수01-03",
+        "2수01-04",
+        "2수01-05",
+        "2수01-06",
+        "2수01-07",
+        "2수01-08",
+        "2수01-09",
+        "2수01-10",
+        "2수01-11"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 1,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": []
+    },
+    {
+      "id": "curr-1-1-두-자리-수-범위의-덧셈과-뺄셈",
+      "label": "두 자리 수 범위의 덧셈과 뺄셈",
+      "area": "수와 연산",
+      "gradeBand": "초1-2",
+      "conceptType": "curriculum_content_element",
+      "summary": "초1-2 수와 연산 영역의 핵심 내용 요소: 두 자리 수 범위의 덧셈과 뺄셈",
+      "coreIdeas": [
+        "사물의 양은 자연수, 분수, 소수 등으로 표현되며, 수는 자연수에서 정수, 유리수, 실수로 확장된다.",
+        "사칙계산은 자연수에서 정수, 유리수, 실수의 사칙계산으로 확장되며 연산의 성질이 일관되게 성립한다.",
+        "수와 사칙계산은 수학 학습의 기본이며 다양한 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "2수01-05",
+        "2수01-06",
+        "2수01-07",
+        "2수01-08",
+        "2수01-09"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 2,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-1-1-네-자리-이하의-수"
+      ]
+    },
+    {
+      "id": "curr-1-1-한-자리-수의-곱셈",
+      "label": "한 자리 수의 곱셈",
+      "area": "수와 연산",
+      "gradeBand": "초1-2",
+      "conceptType": "curriculum_content_element",
+      "summary": "초1-2 수와 연산 영역의 핵심 내용 요소: 한 자리 수의 곱셈",
+      "coreIdeas": [
+        "사물의 양은 자연수, 분수, 소수 등으로 표현되며, 수는 자연수에서 정수, 유리수, 실수로 확장된다.",
+        "사칙계산은 자연수에서 정수, 유리수, 실수의 사칙계산으로 확장되며 연산의 성질이 일관되게 성립한다.",
+        "수와 사칙계산은 수학 학습의 기본이며 다양한 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "2수01-09",
+        "2수01-10",
+        "2수01-11"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 3,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-1-1-두-자리-수-범위의-덧셈과-뺄셈"
+      ]
+    },
+    {
+      "id": "curr-1-2-다섯-자리-이상의-수",
+      "label": "다섯 자리 이상의 수",
+      "area": "수와 연산",
+      "gradeBand": "초3-4",
+      "conceptType": "curriculum_content_element",
+      "summary": "초3-4 수와 연산 영역의 핵심 내용 요소: 다섯 자리 이상의 수",
+      "coreIdeas": [
+        "사물의 양은 자연수, 분수, 소수 등으로 표현되며, 수는 자연수에서 정수, 유리수, 실수로 확장된다.",
+        "사칙계산은 자연수에서 정수, 유리수, 실수의 사칙계산으로 확장되며 연산의 성질이 일관되게 성립한다.",
+        "수와 사칙계산은 수학 학습의 기본이며 다양한 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "4수01-01",
+        "4수01-02",
+        "4수01-03",
+        "4수01-04",
+        "4수01-05",
+        "4수01-06",
+        "4수01-07",
+        "4수01-08",
+        "4수01-09",
+        "4수01-10",
+        "4수01-11",
+        "4수01-12",
+        "4수01-13",
+        "4수01-14",
+        "4수01-15",
+        "4수01-16"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 1,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-1-1-한-자리-수의-곱셈"
+      ]
+    },
+    {
+      "id": "curr-1-2-분수",
+      "label": "분수",
+      "area": "수와 연산",
+      "gradeBand": "초3-4",
+      "conceptType": "curriculum_content_element",
+      "summary": "초3-4 수와 연산 영역의 핵심 내용 요소: 분수",
+      "coreIdeas": [
+        "사물의 양은 자연수, 분수, 소수 등으로 표현되며, 수는 자연수에서 정수, 유리수, 실수로 확장된다.",
+        "사칙계산은 자연수에서 정수, 유리수, 실수의 사칙계산으로 확장되며 연산의 성질이 일관되게 성립한다.",
+        "수와 사칙계산은 수학 학습의 기본이며 다양한 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "4수01-09",
+        "4수01-10",
+        "4수01-11",
+        "4수01-12",
+        "4수01-14",
+        "4수01-15"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 2,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-1-2-다섯-자리-이상의-수"
+      ]
+    },
+    {
+      "id": "curr-1-2-소수",
+      "label": "소수",
+      "area": "수와 연산",
+      "gradeBand": "초3-4",
+      "conceptType": "curriculum_content_element",
+      "summary": "초3-4 수와 연산 영역의 핵심 내용 요소: 소수",
+      "coreIdeas": [
+        "사물의 양은 자연수, 분수, 소수 등으로 표현되며, 수는 자연수에서 정수, 유리수, 실수로 확장된다.",
+        "사칙계산은 자연수에서 정수, 유리수, 실수의 사칙계산으로 확장되며 연산의 성질이 일관되게 성립한다.",
+        "수와 사칙계산은 수학 학습의 기본이며 다양한 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "4수01-11",
+        "4수01-12",
+        "4수01-13",
+        "4수01-14",
+        "4수01-15",
+        "4수01-16"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 3,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-1-2-분수"
+      ]
+    },
+    {
+      "id": "curr-1-2-세-자리-수의-덧셈과-뺄셈",
+      "label": "세 자리 수의 덧셈과 뺄셈",
+      "area": "수와 연산",
+      "gradeBand": "초3-4",
+      "conceptType": "curriculum_content_element",
+      "summary": "초3-4 수와 연산 영역의 핵심 내용 요소: 세 자리 수의 덧셈과 뺄셈",
+      "coreIdeas": [
+        "사물의 양은 자연수, 분수, 소수 등으로 표현되며, 수는 자연수에서 정수, 유리수, 실수로 확장된다.",
+        "사칙계산은 자연수에서 정수, 유리수, 실수의 사칙계산으로 확장되며 연산의 성질이 일관되게 성립한다.",
+        "수와 사칙계산은 수학 학습의 기본이며 다양한 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "4수01-03",
+        "4수01-08",
+        "4수01-14",
+        "4수01-15",
+        "4수01-16"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 4,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-1-2-소수"
+      ]
+    },
+    {
+      "id": "curr-1-2-자연수의-곱셈과-나눗셈",
+      "label": "자연수의 곱셈과 나눗셈",
+      "area": "수와 연산",
+      "gradeBand": "초3-4",
+      "conceptType": "curriculum_content_element",
+      "summary": "초3-4 수와 연산 영역의 핵심 내용 요소: 자연수의 곱셈과 나눗셈",
+      "coreIdeas": [
+        "사물의 양은 자연수, 분수, 소수 등으로 표현되며, 수는 자연수에서 정수, 유리수, 실수로 확장된다.",
+        "사칙계산은 자연수에서 정수, 유리수, 실수의 사칙계산으로 확장되며 연산의 성질이 일관되게 성립한다.",
+        "수와 사칙계산은 수학 학습의 기본이며 다양한 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "4수01-04",
+        "4수01-05",
+        "4수01-06",
+        "4수01-07",
+        "4수01-08"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 5,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-1-2-세-자리-수의-덧셈과-뺄셈"
+      ]
+    },
+    {
+      "id": "curr-1-2-분모가-같은-분수의-덧셈과-뺄셈",
+      "label": "분모가 같은 분수의 덧셈과 뺄셈",
+      "area": "수와 연산",
+      "gradeBand": "초3-4",
+      "conceptType": "curriculum_content_element",
+      "summary": "초3-4 수와 연산 영역의 핵심 내용 요소: 분모가 같은 분수의 덧셈과 뺄셈",
+      "coreIdeas": [
+        "사물의 양은 자연수, 분수, 소수 등으로 표현되며, 수는 자연수에서 정수, 유리수, 실수로 확장된다.",
+        "사칙계산은 자연수에서 정수, 유리수, 실수의 사칙계산으로 확장되며 연산의 성질이 일관되게 성립한다.",
+        "수와 사칙계산은 수학 학습의 기본이며 다양한 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "4수01-03",
+        "4수01-08",
+        "4수01-09",
+        "4수01-10",
+        "4수01-11",
+        "4수01-12",
+        "4수01-14",
+        "4수01-15",
+        "4수01-16"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 6,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-1-2-자연수의-곱셈과-나눗셈"
+      ]
+    },
+    {
+      "id": "curr-1-2-소수의-덧셈과-뺄셈",
+      "label": "소수의 덧셈과 뺄셈",
+      "area": "수와 연산",
+      "gradeBand": "초3-4",
+      "conceptType": "curriculum_content_element",
+      "summary": "초3-4 수와 연산 영역의 핵심 내용 요소: 소수의 덧셈과 뺄셈",
+      "coreIdeas": [
+        "사물의 양은 자연수, 분수, 소수 등으로 표현되며, 수는 자연수에서 정수, 유리수, 실수로 확장된다.",
+        "사칙계산은 자연수에서 정수, 유리수, 실수의 사칙계산으로 확장되며 연산의 성질이 일관되게 성립한다.",
+        "수와 사칙계산은 수학 학습의 기본이며 다양한 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "4수01-03",
+        "4수01-08",
+        "4수01-11",
+        "4수01-12",
+        "4수01-13",
+        "4수01-14",
+        "4수01-15",
+        "4수01-16"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 7,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-1-2-분모가-같은-분수의-덧셈과-뺄셈"
+      ]
+    },
+    {
+      "id": "curr-1-3-약수와-배수",
+      "label": "약수와 배수",
+      "area": "수와 연산",
+      "gradeBand": "초5-6",
+      "conceptType": "curriculum_content_element",
+      "summary": "초5-6 수와 연산 영역의 핵심 내용 요소: 약수와 배수",
+      "coreIdeas": [
+        "사물의 양은 자연수, 분수, 소수 등으로 표현되며, 수는 자연수에서 정수, 유리수, 실수로 확장된다.",
+        "사칙계산은 자연수에서 정수, 유리수, 실수의 사칙계산으로 확장되며 연산의 성질이 일관되게 성립한다.",
+        "수와 사칙계산은 수학 학습의 기본이며 다양한 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "6수01-04",
+        "6수01-05"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 1,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-1-2-소수의-덧셈과-뺄셈"
+      ]
+    },
+    {
+      "id": "curr-1-3-수의-범위와-올림-버림-반올림",
+      "label": "수의 범위와 올림, 버림, 반올림",
+      "area": "수와 연산",
+      "gradeBand": "초5-6",
+      "conceptType": "curriculum_content_element",
+      "summary": "초5-6 수와 연산 영역의 핵심 내용 요소: 수의 범위와 올림, 버림, 반올림",
+      "coreIdeas": [
+        "사물의 양은 자연수, 분수, 소수 등으로 표현되며, 수는 자연수에서 정수, 유리수, 실수로 확장된다.",
+        "사칙계산은 자연수에서 정수, 유리수, 실수의 사칙계산으로 확장되며 연산의 성질이 일관되게 성립한다.",
+        "수와 사칙계산은 수학 학습의 기본이며 다양한 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "6수01-01",
+        "6수01-02",
+        "6수01-03",
+        "6수01-04",
+        "6수01-05",
+        "6수01-06",
+        "6수01-07",
+        "6수01-08",
+        "6수01-09",
+        "6수01-10",
+        "6수01-11",
+        "6수01-12",
+        "6수01-13",
+        "6수01-14",
+        "6수01-15"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 2,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-1-3-약수와-배수"
+      ]
+    },
+    {
+      "id": "curr-1-3-자연수의-혼합-계산",
+      "label": "자연수의 혼합 계산",
+      "area": "수와 연산",
+      "gradeBand": "초5-6",
+      "conceptType": "curriculum_content_element",
+      "summary": "초5-6 수와 연산 영역의 핵심 내용 요소: 자연수의 혼합 계산",
+      "coreIdeas": [
+        "사물의 양은 자연수, 분수, 소수 등으로 표현되며, 수는 자연수에서 정수, 유리수, 실수로 확장된다.",
+        "사칙계산은 자연수에서 정수, 유리수, 실수의 사칙계산으로 확장되며 연산의 성질이 일관되게 성립한다.",
+        "수와 사칙계산은 수학 학습의 기본이며 다양한 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "6수01-10",
+        "6수01-14"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 3,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-1-3-수의-범위와-올림-버림-반올림"
+      ]
+    },
+    {
+      "id": "curr-1-3-분모가-다른-분수의-덧셈과-뺄셈",
+      "label": "분모가 다른 분수의 덧셈과 뺄셈",
+      "area": "수와 연산",
+      "gradeBand": "초5-6",
+      "conceptType": "curriculum_content_element",
+      "summary": "초5-6 수와 연산 영역의 핵심 내용 요소: 분모가 다른 분수의 덧셈과 뺄셈",
+      "coreIdeas": [
+        "사물의 양은 자연수, 분수, 소수 등으로 표현되며, 수는 자연수에서 정수, 유리수, 실수로 확장된다.",
+        "사칙계산은 자연수에서 정수, 유리수, 실수의 사칙계산으로 확장되며 연산의 성질이 일관되게 성립한다.",
+        "수와 사칙계산은 수학 학습의 기본이며 다양한 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "6수01-01",
+        "6수01-05",
+        "6수01-06",
+        "6수01-07",
+        "6수01-08",
+        "6수01-09",
+        "6수01-10",
+        "6수01-11",
+        "6수01-12"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 4,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-1-3-자연수의-혼합-계산"
+      ]
+    },
+    {
+      "id": "curr-1-3-분수의-곱셈과-나눗셈",
+      "label": "분수의 곱셈과 나눗셈",
+      "area": "수와 연산",
+      "gradeBand": "초5-6",
+      "conceptType": "curriculum_content_element",
+      "summary": "초5-6 수와 연산 영역의 핵심 내용 요소: 분수의 곱셈과 나눗셈",
+      "coreIdeas": [
+        "사물의 양은 자연수, 분수, 소수 등으로 표현되며, 수는 자연수에서 정수, 유리수, 실수로 확장된다.",
+        "사칙계산은 자연수에서 정수, 유리수, 실수의 사칙계산으로 확장되며 연산의 성질이 일관되게 성립한다.",
+        "수와 사칙계산은 수학 학습의 기본이며 다양한 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "6수01-01",
+        "6수01-05",
+        "6수01-06",
+        "6수01-07",
+        "6수01-08",
+        "6수01-09",
+        "6수01-10",
+        "6수01-11",
+        "6수01-12",
+        "6수01-13",
+        "6수01-14",
+        "6수01-15"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 5,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-1-3-분모가-다른-분수의-덧셈과-뺄셈"
+      ]
+    },
+    {
+      "id": "curr-1-3-소수의-곱셈과-나눗셈",
+      "label": "소수의 곱셈과 나눗셈",
+      "area": "수와 연산",
+      "gradeBand": "초5-6",
+      "conceptType": "curriculum_content_element",
+      "summary": "초5-6 수와 연산 영역의 핵심 내용 요소: 소수의 곱셈과 나눗셈",
+      "coreIdeas": [
+        "사물의 양은 자연수, 분수, 소수 등으로 표현되며, 수는 자연수에서 정수, 유리수, 실수로 확장된다.",
+        "사칙계산은 자연수에서 정수, 유리수, 실수의 사칙계산으로 확장되며 연산의 성질이 일관되게 성립한다.",
+        "수와 사칙계산은 수학 학습의 기본이며 다양한 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "6수01-01",
+        "6수01-08",
+        "6수01-09",
+        "6수01-10",
+        "6수01-11",
+        "6수01-12",
+        "6수01-13",
+        "6수01-14",
+        "6수01-15"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 6,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-1-3-분수의-곱셈과-나눗셈"
+      ]
+    },
+    {
+      "id": "curr-1-4-소인수분해",
+      "label": "소인수분해",
+      "area": "수와 연산",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 수와 연산 영역의 핵심 내용 요소: 소인수분해",
+      "coreIdeas": [
+        "사물의 양은 자연수, 분수, 소수 등으로 표현되며, 수는 자연수에서 정수, 유리수, 실수로 확장된다.",
+        "사칙계산은 자연수에서 정수, 유리수, 실수의 사칙계산으로 확장되며 연산의 성질이 일관되게 성립한다.",
+        "수와 사칙계산은 수학 학습의 기본이며 다양한 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "9수01-01",
+        "9수01-02"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 1,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-1-3-소수의-곱셈과-나눗셈"
+      ]
+    },
+    {
+      "id": "curr-1-4-정수와-유리수",
+      "label": "정수와 유리수",
+      "area": "수와 연산",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 수와 연산 영역의 핵심 내용 요소: 정수와 유리수",
+      "coreIdeas": [
+        "사물의 양은 자연수, 분수, 소수 등으로 표현되며, 수는 자연수에서 정수, 유리수, 실수로 확장된다.",
+        "사칙계산은 자연수에서 정수, 유리수, 실수의 사칙계산으로 확장되며 연산의 성질이 일관되게 성립한다.",
+        "수와 사칙계산은 수학 학습의 기본이며 다양한 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "9수01-02",
+        "9수01-03",
+        "9수01-04",
+        "9수01-05",
+        "9수01-06"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 2,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-1-4-소인수분해"
+      ]
+    },
+    {
+      "id": "curr-1-4-유리수와-순환소수",
+      "label": "유리수와 순환소수",
+      "area": "수와 연산",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 수와 연산 영역의 핵심 내용 요소: 유리수와 순환소수",
+      "coreIdeas": [
+        "사물의 양은 자연수, 분수, 소수 등으로 표현되며, 수는 자연수에서 정수, 유리수, 실수로 확장된다.",
+        "사칙계산은 자연수에서 정수, 유리수, 실수의 사칙계산으로 확장되며 연산의 성질이 일관되게 성립한다.",
+        "수와 사칙계산은 수학 학습의 기본이며 다양한 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "9수01-02",
+        "9수01-04",
+        "9수01-05",
+        "9수01-06"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 3,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-1-4-정수와-유리수"
+      ]
+    },
+    {
+      "id": "curr-1-4-제곱근과-실수",
+      "label": "제곱근과 실수",
+      "area": "수와 연산",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 수와 연산 영역의 핵심 내용 요소: 제곱근과 실수",
+      "coreIdeas": [
+        "사물의 양은 자연수, 분수, 소수 등으로 표현되며, 수는 자연수에서 정수, 유리수, 실수로 확장된다.",
+        "사칙계산은 자연수에서 정수, 유리수, 실수의 사칙계산으로 확장되며 연산의 성질이 일관되게 성립한다.",
+        "수와 사칙계산은 수학 학습의 기본이며 다양한 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "9수01-06",
+        "9수01-07",
+        "9수01-09"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 4,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-1-4-유리수와-순환소수"
+      ]
+    },
+    {
+      "id": "curr-2-1-규칙",
+      "label": "규칙",
+      "area": "변화와 관계",
+      "gradeBand": "초1-2",
+      "conceptType": "curriculum_content_element",
+      "summary": "초1-2 변화와 관계 영역의 핵심 내용 요소: 규칙",
+      "coreIdeas": [
+        "규칙 탐구는 수학적으로 추측하고 일반화하는 데 기반이 된다.",
+        "동치 관계, 대응 관계, 비례 관계는 대상 사이의 관계를 기술하고 문제 해결에 활용된다.",
+        "문자와 식, 방정식, 부등식, 함수와 그래프는 변화하는 현상을 수학적으로 표현한다."
+      ],
+      "achievementCodes": [
+        "2수02-01",
+        "2수02-02"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 1,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": []
+    },
+    {
+      "id": "curr-2-2-규칙",
+      "label": "규칙",
+      "area": "변화와 관계",
+      "gradeBand": "초3-4",
+      "conceptType": "curriculum_content_element",
+      "summary": "초3-4 변화와 관계 영역의 핵심 내용 요소: 규칙",
+      "coreIdeas": [
+        "규칙 탐구는 수학적으로 추측하고 일반화하는 데 기반이 된다.",
+        "동치 관계, 대응 관계, 비례 관계는 대상 사이의 관계를 기술하고 문제 해결에 활용된다.",
+        "문자와 식, 방정식, 부등식, 함수와 그래프는 변화하는 현상을 수학적으로 표현한다."
+      ],
+      "achievementCodes": [
+        "4수02-01",
+        "4수02-02"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 1,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-2-1-규칙"
+      ]
+    },
+    {
+      "id": "curr-2-2-동치-관계",
+      "label": "동치 관계",
+      "area": "변화와 관계",
+      "gradeBand": "초3-4",
+      "conceptType": "curriculum_content_element",
+      "summary": "초3-4 변화와 관계 영역의 핵심 내용 요소: 동치 관계",
+      "coreIdeas": [
+        "규칙 탐구는 수학적으로 추측하고 일반화하는 데 기반이 된다.",
+        "동치 관계, 대응 관계, 비례 관계는 대상 사이의 관계를 기술하고 문제 해결에 활용된다.",
+        "문자와 식, 방정식, 부등식, 함수와 그래프는 변화하는 현상을 수학적으로 표현한다."
+      ],
+      "achievementCodes": [
+        "4수02-01",
+        "4수02-02",
+        "4수02-03"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 2,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-2-2-규칙"
+      ]
+    },
+    {
+      "id": "curr-2-3-대응-관계",
+      "label": "대응 관계",
+      "area": "변화와 관계",
+      "gradeBand": "초5-6",
+      "conceptType": "curriculum_content_element",
+      "summary": "초5-6 변화와 관계 영역의 핵심 내용 요소: 대응 관계",
+      "coreIdeas": [
+        "규칙 탐구는 수학적으로 추측하고 일반화하는 데 기반이 된다.",
+        "동치 관계, 대응 관계, 비례 관계는 대상 사이의 관계를 기술하고 문제 해결에 활용된다.",
+        "문자와 식, 방정식, 부등식, 함수와 그래프는 변화하는 현상을 수학적으로 표현한다."
+      ],
+      "achievementCodes": [
+        "6수02-01",
+        "6수02-02",
+        "6수02-03",
+        "6수02-04",
+        "6수02-05"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 1,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-2-2-동치-관계"
+      ]
+    },
+    {
+      "id": "curr-2-3-비와-비율",
+      "label": "비와 비율",
+      "area": "변화와 관계",
+      "gradeBand": "초5-6",
+      "conceptType": "curriculum_content_element",
+      "summary": "초5-6 변화와 관계 영역의 핵심 내용 요소: 비와 비율",
+      "coreIdeas": [
+        "규칙 탐구는 수학적으로 추측하고 일반화하는 데 기반이 된다.",
+        "동치 관계, 대응 관계, 비례 관계는 대상 사이의 관계를 기술하고 문제 해결에 활용된다.",
+        "문자와 식, 방정식, 부등식, 함수와 그래프는 변화하는 현상을 수학적으로 표현한다."
+      ],
+      "achievementCodes": [
+        "6수02-02",
+        "6수02-03",
+        "6수02-04",
+        "6수02-05"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 2,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-2-3-대응-관계"
+      ]
+    },
+    {
+      "id": "curr-2-3-비례식과-비례배분",
+      "label": "비례식과 비례배분",
+      "area": "변화와 관계",
+      "gradeBand": "초5-6",
+      "conceptType": "curriculum_content_element",
+      "summary": "초5-6 변화와 관계 영역의 핵심 내용 요소: 비례식과 비례배분",
+      "coreIdeas": [
+        "규칙 탐구는 수학적으로 추측하고 일반화하는 데 기반이 된다.",
+        "동치 관계, 대응 관계, 비례 관계는 대상 사이의 관계를 기술하고 문제 해결에 활용된다.",
+        "문자와 식, 방정식, 부등식, 함수와 그래프는 변화하는 현상을 수학적으로 표현한다."
+      ],
+      "achievementCodes": [
+        "6수02-02",
+        "6수02-03",
+        "6수02-04",
+        "6수02-05"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 3,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-2-3-비와-비율"
+      ]
+    },
+    {
+      "id": "curr-2-4-문자의-사용과-식",
+      "label": "문자의 사용과 식",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 변화와 관계 영역의 핵심 내용 요소: 문자의 사용과 식",
+      "coreIdeas": [
+        "규칙 탐구는 수학적으로 추측하고 일반화하는 데 기반이 된다.",
+        "동치 관계, 대응 관계, 비례 관계는 대상 사이의 관계를 기술하고 문제 해결에 활용된다.",
+        "문자와 식, 방정식, 부등식, 함수와 그래프는 변화하는 현상을 수학적으로 표현한다."
+      ],
+      "achievementCodes": [
+        "9수02-01",
+        "9수02-02",
+        "9수02-03",
+        "9수02-04",
+        "9수02-05",
+        "9수02-06",
+        "9수02-07",
+        "9수02-08",
+        "9수02-09",
+        "9수02-10",
+        "9수02-11",
+        "9수02-12",
+        "9수02-13",
+        "9수02-14",
+        "9수02-15",
+        "9수02-16",
+        "9수02-17",
+        "9수02-18",
+        "9수02-19",
+        "9수02-20",
+        "9수02-21",
+        "9수02-22"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 1,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-2-3-비례식과-비례배분"
+      ]
+    },
+    {
+      "id": "curr-2-4-일차방정식",
+      "label": "일차방정식",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 변화와 관계 영역의 핵심 내용 요소: 일차방정식",
+      "coreIdeas": [
+        "규칙 탐구는 수학적으로 추측하고 일반화하는 데 기반이 된다.",
+        "동치 관계, 대응 관계, 비례 관계는 대상 사이의 관계를 기술하고 문제 해결에 활용된다.",
+        "문자와 식, 방정식, 부등식, 함수와 그래프는 변화하는 현상을 수학적으로 표현한다."
+      ],
+      "achievementCodes": [
+        "9수02-02",
+        "9수02-03",
+        "9수02-04",
+        "9수02-12",
+        "9수02-13",
+        "9수02-17",
+        "9수02-18",
+        "9수02-19",
+        "9수02-20"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 2,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-2-4-문자의-사용과-식"
+      ]
+    },
+    {
+      "id": "curr-2-4-좌표평면과-그래프",
+      "label": "좌표평면과 그래프",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 변화와 관계 영역의 핵심 내용 요소: 좌표평면과 그래프",
+      "coreIdeas": [
+        "규칙 탐구는 수학적으로 추측하고 일반화하는 데 기반이 된다.",
+        "동치 관계, 대응 관계, 비례 관계는 대상 사이의 관계를 기술하고 문제 해결에 활용된다.",
+        "문자와 식, 방정식, 부등식, 함수와 그래프는 변화하는 현상을 수학적으로 표현한다."
+      ],
+      "achievementCodes": [
+        "9수02-04",
+        "9수02-05",
+        "9수02-06",
+        "9수02-07",
+        "9수02-15",
+        "9수02-16",
+        "9수02-18",
+        "9수02-20",
+        "9수02-22"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 3,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-2-4-일차방정식"
+      ]
+    },
+    {
+      "id": "curr-2-4-식의-계산",
+      "label": "식의 계산",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 변화와 관계 영역의 핵심 내용 요소: 식의 계산",
+      "coreIdeas": [
+        "규칙 탐구는 수학적으로 추측하고 일반화하는 데 기반이 된다.",
+        "동치 관계, 대응 관계, 비례 관계는 대상 사이의 관계를 기술하고 문제 해결에 활용된다.",
+        "문자와 식, 방정식, 부등식, 함수와 그래프는 변화하는 현상을 수학적으로 표현한다."
+      ],
+      "achievementCodes": [
+        "9수02-01",
+        "9수02-02",
+        "9수02-03",
+        "9수02-04",
+        "9수02-05",
+        "9수02-06",
+        "9수02-07",
+        "9수02-08",
+        "9수02-09",
+        "9수02-10",
+        "9수02-11",
+        "9수02-12",
+        "9수02-13",
+        "9수02-14",
+        "9수02-15",
+        "9수02-16",
+        "9수02-17",
+        "9수02-18",
+        "9수02-19",
+        "9수02-20",
+        "9수02-21",
+        "9수02-22"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 4,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-2-4-좌표평면과-그래프"
+      ]
+    },
+    {
+      "id": "curr-2-4-일차부등식",
+      "label": "일차부등식",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 변화와 관계 영역의 핵심 내용 요소: 일차부등식",
+      "coreIdeas": [
+        "규칙 탐구는 수학적으로 추측하고 일반화하는 데 기반이 된다.",
+        "동치 관계, 대응 관계, 비례 관계는 대상 사이의 관계를 기술하고 문제 해결에 활용된다.",
+        "문자와 식, 방정식, 부등식, 함수와 그래프는 변화하는 현상을 수학적으로 표현한다."
+      ],
+      "achievementCodes": [
+        "9수02-11",
+        "9수02-12"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 5,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-2-4-식의-계산"
+      ]
+    },
+    {
+      "id": "curr-2-4-연립일차방정식",
+      "label": "연립일차방정식",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 변화와 관계 영역의 핵심 내용 요소: 연립일차방정식",
+      "coreIdeas": [
+        "규칙 탐구는 수학적으로 추측하고 일반화하는 데 기반이 된다.",
+        "동치 관계, 대응 관계, 비례 관계는 대상 사이의 관계를 기술하고 문제 해결에 활용된다.",
+        "문자와 식, 방정식, 부등식, 함수와 그래프는 변화하는 현상을 수학적으로 표현한다."
+      ],
+      "achievementCodes": [
+        "9수02-02",
+        "9수02-03",
+        "9수02-04",
+        "9수02-12",
+        "9수02-13",
+        "9수02-17",
+        "9수02-18",
+        "9수02-19",
+        "9수02-20"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 6,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-2-4-일차부등식"
+      ]
+    },
+    {
+      "id": "curr-2-4-일차함수와-그-그래프",
+      "label": "일차함수와 그 그래프",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 변화와 관계 영역의 핵심 내용 요소: 일차함수와 그 그래프",
+      "coreIdeas": [
+        "규칙 탐구는 수학적으로 추측하고 일반화하는 데 기반이 된다.",
+        "동치 관계, 대응 관계, 비례 관계는 대상 사이의 관계를 기술하고 문제 해결에 활용된다.",
+        "문자와 식, 방정식, 부등식, 함수와 그래프는 변화하는 현상을 수학적으로 표현한다."
+      ],
+      "achievementCodes": [
+        "9수02-04",
+        "9수02-06",
+        "9수02-07",
+        "9수02-13",
+        "9수02-14",
+        "9수02-15",
+        "9수02-16",
+        "9수02-17",
+        "9수02-18",
+        "9수02-20",
+        "9수02-21",
+        "9수02-22"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 7,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-2-4-연립일차방정식"
+      ]
+    },
+    {
+      "id": "curr-2-4-일차함수와-일차방정식의-관계",
+      "label": "일차함수와 일차방정식의 관계",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 변화와 관계 영역의 핵심 내용 요소: 일차함수와 일차방정식의 관계",
+      "coreIdeas": [
+        "규칙 탐구는 수학적으로 추측하고 일반화하는 데 기반이 된다.",
+        "동치 관계, 대응 관계, 비례 관계는 대상 사이의 관계를 기술하고 문제 해결에 활용된다.",
+        "문자와 식, 방정식, 부등식, 함수와 그래프는 변화하는 현상을 수학적으로 표현한다."
+      ],
+      "achievementCodes": [
+        "9수02-02",
+        "9수02-03",
+        "9수02-04",
+        "9수02-12",
+        "9수02-13",
+        "9수02-14",
+        "9수02-15",
+        "9수02-16",
+        "9수02-17",
+        "9수02-18",
+        "9수02-19",
+        "9수02-20",
+        "9수02-21",
+        "9수02-22"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 8,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-2-4-일차함수와-그-그래프"
+      ]
+    },
+    {
+      "id": "curr-2-4-다항식의-곱셈과-인수분해",
+      "label": "다항식의 곱셈과 인수분해",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 변화와 관계 영역의 핵심 내용 요소: 다항식의 곱셈과 인수분해",
+      "coreIdeas": [
+        "규칙 탐구는 수학적으로 추측하고 일반화하는 데 기반이 된다.",
+        "동치 관계, 대응 관계, 비례 관계는 대상 사이의 관계를 기술하고 문제 해결에 활용된다.",
+        "문자와 식, 방정식, 부등식, 함수와 그래프는 변화하는 현상을 수학적으로 표현한다."
+      ],
+      "achievementCodes": [
+        "9수02-09",
+        "9수02-10",
+        "9수02-18",
+        "9수02-19"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 9,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-2-4-일차함수와-일차방정식의-관계"
+      ]
+    },
+    {
+      "id": "curr-2-4-이차방정식",
+      "label": "이차방정식",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 변화와 관계 영역의 핵심 내용 요소: 이차방정식",
+      "coreIdeas": [
+        "규칙 탐구는 수학적으로 추측하고 일반화하는 데 기반이 된다.",
+        "동치 관계, 대응 관계, 비례 관계는 대상 사이의 관계를 기술하고 문제 해결에 활용된다.",
+        "문자와 식, 방정식, 부등식, 함수와 그래프는 변화하는 현상을 수학적으로 표현한다."
+      ],
+      "achievementCodes": [
+        "9수02-02",
+        "9수02-03",
+        "9수02-04",
+        "9수02-12",
+        "9수02-13",
+        "9수02-17",
+        "9수02-18",
+        "9수02-19",
+        "9수02-20"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 10,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-2-4-다항식의-곱셈과-인수분해"
+      ]
+    },
+    {
+      "id": "curr-2-4-이차함수와-그-그래프",
+      "label": "이차함수와 그 그래프",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 변화와 관계 영역의 핵심 내용 요소: 이차함수와 그 그래프",
+      "coreIdeas": [
+        "규칙 탐구는 수학적으로 추측하고 일반화하는 데 기반이 된다.",
+        "동치 관계, 대응 관계, 비례 관계는 대상 사이의 관계를 기술하고 문제 해결에 활용된다.",
+        "문자와 식, 방정식, 부등식, 함수와 그래프는 변화하는 현상을 수학적으로 표현한다."
+      ],
+      "achievementCodes": [
+        "9수02-04",
+        "9수02-06",
+        "9수02-07",
+        "9수02-13",
+        "9수02-14",
+        "9수02-15",
+        "9수02-16",
+        "9수02-17",
+        "9수02-18",
+        "9수02-20",
+        "9수02-21",
+        "9수02-22"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 11,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-2-4-이차방정식"
+      ]
+    },
+    {
+      "id": "curr-3-1-입체도형의-모양",
+      "label": "입체도형의 모양",
+      "area": "도형과 측정",
+      "gradeBand": "초1-2",
+      "conceptType": "curriculum_content_element",
+      "summary": "초1-2 도형과 측정 영역의 핵심 내용 요소: 입체도형의 모양",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "2수03-02"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 1,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": []
+    },
+    {
+      "id": "curr-3-1-평면도형과-그-구성-요소",
+      "label": "평면도형과 그 구성 요소",
+      "area": "도형과 측정",
+      "gradeBand": "초1-2",
+      "conceptType": "curriculum_content_element",
+      "summary": "초1-2 도형과 측정 영역의 핵심 내용 요소: 평면도형과 그 구성 요소",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "2수03-02"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 2,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-1-입체도형의-모양"
+      ]
+    },
+    {
+      "id": "curr-3-1-양의-비교",
+      "label": "양의 비교",
+      "area": "도형과 측정",
+      "gradeBand": "초1-2",
+      "conceptType": "curriculum_content_element",
+      "summary": "초1-2 도형과 측정 영역의 핵심 내용 요소: 양의 비교",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "2수03-05",
+        "2수03-06"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 3,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-1-평면도형과-그-구성-요소"
+      ]
+    },
+    {
+      "id": "curr-3-1-시각과-시간-시-분",
+      "label": "시각과 시간(시, 분)",
+      "area": "도형과 측정",
+      "gradeBand": "초1-2",
+      "conceptType": "curriculum_content_element",
+      "summary": "초1-2 도형과 측정 영역의 핵심 내용 요소: 시각과 시간(시, 분)",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "2수03-01",
+        "2수03-02",
+        "2수03-03",
+        "2수03-04",
+        "2수03-05",
+        "2수03-06",
+        "2수03-07",
+        "2수03-08",
+        "2수03-09",
+        "2수03-10",
+        "2수03-11",
+        "2수03-12",
+        "2수03-13"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 4,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-1-양의-비교"
+      ]
+    },
+    {
+      "id": "curr-3-1-길이-cm-m",
+      "label": "길이(cm, m)",
+      "area": "도형과 측정",
+      "gradeBand": "초1-2",
+      "conceptType": "curriculum_content_element",
+      "summary": "초1-2 도형과 측정 영역의 핵심 내용 요소: 길이(cm, m)",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "2수03-06",
+        "2수03-10",
+        "2수03-11",
+        "2수03-12",
+        "2수03-13"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 5,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-1-시각과-시간-시-분"
+      ]
+    },
+    {
+      "id": "curr-3-2-도형의-기초",
+      "label": "도형의 기초",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptType": "curriculum_content_element",
+      "summary": "초3-4 도형과 측정 영역의 핵심 내용 요소: 도형의 기초",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "4수03-03",
+        "4수03-04",
+        "4수03-12"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 1,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-1-길이-cm-m"
+      ]
+    },
+    {
+      "id": "curr-3-2-원의-구성-요소",
+      "label": "원의 구성 요소",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptType": "curriculum_content_element",
+      "summary": "초3-4 도형과 측정 영역의 핵심 내용 요소: 원의 구성 요소",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "4수03-05",
+        "4수03-06",
+        "4수03-07"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 2,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-2-도형의-기초"
+      ]
+    },
+    {
+      "id": "curr-3-2-여러-가지-삼각형",
+      "label": "여러 가지 삼각형",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptType": "curriculum_content_element",
+      "summary": "초3-4 도형과 측정 영역의 핵심 내용 요소: 여러 가지 삼각형",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "4수03-07",
+        "4수03-08",
+        "4수03-09",
+        "4수03-25"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 3,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-2-원의-구성-요소"
+      ]
+    },
+    {
+      "id": "curr-3-2-여러-가지-사각형",
+      "label": "여러 가지 사각형",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptType": "curriculum_content_element",
+      "summary": "초3-4 도형과 측정 영역의 핵심 내용 요소: 여러 가지 사각형",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "4수03-10",
+        "4수03-25"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 4,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-2-여러-가지-삼각형"
+      ]
+    },
+    {
+      "id": "curr-3-2-다각형",
+      "label": "다각형",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptType": "curriculum_content_element",
+      "summary": "초3-4 도형과 측정 영역의 핵심 내용 요소: 다각형",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "4수03-01",
+        "4수03-02",
+        "4수03-03",
+        "4수03-04",
+        "4수03-05",
+        "4수03-06",
+        "4수03-07",
+        "4수03-08",
+        "4수03-09",
+        "4수03-10",
+        "4수03-11",
+        "4수03-12",
+        "4수03-13",
+        "4수03-14",
+        "4수03-15",
+        "4수03-16",
+        "4수03-17",
+        "4수03-18",
+        "4수03-19",
+        "4수03-20",
+        "4수03-21",
+        "4수03-22",
+        "4수03-23",
+        "4수03-24",
+        "4수03-25"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 5,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-2-여러-가지-사각형"
+      ]
+    },
+    {
+      "id": "curr-3-2-평면도형의-이동",
+      "label": "평면도형의 이동",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptType": "curriculum_content_element",
+      "summary": "초3-4 도형과 측정 영역의 핵심 내용 요소: 평면도형의 이동",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "4수03-03",
+        "4수03-04",
+        "4수03-12"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 6,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-2-다각형"
+      ]
+    },
+    {
+      "id": "curr-3-2-시각과-시간-초",
+      "label": "시각과 시간(초)",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptType": "curriculum_content_element",
+      "summary": "초3-4 도형과 측정 영역의 핵심 내용 요소: 시각과 시간(초)",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "4수03-01",
+        "4수03-02",
+        "4수03-03",
+        "4수03-04",
+        "4수03-05",
+        "4수03-06",
+        "4수03-07",
+        "4수03-08",
+        "4수03-09",
+        "4수03-10",
+        "4수03-11",
+        "4수03-12",
+        "4수03-13",
+        "4수03-14",
+        "4수03-15",
+        "4수03-16",
+        "4수03-17",
+        "4수03-18",
+        "4수03-19",
+        "4수03-20",
+        "4수03-21",
+        "4수03-22",
+        "4수03-23",
+        "4수03-24",
+        "4수03-25"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 7,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-2-평면도형의-이동"
+      ]
+    },
+    {
+      "id": "curr-3-2-길이-mm-km",
+      "label": "길이(mm, km)",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptType": "curriculum_content_element",
+      "summary": "초3-4 도형과 측정 영역의 핵심 내용 요소: 길이(mm, km)",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "4수03-14",
+        "4수03-15",
+        "4수03-16"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 8,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-2-시각과-시간-초"
+      ]
+    },
+    {
+      "id": "curr-3-2-들이-L-mL",
+      "label": "들이(L, mL)",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptType": "curriculum_content_element",
+      "summary": "초3-4 도형과 측정 영역의 핵심 내용 요소: 들이(L, mL)",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "4수03-01",
+        "4수03-02",
+        "4수03-03",
+        "4수03-04",
+        "4수03-05",
+        "4수03-06",
+        "4수03-07",
+        "4수03-08",
+        "4수03-09",
+        "4수03-10",
+        "4수03-11",
+        "4수03-12",
+        "4수03-13",
+        "4수03-14",
+        "4수03-15",
+        "4수03-16",
+        "4수03-17",
+        "4수03-18",
+        "4수03-19",
+        "4수03-20",
+        "4수03-21",
+        "4수03-22",
+        "4수03-23",
+        "4수03-24",
+        "4수03-25"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 9,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-2-길이-mm-km"
+      ]
+    },
+    {
+      "id": "curr-3-2-무게-kg-g-t",
+      "label": "무게(kg, g, t)",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptType": "curriculum_content_element",
+      "summary": "초3-4 도형과 측정 영역의 핵심 내용 요소: 무게(kg, g, t)",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "4수03-01",
+        "4수03-02",
+        "4수03-03",
+        "4수03-04",
+        "4수03-05",
+        "4수03-06",
+        "4수03-07",
+        "4수03-08",
+        "4수03-09",
+        "4수03-10",
+        "4수03-11",
+        "4수03-12",
+        "4수03-13",
+        "4수03-14",
+        "4수03-15",
+        "4수03-16",
+        "4수03-17",
+        "4수03-18",
+        "4수03-19",
+        "4수03-20",
+        "4수03-21",
+        "4수03-22",
+        "4수03-23",
+        "4수03-24",
+        "4수03-25"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 10,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-2-들이-L-mL"
+      ]
+    },
+    {
+      "id": "curr-3-2-각도",
+      "label": "각도(°)",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptType": "curriculum_content_element",
+      "summary": "초3-4 도형과 측정 영역의 핵심 내용 요소: 각도(°)",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "4수03-01",
+        "4수03-02",
+        "4수03-03",
+        "4수03-04",
+        "4수03-05",
+        "4수03-06",
+        "4수03-07",
+        "4수03-08",
+        "4수03-09",
+        "4수03-10",
+        "4수03-11",
+        "4수03-12",
+        "4수03-13",
+        "4수03-14",
+        "4수03-15",
+        "4수03-16",
+        "4수03-17",
+        "4수03-18",
+        "4수03-19",
+        "4수03-20",
+        "4수03-21",
+        "4수03-22",
+        "4수03-23",
+        "4수03-24",
+        "4수03-25"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 11,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-2-무게-kg-g-t"
+      ]
+    },
+    {
+      "id": "curr-3-3-합동과-대칭",
+      "label": "합동과 대칭",
+      "area": "도형과 측정",
+      "gradeBand": "초5-6",
+      "conceptType": "curriculum_content_element",
+      "summary": "초5-6 도형과 측정 영역의 핵심 내용 요소: 합동과 대칭",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "6수03-01"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 1,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-2-각도"
+      ]
+    },
+    {
+      "id": "curr-3-3-직육면체와-정육면체",
+      "label": "직육면체와 정육면체",
+      "area": "도형과 측정",
+      "gradeBand": "초5-6",
+      "conceptType": "curriculum_content_element",
+      "summary": "초5-6 도형과 측정 영역의 핵심 내용 요소: 직육면체와 정육면체",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "6수03-01",
+        "6수03-02",
+        "6수03-03",
+        "6수03-04",
+        "6수03-05",
+        "6수03-06",
+        "6수03-07",
+        "6수03-08",
+        "6수03-09",
+        "6수03-10",
+        "6수03-11",
+        "6수03-12",
+        "6수03-13",
+        "6수03-14",
+        "6수03-15",
+        "6수03-16",
+        "6수03-17",
+        "6수03-18",
+        "6수03-19"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 2,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-3-합동과-대칭"
+      ]
+    },
+    {
+      "id": "curr-3-3-각기둥과-각뿔",
+      "label": "각기둥과 각뿔",
+      "area": "도형과 측정",
+      "gradeBand": "초5-6",
+      "conceptType": "curriculum_content_element",
+      "summary": "초5-6 도형과 측정 영역의 핵심 내용 요소: 각기둥과 각뿔",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "6수03-01",
+        "6수03-02",
+        "6수03-03",
+        "6수03-04",
+        "6수03-05",
+        "6수03-06",
+        "6수03-07",
+        "6수03-08",
+        "6수03-09",
+        "6수03-10",
+        "6수03-11",
+        "6수03-12",
+        "6수03-13",
+        "6수03-14",
+        "6수03-15",
+        "6수03-16",
+        "6수03-17",
+        "6수03-18",
+        "6수03-19"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 3,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-3-직육면체와-정육면체"
+      ]
+    },
+    {
+      "id": "curr-3-3-원기둥-원뿔-구",
+      "label": "원기둥, 원뿔, 구",
+      "area": "도형과 측정",
+      "gradeBand": "초5-6",
+      "conceptType": "curriculum_content_element",
+      "summary": "초5-6 도형과 측정 영역의 핵심 내용 요소: 원기둥, 원뿔, 구",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "6수03-06",
+        "6수03-07",
+        "6수03-08",
+        "6수03-15",
+        "6수03-16"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 4,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-3-각기둥과-각뿔"
+      ]
+    },
+    {
+      "id": "curr-3-3-다각형의-둘레와-넓이",
+      "label": "다각형의 둘레와 넓이",
+      "area": "도형과 측정",
+      "gradeBand": "초5-6",
+      "conceptType": "curriculum_content_element",
+      "summary": "초5-6 도형과 측정 영역의 핵심 내용 요소: 다각형의 둘레와 넓이",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "6수03-12",
+        "6수03-13",
+        "6수03-14",
+        "6수03-16",
+        "6수03-17"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 5,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-3-원기둥-원뿔-구"
+      ]
+    },
+    {
+      "id": "curr-3-3-원주율과-원의-넓이",
+      "label": "원주율과 원의 넓이",
+      "area": "도형과 측정",
+      "gradeBand": "초5-6",
+      "conceptType": "curriculum_content_element",
+      "summary": "초5-6 도형과 측정 영역의 핵심 내용 요소: 원주율과 원의 넓이",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "6수03-06",
+        "6수03-07",
+        "6수03-08",
+        "6수03-12",
+        "6수03-13",
+        "6수03-14",
+        "6수03-15",
+        "6수03-16",
+        "6수03-17"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 6,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-3-다각형의-둘레와-넓이"
+      ]
+    },
+    {
+      "id": "curr-3-3-직육면체와-정육면체의-겉넓이와-부피",
+      "label": "직육면체와 정육면체의 겉넓이와 부피",
+      "area": "도형과 측정",
+      "gradeBand": "초5-6",
+      "conceptType": "curriculum_content_element",
+      "summary": "초5-6 도형과 측정 영역의 핵심 내용 요소: 직육면체와 정육면체의 겉넓이와 부피",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "6수03-12",
+        "6수03-13",
+        "6수03-14",
+        "6수03-16",
+        "6수03-17",
+        "6수03-18",
+        "6수03-19"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 7,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-3-원주율과-원의-넓이"
+      ]
+    },
+    {
+      "id": "curr-3-4-기본-도형",
+      "label": "기본 도형",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 도형과 측정 영역의 핵심 내용 요소: 기본 도형",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "9수03-08",
+        "9수03-11",
+        "9수03-12"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 1,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-3-직육면체와-정육면체의-겉넓이와-부피"
+      ]
+    },
+    {
+      "id": "curr-3-4-작도와-합동",
+      "label": "작도와 합동",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 도형과 측정 영역의 핵심 내용 요소: 작도와 합동",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "9수03-02",
+        "9수03-04"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 2,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-4-기본-도형"
+      ]
+    },
+    {
+      "id": "curr-3-4-평면도형의-성질",
+      "label": "평면도형의 성질",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 도형과 측정 영역의 핵심 내용 요소: 평면도형의 성질",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "9수03-08",
+        "9수03-11",
+        "9수03-12"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 3,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-4-작도와-합동"
+      ]
+    },
+    {
+      "id": "curr-3-4-입체도형의-성질",
+      "label": "입체도형의 성질",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 도형과 측정 영역의 핵심 내용 요소: 입체도형의 성질",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "9수03-08",
+        "9수03-11",
+        "9수03-12"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 4,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-4-평면도형의-성질"
+      ]
+    },
+    {
+      "id": "curr-3-4-삼각형과-사각형의-성질",
+      "label": "삼각형과 사각형의 성질",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 도형과 측정 영역의 핵심 내용 요소: 삼각형과 사각형의 성질",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "9수03-03",
+        "9수03-04",
+        "9수03-08",
+        "9수03-09",
+        "9수03-10",
+        "9수03-11",
+        "9수03-13"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 5,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-4-입체도형의-성질"
+      ]
+    },
+    {
+      "id": "curr-3-4-도형의-닮음",
+      "label": "도형의 닮음",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 도형과 측정 영역의 핵심 내용 요소: 도형의 닮음",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "9수03-08",
+        "9수03-11",
+        "9수03-12",
+        "9수03-13"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 6,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-4-삼각형과-사각형의-성질"
+      ]
+    },
+    {
+      "id": "curr-3-4-피타고라스-정리",
+      "label": "피타고라스 정리",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 도형과 측정 영역의 핵심 내용 요소: 피타고라스 정리",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "9수03-14",
+        "9수03-15"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 7,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-4-도형의-닮음"
+      ]
+    },
+    {
+      "id": "curr-3-4-삼각비",
+      "label": "삼각비",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 도형과 측정 영역의 핵심 내용 요소: 삼각비",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "9수03-12",
+        "9수03-14",
+        "9수03-15",
+        "9수03-16",
+        "9수03-17"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 8,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-4-피타고라스-정리"
+      ]
+    },
+    {
+      "id": "curr-3-4-원의-성질",
+      "label": "원의 성질",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 도형과 측정 영역의 핵심 내용 요소: 원의 성질",
+      "coreIdeas": [
+        "평면도형과 입체도형은 여러 모양을 범주화한 것이며 고유한 성질을 갖는다.",
+        "도형의 성질과 관계 탐구는 논리적이고 비판적으로 사고하는 데 기반이 된다.",
+        "측정은 여러 속성의 양을 수치화하여 현상 해석과 실생활 문제 해결에 활용된다."
+      ],
+      "achievementCodes": [
+        "9수03-17",
+        "9수03-18",
+        "9수03-19"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 9,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-3-4-삼각비"
+      ]
+    },
+    {
+      "id": "curr-4-1-자료의-분류",
+      "label": "자료의 분류",
+      "area": "자료와 가능성",
+      "gradeBand": "초1-2",
+      "conceptType": "curriculum_content_element",
+      "summary": "초1-2 자료와 가능성 영역의 핵심 내용 요소: 자료의 분류",
+      "coreIdeas": [
+        "자료 수집, 정리, 해석은 자료의 특징과 두 집단의 비교, 자료의 관계 탐구에 활용된다.",
+        "가능성을 여러 방식으로 표현하고 확률로 수치화하면 불확실성을 수학적으로 다룰 수 있다.",
+        "통계적 문제해결과 가능성 탐구는 예측과 합리적 의사 결정의 기반이 된다."
+      ],
+      "achievementCodes": [
+        "2수04-02",
+        "2수04-03"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 1,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": []
+    },
+    {
+      "id": "curr-4-1-표",
+      "label": "표",
+      "area": "자료와 가능성",
+      "gradeBand": "초1-2",
+      "conceptType": "curriculum_content_element",
+      "summary": "초1-2 자료와 가능성 영역의 핵심 내용 요소: 표",
+      "coreIdeas": [
+        "자료 수집, 정리, 해석은 자료의 특징과 두 집단의 비교, 자료의 관계 탐구에 활용된다.",
+        "가능성을 여러 방식으로 표현하고 확률로 수치화하면 불확실성을 수학적으로 다룰 수 있다.",
+        "통계적 문제해결과 가능성 탐구는 예측과 합리적 의사 결정의 기반이 된다."
+      ],
+      "achievementCodes": [
+        "2수04-02"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 2,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-4-1-자료의-분류"
+      ]
+    },
+    {
+      "id": "curr-4-1-를-이용한-그래프",
+      "label": "○, ×, /를 이용한 그래프",
+      "area": "자료와 가능성",
+      "gradeBand": "초1-2",
+      "conceptType": "curriculum_content_element",
+      "summary": "초1-2 자료와 가능성 영역의 핵심 내용 요소: ○, ×, /를 이용한 그래프",
+      "coreIdeas": [
+        "자료 수집, 정리, 해석은 자료의 특징과 두 집단의 비교, 자료의 관계 탐구에 활용된다.",
+        "가능성을 여러 방식으로 표현하고 확률로 수치화하면 불확실성을 수학적으로 다룰 수 있다.",
+        "통계적 문제해결과 가능성 탐구는 예측과 합리적 의사 결정의 기반이 된다."
+      ],
+      "achievementCodes": [
+        "2수04-03"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 3,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-4-1-표"
+      ]
+    },
+    {
+      "id": "curr-4-2-그림그래프",
+      "label": "그림그래프",
+      "area": "자료와 가능성",
+      "gradeBand": "초3-4",
+      "conceptType": "curriculum_content_element",
+      "summary": "초3-4 자료와 가능성 영역의 핵심 내용 요소: 그림그래프",
+      "coreIdeas": [
+        "자료 수집, 정리, 해석은 자료의 특징과 두 집단의 비교, 자료의 관계 탐구에 활용된다.",
+        "가능성을 여러 방식으로 표현하고 확률로 수치화하면 불확실성을 수학적으로 다룰 수 있다.",
+        "통계적 문제해결과 가능성 탐구는 예측과 합리적 의사 결정의 기반이 된다."
+      ],
+      "achievementCodes": [
+        "4수04-01",
+        "4수04-02",
+        "4수04-03"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 1,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-4-1-를-이용한-그래프"
+      ]
+    },
+    {
+      "id": "curr-4-2-막대그래프",
+      "label": "막대그래프",
+      "area": "자료와 가능성",
+      "gradeBand": "초3-4",
+      "conceptType": "curriculum_content_element",
+      "summary": "초3-4 자료와 가능성 영역의 핵심 내용 요소: 막대그래프",
+      "coreIdeas": [
+        "자료 수집, 정리, 해석은 자료의 특징과 두 집단의 비교, 자료의 관계 탐구에 활용된다.",
+        "가능성을 여러 방식으로 표현하고 확률로 수치화하면 불확실성을 수학적으로 다룰 수 있다.",
+        "통계적 문제해결과 가능성 탐구는 예측과 합리적 의사 결정의 기반이 된다."
+      ],
+      "achievementCodes": [
+        "4수04-01",
+        "4수04-02",
+        "4수04-03"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 2,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-4-2-그림그래프"
+      ]
+    },
+    {
+      "id": "curr-4-2-꺾은선그래프",
+      "label": "꺾은선그래프",
+      "area": "자료와 가능성",
+      "gradeBand": "초3-4",
+      "conceptType": "curriculum_content_element",
+      "summary": "초3-4 자료와 가능성 영역의 핵심 내용 요소: 꺾은선그래프",
+      "coreIdeas": [
+        "자료 수집, 정리, 해석은 자료의 특징과 두 집단의 비교, 자료의 관계 탐구에 활용된다.",
+        "가능성을 여러 방식으로 표현하고 확률로 수치화하면 불확실성을 수학적으로 다룰 수 있다.",
+        "통계적 문제해결과 가능성 탐구는 예측과 합리적 의사 결정의 기반이 된다."
+      ],
+      "achievementCodes": [
+        "4수04-01",
+        "4수04-02",
+        "4수04-03"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 3,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-4-2-막대그래프"
+      ]
+    },
+    {
+      "id": "curr-4-3-평균",
+      "label": "평균",
+      "area": "자료와 가능성",
+      "gradeBand": "초5-6",
+      "conceptType": "curriculum_content_element",
+      "summary": "초5-6 자료와 가능성 영역의 핵심 내용 요소: 평균",
+      "coreIdeas": [
+        "자료 수집, 정리, 해석은 자료의 특징과 두 집단의 비교, 자료의 관계 탐구에 활용된다.",
+        "가능성을 여러 방식으로 표현하고 확률로 수치화하면 불확실성을 수학적으로 다룰 수 있다.",
+        "통계적 문제해결과 가능성 탐구는 예측과 합리적 의사 결정의 기반이 된다."
+      ],
+      "achievementCodes": [
+        "6수04-01"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 1,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-4-2-꺾은선그래프"
+      ]
+    },
+    {
+      "id": "curr-4-3-띠그래프-원그래프",
+      "label": "띠그래프, 원그래프",
+      "area": "자료와 가능성",
+      "gradeBand": "초5-6",
+      "conceptType": "curriculum_content_element",
+      "summary": "초5-6 자료와 가능성 영역의 핵심 내용 요소: 띠그래프, 원그래프",
+      "coreIdeas": [
+        "자료 수집, 정리, 해석은 자료의 특징과 두 집단의 비교, 자료의 관계 탐구에 활용된다.",
+        "가능성을 여러 방식으로 표현하고 확률로 수치화하면 불확실성을 수학적으로 다룰 수 있다.",
+        "통계적 문제해결과 가능성 탐구는 예측과 합리적 의사 결정의 기반이 된다."
+      ],
+      "achievementCodes": [
+        "6수04-02",
+        "6수04-03"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 2,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-4-3-평균"
+      ]
+    },
+    {
+      "id": "curr-4-3-가능성",
+      "label": "가능성",
+      "area": "자료와 가능성",
+      "gradeBand": "초5-6",
+      "conceptType": "curriculum_content_element",
+      "summary": "초5-6 자료와 가능성 영역의 핵심 내용 요소: 가능성",
+      "coreIdeas": [
+        "자료 수집, 정리, 해석은 자료의 특징과 두 집단의 비교, 자료의 관계 탐구에 활용된다.",
+        "가능성을 여러 방식으로 표현하고 확률로 수치화하면 불확실성을 수학적으로 다룰 수 있다.",
+        "통계적 문제해결과 가능성 탐구는 예측과 합리적 의사 결정의 기반이 된다."
+      ],
+      "achievementCodes": [
+        "6수04-04",
+        "6수04-05",
+        "6수04-06"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 3,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-4-3-띠그래프-원그래프"
+      ]
+    },
+    {
+      "id": "curr-4-4-대푯값",
+      "label": "대푯값",
+      "area": "자료와 가능성",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 자료와 가능성 영역의 핵심 내용 요소: 대푯값",
+      "coreIdeas": [
+        "자료 수집, 정리, 해석은 자료의 특징과 두 집단의 비교, 자료의 관계 탐구에 활용된다.",
+        "가능성을 여러 방식으로 표현하고 확률로 수치화하면 불확실성을 수학적으로 다룰 수 있다.",
+        "통계적 문제해결과 가능성 탐구는 예측과 합리적 의사 결정의 기반이 된다."
+      ],
+      "achievementCodes": [
+        "9수04-01",
+        "9수04-02",
+        "9수04-03",
+        "9수04-04",
+        "9수04-05",
+        "9수04-06",
+        "9수04-07",
+        "9수04-08",
+        "9수04-09"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 1,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-4-3-가능성"
+      ]
+    },
+    {
+      "id": "curr-4-4-도수분포표와-상대도수",
+      "label": "도수분포표와 상대도수",
+      "area": "자료와 가능성",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 자료와 가능성 영역의 핵심 내용 요소: 도수분포표와 상대도수",
+      "coreIdeas": [
+        "자료 수집, 정리, 해석은 자료의 특징과 두 집단의 비교, 자료의 관계 탐구에 활용된다.",
+        "가능성을 여러 방식으로 표현하고 확률로 수치화하면 불확실성을 수학적으로 다룰 수 있다.",
+        "통계적 문제해결과 가능성 탐구는 예측과 합리적 의사 결정의 기반이 된다."
+      ],
+      "achievementCodes": [
+        "9수04-02",
+        "9수04-03",
+        "9수04-07"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 2,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-4-4-대푯값"
+      ]
+    },
+    {
+      "id": "curr-4-4-경우의-수와-확률",
+      "label": "경우의 수와 확률",
+      "area": "자료와 가능성",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 자료와 가능성 영역의 핵심 내용 요소: 경우의 수와 확률",
+      "coreIdeas": [
+        "자료 수집, 정리, 해석은 자료의 특징과 두 집단의 비교, 자료의 관계 탐구에 활용된다.",
+        "가능성을 여러 방식으로 표현하고 확률로 수치화하면 불확실성을 수학적으로 다룰 수 있다.",
+        "통계적 문제해결과 가능성 탐구는 예측과 합리적 의사 결정의 기반이 된다."
+      ],
+      "achievementCodes": [
+        "9수04-06"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 3,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-4-4-도수분포표와-상대도수"
+      ]
+    },
+    {
+      "id": "curr-4-4-산포도",
+      "label": "산포도",
+      "area": "자료와 가능성",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 자료와 가능성 영역의 핵심 내용 요소: 산포도",
+      "coreIdeas": [
+        "자료 수집, 정리, 해석은 자료의 특징과 두 집단의 비교, 자료의 관계 탐구에 활용된다.",
+        "가능성을 여러 방식으로 표현하고 확률로 수치화하면 불확실성을 수학적으로 다룰 수 있다.",
+        "통계적 문제해결과 가능성 탐구는 예측과 합리적 의사 결정의 기반이 된다."
+      ],
+      "achievementCodes": [
+        "9수04-01",
+        "9수04-02",
+        "9수04-03",
+        "9수04-04"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 4,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-4-4-경우의-수와-확률"
+      ]
+    },
+    {
+      "id": "curr-4-4-상자그림과-산점도",
+      "label": "상자그림과 산점도",
+      "area": "자료와 가능성",
+      "gradeBand": "중1-3",
+      "conceptType": "curriculum_content_element",
+      "summary": "중1-3 자료와 가능성 영역의 핵심 내용 요소: 상자그림과 산점도",
+      "coreIdeas": [
+        "자료 수집, 정리, 해석은 자료의 특징과 두 집단의 비교, 자료의 관계 탐구에 활용된다.",
+        "가능성을 여러 방식으로 표현하고 확률로 수치화하면 불확실성을 수학적으로 다룰 수 있다.",
+        "통계적 문제해결과 가능성 탐구는 예측과 합리적 의사 결정의 기반이 된다."
+      ],
+      "achievementCodes": [
+        "9수04-07",
+        "9수04-08",
+        "9수04-09"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "pageRange": "13-16",
+        "basis": "2022 개정 수학과 교육과정 내용 체계"
+      },
+      "order": 5,
+      "textbookConceptCount": 0,
+      "prerequisiteNodeIds": [
+        "curr-4-4-산포도"
+      ]
+    }
+  ],
+  "achievement_standards": [
+    {
+      "code": "2수01-01",
+      "label": "수의 필요성을 인식하면서 0과 100까지의 수 개념을 이해하고, 수를 세고 읽고 쓸 수 있다.",
+      "summary": "수의 필요성을 인식하면서 0과 100까지의 수 개념을 이해하고, 수를 세고 읽고 쓸 수 있다.",
+      "area": "수와 연산",
+      "gradeBand": "초1-2",
+      "conceptTags": [],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 17,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수01-02",
+      "label": "일, 십, 백, 천의 자릿값과 위치적 기수법을 이해하고, 네 자리 이하의 수를 읽고 쓸 수 있다.",
+      "summary": "일, 십, 백, 천의 자릿값과 위치적 기수법을 이해하고, 네 자리 이하의 수를 읽고 쓸 수 있다.",
+      "area": "수와 연산",
+      "gradeBand": "초1-2",
+      "conceptTags": [],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 17,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수01-03",
+      "label": "네 자리 이하의 수의 범위에서 수의 계열을 이해하고, 수 의 크 기 를 비 교 할 수 있 다.",
+      "summary": "네 자리 이하의 수의 범위에서 수의 계열을 이해하고, 수 의 크 기 를 비 교 할 수 있 다.",
+      "area": "수와 연산",
+      "gradeBand": "초1-2",
+      "conceptTags": [
+        "비"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 17,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수01-04",
+      "label": "하나의 수를 두 수로 분해하고 두 수를 하나의 수로 합성하는 활동을 통하여 수 감각을 기른다. 숕...",
+      "summary": "하나의 수를 두 수로 분해하고 두 수를 하나의 수로 합성하는 활동을 통하여 수 감각을 기른다. 숕...",
+      "area": "수와 연산",
+      "gradeBand": "초1-2",
+      "conceptTags": [
+        "덧셈",
+        "뺄셈"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 17,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수01-05",
+      "label": "덧셈과 뺄셈이 이루어지는 실생활 상황과 연결하여 덧셈과 뺄셈의 의미를 ",
+      "summary": "덧셈과 뺄셈이 이루어지는 실생활 상황과 연결하여 덧셈과 뺄셈의 의미를 ",
+      "area": "수와 연산",
+      "gradeBand": "초1-2",
+      "conceptTags": [
+        "덧셈",
+        "뺄셈"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 17,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수01-06",
+      "label": "두 자리 수의 범위에서 덧셈과 뺄셈의 계산 원리를 이해하고 그 계산을 할 수 있다 .",
+      "summary": "두 자리 수의 범위에서 덧셈과 뺄셈의 계산 원리를 이해하고 그 계산을 할 수 있다 .",
+      "area": "수와 연산",
+      "gradeBand": "초1-2",
+      "conceptTags": [
+        "덧셈",
+        "뺄셈",
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 17,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수01-07",
+      "label": "덧셈과 뺄셈의 관계를 ",
+      "summary": "덧셈과 뺄셈의 관계를 ",
+      "area": "수와 연산",
+      "gradeBand": "초1-2",
+      "conceptTags": [
+        "덧셈",
+        "뺄셈"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 17,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수01-08",
+      "label": "두 자리 수의 범위에서 세 수의 덧셈과 뺄셈을 할 수 있다 .",
+      "summary": "두 자리 수의 범위에서 세 수의 덧셈과 뺄셈을 할 수 있다 .",
+      "area": "수와 연산",
+      "gradeBand": "초1-2",
+      "conceptTags": [
+        "덧셈",
+        "뺄셈"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 17,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수01-09",
+      "label": "□가 사용된 덧셈식과 뺄셈식을 만들고, □ 의 값 을 구 할 수 있 다. 숖 한 자리 수의 곱셈",
+      "summary": "□가 사용된 덧셈식과 뺄셈식을 만들고, □ 의 값 을 구 할 수 있 다. 숖 한 자리 수의 곱셈",
+      "area": "수와 연산",
+      "gradeBand": "초1-2",
+      "conceptTags": [
+        "덧셈",
+        "뺄셈",
+        "곱셈"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 17,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수01-10",
+      "label": "곱셈이 이루어지는 실생활 상황과 연결하여 곱셈의 의미를 ",
+      "summary": "곱셈이 이루어지는 실생활 상황과 연결하여 곱셈의 의미를 ",
+      "area": "수와 연산",
+      "gradeBand": "초1-2",
+      "conceptTags": [
+        "곱셈"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 17,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수01-11",
+      "label": "곱셈구구를 이해하고, 한 자리 수의 곱셈을 할 수 있다 . (가) 성취기준 해설 •",
+      "summary": "곱셈구구를 이해하고, 한 자리 수의 곱셈을 할 수 있다 . (가) 성취기준 해설 •",
+      "area": "수와 연산",
+      "gradeBand": "초1-2",
+      "conceptTags": [
+        "곱셈"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 17,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수02-01",
+      "label": "물체, 무늬, 수 등의 배열에서 규칙을 찾아 여러 가지 방법으로 표현할 수 있다 .",
+      "summary": "물체, 무늬, 수 등의 배열에서 규칙을 찾아 여러 가지 방법으로 표현할 수 있다 .",
+      "area": "변화와 관계",
+      "gradeBand": "초1-2",
+      "conceptTags": [
+        "규칙",
+        "표"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 19,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수02-02",
+      "label": "자신이 정한 규칙에 따라 물체, 무늬, 수 등을 배열할 수 있다 . (가) 성취기준 해설 •",
+      "summary": "자신이 정한 규칙에 따라 물체, 무늬, 수 등을 배열할 수 있다 . (가) 성취기준 해설 •",
+      "area": "변화와 관계",
+      "gradeBand": "초1-2",
+      "conceptTags": [
+        "규칙"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 19,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수03-01",
+      "label": "교실 및 생활 주변에서 여러 가지 물건을 관찰하여 직육면체, 원기둥, 구의 모양을 찾고, 이를 이...",
+      "summary": "교실 및 생활 주변에서 여러 가지 물건을 관찰하여 직육면체, 원기둥, 구의 모양을 찾고, 이를 이...",
+      "area": "도형과 측정",
+      "gradeBand": "초1-2",
+      "conceptTags": [
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 19,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수03-02",
+      "label": "쌓기나무를 이용하여 여러 가지 입체도형의 모양을 만들고 , 그 모양에 대해 위치나 방향을 이용하여...",
+      "summary": "쌓기나무를 이용하여 여러 가지 입체도형의 모양을 만들고 , 그 모양에 대해 위치나 방향을 이용하여...",
+      "area": "도형과 측정",
+      "gradeBand": "초1-2",
+      "conceptTags": [
+        "도형"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 19,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수03-03",
+      "label": "교실 및 생활 주변에서 여러 가지 물건을 관찰하여 삼각형 , 사각형, 원의 모양을 찾고, 이를 이...",
+      "summary": "교실 및 생활 주변에서 여러 가지 물건을 관찰하여 삼각형 , 사각형, 원의 모양을 찾고, 이를 이...",
+      "area": "도형과 측정",
+      "gradeBand": "초1-2",
+      "conceptTags": [
+        "삼각형",
+        "사각형",
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 19,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수03-04",
+      "label": "삼각형, 사각형, 원을 직관적으로 이해하고, 그 모양을 그릴 수 있다 .",
+      "summary": "삼각형, 사각형, 원을 직관적으로 이해하고, 그 모양을 그릴 수 있다 .",
+      "area": "도형과 측정",
+      "gradeBand": "초1-2",
+      "conceptTags": [
+        "삼각형",
+        "사각형",
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 19,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수03-05",
+      "label": "삼각형, 사각형에서 각각의 공통점을 찾아 말할 수 있다. 숖 양의 비교",
+      "summary": "삼각형, 사각형에서 각각의 공통점을 찾아 말할 수 있다. 숖 양의 비교",
+      "area": "도형과 측정",
+      "gradeBand": "초1-2",
+      "conceptTags": [
+        "비",
+        "삼각형",
+        "사각형"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 20,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수03-06",
+      "label": "구체물의 길이, 들이, 무게, 넓이를 비교하여 각각 ‘길다, 짧다’, ‘많다, 적다’, ‘무겁다,...",
+      "summary": "구체물의 길이, 들이, 무게, 넓이를 비교하여 각각 ‘길다, 짧다’, ‘많다, 적다’, ‘무겁다,...",
+      "area": "도형과 측정",
+      "gradeBand": "초1-2",
+      "conceptTags": [
+        "비",
+        "길이",
+        "넓이"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 20,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수03-07",
+      "label": "시계를 보고 시각을 ‘몇 시 몇 분 ’까지 읽을 수 있다 .",
+      "summary": "시계를 보고 시각을 ‘몇 시 몇 분 ’까지 읽을 수 있다 .",
+      "area": "도형과 측정",
+      "gradeBand": "초1-2",
+      "conceptTags": [],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 20,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수03-08",
+      "label": "1시간과 1분의 관계를 이해하고, 시간을 ‘시간’, ‘분’으로 표현",
+      "summary": "1시간과 1분의 관계를 이해하고, 시간을 ‘시간’, ‘분’으로 표현",
+      "area": "도형과 측정",
+      "gradeBand": "초1-2",
+      "conceptTags": [
+        "표"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 20,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수03-09",
+      "label": "실생활 문제 상황과 연결하여 1분, 1 시간, 1 일, 1 주일, 1 개월, 1 년 사이의 관계를...",
+      "summary": "실생활 문제 상황과 연결하여 1분, 1 시간, 1 일, 1 주일, 1 개월, 1 년 사이의 관계를...",
+      "area": "도형과 측정",
+      "gradeBand": "초1-2",
+      "conceptTags": [
+        "길이"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 20,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수03-10",
+      "label": "길이 단위 1cm와 1m를 알고, 이를 이용하여 주변 사물의 길이를 측정할 수 있다 .",
+      "summary": "길이 단위 1cm와 1m를 알고, 이를 이용하여 주변 사물의 길이를 측정할 수 있다 .",
+      "area": "도형과 측정",
+      "gradeBand": "초1-2",
+      "conceptTags": [
+        "길이"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 20,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수03-11",
+      "label": "1m와 1cm의 관계를 이해하고, 길이를 ‘몇 m 몇 cm’와 ‘몇 cm’로 표현할 수 있다 .",
+      "summary": "1m와 1cm의 관계를 이해하고, 길이를 ‘몇 m 몇 cm’와 ‘몇 cm’로 표현할 수 있다 .",
+      "area": "도형과 측정",
+      "gradeBand": "초1-2",
+      "conceptTags": [
+        "길이",
+        "표"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 20,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수03-12",
+      "label": "여러 가지 물건의 길이를 어림하고, 길이에 대한 양감을 ",
+      "summary": "여러 가지 물건의 길이를 어림하고, 길이에 대한 양감을 ",
+      "area": "도형과 측정",
+      "gradeBand": "초1-2",
+      "conceptTags": [
+        "길이"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 20,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수03-13",
+      "label": "실생활 문제 상황과 연결하여 길이의 덧셈과 뺄셈을 할 수 있다 .",
+      "summary": "실생활 문제 상황과 연결하여 길이의 덧셈과 뺄셈을 할 수 있다 .",
+      "area": "도형과 측정",
+      "gradeBand": "초1-2",
+      "conceptTags": [
+        "덧셈",
+        "뺄셈",
+        "길이"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 20,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수04-01",
+      "label": "여러 가지 사물을 정해진 기준 또는 자신이 정한 기준으로 분류하여 개수를 세어 보고 , 기준에 따...",
+      "summary": "여러 가지 사물을 정해진 기준 또는 자신이 정한 기준으로 분류하여 개수를 세어 보고 , 기준에 따...",
+      "area": "자료와 가능성",
+      "gradeBand": "초1-2",
+      "conceptTags": [],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 21,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수04-02",
+      "label": "자료를 분류하여 표로 나타내고, 자료를 표로 나타내면 편리한 점을 말할 수 있다 .",
+      "summary": "자료를 분류하여 표로 나타내고, 자료를 표로 나타내면 편리한 점을 말할 수 있다 .",
+      "area": "자료와 가능성",
+      "gradeBand": "초1-2",
+      "conceptTags": [
+        "자료",
+        "표"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 21,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "2수04-03",
+      "label": "자료를 분류하여 ○, ×, / 등을 이용한 그래프로 나타내고, 자료를 그래프로 나타내면 편리한 점...",
+      "summary": "자료를 분류하여 ○, ×, / 등을 이용한 그래프로 나타내고, 자료를 그래프로 나타내면 편리한 점...",
+      "area": "자료와 가능성",
+      "gradeBand": "초1-2",
+      "conceptTags": [
+        "그래프",
+        "자료"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 21,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수01-01",
+      "label": "큰 수의 필요성을 인식하면서 10000 이상의 큰 수에 대한 자릿값과 위치적 기수법을 이해하고,...",
+      "summary": "큰 수의 필요성을 인식하면서 10000 이상의 큰 수에 대한 자릿값과 위치적 기수법을 이해하고,...",
+      "area": "수와 연산",
+      "gradeBand": "초3-4",
+      "conceptTags": [],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 23,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수01-02",
+      "label": "다섯 자리 이상의 수의 범위에서 수의 계열을 이해하고 , 수의 크기를 비교하며 그 방법을 설명할...",
+      "summary": "다섯 자리 이상의 수의 범위에서 수의 계열을 이해하고 , 수의 크기를 비교하며 그 방법을 설명할...",
+      "area": "수와 연산",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "덧셈",
+        "뺄셈",
+        "비"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 23,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수01-03",
+      "label": "세 자리 수의 덧셈과 뺄셈의 계산 원리를 이해하고 그 계산을 할 수 있다 . 숖 세 자리 수 범위...",
+      "summary": "세 자리 수의 덧셈과 뺄셈의 계산 원리를 이해하고 그 계산을 할 수 있다 . 숖 세 자리 수 범위...",
+      "area": "수와 연산",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "덧셈",
+        "뺄셈",
+        "곱셈",
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 23,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수01-04",
+      "label": "곱하는 수가 한 자리 수 또는 두 자리 수인 곱셈의 계산 원리를 이해하고 그 계산을 할 수 있다....",
+      "summary": "곱하는 수가 한 자리 수 또는 두 자리 수인 곱셈의 계산 원리를 이해하고 그 계산을 할 수 있다....",
+      "area": "수와 연산",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "곱셈",
+        "나눗셈",
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 23,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수01-05",
+      "label": "나눗셈이 이루어지는 실생활 상황과 연결하여 나눗셈의 의미를 알고 , 곱셈과 나눗셈의 관계를 ",
+      "summary": "나눗셈이 이루어지는 실생활 상황과 연결하여 나눗셈의 의미를 알고 , 곱셈과 나눗셈의 관계를 ",
+      "area": "수와 연산",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "곱셈",
+        "나눗셈"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 23,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수01-06",
+      "label": "나누는 수가 한 자리 수인 나눗셈의 계산 원리를 이해하고 그 계산을 할 수 있으며 , 나눗셈에서...",
+      "summary": "나누는 수가 한 자리 수인 나눗셈의 계산 원리를 이해하고 그 계산을 할 수 있으며 , 나눗셈에서...",
+      "area": "수와 연산",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "나눗셈",
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 23,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수01-07",
+      "label": "나누는 수가 두 자리 수인 나눗셈의 계산 원리를 이해하고 그 계산을 할 수 있다 . 수 자연수의...",
+      "summary": "나누는 수가 두 자리 수인 나눗셈의 계산 원리를 이해하고 그 계산을 할 수 있다 . 수 자연수의...",
+      "area": "수와 연산",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "자연수",
+        "나눗셈",
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 23,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수01-08",
+      "label": "자연수의 덧셈, 뺄셈, 곱셈, 나눗셈과 관련한 여러 가지 상황에서 어림셈을 할 수 있다 . 숙 분...",
+      "summary": "자연수의 덧셈, 뺄셈, 곱셈, 나눗셈과 관련한 여러 가지 상황에서 어림셈을 할 수 있다 . 숙 분...",
+      "area": "수와 연산",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "자연수",
+        "분수",
+        "덧셈",
+        "뺄셈",
+        "곱셈",
+        "나눗셈"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 23,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수01-09",
+      "label": "양의 등분할을 통하여 분수의 필요성을 인식하고, 분수를 이해하고 읽고 쓸 수 있다 .",
+      "summary": "양의 등분할을 통하여 분수의 필요성을 인식하고, 분수를 이해하고 읽고 쓸 수 있다 .",
+      "area": "수와 연산",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "분수"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 23,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수01-10",
+      "label": "단위분수, 진분수, 가분수, 대분수를 알고, 그 관계를 ",
+      "summary": "단위분수, 진분수, 가분수, 대분수를 알고, 그 관계를 ",
+      "area": "수와 연산",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "분수"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 23,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수01-11",
+      "label": "분모가 같은 분수끼리, 단위분수끼리 크기를 비교하고 그 방법을 설명할 수 있다. 숚 소수",
+      "summary": "분모가 같은 분수끼리, 단위분수끼리 크기를 비교하고 그 방법을 설명할 수 있다. 숚 소수",
+      "area": "수와 연산",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "분수",
+        "소수",
+        "비"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 23,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수01-12",
+      "label": "분모가 10인 진분수와 연결하여 소수 한 자리 수를 이해하고 읽고 쓸 수 있다 .",
+      "summary": "분모가 10인 진분수와 연결하여 소수 한 자리 수를 이해하고 읽고 쓸 수 있다 .",
+      "area": "수와 연산",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "분수",
+        "소수"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 23,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수01-13",
+      "label": "자릿값의 원리를 바탕으로 소수 두 자리 수와 소수 세 자리 수를 이해하고 읽고 쓸 수 있다 .",
+      "summary": "자릿값의 원리를 바탕으로 소수 두 자리 수와 소수 세 자리 수를 이해하고 읽고 쓸 수 있다 .",
+      "area": "수와 연산",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "소수",
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 24,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수01-14",
+      "label": "소수의 크기를 비교하고 그 방법을 설명할 수 있다 . 숛 분수의 덧셈과 뺄셈",
+      "summary": "소수의 크기를 비교하고 그 방법을 설명할 수 있다 . 숛 분수의 덧셈과 뺄셈",
+      "area": "수와 연산",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "분수",
+        "소수",
+        "덧셈",
+        "뺄셈",
+        "비"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 24,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수01-15",
+      "label": "분모가 같은 분수의 덧셈과 뺄셈의 계산 원리를 이해하고 그 계산을 할 수 있다 . 순 소수의 덧셈...",
+      "summary": "분모가 같은 분수의 덧셈과 뺄셈의 계산 원리를 이해하고 그 계산을 할 수 있다 . 순 소수의 덧셈...",
+      "area": "수와 연산",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "분수",
+        "소수",
+        "덧셈",
+        "뺄셈",
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 24,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수01-16",
+      "label": "소수 두 자리 수의 범위에서 소수의 덧셈과 뺄셈의 계산 원리를 이해하고 그 계산을 ",
+      "summary": "소수 두 자리 수의 범위에서 소수의 덧셈과 뺄셈의 계산 원리를 이해하고 그 계산을 ",
+      "area": "수와 연산",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "소수",
+        "덧셈",
+        "뺄셈",
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 24,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수02-01",
+      "label": "다양한 변화 규칙을 찾아 설명하고, 그 규칙을 수나 식으로 나타낼 수 있다 .",
+      "summary": "다양한 변화 규칙을 찾아 설명하고, 그 규칙을 수나 식으로 나타낼 수 있다 .",
+      "area": "변화와 관계",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "규칙"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 25,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수02-02",
+      "label": "계산식의 배열에서 규칙을 찾고, 계산 결과를 추측할 수 있다. 숕 등호와 동치 관계",
+      "summary": "계산식의 배열에서 규칙을 찾고, 계산 결과를 추측할 수 있다. 숕 등호와 동치 관계",
+      "area": "변화와 관계",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "규칙"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 25,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수02-03",
+      "label": "등호를 사용하여 크기가 같은 두 양의 관계를 식으로 나타낼 수 있다 . (가) 성취기준 해설 •",
+      "summary": "등호를 사용하여 크기가 같은 두 양의 관계를 식으로 나타낼 수 있다 . (가) 성취기준 해설 •",
+      "area": "변화와 관계",
+      "gradeBand": "초3-4",
+      "conceptTags": [],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 25,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수03-01",
+      "label": "직선, 선분, 반직선을 이해하고 구별",
+      "summary": "직선, 선분, 반직선을 이해하고 구별",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptTags": [],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 26,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수03-02",
+      "label": "각과 직각을 이해하고, 직각과 비교하는 활동을 통하여 예각과 둔각을 구별",
+      "summary": "각과 직각을 이해하고, 직각과 비교하는 활동을 통하여 예각과 둔각을 구별",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "비"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 26,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수03-03",
+      "label": "직선의 수직 관계와 평행 관계를 이해한다. 숕 평면도형의 이동",
+      "summary": "직선의 수직 관계와 평행 관계를 이해한다. 숕 평면도형의 이동",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "도형"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 26,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수03-04",
+      "label": "구체물이나 평면도형의 밀기, 뒤집기, 돌리기 활동을 통하여 그 변화를 ",
+      "summary": "구체물이나 평면도형의 밀기, 뒤집기, 돌리기 활동을 통하여 그 변화를 ",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "도형"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 26,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수03-05",
+      "label": "평면에서 점의 이동에 대해 위치와 방향을 이용하여 설명할 수 있다 . 숖 원의 구성 요소",
+      "summary": "평면에서 점의 이동에 대해 위치와 방향을 이용하여 설명할 수 있다 . 숖 원의 구성 요소",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 26,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수03-06",
+      "label": "원의 중심, 반지름, 지름을 이해하고, 그 성질을 ",
+      "summary": "원의 중심, 반지름, 지름을 이해하고, 그 성질을 ",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 26,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수03-07",
+      "label": "컴퍼스를 이용하여 여러 가지 크기의 원을 그릴 수 있다 . 숗 여러 가지 삼각형",
+      "summary": "컴퍼스를 이용하여 여러 가지 크기의 원을 그릴 수 있다 . 숗 여러 가지 삼각형",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "삼각형",
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 26,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수03-08",
+      "label": "여러 가지 모양의 삼각형에 대한 분류 활동을 통하여 이등변삼각형, 정삼각형을 이해하고, 그 성질을...",
+      "summary": "여러 가지 모양의 삼각형에 대한 분류 활동을 통하여 이등변삼각형, 정삼각형을 이해하고, 그 성질을...",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "삼각형"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 26,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수03-09",
+      "label": "여러 가지 모양의 삼각형에 대한 분류 활동을 통하여 직각삼각형 , 예각삼각형, 둔각 삼각형을 이해...",
+      "summary": "여러 가지 모양의 삼각형에 대한 분류 활동을 통하여 직각삼각형 , 예각삼각형, 둔각 삼각형을 이해...",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "삼각형",
+        "사각형"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 26,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수03-10",
+      "label": "여러 가지 모양의 사각형에 대한 분류 활동을 통하여 직사각형, 정사각형, 사다리꼴, 평행 사변형,...",
+      "summary": "여러 가지 모양의 사각형에 대한 분류 활동을 통하여 직사각형, 정사각형, 사다리꼴, 평행 사변형,...",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "사각형"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 26,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수03-11",
+      "label": "다각형과 정다각형을 ",
+      "summary": "다각형과 정다각형을 ",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptTags": [],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 27,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수03-12",
+      "label": "주어진 도형을 이용하여 여러 가지 모양을 만들거나 채우고 설명할 수 있다 . 숚 시각과 시간",
+      "summary": "주어진 도형을 이용하여 여러 가지 모양을 만들거나 채우고 설명할 수 있다 . 숚 시각과 시간",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "도형"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 27,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수03-13",
+      "label": "1분과 1초의 관계를 이해하고, 초 단위까지 시각을 읽을 수 있다 .",
+      "summary": "1분과 1초의 관계를 이해하고, 초 단위까지 시각을 읽을 수 있다 .",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptTags": [],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 27,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수03-14",
+      "label": "실생활 문제 상황과 연결하여 초 단위까지의 시간의 덧셈과 뺄셈을 할 수 있다 . 숛 길이",
+      "summary": "실생활 문제 상황과 연결하여 초 단위까지의 시간의 덧셈과 뺄셈을 할 수 있다 . 숛 길이",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "덧셈",
+        "뺄셈",
+        "길이"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 27,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수03-15",
+      "label": "길이 단위 1mm와 1km를 알고 , 이를 이용하여 길이를 측정하고 어림하며 수학의 유용성을 인식...",
+      "summary": "길이 단위 1mm와 1km를 알고 , 이를 이용하여 길이를 측정하고 어림하며 수학의 유용성을 인식...",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "길이"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 27,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수03-16",
+      "label": "1cm와 1mm, 1km와 1m의 관계를 이해하고, 길이를 ‘몇 cm 몇 mm’와 ‘몇 mm’,...",
+      "summary": "1cm와 1mm, 1km와 1m의 관계를 이해하고, 길이를 ‘몇 cm 몇 mm’와 ‘몇 mm’,...",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "길이",
+        "표"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 27,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수03-17",
+      "label": "들이 단위 1L와 1mL를 알고, 이를 이용하여 들이를 측정하고 어림하며 수학의 유용성을 ",
+      "summary": "들이 단위 1L와 1mL를 알고, 이를 이용하여 들이를 측정하고 어림하며 수학의 유용성을 ",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptTags": [],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 27,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수03-18",
+      "label": "1L와 1mL의 관계를 이해하고, 들이를 ‘몇 L 몇 mL’와 ‘몇 mL’로 표현할 수 있다 .",
+      "summary": "1L와 1mL의 관계를 이해하고, 들이를 ‘몇 L 몇 mL’와 ‘몇 mL’로 표현할 수 있다 .",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "표"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 27,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수03-19",
+      "label": "실생활 문제 상황과 연결하여 들이의 덧셈과 뺄셈을 할 수 있다 . 숝숦 무게",
+      "summary": "실생활 문제 상황과 연결하여 들이의 덧셈과 뺄셈을 할 수 있다 . 숝숦 무게",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "덧셈",
+        "뺄셈"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 27,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수03-20",
+      "label": "실생활에서 무게를 나타낼 때 사용하는 단위 1g과 1kg을 알고, 이를 이용하여 무게를 측정하고...",
+      "summary": "실생활에서 무게를 나타낼 때 사용하는 단위 1g과 1kg을 알고, 이를 이용하여 무게를 측정하고...",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptTags": [],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 27,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수03-21",
+      "label": "1kg과 1g의 관계를 이해하고, 무게를 ‘몇 kg 몇 g’과 ‘몇 g’으로 표현",
+      "summary": "1kg과 1g의 관계를 이해하고, 무게를 ‘몇 kg 몇 g’과 ‘몇 g’으로 표현",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "표"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 27,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수03-22",
+      "label": "실생활에서 무게를 나타낼 때 사용하는 단위 1t을 알고, 1t과 1kg의 관계를 ",
+      "summary": "실생활에서 무게를 나타낼 때 사용하는 단위 1t을 알고, 1t과 1kg의 관계를 ",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptTags": [],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 27,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수03-23",
+      "label": "실생활 문제 상황과 연결하여 무게의 덧셈과 뺄셈을 할 수 있다 . 숝숧 각도",
+      "summary": "실생활 문제 상황과 연결하여 무게의 덧셈과 뺄셈을 할 수 있다 . 숝숧 각도",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "덧셈",
+        "뺄셈"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 27,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수03-24",
+      "label": "각의 크기의 단위인 1도(°)를 알고, 각도기를 이용하여 각의 크기를 측정하고 어림",
+      "summary": "각의 크기의 단위인 1도(°)를 알고, 각도기를 이용하여 각의 크기를 측정하고 어림",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptTags": [],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 27,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수03-25",
+      "label": "여러 가지 방법으로 삼각형과 사각형의 내각의 크기의 합을 추론하고, 자신의 추론 과정을 설 명 할...",
+      "summary": "여러 가지 방법으로 삼각형과 사각형의 내각의 크기의 합을 추론하고, 자신의 추론 과정을 설 명 할...",
+      "area": "도형과 측정",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "삼각형",
+        "사각형"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 27,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수04-01",
+      "label": "자료를 수집하여 그림그래프나 막대그래프로 나타내고 해석",
+      "summary": "자료를 수집하여 그림그래프나 막대그래프로 나타내고 해석",
+      "area": "자료와 가능성",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "그래프",
+        "자료"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 29,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수04-02",
+      "label": "자료를 수집하여 꺾은선그래프로 나타내고 해석",
+      "summary": "자료를 수집하여 꺾은선그래프로 나타내고 해석",
+      "area": "자료와 가능성",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "그래프",
+        "자료"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 29,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "4수04-03",
+      "label": "탐구 문제를 해결하기 위해 자료를 수집, 정리하여 막대그래프나 꺾은선그래프로 나타내고 해 석 할...",
+      "summary": "탐구 문제를 해결하기 위해 자료를 수집, 정리하여 막대그래프나 꺾은선그래프로 나타내고 해 석 할...",
+      "area": "자료와 가능성",
+      "gradeBand": "초3-4",
+      "conceptTags": [
+        "그래프",
+        "자료"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 29,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수01-01",
+      "label": "덧셈, 뺄셈, 곱셈, 나눗셈의 혼합 계산에서 계산하는 순서를 알고, 혼 합 계 산 을 할 수 있...",
+      "summary": "덧셈, 뺄셈, 곱셈, 나눗셈의 혼합 계산에서 계산하는 순서를 알고, 혼 합 계 산 을 할 수 있...",
+      "area": "수와 연산",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "덧셈",
+        "뺄셈",
+        "곱셈",
+        "나눗셈"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 31,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수01-02",
+      "label": "실생활과 연결하여 이상 , 이하, 초과, 미만의 의미와 쓰임을 알고 , 이를 활용하여 수의 범위를...",
+      "summary": "실생활과 연결하여 이상 , 이하, 초과, 미만의 의미와 쓰임을 알고 , 이를 활용하여 수의 범위를...",
+      "area": "수와 연산",
+      "gradeBand": "초5-6",
+      "conceptTags": [],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 31,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수01-03",
+      "label": "어림값을 구하기 위한 방법으로 올림 , 버림, 반올림의 의미와 필요성을 알고 , 이를 실생활에 활...",
+      "summary": "어림값을 구하기 위한 방법으로 올림 , 버림, 반올림의 의미와 필요성을 알고 , 이를 실생활에 활...",
+      "area": "수와 연산",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "약수",
+        "배수"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 31,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수01-04",
+      "label": "약수, 공약수, 최대공약수를 이해하고 구",
+      "summary": "약수, 공약수, 최대공약수를 이해하고 구",
+      "area": "수와 연산",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "약수"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 31,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수01-05",
+      "label": "배수, 공배수, 최소공배수를 이해하고 구할 수 있다. 숗 분수의 덧셈과 뺄셈",
+      "summary": "배수, 공배수, 최소공배수를 이해하고 구할 수 있다. 숗 분수의 덧셈과 뺄셈",
+      "area": "수와 연산",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "분수",
+        "덧셈",
+        "뺄셈",
+        "배수"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 31,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수01-06",
+      "label": "크기가 같은 분수를 만드는 방법을 이해하고, 분수를 약분, 통분",
+      "summary": "크기가 같은 분수를 만드는 방법을 이해하고, 분수를 약분, 통분",
+      "area": "수와 연산",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "분수"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 31,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수01-07",
+      "label": "분모가 다른 분수의 크기를 비교하고 그 방법을 설명할 수 있다 .",
+      "summary": "분모가 다른 분수의 크기를 비교하고 그 방법을 설명할 수 있다 .",
+      "area": "수와 연산",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "분수",
+        "비"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 31,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수01-08",
+      "label": "분모가 다른 분수의 덧셈과 뺄셈의 계산 원리를 탐구하고 그 계산을 할 수 있다 . 수 분수의 곱셈...",
+      "summary": "분모가 다른 분수의 덧셈과 뺄셈의 계산 원리를 탐구하고 그 계산을 할 수 있다 . 수 분수의 곱셈...",
+      "area": "수와 연산",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "분수",
+        "덧셈",
+        "뺄셈",
+        "곱셈",
+        "나눗셈",
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 31,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수01-09",
+      "label": "분수의 곱셈의 계산 원리를 탐구하고 그 계산을 할 수 있다 .",
+      "summary": "분수의 곱셈의 계산 원리를 탐구하고 그 계산을 할 수 있다 .",
+      "area": "수와 연산",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "분수",
+        "곱셈",
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 31,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수01-10",
+      "label": "‘(자연수)÷(자연수)’에서 나눗셈의 몫을 분수로 나타낼 수 있다 .",
+      "summary": "‘(자연수)÷(자연수)’에서 나눗셈의 몫을 분수로 나타낼 수 있다 .",
+      "area": "수와 연산",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "자연수",
+        "분수",
+        "나눗셈"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 31,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수01-11",
+      "label": "분수의 나눗셈의 계산 원리를 탐구하고 그 계산을 할 수 있다 . 숙 분수와 소수의 관계",
+      "summary": "분수의 나눗셈의 계산 원리를 탐구하고 그 계산을 할 수 있다 . 숙 분수와 소수의 관계",
+      "area": "수와 연산",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "분수",
+        "소수",
+        "나눗셈",
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 31,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수01-12",
+      "label": "분수와 소수의 관계를 이해하고 크기를 비교하며 그 방법을 설명할 수 있다 . 숚 소수의 곱셈과 나...",
+      "summary": "분수와 소수의 관계를 이해하고 크기를 비교하며 그 방법을 설명할 수 있다 . 숚 소수의 곱셈과 나...",
+      "area": "수와 연산",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "분수",
+        "소수",
+        "곱셈",
+        "나눗셈",
+        "비"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 31,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수01-13",
+      "label": "소수의 곱셈의 계산 원리를 탐구하고 그 계산을 할 수 있다 .",
+      "summary": "소수의 곱셈의 계산 원리를 탐구하고 그 계산을 할 수 있다 .",
+      "area": "수와 연산",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "소수",
+        "곱셈",
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 31,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수01-14",
+      "label": "‘(자연수)÷(자연수)’에서 나눗셈의 몫을 소수로 나타낼 수 있다 .",
+      "summary": "‘(자연수)÷(자연수)’에서 나눗셈의 몫을 소수로 나타낼 수 있다 .",
+      "area": "수와 연산",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "자연수",
+        "소수",
+        "나눗셈"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 31,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수01-15",
+      "label": "소수의 나눗셈의 계산 원리를 탐구하고 그 계산을 할 수 있다 .",
+      "summary": "소수의 나눗셈의 계산 원리를 탐구하고 그 계산을 할 수 있다 .",
+      "area": "수와 연산",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "소수",
+        "나눗셈",
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 31,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수02-01",
+      "label": "한 양이 변할 때 다른 양이 그에 종속하여 변하는 대응 관계를 나타낸 표에서 규칙을 찾아 설명하고...",
+      "summary": "한 양이 변할 때 다른 양이 그에 종속하여 변하는 대응 관계를 나타낸 표에서 규칙을 찾아 설명하고...",
+      "area": "변화와 관계",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "규칙",
+        "비",
+        "비율",
+        "표"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 33,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수02-02",
+      "label": "두 양의 크기를 비교하는 상황을 통해 비의 개념을 이해하고 , 두 양의 관계를 비로 나타낼 수 있...",
+      "summary": "두 양의 크기를 비교하는 상황을 통해 비의 개념을 이해하고 , 두 양의 관계를 비로 나타낼 수 있...",
+      "area": "변화와 관계",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "비"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 33,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수02-03",
+      "label": "비율을 이해하고, 비율을 분수, 소수, 백분율로 나타낼 수 있다. 숖 비례식과 비례배분",
+      "summary": "비율을 이해하고, 비율을 분수, 소수, 백분율로 나타낼 수 있다. 숖 비례식과 비례배분",
+      "area": "변화와 관계",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "분수",
+        "소수",
+        "비",
+        "비율"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 33,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수02-04",
+      "label": "비례식을 알고, 그 성질을 이해하며, 이를 활용하여 간단한 비례식을 풀 수 있다 .",
+      "summary": "비례식을 알고, 그 성질을 이해하며, 이를 활용하여 간단한 비례식을 풀 수 있다 .",
+      "area": "변화와 관계",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "비"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 33,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수02-05",
+      "label": "비례배분을 알고, 주어진 양을 비례배분 할 수 있다 . (가) 성취기준 해설 •",
+      "summary": "비례배분을 알고, 주어진 양을 비례배분 할 수 있다 . (가) 성취기준 해설 •",
+      "area": "변화와 관계",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "비"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 33,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수03-01",
+      "label": "도형의 합동을 이해하고, 합동인 도형의 성질을 탐구하고 ",
+      "summary": "도형의 합동을 이해하고, 합동인 도형의 성질을 탐구하고 ",
+      "area": "도형과 측정",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "도형",
+        "합동"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 34,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수03-02",
+      "label": "실생활과 연결하여 선대칭도형과 점대칭도형을 이해하고 그릴 수 있다. 숕 직육면체와 정육면체",
+      "summary": "실생활과 연결하여 선대칭도형과 점대칭도형을 이해하고 그릴 수 있다. 숕 직육면체와 정육면체",
+      "area": "도형과 측정",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "도형"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 34,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수03-03",
+      "label": "직육면체와 정육면체를 이해하고, 구성 요소와 성질을 탐구하고 ",
+      "summary": "직육면체와 정육면체를 이해하고, 구성 요소와 성질을 탐구하고 ",
+      "area": "도형과 측정",
+      "gradeBand": "초5-6",
+      "conceptTags": [],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 34,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수03-04",
+      "label": "직육면체와 정육면체의 겨냥도와 전개도를 그릴 수 있다. 숖 각기둥과 각뿔",
+      "summary": "직육면체와 정육면체의 겨냥도와 전개도를 그릴 수 있다. 숖 각기둥과 각뿔",
+      "area": "도형과 측정",
+      "gradeBand": "초5-6",
+      "conceptTags": [],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 34,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수03-05",
+      "label": "각기둥과 각뿔을 이해하고, 구성 요소와 성질을 탐구하고 ",
+      "summary": "각기둥과 각뿔을 이해하고, 구성 요소와 성질을 탐구하고 ",
+      "area": "도형과 측정",
+      "gradeBand": "초5-6",
+      "conceptTags": [],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 34,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수03-06",
+      "label": "각기둥의 전개도를 그릴 수 있다. 숗 원기둥, 원뿔, 구",
+      "summary": "각기둥의 전개도를 그릴 수 있다. 숗 원기둥, 원뿔, 구",
+      "area": "도형과 측정",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 34,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수03-07",
+      "label": "원기둥, 원뿔, 구를 이해하고, 구성 요소와 성질을 탐구하고 ",
+      "summary": "원기둥, 원뿔, 구를 이해하고, 구성 요소와 성질을 탐구하고 ",
+      "area": "도형과 측정",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 34,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수03-08",
+      "label": "원기둥의 전개도를 그릴 수 있다. 수 입체도형의 공간 감각",
+      "summary": "원기둥의 전개도를 그릴 수 있다. 수 입체도형의 공간 감각",
+      "area": "도형과 측정",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "도형",
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 34,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수03-09",
+      "label": "쌓기나무로 만든 입체도형을 보고 사용된 쌓기나무의 개수를 구",
+      "summary": "쌓기나무로 만든 입체도형을 보고 사용된 쌓기나무의 개수를 구",
+      "area": "도형과 측정",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "도형"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 34,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수03-10",
+      "label": "쌓기나무로 만든 입체도형의 위, 앞, 옆에서 본 모양을 표현할 수 있고 , 이러한 표현을 보고 입...",
+      "summary": "쌓기나무로 만든 입체도형의 위, 앞, 옆에서 본 모양을 표현할 수 있고 , 이러한 표현을 보고 입...",
+      "area": "도형과 측정",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "도형",
+        "표"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 34,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수03-11",
+      "label": "평면도형의 둘레를 이해하고, 기본적인 평면도형의 둘레를 구",
+      "summary": "평면도형의 둘레를 이해하고, 기본적인 평면도형의 둘레를 구",
+      "area": "도형과 측정",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "도형"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 35,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수03-12",
+      "label": "넓이 단위 1cm², 1m², 1km²를 알며, 그 관계를 ",
+      "summary": "넓이 단위 1cm², 1m², 1km²를 알며, 그 관계를 ",
+      "area": "도형과 측정",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "넓이"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 35,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수03-13",
+      "label": "직사각형과 정사각형의 넓이를 구하는 방법을 이해하고, 이를 구할 수 있다 .",
+      "summary": "직사각형과 정사각형의 넓이를 구하는 방법을 이해하고, 이를 구할 수 있다 .",
+      "area": "도형과 측정",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "사각형",
+        "넓이"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 35,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수03-14",
+      "label": "평행사변형, 삼각형, 사다리꼴, 마름모의 넓이를 구하는 방법을 다양하게 추론하고 , 이와 관련된...",
+      "summary": "평행사변형, 삼각형, 사다리꼴, 마름모의 넓이를 구하는 방법을 다양하게 추론하고 , 이와 관련된...",
+      "area": "도형과 측정",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "삼각형",
+        "원",
+        "넓이"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 35,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수03-15",
+      "label": "여러 가지 원 모양 물체의 원주와 지름을 측정하는 활동을 통하여, 원주율이 일정한 값임을 알고 그...",
+      "summary": "여러 가지 원 모양 물체의 원주와 지름을 측정하는 활동을 통하여, 원주율이 일정한 값임을 알고 그...",
+      "area": "도형과 측정",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 35,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수03-16",
+      "label": "원주와 원의 넓이를 구하는 방법을 이해하고, 이를 구할 수 있다 . 숛 입체도형의 겉넓이와 부피",
+      "summary": "원주와 원의 넓이를 구하는 방법을 이해하고, 이를 구할 수 있다 . 숛 입체도형의 겉넓이와 부피",
+      "area": "도형과 측정",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "도형",
+        "원",
+        "넓이",
+        "부피"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 35,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수03-17",
+      "label": "직육면체와 정육면체의 겉넓이를 구하는 방법을 이해하고, 이를 구할 수 있다 .",
+      "summary": "직육면체와 정육면체의 겉넓이를 구하는 방법을 이해하고, 이를 구할 수 있다 .",
+      "area": "도형과 측정",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "넓이"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 35,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수03-18",
+      "label": "부피 단위 1cm³, 1m³를 알며, 그 관계를 ",
+      "summary": "부피 단위 1cm³, 1m³를 알며, 그 관계를 ",
+      "area": "도형과 측정",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "부피"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 35,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수03-19",
+      "label": "직육면체와 정육면체의 부피를 구하는 방법을 이해하고, 이를 구할 수 있다 .",
+      "summary": "직육면체와 정육면체의 부피를 구하는 방법을 이해하고, 이를 구할 수 있다 .",
+      "area": "도형과 측정",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "부피"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 35,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수04-01",
+      "label": "평균의 의미를 알고, 자료를 수집하여 평균을 구하고 해석",
+      "summary": "평균의 의미를 알고, 자료를 수집하여 평균을 구하고 해석",
+      "area": "자료와 가능성",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "자료",
+        "평균"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 37,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수04-02",
+      "label": "자료를 수집하여 띠그래프나 원그래프로 나타내고 해석",
+      "summary": "자료를 수집하여 띠그래프나 원그래프로 나타내고 해석",
+      "area": "자료와 가능성",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "그래프",
+        "원",
+        "자료"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 37,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수04-03",
+      "label": "탐구 문제를 설정하고, 그에 맞는 자료를 수집, 정리하여 적절한 그래프로 나타내고 해석할 수 있다...",
+      "summary": "탐구 문제를 설정하고, 그에 맞는 자료를 수집, 정리하여 적절한 그래프로 나타내고 해석할 수 있다...",
+      "area": "자료와 가능성",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "그래프",
+        "자료",
+        "가능성"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 37,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수04-04",
+      "label": "사건이 일어날 가능성을 말로 표현하고 비교",
+      "summary": "사건이 일어날 가능성을 말로 표현하고 비교",
+      "area": "자료와 가능성",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "비",
+        "표",
+        "가능성"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 37,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수04-05",
+      "label": "사건이 일어날 가능성을 수로 나타낼 수 있다.",
+      "summary": "사건이 일어날 가능성을 수로 나타낼 수 있다.",
+      "area": "자료와 가능성",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "가능성"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 37,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "6수04-06",
+      "label": "자료를 이용하여 가능성을 예상하고, 가능성에 근거하여 적절한 판단을 내릴 수 있다. (가) 성취기...",
+      "summary": "자료를 이용하여 가능성을 예상하고, 가능성에 근거하여 적절한 판단을 내릴 수 있다. (가) 성취기...",
+      "area": "자료와 가능성",
+      "gradeBand": "초5-6",
+      "conceptTags": [
+        "자료",
+        "가능성"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 37,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수01-01",
+      "label": "소인수분해의 뜻을 알고, 자연수를 소인수분해 ",
+      "summary": "소인수분해의 뜻을 알고, 자연수를 소인수분해 ",
+      "area": "수와 연산",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "자연수",
+        "인수분해"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 39,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수01-02",
+      "label": "소인수분해를 이용하여 최대공약수와 최소공배수를 구할 수 있다. 숕 정수와 유리수",
+      "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구할 수 있다. 숕 정수와 유리수",
+      "area": "수와 연산",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "약수",
+        "배수",
+        "정수",
+        "유리수",
+        "인수분해"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 39,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수01-03",
+      "label": "다 양 한 상 황 을 이 용 하 여 음 수 의 필 요 성 을 인 식 하 고, 양수와 음수 , 정수...",
+      "summary": "다 양 한 상 황 을 이 용 하 여 음 수 의 필 요 성 을 인 식 하 고, 양수와 음수 , 정수...",
+      "area": "수와 연산",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "정수",
+        "유리수"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 39,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수01-04",
+      "label": "정수와 유리수의 대소 관계를 판단",
+      "summary": "정수와 유리수의 대소 관계를 판단",
+      "area": "수와 연산",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "정수",
+        "유리수"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 39,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수01-05",
+      "label": "정수와 유리수의 사칙계산의 원리를 이해하고, 그 계 산 을 할 수 있 다. 숖 유리수와 순환소수",
+      "summary": "정수와 유리수의 사칙계산의 원리를 이해하고, 그 계 산 을 할 수 있 다. 숖 유리수와 순환소수",
+      "area": "수와 연산",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "소수",
+        "정수",
+        "유리수",
+        "순환소수",
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 39,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수01-06",
+      "label": "순환소수의 뜻을 알고, 유리수와 순환소수의 관계를 설명할 수 있다. 숗 제곱근과 실수",
+      "summary": "순환소수의 뜻을 알고, 유리수와 순환소수의 관계를 설명할 수 있다. 숗 제곱근과 실수",
+      "area": "수와 연산",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "소수",
+        "유리수",
+        "순환소수",
+        "제곱근",
+        "실수"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 39,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수01-07",
+      "label": "제곱근의 뜻과 성질을 알고, 제곱근의 대소 관계를 판단",
+      "summary": "제곱근의 뜻과 성질을 알고, 제곱근의 대소 관계를 판단",
+      "area": "수와 연산",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "제곱근"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 39,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수01-08",
+      "label": "무리수의 개념을 이해하고, 무리수의 유용성을 ",
+      "summary": "무리수의 개념을 이해하고, 무리수의 유용성을 ",
+      "area": "수와 연산",
+      "gradeBand": "중1-3",
+      "conceptTags": [],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 39,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수01-09",
+      "label": "실수의 대소 관계를 판단하고 ",
+      "summary": "실수의 대소 관계를 판단하고 ",
+      "area": "수와 연산",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "실수"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 39,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수01-10",
+      "label": "근호를 포함한 식의 사칙계산의 원리를 이해하고, 그 계 산 을 할 수 있 다. (가) 성취기준 해...",
+      "summary": "근호를 포함한 식의 사칙계산의 원리를 이해하고, 그 계 산 을 할 수 있 다. (가) 성취기준 해...",
+      "area": "수와 연산",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 39,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수02-01",
+      "label": "다양한 상황을 문자를 사용한 식으로 나타내어 그 유용성을 인식하고 , 식의 값을 구할 수 있다 .",
+      "summary": "다양한 상황을 문자를 사용한 식으로 나타내어 그 유용성을 인식하고 , 식의 값을 구할 수 있다 .",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptTags": [],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 40,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수02-02",
+      "label": "일차식의 덧셈과 뺄셈의 원리를 이해하고, 그 계산을 할 수 있다 . 숕 일차방정식",
+      "summary": "일차식의 덧셈과 뺄셈의 원리를 이해하고, 그 계산을 할 수 있다 . 숕 일차방정식",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "덧셈",
+        "뺄셈",
+        "방정식",
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 40,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수02-03",
+      "label": "방정식과 그 해의 뜻을 알고, 등식의 성질을 ",
+      "summary": "방정식과 그 해의 뜻을 알고, 등식의 성질을 ",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "방정식"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 40,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수02-04",
+      "label": "일차방정식을 풀 수 있고, 이를 활용하여 문제를 해결할 수 있다. 숖 좌표평면과 그래프",
+      "summary": "일차방정식을 풀 수 있고, 이를 활용하여 문제를 해결할 수 있다. 숖 좌표평면과 그래프",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "방정식",
+        "그래프",
+        "좌표",
+        "표"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 40,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수02-05",
+      "label": "순서쌍과 좌표를 이해하고, 그 편리함을 ",
+      "summary": "순서쌍과 좌표를 이해하고, 그 편리함을 ",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "좌표",
+        "표"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 40,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수02-06",
+      "label": "다양한 상황을 그래프로 나타내고, 주어진 그래프를 해석",
+      "summary": "다양한 상황을 그래프로 나타내고, 주어진 그래프를 해석",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "그래프"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 40,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수02-07",
+      "label": "정비례, 반비례 관계를 이해하고, 그 관계를 표, 식, 그래프로 나타낼 수 있다. 숗 식의 계산",
+      "summary": "정비례, 반비례 관계를 이해하고, 그 관계를 표, 식, 그래프로 나타낼 수 있다. 숗 식의 계산",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "비",
+        "그래프",
+        "표"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 41,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수02-08",
+      "label": "지수법칙을 이해하고, 이를 이용하여 식을 간단히 할 수 있다 .",
+      "summary": "지수법칙을 이해하고, 이를 이용하여 식을 간단히 할 수 있다 .",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptTags": [],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 41,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수02-09",
+      "label": "다항식의 덧셈과 뺄셈의 원리를 이해하고, 그 계산을 할 수 있다 .",
+      "summary": "다항식의 덧셈과 뺄셈의 원리를 이해하고, 그 계산을 할 수 있다 .",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "덧셈",
+        "뺄셈",
+        "다항식",
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 41,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수02-10",
+      "label": "‘(단항식)×(다항식)’, ‘(다항식)÷(단항식)’과 같은 곱셈과 나눗셈의 원리를 이해하고 , 그...",
+      "summary": "‘(단항식)×(다항식)’, ‘(다항식)÷(단항식)’과 같은 곱셈과 나눗셈의 원리를 이해하고 , 그...",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "곱셈",
+        "나눗셈",
+        "부등식",
+        "다항식",
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 41,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수02-11",
+      "label": "부등식과 그 해의 뜻을 알고, 부등식의 성질을 ",
+      "summary": "부등식과 그 해의 뜻을 알고, 부등식의 성질을 ",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "부등식"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 41,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수02-12",
+      "label": "일차부등식을 풀 수 있고, 이를 활용하여 문제를 해결할 수 있다. 숙 연립일차방정식",
+      "summary": "일차부등식을 풀 수 있고, 이를 활용하여 문제를 해결할 수 있다. 숙 연립일차방정식",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "방정식",
+        "부등식"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 41,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수02-13",
+      "label": "미지수가 2개인 연립일차방정식을 풀 수 있고, 이를 활용하여 문제를 해결할 수 있다. 숚 일차함수...",
+      "summary": "미지수가 2개인 연립일차방정식을 풀 수 있고, 이를 활용하여 문제를 해결할 수 있다. 숚 일차함수...",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "방정식",
+        "함수",
+        "그래프"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 41,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수02-14",
+      "label": "함수의 개념을 이해하고, 함숫값을 구",
+      "summary": "함수의 개념을 이해하고, 함숫값을 구",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "함수"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 41,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수02-15",
+      "label": "일차함수의 개념을 이해하고, 그 그래프를 그릴 수 있다 .",
+      "summary": "일차함수의 개념을 이해하고, 그 그래프를 그릴 수 있다 .",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "함수",
+        "그래프"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 41,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수02-16",
+      "label": "일차함수의 그래프의 성질을 이해하고, 이를 활용하여 문제를 해결할 수 있다. 숛 일차함수와 일차방...",
+      "summary": "일차함수의 그래프의 성질을 이해하고, 이를 활용하여 문제를 해결할 수 있다. 숛 일차함수와 일차방...",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "방정식",
+        "함수",
+        "그래프"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 41,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수02-17",
+      "label": "일차함수와 미지수가 2개인 일차방정식의 관계를 ",
+      "summary": "일차함수와 미지수가 2개인 일차방정식의 관계를 ",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "방정식",
+        "함수"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 41,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수02-18",
+      "label": "두 일차함수의 그래프와 연립일차방정식의 관계를 설명할 수 있다. 순 다항식의 곱셈과 인수분해",
+      "summary": "두 일차함수의 그래프와 연립일차방정식의 관계를 설명할 수 있다. 순 다항식의 곱셈과 인수분해",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "곱셈",
+        "방정식",
+        "함수",
+        "그래프",
+        "다항식",
+        "인수분해"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 41,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수02-19",
+      "label": "다항식의 곱셈과 인수분해를 할 수 있다. 숝숦 이차방정식",
+      "summary": "다항식의 곱셈과 인수분해를 할 수 있다. 숝숦 이차방정식",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "곱셈",
+        "방정식",
+        "다항식",
+        "인수분해"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 41,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수02-20",
+      "label": "이차방정식을 풀 수 있고, 이를 활용하여 문제를 해결할 수 있다. 숝숧 이차함수와 그 그래프",
+      "summary": "이차방정식을 풀 수 있고, 이를 활용하여 문제를 해결할 수 있다. 숝숧 이차함수와 그 그래프",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "방정식",
+        "함수",
+        "그래프"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 41,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수02-21",
+      "label": "이차함수의 개념을 ",
+      "summary": "이차함수의 개념을 ",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "함수"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 41,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수02-22",
+      "label": "이차함수의 그래프를 그릴 수 있고, 그 성질을 설명할 수 있다 .",
+      "summary": "이차함수의 그래프를 그릴 수 있고, 그 성질을 설명할 수 있다 .",
+      "area": "변화와 관계",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "함수",
+        "그래프"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 41,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수03-01",
+      "label": "점, 선, 면, 각을 이해하고 , 실생활 상황과 연결하여 점 , 직선, 평면의 위치 관계를 설명할...",
+      "summary": "점, 선, 면, 각을 이해하고 , 실생활 상황과 연결하여 점 , 직선, 평면의 위치 관계를 설명할...",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptTags": [],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 43,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수03-02",
+      "label": "평행선에서 동위각과 엇각의 성질을 이해하고 설명할 수 있다. 숕 작도와 합동",
+      "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명할 수 있다. 숕 작도와 합동",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "합동"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 43,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수03-03",
+      "label": "삼각형을 작도하고, 그 과정을 설명할 수 있다 .",
+      "summary": "삼각형을 작도하고, 그 과정을 설명할 수 있다 .",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "삼각형"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 43,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수03-04",
+      "label": "삼각형의 합동 조건을 이해하고, 이를 이용하여 두 삼각형이 합동인지 판별할 수 있다 . 숖 평면도...",
+      "summary": "삼각형의 합동 조건을 이해하고, 이를 이용하여 두 삼각형이 합동인지 판별할 수 있다 . 숖 평면도...",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "도형",
+        "삼각형",
+        "합동"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 43,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수03-05",
+      "label": "다각형의 성질을 이해하고 ",
+      "summary": "다각형의 성질을 이해하고 ",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptTags": [],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 43,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수03-06",
+      "label": "부채꼴의 중심각과 호의 관계를 이해하고, 이를 이용하여 부채꼴의 호의 길이와 넓이를 구 할 수 있...",
+      "summary": "부채꼴의 중심각과 호의 관계를 이해하고, 이를 이용하여 부채꼴의 호의 길이와 넓이를 구 할 수 있...",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "도형",
+        "길이",
+        "넓이"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 44,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수03-07",
+      "label": "구체적인 모형이나 공학 도구를 이용하여 다면체와 회전체의 성질을 탐구하고 , 이를 설명할 수 있다...",
+      "summary": "구체적인 모형이나 공학 도구를 이용하여 다면체와 회전체의 성질을 탐구하고 , 이를 설명할 수 있다...",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptTags": [],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 44,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수03-08",
+      "label": "입체도형의 겉넓이와 부피를 구할 수 있다. 수 삼각형과 사각형의 성질",
+      "summary": "입체도형의 겉넓이와 부피를 구할 수 있다. 수 삼각형과 사각형의 성질",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "도형",
+        "삼각형",
+        "사각형",
+        "넓이",
+        "부피"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 44,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수03-09",
+      "label": "이등변삼각형의 성질을 이해하고 정당화",
+      "summary": "이등변삼각형의 성질을 이해하고 정당화",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "삼각형"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 44,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수03-10",
+      "label": "삼각형의 외심과 내심의 성질을 이해하고 정당화",
+      "summary": "삼각형의 외심과 내심의 성질을 이해하고 정당화",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "삼각형"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 44,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수03-11",
+      "label": "사각형의 성질을 이해하고 정당화할 수 있다. 숙 도형의 닮음",
+      "summary": "사각형의 성질을 이해하고 정당화할 수 있다. 숙 도형의 닮음",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "도형",
+        "사각형",
+        "닮음"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 44,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수03-12",
+      "label": "도형의 닮음의 뜻과 닮은 도형의 성질을 이해하고, 닮음비를 구",
+      "summary": "도형의 닮음의 뜻과 닮은 도형의 성질을 이해하고, 닮음비를 구",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "비",
+        "도형",
+        "닮음"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 44,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수03-13",
+      "label": "삼각형의 닮음 조건을 이해하고, 이를 이용하여 두 삼각형이 닮음인지 판별할 수 있다 .",
+      "summary": "삼각형의 닮음 조건을 이해하고, 이를 이용하여 두 삼각형이 닮음인지 판별할 수 있다 .",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "삼각형",
+        "닮음"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 44,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수03-14",
+      "label": "평행선 사이의 선분의 길이의 비를 구할 수 있다 . 숚 피타고라스 정리",
+      "summary": "평행선 사이의 선분의 길이의 비를 구할 수 있다 . 숚 피타고라스 정리",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "비",
+        "피타고라스",
+        "길이"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 44,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수03-15",
+      "label": "피타고라스 정리를 이해하고 정당화할 수 있다. 숛 삼각비",
+      "summary": "피타고라스 정리를 이해하고 정당화할 수 있다. 숛 삼각비",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "비",
+        "피타고라스",
+        "삼각비"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 44,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수03-16",
+      "label": "삼각비의 뜻을 알고, 간단한 삼각비의 값을 구할 수 있다 .",
+      "summary": "삼각비의 뜻을 알고, 간단한 삼각비의 값을 구할 수 있다 .",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "비",
+        "삼각비"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 44,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수03-17",
+      "label": "삼각비를 활용하여 여러 가지 문제를 해결할 수 있다 . 순 원의 성질",
+      "summary": "삼각비를 활용하여 여러 가지 문제를 해결할 수 있다 . 순 원의 성질",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "비",
+        "원",
+        "삼각비"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 44,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수03-18",
+      "label": "원의 현에 관한 성질과 접선에 관한 성질을 이해하고 정당화할 수 있다 .",
+      "summary": "원의 현에 관한 성질과 접선에 관한 성질을 이해하고 정당화할 수 있다 .",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 44,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수03-19",
+      "label": "원주각의 성질을 이해하고 정당화",
+      "summary": "원주각의 성질을 이해하고 정당화",
+      "area": "도형과 측정",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "원"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 44,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수04-01",
+      "label": "중앙값, 최빈값의 뜻을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하여 구할 수 있다. 숕 도...",
+      "summary": "중앙값, 최빈값의 뜻을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하여 구할 수 있다. 숕 도...",
+      "area": "자료와 가능성",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "자료",
+        "표",
+        "상대도수"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 46,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수04-02",
+      "label": "자료를 줄기와 잎 그림 , 도수분포표, 히스토그램, 도수분포다각형으로 나타내고 해석",
+      "summary": "자료를 줄기와 잎 그림 , 도수분포표, 히스토그램, 도수분포다각형으로 나타내고 해석",
+      "area": "자료와 가능성",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "자료",
+        "표"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 46,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수04-03",
+      "label": "상대도수를 구하고, 상대도수의 분포를 표나 그래프로 나타내고 해석",
+      "summary": "상대도수를 구하고, 상대도수의 분포를 표나 그래프로 나타내고 해석",
+      "area": "자료와 가능성",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "그래프",
+        "표",
+        "상대도수"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 46,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수04-04",
+      "label": "통계적 탐구 문제를 설정하고 , 공학 도구를 이용하여 자료를 수집하여 분석하고 , 그 결과를 해석...",
+      "summary": "통계적 탐구 문제를 설정하고 , 공학 도구를 이용하여 자료를 수집하여 분석하고 , 그 결과를 해석...",
+      "area": "자료와 가능성",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "자료",
+        "확률"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 46,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수04-05",
+      "label": "경우의 수를 구할 수 있다 .",
+      "summary": "경우의 수를 구할 수 있다 .",
+      "area": "자료와 가능성",
+      "gradeBand": "중1-3",
+      "conceptTags": [],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 46,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수04-06",
+      "label": "확률의 개념과 그 기본 성질을 이해하고, 확률을 구",
+      "summary": "확률의 개념과 그 기본 성질을 이해하고, 확률을 구",
+      "area": "자료와 가능성",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "확률"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 46,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수04-07",
+      "label": "분산과 표준편차를 구하고 자료의 분포를 설명할 수 있다. 수 상자그림과 산점도",
+      "summary": "분산과 표준편차를 구하고 자료의 분포를 설명할 수 있다. 수 상자그림과 산점도",
+      "area": "자료와 가능성",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "자료",
+        "표",
+        "상자그림",
+        "산점도"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 47,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수04-08",
+      "label": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교",
+      "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교",
+      "area": "자료와 가능성",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "비",
+        "자료",
+        "상자그림"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 47,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    },
+    {
+      "code": "9수04-09",
+      "label": "자료를 산점도로 나타내고 상관관계를 말",
+      "summary": "자료를 산점도로 나타내고 상관관계를 말",
+      "area": "자료와 가능성",
+      "gradeBand": "중1-3",
+      "conceptTags": [
+        "자료",
+        "산점도"
+      ],
+      "source": {
+        "pdf": "02_[별책8] 수학과 교육과정.pdf",
+        "page": 47,
+        "basis": "2022 개정 수학과 교육과정 공통 교육과정 성취기준"
+      }
+    }
+  ],
+  "textbook_concepts": [],
+  "edges": [
+    {
+      "from": "curr-1-1-네-자리-이하의-수",
+      "to": "curr-1-1-두-자리-수-범위의-덧셈과-뺄셈",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-1-1-두-자리-수-범위의-덧셈과-뺄셈",
+      "to": "curr-1-1-한-자리-수의-곱셈",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-1-1-한-자리-수의-곱셈",
+      "to": "curr-1-2-다섯-자리-이상의-수",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-1-2-다섯-자리-이상의-수",
+      "to": "curr-1-2-분수",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-1-2-분수",
+      "to": "curr-1-2-소수",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-1-2-소수",
+      "to": "curr-1-2-세-자리-수의-덧셈과-뺄셈",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-1-2-세-자리-수의-덧셈과-뺄셈",
+      "to": "curr-1-2-자연수의-곱셈과-나눗셈",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-1-2-자연수의-곱셈과-나눗셈",
+      "to": "curr-1-2-분모가-같은-분수의-덧셈과-뺄셈",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-1-2-분모가-같은-분수의-덧셈과-뺄셈",
+      "to": "curr-1-2-소수의-덧셈과-뺄셈",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-1-2-소수의-덧셈과-뺄셈",
+      "to": "curr-1-3-약수와-배수",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-1-3-약수와-배수",
+      "to": "curr-1-3-수의-범위와-올림-버림-반올림",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-1-3-수의-범위와-올림-버림-반올림",
+      "to": "curr-1-3-자연수의-혼합-계산",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-1-3-자연수의-혼합-계산",
+      "to": "curr-1-3-분모가-다른-분수의-덧셈과-뺄셈",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-1-3-분모가-다른-분수의-덧셈과-뺄셈",
+      "to": "curr-1-3-분수의-곱셈과-나눗셈",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-1-3-분수의-곱셈과-나눗셈",
+      "to": "curr-1-3-소수의-곱셈과-나눗셈",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-1-3-소수의-곱셈과-나눗셈",
+      "to": "curr-1-4-소인수분해",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-1-4-소인수분해",
+      "to": "curr-1-4-정수와-유리수",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-1-4-정수와-유리수",
+      "to": "curr-1-4-유리수와-순환소수",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-1-4-유리수와-순환소수",
+      "to": "curr-1-4-제곱근과-실수",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-2-1-규칙",
+      "to": "curr-2-2-규칙",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-2-2-규칙",
+      "to": "curr-2-2-동치-관계",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-2-2-동치-관계",
+      "to": "curr-2-3-대응-관계",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-2-3-대응-관계",
+      "to": "curr-2-3-비와-비율",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-2-3-비와-비율",
+      "to": "curr-2-3-비례식과-비례배분",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-2-3-비례식과-비례배분",
+      "to": "curr-2-4-문자의-사용과-식",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-2-4-문자의-사용과-식",
+      "to": "curr-2-4-일차방정식",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-2-4-일차방정식",
+      "to": "curr-2-4-좌표평면과-그래프",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-2-4-좌표평면과-그래프",
+      "to": "curr-2-4-식의-계산",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-2-4-식의-계산",
+      "to": "curr-2-4-일차부등식",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-2-4-일차부등식",
+      "to": "curr-2-4-연립일차방정식",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-2-4-연립일차방정식",
+      "to": "curr-2-4-일차함수와-그-그래프",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-2-4-일차함수와-그-그래프",
+      "to": "curr-2-4-일차함수와-일차방정식의-관계",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-2-4-일차함수와-일차방정식의-관계",
+      "to": "curr-2-4-다항식의-곱셈과-인수분해",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-2-4-다항식의-곱셈과-인수분해",
+      "to": "curr-2-4-이차방정식",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-2-4-이차방정식",
+      "to": "curr-2-4-이차함수와-그-그래프",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-1-입체도형의-모양",
+      "to": "curr-3-1-평면도형과-그-구성-요소",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-1-평면도형과-그-구성-요소",
+      "to": "curr-3-1-양의-비교",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-1-양의-비교",
+      "to": "curr-3-1-시각과-시간-시-분",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-1-시각과-시간-시-분",
+      "to": "curr-3-1-길이-cm-m",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-1-길이-cm-m",
+      "to": "curr-3-2-도형의-기초",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-2-도형의-기초",
+      "to": "curr-3-2-원의-구성-요소",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-2-원의-구성-요소",
+      "to": "curr-3-2-여러-가지-삼각형",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-2-여러-가지-삼각형",
+      "to": "curr-3-2-여러-가지-사각형",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-2-여러-가지-사각형",
+      "to": "curr-3-2-다각형",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-2-다각형",
+      "to": "curr-3-2-평면도형의-이동",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-2-평면도형의-이동",
+      "to": "curr-3-2-시각과-시간-초",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-2-시각과-시간-초",
+      "to": "curr-3-2-길이-mm-km",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-2-길이-mm-km",
+      "to": "curr-3-2-들이-L-mL",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-2-들이-L-mL",
+      "to": "curr-3-2-무게-kg-g-t",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-2-무게-kg-g-t",
+      "to": "curr-3-2-각도",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-2-각도",
+      "to": "curr-3-3-합동과-대칭",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-3-합동과-대칭",
+      "to": "curr-3-3-직육면체와-정육면체",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-3-직육면체와-정육면체",
+      "to": "curr-3-3-각기둥과-각뿔",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-3-각기둥과-각뿔",
+      "to": "curr-3-3-원기둥-원뿔-구",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-3-원기둥-원뿔-구",
+      "to": "curr-3-3-다각형의-둘레와-넓이",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-3-다각형의-둘레와-넓이",
+      "to": "curr-3-3-원주율과-원의-넓이",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-3-원주율과-원의-넓이",
+      "to": "curr-3-3-직육면체와-정육면체의-겉넓이와-부피",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-3-직육면체와-정육면체의-겉넓이와-부피",
+      "to": "curr-3-4-기본-도형",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-4-기본-도형",
+      "to": "curr-3-4-작도와-합동",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-4-작도와-합동",
+      "to": "curr-3-4-평면도형의-성질",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-4-평면도형의-성질",
+      "to": "curr-3-4-입체도형의-성질",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-4-입체도형의-성질",
+      "to": "curr-3-4-삼각형과-사각형의-성질",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-4-삼각형과-사각형의-성질",
+      "to": "curr-3-4-도형의-닮음",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-4-도형의-닮음",
+      "to": "curr-3-4-피타고라스-정리",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-4-피타고라스-정리",
+      "to": "curr-3-4-삼각비",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-3-4-삼각비",
+      "to": "curr-3-4-원의-성질",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-4-1-자료의-분류",
+      "to": "curr-4-1-표",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-4-1-표",
+      "to": "curr-4-1-를-이용한-그래프",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-4-1-를-이용한-그래프",
+      "to": "curr-4-2-그림그래프",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-4-2-그림그래프",
+      "to": "curr-4-2-막대그래프",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-4-2-막대그래프",
+      "to": "curr-4-2-꺾은선그래프",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-4-2-꺾은선그래프",
+      "to": "curr-4-3-평균",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-4-3-평균",
+      "to": "curr-4-3-띠그래프-원그래프",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-4-3-띠그래프-원그래프",
+      "to": "curr-4-3-가능성",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-4-3-가능성",
+      "to": "curr-4-4-대푯값",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-4-4-대푯값",
+      "to": "curr-4-4-도수분포표와-상대도수",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-4-4-도수분포표와-상대도수",
+      "to": "curr-4-4-경우의-수와-확률",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-4-4-경우의-수와-확률",
+      "to": "curr-4-4-산포도",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    },
+    {
+      "from": "curr-4-4-산포도",
+      "to": "curr-4-4-상자그림과-산점도",
+      "type": "area_sequence",
+      "label": "같은 영역 안의 공식 학습 흐름"
+    }
+  ],
+  "source_files": [],
+  "access_issues": [
+    {
+      "type": "missing_textbook_sources",
+      "severity": "blocking_for_textbook_detail",
+      "message": "`교과서_원본/`에 분석할 PDF 또는 이미지 파일이 없습니다. 교육과정 골격은 완성했고, 교과서 세부개념은 원본 제공 후 갱신해야 합니다."
+    }
+  ]
+}</script>
+  <script>
+    const DATA = JSON.parse(document.getElementById('hierarchyData').textContent);
+    const state = { search: '', area: '전체', grade: '전체', bookType: '전체', selectedId: null };
+    const areas = DATA.metadata.areas;
+    const grades = DATA.metadata.gradeBands;
+    const nodesById = new Map(DATA.curriculum_nodes.map(node => [node.id, node]));
+    const standardsByCode = new Map(DATA.achievement_standards.map(item => [item.code, item]));
+
+    function optionList(select, values) {
+      select.innerHTML = values.map(value => `<option value="${value}">${value}</option>`).join('');
+    }
+
+    function matchesNode(node) {
+      const q = state.search.trim().toLowerCase();
+      const haystack = [
+        node.label,
+        node.summary,
+        node.area,
+        node.gradeBand,
+        ...(node.achievementCodes || []),
+        ...(node.coreIdeas || [])
+      ].join(' ').toLowerCase();
+      return (state.area === '전체' || node.area === state.area)
+        && (state.grade === '전체' || node.gradeBand === state.grade)
+        && (!q || haystack.includes(q));
+    }
+
+    function card(node) {
+      const codes = node.achievementCodes || [];
+      return `<button class="card ${state.selectedId === node.id ? 'selected' : ''}" data-id="${node.id}">
+        <span class="card-title">${node.label}</span>
+        <span class="card-meta"><span>${node.gradeBand}</span><span>${codes.length}개 성취기준</span><span>${node.textbookConceptCount || 0}개 세부개념</span></span>
+      </button>`;
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById('hierarchyGrid');
+      const head = `<div class="grade-head"><div>영역</div>${grades.map(g => `<div>${g}</div>`).join('')}</div>`;
+      const rows = areas.map((area, areaIndex) => {
+        const cells = grades.map(grade => {
+          const cards = DATA.curriculum_nodes
+            .filter(node => node.area === area && node.gradeBand === grade)
+            .filter(matchesNode)
+            .map(card)
+            .join('');
+          return `<div class="lane">${cards || '<div class="empty">필터 조건에 맞는 개념 없음</div>'}</div>`;
+        }).join('');
+        return `<div class="area-row area-${areaIndex}"><div class="area-label">${area}</div>${cells}</div>`;
+      }).join('');
+      grid.innerHTML = head + rows;
+      grid.querySelectorAll('.card').forEach(button => {
+        button.addEventListener('click', () => {
+          state.selectedId = button.dataset.id;
+          renderGrid();
+          renderDetail(nodesById.get(state.selectedId));
+        });
+      });
+    }
+
+    function textbookMatches(item) {
+      const q = state.search.trim().toLowerCase();
+      const haystack = [item.label, item.summary, item.publisher, item.bookType, item.grade, item.area].join(' ').toLowerCase();
+      return (state.area === '전체' || item.area === state.area)
+        && (state.grade === '전체' || item.gradeBand === state.grade)
+        && (state.bookType === '전체' || item.bookType === state.bookType)
+        && (!q || haystack.includes(q));
+    }
+
+    function renderTextbookSection() {
+      const section = document.getElementById('textbookSection');
+      const items = DATA.textbook_concepts.filter(textbookMatches).slice(0, 80);
+      if (!DATA.textbook_concepts.length) {
+        section.innerHTML = `<div class="empty" style="margin-top:16px">교과서 원본 대기: 현재 <code>교과서_원본/</code>에 분석할 파일이 없어 세부개념 카드는 생성되지 않았습니다.</div>`;
+        return;
+      }
+      section.innerHTML = `<h2>교과서 세부개념</h2><div class="lane">${items.map(item => `<button class="card" data-textbook="${item.id}"><span class="card-title">${item.label}</span><span class="card-meta"><span>${item.grade || ''}</span><span>${item.publisher || ''}</span><span>${item.bookType || ''}</span><span>${item.page}쪽</span></span></button>`).join('')}</div>`;
+    }
+
+    function renderDetail(node) {
+      const panel = document.getElementById('detailPanel');
+      if (!node) return;
+      const codes = (node.achievementCodes || []).map(code => standardsByCode.get(code)).filter(Boolean);
+      const codeHtml = codes.length ? codes.map(item => `<span class="code" title="${item.summary}">${item.code}</span>`).join('') : '<span class="subtle">연결 성취기준 없음</span>';
+      const standardHtml = codes.slice(0, 8).map(item => `<li><strong>${item.code}</strong> ${item.summary}</li>`).join('');
+      const prereq = (node.prerequisiteNodeIds || []).map(id => nodesById.get(id)?.label).filter(Boolean).join(', ') || '없음';
+      panel.innerHTML = `
+        <h2>${node.label}</h2>
+        <span class="pill teal">${node.gradeBand}</span>
+        <span class="pill">${node.area}</span>
+        <div class="detail-section">
+          <p>${node.summary}</p>
+          <div class="code-list">${codeHtml}</div>
+        </div>
+        <div class="detail-section">
+          <h2>성취기준 요약</h2>
+          <ul>${standardHtml || '<li>표시할 성취기준 요약이 없습니다.</li>'}</ul>
+        </div>
+        <div class="detail-section">
+          <h2>선수 흐름</h2>
+          <p>${prereq}</p>
+        </div>
+        <div class="detail-section">
+          <h2>출처</h2>
+          <p class="subtle">${node.source.pdf} · ${node.source.pageRange || node.source.page || ''}쪽 · ${node.source.basis}</p>
+        </div>
+      `;
+    }
+
+    function renderAccessNotice() {
+      const notice = document.getElementById('accessNotice');
+      if (!notice) return;
+      const blocking = DATA.access_issues.find(issue => issue.severity === 'blocking_for_textbook_detail');
+      if (blocking) notice.textContent = blocking.message;
+    }
+
+    function renderMetrics() {
+      document.getElementById('metricNodes').textContent = DATA.metadata.counts.curriculumNodes;
+      document.getElementById('metricCodes').textContent = DATA.metadata.counts.achievementStandardsTotal;
+      document.getElementById('metricTextbook').textContent = DATA.metadata.counts.textbookConcepts;
+      document.getElementById('metricSources').textContent = DATA.metadata.counts.sourceFiles;
+      document.getElementById('sourceStatus').textContent = DATA.metadata.counts.sourceFiles ? '교과서 원본 등록' : '교과서 원본 대기';
+    }
+
+    function renderAll() {
+      renderMetrics();
+      renderGrid();
+      renderTextbookSection();
+      renderAccessNotice();
+    }
+
+    optionList(document.getElementById('areaFilter'), ['전체', ...areas]);
+    optionList(document.getElementById('gradeFilter'), ['전체', ...grades]);
+    optionList(document.getElementById('bookTypeFilter'), ['전체', '교과서', '익힘책', '지도서']);
+    document.getElementById('search').addEventListener('input', event => { state.search = event.target.value; renderAll(); });
+    document.getElementById('areaFilter').addEventListener('change', event => { state.area = event.target.value; renderAll(); });
+    document.getElementById('gradeFilter').addEventListener('change', event => { state.grade = event.target.value; renderAll(); });
+    document.getElementById('bookTypeFilter').addEventListener('change', event => { state.bookType = event.target.value; renderAll(); });
+    renderAll();
+  </script>
+</body>
+</html>
