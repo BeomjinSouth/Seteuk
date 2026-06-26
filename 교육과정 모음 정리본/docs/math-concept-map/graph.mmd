@@ -80,6 +80,42 @@ flowchart LR
   m1_mis_system_one_equation_only["연립방정식의 해를 한 방정식만 만족해도 된다고 보는 오류"]
   m1_mis_system_elimination_sign["가감법에서 부호와 계수 처리를 잘못하는 오류"]
   m1_mis_system_substitution["대입법에서 식 전체를 대입하지 않는 오류"]
+  m1_func_unit["일차함수와 그 그래프"]
+  m1_func_function["함수"]
+  m1_func_two_quantity_relation["두 양 사이의 관계"]
+  m1_func_correspondence["대응 관계"]
+  m1_func_function_judgement["함수인지 판단하기"]
+  m1_func_value["함숫값"]
+  m1_func_linear_function["일차함수"]
+  m1_func_linear_formula["일차함수의 식"]
+  m1_func_linear_graph["일차함수의 그래프"]
+  m1_func_graph_drawing["일차함수 그래프 그리기"]
+  m1_func_y_ax_graph["일차함수 y=ax의 그래프"]
+  m1_func_y_ax_b_graph["일차함수 y=ax+b의 그래프"]
+  m1_func_graph_properties["일차함수의 그래프의 성질"]
+  m1_func_slope["기울기"]
+  m1_func_slope_sign["기울기의 부호"]
+  m1_func_x_intercept["x절편"]
+  m1_func_y_intercept["y절편"]
+  m1_func_parallel_translation["평행이동"]
+  m1_func_find_graph_equation["일차함수 그래프의 식 구하기"]
+  m1_func_problem_solving["일차함수 활용 문제 해결"]
+  m1_func_tech_tool_graph["공학 도구로 함수 그래프 탐구하기"]
+  m1_func_eq_relation_unit["일차함수와 일차방정식의 관계"]
+  m1_func_two_variable_equation_as_graph["미지수가 2개인 일차방정식의 해를 그래프로 나타내기"]
+  m1_func_equation_relation["일차함수와 미지수가 2개인 일차방정식의 관계"]
+  m1_func_two_linear_graphs["두 일차함수의 그래프"]
+  m1_func_intersection_point["교점"]
+  m1_func_intersection_count["교점의 개수"]
+  m1_func_system_graph_relation["두 일차함수의 그래프와 연립일차방정식의 관계"]
+  m1_func_system_solution_from_intersection["교점으로 연립일차방정식의 해 말하기"]
+  m1_mis_all_relations_are_functions["모든 두 양의 관계를 함수로 보는 오류"]
+  m1_mis_function_value_input_output["함숫값과 입력값 혼동"]
+  m1_mis_function_linear_function["함수와 일차함수 혼동"]
+  m1_mis_slope_intercept["기울기와 절편 혼동"]
+  m1_mis_slope_sign["기울기 부호와 그래프 방향 혼동"]
+  m1_mis_x_y_intercept["x절편과 y절편 혼동"]
+  m1_mis_intersection_solution["그래프의 교점과 연립방정식의 해를 분리해서 보는 오류"]
   m1_coord_graph_unit["좌표평면과 그래프"]
   m1_coord_ordered_pair["순서쌍"]
   m1_coord_coordinate["좌표"]
@@ -244,6 +280,64 @@ flowchart LR
   m1_mis_system_one_equation_only -- "혼동" --> m1_system_solution
   m1_mis_system_elimination_sign -- "혼동" --> m1_system_addition_subtraction_method
   m1_mis_system_substitution -- "혼동" --> m1_system_substitution_method
+  m1_coord_graph_unit -- "선수" --> m1_func_unit
+  m1_expr_unit -- "선수" --> m1_func_unit
+  m1_eq_unit -- "선수" --> m1_func_eq_relation_unit
+  m1_system_unit -- "선수" --> m1_func_eq_relation_unit
+  m1_func_unit -- "포함" --> m1_func_function
+  m1_func_unit -- "포함" --> m1_func_value
+  m1_func_unit -- "포함" --> m1_func_linear_function
+  m1_func_unit -- "포함" --> m1_func_linear_graph
+  m1_func_unit -- "포함" --> m1_func_graph_properties
+  m1_func_function -- "포함" --> m1_func_two_quantity_relation
+  m1_func_two_quantity_relation -- "사용" --> m1_func_correspondence
+  m1_func_correspondence -- "사용" --> m1_func_function_judgement
+  m1_func_function -- "포함" --> m1_func_value
+  m1_expr_substitution -- "사용" --> m1_func_value
+  m1_func_function -- "포함" --> m1_func_linear_function
+  m1_expr_linear_expression -- "선수" --> m1_func_linear_function
+  m1_func_linear_function -- "표현" --> m1_func_linear_formula
+  m1_func_linear_function -- "표현" --> m1_func_linear_graph
+  m1_coord_coordinate_plane -- "사용" --> m1_func_linear_graph
+  m1_func_linear_graph -- "사용" --> m1_func_graph_drawing
+  m1_func_y_ax_graph -- "선수" --> m1_func_y_ax_b_graph
+  m1_func_parallel_translation -- "사용" --> m1_func_y_ax_b_graph
+  m1_func_linear_graph -- "사용" --> m1_func_graph_properties
+  m1_func_graph_properties -- "포함" --> m1_func_slope
+  m1_func_graph_properties -- "포함" --> m1_func_x_intercept
+  m1_func_graph_properties -- "포함" --> m1_func_y_intercept
+  m1_func_slope -- "포함" --> m1_func_slope_sign
+  m1_graph_increase_decrease -- "사용" --> m1_func_slope_sign
+  m1_func_x_intercept -- "사용" --> m1_coord_x_axis
+  m1_func_y_intercept -- "사용" --> m1_coord_y_axis
+  m1_func_graph_properties -- "사용" --> m1_func_find_graph_equation
+  m1_func_graph_properties -- "사용" --> m1_func_problem_solving
+  m1_func_tech_tool_graph -- "사용" --> m1_func_graph_properties
+  m1_func_unit -- "선수" --> m1_func_eq_relation_unit
+  m1_func_eq_relation_unit -- "포함" --> m1_func_two_variable_equation_as_graph
+  m1_func_eq_relation_unit -- "포함" --> m1_func_equation_relation
+  m1_func_eq_relation_unit -- "포함" --> m1_func_two_linear_graphs
+  m1_func_eq_relation_unit -- "포함" --> m1_func_system_graph_relation
+  m1_system_two_variable_linear_equation -- "표현" --> m1_func_two_variable_equation_as_graph
+  m1_func_two_variable_equation_as_graph -- "사용" --> m1_func_equation_relation
+  m1_func_linear_graph -- "사용" --> m1_func_equation_relation
+  m1_func_two_linear_graphs -- "포함" --> m1_func_intersection_point
+  m1_func_two_linear_graphs -- "포함" --> m1_func_intersection_count
+  m1_func_intersection_point -- "사용" --> m1_func_system_solution_from_intersection
+  m1_system_simultaneous_linear_equations -- "표현" --> m1_func_system_graph_relation
+  m1_func_system_graph_relation -- "사용" --> m1_func_system_solution_from_intersection
+  m1_func_system_solution_from_intersection -- "사용" --> m1_system_solution
+  m1_system_solution -- "표현" --> m1_func_intersection_point
+  m1_mis_all_relations_are_functions -- "혼동" --> m1_func_function_judgement
+  m1_mis_function_value_input_output -- "혼동" --> m1_func_value
+  m1_mis_function_linear_function -- "혼동" --> m1_func_function
+  m1_mis_function_linear_function -- "혼동" --> m1_func_linear_function
+  m1_mis_slope_intercept -- "혼동" --> m1_func_slope
+  m1_mis_slope_intercept -- "혼동" --> m1_func_y_intercept
+  m1_mis_slope_sign -- "혼동" --> m1_func_slope_sign
+  m1_mis_x_y_intercept -- "혼동" --> m1_func_x_intercept
+  m1_mis_x_y_intercept -- "혼동" --> m1_func_y_intercept
+  m1_mis_intersection_solution -- "혼동" --> m1_func_system_graph_relation
   m1_coord_graph_unit -- "포함" --> m1_coord_ordered_pair
   m1_coord_graph_unit -- "포함" --> m1_coord_coordinate
   m1_coord_graph_unit -- "포함" --> m1_coord_coordinate_plane
@@ -373,6 +467,42 @@ flowchart LR
   class m1_mis_system_one_equation_only risk;
   class m1_mis_system_elimination_sign risk;
   class m1_mis_system_substitution risk;
+  class m1_func_unit core;
+  class m1_func_function core;
+  class m1_func_two_quantity_relation default;
+  class m1_func_correspondence default;
+  class m1_func_function_judgement procedure;
+  class m1_func_value default;
+  class m1_func_linear_function core;
+  class m1_func_linear_formula representation;
+  class m1_func_linear_graph representation;
+  class m1_func_graph_drawing procedure;
+  class m1_func_y_ax_graph representation;
+  class m1_func_y_ax_b_graph representation;
+  class m1_func_graph_properties default;
+  class m1_func_slope default;
+  class m1_func_slope_sign default;
+  class m1_func_x_intercept default;
+  class m1_func_y_intercept default;
+  class m1_func_parallel_translation procedure;
+  class m1_func_find_graph_equation procedure;
+  class m1_func_problem_solving procedure;
+  class m1_func_tech_tool_graph procedure;
+  class m1_func_eq_relation_unit core;
+  class m1_func_two_variable_equation_as_graph procedure;
+  class m1_func_equation_relation default;
+  class m1_func_two_linear_graphs representation;
+  class m1_func_intersection_point default;
+  class m1_func_intersection_count default;
+  class m1_func_system_graph_relation default;
+  class m1_func_system_solution_from_intersection procedure;
+  class m1_mis_all_relations_are_functions risk;
+  class m1_mis_function_value_input_output risk;
+  class m1_mis_function_linear_function risk;
+  class m1_mis_slope_intercept risk;
+  class m1_mis_slope_sign risk;
+  class m1_mis_x_y_intercept risk;
+  class m1_mis_intersection_solution risk;
   class m1_coord_graph_unit core;
   class m1_coord_ordered_pair default;
   class m1_coord_coordinate default;
