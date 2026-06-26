@@ -38,6 +38,8 @@
 - `source-inventory.csv`: 현재 로컬 출처 파일 가용성 기계 판독용 CSV
 - `source-ref-audit.md`: concept/edge 출처 근거의 출처·근거 유형별 감사 요약
 - `source-ref-audit.csv`: concept/edge 출처 근거의 출처·근거 유형별 기계 판독용 CSV
+- `concept-evidence-depth.md`: concept별 공식/교과서 근거 깊이와 교과서 보강 필요 상태 요약
+- `concept-evidence-depth.csv`: concept별 근거 깊이 기계 판독용 CSV
 
 ## 갱신 방법
 
@@ -47,6 +49,7 @@ python docs/math-concept-map/tools/build_coverage_report.py
 python docs/math-concept-map/tools/build_relationship_audit.py
 python docs/math-concept-map/tools/build_source_inventory.py
 python docs/math-concept-map/tools/build_source_ref_audit.py
+python docs/math-concept-map/tools/build_concept_evidence_depth.py
 python docs/math-concept-map/tools/build_review_queue.py
 python docs/math-concept-map/tools/build_terminology_coverage.py
 python docs/math-concept-map/tools/build_unit_coverage.py
@@ -55,6 +58,7 @@ python docs/math-concept-map/tools/test_build_coverage_report.py
 python docs/math-concept-map/tools/test_build_relationship_audit.py
 python docs/math-concept-map/tools/test_build_source_inventory.py
 python docs/math-concept-map/tools/test_build_source_ref_audit.py
+python docs/math-concept-map/tools/test_build_concept_evidence_depth.py
 python docs/math-concept-map/tools/test_build_review_queue.py
 python docs/math-concept-map/tools/test_build_terminology_coverage.py
 python docs/math-concept-map/tools/test_build_unit_coverage.py

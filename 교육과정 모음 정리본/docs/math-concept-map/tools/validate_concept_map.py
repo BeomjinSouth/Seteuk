@@ -10,6 +10,7 @@ import build_terminology_coverage as terminology
 import build_relationship_audit as relationship_audit
 import build_source_inventory as source_inventory
 import build_source_ref_audit as source_ref_audit
+import build_concept_evidence_depth as concept_evidence_depth
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -189,6 +190,19 @@ def source_ref_audit_missing_detail_count(records: list[dict]) -> int:
     )
 
 
+def missing_concept_evidence_depth_ids(concepts: list[dict], records: list[dict]) -> list[str]:
+    present = {record.get("concept_id") for record in records}
+    return sorted(str(concept.get("id")) for concept in concepts if concept.get("id") not in present)
+
+
+def concept_evidence_depth_source_ref_count(records: list[dict]) -> int:
+    return sum(int(record.get("source_ref_count", 0)) for record in records)
+
+
+def concept_evidence_depth_textbook_evidence_count(records: list[dict]) -> int:
+    return sum(1 for record in records if record.get("has_textbook_evidence") == "yes")
+
+
 def main() -> None:
     data_path = OUT_DIR / "concepts.json"
     if not data_path.exists():
@@ -259,6 +273,8 @@ def main() -> None:
     source_inventory_md = OUT_DIR / "source-inventory.md"
     source_ref_audit_csv = OUT_DIR / "source-ref-audit.csv"
     source_ref_audit_md = OUT_DIR / "source-ref-audit.md"
+    concept_evidence_depth_csv = OUT_DIR / "concept-evidence-depth.csv"
+    concept_evidence_depth_md = OUT_DIR / "concept-evidence-depth.md"
     graph = OUT_DIR / "graph.mmd"
     if read_csv_count(concepts_csv) != len(concepts):
         fail("concepts.csv row count does not match concepts.json")
@@ -308,6 +324,25 @@ def main() -> None:
         fail(f"source-inventory.csv has invalid statuses: {invalid_source_statuses}")
     if not source_inventory_md.exists() or "# Source Inventory" not in source_inventory_md.read_text(encoding="utf-8"):
         fail("source-inventory.md missing or invalid")
+    concept_evidence_rows = read_csv_rows(concept_evidence_depth_csv)
+    if len(concept_evidence_rows) != len(concepts):
+        fail("concept-evidence-depth.csv row count does not match concepts.json")
+    missing_concept_evidence_ids = missing_concept_evidence_depth_ids(concepts, concept_evidence_rows)
+    if missing_concept_evidence_ids:
+        fail(f"concept-evidence-depth.csv missing concept ids: {missing_concept_evidence_ids}")
+    if concept_evidence_depth_source_ref_count(concept_evidence_rows) != source_ref_count(concepts, []):
+        fail("concept-evidence-depth.csv source_ref_count does not match concept source refs")
+    expected_concept_evidence_rows = concept_evidence_depth.concept_evidence_rows(concepts)
+    if len(concept_evidence_rows) != len(expected_concept_evidence_rows):
+        fail("concept-evidence-depth.csv row count does not match generated concept evidence rows")
+    textbook_inventory_empty = any(
+        row.get("source_group") == "textbook_originals" and row.get("status") == "empty"
+        for row in source_inventory_rows
+    )
+    if textbook_inventory_empty and concept_evidence_depth_textbook_evidence_count(concept_evidence_rows):
+        fail("concept-evidence-depth.csv contains textbook evidence while textbook originals are empty")
+    if not concept_evidence_depth_md.exists() or "# Concept Evidence Depth" not in concept_evidence_depth_md.read_text(encoding="utf-8"):
+        fail("concept-evidence-depth.md missing or invalid")
     source_ref_rows = read_csv_rows(source_ref_audit_csv)
     if len(source_ref_rows) != len(source_ref_audit.source_ref_summary_rows(concepts, edges)):
         fail("source-ref-audit.csv row count does not match generated source reference groups")

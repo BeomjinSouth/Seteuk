@@ -70,6 +70,13 @@
 - 현재 `locator` 누락은 0개, `summary` 누락은 0개이다.
 - 이 감사는 교과서 PDF가 추가되기 전에도 공식 문서 기반 개념과 관계가 어떤 근거 유형에 기대고 있는지 확인하기 위한 재생성 가능한 점검표이다.
 
+## Concept Evidence Depth
+
+- `concept-evidence-depth.md`와 `concept-evidence-depth.csv`를 추가해 concept별 공식/교과서 근거 깊이를 추적한다.
+- 현재 465개 concept 중 `official_dual_source`는 387개, `official_single_source`는 78개이다.
+- 현재 `textbook_supported` concept은 0개이며, 465개 concept 모두 교과서 본문·정리·예제·문제 근거 보강이 필요하다.
+- 교과서 PDF가 추가되면 이 산출물에서 `needs_textbook_evidence`를 줄이는 방식으로 보강 진행률을 추적한다.
+
 ## 다음 출처 보강 순서
 
 1. `교과서_원본/`에 중1~중3 수학 교과서 PDF를 추가한다.

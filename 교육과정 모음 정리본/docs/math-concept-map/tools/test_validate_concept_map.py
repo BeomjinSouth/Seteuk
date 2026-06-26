@@ -132,6 +132,32 @@ class AchievementCoverageTests(unittest.TestCase):
 
         self.assertEqual(validator.source_ref_audit_missing_detail_count(rows), 3)
 
+    def test_missing_concept_evidence_depth_ids_are_reported(self) -> None:
+        concepts = [{"id": "coord"}, {"id": "axis"}]
+        rows = [{"concept_id": "coord"}]
+
+        self.assertEqual(
+            validator.missing_concept_evidence_depth_ids(concepts, rows),
+            ["axis"],
+        )
+
+    def test_concept_evidence_depth_source_ref_count_sums_rows(self) -> None:
+        rows = [
+            {"source_ref_count": "2"},
+            {"source_ref_count": "3"},
+        ]
+
+        self.assertEqual(validator.concept_evidence_depth_source_ref_count(rows), 5)
+
+    def test_textbook_evidence_count_reports_supported_rows(self) -> None:
+        rows = [
+            {"has_textbook_evidence": "yes"},
+            {"has_textbook_evidence": "no"},
+            {"has_textbook_evidence": "yes"},
+        ]
+
+        self.assertEqual(validator.concept_evidence_depth_textbook_evidence_count(rows), 2)
+
 
 if __name__ == "__main__":
     unittest.main()

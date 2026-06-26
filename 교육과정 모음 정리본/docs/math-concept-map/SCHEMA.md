@@ -147,6 +147,29 @@
 | `missing_locator_count` | `locator`가 비어 있는 source ref 수 |
 | `missing_summary_count` | `summary`가 비어 있는 source ref 수 |
 
+## Concept Evidence Depth CSV
+
+`concept-evidence-depth.csv`는 concept별 출처 근거 깊이와 교과서 근거 보강 필요 여부를 요약한 파생 산출물이다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `concept_id` | concept id |
+| `label_ko` | concept 한국어 이름 |
+| `grade` | 학년 또는 교육과정 학년군 |
+| `domain` | 교육과정 영역 |
+| `unit` | 단원 또는 성취기준 묶음 |
+| `confidence` | 현재 concept 신뢰도 |
+| `source_ref_count` | concept에 연결된 source ref 수 |
+| `source_count` | concept에 연결된 고유 source id 수 |
+| `evidence_kind_count` | concept에 연결된 고유 evidence kind 수 |
+| `sources` | 고유 source id 목록. 세미콜론으로 구분한다. |
+| `evidence_kinds` | 고유 evidence kind 목록. 세미콜론으로 구분한다. |
+| `has_curriculum_evidence` | `curriculum_math_2022` 근거 존재 여부 |
+| `has_achievement_evidence` | `achievement_math_2022` 근거 존재 여부 |
+| `has_textbook_evidence` | `textbook_originals` 근거 존재 여부 |
+| `evidence_depth` | `textbook_supported`, `official_dual_source`, `official_single_source`, `source_gap` |
+| `needs_textbook_evidence` | 교과서 본문·정리·예제·문제 근거 보강 필요 여부 |
+
 ## 신뢰도 기준
 
 - `high`: 공식 교육과정 또는 성취수준 문서에서 직접 확인되는 개념·관계
