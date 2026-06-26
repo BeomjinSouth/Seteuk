@@ -397,6 +397,79 @@ flowchart LR
   m1_geo_circle_justification["원의 성질 정당화"]
   m1_mis_circle_proportion_scope["원과 비례에 관한 성질을 범위에 포함하는 오류"]
   m1_mis_tangent_radius["접선과 반지름의 수직 관계를 놓치는 오류"]
+  m1_data_domain["자료와 가능성"]
+  m1_data_representative_unit["대푯값"]
+  m1_data_frequency_unit["도수분포표와 상대도수"]
+  m1_data_statistical_inquiry_unit["통계적 탐구"]
+  m1_data_probability_unit["경우의 수와 확률"]
+  m1_data_variability_unit["산포도"]
+  m1_data_box_scatter_unit["상자그림과 산점도"]
+  m1_data_dataset["자료"]
+  m1_data_variable["변량"]
+  m1_data_representative_value["대푯값"]
+  m1_data_mean["평균"]
+  m1_data_median["중앙값"]
+  m1_data_mode["최빈값"]
+  m1_data_choose_representative_value["자료의 특성에 맞는 대푯값 선택"]
+  m1_mis_mean_only_representative["대푯값을 평균으로만 보는 오류"]
+  m1_data_distribution["자료의 분포"]
+  m1_data_stem_leaf_plot["줄기와 잎 그림"]
+  m1_data_class["계급"]
+  m1_data_class_width["계급의 크기"]
+  m1_data_class_mark["계급값"]
+  m1_data_frequency["도수"]
+  m1_data_frequency_table["도수분포표"]
+  m1_data_histogram["히스토그램"]
+  m1_data_frequency_polygon["도수분포다각형"]
+  m1_data_distribution_interpretation["자료의 분포 특징 해석"]
+  m1_data_relative_frequency["상대도수"]
+  m1_data_relative_frequency_distribution["상대도수의 분포"]
+  m1_data_relative_frequency_table_graph["상대도수의 분포를 표나 그래프로 나타내기"]
+  m1_mis_histogram_bar_graph["히스토그램과 막대그래프를 같은 표현으로 보는 오류"]
+  m1_mis_relative_frequency_frequency["도수와 상대도수를 혼동하는 오류"]
+  m1_data_statistical_inquiry_problem["통계적 탐구 문제"]
+  m1_data_inquiry_plan["자료 수집 계획"]
+  m1_data_data_collection["자료 수집"]
+  m1_data_data_analysis["자료 분석"]
+  m1_data_result_interpretation["분석 결과 해석"]
+  m1_data_statistical_evidence_discussion["통계적 근거로 토론하기"]
+  m1_data_technology_tool_stats["공학 도구로 자료 수집·분석하기"]
+  m1_data_critical_graph_reading["표와 그래프의 오류 비판적으로 읽기"]
+  m1_mis_graph_scale_distortion["눈금 왜곡 그래프를 그대로 해석하는 오류"]
+  m1_data_event["사건"]
+  m1_data_counting_cases["경우의 수"]
+  m1_data_or_cases["사건 A 또는 사건 B가 일어나는 경우의 수"]
+  m1_data_and_cases["사건 A와 사건 B가 동시에 일어나는 경우의 수"]
+  m1_data_addition_counting["두 경우의 수를 합하는 상황"]
+  m1_data_multiplication_counting["두 경우의 수를 곱하는 상황"]
+  m1_data_probability["확률"]
+  m1_data_probability_basic_properties["확률의 기본 성질"]
+  m1_data_or_probability["사건 A 또는 사건 B가 일어날 확률"]
+  m1_data_and_probability["사건 A와 사건 B가 동시에 일어날 확률"]
+  m1_data_experimental_probability["상대도수로서의 확률"]
+  m1_data_theoretical_probability["경우의 수의 비율로서의 확률"]
+  m1_data_equally_likely_assumption["각 경우가 발생할 가능성이 동등하다는 가정"]
+  m1_data_route_counting_context["이동 경로의 경우의 수 맥락"]
+  m1_mis_or_and_counting_confusion["또는과 동시에의 경우의 수를 혼동하는 오류"]
+  m1_mis_probability_no_equal_likely["동등 가능성 가정 없이 경우의 수 비율을 적용하는 오류"]
+  m1_mis_permutation_combination_scope["복잡한 순열·조합 문제를 중학교 범위로 확정하는 오류"]
+  m1_data_variability["산포도"]
+  m1_data_deviation["편차"]
+  m1_data_variance["분산"]
+  m1_data_standard_deviation["표준편차"]
+  m1_data_calculate_variance_sd["분산과 표준편차 구하기"]
+  m1_data_compare_distributions_variability["산포도로 두 집단의 분포 비교"]
+  m1_mis_variance_standard_deviation["분산과 표준편차를 같은 값으로 보는 오류"]
+  m1_data_quartile["사분위수"]
+  m1_data_box_plot["상자그림"]
+  m1_data_box_plot_compare["상자그림으로 두 집단의 분포 비교"]
+  m1_data_scatter_plot["산점도"]
+  m1_data_correlation["상관관계"]
+  m1_data_positive_correlation["양의 상관관계"]
+  m1_data_negative_correlation["음의 상관관계"]
+  m1_data_no_correlation["상관관계가 없는 경우"]
+  m1_data_scatter_plot_interpretation["산점도로 상관관계 말하기"]
+  m1_mis_correlation_causation["상관관계를 원인과 결과로 단정하는 오류"]
 
   m1_num_domain -- "포함" --> m1_num_prime_factor_unit
   m1_num_domain -- "포함" --> m1_num_integer_rational_unit
@@ -985,6 +1058,78 @@ flowchart LR
   m1_geo_circle_unit -- "포함" --> m1_geo_circle_justification
   m1_geo_circle_unit -- "포함" --> m1_mis_circle_proportion_scope
   m1_geo_circle_unit -- "포함" --> m1_mis_tangent_radius
+  m1_data_domain -- "포함" --> m1_data_representative_unit
+  m1_data_domain -- "포함" --> m1_data_frequency_unit
+  m1_data_domain -- "포함" --> m1_data_statistical_inquiry_unit
+  m1_data_domain -- "포함" --> m1_data_probability_unit
+  m1_data_domain -- "포함" --> m1_data_variability_unit
+  m1_data_domain -- "포함" --> m1_data_box_scatter_unit
+  m1_data_domain -- "포함" --> m1_data_dataset
+  m1_data_domain -- "포함" --> m1_data_variable
+  m1_data_representative_unit -- "포함" --> m1_data_representative_value
+  m1_data_representative_unit -- "포함" --> m1_data_mean
+  m1_data_representative_unit -- "포함" --> m1_data_median
+  m1_data_representative_unit -- "포함" --> m1_data_mode
+  m1_data_representative_unit -- "포함" --> m1_data_choose_representative_value
+  m1_data_representative_unit -- "포함" --> m1_mis_mean_only_representative
+  m1_data_frequency_unit -- "포함" --> m1_data_distribution
+  m1_data_frequency_unit -- "포함" --> m1_data_stem_leaf_plot
+  m1_data_frequency_unit -- "포함" --> m1_data_class
+  m1_data_frequency_unit -- "포함" --> m1_data_class_width
+  m1_data_frequency_unit -- "포함" --> m1_data_class_mark
+  m1_data_frequency_unit -- "포함" --> m1_data_frequency
+  m1_data_frequency_unit -- "포함" --> m1_data_frequency_table
+  m1_data_frequency_unit -- "포함" --> m1_data_histogram
+  m1_data_frequency_unit -- "포함" --> m1_data_frequency_polygon
+  m1_data_frequency_unit -- "포함" --> m1_data_distribution_interpretation
+  m1_data_frequency_unit -- "포함" --> m1_data_relative_frequency
+  m1_data_frequency_unit -- "포함" --> m1_data_relative_frequency_distribution
+  m1_data_frequency_unit -- "포함" --> m1_data_relative_frequency_table_graph
+  m1_data_frequency_unit -- "포함" --> m1_mis_histogram_bar_graph
+  m1_data_frequency_unit -- "포함" --> m1_mis_relative_frequency_frequency
+  m1_data_statistical_inquiry_unit -- "포함" --> m1_data_statistical_inquiry_problem
+  m1_data_statistical_inquiry_unit -- "포함" --> m1_data_inquiry_plan
+  m1_data_statistical_inquiry_unit -- "포함" --> m1_data_data_collection
+  m1_data_statistical_inquiry_unit -- "포함" --> m1_data_data_analysis
+  m1_data_statistical_inquiry_unit -- "포함" --> m1_data_result_interpretation
+  m1_data_statistical_inquiry_unit -- "포함" --> m1_data_statistical_evidence_discussion
+  m1_data_statistical_inquiry_unit -- "포함" --> m1_data_technology_tool_stats
+  m1_data_statistical_inquiry_unit -- "포함" --> m1_data_critical_graph_reading
+  m1_data_statistical_inquiry_unit -- "포함" --> m1_mis_graph_scale_distortion
+  m1_data_probability_unit -- "포함" --> m1_data_event
+  m1_data_probability_unit -- "포함" --> m1_data_counting_cases
+  m1_data_probability_unit -- "포함" --> m1_data_or_cases
+  m1_data_probability_unit -- "포함" --> m1_data_and_cases
+  m1_data_probability_unit -- "포함" --> m1_data_addition_counting
+  m1_data_probability_unit -- "포함" --> m1_data_multiplication_counting
+  m1_data_probability_unit -- "포함" --> m1_data_probability
+  m1_data_probability_unit -- "포함" --> m1_data_probability_basic_properties
+  m1_data_probability_unit -- "포함" --> m1_data_or_probability
+  m1_data_probability_unit -- "포함" --> m1_data_and_probability
+  m1_data_probability_unit -- "포함" --> m1_data_experimental_probability
+  m1_data_probability_unit -- "포함" --> m1_data_theoretical_probability
+  m1_data_probability_unit -- "포함" --> m1_data_equally_likely_assumption
+  m1_data_probability_unit -- "포함" --> m1_data_route_counting_context
+  m1_data_probability_unit -- "포함" --> m1_mis_or_and_counting_confusion
+  m1_data_probability_unit -- "포함" --> m1_mis_probability_no_equal_likely
+  m1_data_probability_unit -- "포함" --> m1_mis_permutation_combination_scope
+  m1_data_variability_unit -- "포함" --> m1_data_variability
+  m1_data_variability_unit -- "포함" --> m1_data_deviation
+  m1_data_variability_unit -- "포함" --> m1_data_variance
+  m1_data_variability_unit -- "포함" --> m1_data_standard_deviation
+  m1_data_variability_unit -- "포함" --> m1_data_calculate_variance_sd
+  m1_data_variability_unit -- "포함" --> m1_data_compare_distributions_variability
+  m1_data_variability_unit -- "포함" --> m1_mis_variance_standard_deviation
+  m1_data_box_scatter_unit -- "포함" --> m1_data_quartile
+  m1_data_box_scatter_unit -- "포함" --> m1_data_box_plot
+  m1_data_box_scatter_unit -- "포함" --> m1_data_box_plot_compare
+  m1_data_box_scatter_unit -- "포함" --> m1_data_scatter_plot
+  m1_data_box_scatter_unit -- "포함" --> m1_data_correlation
+  m1_data_box_scatter_unit -- "포함" --> m1_data_positive_correlation
+  m1_data_box_scatter_unit -- "포함" --> m1_data_negative_correlation
+  m1_data_box_scatter_unit -- "포함" --> m1_data_no_correlation
+  m1_data_box_scatter_unit -- "포함" --> m1_data_scatter_plot_interpretation
+  m1_data_box_scatter_unit -- "포함" --> m1_mis_correlation_causation
   m1_geo_basic_unit -- "선수" --> m1_geo_construction_congruence_unit
   m1_geo_basic_unit -- "선수" --> m1_geo_plane_properties_unit
   m1_geo_plane_properties_unit -- "선수" --> m1_geo_solid_unit
@@ -1193,6 +1338,132 @@ flowchart LR
   m1_geo_similarity_ratio -- "선수" --> m1_mis_circle_proportion_scope
   m1_geo_tangent_property -- "선수" --> m1_mis_tangent_radius
   m1_geo_perpendicular -- "선수" --> m1_mis_tangent_radius
+  m1_data_representative_unit -- "선수" --> m1_data_frequency_unit
+  m1_repr_table -- "선수" --> m1_data_frequency_unit
+  m1_graph_graph -- "선수" --> m1_data_frequency_unit
+  m1_data_frequency_unit -- "선수" --> m1_data_statistical_inquiry_unit
+  m1_data_relative_frequency -- "선수" --> m1_data_probability_unit
+  m1_num_rational_number -- "선수" --> m1_data_probability_unit
+  m1_data_representative_value -- "선수" --> m1_data_variability_unit
+  m1_data_distribution -- "선수" --> m1_data_variability_unit
+  m1_data_variability_unit -- "선수" --> m1_data_box_scatter_unit
+  m1_data_technology_tool_stats -- "선수" --> m1_data_box_scatter_unit
+  m1_data_dataset -- "선수" --> m1_data_variable
+  m1_data_dataset -- "선수" --> m1_data_representative_value
+  m1_num_rational_number -- "선수" --> m1_data_mean
+  m1_data_dataset -- "선수" --> m1_data_median
+  m1_num_order_relation -- "선수" --> m1_data_median
+  m1_data_dataset -- "선수" --> m1_data_mode
+  m1_data_frequency -- "선수" --> m1_data_mode
+  m1_data_mean -- "선수" --> m1_data_choose_representative_value
+  m1_data_median -- "선수" --> m1_data_choose_representative_value
+  m1_data_mode -- "선수" --> m1_data_choose_representative_value
+  m1_data_distribution -- "선수" --> m1_data_choose_representative_value
+  m1_data_representative_value -- "선수" --> m1_mis_mean_only_representative
+  m1_data_choose_representative_value -- "선수" --> m1_mis_mean_only_representative
+  m1_data_dataset -- "선수" --> m1_data_distribution
+  m1_data_dataset -- "선수" --> m1_data_stem_leaf_plot
+  m1_num_order_relation -- "선수" --> m1_data_stem_leaf_plot
+  m1_data_dataset -- "선수" --> m1_data_class
+  m1_num_order_relation -- "선수" --> m1_data_class
+  m1_data_class -- "선수" --> m1_data_class_width
+  m1_data_class -- "선수" --> m1_data_class_mark
+  m1_data_dataset -- "선수" --> m1_data_frequency
+  m1_data_class -- "선수" --> m1_data_frequency_table
+  m1_data_frequency -- "선수" --> m1_data_frequency_table
+  m1_repr_table -- "선수" --> m1_data_frequency_table
+  m1_data_frequency_table -- "선수" --> m1_data_histogram
+  m1_graph_graph -- "선수" --> m1_data_histogram
+  m1_data_histogram -- "선수" --> m1_data_frequency_polygon
+  m1_data_class_mark -- "선수" --> m1_data_frequency_polygon
+  m1_data_distribution -- "선수" --> m1_data_distribution_interpretation
+  m1_data_frequency_table -- "선수" --> m1_data_distribution_interpretation
+  m1_data_histogram -- "선수" --> m1_data_distribution_interpretation
+  m1_data_frequency_polygon -- "선수" --> m1_data_distribution_interpretation
+  m1_data_frequency -- "선수" --> m1_data_relative_frequency
+  m1_num_rational_number -- "선수" --> m1_data_relative_frequency
+  m1_data_relative_frequency -- "선수" --> m1_data_relative_frequency_distribution
+  m1_data_distribution -- "선수" --> m1_data_relative_frequency_distribution
+  m1_data_relative_frequency_distribution -- "선수" --> m1_data_relative_frequency_table_graph
+  m1_repr_table -- "선수" --> m1_data_relative_frequency_table_graph
+  m1_graph_graph -- "선수" --> m1_data_relative_frequency_table_graph
+  m1_data_histogram -- "선수" --> m1_mis_histogram_bar_graph
+  m1_graph_graph -- "선수" --> m1_mis_histogram_bar_graph
+  m1_data_frequency -- "선수" --> m1_mis_relative_frequency_frequency
+  m1_data_relative_frequency -- "선수" --> m1_mis_relative_frequency_frequency
+  m1_data_dataset -- "선수" --> m1_data_statistical_inquiry_problem
+  m1_data_statistical_inquiry_problem -- "선수" --> m1_data_inquiry_plan
+  m1_data_inquiry_plan -- "선수" --> m1_data_data_collection
+  m1_data_data_collection -- "선수" --> m1_data_data_analysis
+  m1_data_frequency_table -- "선수" --> m1_data_data_analysis
+  m1_data_distribution_interpretation -- "선수" --> m1_data_data_analysis
+  m1_data_data_analysis -- "선수" --> m1_data_result_interpretation
+  m1_data_statistical_inquiry_problem -- "선수" --> m1_data_result_interpretation
+  m1_data_result_interpretation -- "선수" --> m1_data_statistical_evidence_discussion
+  m1_data_data_collection -- "선수" --> m1_data_technology_tool_stats
+  m1_data_data_analysis -- "선수" --> m1_data_technology_tool_stats
+  m1_repr_table -- "선수" --> m1_data_critical_graph_reading
+  m1_graph_graph -- "선수" --> m1_data_critical_graph_reading
+  m1_data_distribution_interpretation -- "선수" --> m1_data_critical_graph_reading
+  m1_data_critical_graph_reading -- "선수" --> m1_mis_graph_scale_distortion
+  m1_data_event -- "선수" --> m1_data_counting_cases
+  m1_data_event -- "선수" --> m1_data_or_cases
+  m1_data_counting_cases -- "선수" --> m1_data_or_cases
+  m1_data_event -- "선수" --> m1_data_and_cases
+  m1_data_counting_cases -- "선수" --> m1_data_and_cases
+  m1_data_or_cases -- "선수" --> m1_data_addition_counting
+  m1_data_and_cases -- "선수" --> m1_data_multiplication_counting
+  m1_data_event -- "선수" --> m1_data_probability
+  m1_data_counting_cases -- "선수" --> m1_data_probability
+  m1_num_rational_number -- "선수" --> m1_data_probability
+  m1_data_probability -- "선수" --> m1_data_probability_basic_properties
+  m1_data_probability_basic_properties -- "선수" --> m1_data_or_probability
+  m1_data_or_cases -- "선수" --> m1_data_or_probability
+  m1_data_probability_basic_properties -- "선수" --> m1_data_and_probability
+  m1_data_and_cases -- "선수" --> m1_data_and_probability
+  m1_data_relative_frequency -- "선수" --> m1_data_experimental_probability
+  m1_data_probability -- "선수" --> m1_data_experimental_probability
+  m1_data_counting_cases -- "선수" --> m1_data_theoretical_probability
+  m1_data_probability -- "선수" --> m1_data_theoretical_probability
+  m1_data_equally_likely_assumption -- "선수" --> m1_data_theoretical_probability
+  m1_data_counting_cases -- "선수" --> m1_data_equally_likely_assumption
+  m1_data_counting_cases -- "선수" --> m1_data_route_counting_context
+  m1_data_or_cases -- "선수" --> m1_mis_or_and_counting_confusion
+  m1_data_and_cases -- "선수" --> m1_mis_or_and_counting_confusion
+  m1_data_theoretical_probability -- "선수" --> m1_mis_probability_no_equal_likely
+  m1_data_equally_likely_assumption -- "선수" --> m1_mis_probability_no_equal_likely
+  m1_data_counting_cases -- "선수" --> m1_mis_permutation_combination_scope
+  m1_data_distribution -- "선수" --> m1_data_variability
+  m1_data_representative_value -- "선수" --> m1_data_variability
+  m1_data_variable -- "선수" --> m1_data_deviation
+  m1_data_mean -- "선수" --> m1_data_deviation
+  m1_data_deviation -- "선수" --> m1_data_variance
+  m1_calc_power -- "선수" --> m1_data_variance
+  m1_data_variance -- "선수" --> m1_data_standard_deviation
+  m1_num_square_root -- "선수" --> m1_data_standard_deviation
+  m1_data_deviation -- "선수" --> m1_data_calculate_variance_sd
+  m1_data_variance -- "선수" --> m1_data_calculate_variance_sd
+  m1_data_standard_deviation -- "선수" --> m1_data_calculate_variance_sd
+  m1_data_standard_deviation -- "선수" --> m1_data_compare_distributions_variability
+  m1_data_distribution_interpretation -- "선수" --> m1_data_compare_distributions_variability
+  m1_data_variance -- "선수" --> m1_mis_variance_standard_deviation
+  m1_data_standard_deviation -- "선수" --> m1_mis_variance_standard_deviation
+  m1_data_median -- "선수" --> m1_data_quartile
+  m1_num_order_relation -- "선수" --> m1_data_quartile
+  m1_data_quartile -- "선수" --> m1_data_box_plot
+  m1_data_technology_tool_stats -- "선수" --> m1_data_box_plot
+  m1_data_box_plot -- "선수" --> m1_data_box_plot_compare
+  m1_data_distribution_interpretation -- "선수" --> m1_data_box_plot_compare
+  m1_data_variable -- "선수" --> m1_data_scatter_plot
+  m1_coord_coordinate_plane -- "선수" --> m1_data_scatter_plot
+  m1_graph_graph -- "선수" --> m1_data_scatter_plot
+  m1_data_scatter_plot -- "선수" --> m1_data_correlation
+  m1_data_correlation -- "선수" --> m1_data_positive_correlation
+  m1_data_correlation -- "선수" --> m1_data_negative_correlation
+  m1_data_correlation -- "선수" --> m1_data_no_correlation
+  m1_data_scatter_plot -- "선수" --> m1_data_scatter_plot_interpretation
+  m1_data_correlation -- "선수" --> m1_data_scatter_plot_interpretation
+  m1_data_correlation -- "선수" --> m1_mis_correlation_causation
   m1_geo_position_relation -- "사용" --> m1_geo_intersection_point
   m1_geo_position_relation -- "사용" --> m1_geo_intersection_line
   m1_geo_position_relation -- "사용" --> m1_geo_skew_lines
@@ -1316,6 +1587,105 @@ flowchart LR
   m1_mis_trig_angle_scope -- "혼동" --> m1_geo_trigonometric_ratio
   m1_mis_circle_proportion_scope -- "혼동" --> m1_geo_circle_chord_property
   m1_mis_tangent_radius -- "혼동" --> m1_geo_tangent_property
+  m1_data_representative_value -- "포함" --> m1_data_mean
+  m1_data_representative_value -- "포함" --> m1_data_median
+  m1_data_representative_value -- "포함" --> m1_data_mode
+  m1_data_mean -- "대조" --> m1_data_median
+  m1_data_median -- "대조" --> m1_data_mode
+  m1_data_mean -- "사용" --> m1_data_choose_representative_value
+  m1_data_median -- "사용" --> m1_data_choose_representative_value
+  m1_data_mode -- "사용" --> m1_data_choose_representative_value
+  m1_data_distribution -- "사용" --> m1_data_choose_representative_value
+  m1_data_dataset -- "표현" --> m1_data_stem_leaf_plot
+  m1_data_dataset -- "표현" --> m1_data_frequency_table
+  m1_data_distribution -- "표현" --> m1_data_stem_leaf_plot
+  m1_data_distribution -- "표현" --> m1_data_frequency_table
+  m1_data_distribution -- "표현" --> m1_data_histogram
+  m1_data_distribution -- "표현" --> m1_data_frequency_polygon
+  m1_data_class -- "사용" --> m1_data_class_width
+  m1_data_class -- "사용" --> m1_data_class_mark
+  m1_data_class -- "사용" --> m1_data_frequency_table
+  m1_data_frequency -- "사용" --> m1_data_frequency_table
+  m1_data_frequency_table -- "표현" --> m1_data_histogram
+  m1_data_histogram -- "표현" --> m1_data_frequency_polygon
+  m1_data_frequency_table -- "사용" --> m1_data_distribution_interpretation
+  m1_data_histogram -- "사용" --> m1_data_distribution_interpretation
+  m1_data_frequency_polygon -- "사용" --> m1_data_distribution_interpretation
+  m1_repr_table -- "표현" --> m1_data_frequency_table
+  m1_graph_graph -- "표현" --> m1_data_histogram
+  m1_graph_graph -- "표현" --> m1_data_frequency_polygon
+  m1_data_frequency -- "사용" --> m1_data_relative_frequency
+  m1_data_relative_frequency -- "사용" --> m1_data_relative_frequency_distribution
+  m1_data_relative_frequency_distribution -- "표현" --> m1_data_relative_frequency_table_graph
+  m1_data_relative_frequency_table_graph -- "표현" --> m1_repr_table
+  m1_data_relative_frequency_table_graph -- "표현" --> m1_graph_graph
+  m1_data_relative_frequency -- "사용" --> m1_data_distribution_interpretation
+  m1_data_statistical_inquiry_problem -- "사용" --> m1_data_inquiry_plan
+  m1_data_inquiry_plan -- "사용" --> m1_data_data_collection
+  m1_data_data_collection -- "사용" --> m1_data_data_analysis
+  m1_data_data_analysis -- "사용" --> m1_data_result_interpretation
+  m1_data_result_interpretation -- "사용" --> m1_data_statistical_evidence_discussion
+  m1_data_technology_tool_stats -- "사용" --> m1_data_data_collection
+  m1_data_technology_tool_stats -- "사용" --> m1_data_data_analysis
+  m1_data_technology_tool_stats -- "사용" --> m1_data_calculate_variance_sd
+  m1_data_technology_tool_stats -- "사용" --> m1_data_box_plot
+  m1_data_critical_graph_reading -- "사용" --> m1_graph_graph_interpretation
+  m1_data_event -- "사용" --> m1_data_counting_cases
+  m1_data_counting_cases -- "사용" --> m1_data_or_cases
+  m1_data_counting_cases -- "사용" --> m1_data_and_cases
+  m1_data_or_cases -- "사용" --> m1_data_addition_counting
+  m1_data_and_cases -- "사용" --> m1_data_multiplication_counting
+  m1_data_or_cases -- "대조" --> m1_data_and_cases
+  m1_data_and_cases -- "대조" --> m1_data_or_cases
+  m1_data_addition_counting -- "대조" --> m1_data_multiplication_counting
+  m1_data_counting_cases -- "사용" --> m1_data_theoretical_probability
+  m1_data_relative_frequency -- "표현" --> m1_data_experimental_probability
+  m1_data_experimental_probability -- "사용" --> m1_data_probability
+  m1_data_theoretical_probability -- "사용" --> m1_data_probability
+  m1_data_experimental_probability -- "대조" --> m1_data_theoretical_probability
+  m1_data_equally_likely_assumption -- "사용" --> m1_data_theoretical_probability
+  m1_data_probability -- "사용" --> m1_data_probability_basic_properties
+  m1_data_probability_basic_properties -- "사용" --> m1_data_or_probability
+  m1_data_probability_basic_properties -- "사용" --> m1_data_and_probability
+  m1_data_route_counting_context -- "사용" --> m1_data_or_cases
+  m1_data_route_counting_context -- "사용" --> m1_data_and_cases
+  m1_data_representative_value -- "사용" --> m1_data_variability
+  m1_data_distribution -- "사용" --> m1_data_variability
+  m1_data_mean -- "사용" --> m1_data_deviation
+  m1_data_deviation -- "사용" --> m1_data_variance
+  m1_data_variance -- "사용" --> m1_data_standard_deviation
+  m1_data_deviation -- "사용" --> m1_data_calculate_variance_sd
+  m1_data_variance -- "사용" --> m1_data_calculate_variance_sd
+  m1_data_standard_deviation -- "사용" --> m1_data_calculate_variance_sd
+  m1_data_standard_deviation -- "사용" --> m1_data_compare_distributions_variability
+  m1_data_quartile -- "사용" --> m1_data_box_plot
+  m1_data_box_plot -- "사용" --> m1_data_box_plot_compare
+  m1_data_distribution_interpretation -- "사용" --> m1_data_box_plot_compare
+  m1_data_variable -- "사용" --> m1_data_scatter_plot
+  m1_coord_coordinate_plane -- "표현" --> m1_data_scatter_plot
+  m1_graph_graph -- "표현" --> m1_data_scatter_plot
+  m1_data_scatter_plot -- "사용" --> m1_data_correlation
+  m1_data_correlation -- "포함" --> m1_data_positive_correlation
+  m1_data_correlation -- "포함" --> m1_data_negative_correlation
+  m1_data_correlation -- "포함" --> m1_data_no_correlation
+  m1_data_positive_correlation -- "대조" --> m1_data_negative_correlation
+  m1_data_negative_correlation -- "대조" --> m1_data_no_correlation
+  m1_data_scatter_plot -- "사용" --> m1_data_scatter_plot_interpretation
+  m1_data_correlation -- "사용" --> m1_data_scatter_plot_interpretation
+  m1_mis_mean_only_representative -- "혼동" --> m1_data_mean
+  m1_mis_mean_only_representative -- "혼동" --> m1_data_choose_representative_value
+  m1_mis_histogram_bar_graph -- "혼동" --> m1_data_histogram
+  m1_mis_relative_frequency_frequency -- "혼동" --> m1_data_frequency
+  m1_mis_relative_frequency_frequency -- "혼동" --> m1_data_relative_frequency
+  m1_mis_graph_scale_distortion -- "혼동" --> m1_graph_graph_interpretation
+  m1_mis_or_and_counting_confusion -- "혼동" --> m1_data_or_cases
+  m1_mis_or_and_counting_confusion -- "혼동" --> m1_data_and_cases
+  m1_mis_probability_no_equal_likely -- "혼동" --> m1_data_theoretical_probability
+  m1_mis_permutation_combination_scope -- "혼동" --> m1_data_counting_cases
+  m1_mis_variance_standard_deviation -- "혼동" --> m1_data_variance
+  m1_mis_variance_standard_deviation -- "혼동" --> m1_data_standard_deviation
+  m1_mis_correlation_causation -- "혼동" --> m1_data_correlation
+  m1_mis_correlation_causation -- "혼동" --> m1_data_scatter_plot_interpretation
 
   class m1_num_domain core;
   class m1_num_prime_factor_unit core;
@@ -1709,3 +2079,76 @@ flowchart LR
   class m1_geo_circle_justification procedure;
   class m1_mis_circle_proportion_scope risk;
   class m1_mis_tangent_radius risk;
+  class m1_data_domain core;
+  class m1_data_representative_unit core;
+  class m1_data_frequency_unit core;
+  class m1_data_statistical_inquiry_unit core;
+  class m1_data_probability_unit core;
+  class m1_data_variability_unit core;
+  class m1_data_box_scatter_unit core;
+  class m1_data_dataset core;
+  class m1_data_variable default;
+  class m1_data_representative_value core;
+  class m1_data_mean default;
+  class m1_data_median default;
+  class m1_data_mode default;
+  class m1_data_choose_representative_value procedure;
+  class m1_mis_mean_only_representative risk;
+  class m1_data_distribution core;
+  class m1_data_stem_leaf_plot representation;
+  class m1_data_class default;
+  class m1_data_class_width default;
+  class m1_data_class_mark default;
+  class m1_data_frequency default;
+  class m1_data_frequency_table representation;
+  class m1_data_histogram representation;
+  class m1_data_frequency_polygon representation;
+  class m1_data_distribution_interpretation procedure;
+  class m1_data_relative_frequency default;
+  class m1_data_relative_frequency_distribution representation;
+  class m1_data_relative_frequency_table_graph procedure;
+  class m1_mis_histogram_bar_graph risk;
+  class m1_mis_relative_frequency_frequency risk;
+  class m1_data_statistical_inquiry_problem core;
+  class m1_data_inquiry_plan procedure;
+  class m1_data_data_collection procedure;
+  class m1_data_data_analysis procedure;
+  class m1_data_result_interpretation procedure;
+  class m1_data_statistical_evidence_discussion procedure;
+  class m1_data_technology_tool_stats procedure;
+  class m1_data_critical_graph_reading procedure;
+  class m1_mis_graph_scale_distortion risk;
+  class m1_data_event default;
+  class m1_data_counting_cases procedure;
+  class m1_data_or_cases default;
+  class m1_data_and_cases default;
+  class m1_data_addition_counting procedure;
+  class m1_data_multiplication_counting procedure;
+  class m1_data_probability core;
+  class m1_data_probability_basic_properties default;
+  class m1_data_or_probability default;
+  class m1_data_and_probability default;
+  class m1_data_experimental_probability core;
+  class m1_data_theoretical_probability core;
+  class m1_data_equally_likely_assumption default;
+  class m1_data_route_counting_context default;
+  class m1_mis_or_and_counting_confusion risk;
+  class m1_mis_probability_no_equal_likely risk;
+  class m1_mis_permutation_combination_scope risk;
+  class m1_data_variability core;
+  class m1_data_deviation default;
+  class m1_data_variance default;
+  class m1_data_standard_deviation default;
+  class m1_data_calculate_variance_sd procedure;
+  class m1_data_compare_distributions_variability procedure;
+  class m1_mis_variance_standard_deviation risk;
+  class m1_data_quartile default;
+  class m1_data_box_plot representation;
+  class m1_data_box_plot_compare procedure;
+  class m1_data_scatter_plot representation;
+  class m1_data_correlation core;
+  class m1_data_positive_correlation default;
+  class m1_data_negative_correlation default;
+  class m1_data_no_correlation default;
+  class m1_data_scatter_plot_interpretation procedure;
+  class m1_mis_correlation_causation risk;
