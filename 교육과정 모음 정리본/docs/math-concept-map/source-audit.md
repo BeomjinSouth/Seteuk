@@ -86,10 +86,10 @@
 
 ## Textbook Evidence Packet
 
-- `textbook-evidence-packets/index.md`와 `textbook-evidence-packets/index.csv`를 추가해 상위 우선순위 교과서 근거 패킷을 추적한다.
-- `rank-01`~`rank-05` 패킷은 `좌표평면과 그래프`, `일차함수와 그 그래프`, `경우의 수와 확률`, `이차함수와 그 그래프`, `도수분포표와 상대도수` 단원을 포함한다.
-- 다섯 패킷은 concept 131개를 포함하며, 그중 `low` 신뢰도 concept 21개를 먼저 정렬한다.
-- 현재 `교과서_원본/`에는 PDF가 없으므로 131개 row 모두 `pending_textbook_pdf` 상태이며, 목차·학습목표·정의·정리·예제·용어 설명·문제 패턴·쪽수 슬롯은 비워 두었다.
+- `textbook-evidence-packets/index.md`와 `textbook-evidence-packets/index.csv`를 추가해 전체 단원 교과서 근거 패킷을 추적한다.
+- `rank-01`~`rank-33` 패킷은 `textbook-extraction-queue.csv`의 전체 33개 단원 그룹을 포함한다.
+- 전체 패킷은 concept 465개를 포함하며, 그중 `low` 신뢰도 concept 66개를 단원 안에서 먼저 정렬한다.
+- 현재 `교과서_원본/`에는 PDF가 없으므로 465개 row 모두 `pending_textbook_pdf` 상태이며, 목차·학습목표·정의·정리·예제·용어 설명·문제 패턴·쪽수 슬롯은 비워 두었다.
 - 교과서 PDF가 추가되면 이 패킷들의 빈 슬롯을 채운 뒤 `concepts.json`의 `source_refs`, `confidence`, 병합/분리 판단을 갱신한다.
 
 ## 다음 출처 보강 순서

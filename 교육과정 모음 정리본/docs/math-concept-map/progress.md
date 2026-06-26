@@ -154,12 +154,12 @@
 
 ## 2026-06-26 textbook evidence packet 보강
 
-- `build_textbook_evidence_packet.py`를 추가하고 `--top-n 5` 생성을 지원하여 `textbook-extraction-queue.csv`의 상위 5개 단원을 `textbook-evidence-packets/` 아래 패킷 묶음으로 분리했다.
-- `index.md`와 `index.csv`가 `rank-01`~`rank-05` 패킷의 단원, concept 수, pending row 수, low 신뢰도 concept 수, 파일명을 추적한다.
-- 상위 5개 패킷은 `좌표평면과 그래프`, `일차함수와 그 그래프`, `경우의 수와 확률`, `이차함수와 그 그래프`, `도수분포표와 상대도수` 단원 concept 131개를 포함하며, `low` 신뢰도 concept 21개를 먼저 정렬한다.
+- `build_textbook_evidence_packet.py`를 추가하고 `--all` 생성을 지원하여 `textbook-extraction-queue.csv`의 전체 33개 단원을 `textbook-evidence-packets/` 아래 패킷 묶음으로 분리했다.
+- `index.md`와 `index.csv`가 `rank-01`~`rank-33` 패킷의 단원, concept 수, pending row 수, low 신뢰도 concept 수, 파일명을 추적한다.
+- 전체 패킷은 concept 465개를 포함하며, `low` 신뢰도 concept 66개를 단원 안에서 먼저 정렬한다.
 - 각 row에 목차, 학습목표, 본문 정의, 정리, 예제, 용어 설명, 문제 반복 패턴, 교과서 쪽수, 추출 메모 슬롯을 두어 교과서 PDF가 추가된 뒤 단원 단위로 근거를 채울 수 있게 했다.
-- 현재 `교과서_원본/`에 PDF가 없으므로 131개 row 모두 `pending_textbook_pdf` 상태로 유지했다.
-- `validate_concept_map.py`가 상위 5개 패킷과 인덱스의 row 수, schema, concept 순서, 대상 단원 범위, 누락 concept, 교과서 원본 부재 시 pending 상태를 검증하도록 보강했다.
+- 현재 `교과서_원본/`에 PDF가 없으므로 465개 row 모두 `pending_textbook_pdf` 상태로 유지했다.
+- `validate_concept_map.py`가 전체 33개 패킷과 인덱스의 row 수, schema, concept 순서, 대상 단원 범위, 누락 concept, 교과서 원본 부재 시 pending 상태를 검증하도록 보강했다.
 
 ## 남은 작업
 
@@ -189,4 +189,4 @@
 - source ref 감사 보강 결과: source ref audit 단위 테스트 3개와 validator 단위 테스트 11개가 통과하고, `source-ref-audit.md`와 `source-ref-audit.csv`가 source ref 4109개와 locator/summary 누락 0개 상태를 포함한다.
 - concept evidence depth 보강 결과: concept evidence depth 단위 테스트 3개와 validator 단위 테스트 14개가 통과하고, `concept-evidence-depth.md`와 `concept-evidence-depth.csv`가 concept 465개 전체와 교과서 근거 보강 필요 465개 상태를 포함한다.
 - textbook extraction queue 보강 결과: textbook extraction queue 단위 테스트 3개와 validator 단위 테스트 16개가 통과하고, `textbook-extraction-queue.md`와 `textbook-extraction-queue.csv`가 33개 단원 그룹과 교과서 근거 보강 필요 concept 465개를 포함한다.
-- textbook evidence packet 보강 결과: textbook evidence packet 단위 테스트 5개와 validator 단위 테스트 20개가 통과하고, `textbook-evidence-packets/index.*` 및 `rank-01`~`rank-05` 패킷이 상위 5개 단원 concept 131개를 모두 포함하며 현재 모두 `pending_textbook_pdf` 상태임을 확인했다.
+- textbook evidence packet 보강 결과: textbook evidence packet 단위 테스트 6개와 validator 단위 테스트 21개가 통과하고, `textbook-evidence-packets/index.*` 및 `rank-01`~`rank-33` 패킷이 전체 33개 단원 concept 465개를 모두 포함하며 현재 모두 `pending_textbook_pdf` 상태임을 확인했다.

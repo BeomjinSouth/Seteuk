@@ -203,6 +203,16 @@ class BuildTextbookEvidencePacketTests(unittest.TestCase):
         self.assertEqual([item["rank"] for item in packets], [1, 2])
         self.assertEqual([item["rows"][0]["concept_id"] for item in packets], ["coord", "slope"])
 
+    def test_resolve_top_n_uses_all_queue_rows_when_requested(self) -> None:
+        queue_rows = [
+            {"rank": "1"},
+            {"rank": "2"},
+            {"rank": "3"},
+        ]
+
+        self.assertEqual(packet.resolve_top_n(queue_rows, top_n=None, include_all=True), 3)
+        self.assertEqual(packet.resolve_top_n(queue_rows, top_n=2, include_all=False), 2)
+
     def test_packet_index_and_packet_set_outputs_are_stable(self) -> None:
         packets = [
             {

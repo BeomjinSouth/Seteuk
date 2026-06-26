@@ -192,7 +192,7 @@
 
 ## Textbook Evidence Packet CSV
 
-`textbook-evidence-packets/rank-01.csv`~`rank-05.csv`는 `textbook-extraction-queue.csv`의 상위 5개 단원에 대해 교과서 목차·학습목표·본문 정의·정리·예제·용어 설명·문제 반복 패턴 근거를 채우기 위한 단원별 작업 패킷이다. 현재 `교과서_원본/`에 PDF가 없으므로 모든 row의 `extraction_status`는 `pending_textbook_pdf`이다.
+`textbook-evidence-packets/rank-01.csv`~`rank-33.csv`는 `textbook-extraction-queue.csv`의 전체 33개 단원에 대해 교과서 목차·학습목표·본문 정의·정리·예제·용어 설명·문제 반복 패턴 근거를 채우기 위한 단원별 작업 패킷이다. 현재 `교과서_원본/`에 PDF가 없으므로 모든 row의 `extraction_status`는 `pending_textbook_pdf`이다.
 
 | 필드 | 설명 |
 | --- | --- |

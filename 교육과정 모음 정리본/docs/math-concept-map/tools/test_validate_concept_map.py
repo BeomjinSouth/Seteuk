@@ -209,6 +209,15 @@ class AchievementCoverageTests(unittest.TestCase):
             [2],
         )
 
+    def test_textbook_packet_expected_ranks_follow_queue_rows(self) -> None:
+        queue_rows = [
+            {"rank": "2"},
+            {"rank": "1"},
+            {"rank": "3"},
+        ]
+
+        self.assertEqual(validator.textbook_packet_expected_ranks(queue_rows), [1, 2, 3])
+
     def test_textbook_packet_index_pending_count_sums_rows(self) -> None:
         rows = [
             {"pending_textbook_evidence_count": "2"},

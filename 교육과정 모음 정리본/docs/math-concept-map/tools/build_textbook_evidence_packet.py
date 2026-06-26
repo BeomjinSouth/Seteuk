@@ -231,7 +231,7 @@ def textbook_evidence_packet_set(
     concepts: Iterable[dict],
     evidence_rows: Iterable[dict],
     queue_rows: Iterable[dict],
-    top_n: int,
+    top_n: int | None,
 ) -> list[dict]:
     queue_row_list = list(queue_rows)
     sorted_targets = sorted(queue_row_list, key=lambda row: int(row.get("rank", 0)))[:top_n]
@@ -254,6 +254,15 @@ def textbook_evidence_packet_set(
             }
         )
     return packets
+
+
+def resolve_top_n(queue_rows: Iterable[dict], top_n: int | None, include_all: bool) -> int:
+    row_count = len(list(queue_rows))
+    if include_all:
+        return row_count
+    if top_n is None:
+        return 1
+    return top_n
 
 
 def packet_index_rows(packets: Iterable[dict]) -> list[dict]:
@@ -338,18 +347,20 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Build a unit-level textbook evidence packet.")
     parser.add_argument("--rank", type=int, default=1, help="textbook extraction queue rank")
     parser.add_argument("--top-n", type=int, help="build packets for the top N queue ranks and write an index")
+    parser.add_argument("--all", action="store_true", help="build packets for every queue rank and write an index")
     args = parser.parse_args()
 
     queue_rows = read_csv_rows(TEXTBOOK_EXTRACTION_QUEUE_CSV)
     concepts = read_concepts()
     evidence_rows = read_csv_rows(CONCEPT_EVIDENCE_DEPTH_CSV)
+    top_n = resolve_top_n(queue_rows, top_n=args.top_n, include_all=args.all)
 
-    if args.top_n:
+    if args.top_n or args.all:
         packets = textbook_evidence_packet_set(
             concepts,
             evidence_rows,
             queue_rows,
-            top_n=args.top_n,
+            top_n=top_n,
         )
         write_packet_set(packets)
         print(

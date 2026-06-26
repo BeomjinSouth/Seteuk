@@ -64,7 +64,6 @@ EDGE_TYPES = {
 }
 CONFIDENCE = {"high", "medium", "low"}
 SOURCE_INVENTORY_STATUSES = {"available", "empty", "missing"}
-TEXTBOOK_PACKET_TOP_N = 5
 REQUIRED_SOURCE_GROUPS = tuple(
     spec["source_group"] for spec in source_inventory.SOURCE_SPECS
 )
@@ -248,6 +247,10 @@ def textbook_packet_index_missing_ranks(records: list[dict], expected_ranks: lis
     return [rank for rank in expected_ranks if rank not in present]
 
 
+def textbook_packet_expected_ranks(queue_rows: list[dict]) -> list[int]:
+    return sorted(int(row.get("rank", 0)) for row in queue_rows)
+
+
 def textbook_packet_index_pending_count(records: list[dict]) -> int:
     return sum(int(record.get("pending_textbook_evidence_count", 0)) for record in records)
 
@@ -409,10 +412,10 @@ def main() -> None:
         fail("textbook-extraction-queue.csv needs_textbook_evidence_count does not match concept evidence depth")
     if not textbook_extraction_queue_md.exists() or "# Textbook Extraction Queue" not in textbook_extraction_queue_md.read_text(encoding="utf-8"):
         fail("textbook-extraction-queue.md missing or invalid")
-    expected_packet_ranks = list(range(1, TEXTBOOK_PACKET_TOP_N + 1))
+    expected_packet_ranks = textbook_packet_expected_ranks(textbook_queue_rows)
     textbook_packet_index_rows = read_csv_rows(textbook_evidence_packet_index_csv)
-    if len(textbook_packet_index_rows) != TEXTBOOK_PACKET_TOP_N:
-        fail("textbook evidence packet index row count does not match configured top-N")
+    if len(textbook_packet_index_rows) != len(expected_packet_ranks):
+        fail("textbook evidence packet index row count does not match textbook extraction queue")
     if list(textbook_packet_index_rows[0]) != textbook_evidence_packet.INDEX_FIELDS:
         fail("textbook evidence packet index fields do not match schema")
     missing_packet_ranks = textbook_packet_index_missing_ranks(textbook_packet_index_rows, expected_packet_ranks)
