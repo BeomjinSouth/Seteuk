@@ -11,8 +11,8 @@ import { SimilarityModal, SimilarityResult } from '@/components/SimilarityModal'
 import { getContentHash } from '@/components/KeywordHighlighter';
 import { useAppStore } from '@/lib/store';
 import { SubjectRecord, CompetencySegment } from '@/types';
-import type { OCREvaluation } from '@/types/ocr';
-import { generateDraft, performSpellCheck, checkForbiddenWords, reviewAndImproveRecord } from '@/lib/write-logic';
+import type { OCREvaluation, StudentGradingResult } from '@/types/ocr';
+import { generateDraft, generateDraftBatch, performSpellCheck, checkForbiddenWords, reviewAndImproveRecord } from '@/lib/write-logic';
 import { applyCheckResultToRecord } from '@/lib/check-utils';
 import { getRecordByStudentSemester } from '@/lib/record-utils';
 import { DEFAULT_CONCURRENCY_LIMIT, mapWithConcurrency } from '@/lib/concurrency';
@@ -314,6 +314,132 @@ function WritePageContent() {
             ocrEvaluationCache.set(key, request);
             return request;
         };
+
+        let fallbackCount = 0;
+        let failureCount = 0;
+        const failedNames: string[] = [];
+
+        if (toGenerate.length > 1) {
+            try {
+                const batchTargets = (await Promise.all(toGenerate.map(async (studentId) => {
+                    const student = students.find((item) => item.id === studentId);
+                    if (!student) return null;
+
+                    const teachingClass = getTeachingClassForStudent(student);
+                    if (!teachingClass) return null;
+
+                    const studentGrade = student.grade || teachingClass.grade || 1;
+                    const curriculumData = getCurriculumContent(studentGrade, currentSemester);
+                    const curriculumContext = buildCurriculumGenerationContext({
+                        units: mergedCurriculumUnits,
+                        grade: studentGrade,
+                        semester: currentSemester,
+                        subjectName: teachingClass.subjectName || '',
+                        selectedUnitIds: getClassCurriculumSelection(teachingClass.id, currentSemester)?.unitIds || [],
+                    });
+                    const evaluations = await getOcrEvaluations(studentGrade, currentSemester);
+
+                    let matchedEvaluation: OCREvaluation | undefined;
+                    let matchedStudentResult: StudentGradingResult | undefined;
+                    let standardsOnlyEvaluation: OCREvaluation | undefined;
+
+                    for (const evaluation of evaluations) {
+                        const results = evaluation.batchGradingResult?.results || [];
+                        const byId = results.find((result) => result.studentId === studentId);
+                        if (byId) {
+                            matchedEvaluation = evaluation;
+                            matchedStudentResult = byId;
+                            break;
+                        }
+                        if (!matchedStudentResult) {
+                            const byName = results.filter((result) => result.studentName === student.name);
+                            if (byName.length === 1) {
+                                matchedEvaluation = evaluation;
+                                matchedStudentResult = byName[0];
+                            }
+                        }
+                        if (!standardsOnlyEvaluation
+                            && (evaluation.achievementStandards?.length > 0 || evaluation.scoringCriteria?.length > 0)) {
+                            standardsOnlyEvaluation = evaluation;
+                        }
+                    }
+
+                    const contextEvaluation = matchedEvaluation || standardsOnlyEvaluation;
+                    const ocrEvaluationContext = contextEvaluation
+                        ? {
+                            achievementStandards: contextEvaluation.achievementStandards,
+                            scoringCriteria: contextEvaluation.scoringCriteria,
+                            studentResult: matchedStudentResult,
+                        }
+                        : undefined;
+
+                    return {
+                        student,
+                        teachingClass,
+                        draftInput: {
+                            studentId,
+                            studentName: student.name,
+                            subjectName: teachingClass.subjectName || '',
+                            learningData: getLearningDataForClass(student, teachingClass.id),
+                            curriculumContent: curriculumData?.content,
+                            ocrEvaluationContext,
+                            context: {
+                                teacherKey: teacher?.teacherKey,
+                                classId: teachingClass.id,
+                                gradeLevel: studentGrade,
+                                semester: currentSemester,
+                                curriculumContext,
+                            },
+                        },
+                    };
+                }))).filter((item): item is NonNullable<typeof item> => item !== null);
+
+                const batchResults = await generateDraftBatch(
+                    batchTargets.map((target) => target.draftInput),
+                    exampleTemplate,
+                );
+
+                batchTargets.forEach(({ student, teachingClass }) => {
+                    const result = batchResults.get(student.id);
+                    if (!result) {
+                        failureCount += 1;
+                        failedNames.push(student.name);
+                        return;
+                    }
+
+                    if (result.fallback) {
+                        fallbackCount += 1;
+                        failedNames.push(student.name);
+                        return;
+                    }
+
+                    updateRecord({
+                        id: `r-${teacher?.teacherKey || 'teacher'}-${teachingClass.id}-${student.id}-${currentSemester}`,
+                        studentId: student.id,
+                        classId: teachingClass.id,
+                        teacherKey: teacher?.teacherKey,
+                        semester: currentSemester,
+                        content: result.content,
+                        status: 'draft',
+                        lastUpdated: new Date().toISOString(),
+                    }, 'ai');
+                });
+
+                setGeneratingIds(new Set());
+                setSelectedStudents(new Set());
+
+                if (fallbackCount > 0 || failureCount > 0) {
+                    const lines = [`AI ?? ???: ${fallbackCount + failureCount}? (${failedNames.join(', ')})`];
+                    if (fallbackCount > 0) lines.push(`- AI ???? ???? ??: ${fallbackCount}?`);
+                    if (failureCount > 0) lines.push(`- ?? ? ?? ??: ${failureCount}?`);
+                    lines.push('?? ??? ??? ???? ?????. ?? ? ?? ??? ???.');
+                    alert(lines.join('\n'));
+                }
+                return;
+            } catch (error) {
+                console.error('Batch generation failed, falling back to single-student generation:', error);
+            }
+        }
 
         await mapWithConcurrency(toGenerate, DEFAULT_CONCURRENCY_LIMIT, async (studentId) => {
             const student = students.find((item) => item.id === studentId);

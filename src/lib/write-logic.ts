@@ -28,6 +28,52 @@ interface ReviewAndImproveParams {
     subjectName?: string;
 }
 
+interface BatchDraftStudentInput {
+    studentId: string;
+    studentName: string;
+    subjectName: string;
+    learningData: Record<string, string>;
+    curriculumContent?: string;
+    ocrEvaluationContext?: {
+        achievementStandards?: Array<{
+            code: string;
+            description: string;
+            levels?: Array<{ level: string; description: string }>;
+        }>;
+        scoringCriteria?: Array<{
+            element: string;
+            levels?: Array<{ score: number; description: string }>;
+        }>;
+        studentResult?: {
+            achievementLevel?: string;
+            totalScore?: number;
+            maxTotalScore?: number;
+            scores?: Array<{
+                criteriaElement: string;
+                score: number;
+                maxScore: number;
+                feedback: string;
+            }>;
+            overallFeedback?: string;
+        };
+    };
+    context?: {
+        teacherKey?: string;
+        classId?: string;
+        gradeLevel?: number;
+        semester?: 1 | 2;
+        curriculumContext?: CurriculumGenerationContext;
+    };
+}
+
+interface BatchDraftResult {
+    studentId: string;
+    content: string;
+    observationCount: number;
+    fallback: boolean;
+    fallbackMessage?: string;
+}
+
 // Get stored settings
 export function getAISettings(): AISettings {
     if (typeof window === 'undefined') {
@@ -169,6 +215,76 @@ export async function generateDraft(
         content: `${studentName} 학생은 ${baseContent}. ${subjectName || '해당 과목'} 수업에서 적극적으로 참여하며 탐구 과정을 주도적으로 수행하였고, 협력 활동에서도 의미 있는 기여를 보였다.`,
         observationCount: 0,
     };
+}
+
+export async function generateDraftBatch(
+    students: BatchDraftStudentInput[],
+    exampleTemplate: string,
+): Promise<Map<string, BatchDraftResult>> {
+    if (students.length === 0) return new Map();
+
+    const settings = getAISettings();
+    const response = await fetch('/api/generate-batch', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            students: students.map((student) => ({
+                studentId: student.studentId,
+                studentName: student.studentName,
+                subjectName: student.subjectName,
+                learningData: student.learningData,
+                curriculumContent: student.curriculumContent,
+                curriculumContext: student.context?.curriculumContext,
+                model: settings.model,
+                systemPrompt: settings.systemPrompt,
+                maxOutputTokens: settings.maxOutputTokens,
+                reasoningEffort: settings.reasoningEffort,
+                includeObservations: true,
+                observationBoardContext: readObservationBoardAiContext({
+                    studentId: student.studentId,
+                    teacherKey: student.context?.teacherKey,
+                    classId: student.context?.classId,
+                }),
+                ocrEvaluationContext: student.ocrEvaluationContext,
+                teacherKey: student.context?.teacherKey,
+                classId: student.context?.classId,
+            })),
+            exampleTemplates: exampleTemplate ? [exampleTemplate] : [],
+            model: settings.model,
+            systemPrompt: settings.systemPrompt,
+            maxOutputTokens: settings.maxOutputTokens,
+            reasoningEffort: settings.reasoningEffort,
+        }),
+    });
+
+    const data = await response.json().catch(() => null);
+    if (!response.ok || !data?.success || !Array.isArray(data.results)) {
+        throw new Error(data?.error || 'Batch generation failed.');
+    }
+
+    return new Map(
+        data.results
+            .filter((result: { studentId?: unknown; content?: unknown }) =>
+                typeof result.studentId === 'string' && typeof result.content === 'string'
+            )
+            .map((result: {
+                studentId: string;
+                content: string;
+                observationCount?: number;
+                fallback?: boolean;
+                message?: string;
+                error?: string;
+            }) => [
+                result.studentId,
+                {
+                    studentId: result.studentId,
+                    content: result.content,
+                    observationCount: result.observationCount || 0,
+                    fallback: result.fallback === true,
+                    fallbackMessage: result.message || result.error,
+                },
+            ]),
+    );
 }
 
 export async function reviewAndImproveRecord({

@@ -82,6 +82,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 ## Current State
 
 - `/write`: curriculum unit context selection is implemented per teaching class and semester. The app bundles a developer-provided JSON unit catalog, teachers can store account-level overrides without mutating the default catalog, and selected units are sent to `/api/generate` before the legacy grade/semester `curriculumContents` fallback.
+- `/write`: multi-student AI generation sends selected students to `/api/generate-batch` first so the shared prompt and class context are reused across the batch; if the batch route fails, the UI falls back to the existing single-student `/api/generate` path.
 - `/examples`: the curriculum tab is expanded into unit context management with JSON paste/upload validation, grade/semester/subject filtering, per-unit concept/focus/activity edits, default restoration for overridden units, and the legacy grade/semester memo retained as fallback context.
 - `/api/counsel-chat`: implemented
 - `/api/record-review`: implemented
