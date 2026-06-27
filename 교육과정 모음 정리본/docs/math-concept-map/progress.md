@@ -438,8 +438,24 @@
 - 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 476개 concept, 1706개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
 - diff check: `git diff --check -- docs/math-concept-map`: 종료 코드 0, CRLF 변환 경고만 확인.
 
+## 2026-06-27 edge 기반 노드 배열 역동기화 보강
+
+- AGENTS.md를 다시 확인하고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 생성 로직과 파생 산출물 정비로 진행했다.
+- `build_pilot.py`에 `append_missing_concept_array_entries_from_edges`를 추가해 `contains` edge는 target concept의 `parent_ids`, `prerequisite_for` edge는 target concept의 `prerequisite_ids`에 누락 없이 반영되게 했다.
+- `test_build_pilot_edge_sync.py`에 역방향 검증 2개를 추가해 edge와 노드 배열의 양방향 동기화를 고정했다.
+- 전체 파생 산출물을 재생성했으며 개념 노드는 476개, edge는 1706개로 유지된다.
+- `node-edge-consistency-audit.csv`는 469개 검토 row로 줄었고, 남은 항목은 모두 `missing_edge_for_related_id`다. `edge_without_parent_id`와 `edge_without_prerequisite_id`는 0개가 되었다.
+- `related_ids`는 관계 유형이 `related_to`, `contrasts_with`, `often_confused_with`, `represented_by`, `used_in` 중 무엇인지 공식·교과서 근거 확인이 필요하므로 자동 확정하지 않았다.
+
+## 2026-06-27 edge 기반 노드 배열 역동기화 검증 결과
+
+- TDD red: `python -m unittest discover -s .\docs\math-concept-map\tools -p test_build_pilot_edge_sync.py`가 `contains` edge 27개와 `prerequisite_for` edge 10개가 노드 배열에 반영되지 않아 실패하는 것을 확인했다.
+- TDD green: edge 기반 배열 보강을 추가한 뒤 같은 테스트 파일의 4개 테스트가 통과했다.
+- 전체 단위 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p 'test_*.py'`: 107개 통과.
+- 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 476개 concept, 1706개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map`: 종료 코드 0, CRLF 변환 경고만 확인.
+
 ## 다음 작업
 
-- `node-edge-consistency-audit.csv`의 `edge_without_parent_id` 27개와 `edge_without_prerequisite_id` 10개를 검토해 배열에 다시 반영할 구조 관계인지, 아니면 edge만 유지할 비구조 관계인지 구분한다.
 - `related_ids` 관련 469개 row는 교과서 본문·예제·용어 설명이 들어오면 `related_to`, `contrasts_with`, `often_confused_with`, `represented_by`, `used_in` 중 적절한 edge로 정리한다.
 - 중1~중3 수학 교과서 PDF가 추가되면 `textbook-evidence-packets/`, `prerequisite-map.csv`, `prerequisite-unit-graph.dot`를 함께 사용해 concept별 본문·예제 근거와 선수 edge별 쪽수 근거를 누적한다.

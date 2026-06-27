@@ -4,9 +4,7 @@ This generated audit compares node relationship arrays with explicit edge rows.
 
 ## Summary
 
-- total issues: 506
-- edge_without_parent_id: 27
-- edge_without_prerequisite_id: 10
+- total issues: 469
 - missing_edge_for_related_id: 469
 
 ## Priority Rows

@@ -2,7 +2,7 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-27T10:44:43",
+    "generated_at": "2026-06-27T10:50:46",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
     "concept_count": 476,
     "edge_count": 1706
@@ -821,7 +821,9 @@
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
         }
       ],
-      "prerequisite_ids": [],
+      "prerequisite_ids": [
+        "m1_num_prime_factor_unit"
+      ],
       "parent_ids": [
         "m1_num_domain"
       ],
@@ -988,7 +990,8 @@
       ],
       "prerequisite_ids": [],
       "parent_ids": [
-        "m1_num_integer"
+        "m1_num_integer",
+        "m1_num_positive_number"
       ],
       "related_ids": [
         "m1_num_positive_number",
@@ -1030,7 +1033,8 @@
       ],
       "prerequisite_ids": [],
       "parent_ids": [
-        "m1_num_integer"
+        "m1_num_integer",
+        "m1_num_negative_number"
       ],
       "related_ids": [
         "m1_num_negative_number"
@@ -1131,7 +1135,8 @@
         "m1_num_integer"
       ],
       "parent_ids": [
-        "m1_num_integer_rational_unit"
+        "m1_num_integer_rational_unit",
+        "m1_num_real_number"
       ],
       "related_ids": [
         "m1_num_positive_rational",
@@ -2183,7 +2188,8 @@
         }
       ],
       "prerequisite_ids": [
-        "m1_num_rational_number"
+        "m1_num_rational_number",
+        "m1_num_integer_rational_unit"
       ],
       "parent_ids": [
         "m1_num_domain"
@@ -2318,7 +2324,8 @@
         "m1_num_infinite_decimal"
       ],
       "parent_ids": [
-        "m1_num_repeating_decimal_unit"
+        "m1_num_repeating_decimal_unit",
+        "m1_num_infinite_decimal"
       ],
       "related_ids": [
         "m1_num_repetend",
@@ -2363,7 +2370,8 @@
         "m1_num_repeating_decimal"
       ],
       "parent_ids": [
-        "m1_num_repeating_decimal_unit"
+        "m1_num_repeating_decimal_unit",
+        "m1_num_repeating_decimal"
       ],
       "related_ids": [
         "m1_num_repeating_decimal_notation"
@@ -2849,7 +2857,8 @@
         "m1_num_square_root"
       ],
       "parent_ids": [
-        "m1_num_square_root_real_unit"
+        "m1_num_square_root_real_unit",
+        "m1_num_real_number"
       ],
       "related_ids": [
         "m1_num_real_number",
@@ -2981,10 +2990,12 @@
       ],
       "prerequisite_ids": [
         "m1_num_real_number",
-        "m1_num_compare_square_roots"
+        "m1_num_compare_square_roots",
+        "m1_num_order_relation"
       ],
       "parent_ids": [
-        "m1_num_square_root_real_unit"
+        "m1_num_square_root_real_unit",
+        "m1_num_real_number"
       ],
       "related_ids": [
         "m1_num_order_relation"
@@ -3786,7 +3797,8 @@
         "m1_expr_degree"
       ],
       "parent_ids": [
-        "m1_expr_unit"
+        "m1_expr_unit",
+        "m1_expr_polynomial"
       ],
       "related_ids": [
         "m1_expr_add_sub_linear_expression",
@@ -4110,7 +4122,8 @@
       ],
       "prerequisite_ids": [
         "m1_eq_equality",
-        "m1_eq_unknown"
+        "m1_eq_unknown",
+        "m1_expr_polynomial"
       ],
       "parent_ids": [
         "m1_eq_unit"
@@ -4785,7 +4798,8 @@
       "prerequisite_ids": [
         "m1_expr_unit",
         "m1_expr_polynomial",
-        "m1_expr_monomial"
+        "m1_expr_monomial",
+        "m1_num_four_operations"
       ],
       "parent_ids": [],
       "related_ids": [
@@ -5125,7 +5139,8 @@
       "prerequisite_ids": [
         "m1_expr_monomial",
         "m1_expr_polynomial",
-        "m1_calc_exponent_laws"
+        "m1_calc_exponent_laws",
+        "m1_calc_monomial_mul_div"
       ],
       "parent_ids": [
         "m1_calc_unit"
@@ -5170,7 +5185,8 @@
         }
       ],
       "prerequisite_ids": [
-        "m1_calc_monomial_polynomial_mul_div"
+        "m1_calc_monomial_polynomial_mul_div",
+        "m1_num_distributive_law"
       ],
       "parent_ids": [
         "m1_calc_unit"
@@ -5455,7 +5471,8 @@
         "m1_expr_substitution"
       ],
       "parent_ids": [
-        "m1_ineq_inequality"
+        "m1_ineq_inequality",
+        "m1_ineq_unit"
       ],
       "related_ids": [
         "m1_eq_solution",
@@ -5584,7 +5601,8 @@
         "m1_expr_linear_expression"
       ],
       "parent_ids": [
-        "m1_ineq_unit"
+        "m1_ineq_unit",
+        "m1_ineq_inequality"
       ],
       "related_ids": [
         "m1_ineq_solving_linear_inequality",
@@ -5953,7 +5971,8 @@
         "m1_system_two_variable_linear_equation"
       ],
       "parent_ids": [
-        "m1_system_unit"
+        "m1_system_unit",
+        "m1_system_simultaneous_equations"
       ],
       "related_ids": [
         "m1_system_solution",
@@ -5993,7 +6012,8 @@
         "m1_eq_solution"
       ],
       "parent_ids": [
-        "m1_system_simultaneous_linear_equations"
+        "m1_system_simultaneous_linear_equations",
+        "m1_system_unit"
       ],
       "related_ids": [
         "m1_coord_ordered_pair",
@@ -6564,7 +6584,8 @@
         "m1_expr_substitution"
       ],
       "parent_ids": [
-        "m1_func_function"
+        "m1_func_function",
+        "m1_func_unit"
       ],
       "related_ids": [
         "m1_expr_value",
@@ -6609,7 +6630,8 @@
         "m1_expr_linear_expression"
       ],
       "parent_ids": [
-        "m1_func_unit"
+        "m1_func_unit",
+        "m1_func_function"
       ],
       "related_ids": [
         "m1_func_linear_formula",
@@ -7194,7 +7216,8 @@
       ],
       "prerequisite_ids": [
         "m1_func_unit",
-        "m1_system_unit"
+        "m1_system_unit",
+        "m1_eq_unit"
       ],
       "parent_ids": [],
       "related_ids": [
@@ -7343,7 +7366,8 @@
         "m1_coord_coordinate"
       ],
       "parent_ids": [
-        "m1_func_eq_relation_unit"
+        "m1_func_eq_relation_unit",
+        "m1_func_two_linear_graphs"
       ],
       "related_ids": [
         "m1_func_system_solution_from_intersection"
@@ -7374,7 +7398,8 @@
         "m1_func_two_linear_graphs"
       ],
       "parent_ids": [
-        "m1_func_eq_relation_unit"
+        "m1_func_eq_relation_unit",
+        "m1_func_two_linear_graphs"
       ],
       "related_ids": [
         "m1_func_system_graph_relation",
@@ -8721,7 +8746,8 @@
         "m1_quad_eq_quadratic_equation"
       ],
       "parent_ids": [
-        "m1_quad_eq_unit"
+        "m1_quad_eq_unit",
+        "m1_quad_eq_double_root"
       ],
       "related_ids": [
         "m1_eq_root",
@@ -9373,7 +9399,8 @@
         "m1_quad_func_parabola"
       ],
       "parent_ids": [
-        "m1_quad_func_graph_properties"
+        "m1_quad_func_graph_properties",
+        "m1_quad_func_parabola"
       ],
       "related_ids": [
         "m1_quad_func_vertex",
@@ -9418,7 +9445,8 @@
         "m1_quad_func_parabola"
       ],
       "parent_ids": [
-        "m1_quad_func_graph_properties"
+        "m1_quad_func_graph_properties",
+        "m1_quad_func_parabola"
       ],
       "related_ids": [
         "m1_quad_func_axis",
@@ -9453,7 +9481,8 @@
         "m1_quad_func_graph"
       ],
       "parent_ids": [
-        "m1_quad_func_graph"
+        "m1_quad_func_graph",
+        "m1_quad_func_formula"
       ],
       "related_ids": [
         "m1_quad_func_vertex_form",
@@ -9939,7 +9968,10 @@
           "summary": "정비례와 반비례 관계를 표, 식, 그래프로 나타내는 성취기준"
         }
       ],
-      "prerequisite_ids": [],
+      "prerequisite_ids": [
+        "m1_eq_unit",
+        "m1_system_unit"
+      ],
       "parent_ids": [],
       "related_ids": [],
       "notes": "",
@@ -10529,7 +10561,8 @@
         "m1_coord_coordinate"
       ],
       "parent_ids": [
-        "m1_coord_point_location"
+        "m1_coord_point_location",
+        "m1_coord_axis"
       ],
       "related_ids": [
         "m1_mis_axis_quadrant"
@@ -17470,7 +17503,8 @@
         "m1_num_rational_number"
       ],
       "parent_ids": [
-        "m1_data_representative_unit"
+        "m1_data_representative_unit",
+        "m1_data_representative_value"
       ],
       "related_ids": [
         "m1_data_median",
@@ -17516,7 +17550,8 @@
         "m1_num_order_relation"
       ],
       "parent_ids": [
-        "m1_data_representative_unit"
+        "m1_data_representative_unit",
+        "m1_data_representative_value"
       ],
       "related_ids": [
         "m1_data_mean",
@@ -17562,7 +17597,8 @@
         "m1_data_frequency"
       ],
       "parent_ids": [
-        "m1_data_representative_unit"
+        "m1_data_representative_unit",
+        "m1_data_representative_value"
       ],
       "related_ids": [
         "m1_data_mean",
@@ -19915,7 +19951,8 @@
         "m1_data_correlation"
       ],
       "parent_ids": [
-        "m1_data_box_scatter_unit"
+        "m1_data_box_scatter_unit",
+        "m1_data_correlation"
       ],
       "related_ids": [
         "m1_data_negative_correlation",
@@ -19953,7 +19990,8 @@
         "m1_data_correlation"
       ],
       "parent_ids": [
-        "m1_data_box_scatter_unit"
+        "m1_data_box_scatter_unit",
+        "m1_data_correlation"
       ],
       "related_ids": [
         "m1_data_positive_correlation",
@@ -19991,7 +20029,8 @@
         "m1_data_correlation"
       ],
       "parent_ids": [
-        "m1_data_box_scatter_unit"
+        "m1_data_box_scatter_unit",
+        "m1_data_correlation"
       ],
       "related_ids": [
         "m1_data_positive_correlation",

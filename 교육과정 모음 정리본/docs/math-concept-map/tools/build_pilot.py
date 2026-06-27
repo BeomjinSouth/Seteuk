@@ -7123,6 +7123,16 @@ def append_missing_edges_from_concept_array(array_field: str, relationship_type:
             existing.add(key)
 
 
+def append_missing_concept_array_entries_from_edges(relationship_type: str, array_field: str) -> None:
+    concepts_by_id = {item["id"]: item for item in CONCEPTS}
+    for item in EDGES:
+        if item["relationship_type"] != relationship_type:
+            continue
+        target = concepts_by_id[item["target_id"]]
+        if item["source_id"] not in target[array_field]:
+            target[array_field].append(item["source_id"])
+
+
 EDGES = [
     edge("m1_num_domain", "m1_num_prime_factor_unit", "contains", [CURR_NUM_01, CURR_NUM_02]),
     edge("m1_num_domain", "m1_num_integer_rational_unit", "contains", [CURR_NUM_03, CURR_NUM_04, CURR_NUM_05]),
@@ -7863,6 +7873,8 @@ EDGES.extend(
 
 append_missing_edges_from_concept_array("parent_ids", "contains")
 append_missing_edges_from_concept_array("prerequisite_ids", "prerequisite_for")
+append_missing_concept_array_entries_from_edges("contains", "parent_ids")
+append_missing_concept_array_entries_from_edges("prerequisite_for", "prerequisite_ids")
 
 
 SOURCES = [
