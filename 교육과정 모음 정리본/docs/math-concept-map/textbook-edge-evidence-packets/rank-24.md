@@ -1,0 +1,92 @@
+# Textbook Edge Evidence Packet
+
+This generated packet is the unit-level worksheet for adding textbook-grounded relationship evidence.
+
+## Target Unit
+
+- rank: 24
+- grade: 중2(교육과정 학년군: 중1-3)
+- domain: 도형과 측정
+- unit: 도형의 닮음
+- priority tier: medium
+- priority score: 15
+- edges in packet: 59
+- cross-unit edges: 27
+- low confidence edges: 10
+
+## Relationship Evidence Slots
+
+| edge_id | scope | source | relationship | target | confidence | required evidence | focus | source refs |
+|---|---|---|---|---|---|---|---|---:|
+| m1_geo_similarity_unit__contains__m1_mis_congruence_similarity | intra_unit | 도형의 닮음 | contains | 합동과 닮음을 같은 관계로 보는 오류 | low | structure_ref;textbook_page_refs;extraction_notes | Find textbook structure evidence for the containment relation. | 4 |
+| m1_geo_similarity__prerequisite_for__m1_mis_congruence_similarity | intra_unit | 닮음 | prerequisite_for | 합동과 닮음을 같은 관계로 보는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_mis_congruence_similarity__often_confused_with__m1_geo_similarity | intra_unit | 합동과 닮음을 같은 관계로 보는 오류 | often_confused_with | 닮음 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 3 |
+| m1_mis_congruence_similarity__often_confused_with__m1_geo_similarity_ratio | intra_unit | 합동과 닮음을 같은 관계로 보는 오류 | often_confused_with | 닮음비 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 4 |
+| m1_geo_congruence__prerequisite_for__m1_mis_congruence_similarity | cross_unit | 합동 | prerequisite_for | 합동과 닮음을 같은 관계로 보는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_geo_similarity_ratio__prerequisite_for__m1_mis_circle_proportion_scope | cross_unit | 닮음비 | prerequisite_for | 원과 비례에 관한 성질을 범위에 포함하는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
+| m1_num_ratio__used_in__m1_geo_parallel_segment_ratio | cross_unit | 비 | used_in | 평행선 사이의 선분의 길이의 비 | low | procedure_ref;textbook_page_refs;extraction_notes | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_num_ratio__used_in__m1_geo_similarity_ratio | cross_unit | 비 | used_in | 닮음비 | low | procedure_ref;textbook_page_refs;extraction_notes | Find a worked example, procedure, or application where this source concept is used. | 3 |
+| m1_mis_congruence_similarity__often_confused_with__m1_geo_congruence | cross_unit | 합동과 닮음을 같은 관계로 보는 오류 | often_confused_with | 합동 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 3 |
+| m1_geo_triangle_midpoint_theorem__related_to__m1_geo_centroid | cross_unit | 삼각형의 중점연결정리 | related_to | 무게중심 | low | related_ref;textbook_page_refs;extraction_notes | Find textbook wording or examples that justify keeping these concepts linked. | 5 |
+| m1_geo_similarity_unit__contains__m1_geo_centroid_from_parallel_ratio | intra_unit | 도형의 닮음 | contains | 평행선과 선분의 비로 무게중심 찾기 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_geo_similarity_unit__contains__m1_geo_correspondence | intra_unit | 도형의 닮음 | contains | 도형의 대응 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
+| m1_geo_similarity_unit__contains__m1_geo_parallel_segment_ratio | intra_unit | 도형의 닮음 | contains | 평행선 사이의 선분의 길이의 비 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_geo_similarity_unit__contains__m1_geo_similar_figures | intra_unit | 도형의 닮음 | contains | 닮은 도형 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_geo_similarity_unit__contains__m1_geo_similarity | intra_unit | 도형의 닮음 | contains | 닮음 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
+| m1_geo_similarity_unit__contains__m1_geo_similarity_judgement | intra_unit | 도형의 닮음 | contains | 삼각형의 닮음 판별 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_geo_similarity_unit__contains__m1_geo_similarity_ratio | intra_unit | 도형의 닮음 | contains | 닮음비 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
+| m1_geo_similarity_unit__contains__m1_geo_triangle_midpoint_theorem | intra_unit | 도형의 닮음 | contains | 삼각형의 중점연결정리 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_geo_similarity_unit__contains__m1_geo_triangle_similarity_conditions | intra_unit | 도형의 닮음 | contains | 삼각형의 닮음 조건 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
+| m1_geo_correspondence__prerequisite_for__m1_geo_similarity | intra_unit | 도형의 대응 | prerequisite_for | 닮음 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_geo_correspondence__prerequisite_for__m1_geo_similarity_ratio | intra_unit | 도형의 대응 | prerequisite_for | 닮음비 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_geo_parallel_segment_ratio__prerequisite_for__m1_geo_centroid_from_parallel_ratio | intra_unit | 평행선 사이의 선분의 길이의 비 | prerequisite_for | 평행선과 선분의 비로 무게중심 찾기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_geo_parallel_segment_ratio__prerequisite_for__m1_geo_triangle_midpoint_theorem | intra_unit | 평행선 사이의 선분의 길이의 비 | prerequisite_for | 삼각형의 중점연결정리 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_geo_similar_figures__prerequisite_for__m1_geo_similarity_ratio | intra_unit | 닮은 도형 | prerequisite_for | 닮음비 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_geo_similarity__prerequisite_for__m1_geo_similar_figures | intra_unit | 닮음 | prerequisite_for | 닮은 도형 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_geo_similarity__prerequisite_for__m1_geo_triangle_similarity_conditions | intra_unit | 닮음 | prerequisite_for | 삼각형의 닮음 조건 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_geo_similarity_ratio__prerequisite_for__m1_geo_parallel_segment_ratio | intra_unit | 닮음비 | prerequisite_for | 평행선 사이의 선분의 길이의 비 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_geo_similarity_ratio__prerequisite_for__m1_geo_triangle_similarity_conditions | intra_unit | 닮음비 | prerequisite_for | 삼각형의 닮음 조건 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_geo_triangle_similarity_conditions__prerequisite_for__m1_geo_similarity_judgement | intra_unit | 삼각형의 닮음 조건 | prerequisite_for | 삼각형의 닮음 판별 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_geo_similar_figures__represented_by__m1_geo_correspondence | intra_unit | 닮은 도형 | represented_by | 도형의 대응 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 3 |
+| m1_geo_similarity__represented_by__m1_geo_correspondence | intra_unit | 닮음 | represented_by | 도형의 대응 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
+| m1_geo_similarity__represented_by__m1_geo_similarity_ratio | intra_unit | 닮음 | represented_by | 닮음비 | high | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 3 |
+| m1_geo_parallel_segment_ratio__used_in__m1_geo_centroid_from_parallel_ratio | intra_unit | 평행선 사이의 선분의 길이의 비 | used_in | 평행선과 선분의 비로 무게중심 찾기 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_geo_parallel_segment_ratio__used_in__m1_geo_similarity_judgement | intra_unit | 평행선 사이의 선분의 길이의 비 | used_in | 삼각형의 닮음 판별 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
+| m1_geo_parallel_segment_ratio__used_in__m1_geo_triangle_midpoint_theorem | intra_unit | 평행선 사이의 선분의 길이의 비 | used_in | 삼각형의 중점연결정리 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_geo_similar_figures__used_in__m1_geo_similarity_ratio | intra_unit | 닮은 도형 | used_in | 닮음비 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_geo_similarity_ratio__used_in__m1_geo_parallel_segment_ratio | intra_unit | 닮음비 | used_in | 평행선 사이의 선분의 길이의 비 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_geo_triangle_similarity_conditions__used_in__m1_geo_similarity_judgement | intra_unit | 삼각형의 닮음 조건 | used_in | 삼각형의 닮음 판별 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_geo_domain__contains__m1_geo_similarity_unit | cross_unit | 도형과 측정 | contains | 도형의 닮음 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 4 |
+| m1_geo_similarity_unit__contains__m1_geo_centroid | cross_unit | 도형의 닮음 | contains | 무게중심 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
+| m1_geo_similarity_unit__contains__m1_geo_median | cross_unit | 도형의 닮음 | contains | 중선 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
+| m1_geo_angle__prerequisite_for__m1_geo_correspondence | cross_unit | 각 | prerequisite_for | 도형의 대응 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_geo_centroid__prerequisite_for__m1_geo_centroid_from_parallel_ratio | cross_unit | 무게중심 | prerequisite_for | 평행선과 선분의 비로 무게중심 찾기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_geo_congruence__prerequisite_for__m1_geo_similarity | cross_unit | 합동 | prerequisite_for | 닮음 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_geo_midpoint__prerequisite_for__m1_geo_triangle_midpoint_theorem | cross_unit | 중점 | prerequisite_for | 삼각형의 중점연결정리 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_geo_parallel_lines__prerequisite_for__m1_geo_parallel_segment_ratio | cross_unit | 평행선 | prerequisite_for | 평행선 사이의 선분의 길이의 비 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_geo_parallel_segment_ratio__prerequisite_for__m1_geo_centroid | cross_unit | 평행선 사이의 선분의 길이의 비 | prerequisite_for | 무게중심 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_geo_point__prerequisite_for__m1_geo_correspondence | cross_unit | 점 | prerequisite_for | 도형의 대응 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_geo_similarity_ratio__prerequisite_for__m1_geo_trigonometric_ratio | cross_unit | 닮음비 | prerequisite_for | 삼각비 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_geo_similarity_unit__prerequisite_for__m1_geo_pythagorean_unit | cross_unit | 도형의 닮음 | prerequisite_for | 피타고라스 정리 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_geo_triangle_quadrilateral_unit__prerequisite_for__m1_geo_similarity_unit | cross_unit | 삼각형과 사각형의 성질 | prerequisite_for | 도형의 닮음 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_geo_centroid__used_in__m1_geo_centroid_from_parallel_ratio | cross_unit | 무게중심 | used_in | 평행선과 선분의 비로 무게중심 찾기 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_geo_figure__used_in__m1_geo_similarity_unit | cross_unit | 도형 | used_in | 도형의 닮음 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_geo_length__used_in__m1_geo_parallel_segment_ratio | cross_unit | 길이 | used_in | 평행선 사이의 선분의 길이의 비 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_geo_median__used_in__m1_geo_centroid_from_parallel_ratio | cross_unit | 중선 | used_in | 평행선과 선분의 비로 무게중심 찾기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
+| m1_geo_triangle__used_in__m1_geo_triangle_similarity_conditions | cross_unit | 삼각형 | used_in | 삼각형의 닮음 조건 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_geo_congruence__contrasts_with__m1_geo_similarity | cross_unit | 합동 | contrasts_with | 닮음 | high | contrast_ref;textbook_page_refs | Find textbook wording or examples that distinguish the two concepts. | 3 |
+| m1_geo_parallel_angle_properties__contrasts_with__m1_geo_parallel_segment_ratio | cross_unit | 평행선에서 동위각과 엇각의 성질 | contrasts_with | 평행선 사이의 선분의 길이의 비 | medium | contrast_ref;textbook_page_refs | Find textbook wording or examples that distinguish the two concepts. | 4 |
+| m1_geo_similarity__contrasts_with__m1_geo_congruence | cross_unit | 닮음 | contrasts_with | 합동 | high | contrast_ref;textbook_page_refs | Find textbook wording or examples that distinguish the two concepts. | 3 |
+
+## Textbook Edge Evidence Fields
+
+- structure_ref
+- prerequisite_ref
+- representation_ref
+- procedure_ref
+- contrast_ref
+- misconception_ref
+- problem_pattern_ref
+- related_ref
+- textbook_page_refs
+- extraction_notes

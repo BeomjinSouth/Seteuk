@@ -13,6 +13,7 @@ import build_source_ref_audit as source_ref_audit
 import build_concept_evidence_depth as concept_evidence_depth
 import build_textbook_extraction_queue as textbook_extraction_queue
 import build_textbook_evidence_packet as textbook_evidence_packet
+import build_textbook_edge_evidence_packet as textbook_edge_evidence_packet
 import build_legacy_gap_audit as legacy_gap_audit
 import build_legacy_gap_resolution as legacy_gap_resolution
 import build_legacy_gap_integration_plan as legacy_gap_integration_plan
@@ -460,6 +461,8 @@ def main() -> None:
     textbook_extraction_queue_md = OUT_DIR / "textbook-extraction-queue.md"
     textbook_evidence_packet_index_csv = textbook_evidence_packet.TEXTBOOK_EVIDENCE_PACKET_DIR / "index.csv"
     textbook_evidence_packet_index_md = textbook_evidence_packet.TEXTBOOK_EVIDENCE_PACKET_DIR / "index.md"
+    textbook_edge_evidence_packet_index_csv = textbook_edge_evidence_packet.TEXTBOOK_EDGE_EVIDENCE_PACKET_DIR / "index.csv"
+    textbook_edge_evidence_packet_index_md = textbook_edge_evidence_packet.TEXTBOOK_EDGE_EVIDENCE_PACKET_DIR / "index.md"
     legacy_gap_audit_csv = OUT_DIR / "legacy-gap-audit.csv"
     legacy_gap_audit_md = OUT_DIR / "legacy-gap-audit.md"
     legacy_gap_resolution_csv = OUT_DIR / "legacy-gap-resolution.csv"
@@ -679,6 +682,71 @@ def main() -> None:
         fail("textbook evidence packet index pending total does not match packet rows")
     if not textbook_evidence_packet_index_md.exists() or "# Textbook Evidence Packet Index" not in textbook_evidence_packet_index_md.read_text(encoding="utf-8"):
         fail("textbook evidence packet index markdown missing or invalid")
+    edge_csv_rows = read_csv_rows(edges_csv)
+    textbook_edge_packet_index_rows = read_csv_rows(textbook_edge_evidence_packet_index_csv)
+    if len(textbook_edge_packet_index_rows) != len(expected_packet_ranks):
+        fail("textbook edge evidence packet index row count does not match textbook extraction queue")
+    if list(textbook_edge_packet_index_rows[0]) != textbook_edge_evidence_packet.INDEX_FIELDS:
+        fail("textbook edge evidence packet index fields do not match schema")
+    missing_edge_packet_ranks = textbook_packet_index_missing_ranks(textbook_edge_packet_index_rows, expected_packet_ranks)
+    if missing_edge_packet_ranks:
+        fail(f"textbook edge evidence packet index missing ranks: {missing_edge_packet_ranks}")
+    edge_packet_pending_total = 0
+    edge_index_rows_by_rank = {int(row.get("rank", 0)): row for row in textbook_edge_packet_index_rows}
+    for rank in expected_packet_ranks:
+        textbook_edge_packet_csv, textbook_edge_packet_md = textbook_edge_evidence_packet.packet_paths(rank)
+        textbook_edge_packet_rows = read_csv_rows(textbook_edge_packet_csv)
+        expected_textbook_edge_packet_rows = textbook_edge_evidence_packet.textbook_edge_evidence_packet_rows(
+            concepts,
+            edge_csv_rows,
+            textbook_queue_rows,
+            rank=rank,
+        )
+        if len(textbook_edge_packet_rows) != len(expected_textbook_edge_packet_rows):
+            fail(f"rank-{rank:02d} textbook edge evidence packet row count does not match generated packet")
+        if textbook_edge_packet_rows and list(textbook_edge_packet_rows[0]) != textbook_edge_evidence_packet.CSV_FIELDS:
+            fail(f"rank-{rank:02d} textbook edge evidence packet fields do not match schema")
+        if [row.get("edge_id") for row in textbook_edge_packet_rows] != [
+            row.get("edge_id") for row in expected_textbook_edge_packet_rows
+        ]:
+            fail(f"rank-{rank:02d} textbook edge evidence packet edge order does not match generated packet")
+        edge_pending_count = textbook_packet_pending_count(textbook_edge_packet_rows)
+        edge_packet_pending_total += edge_pending_count
+        if textbook_inventory_empty and edge_pending_count != len(textbook_edge_packet_rows):
+            fail(f"rank-{rank:02d} textbook edge evidence packet must remain pending while textbook originals are empty")
+        edge_index_row = edge_index_rows_by_rank[rank]
+        if int(edge_index_row.get("edge_count", 0)) != len(textbook_edge_packet_rows):
+            fail(f"rank-{rank:02d} textbook edge evidence packet index edge_count is inconsistent")
+        if int(edge_index_row.get("intra_unit_edge_count", 0)) != sum(
+            1 for row in textbook_edge_packet_rows if row.get("edge_scope") == "intra_unit"
+        ):
+            fail(f"rank-{rank:02d} textbook edge evidence packet index intra-unit count is inconsistent")
+        if int(edge_index_row.get("cross_unit_edge_count", 0)) != sum(
+            1 for row in textbook_edge_packet_rows if row.get("edge_scope") == "cross_unit"
+        ):
+            fail(f"rank-{rank:02d} textbook edge evidence packet index cross-unit count is inconsistent")
+        if int(edge_index_row.get("low_confidence_count", 0)) != sum(
+            1 for row in textbook_edge_packet_rows if row.get("confidence") == "low"
+        ):
+            fail(f"rank-{rank:02d} textbook edge evidence packet index low-confidence count is inconsistent")
+        if edge_index_row.get("packet_csv") != textbook_edge_packet_csv.name:
+            fail(f"rank-{rank:02d} textbook edge evidence packet index csv path is inconsistent")
+        if edge_index_row.get("packet_md") != textbook_edge_packet_md.name:
+            fail(f"rank-{rank:02d} textbook edge evidence packet index markdown path is inconsistent")
+        if not textbook_edge_packet_md.exists() or "# Textbook Edge Evidence Packet" not in textbook_edge_packet_md.read_text(encoding="utf-8"):
+            fail(f"rank-{rank:02d} textbook edge evidence packet markdown missing or invalid")
+    if sum(int(row.get("edge_count", 0)) for row in textbook_edge_packet_index_rows) != sum(
+        read_csv_count(textbook_edge_evidence_packet.packet_paths(rank)[0])
+        for rank in expected_packet_ranks
+    ):
+        fail("textbook edge evidence packet index edge total does not match packet rows")
+    if textbook_inventory_empty and edge_packet_pending_total != sum(
+        read_csv_count(textbook_edge_evidence_packet.packet_paths(rank)[0])
+        for rank in expected_packet_ranks
+    ):
+        fail("textbook edge evidence packet pending total does not match packet rows")
+    if not textbook_edge_evidence_packet_index_md.exists() or "# Textbook Edge Evidence Packet Index" not in textbook_edge_evidence_packet_index_md.read_text(encoding="utf-8"):
+        fail("textbook edge evidence packet index markdown missing or invalid")
     legacy_gap_rows = read_csv_rows(legacy_gap_audit_csv)
     expected_legacy_gap_rows = legacy_gap_audit.legacy_gap_rows(
         legacy_gap_audit.read_legacy_data(),

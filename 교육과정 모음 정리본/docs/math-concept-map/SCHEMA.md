@@ -319,6 +319,63 @@
 | `packet_csv` | 단원별 패킷 CSV 파일명 |
 | `packet_md` | 단원별 패킷 Markdown 파일명 |
 
+## Textbook Edge Evidence Packet CSV
+
+`textbook-edge-evidence-packets/rank-01.csv`~`rank-34.csv`는 `textbook-extraction-queue.csv`의 전체 34개 단원에 대해 교과서 본문에서 관계 edge 근거를 채우기 위한 단원별 작업 패킷이다. 한 edge가 두 단원의 concept을 잇는 경우 양쪽 단원 패킷에 모두 포함될 수 있다. 현재 `교과서_원본/`에 PDF가 없으므로 모든 row의 `extraction_status`는 `pending_textbook_pdf`이다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `packet_rank` | 참조한 교과서 추출 queue 순위 |
+| `grade` | 학년 또는 교육과정 학년군 |
+| `domain` | 교육과정 영역 |
+| `unit` | 패킷 대상 단원 |
+| `edge_id` | 근거를 보강할 edge id |
+| `edge_scope` | `intra_unit` 또는 `cross_unit` |
+| `source_id` | source concept id |
+| `source_label_ko` | source concept 한국어 이름 |
+| `source_unit` | source concept 단원 |
+| `target_id` | target concept id |
+| `target_label_ko` | target concept 한국어 이름 |
+| `target_unit` | target concept 단원 |
+| `relationship_type` | 원본 edge 관계 유형 |
+| `confidence` | 현재 edge 신뢰도 |
+| `source_ref_count` | 현재 edge에 연결된 공식 근거 수 |
+| `current_source_refs` | 기존 공식 근거 요약 |
+| `notes` | 원본 edge notes |
+| `required_evidence_fields` | 관계 유형과 신뢰도에 따라 우선 채워야 할 교과서 근거 슬롯 |
+| `evidence_focus` | 해당 edge의 교과서 근거를 찾을 때 우선 확인할 관찰 초점 |
+| `extraction_status` | `pending_textbook_pdf` 또는 `textbook_evidence_linked` |
+| `structure_ref` | 포함 관계 또는 위계 구조 근거 슬롯 |
+| `prerequisite_ref` | 선수 순서 또는 선행 지식 근거 슬롯 |
+| `representation_ref` | 표·그래프·식·그림 등 표현 근거 슬롯 |
+| `procedure_ref` | 절차나 문제 해결 활용 근거 슬롯 |
+| `contrast_ref` | 구별해야 할 개념의 대조 근거 슬롯 |
+| `misconception_ref` | 오개념 위험 설명 근거 슬롯 |
+| `problem_pattern_ref` | 문제에서 반복 출현하는 관계 근거 슬롯 |
+| `related_ref` | 넓은 연관 관계 근거 슬롯 |
+| `textbook_page_refs` | 교과서 파일명과 쪽수 근거 슬롯 |
+| `extraction_notes` | 관계 유형 조정, 병합 후보, 신뢰도 조정 메모 |
+
+## Textbook Edge Evidence Packet Index CSV
+
+`textbook-edge-evidence-packets/index.csv`는 생성된 단원별 관계 edge 교과서 근거 패킷을 추적하는 인덱스이다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `rank` | 참조한 교과서 추출 queue 순위 |
+| `grade` | 학년 또는 교육과정 학년군 |
+| `domain` | 교육과정 영역 |
+| `unit` | 패킷 대상 단원 |
+| `edge_count` | 해당 패킷에 포함된 edge row 수 |
+| `intra_unit_edge_count` | 같은 단원 내부 edge row 수 |
+| `cross_unit_edge_count` | 다른 단원 concept과 이어지는 edge row 수 |
+| `low_confidence_count` | 해당 패킷 안의 `low` 신뢰도 edge row 수 |
+| `priority_tier` | queue의 우선순위 등급 |
+| `priority_score` | queue의 우선순위 점수 |
+| `next_action` | 다음 교과서 추출 작업 유형 |
+| `packet_csv` | 단원별 패킷 CSV 파일명 |
+| `packet_md` | 단원별 패킷 Markdown 파일명 |
+
 ## Legacy Gap Audit CSV
 
 `legacy-gap-audit.csv`는 기존 로컬 `수학_개념_위계도/data/math_concept_hierarchy.json`에서 중학교 범위 후보를 뽑아 현재 `concepts.json`의 `label_ko` 및 `aliases`와 비교한 파생 감사 산출물이다. 기존 위계도는 공식 근거가 아니므로, 이 파일의 `needs_review` 항목은 concept 추가 후보일 뿐이며 공식 교육과정 또는 교과서 근거 확인 전에는 확정하지 않는다.

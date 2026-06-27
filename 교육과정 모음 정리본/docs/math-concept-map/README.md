@@ -53,6 +53,10 @@
 - `textbook-evidence-packets/index.csv`: 같은 인덱스의 기계 판독용 CSV
 - `textbook-evidence-packets/rank-01.md`~`rank-34.md`: 전체 34개 단원 교과서 근거 채움용 작업 패킷
 - `textbook-evidence-packets/rank-01.csv`~`rank-34.csv`: 같은 패킷의 기계 판독용 CSV
+- `textbook-edge-evidence-packets/index.md`: 전체 단원 관계 edge 교과서 근거 패킷 인덱스
+- `textbook-edge-evidence-packets/index.csv`: 같은 인덱스의 기계 판독용 CSV
+- `textbook-edge-evidence-packets/rank-01.md`~`rank-34.md`: 전체 34개 단원 관계 edge 근거 채움용 작업 패킷
+- `textbook-edge-evidence-packets/rank-01.csv`~`rank-34.csv`: 같은 패킷의 기계 판독용 CSV
 - `legacy-gap-audit.md`: 기존 로컬 위계도와 현재 공식 근거 concept map의 커버리지 비교 요약
 - `legacy-gap-audit.csv`: 기존 로컬 위계도 후보의 커버리지 감사 기계 판독용 CSV
 - `legacy-gap-resolution.md`: `legacy-gap-audit`의 `needs_review` 후보를 고유 label 단위로 접은 후속 검토 요약
@@ -78,6 +82,7 @@ python docs/math-concept-map/tools/build_source_ref_audit.py
 python docs/math-concept-map/tools/build_concept_evidence_depth.py
 python docs/math-concept-map/tools/build_textbook_extraction_queue.py
 python docs/math-concept-map/tools/build_textbook_evidence_packet.py --all
+python docs/math-concept-map/tools/build_textbook_edge_evidence_packet.py --all
 python docs/math-concept-map/tools/build_legacy_gap_audit.py
 python docs/math-concept-map/tools/build_legacy_gap_resolution.py
 python docs/math-concept-map/tools/build_legacy_gap_integration_plan.py
@@ -101,6 +106,7 @@ python docs/math-concept-map/tools/test_build_pilot_foundational_prerequisites.p
 python docs/math-concept-map/tools/test_build_pilot_ratio_foundation.py
 python docs/math-concept-map/tools/test_build_textbook_extraction_queue.py
 python docs/math-concept-map/tools/test_build_textbook_evidence_packet.py
+python docs/math-concept-map/tools/test_build_textbook_edge_evidence_packet.py
 python docs/math-concept-map/tools/test_build_legacy_gap_audit.py
 python docs/math-concept-map/tools/test_build_legacy_gap_resolution.py
 python docs/math-concept-map/tools/test_build_legacy_gap_integration_plan.py
@@ -112,7 +118,7 @@ python docs/math-concept-map/tools/test_build_unit_coverage.py
 python docs/math-concept-map/tools/test_validate_concept_map.py
 ```
 
-검증기는 필수 필드, id 중복, source/ref 무결성, CSV 행 수, Mermaid 파일, 2022 개정 중학교 수학 공식 성취기준 60개(`9수01-01`~`9수04-09`)의 concept 근거 커버리지, `review-queue.csv`와 `low` 신뢰도 concept 수의 일치, 공식 용어·기호 168개 중 concept 추가 검토 필요 항목이 없는지, `unit-coverage.csv`가 학년·영역·단원 그룹과 concept 총계를 보존하는지, `relationship-audit.csv`가 edge 총계와 필수 관계 유형을 보존하는지, `node-edge-consistency-audit.csv`가 현재 노드 배열과 edge row 사이의 검토 항목 0개를 보존하는지, `related-edge-resolution-queue.csv`가 현재 `related_ids` 해소 후보 0개를 보존하는지, `prerequisite-map.csv`가 `prerequisite_for` edge 725개를 모두 보존하는지, `prerequisite-unit-graph.dot`가 단원 전이 edge 112개를 포함하는지, 고립 concept이 없는지, `textbook-evidence-packets/index.csv`와 `rank-01.csv`~`rank-34.csv`가 전체 34개 단원 concept 476개를 모두 포함하고 현재 교과서 PDF 부재 상태에서는 모두 `pending_textbook_pdf`인지, legacy gap audit/resolution/source-review/evidence-scan에 남은 검토 후보가 0개인지 확인한다. `test_build_pilot_edge_sync.py`는 `parent_ids`와 `prerequisite_ids`가 각각 `contains`, `prerequisite_for` edge와 양방향으로 동기화되고, 오개념 위험 `related_ids`가 `often_confused_with` edge로 보강되며, 구조 관계만 중복하는 `related_ids`가 정리되고, 좌표 단원, 도형·측정 묶음, 다각형·대수·함수 묶음, 수와 연산·자료 표현 묶음, 자료·도형 상단 묶음, 문자식·방정식 상단 묶음, 이차함수·일차방정식·일차함수 상단 묶음, 표현 변환·수와 연산 상단 묶음, 자료·가능성 상단 묶음, 도형 상단 묶음, 대수 상단 묶음, 함수·방정식 상단 묶음, 자료·산포도 상단 묶음, 교차 단원 잔여 묶음의 reviewed edge가 보존되는지 고정한다. `test_build_pilot_foundational_prerequisites.py`는 약수·배수·덧셈·뺄셈·곱셈·나눗셈이 실제 concept과 edge로 연결되어 있는지 별도로 고정한다. `test_build_pilot_geometry_foundations.py`는 도형·삼각형·길이·넓이 및 피타고라스 alias가 기존 단원/절차에 연결되어 있는지 고정한다. `test_build_pilot_ratio_foundation.py`는 `비`가 낮은 신뢰도의 공통 선수개념으로 분리되고 정비례·반비례·닮음비·삼각비·상대도수·확률 계열로 연결되는지 고정한다. `achievement-coverage.*`는 같은 성취기준 추출 로직을 사용해 사람용/기계용 검토 표로 재생성한다.
+검증기는 필수 필드, id 중복, source/ref 무결성, CSV 행 수, Mermaid 파일, 2022 개정 중학교 수학 공식 성취기준 60개(`9수01-01`~`9수04-09`)의 concept 근거 커버리지, `review-queue.csv`와 `low` 신뢰도 concept 수의 일치, 공식 용어·기호 168개 중 concept 추가 검토 필요 항목이 없는지, `unit-coverage.csv`가 학년·영역·단원 그룹과 concept 총계를 보존하는지, `relationship-audit.csv`가 edge 총계와 필수 관계 유형을 보존하는지, `node-edge-consistency-audit.csv`가 현재 노드 배열과 edge row 사이의 검토 항목 0개를 보존하는지, `related-edge-resolution-queue.csv`가 현재 `related_ids` 해소 후보 0개를 보존하는지, `prerequisite-map.csv`가 `prerequisite_for` edge 725개를 모두 보존하는지, `prerequisite-unit-graph.dot`가 단원 전이 edge 112개를 포함하는지, 고립 concept이 없는지, `textbook-evidence-packets/index.csv`와 `rank-01.csv`~`rank-34.csv`가 전체 34개 단원 concept 476개를 모두 포함하고 현재 교과서 PDF 부재 상태에서는 모두 `pending_textbook_pdf`인지, `textbook-edge-evidence-packets/index.csv`와 `rank-01.csv`~`rank-34.csv`가 전체 34개 단원에 닿는 관계 edge 근거 패킷 2411개 row를 보존하고 현재 교과서 PDF 부재 상태에서는 모두 `pending_textbook_pdf`인지, legacy gap audit/resolution/source-review/evidence-scan에 남은 검토 후보가 0개인지 확인한다. `test_build_pilot_edge_sync.py`는 `parent_ids`와 `prerequisite_ids`가 각각 `contains`, `prerequisite_for` edge와 양방향으로 동기화되고, 오개념 위험 `related_ids`가 `often_confused_with` edge로 보강되며, 구조 관계만 중복하는 `related_ids`가 정리되고, 좌표 단원, 도형·측정 묶음, 다각형·대수·함수 묶음, 수와 연산·자료 표현 묶음, 자료·도형 상단 묶음, 문자식·방정식 상단 묶음, 이차함수·일차방정식·일차함수 상단 묶음, 표현 변환·수와 연산 상단 묶음, 자료·가능성 상단 묶음, 도형 상단 묶음, 대수 상단 묶음, 함수·방정식 상단 묶음, 자료·산포도 상단 묶음, 교차 단원 잔여 묶음의 reviewed edge가 보존되는지 고정한다. `test_build_pilot_foundational_prerequisites.py`는 약수·배수·덧셈·뺄셈·곱셈·나눗셈이 실제 concept과 edge로 연결되어 있는지 별도로 고정한다. `test_build_pilot_geometry_foundations.py`는 도형·삼각형·길이·넓이 및 피타고라스 alias가 기존 단원/절차에 연결되어 있는지 고정한다. `test_build_pilot_ratio_foundation.py`는 `비`가 낮은 신뢰도의 공통 선수개념으로 분리되고 정비례·반비례·닮음비·삼각비·상대도수·확률 계열로 연결되는지 고정한다. `achievement-coverage.*`는 같은 성취기준 추출 로직을 사용해 사람용/기계용 검토 표로 재생성한다.
 
 `review-queue.*`는 아직 교과서 본문·예제·오답 근거로 확정하지 못한 `low` 신뢰도 concept을 모아 다음 출처 보강 순서를 정한다.
 
@@ -131,6 +137,8 @@ python docs/math-concept-map/tools/test_validate_concept_map.py
 `prerequisite-map.*`는 `prerequisite_for` 관계를 concept 쌍, 단원 전이 범위, 공식 근거 요약으로 펼쳐 선수 개념 흐름을 사람이 검토할 수 있게 한다. `prerequisite-unit-graph.dot`는 같은 정보를 단원 전이 그래프로 압축해 선수 흐름을 시각적으로 확인하게 한다.
 
 `textbook-evidence-packets/*`는 단원별 concept을 교과서 근거 채움용 worksheet로 나눈다. 각 row는 빈 근거 슬롯뿐 아니라 `required_evidence_fields`와 `evidence_focus`를 포함해, 용어·절차·표현·성질·오개념 위험마다 먼저 확인해야 할 교과서 근거 유형을 구분한다.
+
+`textbook-edge-evidence-packets/*`는 단원별 concept에 닿는 관계 edge를 교과서 근거 채움용 worksheet로 나눈다. 각 row는 `contains`, `prerequisite_for`, `represented_by`, `used_in`, `contrasts_with`, `often_confused_with`, `related_to` 관계 유형에 맞춰 구조 근거, 선수 순서 근거, 표현 근거, 절차 활용 근거, 대조·오개념 근거, 쪽수 근거 슬롯을 구분한다.
 
 `legacy-gap-audit.*`는 기존 `수학_개념_위계도/data/math_concept_hierarchy.json`의 중학교 후보가 현재 공식 근거 기반 concept map의 `label_ko` 또는 `aliases`로 포괄되는지 점검한다. 이 파일은 보조 감사 자료이며, `needs_review` 항목은 공식 교육과정 또는 교과서 근거가 확인되기 전까지 concept으로 확정하지 않는다.
 

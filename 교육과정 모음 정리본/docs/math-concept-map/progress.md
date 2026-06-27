@@ -796,8 +796,25 @@
 - 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 476개 concept, 1966개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
 - diff check: `git diff --check -- docs/math-concept-map`: 종료 코드 0, CRLF 변환 경고만 확인.
 
+## 2026-06-27 교과서 edge evidence packet 추가
+
+- AGENTS.md를 다시 확인했고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 생성 로직과 파생 산출물 정비로 제한했다.
+- 기존 `textbook-evidence-packets/*`는 concept별 교과서 근거 슬롯만 제공했으므로, 목표의 관계 근거 추적 요구에 맞춰 `textbook-edge-evidence-packets/*`를 새로 추가했다.
+- `build_textbook_edge_evidence_packet.py`는 `textbook-extraction-queue.csv`의 34개 단원별로 해당 단원 concept에 닿는 edge를 모아 관계 유형별 근거 슬롯을 부여한다. cross-unit edge는 양쪽 단원에서 교과서 근거를 확인할 수 있도록 관련 단원 패킷에 중복 배치한다.
+- TDD red: `python -m unittest discover -s .\docs\math-concept-map\tools -p test_build_textbook_edge_evidence_packet.py`가 새 모듈 부재로 실패하는 것을 확인했다.
+- TDD green: 같은 테스트 명령이 3개 테스트 통과로 전환되는 것을 확인했다.
+- 전체 edge 패킷을 생성한 결과 34개 패킷, 2411개 row가 만들어졌다. 이 중 intra-unit edge row는 1521개, cross-unit edge row는 890개, `low` 신뢰도 edge row는 416개이다.
+- 현재 `교과서_원본/`에는 PDF가 없으므로 2411개 row 모두 `pending_textbook_pdf` 상태로 둔다.
+- `validate_concept_map.py`가 edge 패킷 인덱스와 rank별 CSV/Markdown, row count, schema, edge order, pending 상태, intra/cross/low count를 함께 검증하도록 확장했다.
+
+## 2026-06-27 교과서 edge evidence packet 검증 결과
+
+- 전체 단위 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p 'test_*.py'`: 130개 통과.
+- 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 476개 concept, 1966개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map`: 종료 코드 0, CRLF 변환 경고만 확인.
+
 ## 다음 작업
 
-- `related-edge-resolution-queue.csv`는 0건이므로, 다음 반복은 `textbook-evidence-packets/`와 `concept-evidence-depth.csv`를 기준으로 교과서 PDF 본문·정리·예제·용어 설명·문제 반복 표현 근거를 채우는 단계로 넘어간다.
-- 현재 `concept-evidence-depth.csv` 기준 476개 concept 모두 `pending_textbook_pdf` 상태이므로, 교과서 PDF가 추가되면 `좌표평면과 그래프`, `일차함수와 그 그래프`, `경우의 수와 확률`, `정수와 유리수`, `이차함수와 그 그래프` 순으로 page-level source ref를 보강한다.
-- 새 concept 또는 `related_ids`가 추가되면 `related-edge-resolution-queue.*`를 다시 생성해 관계 유형을 확정한다.
+- `textbook-evidence-packets/`와 `textbook-edge-evidence-packets/`를 함께 사용해 교과서 PDF 추가 후 concept별 정의·예제 근거와 edge별 포함·선수·표현·절차·대조·오개념 근거를 같은 단원 순서로 채운다.
+- 현재 `concept-evidence-depth.csv` 기준 476개 concept 모두 `pending_textbook_pdf` 상태이며, edge 패킷 2411개 row도 모두 `pending_textbook_pdf` 상태이므로, 우선 `좌표평면과 그래프`의 concept 37개와 edge row 202개부터 page-level source ref를 보강한다.
+- 새 concept 또는 `related_ids`가 추가되면 `related-edge-resolution-queue.*`를 다시 생성해 관계 유형을 확정하고, edge 패킷도 재생성한다.

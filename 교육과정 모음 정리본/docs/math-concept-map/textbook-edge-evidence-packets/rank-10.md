@@ -1,0 +1,106 @@
+# Textbook Edge Evidence Packet
+
+This generated packet is the unit-level worksheet for adding textbook-grounded relationship evidence.
+
+## Target Unit
+
+- rank: 10
+- grade: 중3(교육과정 학년군: 중1-3)
+- domain: 수와 연산
+- unit: 제곱근과 실수
+- priority tier: high
+- priority score: 33
+- edges in packet: 73
+- cross-unit edges: 18
+- low confidence edges: 16
+
+## Relationship Evidence Slots
+
+| edge_id | scope | source | relationship | target | confidence | required evidence | focus | source refs |
+|---|---|---|---|---|---|---|---|---:|
+| m1_num_square_root_real_unit__contains__m1_mis_irrational_decimal | intra_unit | 제곱근과 실수 | contains | 무한소수와 무리수를 같은 말로 보는 오류 | low | structure_ref;textbook_page_refs;extraction_notes | Find textbook structure evidence for the containment relation. | 4 |
+| m1_num_square_root_real_unit__contains__m1_mis_radical_like_terms | intra_unit | 제곱근과 실수 | contains | 근호 안의 수가 다른 제곱근을 동류항처럼 더하는 오류 | low | structure_ref;textbook_page_refs;extraction_notes | Find textbook structure evidence for the containment relation. | 1 |
+| m1_num_square_root_real_unit__contains__m1_mis_radical_principal_root | intra_unit | 제곱근과 실수 | contains | 근호가 나타내는 제곱근의 부호를 혼동하는 오류 | low | structure_ref;textbook_page_refs;extraction_notes | Find textbook structure evidence for the containment relation. | 2 |
+| m1_num_irrational_number__prerequisite_for__m1_mis_irrational_decimal | intra_unit | 무리수 | prerequisite_for | 무한소수와 무리수를 같은 말로 보는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_num_radical_operations__prerequisite_for__m1_mis_radical_like_terms | intra_unit | 근호를 포함한 식의 사칙계산 | prerequisite_for | 근호 안의 수가 다른 제곱근을 동류항처럼 더하는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
+| m1_num_radical_sign__prerequisite_for__m1_mis_radical_principal_root | intra_unit | 근호 | prerequisite_for | 근호가 나타내는 제곱근의 부호를 혼동하는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_num_square_root__prerequisite_for__m1_mis_radical_principal_root | intra_unit | 제곱근 | prerequisite_for | 근호가 나타내는 제곱근의 부호를 혼동하는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_mis_irrational_decimal__often_confused_with__m1_num_irrational_number | intra_unit | 무한소수와 무리수를 같은 말로 보는 오류 | often_confused_with | 무리수 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
+| m1_mis_radical_like_terms__often_confused_with__m1_num_radical_expression | intra_unit | 근호 안의 수가 다른 제곱근을 동류항처럼 더하는 오류 | often_confused_with | 근호를 포함한 식 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 1 |
+| m1_mis_radical_like_terms__often_confused_with__m1_num_radical_operations | intra_unit | 근호 안의 수가 다른 제곱근을 동류항처럼 더하는 오류 | often_confused_with | 근호를 포함한 식의 사칙계산 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 1 |
+| m1_mis_radical_principal_root__often_confused_with__m1_num_radical_sign | intra_unit | 근호가 나타내는 제곱근의 부호를 혼동하는 오류 | often_confused_with | 근호 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
+| m1_mis_radical_principal_root__often_confused_with__m1_num_square_root_property | intra_unit | 근호가 나타내는 제곱근의 부호를 혼동하는 오류 | often_confused_with | 제곱근의 성질 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
+| m1_num_infinite_decimal__prerequisite_for__m1_mis_irrational_decimal | cross_unit | 무한소수 | prerequisite_for | 무한소수와 무리수를 같은 말로 보는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_mis_irrational_decimal__often_confused_with__m1_num_infinite_decimal | cross_unit | 무한소수와 무리수를 같은 말로 보는 오류 | often_confused_with | 무한소수 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 4 |
+| m1_mis_irrational_decimal__often_confused_with__m1_num_rational_repeating_relation | cross_unit | 무한소수와 무리수를 같은 말로 보는 오류 | often_confused_with | 유리수와 순환소수의 관계 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 4 |
+| m1_mis_irrational_decimal__often_confused_with__m1_num_repeating_decimal | cross_unit | 무한소수와 무리수를 같은 말로 보는 오류 | often_confused_with | 순환소수 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 4 |
+| m1_num_real_number__contains__m1_num_irrational_number | intra_unit | 실수 | contains | 무리수 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_num_real_number__contains__m1_num_real_order | intra_unit | 실수 | contains | 실수의 대소 관계 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_num_square_root_real_unit__contains__m1_num_compare_square_roots | intra_unit | 제곱근과 실수 | contains | 제곱근의 대소 관계 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_num_square_root_real_unit__contains__m1_num_irrational_number | intra_unit | 제곱근과 실수 | contains | 무리수 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
+| m1_num_square_root_real_unit__contains__m1_num_radical_expression | intra_unit | 제곱근과 실수 | contains | 근호를 포함한 식 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_num_square_root_real_unit__contains__m1_num_radical_operations | intra_unit | 제곱근과 실수 | contains | 근호를 포함한 식의 사칙계산 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_num_square_root_real_unit__contains__m1_num_radical_sign | intra_unit | 제곱근과 실수 | contains | 근호 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
+| m1_num_square_root_real_unit__contains__m1_num_rational_irrational_classification | intra_unit | 제곱근과 실수 | contains | 유리수와 무리수의 구분 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_num_square_root_real_unit__contains__m1_num_rationalize_denominator | intra_unit | 제곱근과 실수 | contains | 분모의 유리화 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
+| m1_num_square_root_real_unit__contains__m1_num_real_number | intra_unit | 제곱근과 실수 | contains | 실수 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 5 |
+| m1_num_square_root_real_unit__contains__m1_num_real_order | intra_unit | 제곱근과 실수 | contains | 실수의 대소 관계 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_num_square_root_real_unit__contains__m1_num_square_root | intra_unit | 제곱근과 실수 | contains | 제곱근 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
+| m1_num_square_root_real_unit__contains__m1_num_square_root_calculator | intra_unit | 제곱근과 실수 | contains | 계산기로 제곱근 값 구하기 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 1 |
+| m1_num_square_root_real_unit__contains__m1_num_square_root_property | intra_unit | 제곱근과 실수 | contains | 제곱근의 성질 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_num_square_root_real_unit__contains__m1_num_unit_square_diagonal | intra_unit | 제곱근과 실수 | contains | 한 변의 길이가 1인 정사각형의 대각선 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_num_compare_square_roots__prerequisite_for__m1_num_real_order | intra_unit | 제곱근의 대소 관계 | prerequisite_for | 실수의 대소 관계 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_num_irrational_number__prerequisite_for__m1_num_rational_irrational_classification | intra_unit | 무리수 | prerequisite_for | 유리수와 무리수의 구분 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_num_irrational_number__prerequisite_for__m1_num_real_number | intra_unit | 무리수 | prerequisite_for | 실수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 5 |
+| m1_num_radical_expression__prerequisite_for__m1_num_radical_operations | intra_unit | 근호를 포함한 식 | prerequisite_for | 근호를 포함한 식의 사칙계산 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_num_radical_operations__prerequisite_for__m1_num_rationalize_denominator | intra_unit | 근호를 포함한 식의 사칙계산 | prerequisite_for | 분모의 유리화 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_num_radical_sign__prerequisite_for__m1_num_radical_expression | intra_unit | 근호 | prerequisite_for | 근호를 포함한 식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_num_real_number__prerequisite_for__m1_num_real_order | intra_unit | 실수 | prerequisite_for | 실수의 대소 관계 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_num_square_root__prerequisite_for__m1_num_irrational_number | intra_unit | 제곱근 | prerequisite_for | 무리수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_num_square_root__prerequisite_for__m1_num_radical_sign | intra_unit | 제곱근 | prerequisite_for | 근호 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_num_square_root__prerequisite_for__m1_num_square_root_calculator | intra_unit | 제곱근 | prerequisite_for | 계산기로 제곱근 값 구하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
+| m1_num_square_root__prerequisite_for__m1_num_square_root_property | intra_unit | 제곱근 | prerequisite_for | 제곱근의 성질 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_num_square_root__prerequisite_for__m1_num_unit_square_diagonal | intra_unit | 제곱근 | prerequisite_for | 한 변의 길이가 1인 정사각형의 대각선 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_num_square_root_property__prerequisite_for__m1_num_compare_square_roots | intra_unit | 제곱근의 성질 | prerequisite_for | 제곱근의 대소 관계 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_num_square_root_property__prerequisite_for__m1_num_radical_expression | intra_unit | 제곱근의 성질 | prerequisite_for | 근호를 포함한 식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_num_square_root_property__prerequisite_for__m1_num_radical_operations | intra_unit | 제곱근의 성질 | prerequisite_for | 근호를 포함한 식의 사칙계산 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_num_square_root__represented_by__m1_num_radical_sign | intra_unit | 제곱근 | represented_by | 근호 | high | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
+| m1_num_unit_square_diagonal__represented_by__m1_num_irrational_number | intra_unit | 한 변의 길이가 1인 정사각형의 대각선 | represented_by | 무리수 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
+| m1_num_compare_square_roots__used_in__m1_num_real_order | intra_unit | 제곱근의 대소 관계 | used_in | 실수의 대소 관계 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_num_radical_expression__used_in__m1_num_radical_operations | intra_unit | 근호를 포함한 식 | used_in | 근호를 포함한 식의 사칙계산 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_num_radical_expression__used_in__m1_num_rationalize_denominator | intra_unit | 근호를 포함한 식 | used_in | 분모의 유리화 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
+| m1_num_radical_operations__used_in__m1_num_rationalize_denominator | intra_unit | 근호를 포함한 식의 사칙계산 | used_in | 분모의 유리화 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_num_radical_sign__used_in__m1_num_radical_expression | intra_unit | 근호 | used_in | 근호를 포함한 식 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_num_real_number__used_in__m1_num_rational_irrational_classification | intra_unit | 실수 | used_in | 유리수와 무리수의 구분 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_num_square_root__used_in__m1_num_square_root_calculator | intra_unit | 제곱근 | used_in | 계산기로 제곱근 값 구하기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 1 |
+| m1_num_square_root__used_in__m1_num_square_root_property | intra_unit | 제곱근 | used_in | 제곱근의 성질 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_num_square_root_calculator__used_in__m1_num_compare_square_roots | intra_unit | 계산기로 제곱근 값 구하기 | used_in | 제곱근의 대소 관계 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
+| m1_num_square_root_property__used_in__m1_num_compare_square_roots | intra_unit | 제곱근의 성질 | used_in | 제곱근의 대소 관계 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_num_square_root_property__used_in__m1_num_radical_operations | intra_unit | 제곱근의 성질 | used_in | 근호를 포함한 식의 사칙계산 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_num_domain__contains__m1_num_square_root_real_unit | cross_unit | 수와 연산 | contains | 제곱근과 실수 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 4 |
+| m1_num_real_number__contains__m1_num_rational_number | cross_unit | 실수 | contains | 유리수 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_calc_power__prerequisite_for__m1_num_square_root | cross_unit | 거듭제곱 | prerequisite_for | 제곱근 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_num_order_relation__prerequisite_for__m1_num_real_order | cross_unit | 정수와 유리수의 대소 관계 | prerequisite_for | 실수의 대소 관계 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_num_rational_number__prerequisite_for__m1_num_irrational_number | cross_unit | 유리수 | prerequisite_for | 무리수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_num_rational_number__prerequisite_for__m1_num_rational_irrational_classification | cross_unit | 유리수 | prerequisite_for | 유리수와 무리수의 구분 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_num_rational_number__prerequisite_for__m1_num_real_number | cross_unit | 유리수 | prerequisite_for | 실수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 5 |
+| m1_num_rational_number__prerequisite_for__m1_num_square_root_real_unit | cross_unit | 유리수 | prerequisite_for | 제곱근과 실수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 9 |
+| m1_num_repeating_decimal_unit__prerequisite_for__m1_num_square_root_real_unit | cross_unit | 유리수와 순환소수 | prerequisite_for | 제곱근과 실수 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_num_square_root__prerequisite_for__m1_data_standard_deviation | cross_unit | 제곱근 | prerequisite_for | 표준편차 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_num_square_root__prerequisite_for__m1_geo_pythagorean_theorem | cross_unit | 제곱근 | prerequisite_for | 피타고라스 정리 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_num_irrational_number__contrasts_with__m1_num_rational_number | cross_unit | 무리수 | contrasts_with | 유리수 | high | contrast_ref;textbook_page_refs | Find textbook wording or examples that distinguish the two concepts. | 2 |
+| m1_num_rational_number__contrasts_with__m1_num_irrational_number | cross_unit | 유리수 | contrasts_with | 무리수 | high | contrast_ref;textbook_page_refs | Find textbook wording or examples that distinguish the two concepts. | 2 |
+| m1_num_integer_rational_unit__related_to__m1_num_square_root_real_unit | cross_unit | 정수와 유리수 | related_to | 제곱근과 실수 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 6 |
+
+## Textbook Edge Evidence Fields
+
+- structure_ref
+- prerequisite_ref
+- representation_ref
+- procedure_ref
+- contrast_ref
+- misconception_ref
+- problem_pattern_ref
+- related_ref
+- textbook_page_refs
+- extraction_notes

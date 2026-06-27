@@ -95,12 +95,23 @@
 - 현재 `교과서_원본/`에는 PDF가 없으므로 476개 row 모두 `pending_textbook_pdf` 상태이며, 목차·학습목표·정의·정리·예제·용어 설명·문제 패턴·쪽수 슬롯은 비워 두었다.
 - 교과서 PDF가 추가되면 이 패킷들의 빈 슬롯을 채운 뒤 `concepts.json`의 `source_refs`, `confidence`, 병합/분리 판단을 갱신한다.
 
+## Textbook Edge Evidence Packet
+
+- `textbook-edge-evidence-packets/index.md`와 `textbook-edge-evidence-packets/index.csv`를 추가해 전체 단원 관계 edge 교과서 근거 패킷을 추적한다.
+- `rank-01`~`rank-34` 패킷은 `textbook-extraction-queue.csv`의 전체 34개 단원 그룹을 포함한다.
+- 전체 edge 패킷은 단원 concept에 닿는 관계 edge 2411개 row를 포함하며, 같은 edge가 cross-unit 관계이면 양쪽 단원 패킷에 중복 배치될 수 있다.
+- 현재 분포는 intra-unit edge row 1521개, cross-unit edge row 890개, `low` 신뢰도 edge row 416개이다.
+- 각 row는 관계 유형별로 구조 근거, 선수 순서 근거, 표현 근거, 절차 활용 근거, 대조 근거, 오개념·문제 패턴 근거, 관련 근거, 쪽수 슬롯을 분리한다.
+- 현재 `교과서_원본/`에는 PDF가 없으므로 2411개 row 모두 `pending_textbook_pdf` 상태이며, 관계 근거 슬롯은 비워 두었다.
+- 교과서 PDF가 추가되면 concept 패킷과 edge 패킷을 함께 채워 `concepts.json`의 concept source refs뿐 아니라 `edges.csv`/`concepts.json`의 edge source refs와 신뢰도를 갱신한다.
+
 ## 다음 출처 보강 순서
 
 1. `교과서_원본/`에 중1~중3 수학 교과서 PDF를 추가한다.
 2. 목차, 단원 도입, 학습 목표, 본문 정의, 정리, 예제, 용어 설명을 우선 추출한다.
 3. 문제에서 반복되는 표현은 본문 개념과 연결하되, 원문 전재 없이 개념명과 짧은 요약만 남긴다.
-4. 출처 파일 해시와 쪽수를 `source_refs`에 추가한다.
+4. 포함·선수·표현·절차·대조·오개념 관계가 드러나는 본문/예제/문제 근거를 edge 패킷에 기록한다.
+5. 출처 파일 해시와 쪽수를 concept 및 edge `source_refs`에 추가한다.
 
 ## Legacy Gap Audit
 

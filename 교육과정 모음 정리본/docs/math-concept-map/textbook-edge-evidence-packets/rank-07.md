@@ -1,0 +1,145 @@
+# Textbook Edge Evidence Packet
+
+This generated packet is the unit-level worksheet for adding textbook-grounded relationship evidence.
+
+## Target Unit
+
+- rank: 7
+- grade: 중1(교육과정 학년군: 중1-3)
+- domain: 변화와 관계
+- unit: 문자의 사용과 식
+- priority tier: highest
+- priority score: 42
+- edges in packet: 112
+- cross-unit edges: 60
+- low confidence edges: 20
+
+## Relationship Evidence Slots
+
+| edge_id | scope | source | relationship | target | confidence | required evidence | focus | source refs |
+|---|---|---|---|---|---|---|---|---:|
+| m1_expr_unit__contains__m1_mis_coefficient_constant_degree | intra_unit | 문자의 사용과 식 | contains | 계수·상수항·차수 혼동 | low | structure_ref;textbook_page_refs;extraction_notes | Find textbook structure evidence for the containment relation. | 2 |
+| m1_expr_unit__contains__m1_mis_letter_as_label_only | intra_unit | 문자의 사용과 식 | contains | 문자를 이름표로만 해석하는 오류 | low | structure_ref;textbook_page_refs;extraction_notes | Find textbook structure evidence for the containment relation. | 2 |
+| m1_expr_unit__contains__m1_mis_like_terms | intra_unit | 문자의 사용과 식 | contains | 동류항이 아닌 항을 합치는 오류 | low | structure_ref;textbook_page_refs;extraction_notes | Find textbook structure evidence for the containment relation. | 2 |
+| m1_expr_coefficient__prerequisite_for__m1_mis_coefficient_constant_degree | intra_unit | 계수 | prerequisite_for | 계수·상수항·차수 혼동 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_constant_term__prerequisite_for__m1_mis_coefficient_constant_degree | intra_unit | 상수항 | prerequisite_for | 계수·상수항·차수 혼동 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_degree__prerequisite_for__m1_mis_coefficient_constant_degree | intra_unit | 차수 | prerequisite_for | 계수·상수항·차수 혼동 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_letter__prerequisite_for__m1_mis_letter_as_label_only | intra_unit | 문자 | prerequisite_for | 문자를 이름표로만 해석하는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_like_terms__prerequisite_for__m1_mis_like_terms | intra_unit | 동류항 | prerequisite_for | 동류항이 아닌 항을 합치는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_mis_coefficient_constant_degree__often_confused_with__m1_expr_coefficient | intra_unit | 계수·상수항·차수 혼동 | often_confused_with | 계수 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
+| m1_mis_coefficient_constant_degree__often_confused_with__m1_expr_constant_term | intra_unit | 계수·상수항·차수 혼동 | often_confused_with | 상수항 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
+| m1_mis_coefficient_constant_degree__often_confused_with__m1_expr_degree | intra_unit | 계수·상수항·차수 혼동 | often_confused_with | 차수 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
+| m1_mis_letter_as_label_only__often_confused_with__m1_expr_letter | intra_unit | 문자를 이름표로만 해석하는 오류 | often_confused_with | 문자 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
+| m1_mis_like_terms__often_confused_with__m1_expr_add_sub_linear_expression | intra_unit | 동류항이 아닌 항을 합치는 오류 | often_confused_with | 일차식의 덧셈과 뺄셈 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
+| m1_mis_like_terms__often_confused_with__m1_expr_like_terms | intra_unit | 동류항이 아닌 항을 합치는 오류 | often_confused_with | 동류항 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
+| m1_expr_like_terms__prerequisite_for__m1_mis_polynomial_like_terms | cross_unit | 동류항 | prerequisite_for | 다항식에서 동류항 처리를 누락하는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_mis_function_value_input_output__often_confused_with__m1_expr_substitution | cross_unit | 함숫값과 입력값 혼동 | often_confused_with | 대입 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
+| m1_mis_letter_as_label_only__often_confused_with__m1_term_variable | cross_unit | 문자를 이름표로만 해석하는 오류 | often_confused_with | 변수 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
+| m1_mis_polynomial_like_terms__often_confused_with__m1_expr_like_terms | cross_unit | 다항식에서 동류항 처리를 누락하는 오류 | often_confused_with | 동류항 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
+| m1_mis_system_substitution__often_confused_with__m1_expr_substitution | cross_unit | 대입법에서 식 전체를 대입하지 않는 오류 | often_confused_with | 대입 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
+| m1_num_domain__related_to__m1_expr_unit | cross_unit | 수와 연산 | related_to | 문자의 사용과 식 | low | related_ref;textbook_page_refs;extraction_notes | Find textbook wording or examples that justify keeping these concepts linked. | 7 |
+| m1_expr_linear_expression__contains__m1_expr_like_terms | intra_unit | 일차식 | contains | 동류항 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_expr_polynomial__contains__m1_expr_linear_expression | intra_unit | 다항식 | contains | 일차식 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
+| m1_expr_polynomial__contains__m1_expr_monomial | intra_unit | 다항식 | contains | 단항식 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 1 |
+| m1_expr_polynomial__contains__m1_expr_term | intra_unit | 다항식 | contains | 항 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 1 |
+| m1_expr_term__contains__m1_expr_coefficient | intra_unit | 항 | contains | 계수 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 1 |
+| m1_expr_term__contains__m1_expr_constant_term | intra_unit | 항 | contains | 상수항 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 1 |
+| m1_expr_term__contains__m1_expr_degree | intra_unit | 항 | contains | 차수 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 1 |
+| m1_expr_unit__contains__m1_expr_add_sub_linear_expression | intra_unit | 문자의 사용과 식 | contains | 일차식의 덧셈과 뺄셈 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_expr_unit__contains__m1_expr_letter | intra_unit | 문자의 사용과 식 | contains | 문자 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_expr_unit__contains__m1_expr_linear_expression | intra_unit | 문자의 사용과 식 | contains | 일차식 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
+| m1_expr_unit__contains__m1_expr_literal_expression | intra_unit | 문자의 사용과 식 | contains | 문자를 사용한 식 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_expr_unit__contains__m1_expr_polynomial | intra_unit | 문자의 사용과 식 | contains | 다항식 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 1 |
+| m1_expr_unit__contains__m1_expr_substitution | intra_unit | 문자의 사용과 식 | contains | 대입 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_expr_unit__contains__m1_expr_usefulness | intra_unit | 문자의 사용과 식 | contains | 문자를 사용한 식의 유용성 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
+| m1_expr_unit__contains__m1_expr_value | intra_unit | 문자의 사용과 식 | contains | 식의 값 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
+| m1_expr_coefficient__prerequisite_for__m1_expr_like_terms | intra_unit | 계수 | prerequisite_for | 동류항 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_degree__prerequisite_for__m1_expr_linear_expression | intra_unit | 차수 | prerequisite_for | 일차식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_expr_letter__prerequisite_for__m1_expr_literal_expression | intra_unit | 문자 | prerequisite_for | 문자를 사용한 식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_letter__prerequisite_for__m1_expr_substitution | intra_unit | 문자 | prerequisite_for | 대입 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_expr_like_terms__prerequisite_for__m1_expr_add_sub_linear_expression | intra_unit | 동류항 | prerequisite_for | 일차식의 덧셈과 뺄셈 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_linear_expression__prerequisite_for__m1_expr_add_sub_linear_expression | intra_unit | 일차식 | prerequisite_for | 일차식의 덧셈과 뺄셈 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_literal_expression__prerequisite_for__m1_expr_substitution | intra_unit | 문자를 사용한 식 | prerequisite_for | 대입 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_expr_literal_expression__prerequisite_for__m1_expr_value | intra_unit | 문자를 사용한 식 | prerequisite_for | 식의 값 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_expr_polynomial__prerequisite_for__m1_expr_linear_expression | intra_unit | 다항식 | prerequisite_for | 일차식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_expr_substitution__prerequisite_for__m1_expr_value | intra_unit | 대입 | prerequisite_for | 식의 값 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_expr_term__prerequisite_for__m1_expr_coefficient | intra_unit | 항 | prerequisite_for | 계수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
+| m1_expr_term__prerequisite_for__m1_expr_constant_term | intra_unit | 항 | prerequisite_for | 상수항 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
+| m1_expr_term__prerequisite_for__m1_expr_degree | intra_unit | 항 | prerequisite_for | 차수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
+| m1_expr_term__prerequisite_for__m1_expr_like_terms | intra_unit | 항 | prerequisite_for | 동류항 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_letter__used_in__m1_expr_literal_expression | intra_unit | 문자 | used_in | 문자를 사용한 식 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_expr_like_terms__used_in__m1_expr_add_sub_linear_expression | intra_unit | 동류항 | used_in | 일차식의 덧셈과 뺄셈 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
+| m1_expr_literal_expression__used_in__m1_expr_usefulness | intra_unit | 문자를 사용한 식 | used_in | 문자를 사용한 식의 유용성 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
+| m1_expr_literal_expression__used_in__m1_expr_value | intra_unit | 문자를 사용한 식 | used_in | 식의 값 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_expr_substitution__used_in__m1_expr_value | intra_unit | 대입 | used_in | 식의 값 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
+| m1_expr_term__used_in__m1_expr_degree | intra_unit | 항 | used_in | 차수 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 1 |
+| m1_expr_coefficient__contrasts_with__m1_expr_constant_term | intra_unit | 계수 | contrasts_with | 상수항 | medium | contrast_ref;textbook_page_refs | Find textbook wording or examples that distinguish the two concepts. | 2 |
+| m1_expr_coefficient__contrasts_with__m1_expr_degree | intra_unit | 계수 | contrasts_with | 차수 | medium | contrast_ref;textbook_page_refs | Find textbook wording or examples that distinguish the two concepts. | 2 |
+| m1_expr_monomial__related_to__m1_expr_term | intra_unit | 단항식 | related_to | 항 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 1 |
+| m1_expr_unit__contains__m1_repr_everyday_language | cross_unit | 문자의 사용과 식 | contains | 일상 언어 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_expr_unit__contains__m1_repr_expression | cross_unit | 문자의 사용과 식 | contains | 식 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_expr_unit__contains__m1_term_variable | cross_unit | 문자의 사용과 식 | contains | 변수 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 5 |
+| m1_expr_coefficient__prerequisite_for__m1_factor_binomial_product_xab | cross_unit | 계수 | prerequisite_for | (x+a)(x+b) 공식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_coefficient__prerequisite_for__m1_factor_linear_product_axb_cxd | cross_unit | 계수 | prerequisite_for | (ax+b)(cx+d) 공식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_degree__prerequisite_for__m1_factor_quadratic_expression | cross_unit | 차수 | prerequisite_for | 이차식 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_degree__prerequisite_for__m1_quad_eq_quadratic_term | cross_unit | 차수 | prerequisite_for | 이차항 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_letter__prerequisite_for__m1_eq_unknown | cross_unit | 문자 | prerequisite_for | 미지수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_like_terms__prerequisite_for__m1_calc_polynomial_add_sub | cross_unit | 동류항 | prerequisite_for | 다항식의 덧셈과 뺄셈 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_like_terms__prerequisite_for__m1_calc_simplify_expression | cross_unit | 동류항 | prerequisite_for | 식을 간단히 하기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_like_terms__prerequisite_for__m1_factor_common_factor | cross_unit | 동류항 | prerequisite_for | 공통인수 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_linear_expression__prerequisite_for__m1_eq_linear_equation | cross_unit | 일차식 | prerequisite_for | 일차방정식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_expr_linear_expression__prerequisite_for__m1_eq_unit | cross_unit | 일차식 | prerequisite_for | 일차방정식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_linear_expression__prerequisite_for__m1_func_linear_function | cross_unit | 일차식 | prerequisite_for | 일차함수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_linear_expression__prerequisite_for__m1_ineq_linear_inequality | cross_unit | 일차식 | prerequisite_for | 일차부등식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_expr_literal_expression__prerequisite_for__m1_eq_modeling_linear_equation | cross_unit | 문자를 사용한 식 | prerequisite_for | 일차방정식 세우기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_literal_expression__prerequisite_for__m1_ineq_modeling_linear_inequality | cross_unit | 문자를 사용한 식 | prerequisite_for | 일차부등식 세우기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_literal_expression__prerequisite_for__m1_system_modeling | cross_unit | 문자를 사용한 식 | prerequisite_for | 연립일차방정식 세우기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_monomial__prerequisite_for__m1_calc_monomial_mul_div | cross_unit | 단항식 | prerequisite_for | 단항식의 곱셈과 나눗셈 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_expr_monomial__prerequisite_for__m1_calc_monomial_polynomial_mul_div | cross_unit | 단항식 | prerequisite_for | 단항식과 다항식의 곱셈과 나눗셈 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_expr_monomial__prerequisite_for__m1_calc_unit | cross_unit | 단항식 | prerequisite_for | 식의 계산 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_expr_polynomial__prerequisite_for__m1_calc_arithmetic_to_polynomial_extension | cross_unit | 다항식 | prerequisite_for | 수의 사칙연산에서 다항식 계산으로의 확장 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
+| m1_expr_polynomial__prerequisite_for__m1_calc_monomial_polynomial_mul_div | cross_unit | 다항식 | prerequisite_for | 단항식과 다항식의 곱셈과 나눗셈 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_expr_polynomial__prerequisite_for__m1_calc_polynomial_add_sub | cross_unit | 다항식 | prerequisite_for | 다항식의 덧셈과 뺄셈 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_polynomial__prerequisite_for__m1_calc_unit | cross_unit | 다항식 | prerequisite_for | 식의 계산 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_expr_polynomial__prerequisite_for__m1_eq_equation | cross_unit | 다항식 | prerequisite_for | 방정식 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_polynomial__prerequisite_for__m1_factor_quadratic_expression | cross_unit | 다항식 | prerequisite_for | 이차식 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_polynomial__prerequisite_for__m1_factor_unit | cross_unit | 다항식 | prerequisite_for | 다항식의 곱셈과 인수분해 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_expr_substitution__prerequisite_for__m1_eq_solution | cross_unit | 대입 | prerequisite_for | 해 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_expr_substitution__prerequisite_for__m1_eq_solution_check | cross_unit | 대입 | prerequisite_for | 해의 확인 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_expr_substitution__prerequisite_for__m1_func_value | cross_unit | 대입 | prerequisite_for | 함숫값 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_expr_substitution__prerequisite_for__m1_ineq_solution | cross_unit | 대입 | prerequisite_for | 부등식의 해 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_substitution__prerequisite_for__m1_ineq_solution_check | cross_unit | 대입 | prerequisite_for | 부등식 해의 확인 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_expr_substitution__prerequisite_for__m1_system_substitution_method | cross_unit | 대입 | prerequisite_for | 대입법 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_term__prerequisite_for__m1_eq_transposition | cross_unit | 항 | prerequisite_for | 이항 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_term__prerequisite_for__m1_quad_eq_quadratic_term | cross_unit | 항 | prerequisite_for | 이차항 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_unit__prerequisite_for__m1_calc_unit | cross_unit | 문자의 사용과 식 | prerequisite_for | 식의 계산 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_expr_unit__prerequisite_for__m1_eq_unit | cross_unit | 문자의 사용과 식 | prerequisite_for | 일차방정식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_expr_unit__prerequisite_for__m1_func_unit | cross_unit | 문자의 사용과 식 | prerequisite_for | 일차함수와 그 그래프 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 5 |
+| m1_expr_literal_expression__represented_by__m1_repr_expression | cross_unit | 문자를 사용한 식 | represented_by | 식 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
+| m1_repr_everyday_language__represented_by__m1_expr_literal_expression | cross_unit | 일상 언어 | represented_by | 문자를 사용한 식 | high | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 3 |
+| m1_expr_add_sub_linear_expression__used_in__m1_calc_polynomial_add_sub | cross_unit | 일차식의 덧셈과 뺄셈 | used_in | 다항식의 덧셈과 뺄셈 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 4 |
+| m1_expr_letter__used_in__m1_repr_everyday_language | cross_unit | 문자 | used_in | 일상 언어 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 5 |
+| m1_expr_letter__used_in__m1_repr_expression | cross_unit | 문자 | used_in | 식 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
+| m1_expr_letter__used_in__m1_term_variable | cross_unit | 문자 | used_in | 변수 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
+| m1_expr_like_terms__used_in__m1_calc_polynomial_add_sub | cross_unit | 동류항 | used_in | 다항식의 덧셈과 뺄셈 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_expr_polynomial__used_in__m1_calc_polynomial_add_sub | cross_unit | 다항식 | used_in | 다항식의 덧셈과 뺄셈 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_expr_substitution__used_in__m1_eq_solution_check | cross_unit | 대입 | used_in | 해의 확인 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
+| m1_expr_substitution__used_in__m1_func_value | cross_unit | 대입 | used_in | 함숫값 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_repr_expression__used_in__m1_expr_value | cross_unit | 식 | used_in | 식의 값 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 4 |
+| m1_factor_factor__contrasts_with__m1_expr_term | cross_unit | 인수 | contrasts_with | 항 | medium | contrast_ref;textbook_page_refs | Find textbook wording or examples that distinguish the two concepts. | 3 |
+| m1_func_value__contrasts_with__m1_expr_value | cross_unit | 함숫값 | contrasts_with | 식의 값 | medium | contrast_ref;textbook_page_refs | Find textbook wording or examples that distinguish the two concepts. | 5 |
+| m1_expr_unit__related_to__m1_coord_graph_unit | cross_unit | 문자의 사용과 식 | related_to | 좌표평면과 그래프 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 8 |
+| m1_expr_usefulness__related_to__m1_term_variable | cross_unit | 문자를 사용한 식의 유용성 | related_to | 변수 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 4 |
+
+## Textbook Edge Evidence Fields
+
+- structure_ref
+- prerequisite_ref
+- representation_ref
+- procedure_ref
+- contrast_ref
+- misconception_ref
+- problem_pattern_ref
+- related_ref
+- textbook_page_refs
+- extraction_notes

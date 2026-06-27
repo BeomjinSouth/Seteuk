@@ -1,0 +1,120 @@
+# Textbook Edge Evidence Packet
+
+This generated packet is the unit-level worksheet for adding textbook-grounded relationship evidence.
+
+## Target Unit
+
+- rank: 5
+- grade: 중3(교육과정 학년군: 중1-3)
+- domain: 변화와 관계
+- unit: 이차함수와 그 그래프
+- priority tier: highest
+- priority score: 46
+- edges in packet: 87
+- cross-unit edges: 20
+- low confidence edges: 15
+
+## Relationship Evidence Slots
+
+| edge_id | scope | source | relationship | target | confidence | required evidence | focus | source refs |
+|---|---|---|---|---|---|---|---|---:|
+| m1_quad_func_unit__contains__m1_mis_axis_vertex | intra_unit | 이차함수와 그 그래프 | contains | 포물선의 축과 꼭짓점을 혼동하는 오류 | low | structure_ref;textbook_page_refs;extraction_notes | Find textbook structure evidence for the containment relation. | 3 |
+| m1_quad_func_unit__contains__m1_mis_max_min_scope | intra_unit | 이차함수와 그 그래프 | contains | 최댓값·최솟값의 범위를 임의로 확장하는 오류 | low | structure_ref;textbook_page_refs;extraction_notes | Find textbook structure evidence for the containment relation. | 1 |
+| m1_quad_func_unit__contains__m1_mis_quadratic_function_equation | intra_unit | 이차함수와 그 그래프 | contains | 이차함수와 이차방정식을 혼동하는 오류 | low | structure_ref;textbook_page_refs;extraction_notes | Find textbook structure evidence for the containment relation. | 4 |
+| m1_quad_func_axis__prerequisite_for__m1_mis_axis_vertex | intra_unit | 축 | prerequisite_for | 포물선의 축과 꼭짓점을 혼동하는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_quad_func_max_min_real_scope__prerequisite_for__m1_mis_max_min_scope | intra_unit | 이차함수 최댓값·최솟값의 실수 전체 범위 | prerequisite_for | 최댓값·최솟값의 범위를 임의로 확장하는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
+| m1_quad_func_quadratic_function__prerequisite_for__m1_mis_quadratic_function_equation | intra_unit | 이차함수 | prerequisite_for | 이차함수와 이차방정식을 혼동하는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_quad_func_vertex__prerequisite_for__m1_mis_axis_vertex | intra_unit | 꼭짓점 | prerequisite_for | 포물선의 축과 꼭짓점을 혼동하는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_mis_axis_vertex__often_confused_with__m1_quad_func_axis | intra_unit | 포물선의 축과 꼭짓점을 혼동하는 오류 | often_confused_with | 축 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
+| m1_mis_axis_vertex__often_confused_with__m1_quad_func_vertex | intra_unit | 포물선의 축과 꼭짓점을 혼동하는 오류 | often_confused_with | 꼭짓점 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
+| m1_mis_max_min_scope__often_confused_with__m1_quad_func_max_min_real_scope | intra_unit | 최댓값·최솟값의 범위를 임의로 확장하는 오류 | often_confused_with | 이차함수 최댓값·최솟값의 실수 전체 범위 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 1 |
+| m1_mis_max_min_scope__often_confused_with__m1_quad_func_maximum | intra_unit | 최댓값·최솟값의 범위를 임의로 확장하는 오류 | often_confused_with | 최댓값 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 1 |
+| m1_mis_max_min_scope__often_confused_with__m1_quad_func_minimum | intra_unit | 최댓값·최솟값의 범위를 임의로 확장하는 오류 | often_confused_with | 최솟값 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 1 |
+| m1_mis_quadratic_function_equation__often_confused_with__m1_quad_func_quadratic_function | intra_unit | 이차함수와 이차방정식을 혼동하는 오류 | often_confused_with | 이차함수 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
+| m1_quad_eq_quadratic_equation__prerequisite_for__m1_mis_quadratic_function_equation | cross_unit | 이차방정식 | prerequisite_for | 이차함수와 이차방정식을 혼동하는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_mis_quadratic_function_equation__often_confused_with__m1_quad_eq_quadratic_equation | cross_unit | 이차함수와 이차방정식을 혼동하는 오류 | often_confused_with | 이차방정식 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
+| m1_quad_func_formula__contains__m1_quad_func_general_form | intra_unit | 이차함수의 식 | contains | y=ax^2+bx+c 꼴 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 1 |
+| m1_quad_func_formula__contains__m1_quad_func_vertex_form | intra_unit | 이차함수의 식 | contains | y=a(x-p)^2+q 꼴 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 1 |
+| m1_quad_func_formula__contains__m1_quad_func_y_ax2_graph | intra_unit | 이차함수의 식 | contains | y=ax^2 그래프 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 1 |
+| m1_quad_func_graph__contains__m1_quad_func_parabola | intra_unit | 이차함수의 그래프 | contains | 포물선 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
+| m1_quad_func_graph__contains__m1_quad_func_y_ax2_graph | intra_unit | 이차함수의 그래프 | contains | y=ax^2 그래프 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 1 |
+| m1_quad_func_graph_properties__contains__m1_quad_func_axis | intra_unit | 이차함수 그래프의 성질 | contains | 축 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
+| m1_quad_func_graph_properties__contains__m1_quad_func_max_min_real_scope | intra_unit | 이차함수 그래프의 성질 | contains | 이차함수 최댓값·최솟값의 실수 전체 범위 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 1 |
+| m1_quad_func_graph_properties__contains__m1_quad_func_maximum | intra_unit | 이차함수 그래프의 성질 | contains | 최댓값 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
+| m1_quad_func_graph_properties__contains__m1_quad_func_minimum | intra_unit | 이차함수 그래프의 성질 | contains | 최솟값 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
+| m1_quad_func_graph_properties__contains__m1_quad_func_vertex | intra_unit | 이차함수 그래프의 성질 | contains | 꼭짓점 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
+| m1_quad_func_parabola__contains__m1_quad_func_axis | intra_unit | 포물선 | contains | 축 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_quad_func_parabola__contains__m1_quad_func_vertex | intra_unit | 포물선 | contains | 꼭짓점 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_quad_func_unit__contains__m1_quad_func_formula | intra_unit | 이차함수와 그 그래프 | contains | 이차함수의 식 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
+| m1_quad_func_unit__contains__m1_quad_func_graph | intra_unit | 이차함수와 그 그래프 | contains | 이차함수의 그래프 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
+| m1_quad_func_unit__contains__m1_quad_func_graph_drawing | intra_unit | 이차함수와 그 그래프 | contains | 이차함수 그래프 그리기 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_quad_func_unit__contains__m1_quad_func_graph_properties | intra_unit | 이차함수와 그 그래프 | contains | 이차함수 그래프의 성질 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
+| m1_quad_func_unit__contains__m1_quad_func_quadratic_function | intra_unit | 이차함수와 그 그래프 | contains | 이차함수 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
+| m1_quad_func_unit__contains__m1_quad_func_tech_tool_graph | intra_unit | 이차함수와 그 그래프 | contains | 공학 도구로 이차함수 그래프 탐구하기 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_quad_func_unit__contains__m1_quad_func_y_fx | intra_unit | 이차함수와 그 그래프 | contains | y=f(x) | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_quad_func_formula__prerequisite_for__m1_quad_func_general_form | intra_unit | 이차함수의 식 | prerequisite_for | y=ax^2+bx+c 꼴 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
+| m1_quad_func_formula__prerequisite_for__m1_quad_func_vertex_form | intra_unit | 이차함수의 식 | prerequisite_for | y=a(x-p)^2+q 꼴 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
+| m1_quad_func_formula__prerequisite_for__m1_quad_func_y_ax2_graph | intra_unit | 이차함수의 식 | prerequisite_for | y=ax^2 그래프 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
+| m1_quad_func_graph__prerequisite_for__m1_quad_func_graph_drawing | intra_unit | 이차함수의 그래프 | prerequisite_for | 이차함수 그래프 그리기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_quad_func_graph__prerequisite_for__m1_quad_func_graph_properties | intra_unit | 이차함수의 그래프 | prerequisite_for | 이차함수 그래프의 성질 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_quad_func_graph__prerequisite_for__m1_quad_func_parabola | intra_unit | 이차함수의 그래프 | prerequisite_for | 포물선 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_quad_func_graph__prerequisite_for__m1_quad_func_tech_tool_graph | intra_unit | 이차함수의 그래프 | prerequisite_for | 공학 도구로 이차함수 그래프 탐구하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_quad_func_graph__prerequisite_for__m1_quad_func_y_ax2_graph | intra_unit | 이차함수의 그래프 | prerequisite_for | y=ax^2 그래프 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
+| m1_quad_func_graph_properties__prerequisite_for__m1_quad_func_maximum | intra_unit | 이차함수 그래프의 성질 | prerequisite_for | 최댓값 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_quad_func_graph_properties__prerequisite_for__m1_quad_func_minimum | intra_unit | 이차함수 그래프의 성질 | prerequisite_for | 최솟값 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_quad_func_maximum__prerequisite_for__m1_quad_func_max_min_real_scope | intra_unit | 최댓값 | prerequisite_for | 이차함수 최댓값·최솟값의 실수 전체 범위 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
+| m1_quad_func_minimum__prerequisite_for__m1_quad_func_max_min_real_scope | intra_unit | 최솟값 | prerequisite_for | 이차함수 최댓값·최솟값의 실수 전체 범위 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
+| m1_quad_func_parabola__prerequisite_for__m1_quad_func_axis | intra_unit | 포물선 | prerequisite_for | 축 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_quad_func_parabola__prerequisite_for__m1_quad_func_vertex | intra_unit | 포물선 | prerequisite_for | 꼭짓점 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_quad_func_quadratic_function__prerequisite_for__m1_quad_func_formula | intra_unit | 이차함수 | prerequisite_for | 이차함수의 식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_quad_func_quadratic_function__prerequisite_for__m1_quad_func_graph | intra_unit | 이차함수 | prerequisite_for | 이차함수의 그래프 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_quad_func_formula__represented_by__m1_quad_func_y_fx | intra_unit | 이차함수의 식 | represented_by | y=f(x) | high | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
+| m1_quad_func_quadratic_function__represented_by__m1_quad_func_formula | intra_unit | 이차함수 | represented_by | 이차함수의 식 | high | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 3 |
+| m1_quad_func_quadratic_function__represented_by__m1_quad_func_graph | intra_unit | 이차함수 | represented_by | 이차함수의 그래프 | high | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
+| m1_quad_func_vertex_form__represented_by__m1_quad_func_axis | intra_unit | y=a(x-p)^2+q 꼴 | represented_by | 축 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 1 |
+| m1_quad_func_vertex_form__represented_by__m1_quad_func_vertex | intra_unit | y=a(x-p)^2+q 꼴 | represented_by | 꼭짓점 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 1 |
+| m1_quad_func_general_form__used_in__m1_quad_func_graph_properties | intra_unit | y=ax^2+bx+c 꼴 | used_in | 이차함수 그래프의 성질 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 1 |
+| m1_quad_func_graph__used_in__m1_quad_func_graph_drawing | intra_unit | 이차함수의 그래프 | used_in | 이차함수 그래프 그리기 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_quad_func_graph__used_in__m1_quad_func_graph_properties | intra_unit | 이차함수의 그래프 | used_in | 이차함수 그래프의 성질 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_quad_func_graph_properties__used_in__m1_quad_func_graph_drawing | intra_unit | 이차함수 그래프의 성질 | used_in | 이차함수 그래프 그리기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_quad_func_tech_tool_graph__used_in__m1_quad_func_graph_properties | intra_unit | 공학 도구로 이차함수 그래프 탐구하기 | used_in | 이차함수 그래프의 성질 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_quad_func_vertex__used_in__m1_quad_func_maximum | intra_unit | 꼭짓점 | used_in | 최댓값 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_quad_func_vertex__used_in__m1_quad_func_minimum | intra_unit | 꼭짓점 | used_in | 최솟값 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_quad_func_vertex_form__used_in__m1_quad_func_graph_drawing | intra_unit | y=a(x-p)^2+q 꼴 | used_in | 이차함수 그래프 그리기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 1 |
+| m1_quad_func_y_ax2_graph__used_in__m1_quad_func_graph_drawing | intra_unit | y=ax^2 그래프 | used_in | 이차함수 그래프 그리기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 1 |
+| m1_quad_func_maximum__contrasts_with__m1_quad_func_minimum | intra_unit | 최댓값 | contrasts_with | 최솟값 | high | contrast_ref;textbook_page_refs | Find textbook wording or examples that distinguish the two concepts. | 2 |
+| m1_quad_func_minimum__contrasts_with__m1_quad_func_maximum | intra_unit | 최솟값 | contrasts_with | 최댓값 | high | contrast_ref;textbook_page_refs | Find textbook wording or examples that distinguish the two concepts. | 2 |
+| m1_quad_func_axis__related_to__m1_quad_func_vertex | intra_unit | 축 | related_to | 꼭짓점 | high | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 2 |
+| m1_quad_func_vertex_form__related_to__m1_quad_func_general_form | intra_unit | y=a(x-p)^2+q 꼴 | related_to | y=ax^2+bx+c 꼴 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 1 |
+| m1_quad_func_y_ax2_graph__related_to__m1_quad_func_vertex_form | intra_unit | y=ax^2 그래프 | related_to | y=a(x-p)^2+q 꼴 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 1 |
+| m1_coord_coordinate_plane__prerequisite_for__m1_quad_func_graph | cross_unit | 좌표평면 | prerequisite_for | 이차함수의 그래프 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_coord_coordinate_plane__prerequisite_for__m1_quad_func_graph_drawing | cross_unit | 좌표평면 | prerequisite_for | 이차함수 그래프 그리기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_coord_graph_unit__prerequisite_for__m1_quad_func_unit | cross_unit | 좌표평면과 그래프 | prerequisite_for | 이차함수와 그 그래프 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_factor_quadratic_expression__prerequisite_for__m1_quad_func_formula | cross_unit | 이차식 | prerequisite_for | 이차함수의 식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_factor_quadratic_expression__prerequisite_for__m1_quad_func_general_form | cross_unit | 이차식 | prerequisite_for | y=ax^2+bx+c 꼴 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
+| m1_factor_quadratic_expression__prerequisite_for__m1_quad_func_quadratic_function | cross_unit | 이차식 | prerequisite_for | 이차함수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_func_function__prerequisite_for__m1_quad_func_quadratic_function | cross_unit | 함수 | prerequisite_for | 이차함수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_func_parallel_translation__prerequisite_for__m1_quad_func_vertex_form | cross_unit | 평행이동 | prerequisite_for | y=a(x-p)^2+q 꼴 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
+| m1_func_unit__prerequisite_for__m1_quad_func_unit | cross_unit | 일차함수와 그 그래프 | prerequisite_for | 이차함수와 그 그래프 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_func_value__prerequisite_for__m1_quad_func_maximum | cross_unit | 함숫값 | prerequisite_for | 최댓값 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_func_value__prerequisite_for__m1_quad_func_minimum | cross_unit | 함숫값 | prerequisite_for | 최솟값 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_func_value__prerequisite_for__m1_quad_func_y_fx | cross_unit | 함숫값 | prerequisite_for | y=f(x) | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_graph_graph__prerequisite_for__m1_quad_func_graph | cross_unit | 그래프 | prerequisite_for | 이차함수의 그래프 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_quad_eq_unit__prerequisite_for__m1_quad_func_unit | cross_unit | 이차방정식 | prerequisite_for | 이차함수와 그 그래프 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_coord_coordinate_plane__used_in__m1_quad_func_graph | cross_unit | 좌표평면 | used_in | 이차함수의 그래프 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_factor_quadratic_expression__used_in__m1_quad_func_formula | cross_unit | 이차식 | used_in | 이차함수의 식 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_func_parallel_translation__used_in__m1_quad_func_vertex_form | cross_unit | 평행이동 | used_in | y=a(x-p)^2+q 꼴 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 1 |
+| m1_func_tech_tool_graph__used_in__m1_quad_func_tech_tool_graph | cross_unit | 공학 도구로 함수 그래프 탐구하기 | used_in | 공학 도구로 이차함수 그래프 탐구하기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 4 |
+
+## Textbook Edge Evidence Fields
+
+- structure_ref
+- prerequisite_ref
+- representation_ref
+- procedure_ref
+- contrast_ref
+- misconception_ref
+- problem_pattern_ref
+- related_ref
+- textbook_page_refs
+- extraction_notes
