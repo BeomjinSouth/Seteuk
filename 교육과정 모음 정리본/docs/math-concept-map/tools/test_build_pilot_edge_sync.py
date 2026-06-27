@@ -196,6 +196,28 @@ class BuildPilotEdgeSyncTests(unittest.TestCase):
 
         self.assertEqual([], missing)
 
+    def test_number_data_and_representation_related_ids_have_reviewed_edges(self) -> None:
+        relationships = relationship_types_by_pair()
+        expected = {
+            frozenset(["m1_repr_expression", "m1_repr_table"]): "related_to",
+            frozenset(["m1_num_rational_repeating_relation", "m1_num_repeating_decimal_to_fraction"]): "used_in",
+            frozenset(["m1_num_addition", "m1_num_subtraction"]): "related_to",
+            frozenset(["m1_num_associative_law", "m1_num_commutative_law"]): "contrasts_with",
+            frozenset(["m1_num_division", "m1_num_multiplication"]): "related_to",
+            frozenset(["m1_num_minus_sign", "m1_num_negative_number"]): "contrasts_with",
+            frozenset(["m1_num_plus_sign", "m1_num_positive_number"]): "contrasts_with",
+            frozenset(["m1_num_radical_expression", "m1_num_rationalize_denominator"]): "used_in",
+            frozenset(["m1_data_and_probability", "m1_data_or_probability"]): "contrasts_with",
+            frozenset(["m1_data_mean", "m1_data_mode"]): "contrasts_with",
+        }
+        missing = [
+            (tuple(sorted(pair)), relationship_type)
+            for pair, relationship_type in expected.items()
+            if relationship_type not in relationships.get(pair, set())
+        ]
+
+        self.assertEqual([], missing)
+
 
 if __name__ == "__main__":
     unittest.main()

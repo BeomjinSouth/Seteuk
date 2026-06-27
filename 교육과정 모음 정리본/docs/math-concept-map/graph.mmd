@@ -553,6 +553,8 @@ flowchart LR
   m1_num_absolute_value -- "사용" --> m1_num_order_relation
   m1_num_order_relation -- "선수" --> m1_num_real_order
   m1_num_plus_sign -- "대조" --> m1_num_minus_sign
+  m1_num_plus_sign -- "대조" --> m1_num_positive_number
+  m1_num_minus_sign -- "대조" --> m1_num_negative_number
   m1_num_plus_sign -- "사용" --> m1_num_integer_rational_add_sub
   m1_num_minus_sign -- "사용" --> m1_num_integer_rational_add_sub
   m1_num_four_operations -- "포함" --> m1_num_addition
@@ -565,11 +567,14 @@ flowchart LR
   m1_num_subtraction -- "사용" --> m1_num_integer_rational_add_sub
   m1_num_multiplication -- "사용" --> m1_num_integer_rational_mul_div
   m1_num_division -- "사용" --> m1_num_integer_rational_mul_div
+  m1_num_addition -- "연관" --> m1_num_subtraction
+  m1_num_multiplication -- "연관" --> m1_num_division
   m1_num_reciprocal -- "사용" --> m1_num_integer_rational_mul_div
   m1_num_four_operations -- "사용" --> m1_num_operation_laws
   m1_num_operation_laws -- "포함" --> m1_num_commutative_law
   m1_num_operation_laws -- "포함" --> m1_num_associative_law
   m1_num_operation_laws -- "포함" --> m1_num_distributive_law
+  m1_num_commutative_law -- "대조" --> m1_num_associative_law
   m1_num_distributive_law -- "선수" --> m1_calc_expansion
   m1_num_four_operations -- "사용" --> m1_num_mixed_calculation
   m1_num_integer_rational_add_sub -- "사용" --> m1_num_mixed_calculation
@@ -593,6 +598,7 @@ flowchart LR
   m1_num_repeating_decimal -- "표현" --> m1_num_repeating_decimal_notation
   m1_num_rational_number -- "사용" --> m1_num_rational_repeating_relation
   m1_num_repeating_decimal -- "사용" --> m1_num_rational_repeating_relation
+  m1_num_rational_repeating_relation -- "사용" --> m1_num_repeating_decimal_to_fraction
   m1_num_repeating_decimal_to_fraction -- "표현" --> m1_num_rational_number
   m1_num_fraction_decimal_classification -- "사용" --> m1_num_finite_decimal
   m1_num_fraction_decimal_classification -- "사용" --> m1_num_repeating_decimal
@@ -620,6 +626,7 @@ flowchart LR
   m1_num_real_number -- "사용" --> m1_num_rational_irrational_classification
   m1_num_real_number -- "포함" --> m1_num_real_order
   m1_num_radical_expression -- "사용" --> m1_num_radical_operations
+  m1_num_radical_expression -- "사용" --> m1_num_rationalize_denominator
   m1_num_square_root_property -- "사용" --> m1_num_radical_operations
   m1_num_radical_operations -- "사용" --> m1_num_rationalize_denominator
   m1_num_square_root -- "사용" --> m1_num_square_root_calculator
@@ -961,6 +968,7 @@ flowchart LR
   m1_repr_conversion -- "사용" --> m1_repr_table
   m1_repr_conversion -- "사용" --> m1_repr_expression
   m1_repr_conversion -- "사용" --> m1_graph_graph
+  m1_repr_expression -- "연관" --> m1_repr_table
   m1_prop_direct_proportion -- "표현" --> m1_repr_table
   m1_prop_direct_proportion -- "표현" --> m1_repr_expression
   m1_prop_direct_proportion -- "표현" --> m1_graph_graph
@@ -1142,6 +1150,7 @@ flowchart LR
   m1_data_representative_value -- "포함" --> m1_data_mode
   m1_data_mean -- "대조" --> m1_data_median
   m1_data_median -- "대조" --> m1_data_mode
+  m1_data_mean -- "대조" --> m1_data_mode
   m1_data_mean -- "사용" --> m1_data_choose_representative_value
   m1_data_median -- "사용" --> m1_data_choose_representative_value
   m1_data_mode -- "사용" --> m1_data_choose_representative_value
@@ -1197,6 +1206,7 @@ flowchart LR
   m1_data_probability -- "사용" --> m1_data_probability_basic_properties
   m1_data_probability_basic_properties -- "사용" --> m1_data_or_probability
   m1_data_probability_basic_properties -- "사용" --> m1_data_and_probability
+  m1_data_or_probability -- "대조" --> m1_data_and_probability
   m1_data_route_counting_context -- "사용" --> m1_data_or_cases
   m1_data_route_counting_context -- "사용" --> m1_data_and_cases
   m1_data_representative_value -- "사용" --> m1_data_variability

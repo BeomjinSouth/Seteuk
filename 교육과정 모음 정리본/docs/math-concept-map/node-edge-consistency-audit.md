@@ -4,8 +4,8 @@ This generated audit compares node relationship arrays with explicit edge rows.
 
 ## Summary
 
-- total issues: 170
-- missing_edge_for_related_id: 170
+- total issues: 150
+- missing_edge_for_related_id: 150
 
 ## Priority Rows
 
@@ -17,7 +17,6 @@ This generated audit compares node relationship arrays with explicit edge rows.
 | missing_edge_for_related_id | m1_calc_simplify_expression | 식을 간단히 하기 | related_ids | m1_calc_monomial_polynomial_mul_div | 단항식과 다항식의 곱셈과 나눗셈 | related_edge |  |
 | missing_edge_for_related_id | m1_calc_simplify_expression | 식을 간단히 하기 | related_ids | m1_calc_polynomial_add_sub | 다항식의 덧셈과 뺄셈 | related_edge |  |
 | missing_edge_for_related_id | m1_calc_unit | 식의 계산 | related_ids | m1_eq_unit | 일차방정식 | related_edge |  |
-| missing_edge_for_related_id | m1_data_and_probability | 사건 A와 사건 B가 동시에 일어날 확률 | related_ids | m1_data_or_probability | 사건 A 또는 사건 B가 일어날 확률 | related_edge |  |
 | missing_edge_for_related_id | m1_data_box_plot_compare | 상자그림으로 두 집단의 분포 비교 | related_ids | m1_data_compare_distributions_variability | 산포도로 두 집단의 분포 비교 | related_edge |  |
 | missing_edge_for_related_id | m1_data_class_mark | 계급값 | related_ids | m1_data_frequency_table | 도수분포표 | related_edge |  |
 | missing_edge_for_related_id | m1_data_class_width | 계급의 크기 | related_ids | m1_data_frequency_table | 도수분포표 | related_edge |  |
@@ -31,10 +30,7 @@ This generated audit compares node relationship arrays with explicit edge rows.
 | missing_edge_for_related_id | m1_data_frequency_table | 도수분포표 | related_ids | m1_data_frequency_polygon | 도수분포다각형 | related_edge |  |
 | missing_edge_for_related_id | m1_data_frequency_table | 도수분포표 | related_ids | m1_data_relative_frequency | 상대도수 | related_edge |  |
 | missing_edge_for_related_id | m1_data_frequency_unit | 도수분포표와 상대도수 | related_ids | m1_data_variability_unit | 산포도 | related_edge |  |
-| missing_edge_for_related_id | m1_data_mean | 평균 | related_ids | m1_data_mode | 최빈값 | related_edge |  |
-| missing_edge_for_related_id | m1_data_mode | 최빈값 | related_ids | m1_data_mean | 평균 | related_edge |  |
 | missing_edge_for_related_id | m1_data_no_correlation | 상관관계가 없는 경우 | related_ids | m1_data_positive_correlation | 양의 상관관계 | related_edge |  |
-| missing_edge_for_related_id | m1_data_or_probability | 사건 A 또는 사건 B가 일어날 확률 | related_ids | m1_data_and_probability | 사건 A와 사건 B가 동시에 일어날 확률 | related_edge |  |
 | missing_edge_for_related_id | m1_data_positive_correlation | 양의 상관관계 | related_ids | m1_data_no_correlation | 상관관계가 없는 경우 | related_edge |  |
 | missing_edge_for_related_id | m1_data_relative_frequency_table_graph | 상대도수의 분포를 표나 그래프로 나타내기 | related_ids | m1_data_distribution_interpretation | 자료의 분포 특징 해석 | related_edge |  |
 | missing_edge_for_related_id | m1_data_representative_unit | 대푯값 | related_ids | m1_data_variability_unit | 산포도 | related_edge |  |
@@ -61,6 +57,10 @@ This generated audit compares node relationship arrays with explicit edge rows.
 | missing_edge_for_related_id | m1_func_eq_relation_unit | 일차함수와 일차방정식의 관계 | related_ids | m1_coord_graph_unit | 좌표평면과 그래프 | related_edge |  |
 | missing_edge_for_related_id | m1_func_equation_relation | 일차함수와 미지수가 2개인 일차방정식의 관계 | related_ids | m1_system_two_variable_linear_equation | 미지수가 2개인 일차방정식 | related_edge |  |
 | missing_edge_for_related_id | m1_func_find_graph_equation | 일차함수 그래프의 식 구하기 | related_ids | m1_func_slope | 기울기 | related_edge |  |
+| missing_edge_for_related_id | m1_func_find_graph_equation | 일차함수 그래프의 식 구하기 | related_ids | m1_func_y_intercept | y절편 | related_edge |  |
+| missing_edge_for_related_id | m1_func_graph_drawing | 일차함수 그래프 그리기 | related_ids | m1_func_slope | 기울기 | related_edge |  |
+| missing_edge_for_related_id | m1_func_graph_drawing | 일차함수 그래프 그리기 | related_ids | m1_func_x_intercept | x절편 | related_edge |  |
+| missing_edge_for_related_id | m1_func_graph_drawing | 일차함수 그래프 그리기 | related_ids | m1_func_y_intercept | y절편 | related_edge |  |
 
 ## Notes
 

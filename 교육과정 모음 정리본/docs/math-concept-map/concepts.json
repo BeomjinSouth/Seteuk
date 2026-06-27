@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-27T20:34:55",
+    "generated_at": "2026-06-27T20:39:57",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
     "concept_count": 476,
-    "edge_count": 1814
+    "edge_count": 1824
   },
   "sources": [
     {
@@ -21656,6 +21656,62 @@
       "confidence": "high"
     },
     {
+      "id": "m1_num_plus_sign__contrasts_with__m1_num_positive_number",
+      "source_id": "m1_num_plus_sign",
+      "target_id": "m1_num_positive_number",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "음수의 필요성을 인식하고 양수와 음수, 정수와 유리수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수 개념 이해 및 분류 수준을 구분"
+        }
+      ],
+      "notes": "양의 부호와 양수는 기호와 수 개념의 역할이 다르므로 구별한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_minus_sign__contrasts_with__m1_num_negative_number",
+      "source_id": "m1_num_minus_sign",
+      "target_id": "m1_num_negative_number",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "음수의 필요성을 인식하고 양수와 음수, 정수와 유리수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수 개념 이해 및 분류 수준을 구분"
+        }
+      ],
+      "notes": "음의 부호와 음수는 기호와 수 개념의 역할이 다르므로 구별한다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_num_plus_sign__used_in__m1_num_integer_rational_add_sub",
       "source_id": "m1_num_plus_sign",
       "target_id": "m1_num_integer_rational_add_sub",
@@ -21920,6 +21976,50 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_num_addition__related_to__m1_num_subtraction",
+      "source_id": "m1_num_addition",
+      "target_id": "m1_num_subtraction",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "덧셈과 뺄셈은 정수와 유리수의 사칙계산에서 함께 다루는 서로 대응되는 연산이다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_multiplication__related_to__m1_num_division",
+      "source_id": "m1_num_multiplication",
+      "target_id": "m1_num_division",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "곱셈과 나눗셈은 정수와 유리수의 사칙계산에서 함께 다루는 서로 대응되는 연산이다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_num_reciprocal__used_in__m1_num_integer_rational_mul_div",
       "source_id": "m1_num_reciprocal",
       "target_id": "m1_num_integer_rational_mul_div",
@@ -22040,6 +22140,28 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_num_commutative_law__contrasts_with__m1_num_associative_law",
+      "source_id": "m1_num_commutative_law",
+      "target_id": "m1_num_associative_law",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "교환법칙은 연산 순서, 결합법칙은 묶는 순서를 다루므로 구별한다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_num_distributive_law__prerequisite_for__m1_calc_expansion",
@@ -22588,6 +22710,34 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_num_rational_repeating_relation__used_in__m1_num_repeating_decimal_to_fraction",
+      "source_id": "m1_num_rational_repeating_relation",
+      "target_id": "m1_num_repeating_decimal_to_fraction",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "순환소수의 뜻을 알고 유리수와 순환소수의 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-06] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "순환소수를 분수로 고치는 것은 순환소수가 유리수임을 이해할 수 있는 정도로 다루며 유한소수를 순환소수로 나타내는 것은 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "유리수와 순환소수 section; [9수01-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "유한소수 또는 순환소수로 나타낼 수 있는 분수의 특징, 순환소수를 분수로 나타내기, 유리수와 순환소수 관계 설명 수준을 구분"
+        }
+      ],
+      "notes": "유리수와 순환소수의 관계 이해는 순환소수를 분수로 나타내는 절차의 근거가 된다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_num_repeating_decimal_to_fraction__represented_by__m1_num_rational_number",
@@ -23218,6 +23368,34 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_num_radical_expression__used_in__m1_num_rationalize_denominator",
+      "source_id": "m1_num_radical_expression",
+      "target_id": "m1_num_rationalize_denominator",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-10]",
+          "evidence_kind": "achievement_standard",
+          "summary": "근호를 포함한 식의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "제곱근과 실수 section; [9수01-10] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "근호를 포함한 식의 사칙계산 원리, 제곱근의 곱셈과 나눗셈, 근호 안의 수가 같은 제곱근의 덧셈과 뺄셈 수준을 구분"
+        }
+      ],
+      "notes": "분모의 유리화는 근호를 포함한 식을 다루는 절차로 연결된다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_num_square_root_property__used_in__m1_num_radical_operations",
@@ -31070,6 +31248,28 @@
       "confidence": "high"
     },
     {
+      "id": "m1_repr_expression__related_to__m1_repr_table",
+      "source_id": "m1_repr_expression",
+      "target_id": "m1_repr_table",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 35-36; achievement-standard explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "좌표 사용 예, 그래프의 증가·감소·주기적 변화, 표·식·그래프 변환을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "좌표평면과 그래프 section; [9수02-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정비례·반비례 관계를 표, 식, 그래프로 나타내는 수준을 구분"
+        }
+      ],
+      "notes": "표와 식은 같은 비례 관계를 서로 바꾸어 나타내는 대표 표현이다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_prop_direct_proportion__represented_by__m1_repr_table",
       "source_id": "m1_prop_direct_proportion",
       "target_id": "m1_repr_table",
@@ -35322,6 +35522,34 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_data_mean__contrasts_with__m1_data_mode",
+      "source_id": "m1_data_mean",
+      "target_id": "m1_data_mode",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "평균과 최빈값은 자료의 대표성을 설명하는 방식이 달라 구별한다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_data_mean__used_in__m1_data_choose_representative_value",
       "source_id": "m1_data_mean",
       "target_id": "m1_data_choose_representative_value",
@@ -36535,6 +36763,34 @@
         }
       ],
       "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_or_probability__contrasts_with__m1_data_and_probability",
+      "source_id": "m1_data_or_probability",
+      "target_id": "m1_data_and_probability",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-05]~[9수04-06] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "경우의 수는 두 경우의 수를 합하거나 곱하는 정도로 다루며, 확률은 실험·관찰로 구한 상대도수와 경우의 수의 비율을 연결해 이해하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
+          "evidence_kind": "assessment_item",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        }
+      ],
+      "notes": "사건 A 또는 B와 사건 A와 B가 동시에 일어나는 경우는 확률과 경우의 수 해석에서 구별한다.",
       "confidence": "medium"
     },
     {
