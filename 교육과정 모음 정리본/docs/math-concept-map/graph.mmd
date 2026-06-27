@@ -14,6 +14,8 @@ flowchart LR
   m1_num_prime_factorization["소인수분해"]
   m1_num_prime_factor_product["소인수의 곱으로 표현하기"]
   m1_num_coprime["서로소"]
+  m1_num_divisor["약수"]
+  m1_num_multiple["배수"]
   m1_num_gcd["최대공약수"]
   m1_num_lcm["최소공배수"]
   m1_num_find_gcd_lcm_prime_factorization["소인수분해로 최대공약수와 최소공배수 구하기"]
@@ -35,6 +37,10 @@ flowchart LR
   m1_num_minus_sign["음의 부호"]
   m1_num_order_relation["정수와 유리수의 대소 관계"]
   m1_num_four_operations["정수와 유리수의 사칙계산"]
+  m1_num_addition["덧셈"]
+  m1_num_subtraction["뺄셈"]
+  m1_num_multiplication["곱셈"]
+  m1_num_division["나눗셈"]
   m1_num_integer_rational_add_sub["정수와 유리수의 덧셈과 뺄셈"]
   m1_num_integer_rational_mul_div["정수와 유리수의 곱셈과 나눗셈"]
   m1_num_operation_laws["연산 법칙"]
@@ -480,6 +486,8 @@ flowchart LR
   m1_num_prime_factor_unit -- "포함" --> m1_num_prime_factor
   m1_num_prime_factor_unit -- "포함" --> m1_num_prime_factorization
   m1_num_prime_factor_unit -- "포함" --> m1_num_coprime
+  m1_num_prime_factor_unit -- "포함" --> m1_num_divisor
+  m1_num_prime_factor_unit -- "포함" --> m1_num_multiple
   m1_num_prime_factor_unit -- "포함" --> m1_num_gcd
   m1_num_prime_factor_unit -- "포함" --> m1_num_lcm
   m1_num_prime_factor_unit -- "포함" --> m1_num_find_gcd_lcm_prime_factorization
@@ -494,8 +502,12 @@ flowchart LR
   m1_calc_exponent -- "사용" --> m1_num_prime_factor_product
   m1_num_prime_factorization -- "표현" --> m1_num_prime_factor_product
   m1_num_prime_factorization -- "사용" --> m1_num_find_gcd_lcm_prime_factorization
+  m1_num_divisor -- "사용" --> m1_num_gcd
+  m1_num_multiple -- "사용" --> m1_num_lcm
   m1_num_gcd -- "사용" --> m1_num_find_gcd_lcm_prime_factorization
   m1_num_lcm -- "사용" --> m1_num_find_gcd_lcm_prime_factorization
+  m1_num_divisor -- "대조" --> m1_num_multiple
+  m1_num_multiple -- "대조" --> m1_num_divisor
   m1_num_gcd -- "대조" --> m1_num_lcm
   m1_num_lcm -- "대조" --> m1_num_gcd
   m1_num_coprime -- "사용" --> m1_num_gcd
@@ -529,8 +541,16 @@ flowchart LR
   m1_num_plus_sign -- "대조" --> m1_num_minus_sign
   m1_num_plus_sign -- "사용" --> m1_num_integer_rational_add_sub
   m1_num_minus_sign -- "사용" --> m1_num_integer_rational_add_sub
+  m1_num_four_operations -- "포함" --> m1_num_addition
+  m1_num_four_operations -- "포함" --> m1_num_subtraction
+  m1_num_four_operations -- "포함" --> m1_num_multiplication
+  m1_num_four_operations -- "포함" --> m1_num_division
   m1_num_four_operations -- "포함" --> m1_num_integer_rational_add_sub
   m1_num_four_operations -- "포함" --> m1_num_integer_rational_mul_div
+  m1_num_addition -- "사용" --> m1_num_integer_rational_add_sub
+  m1_num_subtraction -- "사용" --> m1_num_integer_rational_add_sub
+  m1_num_multiplication -- "사용" --> m1_num_integer_rational_mul_div
+  m1_num_division -- "사용" --> m1_num_integer_rational_mul_div
   m1_num_reciprocal -- "사용" --> m1_num_integer_rational_mul_div
   m1_num_four_operations -- "사용" --> m1_num_operation_laws
   m1_num_operation_laws -- "포함" --> m1_num_commutative_law
@@ -1698,6 +1718,8 @@ flowchart LR
   class m1_num_prime_factorization procedure;
   class m1_num_prime_factor_product representation;
   class m1_num_coprime default;
+  class m1_num_divisor default;
+  class m1_num_multiple default;
   class m1_num_gcd default;
   class m1_num_lcm default;
   class m1_num_find_gcd_lcm_prime_factorization procedure;
@@ -1719,6 +1741,10 @@ flowchart LR
   class m1_num_minus_sign default;
   class m1_num_order_relation default;
   class m1_num_four_operations procedure;
+  class m1_num_addition procedure;
+  class m1_num_subtraction procedure;
+  class m1_num_multiplication procedure;
+  class m1_num_division procedure;
   class m1_num_integer_rational_add_sub procedure;
   class m1_num_integer_rational_mul_div procedure;
   class m1_num_operation_laws default;

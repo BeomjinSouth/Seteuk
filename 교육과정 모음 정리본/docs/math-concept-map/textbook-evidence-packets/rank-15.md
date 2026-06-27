@@ -6,34 +6,32 @@ This generated packet is the unit-level worksheet for adding textbook-grounded e
 
 - rank: 15
 - grade: 중1(교육과정 학년군: 중1-3)
-- domain: 도형과 측정
-- unit: 평면도형의 성질
+- domain: 변화와 관계
+- unit: 식의 계산
 - priority tier: high
 - priority score: 26
-- concepts in packet: 16
-- pending textbook evidence: 16
-- low confidence concepts: 1
+- concepts in packet: 14
+- pending textbook evidence: 14
+- low confidence concepts: 2
 
 ## Concept Evidence Slots
 
 | concept_id | label_ko | type | confidence | evidence_depth | status | source refs |
 |---|---|---|---|---|---|---:|
-| m1_mis_arc_chord | 호와 현을 같은 대상으로 보는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | 3 |
-| m1_geo_circular_segment | 활꼴 | term | high | official_single_source | pending_textbook_pdf | 2 |
-| m1_geo_convex_polygon_scope | 볼록다각형 범위 | property | medium | official_single_source | pending_textbook_pdf | 1 |
-| m1_geo_secant | 할선 | term | high | official_single_source | pending_textbook_pdf | 2 |
-| m1_geo_arc | 호 | term | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_geo_central_angle | 중심각 | term | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_geo_chord | 현 | term | high | official_dual_source | pending_textbook_pdf | 5 |
-| m1_geo_diagonal | 대각선 | term | medium | official_dual_source | pending_textbook_pdf | 2 |
-| m1_geo_diagonal_count | 다각형의 대각선 개수 | property | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_geo_exterior_angle | 외각 | term | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_geo_interior_angle | 내각 | term | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_geo_plane_properties_unit | 평면도형의 성질 | core_concept | high | official_dual_source | pending_textbook_pdf | 4 |
-| m1_geo_polygon | 다각형 | core_concept | high | official_dual_source | pending_textbook_pdf | 2 |
-| m1_geo_polygon_angle_sum | 다각형의 내각과 외각의 크기 | property | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_geo_sector | 부채꼴 | core_concept | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_geo_sector_arc_length_area | 부채꼴의 호의 길이와 넓이 구하기 | procedure | high | official_dual_source | pending_textbook_pdf | 2 |
+| m1_mis_exponent_base | 밑이 다른 거듭제곱에 지수법칙을 잘못 적용하는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | 3 |
+| m1_mis_polynomial_like_terms | 다항식에서 동류항 처리를 누락하는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | 2 |
+| m1_calc_arithmetic_to_polynomial_extension | 수의 사칙연산에서 다항식 계산으로의 확장 | property | medium | official_single_source | pending_textbook_pdf | 1 |
+| m1_calc_unit | 식의 계산 | core_concept | high | official_single_source | pending_textbook_pdf | 3 |
+| m1_calc_base | 밑 | term | high | official_dual_source | pending_textbook_pdf | 2 |
+| m1_calc_expansion | 전개 | procedure | medium | official_dual_source | pending_textbook_pdf | 3 |
+| m1_calc_exponent | 지수 | term | high | official_dual_source | pending_textbook_pdf | 3 |
+| m1_calc_exponent_laws | 지수법칙 | property | high | official_dual_source | pending_textbook_pdf | 3 |
+| m1_calc_monomial_mul_div | 단항식의 곱셈과 나눗셈 | procedure | high | official_dual_source | pending_textbook_pdf | 3 |
+| m1_calc_monomial_polynomial_mul_div | 단항식과 다항식의 곱셈과 나눗셈 | procedure | high | official_dual_source | pending_textbook_pdf | 3 |
+| m1_calc_polynomial_add_sub | 다항식의 덧셈과 뺄셈 | procedure | high | official_dual_source | pending_textbook_pdf | 2 |
+| m1_calc_power | 거듭제곱 | term | high | official_dual_source | pending_textbook_pdf | 3 |
+| m1_calc_simplify_expression | 식을 간단히 하기 | procedure | high | official_dual_source | pending_textbook_pdf | 2 |
+| m1_mis_polynomial_division_scope | 다항식을 단항식으로 나누는 범위 혼동 | misconception_risk | medium | official_dual_source | pending_textbook_pdf | 3 |
 
 ## Textbook Evidence Fields
 

@@ -6,9 +6,9 @@ The older hierarchy is treated only as a non-authoritative candidate source.
 ## Summary
 
 - legacy candidates: 163
-- covered_by_label: 129
+- covered_by_label: 139
 - covered_by_alias: 0
-- needs_review: 34
+- needs_review: 24
 
 ## Candidate Types
 
@@ -19,17 +19,7 @@ The older hierarchy is treated only as a non-authoritative candidate source.
 
 | legacy_id | label | domain | unit | action | notes |
 |---|---|---|---|---|---|
-| achievement:9수01-02:배수 | 배수 | 수와 연산 | 9수01-02 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수01-02:약수 | 약수 | 수와 연산 | 9수01-02 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수02-02:덧셈 | 덧셈 | 변화와 관계 | 9수02-02 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수02-02:뺄셈 | 뺄셈 | 변화와 관계 | 9수02-02 | review_against_official_sources | No normalized label or alias match in concepts.json. |
 | achievement:9수02-07:비 | 비 | 변화와 관계 | 9수02-07 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수02-09:덧셈 | 덧셈 | 변화와 관계 | 9수02-09 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수02-09:뺄셈 | 뺄셈 | 변화와 관계 | 9수02-09 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수02-10:곱셈 | 곱셈 | 변화와 관계 | 9수02-10 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수02-10:나눗셈 | 나눗셈 | 변화와 관계 | 9수02-10 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수02-18:곱셈 | 곱셈 | 변화와 관계 | 9수02-18 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수02-19:곱셈 | 곱셈 | 변화와 관계 | 9수02-19 | review_against_official_sources | No normalized label or alias match in concepts.json. |
 | achievement:9수03-03:삼각형 | 삼각형 | 도형과 측정 | 9수03-03 | review_against_official_sources | No normalized label or alias match in concepts.json. |
 | achievement:9수03-04:도형 | 도형 | 도형과 측정 | 9수03-04 | review_against_official_sources | No normalized label or alias match in concepts.json. |
 | achievement:9수03-04:삼각형 | 삼각형 | 도형과 측정 | 9수03-04 | review_against_official_sources | No normalized label or alias match in concepts.json. |
@@ -60,6 +50,8 @@ The older hierarchy is treated only as a non-authoritative candidate source.
 |---|---|---|---|
 | achievement:9수01-01:인수분해 | 인수분해 | covered_by_label | m1_factor_factorization |
 | achievement:9수01-01:자연수 | 자연수 | covered_by_label | m1_num_natural_number |
+| achievement:9수01-02:배수 | 배수 | covered_by_label | m1_num_multiple |
+| achievement:9수01-02:약수 | 약수 | covered_by_label | m1_num_divisor |
 | achievement:9수01-02:유리수 | 유리수 | covered_by_label | m1_num_rational_number |
 | achievement:9수01-02:인수분해 | 인수분해 | covered_by_label | m1_factor_factorization |
 | achievement:9수01-02:정수 | 정수 | covered_by_label | m1_num_integer |
@@ -80,7 +72,9 @@ The older hierarchy is treated only as a non-authoritative candidate source.
 | achievement:9수01-07:제곱근 | 제곱근 | covered_by_label | m1_num_square_root |
 | achievement:9수01-09:실수 | 실수 | covered_by_label | m1_num_real_number |
 | achievement:9수01-10:원 | 원 | covered_by_label | m1_geo_circle |
+| achievement:9수02-02:덧셈 | 덧셈 | covered_by_label | m1_num_addition |
 | achievement:9수02-02:방정식 | 방정식 | covered_by_label | m1_eq_equation |
+| achievement:9수02-02:뺄셈 | 뺄셈 | covered_by_label | m1_num_subtraction |
 | achievement:9수02-02:원 | 원 | covered_by_label | m1_geo_circle |
 | achievement:9수02-03:방정식 | 방정식 | covered_by_label | m1_eq_equation |
 | achievement:9수02-04:그래프 | 그래프 | covered_by_label | m1_graph_graph |
@@ -93,7 +87,11 @@ The older hierarchy is treated only as a non-authoritative candidate source.
 | achievement:9수02-07:그래프 | 그래프 | covered_by_label | m1_graph_graph |
 | achievement:9수02-07:표 | 표 | covered_by_label | m1_repr_table |
 | achievement:9수02-09:다항식 | 다항식 | covered_by_label | m1_expr_polynomial |
+| achievement:9수02-09:덧셈 | 덧셈 | covered_by_label | m1_num_addition |
+| achievement:9수02-09:뺄셈 | 뺄셈 | covered_by_label | m1_num_subtraction |
 | achievement:9수02-09:원 | 원 | covered_by_label | m1_geo_circle |
+| achievement:9수02-10:곱셈 | 곱셈 | covered_by_label | m1_num_multiplication |
+| achievement:9수02-10:나눗셈 | 나눗셈 | covered_by_label | m1_num_division |
 | achievement:9수02-10:다항식 | 다항식 | covered_by_label | m1_expr_polynomial |
 | achievement:9수02-10:부등식 | 부등식 | covered_by_label | m1_ineq_inequality |
 | achievement:9수02-10:원 | 원 | covered_by_label | m1_geo_circle |
@@ -111,11 +109,13 @@ The older hierarchy is treated only as a non-authoritative candidate source.
 | achievement:9수02-16:함수 | 함수 | covered_by_label | m1_func_function |
 | achievement:9수02-17:방정식 | 방정식 | covered_by_label | m1_eq_equation |
 | achievement:9수02-17:함수 | 함수 | covered_by_label | m1_func_function |
+| achievement:9수02-18:곱셈 | 곱셈 | covered_by_label | m1_num_multiplication |
 | achievement:9수02-18:그래프 | 그래프 | covered_by_label | m1_graph_graph |
 | achievement:9수02-18:다항식 | 다항식 | covered_by_label | m1_expr_polynomial |
 | achievement:9수02-18:방정식 | 방정식 | covered_by_label | m1_eq_equation |
 | achievement:9수02-18:인수분해 | 인수분해 | covered_by_label | m1_factor_factorization |
 | achievement:9수02-18:함수 | 함수 | covered_by_label | m1_func_function |
+| achievement:9수02-19:곱셈 | 곱셈 | covered_by_label | m1_num_multiplication |
 | achievement:9수02-19:다항식 | 다항식 | covered_by_label | m1_expr_polynomial |
 | achievement:9수02-19:방정식 | 방정식 | covered_by_label | m1_eq_equation |
 | achievement:9수02-19:인수분해 | 인수분해 | covered_by_label | m1_factor_factorization |

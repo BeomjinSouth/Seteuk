@@ -6,32 +6,35 @@ This generated packet is the unit-level worksheet for adding textbook-grounded e
 
 - rank: 14
 - grade: 중1(교육과정 학년군: 중1-3)
-- domain: 변화와 관계
-- unit: 식의 계산
+- domain: 도형과 측정
+- unit: 입체도형의 성질
 - priority tier: high
-- priority score: 26
-- concepts in packet: 14
-- pending textbook evidence: 14
+- priority score: 27
+- concepts in packet: 17
+- pending textbook evidence: 17
 - low confidence concepts: 2
 
 ## Concept Evidence Slots
 
 | concept_id | label_ko | type | confidence | evidence_depth | status | source refs |
 |---|---|---|---|---|---|---:|
-| m1_mis_exponent_base | 밑이 다른 거듭제곱에 지수법칙을 잘못 적용하는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | 3 |
-| m1_mis_polynomial_like_terms | 다항식에서 동류항 처리를 누락하는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | 2 |
-| m1_calc_arithmetic_to_polynomial_extension | 수의 사칙연산에서 다항식 계산으로의 확장 | property | medium | official_single_source | pending_textbook_pdf | 1 |
-| m1_calc_unit | 식의 계산 | core_concept | high | official_single_source | pending_textbook_pdf | 3 |
-| m1_calc_base | 밑 | term | high | official_dual_source | pending_textbook_pdf | 2 |
-| m1_calc_expansion | 전개 | procedure | medium | official_dual_source | pending_textbook_pdf | 3 |
-| m1_calc_exponent | 지수 | term | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_calc_exponent_laws | 지수법칙 | property | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_calc_monomial_mul_div | 단항식의 곱셈과 나눗셈 | procedure | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_calc_monomial_polynomial_mul_div | 단항식과 다항식의 곱셈과 나눗셈 | procedure | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_calc_polynomial_add_sub | 다항식의 덧셈과 뺄셈 | procedure | high | official_dual_source | pending_textbook_pdf | 2 |
-| m1_calc_power | 거듭제곱 | term | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_calc_simplify_expression | 식을 간단히 하기 | procedure | high | official_dual_source | pending_textbook_pdf | 2 |
-| m1_mis_polynomial_division_scope | 다항식을 단항식으로 나누는 범위 혼동 | misconception_risk | medium | official_dual_source | pending_textbook_pdf | 3 |
+| m1_mis_complex_area_volume_scope | 지나치게 복잡한 넓이·부피 변형 문제 범위 혼동 | misconception_risk | low | official_single_source | pending_textbook_pdf | 1 |
+| m1_mis_surface_area_volume | 겉넓이와 부피를 같은 측정량으로 보는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | 2 |
+| m1_geo_axis_of_rotation | 회전축 | term | high | official_dual_source | pending_textbook_pdf | 3 |
+| m1_geo_frustum_cone | 원뿔대 | term | high | official_dual_source | pending_textbook_pdf | 3 |
+| m1_geo_frustum_pyramid | 각뿔대 | term | high | official_dual_source | pending_textbook_pdf | 3 |
+| m1_geo_model_tool_solid | 모형과 공학 도구로 입체도형 탐구 | procedure | high | official_dual_source | pending_textbook_pdf | 3 |
+| m1_geo_polyhedron | 다면체 | core_concept | high | official_dual_source | pending_textbook_pdf | 3 |
+| m1_geo_prism | 기둥 모양 입체도형 | sub_concept | medium | official_dual_source | pending_textbook_pdf | 2 |
+| m1_geo_pyramid | 뿔 모양 입체도형 | sub_concept | medium | official_dual_source | pending_textbook_pdf | 2 |
+| m1_geo_regular_polyhedron | 정다면체 | term | high | official_dual_source | pending_textbook_pdf | 3 |
+| m1_geo_solid_cross_section | 입체도형의 단면 | representation | medium | official_dual_source | pending_textbook_pdf | 3 |
+| m1_geo_solid_net | 전개도 | representation | medium | official_dual_source | pending_textbook_pdf | 3 |
+| m1_geo_solid_of_revolution | 회전체 | core_concept | high | official_dual_source | pending_textbook_pdf | 3 |
+| m1_geo_solid_unit | 입체도형의 성질 | core_concept | high | official_dual_source | pending_textbook_pdf | 4 |
+| m1_geo_sphere | 구 | sub_concept | medium | official_dual_source | pending_textbook_pdf | 2 |
+| m1_geo_surface_area | 겉넓이 | procedure | high | official_dual_source | pending_textbook_pdf | 2 |
+| m1_geo_volume | 부피 | procedure | high | official_dual_source | pending_textbook_pdf | 2 |
 
 ## Textbook Evidence Fields
 

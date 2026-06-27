@@ -2,21 +2,21 @@
 1,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,40,40,6,13,27,0,90,highest,textbook_evidence_for_low_confidence
 2,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,27,27,6,5,22,0,61,highest,textbook_evidence_for_low_confidence
 3,중2(교육과정 학년군: 중1-3),자료와 가능성,경우의 수와 확률,18,18,3,10,8,0,50,highest,textbook_evidence_for_low_confidence
-4,중3(교육과정 학년군: 중1-3),변화와 관계,이차함수와 그 그래프,20,20,3,7,13,0,46,highest,textbook_evidence_for_low_confidence
-5,중1(교육과정 학년군: 중1-3),자료와 가능성,도수분포표와 상대도수,26,26,3,3,23,0,44,highest,textbook_evidence_for_low_confidence
-6,중1(교육과정 학년군: 중1-3),수와 연산,정수와 유리수,27,27,3,2,25,0,43,highest,textbook_evidence_for_low_confidence
+4,중1(교육과정 학년군: 중1-3),수와 연산,정수와 유리수,31,31,3,2,29,0,47,highest,textbook_evidence_for_low_confidence
+5,중3(교육과정 학년군: 중1-3),변화와 관계,이차함수와 그 그래프,20,20,3,7,13,0,46,highest,textbook_evidence_for_low_confidence
+6,중1(교육과정 학년군: 중1-3),자료와 가능성,도수분포표와 상대도수,26,26,3,3,23,0,44,highest,textbook_evidence_for_low_confidence
 7,중1(교육과정 학년군: 중1-3),변화와 관계,문자의 사용과 식,18,18,3,6,12,0,42,highest,textbook_evidence_for_low_confidence
 8,중1(교육과정 학년군: 중1-3),변화와 관계,일차방정식,19,19,3,5,14,0,41,highest,textbook_evidence_for_low_confidence
 9,중3(교육과정 학년군: 중1-3),변화와 관계,다항식의 곱셈과 인수분해,18,18,4,1,17,0,36,high,textbook_evidence_for_low_confidence
 10,중3(교육과정 학년군: 중1-3),수와 연산,제곱근과 실수,17,17,3,2,15,0,33,high,textbook_evidence_for_low_confidence
 11,중3(교육과정 학년군: 중1-3),변화와 관계,이차방정식,14,14,3,3,11,0,32,high,textbook_evidence_for_low_confidence
 12,중1(교육과정 학년군: 중1-3),도형과 측정,기본 도형,22,22,2,0,22,0,30,high,textbook_evidence_for_low_confidence
-13,중1(교육과정 학년군: 중1-3),도형과 측정,입체도형의 성질,17,17,2,1,16,0,27,high,textbook_evidence_for_low_confidence
-14,중1(교육과정 학년군: 중1-3),변화와 관계,식의 계산,14,14,2,2,12,0,26,high,textbook_evidence_for_low_confidence
-15,중1(교육과정 학년군: 중1-3),도형과 측정,평면도형의 성질,16,16,1,3,13,0,26,high,textbook_evidence_for_low_confidence
-16,중1(교육과정 학년군: 중1-3),변화와 관계,연립일차방정식,13,13,3,0,13,0,25,high,textbook_evidence_for_low_confidence
-17,중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,11,11,2,3,8,0,25,high,textbook_evidence_for_low_confidence
-18,중1(교육과정 학년군: 중1-3),수와 연산,소인수분해,13,13,2,2,11,0,25,high,textbook_evidence_for_low_confidence
+13,중1(교육과정 학년군: 중1-3),수와 연산,소인수분해,15,15,2,2,13,0,27,high,textbook_evidence_for_low_confidence
+14,중1(교육과정 학년군: 중1-3),도형과 측정,입체도형의 성질,17,17,2,1,16,0,27,high,textbook_evidence_for_low_confidence
+15,중1(교육과정 학년군: 중1-3),변화와 관계,식의 계산,14,14,2,2,12,0,26,high,textbook_evidence_for_low_confidence
+16,중1(교육과정 학년군: 중1-3),도형과 측정,평면도형의 성질,16,16,1,3,13,0,26,high,textbook_evidence_for_low_confidence
+17,중1(교육과정 학년군: 중1-3),변화와 관계,연립일차방정식,13,13,3,0,13,0,25,high,textbook_evidence_for_low_confidence
+18,중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,11,11,2,3,8,0,25,high,textbook_evidence_for_low_confidence
 19,중2(교육과정 학년군: 중1-3),도형과 측정,삼각형과 사각형의 성질,16,16,2,0,16,0,24,high,textbook_evidence_for_low_confidence
 20,중3(교육과정 학년군: 중1-3),도형과 측정,원의 성질,13,13,2,1,12,0,23,high,textbook_evidence_for_low_confidence
 21,중1(교육과정 학년군: 중1-3),변화와 관계,일차부등식,11,11,2,1,10,0,21,high,textbook_evidence_for_low_confidence

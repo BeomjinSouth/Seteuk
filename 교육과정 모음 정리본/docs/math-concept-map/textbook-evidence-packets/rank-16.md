@@ -6,31 +6,34 @@ This generated packet is the unit-level worksheet for adding textbook-grounded e
 
 - rank: 16
 - grade: 중1(교육과정 학년군: 중1-3)
-- domain: 변화와 관계
-- unit: 연립일차방정식
+- domain: 도형과 측정
+- unit: 평면도형의 성질
 - priority tier: high
-- priority score: 25
-- concepts in packet: 13
-- pending textbook evidence: 13
-- low confidence concepts: 3
+- priority score: 26
+- concepts in packet: 16
+- pending textbook evidence: 16
+- low confidence concepts: 1
 
 ## Concept Evidence Slots
 
 | concept_id | label_ko | type | confidence | evidence_depth | status | source refs |
 |---|---|---|---|---|---|---:|
-| m1_mis_system_elimination_sign | 가감법에서 부호와 계수 처리를 잘못하는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | 2 |
-| m1_mis_system_one_equation_only | 연립방정식의 해를 한 방정식만 만족해도 된다고 보는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | 2 |
-| m1_mis_system_substitution | 대입법에서 식 전체를 대입하지 않는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | 2 |
-| m1_system_addition_subtraction_method | 가감법 | procedure | high | official_dual_source | pending_textbook_pdf | 2 |
-| m1_system_elimination | 소거 | procedure | high | official_dual_source | pending_textbook_pdf | 2 |
-| m1_system_modeling | 연립일차방정식 세우기 | procedure | high | official_dual_source | pending_textbook_pdf | 2 |
-| m1_system_simultaneous_equations | 연립방정식 | term | high | official_dual_source | pending_textbook_pdf | 2 |
-| m1_system_simultaneous_linear_equations | 연립일차방정식 | core_concept | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_system_solution | 연립일차방정식의 해 | term | high | official_dual_source | pending_textbook_pdf | 2 |
-| m1_system_solving | 연립일차방정식 풀기 | procedure | high | official_dual_source | pending_textbook_pdf | 2 |
-| m1_system_substitution_method | 대입법 | procedure | high | official_dual_source | pending_textbook_pdf | 2 |
-| m1_system_two_variable_linear_equation | 미지수가 2개인 일차방정식 | core_concept | high | official_dual_source | pending_textbook_pdf | 2 |
-| m1_system_unit | 연립일차방정식 | core_concept | high | official_dual_source | pending_textbook_pdf | 2 |
+| m1_mis_arc_chord | 호와 현을 같은 대상으로 보는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | 3 |
+| m1_geo_circular_segment | 활꼴 | term | high | official_single_source | pending_textbook_pdf | 2 |
+| m1_geo_convex_polygon_scope | 볼록다각형 범위 | property | medium | official_single_source | pending_textbook_pdf | 1 |
+| m1_geo_secant | 할선 | term | high | official_single_source | pending_textbook_pdf | 2 |
+| m1_geo_arc | 호 | term | high | official_dual_source | pending_textbook_pdf | 3 |
+| m1_geo_central_angle | 중심각 | term | high | official_dual_source | pending_textbook_pdf | 3 |
+| m1_geo_chord | 현 | term | high | official_dual_source | pending_textbook_pdf | 5 |
+| m1_geo_diagonal | 대각선 | term | medium | official_dual_source | pending_textbook_pdf | 2 |
+| m1_geo_diagonal_count | 다각형의 대각선 개수 | property | high | official_dual_source | pending_textbook_pdf | 3 |
+| m1_geo_exterior_angle | 외각 | term | high | official_dual_source | pending_textbook_pdf | 3 |
+| m1_geo_interior_angle | 내각 | term | high | official_dual_source | pending_textbook_pdf | 3 |
+| m1_geo_plane_properties_unit | 평면도형의 성질 | core_concept | high | official_dual_source | pending_textbook_pdf | 4 |
+| m1_geo_polygon | 다각형 | core_concept | high | official_dual_source | pending_textbook_pdf | 2 |
+| m1_geo_polygon_angle_sum | 다각형의 내각과 외각의 크기 | property | high | official_dual_source | pending_textbook_pdf | 3 |
+| m1_geo_sector | 부채꼴 | core_concept | high | official_dual_source | pending_textbook_pdf | 3 |
+| m1_geo_sector_arc_length_area | 부채꼴의 호의 길이와 넓이 구하기 | procedure | high | official_dual_source | pending_textbook_pdf | 2 |
 
 ## Textbook Evidence Fields
 

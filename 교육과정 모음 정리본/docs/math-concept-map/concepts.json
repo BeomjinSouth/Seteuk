@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-26T19:32:52",
+    "generated_at": "2026-06-27T09:52:16",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
-    "concept_count": 465,
-    "edge_count": 1217
+    "concept_count": 471,
+    "edge_count": 1231
   },
   "sources": [
     {
@@ -474,6 +474,91 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_num_divisor",
+      "label_ko": "약수",
+      "aliases": [
+        "divisor",
+        "나누어떨어지게 하는 수"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "소인수분해",
+      "concept_type": "term",
+      "short_definition": "어떤 자연수를 나누어떨어지게 하는 자연수.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_num_prime_factor_unit"
+      ],
+      "related_ids": [
+        "m1_num_gcd",
+        "m1_num_multiple"
+      ],
+      "notes": "최대공약수와 소인수분해 성취기준에서 반복되는 기초 선수개념으로 분리했다. 교과서 쪽수 근거는 추후 보강한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_multiple",
+      "label_ko": "배수",
+      "aliases": [
+        "multiple"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "소인수분해",
+      "concept_type": "term",
+      "short_definition": "어떤 자연수에 자연수를 곱하여 얻을 수 있는 수.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_num_prime_factor_unit"
+      ],
+      "related_ids": [
+        "m1_num_lcm",
+        "m1_num_divisor"
+      ],
+      "notes": "최소공배수와 소인수분해 성취기준에서 반복되는 기초 선수개념으로 분리했다. 교과서 쪽수 근거는 추후 보강한다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_num_gcd",
       "label_ko": "최대공약수",
       "aliases": [
@@ -506,14 +591,16 @@
         }
       ],
       "prerequisite_ids": [
-        "m1_num_prime_factorization"
+        "m1_num_prime_factorization",
+        "m1_num_divisor"
       ],
       "parent_ids": [
         "m1_num_prime_factor_unit"
       ],
       "related_ids": [
         "m1_num_lcm",
-        "m1_num_coprime"
+        "m1_num_coprime",
+        "m1_num_divisor"
       ],
       "notes": "",
       "confidence": "high"
@@ -551,13 +638,15 @@
         }
       ],
       "prerequisite_ids": [
-        "m1_num_prime_factorization"
+        "m1_num_prime_factorization",
+        "m1_num_multiple"
       ],
       "parent_ids": [
         "m1_num_prime_factor_unit"
       ],
       "related_ids": [
-        "m1_num_gcd"
+        "m1_num_gcd",
+        "m1_num_multiple"
       ],
       "notes": "",
       "confidence": "high"
@@ -1369,12 +1458,165 @@
         "m1_num_integer_rational_unit"
       ],
       "related_ids": [
+        "m1_num_addition",
+        "m1_num_subtraction",
+        "m1_num_multiplication",
+        "m1_num_division",
         "m1_num_integer_rational_add_sub",
         "m1_num_integer_rational_mul_div",
         "m1_num_operation_laws"
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_num_addition",
+      "label_ko": "덧셈",
+      "aliases": [
+        "addition",
+        "더하기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "정수와 유리수",
+      "concept_type": "procedure",
+      "short_definition": "두 수나 식을 더하여 합을 구하는 계산 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_num_four_operations"
+      ],
+      "related_ids": [
+        "m1_num_subtraction",
+        "m1_num_integer_rational_add_sub"
+      ],
+      "notes": "사칙계산 성취기준과 성취수준에서 반복되는 개별 연산을 기초 선수개념으로 분리했다. 교과서 쪽수 근거는 추후 보강한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_subtraction",
+      "label_ko": "뺄셈",
+      "aliases": [
+        "subtraction",
+        "빼기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "정수와 유리수",
+      "concept_type": "procedure",
+      "short_definition": "한 수나 식에서 다른 수나 식을 빼어 차를 구하는 계산 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_num_four_operations"
+      ],
+      "related_ids": [
+        "m1_num_addition",
+        "m1_num_integer_rational_add_sub"
+      ],
+      "notes": "사칙계산 성취기준과 성취수준에서 반복되는 개별 연산을 기초 선수개념으로 분리했다. 교과서 쪽수 근거는 추후 보강한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_multiplication",
+      "label_ko": "곱셈",
+      "aliases": [
+        "multiplication",
+        "곱하기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "정수와 유리수",
+      "concept_type": "procedure",
+      "short_definition": "두 수나 식을 곱하여 곱을 구하는 계산 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_num_four_operations"
+      ],
+      "related_ids": [
+        "m1_num_division",
+        "m1_num_integer_rational_mul_div"
+      ],
+      "notes": "사칙계산 성취기준과 성취수준에서 반복되는 개별 연산을 기초 선수개념으로 분리했다. 교과서 쪽수 근거는 추후 보강한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_division",
+      "label_ko": "나눗셈",
+      "aliases": [
+        "division",
+        "나누기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "정수와 유리수",
+      "concept_type": "procedure",
+      "short_definition": "한 수나 식을 다른 수나 식으로 나누어 몫을 구하는 계산 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_num_four_operations"
+      ],
+      "related_ids": [
+        "m1_num_multiplication",
+        "m1_num_integer_rational_mul_div",
+        "m1_num_reciprocal"
+      ],
+      "notes": "사칙계산 성취기준과 성취수준에서 반복되는 개별 연산을 기초 선수개념으로 분리했다. 교과서 쪽수 근거는 추후 보강한다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_num_integer_rational_add_sub",
@@ -1402,6 +1644,8 @@
         }
       ],
       "prerequisite_ids": [
+        "m1_num_addition",
+        "m1_num_subtraction",
         "m1_num_absolute_value",
         "m1_num_plus_sign",
         "m1_num_minus_sign"
@@ -1441,6 +1685,8 @@
         }
       ],
       "prerequisite_ids": [
+        "m1_num_multiplication",
+        "m1_num_division",
         "m1_num_plus_sign",
         "m1_num_minus_sign",
         "m1_num_reciprocal"
@@ -19731,6 +19977,62 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_num_prime_factor_unit__contains__m1_num_divisor",
+      "source_id": "m1_num_prime_factor_unit",
+      "target_id": "m1_num_divisor",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_prime_factor_unit__contains__m1_num_multiple",
+      "source_id": "m1_num_prime_factor_unit",
+      "target_id": "m1_num_multiple",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_num_prime_factor_unit__contains__m1_num_gcd",
       "source_id": "m1_num_prime_factor_unit",
       "target_id": "m1_num_gcd",
@@ -20069,6 +20371,62 @@
       "confidence": "high"
     },
     {
+      "id": "m1_num_divisor__used_in__m1_num_gcd",
+      "source_id": "m1_num_divisor",
+      "target_id": "m1_num_gcd",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_multiple__used_in__m1_num_lcm",
+      "source_id": "m1_num_multiple",
+      "target_id": "m1_num_lcm",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_num_gcd__used_in__m1_num_find_gcd_lcm_prime_factorization",
       "source_id": "m1_num_gcd",
       "target_id": "m1_num_find_gcd_lcm_prime_factorization",
@@ -20111,6 +20469,50 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_num_divisor__contrasts_with__m1_num_multiple",
+      "source_id": "m1_num_divisor",
+      "target_id": "m1_num_multiple",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_multiple__contrasts_with__m1_num_divisor",
+      "source_id": "m1_num_multiple",
+      "target_id": "m1_num_divisor",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_num_gcd__contrasts_with__m1_num_lcm",
@@ -20869,6 +21271,94 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_num_four_operations__contains__m1_num_addition",
+      "source_id": "m1_num_four_operations",
+      "target_id": "m1_num_addition",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_four_operations__contains__m1_num_subtraction",
+      "source_id": "m1_num_four_operations",
+      "target_id": "m1_num_subtraction",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_four_operations__contains__m1_num_multiplication",
+      "source_id": "m1_num_four_operations",
+      "target_id": "m1_num_multiplication",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_four_operations__contains__m1_num_division",
+      "source_id": "m1_num_four_operations",
+      "target_id": "m1_num_division",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_num_four_operations__contains__m1_num_integer_rational_add_sub",
       "source_id": "m1_num_four_operations",
       "target_id": "m1_num_integer_rational_add_sub",
@@ -20911,6 +21401,94 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_num_addition__used_in__m1_num_integer_rational_add_sub",
+      "source_id": "m1_num_addition",
+      "target_id": "m1_num_integer_rational_add_sub",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_subtraction__used_in__m1_num_integer_rational_add_sub",
+      "source_id": "m1_num_subtraction",
+      "target_id": "m1_num_integer_rational_add_sub",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_multiplication__used_in__m1_num_integer_rational_mul_div",
+      "source_id": "m1_num_multiplication",
+      "target_id": "m1_num_integer_rational_mul_div",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_division__used_in__m1_num_integer_rational_mul_div",
+      "source_id": "m1_num_division",
+      "target_id": "m1_num_integer_rational_mul_div",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_num_reciprocal__used_in__m1_num_integer_rational_mul_div",

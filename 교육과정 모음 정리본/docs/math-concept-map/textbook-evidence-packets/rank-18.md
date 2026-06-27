@@ -5,32 +5,30 @@ This generated packet is the unit-level worksheet for adding textbook-grounded e
 ## Target Unit
 
 - rank: 18
-- grade: 중1(교육과정 학년군: 중1-3)
-- domain: 수와 연산
-- unit: 소인수분해
+- grade: 중3(교육과정 학년군: 중1-3)
+- domain: 도형과 측정
+- unit: 삼각비
 - priority tier: high
 - priority score: 25
-- concepts in packet: 13
-- pending textbook evidence: 13
+- concepts in packet: 11
+- pending textbook evidence: 11
 - low confidence concepts: 2
 
 ## Concept Evidence Slots
 
 | concept_id | label_ko | type | confidence | evidence_depth | status | source refs |
 |---|---|---|---|---|---|---:|
-| m1_mis_gcd_lcm_scope | 최대공약수·최소공배수 활용 문제를 범위로 오인하는 오류 | misconception_risk | low | official_single_source | pending_textbook_pdf | 1 |
-| m1_mis_prime_one | 1을 소수나 합성수로 보는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | 2 |
-| m1_num_coprime | 서로소 | term | medium | official_single_source | pending_textbook_pdf | 2 |
-| m1_num_composite_number | 합성수 | term | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_num_find_gcd_lcm_prime_factorization | 소인수분해로 최대공약수와 최소공배수 구하기 | procedure | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_num_gcd | 최대공약수 | sub_concept | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_num_lcm | 최소공배수 | sub_concept | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_num_natural_number | 자연수 | term | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_num_prime_factor | 소인수 | term | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_num_prime_factor_product | 소인수의 곱으로 표현하기 | representation | high | official_dual_source | pending_textbook_pdf | 2 |
-| m1_num_prime_factor_unit | 소인수분해 | core_concept | high | official_dual_source | pending_textbook_pdf | 5 |
-| m1_num_prime_factorization | 소인수분해 | procedure | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_num_prime_number | 소수 | term | high | official_dual_source | pending_textbook_pdf | 3 |
+| m1_mis_trig_angle_scope | 삼각비 각의 범위를 0도~90도 밖으로 확장하는 오류 | misconception_risk | low | official_single_source | pending_textbook_pdf | 1 |
+| m1_mis_trig_relation_scope | 삼각비 사이의 관계를 교육과정 범위로 오해하는 오류 | misconception_risk | low | official_single_source | pending_textbook_pdf | 1 |
+| m1_geo_trig_triangle_area | 삼각비를 이용한 삼각형의 넓이 | procedure | medium | official_single_source | pending_textbook_pdf | 1 |
+| m1_geo_cosine | 코사인 | term | high | official_dual_source | pending_textbook_pdf | 3 |
+| m1_geo_right_triangle_trig_value | 직각삼각형에서 삼각비 값 구하기 | procedure | high | official_dual_source | pending_textbook_pdf | 2 |
+| m1_geo_sine | 사인 | term | high | official_dual_source | pending_textbook_pdf | 3 |
+| m1_geo_special_angles_30_45_60 | 30도, 45도, 60도의 삼각비 | property | high | official_dual_source | pending_textbook_pdf | 2 |
+| m1_geo_tangent_ratio | 탄젠트 | term | high | official_dual_source | pending_textbook_pdf | 3 |
+| m1_geo_trig_distance_height | 삼각비로 거리와 높이 구하기 | procedure | high | official_dual_source | pending_textbook_pdf | 2 |
+| m1_geo_trig_unit | 삼각비 | core_concept | high | official_dual_source | pending_textbook_pdf | 4 |
+| m1_geo_trigonometric_ratio | 삼각비 | core_concept | high | official_dual_source | pending_textbook_pdf | 3 |
 
 ## Textbook Evidence Fields
 

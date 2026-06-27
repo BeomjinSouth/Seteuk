@@ -260,3 +260,28 @@
 
 - legacy gap evidence scan 단위 테스트 4개와 validator 단위 테스트 31개가 통과했다.
 - `legacy-gap-evidence-scan.md`와 `legacy-gap-evidence-scan.csv`는 source review 후보 12개의 증거 신호를 보존한다.
+
+## 2026-06-27 기초 선수개념 노드 반영
+
+- AGENTS.md를 다시 확인하고, 이번 작업은 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 범위의 산출물 보강으로 제한했다.
+- legacy gap evidence scan에서 공식 target source refs에 직접 등장하던 후보 중 약수, 배수, 덧셈, 뺄셈, 곱셈, 나눗셈을 실제 concept map 노드로 반영했다.
+- `m1_num_divisor`, `m1_num_multiple`은 `소인수분해` 단원의 `term` 노드로 두고, 최대공약수·최소공배수와 `used_in` 관계를 연결했다.
+- `m1_num_addition`, `m1_num_subtraction`, `m1_num_multiplication`, `m1_num_division`은 `정수와 유리수의 사칙계산` 아래 `procedure` 노드로 두고, 덧셈과 뺄셈/곱셈과 나눗셈 절차에 `used_in` 관계를 연결했다.
+- 여섯 노드는 교과서 쪽수 근거가 아직 없으므로 `confidence: medium`으로 두고, notes에 교과서 근거 보강 필요를 남겼다.
+- `test_build_pilot_foundational_prerequisites.py`를 추가해 위 여섯 노드와 포함·활용 edge가 생성 원본에서 유지되는지 검증한다.
+- 전체 파생 산출물을 재생성해 개념 노드는 471개, edge는 1231개, source ref는 4155개가 되었다.
+- legacy gap audit의 `needs_review`는 34개에서 24개로 줄었고, resolution/source review/evidence scan 후보는 12개에서 6개로 줄었다.
+- 남은 legacy 후보는 길이, 넓이, 도형, 삼각형, 피타고라스(alias), 비이며, `비`는 target source refs가 없어 직접 성취기준 단위 검토가 계속 필요하다.
+- 이번 작업은 공식 문서에 이미 연결된 source refs를 세분화한 것이므로 기존 PDF 원본, 다운로드 manifest, 출처 선택 규칙은 변경하지 않았다.
+
+## 2026-06-27 기초 선수개념 검증 결과
+
+- `python docs/math-concept-map/tools/test_build_pilot_foundational_prerequisites.py`: 2개 통과.
+- `python -m unittest discover -s docs/math-concept-map/tools -p 'test_*.py'`: 82개 통과.
+- `python docs/math-concept-map/tools/validate_concept_map.py`: 471개 concept, 1231개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
+
+## 다음 작업
+
+- 중1~중3 수학 교과서 PDF가 추가되면 목차, 학습 목표, 본문 정의, 정리, 예제, 용어 설명 순서로 모든 영역의 노드를 보강한다.
+- 교과서 쪽수 근거가 확보되면 `low` 신뢰도 노드와 이번에 `medium`으로 둔 기초 선수개념 노드를 재검토하고 병합 또는 승격한다.
+- 남은 legacy 후보 6개는 공식 성취기준 원문과 교과서 본문 근거를 확인한 뒤 concept 추가, alias 추가, 또는 기존 concept의 관계 보강으로 처리한다.

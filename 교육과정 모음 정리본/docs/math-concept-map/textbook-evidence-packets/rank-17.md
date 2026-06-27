@@ -5,30 +5,32 @@ This generated packet is the unit-level worksheet for adding textbook-grounded e
 ## Target Unit
 
 - rank: 17
-- grade: 중3(교육과정 학년군: 중1-3)
-- domain: 도형과 측정
-- unit: 삼각비
+- grade: 중1(교육과정 학년군: 중1-3)
+- domain: 변화와 관계
+- unit: 연립일차방정식
 - priority tier: high
 - priority score: 25
-- concepts in packet: 11
-- pending textbook evidence: 11
-- low confidence concepts: 2
+- concepts in packet: 13
+- pending textbook evidence: 13
+- low confidence concepts: 3
 
 ## Concept Evidence Slots
 
 | concept_id | label_ko | type | confidence | evidence_depth | status | source refs |
 |---|---|---|---|---|---|---:|
-| m1_mis_trig_angle_scope | 삼각비 각의 범위를 0도~90도 밖으로 확장하는 오류 | misconception_risk | low | official_single_source | pending_textbook_pdf | 1 |
-| m1_mis_trig_relation_scope | 삼각비 사이의 관계를 교육과정 범위로 오해하는 오류 | misconception_risk | low | official_single_source | pending_textbook_pdf | 1 |
-| m1_geo_trig_triangle_area | 삼각비를 이용한 삼각형의 넓이 | procedure | medium | official_single_source | pending_textbook_pdf | 1 |
-| m1_geo_cosine | 코사인 | term | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_geo_right_triangle_trig_value | 직각삼각형에서 삼각비 값 구하기 | procedure | high | official_dual_source | pending_textbook_pdf | 2 |
-| m1_geo_sine | 사인 | term | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_geo_special_angles_30_45_60 | 30도, 45도, 60도의 삼각비 | property | high | official_dual_source | pending_textbook_pdf | 2 |
-| m1_geo_tangent_ratio | 탄젠트 | term | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_geo_trig_distance_height | 삼각비로 거리와 높이 구하기 | procedure | high | official_dual_source | pending_textbook_pdf | 2 |
-| m1_geo_trig_unit | 삼각비 | core_concept | high | official_dual_source | pending_textbook_pdf | 4 |
-| m1_geo_trigonometric_ratio | 삼각비 | core_concept | high | official_dual_source | pending_textbook_pdf | 3 |
+| m1_mis_system_elimination_sign | 가감법에서 부호와 계수 처리를 잘못하는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | 2 |
+| m1_mis_system_one_equation_only | 연립방정식의 해를 한 방정식만 만족해도 된다고 보는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | 2 |
+| m1_mis_system_substitution | 대입법에서 식 전체를 대입하지 않는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | 2 |
+| m1_system_addition_subtraction_method | 가감법 | procedure | high | official_dual_source | pending_textbook_pdf | 2 |
+| m1_system_elimination | 소거 | procedure | high | official_dual_source | pending_textbook_pdf | 2 |
+| m1_system_modeling | 연립일차방정식 세우기 | procedure | high | official_dual_source | pending_textbook_pdf | 2 |
+| m1_system_simultaneous_equations | 연립방정식 | term | high | official_dual_source | pending_textbook_pdf | 2 |
+| m1_system_simultaneous_linear_equations | 연립일차방정식 | core_concept | high | official_dual_source | pending_textbook_pdf | 3 |
+| m1_system_solution | 연립일차방정식의 해 | term | high | official_dual_source | pending_textbook_pdf | 2 |
+| m1_system_solving | 연립일차방정식 풀기 | procedure | high | official_dual_source | pending_textbook_pdf | 2 |
+| m1_system_substitution_method | 대입법 | procedure | high | official_dual_source | pending_textbook_pdf | 2 |
+| m1_system_two_variable_linear_equation | 미지수가 2개인 일차방정식 | core_concept | high | official_dual_source | pending_textbook_pdf | 2 |
+| m1_system_unit | 연립일차방정식 | core_concept | high | official_dual_source | pending_textbook_pdf | 2 |
 
 ## Textbook Evidence Fields
 

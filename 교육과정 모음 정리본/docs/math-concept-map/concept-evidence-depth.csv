@@ -8,6 +8,8 @@ m1_num_prime_factor,소인수,중1(교육과정 학년군: 중1-3),수와 연산
 m1_num_prime_factorization,소인수분해,중1(교육과정 학년군: 중1-3),수와 연산,소인수분해,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes
 m1_num_prime_factor_product,소인수의 곱으로 표현하기,중1(교육과정 학년군: 중1-3),수와 연산,소인수분해,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
 m1_num_coprime,서로소,중1(교육과정 학년군: 중1-3),수와 연산,소인수분해,medium,2,1,2,curriculum_math_2022,achievement_standard; term_list,yes,no,no,official_single_source,yes
+m1_num_divisor,약수,중1(교육과정 학년군: 중1-3),수와 연산,소인수분해,medium,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; teaching_note,yes,yes,no,official_dual_source,yes
+m1_num_multiple,배수,중1(교육과정 학년군: 중1-3),수와 연산,소인수분해,medium,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; teaching_note,yes,yes,no,official_dual_source,yes
 m1_num_gcd,최대공약수,중1(교육과정 학년군: 중1-3),수와 연산,소인수분해,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; teaching_note,yes,yes,no,official_dual_source,yes
 m1_num_lcm,최소공배수,중1(교육과정 학년군: 중1-3),수와 연산,소인수분해,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; teaching_note,yes,yes,no,official_dual_source,yes
 m1_num_find_gcd_lcm_prime_factorization,소인수분해로 최대공약수와 최소공배수 구하기,중1(교육과정 학년군: 중1-3),수와 연산,소인수분해,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; teaching_note,yes,yes,no,official_dual_source,yes
@@ -29,6 +31,10 @@ m1_num_plus_sign,양의 부호,중1(교육과정 학년군: 중1-3),수와 연�
 m1_num_minus_sign,음의 부호,중1(교육과정 학년군: 중1-3),수와 연산,정수와 유리수,medium,1,1,1,curriculum_math_2022,term_list,yes,no,no,official_single_source,yes
 m1_num_order_relation,정수와 유리수의 대소 관계,중1(교육과정 학년군: 중1-3),수와 연산,정수와 유리수,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes
 m1_num_four_operations,정수와 유리수의 사칙계산,중1(교육과정 학년군: 중1-3),수와 연산,정수와 유리수,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; teaching_note,yes,yes,no,official_dual_source,yes
+m1_num_addition,덧셈,중1(교육과정 학년군: 중1-3),수와 연산,정수와 유리수,medium,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
+m1_num_subtraction,뺄셈,중1(교육과정 학년군: 중1-3),수와 연산,정수와 유리수,medium,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
+m1_num_multiplication,곱셈,중1(교육과정 학년군: 중1-3),수와 연산,정수와 유리수,medium,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
+m1_num_division,나눗셈,중1(교육과정 학년군: 중1-3),수와 연산,정수와 유리수,medium,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
 m1_num_integer_rational_add_sub,정수와 유리수의 덧셈과 뺄셈,중1(교육과정 학년군: 중1-3),수와 연산,정수와 유리수,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
 m1_num_integer_rational_mul_div,정수와 유리수의 곱셈과 나눗셈,중1(교육과정 학년군: 중1-3),수와 연산,정수와 유리수,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
 m1_num_operation_laws,연산 법칙,중1(교육과정 학년군: 중1-3),수와 연산,정수와 유리수,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes
