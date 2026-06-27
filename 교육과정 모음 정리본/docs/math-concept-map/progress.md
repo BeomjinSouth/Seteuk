@@ -343,3 +343,29 @@
 - 중1~중3 수학 교과서 PDF가 추가되면 목차, 학습 목표, 본문 정의, 정리, 예제, 용어 설명 순서로 모든 영역의 노드를 보강한다.
 - 교과서 쪽수 근거가 확보되면 `low` 신뢰도 노드와 이번에 `medium`으로 둔 기초 선수개념 노드를 재검토하고 병합 또는 승격한다.
 - `비`는 교과서 본문, 용어 설명, 초등 연계 문서에서 단독 정의 또는 활용 맥락 근거를 확인해 `m1_num_ratio`의 confidence 승격 여부를 판단한다.
+
+## 2026-06-27 선수 관계 지도 산출물 보강
+
+- AGENTS.md를 다시 확인하고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 범위의 산출물 보강으로 제한했다.
+- `build_prerequisite_map.py`를 추가해 `concepts.json`의 `prerequisite_for` edge를 concept 쌍 단위로 펼친 `prerequisite-map.csv`와 사람이 읽는 `prerequisite-map.md`를 생성하게 했다.
+- `prerequisite-map.csv`는 원본 edge id, 선수/후속 concept id와 label, 학년·영역·단원, 전이 범위, 신뢰도, source ref 요약을 보존한다.
+- `prerequisite-map.md`는 383개 선수 관계 edge를 `same_unit`, `cross_unit_same_domain`, `cross_domain_same_grade`, `cross_grade_same_domain`, `cross_grade_cross_domain`으로 나누어 단원 전이 흐름을 검토할 수 있게 했다.
+- 현재 선수 관계 edge는 383개이며, source concept 152개와 target concept 220개가 참여한다. 신뢰도 분포는 high 283개, medium 60개, low 40개다.
+- `validate_concept_map.py`가 `prerequisite-map.csv`의 행 수, 필드, edge id 누락, 생성 순서를 `concepts.json`의 `prerequisite_for` edge와 대조하도록 보강했다.
+- `README.md`와 `SCHEMA.md`에 새 산출물, 생성 명령, 검증 범위, CSV 필드 설명을 반영했다.
+- 이번 작업은 기존 edge를 재가공해 선수 관계 추적성을 높인 것이므로 기존 PDF 원본, 다운로드 manifest, 출처 선택 규칙은 변경하지 않았다.
+
+## 2026-06-27 선수 관계 지도 검증 결과
+
+- TDD red: `python .\docs\math-concept-map\tools\test_build_prerequisite_map.py`가 `ModuleNotFoundError: No module named 'build_prerequisite_map'`로 실패하는 것을 확인했다.
+- TDD green: `python .\docs\math-concept-map\tools\test_build_prerequisite_map.py`: 4개 통과.
+- Validator 보강 red: `python .\docs\math-concept-map\tools\test_validate_concept_map.py`가 새 prerequisite helper 부재로 2개 error를 내는 것을 확인했다.
+- Validator 보강 green: `python .\docs\math-concept-map\tools\test_validate_concept_map.py`: 33개 통과.
+- 전체 검증: `python -m unittest discover -s .\docs\math-concept-map\tools -p 'test_*.py'`: 93개 통과.
+- 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 476개 concept, 1262개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
+
+## 다음 작업
+
+- 중1~중3 수학 교과서 PDF가 추가되면 `textbook-evidence-packets/`와 `prerequisite-map.csv`를 함께 사용해 concept별 본문·예제 근거와 선수 edge별 쪽수 근거를 누적한다.
+- 교과서 쪽수 근거가 확보되면 `low` 신뢰도 노드, `medium` 기초 선수개념, `low` 선수 edge 40개를 우선 재검토한다.
+- `비`는 교과서 본문, 용어 설명, 초등 연계 문서에서 단독 정의 또는 활용 맥락 근거를 확인해 `m1_num_ratio`의 confidence 승격 여부를 판단한다.

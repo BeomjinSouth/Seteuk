@@ -328,6 +328,28 @@ class AchievementCoverageTests(unittest.TestCase):
 
         self.assertEqual(validator.legacy_evidence_scan_candidate_count(rows), 2)
 
+    def test_prerequisite_edge_count_reports_only_prerequisite_relationships(self) -> None:
+        edges = [
+            {"id": "e1", "relationship_type": "prerequisite_for"},
+            {"id": "e2", "relationship_type": "contains"},
+            {"id": "e3", "relationship_type": "prerequisite_for"},
+        ]
+
+        self.assertEqual(validator.prerequisite_edge_count(edges), 2)
+
+    def test_missing_prerequisite_map_edge_ids_are_reported(self) -> None:
+        edges = [
+            {"id": "e1", "relationship_type": "prerequisite_for"},
+            {"id": "e2", "relationship_type": "contains"},
+            {"id": "e3", "relationship_type": "prerequisite_for"},
+        ]
+        rows = [{"edge_id": "e1"}]
+
+        self.assertEqual(
+            validator.missing_prerequisite_map_edge_ids(edges, rows),
+            ["e3"],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -18,6 +18,7 @@ import build_legacy_gap_resolution as legacy_gap_resolution
 import build_legacy_gap_integration_plan as legacy_gap_integration_plan
 import build_legacy_gap_source_review as legacy_gap_source_review
 import build_legacy_gap_evidence_scan as legacy_gap_evidence_scan
+import build_prerequisite_map as prerequisite_map
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -305,6 +306,20 @@ def legacy_evidence_scan_candidate_count(records: list[dict]) -> int:
     return len(records)
 
 
+def prerequisite_edge_count(edges: list[dict]) -> int:
+    return sum(1 for edge in edges if edge.get("relationship_type") == "prerequisite_for")
+
+
+def missing_prerequisite_map_edge_ids(edges: list[dict], rows: list[dict]) -> list[str]:
+    expected = {
+        str(edge.get("id", ""))
+        for edge in edges
+        if edge.get("relationship_type") == "prerequisite_for"
+    }
+    present = {str(row.get("edge_id", "")) for row in rows}
+    return sorted(expected - present)
+
+
 def main() -> None:
     data_path = OUT_DIR / "concepts.json"
     if not data_path.exists():
@@ -371,6 +386,8 @@ def main() -> None:
     unit_coverage_md = OUT_DIR / "unit-coverage.md"
     relationship_audit_csv = OUT_DIR / "relationship-audit.csv"
     relationship_audit_md = OUT_DIR / "relationship-audit.md"
+    prerequisite_map_csv = OUT_DIR / "prerequisite-map.csv"
+    prerequisite_map_md = OUT_DIR / "prerequisite-map.md"
     source_inventory_csv = OUT_DIR / "source-inventory.csv"
     source_inventory_md = OUT_DIR / "source-inventory.md"
     source_ref_audit_csv = OUT_DIR / "source-ref-audit.csv"
@@ -431,6 +448,23 @@ def main() -> None:
         fail("concept map contains isolated concepts without any edge")
     if not relationship_audit_md.exists() or "# 관계 감사" not in relationship_audit_md.read_text(encoding="utf-8"):
         fail("relationship-audit.md missing or invalid")
+    prerequisite_map_rows = read_csv_rows(prerequisite_map_csv)
+    expected_prerequisite_map_rows = prerequisite_map.prerequisite_rows(concepts, edges)
+    if len(prerequisite_map_rows) != len(expected_prerequisite_map_rows):
+        fail("prerequisite-map.csv row count does not match generated prerequisite edges")
+    if len(prerequisite_map_rows) != prerequisite_edge_count(edges):
+        fail("prerequisite-map.csv row count does not match prerequisite_for edge count")
+    if prerequisite_map_rows and list(prerequisite_map_rows[0]) != prerequisite_map.CSV_FIELDS:
+        fail("prerequisite-map.csv fields do not match schema")
+    missing_prerequisite_edge_ids = missing_prerequisite_map_edge_ids(edges, prerequisite_map_rows)
+    if missing_prerequisite_edge_ids:
+        fail(f"prerequisite-map.csv missing edge ids: {missing_prerequisite_edge_ids}")
+    if [row.get("edge_id") for row in prerequisite_map_rows] != [
+        row.get("edge_id") for row in expected_prerequisite_map_rows
+    ]:
+        fail("prerequisite-map.csv edge order does not match generated prerequisite map")
+    if not prerequisite_map_md.exists() or "# 선수 관계 지도" not in prerequisite_map_md.read_text(encoding="utf-8"):
+        fail("prerequisite-map.md missing or invalid")
     source_inventory_rows = read_csv_rows(source_inventory_csv)
     missing_source_groups = missing_source_inventory_groups(source_inventory_rows)
     if missing_source_groups:

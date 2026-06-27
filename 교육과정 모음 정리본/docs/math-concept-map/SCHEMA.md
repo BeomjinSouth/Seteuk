@@ -114,6 +114,29 @@
 | `source_concept_count` | 해당 관계 유형에서 source로 등장하는 concept 수 |
 | `target_concept_count` | 해당 관계 유형에서 target으로 등장하는 concept 수 |
 
+## Prerequisite Map CSV
+
+`prerequisite-map.csv`는 `concepts.json`의 `prerequisite_for` edge를 개념쌍 단위로 펼쳐, 선수 개념 흐름을 단원 전이 기준으로 검토하기 위한 파생 산출물이다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `edge_id` | 원본 `prerequisite_for` edge id |
+| `source_id` | 선수 개념 concept id |
+| `source_label_ko` | 선수 개념 한국어 이름 |
+| `source_grade` | 선수 개념 학년 또는 학년군 |
+| `source_domain` | 선수 개념 영역 |
+| `source_unit` | 선수 개념 단원 |
+| `target_id` | 후속 개념 concept id |
+| `target_label_ko` | 후속 개념 한국어 이름 |
+| `target_grade` | 후속 개념 학년 또는 학년군 |
+| `target_domain` | 후속 개념 영역 |
+| `target_unit` | 후속 개념 단원 |
+| `transition_scope` | `same_unit`, `cross_unit_same_domain`, `cross_domain_same_grade`, `cross_grade_same_domain`, `cross_grade_cross_domain` 중 하나 |
+| `confidence` | 원본 edge 신뢰도 |
+| `source_ref_count` | 원본 edge에 연결된 근거 수 |
+| `source_refs` | 원본 edge의 출처 id, locator, 요약을 압축한 문자열 |
+| `notes` | 원본 edge notes |
+
 ## Source Inventory CSV
 
 `source-inventory.csv`는 현재 저장소에서 수학 개념 Map에 사용할 수 있는 로컬 출처 파일의 가용성을 요약한 파생 산출물이다.
