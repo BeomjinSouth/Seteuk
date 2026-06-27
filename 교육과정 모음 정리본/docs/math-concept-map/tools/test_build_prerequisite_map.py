@@ -144,6 +144,32 @@ class BuildPrerequisiteMapTests(unittest.TestCase):
         self.assertIn("| cross_unit_same_domain | 1 |", markdown)
         self.assertIn("| 중1 | 변화와 관계 | 좌표평면과 그래프 | 중1 | 변화와 관계 | 일차함수와 그 그래프 | 1 |", markdown)
 
+    def test_unit_graph_dot_renders_unit_transitions(self) -> None:
+        unit_rows = [
+            {
+                "source_grade": "중1",
+                "source_domain": "변화와 관계",
+                "source_unit": "좌표평면과 그래프",
+                "target_grade": "중1",
+                "target_domain": "변화와 관계",
+                "target_unit": "일차함수와 그 그래프",
+                "transition_scope": "cross_unit_same_domain",
+                "edge_count": 2,
+                "high_confidence_count": 1,
+                "medium_confidence_count": 1,
+                "low_confidence_count": 0,
+                "sample_concept_pairs": "좌표평면 -> 일차함수의 그래프",
+            }
+        ]
+
+        dot = prereq.render_unit_graph_dot(unit_rows)
+
+        self.assertIn("digraph prerequisite_unit_graph", dot)
+        self.assertIn('rankdir="LR"', dot)
+        self.assertIn("중1\\n변화와 관계\\n좌표평면과 그래프", dot)
+        self.assertIn("중1\\n변화와 관계\\n일차함수와 그 그래프", dot)
+        self.assertIn("2 prerequisite edges\\nH1 M1 L0", dot)
+
 
 if __name__ == "__main__":
     unittest.main()

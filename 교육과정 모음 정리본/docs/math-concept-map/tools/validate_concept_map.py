@@ -320,6 +320,18 @@ def missing_prerequisite_map_edge_ids(edges: list[dict], rows: list[dict]) -> li
     return sorted(expected - present)
 
 
+def prerequisite_unit_graph_edge_line_count(dot_text: str) -> int:
+    return sum(1 for line in dot_text.splitlines() if " -> " in line)
+
+
+def prerequisite_unit_graph_has_required_content(dot_text: str) -> bool:
+    return (
+        "digraph prerequisite_unit_graph" in dot_text
+        and 'rankdir="LR"' in dot_text
+        and prerequisite_unit_graph_edge_line_count(dot_text) > 0
+    )
+
+
 def main() -> None:
     data_path = OUT_DIR / "concepts.json"
     if not data_path.exists():
@@ -388,6 +400,7 @@ def main() -> None:
     relationship_audit_md = OUT_DIR / "relationship-audit.md"
     prerequisite_map_csv = OUT_DIR / "prerequisite-map.csv"
     prerequisite_map_md = OUT_DIR / "prerequisite-map.md"
+    prerequisite_unit_graph_dot = prerequisite_map.PREREQUISITE_UNIT_GRAPH_DOT
     source_inventory_csv = OUT_DIR / "source-inventory.csv"
     source_inventory_md = OUT_DIR / "source-inventory.md"
     source_ref_audit_csv = OUT_DIR / "source-ref-audit.csv"
@@ -465,6 +478,14 @@ def main() -> None:
         fail("prerequisite-map.csv edge order does not match generated prerequisite map")
     if not prerequisite_map_md.exists() or "# 선수 관계 지도" not in prerequisite_map_md.read_text(encoding="utf-8"):
         fail("prerequisite-map.md missing or invalid")
+    if not prerequisite_unit_graph_dot.exists():
+        fail("prerequisite-unit-graph.dot missing")
+    prerequisite_unit_graph_text = prerequisite_unit_graph_dot.read_text(encoding="utf-8")
+    if not prerequisite_unit_graph_has_required_content(prerequisite_unit_graph_text):
+        fail("prerequisite-unit-graph.dot missing required graph content")
+    expected_unit_transition_count = len(prerequisite_map.unit_transition_rows(expected_prerequisite_map_rows))
+    if prerequisite_unit_graph_edge_line_count(prerequisite_unit_graph_text) != expected_unit_transition_count:
+        fail("prerequisite-unit-graph.dot edge count does not match prerequisite unit transitions")
     source_inventory_rows = read_csv_rows(source_inventory_csv)
     missing_source_groups = missing_source_inventory_groups(source_inventory_rows)
     if missing_source_groups:

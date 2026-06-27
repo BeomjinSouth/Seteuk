@@ -369,3 +369,30 @@
 - 중1~중3 수학 교과서 PDF가 추가되면 `textbook-evidence-packets/`와 `prerequisite-map.csv`를 함께 사용해 concept별 본문·예제 근거와 선수 edge별 쪽수 근거를 누적한다.
 - 교과서 쪽수 근거가 확보되면 `low` 신뢰도 노드, `medium` 기초 선수개념, `low` 선수 edge 40개를 우선 재검토한다.
 - `비`는 교과서 본문, 용어 설명, 초등 연계 문서에서 단독 정의 또는 활용 맥락 근거를 확인해 `m1_num_ratio`의 confidence 승격 여부를 판단한다.
+
+## 2026-06-27 선수 단원 전이 Graphviz 보강
+
+- AGENTS.md를 다시 확인하고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 범위의 산출물 보강으로 제한했다.
+- `build_prerequisite_map.py`가 `prerequisite-map.csv`, `prerequisite-map.md`와 함께 `prerequisite-unit-graph.dot`를 생성하도록 확장했다.
+- `prerequisite-unit-graph.dot`는 383개 `prerequisite_for` edge를 81개 학년·영역·단원 전이 edge로 압축한다.
+- DOT node는 학년·영역·단원 조합이며, edge label은 해당 전이의 선수 관계 수와 high/medium/low 신뢰도 분포를 기록한다.
+- `low` 신뢰도 선수가 포함된 단원 전이는 붉은 edge로 표시해, 교과서 근거가 들어왔을 때 우선 재검토할 흐름을 찾기 쉽게 했다.
+- `validate_concept_map.py`가 DOT 파일의 graph id, LR 방향, edge line 수가 `prerequisite-map.csv`에서 생성한 단원 전이 수와 일치하는지 확인하도록 보강했다.
+- `README.md`와 `SCHEMA.md`에 새 DOT 산출물과 검증 범위, DOT 구조 설명을 반영했다.
+- 이번 작업은 기존 선수 관계를 시각화한 것이므로 기존 PDF 원본, 다운로드 manifest, 출처 선택 규칙은 변경하지 않았다.
+
+## 2026-06-27 선수 단원 전이 Graphviz 검증 결과
+
+- TDD red: `python .\docs\math-concept-map\tools\test_build_prerequisite_map.py`가 `AttributeError: module 'build_prerequisite_map' has no attribute 'render_unit_graph_dot'`로 실패하는 것을 확인했다.
+- TDD green: `python .\docs\math-concept-map\tools\test_build_prerequisite_map.py`: 5개 통과.
+- Validator 보강 red: `python .\docs\math-concept-map\tools\test_validate_concept_map.py`가 새 DOT helper 부재로 2개 error를 내는 것을 확인했다.
+- Validator 보강 green: `python .\docs\math-concept-map\tools\test_validate_concept_map.py`: 35개 통과.
+- 전체 검증: `python -m unittest discover -s .\docs\math-concept-map\tools -p 'test_*.py'`: 96개 통과.
+- 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 476개 concept, 1262개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map`: 종료 코드 0, CRLF 변환 경고만 확인.
+
+## 다음 작업
+
+- 중1~중3 수학 교과서 PDF가 추가되면 `textbook-evidence-packets/`, `prerequisite-map.csv`, `prerequisite-unit-graph.dot`를 함께 사용해 concept별 본문·예제 근거와 선수 edge별 쪽수 근거를 누적한다.
+- 교과서 쪽수 근거가 확보되면 `low` 신뢰도 노드, `medium` 기초 선수개념, `low` 선수 edge 40개, `low` 포함 단원 전이를 우선 재검토한다.
+- `비`는 교과서 본문, 용어 설명, 초등 연계 문서에서 단독 정의 또는 활용 맥락 근거를 확인해 `m1_num_ratio`의 confidence 승격 여부를 판단한다.

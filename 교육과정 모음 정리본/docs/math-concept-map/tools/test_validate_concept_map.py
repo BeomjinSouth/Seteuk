@@ -350,6 +350,32 @@ class AchievementCoverageTests(unittest.TestCase):
             ["e3"],
         )
 
+    def test_prerequisite_unit_graph_edge_line_count_reports_dot_edges(self) -> None:
+        dot = "\n".join(
+            [
+                "digraph prerequisite_unit_graph {",
+                "  unit_001 -> unit_002 [label=\"1 prerequisite edges\"];",
+                "  unit_002 -> unit_003 [label=\"2 prerequisite edges\"];",
+                "}",
+            ]
+        )
+
+        self.assertEqual(validator.prerequisite_unit_graph_edge_line_count(dot), 2)
+
+    def test_prerequisite_unit_graph_has_required_content_checks_header_and_edges(self) -> None:
+        valid_dot = "\n".join(
+            [
+                "digraph prerequisite_unit_graph {",
+                "  rankdir=\"LR\";",
+                "  unit_001 -> unit_002 [label=\"1 prerequisite edges\"];",
+                "}",
+            ]
+        )
+        invalid_dot = "digraph other_graph { }"
+
+        self.assertTrue(validator.prerequisite_unit_graph_has_required_content(valid_dot))
+        self.assertFalse(validator.prerequisite_unit_graph_has_required_content(invalid_dot))
+
 
 if __name__ == "__main__":
     unittest.main()

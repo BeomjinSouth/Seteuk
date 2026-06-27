@@ -137,6 +137,19 @@
 | `source_refs` | 원본 edge의 출처 id, locator, 요약을 압축한 문자열 |
 | `notes` | 원본 edge notes |
 
+## Prerequisite Unit Graph DOT
+
+`prerequisite-unit-graph.dot`는 `prerequisite-map.csv`의 선수 관계를 학년·영역·단원 전이 단위로 압축한 Graphviz DOT 시각화 파일이다.
+
+| 요소 | 설명 |
+| --- | --- |
+| graph id | `prerequisite_unit_graph` |
+| node | 학년·영역·단원 조합 |
+| edge | source 단원에서 target 단원으로 이어지는 `prerequisite_for` 전이 묶음 |
+| edge label | 해당 전이의 선수 관계 edge 수와 high/medium/low 신뢰도 분포 |
+| edge color | `low` 신뢰도 관계가 포함된 전이는 붉은색, 그 외 전이는 회색 |
+| edge penwidth | 전이 edge 수에 따라 1~5 범위로 조정 |
+
 ## Source Inventory CSV
 
 `source-inventory.csv`는 현재 저장소에서 수학 개념 Map에 사용할 수 있는 로컬 출처 파일의 가용성을 요약한 파생 산출물이다.

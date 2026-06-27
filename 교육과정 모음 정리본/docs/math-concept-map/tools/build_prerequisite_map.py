@@ -12,6 +12,7 @@ OUT_DIR = ROOT / "docs" / "math-concept-map"
 CONCEPTS_JSON = OUT_DIR / "concepts.json"
 PREREQUISITE_MAP_CSV = OUT_DIR / "prerequisite-map.csv"
 PREREQUISITE_MAP_MD = OUT_DIR / "prerequisite-map.md"
+PREREQUISITE_UNIT_GRAPH_DOT = OUT_DIR / "prerequisite-unit-graph.dot"
 
 CSV_FIELDS = [
     "edge_id",
@@ -175,6 +176,80 @@ def unit_transition_rows(rows: Iterable[dict]) -> list[dict]:
     return summary_rows
 
 
+def dot_escape(value: object) -> str:
+    return str(value).replace("\\", "\\\\").replace('"', '\\"')
+
+
+def dot_unit_label(row: dict, prefix: str) -> str:
+    return "\\n".join(
+        [
+            dot_escape(row.get(f"{prefix}_grade", "")),
+            dot_escape(row.get(f"{prefix}_domain", "")),
+            dot_escape(row.get(f"{prefix}_unit", "")),
+        ]
+    )
+
+
+def render_unit_graph_dot(unit_rows: list[dict]) -> str:
+    unit_keys: list[tuple[str, str, str]] = []
+    for row in unit_rows:
+        for prefix in ["source", "target"]:
+            key = (
+                str(row.get(f"{prefix}_grade", "")),
+                str(row.get(f"{prefix}_domain", "")),
+                str(row.get(f"{prefix}_unit", "")),
+            )
+            if key not in unit_keys:
+                unit_keys.append(key)
+
+    node_ids = {key: f"unit_{index:03d}" for index, key in enumerate(unit_keys, start=1)}
+
+    lines = [
+        "digraph prerequisite_unit_graph {",
+        '  rankdir="LR";',
+        '  graph [fontname="Malgun Gothic"];',
+        '  node [shape=box, style="rounded,filled", fillcolor="#f7f9fc", color="#4b5563", fontname="Malgun Gothic"];',
+        '  edge [color="#506070", fontname="Malgun Gothic"];',
+        "",
+    ]
+
+    for key, node_id in node_ids.items():
+        label = "\\n".join(dot_escape(part) for part in key)
+        lines.append(f'  {node_id} [label="{label}"];')
+
+    lines.append("")
+
+    for row in unit_rows:
+        source_key = (
+            str(row.get("source_grade", "")),
+            str(row.get("source_domain", "")),
+            str(row.get("source_unit", "")),
+        )
+        target_key = (
+            str(row.get("target_grade", "")),
+            str(row.get("target_domain", "")),
+            str(row.get("target_unit", "")),
+        )
+        edge_count = int(row.get("edge_count", 0))
+        high_count = int(row.get("high_confidence_count", 0))
+        medium_count = int(row.get("medium_confidence_count", 0))
+        low_count = int(row.get("low_confidence_count", 0))
+        label = (
+            f"{edge_count} prerequisite edges\\n"
+            f"H{high_count} M{medium_count} L{low_count}"
+        )
+        color = "#b73535" if low_count else "#506070"
+        penwidth = min(5, max(1, edge_count // 3 + 1))
+        lines.append(
+            f'  {node_ids[source_key]} -> {node_ids[target_key]} '
+            f'[label="{label}", color="{color}", penwidth={penwidth}];'
+        )
+
+    lines.append("}")
+    lines.append("")
+    return "\n".join(lines)
+
+
 def render_markdown(rows: list[dict]) -> str:
     scope_counts = Counter(row["transition_scope"] for row in rows)
     confidence_counts = Counter(row["confidence"] for row in rows)
@@ -241,16 +316,23 @@ def write_csv(rows: list[dict], path: Path = PREREQUISITE_MAP_CSV) -> None:
         writer.writerows(rows)
 
 
+def write_dot(unit_rows: list[dict], path: Path = PREREQUISITE_UNIT_GRAPH_DOT) -> None:
+    path.write_text(render_unit_graph_dot(unit_rows), encoding="utf-8")
+
+
 def main() -> None:
     data = json.loads(CONCEPTS_JSON.read_text(encoding="utf-8"))
     rows = prerequisite_rows(data.get("concepts", []), data.get("edges", []))
+    unit_rows = unit_transition_rows(rows)
 
     write_csv(rows)
     PREREQUISITE_MAP_MD.write_text(render_markdown(rows), encoding="utf-8")
+    write_dot(unit_rows)
 
     print(
         f"Wrote prerequisite map with {len(rows)} prerequisite edges "
-        f"to {PREREQUISITE_MAP_CSV} and {PREREQUISITE_MAP_MD}."
+        f"to {PREREQUISITE_MAP_CSV}, {PREREQUISITE_MAP_MD}, "
+        f"and {PREREQUISITE_UNIT_GRAPH_DOT}."
     )
 
 
