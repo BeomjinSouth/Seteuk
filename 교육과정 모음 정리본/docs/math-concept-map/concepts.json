@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-27T10:00:36",
+    "generated_at": "2026-06-27T10:07:45",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
-    "concept_count": 475,
-    "edge_count": 1253
+    "concept_count": 476,
+    "edge_count": 1262
   },
   "sources": [
     {
@@ -1140,6 +1140,99 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_num_ratio",
+      "label_ko": "비",
+      "aliases": [
+        "ratio",
+        "비율",
+        "두 양의 비"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "공통 선수개념",
+      "concept_type": "term",
+      "short_definition": "두 양을 나눗셈으로 비교하여 한 양이 다른 양의 몇 배인지 나타내는 관계.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정비례와 반비례 관계를 표, 식, 그래프로 나타내는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "상대도수를 구하고 상대도수의 분포를 표나 그래프로 나타내고 해석하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-05]~[9수04-06] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "경우의 수는 두 경우의 수를 합하거나 곱하는 정도로 다루며, 확률은 실험·관찰로 구한 상대도수와 경우의 수의 비율을 연결해 이해하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "좌표평면과 그래프 section; [9수02-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정비례·반비례 관계를 표, 식, 그래프로 나타내는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_rational_number"
+      ],
+      "parent_ids": [
+        "m1_num_domain"
+      ],
+      "related_ids": [
+        "m1_prop_direct_proportion",
+        "m1_prop_inverse_proportion",
+        "m1_geo_similarity_ratio",
+        "m1_geo_parallel_segment_ratio",
+        "m1_geo_trigonometric_ratio",
+        "m1_data_relative_frequency",
+        "m1_data_theoretical_probability"
+      ],
+      "notes": "단독 용어로서의 직접 출처는 아직 약하지만 정비례·반비례, 닮음비, 평행선 사이의 선분 길이의 비, 삼각비, 상대도수와 확률의 비율 표현에서 반복되는 공통 선수개념으로 분리했다. 교과서 본문 및 초등 연계 근거 보강이 필요하다.",
+      "confidence": "low"
     },
     {
       "id": "m1_num_positive_rational",
@@ -21385,6 +21478,252 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_num_domain__contains__m1_num_ratio",
+      "source_id": "m1_num_domain",
+      "target_id": "m1_num_ratio",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정비례와 반비례 관계를 표, 식, 그래프로 나타내는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "상대도수를 구하고 상대도수의 분포를 표나 그래프로 나타내고 해석하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-05]~[9수04-06] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "경우의 수는 두 경우의 수를 합하거나 곱하는 정도로 다루며, 확률은 실험·관찰로 구한 상대도수와 경우의 수의 비율을 연결해 이해하게 함"
+        }
+      ],
+      "notes": "여러 영역에서 반복되는 비 기반 표현을 공통 선수개념으로 분리했다. 단독 용어 근거는 교과서와 초등 연계 문서로 보강해야 한다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_num_rational_number__prerequisite_for__m1_num_ratio",
+      "source_id": "m1_num_rational_number",
+      "target_id": "m1_num_ratio",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "상대도수를 구하고 상대도수의 분포를 표나 그래프로 나타내고 해석하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-05]~[9수04-06] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "경우의 수는 두 경우의 수를 합하거나 곱하는 정도로 다루며, 확률은 실험·관찰로 구한 상대도수와 경우의 수의 비율을 연결해 이해하게 함"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        }
+      ],
+      "notes": "비를 수로 해석할 때 유리수와 나눗셈 이해가 필요하다는 연결이다. 공식 문서의 단독 서술이 약해 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_num_ratio__used_in__m1_prop_direct_proportion",
+      "source_id": "m1_num_ratio",
+      "target_id": "m1_prop_direct_proportion",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정비례와 반비례 관계를 표, 식, 그래프로 나타내는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "좌표평면과 그래프 section; [9수02-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정비례·반비례 관계를 표, 식, 그래프로 나타내는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_num_ratio__used_in__m1_prop_inverse_proportion",
+      "source_id": "m1_num_ratio",
+      "target_id": "m1_prop_inverse_proportion",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정비례와 반비례 관계를 표, 식, 그래프로 나타내는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "좌표평면과 그래프 section; [9수02-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정비례·반비례 관계를 표, 식, 그래프로 나타내는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_num_ratio__used_in__m1_geo_similarity_ratio",
+      "source_id": "m1_num_ratio",
+      "target_id": "m1_geo_similarity_ratio",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_num_ratio__used_in__m1_geo_parallel_segment_ratio",
+      "source_id": "m1_num_ratio",
+      "target_id": "m1_geo_parallel_segment_ratio",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_num_ratio__used_in__m1_geo_trigonometric_ratio",
+      "source_id": "m1_num_ratio",
+      "target_id": "m1_geo_trigonometric_ratio",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_num_ratio__used_in__m1_data_relative_frequency",
+      "source_id": "m1_num_ratio",
+      "target_id": "m1_data_relative_frequency",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "상대도수를 구하고 상대도수의 분포를 표나 그래프로 나타내고 해석하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-03] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "상대도수는 도수의 총합이 다른 두 집단의 분포를 비교하는 상황에서 간단히 다루고 그 필요성과 유용성을 인식하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-02]~[9수04-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "줄기와 잎 그림, 도수분포표, 히스토그램, 도수분포다각형, 상대도수의 분포, 통계적 탐구 문제 설정과 공학 도구 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_num_ratio__used_in__m1_data_theoretical_probability",
+      "source_id": "m1_num_ratio",
+      "target_id": "m1_data_theoretical_probability",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-05]~[9수04-06] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "경우의 수는 두 경우의 수를 합하거나 곱하는 정도로 다루며, 확률은 실험·관찰로 구한 상대도수와 경우의 수의 비율을 연결해 이해하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
     },
     {
       "id": "m1_num_number_line__used_in__m1_num_order_relation",

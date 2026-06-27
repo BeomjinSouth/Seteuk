@@ -1,2 +1,1 @@
 ﻿candidate_label,proposed_concept_id,proposed_concept_type,proposed_confidence,integration_status,target_relationship_type,target_concept_ids,target_concept_labels,legacy_units,source_ref_plan,notes
-비,prereq_ratio,term,low,stage_prerequisite_node,prerequisite_for,,,9수02-07; 9수03-12; 9수03-14; 9수03-15; 9수03-16; 9수03-17; 9수04-08,official confirmation required for legacy units: 9수02-07; 9수03-12; 9수03-14; 9수03-15; 9수03-16; 9수03-17; 9수04-08,"Create a low-confidence prerequisite node only after official source confirmation, then link it to the listed existing concepts."

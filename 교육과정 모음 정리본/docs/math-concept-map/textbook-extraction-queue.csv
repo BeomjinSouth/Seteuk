@@ -29,6 +29,7 @@
 28,중1(교육과정 학년군: 중1-3),도형과 측정,작도와 합동,8,8,0,0,8,0,8,medium,add_textbook_page_refs
 29,중학교(교육과정 학년군: 중1-3),도형과 측정,도형과 측정,5,5,0,1,4,0,7,low,confirm_official_single_source_concepts
 30,중2(교육과정 학년군: 중1-3),도형과 측정,피타고라스 정리,6,6,0,0,6,0,6,low,add_textbook_page_refs
-31,중학교(교육과정 학년군: 중1-3),수와 연산,수와 연산,1,1,0,1,0,0,3,low,confirm_official_single_source_concepts
-32,중학교(교육과정 학년군: 중1-3),자료와 가능성,자료와 가능성,1,1,0,1,0,0,3,low,confirm_official_single_source_concepts
-33,중1(교육과정 학년군: 중1-3),자료와 가능성,자료와 가능성,2,2,0,0,2,0,2,low,add_textbook_page_refs
+31,중1(교육과정 학년군: 중1-3),수와 연산,공통 선수개념,1,1,1,0,1,0,5,low,textbook_evidence_for_low_confidence
+32,중학교(교육과정 학년군: 중1-3),수와 연산,수와 연산,1,1,0,1,0,0,3,low,confirm_official_single_source_concepts
+33,중학교(교육과정 학년군: 중1-3),자료와 가능성,자료와 가능성,1,1,0,1,0,0,3,low,confirm_official_single_source_concepts
+34,중1(교육과정 학년군: 중1-3),자료와 가능성,자료와 가능성,2,2,0,0,2,0,2,low,add_textbook_page_refs

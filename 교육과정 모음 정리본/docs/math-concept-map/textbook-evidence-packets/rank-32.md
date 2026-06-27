@@ -6,8 +6,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded e
 
 - rank: 32
 - grade: 중학교(교육과정 학년군: 중1-3)
-- domain: 자료와 가능성
-- unit: 자료와 가능성
+- domain: 수와 연산
+- unit: 수와 연산
 - priority tier: low
 - priority score: 3
 - concepts in packet: 1
@@ -18,7 +18,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded e
 
 | concept_id | label_ko | type | confidence | evidence_depth | status | source refs |
 |---|---|---|---|---|---|---:|
-| m1_data_domain | 자료와 가능성 | core_concept | high | official_single_source | pending_textbook_pdf | 9 |
+| m1_num_domain | 수와 연산 | core_concept | high | official_single_source | pending_textbook_pdf | 10 |
 
 ## Textbook Evidence Fields
 

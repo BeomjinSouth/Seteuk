@@ -1,2 +1,1 @@
 ﻿candidate_label,integration_status,proposed_concept_id,review_status,evidence_signal,candidate_mention_count,legacy_units,target_source_ref_count,matching_target_source_refs,recommended_action,notes
-비,stage_prerequisite_node,prereq_ratio,needs_official_prerequisite_confirmation,direct_legacy_unit_review_needed,0,9수02-07; 9수03-12; 9수03-14; 9수03-15; 9수03-16; 9수03-17; 9수04-08,0,,Inspect legacy units directly before proposing a concept or edge.,No target source refs are available; use legacy units and official PDFs for direct review.

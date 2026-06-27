@@ -4,14 +4,13 @@ This generated scan checks whether legacy-gap candidates appear in existing targ
 
 ## Summary
 
-- candidates: 1
+- candidates: 0
 - target_source_refs_mention_candidate: 0
 - alias_source_refs_mention_candidate: 0
 - target_source_refs_do_not_mention_candidate: 0
-- direct_legacy_unit_review_needed: 1
+- direct_legacy_unit_review_needed: 0
 
 ## Evidence Signals
 
 | label | signal | mentions | target refs | action |
 |---|---|---:|---:|---|
-| 비 | direct_legacy_unit_review_needed | 0 | 0 | Inspect legacy units directly before proposing a concept or edge. |

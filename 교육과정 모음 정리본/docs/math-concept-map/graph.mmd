@@ -29,6 +29,7 @@ flowchart LR
   m1_num_negative_integer["음의 정수"]
   m1_num_integer["정수"]
   m1_num_rational_number["유리수"]
+  m1_num_ratio["비"]
   m1_num_positive_rational["양의 유리수"]
   m1_num_negative_rational["음의 유리수"]
   m1_num_number_line["수직선"]
@@ -539,6 +540,15 @@ flowchart LR
   m1_num_integer -- "선수" --> m1_num_rational_number
   m1_num_rational_number -- "포함" --> m1_num_positive_rational
   m1_num_rational_number -- "포함" --> m1_num_negative_rational
+  m1_num_domain -- "포함" --> m1_num_ratio
+  m1_num_rational_number -- "선수" --> m1_num_ratio
+  m1_num_ratio -- "사용" --> m1_prop_direct_proportion
+  m1_num_ratio -- "사용" --> m1_prop_inverse_proportion
+  m1_num_ratio -- "사용" --> m1_geo_similarity_ratio
+  m1_num_ratio -- "사용" --> m1_geo_parallel_segment_ratio
+  m1_num_ratio -- "사용" --> m1_geo_trigonometric_ratio
+  m1_num_ratio -- "사용" --> m1_data_relative_frequency
+  m1_num_ratio -- "사용" --> m1_data_theoretical_probability
   m1_num_number_line -- "사용" --> m1_num_order_relation
   m1_num_absolute_value -- "사용" --> m1_num_order_relation
   m1_num_order_relation -- "선수" --> m1_num_real_order
@@ -1759,6 +1769,7 @@ flowchart LR
   class m1_num_negative_integer default;
   class m1_num_integer core;
   class m1_num_rational_number core;
+  class m1_num_ratio default;
   class m1_num_positive_rational default;
   class m1_num_negative_rational default;
   class m1_num_number_line representation;

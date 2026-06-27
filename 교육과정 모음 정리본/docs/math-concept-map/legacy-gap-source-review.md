@@ -4,8 +4,8 @@ This generated review packet lists where each legacy-gap integration candidate s
 
 ## Summary
 
-- candidates: 1
-- needs_official_prerequisite_confirmation: 1
+- candidates: 0
+- needs_official_prerequisite_confirmation: 0
 - needs_alias_confirmation: 0
 - needs_source_detail: 0
 
@@ -13,4 +13,3 @@ This generated review packet lists where each legacy-gap integration candidate s
 
 | label | review status | proposed id | target refs | search terms |
 |---|---|---|---:|---|
-| 비 | needs_official_prerequisite_confirmation | prereq_ratio | 0 | 비; 9수02-07; 9수03-12; 9수03-14; 9수03-15; 9수03-16; 9수03-17; 9수04-08 |

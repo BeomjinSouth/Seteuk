@@ -305,8 +305,26 @@
 - `python -m unittest discover -s docs/math-concept-map/tools -p 'test_*.py'`: 85개 통과.
 - `python docs/math-concept-map/tools/validate_concept_map.py`: 475개 concept, 1253개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
 
+## 2026-06-27 비 공통 선수개념 반영
+
+- 남은 legacy 후보 `비`를 단독 확정 용어가 아니라 여러 단원에서 반복되는 공통 선수개념으로 분리했다.
+- `m1_num_ratio`는 `수와 연산 > 공통 선수개념`의 `term` 노드로 두고, `비율`, `두 양의 비`, `ratio`를 alias로 보존했다.
+- 정비례·반비례, 닮음비, 평행선 사이의 선분 길이의 비, 삼각비, 상대도수, 경우의 수의 비율로서의 확률과 `used_in` 관계를 연결했다.
+- 공식 문서에는 `비` 단독 용어 근거가 약하고 교과서 본문 및 초등 연계 근거가 아직 없으므로 `confidence: low`와 notes에 보강 필요를 남겼다.
+- `test_build_pilot_ratio_foundation.py`를 추가해 `비` 노드의 낮은 신뢰도 상태와 cross-domain 연결 edge가 생성 원본에서 유지되는지 검증한다.
+- 전체 파생 산출물을 재생성해 개념 노드는 476개, edge는 1262개, source ref는 4298개가 되었다.
+- legacy gap audit의 `needs_review`는 7개에서 0개로 줄었고, resolution/source review/evidence scan 후보도 0개가 되었다.
+- `review-queue`는 67개 low-confidence concept으로 갱신되었으며, `비`는 이 큐에서 교과서·초등 연계 근거 보강 대상으로 추적한다.
+- 이번 작업도 공식 문서에 이미 연결된 source refs를 세분화한 것이므로 기존 PDF 원본, 다운로드 manifest, 출처 선택 규칙은 변경하지 않았다.
+
+## 2026-06-27 비 공통 선수개념 검증 결과
+
+- `python docs/math-concept-map/tools/test_build_pilot_ratio_foundation.py`: 2개 통과.
+- `python -m unittest discover -s docs/math-concept-map/tools -p 'test_*.py'`: 87개 통과.
+- `python docs/math-concept-map/tools/validate_concept_map.py`: 476개 concept, 1262개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
+
 ## 다음 작업
 
-- 남은 legacy 후보 `비`는 target source refs가 비어 있으므로 `9수02-07`, `9수03-12`, `9수03-14`~`9수03-17`, `9수04-08`의 공식 성취기준 원문을 직접 검토한 뒤, 새 concept 추가 또는 기존 `닮음비`·`삼각비`·`상대도수`·`확률의 비율` 계열 관계 보강 중 하나로 결정한다.
 - 중1~중3 수학 교과서 PDF가 추가되면 목차, 학습 목표, 본문 정의, 정리, 예제, 용어 설명 순서로 모든 영역의 노드를 보강한다.
 - 교과서 쪽수 근거가 확보되면 `low` 신뢰도 노드와 이번에 `medium`으로 둔 기초 선수개념 노드를 재검토하고 병합 또는 승격한다.
+- `비`는 교과서 본문, 용어 설명, 초등 연계 문서에서 단독 정의 또는 활용 맥락 근거를 확인해 `m1_num_ratio`의 confidence 승격 여부를 판단한다.

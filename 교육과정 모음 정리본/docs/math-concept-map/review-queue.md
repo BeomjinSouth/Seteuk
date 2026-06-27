@@ -2,13 +2,13 @@
 
 이 문서는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 출처 보강 때 먼저 확인할 대상을 정리한다.
 
-- 검토 대상 concept: 66개
+- 검토 대상 concept: 67개
 
 ## 영역별 검토 대상
 
 | 영역 | concept 수 |
 |---|---:|
-| 수와 연산 | 9 |
+| 수와 연산 | 10 |
 | 변화와 관계 | 36 |
 | 도형과 측정 | 12 |
 | 자료와 가능성 | 9 |
@@ -19,11 +19,13 @@
 |---|---:|
 | misconception_risk | 65 |
 | sub_concept | 1 |
+| term | 1 |
 
 ## 검토 항목
 
 | concept_id | 영역 | 단원 | 유형 | 우선순위 | label_ko | notes |
 |---|---|---|---|---|---|---|
+| m1_num_ratio | 수와 연산 | 공통 선수개념 | term | source_detail_needed | 비 | 단독 용어로서의 직접 출처는 아직 약하지만 정비례·반비례, 닮음비, 평행선 사이의 선분 길이의 비, 삼각비, 상대도수와 확률의 비율 표현에서 반복되는 공통 선수개념으로 분리했다. 교과서 본문 및 초등 연계 근거 보강이 필요하다. |
 | m1_mis_gcd_lcm_scope | 수와 연산 | 소인수분해 | misconception_risk | textbook_evidence_needed | 최대공약수·최소공배수 활용 문제를 범위로 오인하는 오류 | 공식 문서의 제외 범위를 학습 범위 관리용 오개념 위험으로 기록했다. |
 | m1_mis_prime_one | 수와 연산 | 소인수분해 | misconception_risk | textbook_evidence_needed | 1을 소수나 합성수로 보는 오류 |  |
 | m1_mis_finite_to_repeating_scope | 수와 연산 | 유리수와 순환소수 | misconception_risk | textbook_evidence_needed | 유한소수를 순환소수로 나타내는 활동을 범위로 오인하는 오류 | 공식 문서의 제외 범위를 학습 범위 관리용 오개념 위험으로 기록했다. |

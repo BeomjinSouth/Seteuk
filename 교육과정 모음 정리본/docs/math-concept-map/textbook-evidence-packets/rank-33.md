@@ -5,21 +5,20 @@ This generated packet is the unit-level worksheet for adding textbook-grounded e
 ## Target Unit
 
 - rank: 33
-- grade: 중1(교육과정 학년군: 중1-3)
+- grade: 중학교(교육과정 학년군: 중1-3)
 - domain: 자료와 가능성
 - unit: 자료와 가능성
 - priority tier: low
-- priority score: 2
-- concepts in packet: 2
-- pending textbook evidence: 2
+- priority score: 3
+- concepts in packet: 1
+- pending textbook evidence: 1
 - low confidence concepts: 0
 
 ## Concept Evidence Slots
 
 | concept_id | label_ko | type | confidence | evidence_depth | status | source refs |
 |---|---|---|---|---|---|---:|
-| m1_data_dataset | 자료 | core_concept | high | official_dual_source | pending_textbook_pdf | 4 |
-| m1_data_variable | 변량 | term | high | official_dual_source | pending_textbook_pdf | 2 |
+| m1_data_domain | 자료와 가능성 | core_concept | high | official_single_source | pending_textbook_pdf | 9 |
 
 ## Textbook Evidence Fields
 

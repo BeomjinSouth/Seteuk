@@ -6,9 +6,9 @@ The older hierarchy is treated only as a non-authoritative candidate source.
 ## Summary
 
 - legacy candidates: 163
-- covered_by_label: 154
+- covered_by_label: 161
 - covered_by_alias: 2
-- needs_review: 7
+- needs_review: 0
 
 ## Candidate Types
 
@@ -19,13 +19,6 @@ The older hierarchy is treated only as a non-authoritative candidate source.
 
 | legacy_id | label | domain | unit | action | notes |
 |---|---|---|---|---|---|
-| achievement:9수02-07:비 | 비 | 변화와 관계 | 9수02-07 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수03-12:비 | 비 | 도형과 측정 | 9수03-12 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수03-14:비 | 비 | 도형과 측정 | 9수03-14 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수03-15:비 | 비 | 도형과 측정 | 9수03-15 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수03-16:비 | 비 | 도형과 측정 | 9수03-16 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수03-17:비 | 비 | 도형과 측정 | 9수03-17 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수04-08:비 | 비 | 자료와 가능성 | 9수04-08 | review_against_official_sources | No normalized label or alias match in concepts.json. |
 
 ## Covered Candidates
 
@@ -68,6 +61,7 @@ The older hierarchy is treated only as a non-authoritative candidate source.
 | achievement:9수02-05:표 | 표 | covered_by_label | m1_repr_table |
 | achievement:9수02-06:그래프 | 그래프 | covered_by_label | m1_graph_graph |
 | achievement:9수02-07:그래프 | 그래프 | covered_by_label | m1_graph_graph |
+| achievement:9수02-07:비 | 비 | covered_by_label | m1_num_ratio |
 | achievement:9수02-07:표 | 표 | covered_by_label | m1_repr_table |
 | achievement:9수02-09:다항식 | 다항식 | covered_by_label | m1_expr_polynomial |
 | achievement:9수02-09:덧셈 | 덧셈 | covered_by_label | m1_num_addition |
@@ -128,13 +122,18 @@ The older hierarchy is treated only as a non-authoritative candidate source.
 | achievement:9수03-11:사각형 | 사각형 | covered_by_label | m1_geo_quadrilateral |
 | achievement:9수03-12:닮음 | 닮음 | covered_by_label | m1_geo_similarity |
 | achievement:9수03-12:도형 | 도형 | covered_by_label | m1_geo_figure |
+| achievement:9수03-12:비 | 비 | covered_by_label | m1_num_ratio |
 | achievement:9수03-13:닮음 | 닮음 | covered_by_label | m1_geo_similarity |
 | achievement:9수03-13:삼각형 | 삼각형 | covered_by_label | m1_geo_triangle |
 | achievement:9수03-14:길이 | 길이 | covered_by_label | m1_geo_length |
+| achievement:9수03-14:비 | 비 | covered_by_label | m1_num_ratio |
 | achievement:9수03-14:피타고라스 | 피타고라스 | covered_by_alias | m1_geo_pythagorean_theorem; m1_geo_pythagorean_unit |
+| achievement:9수03-15:비 | 비 | covered_by_label | m1_num_ratio |
 | achievement:9수03-15:삼각비 | 삼각비 | covered_by_label | m1_geo_trig_unit; m1_geo_trigonometric_ratio |
 | achievement:9수03-15:피타고라스 | 피타고라스 | covered_by_alias | m1_geo_pythagorean_theorem; m1_geo_pythagorean_unit |
+| achievement:9수03-16:비 | 비 | covered_by_label | m1_num_ratio |
 | achievement:9수03-16:삼각비 | 삼각비 | covered_by_label | m1_geo_trig_unit; m1_geo_trigonometric_ratio |
+| achievement:9수03-17:비 | 비 | covered_by_label | m1_num_ratio |
 | achievement:9수03-17:삼각비 | 삼각비 | covered_by_label | m1_geo_trig_unit; m1_geo_trigonometric_ratio |
 | achievement:9수03-17:원 | 원 | covered_by_label | m1_geo_circle |
 | achievement:9수03-18:원 | 원 | covered_by_label | m1_geo_circle |
@@ -154,6 +153,7 @@ The older hierarchy is treated only as a non-authoritative candidate source.
 | achievement:9수04-07:상자그림 | 상자그림 | covered_by_label | m1_data_box_plot |
 | achievement:9수04-07:자료 | 자료 | covered_by_label | m1_data_dataset |
 | achievement:9수04-07:표 | 표 | covered_by_label | m1_repr_table |
+| achievement:9수04-08:비 | 비 | covered_by_label | m1_num_ratio |
 | achievement:9수04-08:상자그림 | 상자그림 | covered_by_label | m1_data_box_plot |
 | achievement:9수04-08:자료 | 자료 | covered_by_label | m1_data_dataset |
 | achievement:9수04-09:산점도 | 산점도 | covered_by_label | m1_data_scatter_plot |
