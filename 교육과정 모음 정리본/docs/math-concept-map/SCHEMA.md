@@ -131,6 +131,32 @@
 | `issue_status` | 현재는 모두 `review_needed` |
 | `notes` | 검토 사유와 처리 유의점 |
 
+## Related Edge Resolution Queue CSV
+
+`related-edge-resolution-queue.csv`는 `node-edge-consistency-audit.csv`에 남은 `missing_edge_for_related_id` row를 후보 관계 유형과 처리 우선순위로 펼친 파생 산출물이다. 이 파일의 `candidate_relationship_types`는 확정 관계가 아니라 검토 힌트이며, 공식 문서 또는 교과서 근거 확인 후 edge로 반영한다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `rank` | 우선순위 정렬 순번 |
+| `node_id` | `related_ids`를 가진 concept id |
+| `node_label_ko` | 기준 concept 한글 이름 |
+| `related_id` | 연결 후보 concept id |
+| `related_label_ko` | 연결 후보 concept 한글 이름 |
+| `node_domain` | 기준 concept 영역 |
+| `node_unit` | 기준 concept 단원 |
+| `related_domain` | 연결 후보 concept 영역 |
+| `related_unit` | 연결 후보 concept 단원 |
+| `node_concept_type` | 기준 concept 유형 |
+| `related_concept_type` | 연결 후보 concept 유형 |
+| `same_domain` | 두 concept이 같은 영역이면 `yes` |
+| `same_unit` | 두 concept이 같은 학년·영역·단원이면 `yes` |
+| `reciprocal_related_id` | 상대 concept도 기준 concept을 `related_ids`에 가지면 `yes` |
+| `candidate_relationship_types` | `often_confused_with`, `represented_by; related_to`, `used_in; related_to`, `contrasts_with; related_to`, `related_to` 중 검토 후보 |
+| `priority_score` | 같은 단원, 상호 related, 낮은 신뢰도, 오개념 위험 여부 등을 반영한 검토 점수 |
+| `priority_tier` | `high`, `medium`, `low`, `backlog` |
+| `next_action` | 다음 검토 행동. 예: `confirm_often_confused_with_evidence` |
+| `source_refs` | 기준 concept 또는 연결 후보 concept의 대표 출처 요약 |
+
 ## Prerequisite Map CSV
 
 `prerequisite-map.csv`는 `concepts.json`의 `prerequisite_for` edge를 개념쌍 단위로 펼쳐, 선수 개념 흐름을 단원 전이 기준으로 검토하기 위한 파생 산출물이다.

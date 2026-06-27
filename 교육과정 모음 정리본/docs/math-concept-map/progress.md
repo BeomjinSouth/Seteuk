@@ -455,7 +455,26 @@
 - 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 476개 concept, 1706개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
 - diff check: `git diff --check -- docs/math-concept-map`: 종료 코드 0, CRLF 변환 경고만 확인.
 
+## 2026-06-27 related edge 해소 큐 보강
+
+- AGENTS.md를 다시 확인하고, 이번 작업은 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 파생 산출물 보강으로 진행했다.
+- `build_related_edge_resolution_queue.py`를 추가해 `node-edge-consistency-audit.csv`에 남은 `missing_edge_for_related_id` 469개를 후보 관계 유형과 처리 우선순위로 펼치게 했다.
+- 후보 관계 유형은 `often_confused_with`, `represented_by; related_to`, `used_in; related_to`, `contrasts_with; related_to`, `related_to` 중 하나이며, 확정 edge가 아니라 공식 문서 또는 교과서 본문 근거를 확인하기 위한 검토 힌트로 기록한다.
+- `related-edge-resolution-queue.csv`와 `related-edge-resolution-queue.md`를 생성했다. 현재 후보는 469개이며, 이 중 high priority 90개, medium priority 1개다.
+- `validate_concept_map.py`가 새 큐의 row 수, 필드, key 누락, 생성 순서를 현재 concept map과 node-edge 감사 결과에서 재생성한 값과 대조하도록 보강했다.
+- `README.md`, `SCHEMA.md`, `source-audit.md`에 새 산출물의 목적, 생성 명령, 검증 범위, CSV 필드를 반영했다.
+
+## 2026-06-27 related edge 해소 큐 검증 결과
+
+- TDD red: `python -m unittest discover -s .\docs\math-concept-map\tools -p test_build_related_edge_resolution_queue.py`가 `ModuleNotFoundError: No module named 'build_related_edge_resolution_queue'`로 실패하는 것을 확인했다.
+- TDD green: `build_related_edge_resolution_queue.py` 구현 후 같은 테스트 파일의 2개 테스트가 통과했다.
+- Validator 보강 red: `python -m unittest discover -s .\docs\math-concept-map\tools -p test_validate_concept_map.py`가 related edge resolution helper 2개 부재로 실패하는 것을 확인했다.
+- Validator 보강 green: related edge resolution helper와 main 검증을 추가한 뒤 `test_validate_concept_map.py` 39개 테스트가 통과했다.
+- 전체 단위 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p 'test_*.py'`: 111개 통과.
+- 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 476개 concept, 1706개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map`: 종료 코드 0, CRLF 변환 경고만 확인.
+
 ## 다음 작업
 
-- `related_ids` 관련 469개 row는 교과서 본문·예제·용어 설명이 들어오면 `related_to`, `contrasts_with`, `often_confused_with`, `represented_by`, `used_in` 중 적절한 edge로 정리한다.
-- 중1~중3 수학 교과서 PDF가 추가되면 `textbook-evidence-packets/`, `prerequisite-map.csv`, `prerequisite-unit-graph.dot`를 함께 사용해 concept별 본문·예제 근거와 선수 edge별 쪽수 근거를 누적한다.
+- `related-edge-resolution-queue.csv`의 high priority 90개부터 공식 근거와 교과서 근거를 대조해 `often_confused_with`, `represented_by`, `used_in`, `contrasts_with`, `related_to` edge 중 하나로 확정한다.
+- 중1~중3 수학 교과서 PDF가 추가되면 `textbook-evidence-packets/`, `prerequisite-map.csv`, `prerequisite-unit-graph.dot`, `related-edge-resolution-queue.csv`를 함께 사용해 concept별 본문·예제 근거와 관계 edge별 쪽수 근거를 누적한다.

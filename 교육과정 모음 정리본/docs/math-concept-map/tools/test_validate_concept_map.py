@@ -414,6 +414,46 @@ class AchievementCoverageTests(unittest.TestCase):
             [("edge_without_prerequisite_id", "equation", "prerequisite_ids", "unit", "prerequisite_for")],
         )
 
+    def test_related_edge_resolution_queue_key_makes_stable_identity(self) -> None:
+        row = {
+            "node_id": "axis_swap",
+            "related_id": "axis",
+            "candidate_relationship_types": "often_confused_with",
+            "next_action": "confirm_often_confused_with_evidence",
+        }
+
+        self.assertEqual(
+            validator.related_edge_resolution_queue_key(row),
+            (
+                "axis_swap",
+                "axis",
+                "often_confused_with",
+                "confirm_often_confused_with_evidence",
+            ),
+        )
+
+    def test_missing_related_edge_resolution_queue_keys_are_reported(self) -> None:
+        expected = [
+            {
+                "node_id": "axis_swap",
+                "related_id": "axis",
+                "candidate_relationship_types": "often_confused_with",
+                "next_action": "confirm_often_confused_with_evidence",
+            },
+            {
+                "node_id": "coord",
+                "related_id": "axis",
+                "candidate_relationship_types": "represented_by; related_to",
+                "next_action": "confirm_representation_or_related_edge",
+            },
+        ]
+        actual = [expected[0]]
+
+        self.assertEqual(
+            validator.missing_related_edge_resolution_queue_keys(expected, actual),
+            [("coord", "axis", "represented_by; related_to", "confirm_representation_or_related_edge")],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

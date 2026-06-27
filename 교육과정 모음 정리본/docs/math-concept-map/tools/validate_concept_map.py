@@ -20,6 +20,7 @@ import build_legacy_gap_source_review as legacy_gap_source_review
 import build_legacy_gap_evidence_scan as legacy_gap_evidence_scan
 import build_prerequisite_map as prerequisite_map
 import build_node_edge_consistency_audit as node_edge_consistency
+import build_related_edge_resolution_queue as related_edge_resolution_queue
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -355,6 +356,27 @@ def missing_node_edge_consistency_issue_keys(
     ]
 
 
+def related_edge_resolution_queue_key(record: dict) -> tuple[str, str, str, str]:
+    return (
+        str(record.get("node_id", "")),
+        str(record.get("related_id", "")),
+        str(record.get("candidate_relationship_types", "")),
+        str(record.get("next_action", "")),
+    )
+
+
+def missing_related_edge_resolution_queue_keys(
+    expected_rows: list[dict],
+    actual_rows: list[dict],
+) -> list[tuple[str, str, str, str]]:
+    actual_keys = {related_edge_resolution_queue_key(row) for row in actual_rows}
+    return [
+        related_edge_resolution_queue_key(row)
+        for row in expected_rows
+        if related_edge_resolution_queue_key(row) not in actual_keys
+    ]
+
+
 def main() -> None:
     data_path = OUT_DIR / "concepts.json"
     if not data_path.exists():
@@ -426,6 +448,8 @@ def main() -> None:
     prerequisite_unit_graph_dot = prerequisite_map.PREREQUISITE_UNIT_GRAPH_DOT
     node_edge_consistency_csv = node_edge_consistency.NODE_EDGE_CONSISTENCY_CSV
     node_edge_consistency_md = node_edge_consistency.NODE_EDGE_CONSISTENCY_MD
+    related_edge_resolution_csv = related_edge_resolution_queue.RELATED_EDGE_RESOLUTION_QUEUE_CSV
+    related_edge_resolution_md = related_edge_resolution_queue.RELATED_EDGE_RESOLUTION_QUEUE_MD
     source_inventory_csv = OUT_DIR / "source-inventory.csv"
     source_inventory_md = OUT_DIR / "source-inventory.md"
     source_ref_audit_csv = OUT_DIR / "source-ref-audit.csv"
@@ -529,6 +553,27 @@ def main() -> None:
         fail("node-edge-consistency-audit.csv issue order does not match generated consistency audit")
     if not node_edge_consistency_md.exists() or "# Node Edge Consistency Audit" not in node_edge_consistency_md.read_text(encoding="utf-8"):
         fail("node-edge-consistency-audit.md missing or invalid")
+    related_edge_resolution_rows = read_csv_rows(related_edge_resolution_csv)
+    expected_related_edge_resolution_rows = related_edge_resolution_queue.related_edge_resolution_rows(
+        concepts,
+        expected_node_edge_consistency_rows,
+    )
+    if len(related_edge_resolution_rows) != len(expected_related_edge_resolution_rows):
+        fail("related-edge-resolution-queue.csv row count does not match generated related edge queue")
+    if related_edge_resolution_rows and list(related_edge_resolution_rows[0]) != related_edge_resolution_queue.CSV_FIELDS:
+        fail("related-edge-resolution-queue.csv fields do not match schema")
+    missing_related_edge_keys = missing_related_edge_resolution_queue_keys(
+        expected_related_edge_resolution_rows,
+        related_edge_resolution_rows,
+    )
+    if missing_related_edge_keys:
+        fail(f"related-edge-resolution-queue.csv missing queue keys: {missing_related_edge_keys}")
+    if [related_edge_resolution_queue_key(row) for row in related_edge_resolution_rows] != [
+        related_edge_resolution_queue_key(row) for row in expected_related_edge_resolution_rows
+    ]:
+        fail("related-edge-resolution-queue.csv row order does not match generated related edge queue")
+    if not related_edge_resolution_md.exists() or "# Related Edge Resolution Queue" not in related_edge_resolution_md.read_text(encoding="utf-8"):
+        fail("related-edge-resolution-queue.md missing or invalid")
     source_inventory_rows = read_csv_rows(source_inventory_csv)
     missing_source_groups = missing_source_inventory_groups(source_inventory_rows)
     if missing_source_groups:
