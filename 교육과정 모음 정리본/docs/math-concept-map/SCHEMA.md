@@ -408,6 +408,37 @@
 | `packet_csv` | 단원별 패킷 CSV 파일명 |
 | `packet_md` | 단원별 패킷 Markdown 파일명 |
 
+## Textbook Evidence Workplan CSV
+
+`textbook-evidence-workplan.csv`는 concept 교과서 근거 패킷 인덱스와 관계 edge 교과서 근거 패킷 인덱스를 같은 rank 단위로 결합한 파생 작업 계획이다. 교과서 PDF가 추가되면 이 파일을 보고 단원별 concept 근거 보강과 edge 근거 보강을 함께 처리한다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `rank` | 참조한 교과서 추출 queue 순위 |
+| `grade` | 학년 또는 교육과정 학년군 |
+| `domain` | 교육과정 영역 |
+| `unit` | 패킷 대상 단원 |
+| `priority_tier` | concept queue의 우선순위 등급 |
+| `priority_score` | concept queue의 우선순위 점수 |
+| `workplan_score` | `priority_score + low_confidence_edge_count*4 + cross_unit_edge_count` |
+| `concept_count` | concept 근거 패킷 row 수 |
+| `pending_concept_evidence_count` | 아직 교과서 근거가 연결되지 않은 concept row 수 |
+| `low_confidence_concept_count` | 해당 단원의 `low` 신뢰도 concept row 수 |
+| `edge_count` | 관계 edge 근거 패킷 row 수 |
+| `pending_edge_evidence_count` | 아직 교과서 근거가 연결되지 않은 edge row 수 |
+| `intra_unit_edge_count` | 같은 단원 내부 edge row 수 |
+| `cross_unit_edge_count` | 다른 단원 concept과 이어지는 edge row 수 |
+| `low_confidence_edge_count` | 해당 단원의 `low` 신뢰도 edge row 수 |
+| `total_evidence_rows` | concept row와 edge row의 합계 |
+| `total_pending_evidence_count` | pending concept row와 pending edge row의 합계 |
+| `total_low_confidence_count` | low-confidence concept row와 edge row의 합계 |
+| `next_action` | concept/edge 근거 보강을 함께 고려한 다음 작업 유형 |
+| `concept_next_action` | concept queue에서 온 원래 다음 작업 유형 |
+| `concept_packet_csv` | concept 근거 패킷 CSV 파일명 |
+| `concept_packet_md` | concept 근거 패킷 Markdown 파일명 |
+| `edge_packet_csv` | edge 근거 패킷 CSV 파일명 |
+| `edge_packet_md` | edge 근거 패킷 Markdown 파일명 |
+
 ## Legacy Gap Audit CSV
 
 `legacy-gap-audit.csv`는 기존 로컬 `수학_개념_위계도/data/math_concept_hierarchy.json`에서 중학교 범위 후보를 뽑아 현재 `concepts.json`의 `label_ko` 및 `aliases`와 비교한 파생 감사 산출물이다. 기존 위계도는 공식 근거가 아니므로, 이 파일의 `needs_review` 항목은 concept 추가 후보일 뿐이며 공식 교육과정 또는 교과서 근거 확인 전에는 확정하지 않는다.

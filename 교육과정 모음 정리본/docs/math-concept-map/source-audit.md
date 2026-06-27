@@ -111,6 +111,14 @@
 - 현재 분포는 intra-unit edge row 1521개, cross-unit edge row 890개, `low` 신뢰도 edge row 416개이다.
 - 각 row는 관계 유형별로 구조 근거, 선수 순서 근거, 표현 근거, 절차 활용 근거, 대조 근거, 오개념·문제 패턴 근거, 관련 근거, 쪽수 슬롯을 분리한다.
 - 현재 `교과서_원본/`에는 PDF가 없으므로 2411개 row 모두 `pending_textbook_pdf` 상태이며, 관계 근거 슬롯은 비워 두었다.
+
+## Textbook Evidence Workplan
+
+- `textbook-evidence-workplan.md`와 `textbook-evidence-workplan.csv`를 추가해 concept 근거 패킷과 관계 edge 근거 패킷을 같은 rank 단위로 결합한다.
+- 전체 workplan은 34개 단원 그룹, concept evidence row 476개, edge evidence row 2411개, pending textbook evidence row 2887개를 포함한다.
+- 전체 low-confidence 보강 대상은 concept 67개와 edge row 416개를 합친 483개 row이다.
+- 현재 최상위 단원 `좌표평면과 그래프`는 concept 40개와 edge row 202개, 총 242개 row가 모두 `pending_textbook_pdf` 상태이다.
+- 이 산출물은 새 출처가 아니라 교과서 PDF 추가 후의 작업 순서와 보강 부담을 추적하는 파생 관리표이다.
 - 교과서 PDF가 추가되면 concept 패킷과 edge 패킷을 함께 채워 `concepts.json`의 concept source refs뿐 아니라 `edges.csv`/`concepts.json`의 edge source refs와 신뢰도를 갱신하고, `edge-evidence-depth.*`의 보강 필요 수를 줄인다.
 
 ## 다음 출처 보강 순서

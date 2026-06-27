@@ -15,6 +15,7 @@ import build_edge_evidence_depth as edge_evidence_depth
 import build_textbook_extraction_queue as textbook_extraction_queue
 import build_textbook_evidence_packet as textbook_evidence_packet
 import build_textbook_edge_evidence_packet as textbook_edge_evidence_packet
+import build_textbook_evidence_workplan as textbook_evidence_workplan
 import build_legacy_gap_audit as legacy_gap_audit
 import build_legacy_gap_resolution as legacy_gap_resolution
 import build_legacy_gap_integration_plan as legacy_gap_integration_plan
@@ -278,6 +279,15 @@ def textbook_packet_index_pending_count(records: list[dict]) -> int:
     return sum(int(record.get("pending_textbook_evidence_count", 0)) for record in records)
 
 
+def textbook_workplan_missing_ranks(records: list[dict], expected_ranks: list[int]) -> list[int]:
+    present = {int(record.get("rank", 0)) for record in records}
+    return [rank for rank in expected_ranks if rank not in present]
+
+
+def textbook_workplan_pending_count(records: list[dict]) -> int:
+    return sum(int(record.get("total_pending_evidence_count", 0)) for record in records)
+
+
 def legacy_gap_needs_review_count(records: list[dict]) -> int:
     return sum(1 for record in records if record.get("coverage_status") == "needs_review")
 
@@ -479,6 +489,8 @@ def main() -> None:
     textbook_evidence_packet_index_md = textbook_evidence_packet.TEXTBOOK_EVIDENCE_PACKET_DIR / "index.md"
     textbook_edge_evidence_packet_index_csv = textbook_edge_evidence_packet.TEXTBOOK_EDGE_EVIDENCE_PACKET_DIR / "index.csv"
     textbook_edge_evidence_packet_index_md = textbook_edge_evidence_packet.TEXTBOOK_EDGE_EVIDENCE_PACKET_DIR / "index.md"
+    textbook_evidence_workplan_csv = textbook_evidence_workplan.TEXTBOOK_EVIDENCE_WORKPLAN_CSV
+    textbook_evidence_workplan_md = textbook_evidence_workplan.TEXTBOOK_EVIDENCE_WORKPLAN_MD
     legacy_gap_audit_csv = OUT_DIR / "legacy-gap-audit.csv"
     legacy_gap_audit_md = OUT_DIR / "legacy-gap-audit.md"
     legacy_gap_resolution_csv = OUT_DIR / "legacy-gap-resolution.csv"
@@ -784,6 +796,31 @@ def main() -> None:
         fail("textbook edge evidence packet pending total does not match packet rows")
     if not textbook_edge_evidence_packet_index_md.exists() or "# Textbook Edge Evidence Packet Index" not in textbook_edge_evidence_packet_index_md.read_text(encoding="utf-8"):
         fail("textbook edge evidence packet index markdown missing or invalid")
+    if not textbook_evidence_workplan_csv.exists():
+        fail("textbook-evidence-workplan.csv missing")
+    textbook_workplan_rows = read_csv_rows(textbook_evidence_workplan_csv)
+    expected_textbook_workplan_rows = textbook_evidence_workplan.textbook_evidence_workplan_rows(
+        textbook_packet_index_rows,
+        textbook_edge_packet_index_rows,
+        edge_packet_rows_by_rank=textbook_evidence_workplan.edge_packet_rows_by_rank(textbook_edge_packet_index_rows),
+    )
+    expected_textbook_workplan_csv_rows = [
+        {field: str(row.get(field, "")) for field in textbook_evidence_workplan.CSV_FIELDS}
+        for row in expected_textbook_workplan_rows
+    ]
+    if len(textbook_workplan_rows) != len(expected_packet_ranks):
+        fail("textbook-evidence-workplan.csv row count does not match textbook extraction queue")
+    if textbook_workplan_rows and list(textbook_workplan_rows[0]) != textbook_evidence_workplan.CSV_FIELDS:
+        fail("textbook-evidence-workplan.csv fields do not match schema")
+    missing_workplan_ranks = textbook_workplan_missing_ranks(textbook_workplan_rows, expected_packet_ranks)
+    if missing_workplan_ranks:
+        fail(f"textbook-evidence-workplan.csv missing ranks: {missing_workplan_ranks}")
+    if textbook_workplan_rows != expected_textbook_workplan_csv_rows:
+        fail("textbook-evidence-workplan.csv rows do not match generated workplan")
+    if textbook_workplan_pending_count(textbook_workplan_rows) != packet_pending_total + edge_packet_pending_total:
+        fail("textbook-evidence-workplan.csv pending total does not match concept and edge packet rows")
+    if not textbook_evidence_workplan_md.exists() or "# Textbook Evidence Workplan" not in textbook_evidence_workplan_md.read_text(encoding="utf-8"):
+        fail("textbook-evidence-workplan.md missing or invalid")
     legacy_gap_rows = read_csv_rows(legacy_gap_audit_csv)
     expected_legacy_gap_rows = legacy_gap_audit.legacy_gap_rows(
         legacy_gap_audit.read_legacy_data(),

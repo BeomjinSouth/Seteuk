@@ -251,6 +251,25 @@ class AchievementCoverageTests(unittest.TestCase):
 
         self.assertEqual(validator.textbook_packet_index_pending_count(rows), 5)
 
+    def test_textbook_workplan_missing_ranks_are_reported(self) -> None:
+        rows = [
+            {"rank": "1"},
+            {"rank": "3"},
+        ]
+
+        self.assertEqual(
+            validator.textbook_workplan_missing_ranks(rows, expected_ranks=[1, 2, 3]),
+            [2],
+        )
+
+    def test_textbook_workplan_pending_count_sums_rows(self) -> None:
+        rows = [
+            {"total_pending_evidence_count": "6"},
+            {"total_pending_evidence_count": "4"},
+        ]
+
+        self.assertEqual(validator.textbook_workplan_pending_count(rows), 10)
+
     def test_legacy_gap_needs_review_count_reports_review_candidates(self) -> None:
         rows = [
             {"coverage_status": "covered_by_label"},
