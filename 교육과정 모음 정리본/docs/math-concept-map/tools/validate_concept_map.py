@@ -17,6 +17,7 @@ import build_textbook_evidence_packet as textbook_evidence_packet
 import build_textbook_edge_evidence_packet as textbook_edge_evidence_packet
 import build_textbook_evidence_workplan as textbook_evidence_workplan
 import build_textbook_source_audit as textbook_source_audit
+import build_pilot_unit_map as pilot_unit_map
 import build_legacy_gap_audit as legacy_gap_audit
 import build_legacy_gap_resolution as legacy_gap_resolution
 import build_legacy_gap_integration_plan as legacy_gap_integration_plan
@@ -413,6 +414,26 @@ def missing_related_edge_resolution_queue_keys(
     ]
 
 
+def csv_rows_for_fields(rows: list[dict], fields: list[str]) -> list[dict]:
+    return [
+        {field: str(row.get(field, "")) for field in fields}
+        for row in rows
+    ]
+
+
+def pilot_unit_map_missing_ids(expected_rows: list[dict], actual_rows: list[dict], id_field: str) -> list[str]:
+    actual_ids = {str(row.get(id_field, "")) for row in actual_rows}
+    return [
+        str(row.get(id_field, ""))
+        for row in expected_rows
+        if str(row.get(id_field, "")) not in actual_ids
+    ]
+
+
+def pilot_unit_map_value_count(rows: list[dict], field: str, value: str) -> int:
+    return sum(1 for row in rows if row.get(field) == value)
+
+
 def main() -> None:
     data_path = OUT_DIR / "concepts.json"
     if not data_path.exists():
@@ -504,6 +525,10 @@ def main() -> None:
     textbook_edge_evidence_packet_index_md = textbook_edge_evidence_packet.TEXTBOOK_EDGE_EVIDENCE_PACKET_DIR / "index.md"
     textbook_evidence_workplan_csv = textbook_evidence_workplan.TEXTBOOK_EVIDENCE_WORKPLAN_CSV
     textbook_evidence_workplan_md = textbook_evidence_workplan.TEXTBOOK_EVIDENCE_WORKPLAN_MD
+    pilot_unit_map_md = pilot_unit_map.PILOT_UNIT_MAP_MD
+    pilot_unit_map_nodes_csv = pilot_unit_map.PILOT_UNIT_MAP_NODES_CSV
+    pilot_unit_map_edges_csv = pilot_unit_map.PILOT_UNIT_MAP_EDGES_CSV
+    pilot_unit_map_dot = pilot_unit_map.PILOT_UNIT_MAP_DOT
     legacy_gap_audit_csv = OUT_DIR / "legacy-gap-audit.csv"
     legacy_gap_audit_md = OUT_DIR / "legacy-gap-audit.md"
     legacy_gap_resolution_csv = OUT_DIR / "legacy-gap-resolution.csv"
@@ -855,6 +880,60 @@ def main() -> None:
         fail("textbook-evidence-workplan.csv pending total does not match concept and edge packet rows")
     if not textbook_evidence_workplan_md.exists() or "# Textbook Evidence Workplan" not in textbook_evidence_workplan_md.read_text(encoding="utf-8"):
         fail("textbook-evidence-workplan.md missing or invalid")
+    if not pilot_unit_map_nodes_csv.exists():
+        fail("pilot-unit-map-nodes.csv missing")
+    if not pilot_unit_map_edges_csv.exists():
+        fail("pilot-unit-map-edges.csv missing")
+    pilot_target = pilot_unit_map.target_unit(textbook_workplan_rows, rank=1)
+    pilot_node_rows = read_csv_rows(pilot_unit_map_nodes_csv)
+    pilot_edge_rows = read_csv_rows(pilot_unit_map_edges_csv)
+    expected_pilot_node_rows = pilot_unit_map.pilot_unit_node_rows(
+        concepts,
+        concept_evidence_rows,
+        pilot_target,
+    )
+    expected_pilot_edge_rows = pilot_unit_map.pilot_unit_edge_rows(
+        concepts,
+        edges,
+        edge_evidence_rows,
+        pilot_target,
+    )
+    if pilot_node_rows and list(pilot_node_rows[0]) != pilot_unit_map.NODE_CSV_FIELDS:
+        fail("pilot-unit-map-nodes.csv fields do not match schema")
+    if pilot_edge_rows and list(pilot_edge_rows[0]) != pilot_unit_map.EDGE_CSV_FIELDS:
+        fail("pilot-unit-map-edges.csv fields do not match schema")
+    if len(pilot_node_rows) != int(pilot_target.get("concept_count", 0)):
+        fail("pilot-unit-map-nodes.csv row count does not match workplan concept_count")
+    if len(pilot_edge_rows) != int(pilot_target.get("edge_count", 0)):
+        fail("pilot-unit-map-edges.csv row count does not match workplan edge_count")
+    missing_pilot_node_ids = pilot_unit_map_missing_ids(
+        expected_pilot_node_rows,
+        pilot_node_rows,
+        "concept_id",
+    )
+    if missing_pilot_node_ids:
+        fail(f"pilot-unit-map-nodes.csv missing concept ids: {missing_pilot_node_ids}")
+    missing_pilot_edge_ids = pilot_unit_map_missing_ids(
+        expected_pilot_edge_rows,
+        pilot_edge_rows,
+        "edge_id",
+    )
+    if missing_pilot_edge_ids:
+        fail(f"pilot-unit-map-edges.csv missing edge ids: {missing_pilot_edge_ids}")
+    if pilot_node_rows != csv_rows_for_fields(expected_pilot_node_rows, pilot_unit_map.NODE_CSV_FIELDS):
+        fail("pilot-unit-map-nodes.csv rows do not match generated pilot unit map")
+    if pilot_edge_rows != csv_rows_for_fields(expected_pilot_edge_rows, pilot_unit_map.EDGE_CSV_FIELDS):
+        fail("pilot-unit-map-edges.csv rows do not match generated pilot unit map")
+    if pilot_unit_map_value_count(pilot_node_rows, "confidence", "low") != int(pilot_target.get("low_confidence_concept_count", 0)):
+        fail("pilot-unit-map-nodes.csv low confidence count does not match workplan")
+    if pilot_unit_map_value_count(pilot_edge_rows, "confidence", "low") != int(pilot_target.get("low_confidence_edge_count", 0)):
+        fail("pilot-unit-map-edges.csv low confidence count does not match workplan")
+    if pilot_unit_map_value_count(pilot_edge_rows, "edge_scope", "cross_unit") != int(pilot_target.get("cross_unit_edge_count", 0)):
+        fail("pilot-unit-map-edges.csv cross-unit count does not match workplan")
+    if not pilot_unit_map_md.exists() or "# Pilot Unit Map" not in pilot_unit_map_md.read_text(encoding="utf-8"):
+        fail("pilot-unit-map.md missing or invalid")
+    if not pilot_unit_map_dot.exists() or "digraph pilot_unit_map" not in pilot_unit_map_dot.read_text(encoding="utf-8"):
+        fail("pilot-unit-map.dot missing or invalid")
     legacy_gap_rows = read_csv_rows(legacy_gap_audit_csv)
     expected_legacy_gap_rows = legacy_gap_audit.legacy_gap_rows(
         legacy_gap_audit.read_legacy_data(),

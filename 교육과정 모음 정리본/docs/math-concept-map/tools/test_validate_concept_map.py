@@ -265,6 +265,42 @@ class AchievementCoverageTests(unittest.TestCase):
             [2],
         )
 
+    def test_pilot_unit_map_missing_ids_are_reported(self) -> None:
+        expected_rows = [
+            {"concept_id": "coord"},
+            {"concept_id": "axis"},
+        ]
+        actual_rows = [
+            {"concept_id": "coord"},
+        ]
+
+        self.assertEqual(
+            validator.pilot_unit_map_missing_ids(expected_rows, actual_rows, "concept_id"),
+            ["axis"],
+        )
+
+    def test_pilot_unit_map_value_count_counts_matching_rows(self) -> None:
+        rows = [
+            {"edge_scope": "intra_unit"},
+            {"edge_scope": "cross_unit"},
+            {"edge_scope": "cross_unit"},
+        ]
+
+        self.assertEqual(
+            validator.pilot_unit_map_value_count(rows, "edge_scope", "cross_unit"),
+            2,
+        )
+
+    def test_csv_rows_for_fields_stringifies_generated_rows(self) -> None:
+        rows = [
+            {"rank": 1, "concept_id": "coord", "extra": "ignored"},
+        ]
+
+        self.assertEqual(
+            validator.csv_rows_for_fields(rows, ["rank", "concept_id", "missing"]),
+            [{"rank": "1", "concept_id": "coord", "missing": ""}],
+        )
+
     def test_textbook_workplan_pending_count_sums_rows(self) -> None:
         rows = [
             {"total_pending_evidence_count": "6"},

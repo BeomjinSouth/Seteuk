@@ -476,6 +476,65 @@
 | `edge_packet_csv` | edge 근거 패킷 CSV 파일명 |
 | `edge_packet_md` | edge 근거 패킷 Markdown 파일명 |
 
+## Pilot Unit Map Node CSV
+
+`pilot-unit-map-nodes.csv`는 `textbook-evidence-workplan.csv` rank 1 단원을 사람이 검토하기 쉬운 compact map으로 접은 concept node 목록이다. 현재 대상은 `좌표평면과 그래프`이며, 전체 concept map의 원본 노드를 변경하지 않는 파생 산출물이다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `rank` | 참조한 workplan 순위 |
+| `grade` | concept 학년 또는 교육과정 학년군 |
+| `domain` | concept 영역 |
+| `unit` | concept 단원 |
+| `concept_id` | 원본 concept id |
+| `label_ko` | concept 한국어 이름 |
+| `concept_type` | 원본 concept 유형 |
+| `confidence` | 현재 concept 신뢰도 |
+| `evidence_depth` | `concept-evidence-depth.csv`의 공식/교과서 근거 깊이 |
+| `needs_textbook_evidence` | 교과서 본문·정리·예제·문제 근거 보강 필요 여부 |
+| `source_ref_count` | 현재 concept에 연결된 source ref 수 |
+| `parent_ids` | 세미콜론으로 결합한 포함 상위 concept id 목록 |
+| `prerequisite_ids` | 세미콜론으로 결합한 직접 선수 concept id 목록 |
+| `related_ids` | 세미콜론으로 결합한 연관 concept id 목록 |
+| `short_definition` | 원본 concept의 짧은 정의 |
+| `notes` | 원본 concept notes |
+
+## Pilot Unit Map Edge CSV
+
+`pilot-unit-map-edges.csv`는 rank 1 단원 concept에 닿는 관계 edge를 compact map 검토용으로 펼친 목록이다. 같은 단원 내부 edge는 `intra_unit`, 다른 단원 concept과 이어지는 edge는 `cross_unit`으로 표시한다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `rank` | 참조한 workplan 순위 |
+| `unit` | 파일럿 대상 단원 |
+| `edge_id` | 원본 edge id |
+| `source_id` | source concept id |
+| `source_label_ko` | source concept 한국어 이름 |
+| `source_unit` | source concept 단원 |
+| `target_id` | target concept id |
+| `target_label_ko` | target concept 한국어 이름 |
+| `target_unit` | target concept 단원 |
+| `relationship_type` | 원본 edge 관계 유형 |
+| `edge_scope` | `intra_unit` 또는 `cross_unit` |
+| `confidence` | 현재 edge 신뢰도 |
+| `evidence_depth` | `edge-evidence-depth.csv`의 공식/교과서 근거 깊이 |
+| `needs_textbook_evidence` | 관계 edge의 교과서 본문·예제·문제 근거 보강 필요 여부 |
+| `source_ref_count` | 현재 edge에 연결된 source ref 수 |
+| `notes` | 원본 edge notes |
+
+## Pilot Unit Map DOT
+
+`pilot-unit-map.dot`는 rank 1 단원의 compact Graphviz DOT 시각화이다.
+
+| 요소 | 설명 |
+| --- | --- |
+| graph id | `pilot_unit_map` |
+| node | rank 1 단원 concept node와 cross-unit edge endpoint로 등장하는 외부 node |
+| edge | `pilot-unit-map-edges.csv`의 관계 edge |
+| edge label | 원본 `relationship_type` |
+| edge style | `intra_unit`은 실선, `cross_unit`은 점선 |
+| node color | `low` 신뢰도 concept은 강조색, 외부 node는 회색 |
+
 ## Legacy Gap Audit CSV
 
 `legacy-gap-audit.csv`는 기존 로컬 `수학_개념_위계도/data/math_concept_hierarchy.json`에서 중학교 범위 후보를 뽑아 현재 `concepts.json`의 `label_ko` 및 `aliases`와 비교한 파생 감사 산출물이다. 기존 위계도는 공식 근거가 아니므로, 이 파일의 `needs_review` 항목은 concept 추가 후보일 뿐이며 공식 교육과정 또는 교과서 근거 확인 전에는 확정하지 않는다.

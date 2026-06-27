@@ -865,6 +865,27 @@
 - 좁은 validator 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p test_validate_concept_map.py`: 46개 통과.
 - 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 476개 concept, 1966개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
 
+## 2026-06-27 pilot unit map 추가
+
+- AGENTS.md를 다시 확인했고, 이번 작업은 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 생성 로직과 파생 산출물 정비로 제한했다.
+- `textbook-evidence-workplan.csv`의 최상위 단원 `좌표평면과 그래프`를 사람이 검토하기 쉬운 compact map으로 접는 `pilot-unit-map.*`를 추가했다.
+- `build_pilot_unit_map.py`는 rank 1 단원의 concept 40개를 `pilot-unit-map-nodes.csv`로, 이 단원에 닿는 관계 edge 202개를 `pilot-unit-map-edges.csv`로 만들고, 같은 관계를 `pilot-unit-map.dot` Graphviz 시각화와 `pilot-unit-map.md` 요약으로 기록한다.
+- DOT에서는 내부 edge를 실선, cross-unit edge를 점선으로 구분하고, `low` 신뢰도 concept은 별도 색으로 표시한다.
+- TDD red: `python -m unittest discover -s .\docs\math-concept-map\tools -p 'test_build_pilot_unit_map.py'`가 새 모듈 부재로 실패하는 것을 확인했다.
+- TDD green: 같은 테스트 명령이 4개 테스트 통과로 전환되는 것을 확인했다.
+- DOT 외부 node가 edge마다 중복 선언되는 결함을 추가 테스트로 먼저 재현했고, 같은 테스트 명령이 5개 테스트 통과로 전환되는 것을 확인했다.
+- 실제 산출물 생성 결과 `좌표평면과 그래프`는 concept 40개, edge 202개, cross-unit edge 71개, low-confidence concept 6개, low-confidence edge 44개로 요약되었다.
+- `validate_concept_map.py`가 `pilot-unit-map-nodes.csv`, `pilot-unit-map-edges.csv`, `pilot-unit-map.md`, `pilot-unit-map.dot`의 schema, row count, workplan count, 재생성 결과 일치, low/cross count를 함께 검증하도록 확장했다.
+
+## 2026-06-27 pilot unit map 검증 결과
+
+- 좁은 생성기 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p 'test_build_pilot_unit_map.py'`: 5개 통과.
+- 좁은 validator 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p 'test_validate_concept_map.py'`: 49개 통과.
+- 전체 단위 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p 'test_*.py'`: 155개 통과.
+- 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 476개 concept, 1966개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map 교과서_원본`: 종료 코드 0, CRLF 변환 경고만 확인.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
