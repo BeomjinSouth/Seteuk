@@ -246,6 +246,33 @@ class BuildPilotEdgeSyncTests(unittest.TestCase):
 
         self.assertEqual([], missing)
 
+    def test_algebra_equation_queue_related_ids_have_reviewed_edges(self) -> None:
+        relationships = relationship_types_by_pair()
+        expected = {
+            frozenset(["m1_factor_quadratic_expression", "m1_quad_eq_quadratic_term"]): "contrasts_with",
+            frozenset(["m1_expr_coefficient", "m1_expr_degree"]): "contrasts_with",
+            frozenset(["m1_expr_literal_expression", "m1_repr_expression"]): "represented_by",
+            frozenset(["m1_calc_arithmetic_to_polynomial_extension", "m1_calc_monomial_polynomial_mul_div"]): "used_in",
+            frozenset(["m1_calc_arithmetic_to_polynomial_extension", "m1_calc_polynomial_add_sub"]): "used_in",
+            frozenset(["m1_calc_simplify_expression", "m1_calc_monomial_polynomial_mul_div"]): "used_in",
+            frozenset(["m1_calc_simplify_expression", "m1_calc_polynomial_add_sub"]): "used_in",
+            frozenset(["m1_calc_unit", "m1_eq_unit"]): "related_to",
+            frozenset(["m1_system_modeling", "m1_system_solution"]): "used_in",
+            frozenset(["m1_system_modeling", "m1_system_solving"]): "used_in",
+            frozenset(["m1_quad_eq_double_root", "m1_quad_eq_root_formula"]): "related_to",
+            frozenset(["m1_quad_eq_modeling", "m1_quad_eq_standard_form"]): "represented_by",
+            frozenset(["m1_quad_eq_root_formula", "m1_quad_eq_solution"]): "used_in",
+            frozenset(["m1_quad_eq_solving", "m1_quad_eq_factorization_solving"]): "used_in",
+            frozenset(["m1_quad_eq_standard_form", "m1_quad_eq_solving"]): "used_in",
+        }
+        missing = [
+            (tuple(sorted(pair)), relationship_type)
+            for pair, relationship_type in expected.items()
+            if relationship_type not in relationships.get(pair, set())
+        ]
+
+        self.assertEqual([], missing)
+
 
 if __name__ == "__main__":
     unittest.main()
