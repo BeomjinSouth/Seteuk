@@ -779,8 +779,25 @@
 - 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 476개 concept, 1948개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
 - diff check: `git diff --check -- docs/math-concept-map`: 종료 코드 0, CRLF 변환 경고만 확인.
 
+## 2026-06-27 잔여 related edge 큐 전체 해소
+
+- AGENTS.md를 다시 확인했고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 생성 로직과 파생 산출물 정비로 제한했다.
+- `related-edge-resolution-queue.csv`에 남아 있던 18개 row를 모두 검토했다. 대상은 두 점 사이의 거리와 절댓값, 도형 교점과 함수 그래프 교점, 영역·단원 간 broad bridge, 소인수와 대수적 인수, 분배법칙과 다항식의 곱셈, 혼합계산과 식의 정리, 수직선 표현, 자료 영역의 표·그래프 표현, 삼각형의 중점연결정리와 무게중심, 문자의 사용과 변수, 부등식과 등식, 점과 좌표평면 위 점의 위치, 소인수분해와 거듭제곱 관련 pair이다.
+- 공식 교육과정 성취기준과 용어·기호 근거만으로 확정하되, 교과서 본문·예제 쪽수 근거가 필요한 broad bridge는 `confidence: low`와 notes를 유지했다.
+- `test_build_pilot_edge_sync.py`에 잔여 18개 pair의 reviewed edge가 재생성 후에도 보존되는지 고정하는 테스트를 추가했다.
+- 전체 산출물을 재생성한 결과 concept은 476개로 유지되고 edge는 1966개가 되었으며, source ref는 concept 1239개와 edge 4839개를 합쳐 총 6078개가 되었다.
+- `node-edge-consistency-audit.csv`와 `related-edge-resolution-queue.csv`는 18건에서 0건으로 줄었다.
+
+## 2026-06-27 잔여 related edge 큐 전체 해소 검증 결과
+
+- TDD red: `python -m unittest discover -s .\docs\math-concept-map\tools -p test_build_pilot_edge_sync.py`가 새 잔여 pair reviewed edge 18개 누락으로 실패하는 것을 확인했다.
+- TDD green: 같은 테스트 명령이 20개 테스트 통과로 전환되는 것을 확인했다.
+- 전체 단위 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p 'test_*.py'`: 127개 통과.
+- 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 476개 concept, 1966개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map`: 종료 코드 0, CRLF 변환 경고만 확인.
+
 ## 다음 작업
 
-- `related-edge-resolution-queue.csv`의 남은 low 16건과 backlog 2건을 공식 근거와 교과서 근거 기준으로 검토해 `represented_by`, `used_in`, `contrasts_with`, `related_to` edge 중 하나로 확정한다.
-- 현재 queue 최상단은 두 점 사이의 거리와 절댓값, 도형 교점과 함수 그래프 교점, 도형과 측정 영역과 좌표평면·그래프 단원, 도형과 측정 영역과 수와 연산 영역 관련 pair이므로 다음 반복에서 우선 처리한다.
-- 중1~중3 수학 교과서 PDF가 추가되면 `textbook-evidence-packets/`, `prerequisite-map.csv`, `prerequisite-unit-graph.dot`, `related-edge-resolution-queue.csv`를 함께 사용해 concept별 본문·예제 근거와 관계 edge별 쪽수 근거를 추적한다.
+- `related-edge-resolution-queue.csv`는 0건이므로, 다음 반복은 `textbook-evidence-packets/`와 `concept-evidence-depth.csv`를 기준으로 교과서 PDF 본문·정리·예제·용어 설명·문제 반복 표현 근거를 채우는 단계로 넘어간다.
+- 현재 `concept-evidence-depth.csv` 기준 476개 concept 모두 `pending_textbook_pdf` 상태이므로, 교과서 PDF가 추가되면 `좌표평면과 그래프`, `일차함수와 그 그래프`, `경우의 수와 확률`, `정수와 유리수`, `이차함수와 그 그래프` 순으로 page-level source ref를 보강한다.
+- 새 concept 또는 `related_ids`가 추가되면 `related-edge-resolution-queue.*`를 다시 생성해 관계 유형을 확정한다.

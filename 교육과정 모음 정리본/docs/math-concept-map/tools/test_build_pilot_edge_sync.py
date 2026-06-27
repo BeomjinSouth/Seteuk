@@ -451,6 +451,36 @@ class BuildPilotEdgeSyncTests(unittest.TestCase):
 
         self.assertEqual([], missing)
 
+    def test_remaining_related_edge_queue_pairs_have_reviewed_edges(self) -> None:
+        relationships = relationship_types_by_pair()
+        expected = {
+            frozenset(["m1_geo_distance_between_two_points", "m1_num_absolute_value"]): "related_to",
+            frozenset(["m1_geo_intersection_point", "m1_func_intersection_point"]): "contrasts_with",
+            frozenset(["m1_geo_domain", "m1_coord_graph_unit"]): "related_to",
+            frozenset(["m1_geo_domain", "m1_num_domain"]): "related_to",
+            frozenset(["m1_num_prime_factor", "m1_factor_factor"]): "contrasts_with",
+            frozenset(["m1_num_domain", "m1_calc_unit"]): "related_to",
+            frozenset(["m1_num_domain", "m1_expr_unit"]): "related_to",
+            frozenset(["m1_num_distributive_law", "m1_factor_polynomial_multiplication"]): "used_in",
+            frozenset(["m1_num_mixed_calculation", "m1_calc_simplify_expression"]): "used_in",
+            frozenset(["m1_num_number_line", "m1_coord_number_line"]): "related_to",
+            frozenset(["m1_data_domain", "m1_graph_graph"]): "represented_by",
+            frozenset(["m1_data_domain", "m1_num_domain"]): "related_to",
+            frozenset(["m1_data_domain", "m1_repr_table"]): "represented_by",
+            frozenset(["m1_geo_triangle_midpoint_theorem", "m1_geo_centroid"]): "related_to",
+            frozenset(["m1_expr_usefulness", "m1_term_variable"]): "related_to",
+            frozenset(["m1_ineq_inequality", "m1_eq_equality"]): "contrasts_with",
+            frozenset(["m1_geo_point", "m1_coord_point_location"]): "related_to",
+            frozenset(["m1_num_prime_factor_unit", "m1_calc_power"]): "related_to",
+        }
+        missing = [
+            (tuple(sorted(pair)), relationship_type)
+            for pair, relationship_type in expected.items()
+            if relationship_type not in relationships.get(pair, set())
+        ]
+
+        self.assertEqual([], missing)
+
 
 if __name__ == "__main__":
     unittest.main()
