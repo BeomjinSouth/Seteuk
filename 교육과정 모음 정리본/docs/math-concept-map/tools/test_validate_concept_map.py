@@ -376,6 +376,44 @@ class AchievementCoverageTests(unittest.TestCase):
         self.assertTrue(validator.prerequisite_unit_graph_has_required_content(valid_dot))
         self.assertFalse(validator.prerequisite_unit_graph_has_required_content(invalid_dot))
 
+    def test_node_edge_consistency_issue_key_makes_stable_identity(self) -> None:
+        row = {
+            "issue_type": "missing_edge_for_parent_id",
+            "node_id": "integer",
+            "array_field": "parent_ids",
+            "related_id": "unit",
+            "expected_relationship_type": "contains",
+        }
+
+        self.assertEqual(
+            validator.node_edge_consistency_issue_key(row),
+            ("missing_edge_for_parent_id", "integer", "parent_ids", "unit", "contains"),
+        )
+
+    def test_missing_node_edge_consistency_issue_keys_are_reported(self) -> None:
+        expected = [
+            {
+                "issue_type": "missing_edge_for_parent_id",
+                "node_id": "integer",
+                "array_field": "parent_ids",
+                "related_id": "unit",
+                "expected_relationship_type": "contains",
+            },
+            {
+                "issue_type": "edge_without_prerequisite_id",
+                "node_id": "equation",
+                "array_field": "prerequisite_ids",
+                "related_id": "unit",
+                "expected_relationship_type": "prerequisite_for",
+            },
+        ]
+        actual = [expected[0]]
+
+        self.assertEqual(
+            validator.missing_node_edge_consistency_issue_keys(expected, actual),
+            [("edge_without_prerequisite_id", "equation", "prerequisite_ids", "unit", "prerequisite_for")],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

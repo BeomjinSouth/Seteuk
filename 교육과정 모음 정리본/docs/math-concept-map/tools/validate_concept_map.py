@@ -19,6 +19,7 @@ import build_legacy_gap_integration_plan as legacy_gap_integration_plan
 import build_legacy_gap_source_review as legacy_gap_source_review
 import build_legacy_gap_evidence_scan as legacy_gap_evidence_scan
 import build_prerequisite_map as prerequisite_map
+import build_node_edge_consistency_audit as node_edge_consistency
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -332,6 +333,28 @@ def prerequisite_unit_graph_has_required_content(dot_text: str) -> bool:
     )
 
 
+def node_edge_consistency_issue_key(record: dict) -> tuple[str, str, str, str, str]:
+    return (
+        str(record.get("issue_type", "")),
+        str(record.get("node_id", "")),
+        str(record.get("array_field", "")),
+        str(record.get("related_id", "")),
+        str(record.get("expected_relationship_type", "")),
+    )
+
+
+def missing_node_edge_consistency_issue_keys(
+    expected_rows: list[dict],
+    actual_rows: list[dict],
+) -> list[tuple[str, str, str, str, str]]:
+    actual_keys = {node_edge_consistency_issue_key(row) for row in actual_rows}
+    return [
+        node_edge_consistency_issue_key(row)
+        for row in expected_rows
+        if node_edge_consistency_issue_key(row) not in actual_keys
+    ]
+
+
 def main() -> None:
     data_path = OUT_DIR / "concepts.json"
     if not data_path.exists():
@@ -401,6 +424,8 @@ def main() -> None:
     prerequisite_map_csv = OUT_DIR / "prerequisite-map.csv"
     prerequisite_map_md = OUT_DIR / "prerequisite-map.md"
     prerequisite_unit_graph_dot = prerequisite_map.PREREQUISITE_UNIT_GRAPH_DOT
+    node_edge_consistency_csv = node_edge_consistency.NODE_EDGE_CONSISTENCY_CSV
+    node_edge_consistency_md = node_edge_consistency.NODE_EDGE_CONSISTENCY_MD
     source_inventory_csv = OUT_DIR / "source-inventory.csv"
     source_inventory_md = OUT_DIR / "source-inventory.md"
     source_ref_audit_csv = OUT_DIR / "source-ref-audit.csv"
@@ -486,6 +511,24 @@ def main() -> None:
     expected_unit_transition_count = len(prerequisite_map.unit_transition_rows(expected_prerequisite_map_rows))
     if prerequisite_unit_graph_edge_line_count(prerequisite_unit_graph_text) != expected_unit_transition_count:
         fail("prerequisite-unit-graph.dot edge count does not match prerequisite unit transitions")
+    node_edge_consistency_rows = read_csv_rows(node_edge_consistency_csv)
+    expected_node_edge_consistency_rows = node_edge_consistency.consistency_issue_rows(concepts, edges)
+    if len(node_edge_consistency_rows) != len(expected_node_edge_consistency_rows):
+        fail("node-edge-consistency-audit.csv row count does not match generated consistency audit")
+    if node_edge_consistency_rows and list(node_edge_consistency_rows[0]) != node_edge_consistency.CSV_FIELDS:
+        fail("node-edge-consistency-audit.csv fields do not match schema")
+    missing_node_edge_issue_keys = missing_node_edge_consistency_issue_keys(
+        expected_node_edge_consistency_rows,
+        node_edge_consistency_rows,
+    )
+    if missing_node_edge_issue_keys:
+        fail(f"node-edge-consistency-audit.csv missing issue keys: {missing_node_edge_issue_keys}")
+    if [node_edge_consistency_issue_key(row) for row in node_edge_consistency_rows] != [
+        node_edge_consistency_issue_key(row) for row in expected_node_edge_consistency_rows
+    ]:
+        fail("node-edge-consistency-audit.csv issue order does not match generated consistency audit")
+    if not node_edge_consistency_md.exists() or "# Node Edge Consistency Audit" not in node_edge_consistency_md.read_text(encoding="utf-8"):
+        fail("node-edge-consistency-audit.md missing or invalid")
     source_inventory_rows = read_csv_rows(source_inventory_csv)
     missing_source_groups = missing_source_inventory_groups(source_inventory_rows)
     if missing_source_groups:

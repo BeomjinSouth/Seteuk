@@ -114,6 +114,23 @@
 | `source_concept_count` | 해당 관계 유형에서 source로 등장하는 concept 수 |
 | `target_concept_count` | 해당 관계 유형에서 target으로 등장하는 concept 수 |
 
+## Node Edge Consistency Audit CSV
+
+`node-edge-consistency-audit.csv`는 concept 노드의 `parent_ids`, `prerequisite_ids`, `related_ids` 배열과 명시적 edge row 사이의 비동기 항목을 검토하기 위한 파생 산출물이다. 이 파일의 row는 자동 오류가 아니라 검토 큐이며, 공식 근거 또는 교과서 근거 확인 후 edge 추가, 배열 정리, 관계 유형 조정 중 하나로 처리한다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `issue_type` | `missing_edge_for_parent_id`, `missing_edge_for_prerequisite_id`, `missing_edge_for_related_id`, `edge_without_parent_id`, `edge_without_prerequisite_id` |
+| `node_id` | 배열 또는 edge target 기준으로 검토할 concept id |
+| `node_label_ko` | 검토 concept 한국어 이름 |
+| `array_field` | 검토 대상 배열 필드. `parent_ids`, `prerequisite_ids`, `related_ids` 중 하나 |
+| `related_id` | 배열 항목 또는 edge source에 해당하는 상대 concept id |
+| `related_label_ko` | 상대 concept 한국어 이름 |
+| `expected_relationship_type` | 기대되는 edge 관계 유형. `related_ids`는 `related_edge`로 묶어 표시 |
+| `matching_edge_ids` | edge는 있으나 배열에 없는 경우의 원본 edge id 목록 |
+| `issue_status` | 현재는 모두 `review_needed` |
+| `notes` | 검토 사유와 처리 유의점 |
+
 ## Prerequisite Map CSV
 
 `prerequisite-map.csv`는 `concepts.json`의 `prerequisite_for` edge를 개념쌍 단위로 펼쳐, 선수 개념 흐름을 단원 전이 기준으로 검토하기 위한 파생 산출물이다.

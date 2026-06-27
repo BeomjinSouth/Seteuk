@@ -396,3 +396,29 @@
 - 중1~중3 수학 교과서 PDF가 추가되면 `textbook-evidence-packets/`, `prerequisite-map.csv`, `prerequisite-unit-graph.dot`를 함께 사용해 concept별 본문·예제 근거와 선수 edge별 쪽수 근거를 누적한다.
 - 교과서 쪽수 근거가 확보되면 `low` 신뢰도 노드, `medium` 기초 선수개념, `low` 선수 edge 40개, `low` 포함 단원 전이를 우선 재검토한다.
 - `비`는 교과서 본문, 용어 설명, 초등 연계 문서에서 단독 정의 또는 활용 맥락 근거를 확인해 `m1_num_ratio`의 confidence 승격 여부를 판단한다.
+
+## 2026-06-27 노드 배열-edge 일관성 감사 보강
+
+- AGENTS.md를 다시 확인하고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 범위의 산출물 보강으로 제한했다.
+- `build_node_edge_consistency_audit.py`를 추가해 concept 노드의 `parent_ids`, `prerequisite_ids`, `related_ids` 배열과 명시적 edge row 사이의 비동기 항목을 `node-edge-consistency-audit.csv`와 `node-edge-consistency-audit.md`로 생성하게 했다.
+- 현재 감사 row는 950개이며, `missing_edge_for_parent_id` 102개, `missing_edge_for_prerequisite_id` 342개, `missing_edge_for_related_id` 469개, `edge_without_parent_id` 27개, `edge_without_prerequisite_id` 10개다.
+- 이 row들은 즉시 실패 처리할 오류가 아니라 검토 큐다. `related_ids`는 넓은 의미 관계를 보존하는 경우가 있어, 공식 근거 또는 교과서 근거를 확인한 뒤 edge 추가, 배열 정리, 관계 유형 조정 중 하나로 처리한다.
+- `validate_concept_map.py`가 `node-edge-consistency-audit.csv`의 필드, row 수, issue key 누락, 생성 순서를 현재 `concepts.json`에서 재생성한 감사 row와 대조하도록 보강했다.
+- `README.md`와 `SCHEMA.md`에 새 산출물, 생성 명령, 검증 범위, CSV 필드 설명을 반영했다.
+- 이번 작업은 기존 concept/edge 구조의 정합성 검토층을 추가한 것이므로 기존 PDF 원본, 다운로드 manifest, 출처 선택 규칙은 변경하지 않았다.
+
+## 2026-06-27 노드 배열-edge 일관성 감사 검증 결과
+
+- TDD red: `python .\docs\math-concept-map\tools\test_build_node_edge_consistency_audit.py`가 `ModuleNotFoundError: No module named 'build_node_edge_consistency_audit'`로 실패하는 것을 확인했다.
+- TDD green: `python .\docs\math-concept-map\tools\test_build_node_edge_consistency_audit.py`: 5개 통과.
+- Validator 보강 red: `python .\docs\math-concept-map\tools\test_validate_concept_map.py`가 새 consistency helper 부재로 2개 error를 내는 것을 확인했다.
+- Validator 보강 green: `python .\docs\math-concept-map\tools\test_validate_concept_map.py`: 37개 통과.
+- 전체 검증: `python -m unittest discover -s .\docs\math-concept-map\tools -p 'test_*.py'`: 103개 통과.
+- 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 476개 concept, 1262개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map`: 종료 코드 0, CRLF 변환 경고만 확인.
+
+## 다음 작업
+
+- `node-edge-consistency-audit.csv`의 `missing_edge_for_parent_id` 102개와 `edge_without_parent_id` 27개부터 단원별로 검토해, 포함 관계가 명확한 항목은 `contains` edge 또는 `parent_ids`를 정비한다.
+- 그 다음 `missing_edge_for_prerequisite_id` 342개와 `edge_without_prerequisite_id` 10개를 검토해, 실제 선수 관계와 단순 연관 관계를 구분한다.
+- `related_ids` 관련 469개 row는 교과서 본문·예제·용어 설명이 들어오면 `related_to`, `contrasts_with`, `often_confused_with`, `represented_by`, `used_in` 중 적절한 edge로 정리한다.
