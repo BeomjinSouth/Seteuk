@@ -1,0 +1,12 @@
+﻿rank,unit,edge_id,source_id,source_label_ko,source_unit,target_id,target_label_ko,target_unit,relationship_type,edge_scope,confidence,evidence_depth,needs_textbook_evidence,source_ref_count,notes
+33,자료와 가능성,m1_data_domain__related_to__m1_num_domain,m1_data_domain,자료와 가능성,자료와 가능성,m1_num_domain,수와 연산,수와 연산,related_to,cross_unit,low,official_dual_source,yes,8,"Data, probability, relative frequency, and variability use numbers and operations, but this broad domain bridge needs textbook-level dependency evidence."
+33,자료와 가능성,m1_data_domain__contains__m1_data_box_scatter_unit,m1_data_domain,자료와 가능성,자료와 가능성,m1_data_box_scatter_unit,상자그림과 산점도,상자그림과 산점도,contains,cross_unit,high,official_dual_source,yes,4,
+33,자료와 가능성,m1_data_domain__contains__m1_data_dataset,m1_data_domain,자료와 가능성,자료와 가능성,m1_data_dataset,자료,자료와 가능성,contains,cross_unit,high,official_dual_source,yes,4,
+33,자료와 가능성,m1_data_domain__contains__m1_data_frequency_unit,m1_data_domain,자료와 가능성,자료와 가능성,m1_data_frequency_unit,도수분포표와 상대도수,도수분포표와 상대도수,contains,cross_unit,high,official_dual_source,yes,4,
+33,자료와 가능성,m1_data_domain__contains__m1_data_probability_unit,m1_data_domain,자료와 가능성,자료와 가능성,m1_data_probability_unit,경우의 수와 확률,경우의 수와 확률,contains,cross_unit,high,official_dual_source,yes,5,
+33,자료와 가능성,m1_data_domain__contains__m1_data_representative_unit,m1_data_domain,자료와 가능성,자료와 가능성,m1_data_representative_unit,대푯값,대푯값,contains,cross_unit,high,official_dual_source,yes,3,
+33,자료와 가능성,m1_data_domain__contains__m1_data_statistical_inquiry_unit,m1_data_domain,자료와 가능성,자료와 가능성,m1_data_statistical_inquiry_unit,통계적 탐구,도수분포표와 상대도수,contains,cross_unit,high,official_dual_source,yes,3,
+33,자료와 가능성,m1_data_domain__contains__m1_data_variability_unit,m1_data_domain,자료와 가능성,자료와 가능성,m1_data_variability_unit,산포도,산포도,contains,cross_unit,high,official_dual_source,yes,2,
+33,자료와 가능성,m1_data_domain__contains__m1_data_variable,m1_data_domain,자료와 가능성,자료와 가능성,m1_data_variable,변량,자료와 가능성,contains,cross_unit,high,official_dual_source,yes,2,
+33,자료와 가능성,m1_data_domain__represented_by__m1_graph_graph,m1_data_domain,자료와 가능성,자료와 가능성,m1_graph_graph,그래프,좌표평면과 그래프,represented_by,cross_unit,medium,official_dual_source,yes,4,The data-and-chance domain repeatedly represents distributions and statistical information with graphs.
+33,자료와 가능성,m1_data_domain__represented_by__m1_repr_table,m1_data_domain,자료와 가능성,자료와 가능성,m1_repr_table,표,좌표평면과 그래프,represented_by,cross_unit,medium,official_dual_source,yes,6,The data-and-chance domain repeatedly represents data and distributions with tables.

@@ -290,6 +290,118 @@ class BuildPilotUnitMapTests(unittest.TestCase):
 
         self.assertEqual(dot.count("\"number_line\" [label=\"수직선\\\\nexternal\""), 1)
 
+    def test_unit_map_packet_set_builds_ranked_packets(self) -> None:
+        workplan_rows = [
+            {"rank": "2", "grade": "중1", "domain": "변화와 관계", "unit": "일차함수", "workplan_score": "20"},
+            {"rank": "1", "grade": "중1", "domain": "변화와 관계", "unit": "좌표평면", "workplan_score": "30"},
+        ]
+        concepts = [
+            {"id": "coord", "label_ko": "좌표", "grade": "중1", "domain": "변화와 관계", "unit": "좌표평면", "concept_type": "term", "confidence": "high", "source_refs": [], "parent_ids": [], "prerequisite_ids": [], "related_ids": [], "short_definition": "", "notes": ""},
+            {"id": "linear", "label_ko": "일차함수", "grade": "중1", "domain": "변화와 관계", "unit": "일차함수", "concept_type": "core_concept", "confidence": "low", "source_refs": [], "parent_ids": [], "prerequisite_ids": [], "related_ids": [], "short_definition": "", "notes": ""},
+        ]
+        edges = [
+            {"id": "coord__prerequisite_for__linear", "source_id": "coord", "target_id": "linear", "relationship_type": "prerequisite_for", "confidence": "medium", "source_refs": [], "notes": ""},
+        ]
+        concept_evidence_rows = [
+            {"concept_id": "coord", "evidence_depth": "official_single_source", "source_ref_count": "0", "needs_textbook_evidence": "yes"},
+            {"concept_id": "linear", "evidence_depth": "official_single_source", "source_ref_count": "0", "needs_textbook_evidence": "yes"},
+        ]
+        edge_evidence_rows = [
+            {"edge_id": "coord__prerequisite_for__linear", "evidence_depth": "official_single_source", "source_ref_count": "0", "needs_textbook_evidence": "yes"},
+        ]
+
+        packets = pilot_unit_map.unit_map_packet_set(
+            concepts,
+            edges,
+            concept_evidence_rows,
+            edge_evidence_rows,
+            workplan_rows,
+        )
+
+        self.assertEqual([packet["rank"] for packet in packets], [1, 2])
+        self.assertEqual([packet["target"]["unit"] for packet in packets], ["좌표평면", "일차함수"])
+        self.assertEqual([len(packet["node_rows"]) for packet in packets], [1, 1])
+        self.assertEqual([len(packet["edge_rows"]) for packet in packets], [1, 1])
+
+    def test_unit_map_index_rows_track_packet_paths_and_counts(self) -> None:
+        packets = [
+            {
+                "rank": 1,
+                "target": {
+                    "rank": "1",
+                    "grade": "중1",
+                    "domain": "변화와 관계",
+                    "unit": "좌표평면",
+                    "priority_tier": "highest",
+                    "workplan_score": "30",
+                    "total_pending_evidence_count": "3",
+                    "next_action": "fill_low_confidence_concept_and_edge_evidence",
+                },
+                "node_rows": [{"confidence": "low"}, {"confidence": "high"}],
+                "edge_rows": [{"confidence": "medium", "edge_scope": "intra_unit"}, {"confidence": "low", "edge_scope": "cross_unit"}],
+            }
+        ]
+
+        rows = pilot_unit_map.unit_map_index_rows(packets)
+
+        self.assertEqual(rows[0]["concept_count"], 2)
+        self.assertEqual(rows[0]["edge_count"], 2)
+        self.assertEqual(rows[0]["cross_unit_edge_count"], 1)
+        self.assertEqual(rows[0]["low_confidence_concept_count"], 1)
+        self.assertEqual(rows[0]["low_confidence_edge_count"], 1)
+        self.assertEqual(rows[0]["node_csv"], "rank-01-nodes.csv")
+        self.assertEqual(rows[0]["map_dot"], "rank-01.dot")
+
+    def test_write_unit_map_packet_set_writes_index_and_rank_files(self) -> None:
+        packets = [
+            {
+                "rank": 1,
+                "target": {
+                    "rank": "1",
+                    "grade": "중1",
+                    "domain": "변화와 관계",
+                    "unit": "좌표평면",
+                    "priority_tier": "highest",
+                    "workplan_score": "30",
+                    "total_pending_evidence_count": "3",
+                    "next_action": "fill_low_confidence_concept_and_edge_evidence",
+                },
+                "node_rows": [
+                    {
+                        "rank": "1",
+                        "grade": "중1",
+                        "domain": "변화와 관계",
+                        "unit": "좌표평면",
+                        "concept_id": "coord",
+                        "label_ko": "좌표",
+                        "concept_type": "term",
+                        "confidence": "high",
+                        "evidence_depth": "official_single_source",
+                        "needs_textbook_evidence": "yes",
+                        "source_ref_count": "1",
+                        "parent_ids": "",
+                        "prerequisite_ids": "",
+                        "related_ids": "",
+                        "short_definition": "",
+                        "notes": "",
+                    }
+                ],
+                "edge_rows": [],
+            }
+        ]
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            output_dir = Path(temp_dir) / "unit-map-packets"
+            pilot_unit_map.write_unit_map_packet_set(packets, output_dir)
+
+            self.assertTrue((output_dir / "index.csv").exists())
+            self.assertTrue((output_dir / "index.md").exists())
+            self.assertTrue((output_dir / "rank-01-nodes.csv").exists())
+            self.assertTrue((output_dir / "rank-01-edges.csv").exists())
+            self.assertTrue((output_dir / "rank-01.md").exists())
+            self.assertTrue((output_dir / "rank-01.dot").exists())
+            self.assertIn("# Unit Map Packet Index", (output_dir / "index.md").read_text(encoding="utf-8"))
+
 
 if __name__ == "__main__":
     unittest.main()

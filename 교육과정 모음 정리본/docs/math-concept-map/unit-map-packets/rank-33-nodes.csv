@@ -1,0 +1,2 @@
+﻿rank,grade,domain,unit,concept_id,label_ko,concept_type,confidence,evidence_depth,needs_textbook_evidence,source_ref_count,parent_ids,prerequisite_ids,related_ids,short_definition,notes
+33,중학교(교육과정 학년군: 중1-3),자료와 가능성,자료와 가능성,m1_data_domain,자료와 가능성,core_concept,high,official_single_source,yes,9,,,m1_repr_table; m1_graph_graph; m1_num_domain,"자료의 수집·정리·해석, 대푯값과 산포도, 경우의 수와 확률, 상자그림과 산점도로 이어지는 중학교 통계와 확률 영역.",

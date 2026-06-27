@@ -301,6 +301,32 @@ class AchievementCoverageTests(unittest.TestCase):
             [{"rank": "1", "concept_id": "coord", "missing": ""}],
         )
 
+    def test_unit_map_packet_missing_ranks_are_reported(self) -> None:
+        rows = [
+            {"rank": "1"},
+            {"rank": "3"},
+        ]
+
+        self.assertEqual(
+            validator.unit_map_packet_missing_ranks(rows, expected_ranks=[1, 2, 3]),
+            [2],
+        )
+
+    def test_unit_map_packet_index_total_sums_counts(self) -> None:
+        rows = [
+            {"concept_count": "2", "edge_count": "5"},
+            {"concept_count": "3", "edge_count": "7"},
+        ]
+
+        self.assertEqual(
+            validator.unit_map_packet_index_total(rows, "concept_count"),
+            5,
+        )
+        self.assertEqual(
+            validator.unit_map_packet_index_total(rows, "edge_count"),
+            12,
+        )
+
     def test_textbook_workplan_pending_count_sums_rows(self) -> None:
         rows = [
             {"total_pending_evidence_count": "6"},

@@ -886,9 +886,29 @@
 - diff check: `git diff --check -- docs/math-concept-map 교과서_원본`: 종료 코드 0, CRLF 변환 경고만 확인.
 - PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
 
+## 2026-06-27 전체 unit map packet 추가
+
+- AGENTS.md를 다시 확인했고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 생성 로직과 파생 산출물 정비로 제한했다.
+- rank 1 전용 `pilot-unit-map.*` 형식을 전체 34개 workplan 단원으로 확장해 `unit-map-packets/*`를 추가했다.
+- `build_pilot_unit_map.py --all`은 `unit-map-packets/index.*`와 rank별 `rank-XX-nodes.csv`, `rank-XX-edges.csv`, `rank-XX.md`, `rank-XX.dot` 파일을 만든다.
+- TDD red: `python -m unittest discover -s .\docs\math-concept-map\tools -p 'test_build_pilot_unit_map.py'`가 전체 packet set API 누락으로 실패하는 것을 확인했다.
+- TDD green: 같은 테스트 명령이 8개 테스트 통과로 전환되는 것을 확인했다.
+- validator red: `python .\docs\math-concept-map\tools\validate_concept_map.py`가 `unit-map-packets/index.csv missing`으로 실패하는 것을 확인한 뒤 산출물을 생성했다.
+- 실제 산출물 생성 결과 전체 34개 단원 map, 파일 138개, concept row 476개, 단원 접점 edge row 2411개, cross-unit edge row 890개가 기록되었다.
+- `validate_concept_map.py`가 `unit-map-packets/index.csv`, `index.md`, rank별 node/edge CSV, Markdown, DOT의 schema, row count, workplan rank, 재생성 결과 일치, concept/edge 총계를 함께 검증하도록 확장했다.
+
+## 2026-06-27 전체 unit map packet 검증 결과
+
+- 좁은 생성기 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p 'test_build_pilot_unit_map.py'`: 8개 통과.
+- 좁은 validator 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p 'test_validate_concept_map.py'`: 51개 통과.
+- 전체 단위 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p 'test_*.py'`: 160개 통과.
+- 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 476개 concept, 1966개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map 교과서_원본`: 종료 코드 0, CRLF 변환 경고만 확인.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
 - 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.
-- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 40개와 edge packet row 202개, 총 242개 row로 유지한다.
+- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 40개와 edge packet row 202개, 총 242개 row로 유지하되, 전체 단원 검토는 `unit-map-packets/index.*`에서 rank 1~34 순서로 이어간다.
 - 새 concept 또는 `related_ids`가 추가되면 `related-edge-resolution-queue.*`, `textbook-edge-evidence-packets/*`, `edge-evidence-depth.*`를 함께 재생성한다.

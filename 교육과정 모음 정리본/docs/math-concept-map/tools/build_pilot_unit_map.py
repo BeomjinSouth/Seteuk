@@ -18,6 +18,7 @@ PILOT_UNIT_MAP_MD = OUT_DIR / "pilot-unit-map.md"
 PILOT_UNIT_MAP_NODES_CSV = OUT_DIR / "pilot-unit-map-nodes.csv"
 PILOT_UNIT_MAP_EDGES_CSV = OUT_DIR / "pilot-unit-map-edges.csv"
 PILOT_UNIT_MAP_DOT = OUT_DIR / "pilot-unit-map.dot"
+UNIT_MAP_PACKET_DIR = OUT_DIR / "unit-map-packets"
 
 NODE_CSV_FIELDS = [
     "rank",
@@ -55,6 +56,27 @@ EDGE_CSV_FIELDS = [
     "needs_textbook_evidence",
     "source_ref_count",
     "notes",
+]
+
+INDEX_CSV_FIELDS = [
+    "rank",
+    "grade",
+    "domain",
+    "unit",
+    "priority_tier",
+    "workplan_score",
+    "concept_count",
+    "edge_count",
+    "intra_unit_edge_count",
+    "cross_unit_edge_count",
+    "low_confidence_concept_count",
+    "low_confidence_edge_count",
+    "total_pending_evidence_count",
+    "next_action",
+    "node_csv",
+    "edge_csv",
+    "map_md",
+    "map_dot",
 ]
 
 CONCEPT_TYPE_SORT_PRIORITY = {
@@ -374,16 +396,175 @@ def write_edge_csv(rows: list[dict], path: Path = PILOT_UNIT_MAP_EDGES_CSV) -> N
         writer.writerows(rows)
 
 
+def int_value(value: object) -> int:
+    try:
+        return int(str(value))
+    except (TypeError, ValueError):
+        return 0
+
+
+def unit_map_packet_paths(rank: int, output_dir: Path = UNIT_MAP_PACKET_DIR) -> dict[str, Path]:
+    stem = f"rank-{rank:02d}"
+    return {
+        "node_csv": output_dir / f"{stem}-nodes.csv",
+        "edge_csv": output_dir / f"{stem}-edges.csv",
+        "map_md": output_dir / f"{stem}.md",
+        "map_dot": output_dir / f"{stem}.dot",
+    }
+
+
+def unit_map_packet_set(
+    concepts: Iterable[dict],
+    edges: Iterable[dict],
+    concept_evidence_rows: Iterable[dict],
+    edge_evidence_rows: Iterable[dict],
+    workplan_rows: Iterable[dict],
+    top_n: int | None = None,
+) -> list[dict]:
+    concept_list = list(concepts)
+    edge_list = list(edges)
+    concept_evidence_list = list(concept_evidence_rows)
+    edge_evidence_list = list(edge_evidence_rows)
+    targets = sorted(list(workplan_rows), key=lambda row: int_value(row.get("rank")))
+    if top_n is not None:
+        targets = targets[:top_n]
+
+    packets: list[dict] = []
+    for target in targets:
+        rank = int_value(target.get("rank"))
+        packets.append(
+            {
+                "rank": rank,
+                "target": target,
+                "node_rows": pilot_unit_node_rows(concept_list, concept_evidence_list, target),
+                "edge_rows": pilot_unit_edge_rows(concept_list, edge_list, edge_evidence_list, target),
+            }
+        )
+    return packets
+
+
+def unit_map_index_rows(packets: Iterable[dict]) -> list[dict]:
+    rows: list[dict] = []
+    for packet in packets:
+        rank = int_value(packet.get("rank"))
+        target = packet.get("target", {})
+        node_rows = list(packet.get("node_rows", []))
+        edge_rows = list(packet.get("edge_rows", []))
+        paths = unit_map_packet_paths(rank)
+        rows.append(
+            {
+                "rank": rank,
+                "grade": target.get("grade", ""),
+                "domain": target.get("domain", ""),
+                "unit": target.get("unit", ""),
+                "priority_tier": target.get("priority_tier", ""),
+                "workplan_score": target.get("workplan_score", ""),
+                "concept_count": len(node_rows),
+                "edge_count": len(edge_rows),
+                "intra_unit_edge_count": sum(1 for row in edge_rows if row.get("edge_scope") == "intra_unit"),
+                "cross_unit_edge_count": sum(1 for row in edge_rows if row.get("edge_scope") == "cross_unit"),
+                "low_confidence_concept_count": sum(1 for row in node_rows if row.get("confidence") == "low"),
+                "low_confidence_edge_count": sum(1 for row in edge_rows if row.get("confidence") == "low"),
+                "total_pending_evidence_count": target.get("total_pending_evidence_count", ""),
+                "next_action": target.get("next_action", ""),
+                "node_csv": paths["node_csv"].name,
+                "edge_csv": paths["edge_csv"].name,
+                "map_md": paths["map_md"].name,
+                "map_dot": paths["map_dot"].name,
+            }
+        )
+    return rows
+
+
+def render_index_markdown(rows: list[dict]) -> str:
+    total_concepts = sum(int_value(row.get("concept_count")) for row in rows)
+    total_edges = sum(int_value(row.get("edge_count")) for row in rows)
+    total_cross_edges = sum(int_value(row.get("cross_unit_edge_count")) for row in rows)
+    lines = [
+        "# Unit Map Packet Index",
+        "",
+        "This generated index tracks compact concept hierarchy maps for every textbook evidence workplan unit.",
+        "",
+        "## Summary",
+        "",
+        f"- unit maps: {len(rows)}",
+        f"- concept rows: {total_concepts}",
+        f"- edge rows touching units: {total_edges}",
+        f"- cross-unit edge rows: {total_cross_edges}",
+        "",
+        "## Packets",
+        "",
+        "| rank | grade | domain | unit | concepts | edges | cross | low concepts | low edges | map | dot |",
+        "|---:|---|---|---|---:|---:|---:|---:|---:|---|---|",
+    ]
+    for row in rows:
+        lines.append(
+            "| {rank} | {grade} | {domain} | {unit} | {concept_count} | {edge_count} | "
+            "{cross_unit_edge_count} | {low_confidence_concept_count} | "
+            "{low_confidence_edge_count} | {map_md} | {map_dot} |".format(**row)
+        )
+    lines.append("")
+    return "\n".join(lines)
+
+
+def write_index_csv(rows: list[dict], path: Path) -> None:
+    with path.open("w", encoding="utf-8-sig", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=INDEX_CSV_FIELDS)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def write_unit_map_packet_set(
+    packets: list[dict],
+    output_dir: Path = UNIT_MAP_PACKET_DIR,
+) -> None:
+    output_dir.mkdir(parents=True, exist_ok=True)
+    for packet in packets:
+        rank = int_value(packet.get("rank"))
+        paths = unit_map_packet_paths(rank, output_dir)
+        write_node_csv(packet.get("node_rows", []), paths["node_csv"])
+        write_edge_csv(packet.get("edge_rows", []), paths["edge_csv"])
+        paths["map_md"].write_text(
+            render_markdown(packet.get("target", {}), packet.get("node_rows", []), packet.get("edge_rows", [])),
+            encoding="utf-8",
+        )
+        paths["map_dot"].write_text(
+            render_dot(packet.get("target", {}), packet.get("node_rows", []), packet.get("edge_rows", [])),
+            encoding="utf-8",
+        )
+
+    index_rows = unit_map_index_rows(packets)
+    write_index_csv(index_rows, output_dir / "index.csv")
+    (output_dir / "index.md").write_text(render_index_markdown(index_rows), encoding="utf-8")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build a compact pilot unit concept hierarchy map.")
     parser.add_argument("--rank", type=int, default=1, help="textbook evidence workplan rank")
+    parser.add_argument("--top-n", type=int, help="build compact unit map packets for the top N workplan ranks")
+    parser.add_argument("--all", action="store_true", help="build compact unit map packets for every workplan rank")
     args = parser.parse_args()
 
     workplan_rows = read_csv_rows(TEXTBOOK_EVIDENCE_WORKPLAN_CSV)
-    target = target_unit(workplan_rows, rank=args.rank)
     concepts, edges = read_concepts_data()
     concept_evidence_rows = read_csv_rows(CONCEPT_EVIDENCE_DEPTH_CSV)
     edge_evidence_rows = read_csv_rows(EDGE_EVIDENCE_DEPTH_CSV)
+
+    if args.all or args.top_n is not None:
+        top_n = None if args.all else args.top_n
+        packets = unit_map_packet_set(
+            concepts,
+            edges,
+            concept_evidence_rows,
+            edge_evidence_rows,
+            workplan_rows,
+            top_n=top_n,
+        )
+        write_unit_map_packet_set(packets)
+        print(f"Wrote {len(packets)} compact unit map packets to {UNIT_MAP_PACKET_DIR}.")
+        return
+
+    target = target_unit(workplan_rows, rank=args.rank)
     node_rows = pilot_unit_node_rows(concepts, concept_evidence_rows, target)
     edge_rows = pilot_unit_edge_rows(concepts, edges, edge_evidence_rows, target)
 

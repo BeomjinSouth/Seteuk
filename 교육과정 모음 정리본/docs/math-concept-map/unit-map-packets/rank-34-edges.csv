@@ -1,0 +1,18 @@
+﻿rank,unit,edge_id,source_id,source_label_ko,source_unit,target_id,target_label_ko,target_unit,relationship_type,edge_scope,confidence,evidence_depth,needs_textbook_evidence,source_ref_count,notes
+34,자료와 가능성,m1_data_dataset__prerequisite_for__m1_data_variable,m1_data_dataset,자료,자료와 가능성,m1_data_variable,변량,자료와 가능성,prerequisite_for,intra_unit,high,official_dual_source,yes,2,
+34,자료와 가능성,m1_data_domain__contains__m1_data_dataset,m1_data_domain,자료와 가능성,자료와 가능성,m1_data_dataset,자료,자료와 가능성,contains,cross_unit,high,official_dual_source,yes,4,
+34,자료와 가능성,m1_data_domain__contains__m1_data_variable,m1_data_domain,자료와 가능성,자료와 가능성,m1_data_variable,변량,자료와 가능성,contains,cross_unit,high,official_dual_source,yes,2,
+34,자료와 가능성,m1_data_dataset__prerequisite_for__m1_data_class,m1_data_dataset,자료,자료와 가능성,m1_data_class,계급,도수분포표와 상대도수,prerequisite_for,cross_unit,high,official_dual_source,yes,3,
+34,자료와 가능성,m1_data_dataset__prerequisite_for__m1_data_distribution,m1_data_dataset,자료,자료와 가능성,m1_data_distribution,자료의 분포,도수분포표와 상대도수,prerequisite_for,cross_unit,high,official_dual_source,yes,5,
+34,자료와 가능성,m1_data_dataset__prerequisite_for__m1_data_frequency,m1_data_dataset,자료,자료와 가능성,m1_data_frequency,도수,도수분포표와 상대도수,prerequisite_for,cross_unit,high,official_dual_source,yes,3,
+34,자료와 가능성,m1_data_dataset__prerequisite_for__m1_data_median,m1_data_dataset,자료,자료와 가능성,m1_data_median,중앙값,대푯값,prerequisite_for,cross_unit,high,official_dual_source,yes,3,
+34,자료와 가능성,m1_data_dataset__prerequisite_for__m1_data_mode,m1_data_dataset,자료,자료와 가능성,m1_data_mode,최빈값,대푯값,prerequisite_for,cross_unit,high,official_dual_source,yes,3,
+34,자료와 가능성,m1_data_dataset__prerequisite_for__m1_data_representative_value,m1_data_dataset,자료,자료와 가능성,m1_data_representative_value,대푯값,대푯값,prerequisite_for,cross_unit,high,official_dual_source,yes,4,
+34,자료와 가능성,m1_data_dataset__prerequisite_for__m1_data_statistical_inquiry_problem,m1_data_dataset,자료,자료와 가능성,m1_data_statistical_inquiry_problem,통계적 탐구 문제,도수분포표와 상대도수,prerequisite_for,cross_unit,high,official_dual_source,yes,3,
+34,자료와 가능성,m1_data_dataset__prerequisite_for__m1_data_stem_leaf_plot,m1_data_dataset,자료,자료와 가능성,m1_data_stem_leaf_plot,줄기와 잎 그림,도수분포표와 상대도수,prerequisite_for,cross_unit,high,official_dual_source,yes,3,
+34,자료와 가능성,m1_data_variable__prerequisite_for__m1_data_deviation,m1_data_variable,변량,자료와 가능성,m1_data_deviation,편차,산포도,prerequisite_for,cross_unit,high,official_dual_source,yes,3,
+34,자료와 가능성,m1_data_variable__prerequisite_for__m1_data_scatter_plot,m1_data_variable,변량,자료와 가능성,m1_data_scatter_plot,산점도,상자그림과 산점도,prerequisite_for,cross_unit,high,official_dual_source,yes,3,
+34,자료와 가능성,m1_data_dataset__represented_by__m1_data_frequency_table,m1_data_dataset,자료,자료와 가능성,m1_data_frequency_table,도수분포표,도수분포표와 상대도수,represented_by,cross_unit,high,official_dual_source,yes,3,
+34,자료와 가능성,m1_data_dataset__represented_by__m1_data_stem_leaf_plot,m1_data_dataset,자료,자료와 가능성,m1_data_stem_leaf_plot,줄기와 잎 그림,도수분포표와 상대도수,represented_by,cross_unit,high,official_dual_source,yes,3,
+34,자료와 가능성,m1_data_variable__used_in__m1_data_scatter_plot,m1_data_variable,변량,자료와 가능성,m1_data_scatter_plot,산점도,상자그림과 산점도,used_in,cross_unit,high,official_dual_source,yes,3,
+34,자료와 가능성,m1_data_dataset__related_to__m1_data_data_collection,m1_data_dataset,자료,자료와 가능성,m1_data_data_collection,자료 수집,도수분포표와 상대도수,related_to,cross_unit,medium,official_dual_source,yes,4,Data collection is the procedure that obtains or prepares datasets for statistical analysis.

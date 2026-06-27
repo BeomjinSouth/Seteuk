@@ -296,6 +296,15 @@ def textbook_workplan_pending_count(records: list[dict]) -> int:
     return sum(int(record.get("total_pending_evidence_count", 0)) for record in records)
 
 
+def unit_map_packet_missing_ranks(records: list[dict], expected_ranks: list[int]) -> list[int]:
+    present = {int(record.get("rank", 0)) for record in records}
+    return [rank for rank in expected_ranks if rank not in present]
+
+
+def unit_map_packet_index_total(records: list[dict], field: str) -> int:
+    return sum(int(record.get(field, 0)) for record in records)
+
+
 def textbook_source_audit_not_ready_count(records: list[dict]) -> int:
     return sum(1 for record in records if record.get("intake_status") != "ready_for_textbook_extraction")
 
@@ -529,6 +538,9 @@ def main() -> None:
     pilot_unit_map_nodes_csv = pilot_unit_map.PILOT_UNIT_MAP_NODES_CSV
     pilot_unit_map_edges_csv = pilot_unit_map.PILOT_UNIT_MAP_EDGES_CSV
     pilot_unit_map_dot = pilot_unit_map.PILOT_UNIT_MAP_DOT
+    unit_map_packet_dir = pilot_unit_map.UNIT_MAP_PACKET_DIR
+    unit_map_packet_index_csv = unit_map_packet_dir / "index.csv"
+    unit_map_packet_index_md = unit_map_packet_dir / "index.md"
     legacy_gap_audit_csv = OUT_DIR / "legacy-gap-audit.csv"
     legacy_gap_audit_md = OUT_DIR / "legacy-gap-audit.md"
     legacy_gap_resolution_csv = OUT_DIR / "legacy-gap-resolution.csv"
@@ -934,6 +946,59 @@ def main() -> None:
         fail("pilot-unit-map.md missing or invalid")
     if not pilot_unit_map_dot.exists() or "digraph pilot_unit_map" not in pilot_unit_map_dot.read_text(encoding="utf-8"):
         fail("pilot-unit-map.dot missing or invalid")
+    if not unit_map_packet_index_csv.exists():
+        fail("unit-map-packets/index.csv missing")
+    unit_map_index_rows = read_csv_rows(unit_map_packet_index_csv)
+    expected_unit_map_ranks = sorted(int(row.get("rank", 0)) for row in textbook_workplan_rows)
+    if len(unit_map_index_rows) != len(textbook_workplan_rows):
+        fail("unit-map-packets/index.csv row count does not match textbook evidence workplan")
+    if unit_map_index_rows and list(unit_map_index_rows[0]) != pilot_unit_map.INDEX_CSV_FIELDS:
+        fail("unit-map-packets/index.csv fields do not match schema")
+    missing_unit_map_ranks = unit_map_packet_missing_ranks(unit_map_index_rows, expected_unit_map_ranks)
+    if missing_unit_map_ranks:
+        fail(f"unit-map-packets/index.csv missing ranks: {missing_unit_map_ranks}")
+    expected_unit_map_packets = pilot_unit_map.unit_map_packet_set(
+        concepts,
+        edges,
+        concept_evidence_rows,
+        edge_evidence_rows,
+        textbook_workplan_rows,
+    )
+    expected_unit_map_index_rows = csv_rows_for_fields(
+        pilot_unit_map.unit_map_index_rows(expected_unit_map_packets),
+        pilot_unit_map.INDEX_CSV_FIELDS,
+    )
+    if unit_map_index_rows != expected_unit_map_index_rows:
+        fail("unit-map-packets/index.csv rows do not match generated unit map packet index")
+    if unit_map_packet_index_total(unit_map_index_rows, "concept_count") != len(concepts):
+        fail("unit-map-packets/index.csv concept total does not match concepts.json")
+    expected_edge_packet_rows_total = sum(int(row.get("edge_count", 0)) for row in textbook_workplan_rows)
+    if unit_map_packet_index_total(unit_map_index_rows, "edge_count") != expected_edge_packet_rows_total:
+        fail("unit-map-packets/index.csv edge total does not match workplan edge total")
+    if not unit_map_packet_index_md.exists() or "# Unit Map Packet Index" not in unit_map_packet_index_md.read_text(encoding="utf-8"):
+        fail("unit-map-packets/index.md missing or invalid")
+    for packet in expected_unit_map_packets:
+        rank = int(packet["rank"])
+        paths = pilot_unit_map.unit_map_packet_paths(rank)
+        for key, path in paths.items():
+            if not path.exists():
+                fail(f"rank-{rank:02d} unit map packet {key} missing")
+        unit_map_node_rows = read_csv_rows(paths["node_csv"])
+        unit_map_edge_rows = read_csv_rows(paths["edge_csv"])
+        expected_node_rows = csv_rows_for_fields(packet["node_rows"], pilot_unit_map.NODE_CSV_FIELDS)
+        expected_edge_rows = csv_rows_for_fields(packet["edge_rows"], pilot_unit_map.EDGE_CSV_FIELDS)
+        if unit_map_node_rows and list(unit_map_node_rows[0]) != pilot_unit_map.NODE_CSV_FIELDS:
+            fail(f"rank-{rank:02d} unit map node csv fields do not match schema")
+        if unit_map_edge_rows and list(unit_map_edge_rows[0]) != pilot_unit_map.EDGE_CSV_FIELDS:
+            fail(f"rank-{rank:02d} unit map edge csv fields do not match schema")
+        if unit_map_node_rows != expected_node_rows:
+            fail(f"rank-{rank:02d} unit map node rows do not match generated packet")
+        if unit_map_edge_rows != expected_edge_rows:
+            fail(f"rank-{rank:02d} unit map edge rows do not match generated packet")
+        if "# Pilot Unit Map" not in paths["map_md"].read_text(encoding="utf-8"):
+            fail(f"rank-{rank:02d} unit map markdown missing or invalid")
+        if "digraph pilot_unit_map" not in paths["map_dot"].read_text(encoding="utf-8"):
+            fail(f"rank-{rank:02d} unit map dot missing or invalid")
     legacy_gap_rows = read_csv_rows(legacy_gap_audit_csv)
     expected_legacy_gap_rows = legacy_gap_audit.legacy_gap_rows(
         legacy_gap_audit.read_legacy_data(),

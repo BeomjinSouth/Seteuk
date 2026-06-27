@@ -535,6 +535,42 @@
 | edge style | `intra_unit`은 실선, `cross_unit`은 점선 |
 | node color | `low` 신뢰도 concept은 강조색, 외부 node는 회색 |
 
+## Unit Map Packet Index CSV
+
+`unit-map-packets/index.csv`는 `textbook-evidence-workplan.csv` 전체 34개 rank를 compact concept hierarchy map으로 변환한 단원별 지도 인덱스이다. 각 rank별 node/edge CSV는 `pilot-unit-map-nodes.csv`, `pilot-unit-map-edges.csv`와 같은 필드 구조를 사용한다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `rank` | 참조한 workplan 순위 |
+| `grade` | 단원 학년 또는 교육과정 학년군 |
+| `domain` | 단원 영역 |
+| `unit` | 단원명 |
+| `priority_tier` | workplan 우선순위 등급 |
+| `workplan_score` | workplan 종합 점수 |
+| `concept_count` | 해당 rank의 node CSV concept row 수 |
+| `edge_count` | 해당 rank 단원에 닿는 edge row 수 |
+| `intra_unit_edge_count` | 같은 단원 내부 edge row 수 |
+| `cross_unit_edge_count` | 다른 단원 concept과 이어지는 edge row 수 |
+| `low_confidence_concept_count` | 해당 rank의 `low` 신뢰도 concept row 수 |
+| `low_confidence_edge_count` | 해당 rank의 `low` 신뢰도 edge row 수 |
+| `total_pending_evidence_count` | workplan의 pending concept/edge evidence row 수 |
+| `next_action` | workplan의 다음 근거 보강 행동 |
+| `node_csv` | rank별 concept node CSV 파일명 |
+| `edge_csv` | rank별 edge CSV 파일명 |
+| `map_md` | rank별 Markdown 지도 파일명 |
+| `map_dot` | rank별 Graphviz DOT 파일명 |
+
+## Unit Map Packet Files
+
+`unit-map-packets/rank-01.md`~`rank-34.md`와 `rank-01.dot`~`rank-34.dot`는 전체 단원을 같은 compact map 형식으로 펼친 산출물이다.
+
+| 파일 | 설명 |
+| --- | --- |
+| `rank-XX-nodes.csv` | 해당 rank 단원의 concept node 목록. 필드는 `Pilot Unit Map Node CSV`와 같다. |
+| `rank-XX-edges.csv` | 해당 rank 단원 concept에 닿는 edge 목록. 필드는 `Pilot Unit Map Edge CSV`와 같다. |
+| `rank-XX.md` | concept type 분포, 관계 유형 분포, low-confidence concept, cross-unit edge 요약 |
+| `rank-XX.dot` | 내부 edge는 실선, cross-unit edge는 점선으로 나타낸 Graphviz DOT 지도 |
+
 ## Legacy Gap Audit CSV
 
 `legacy-gap-audit.csv`는 기존 로컬 `수학_개념_위계도/data/math_concept_hierarchy.json`에서 중학교 범위 후보를 뽑아 현재 `concepts.json`의 `label_ko` 및 `aliases`와 비교한 파생 감사 산출물이다. 기존 위계도는 공식 근거가 아니므로, 이 파일의 `needs_review` 항목은 concept 추가 후보일 뿐이며 공식 교육과정 또는 교과서 근거 확인 전에는 확정하지 않는다.
