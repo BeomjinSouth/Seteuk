@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-27T20:39:57",
+    "generated_at": "2026-06-27T20:47:23",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
     "concept_count": 476,
-    "edge_count": 1824
+    "edge_count": 1840
   },
   "sources": [
     {
@@ -31910,6 +31910,58 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_geo_plane_properties_unit__related_to__m1_geo_circle_unit",
+      "source_id": "m1_geo_plane_properties_unit",
+      "target_id": "m1_geo_circle_unit",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 37-38; [9수03-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다각형의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부채꼴의 중심각과 호의 관계를 이해하고 호의 길이와 넓이를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "평면도형의 성질 section; [9수03-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다각형의 내각과 외각의 크기, 다각형의 대각선 개수 등 성질 이해 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "평면도형의 성질 section; [9수03-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부채꼴, 중심각, 호의 관계를 이해하고 부채꼴의 호의 길이와 넓이를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "Circle properties continue plane-figure reasoning while forming a separate geometry unit.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_triangle__used_in__m1_geo_triangle_construction",
       "source_id": "m1_geo_triangle",
       "target_id": "m1_geo_triangle_construction",
@@ -32412,6 +32464,28 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_straight_angle__contrasts_with__m1_geo_vertical_angles",
+      "source_id": "m1_geo_straight_angle",
+      "target_id": "m1_geo_vertical_angles",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "A straight angle and vertical angles name different angle situations in the basic-figure vocabulary.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_perpendicular__used_in__m1_geo_foot_of_perpendicular",
       "source_id": "m1_geo_perpendicular",
       "target_id": "m1_geo_foot_of_perpendicular",
@@ -32688,6 +32762,40 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_triangle_construction__used_in__m1_geo_triangle_congruence_conditions",
+      "source_id": "m1_geo_triangle_construction",
+      "target_id": "m1_geo_triangle_congruence_conditions",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "Triangle construction links given construction data with the congruence conditions used to decide triangle equality.",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_congruence__used_in__m1_geo_triangle_congruence_conditions",
@@ -33510,6 +33618,28 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_geo_solid_cross_section__related_to__m1_geo_solid_net",
+      "source_id": "m1_geo_solid_cross_section",
+      "target_id": "m1_geo_solid_net",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "Cross sections and nets are different plane-based ways to examine solids.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_solid_net__used_in__m1_geo_surface_area",
       "source_id": "m1_geo_solid_net",
       "target_id": "m1_geo_surface_area",
@@ -33576,6 +33706,138 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_prism__used_in__m1_geo_surface_area",
+      "source_id": "m1_geo_prism",
+      "target_id": "m1_geo_surface_area",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "입체도형의 겉넓이와 부피를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "Prisms are target solids for surface-area calculation.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_prism__used_in__m1_geo_volume",
+      "source_id": "m1_geo_prism",
+      "target_id": "m1_geo_volume",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "입체도형의 겉넓이와 부피를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "Prisms are target solids for volume calculation.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pyramid__used_in__m1_geo_surface_area",
+      "source_id": "m1_geo_pyramid",
+      "target_id": "m1_geo_surface_area",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "입체도형의 겉넓이와 부피를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "Pyramids are target solids for surface-area calculation.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pyramid__used_in__m1_geo_volume",
+      "source_id": "m1_geo_pyramid",
+      "target_id": "m1_geo_volume",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "입체도형의 겉넓이와 부피를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "Pyramids are target solids for volume calculation.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_sphere__used_in__m1_geo_surface_area",
+      "source_id": "m1_geo_sphere",
+      "target_id": "m1_geo_surface_area",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "입체도형의 겉넓이와 부피를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "Spheres are target solids for surface-area calculation.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_sphere__used_in__m1_geo_volume",
+      "source_id": "m1_geo_sphere",
+      "target_id": "m1_geo_volume",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "입체도형의 겉넓이와 부피를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "Spheres are target solids for volume calculation.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_model_tool_solid__used_in__m1_geo_polyhedron",
       "source_id": "m1_geo_model_tool_solid",
       "target_id": "m1_geo_polyhedron",
@@ -33618,6 +33880,34 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_model_tool_solid__related_to__m1_geo_solid_net",
+      "source_id": "m1_geo_model_tool_solid",
+      "target_id": "m1_geo_solid_net",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "Models and technology tools support exploration of solids, including net-based observation.",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_model_tool_solid__used_in__m1_geo_solid_cross_section",
@@ -33964,6 +34254,34 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_quadrilateral_relationship__used_in__m1_geo_proof",
+      "source_id": "m1_geo_quadrilateral_relationship",
+      "target_id": "m1_geo_proof",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-11]",
+          "evidence_kind": "achievement_standard",
+          "summary": "사각형의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각형과 사각형의 성질 section; [9수03-09]~[9수03-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이등변삼각형, 삼각형의 외심과 내심, 사각형의 성질과 여러 사각형 사이의 관계를 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "Relationships among quadrilaterals are justified through properties and proof.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_similarity__contrasts_with__m1_geo_congruence",
       "source_id": "m1_geo_similarity",
       "target_id": "m1_geo_congruence",
@@ -34136,6 +34454,34 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_parallel_segment_ratio__used_in__m1_geo_similarity_judgement",
+      "source_id": "m1_geo_parallel_segment_ratio",
+      "target_id": "m1_geo_similarity_judgement",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 닮음 조건을 이해하고 닮음인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "Parallel-line segment ratios support judging and interpreting similarity.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_parallel_segment_ratio__used_in__m1_geo_triangle_midpoint_theorem",
       "source_id": "m1_geo_parallel_segment_ratio",
       "target_id": "m1_geo_triangle_midpoint_theorem",
@@ -34288,6 +34634,28 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_right_triangle__used_in__m1_geo_right_triangle_judgement",
+      "source_id": "m1_geo_right_triangle",
+      "target_id": "m1_geo_right_triangle_judgement",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "Right-triangle judgement applies the right-triangle concept to side-length conditions.",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_pythagorean_theorem__used_in__m1_geo_pythagorean_justification",
@@ -34847,6 +35215,28 @@
         }
       ],
       "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_secant__contrasts_with__m1_geo_chord",
+      "source_id": "m1_geo_secant",
+      "target_id": "m1_geo_chord",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "A secant is a line meeting a circle, while a chord is a segment with endpoints on the circle.",
       "confidence": "medium"
     },
     {
@@ -37316,6 +37706,28 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_data_positive_correlation__contrasts_with__m1_data_no_correlation",
+      "source_id": "m1_data_positive_correlation",
+      "target_id": "m1_data_no_correlation",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "Positive correlation and no correlation are distinct scatter-plot interpretation cases.",
+      "confidence": "medium"
     },
     {
       "id": "m1_data_scatter_plot__used_in__m1_data_scatter_plot_interpretation",

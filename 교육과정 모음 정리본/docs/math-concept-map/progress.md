@@ -589,3 +589,26 @@
 - `related-edge-resolution-queue.csv`의 남은 low 148건과 backlog 2건을 공식 근거와 교과서 근거 기준으로 검토해 `represented_by`, `used_in`, `contrasts_with`, `related_to` edge 중 하나로 확정한다.
 - 현재 queue 최상단은 상관관계 없음/양의 상관관계, 평각/맞꼭지각, 삼각형 닮음 판별/평행선 사이 선분 길이의 비, 사각형 사이 관계/증명, 원의 성질/평면도형의 성질, 입체도형 모형 탐구/전개도 관련 pair이므로 다음 반복에서 우선 처리한다.
 - 중1~중3 수학 교과서 PDF가 추가되면 `textbook-evidence-packets/`, `prerequisite-map.csv`, `prerequisite-unit-graph.dot`, `related-edge-resolution-queue.csv`를 함께 사용해 concept별 본문·예제 근거와 관계 edge별 쪽수 근거를 누적한다.
+
+## 2026-06-27 자료·도형 related edge 상단 묶음 보강
+
+- AGENTS.md를 다시 확인했고, 이번 작업은 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 생성 로직과 파생 산출물 정비로 제한했다.
+- `related-edge-resolution-queue.csv` 최상단의 자료·도형 관련 pair를 검토해 상관관계 없음/양의 상관관계, 평각/맞꼭지각, 평행선 사이 선분 길이의 비/삼각형 닮음 판별, 사각형 사이 관계/증명, 원의 성질/평면도형의 성질, 입체도형 모형 탐구/전개도, 각기둥·각뿔·구와 겉넓이·부피, 단면/전개도, 삼각형 작도/삼각형의 합동 조건, 할선/현, 직각삼각형/직각삼각형 판별 관계를 명시 edge 16개로 보강했다.
+- 공식 교육과정과 성취수준 문서에서 같은 단원·성취기준·용어 흐름으로 확인되는 관계를 근거로 삼되, 교과서 본문·예제 쪽수 근거가 아직 없으므로 새 edge는 `confidence: medium`으로 두었다.
+- `test_build_pilot_edge_sync.py`에 자료·도형 상단 묶음의 reviewed edge가 재생성 과정에서 유지되는지 고정하는 회귀 테스트를 추가했다.
+- 전체 산출물을 재생성한 결과 concept은 476개로 유지되고 edge는 1840개, source ref는 concept 1239개와 edge 4384개를 합쳐 총 5623개가 되었다.
+- `node-edge-consistency-audit.csv`와 `related-edge-resolution-queue.csv`는 150건에서 132건으로 줄었고, 남은 큐는 low 130건과 backlog 2건이다.
+
+## 2026-06-27 자료·도형 related edge 상단 묶음 검증 결과
+
+- TDD red: `python -m unittest discover -s .\docs\math-concept-map\tools -p test_build_pilot_edge_sync.py`가 자료·도형 reviewed edge 16개 누락으로 실패하는 것을 확인했다.
+- TDD green: `python -m unittest discover -s .\docs\math-concept-map\tools -p test_build_pilot_edge_sync.py`: 11개 통과.
+- 전체 단위 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p 'test_*.py'`: 118개 통과.
+- 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 476개 concept, 1840개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map`: 종료 코드 0, CRLF 변환 경고만 확인.
+
+## 다음 작업
+
+- `related-edge-resolution-queue.csv`의 남은 low 130건과 backlog 2건을 공식 근거와 교과서 근거 기준으로 검토해 `represented_by`, `used_in`, `contrasts_with`, `related_to` edge 중 하나로 확정한다.
+- 현재 queue 최상단은 이차식/이차항, 계수/차수, 문자식/식, 다항식 계산 확장/다항식의 덧셈·뺄셈·단항식과 다항식의 곱셈·나눗셈, 식의 간단히 하기, 식의 계산/방정식, 연립방정식 모델링/해·풀이, 이차방정식의 중근/근의 공식 관련 pair이므로 다음 반복에서 우선 처리한다.
+- 중1~중3 수학 교과서 PDF가 추가되면 `textbook-evidence-packets/`, `prerequisite-map.csv`, `prerequisite-unit-graph.dot`, `related-edge-resolution-queue.csv`를 함께 사용해 concept별 본문·예제 근거와 관계 edge별 쪽수 근거를 누적한다.

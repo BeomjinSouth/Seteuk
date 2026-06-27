@@ -4,8 +4,8 @@ This generated audit compares node relationship arrays with explicit edge rows.
 
 ## Summary
 
-- total issues: 150
-- missing_edge_for_related_id: 150
+- total issues: 132
+- missing_edge_for_related_id: 132
 
 ## Priority Rows
 
@@ -30,8 +30,6 @@ This generated audit compares node relationship arrays with explicit edge rows.
 | missing_edge_for_related_id | m1_data_frequency_table | 도수분포표 | related_ids | m1_data_frequency_polygon | 도수분포다각형 | related_edge |  |
 | missing_edge_for_related_id | m1_data_frequency_table | 도수분포표 | related_ids | m1_data_relative_frequency | 상대도수 | related_edge |  |
 | missing_edge_for_related_id | m1_data_frequency_unit | 도수분포표와 상대도수 | related_ids | m1_data_variability_unit | 산포도 | related_edge |  |
-| missing_edge_for_related_id | m1_data_no_correlation | 상관관계가 없는 경우 | related_ids | m1_data_positive_correlation | 양의 상관관계 | related_edge |  |
-| missing_edge_for_related_id | m1_data_positive_correlation | 양의 상관관계 | related_ids | m1_data_no_correlation | 상관관계가 없는 경우 | related_edge |  |
 | missing_edge_for_related_id | m1_data_relative_frequency_table_graph | 상대도수의 분포를 표나 그래프로 나타내기 | related_ids | m1_data_distribution_interpretation | 자료의 분포 특징 해석 | related_edge |  |
 | missing_edge_for_related_id | m1_data_representative_unit | 대푯값 | related_ids | m1_data_variability_unit | 산포도 | related_edge |  |
 | missing_edge_for_related_id | m1_data_representative_value | 대푯값 | related_ids | m1_data_choose_representative_value | 자료의 특성에 맞는 대푯값 선택 | related_edge |  |
@@ -61,6 +59,8 @@ This generated audit compares node relationship arrays with explicit edge rows.
 | missing_edge_for_related_id | m1_func_graph_drawing | 일차함수 그래프 그리기 | related_ids | m1_func_slope | 기울기 | related_edge |  |
 | missing_edge_for_related_id | m1_func_graph_drawing | 일차함수 그래프 그리기 | related_ids | m1_func_x_intercept | x절편 | related_edge |  |
 | missing_edge_for_related_id | m1_func_graph_drawing | 일차함수 그래프 그리기 | related_ids | m1_func_y_intercept | y절편 | related_edge |  |
+| missing_edge_for_related_id | m1_func_intersection_count | 교점의 개수 | related_ids | m1_func_system_graph_relation | 두 일차함수의 그래프와 연립일차방정식의 관계 | related_edge |  |
+| missing_edge_for_related_id | m1_func_linear_formula | 일차함수의 식 | related_ids | m1_func_linear_graph | 일차함수의 그래프 | related_edge |  |
 
 ## Notes
 

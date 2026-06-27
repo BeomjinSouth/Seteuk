@@ -218,6 +218,34 @@ class BuildPilotEdgeSyncTests(unittest.TestCase):
 
         self.assertEqual([], missing)
 
+    def test_data_and_geometry_queue_related_ids_have_reviewed_edges(self) -> None:
+        relationships = relationship_types_by_pair()
+        expected = {
+            frozenset(["m1_data_no_correlation", "m1_data_positive_correlation"]): "contrasts_with",
+            frozenset(["m1_geo_straight_angle", "m1_geo_vertical_angles"]): "contrasts_with",
+            frozenset(["m1_geo_similarity_judgement", "m1_geo_parallel_segment_ratio"]): "used_in",
+            frozenset(["m1_geo_quadrilateral_relationship", "m1_geo_proof"]): "used_in",
+            frozenset(["m1_geo_circle_unit", "m1_geo_plane_properties_unit"]): "related_to",
+            frozenset(["m1_geo_model_tool_solid", "m1_geo_solid_net"]): "related_to",
+            frozenset(["m1_geo_prism", "m1_geo_surface_area"]): "used_in",
+            frozenset(["m1_geo_prism", "m1_geo_volume"]): "used_in",
+            frozenset(["m1_geo_pyramid", "m1_geo_surface_area"]): "used_in",
+            frozenset(["m1_geo_pyramid", "m1_geo_volume"]): "used_in",
+            frozenset(["m1_geo_solid_cross_section", "m1_geo_solid_net"]): "related_to",
+            frozenset(["m1_geo_sphere", "m1_geo_surface_area"]): "used_in",
+            frozenset(["m1_geo_sphere", "m1_geo_volume"]): "used_in",
+            frozenset(["m1_geo_triangle_construction", "m1_geo_triangle_congruence_conditions"]): "used_in",
+            frozenset(["m1_geo_secant", "m1_geo_chord"]): "contrasts_with",
+            frozenset(["m1_geo_right_triangle_judgement", "m1_geo_right_triangle"]): "used_in",
+        }
+        missing = [
+            (tuple(sorted(pair)), relationship_type)
+            for pair, relationship_type in expected.items()
+            if relationship_type not in relationships.get(pair, set())
+        ]
+
+        self.assertEqual([], missing)
+
 
 if __name__ == "__main__":
     unittest.main()

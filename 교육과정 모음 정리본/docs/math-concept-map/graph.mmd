@@ -997,6 +997,7 @@ flowchart LR
   m1_geo_figure -- "사용" --> m1_geo_plane_properties_unit
   m1_geo_figure -- "사용" --> m1_geo_solid_unit
   m1_geo_figure -- "사용" --> m1_geo_similarity_unit
+  m1_geo_plane_properties_unit -- "연관" --> m1_geo_circle_unit
   m1_geo_triangle -- "사용" --> m1_geo_triangle_construction
   m1_geo_triangle -- "사용" --> m1_geo_triangle_congruence_conditions
   m1_geo_triangle -- "사용" --> m1_geo_triangle_similarity_conditions
@@ -1019,6 +1020,7 @@ flowchart LR
   m1_geo_midpoint -- "사용" --> m1_geo_perpendicular_bisector
   m1_geo_angle -- "사용" --> m1_geo_vertical_angles
   m1_geo_angle -- "사용" --> m1_geo_straight_angle
+  m1_geo_straight_angle -- "대조" --> m1_geo_vertical_angles
   m1_geo_perpendicular -- "사용" --> m1_geo_foot_of_perpendicular
   m1_geo_parallel_lines -- "사용" --> m1_geo_corresponding_angles
   m1_geo_parallel_lines -- "사용" --> m1_geo_alternate_interior_angles
@@ -1030,6 +1032,7 @@ flowchart LR
   m1_geo_parallel_lines -- "대조" --> m1_geo_skew_lines
   m1_geo_construction -- "사용" --> m1_geo_triangle_construction
   m1_geo_triangle_construction -- "사용" --> m1_geo_congruence
+  m1_geo_triangle_construction -- "사용" --> m1_geo_triangle_congruence_conditions
   m1_geo_congruence -- "사용" --> m1_geo_triangle_congruence_conditions
   m1_geo_triangle_congruence_conditions -- "사용" --> m1_geo_triangle_congruence_judgement
   m1_geo_opposite_side -- "사용" --> m1_geo_triangle_congruence_conditions
@@ -1064,11 +1067,19 @@ flowchart LR
   m1_geo_frustum_pyramid -- "대조" --> m1_geo_frustum_cone
   m1_geo_solid_unit -- "표현" --> m1_geo_solid_cross_section
   m1_geo_solid_unit -- "표현" --> m1_geo_solid_net
+  m1_geo_solid_cross_section -- "연관" --> m1_geo_solid_net
   m1_geo_solid_net -- "사용" --> m1_geo_surface_area
   m1_geo_surface_area -- "대조" --> m1_geo_volume
   m1_geo_volume -- "대조" --> m1_geo_surface_area
+  m1_geo_prism -- "사용" --> m1_geo_surface_area
+  m1_geo_prism -- "사용" --> m1_geo_volume
+  m1_geo_pyramid -- "사용" --> m1_geo_surface_area
+  m1_geo_pyramid -- "사용" --> m1_geo_volume
+  m1_geo_sphere -- "사용" --> m1_geo_surface_area
+  m1_geo_sphere -- "사용" --> m1_geo_volume
   m1_geo_model_tool_solid -- "사용" --> m1_geo_polyhedron
   m1_geo_model_tool_solid -- "사용" --> m1_geo_solid_of_revolution
+  m1_geo_model_tool_solid -- "연관" --> m1_geo_solid_net
   m1_geo_model_tool_solid -- "사용" --> m1_geo_solid_cross_section
   m1_geo_justification -- "사용" --> m1_geo_proof
   m1_geo_triangle_congruence_conditions -- "사용" --> m1_geo_proof
@@ -1083,6 +1094,7 @@ flowchart LR
   m1_geo_median -- "사용" --> m1_geo_centroid
   m1_geo_diagonal -- "사용" --> m1_geo_quadrilateral_diagonal_properties
   m1_geo_quadrilateral_diagonal_properties -- "사용" --> m1_geo_quadrilateral_relationship
+  m1_geo_quadrilateral_relationship -- "사용" --> m1_geo_proof
   m1_geo_similarity -- "대조" --> m1_geo_congruence
   m1_geo_congruence -- "대조" --> m1_geo_similarity
   m1_geo_similarity -- "표현" --> m1_geo_correspondence
@@ -1090,6 +1102,7 @@ flowchart LR
   m1_geo_similar_figures -- "사용" --> m1_geo_similarity_ratio
   m1_geo_triangle_similarity_conditions -- "사용" --> m1_geo_similarity_judgement
   m1_geo_similarity_ratio -- "사용" --> m1_geo_parallel_segment_ratio
+  m1_geo_parallel_segment_ratio -- "사용" --> m1_geo_similarity_judgement
   m1_geo_parallel_segment_ratio -- "사용" --> m1_geo_triangle_midpoint_theorem
   m1_geo_parallel_segment_ratio -- "사용" --> m1_geo_centroid_from_parallel_ratio
   m1_geo_centroid -- "사용" --> m1_geo_centroid_from_parallel_ratio
@@ -1097,6 +1110,7 @@ flowchart LR
   m1_geo_pythagorean_converse -- "대조" --> m1_geo_pythagorean_theorem
   m1_geo_pythagorean_theorem -- "사용" --> m1_geo_right_triangle_judgement
   m1_geo_pythagorean_converse -- "사용" --> m1_geo_right_triangle_judgement
+  m1_geo_right_triangle -- "사용" --> m1_geo_right_triangle_judgement
   m1_geo_pythagorean_theorem -- "사용" --> m1_geo_pythagorean_justification
   m1_geo_trigonometric_ratio -- "표현" --> m1_geo_sine
   m1_geo_trigonometric_ratio -- "표현" --> m1_geo_cosine
@@ -1120,6 +1134,7 @@ flowchart LR
   m1_geo_tangent_property -- "사용" --> m1_geo_tangent_length
   m1_geo_tangent_line -- "대조" --> m1_geo_secant
   m1_geo_secant -- "대조" --> m1_geo_tangent_line
+  m1_geo_secant -- "대조" --> m1_geo_chord
   m1_geo_inscribed_angle -- "사용" --> m1_geo_inscribed_angle_property
   m1_geo_arc -- "사용" --> m1_geo_inscribed_angle_property
   m1_geo_circle_chord_property -- "사용" --> m1_geo_circle_justification
@@ -1230,6 +1245,7 @@ flowchart LR
   m1_data_correlation -- "포함" --> m1_data_no_correlation
   m1_data_positive_correlation -- "대조" --> m1_data_negative_correlation
   m1_data_negative_correlation -- "대조" --> m1_data_no_correlation
+  m1_data_positive_correlation -- "대조" --> m1_data_no_correlation
   m1_data_scatter_plot -- "사용" --> m1_data_scatter_plot_interpretation
   m1_data_correlation -- "사용" --> m1_data_scatter_plot_interpretation
   m1_mis_mean_only_representative -- "혼동" --> m1_data_mean
