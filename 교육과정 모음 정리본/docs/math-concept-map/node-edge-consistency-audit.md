@@ -4,32 +4,20 @@ This generated audit compares node relationship arrays with explicit edge rows.
 
 ## Summary
 
-- total issues: 73
-- missing_edge_for_related_id: 73
+- total issues: 61
+- missing_edge_for_related_id: 61
 
 ## Priority Rows
 
 | issue_type | node_id | node | array_field | related_id | related label | expected relationship | matching edge ids |
 |---|---|---|---|---|---|---|---|
 | missing_edge_for_related_id | m1_calc_polynomial_add_sub | 다항식의 덧셈과 뺄셈 | related_ids | m1_expr_add_sub_linear_expression | 일차식의 덧셈과 뺄셈 | related_edge |  |
-| missing_edge_for_related_id | m1_data_box_plot_compare | 상자그림으로 두 집단의 분포 비교 | related_ids | m1_data_compare_distributions_variability | 산포도로 두 집단의 분포 비교 | related_edge |  |
-| missing_edge_for_related_id | m1_data_class_mark | 계급값 | related_ids | m1_data_frequency_table | 도수분포표 | related_edge |  |
-| missing_edge_for_related_id | m1_data_class_width | 계급의 크기 | related_ids | m1_data_frequency_table | 도수분포표 | related_edge |  |
-| missing_edge_for_related_id | m1_data_class_width | 계급의 크기 | related_ids | m1_data_histogram | 히스토그램 | related_edge |  |
-| missing_edge_for_related_id | m1_data_compare_distributions_variability | 산포도로 두 집단의 분포 비교 | related_ids | m1_data_box_plot_compare | 상자그림으로 두 집단의 분포 비교 | related_edge |  |
 | missing_edge_for_related_id | m1_data_dataset | 자료 | related_ids | m1_data_data_collection | 자료 수집 | related_edge |  |
-| missing_edge_for_related_id | m1_data_deviation | 편차 | related_ids | m1_data_standard_deviation | 표준편차 | related_edge |  |
 | missing_edge_for_related_id | m1_data_domain | 자료와 가능성 | related_ids | m1_graph_graph | 그래프 | related_edge |  |
 | missing_edge_for_related_id | m1_data_domain | 자료와 가능성 | related_ids | m1_num_domain | 수와 연산 | related_edge |  |
 | missing_edge_for_related_id | m1_data_domain | 자료와 가능성 | related_ids | m1_repr_table | 표 | related_edge |  |
-| missing_edge_for_related_id | m1_data_frequency_table | 도수분포표 | related_ids | m1_data_frequency_polygon | 도수분포다각형 | related_edge |  |
-| missing_edge_for_related_id | m1_data_frequency_table | 도수분포표 | related_ids | m1_data_relative_frequency | 상대도수 | related_edge |  |
 | missing_edge_for_related_id | m1_data_frequency_unit | 도수분포표와 상대도수 | related_ids | m1_data_variability_unit | 산포도 | related_edge |  |
-| missing_edge_for_related_id | m1_data_relative_frequency_table_graph | 상대도수의 분포를 표나 그래프로 나타내기 | related_ids | m1_data_distribution_interpretation | 자료의 분포 특징 해석 | related_edge |  |
 | missing_edge_for_related_id | m1_data_representative_unit | 대푯값 | related_ids | m1_data_variability_unit | 산포도 | related_edge |  |
-| missing_edge_for_related_id | m1_data_representative_value | 대푯값 | related_ids | m1_data_choose_representative_value | 자료의 특성에 맞는 대푯값 선택 | related_edge |  |
-| missing_edge_for_related_id | m1_data_statistical_evidence_discussion | 통계적 근거로 토론하기 | related_ids | m1_data_critical_graph_reading | 표와 그래프의 오류 비판적으로 읽기 | related_edge |  |
-| missing_edge_for_related_id | m1_data_technology_tool_stats | 공학 도구로 자료 수집·분석하기 | related_ids | m1_data_critical_graph_reading | 표와 그래프의 오류 비판적으로 읽기 | related_edge |  |
 | missing_edge_for_related_id | m1_data_variability | 산포도 | related_ids | m1_data_deviation | 편차 | related_edge |  |
 | missing_edge_for_related_id | m1_data_variability | 산포도 | related_ids | m1_data_standard_deviation | 표준편차 | related_edge |  |
 | missing_edge_for_related_id | m1_data_variability | 산포도 | related_ids | m1_data_variance | 분산 | related_edge |  |
@@ -61,6 +49,18 @@ This generated audit compares node relationship arrays with explicit edge rows.
 | missing_edge_for_related_id | m1_geo_tangent_relation | 접한다 | related_ids | m1_geo_tangent_property | 원의 접선에 관한 성질 | related_edge |  |
 | missing_edge_for_related_id | m1_geo_triangle_congruence_judgement | 삼각형의 합동 판별 | related_ids | m1_geo_justification | 정당화 | related_edge |  |
 | missing_edge_for_related_id | m1_geo_triangle_midpoint_theorem | 삼각형의 중점연결정리 | related_ids | m1_geo_centroid | 무게중심 | related_edge |  |
+| missing_edge_for_related_id | m1_geo_trig_unit | 삼각비 | related_ids | m1_geo_triangle_quadrilateral_unit | 삼각형과 사각형의 성질 | related_edge |  |
+| missing_edge_for_related_id | m1_geo_vertical_angles | 맞꼭지각 | related_ids | m1_geo_parallel_angle_properties | 평행선에서 동위각과 엇각의 성질 | related_edge |  |
+| missing_edge_for_related_id | m1_ineq_inequality | 부등식 | related_ids | m1_eq_equality | 등식 | related_edge |  |
+| missing_edge_for_related_id | m1_ineq_solution | 부등식의 해 | related_ids | m1_eq_solution | 해 | related_edge |  |
+| missing_edge_for_related_id | m1_ineq_unit | 일차부등식 | related_ids | m1_system_unit | 연립일차방정식 | related_edge |  |
+| missing_edge_for_related_id | m1_num_distributive_law | 분배법칙 | related_ids | m1_factor_polynomial_multiplication | 다항식의 곱셈 | related_edge |  |
+| missing_edge_for_related_id | m1_num_domain | 수와 연산 | related_ids | m1_calc_unit | 식의 계산 | related_edge |  |
+| missing_edge_for_related_id | m1_num_domain | 수와 연산 | related_ids | m1_expr_unit | 문자의 사용과 식 | related_edge |  |
+| missing_edge_for_related_id | m1_num_mixed_calculation | 정수와 유리수의 혼합계산 | related_ids | m1_calc_simplify_expression | 식을 간단히 하기 | related_edge |  |
+| missing_edge_for_related_id | m1_num_number_line | 수직선 | related_ids | m1_coord_number_line | 수직선 | related_edge |  |
+| missing_edge_for_related_id | m1_num_positive_integer | 양의 정수 | related_ids | m1_num_natural_number | 자연수 | related_edge |  |
+| missing_edge_for_related_id | m1_num_prime_factor | 소인수 | related_ids | m1_factor_factor | 인수 | related_edge |  |
 
 ## Notes
 

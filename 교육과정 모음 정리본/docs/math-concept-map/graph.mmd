@@ -1225,6 +1225,7 @@ flowchart LR
   m1_data_median -- "사용" --> m1_data_choose_representative_value
   m1_data_mode -- "사용" --> m1_data_choose_representative_value
   m1_data_distribution -- "사용" --> m1_data_choose_representative_value
+  m1_data_representative_value -- "사용" --> m1_data_choose_representative_value
   m1_data_dataset -- "표현" --> m1_data_stem_leaf_plot
   m1_data_dataset -- "표현" --> m1_data_frequency_table
   m1_data_distribution -- "표현" --> m1_data_stem_leaf_plot
@@ -1233,9 +1234,13 @@ flowchart LR
   m1_data_distribution -- "표현" --> m1_data_frequency_polygon
   m1_data_class -- "사용" --> m1_data_class_width
   m1_data_class -- "사용" --> m1_data_class_mark
+  m1_data_class_mark -- "사용" --> m1_data_frequency_table
+  m1_data_class_width -- "사용" --> m1_data_frequency_table
+  m1_data_class_width -- "사용" --> m1_data_histogram
   m1_data_class -- "사용" --> m1_data_frequency_table
   m1_data_frequency -- "사용" --> m1_data_frequency_table
   m1_data_frequency_table -- "표현" --> m1_data_histogram
+  m1_data_frequency_table -- "표현" --> m1_data_frequency_polygon
   m1_data_histogram -- "표현" --> m1_data_frequency_polygon
   m1_data_frequency_table -- "사용" --> m1_data_distribution_interpretation
   m1_data_histogram -- "사용" --> m1_data_distribution_interpretation
@@ -1248,7 +1253,9 @@ flowchart LR
   m1_data_relative_frequency_distribution -- "표현" --> m1_data_relative_frequency_table_graph
   m1_data_relative_frequency_table_graph -- "표현" --> m1_repr_table
   m1_data_relative_frequency_table_graph -- "표현" --> m1_graph_graph
+  m1_data_frequency_table -- "사용" --> m1_data_relative_frequency
   m1_data_relative_frequency -- "사용" --> m1_data_distribution_interpretation
+  m1_data_relative_frequency_table_graph -- "사용" --> m1_data_distribution_interpretation
   m1_data_statistical_inquiry_problem -- "사용" --> m1_data_inquiry_plan
   m1_data_inquiry_plan -- "사용" --> m1_data_data_collection
   m1_data_data_collection -- "사용" --> m1_data_data_analysis
@@ -1259,6 +1266,8 @@ flowchart LR
   m1_data_technology_tool_stats -- "사용" --> m1_data_calculate_variance_sd
   m1_data_technology_tool_stats -- "사용" --> m1_data_box_plot
   m1_data_critical_graph_reading -- "사용" --> m1_graph_graph_interpretation
+  m1_data_critical_graph_reading -- "사용" --> m1_data_statistical_evidence_discussion
+  m1_data_technology_tool_stats -- "사용" --> m1_data_critical_graph_reading
   m1_data_event -- "사용" --> m1_data_counting_cases
   m1_data_counting_cases -- "사용" --> m1_data_or_cases
   m1_data_counting_cases -- "사용" --> m1_data_and_cases
@@ -1284,6 +1293,7 @@ flowchart LR
   m1_data_mean -- "사용" --> m1_data_deviation
   m1_data_deviation -- "사용" --> m1_data_variance
   m1_data_variance -- "사용" --> m1_data_standard_deviation
+  m1_data_deviation -- "사용" --> m1_data_standard_deviation
   m1_data_deviation -- "사용" --> m1_data_calculate_variance_sd
   m1_data_variance -- "사용" --> m1_data_calculate_variance_sd
   m1_data_standard_deviation -- "사용" --> m1_data_calculate_variance_sd
@@ -1291,6 +1301,7 @@ flowchart LR
   m1_data_quartile -- "사용" --> m1_data_box_plot
   m1_data_box_plot -- "사용" --> m1_data_box_plot_compare
   m1_data_distribution_interpretation -- "사용" --> m1_data_box_plot_compare
+  m1_data_compare_distributions_variability -- "연관" --> m1_data_box_plot_compare
   m1_data_variable -- "사용" --> m1_data_scatter_plot
   m1_coord_coordinate_plane -- "표현" --> m1_data_scatter_plot
   m1_graph_graph -- "표현" --> m1_data_scatter_plot

@@ -337,6 +337,30 @@ class BuildPilotEdgeSyncTests(unittest.TestCase):
 
         self.assertEqual([], missing)
 
+    def test_data_queue_related_ids_have_reviewed_edges(self) -> None:
+        relationships = relationship_types_by_pair()
+        expected = {
+            frozenset(["m1_data_representative_value", "m1_data_choose_representative_value"]): "used_in",
+            frozenset(["m1_data_class_mark", "m1_data_frequency_table"]): "used_in",
+            frozenset(["m1_data_class_width", "m1_data_frequency_table"]): "used_in",
+            frozenset(["m1_data_class_width", "m1_data_histogram"]): "used_in",
+            frozenset(["m1_data_frequency_table", "m1_data_frequency_polygon"]): "represented_by",
+            frozenset(["m1_data_frequency_table", "m1_data_relative_frequency"]): "used_in",
+            frozenset(["m1_data_relative_frequency_table_graph", "m1_data_distribution_interpretation"]): "used_in",
+            frozenset(["m1_data_statistical_evidence_discussion", "m1_data_critical_graph_reading"]): "used_in",
+            frozenset(["m1_data_technology_tool_stats", "m1_data_critical_graph_reading"]): "used_in",
+            frozenset(["m1_data_compare_distributions_variability", "m1_data_box_plot_compare"]): "related_to",
+            frozenset(["m1_data_deviation", "m1_data_standard_deviation"]): "used_in",
+            frozenset(["m1_data_box_plot_compare", "m1_data_compare_distributions_variability"]): "related_to",
+        }
+        missing = [
+            (tuple(sorted(pair)), relationship_type)
+            for pair, relationship_type in expected.items()
+            if relationship_type not in relationships.get(pair, set())
+        ]
+
+        self.assertEqual([], missing)
+
 
 if __name__ == "__main__":
     unittest.main()
