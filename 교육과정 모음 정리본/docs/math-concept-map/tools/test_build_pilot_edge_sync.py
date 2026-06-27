@@ -150,6 +150,30 @@ class BuildPilotEdgeSyncTests(unittest.TestCase):
 
         self.assertEqual([], missing)
 
+    def test_geometry_semantic_related_ids_have_reviewed_edges(self) -> None:
+        relationships = relationship_types_by_pair()
+        expected = {
+            frozenset(["m1_geo_intersection_line", "m1_geo_intersection_point"]): "related_to",
+            frozenset(["m1_geo_point", "m1_geo_line"]): "contrasts_with",
+            frozenset(["m1_geo_point", "m1_geo_plane"]): "contrasts_with",
+            frozenset(["m1_geo_line", "m1_geo_plane"]): "contrasts_with",
+            frozenset(["m1_geo_sine", "m1_geo_tangent_ratio"]): "contrasts_with",
+            frozenset(["m1_geo_cosine", "m1_geo_tangent_ratio"]): "contrasts_with",
+            frozenset(["m1_geo_circumcircle", "m1_geo_incircle"]): "contrasts_with",
+            frozenset(["m1_geo_frustum_cone", "m1_geo_frustum_pyramid"]): "contrasts_with",
+            frozenset(["m1_geo_model_tool_solid", "m1_geo_solid_cross_section"]): "used_in",
+            frozenset(["m1_geo_opposite_angle", "m1_geo_opposite_side"]): "contrasts_with",
+            frozenset(["m1_geo_arc", "m1_geo_central_angle"]): "related_to",
+            frozenset(["m1_geo_exterior_angle", "m1_geo_interior_angle"]): "contrasts_with",
+        }
+        missing = [
+            (tuple(sorted(pair)), relationship_type)
+            for pair, relationship_type in expected.items()
+            if relationship_type not in relationships.get(pair, set())
+        ]
+
+        self.assertEqual([], missing)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -520,3 +520,26 @@
 - `related-edge-resolution-queue.csv`에 남은 low 212개와 backlog 2개를 공식 근거와 교과서 근거 기준으로 검토해 `represented_by`, `used_in`, `contrasts_with`, `related_to` edge 중 하나로 확정한다.
 - 현재 queue의 최상단은 도형과 측정 영역의 기본 도형·삼각비·원/입체도형 관련 reciprocal related pair이므로, 다음 반복에서는 이 묶음을 우선 처리한다.
 - 중1~중3 수학 교과서 PDF가 추가되면 `textbook-evidence-packets/`, `prerequisite-map.csv`, `prerequisite-unit-graph.dot`, `related-edge-resolution-queue.csv`를 함께 사용해 concept별 본문·예제 근거와 관계 edge별 쪽수 근거를 누적한다.
+
+## 2026-06-27 도형·측정 related edge 상단 묶음 보강
+
+- AGENTS.md를 다시 확인했고, 이번 작업은 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 산출물·생성 로직 정비로 제한했다.
+- `related-edge-resolution-queue.csv` 최상단의 도형·측정 reciprocal related pair를 검토해 교점/교선, 점/직선/평면, 사인/코사인/탄젠트 누락 쌍, 외접원/내접원, 각뿔대/원뿔대, 모형·공학 도구와 단면, 대변/대각, 호/중심각, 내각/외각 관계를 명시 edge 12개로 보강했다.
+- 공식 교육과정의 같은 성취기준 또는 용어·기호 목록에서 함께 확인되는 관계를 근거로 삼되, 교과서 본문·예제 근거가 아직 없으므로 새 edge는 `confidence: medium`으로 두었다.
+- `test_build_pilot_edge_sync.py`에 도형·측정 상단 묶음의 semantic related edge가 재생성 과정에서 유지되는지 고정하는 회귀 테스트를 추가했다.
+- 전체 산출물을 재생성한 결과 concept은 476개로 유지되고 edge는 1804개, source ref는 concept 1239개와 edge 4295개를 합쳐 총 5534개가 되었다.
+- `node-edge-consistency-audit.csv`와 `related-edge-resolution-queue.csv`는 214건에서 190건으로 줄었고, 남은 큐는 low 188건과 backlog 2건이다.
+
+## 2026-06-27 도형·측정 related edge 상단 묶음 검증 결과
+
+- TDD red: `python -m unittest discover -s .\docs\math-concept-map\tools -p test_build_pilot_edge_sync.py`가 도형·측정 semantic edge 12개 누락으로 실패하는 것을 확인했다.
+- TDD green: `python -m unittest discover -s .\docs\math-concept-map\tools -p test_build_pilot_edge_sync.py`: 8개 통과.
+- 전체 단위 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p 'test_*.py'`: 115개 통과.
+- 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 476개 concept, 1804개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map`: 종료 코드 0, CRLF 변환 경고만 확인.
+
+## 다음 작업
+
+- `related-edge-resolution-queue.csv`의 남은 low 188건과 backlog 2건을 공식 근거와 교과서 근거 기준으로 검토해 `represented_by`, `used_in`, `contrasts_with`, `related_to` edge 중 하나로 확정한다.
+- 현재 queue 최상단은 볼록다각형 범위와 대각선 개수·다각형 내각합, 인수분해 공식의 제곱합/제곱차, 계수/상수항, 밑/지수, 이차함수 일반형/꼭짓점형 관련 reciprocal pair이므로 다음 반복에서 우선 처리한다.
+- 중1~중3 수학 교과서 PDF가 추가되면 `textbook-evidence-packets/`, `prerequisite-map.csv`, `prerequisite-unit-graph.dot`, `related-edge-resolution-queue.csv`를 함께 사용해 concept별 본문·예제 근거와 관계 edge별 쪽수 근거를 누적한다.

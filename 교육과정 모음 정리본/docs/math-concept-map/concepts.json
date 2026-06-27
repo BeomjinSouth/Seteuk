@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-27T20:19:52",
+    "generated_at": "2026-06-27T20:26:54",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
     "concept_count": 476,
-    "edge_count": 1792
+    "edge_count": 1804
   },
   "sources": [
     {
@@ -31862,6 +31862,100 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_intersection_line__related_to__m1_geo_intersection_point",
+      "source_id": "m1_geo_intersection_line",
+      "target_id": "m1_geo_intersection_point",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "교점과 교선은 교차 상황에서 생기는 대상이지만 차원이 달라 함께 구별한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_point__contrasts_with__m1_geo_line",
+      "source_id": "m1_geo_point",
+      "target_id": "m1_geo_line",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "점, 직선, 평면은 기본 도형의 차원이 다른 대상이다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_point__contrasts_with__m1_geo_plane",
+      "source_id": "m1_geo_point",
+      "target_id": "m1_geo_plane",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "점, 직선, 평면은 기본 도형의 차원이 다른 대상이다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_line__contrasts_with__m1_geo_plane",
+      "source_id": "m1_geo_line",
+      "target_id": "m1_geo_plane",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "점, 직선, 평면은 기본 도형의 차원이 다른 대상이다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_distance_between_two_points__used_in__m1_geo_midpoint",
       "source_id": "m1_geo_distance_between_two_points",
       "target_id": "m1_geo_midpoint",
@@ -32316,6 +32410,28 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_opposite_side__contrasts_with__m1_geo_opposite_angle",
+      "source_id": "m1_geo_opposite_side",
+      "target_id": "m1_geo_opposite_angle",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "대변과 대각은 합동 조건에서 함께 쓰이지만 각각 변과 각을 가리키므로 구별한다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_polygon__used_in__m1_geo_interior_angle",
       "source_id": "m1_geo_polygon",
       "target_id": "m1_geo_interior_angle",
@@ -32414,6 +32530,34 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_interior_angle__contrasts_with__m1_geo_exterior_angle",
+      "source_id": "m1_geo_interior_angle",
+      "target_id": "m1_geo_exterior_angle",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 37-38; [9수03-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다각형의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "평면도형의 성질 section; [9수03-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다각형의 내각과 외각의 크기, 다각형의 대각선 개수 등 성질 이해 수준을 구분"
+        }
+      ],
+      "notes": "다각형의 내각과 외각은 각의 위치와 합 성질을 구별해 다룬다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_parallel_angle_properties__used_in__m1_geo_polygon_angle_sum",
@@ -32542,6 +32686,34 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_arc__related_to__m1_geo_central_angle",
+      "source_id": "m1_geo_arc",
+      "target_id": "m1_geo_central_angle",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부채꼴의 중심각과 호의 관계를 이해하고 호의 길이와 넓이를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "평면도형의 성질 section; [9수03-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부채꼴, 중심각, 호의 관계를 이해하고 부채꼴의 호의 길이와 넓이를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "부채꼴의 호와 중심각은 호의 길이와 넓이를 다룰 때 함께 연결된다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_central_angle__used_in__m1_geo_sector_arc_length_area",
@@ -32848,6 +33020,28 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_frustum_pyramid__contrasts_with__m1_geo_frustum_cone",
+      "source_id": "m1_geo_frustum_pyramid",
+      "target_id": "m1_geo_frustum_cone",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "각뿔대와 원뿔대는 입체도형 용어 목록에서 서로 다른 계열의 뿔대이다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_solid_unit__represented_by__m1_geo_solid_cross_section",
       "source_id": "m1_geo_solid_unit",
       "target_id": "m1_geo_solid_cross_section",
@@ -33000,6 +33194,34 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_model_tool_solid__used_in__m1_geo_solid_cross_section",
+      "source_id": "m1_geo_model_tool_solid",
+      "target_id": "m1_geo_solid_cross_section",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "모형과 공학 도구 탐구는 입체도형의 단면 관찰을 보조하는 절차로 연결된다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_justification__used_in__m1_geo_proof",
@@ -33222,6 +33444,34 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_circumcircle__contrasts_with__m1_geo_incircle",
+      "source_id": "m1_geo_circumcircle",
+      "target_id": "m1_geo_incircle",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-10]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 외심과 내심의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각형과 사각형의 성질 section; [9수03-09]~[9수03-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이등변삼각형, 삼각형의 외심과 내심, 사각형의 성질과 여러 사각형 사이의 관계를 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "외접원과 내접원은 중심 개념과 함께 삼각형·사각형의 성질에서 구별한다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_median__used_in__m1_geo_centroid",
@@ -33763,6 +34013,62 @@
         }
       ],
       "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_sine__contrasts_with__m1_geo_tangent_ratio",
+      "source_id": "m1_geo_sine",
+      "target_id": "m1_geo_tangent_ratio",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "사인, 코사인, 탄젠트는 삼각비의 서로 다른 비율 표현이다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_cosine__contrasts_with__m1_geo_tangent_ratio",
+      "source_id": "m1_geo_cosine",
+      "target_id": "m1_geo_tangent_ratio",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "사인, 코사인, 탄젠트는 삼각비의 서로 다른 비율 표현이다.",
       "confidence": "medium"
     },
     {

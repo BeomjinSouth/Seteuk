@@ -4,8 +4,8 @@ This generated audit compares node relationship arrays with explicit edge rows.
 
 ## Summary
 
-- total issues: 214
-- missing_edge_for_related_id: 214
+- total issues: 190
+- missing_edge_for_related_id: 190
 
 ## Priority Rows
 
