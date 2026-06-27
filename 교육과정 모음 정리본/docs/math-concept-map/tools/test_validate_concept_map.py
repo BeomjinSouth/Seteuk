@@ -308,6 +308,26 @@ class AchievementCoverageTests(unittest.TestCase):
 
         self.assertEqual(validator.legacy_source_review_candidate_count(rows), 2)
 
+    def test_duplicate_legacy_evidence_scan_labels_are_reported(self) -> None:
+        rows = [
+            {"candidate_label": "addition"},
+            {"candidate_label": "ratio"},
+            {"candidate_label": "addition"},
+        ]
+
+        self.assertEqual(
+            validator.duplicate_legacy_evidence_scan_labels(rows),
+            ["addition"],
+        )
+
+    def test_legacy_evidence_scan_candidate_count_reports_rows(self) -> None:
+        rows = [
+            {"candidate_label": "addition", "evidence_signal": "target_source_refs_mention_candidate"},
+            {"candidate_label": "ratio", "evidence_signal": "direct_legacy_unit_review_needed"},
+        ]
+
+        self.assertEqual(validator.legacy_evidence_scan_candidate_count(rows), 2)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -315,6 +315,24 @@
 | `recommended_next_step` | `concepts.json` 갱신 전 수행할 확인 작업 |
 | `notes` | target concept 누락, 직접 성취기준 검토 필요 등 운영 메모 |
 
+## Legacy Gap Evidence Scan CSV
+
+`legacy-gap-evidence-scan.csv`는 `legacy-gap-source-review.csv`의 target source refs 안에 후보 label이 직접 등장하는지 점검한 파생 산출물이다. 이 파일은 새 concept이나 alias를 확정하지 않고, 다음 공식 근거 확인에서 어떤 후보를 먼저 확인할지 신호를 남긴다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `candidate_label` | 검토 후보 label |
+| `integration_status` | integration plan의 staging 상태 |
+| `proposed_concept_id` | 새 선수개념 노드가 필요한 경우의 제안 id |
+| `review_status` | source review의 검토 상태 |
+| `evidence_signal` | `target_source_refs_mention_candidate`, `alias_source_refs_mention_candidate`, `target_source_refs_do_not_mention_candidate`, `direct_legacy_unit_review_needed` |
+| `candidate_mention_count` | target source refs 중 후보 label이 등장한 ref 수 |
+| `legacy_units` | 확인할 기존 성취기준 또는 단원 목록 |
+| `target_source_ref_count` | source review에서 수집한 target source ref 수 |
+| `matching_target_source_refs` | 후보 label이 직접 등장한 target source ref 목록 |
+| `recommended_action` | evidence signal에 따른 다음 검토 작업 |
+| `notes` | 신호 해석과 보류 사유 |
+
 ## 신뢰도 기준
 
 - `high`: 공식 교육과정 또는 성취수준 문서에서 직접 확인되는 개념·관계

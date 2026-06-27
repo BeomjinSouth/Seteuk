@@ -17,6 +17,7 @@ import build_legacy_gap_audit as legacy_gap_audit
 import build_legacy_gap_resolution as legacy_gap_resolution
 import build_legacy_gap_integration_plan as legacy_gap_integration_plan
 import build_legacy_gap_source_review as legacy_gap_source_review
+import build_legacy_gap_evidence_scan as legacy_gap_evidence_scan
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -295,6 +296,15 @@ def legacy_source_review_candidate_count(records: list[dict]) -> int:
     return len(records)
 
 
+def duplicate_legacy_evidence_scan_labels(records: list[dict]) -> list[str]:
+    labels = [str(record.get("candidate_label", "")) for record in records]
+    return sorted({label for label in labels if labels.count(label) > 1})
+
+
+def legacy_evidence_scan_candidate_count(records: list[dict]) -> int:
+    return len(records)
+
+
 def main() -> None:
     data_path = OUT_DIR / "concepts.json"
     if not data_path.exists():
@@ -379,6 +389,8 @@ def main() -> None:
     legacy_gap_integration_plan_md = OUT_DIR / "legacy-gap-integration-plan.md"
     legacy_gap_source_review_csv = OUT_DIR / "legacy-gap-source-review.csv"
     legacy_gap_source_review_md = OUT_DIR / "legacy-gap-source-review.md"
+    legacy_gap_evidence_scan_csv = OUT_DIR / "legacy-gap-evidence-scan.csv"
+    legacy_gap_evidence_scan_md = OUT_DIR / "legacy-gap-evidence-scan.md"
     graph = OUT_DIR / "graph.mmd"
     if read_csv_count(concepts_csv) != len(concepts):
         fail("concepts.csv row count does not match concepts.json")
@@ -604,6 +616,23 @@ def main() -> None:
         fail("legacy-gap-source-review.csv candidate count does not match legacy-gap-integration-plan.csv")
     if not legacy_gap_source_review_md.exists() or "# Legacy Gap Source Review" not in legacy_gap_source_review_md.read_text(encoding="utf-8"):
         fail("legacy-gap-source-review.md missing or invalid")
+    legacy_evidence_scan_rows = read_csv_rows(legacy_gap_evidence_scan_csv)
+    expected_legacy_evidence_scan_rows = legacy_gap_evidence_scan.evidence_scan_rows(legacy_source_review_rows)
+    if len(legacy_evidence_scan_rows) != len(expected_legacy_evidence_scan_rows):
+        fail("legacy-gap-evidence-scan.csv row count does not match generated evidence scan")
+    if legacy_evidence_scan_rows and list(legacy_evidence_scan_rows[0]) != legacy_gap_evidence_scan.CSV_FIELDS:
+        fail("legacy-gap-evidence-scan.csv fields do not match schema")
+    duplicate_evidence_scan_labels = duplicate_legacy_evidence_scan_labels(legacy_evidence_scan_rows)
+    if duplicate_evidence_scan_labels:
+        fail(f"legacy-gap-evidence-scan.csv contains duplicate candidate labels: {duplicate_evidence_scan_labels}")
+    if [row.get("candidate_label") for row in legacy_evidence_scan_rows] != [
+        row.get("candidate_label") for row in expected_legacy_evidence_scan_rows
+    ]:
+        fail("legacy-gap-evidence-scan.csv candidate order does not match generated evidence scan")
+    if legacy_evidence_scan_candidate_count(legacy_evidence_scan_rows) != len(legacy_source_review_rows):
+        fail("legacy-gap-evidence-scan.csv candidate count does not match legacy-gap-source-review.csv")
+    if not legacy_gap_evidence_scan_md.exists() or "# Legacy Gap Evidence Scan" not in legacy_gap_evidence_scan_md.read_text(encoding="utf-8"):
+        fail("legacy-gap-evidence-scan.md missing or invalid")
     source_ref_rows = read_csv_rows(source_ref_audit_csv)
     if len(source_ref_rows) != len(source_ref_audit.source_ref_summary_rows(concepts, edges)):
         fail("source-ref-audit.csv row count does not match generated source reference groups")

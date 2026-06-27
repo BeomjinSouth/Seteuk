@@ -129,3 +129,12 @@
 - target concept이 있는 후보는 기존 concept의 `source_refs`를 압축해 함께 기록하여, 새 prerequisite node 또는 alias 확정 전에 확인할 공식 문서 위치를 좁혔다.
 - `비` 후보는 현재 target concept id가 비어 있어, `9수02-07`, `9수03-12`, `9수03-14`~`9수03-17`, `9수04-08` 성취기준 단위 직접 검토가 필요하다고 남겼다.
 - 이번 작업도 보조 검토 산출물과 검증만 추가했으므로 PDF 원본, 다운로드 manifest, 공식 출처 선택 규칙은 변경하지 않았다.
+
+## Legacy Gap Evidence Scan
+
+- `legacy-gap-evidence-scan.md`와 `legacy-gap-evidence-scan.csv`를 추가해 source review 후보 12개가 기존 target source refs에 직접 나타나는지 점검했다.
+- 현재 `target_source_refs_mention_candidate`는 10개, `alias_source_refs_mention_candidate`는 1개, `direct_legacy_unit_review_needed`는 1개다.
+- `곱셈`, `길이`, `나눗셈`, `넓이`, `덧셈`, `도형`, `배수`, `뺄셈`, `삼각형`, `약수`는 target source refs 안에 후보 label이 직접 등장한다.
+- `피타고라스`는 alias 후보로 target source refs에 직접 등장한다.
+- `비`는 target source refs가 없어 공식 성취기준 단위 직접 검토가 계속 필요하다.
+- 이번 작업도 증거 신호 산출물과 검증만 추가했으므로 PDF 원본, 다운로드 manifest, 공식 출처 선택 규칙은 변경하지 않았다.

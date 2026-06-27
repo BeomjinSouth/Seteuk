@@ -246,3 +246,17 @@
 
 - legacy gap source review 단위 테스트 4개와 validator 단위 테스트 29개가 통과했다.
 - `legacy-gap-source-review.md`와 `legacy-gap-source-review.csv`는 integration 후보 12개의 공식 근거 확인 queue를 보존한다.
+
+## 2026-06-26 legacy gap evidence scan 보강
+
+- `build_legacy_gap_evidence_scan.py`를 추가해 `legacy-gap-source-review.csv`의 target source refs 안에 후보 label이 직접 등장하는지 점검했다.
+- 현재 10개 prerequisite 후보는 `target_source_refs_mention_candidate`, `피타고라스`는 `alias_source_refs_mention_candidate`, `비`는 `direct_legacy_unit_review_needed`로 분류된다.
+- 후보 label이 등장한 target source ref만 `matching_target_source_refs`에 따로 모아, 다음 공식 근거 확인 때 바로 대조할 수 있게 했다.
+- 이번 스캔은 증거 신호일 뿐 concept 자동 추가가 아니며, `concepts.json` 반영은 공식 문서 원문 또는 교과서 근거 확인 후 수행한다.
+- `validate_concept_map.py`가 evidence scan row 수, schema, 중복 candidate label, 생성 순서, source review 후보 수와의 일치, Markdown 산출물 존재 여부를 검증하도록 보강했다.
+- 이번 작업은 보조 증거 신호 산출물과 검증만 추가했으므로 PDF 원본, 다운로드 manifest, 공식 출처 선택 규칙은 변경하지 않았다.
+
+## 2026-06-26 legacy gap evidence scan 검증 결과
+
+- legacy gap evidence scan 단위 테스트 4개와 validator 단위 테스트 31개가 통과했다.
+- `legacy-gap-evidence-scan.md`와 `legacy-gap-evidence-scan.csv`는 source review 후보 12개의 증거 신호를 보존한다.
