@@ -18,6 +18,7 @@ import build_textbook_edge_evidence_packet as textbook_edge_evidence_packet
 import build_textbook_evidence_workplan as textbook_evidence_workplan
 import build_textbook_source_audit as textbook_source_audit
 import build_pilot_unit_map as pilot_unit_map
+import build_equivalence_alias_audit as equivalence_alias_audit
 import build_legacy_gap_audit as legacy_gap_audit
 import build_legacy_gap_resolution as legacy_gap_resolution
 import build_legacy_gap_integration_plan as legacy_gap_integration_plan
@@ -305,6 +306,26 @@ def unit_map_packet_index_total(records: list[dict], field: str) -> int:
     return sum(int(record.get(field, 0)) for record in records)
 
 
+def equivalence_alias_audit_record_type_count(records: list[dict], record_type: str) -> int:
+    return sum(1 for record in records if record.get("record_type") == record_type)
+
+
+def equivalence_alias_audit_record_key(row: dict) -> str:
+    return f"{row.get('record_type', '')}:{row.get('record_id', '')}"
+
+
+def missing_equivalence_alias_audit_record_ids(
+    expected_rows: list[dict],
+    actual_rows: list[dict],
+) -> list[str]:
+    actual_keys = {equivalence_alias_audit_record_key(row) for row in actual_rows}
+    return [
+        equivalence_alias_audit_record_key(row)
+        for row in expected_rows
+        if equivalence_alias_audit_record_key(row) not in actual_keys
+    ]
+
+
 def textbook_source_audit_not_ready_count(records: list[dict]) -> int:
     return sum(1 for record in records if record.get("intake_status") != "ready_for_textbook_extraction")
 
@@ -541,6 +562,8 @@ def main() -> None:
     unit_map_packet_dir = pilot_unit_map.UNIT_MAP_PACKET_DIR
     unit_map_packet_index_csv = unit_map_packet_dir / "index.csv"
     unit_map_packet_index_md = unit_map_packet_dir / "index.md"
+    equivalence_alias_audit_csv = equivalence_alias_audit.EQUIVALENCE_ALIAS_AUDIT_CSV
+    equivalence_alias_audit_md = equivalence_alias_audit.EQUIVALENCE_ALIAS_AUDIT_MD
     legacy_gap_audit_csv = OUT_DIR / "legacy-gap-audit.csv"
     legacy_gap_audit_md = OUT_DIR / "legacy-gap-audit.md"
     legacy_gap_resolution_csv = OUT_DIR / "legacy-gap-resolution.csv"
@@ -567,6 +590,40 @@ def main() -> None:
         fail("official-term-coverage.csv contains terms needing concepts")
     if not term_coverage_md.exists() or "# 공식 용어·기호 커버리지" not in term_coverage_md.read_text(encoding="utf-8"):
         fail("official-term-coverage.md missing or invalid")
+    if not equivalence_alias_audit_csv.exists():
+        fail("equivalence-alias-audit.csv missing")
+    equivalence_alias_rows = read_csv_rows(equivalence_alias_audit_csv)
+    expected_equivalence_alias_rows = equivalence_alias_audit.equivalence_alias_audit_rows(
+        concepts,
+        edges,
+        term_rows,
+    )
+    expected_equivalence_alias_csv_rows = csv_rows_for_fields(
+        expected_equivalence_alias_rows,
+        equivalence_alias_audit.CSV_FIELDS,
+    )
+    if equivalence_alias_rows and list(equivalence_alias_rows[0]) != equivalence_alias_audit.CSV_FIELDS:
+        fail("equivalence-alias-audit.csv fields do not match schema")
+    if len(equivalence_alias_rows) != len(expected_equivalence_alias_rows):
+        fail("equivalence-alias-audit.csv row count does not match generated audit")
+    missing_equivalence_alias_ids = missing_equivalence_alias_audit_record_ids(
+        expected_equivalence_alias_rows,
+        equivalence_alias_rows,
+    )
+    if missing_equivalence_alias_ids:
+        fail(f"equivalence-alias-audit.csv missing record ids: {missing_equivalence_alias_ids}")
+    if equivalence_alias_rows != expected_equivalence_alias_csv_rows:
+        fail("equivalence-alias-audit.csv rows do not match generated audit")
+    if equivalence_alias_audit_record_type_count(equivalence_alias_rows, "concept_alias") != sum(
+        1 for concept in concepts if concept.get("aliases")
+    ):
+        fail("equivalence-alias-audit.csv concept_alias count does not match concepts with aliases")
+    if equivalence_alias_audit_record_type_count(equivalence_alias_rows, "equivalent_edge") != sum(
+        1 for edge in edges if edge.get("relationship_type") == "equivalent_to"
+    ):
+        fail("equivalence-alias-audit.csv equivalent_edge count does not match equivalent_to edges")
+    if not equivalence_alias_audit_md.exists() or "# Equivalence Alias Audit" not in equivalence_alias_audit_md.read_text(encoding="utf-8"):
+        fail("equivalence-alias-audit.md missing or invalid")
     unit_rows = read_csv_rows(unit_coverage_csv)
     if len(unit_rows) != unit_group_count(concepts):
         fail("unit-coverage.csv row count does not match concept unit groups")

@@ -81,6 +81,25 @@
 | `concept_labels` | 연결 concept 대표 한국어명 목록. 세미콜론으로 구분한다. |
 | `notes` | 범위 제외 또는 검토 메모 |
 
+## Equivalence Alias Audit CSV
+
+`equivalence-alias-audit.csv`는 concept 노드의 alias, 명시적 `equivalent_to` edge, 중복 `label_ko`, 공식 용어 다중 매칭을 분리해 점검하는 파생 산출물이다. 이 파일의 `duplicate_label`과 `official_term_multi_match` row는 자동 병합 지시가 아니라, 교과서 표현과 단원 범위 근거를 확인하기 위한 검토 큐이다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `record_type` | `concept_alias`, `equivalent_edge`, `duplicate_label`, `official_term_multi_match` |
+| `record_id` | 감사 row의 안정적 식별자 |
+| `label_ko` | 대표 label 또는 검토 term |
+| `alias_or_term` | alias 문자열, 공식 용어, 또는 중복 label |
+| `concept_ids` | 관련 concept id 목록. 세미콜론으로 구분한다. |
+| `concept_labels` | 관련 concept 대표 한국어명 목록. 세미콜론으로 구분한다. |
+| `grade_domain_unit` | 관련 concept의 학년·영역·단원 요약 |
+| `relationship_status` | 현재 map에서의 처리 상태. 예: `alias_on_concept`, `explicit_equivalent_edge`, `same_label_multiple_concepts`, `official_term_matches_multiple_concepts` |
+| `recommended_action` | 다음 검토 액션. 예: alias 보존, 동치 edge 유지 확인, 단원/미시 개념 분리 검토 |
+| `confidence` | 현재 row 판단 신뢰도 |
+| `source_ref_count` | 관련 concept 또는 edge의 출처 근거 수 |
+| `notes` | 병합 보류 사유, 검토 근거, 교과서 확인 필요 사항 |
+
 ## Unit Coverage CSV
 
 `unit-coverage.csv`는 `concepts.json`과 edge 데이터를 학년·영역·단원 단위로 요약한 파생 산출물이다.

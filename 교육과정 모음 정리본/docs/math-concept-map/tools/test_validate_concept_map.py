@@ -327,6 +327,36 @@ class AchievementCoverageTests(unittest.TestCase):
             12,
         )
 
+    def test_equivalence_alias_audit_record_type_count_counts_rows(self) -> None:
+        rows = [
+            {"record_type": "concept_alias"},
+            {"record_type": "concept_alias"},
+            {"record_type": "equivalent_edge"},
+        ]
+
+        self.assertEqual(
+            validator.equivalence_alias_audit_record_type_count(rows, "concept_alias"),
+            2,
+        )
+        self.assertEqual(
+            validator.equivalence_alias_audit_record_type_count(rows, "duplicate_label"),
+            0,
+        )
+
+    def test_missing_equivalence_alias_audit_record_ids_are_reported(self) -> None:
+        expected_rows = [
+            {"record_type": "concept_alias", "record_id": "coord"},
+            {"record_type": "equivalent_edge", "record_id": "coord__equivalent_to__point"},
+        ]
+        actual_rows = [
+            {"record_type": "concept_alias", "record_id": "coord"},
+        ]
+
+        self.assertEqual(
+            validator.missing_equivalence_alias_audit_record_ids(expected_rows, actual_rows),
+            ["equivalent_edge:coord__equivalent_to__point"],
+        )
+
     def test_textbook_workplan_pending_count_sums_rows(self) -> None:
         rows = [
             {"total_pending_evidence_count": "6"},
