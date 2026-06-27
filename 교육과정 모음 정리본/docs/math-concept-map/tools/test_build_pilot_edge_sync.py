@@ -433,6 +433,24 @@ class BuildPilotEdgeSyncTests(unittest.TestCase):
 
         self.assertEqual([], missing)
 
+    def test_data_variability_queue_related_ids_have_reviewed_edges(self) -> None:
+        relationships = relationship_types_by_pair()
+        expected = {
+            frozenset(["m1_data_representative_unit", "m1_data_variability_unit"]): "related_to",
+            frozenset(["m1_data_frequency_unit", "m1_data_variability_unit"]): "related_to",
+            frozenset(["m1_data_variability", "m1_data_deviation"]): "related_to",
+            frozenset(["m1_data_variability", "m1_data_standard_deviation"]): "related_to",
+            frozenset(["m1_data_variability", "m1_data_variance"]): "related_to",
+            frozenset(["m1_data_dataset", "m1_data_data_collection"]): "related_to",
+        }
+        missing = [
+            (tuple(sorted(pair)), relationship_type)
+            for pair, relationship_type in expected.items()
+            if relationship_type not in relationships.get(pair, set())
+        ]
+
+        self.assertEqual([], missing)
+
 
 if __name__ == "__main__":
     unittest.main()

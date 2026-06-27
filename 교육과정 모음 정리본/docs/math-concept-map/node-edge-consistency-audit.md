@@ -4,22 +4,16 @@ This generated audit compares node relationship arrays with explicit edge rows.
 
 ## Summary
 
-- total issues: 24
-- missing_edge_for_related_id: 24
+- total issues: 18
+- missing_edge_for_related_id: 18
 
 ## Priority Rows
 
 | issue_type | node_id | node | array_field | related_id | related label | expected relationship | matching edge ids |
 |---|---|---|---|---|---|---|---|
-| missing_edge_for_related_id | m1_data_dataset | 자료 | related_ids | m1_data_data_collection | 자료 수집 | related_edge |  |
 | missing_edge_for_related_id | m1_data_domain | 자료와 가능성 | related_ids | m1_graph_graph | 그래프 | related_edge |  |
 | missing_edge_for_related_id | m1_data_domain | 자료와 가능성 | related_ids | m1_num_domain | 수와 연산 | related_edge |  |
 | missing_edge_for_related_id | m1_data_domain | 자료와 가능성 | related_ids | m1_repr_table | 표 | related_edge |  |
-| missing_edge_for_related_id | m1_data_frequency_unit | 도수분포표와 상대도수 | related_ids | m1_data_variability_unit | 산포도 | related_edge |  |
-| missing_edge_for_related_id | m1_data_representative_unit | 대푯값 | related_ids | m1_data_variability_unit | 산포도 | related_edge |  |
-| missing_edge_for_related_id | m1_data_variability | 산포도 | related_ids | m1_data_deviation | 편차 | related_edge |  |
-| missing_edge_for_related_id | m1_data_variability | 산포도 | related_ids | m1_data_standard_deviation | 표준편차 | related_edge |  |
-| missing_edge_for_related_id | m1_data_variability | 산포도 | related_ids | m1_data_variance | 분산 | related_edge |  |
 | missing_edge_for_related_id | m1_expr_usefulness | 문자를 사용한 식의 유용성 | related_ids | m1_term_variable | 변수 | related_edge |  |
 | missing_edge_for_related_id | m1_geo_distance_between_two_points | 두 점 사이의 거리 | related_ids | m1_num_absolute_value | 절댓값 | related_edge |  |
 | missing_edge_for_related_id | m1_geo_domain | 도형과 측정 | related_ids | m1_coord_graph_unit | 좌표평면과 그래프 | related_edge |  |

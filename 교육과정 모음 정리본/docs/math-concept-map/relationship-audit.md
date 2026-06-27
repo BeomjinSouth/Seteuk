@@ -3,7 +3,7 @@
 이 문서는 `concepts.json`의 edge를 관계 유형과 연결성 기준으로 요약한다.
 
 - concept 총계: 476개
-- edge 총계: 1942개
+- edge 총계: 1948개
 - 연결된 concept: 476개
 - 고립 concept: 0개
 - 목표 필수 관계 타입 누락: 없음
@@ -19,4 +19,4 @@
 | contrasts_with | 81 | 32 | 48 | 1 | 72 | 73 |
 | often_confused_with | 177 | 0 | 1 | 176 | 67 | 154 |
 | equivalent_to | 3 | 0 | 3 | 0 | 3 | 2 |
-| related_to | 40 | 1 | 37 | 2 | 35 | 34 |
+| related_to | 46 | 1 | 43 | 2 | 39 | 39 |

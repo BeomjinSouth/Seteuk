@@ -1262,8 +1262,11 @@ flowchart LR
   m1_data_mode -- "사용" --> m1_data_choose_representative_value
   m1_data_distribution -- "사용" --> m1_data_choose_representative_value
   m1_data_representative_value -- "사용" --> m1_data_choose_representative_value
+  m1_data_representative_unit -- "연관" --> m1_data_variability_unit
+  m1_data_frequency_unit -- "연관" --> m1_data_variability_unit
   m1_data_dataset -- "표현" --> m1_data_stem_leaf_plot
   m1_data_dataset -- "표현" --> m1_data_frequency_table
+  m1_data_dataset -- "연관" --> m1_data_data_collection
   m1_data_distribution -- "표현" --> m1_data_stem_leaf_plot
   m1_data_distribution -- "표현" --> m1_data_frequency_table
   m1_data_distribution -- "표현" --> m1_data_histogram
@@ -1324,6 +1327,9 @@ flowchart LR
   m1_data_or_probability -- "대조" --> m1_data_and_probability
   m1_data_route_counting_context -- "사용" --> m1_data_or_cases
   m1_data_route_counting_context -- "사용" --> m1_data_and_cases
+  m1_data_variability -- "연관" --> m1_data_deviation
+  m1_data_variability -- "연관" --> m1_data_variance
+  m1_data_variability -- "연관" --> m1_data_standard_deviation
   m1_data_representative_value -- "사용" --> m1_data_variability
   m1_data_distribution -- "사용" --> m1_data_variability
   m1_data_mean -- "사용" --> m1_data_deviation
