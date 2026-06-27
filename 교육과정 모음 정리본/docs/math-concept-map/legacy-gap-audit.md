@@ -6,9 +6,9 @@ The older hierarchy is treated only as a non-authoritative candidate source.
 ## Summary
 
 - legacy candidates: 163
-- covered_by_label: 139
-- covered_by_alias: 0
-- needs_review: 24
+- covered_by_label: 154
+- covered_by_alias: 2
+- needs_review: 7
 
 ## Candidate Types
 
@@ -20,26 +20,9 @@ The older hierarchy is treated only as a non-authoritative candidate source.
 | legacy_id | label | domain | unit | action | notes |
 |---|---|---|---|---|---|
 | achievement:9수02-07:비 | 비 | 변화와 관계 | 9수02-07 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수03-03:삼각형 | 삼각형 | 도형과 측정 | 9수03-03 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수03-04:도형 | 도형 | 도형과 측정 | 9수03-04 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수03-04:삼각형 | 삼각형 | 도형과 측정 | 9수03-04 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수03-06:길이 | 길이 | 도형과 측정 | 9수03-06 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수03-06:넓이 | 넓이 | 도형과 측정 | 9수03-06 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수03-06:도형 | 도형 | 도형과 측정 | 9수03-06 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수03-08:넓이 | 넓이 | 도형과 측정 | 9수03-08 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수03-08:도형 | 도형 | 도형과 측정 | 9수03-08 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수03-08:삼각형 | 삼각형 | 도형과 측정 | 9수03-08 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수03-09:삼각형 | 삼각형 | 도형과 측정 | 9수03-09 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수03-10:삼각형 | 삼각형 | 도형과 측정 | 9수03-10 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수03-11:도형 | 도형 | 도형과 측정 | 9수03-11 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수03-12:도형 | 도형 | 도형과 측정 | 9수03-12 | review_against_official_sources | No normalized label or alias match in concepts.json. |
 | achievement:9수03-12:비 | 비 | 도형과 측정 | 9수03-12 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수03-13:삼각형 | 삼각형 | 도형과 측정 | 9수03-13 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수03-14:길이 | 길이 | 도형과 측정 | 9수03-14 | review_against_official_sources | No normalized label or alias match in concepts.json. |
 | achievement:9수03-14:비 | 비 | 도형과 측정 | 9수03-14 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수03-14:피타고라스 | 피타고라스 | 도형과 측정 | 9수03-14 | review_against_official_sources | No normalized label or alias match in concepts.json. |
 | achievement:9수03-15:비 | 비 | 도형과 측정 | 9수03-15 | review_against_official_sources | No normalized label or alias match in concepts.json. |
-| achievement:9수03-15:피타고라스 | 피타고라스 | 도형과 측정 | 9수03-15 | review_against_official_sources | No normalized label or alias match in concepts.json. |
 | achievement:9수03-16:비 | 비 | 도형과 측정 | 9수03-16 | review_against_official_sources | No normalized label or alias match in concepts.json. |
 | achievement:9수03-17:비 | 비 | 도형과 측정 | 9수03-17 | review_against_official_sources | No normalized label or alias match in concepts.json. |
 | achievement:9수04-08:비 | 비 | 자료와 가능성 | 9수04-08 | review_against_official_sources | No normalized label or alias match in concepts.json. |
@@ -126,14 +109,31 @@ The older hierarchy is treated only as a non-authoritative candidate source.
 | achievement:9수02-22:그래프 | 그래프 | covered_by_label | m1_graph_graph |
 | achievement:9수02-22:함수 | 함수 | covered_by_label | m1_func_function |
 | achievement:9수03-02:합동 | 합동 | covered_by_label | m1_geo_congruence |
+| achievement:9수03-03:삼각형 | 삼각형 | covered_by_label | m1_geo_triangle |
+| achievement:9수03-04:도형 | 도형 | covered_by_label | m1_geo_figure |
+| achievement:9수03-04:삼각형 | 삼각형 | covered_by_label | m1_geo_triangle |
 | achievement:9수03-04:합동 | 합동 | covered_by_label | m1_geo_congruence |
+| achievement:9수03-06:길이 | 길이 | covered_by_label | m1_geo_length |
+| achievement:9수03-06:넓이 | 넓이 | covered_by_label | m1_geo_area |
+| achievement:9수03-06:도형 | 도형 | covered_by_label | m1_geo_figure |
+| achievement:9수03-08:넓이 | 넓이 | covered_by_label | m1_geo_area |
+| achievement:9수03-08:도형 | 도형 | covered_by_label | m1_geo_figure |
 | achievement:9수03-08:부피 | 부피 | covered_by_label | m1_geo_volume |
 | achievement:9수03-08:사각형 | 사각형 | covered_by_label | m1_geo_quadrilateral |
+| achievement:9수03-08:삼각형 | 삼각형 | covered_by_label | m1_geo_triangle |
+| achievement:9수03-09:삼각형 | 삼각형 | covered_by_label | m1_geo_triangle |
+| achievement:9수03-10:삼각형 | 삼각형 | covered_by_label | m1_geo_triangle |
 | achievement:9수03-11:닮음 | 닮음 | covered_by_label | m1_geo_similarity |
+| achievement:9수03-11:도형 | 도형 | covered_by_label | m1_geo_figure |
 | achievement:9수03-11:사각형 | 사각형 | covered_by_label | m1_geo_quadrilateral |
 | achievement:9수03-12:닮음 | 닮음 | covered_by_label | m1_geo_similarity |
+| achievement:9수03-12:도형 | 도형 | covered_by_label | m1_geo_figure |
 | achievement:9수03-13:닮음 | 닮음 | covered_by_label | m1_geo_similarity |
+| achievement:9수03-13:삼각형 | 삼각형 | covered_by_label | m1_geo_triangle |
+| achievement:9수03-14:길이 | 길이 | covered_by_label | m1_geo_length |
+| achievement:9수03-14:피타고라스 | 피타고라스 | covered_by_alias | m1_geo_pythagorean_theorem; m1_geo_pythagorean_unit |
 | achievement:9수03-15:삼각비 | 삼각비 | covered_by_label | m1_geo_trig_unit; m1_geo_trigonometric_ratio |
+| achievement:9수03-15:피타고라스 | 피타고라스 | covered_by_alias | m1_geo_pythagorean_theorem; m1_geo_pythagorean_unit |
 | achievement:9수03-16:삼각비 | 삼각비 | covered_by_label | m1_geo_trig_unit; m1_geo_trigonometric_ratio |
 | achievement:9수03-17:삼각비 | 삼각비 | covered_by_label | m1_geo_trig_unit; m1_geo_trigonometric_ratio |
 | achievement:9수03-17:원 | 원 | covered_by_label | m1_geo_circle |

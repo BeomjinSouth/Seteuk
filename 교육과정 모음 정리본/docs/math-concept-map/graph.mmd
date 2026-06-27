@@ -283,6 +283,10 @@ flowchart LR
   m1_mis_direct_inverse_generalization["증가·감소만으로 정비례·반비례 판단"]
   m1_mis_representation_conversion["표·식·그래프 변환 오류"]
   m1_geo_domain["도형과 측정"]
+  m1_geo_figure["도형"]
+  m1_geo_triangle["삼각형"]
+  m1_geo_length["길이"]
+  m1_geo_area["넓이"]
   m1_geo_basic_unit["기본 도형"]
   m1_geo_construction_congruence_unit["작도와 합동"]
   m1_geo_plane_properties_unit["평면도형의 성질"]
@@ -955,6 +959,10 @@ flowchart LR
   m1_mis_direct_inverse_generalization -- "혼동" --> m1_prop_proportion_relation
   m1_mis_direct_inverse_generalization -- "혼동" --> m1_graph_increase_decrease
   m1_mis_representation_conversion -- "혼동" --> m1_repr_conversion
+  m1_geo_domain -- "포함" --> m1_geo_figure
+  m1_geo_figure -- "포함" --> m1_geo_triangle
+  m1_geo_domain -- "포함" --> m1_geo_length
+  m1_geo_domain -- "포함" --> m1_geo_area
   m1_geo_domain -- "포함" --> m1_geo_basic_unit
   m1_geo_domain -- "포함" --> m1_geo_construction_congruence_unit
   m1_geo_domain -- "포함" --> m1_geo_plane_properties_unit
@@ -1152,6 +1160,9 @@ flowchart LR
   m1_data_box_scatter_unit -- "포함" --> m1_data_no_correlation
   m1_data_box_scatter_unit -- "포함" --> m1_data_scatter_plot_interpretation
   m1_data_box_scatter_unit -- "포함" --> m1_mis_correlation_causation
+  m1_geo_point -- "선수" --> m1_geo_triangle
+  m1_geo_line -- "선수" --> m1_geo_triangle
+  m1_geo_angle -- "선수" --> m1_geo_triangle
   m1_geo_basic_unit -- "선수" --> m1_geo_construction_congruence_unit
   m1_geo_basic_unit -- "선수" --> m1_geo_plane_properties_unit
   m1_geo_plane_properties_unit -- "선수" --> m1_geo_solid_unit
@@ -1486,6 +1497,21 @@ flowchart LR
   m1_data_scatter_plot -- "선수" --> m1_data_scatter_plot_interpretation
   m1_data_correlation -- "선수" --> m1_data_scatter_plot_interpretation
   m1_data_correlation -- "선수" --> m1_mis_correlation_causation
+  m1_geo_figure -- "사용" --> m1_geo_basic_unit
+  m1_geo_figure -- "사용" --> m1_geo_plane_properties_unit
+  m1_geo_figure -- "사용" --> m1_geo_solid_unit
+  m1_geo_figure -- "사용" --> m1_geo_similarity_unit
+  m1_geo_triangle -- "사용" --> m1_geo_triangle_construction
+  m1_geo_triangle -- "사용" --> m1_geo_triangle_congruence_conditions
+  m1_geo_triangle -- "사용" --> m1_geo_triangle_similarity_conditions
+  m1_geo_triangle -- "사용" --> m1_geo_right_triangle
+  m1_geo_length -- "사용" --> m1_geo_distance_between_two_points
+  m1_geo_length -- "사용" --> m1_geo_sector_arc_length_area
+  m1_geo_length -- "사용" --> m1_geo_right_triangle_judgement
+  m1_geo_length -- "사용" --> m1_geo_parallel_segment_ratio
+  m1_geo_area -- "사용" --> m1_geo_sector_arc_length_area
+  m1_geo_area -- "사용" --> m1_geo_surface_area
+  m1_geo_area -- "사용" --> m1_geo_trig_triangle_area
   m1_geo_position_relation -- "사용" --> m1_geo_intersection_point
   m1_geo_position_relation -- "사용" --> m1_geo_intersection_line
   m1_geo_position_relation -- "사용" --> m1_geo_skew_lines
@@ -1987,6 +2013,10 @@ flowchart LR
   class m1_mis_direct_inverse_generalization risk;
   class m1_mis_representation_conversion risk;
   class m1_geo_domain core;
+  class m1_geo_figure core;
+  class m1_geo_triangle core;
+  class m1_geo_length default;
+  class m1_geo_area default;
   class m1_geo_basic_unit core;
   class m1_geo_construction_congruence_unit core;
   class m1_geo_plane_properties_unit core;

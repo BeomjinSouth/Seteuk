@@ -285,3 +285,28 @@
 - 중1~중3 수학 교과서 PDF가 추가되면 목차, 학습 목표, 본문 정의, 정리, 예제, 용어 설명 순서로 모든 영역의 노드를 보강한다.
 - 교과서 쪽수 근거가 확보되면 `low` 신뢰도 노드와 이번에 `medium`으로 둔 기초 선수개념 노드를 재검토하고 병합 또는 승격한다.
 - 남은 legacy 후보 6개는 공식 성취기준 원문과 교과서 본문 근거를 확인한 뒤 concept 추가, alias 추가, 또는 기존 concept의 관계 보강으로 처리한다.
+
+## 2026-06-27 도형·측정 기초 노드 반영
+
+- 남은 legacy 후보 중 target source refs에 직접 등장하던 도형, 삼각형, 길이, 넓이를 실제 concept map 노드로 반영했다.
+- `m1_geo_figure`는 `도형과 측정` 영역 아래의 넓은 `core_concept`로 두고, 기본 도형·평면도형·입체도형·도형의 닮음 단원과 `used_in` 관계를 연결했다.
+- `m1_geo_triangle`은 `도형` 아래의 `core_concept`로 두고, 삼각형의 작도·합동 조건·닮음 조건·직각삼각형으로 이어지는 관계를 연결했다.
+- `m1_geo_length`, `m1_geo_area`는 도형과 측정 영역의 `term` 노드로 두고, 부채꼴의 호의 길이와 넓이, 세 변의 길이로 직각삼각형 판별, 겉넓이, 삼각비를 이용한 삼각형의 넓이와 연결했다.
+- `피타고라스`는 새 독립 노드로 만들지 않고 기존 `피타고라스 정리` 단원/정리 concept의 alias로 반영했다.
+- 네 개의 새 노드는 교과서 쪽수 근거가 아직 없으므로 `confidence: medium`으로 두고, notes에 교과서 근거 보강 필요를 남겼다.
+- `test_build_pilot_geometry_foundations.py`를 추가해 위 네 노드와 피타고라스 alias, 핵심 `used_in` edge가 생성 원본에서 유지되는지 검증한다.
+- 전체 파생 산출물을 재생성해 개념 노드는 475개, edge는 1253개, source ref는 4262개가 되었다.
+- legacy gap audit의 `needs_review`는 24개에서 7개로 줄었고, resolution/source review/evidence scan 후보는 `비` 1개만 남았다.
+- 이번 작업도 공식 문서에 이미 연결된 source refs를 세분화한 것이므로 기존 PDF 원본, 다운로드 manifest, 출처 선택 규칙은 변경하지 않았다.
+
+## 2026-06-27 도형·측정 기초 노드 검증 결과
+
+- `python docs/math-concept-map/tools/test_build_pilot_geometry_foundations.py`: 3개 통과.
+- `python -m unittest discover -s docs/math-concept-map/tools -p 'test_*.py'`: 85개 통과.
+- `python docs/math-concept-map/tools/validate_concept_map.py`: 475개 concept, 1253개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
+
+## 다음 작업
+
+- 남은 legacy 후보 `비`는 target source refs가 비어 있으므로 `9수02-07`, `9수03-12`, `9수03-14`~`9수03-17`, `9수04-08`의 공식 성취기준 원문을 직접 검토한 뒤, 새 concept 추가 또는 기존 `닮음비`·`삼각비`·`상대도수`·`확률의 비율` 계열 관계 보강 중 하나로 결정한다.
+- 중1~중3 수학 교과서 PDF가 추가되면 목차, 학습 목표, 본문 정의, 정리, 예제, 용어 설명 순서로 모든 영역의 노드를 보강한다.
+- 교과서 쪽수 근거가 확보되면 `low` 신뢰도 노드와 이번에 `medium`으로 둔 기초 선수개념 노드를 재검토하고 병합 또는 승격한다.

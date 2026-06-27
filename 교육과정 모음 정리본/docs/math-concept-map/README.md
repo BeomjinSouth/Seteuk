@@ -11,8 +11,8 @@
 
 ## 현재 데이터 규모
 
-- 개념 노드: 471개
-- 관계 edge: 1231개
+- 개념 노드: 475개
+- 관계 edge: 1253개
 - 출처: 4개
 
 ## 산출물
@@ -82,6 +82,7 @@ python docs/math-concept-map/tools/test_build_relationship_audit.py
 python docs/math-concept-map/tools/test_build_source_inventory.py
 python docs/math-concept-map/tools/test_build_source_ref_audit.py
 python docs/math-concept-map/tools/test_build_concept_evidence_depth.py
+python docs/math-concept-map/tools/test_build_pilot_geometry_foundations.py
 python docs/math-concept-map/tools/test_build_pilot_foundational_prerequisites.py
 python docs/math-concept-map/tools/test_build_textbook_extraction_queue.py
 python docs/math-concept-map/tools/test_build_textbook_evidence_packet.py
@@ -96,7 +97,7 @@ python docs/math-concept-map/tools/test_build_unit_coverage.py
 python docs/math-concept-map/tools/test_validate_concept_map.py
 ```
 
-검증기는 필수 필드, id 중복, source/ref 무결성, CSV 행 수, Mermaid 파일, 2022 개정 중학교 수학 공식 성취기준 60개(`9수01-01`~`9수04-09`)의 concept 근거 커버리지, `review-queue.csv`와 `low` 신뢰도 concept 수의 일치, 공식 용어·기호 168개 중 concept 추가 검토 필요 항목이 없는지, `unit-coverage.csv`가 학년·영역·단원 그룹과 concept 총계를 보존하는지, `relationship-audit.csv`가 edge 총계와 필수 관계 유형을 보존하는지, 고립 concept이 없는지, `textbook-evidence-packets/index.csv`와 `rank-01.csv`~`rank-33.csv`가 전체 33개 단원 concept 471개를 모두 포함하고 현재 교과서 PDF 부재 상태에서는 모두 `pending_textbook_pdf`인지, `legacy-gap-integration-plan.csv`가 남은 resolution 후보 6개와 staging 액션을 보존하는지, `legacy-gap-source-review.csv`가 integration 후보 6개의 공식 근거 확인 queue를 보존하는지, `legacy-gap-evidence-scan.csv`가 source review 후보 6개의 증거 신호를 보존하는지 확인한다. `test_build_pilot_foundational_prerequisites.py`는 약수·배수·덧셈·뺄셈·곱셈·나눗셈이 실제 concept과 edge로 연결되어 있는지 별도로 고정한다. `achievement-coverage.*`는 같은 성취기준 추출 로직을 사용해 사람용/기계용 검토 표로 재생성한다.
+검증기는 필수 필드, id 중복, source/ref 무결성, CSV 행 수, Mermaid 파일, 2022 개정 중학교 수학 공식 성취기준 60개(`9수01-01`~`9수04-09`)의 concept 근거 커버리지, `review-queue.csv`와 `low` 신뢰도 concept 수의 일치, 공식 용어·기호 168개 중 concept 추가 검토 필요 항목이 없는지, `unit-coverage.csv`가 학년·영역·단원 그룹과 concept 총계를 보존하는지, `relationship-audit.csv`가 edge 총계와 필수 관계 유형을 보존하는지, 고립 concept이 없는지, `textbook-evidence-packets/index.csv`와 `rank-01.csv`~`rank-33.csv`가 전체 33개 단원 concept 475개를 모두 포함하고 현재 교과서 PDF 부재 상태에서는 모두 `pending_textbook_pdf`인지, `legacy-gap-integration-plan.csv`가 남은 resolution 후보 1개와 staging 액션을 보존하는지, `legacy-gap-source-review.csv`가 integration 후보 1개의 공식 근거 확인 queue를 보존하는지, `legacy-gap-evidence-scan.csv`가 source review 후보 1개의 증거 신호를 보존하는지 확인한다. `test_build_pilot_foundational_prerequisites.py`는 약수·배수·덧셈·뺄셈·곱셈·나눗셈이 실제 concept과 edge로 연결되어 있는지 별도로 고정한다. `test_build_pilot_geometry_foundations.py`는 도형·삼각형·길이·넓이 및 피타고라스 alias가 기존 단원/절차에 연결되어 있는지 고정한다. `achievement-coverage.*`는 같은 성취기준 추출 로직을 사용해 사람용/기계용 검토 표로 재생성한다.
 
 `review-queue.*`는 아직 교과서 본문·예제·오답 근거로 확정하지 못한 `low` 신뢰도 concept을 모아 다음 출처 보강 순서를 정한다.
 
@@ -108,12 +109,12 @@ python docs/math-concept-map/tools/test_validate_concept_map.py
 
 `legacy-gap-audit.*`는 기존 `수학_개념_위계도/data/math_concept_hierarchy.json`의 중학교 후보가 현재 공식 근거 기반 concept map의 `label_ko` 또는 `aliases`로 포괄되는지 점검한다. 이 파일은 보조 감사 자료이며, `needs_review` 항목은 공식 교육과정 또는 교과서 근거가 확인되기 전까지 concept으로 확정하지 않는다.
 
-`legacy-gap-resolution.*`는 남은 `needs_review` 24개 row를 고유 label 6개로 접어 5개 기초 선수개념 후보와 1개 기존 concept alias 후보로 나눈다. 이전 후보 중 약수, 배수, 덧셈, 뺄셈, 곱셈, 나눗셈은 공식 source ref에 직접 등장하는 기초 선수개념으로 확인해 `medium` 신뢰도 concept과 edge로 반영했다.
+`legacy-gap-resolution.*`는 남은 `needs_review` 7개 row를 고유 label 1개, `비`로 접는다. 이전 후보 중 약수, 배수, 덧셈, 뺄셈, 곱셈, 나눗셈, 도형, 삼각형, 길이, 넓이는 공식 source ref에 직접 등장하는 기초 개념으로 확인해 `medium` 신뢰도 concept과 edge로 반영했고, 피타고라스는 기존 피타고라스 정리 concept의 alias로 반영했다.
 
-`legacy-gap-integration-plan.*`는 남은 resolution 후보 6개를 5개 `stage_prerequisite_node` 액션과 1개 `stage_alias_review` 액션으로 바꾼다. 제안 id는 `prereq_ratio`처럼 안정적인 ASCII id로 두되, 공식 근거 확인 전에는 `concepts.json`에 반영하지 않는다.
+`legacy-gap-integration-plan.*`는 남은 resolution 후보 `비` 1개를 `stage_prerequisite_node` 액션으로 둔다. 제안 id는 `prereq_ratio`로 두되, target source refs가 비어 있어 공식 근거 직접 검토 전에는 `concepts.json`에 반영하지 않는다.
 
-`legacy-gap-source-review.*`는 남은 통합 후보 6개별로 확인할 성취기준, 검색어, 기존 target concept의 source_refs를 모은다. `비`처럼 target concept이 비어 있는 후보는 공식 성취기준 단위 직접 검토가 필요하다는 상태를 남긴다.
+`legacy-gap-source-review.*`는 남은 통합 후보 `비`에 대해 확인할 성취기준과 검색어를 모은다. 현재 target concept이 비어 있으므로 공식 성취기준 단위 직접 검토가 필요하다는 상태를 남긴다.
 
-`legacy-gap-evidence-scan.*`는 source review의 target source refs 안에 후보 label이 직접 등장하는지 확인한다. 현재 4개 prerequisite 후보는 target source refs에서 label이 발견되고, `피타고라스`는 alias 후보로 발견되며, `비`는 직접 legacy unit 검토가 필요하다.
+`legacy-gap-evidence-scan.*`는 source review의 target source refs 안에 후보 label이 직접 등장하는지 확인한다. 현재 남은 후보 `비`는 target source refs가 없어 직접 legacy unit 검토가 필요하다.
 
 교과서 PDF가 추가되면 단원별로 원문 전체를 전재하지 않고 개념명, 짧은 정의, 쪽수, 출처 파일 해시, 관계 근거만 반영한다.

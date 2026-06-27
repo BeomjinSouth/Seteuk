@@ -5,25 +5,24 @@ This generated packet is the unit-level worksheet for adding textbook-grounded e
 ## Target Unit
 
 - rank: 29
-- grade: 중2(교육과정 학년군: 중1-3)
+- grade: 중학교(교육과정 학년군: 중1-3)
 - domain: 도형과 측정
-- unit: 피타고라스 정리
+- unit: 도형과 측정
 - priority tier: low
-- priority score: 6
-- concepts in packet: 6
-- pending textbook evidence: 6
+- priority score: 7
+- concepts in packet: 5
+- pending textbook evidence: 5
 - low confidence concepts: 0
 
 ## Concept Evidence Slots
 
 | concept_id | label_ko | type | confidence | evidence_depth | status | source refs |
 |---|---|---|---|---|---|---:|
-| m1_geo_pythagorean_converse | 피타고라스 정리의 역 | property | medium | official_dual_source | pending_textbook_pdf | 2 |
-| m1_geo_pythagorean_justification | 피타고라스 정리의 정당화 | procedure | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_geo_pythagorean_theorem | 피타고라스 정리 | property | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_geo_pythagorean_unit | 피타고라스 정리 | core_concept | high | official_dual_source | pending_textbook_pdf | 2 |
-| m1_geo_right_triangle | 직각삼각형 | core_concept | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_geo_right_triangle_judgement | 세 변의 길이로 직각삼각형 판별 | procedure | high | official_dual_source | pending_textbook_pdf | 2 |
+| m1_geo_domain | 도형과 측정 | core_concept | high | official_single_source | pending_textbook_pdf | 19 |
+| m1_geo_area | 넓이 | term | medium | official_dual_source | pending_textbook_pdf | 6 |
+| m1_geo_figure | 도형 | core_concept | medium | official_dual_source | pending_textbook_pdf | 4 |
+| m1_geo_length | 길이 | term | medium | official_dual_source | pending_textbook_pdf | 6 |
+| m1_geo_triangle | 삼각형 | core_concept | medium | official_dual_source | pending_textbook_pdf | 8 |
 
 ## Textbook Evidence Fields
 

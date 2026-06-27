@@ -5,7 +5,7 @@ This generated queue ranks units for the next textbook-grounded concept extracti
 ## Summary
 
 - unit groups: 33
-- concepts needing textbook evidence: 471
+- concepts needing textbook evidence: 475
 - low confidence concepts in queue: 66
 
 ## Queue
@@ -40,8 +40,8 @@ This generated queue ranks units for the next textbook-grounded concept extracti
 | 26 | 중3(교육과정 학년군: 중1-3) | 자료와 가능성 | 산포도 | medium | 12 | 8 | 1 | 0 | textbook_evidence_for_low_confidence |
 | 27 | 중1(교육과정 학년군: 중1-3) | 자료와 가능성 | 대푯값 | medium | 11 | 7 | 1 | 0 | textbook_evidence_for_low_confidence |
 | 28 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 작도와 합동 | medium | 8 | 8 | 0 | 0 | add_textbook_page_refs |
-| 29 | 중2(교육과정 학년군: 중1-3) | 도형과 측정 | 피타고라스 정리 | low | 6 | 6 | 0 | 0 | add_textbook_page_refs |
-| 30 | 중학교(교육과정 학년군: 중1-3) | 도형과 측정 | 도형과 측정 | low | 3 | 1 | 0 | 1 | confirm_official_single_source_concepts |
+| 29 | 중학교(교육과정 학년군: 중1-3) | 도형과 측정 | 도형과 측정 | low | 7 | 5 | 0 | 1 | confirm_official_single_source_concepts |
+| 30 | 중2(교육과정 학년군: 중1-3) | 도형과 측정 | 피타고라스 정리 | low | 6 | 6 | 0 | 0 | add_textbook_page_refs |
 | 31 | 중학교(교육과정 학년군: 중1-3) | 수와 연산 | 수와 연산 | low | 3 | 1 | 0 | 1 | confirm_official_single_source_concepts |
 | 32 | 중학교(교육과정 학년군: 중1-3) | 자료와 가능성 | 자료와 가능성 | low | 3 | 1 | 0 | 1 | confirm_official_single_source_concepts |
 | 33 | 중1(교육과정 학년군: 중1-3) | 자료와 가능성 | 자료와 가능성 | low | 2 | 2 | 0 | 0 | add_textbook_page_refs |

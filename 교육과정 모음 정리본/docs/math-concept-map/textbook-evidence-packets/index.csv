@@ -27,8 +27,8 @@
 26,중3(교육과정 학년군: 중1-3),자료와 가능성,산포도,8,8,1,medium,12,textbook_evidence_for_low_confidence,rank-26.csv,rank-26.md
 27,중1(교육과정 학년군: 중1-3),자료와 가능성,대푯값,7,7,1,medium,11,textbook_evidence_for_low_confidence,rank-27.csv,rank-27.md
 28,중1(교육과정 학년군: 중1-3),도형과 측정,작도와 합동,8,8,0,medium,8,add_textbook_page_refs,rank-28.csv,rank-28.md
-29,중2(교육과정 학년군: 중1-3),도형과 측정,피타고라스 정리,6,6,0,low,6,add_textbook_page_refs,rank-29.csv,rank-29.md
-30,중학교(교육과정 학년군: 중1-3),도형과 측정,도형과 측정,1,1,0,low,3,confirm_official_single_source_concepts,rank-30.csv,rank-30.md
+29,중학교(교육과정 학년군: 중1-3),도형과 측정,도형과 측정,5,5,0,low,7,confirm_official_single_source_concepts,rank-29.csv,rank-29.md
+30,중2(교육과정 학년군: 중1-3),도형과 측정,피타고라스 정리,6,6,0,low,6,add_textbook_page_refs,rank-30.csv,rank-30.md
 31,중학교(교육과정 학년군: 중1-3),수와 연산,수와 연산,1,1,0,low,3,confirm_official_single_source_concepts,rank-31.csv,rank-31.md
 32,중학교(교육과정 학년군: 중1-3),자료와 가능성,자료와 가능성,1,1,0,low,3,confirm_official_single_source_concepts,rank-32.csv,rank-32.md
 33,중1(교육과정 학년군: 중1-3),자료와 가능성,자료와 가능성,2,2,0,low,2,add_textbook_page_refs,rank-33.csv,rank-33.md

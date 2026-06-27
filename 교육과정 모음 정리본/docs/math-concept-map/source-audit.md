@@ -54,7 +54,7 @@
 - `review-queue.md`와 `review-queue.csv`는 위 잠정 노드 중 `confidence: low`인 66개 concept을 다음 교과서·출처 보강 우선순위로 모아 둔 파생 산출물이다.
 - `official-term-coverage.md`와 `official-term-coverage.csv`는 공식 문서 용어·기호 168개가 concept label 또는 alias로 연결되는지 추적하는 파생 산출물이다. 현재 `needs_concept` 항목은 없다.
 - `unit-coverage.md`와 `unit-coverage.csv`는 현재 concept/edge를 33개 학년·영역·단원 그룹으로 나누어 다음 교과서 원문 보강 단위를 추적하는 파생 산출물이다.
-- `relationship-audit.md`와 `relationship-audit.csv`는 현재 edge 1231개가 관계 유형별로 어떻게 분포하는지와 고립 concept이 없는지 추적하는 파생 산출물이다.
+- `relationship-audit.md`와 `relationship-audit.csv`는 현재 edge 1253개가 관계 유형별로 어떻게 분포하는지와 고립 concept이 없는지 추적하는 파생 산출물이다.
 
 ## Source Inventory Snapshot
 
@@ -66,21 +66,21 @@
 ## Source Reference Audit
 
 - `source-ref-audit.md`와 `source-ref-audit.csv`를 추가해 concept/edge의 `source_refs`를 출처와 근거 유형별로 추적한다.
-- 현재 source ref는 concept 1205개, edge 2950개, 총 4155개이다.
+- 현재 source ref는 concept 1231개, edge 3031개, 총 4262개이다.
 - 현재 `locator` 누락은 0개, `summary` 누락은 0개이다.
 - 이 감사는 교과서 PDF가 추가되기 전에도 공식 문서 기반 개념과 관계가 어떤 근거 유형에 기대고 있는지 확인하기 위한 재생성 가능한 점검표이다.
 
 ## Concept Evidence Depth
 
 - `concept-evidence-depth.md`와 `concept-evidence-depth.csv`를 추가해 concept별 공식/교과서 근거 깊이를 추적한다.
-- 현재 471개 concept 중 `official_dual_source`는 393개, `official_single_source`는 78개이다.
-- 현재 `textbook_supported` concept은 0개이며, 471개 concept 모두 교과서 본문·정리·예제·문제 근거 보강이 필요하다.
+- 현재 475개 concept 중 `official_dual_source`는 397개, `official_single_source`는 78개이다.
+- 현재 `textbook_supported` concept은 0개이며, 475개 concept 모두 교과서 본문·정리·예제·문제 근거 보강이 필요하다.
 - 교과서 PDF가 추가되면 이 산출물에서 `needs_textbook_evidence`를 줄이는 방식으로 보강 진행률을 추적한다.
 
 ## Textbook Extraction Queue
 
 - `textbook-extraction-queue.md`와 `textbook-extraction-queue.csv`를 추가해 교과서 PDF가 추가된 뒤의 단원별 원문 추출 우선순위를 추적한다.
-- 현재 큐는 33개 단원 그룹을 포함하며, 교과서 근거 보강 필요 concept 471개와 `low` 신뢰도 concept 66개를 반영한다.
+- 현재 큐는 33개 단원 그룹을 포함하며, 교과서 근거 보강 필요 concept 475개와 `low` 신뢰도 concept 66개를 반영한다.
 - 현재 최상위 우선 단원은 `좌표평면과 그래프`, `일차함수와 그 그래프`, `경우의 수와 확률`, `이차함수와 그 그래프`, `도수분포표와 상대도수`이다.
 - 교과서 PDF가 추가되면 큐 순서대로 목차, 학습목표, 본문 정의, 정리, 예제, 문제 반복 표현을 추출한다.
 
@@ -88,8 +88,8 @@
 
 - `textbook-evidence-packets/index.md`와 `textbook-evidence-packets/index.csv`를 추가해 전체 단원 교과서 근거 패킷을 추적한다.
 - `rank-01`~`rank-33` 패킷은 `textbook-extraction-queue.csv`의 전체 33개 단원 그룹을 포함한다.
-- 전체 패킷은 concept 471개를 포함하며, 그중 `low` 신뢰도 concept 66개를 단원 안에서 먼저 정렬한다.
-- 현재 `교과서_원본/`에는 PDF가 없으므로 471개 row 모두 `pending_textbook_pdf` 상태이며, 목차·학습목표·정의·정리·예제·용어 설명·문제 패턴·쪽수 슬롯은 비워 두었다.
+- 전체 패킷은 concept 475개를 포함하며, 그중 `low` 신뢰도 concept 66개를 단원 안에서 먼저 정렬한다.
+- 현재 `교과서_원본/`에는 PDF가 없으므로 475개 row 모두 `pending_textbook_pdf` 상태이며, 목차·학습목표·정의·정리·예제·용어 설명·문제 패턴·쪽수 슬롯은 비워 두었다.
 - 교과서 PDF가 추가되면 이 패킷들의 빈 슬롯을 채운 뒤 `concepts.json`의 `source_refs`, `confidence`, 병합/분리 판단을 갱신한다.
 
 ## 다음 출처 보강 순서
@@ -102,39 +102,37 @@
 ## Legacy Gap Audit
 
 - `legacy-gap-audit.md`와 `legacy-gap-audit.csv`를 추가해 기존 로컬 `수학_개념_위계도/data/math_concept_hierarchy.json`의 중학교 후보가 현재 공식 근거 기반 concept map에 이미 포함되어 있는지 비교했다.
-- 현재 감사 대상은 163개이며, `covered_by_label` 139개와 `needs_review` 24개로 분류된다. `covered_by_alias`는 현재 0개다.
+- 현재 감사 대상은 163개이며, `covered_by_label` 154개, `covered_by_alias` 2개, `needs_review` 7개로 분류된다.
 - 기존 로컬 위계도는 공식 교육과정 PDF나 교과서 원본이 아니므로 보조 후보 출처로만 사용한다. `needs_review` 항목은 공식 문서 또는 교과서 본문 근거가 확인되기 전까지 새 concept으로 확정하지 않는다.
 - 이번 작업은 기존 감사 산출물 생성과 검증 보강만 수행했으므로 PDF 원본, 다운로드 manifest, 공식 출처 선택 규칙은 변경하지 않았다.
 
 ## Legacy Gap Resolution
 
-- `legacy-gap-resolution.md`와 `legacy-gap-resolution.csv`를 추가해 `legacy-gap-audit`의 남은 `needs_review` 24개 row를 고유 label 6개로 접었다.
-- 현재 분류는 `foundational_prerequisite_candidate` 5개와 `alias_candidate_for_existing_concept` 1개이며, `source_detail_needed`는 0개다.
-- 기초 선수개념 후보 중 약수, 배수, 덧셈, 뺄셈, 곱셈, 나눗셈은 공식 target source ref에서 직접 확인되어 `medium` 신뢰도 concept과 edge로 반영했다. 남은 후보는 비, 삼각형, 도형, 길이, 넓이처럼 현행 중학교 concept map의 하위·선수 관계에서 반복 등장하는 넓은 개념이며, 공식 근거 위치를 더 확인한 뒤 낮은 신뢰도의 선수개념 노드 또는 기존 노드의 상위/관련 관계로 처리한다.
+- `legacy-gap-resolution.md`와 `legacy-gap-resolution.csv`를 추가해 `legacy-gap-audit`의 남은 `needs_review` 7개 row를 고유 label 1개로 접었다.
+- 현재 분류는 `foundational_prerequisite_candidate` 1개이며, `alias_candidate_for_existing_concept`와 `source_detail_needed`는 0개다.
+- 기초 선수개념 후보 중 약수, 배수, 덧셈, 뺄셈, 곱셈, 나눗셈, 도형, 삼각형, 길이, 넓이는 공식 target source ref에서 직접 확인되어 `medium` 신뢰도 concept과 edge로 반영했다. 피타고라스는 기존 피타고라스 정리 concept의 alias로 반영했다. 남은 후보 `비`는 target source refs가 비어 있으므로 공식 성취기준 원문 단위 직접 검토가 필요하다.
 - `피타고라스`는 독립 concept으로 바로 추가하지 않고 `피타고라스 정리` 계열 기존 concept의 alias 후보로 검토한다.
 - 이번 작업도 보조 감사 산출물과 검증만 추가했으므로 PDF 원본, 다운로드 manifest, 공식 출처 선택 규칙은 변경하지 않았다.
 
 ## Legacy Gap Integration Plan
 
-- `legacy-gap-integration-plan.md`와 `legacy-gap-integration-plan.csv`를 추가해 남은 resolution 후보 6개를 통합 전 staging 액션으로 변환했다.
-- 현재 계획은 `stage_prerequisite_node` 5개와 `stage_alias_review` 1개이며, `wait_for_source_detail`은 0개다.
+- `legacy-gap-integration-plan.md`와 `legacy-gap-integration-plan.csv`를 추가해 남은 resolution 후보 1개를 통합 전 staging 액션으로 변환했다.
+- 현재 계획은 `stage_prerequisite_node` 1개이며, `stage_alias_review`와 `wait_for_source_detail`은 0개다.
 - 기초 선수개념 후보는 `prereq_divisor`, `prereq_ratio`처럼 안정적인 ASCII 제안 id를 부여했지만, 공식 근거 확인 전에는 `concepts.json`에 추가하지 않는다.
 - `피타고라스`는 `alias_on_existing_concept` 액션으로만 유지하며, 독립 노드 생성 대상에서 제외한다.
 - 이번 작업은 보조 감사 산출물과 검증만 추가했으므로 PDF 원본, 다운로드 manifest, 공식 출처 선택 규칙은 변경하지 않았다.
 
 ## Legacy Gap Source Review
 
-- `legacy-gap-source-review.md`와 `legacy-gap-source-review.csv`를 추가해 남은 integration 후보 6개별 공식 근거 확인 queue를 만들었다.
-- 현재 검토 상태는 `needs_official_prerequisite_confirmation` 5개와 `needs_alias_confirmation` 1개이며, `needs_source_detail`은 0개다.
+- `legacy-gap-source-review.md`와 `legacy-gap-source-review.csv`를 추가해 남은 integration 후보 1개별 공식 근거 확인 queue를 만들었다.
+- 현재 검토 상태는 `needs_official_prerequisite_confirmation` 1개이며, `needs_alias_confirmation`과 `needs_source_detail`은 0개다.
 - target concept이 있는 후보는 기존 concept의 `source_refs`를 압축해 함께 기록하여, 새 prerequisite node 또는 alias 확정 전에 확인할 공식 문서 위치를 좁혔다.
 - `비` 후보는 현재 target concept id가 비어 있어, `9수02-07`, `9수03-12`, `9수03-14`~`9수03-17`, `9수04-08` 성취기준 단위 직접 검토가 필요하다고 남겼다.
 - 이번 작업도 보조 검토 산출물과 검증만 추가했으므로 PDF 원본, 다운로드 manifest, 공식 출처 선택 규칙은 변경하지 않았다.
 
 ## Legacy Gap Evidence Scan
 
-- `legacy-gap-evidence-scan.md`와 `legacy-gap-evidence-scan.csv`를 추가해 남은 source review 후보 6개가 기존 target source refs에 직접 나타나는지 점검했다.
-- 현재 `target_source_refs_mention_candidate`는 4개, `alias_source_refs_mention_candidate`는 1개, `direct_legacy_unit_review_needed`는 1개다.
-- `길이`, `넓이`, `도형`, `삼각형`은 target source refs 안에 후보 label이 직접 등장한다.
-- `피타고라스`는 alias 후보로 target source refs에 직접 등장한다.
+- `legacy-gap-evidence-scan.md`와 `legacy-gap-evidence-scan.csv`를 추가해 남은 source review 후보 1개가 기존 target source refs에 직접 나타나는지 점검했다.
+- 현재 `direct_legacy_unit_review_needed`는 1개이며, target source refs 기반의 직접 mention 후보와 alias 후보는 0개다.
 - `비`는 target source refs가 없어 공식 성취기준 단위 직접 검토가 계속 필요하다.
 - 이번 작업도 증거 신호 산출물과 검증만 추가했으므로 PDF 원본, 다운로드 manifest, 공식 출처 선택 규칙은 변경하지 않았다.
