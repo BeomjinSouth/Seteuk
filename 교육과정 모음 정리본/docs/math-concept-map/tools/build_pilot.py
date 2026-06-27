@@ -7133,6 +7133,40 @@ def append_missing_concept_array_entries_from_edges(relationship_type: str, arra
             target[array_field].append(item["source_id"])
 
 
+def append_missing_misconception_related_edges() -> None:
+    concepts_by_id = {item["id"]: item for item in CONCEPTS}
+    existing_pairs = {
+        frozenset([item["source_id"], item["target_id"]])
+        for item in EDGES
+        if item["relationship_type"] == "often_confused_with"
+    }
+    for item in CONCEPTS:
+        for related_id in item["related_ids"]:
+            related = concepts_by_id[related_id]
+            if item["concept_type"] != "misconception_risk" and related["concept_type"] != "misconception_risk":
+                continue
+            pair = frozenset([item["id"], related_id])
+            if pair in existing_pairs:
+                continue
+            if item["concept_type"] == "misconception_risk":
+                risk = item
+                counterpart = related
+            else:
+                risk = related
+                counterpart = item
+            EDGES.append(
+                edge(
+                    risk["id"],
+                    counterpart["id"],
+                    "often_confused_with",
+                    risk["source_refs"] or counterpart["source_refs"],
+                    notes="related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+                    confidence="low",
+                )
+            )
+            existing_pairs.add(pair)
+
+
 EDGES = [
     edge("m1_num_domain", "m1_num_prime_factor_unit", "contains", [CURR_NUM_01, CURR_NUM_02]),
     edge("m1_num_domain", "m1_num_integer_rational_unit", "contains", [CURR_NUM_03, CURR_NUM_04, CURR_NUM_05]),
@@ -7875,6 +7909,7 @@ append_missing_edges_from_concept_array("parent_ids", "contains")
 append_missing_edges_from_concept_array("prerequisite_ids", "prerequisite_for")
 append_missing_concept_array_entries_from_edges("contains", "parent_ids")
 append_missing_concept_array_entries_from_edges("prerequisite_for", "prerequisite_ids")
+append_missing_misconception_related_edges()
 
 
 SOURCES = [

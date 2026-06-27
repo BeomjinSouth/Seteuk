@@ -474,7 +474,25 @@
 - 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 476개 concept, 1706개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
 - diff check: `git diff --check -- docs/math-concept-map`: 종료 코드 0, CRLF 변환 경고만 확인.
 
+## 2026-06-27 오개념 related edge 보강
+
+- AGENTS.md를 다시 확인하고, 이번 작업은 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 생성 로직과 파생 산출물 정비로 진행했다.
+- `build_pilot.py`에 `append_missing_misconception_related_edges`를 추가해, `related_ids` 양끝 중 하나가 `misconception_risk`인 경우 낮은 신뢰도의 `often_confused_with` edge를 자동 보강하게 했다.
+- 새 edge는 오개념 위험 concept을 source로 삼고, source refs는 오개념 위험 concept 또는 상대 concept의 기존 source refs를 보존한다. notes에는 교과서 근거 확인 후 유지 또는 조정해야 한다는 단서를 남겼다.
+- `test_build_pilot_edge_sync.py`에 오개념 위험 `related_ids`가 `often_confused_with` edge로 연결되는지 검증하는 테스트를 추가했다.
+- 전체 파생 산출물을 재생성해 개념 노드는 476개, edge는 1784개, source ref는 5488개가 되었다.
+- `often_confused_with` edge는 99개에서 177개로 늘었고, `node-edge-consistency-audit.csv`와 `related-edge-resolution-queue.csv`는 469개에서 379개로 줄었다.
+- `related-edge-resolution-queue.csv`에는 이제 high priority 항목이 없고, medium 1개, low 376개, backlog 2개가 남았다.
+
+## 2026-06-27 오개념 related edge 보강 검증 결과
+
+- TDD red: `python -m unittest discover -s .\docs\math-concept-map\tools -p test_build_pilot_edge_sync.py`가 오개념 위험 `related_ids`에 대응하는 `often_confused_with` edge 누락으로 실패하는 것을 확인했다.
+- TDD green: 오개념 related edge 자동 보강 후 같은 테스트 파일의 5개 테스트가 통과했다.
+- 전체 단위 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p 'test_*.py'`: 112개 통과.
+- 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 476개 concept, 1784개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map`: 종료 코드 0, CRLF 변환 경고만 확인.
+
 ## 다음 작업
 
-- `related-edge-resolution-queue.csv`의 high priority 90개부터 공식 근거와 교과서 근거를 대조해 `often_confused_with`, `represented_by`, `used_in`, `contrasts_with`, `related_to` edge 중 하나로 확정한다.
+- `related-edge-resolution-queue.csv`의 medium 1개와 low 376개, backlog 2개를 공식 근거와 교과서 근거 기준으로 검토해 `represented_by`, `used_in`, `contrasts_with`, `related_to` edge 중 하나로 확정한다.
 - 중1~중3 수학 교과서 PDF가 추가되면 `textbook-evidence-packets/`, `prerequisite-map.csv`, `prerequisite-unit-graph.dot`, `related-edge-resolution-queue.csv`를 함께 사용해 concept별 본문·예제 근거와 관계 edge별 쪽수 근거를 누적한다.

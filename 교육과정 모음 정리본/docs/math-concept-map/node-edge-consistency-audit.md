@@ -4,8 +4,8 @@ This generated audit compares node relationship arrays with explicit edge rows.
 
 ## Summary
 
-- total issues: 469
-- missing_edge_for_related_id: 469
+- total issues: 379
+- missing_edge_for_related_id: 379
 
 ## Priority Rows
 
@@ -14,9 +14,7 @@ This generated audit compares node relationship arrays with explicit edge rows.
 | missing_edge_for_related_id | m1_calc_arithmetic_to_polynomial_extension | 수의 사칙연산에서 다항식 계산으로의 확장 | related_ids | m1_calc_monomial_polynomial_mul_div | 단항식과 다항식의 곱셈과 나눗셈 | related_edge |  |
 | missing_edge_for_related_id | m1_calc_arithmetic_to_polynomial_extension | 수의 사칙연산에서 다항식 계산으로의 확장 | related_ids | m1_calc_polynomial_add_sub | 다항식의 덧셈과 뺄셈 | related_edge |  |
 | missing_edge_for_related_id | m1_calc_base | 밑 | related_ids | m1_calc_exponent | 지수 | related_edge |  |
-| missing_edge_for_related_id | m1_calc_base | 밑 | related_ids | m1_mis_exponent_base | 밑이 다른 거듭제곱에 지수법칙을 잘못 적용하는 오류 | related_edge |  |
 | missing_edge_for_related_id | m1_calc_exponent | 지수 | related_ids | m1_calc_base | 밑 | related_edge |  |
-| missing_edge_for_related_id | m1_calc_exponent | 지수 | related_ids | m1_mis_exponent_base | 밑이 다른 거듭제곱에 지수법칙을 잘못 적용하는 오류 | related_edge |  |
 | missing_edge_for_related_id | m1_calc_monomial_mul_div | 단항식의 곱셈과 나눗셈 | related_ids | m1_calc_monomial_polynomial_mul_div | 단항식과 다항식의 곱셈과 나눗셈 | related_edge |  |
 | missing_edge_for_related_id | m1_calc_polynomial_add_sub | 다항식의 덧셈과 뺄셈 | related_ids | m1_expr_add_sub_linear_expression | 일차식의 덧셈과 뺄셈 | related_edge |  |
 | missing_edge_for_related_id | m1_calc_power | 거듭제곱 | related_ids | m1_calc_base | 밑 | related_edge |  |
@@ -60,7 +58,9 @@ This generated audit compares node relationship arrays with explicit edge rows.
 | missing_edge_for_related_id | m1_data_correlation | 상관관계 | related_ids | m1_data_no_correlation | 상관관계가 없는 경우 | related_edge |  |
 | missing_edge_for_related_id | m1_data_correlation | 상관관계 | related_ids | m1_data_positive_correlation | 양의 상관관계 | related_edge |  |
 | missing_edge_for_related_id | m1_data_counting_cases | 경우의 수 | related_ids | m1_data_probability | 확률 | related_edge |  |
-| missing_edge_for_related_id | m1_data_critical_graph_reading | 표와 그래프의 오류 비판적으로 읽기 | related_ids | m1_mis_graph_scale_distortion | 눈금 왜곡 그래프를 그대로 해석하는 오류 | related_edge |  |
+| missing_edge_for_related_id | m1_data_dataset | 자료 | related_ids | m1_data_data_collection | 자료 수집 | related_edge |  |
+| missing_edge_for_related_id | m1_data_dataset | 자료 | related_ids | m1_data_variable | 변량 | related_edge |  |
+| missing_edge_for_related_id | m1_data_deviation | 편차 | related_ids | m1_data_standard_deviation | 표준편차 | related_edge |  |
 
 ## Notes
 

@@ -4,7 +4,7 @@ This generated audit summarizes concept and edge source references by source and
 
 ## Summary
 
-- source refs: 5330
+- source refs: 5488
 - missing locator: 0
 - missing summary: 0
 
@@ -18,9 +18,9 @@ This generated audit summarizes concept and edge source references by source and
 | concept | curriculum_math_2022 | instructional_term_list | 20 | 20 | 7 | 10 | 3 | 0 | 0 |
 | concept | curriculum_math_2022 | teaching_note | 155 | 150 | 96 | 26 | 28 | 0 | 0 |
 | concept | curriculum_math_2022 | term_list | 181 | 181 | 155 | 13 | 13 | 0 | 0 |
-| edge | achievement_math_2022 | achievement_level | 1621 | 1521 | 1048 | 238 | 235 | 0 | 0 |
-| edge | achievement_math_2022 | assessment_item | 26 | 26 | 0 | 21 | 5 | 0 | 0 |
-| edge | curriculum_math_2022 | achievement_standard | 1328 | 1179 | 918 | 126 | 135 | 0 | 0 |
-| edge | curriculum_math_2022 | instructional_term_list | 61 | 61 | 20 | 31 | 10 | 0 | 0 |
-| edge | curriculum_math_2022 | teaching_note | 496 | 482 | 298 | 89 | 95 | 0 | 0 |
-| edge | curriculum_math_2022 | term_list | 559 | 559 | 453 | 43 | 63 | 0 | 0 |
+| edge | achievement_math_2022 | achievement_level | 1690 | 1585 | 1048 | 238 | 299 | 0 | 0 |
+| edge | achievement_math_2022 | assessment_item | 28 | 28 | 0 | 21 | 7 | 0 | 0 |
+| edge | curriculum_math_2022 | achievement_standard | 1367 | 1215 | 918 | 126 | 171 | 0 | 0 |
+| edge | curriculum_math_2022 | instructional_term_list | 63 | 63 | 20 | 31 | 12 | 0 | 0 |
+| edge | curriculum_math_2022 | teaching_note | 535 | 521 | 298 | 89 | 134 | 0 | 0 |
+| edge | curriculum_math_2022 | term_list | 566 | 566 | 453 | 43 | 70 | 0 | 0 |
