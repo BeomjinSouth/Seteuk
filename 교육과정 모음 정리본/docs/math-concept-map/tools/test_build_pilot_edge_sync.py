@@ -385,6 +385,30 @@ class BuildPilotEdgeSyncTests(unittest.TestCase):
 
         self.assertEqual([], missing)
 
+    def test_algebra_queue_related_ids_have_reviewed_edges(self) -> None:
+        relationships = relationship_types_by_pair()
+        expected = {
+            frozenset(["m1_factor_binomial_product_xab", "m1_quad_eq_factorization_solving"]): "used_in",
+            frozenset(["m1_factor_factor", "m1_expr_term"]): "contrasts_with",
+            frozenset(["m1_expr_letter", "m1_repr_expression"]): "used_in",
+            frozenset(["m1_expr_monomial", "m1_expr_term"]): "related_to",
+            frozenset(["m1_expr_unit", "m1_coord_graph_unit"]): "related_to",
+            frozenset(["m1_calc_polynomial_add_sub", "m1_expr_add_sub_linear_expression"]): "used_in",
+            frozenset(["m1_system_two_variable_linear_equation", "m1_coord_graph_unit"]): "related_to",
+            frozenset(["m1_system_two_variable_linear_equation", "m1_func_equation_relation"]): "used_in",
+            frozenset(["m1_quad_eq_double_root", "m1_quad_eq_real_solution_scope"]): "related_to",
+            frozenset(["m1_quad_eq_real_solution_scope", "m1_quad_eq_root_formula"]): "related_to",
+            frozenset(["m1_quad_eq_unit", "m1_factor_factorization"]): "used_in",
+            frozenset(["m1_quad_func_tech_tool_graph", "m1_func_tech_tool_graph"]): "used_in",
+        }
+        missing = [
+            (tuple(sorted(pair)), relationship_type)
+            for pair, relationship_type in expected.items()
+            if relationship_type not in relationships.get(pair, set())
+        ]
+
+        self.assertEqual([], missing)
+
 
 if __name__ == "__main__":
     unittest.main()

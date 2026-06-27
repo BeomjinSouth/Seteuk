@@ -654,6 +654,7 @@ flowchart LR
   m1_expr_letter -- "사용" --> m1_expr_literal_expression
   m1_expr_literal_expression -- "사용" --> m1_expr_value
   m1_expr_literal_expression -- "표현" --> m1_repr_expression
+  m1_expr_letter -- "사용" --> m1_repr_expression
   m1_expr_substitution -- "사용" --> m1_expr_value
   m1_expr_letter -- "사용" --> m1_term_variable
   m1_repr_everyday_language -- "표현" --> m1_expr_literal_expression
@@ -661,6 +662,7 @@ flowchart LR
   m1_expr_literal_expression -- "사용" --> m1_expr_usefulness
   m1_expr_polynomial -- "포함" --> m1_expr_term
   m1_expr_polynomial -- "포함" --> m1_expr_monomial
+  m1_expr_monomial -- "연관" --> m1_expr_term
   m1_expr_polynomial -- "포함" --> m1_expr_linear_expression
   m1_expr_term -- "포함" --> m1_expr_constant_term
   m1_expr_term -- "포함" --> m1_expr_coefficient
@@ -673,6 +675,7 @@ flowchart LR
   m1_expr_linear_expression -- "선수" --> m1_eq_linear_equation
   m1_expr_literal_expression -- "선수" --> m1_eq_modeling_linear_equation
   m1_expr_unit -- "선수" --> m1_eq_unit
+  m1_expr_unit -- "연관" --> m1_coord_graph_unit
   m1_mis_letter_as_label_only -- "혼동" --> m1_expr_letter
   m1_mis_like_terms -- "혼동" --> m1_expr_like_terms
   m1_mis_like_terms -- "혼동" --> m1_expr_add_sub_linear_expression
@@ -731,6 +734,7 @@ flowchart LR
   m1_calc_simplify_expression -- "사용" --> m1_calc_monomial_polynomial_mul_div
   m1_expr_polynomial -- "사용" --> m1_calc_polynomial_add_sub
   m1_expr_like_terms -- "사용" --> m1_calc_polynomial_add_sub
+  m1_expr_add_sub_linear_expression -- "사용" --> m1_calc_polynomial_add_sub
   m1_calc_monomial_mul_div -- "선수" --> m1_calc_monomial_polynomial_mul_div
   m1_calc_monomial_polynomial_mul_div -- "사용" --> m1_calc_expansion
   m1_calc_unit -- "선수" --> m1_ineq_unit
@@ -769,6 +773,7 @@ flowchart LR
   m1_system_unit -- "포함" --> m1_system_solving
   m1_system_unit -- "포함" --> m1_system_modeling
   m1_system_two_variable_linear_equation -- "사용" --> m1_system_simultaneous_linear_equations
+  m1_system_two_variable_linear_equation -- "연관" --> m1_coord_graph_unit
   m1_system_simultaneous_equations -- "포함" --> m1_system_simultaneous_linear_equations
   m1_system_simultaneous_linear_equations -- "포함" --> m1_system_solution
   m1_eq_solution -- "선수" --> m1_system_solution
@@ -839,6 +844,7 @@ flowchart LR
   m1_func_eq_relation_unit -- "포함" --> m1_func_two_linear_graphs
   m1_func_eq_relation_unit -- "포함" --> m1_func_system_graph_relation
   m1_system_two_variable_linear_equation -- "표현" --> m1_func_two_variable_equation_as_graph
+  m1_system_two_variable_linear_equation -- "사용" --> m1_func_equation_relation
   m1_func_two_variable_equation_as_graph -- "사용" --> m1_func_equation_relation
   m1_func_linear_graph -- "사용" --> m1_func_equation_relation
   m1_func_two_linear_graphs -- "포함" --> m1_func_intersection_point
@@ -861,6 +867,7 @@ flowchart LR
   m1_mis_intersection_solution -- "혼동" --> m1_func_system_graph_relation
   m1_calc_unit -- "선수" --> m1_factor_unit
   m1_factor_unit -- "선수" --> m1_quad_eq_unit
+  m1_factor_factorization -- "사용" --> m1_quad_eq_unit
   m1_eq_unit -- "선수" --> m1_quad_eq_unit
   m1_func_unit -- "선수" --> m1_quad_func_unit
   m1_coord_graph_unit -- "선수" --> m1_quad_func_unit
@@ -884,6 +891,7 @@ flowchart LR
   m1_factor_polynomial_multiplication -- "대조" --> m1_factor_factorization
   m1_factor_factorization -- "대조" --> m1_factor_polynomial_multiplication
   m1_factor_factor -- "사용" --> m1_factor_factorization
+  m1_factor_factor -- "대조" --> m1_expr_term
   m1_factor_common_factor -- "사용" --> m1_factor_factorization
   m1_factor_perfect_square_expression -- "표현" --> m1_factor_square_sum_formula
   m1_factor_perfect_square_expression -- "표현" --> m1_factor_square_difference_formula
@@ -892,6 +900,7 @@ flowchart LR
   m1_factor_square_sum_formula -- "대조" --> m1_factor_square_difference_formula
   m1_factor_sum_difference_product_formula -- "사용" --> m1_factor_factorization
   m1_factor_binomial_product_xab -- "표현" --> m1_factor_quadratic_expression
+  m1_factor_binomial_product_xab -- "사용" --> m1_quad_eq_factorization_solving
   m1_factor_linear_product_axb_cxd -- "표현" --> m1_factor_quadratic_expression
   m1_factor_quadratic_expression -- "사용" --> m1_quad_eq_quadratic_equation
   m1_factor_quadratic_expression -- "대조" --> m1_quad_eq_quadratic_term
@@ -923,7 +932,9 @@ flowchart LR
   m1_quad_eq_root_formula -- "사용" --> m1_quad_eq_solution
   m1_quad_eq_double_root -- "포함" --> m1_quad_eq_solution
   m1_quad_eq_double_root -- "연관" --> m1_quad_eq_root_formula
+  m1_quad_eq_double_root -- "연관" --> m1_quad_eq_real_solution_scope
   m1_quad_eq_real_solution_scope -- "사용" --> m1_quad_eq_solution
+  m1_quad_eq_real_solution_scope -- "연관" --> m1_quad_eq_root_formula
   m1_quad_eq_modeling -- "표현" --> m1_quad_eq_quadratic_equation
   m1_quad_eq_modeling -- "표현" --> m1_quad_eq_standard_form
   m1_quad_eq_solving -- "사용" --> m1_eq_solution_check
@@ -972,6 +983,7 @@ flowchart LR
   m1_quad_func_vertex -- "사용" --> m1_quad_func_maximum
   m1_quad_func_vertex -- "사용" --> m1_quad_func_minimum
   m1_quad_func_tech_tool_graph -- "사용" --> m1_quad_func_graph_properties
+  m1_func_tech_tool_graph -- "사용" --> m1_quad_func_tech_tool_graph
   m1_mis_quadratic_function_equation -- "혼동" --> m1_quad_func_quadratic_function
   m1_mis_quadratic_function_equation -- "혼동" --> m1_quad_eq_quadratic_equation
   m1_mis_axis_vertex -- "혼동" --> m1_quad_func_axis
