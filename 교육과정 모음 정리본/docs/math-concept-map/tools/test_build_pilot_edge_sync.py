@@ -174,6 +174,28 @@ class BuildPilotEdgeSyncTests(unittest.TestCase):
 
         self.assertEqual([], missing)
 
+    def test_algebra_function_and_polygon_related_ids_have_reviewed_edges(self) -> None:
+        relationships = relationship_types_by_pair()
+        expected = {
+            frozenset(["m1_geo_convex_polygon_scope", "m1_geo_diagonal_count"]): "related_to",
+            frozenset(["m1_geo_convex_polygon_scope", "m1_geo_polygon_angle_sum"]): "related_to",
+            frozenset(["m1_factor_square_difference_formula", "m1_factor_square_sum_formula"]): "contrasts_with",
+            frozenset(["m1_expr_coefficient", "m1_expr_constant_term"]): "contrasts_with",
+            frozenset(["m1_calc_base", "m1_calc_exponent"]): "contrasts_with",
+            frozenset(["m1_quad_func_general_form", "m1_quad_func_vertex_form"]): "related_to",
+            frozenset(["m1_eq_both_sides", "m1_eq_left_side"]): "contains",
+            frozenset(["m1_eq_both_sides", "m1_eq_right_side"]): "contains",
+            frozenset(["m1_func_x_intercept", "m1_func_y_intercept"]): "contrasts_with",
+            frozenset(["m1_context_speed_distance", "m1_context_speed_time"]): "contrasts_with",
+        }
+        missing = [
+            (tuple(sorted(pair)), relationship_type)
+            for pair, relationship_type in expected.items()
+            if relationship_type not in relationships.get(pair, set())
+        ]
+
+        self.assertEqual([], missing)
+
 
 if __name__ == "__main__":
     unittest.main()

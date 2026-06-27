@@ -4,8 +4,8 @@ This generated audit compares node relationship arrays with explicit edge rows.
 
 ## Summary
 
-- total issues: 190
-- missing_edge_for_related_id: 190
+- total issues: 170
+- missing_edge_for_related_id: 170
 
 ## Priority Rows
 
@@ -13,14 +13,10 @@ This generated audit compares node relationship arrays with explicit edge rows.
 |---|---|---|---|---|---|---|---|
 | missing_edge_for_related_id | m1_calc_arithmetic_to_polynomial_extension | 수의 사칙연산에서 다항식 계산으로의 확장 | related_ids | m1_calc_monomial_polynomial_mul_div | 단항식과 다항식의 곱셈과 나눗셈 | related_edge |  |
 | missing_edge_for_related_id | m1_calc_arithmetic_to_polynomial_extension | 수의 사칙연산에서 다항식 계산으로의 확장 | related_ids | m1_calc_polynomial_add_sub | 다항식의 덧셈과 뺄셈 | related_edge |  |
-| missing_edge_for_related_id | m1_calc_base | 밑 | related_ids | m1_calc_exponent | 지수 | related_edge |  |
-| missing_edge_for_related_id | m1_calc_exponent | 지수 | related_ids | m1_calc_base | 밑 | related_edge |  |
 | missing_edge_for_related_id | m1_calc_polynomial_add_sub | 다항식의 덧셈과 뺄셈 | related_ids | m1_expr_add_sub_linear_expression | 일차식의 덧셈과 뺄셈 | related_edge |  |
 | missing_edge_for_related_id | m1_calc_simplify_expression | 식을 간단히 하기 | related_ids | m1_calc_monomial_polynomial_mul_div | 단항식과 다항식의 곱셈과 나눗셈 | related_edge |  |
 | missing_edge_for_related_id | m1_calc_simplify_expression | 식을 간단히 하기 | related_ids | m1_calc_polynomial_add_sub | 다항식의 덧셈과 뺄셈 | related_edge |  |
 | missing_edge_for_related_id | m1_calc_unit | 식의 계산 | related_ids | m1_eq_unit | 일차방정식 | related_edge |  |
-| missing_edge_for_related_id | m1_context_speed_distance | 속력과 거리 맥락 | related_ids | m1_context_speed_time | 속력과 시간 맥락 | related_edge |  |
-| missing_edge_for_related_id | m1_context_speed_time | 속력과 시간 맥락 | related_ids | m1_context_speed_distance | 속력과 거리 맥락 | related_edge |  |
 | missing_edge_for_related_id | m1_data_and_probability | 사건 A와 사건 B가 동시에 일어날 확률 | related_ids | m1_data_or_probability | 사건 A 또는 사건 B가 일어날 확률 | related_edge |  |
 | missing_edge_for_related_id | m1_data_box_plot_compare | 상자그림으로 두 집단의 분포 비교 | related_ids | m1_data_compare_distributions_variability | 산포도로 두 집단의 분포 비교 | related_edge |  |
 | missing_edge_for_related_id | m1_data_class_mark | 계급값 | related_ids | m1_data_frequency_table | 도수분포표 | related_edge |  |
@@ -48,19 +44,23 @@ This generated audit compares node relationship arrays with explicit edge rows.
 | missing_edge_for_related_id | m1_data_variability | 산포도 | related_ids | m1_data_deviation | 편차 | related_edge |  |
 | missing_edge_for_related_id | m1_data_variability | 산포도 | related_ids | m1_data_standard_deviation | 표준편차 | related_edge |  |
 | missing_edge_for_related_id | m1_data_variability | 산포도 | related_ids | m1_data_variance | 분산 | related_edge |  |
-| missing_edge_for_related_id | m1_eq_both_sides | 양변 | related_ids | m1_eq_left_side | 좌변 | related_edge |  |
-| missing_edge_for_related_id | m1_eq_both_sides | 양변 | related_ids | m1_eq_right_side | 우변 | related_edge |  |
-| missing_edge_for_related_id | m1_eq_left_side | 좌변 | related_ids | m1_eq_both_sides | 양변 | related_edge |  |
 | missing_edge_for_related_id | m1_eq_modeling_linear_equation | 일차방정식 세우기 | related_ids | m1_eq_solution_check | 해의 확인 | related_edge |  |
 | missing_edge_for_related_id | m1_eq_modeling_linear_equation | 일차방정식 세우기 | related_ids | m1_eq_solving_linear_equation | 일차방정식 풀기 | related_edge |  |
-| missing_edge_for_related_id | m1_eq_right_side | 우변 | related_ids | m1_eq_both_sides | 양변 | related_edge |  |
 | missing_edge_for_related_id | m1_eq_unit | 일차방정식 | related_ids | m1_calc_unit | 식의 계산 | related_edge |  |
 | missing_edge_for_related_id | m1_eq_unknown | 미지수 | related_ids | m1_eq_solution | 해 | related_edge |  |
 | missing_edge_for_related_id | m1_eq_unknown | 미지수 | related_ids | m1_term_variable | 변수 | related_edge |  |
-| missing_edge_for_related_id | m1_expr_coefficient | 계수 | related_ids | m1_expr_constant_term | 상수항 | related_edge |  |
 | missing_edge_for_related_id | m1_expr_coefficient | 계수 | related_ids | m1_expr_degree | 차수 | related_edge |  |
-| missing_edge_for_related_id | m1_expr_constant_term | 상수항 | related_ids | m1_expr_coefficient | 계수 | related_edge |  |
 | missing_edge_for_related_id | m1_expr_letter | 문자 | related_ids | m1_repr_expression | 식 | related_edge |  |
+| missing_edge_for_related_id | m1_expr_literal_expression | 문자를 사용한 식 | related_ids | m1_repr_expression | 식 | related_edge |  |
+| missing_edge_for_related_id | m1_expr_monomial | 단항식 | related_ids | m1_expr_term | 항 | related_edge |  |
+| missing_edge_for_related_id | m1_expr_unit | 문자의 사용과 식 | related_ids | m1_coord_graph_unit | 좌표평면과 그래프 | related_edge |  |
+| missing_edge_for_related_id | m1_expr_usefulness | 문자를 사용한 식의 유용성 | related_ids | m1_term_variable | 변수 | related_edge |  |
+| missing_edge_for_related_id | m1_factor_binomial_product_xab | (x+a)(x+b) 공식 | related_ids | m1_quad_eq_factorization_solving | 인수분해를 이용한 이차방정식 풀이 | related_edge |  |
+| missing_edge_for_related_id | m1_factor_factor | 인수 | related_ids | m1_expr_term | 항 | related_edge |  |
+| missing_edge_for_related_id | m1_factor_quadratic_expression | 이차식 | related_ids | m1_quad_eq_quadratic_term | 이차항 | related_edge |  |
+| missing_edge_for_related_id | m1_func_eq_relation_unit | 일차함수와 일차방정식의 관계 | related_ids | m1_coord_graph_unit | 좌표평면과 그래프 | related_edge |  |
+| missing_edge_for_related_id | m1_func_equation_relation | 일차함수와 미지수가 2개인 일차방정식의 관계 | related_ids | m1_system_two_variable_linear_equation | 미지수가 2개인 일차방정식 | related_edge |  |
+| missing_edge_for_related_id | m1_func_find_graph_equation | 일차함수 그래프의 식 구하기 | related_ids | m1_func_slope | 기울기 | related_edge |  |
 
 ## Notes
 
