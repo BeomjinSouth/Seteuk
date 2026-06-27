@@ -305,6 +305,38 @@ class BuildPilotEdgeSyncTests(unittest.TestCase):
 
         self.assertEqual([], missing)
 
+    def test_representation_and_number_queue_related_ids_have_reviewed_edges(self) -> None:
+        relationships = relationship_types_by_pair()
+        expected = {
+            frozenset(["m1_func_y_ax_b_graph", "m1_func_slope"]): "related_to",
+            frozenset(["m1_func_y_ax_b_graph", "m1_func_y_intercept"]): "related_to",
+            frozenset(["m1_func_y_ax_graph", "m1_func_slope"]): "related_to",
+            frozenset(["m1_func_intersection_count", "m1_func_system_graph_relation"]): "used_in",
+            frozenset(["m1_graph_situation_graphing", "m1_repr_conversion"]): "used_in",
+            frozenset(["m1_repr_everyday_language", "m1_graph_graph"]): "represented_by",
+            frozenset(["m1_repr_everyday_language", "m1_repr_conversion"]): "used_in",
+            frozenset(["m1_repr_everyday_language", "m1_repr_expression"]): "represented_by",
+            frozenset(["m1_repr_everyday_language", "m1_repr_table"]): "represented_by",
+            frozenset(["m1_repr_expression", "m1_graph_graph"]): "related_to",
+            frozenset(["m1_repr_table", "m1_graph_graph"]): "related_to",
+            frozenset(["m1_num_composite_number", "m1_num_prime_factorization"]): "used_in",
+            frozenset(["m1_num_coprime", "m1_num_prime_factorization"]): "used_in",
+            frozenset(["m1_num_fraction_decimal_classification", "m1_num_rational_repeating_relation"]): "used_in",
+            frozenset(["m1_num_division", "m1_num_reciprocal"]): "used_in",
+            frozenset(["m1_num_integer_rational_unit", "m1_num_square_root_real_unit"]): "related_to",
+            frozenset(["m1_num_negative_need", "m1_num_number_line"]): "represented_by",
+            frozenset(["m1_num_negative_rational", "m1_num_negative_number"]): "related_to",
+            frozenset(["m1_num_positive_rational", "m1_num_positive_number"]): "related_to",
+            frozenset(["m1_num_square_root_calculator", "m1_num_compare_square_roots"]): "used_in",
+        }
+        missing = [
+            (tuple(sorted(pair)), relationship_type)
+            for pair, relationship_type in expected.items()
+            if relationship_type not in relationships.get(pair, set())
+        ]
+
+        self.assertEqual([], missing)
+
 
 if __name__ == "__main__":
     unittest.main()

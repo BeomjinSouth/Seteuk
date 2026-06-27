@@ -55,8 +55,8 @@
 - `review-queue.md`와 `review-queue.csv`는 위 잠정 노드 중 `confidence: low`인 67개 concept을 다음 교과서·출처 보강 우선순위로 모아 둔 파생 산출물이다.
 - `official-term-coverage.md`와 `official-term-coverage.csv`는 공식 문서 용어·기호 168개가 concept label 또는 alias로 연결되는지 추적하는 파생 산출물이다. 현재 `needs_concept` 항목은 없다.
 - `unit-coverage.md`와 `unit-coverage.csv`는 현재 concept/edge를 34개 학년·영역·단원 그룹으로 나누어 다음 교과서 원문 보강 단위를 추적하는 파생 산출물이다.
-- `relationship-audit.md`와 `relationship-audit.csv`는 현재 edge 1875개가 관계 유형별로 어떻게 분포하는지와 고립 concept이 없는지 추적하는 파생 산출물이다.
-- `related-edge-resolution-queue.md`와 `related-edge-resolution-queue.csv`는 남은 94개 `related_ids` 후보를 관계 유형 후보와 처리 우선순위로 분리해, 교과서 근거가 들어왔을 때 edge 확정 순서를 좁히는 파생 산출물이다.
+- `relationship-audit.md`와 `relationship-audit.csv`는 현재 edge 1895개가 관계 유형별로 어떻게 분포하는지와 고립 concept이 없는지 추적하는 파생 산출물이다.
+- `related-edge-resolution-queue.md`와 `related-edge-resolution-queue.csv`는 남은 73개 `related_ids` 후보를 관계 유형 후보와 처리 우선순위로 분리해, 교과서 근거가 들어왔을 때 edge 확정 순서를 좁히는 파생 산출물이다.
 
 ## Source Inventory Snapshot
 
@@ -68,7 +68,7 @@
 ## Source Reference Audit
 
 - `source-ref-audit.md`와 `source-ref-audit.csv`를 추가해 concept/edge의 `source_refs`를 출처와 근거 유형별로 추적한다.
-- 현재 source ref는 concept 1239개, edge 4469개, 총 5708개이다.
+- 현재 source ref는 concept 1239개, edge 4526개, 총 5765개이다.
 - 현재 `locator` 누락은 0개, `summary` 누락은 0개이다.
 - 이 감사는 교과서 PDF가 추가되기 전에도 공식 문서 기반 개념과 관계가 어떤 근거 유형에 기대고 있는지 확인하기 위한 재생성 가능한 점검표이다.
 

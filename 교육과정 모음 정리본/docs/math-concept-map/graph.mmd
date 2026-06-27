@@ -501,12 +501,14 @@ flowchart LR
   m1_num_prime_number -- "대조" --> m1_num_composite_number
   m1_num_composite_number -- "대조" --> m1_num_prime_number
   m1_num_prime_number -- "사용" --> m1_num_prime_factor
+  m1_num_composite_number -- "사용" --> m1_num_prime_factorization
   m1_num_prime_factor -- "사용" --> m1_num_prime_factorization
   m1_calc_power -- "사용" --> m1_num_prime_factor_product
   m1_calc_base -- "사용" --> m1_num_prime_factor_product
   m1_calc_exponent -- "사용" --> m1_num_prime_factor_product
   m1_num_prime_factorization -- "표현" --> m1_num_prime_factor_product
   m1_num_prime_factorization -- "사용" --> m1_num_find_gcd_lcm_prime_factorization
+  m1_num_prime_factorization -- "사용" --> m1_num_coprime
   m1_num_divisor -- "사용" --> m1_num_gcd
   m1_num_multiple -- "사용" --> m1_num_lcm
   m1_num_gcd -- "사용" --> m1_num_find_gcd_lcm_prime_factorization
@@ -540,6 +542,8 @@ flowchart LR
   m1_num_integer -- "선수" --> m1_num_rational_number
   m1_num_rational_number -- "포함" --> m1_num_positive_rational
   m1_num_rational_number -- "포함" --> m1_num_negative_rational
+  m1_num_positive_rational -- "연관" --> m1_num_positive_number
+  m1_num_negative_rational -- "연관" --> m1_num_negative_number
   m1_num_domain -- "포함" --> m1_num_ratio
   m1_num_rational_number -- "선수" --> m1_num_ratio
   m1_num_ratio -- "사용" --> m1_prop_direct_proportion
@@ -550,6 +554,7 @@ flowchart LR
   m1_num_ratio -- "사용" --> m1_data_relative_frequency
   m1_num_ratio -- "사용" --> m1_data_theoretical_probability
   m1_num_number_line -- "사용" --> m1_num_order_relation
+  m1_num_negative_need -- "표현" --> m1_num_number_line
   m1_num_absolute_value -- "사용" --> m1_num_order_relation
   m1_num_order_relation -- "선수" --> m1_num_real_order
   m1_num_plus_sign -- "대조" --> m1_num_minus_sign
@@ -569,6 +574,7 @@ flowchart LR
   m1_num_division -- "사용" --> m1_num_integer_rational_mul_div
   m1_num_addition -- "연관" --> m1_num_subtraction
   m1_num_multiplication -- "연관" --> m1_num_division
+  m1_num_reciprocal -- "사용" --> m1_num_division
   m1_num_reciprocal -- "사용" --> m1_num_integer_rational_mul_div
   m1_num_four_operations -- "사용" --> m1_num_operation_laws
   m1_num_operation_laws -- "포함" --> m1_num_commutative_law
@@ -602,8 +608,10 @@ flowchart LR
   m1_num_repeating_decimal_to_fraction -- "표현" --> m1_num_rational_number
   m1_num_fraction_decimal_classification -- "사용" --> m1_num_finite_decimal
   m1_num_fraction_decimal_classification -- "사용" --> m1_num_repeating_decimal
+  m1_num_rational_repeating_relation -- "사용" --> m1_num_fraction_decimal_classification
   m1_mis_finite_to_repeating_scope -- "혼동" --> m1_num_rational_repeating_relation
   m1_num_repeating_decimal_unit -- "선수" --> m1_num_square_root_real_unit
+  m1_num_integer_rational_unit -- "연관" --> m1_num_square_root_real_unit
   m1_num_square_root_real_unit -- "포함" --> m1_num_square_root
   m1_num_square_root_real_unit -- "포함" --> m1_num_square_root_property
   m1_num_square_root_real_unit -- "포함" --> m1_num_radical_sign
@@ -630,6 +638,7 @@ flowchart LR
   m1_num_square_root_property -- "사용" --> m1_num_radical_operations
   m1_num_radical_operations -- "사용" --> m1_num_rationalize_denominator
   m1_num_square_root -- "사용" --> m1_num_square_root_calculator
+  m1_num_square_root_calculator -- "사용" --> m1_num_compare_square_roots
   m1_mis_radical_principal_root -- "혼동" --> m1_num_radical_sign
   m1_mis_irrational_decimal -- "혼동" --> m1_num_infinite_decimal
   m1_mis_irrational_decimal -- "혼동" --> m1_num_irrational_number
@@ -648,6 +657,7 @@ flowchart LR
   m1_expr_substitution -- "사용" --> m1_expr_value
   m1_expr_letter -- "사용" --> m1_term_variable
   m1_repr_everyday_language -- "표현" --> m1_expr_literal_expression
+  m1_repr_everyday_language -- "표현" --> m1_repr_expression
   m1_expr_literal_expression -- "사용" --> m1_expr_usefulness
   m1_expr_polynomial -- "포함" --> m1_expr_term
   m1_expr_polynomial -- "포함" --> m1_expr_monomial
@@ -802,6 +812,9 @@ flowchart LR
   m1_func_y_ax_graph -- "선수" --> m1_func_y_ax_b_graph
   m1_func_parallel_translation -- "사용" --> m1_func_y_ax_b_graph
   m1_func_parallel_translation -- "연관" --> m1_func_y_ax_graph
+  m1_func_y_ax_graph -- "연관" --> m1_func_slope
+  m1_func_y_ax_b_graph -- "연관" --> m1_func_slope
+  m1_func_y_ax_b_graph -- "연관" --> m1_func_y_intercept
   m1_func_linear_graph -- "사용" --> m1_func_graph_properties
   m1_func_graph_properties -- "포함" --> m1_func_slope
   m1_func_graph_properties -- "포함" --> m1_func_x_intercept
@@ -831,6 +844,7 @@ flowchart LR
   m1_func_two_linear_graphs -- "포함" --> m1_func_intersection_point
   m1_func_two_linear_graphs -- "포함" --> m1_func_intersection_count
   m1_func_intersection_point -- "사용" --> m1_func_system_solution_from_intersection
+  m1_func_intersection_count -- "사용" --> m1_func_system_graph_relation
   m1_system_simultaneous_linear_equations -- "표현" --> m1_func_system_graph_relation
   m1_func_system_graph_relation -- "사용" --> m1_func_system_solution_from_intersection
   m1_func_system_solution_from_intersection -- "사용" --> m1_system_solution
@@ -1000,10 +1014,16 @@ flowchart LR
   m1_graph_graph_interpretation -- "사용" --> m1_graph_change_state
   m1_graph_change_state -- "포함" --> m1_graph_increase_decrease
   m1_graph_change_state -- "포함" --> m1_graph_periodic_change
+  m1_repr_conversion -- "사용" --> m1_graph_situation_graphing
   m1_repr_conversion -- "사용" --> m1_repr_table
   m1_repr_conversion -- "사용" --> m1_repr_expression
   m1_repr_conversion -- "사용" --> m1_graph_graph
+  m1_repr_everyday_language -- "사용" --> m1_repr_conversion
+  m1_repr_everyday_language -- "표현" --> m1_repr_table
+  m1_repr_everyday_language -- "표현" --> m1_graph_graph
   m1_repr_expression -- "연관" --> m1_repr_table
+  m1_repr_expression -- "연관" --> m1_graph_graph
+  m1_repr_table -- "연관" --> m1_graph_graph
   m1_prop_direct_proportion -- "표현" --> m1_repr_table
   m1_prop_direct_proportion -- "표현" --> m1_repr_expression
   m1_prop_direct_proportion -- "표현" --> m1_graph_graph

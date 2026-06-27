@@ -4,8 +4,8 @@ This generated audit compares node relationship arrays with explicit edge rows.
 
 ## Summary
 
-- total issues: 94
-- missing_edge_for_related_id: 94
+- total issues: 73
+- missing_edge_for_related_id: 73
 
 ## Priority Rows
 
@@ -42,13 +42,9 @@ This generated audit compares node relationship arrays with explicit edge rows.
 | missing_edge_for_related_id | m1_factor_factor | 인수 | related_ids | m1_expr_term | 항 | related_edge |  |
 | missing_edge_for_related_id | m1_func_eq_relation_unit | 일차함수와 일차방정식의 관계 | related_ids | m1_coord_graph_unit | 좌표평면과 그래프 | related_edge |  |
 | missing_edge_for_related_id | m1_func_equation_relation | 일차함수와 미지수가 2개인 일차방정식의 관계 | related_ids | m1_system_two_variable_linear_equation | 미지수가 2개인 일차방정식 | related_edge |  |
-| missing_edge_for_related_id | m1_func_intersection_count | 교점의 개수 | related_ids | m1_func_system_graph_relation | 두 일차함수의 그래프와 연립일차방정식의 관계 | related_edge |  |
 | missing_edge_for_related_id | m1_func_two_variable_equation_as_graph | 미지수가 2개인 일차방정식의 해를 그래프로 나타내기 | related_ids | m1_system_solution | 연립일차방정식의 해 | related_edge |  |
 | missing_edge_for_related_id | m1_func_unit | 일차함수와 그 그래프 | related_ids | m1_system_unit | 연립일차방정식 | related_edge |  |
 | missing_edge_for_related_id | m1_func_value | 함숫값 | related_ids | m1_expr_value | 식의 값 | related_edge |  |
-| missing_edge_for_related_id | m1_func_y_ax_b_graph | 일차함수 y=ax+b의 그래프 | related_ids | m1_func_slope | 기울기 | related_edge |  |
-| missing_edge_for_related_id | m1_func_y_ax_b_graph | 일차함수 y=ax+b의 그래프 | related_ids | m1_func_y_intercept | y절편 | related_edge |  |
-| missing_edge_for_related_id | m1_func_y_ax_graph | 일차함수 y=ax의 그래프 | related_ids | m1_func_slope | 기울기 | related_edge |  |
 | missing_edge_for_related_id | m1_geo_angle | 각 | related_ids | m1_geo_parallel_angle_properties | 평행선에서 동위각과 엇각의 성질 | related_edge |  |
 | missing_edge_for_related_id | m1_geo_centroid_from_parallel_ratio | 평행선과 선분의 비로 무게중심 찾기 | related_ids | m1_geo_median | 중선 | related_edge |  |
 | missing_edge_for_related_id | m1_geo_circle_justification | 원의 성질 정당화 | related_ids | m1_geo_justification | 정당화 | related_edge |  |
@@ -61,6 +57,10 @@ This generated audit compares node relationship arrays with explicit edge rows.
 | missing_edge_for_related_id | m1_geo_pythagorean_justification | 피타고라스 정리의 정당화 | related_ids | m1_geo_proof | 증명 | related_edge |  |
 | missing_edge_for_related_id | m1_geo_sector_arc_length_area | 부채꼴의 호의 길이와 넓이 구하기 | related_ids | m1_geo_circle | 원 | related_edge |  |
 | missing_edge_for_related_id | m1_geo_similar_figures | 닮은 도형 | related_ids | m1_geo_correspondence | 도형의 대응 | related_edge |  |
+| missing_edge_for_related_id | m1_geo_tangent_length | 접선의 길이 | related_ids | m1_geo_tangent_line | 접선 | related_edge |  |
+| missing_edge_for_related_id | m1_geo_tangent_relation | 접한다 | related_ids | m1_geo_tangent_property | 원의 접선에 관한 성질 | related_edge |  |
+| missing_edge_for_related_id | m1_geo_triangle_congruence_judgement | 삼각형의 합동 판별 | related_ids | m1_geo_justification | 정당화 | related_edge |  |
+| missing_edge_for_related_id | m1_geo_triangle_midpoint_theorem | 삼각형의 중점연결정리 | related_ids | m1_geo_centroid | 무게중심 | related_edge |  |
 
 ## Notes
 
