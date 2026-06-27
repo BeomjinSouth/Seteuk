@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-27T21:15:37",
+    "generated_at": "2026-06-27T21:21:52",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
     "concept_count": 476,
-    "edge_count": 1906
+    "edge_count": 1918
   },
   "sources": [
     {
@@ -33364,6 +33364,58 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_geo_triangle_quadrilateral_unit__related_to__m1_geo_trig_unit",
+      "source_id": "m1_geo_triangle_quadrilateral_unit",
+      "target_id": "m1_geo_trig_unit",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이등변삼각형의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-10]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 외심과 내심의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-11]",
+          "evidence_kind": "achievement_standard",
+          "summary": "사각형의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-17]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비를 활용하여 여러 가지 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각형과 사각형의 성질 section; [9수03-09]~[9수03-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이등변삼각형, 삼각형의 외심과 내심, 사각형의 성질과 여러 사각형 사이의 관계를 이해하고 정당화하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "Trigonometric ratios are a separate unit that build on triangle reasoning from the triangle and quadrilateral properties unit.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_triangle__used_in__m1_geo_triangle_construction",
       "source_id": "m1_geo_triangle",
       "target_id": "m1_geo_triangle_construction",
@@ -33885,6 +33937,80 @@
         }
       ],
       "notes": "A straight angle and vertical angles name different angle situations in the basic-figure vocabulary.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_angle__used_in__m1_geo_parallel_angle_properties",
+      "source_id": "m1_geo_angle",
+      "target_id": "m1_geo_parallel_angle_properties",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "Parallel-line angle properties are stated through angle concepts such as corresponding and alternate interior angles.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_vertical_angles__related_to__m1_geo_parallel_angle_properties",
+      "source_id": "m1_geo_vertical_angles",
+      "target_id": "m1_geo_parallel_angle_properties",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "Vertical angles and parallel-line angle properties are adjacent angle-relation topics in the basic-figure unit.",
       "confidence": "medium"
     },
     {
@@ -34466,6 +34592,40 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_geo_parallel_angle_properties__contrasts_with__m1_geo_parallel_segment_ratio",
+      "source_id": "m1_geo_parallel_angle_properties",
+      "target_id": "m1_geo_parallel_segment_ratio",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "Both properties use parallel lines, but one concerns angle equality and the other concerns segment-length ratios.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_polygon__used_in__m1_geo_diagonal",
       "source_id": "m1_geo_polygon",
       "target_id": "m1_geo_diagonal",
@@ -34647,6 +34807,28 @@
         }
       ],
       "notes": "부채꼴의 호와 중심각은 호의 길이와 넓이를 다룰 때 함께 연결된다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_circle__used_in__m1_geo_sector_arc_length_area",
+      "source_id": "m1_geo_circle",
+      "target_id": "m1_geo_sector_arc_length_area",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부채꼴의 중심각과 호의 관계를 이해하고 호의 길이와 넓이를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "평면도형의 성질 section; [9수03-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부채꼴, 중심각, 호의 관계를 이해하고 부채꼴의 호의 길이와 넓이를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "A sector is part of a circle, so circle concepts are used when calculating sector arc length and area.",
       "confidence": "medium"
     },
     {
@@ -35390,6 +35572,34 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_triangle_congruence_judgement__used_in__m1_geo_justification",
+      "source_id": "m1_geo_triangle_congruence_judgement",
+      "target_id": "m1_geo_justification",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각형과 사각형의 성질 section; [9수03-09]~[9수03-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이등변삼각형, 삼각형의 외심과 내심, 사각형의 성질과 여러 사각형 사이의 관계를 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "Judging triangle congruence can be used as a basis for geometric justification.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_isosceles_triangle__used_in__m1_geo_isosceles_properties",
       "source_id": "m1_geo_isosceles_triangle",
       "target_id": "m1_geo_isosceles_properties",
@@ -35612,6 +35822,34 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_median__used_in__m1_geo_centroid_from_parallel_ratio",
+      "source_id": "m1_geo_median",
+      "target_id": "m1_geo_centroid_from_parallel_ratio",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "Centroid location with parallel-line segment ratios uses medians as the lines meeting at the centroid.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_diagonal__used_in__m1_geo_quadrilateral_diagonal_properties",
       "source_id": "m1_geo_diagonal",
       "target_id": "m1_geo_quadrilateral_diagonal_properties",
@@ -35788,6 +36026,34 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_similar_figures__represented_by__m1_geo_correspondence",
+      "source_id": "m1_geo_similar_figures",
+      "target_id": "m1_geo_correspondence",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "Similar figures are described by corresponding vertices, sides, and angles.",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_similar_figures__used_in__m1_geo_similarity_ratio",
@@ -36080,6 +36346,34 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_proof__used_in__m1_geo_pythagorean_justification",
+      "source_id": "m1_geo_proof",
+      "target_id": "m1_geo_pythagorean_justification",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "Justifying the Pythagorean theorem uses proof or proof-like reasoning appropriate to the curriculum level.",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_trigonometric_ratio__represented_by__m1_geo_sine",
@@ -36554,6 +36848,62 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_tangent_line__used_in__m1_geo_tangent_length",
+      "source_id": "m1_geo_tangent_line",
+      "target_id": "m1_geo_tangent_length",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "Tangent-length statements use the tangent-line concept.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_tangent_relation__used_in__m1_geo_tangent_property",
+      "source_id": "m1_geo_tangent_relation",
+      "target_id": "m1_geo_tangent_property",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "The relation expressed by 'is tangent to' is used when stating tangent properties.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_tangent_property__used_in__m1_geo_tangent_length",
       "source_id": "m1_geo_tangent_property",
       "target_id": "m1_geo_tangent_length",
@@ -36768,6 +37118,40 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_justification__used_in__m1_geo_circle_justification",
+      "source_id": "m1_geo_justification",
+      "target_id": "m1_geo_circle_justification",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "Circle-property justification is an application of the broader geometric justification procedure.",
+      "confidence": "medium"
     },
     {
       "id": "m1_mis_corresponding_alternate_angles__often_confused_with__m1_geo_corresponding_angles",

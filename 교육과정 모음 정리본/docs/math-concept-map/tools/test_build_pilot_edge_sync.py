@@ -361,6 +361,30 @@ class BuildPilotEdgeSyncTests(unittest.TestCase):
 
         self.assertEqual([], missing)
 
+    def test_geometry_queue_related_ids_have_reviewed_edges(self) -> None:
+        relationships = relationship_types_by_pair()
+        expected = {
+            frozenset(["m1_geo_angle", "m1_geo_parallel_angle_properties"]): "used_in",
+            frozenset(["m1_geo_parallel_angle_properties", "m1_geo_parallel_segment_ratio"]): "contrasts_with",
+            frozenset(["m1_geo_vertical_angles", "m1_geo_parallel_angle_properties"]): "related_to",
+            frozenset(["m1_geo_centroid_from_parallel_ratio", "m1_geo_median"]): "used_in",
+            frozenset(["m1_geo_similar_figures", "m1_geo_correspondence"]): "represented_by",
+            frozenset(["m1_geo_trig_unit", "m1_geo_triangle_quadrilateral_unit"]): "related_to",
+            frozenset(["m1_geo_circle_justification", "m1_geo_justification"]): "used_in",
+            frozenset(["m1_geo_tangent_length", "m1_geo_tangent_line"]): "used_in",
+            frozenset(["m1_geo_tangent_relation", "m1_geo_tangent_property"]): "used_in",
+            frozenset(["m1_geo_triangle_congruence_judgement", "m1_geo_justification"]): "used_in",
+            frozenset(["m1_geo_sector_arc_length_area", "m1_geo_circle"]): "used_in",
+            frozenset(["m1_geo_pythagorean_justification", "m1_geo_proof"]): "used_in",
+        }
+        missing = [
+            (tuple(sorted(pair)), relationship_type)
+            for pair, relationship_type in expected.items()
+            if relationship_type not in relationships.get(pair, set())
+        ]
+
+        self.assertEqual([], missing)
+
 
 if __name__ == "__main__":
     unittest.main()
