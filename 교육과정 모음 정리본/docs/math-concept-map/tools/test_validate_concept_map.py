@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+import csv
+import tempfile
 import unittest
+from pathlib import Path
 
 import validate_concept_map as validator
 
@@ -269,6 +272,24 @@ class AchievementCoverageTests(unittest.TestCase):
         ]
 
         self.assertEqual(validator.textbook_workplan_pending_count(rows), 10)
+
+    def test_csv_fieldnames_reads_header_even_without_rows(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "empty.csv"
+            with path.open("w", encoding="utf-8-sig", newline="") as f:
+                writer = csv.DictWriter(f, fieldnames=["a", "b"])
+                writer.writeheader()
+
+            self.assertEqual(validator.csv_fieldnames(path), ["a", "b"])
+
+    def test_textbook_source_audit_not_ready_count_reports_non_ready_rows(self) -> None:
+        rows = [
+            {"intake_status": "ready_for_textbook_extraction"},
+            {"intake_status": "needs_manifest_metadata"},
+            {"intake_status": "invalid_pdf_header"},
+        ]
+
+        self.assertEqual(validator.textbook_source_audit_not_ready_count(rows), 2)
 
     def test_legacy_gap_needs_review_count_reports_review_candidates(self) -> None:
         rows = [

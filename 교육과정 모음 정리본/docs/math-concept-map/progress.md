@@ -848,8 +848,26 @@
 - 좁은 validator 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p test_validate_concept_map.py`: 44개 통과.
 - 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 476개 concept, 1966개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
 
+## 2026-06-27 textbook source audit 추가
+
+- AGENTS.md를 다시 확인했고, 이번 작업은 PDF 원본을 변경하지 않고 `교과서_원본/`에 PDF가 들어올 때의 사전 검증 게이트를 추가하는 것으로 제한했다.
+- `build_textbook_source_audit.py`를 추가해 교과서 PDF 후보의 `%PDF-` 헤더, 파일명 규칙, SHA-256 해시, `TEXTBOOK_SOURCE_MANIFEST.csv` 출처 URL·attachment id·expected hash를 검사하게 했다.
+- `textbook-source-audit.*`는 현재 PDF 0개 상태를 `waiting_for_textbook_pdf`로 기록한다. PDF가 추가되면 모든 항목이 맞는 파일만 `ready_for_textbook_extraction`이 된다.
+- `교과서_원본/README.md`에 `TEXTBOOK_SOURCE_MANIFEST.csv` 필드와 해시/출처 기록 규칙을 추가했다.
+- TDD red: `python -m unittest discover -s .\docs\math-concept-map\tools -p test_build_textbook_source_audit.py`가 새 모듈 부재로 실패하는 것을 확인했다.
+- TDD green: 같은 테스트 명령이 4개 테스트 통과로 전환되는 것을 확인했다.
+- validator red: `python .\docs\math-concept-map\tools\validate_concept_map.py`가 `textbook-source-audit.csv missing`으로 실패하는 것을 확인한 뒤 산출물을 생성했다.
+- `validate_concept_map.py`가 source audit CSV field, PDF count 일치, 재생성 결과 일치, 교과서 PDF가 있을 때 ready 상태, Markdown 존재 여부를 검증하도록 확장했다.
+
+## 2026-06-27 textbook source audit 검증 결과
+
+- 좁은 생성기 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p test_build_textbook_source_audit.py`: 4개 통과.
+- 좁은 validator 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p test_validate_concept_map.py`: 46개 통과.
+- 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 476개 concept, 1966개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
+
 ## 다음 작업
 
-- `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 교과서 PDF 추가 후 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.
-- 현재 교과서 원본 PDF가 없으므로, 우선 `좌표평면과 그래프`의 concept 40개와 edge packet row 202개, 총 242개 row부터 교과서 쪽수 근거를 채운다.
+- 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
+- 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.
+- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 40개와 edge packet row 202개, 총 242개 row로 유지한다.
 - 새 concept 또는 `related_ids`가 추가되면 `related-edge-resolution-queue.*`, `textbook-edge-evidence-packets/*`, `edge-evidence-depth.*`를 함께 재생성한다.

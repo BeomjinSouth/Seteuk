@@ -16,6 +16,7 @@ import build_textbook_extraction_queue as textbook_extraction_queue
 import build_textbook_evidence_packet as textbook_evidence_packet
 import build_textbook_edge_evidence_packet as textbook_edge_evidence_packet
 import build_textbook_evidence_workplan as textbook_evidence_workplan
+import build_textbook_source_audit as textbook_source_audit
 import build_legacy_gap_audit as legacy_gap_audit
 import build_legacy_gap_resolution as legacy_gap_resolution
 import build_legacy_gap_integration_plan as legacy_gap_integration_plan
@@ -104,6 +105,12 @@ def read_csv_count(path: Path) -> int:
 def read_csv_rows(path: Path) -> list[dict]:
     with path.open("r", encoding="utf-8-sig", newline="") as f:
         return list(csv.DictReader(f))
+
+
+def csv_fieldnames(path: Path) -> list[str]:
+    with path.open("r", encoding="utf-8-sig", newline="") as f:
+        reader = csv.DictReader(f)
+        return list(reader.fieldnames or [])
 
 
 def achievement_code(domain: str, number: int) -> str:
@@ -286,6 +293,10 @@ def textbook_workplan_missing_ranks(records: list[dict], expected_ranks: list[in
 
 def textbook_workplan_pending_count(records: list[dict]) -> int:
     return sum(int(record.get("total_pending_evidence_count", 0)) for record in records)
+
+
+def textbook_source_audit_not_ready_count(records: list[dict]) -> int:
+    return sum(1 for record in records if record.get("intake_status") != "ready_for_textbook_extraction")
 
 
 def legacy_gap_needs_review_count(records: list[dict]) -> int:
@@ -477,6 +488,8 @@ def main() -> None:
     related_edge_resolution_md = related_edge_resolution_queue.RELATED_EDGE_RESOLUTION_QUEUE_MD
     source_inventory_csv = OUT_DIR / "source-inventory.csv"
     source_inventory_md = OUT_DIR / "source-inventory.md"
+    textbook_source_audit_csv = textbook_source_audit.TEXTBOOK_SOURCE_AUDIT_CSV
+    textbook_source_audit_md = textbook_source_audit.TEXTBOOK_SOURCE_AUDIT_MD
     source_ref_audit_csv = OUT_DIR / "source-ref-audit.csv"
     source_ref_audit_md = OUT_DIR / "source-ref-audit.md"
     concept_evidence_depth_csv = OUT_DIR / "concept-evidence-depth.csv"
@@ -614,6 +627,31 @@ def main() -> None:
         fail(f"source-inventory.csv has invalid statuses: {invalid_source_statuses}")
     if not source_inventory_md.exists() or "# Source Inventory" not in source_inventory_md.read_text(encoding="utf-8"):
         fail("source-inventory.md missing or invalid")
+    textbook_inventory_row = next(
+        (row for row in source_inventory_rows if row.get("source_group") == "textbook_originals"),
+        {},
+    )
+    textbook_inventory_empty = textbook_inventory_row.get("status") == "empty"
+    if not textbook_source_audit_csv.exists():
+        fail("textbook-source-audit.csv missing")
+    textbook_source_audit_rows = read_csv_rows(textbook_source_audit_csv)
+    expected_textbook_source_audit_rows = textbook_source_audit.textbook_source_audit_rows()
+    expected_textbook_source_audit_csv_rows = [
+        {field: str(row.get(field, "")) for field in textbook_source_audit.CSV_FIELDS}
+        for row in expected_textbook_source_audit_rows
+    ]
+    if csv_fieldnames(textbook_source_audit_csv) != textbook_source_audit.CSV_FIELDS:
+        fail("textbook-source-audit.csv fields do not match schema")
+    if len(textbook_source_audit_rows) != int(textbook_inventory_row.get("pdf_count", 0)):
+        fail("textbook-source-audit.csv row count does not match textbook PDF count")
+    if textbook_source_audit_rows != expected_textbook_source_audit_csv_rows:
+        fail("textbook-source-audit.csv rows do not match generated textbook source audit")
+    if textbook_inventory_empty and textbook_source_audit_rows:
+        fail("textbook-source-audit.csv contains rows while textbook originals are empty")
+    if not textbook_inventory_empty and textbook_source_audit_not_ready_count(textbook_source_audit_rows):
+        fail("textbook-source-audit.csv contains textbook PDFs that are not ready for extraction")
+    if not textbook_source_audit_md.exists() or "# Textbook Source Audit" not in textbook_source_audit_md.read_text(encoding="utf-8"):
+        fail("textbook-source-audit.md missing or invalid")
     concept_evidence_rows = read_csv_rows(concept_evidence_depth_csv)
     if len(concept_evidence_rows) != len(concepts):
         fail("concept-evidence-depth.csv row count does not match concepts.json")
@@ -625,10 +663,6 @@ def main() -> None:
     expected_concept_evidence_rows = concept_evidence_depth.concept_evidence_rows(concepts)
     if len(concept_evidence_rows) != len(expected_concept_evidence_rows):
         fail("concept-evidence-depth.csv row count does not match generated concept evidence rows")
-    textbook_inventory_empty = any(
-        row.get("source_group") == "textbook_originals" and row.get("status") == "empty"
-        for row in source_inventory_rows
-    )
     if textbook_inventory_empty and concept_evidence_depth_textbook_evidence_count(concept_evidence_rows):
         fail("concept-evidence-depth.csv contains textbook evidence while textbook originals are empty")
     if not concept_evidence_depth_md.exists() or "# Concept Evidence Depth" not in concept_evidence_depth_md.read_text(encoding="utf-8"):

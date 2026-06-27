@@ -281,6 +281,43 @@
 | `needs_textbook_evidence` | 관계 edge의 교과서 본문·예제·문제 근거 보강 필요 여부 |
 | `notes` | 원본 edge notes |
 
+## Textbook Source Audit CSV
+
+`textbook-source-audit.csv`는 `교과서_원본/`에 들어온 교과서 PDF 원본이 page-level 개념 추출에 들어가기 전 준비되었는지 검사하는 파생 산출물이다. 현재 PDF가 없으면 header만 있는 CSV와 `waiting_for_textbook_pdf` Markdown 요약을 유지한다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `file_name` | 교과서 PDF 파일명 |
+| `relative_path` | 저장소 루트 기준 상대 경로 |
+| `file_size_bytes` | 파일 크기 |
+| `sha256` | 실제 파일의 SHA-256 해시 |
+| `pdf_header_valid` | 파일 시작이 `%PDF-`인지 여부. `yes` 또는 `no` |
+| `filename_parse_status` | 파일명이 `교육과정_학년_출판사_책종_권.pdf` 규칙을 만족하는지 여부 |
+| `curriculum` | 파일명에서 파싱한 교육과정 |
+| `grade` | 파일명에서 파싱한 학년 |
+| `publisher` | 파일명에서 파싱한 출판사 |
+| `book_type` | `교과서`, `익힘책`, `지도서` 중 하나 |
+| `volume` | 파일명에서 파싱한 권/학기 정보 |
+| `manifest_status` | `matched`, `missing_manifest`, `missing_source_metadata`, `missing_expected_sha256`, `hash_mismatch` |
+| `source_url` | `교과서_원본/TEXTBOOK_SOURCE_MANIFEST.csv`에서 온 원천 URL |
+| `attachment_id` | 같은 manifest에서 온 첨부 식별자 또는 게시물 내부 식별자 |
+| `expected_sha256` | manifest에 기록한 기대 SHA-256 해시 |
+| `intake_status` | `ready_for_textbook_extraction`, `needs_manifest_metadata`, `invalid_pdf_header`, `invalid_filename` |
+| `notes` | 파일명, PDF 헤더, manifest 보강 필요 사항 |
+
+## Textbook Source Manifest CSV
+
+`교과서_원본/TEXTBOOK_SOURCE_MANIFEST.csv`는 PDF 원본이 추가될 때 함께 작성해야 하는 출처 manifest이다. 이 파일은 PDF 원본 자체가 아니라 원본 provenance를 기록하는 운영 파일이며, `textbook-source-audit.csv`가 이를 읽어 교과서 추출 가능 여부를 판정한다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `relative_path` | 저장소 루트 기준 PDF 상대 경로 |
+| `source_url` | 공식 공개 페이지 또는 다운로드 근거 URL |
+| `attachment_id` | 원 출처의 첨부 식별자, 게시물 식별자, 또는 다운로드 항목 식별자 |
+| `expected_sha256` | 원본 PDF 추가 시 계산해 기록한 SHA-256 해시 |
+| `license_note` | 공개/사용 근거, 열람 범위, 저작권 주의 메모 |
+| `downloaded_at` | 다운로드 또는 수집 날짜 |
+
 ## Textbook Extraction Queue CSV
 
 `textbook-extraction-queue.csv`는 교과서 PDF가 추가되었을 때 단원별로 어떤 범위를 먼저 추출할지 정하는 파생 산출물이다.

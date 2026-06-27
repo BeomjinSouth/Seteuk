@@ -103,6 +103,14 @@
 - 현재 `교과서_원본/`에는 PDF가 없으므로 476개 row 모두 `pending_textbook_pdf` 상태이며, 목차·학습목표·정의·정리·예제·용어 설명·문제 패턴·쪽수 슬롯은 비워 두었다.
 - 교과서 PDF가 추가되면 이 패킷들의 빈 슬롯을 채운 뒤 `concepts.json`의 `source_refs`, `confidence`, 병합/분리 판단을 갱신한다.
 
+## Textbook Source Audit
+
+- `textbook-source-audit.md`와 `textbook-source-audit.csv`를 추가해 `교과서_원본/` PDF 원본의 추출 준비 상태를 추적한다.
+- 현재 `교과서_원본/`에는 PDF가 없어 audit CSV는 header만 보존하고 Markdown은 `waiting_for_textbook_pdf` 상태를 기록한다.
+- PDF가 추가되면 파일명이 `교육과정_학년_출판사_책종_권.pdf` 규칙을 만족하는지, 파일이 `%PDF-` 헤더로 시작하는지, SHA-256 해시가 `TEXTBOOK_SOURCE_MANIFEST.csv`의 `expected_sha256`과 일치하는지 확인한다.
+- `TEXTBOOK_SOURCE_MANIFEST.csv`에는 `relative_path`, `source_url`, `attachment_id`, `expected_sha256`, `license_note`, `downloaded_at`을 기록해야 한다.
+- 이 감사는 교과서 원문 내용을 읽는 단계가 아니라, 원본 provenance와 무결성이 갖춰졌는지 확인하는 사전 게이트이다.
+
 ## Textbook Edge Evidence Packet
 
 - `textbook-edge-evidence-packets/index.md`와 `textbook-edge-evidence-packets/index.csv`를 추가해 전체 단원 관계 edge 교과서 근거 패킷을 추적한다.
