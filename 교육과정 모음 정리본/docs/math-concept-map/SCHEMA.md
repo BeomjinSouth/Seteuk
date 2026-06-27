@@ -17,7 +17,7 @@
 | `source_refs` | 출처 id, 위치, 근거 유형, 근거 요약 |
 | `prerequisite_ids` | 직접 선수 개념 id 목록 |
 | `parent_ids` | 포함 상위 개념 id 목록 |
-| `related_ids` | 비교, 혼동, 표현 변환 등 연관 개념 id 목록 |
+| `related_ids` | 비교, 혼동, 표현 변환 등 연관 개념 id 목록. `parent_ids`/`prerequisite_ids`만으로 표현되는 구조 관계는 이 배열에 중복 보존하지 않는다. |
 | `notes` | 추론 근거, 범위 제한, 교과서 확인 필요 사항 |
 | `confidence` | `high`, `medium`, `low` |
 

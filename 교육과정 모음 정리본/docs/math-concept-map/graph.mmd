@@ -938,6 +938,14 @@ flowchart LR
   m1_coord_axis -- "포함" --> m1_coord_axis_point
   m1_coord_coordinate_plane -- "사용" --> m1_coord_usefulness
   m1_coord_coordinate_plane -- "표현" --> m1_graph_graph
+  m1_coord_x_axis -- "대조" --> m1_coord_y_axis
+  m1_coord_origin -- "연관" --> m1_coord_x_axis
+  m1_coord_origin -- "연관" --> m1_coord_y_axis
+  m1_coord_x_axis -- "연관" --> m1_coord_axis_point
+  m1_coord_y_axis -- "연관" --> m1_coord_axis_point
+  m1_coord_coordinate -- "표현" --> m1_coord_ordered_pair
+  m1_coord_coordinate -- "표현" --> m1_coord_number_line
+  m1_coord_coordinate -- "사용" --> m1_coord_usefulness
   m1_graph_graph -- "사용" --> m1_graph_situation_graphing
   m1_graph_graph -- "사용" --> m1_graph_graph_interpretation
   m1_graph_graph_interpretation -- "사용" --> m1_graph_change_state

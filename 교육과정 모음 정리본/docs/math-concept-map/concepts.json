@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-27T11:03:46",
+    "generated_at": "2026-06-27T20:19:52",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
     "concept_count": 476,
-    "edge_count": 1784
+    "edge_count": 1792
   },
   "sources": [
     {
@@ -167,7 +167,6 @@
         "m1_num_domain"
       ],
       "related_ids": [
-        "m1_num_integer_rational_unit",
         "m1_calc_power"
       ],
       "notes": "",
@@ -208,10 +207,7 @@
       "parent_ids": [
         "m1_num_prime_factor_unit"
       ],
-      "related_ids": [
-        "m1_num_prime_number",
-        "m1_num_composite_number"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -828,7 +824,6 @@
         "m1_num_domain"
       ],
       "related_ids": [
-        "m1_num_repeating_decimal_unit",
         "m1_num_square_root_real_unit"
       ],
       "notes": "",
@@ -994,7 +989,6 @@
         "m1_num_positive_number"
       ],
       "related_ids": [
-        "m1_num_positive_number",
         "m1_num_natural_number"
       ],
       "notes": "",
@@ -1036,9 +1030,7 @@
         "m1_num_integer",
         "m1_num_negative_number"
       ],
-      "related_ids": [
-        "m1_num_negative_number"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -1080,11 +1072,7 @@
       "parent_ids": [
         "m1_num_integer_rational_unit"
       ],
-      "related_ids": [
-        "m1_num_rational_number",
-        "m1_num_positive_integer",
-        "m1_num_negative_integer"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -1139,8 +1127,6 @@
         "m1_num_real_number"
       ],
       "related_ids": [
-        "m1_num_positive_rational",
-        "m1_num_negative_rational",
         "m1_num_rational_repeating_relation"
       ],
       "notes": "",
@@ -1556,12 +1542,6 @@
         "m1_num_integer_rational_unit"
       ],
       "related_ids": [
-        "m1_num_addition",
-        "m1_num_subtraction",
-        "m1_num_multiplication",
-        "m1_num_division",
-        "m1_num_integer_rational_add_sub",
-        "m1_num_integer_rational_mul_div",
         "m1_num_operation_laws"
       ],
       "notes": "",
@@ -1835,11 +1815,7 @@
       "parent_ids": [
         "m1_num_integer_rational_unit"
       ],
-      "related_ids": [
-        "m1_num_commutative_law",
-        "m1_num_associative_law",
-        "m1_num_distributive_law"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -1949,7 +1925,6 @@
         "m1_num_operation_laws"
       ],
       "related_ids": [
-        "m1_calc_expansion",
         "m1_factor_polynomial_multiplication"
       ],
       "notes": "",
@@ -2194,9 +2169,7 @@
       "parent_ids": [
         "m1_num_domain"
       ],
-      "related_ids": [
-        "m1_num_square_root_real_unit"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -2283,8 +2256,7 @@
         "m1_num_repeating_decimal_unit"
       ],
       "related_ids": [
-        "m1_num_finite_decimal",
-        "m1_num_repeating_decimal"
+        "m1_num_finite_decimal"
       ],
       "notes": "",
       "confidence": "high"
@@ -2328,7 +2300,6 @@
         "m1_num_infinite_decimal"
       ],
       "related_ids": [
-        "m1_num_repetend",
         "m1_num_rational_repeating_relation"
       ],
       "notes": "",
@@ -2373,9 +2344,7 @@
         "m1_num_repeating_decimal_unit",
         "m1_num_repeating_decimal"
       ],
-      "related_ids": [
-        "m1_num_repeating_decimal_notation"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -2861,7 +2830,6 @@
         "m1_num_real_number"
       ],
       "related_ids": [
-        "m1_num_real_number",
         "m1_num_unit_square_diagonal",
         "m1_mis_irrational_decimal"
       ],
@@ -2919,8 +2887,7 @@
         "m1_num_square_root_real_unit"
       ],
       "related_ids": [
-        "m1_num_rational_irrational_classification",
-        "m1_num_real_order"
+        "m1_num_rational_irrational_classification"
       ],
       "notes": "",
       "confidence": "high"
@@ -2997,9 +2964,7 @@
         "m1_num_square_root_real_unit",
         "m1_num_real_number"
       ],
-      "related_ids": [
-        "m1_num_order_relation"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -3341,8 +3306,6 @@
       "prerequisite_ids": [],
       "parent_ids": [],
       "related_ids": [
-        "m1_eq_unit",
-        "m1_calc_unit",
         "m1_coord_graph_unit"
       ],
       "notes": "",
@@ -3589,11 +3552,7 @@
       "parent_ids": [
         "m1_expr_polynomial"
       ],
-      "related_ids": [
-        "m1_expr_coefficient",
-        "m1_expr_constant_term",
-        "m1_expr_like_terms"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -3621,8 +3580,7 @@
         "m1_expr_polynomial"
       ],
       "related_ids": [
-        "m1_expr_term",
-        "m1_expr_polynomial"
+        "m1_expr_term"
       ],
       "notes": "",
       "confidence": "high"
@@ -3656,11 +3614,7 @@
       "parent_ids": [
         "m1_expr_unit"
       ],
-      "related_ids": [
-        "m1_expr_monomial",
-        "m1_expr_term",
-        "m1_expr_linear_expression"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -3755,7 +3709,6 @@
         "m1_expr_term"
       ],
       "related_ids": [
-        "m1_expr_linear_expression",
         "m1_mis_coefficient_constant_degree"
       ],
       "notes": "",
@@ -3800,10 +3753,7 @@
         "m1_expr_unit",
         "m1_expr_polynomial"
       ],
-      "related_ids": [
-        "m1_expr_add_sub_linear_expression",
-        "m1_eq_linear_equation"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -4036,10 +3986,7 @@
       ],
       "parent_ids": [],
       "related_ids": [
-        "m1_calc_unit",
-        "m1_ineq_unit",
-        "m1_system_unit",
-        "m1_coord_graph_unit"
+        "m1_calc_unit"
       ],
       "notes": "",
       "confidence": "high"
@@ -4082,7 +4029,6 @@
         "m1_eq_unit"
       ],
       "related_ids": [
-        "m1_eq_equation",
         "m1_eq_equality_properties",
         "m1_mis_expression_equation"
       ],
@@ -4129,7 +4075,6 @@
         "m1_eq_unit"
       ],
       "related_ids": [
-        "m1_eq_solution",
         "m1_eq_identity",
         "m1_mis_expression_equation"
       ],
@@ -4213,8 +4158,7 @@
         "m1_eq_equation"
       ],
       "related_ids": [
-        "m1_eq_root",
-        "m1_eq_solution_check"
+        "m1_eq_root"
       ],
       "notes": "",
       "confidence": "high"
@@ -4803,9 +4747,7 @@
       ],
       "parent_ids": [],
       "related_ids": [
-        "m1_eq_unit",
-        "m1_ineq_unit",
-        "m1_system_unit"
+        "m1_eq_unit"
       ],
       "notes": "",
       "confidence": "high"
@@ -4845,11 +4787,7 @@
       "parent_ids": [
         "m1_calc_unit"
       ],
-      "related_ids": [
-        "m1_calc_base",
-        "m1_calc_exponent",
-        "m1_calc_exponent_laws"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -5098,9 +5036,7 @@
       "parent_ids": [
         "m1_calc_unit"
       ],
-      "related_ids": [
-        "m1_calc_monomial_polynomial_mul_div"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -5435,7 +5371,6 @@
       ],
       "related_ids": [
         "m1_eq_equality",
-        "m1_ineq_solution",
         "m1_mis_ineq_solution_single_value"
       ],
       "notes": "",
@@ -5520,7 +5455,6 @@
         "m1_ineq_unit"
       ],
       "related_ids": [
-        "m1_eq_equality_properties",
         "m1_mis_ineq_negative"
       ],
       "notes": "",
@@ -5852,10 +5786,7 @@
         "m1_calc_unit"
       ],
       "parent_ids": [],
-      "related_ids": [
-        "m1_func_eq_relation_unit",
-        "m1_coord_graph_unit"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -5930,9 +5861,7 @@
       "parent_ids": [
         "m1_system_unit"
       ],
-      "related_ids": [
-        "m1_system_simultaneous_linear_equations"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -5974,11 +5903,7 @@
         "m1_system_unit",
         "m1_system_simultaneous_equations"
       ],
-      "related_ids": [
-        "m1_system_solution",
-        "m1_system_elimination",
-        "m1_system_substitution_method"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -6054,11 +5979,7 @@
       "parent_ids": [
         "m1_system_unit"
       ],
-      "related_ids": [
-        "m1_system_elimination",
-        "m1_system_addition_subtraction_method",
-        "m1_system_substitution_method"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -6373,7 +6294,6 @@
       ],
       "parent_ids": [],
       "related_ids": [
-        "m1_func_eq_relation_unit",
         "m1_system_unit"
       ],
       "notes": "",
@@ -6424,8 +6344,6 @@
         "m1_func_unit"
       ],
       "related_ids": [
-        "m1_func_value",
-        "m1_func_function_judgement",
         "m1_mis_all_relations_are_functions"
       ],
       "notes": "",
@@ -6724,8 +6642,7 @@
       ],
       "related_ids": [
         "m1_func_graph_drawing",
-        "m1_func_graph_properties",
-        "m1_func_slope"
+        "m1_func_graph_properties"
       ],
       "notes": "",
       "confidence": "high"
@@ -6765,8 +6682,7 @@
       "related_ids": [
         "m1_func_slope",
         "m1_func_x_intercept",
-        "m1_func_y_intercept",
-        "m1_func_parallel_translation"
+        "m1_func_y_intercept"
       ],
       "notes": "",
       "confidence": "high"
@@ -6798,7 +6714,6 @@
         "m1_func_linear_graph"
       ],
       "related_ids": [
-        "m1_func_y_ax_b_graph",
         "m1_func_slope"
       ],
       "notes": "성취수준 문서에 y=ax의 그래프를 이용해 y=ax+b 그래프를 그리는 수행이 제시된다.",
@@ -6868,11 +6783,7 @@
       "parent_ids": [
         "m1_func_unit"
       ],
-      "related_ids": [
-        "m1_func_slope",
-        "m1_func_x_intercept",
-        "m1_func_y_intercept"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -6914,7 +6825,6 @@
         "m1_func_graph_properties"
       ],
       "related_ids": [
-        "m1_func_slope_sign",
         "m1_mis_slope_intercept"
       ],
       "notes": "",
@@ -7221,7 +7131,6 @@
       ],
       "parent_ids": [],
       "related_ids": [
-        "m1_system_unit",
         "m1_coord_graph_unit"
       ],
       "notes": "",
@@ -7335,10 +7244,7 @@
       "parent_ids": [
         "m1_func_eq_relation_unit"
       ],
-      "related_ids": [
-        "m1_func_intersection_point",
-        "m1_func_intersection_count"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -7805,10 +7711,7 @@
         "m1_expr_polynomial"
       ],
       "parent_ids": [],
-      "related_ids": [
-        "m1_quad_eq_unit",
-        "m1_factor_expansion_factorization_inverse"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -7947,8 +7850,7 @@
       ],
       "related_ids": [
         "m1_factor_polynomial_multiplication",
-        "m1_factor_expansion_factorization_inverse",
-        "m1_quad_eq_factorization_solving"
+        "m1_factor_expansion_factorization_inverse"
       ],
       "notes": "",
       "confidence": "high"
@@ -8104,13 +8006,7 @@
       "parent_ids": [
         "m1_factor_unit"
       ],
-      "related_ids": [
-        "m1_factor_square_sum_formula",
-        "m1_factor_square_difference_formula",
-        "m1_factor_sum_difference_product_formula",
-        "m1_factor_binomial_product_xab",
-        "m1_factor_linear_product_axb_cxd"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -8539,7 +8435,6 @@
       ],
       "parent_ids": [],
       "related_ids": [
-        "m1_quad_func_unit",
         "m1_factor_factorization"
       ],
       "notes": "",
@@ -8584,7 +8479,6 @@
         "m1_quad_eq_unit"
       ],
       "related_ids": [
-        "m1_quad_eq_solution",
         "m1_quad_eq_solving",
         "m1_mis_quadratic_expression_equation"
       ],
@@ -8751,7 +8645,6 @@
       ],
       "related_ids": [
         "m1_eq_root",
-        "m1_quad_eq_double_root",
         "m1_quad_eq_real_solution_scope"
       ],
       "notes": "",
@@ -9132,10 +9025,7 @@
         "m1_coord_graph_unit"
       ],
       "parent_ids": [],
-      "related_ids": [
-        "m1_quad_eq_unit",
-        "m1_func_unit"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -9225,10 +9115,7 @@
         "m1_quad_func_unit"
       ],
       "related_ids": [
-        "m1_quad_func_y_fx",
-        "m1_quad_func_y_ax2_graph",
-        "m1_quad_func_vertex_form",
-        "m1_quad_func_general_form"
+        "m1_quad_func_y_fx"
       ],
       "notes": "",
       "confidence": "high"
@@ -9266,8 +9153,7 @@
         "m1_quad_func_unit"
       ],
       "related_ids": [
-        "m1_quad_func_formula",
-        "m1_func_value"
+        "m1_quad_func_formula"
       ],
       "notes": "",
       "confidence": "high"
@@ -9312,7 +9198,6 @@
         "m1_quad_func_unit"
       ],
       "related_ids": [
-        "m1_quad_func_parabola",
         "m1_quad_func_graph_properties",
         "m1_quad_func_graph_drawing"
       ],
@@ -9356,10 +9241,7 @@
       "parent_ids": [
         "m1_quad_func_graph"
       ],
-      "related_ids": [
-        "m1_quad_func_axis",
-        "m1_quad_func_vertex"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -9637,12 +9519,7 @@
       "parent_ids": [
         "m1_quad_func_unit"
       ],
-      "related_ids": [
-        "m1_quad_func_axis",
-        "m1_quad_func_vertex",
-        "m1_quad_func_maximum",
-        "m1_quad_func_minimum"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -9686,8 +9563,7 @@
       ],
       "related_ids": [
         "m1_quad_func_minimum",
-        "m1_quad_func_vertex",
-        "m1_quad_func_max_min_real_scope"
+        "m1_quad_func_vertex"
       ],
       "notes": "",
       "confidence": "high"
@@ -9732,8 +9608,7 @@
       ],
       "related_ids": [
         "m1_quad_func_maximum",
-        "m1_quad_func_vertex",
-        "m1_quad_func_max_min_real_scope"
+        "m1_quad_func_vertex"
       ],
       "notes": "",
       "confidence": "high"
@@ -10059,8 +9934,6 @@
         "m1_coord_graph_unit"
       ],
       "related_ids": [
-        "m1_coord_x_coordinate",
-        "m1_coord_y_coordinate",
         "m1_coord_point_location"
       ],
       "notes": "",
@@ -10096,7 +9969,6 @@
         "m1_coord_graph_unit"
       ],
       "related_ids": [
-        "m1_coord_coordinate_plane",
         "m1_coord_coordinate"
       ],
       "notes": "",
@@ -10141,11 +10013,7 @@
       "parent_ids": [
         "m1_coord_graph_unit"
       ],
-      "related_ids": [
-        "m1_coord_axis",
-        "m1_coord_origin",
-        "m1_coord_quadrant"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -10181,9 +10049,7 @@
       "parent_ids": [
         "m1_coord_coordinate"
       ],
-      "related_ids": [
-        "m1_coord_axis_point"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -10320,11 +10186,7 @@
       "parent_ids": [
         "m1_coord_coordinate_plane"
       ],
-      "related_ids": [
-        "m1_coord_x_axis",
-        "m1_coord_y_axis",
-        "m1_coord_axis_point"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -10774,10 +10636,7 @@
       "parent_ids": [
         "m1_graph_graph_interpretation"
       ],
-      "related_ids": [
-        "m1_graph_increase_decrease",
-        "m1_graph_periodic_change"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -11931,9 +11790,7 @@
       "parent_ids": [
         "m1_geo_domain"
       ],
-      "related_ids": [
-        "m1_geo_construction_congruence_unit"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -11980,9 +11837,7 @@
       "parent_ids": [
         "m1_geo_domain"
       ],
-      "related_ids": [
-        "m1_geo_triangle_quadrilateral_unit"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -12030,7 +11885,6 @@
         "m1_geo_domain"
       ],
       "related_ids": [
-        "m1_geo_solid_unit",
         "m1_geo_circle_unit"
       ],
       "notes": "",
@@ -12079,9 +11933,7 @@
       "parent_ids": [
         "m1_geo_domain"
       ],
-      "related_ids": [
-        "m1_geo_plane_properties_unit"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -12134,9 +11986,7 @@
       "parent_ids": [
         "m1_geo_domain"
       ],
-      "related_ids": [
-        "m1_geo_similarity_unit"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -12183,9 +12033,7 @@
       "parent_ids": [
         "m1_geo_domain"
       ],
-      "related_ids": [
-        "m1_geo_pythagorean_unit"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -12222,9 +12070,7 @@
       "parent_ids": [
         "m1_geo_domain"
       ],
-      "related_ids": [
-        "m1_geo_trig_unit"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -12395,8 +12241,7 @@
       ],
       "related_ids": [
         "m1_geo_point",
-        "m1_geo_plane",
-        "m1_geo_position_relation"
+        "m1_geo_plane"
       ],
       "notes": "",
       "confidence": "high"
@@ -12433,8 +12278,7 @@
       ],
       "related_ids": [
         "m1_geo_point",
-        "m1_geo_line",
-        "m1_geo_position_relation"
+        "m1_geo_line"
       ],
       "notes": "",
       "confidence": "high"
@@ -12688,8 +12532,7 @@
         "m1_geo_basic_unit"
       ],
       "related_ids": [
-        "m1_geo_perpendicular_bisector",
-        "m1_geo_triangle_midpoint_theorem"
+        "m1_geo_perpendicular_bisector"
       ],
       "notes": "",
       "confidence": "high"
@@ -12911,8 +12754,7 @@
         "m1_geo_basic_unit"
       ],
       "related_ids": [
-        "m1_geo_foot_of_perpendicular",
-        "m1_geo_perpendicular_bisector"
+        "m1_geo_foot_of_perpendicular"
       ],
       "notes": "",
       "confidence": "high"
@@ -12955,9 +12797,7 @@
       "parent_ids": [
         "m1_geo_basic_unit"
       ],
-      "related_ids": [
-        "m1_geo_trig_distance_height"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -12995,8 +12835,7 @@
       ],
       "related_ids": [
         "m1_geo_corresponding_angles",
-        "m1_geo_alternate_interior_angles",
-        "m1_geo_parallel_segment_ratio"
+        "m1_geo_alternate_interior_angles"
       ],
       "notes": "",
       "confidence": "high"
@@ -13834,9 +13673,7 @@
       "parent_ids": [
         "m1_geo_plane_properties_unit"
       ],
-      "related_ids": [
-        "m1_geo_sector_arc_length_area"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -14322,8 +14159,7 @@
         "m1_geo_solid_unit"
       ],
       "related_ids": [
-        "m1_geo_frustum_cone",
-        "m1_geo_sphere"
+        "m1_geo_frustum_cone"
       ],
       "notes": "",
       "confidence": "high"
@@ -14892,8 +14728,7 @@
         "m1_geo_triangle_quadrilateral_unit"
       ],
       "related_ids": [
-        "m1_geo_isosceles_properties",
-        "m1_geo_circle_justification"
+        "m1_geo_isosceles_properties"
       ],
       "notes": "교육과정은 증명의 필요성을 인식하게 하되 '가정', '결론' 용어는 다루지 않는다고 명시한다.",
       "confidence": "high"
@@ -15280,10 +15115,7 @@
       "parent_ids": [
         "m1_geo_triangle_quadrilateral_unit"
       ],
-      "related_ids": [
-        "m1_geo_quadrilateral_diagonal_properties",
-        "m1_geo_quadrilateral_relationship"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -15562,9 +15394,7 @@
       "parent_ids": [
         "m1_geo_similarity_unit"
       ],
-      "related_ids": [
-        "m1_geo_similarity_ratio"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "medium"
     },
@@ -15897,10 +15727,7 @@
         "m1_geo_pythagorean_unit",
         "m1_geo_trig_unit"
       ],
-      "related_ids": [
-        "m1_geo_pythagorean_theorem",
-        "m1_geo_trigonometric_ratio"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -16642,9 +16469,7 @@
       "parent_ids": [
         "m1_geo_circle_unit"
       ],
-      "related_ids": [
-        "m1_geo_tangent_relation"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -17138,7 +16963,6 @@
         "m1_data_domain"
       ],
       "related_ids": [
-        "m1_data_statistical_inquiry_unit",
         "m1_data_variability_unit"
       ],
       "notes": "",
@@ -17182,10 +17006,7 @@
       "parent_ids": [
         "m1_data_domain"
       ],
-      "related_ids": [
-        "m1_data_technology_tool_stats",
-        "m1_data_critical_graph_reading"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -17239,10 +17060,7 @@
       "parent_ids": [
         "m1_data_domain"
       ],
-      "related_ids": [
-        "m1_data_counting_cases",
-        "m1_data_probability"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -17278,9 +17096,7 @@
       "parent_ids": [
         "m1_data_domain"
       ],
-      "related_ids": [
-        "m1_data_box_scatter_unit"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -17328,10 +17144,7 @@
       "parent_ids": [
         "m1_data_domain"
       ],
-      "related_ids": [
-        "m1_data_box_plot",
-        "m1_data_scatter_plot"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -17377,7 +17190,6 @@
         "m1_data_domain"
       ],
       "related_ids": [
-        "m1_data_variable",
         "m1_data_data_collection"
       ],
       "notes": "",
@@ -17415,7 +17227,6 @@
         "m1_data_domain"
       ],
       "related_ids": [
-        "m1_data_deviation",
         "m1_data_scatter_plot"
       ],
       "notes": "",
@@ -17465,9 +17276,6 @@
         "m1_data_representative_unit"
       ],
       "related_ids": [
-        "m1_data_mean",
-        "m1_data_median",
-        "m1_data_mode",
         "m1_data_choose_representative_value"
       ],
       "notes": "",
@@ -18136,9 +17944,7 @@
       "parent_ids": [
         "m1_data_frequency_unit"
       ],
-      "related_ids": [
-        "m1_data_compare_distributions_variability"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -18404,8 +18210,7 @@
         "m1_data_statistical_inquiry_unit"
       ],
       "related_ids": [
-        "m1_data_inquiry_plan",
-        "m1_data_result_interpretation"
+        "m1_data_inquiry_plan"
       ],
       "notes": "",
       "confidence": "high"
@@ -18783,8 +18588,7 @@
         "m1_data_probability_unit"
       ],
       "related_ids": [
-        "m1_data_counting_cases",
-        "m1_data_probability"
+        "m1_data_counting_cases"
       ],
       "notes": "",
       "confidence": "high"
@@ -18834,8 +18638,7 @@
       ],
       "related_ids": [
         "m1_data_or_cases",
-        "m1_data_and_cases",
-        "m1_data_probability"
+        "m1_data_and_cases"
       ],
       "notes": "",
       "confidence": "high"
@@ -19914,11 +19717,7 @@
       "parent_ids": [
         "m1_data_box_scatter_unit"
       ],
-      "related_ids": [
-        "m1_data_positive_correlation",
-        "m1_data_negative_correlation",
-        "m1_data_no_correlation"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -30782,6 +30581,176 @@
         }
       ],
       "notes": "그래프가 좌표평면 위에 표현되는 경우를 우선 반영",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_coord_x_axis__contrasts_with__m1_coord_y_axis",
+      "source_id": "m1_coord_x_axis",
+      "target_id": "m1_coord_y_axis",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        }
+      ],
+      "notes": "좌표축 용어 목록에서 x축과 y축을 별도 기준 축으로 구별한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_coord_origin__related_to__m1_coord_x_axis",
+      "source_id": "m1_coord_origin",
+      "target_id": "m1_coord_x_axis",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        }
+      ],
+      "notes": "원점은 x축과 y축이 만나는 기준점으로 두 축과 함께 해석한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_coord_origin__related_to__m1_coord_y_axis",
+      "source_id": "m1_coord_origin",
+      "target_id": "m1_coord_y_axis",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        }
+      ],
+      "notes": "원점은 x축과 y축이 만나는 기준점으로 두 축과 함께 해석한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_coord_x_axis__related_to__m1_coord_axis_point",
+      "source_id": "m1_coord_x_axis",
+      "target_id": "m1_coord_axis_point",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "좌표평면과 그래프 section; [9수02-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "수직선과 좌표평면 위의 점을 좌표로 나타내거나 주어진 좌표를 점으로 나타내는 수행을 구분"
+        }
+      ],
+      "notes": "축 위의 점은 x축 위의 점과 y축 위의 점을 포함해 다룬다. 교과서 본문 근거 확인 후 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_coord_y_axis__related_to__m1_coord_axis_point",
+      "source_id": "m1_coord_y_axis",
+      "target_id": "m1_coord_axis_point",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "좌표평면과 그래프 section; [9수02-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "수직선과 좌표평면 위의 점을 좌표로 나타내거나 주어진 좌표를 점으로 나타내는 수행을 구분"
+        }
+      ],
+      "notes": "축 위의 점은 x축 위의 점과 y축 위의 점을 포함해 다룬다. 교과서 본문 근거 확인 후 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_coord_coordinate__represented_by__m1_coord_ordered_pair",
+      "source_id": "m1_coord_coordinate",
+      "target_id": "m1_coord_ordered_pair",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "순서쌍과 좌표를 이해하고 편리함을 인식하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "좌표평면과 그래프 section; [9수02-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "수직선과 좌표평면 위의 점을 좌표로 나타내거나 주어진 좌표를 점으로 나타내는 수행을 구분"
+        }
+      ],
+      "notes": "좌표는 순서쌍을 통해 점의 위치를 나타내는 표현으로 다룬다.",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_coord_coordinate__represented_by__m1_coord_number_line",
+      "source_id": "m1_coord_coordinate",
+      "target_id": "m1_coord_number_line",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 35-36; achievement-standard explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "좌표 사용 예, 그래프의 증가·감소·주기적 변화, 표·식·그래프 변환을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "좌표평면과 그래프 section; [9수02-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "수직선과 좌표평면 위의 점을 좌표로 나타내거나 주어진 좌표를 점으로 나타내는 수행을 구분"
+        }
+      ],
+      "notes": "수직선 위의 위치 표현은 좌표 개념의 1차원 표현으로 보고 좌표평면으로 확장한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_coord_coordinate__used_in__m1_coord_usefulness",
+      "source_id": "m1_coord_coordinate",
+      "target_id": "m1_coord_usefulness",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "순서쌍과 좌표를 이해하고 편리함을 인식하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 35-36; achievement-standard explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "좌표 사용 예, 그래프의 증가·감소·주기적 변화, 표·식·그래프 변환을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "좌표평면과 그래프 section; [9수02-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "수직선과 좌표평면 위의 점을 좌표로 나타내거나 주어진 좌표를 점으로 나타내는 수행을 구분"
+        }
+      ],
+      "notes": "좌표는 점의 위치를 편리하게 나타내는 성질을 설명할 때 사용된다.",
       "confidence": "medium"
     },
     {

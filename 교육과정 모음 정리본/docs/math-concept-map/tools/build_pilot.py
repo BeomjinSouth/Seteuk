@@ -7101,6 +7101,16 @@ def edge(
     }
 
 
+SEMANTIC_RELATED_EDGE_TYPES = {
+    "related_to",
+    "equivalent_to",
+    "contrasts_with",
+    "often_confused_with",
+    "represented_by",
+    "used_in",
+}
+
+
 def append_missing_edges_from_concept_array(array_field: str, relationship_type: str) -> None:
     existing = {
         (item["source_id"], item["target_id"], item["relationship_type"])
@@ -7165,6 +7175,26 @@ def append_missing_misconception_related_edges() -> None:
                 )
             )
             existing_pairs.add(pair)
+
+
+def prune_structural_related_ids_without_semantic_edge() -> None:
+    structural_pairs = {
+        frozenset([item["source_id"], item["target_id"]])
+        for item in EDGES
+        if item["relationship_type"] in {"contains", "prerequisite_for"}
+    }
+    semantic_pairs = {
+        frozenset([item["source_id"], item["target_id"]])
+        for item in EDGES
+        if item["relationship_type"] in SEMANTIC_RELATED_EDGE_TYPES
+    }
+    for item in CONCEPTS:
+        item["related_ids"] = [
+            related_id
+            for related_id in item["related_ids"]
+            if frozenset([item["id"], related_id]) not in structural_pairs
+            or frozenset([item["id"], related_id]) in semantic_pairs
+        ]
 
 
 EDGES = [
@@ -7624,6 +7654,14 @@ EDGES = [
     edge("m1_coord_axis", "m1_coord_axis_point", "contains", [CURR_TERMS, ACH_COORD], "교과서 본문 근거 보강 필요", "low"),
     edge("m1_coord_coordinate_plane", "m1_coord_usefulness", "used_in", [CURR_EXPLAIN, ACH_COORD], confidence="medium"),
     edge("m1_coord_coordinate_plane", "m1_graph_graph", "represented_by", [CURR_06, ACH_GRAPH], "그래프가 좌표평면 위에 표현되는 경우를 우선 반영", "medium"),
+    edge("m1_coord_x_axis", "m1_coord_y_axis", "contrasts_with", [CURR_TERMS], "좌표축 용어 목록에서 x축과 y축을 별도 기준 축으로 구별한다.", "medium"),
+    edge("m1_coord_origin", "m1_coord_x_axis", "related_to", [CURR_TERMS], "원점은 x축과 y축이 만나는 기준점으로 두 축과 함께 해석한다.", "medium"),
+    edge("m1_coord_origin", "m1_coord_y_axis", "related_to", [CURR_TERMS], "원점은 x축과 y축이 만나는 기준점으로 두 축과 함께 해석한다.", "medium"),
+    edge("m1_coord_x_axis", "m1_coord_axis_point", "related_to", [CURR_TERMS, ACH_COORD], "축 위의 점은 x축 위의 점과 y축 위의 점을 포함해 다룬다. 교과서 본문 근거 확인 후 조정.", "low"),
+    edge("m1_coord_y_axis", "m1_coord_axis_point", "related_to", [CURR_TERMS, ACH_COORD], "축 위의 점은 x축 위의 점과 y축 위의 점을 포함해 다룬다. 교과서 본문 근거 확인 후 조정.", "low"),
+    edge("m1_coord_coordinate", "m1_coord_ordered_pair", "represented_by", [CURR_05, CURR_TERMS, ACH_COORD], "좌표는 순서쌍을 통해 점의 위치를 나타내는 표현으로 다룬다.", "high"),
+    edge("m1_coord_coordinate", "m1_coord_number_line", "represented_by", [CURR_EXPLAIN, ACH_COORD], "수직선 위의 위치 표현은 좌표 개념의 1차원 표현으로 보고 좌표평면으로 확장한다.", "medium"),
+    edge("m1_coord_coordinate", "m1_coord_usefulness", "used_in", [CURR_05, CURR_EXPLAIN, ACH_COORD], "좌표는 점의 위치를 편리하게 나타내는 성질을 설명할 때 사용된다.", "medium"),
     edge("m1_graph_graph", "m1_graph_situation_graphing", "used_in", [CURR_06, ACH_GRAPH]),
     edge("m1_graph_graph", "m1_graph_graph_interpretation", "used_in", [CURR_06, CURR_EXPLAIN, ACH_GRAPH]),
     edge("m1_graph_graph_interpretation", "m1_graph_change_state", "used_in", [CURR_EXPLAIN, ACH_GRAPH]),
@@ -7910,6 +7948,7 @@ append_missing_edges_from_concept_array("prerequisite_ids", "prerequisite_for")
 append_missing_concept_array_entries_from_edges("contains", "parent_ids")
 append_missing_concept_array_entries_from_edges("prerequisite_for", "prerequisite_ids")
 append_missing_misconception_related_edges()
+prune_structural_related_ids_without_semantic_edge()
 
 
 SOURCES = [
