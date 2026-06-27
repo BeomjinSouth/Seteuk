@@ -677,6 +677,7 @@ flowchart LR
   m1_eq_equality -- "선수" --> m1_eq_equation
   m1_eq_unknown -- "사용" --> m1_eq_equation
   m1_eq_equation -- "포함" --> m1_eq_solution
+  m1_eq_unknown -- "대조" --> m1_eq_solution
   m1_eq_solution -- "동치" --> m1_eq_root
   m1_eq_equation -- "대조" --> m1_eq_identity
   m1_eq_equality -- "사용" --> m1_eq_equality_properties
@@ -688,7 +689,9 @@ flowchart LR
   m1_eq_transposition -- "사용" --> m1_eq_solving_linear_equation
   m1_eq_linear_equation -- "사용" --> m1_eq_solving_linear_equation
   m1_eq_modeling_linear_equation -- "표현" --> m1_eq_linear_equation
+  m1_eq_modeling_linear_equation -- "사용" --> m1_eq_solving_linear_equation
   m1_eq_solving_linear_equation -- "사용" --> m1_eq_solution_check
+  m1_eq_solution_check -- "사용" --> m1_eq_modeling_linear_equation
   m1_expr_substitution -- "사용" --> m1_eq_solution_check
   m1_eq_unit -- "선수" --> m1_coord_graph_unit
   m1_mis_expression_equation -- "혼동" --> m1_repr_expression
@@ -740,7 +743,9 @@ flowchart LR
   m1_ineq_properties -- "사용" --> m1_ineq_solving_linear_inequality
   m1_ineq_linear_inequality -- "사용" --> m1_ineq_solving_linear_inequality
   m1_ineq_modeling_linear_inequality -- "표현" --> m1_ineq_linear_inequality
+  m1_ineq_modeling_linear_inequality -- "사용" --> m1_ineq_solving_linear_inequality
   m1_ineq_solving_linear_inequality -- "사용" --> m1_ineq_solution_check
+  m1_ineq_solution_check -- "사용" --> m1_ineq_modeling_linear_inequality
   m1_ineq_inequality -- "대조" --> m1_eq_equation
   m1_mis_ineq_solution_single_value -- "혼동" --> m1_ineq_solution
   m1_mis_ineq_solution_single_value -- "혼동" --> m1_eq_solution
@@ -782,20 +787,28 @@ flowchart LR
   m1_func_function -- "포함" --> m1_func_two_quantity_relation
   m1_func_two_quantity_relation -- "사용" --> m1_func_correspondence
   m1_func_correspondence -- "사용" --> m1_func_function_judgement
+  m1_func_two_quantity_relation -- "사용" --> m1_func_function_judgement
   m1_func_function -- "포함" --> m1_func_value
   m1_expr_substitution -- "사용" --> m1_func_value
   m1_func_function -- "포함" --> m1_func_linear_function
   m1_expr_linear_expression -- "선수" --> m1_func_linear_function
   m1_func_linear_function -- "표현" --> m1_func_linear_formula
   m1_func_linear_function -- "표현" --> m1_func_linear_graph
+  m1_func_linear_formula -- "표현" --> m1_func_linear_graph
+  m1_func_linear_formula -- "표현" --> m1_func_y_ax_graph
+  m1_func_linear_formula -- "표현" --> m1_func_y_ax_b_graph
   m1_coord_coordinate_plane -- "사용" --> m1_func_linear_graph
   m1_func_linear_graph -- "사용" --> m1_func_graph_drawing
   m1_func_y_ax_graph -- "선수" --> m1_func_y_ax_b_graph
   m1_func_parallel_translation -- "사용" --> m1_func_y_ax_b_graph
+  m1_func_parallel_translation -- "연관" --> m1_func_y_ax_graph
   m1_func_linear_graph -- "사용" --> m1_func_graph_properties
   m1_func_graph_properties -- "포함" --> m1_func_slope
   m1_func_graph_properties -- "포함" --> m1_func_x_intercept
   m1_func_graph_properties -- "포함" --> m1_func_y_intercept
+  m1_func_slope -- "사용" --> m1_func_graph_drawing
+  m1_func_x_intercept -- "사용" --> m1_func_graph_drawing
+  m1_func_y_intercept -- "사용" --> m1_func_graph_drawing
   m1_func_slope -- "포함" --> m1_func_slope_sign
   m1_graph_increase_decrease -- "사용" --> m1_func_slope_sign
   m1_func_x_intercept -- "대조" --> m1_func_y_intercept
@@ -803,6 +816,9 @@ flowchart LR
   m1_func_y_intercept -- "사용" --> m1_coord_y_axis
   m1_func_graph_properties -- "사용" --> m1_func_find_graph_equation
   m1_func_graph_properties -- "사용" --> m1_func_problem_solving
+  m1_func_slope -- "사용" --> m1_func_find_graph_equation
+  m1_func_y_intercept -- "사용" --> m1_func_find_graph_equation
+  m1_func_find_graph_equation -- "사용" --> m1_func_problem_solving
   m1_func_tech_tool_graph -- "사용" --> m1_func_graph_properties
   m1_func_unit -- "선수" --> m1_func_eq_relation_unit
   m1_func_eq_relation_unit -- "포함" --> m1_func_two_variable_equation_as_graph
@@ -916,6 +932,7 @@ flowchart LR
   m1_quad_func_formula -- "포함" --> m1_quad_func_vertex_form
   m1_quad_func_formula -- "포함" --> m1_quad_func_general_form
   m1_quad_func_vertex_form -- "연관" --> m1_quad_func_general_form
+  m1_quad_func_y_ax2_graph -- "연관" --> m1_quad_func_vertex_form
   m1_coord_coordinate_plane -- "사용" --> m1_quad_func_graph
   m1_graph_graph -- "선수" --> m1_quad_func_graph
   m1_quad_func_graph -- "포함" --> m1_quad_func_parabola
@@ -923,10 +940,13 @@ flowchart LR
   m1_quad_func_graph -- "사용" --> m1_quad_func_graph_drawing
   m1_quad_func_y_ax2_graph -- "사용" --> m1_quad_func_graph_drawing
   m1_quad_func_vertex_form -- "사용" --> m1_quad_func_graph_drawing
+  m1_quad_func_graph_properties -- "사용" --> m1_quad_func_graph_drawing
   m1_quad_func_general_form -- "사용" --> m1_quad_func_graph_properties
   m1_func_parallel_translation -- "사용" --> m1_quad_func_vertex_form
   m1_quad_func_graph_properties -- "포함" --> m1_quad_func_axis
   m1_quad_func_graph_properties -- "포함" --> m1_quad_func_vertex
+  m1_quad_func_vertex_form -- "표현" --> m1_quad_func_axis
+  m1_quad_func_vertex_form -- "표현" --> m1_quad_func_vertex
   m1_quad_func_graph_properties -- "포함" --> m1_quad_func_maximum
   m1_quad_func_graph_properties -- "포함" --> m1_quad_func_minimum
   m1_quad_func_graph_properties -- "포함" --> m1_quad_func_max_min_real_scope

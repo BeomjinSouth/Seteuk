@@ -497,6 +497,29 @@
 - `related-edge-resolution-queue.csv`의 medium 1개와 low 376개, backlog 2개를 공식 근거와 교과서 근거 기준으로 검토해 `represented_by`, `used_in`, `contrasts_with`, `related_to` edge 중 하나로 확정한다.
 - 중1~중3 수학 교과서 PDF가 추가되면 `textbook-evidence-packets/`, `prerequisite-map.csv`, `prerequisite-unit-graph.dot`, `related-edge-resolution-queue.csv`를 함께 사용해 concept별 본문·예제 근거와 관계 edge별 쪽수 근거를 누적한다.
 
+## 2026-06-27 이차함수·일차방정식·일차함수 related edge 상단 묶음 보강
+
+- AGENTS.md를 다시 확인했고, 이번 작업은 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 생성 로직과 파생 산출물 정비로 제한했다.
+- `related-edge-resolution-queue.csv` 최상단의 이차함수 그래프 그리기/그래프 성질, 꼭짓점형/축·꼭짓점, `y=ax^2` 그래프/꼭짓점형, 일차방정식·일차부등식 모델링과 풀이·해 확인, 일차함수 그래프식·그래프 그리기와 기울기·절편, 함수 판별 관련 20개 pair를 검토했다.
+- 공식 교육과정 성취기준과 용어·기호 근거만으로 연결하되 교과서 본문·예제 쪽수 근거가 아직 없으므로, 새 edge는 `confidence: medium`과 짧은 notes를 유지했다.
+- `test_build_pilot_edge_sync.py`에 이차함수·일차방정식·일차함수 상단 묶음의 reviewed edge가 재생성 후 보존되는지 고정하는 테스트를 추가했다.
+- 전체 산출물을 재생성한 결과 concept은 476개로 유지되고 edge는 1875개, source ref는 concept 1239개와 edge 4469개를 합쳐 총 5708개가 되었다.
+- `node-edge-consistency-audit.csv`와 `related-edge-resolution-queue.csv`는 114건에서 94건으로 줄었고, 남은 항목은 low 92건과 backlog 2건이다.
+
+## 2026-06-27 이차함수·일차방정식·일차함수 related edge 상단 묶음 검증 결과
+
+- TDD red: `python -m unittest discover -s .\docs\math-concept-map\tools -p test_build_pilot_edge_sync.py`가 새 reviewed edge 20개 누락으로 실패하는 것을 확인했다.
+- TDD green: 같은 테스트 명령이 13개 테스트 통과로 전환되는 것을 확인했다.
+- 전체 단위 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p 'test_*.py'`: 120개 통과.
+- 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 476개 concept, 1875개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map`: 종료 코드 0, CRLF 변환 경고만 확인.
+
+## 다음 작업
+
+- `related-edge-resolution-queue.csv`의 남은 low 92건과 backlog 2건을 공식 근거와 교과서 근거 기준으로 검토해 `represented_by`, `used_in`, `contrasts_with`, `related_to` edge 중 하나로 확정한다.
+- 현재 queue 최상단은 `y=ax+b` 그래프/기울기·y절편, `y=ax` 그래프/기울기, 교점 개수/연립방정식 그래프 관계, 상황 그래프화/표현 변환, 일상 언어/식·표·그래프 표현 관련 pair이므로 다음 반복에서 우선 처리한다.
+- 중1~중3 수학 교과서 PDF가 추가되면 `textbook-evidence-packets/`, `prerequisite-map.csv`, `prerequisite-unit-graph.dot`, `related-edge-resolution-queue.csv`를 함께 사용해 concept별 본문·예제 근거와 관계 edge별 쪽수 근거를 추적한다.
+
 ## 2026-06-27 구조 중복 related_ids 정리와 좌표 semantic edge 보강
 
 - AGENTS.md를 다시 확인했고, 이번 작업은 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 산출물·생성 로직 정비로 제한했다.

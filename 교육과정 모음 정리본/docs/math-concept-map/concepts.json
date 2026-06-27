@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-27T20:54:25",
+    "generated_at": "2026-06-27T21:01:48",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
     "concept_count": 476,
-    "edge_count": 1855
+    "edge_count": 1875
   },
   "sources": [
     {
@@ -24558,6 +24558,28 @@
       "confidence": "high"
     },
     {
+      "id": "m1_eq_unknown__contrasts_with__m1_eq_solution",
+      "source_id": "m1_eq_unknown",
+      "target_id": "m1_eq_solution",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "The unknown is the quantity to determine, while the solution is the value that satisfies the equation.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_eq_solution__equivalent_to__m1_eq_root",
       "source_id": "m1_eq_solution",
       "target_id": "m1_eq_root",
@@ -24800,6 +24822,28 @@
       "confidence": "high"
     },
     {
+      "id": "m1_eq_modeling_linear_equation__used_in__m1_eq_solving_linear_equation",
+      "source_id": "m1_eq_modeling_linear_equation",
+      "target_id": "m1_eq_solving_linear_equation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "Modeling with a linear equation leads into solving the represented equation.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_eq_solving_linear_equation__used_in__m1_eq_solution_check",
       "source_id": "m1_eq_solving_linear_equation",
       "target_id": "m1_eq_solution_check",
@@ -24820,6 +24864,28 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_eq_solution_check__used_in__m1_eq_modeling_linear_equation",
+      "source_id": "m1_eq_solution_check",
+      "target_id": "m1_eq_modeling_linear_equation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "Checking a solution is used to confirm answers in linear-equation modeling contexts.",
+      "confidence": "medium"
     },
     {
       "id": "m1_expr_substitution__used_in__m1_eq_solution_check",
@@ -26190,6 +26256,28 @@
       "confidence": "high"
     },
     {
+      "id": "m1_ineq_modeling_linear_inequality__used_in__m1_ineq_solving_linear_inequality",
+      "source_id": "m1_ineq_modeling_linear_inequality",
+      "target_id": "m1_ineq_solving_linear_inequality",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "Modeling with a linear inequality leads into solving the represented inequality.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_ineq_solving_linear_inequality__used_in__m1_ineq_solution_check",
       "source_id": "m1_ineq_solving_linear_inequality",
       "target_id": "m1_ineq_solution_check",
@@ -26210,6 +26298,28 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_ineq_solution_check__used_in__m1_ineq_modeling_linear_inequality",
+      "source_id": "m1_ineq_solution_check",
+      "target_id": "m1_ineq_modeling_linear_inequality",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "Checking an inequality solution is used to confirm modeled linear-inequality answers.",
+      "confidence": "medium"
     },
     {
       "id": "m1_ineq_inequality__contrasts_with__m1_eq_equation",
@@ -27210,6 +27320,28 @@
       "confidence": "high"
     },
     {
+      "id": "m1_func_two_quantity_relation__used_in__m1_func_function_judgement",
+      "source_id": "m1_func_two_quantity_relation",
+      "target_id": "m1_func_function_judgement",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "함수의 개념은 한 양이 변함에 따라 다른 양이 하나씩 정해지는 두 양 사이의 대응 관계로 도입하고, 공학 도구로 함수의 그래프와 성질을 탐구하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차함수와 그 그래프 section; [9수02-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "두 양 사이의 관계가 함수인지 판단하고 함숫값을 구하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "Judging whether a relation is a function starts from a relation between two quantities.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_func_function__contains__m1_func_value",
       "source_id": "m1_func_function",
       "target_id": "m1_func_value",
@@ -27348,6 +27480,72 @@
       "confidence": "high"
     },
     {
+      "id": "m1_func_linear_formula__represented_by__m1_func_linear_graph",
+      "source_id": "m1_func_linear_formula",
+      "target_id": "m1_func_linear_graph",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차함수의 개념을 이해하고 그 그래프를 그리는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차함수와 그 그래프 section; [9수02-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차함수인지 판단하고 기울기, x절편, y절편, 평행이동 등을 이용하여 그래프를 그리는 수행 수준을 구분"
+        }
+      ],
+      "notes": "A linear-function formula is represented by its graph.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_func_linear_formula__represented_by__m1_func_y_ax_graph",
+      "source_id": "m1_func_linear_formula",
+      "target_id": "m1_func_y_ax_graph",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차함수의 개념을 이해하고 그 그래프를 그리는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차함수와 그 그래프 section; [9수02-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차함수인지 판단하고 기울기, x절편, y절편, 평행이동 등을 이용하여 그래프를 그리는 수행 수준을 구분"
+        }
+      ],
+      "notes": "The formula y=ax is represented by its corresponding linear graph.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_func_linear_formula__represented_by__m1_func_y_ax_b_graph",
+      "source_id": "m1_func_linear_formula",
+      "target_id": "m1_func_y_ax_b_graph",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차함수의 개념을 이해하고 그 그래프를 그리는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차함수와 그 그래프 section; [9수02-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차함수인지 판단하고 기울기, x절편, y절편, 평행이동 등을 이용하여 그래프를 그리는 수행 수준을 구분"
+        }
+      ],
+      "notes": "The formula y=ax+b is represented by its corresponding linear graph.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_coord_coordinate_plane__used_in__m1_func_linear_graph",
       "source_id": "m1_coord_coordinate_plane",
       "target_id": "m1_func_linear_graph",
@@ -27427,6 +27625,28 @@
         }
       ],
       "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_func_parallel_translation__related_to__m1_func_y_ax_graph",
+      "source_id": "m1_func_parallel_translation",
+      "target_id": "m1_func_y_ax_graph",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차함수와 그 그래프 section; [9수02-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차함수인지 판단하고 기울기, x절편, y절편, 평행이동 등을 이용하여 그래프를 그리는 수행 수준을 구분"
+        }
+      ],
+      "notes": "Parallel translation is introduced from the base graph y=ax when interpreting y=ax+b.",
       "confidence": "medium"
     },
     {
@@ -27528,6 +27748,72 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_func_slope__used_in__m1_func_graph_drawing",
+      "source_id": "m1_func_slope",
+      "target_id": "m1_func_graph_drawing",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차함수의 개념을 이해하고 그 그래프를 그리는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차함수와 그 그래프 section; [9수02-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차함수인지 판단하고 기울기, x절편, y절편, 평행이동 등을 이용하여 그래프를 그리는 수행 수준을 구분"
+        }
+      ],
+      "notes": "Slope is used to draw a linear-function graph.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_func_x_intercept__used_in__m1_func_graph_drawing",
+      "source_id": "m1_func_x_intercept",
+      "target_id": "m1_func_graph_drawing",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차함수와 그 그래프 section; [9수02-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차함수인지 판단하고 기울기, x절편, y절편, 평행이동 등을 이용하여 그래프를 그리는 수행 수준을 구분"
+        }
+      ],
+      "notes": "The x-intercept can be used to draw or locate a linear-function graph.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_func_y_intercept__used_in__m1_func_graph_drawing",
+      "source_id": "m1_func_y_intercept",
+      "target_id": "m1_func_graph_drawing",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차함수와 그 그래프 section; [9수02-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차함수인지 판단하고 기울기, x절편, y절편, 평행이동 등을 이용하여 그래프를 그리는 수행 수준을 구분"
+        }
+      ],
+      "notes": "The y-intercept is used to draw a linear-function graph.",
+      "confidence": "medium"
     },
     {
       "id": "m1_func_slope__contains__m1_func_slope_sign",
@@ -27676,6 +27962,72 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_func_slope__used_in__m1_func_find_graph_equation",
+      "source_id": "m1_func_slope",
+      "target_id": "m1_func_find_graph_equation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차함수의 그래프의 성질을 이해하고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차함수와 그 그래프 section; [9수02-16] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차함수의 그래프의 성질 이해, 그래프의 식 구하기, 기울기 부호 판단 수준을 구분"
+        }
+      ],
+      "notes": "Slope is used when finding a linear-function equation from its graph.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_func_y_intercept__used_in__m1_func_find_graph_equation",
+      "source_id": "m1_func_y_intercept",
+      "target_id": "m1_func_find_graph_equation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차함수의 그래프의 성질을 이해하고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차함수와 그 그래프 section; [9수02-16] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차함수의 그래프의 성질 이해, 그래프의 식 구하기, 기울기 부호 판단 수준을 구분"
+        }
+      ],
+      "notes": "The y-intercept is used when finding a linear-function equation from its graph.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_func_find_graph_equation__used_in__m1_func_problem_solving",
+      "source_id": "m1_func_find_graph_equation",
+      "target_id": "m1_func_problem_solving",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차함수의 그래프의 성질을 이해하고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차함수와 그 그래프 section; [9수02-16] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차함수의 그래프의 성질 이해, 그래프의 식 구하기, 기울기 부호 판단 수준을 구분"
+        }
+      ],
+      "notes": "Finding the graph equation is used in linear-function problem solving.",
+      "confidence": "medium"
     },
     {
       "id": "m1_func_tech_tool_graph__used_in__m1_func_graph_properties",
@@ -30290,6 +30642,22 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_quad_func_y_ax2_graph__related_to__m1_quad_func_vertex_form",
+      "source_id": "m1_quad_func_y_ax2_graph",
+      "target_id": "m1_quad_func_vertex_form",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "The graph of y=ax^2 is the base case connected to the vertex form y=a(x-p)^2+q.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_coord_coordinate_plane__used_in__m1_quad_func_graph",
       "source_id": "m1_coord_coordinate_plane",
       "target_id": "m1_quad_func_graph",
@@ -30444,6 +30812,28 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_quad_func_graph_properties__used_in__m1_quad_func_graph_drawing",
+      "source_id": "m1_quad_func_graph_properties",
+      "target_id": "m1_quad_func_graph_drawing",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-22]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차함수의 그래프를 그리고 그 성질을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "Axis, vertex, and other graph properties support drawing quadratic-function graphs.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_quad_func_general_form__used_in__m1_quad_func_graph_properties",
       "source_id": "m1_quad_func_general_form",
       "target_id": "m1_quad_func_graph_properties",
@@ -30530,6 +30920,38 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_quad_func_vertex_form__represented_by__m1_quad_func_axis",
+      "source_id": "m1_quad_func_vertex_form",
+      "target_id": "m1_quad_func_axis",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "The vertex form y=a(x-p)^2+q directly represents the axis of symmetry.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_vertex_form__represented_by__m1_quad_func_vertex",
+      "source_id": "m1_quad_func_vertex_form",
+      "target_id": "m1_quad_func_vertex",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "The vertex form y=a(x-p)^2+q directly represents the vertex.",
+      "confidence": "medium"
     },
     {
       "id": "m1_quad_func_graph_properties__contains__m1_quad_func_maximum",

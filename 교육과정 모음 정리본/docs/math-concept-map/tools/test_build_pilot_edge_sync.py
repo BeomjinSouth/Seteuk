@@ -273,6 +273,38 @@ class BuildPilotEdgeSyncTests(unittest.TestCase):
 
         self.assertEqual([], missing)
 
+    def test_function_graph_queue_related_ids_have_reviewed_edges(self) -> None:
+        relationships = relationship_types_by_pair()
+        expected = {
+            frozenset(["m1_quad_func_graph_drawing", "m1_quad_func_graph_properties"]): "used_in",
+            frozenset(["m1_quad_func_vertex_form", "m1_quad_func_axis"]): "represented_by",
+            frozenset(["m1_quad_func_vertex_form", "m1_quad_func_vertex"]): "represented_by",
+            frozenset(["m1_quad_func_y_ax2_graph", "m1_quad_func_vertex_form"]): "related_to",
+            frozenset(["m1_eq_modeling_linear_equation", "m1_eq_solution_check"]): "used_in",
+            frozenset(["m1_eq_modeling_linear_equation", "m1_eq_solving_linear_equation"]): "used_in",
+            frozenset(["m1_eq_unknown", "m1_eq_solution"]): "contrasts_with",
+            frozenset(["m1_ineq_modeling_linear_inequality", "m1_ineq_solution_check"]): "used_in",
+            frozenset(["m1_ineq_modeling_linear_inequality", "m1_ineq_solving_linear_inequality"]): "used_in",
+            frozenset(["m1_func_find_graph_equation", "m1_func_slope"]): "used_in",
+            frozenset(["m1_func_find_graph_equation", "m1_func_y_intercept"]): "used_in",
+            frozenset(["m1_func_graph_drawing", "m1_func_slope"]): "used_in",
+            frozenset(["m1_func_graph_drawing", "m1_func_x_intercept"]): "used_in",
+            frozenset(["m1_func_graph_drawing", "m1_func_y_intercept"]): "used_in",
+            frozenset(["m1_func_linear_formula", "m1_func_linear_graph"]): "represented_by",
+            frozenset(["m1_func_linear_formula", "m1_func_y_ax_b_graph"]): "represented_by",
+            frozenset(["m1_func_linear_formula", "m1_func_y_ax_graph"]): "represented_by",
+            frozenset(["m1_func_parallel_translation", "m1_func_y_ax_graph"]): "related_to",
+            frozenset(["m1_func_problem_solving", "m1_func_find_graph_equation"]): "used_in",
+            frozenset(["m1_func_two_quantity_relation", "m1_func_function_judgement"]): "used_in",
+        }
+        missing = [
+            (tuple(sorted(pair)), relationship_type)
+            for pair, relationship_type in expected.items()
+            if relationship_type not in relationships.get(pair, set())
+        ]
+
+        self.assertEqual([], missing)
+
 
 if __name__ == "__main__":
     unittest.main()
