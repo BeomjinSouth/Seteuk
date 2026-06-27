@@ -16,19 +16,19 @@ This generated packet is the unit-level worksheet for adding textbook-grounded e
 
 ## Concept Evidence Slots
 
-| concept_id | label_ko | type | confidence | evidence_depth | status | source refs |
-|---|---|---|---|---|---|---:|
-| m1_mis_correlation_causation | 상관관계를 원인과 결과로 단정하는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | 3 |
-| m1_data_box_plot | 상자그림 | representation | high | official_dual_source | pending_textbook_pdf | 4 |
-| m1_data_box_plot_compare | 상자그림으로 두 집단의 분포 비교 | procedure | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_data_box_scatter_unit | 상자그림과 산점도 | core_concept | high | official_dual_source | pending_textbook_pdf | 4 |
-| m1_data_correlation | 상관관계 | core_concept | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_data_negative_correlation | 음의 상관관계 | sub_concept | high | official_dual_source | pending_textbook_pdf | 2 |
-| m1_data_no_correlation | 상관관계가 없는 경우 | sub_concept | high | official_dual_source | pending_textbook_pdf | 2 |
-| m1_data_positive_correlation | 양의 상관관계 | sub_concept | high | official_dual_source | pending_textbook_pdf | 2 |
-| m1_data_quartile | 사분위수 | term | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_data_scatter_plot | 산점도 | representation | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_data_scatter_plot_interpretation | 산점도로 상관관계 말하기 | procedure | high | official_dual_source | pending_textbook_pdf | 3 |
+| concept_id | label_ko | type | confidence | evidence_depth | status | required evidence | focus | source refs |
+|---|---|---|---|---|---|---|---|---:|
+| m1_mis_correlation_causation | 상관관계를 원인과 결과로 단정하는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 3 |
+| m1_data_box_plot | 상자그림 | representation | high | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 4 |
+| m1_data_box_plot_compare | 상자그림으로 두 집단의 분포 비교 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_data_box_scatter_unit | 상자그림과 산점도 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 4 |
+| m1_data_correlation | 상관관계 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 3 |
+| m1_data_negative_correlation | 음의 상관관계 | sub_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 2 |
+| m1_data_no_correlation | 상관관계가 없는 경우 | sub_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 2 |
+| m1_data_positive_correlation | 양의 상관관계 | sub_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 2 |
+| m1_data_quartile | 사분위수 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
+| m1_data_scatter_plot | 산점도 | representation | high | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 3 |
+| m1_data_scatter_plot_interpretation | 산점도로 상관관계 말하기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
 
 ## Textbook Evidence Fields
 

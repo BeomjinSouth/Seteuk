@@ -27,6 +27,8 @@ CSV_FIELDS = [
     "needs_textbook_evidence",
     "source_ref_count",
     "current_source_refs",
+    "required_evidence_fields",
+    "evidence_focus",
     "extraction_status",
     "toc_ref",
     "learning_objective_ref",
@@ -65,6 +67,26 @@ TEXTBOOK_SLOT_FIELDS = [
     "textbook_page_refs",
     "extraction_notes",
 ]
+
+REQUIRED_EVIDENCE_BY_TYPE = {
+    "core_concept": ["definition_ref", "summary_ref", "textbook_page_refs"],
+    "sub_concept": ["definition_ref", "example_ref", "textbook_page_refs"],
+    "representation": ["definition_ref", "example_ref", "textbook_page_refs"],
+    "procedure": ["summary_ref", "example_ref", "textbook_page_refs"],
+    "property": ["definition_ref", "summary_ref", "textbook_page_refs"],
+    "term": ["term_explanation_ref", "definition_ref", "textbook_page_refs"],
+    "misconception_risk": ["example_ref", "problem_pattern_ref", "textbook_page_refs"],
+}
+
+EVIDENCE_FOCUS_BY_TYPE = {
+    "core_concept": "Find textbook definition, summary, and page reference.",
+    "sub_concept": "Find textbook definition or example that names the sub-concept.",
+    "representation": "Find textbook diagram, table, graph, expression, or worked example.",
+    "procedure": "Find worked example or summary that shows the procedure.",
+    "property": "Find textbook statement of the property and any summary box.",
+    "term": "Find textbook term explanation or definition.",
+    "misconception_risk": "Confirm from examples or repeated problem patterns.",
+}
 
 
 def read_csv_rows(path: Path) -> list[dict]:
@@ -109,6 +131,20 @@ def extraction_status(evidence: dict) -> str:
     return "pending_textbook_pdf"
 
 
+def required_evidence_fields(row: dict) -> str:
+    fields = list(REQUIRED_EVIDENCE_BY_TYPE.get(row.get("concept_type", ""), ["textbook_page_refs"]))
+    if row.get("confidence") == "low" and "extraction_notes" not in fields:
+        fields.append("extraction_notes")
+    return ";".join(fields)
+
+
+def evidence_focus(row: dict) -> str:
+    return EVIDENCE_FOCUS_BY_TYPE.get(
+        row.get("concept_type", ""),
+        "Find textbook page evidence for this concept.",
+    )
+
+
 def textbook_evidence_packet_rows(
     concepts: Iterable[dict],
     evidence_rows: Iterable[dict],
@@ -145,8 +181,12 @@ def textbook_evidence_packet_rows(
                 len(concept.get("source_refs", [])),
             ),
             "current_source_refs": source_ref_summary(concept.get("source_refs", [])),
+            "required_evidence_fields": "",
+            "evidence_focus": "",
             "extraction_status": extraction_status(evidence),
         }
+        row["required_evidence_fields"] = required_evidence_fields(row)
+        row["evidence_focus"] = evidence_focus(row)
         row.update({field: "" for field in TEXTBOOK_SLOT_FIELDS})
         rows.append(row)
 
@@ -182,14 +222,15 @@ def render_markdown(rows: list[dict], target: dict) -> str:
         "",
         "## Concept Evidence Slots",
         "",
-        "| concept_id | label_ko | type | confidence | evidence_depth | status | source refs |",
-        "|---|---|---|---|---|---|---:|",
+        "| concept_id | label_ko | type | confidence | evidence_depth | status | required evidence | focus | source refs |",
+        "|---|---|---|---|---|---|---|---|---:|",
     ]
 
     for row in rows:
         lines.append(
             "| {concept_id} | {label_ko} | {concept_type} | {confidence} | "
-            "{evidence_depth} | {extraction_status} | {source_ref_count} |".format(**row)
+            "{evidence_depth} | {extraction_status} | {required_evidence_fields} | "
+            "{evidence_focus} | {source_ref_count} |".format(**row)
         )
 
     lines.extend(

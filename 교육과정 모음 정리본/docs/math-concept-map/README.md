@@ -108,6 +108,8 @@ python docs/math-concept-map/tools/test_validate_concept_map.py
 
 `relationship-audit.*`는 포함·선수·표현·활용·대조·오개념 관계가 실제 edge로 연결되었는지와 고립 concept 여부를 점검한다.
 
+`textbook-evidence-packets/*`는 단원별 concept을 교과서 근거 채움용 worksheet로 나눈다. 각 row는 빈 근거 슬롯뿐 아니라 `required_evidence_fields`와 `evidence_focus`를 포함해, 용어·절차·표현·성질·오개념 위험마다 먼저 확인해야 할 교과서 근거 유형을 구분한다.
+
 `legacy-gap-audit.*`는 기존 `수학_개념_위계도/data/math_concept_hierarchy.json`의 중학교 후보가 현재 공식 근거 기반 concept map의 `label_ko` 또는 `aliases`로 포괄되는지 점검한다. 이 파일은 보조 감사 자료이며, `needs_review` 항목은 공식 교육과정 또는 교과서 근거가 확인되기 전까지 concept으로 확정하지 않는다.
 
 `legacy-gap-resolution.*`는 현재 남은 `needs_review` 후보가 없음을 보존한다. 이전 후보 중 약수, 배수, 덧셈, 뺄셈, 곱셈, 나눗셈, 도형, 삼각형, 길이, 넓이는 공식 source ref에 직접 등장하는 기초 개념으로 확인해 `medium` 신뢰도 concept과 edge로 반영했고, 피타고라스는 기존 피타고라스 정리 concept의 alias로 반영했다. `비`는 정비례·반비례, 닮음비, 평행선 사이의 선분 길이의 비, 삼각비, 상대도수와 확률의 비율 표현에서 반복되는 공통 선수개념으로 분리하되, 단독 용어 근거가 약하므로 `confidence: low`와 보강 notes를 유지했다.

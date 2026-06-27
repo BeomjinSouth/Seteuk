@@ -16,15 +16,15 @@ This generated packet is the unit-level worksheet for adding textbook-grounded e
 
 ## Concept Evidence Slots
 
-| concept_id | label_ko | type | confidence | evidence_depth | status | source refs |
-|---|---|---|---|---|---|---:|
-| m1_mis_mean_only_representative | 대푯값을 평균으로만 보는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | 2 |
-| m1_data_choose_representative_value | 자료의 특성에 맞는 대푯값 선택 | procedure | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_data_mean | 평균 | term | medium | official_dual_source | pending_textbook_pdf | 2 |
-| m1_data_median | 중앙값 | term | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_data_mode | 최빈값 | term | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_data_representative_unit | 대푯값 | core_concept | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_data_representative_value | 대푯값 | core_concept | high | official_dual_source | pending_textbook_pdf | 4 |
+| concept_id | label_ko | type | confidence | evidence_depth | status | required evidence | focus | source refs |
+|---|---|---|---|---|---|---|---|---:|
+| m1_mis_mean_only_representative | 대푯값을 평균으로만 보는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
+| m1_data_choose_representative_value | 자료의 특성에 맞는 대푯값 선택 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_data_mean | 평균 | term | medium | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 2 |
+| m1_data_median | 중앙값 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
+| m1_data_mode | 최빈값 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
+| m1_data_representative_unit | 대푯값 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 3 |
+| m1_data_representative_value | 대푯값 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 4 |
 
 ## Textbook Evidence Fields
 

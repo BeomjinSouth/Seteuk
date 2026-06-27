@@ -323,6 +323,21 @@
 - `python -m unittest discover -s docs/math-concept-map/tools -p 'test_*.py'`: 87개 통과.
 - `python docs/math-concept-map/tools/validate_concept_map.py`: 476개 concept, 1262개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
 
+## 2026-06-27 교과서 근거 패킷 슬롯 보강
+
+- `textbook-evidence-packets/rank-01`~`rank-34`의 각 concept row에 `required_evidence_fields`와 `evidence_focus`를 추가했다.
+- `required_evidence_fields`는 concept 유형별로 먼저 채워야 할 교과서 근거 슬롯을 구분한다. `term`은 `term_explanation_ref`, `definition_ref`, `textbook_page_refs`를 우선 요구하고, `misconception_risk`는 `example_ref`, `problem_pattern_ref`, `textbook_page_refs`를 우선 요구한다.
+- `confidence: low`인 concept은 교과서 근거 판단 메모가 필요하므로 `extraction_notes`를 필수 슬롯에 추가했다.
+- Markdown 패킷 표에도 `required evidence`와 `focus` 열을 추가해, 교과서 PDF가 들어온 뒤 단원별로 어떤 근거를 먼저 찾아야 하는지 바로 볼 수 있게 했다.
+- `test_build_textbook_evidence_packet.py`를 보강해 오개념 위험 노드와 용어 노드의 필수 근거 슬롯이 다르게 생성되는지 검증한다.
+- 이번 작업도 패킷 구조와 문서만 갱신했으므로 기존 PDF 원본, 다운로드 manifest, 출처 선택 규칙은 변경하지 않았다.
+
+## 2026-06-27 교과서 근거 패킷 슬롯 검증 결과
+
+- `python docs/math-concept-map/tools/test_build_textbook_evidence_packet.py`: 6개 통과.
+- `python -m unittest discover -s docs/math-concept-map/tools -p 'test_*.py'`: 87개 통과.
+- `python docs/math-concept-map/tools/validate_concept_map.py`: 476개 concept, 1262개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
+
 ## 다음 작업
 
 - 중1~중3 수학 교과서 PDF가 추가되면 목차, 학습 목표, 본문 정의, 정리, 예제, 용어 설명 순서로 모든 영역의 노드를 보강한다.

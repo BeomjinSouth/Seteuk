@@ -16,9 +16,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded e
 
 ## Concept Evidence Slots
 
-| concept_id | label_ko | type | confidence | evidence_depth | status | source refs |
-|---|---|---|---|---|---|---:|
-| m1_data_domain | 자료와 가능성 | core_concept | high | official_single_source | pending_textbook_pdf | 9 |
+| concept_id | label_ko | type | confidence | evidence_depth | status | required evidence | focus | source refs |
+|---|---|---|---|---|---|---|---|---:|
+| m1_data_domain | 자료와 가능성 | core_concept | high | official_single_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 9 |
 
 ## Textbook Evidence Fields
 

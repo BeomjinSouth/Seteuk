@@ -16,16 +16,16 @@ This generated packet is the unit-level worksheet for adding textbook-grounded e
 
 ## Concept Evidence Slots
 
-| concept_id | label_ko | type | confidence | evidence_depth | status | source refs |
-|---|---|---|---|---|---|---:|
-| m1_geo_congruence | 합동 | core_concept | high | official_dual_source | pending_textbook_pdf | 2 |
-| m1_geo_construction | 작도 | procedure | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_geo_construction_congruence_unit | 작도와 합동 | core_concept | high | official_dual_source | pending_textbook_pdf | 4 |
-| m1_geo_opposite_angle | 대각 | term | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_geo_opposite_side | 대변 | term | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_geo_triangle_congruence_conditions | 삼각형의 합동 조건 | property | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_geo_triangle_congruence_judgement | 삼각형의 합동 판별 | procedure | high | official_dual_source | pending_textbook_pdf | 2 |
-| m1_geo_triangle_construction | 삼각형의 작도 | procedure | high | official_dual_source | pending_textbook_pdf | 2 |
+| concept_id | label_ko | type | confidence | evidence_depth | status | required evidence | focus | source refs |
+|---|---|---|---|---|---|---|---|---:|
+| m1_geo_congruence | 합동 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 2 |
+| m1_geo_construction | 작도 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_geo_construction_congruence_unit | 작도와 합동 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 4 |
+| m1_geo_opposite_angle | 대각 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
+| m1_geo_opposite_side | 대변 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
+| m1_geo_triangle_congruence_conditions | 삼각형의 합동 조건 | property | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 3 |
+| m1_geo_triangle_congruence_judgement | 삼각형의 합동 판별 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 2 |
+| m1_geo_triangle_construction | 삼각형의 작도 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 2 |
 
 ## Textbook Evidence Fields
 

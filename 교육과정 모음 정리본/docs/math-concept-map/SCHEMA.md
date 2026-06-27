@@ -192,7 +192,7 @@
 
 ## Textbook Evidence Packet CSV
 
-`textbook-evidence-packets/rank-01.csv`~`rank-33.csv`는 `textbook-extraction-queue.csv`의 전체 33개 단원에 대해 교과서 목차·학습목표·본문 정의·정리·예제·용어 설명·문제 반복 패턴 근거를 채우기 위한 단원별 작업 패킷이다. 현재 `교과서_원본/`에 PDF가 없으므로 모든 row의 `extraction_status`는 `pending_textbook_pdf`이다.
+`textbook-evidence-packets/rank-01.csv`~`rank-34.csv`는 `textbook-extraction-queue.csv`의 전체 34개 단원에 대해 교과서 목차·학습목표·본문 정의·정리·예제·용어 설명·문제 반복 패턴 근거를 채우기 위한 단원별 작업 패킷이다. 현재 `교과서_원본/`에 PDF가 없으므로 모든 row의 `extraction_status`는 `pending_textbook_pdf`이다.
 
 | 필드 | 설명 |
 | --- | --- |
@@ -208,6 +208,8 @@
 | `needs_textbook_evidence` | 교과서 본문·정리·예제·문제 근거 보강 필요 여부 |
 | `source_ref_count` | 현재 concept에 연결된 공식 근거 수 |
 | `current_source_refs` | 기존 공식 근거 요약 |
+| `required_evidence_fields` | concept 유형과 신뢰도에 따라 우선 채워야 할 교과서 근거 슬롯 |
+| `evidence_focus` | 해당 concept의 교과서 근거를 찾을 때 우선 확인할 관찰 초점 |
 | `extraction_status` | `pending_textbook_pdf` 또는 `textbook_evidence_linked` |
 | `toc_ref` | 교과서 목차 근거 슬롯 |
 | `learning_objective_ref` | 학습목표 근거 슬롯 |

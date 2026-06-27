@@ -87,8 +87,11 @@ class BuildTextbookEvidencePacketTests(unittest.TestCase):
         self.assertEqual(rows[0]["extraction_status"], "pending_textbook_pdf")
         self.assertEqual(rows[0]["definition_ref"], "")
         self.assertEqual(rows[0]["problem_pattern_ref"], "")
+        self.assertIn("problem_pattern_ref", rows[0]["required_evidence_fields"])
+        self.assertIn("example", rows[0]["evidence_focus"])
         self.assertIn("achievement_math_2022", rows[0]["current_source_refs"])
         self.assertEqual(rows[1]["evidence_depth"], "official_single_source")
+        self.assertIn("term_explanation_ref", rows[1]["required_evidence_fields"])
 
     def test_target_unit_returns_rank_metadata(self) -> None:
         queue_rows = [
@@ -123,6 +126,8 @@ class BuildTextbookEvidencePacketTests(unittest.TestCase):
                 "needs_textbook_evidence": "yes",
                 "source_ref_count": 1,
                 "current_source_refs": "curriculum_math_2022: p. 1",
+                "required_evidence_fields": "term_explanation_ref;definition_ref;textbook_page_refs",
+                "evidence_focus": "Find textbook term explanation or definition.",
                 "extraction_status": "pending_textbook_pdf",
                 "toc_ref": "",
                 "learning_objective_ref": "",
@@ -239,6 +244,8 @@ class BuildTextbookEvidencePacketTests(unittest.TestCase):
                         "needs_textbook_evidence": "yes",
                         "source_ref_count": "1",
                         "current_source_refs": "",
+                        "required_evidence_fields": "term_explanation_ref;definition_ref;textbook_page_refs",
+                        "evidence_focus": "Find textbook term explanation or definition.",
                         "extraction_status": "pending_textbook_pdf",
                         "toc_ref": "",
                         "learning_objective_ref": "",
@@ -276,6 +283,8 @@ class BuildTextbookEvidencePacketTests(unittest.TestCase):
                         "needs_textbook_evidence": "yes",
                         "source_ref_count": "1",
                         "current_source_refs": "",
+                        "required_evidence_fields": "example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes",
+                        "evidence_focus": "Confirm from examples or repeated problem patterns.",
                         "extraction_status": "pending_textbook_pdf",
                         "toc_ref": "",
                         "learning_objective_ref": "",

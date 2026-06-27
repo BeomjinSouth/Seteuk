@@ -16,22 +16,22 @@ This generated packet is the unit-level worksheet for adding textbook-grounded e
 
 ## Concept Evidence Slots
 
-| concept_id | label_ko | type | confidence | evidence_depth | status | source refs |
-|---|---|---|---|---|---|---:|
-| m1_mis_quadratic_factorization_solution | 인수분해한 식에서 해 조건을 빠뜨리는 오류 | misconception_risk | low | official_single_source | pending_textbook_pdf | 2 |
-| m1_mis_root_coefficient_relation_scope | 근과 계수와의 관계를 중학교 범위로 오인하는 오류 | misconception_risk | low | official_single_source | pending_textbook_pdf | 1 |
-| m1_mis_quadratic_expression_equation | 이차식과 이차방정식을 혼동하는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | 3 |
-| m1_quad_eq_real_solution_scope | 이차방정식의 실수 해 범위 | property | high | official_single_source | pending_textbook_pdf | 1 |
-| m1_quad_eq_double_root | 중근 | term | medium | official_dual_source | pending_textbook_pdf | 3 |
-| m1_quad_eq_factorization_solving | 인수분해를 이용한 이차방정식 풀이 | procedure | medium | official_dual_source | pending_textbook_pdf | 3 |
-| m1_quad_eq_modeling | 이차방정식 활용 문제 해결 | procedure | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_quad_eq_quadratic_equation | 이차방정식 | core_concept | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_quad_eq_quadratic_term | 이차항 | term | medium | official_dual_source | pending_textbook_pdf | 2 |
-| m1_quad_eq_root_formula | 근의 공식 | term | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_quad_eq_solution | 이차방정식의 해 | term | high | official_dual_source | pending_textbook_pdf | 3 |
-| m1_quad_eq_solving | 이차방정식 풀기 | procedure | high | official_dual_source | pending_textbook_pdf | 2 |
-| m1_quad_eq_standard_form | 이차방정식의 식 표현 | representation | medium | official_dual_source | pending_textbook_pdf | 2 |
-| m1_quad_eq_unit | 이차방정식 | core_concept | high | official_dual_source | pending_textbook_pdf | 3 |
+| concept_id | label_ko | type | confidence | evidence_depth | status | required evidence | focus | source refs |
+|---|---|---|---|---|---|---|---|---:|
+| m1_mis_quadratic_factorization_solution | 인수분해한 식에서 해 조건을 빠뜨리는 오류 | misconception_risk | low | official_single_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
+| m1_mis_root_coefficient_relation_scope | 근과 계수와의 관계를 중학교 범위로 오인하는 오류 | misconception_risk | low | official_single_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 1 |
+| m1_mis_quadratic_expression_equation | 이차식과 이차방정식을 혼동하는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 3 |
+| m1_quad_eq_real_solution_scope | 이차방정식의 실수 해 범위 | property | high | official_single_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 1 |
+| m1_quad_eq_double_root | 중근 | term | medium | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
+| m1_quad_eq_factorization_solving | 인수분해를 이용한 이차방정식 풀이 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_quad_eq_modeling | 이차방정식 활용 문제 해결 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_quad_eq_quadratic_equation | 이차방정식 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 3 |
+| m1_quad_eq_quadratic_term | 이차항 | term | medium | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 2 |
+| m1_quad_eq_root_formula | 근의 공식 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
+| m1_quad_eq_solution | 이차방정식의 해 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
+| m1_quad_eq_solving | 이차방정식 풀기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 2 |
+| m1_quad_eq_standard_form | 이차방정식의 식 표현 | representation | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 2 |
+| m1_quad_eq_unit | 이차방정식 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 3 |
 
 ## Textbook Evidence Fields
 

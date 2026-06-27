@@ -90,6 +90,7 @@
 - `textbook-evidence-packets/index.md`와 `textbook-evidence-packets/index.csv`를 추가해 전체 단원 교과서 근거 패킷을 추적한다.
 - `rank-01`~`rank-34` 패킷은 `textbook-extraction-queue.csv`의 전체 34개 단원 그룹을 포함한다.
 - 전체 패킷은 concept 476개를 포함하며, 그중 `low` 신뢰도 concept 67개를 단원 안에서 먼저 정렬한다.
+- 각 패킷 row는 `required_evidence_fields`와 `evidence_focus`를 포함해, concept 유형별로 우선 확인할 교과서 근거 슬롯을 구분한다. 예를 들어 `misconception_risk`는 예제·문제 반복 패턴·쪽수·추출 메모를 우선 채우고, `term`은 용어 설명·정의·쪽수 근거를 우선 채운다.
 - 현재 `교과서_원본/`에는 PDF가 없으므로 476개 row 모두 `pending_textbook_pdf` 상태이며, 목차·학습목표·정의·정리·예제·용어 설명·문제 패턴·쪽수 슬롯은 비워 두었다.
 - 교과서 PDF가 추가되면 이 패킷들의 빈 슬롯을 채운 뒤 `concepts.json`의 `source_refs`, `confidence`, 병합/분리 판단을 갱신한다.
 
