@@ -7101,6 +7101,28 @@ def edge(
     }
 
 
+def append_missing_edges_from_concept_array(array_field: str, relationship_type: str) -> None:
+    existing = {
+        (item["source_id"], item["target_id"], item["relationship_type"])
+        for item in EDGES
+    }
+    for item in CONCEPTS:
+        for source_id in item[array_field]:
+            key = (source_id, item["id"], relationship_type)
+            if key in existing:
+                continue
+            EDGES.append(
+                edge(
+                    source_id,
+                    item["id"],
+                    relationship_type,
+                    item["source_refs"],
+                    confidence=item["confidence"],
+                )
+            )
+            existing.add(key)
+
+
 EDGES = [
     edge("m1_num_domain", "m1_num_prime_factor_unit", "contains", [CURR_NUM_01, CURR_NUM_02]),
     edge("m1_num_domain", "m1_num_integer_rational_unit", "contains", [CURR_NUM_03, CURR_NUM_04, CURR_NUM_05]),
@@ -7592,18 +7614,6 @@ EDGES = [
 ]
 
 EDGES.extend(
-    edge(parent_id, item["id"], "contains", item["source_refs"], confidence=item["confidence"])
-    for item in GEO_CONCEPTS + DATA_CONCEPTS
-    for parent_id in item["parent_ids"]
-)
-
-EDGES.extend(
-    edge(prerequisite_id, item["id"], "prerequisite_for", item["source_refs"], confidence=item["confidence"])
-    for item in GEO_CONCEPTS + DATA_CONCEPTS
-    for prerequisite_id in item["prerequisite_ids"]
-)
-
-EDGES.extend(
     [
         edge("m1_geo_figure", "m1_geo_basic_unit", "used_in", [CURR_GEO_01, CURR_GEO_02, ACH_GEO_BASIC], confidence="medium"),
         edge("m1_geo_figure", "m1_geo_plane_properties_unit", "used_in", [CURR_GEO_05, CURR_GEO_06, ACH_GEO_POLYGON, ACH_GEO_SECTOR], confidence="medium"),
@@ -7849,6 +7859,10 @@ EDGES.extend(
         edge("m1_mis_correlation_causation", "m1_data_scatter_plot_interpretation", "often_confused_with", [CURR_DATA_09, ACH_DATA_BOX_SCATTER], confidence="low"),
     ]
 )
+
+
+append_missing_edges_from_concept_array("parent_ids", "contains")
+append_missing_edges_from_concept_array("prerequisite_ids", "prerequisite_for")
 
 
 SOURCES = [
