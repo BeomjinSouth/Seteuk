@@ -11,6 +11,7 @@ import build_relationship_audit as relationship_audit
 import build_source_inventory as source_inventory
 import build_source_ref_audit as source_ref_audit
 import build_concept_evidence_depth as concept_evidence_depth
+import build_edge_evidence_depth as edge_evidence_depth
 import build_textbook_extraction_queue as textbook_extraction_queue
 import build_textbook_evidence_packet as textbook_evidence_packet
 import build_textbook_edge_evidence_packet as textbook_edge_evidence_packet
@@ -211,6 +212,19 @@ def concept_evidence_depth_source_ref_count(records: list[dict]) -> int:
 
 
 def concept_evidence_depth_textbook_evidence_count(records: list[dict]) -> int:
+    return sum(1 for record in records if record.get("has_textbook_evidence") == "yes")
+
+
+def missing_edge_evidence_depth_ids(edges: list[dict], records: list[dict]) -> list[str]:
+    present = {record.get("edge_id") for record in records}
+    return sorted(str(edge.get("id")) for edge in edges if edge.get("id") not in present)
+
+
+def edge_evidence_depth_source_ref_count(records: list[dict]) -> int:
+    return sum(int(record.get("source_ref_count", 0)) for record in records)
+
+
+def edge_evidence_depth_textbook_evidence_count(records: list[dict]) -> int:
     return sum(1 for record in records if record.get("has_textbook_evidence") == "yes")
 
 
@@ -457,6 +471,8 @@ def main() -> None:
     source_ref_audit_md = OUT_DIR / "source-ref-audit.md"
     concept_evidence_depth_csv = OUT_DIR / "concept-evidence-depth.csv"
     concept_evidence_depth_md = OUT_DIR / "concept-evidence-depth.md"
+    edge_evidence_depth_csv = edge_evidence_depth.EDGE_EVIDENCE_DEPTH_CSV
+    edge_evidence_depth_md = edge_evidence_depth.EDGE_EVIDENCE_DEPTH_MD
     textbook_extraction_queue_csv = OUT_DIR / "textbook-extraction-queue.csv"
     textbook_extraction_queue_md = OUT_DIR / "textbook-extraction-queue.md"
     textbook_evidence_packet_index_csv = textbook_evidence_packet.TEXTBOOK_EVIDENCE_PACKET_DIR / "index.csv"
@@ -605,6 +621,27 @@ def main() -> None:
         fail("concept-evidence-depth.csv contains textbook evidence while textbook originals are empty")
     if not concept_evidence_depth_md.exists() or "# Concept Evidence Depth" not in concept_evidence_depth_md.read_text(encoding="utf-8"):
         fail("concept-evidence-depth.md missing or invalid")
+    edge_evidence_rows = read_csv_rows(edge_evidence_depth_csv)
+    if len(edge_evidence_rows) != len(edges):
+        fail("edge-evidence-depth.csv row count does not match concepts.json")
+    missing_edge_evidence_ids = missing_edge_evidence_depth_ids(edges, edge_evidence_rows)
+    if missing_edge_evidence_ids:
+        fail(f"edge-evidence-depth.csv missing edge ids: {missing_edge_evidence_ids}")
+    if edge_evidence_depth_source_ref_count(edge_evidence_rows) != source_ref_count([], edges):
+        fail("edge-evidence-depth.csv source_ref_count does not match edge source refs")
+    expected_edge_evidence_rows = edge_evidence_depth.edge_evidence_rows(concepts, edges)
+    if len(edge_evidence_rows) != len(expected_edge_evidence_rows):
+        fail("edge-evidence-depth.csv row count does not match generated edge evidence rows")
+    if edge_evidence_rows and list(edge_evidence_rows[0]) != edge_evidence_depth.CSV_FIELDS:
+        fail("edge-evidence-depth.csv fields do not match schema")
+    if [row.get("edge_id") for row in edge_evidence_rows] != [
+        row.get("edge_id") for row in expected_edge_evidence_rows
+    ]:
+        fail("edge-evidence-depth.csv edge order does not match generated edge evidence rows")
+    if textbook_inventory_empty and edge_evidence_depth_textbook_evidence_count(edge_evidence_rows):
+        fail("edge-evidence-depth.csv contains textbook evidence while textbook originals are empty")
+    if not edge_evidence_depth_md.exists() or "# Edge Evidence Depth" not in edge_evidence_depth_md.read_text(encoding="utf-8"):
+        fail("edge-evidence-depth.md missing or invalid")
     textbook_queue_rows = read_csv_rows(textbook_extraction_queue_csv)
     expected_textbook_queue_rows = textbook_extraction_queue.textbook_extraction_queue_rows(concept_evidence_rows)
     if len(textbook_queue_rows) != len(expected_textbook_queue_rows):

@@ -149,6 +149,31 @@ class AchievementCoverageTests(unittest.TestCase):
 
         self.assertEqual(validator.concept_evidence_depth_source_ref_count(rows), 5)
 
+    def test_missing_edge_evidence_depth_ids_are_reported(self) -> None:
+        edges = [{"id": "coord__contains__axis"}, {"id": "coord__prerequisite_for__linear"}]
+        rows = [{"edge_id": "coord__contains__axis"}]
+
+        self.assertEqual(
+            validator.missing_edge_evidence_depth_ids(edges, rows),
+            ["coord__prerequisite_for__linear"],
+        )
+
+    def test_edge_evidence_depth_source_ref_count_sums_rows(self) -> None:
+        rows = [
+            {"source_ref_count": "4"},
+            {"source_ref_count": "5"},
+        ]
+
+        self.assertEqual(validator.edge_evidence_depth_source_ref_count(rows), 9)
+
+    def test_edge_textbook_evidence_count_reports_supported_rows(self) -> None:
+        rows = [
+            {"has_textbook_evidence": "no"},
+            {"has_textbook_evidence": "yes"},
+        ]
+
+        self.assertEqual(validator.edge_evidence_depth_textbook_evidence_count(rows), 1)
+
     def test_textbook_evidence_count_reports_supported_rows(self) -> None:
         rows = [
             {"has_textbook_evidence": "yes"},

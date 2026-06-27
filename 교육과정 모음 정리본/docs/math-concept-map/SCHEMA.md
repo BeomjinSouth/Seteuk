@@ -249,6 +249,38 @@
 | `evidence_depth` | `textbook_supported`, `official_dual_source`, `official_single_source`, `source_gap` |
 | `needs_textbook_evidence` | 교과서 본문·정리·예제·문제 근거 보강 필요 여부 |
 
+## Edge Evidence Depth CSV
+
+`edge-evidence-depth.csv`는 edge별 출처 근거 깊이와 교과서 근거 보강 필요 여부를 요약한 파생 산출물이다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `edge_id` | edge id |
+| `source_id` | source concept id |
+| `source_label_ko` | source concept 한국어 이름 |
+| `source_grade` | source concept 학년 또는 학년군 |
+| `source_domain` | source concept 영역 |
+| `source_unit` | source concept 단원 |
+| `target_id` | target concept id |
+| `target_label_ko` | target concept 한국어 이름 |
+| `target_grade` | target concept 학년 또는 학년군 |
+| `target_domain` | target concept 영역 |
+| `target_unit` | target concept 단원 |
+| `relationship_type` | edge 관계 유형 |
+| `edge_scope` | `same_unit`, `cross_unit_same_domain`, `cross_domain_same_grade`, `cross_grade_same_domain`, `cross_grade_cross_domain` |
+| `confidence` | 현재 edge 신뢰도 |
+| `source_ref_count` | edge에 연결된 source ref 수 |
+| `source_count` | edge에 연결된 고유 source id 수 |
+| `evidence_kind_count` | edge에 연결된 고유 evidence kind 수 |
+| `sources` | 고유 source id 목록. 세미콜론으로 구분한다. |
+| `evidence_kinds` | 고유 evidence kind 목록. 세미콜론으로 구분한다. |
+| `has_curriculum_evidence` | `curriculum_math_2022` 근거 존재 여부 |
+| `has_achievement_evidence` | `achievement_math_2022` 근거 존재 여부 |
+| `has_textbook_evidence` | `textbook_originals` 근거 존재 여부 |
+| `evidence_depth` | `textbook_supported`, `official_dual_source`, `official_single_source`, `source_gap` |
+| `needs_textbook_evidence` | 관계 edge의 교과서 본문·예제·문제 근거 보강 필요 여부 |
+| `notes` | 원본 edge notes |
+
 ## Textbook Extraction Queue CSV
 
 `textbook-extraction-queue.csv`는 교과서 PDF가 추가되었을 때 단원별로 어떤 범위를 먼저 추출할지 정하는 파생 산출물이다.

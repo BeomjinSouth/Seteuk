@@ -79,6 +79,14 @@
 - 현재 `textbook_supported` concept은 0개이며, 476개 concept 모두 교과서 본문·정리·예제·문제 근거 보강이 필요하다.
 - 교과서 PDF가 추가되면 이 산출물에서 `needs_textbook_evidence`를 줄이는 방식으로 보강 진행률을 추적한다.
 
+## Edge Evidence Depth
+
+- `edge-evidence-depth.md`와 `edge-evidence-depth.csv`를 추가해 edge별 공식/교과서 근거 깊이를 추적한다.
+- 현재 1966개 edge 중 `official_dual_source`는 1681개, `official_single_source`는 285개이다.
+- 현재 `textbook_supported` edge는 0개이며, 1966개 edge 모두 교과서 본문·예제·문제 근거 보강이 필요하다.
+- 현재 edge scope 분포는 `same_unit` 1521개, `cross_unit_same_domain` 198개, `cross_domain_same_grade` 41개, `cross_grade_same_domain` 185개, `cross_grade_cross_domain` 21개이다.
+- 교과서 PDF가 추가되면 이 산출물에서 `needs_textbook_evidence`를 줄이는 방식으로 관계 근거 보강 진행률을 추적한다.
+
 ## Textbook Extraction Queue
 
 - `textbook-extraction-queue.md`와 `textbook-extraction-queue.csv`를 추가해 교과서 PDF가 추가된 뒤의 단원별 원문 추출 우선순위를 추적한다.
@@ -103,7 +111,7 @@
 - 현재 분포는 intra-unit edge row 1521개, cross-unit edge row 890개, `low` 신뢰도 edge row 416개이다.
 - 각 row는 관계 유형별로 구조 근거, 선수 순서 근거, 표현 근거, 절차 활용 근거, 대조 근거, 오개념·문제 패턴 근거, 관련 근거, 쪽수 슬롯을 분리한다.
 - 현재 `교과서_원본/`에는 PDF가 없으므로 2411개 row 모두 `pending_textbook_pdf` 상태이며, 관계 근거 슬롯은 비워 두었다.
-- 교과서 PDF가 추가되면 concept 패킷과 edge 패킷을 함께 채워 `concepts.json`의 concept source refs뿐 아니라 `edges.csv`/`concepts.json`의 edge source refs와 신뢰도를 갱신한다.
+- 교과서 PDF가 추가되면 concept 패킷과 edge 패킷을 함께 채워 `concepts.json`의 concept source refs뿐 아니라 `edges.csv`/`concepts.json`의 edge source refs와 신뢰도를 갱신하고, `edge-evidence-depth.*`의 보강 필요 수를 줄인다.
 
 ## 다음 출처 보강 순서
 
