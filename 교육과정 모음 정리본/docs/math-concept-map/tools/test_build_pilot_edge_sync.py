@@ -409,6 +409,30 @@ class BuildPilotEdgeSyncTests(unittest.TestCase):
 
         self.assertEqual([], missing)
 
+    def test_function_equation_queue_related_ids_have_reviewed_edges(self) -> None:
+        relationships = relationship_types_by_pair()
+        expected = {
+            frozenset(["m1_eq_unknown", "m1_term_variable"]): "contrasts_with",
+            frozenset(["m1_ineq_solution", "m1_eq_solution"]): "contrasts_with",
+            frozenset(["m1_ineq_unit", "m1_system_unit"]): "related_to",
+            frozenset(["m1_func_unit", "m1_system_unit"]): "related_to",
+            frozenset(["m1_func_value", "m1_expr_value"]): "contrasts_with",
+            frozenset(["m1_func_eq_relation_unit", "m1_coord_graph_unit"]): "related_to",
+            frozenset(["m1_func_two_variable_equation_as_graph", "m1_system_solution"]): "used_in",
+            frozenset(["m1_repr_everyday_language", "m1_expr_letter"]): "used_in",
+            frozenset(["m1_repr_expression", "m1_expr_value"]): "used_in",
+            frozenset(["m1_term_variable", "m1_prop_direct_proportion"]): "used_in",
+            frozenset(["m1_term_variable", "m1_prop_inverse_proportion"]): "used_in",
+            frozenset(["m1_num_positive_integer", "m1_num_natural_number"]): "equivalent_to",
+        }
+        missing = [
+            (tuple(sorted(pair)), relationship_type)
+            for pair, relationship_type in expected.items()
+            if relationship_type not in relationships.get(pair, set())
+        ]
+
+        self.assertEqual([], missing)
+
 
 if __name__ == "__main__":
     unittest.main()

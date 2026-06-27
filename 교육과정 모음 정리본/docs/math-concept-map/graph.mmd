@@ -539,6 +539,7 @@ flowchart LR
   m1_num_negative_number -- "포함" --> m1_num_negative_integer
   m1_num_integer -- "포함" --> m1_num_positive_integer
   m1_num_integer -- "포함" --> m1_num_negative_integer
+  m1_num_positive_integer -- "동치" --> m1_num_natural_number
   m1_num_integer -- "선수" --> m1_num_rational_number
   m1_num_rational_number -- "포함" --> m1_num_positive_rational
   m1_num_rational_number -- "포함" --> m1_num_negative_rational
@@ -656,7 +657,9 @@ flowchart LR
   m1_expr_literal_expression -- "표현" --> m1_repr_expression
   m1_expr_letter -- "사용" --> m1_repr_expression
   m1_expr_substitution -- "사용" --> m1_expr_value
+  m1_repr_expression -- "사용" --> m1_expr_value
   m1_expr_letter -- "사용" --> m1_term_variable
+  m1_expr_letter -- "사용" --> m1_repr_everyday_language
   m1_repr_everyday_language -- "표현" --> m1_expr_literal_expression
   m1_repr_everyday_language -- "표현" --> m1_repr_expression
   m1_expr_literal_expression -- "사용" --> m1_expr_usefulness
@@ -691,6 +694,7 @@ flowchart LR
   m1_eq_unknown -- "사용" --> m1_eq_equation
   m1_eq_equation -- "포함" --> m1_eq_solution
   m1_eq_unknown -- "대조" --> m1_eq_solution
+  m1_eq_unknown -- "대조" --> m1_term_variable
   m1_eq_solution -- "동치" --> m1_eq_root
   m1_eq_equation -- "대조" --> m1_eq_identity
   m1_eq_equality -- "사용" --> m1_eq_equality_properties
@@ -743,6 +747,7 @@ flowchart LR
   m1_mis_polynomial_like_terms -- "혼동" --> m1_calc_polynomial_add_sub
   m1_mis_polynomial_division_scope -- "혼동" --> m1_calc_monomial_polynomial_mul_div
   m1_eq_unit -- "선수" --> m1_ineq_unit
+  m1_ineq_unit -- "연관" --> m1_system_unit
   m1_ineq_unit -- "포함" --> m1_ineq_inequality
   m1_ineq_unit -- "포함" --> m1_ineq_solution
   m1_ineq_unit -- "포함" --> m1_ineq_properties
@@ -761,6 +766,7 @@ flowchart LR
   m1_ineq_solving_linear_inequality -- "사용" --> m1_ineq_solution_check
   m1_ineq_solution_check -- "사용" --> m1_ineq_modeling_linear_inequality
   m1_ineq_inequality -- "대조" --> m1_eq_equation
+  m1_ineq_solution -- "대조" --> m1_eq_solution
   m1_mis_ineq_solution_single_value -- "혼동" --> m1_ineq_solution
   m1_mis_ineq_solution_single_value -- "혼동" --> m1_eq_solution
   m1_mis_ineq_negative -- "혼동" --> m1_ineq_properties
@@ -794,6 +800,8 @@ flowchart LR
   m1_expr_unit -- "선수" --> m1_func_unit
   m1_eq_unit -- "선수" --> m1_func_eq_relation_unit
   m1_system_unit -- "선수" --> m1_func_eq_relation_unit
+  m1_system_unit -- "연관" --> m1_func_unit
+  m1_coord_graph_unit -- "연관" --> m1_func_eq_relation_unit
   m1_func_unit -- "포함" --> m1_func_function
   m1_func_unit -- "포함" --> m1_func_value
   m1_func_unit -- "포함" --> m1_func_linear_function
@@ -805,6 +813,7 @@ flowchart LR
   m1_func_two_quantity_relation -- "사용" --> m1_func_function_judgement
   m1_func_function -- "포함" --> m1_func_value
   m1_expr_substitution -- "사용" --> m1_func_value
+  m1_func_value -- "대조" --> m1_expr_value
   m1_func_function -- "포함" --> m1_func_linear_function
   m1_expr_linear_expression -- "선수" --> m1_func_linear_function
   m1_func_linear_function -- "표현" --> m1_func_linear_formula
@@ -846,6 +855,7 @@ flowchart LR
   m1_system_two_variable_linear_equation -- "표현" --> m1_func_two_variable_equation_as_graph
   m1_system_two_variable_linear_equation -- "사용" --> m1_func_equation_relation
   m1_func_two_variable_equation_as_graph -- "사용" --> m1_func_equation_relation
+  m1_func_two_variable_equation_as_graph -- "사용" --> m1_system_solution
   m1_func_linear_graph -- "사용" --> m1_func_equation_relation
   m1_func_two_linear_graphs -- "포함" --> m1_func_intersection_point
   m1_func_two_linear_graphs -- "포함" --> m1_func_intersection_count
@@ -1050,6 +1060,8 @@ flowchart LR
   m1_context_speed_time -- "사용" --> m1_prop_proportion_relation
   m1_context_speed_distance -- "대조" --> m1_context_speed_time
   m1_term_variable -- "사용" --> m1_repr_expression
+  m1_term_variable -- "사용" --> m1_prop_direct_proportion
+  m1_term_variable -- "사용" --> m1_prop_inverse_proportion
   m1_coord_x_coordinate -- "혼동" --> m1_coord_y_coordinate
   m1_mis_order_swap -- "혼동" --> m1_coord_ordered_pair
   m1_mis_order_swap -- "혼동" --> m1_coord_x_coordinate
