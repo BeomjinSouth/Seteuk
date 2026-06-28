@@ -251,6 +251,32 @@
 | `recommended_action` | `inspect_research_report_context_before_confidence_change`, `inspect_research_report_context_before_source_ref_upgrade`, `use_as_supplemental_trace_only` 중 하나 |
 | `notes` | 자동 승격 금지와 원문 맥락 확인 필요 메모 |
 
+## Research Report Context Packet CSV
+
+`research-report-context-packet.csv`는 `research-report-concept-signal.csv`의 상위 검토 후보를 연구보고서 page 단위 맥락으로 좁힌 파생 산출물이다. 이 파일은 짧은 발췌와 맥락 신호를 남기는 수동 검토 패킷이며, row가 있다고 해서 `concepts.json`의 `source_refs`나 `confidence`를 자동 변경하지 않는다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `rank` | 패킷 내부 검토 순서 |
+| `concept_id` | 원본 concept id |
+| `label_ko` | concept 한국어 이름 |
+| `matched_term` | 해당 page에서 실제로 확인된 label 또는 alias |
+| `grade` | concept 학년 또는 학년군 |
+| `domain` | concept 영역 |
+| `unit` | concept 단원 |
+| `concept_type` | concept 유형 |
+| `confidence` | 현재 concept 신뢰도 |
+| `recommended_action` | 원본 signal의 검토 권장 동작 |
+| `page_number` | 연구보고서 PDF page 번호 |
+| `match_count_on_page` | 해당 page에서 `matched_term`이 출현한 횟수 |
+| `context_signal` | `achievement_level_context`, `example_assessment_tool_context`, `assessment_context`, `teaching_learning_context`, `curriculum_context`, `general_report_context` 중 page 맥락 신호 |
+| `context_excerpt` | 수동 검토를 위한 90자 이하의 짧은 page 맥락 발췌 |
+| `review_status` | 현재는 `pending_context_review` |
+| `source_candidate_id` | 후보 출처 id. 현재는 `achievement_research_report_2022` |
+| `source_locator_candidate` | 후보 출처 위치. 예: `연구보고서 p. 184` |
+| `source_ref_upgrade_allowed` | 검토 전 자동 승격 금지 표시. 현재는 `no` |
+| `notes` | 수동 검토 전 source ref 또는 confidence를 바꾸지 말라는 메모 |
+
 ## Source Reference Audit CSV
 
 `source-ref-audit.csv`는 `concepts.json`의 concept/edge `source_refs`를 출처와 근거 유형별로 요약한 파생 산출물이다.

@@ -72,6 +72,8 @@
 - 현재 연구보고서 신호는 239개 concept에 잡혔으며, 이 중 `confidence: low` concept은 `비` 1개, `confidence: medium` concept은 31개, `confidence: high` concept은 207개이다.
 - 이 산출물은 연구보고서 원문 맥락을 확인하기 위한 후보 신호이며, row가 있다고 해서 `concepts.json`의 source ref나 confidence를 자동 변경하지 않는다.
 - 현재 교과서 PDF가 없으므로 연구보고서 신호는 교과서 page-level 근거를 대체하지 않고, 보조 공식 문서 기반 검토 순서를 좁히는 용도로만 사용한다.
+- `research-report-context-packet.md`와 `research-report-context-packet.csv`를 추가해 low-confidence 후보와 상위 medium 후보를 연구보고서 page 맥락 48개 row로 좁혔다.
+- context packet의 모든 row는 `pending_context_review`와 `source_ref_upgrade_allowed: no` 상태를 유지하므로, 사람이 page 맥락을 확인하기 전에는 `concepts.json`의 source ref나 confidence를 바꾸지 않는다.
 
 ## Source Reference Audit
 

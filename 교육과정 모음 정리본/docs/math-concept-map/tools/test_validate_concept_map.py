@@ -386,6 +386,35 @@ class AchievementCoverageTests(unittest.TestCase):
             ["axis_point"],
         )
 
+    def test_research_report_context_packet_review_status_count_counts_rows(self) -> None:
+        rows = [
+            {"review_status": "pending_context_review"},
+            {"review_status": "pending_context_review"},
+            {"review_status": "reviewed"},
+        ]
+
+        self.assertEqual(
+            validator.research_report_context_packet_review_status_count(
+                rows,
+                "pending_context_review",
+            ),
+            2,
+        )
+
+    def test_missing_research_report_context_packet_keys_are_reported(self) -> None:
+        expected_rows = [
+            {"concept_id": "ratio", "page_number": 10, "matched_term": "비율"},
+            {"concept_id": "figure", "page_number": 20, "matched_term": "도형"},
+        ]
+        actual_rows = [
+            {"concept_id": "ratio", "page_number": "10", "matched_term": "비율"},
+        ]
+
+        self.assertEqual(
+            validator.missing_research_report_context_packet_keys(expected_rows, actual_rows),
+            ["figure:20:도형"],
+        )
+
     def test_textbook_workplan_pending_count_sums_rows(self) -> None:
         rows = [
             {"total_pending_evidence_count": "6"},

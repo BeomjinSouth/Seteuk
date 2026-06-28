@@ -20,6 +20,7 @@ import build_textbook_source_audit as textbook_source_audit
 import build_pilot_unit_map as pilot_unit_map
 import build_equivalence_alias_audit as equivalence_alias_audit
 import build_research_report_concept_signal as research_report_concept_signal
+import build_research_report_context_packet as research_report_context_packet
 import build_legacy_gap_audit as legacy_gap_audit
 import build_legacy_gap_resolution as legacy_gap_resolution
 import build_legacy_gap_integration_plan as legacy_gap_integration_plan
@@ -339,6 +340,26 @@ def missing_research_report_signal_concept_ids(
     return sorted(str(row.get("concept_id")) for row in expected_rows if row.get("concept_id") not in present)
 
 
+def research_report_context_packet_review_status_count(records: list[dict], status: str) -> int:
+    return sum(1 for record in records if record.get("review_status") == status)
+
+
+def research_report_context_packet_key(record: dict) -> str:
+    return f"{record.get('concept_id', '')}:{record.get('page_number', '')}:{record.get('matched_term', '')}"
+
+
+def missing_research_report_context_packet_keys(
+    expected_rows: list[dict],
+    actual_rows: list[dict],
+) -> list[str]:
+    actual_keys = {research_report_context_packet_key(row) for row in actual_rows}
+    return [
+        research_report_context_packet_key(row)
+        for row in expected_rows
+        if research_report_context_packet_key(row) not in actual_keys
+    ]
+
+
 def textbook_source_audit_not_ready_count(records: list[dict]) -> int:
     return sum(1 for record in records if record.get("intake_status") != "ready_for_textbook_extraction")
 
@@ -579,6 +600,8 @@ def main() -> None:
     equivalence_alias_audit_md = equivalence_alias_audit.EQUIVALENCE_ALIAS_AUDIT_MD
     research_report_signal_csv = research_report_concept_signal.RESEARCH_REPORT_SIGNAL_CSV
     research_report_signal_md = research_report_concept_signal.RESEARCH_REPORT_SIGNAL_MD
+    research_report_context_packet_csv = research_report_context_packet.RESEARCH_REPORT_CONTEXT_PACKET_CSV
+    research_report_context_packet_md = research_report_context_packet.RESEARCH_REPORT_CONTEXT_PACKET_MD
     legacy_gap_audit_csv = OUT_DIR / "legacy-gap-audit.csv"
     legacy_gap_audit_md = OUT_DIR / "legacy-gap-audit.md"
     legacy_gap_resolution_csv = OUT_DIR / "legacy-gap-resolution.csv"
@@ -642,9 +665,10 @@ def main() -> None:
     if not research_report_signal_csv.exists():
         fail("research-report-concept-signal.csv missing")
     research_signal_rows = read_csv_rows(research_report_signal_csv)
+    research_report_page_texts = research_report_concept_signal.extract_page_texts()
     expected_research_signal_rows = research_report_concept_signal.research_report_signal_rows(
         concepts,
-        research_report_concept_signal.extract_page_texts(),
+        research_report_page_texts,
     )
     expected_research_signal_csv_rows = csv_rows_for_fields(
         expected_research_signal_rows,
@@ -669,6 +693,38 @@ def main() -> None:
         fail("research-report-concept-signal.csv has no low-confidence inspection candidates")
     if not research_report_signal_md.exists() or "# Research Report Concept Signal" not in research_report_signal_md.read_text(encoding="utf-8"):
         fail("research-report-concept-signal.md missing or invalid")
+    if not research_report_context_packet_csv.exists():
+        fail("research-report-context-packet.csv missing")
+    research_context_packet_rows = read_csv_rows(research_report_context_packet_csv)
+    expected_research_context_packet_rows = research_report_context_packet.research_report_context_packet_rows(
+        research_signal_rows,
+        research_report_page_texts,
+    )
+    expected_research_context_packet_csv_rows = csv_rows_for_fields(
+        expected_research_context_packet_rows,
+        research_report_context_packet.CSV_FIELDS,
+    )
+    if research_context_packet_rows and list(research_context_packet_rows[0]) != research_report_context_packet.CSV_FIELDS:
+        fail("research-report-context-packet.csv fields do not match schema")
+    if len(research_context_packet_rows) != len(expected_research_context_packet_rows):
+        fail("research-report-context-packet.csv row count does not match generated context packet")
+    missing_research_context_keys = missing_research_report_context_packet_keys(
+        expected_research_context_packet_rows,
+        research_context_packet_rows,
+    )
+    if missing_research_context_keys:
+        fail(f"research-report-context-packet.csv missing context keys: {missing_research_context_keys}")
+    if research_context_packet_rows != expected_research_context_packet_csv_rows:
+        fail("research-report-context-packet.csv rows do not match generated context packet")
+    if research_report_context_packet_review_status_count(
+        research_context_packet_rows,
+        "pending_context_review",
+    ) != len(research_context_packet_rows):
+        fail("research-report-context-packet.csv contains non-pending review statuses")
+    if any(row.get("source_ref_upgrade_allowed") != "no" for row in research_context_packet_rows):
+        fail("research-report-context-packet.csv allows source_ref upgrades without review")
+    if not research_report_context_packet_md.exists() or "# Research Report Context Packet" not in research_report_context_packet_md.read_text(encoding="utf-8"):
+        fail("research-report-context-packet.md missing or invalid")
     unit_rows = read_csv_rows(unit_coverage_csv)
     if len(unit_rows) != unit_group_count(concepts):
         fail("unit-coverage.csv row count does not match concept unit groups")

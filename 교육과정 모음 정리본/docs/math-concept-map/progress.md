@@ -948,10 +948,31 @@
 - diff check: `git diff --check -- docs/math-concept-map 교과서_원본`: 종료 코드 0, CRLF 변환 경고만 확인.
 - PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
 
+## 2026-06-28 research report context packet 추가
+
+- AGENTS.md를 다시 확인했고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 파생 산출물과 검증 도구 정비로 제한했다.
+- `research-report-concept-signal.*`의 후보 신호를 바로 source ref로 승격하지 않도록, 상위 후보만 page 단위로 좁힌 `research-report-context-packet.*`를 추가했다.
+- 패킷은 low-confidence 후보 `비`(`m1_num_ratio`)의 앞쪽 8개 page와 상위 medium 후보 20개의 앞쪽 2개 page를 합쳐 48개 row를 만든다.
+- 각 row는 `matched_term`, `page_number`, `match_count_on_page`, `context_signal`, 90자 이하 `context_excerpt`, `source_locator_candidate`, `review_status: pending_context_review`, `source_ref_upgrade_allowed: no`를 기록한다.
+- TDD red: `python -m unittest discover -s .\docs\math-concept-map\tools -p 'test_build_research_report_context_packet.py'`가 새 모듈 부재로 실패하는 것을 확인했다.
+- TDD green: 같은 테스트 명령이 2개 통과로 전환되는 것을 확인한 뒤, PDF 추출문에 섞인 NUL 문자를 제거하는 테스트를 추가해 3개 통과 상태로 보강했다.
+- validator red: `python .\docs\math-concept-map\tools\validate_concept_map.py`가 `research-report-context-packet.csv missing`으로 실패하는 것을 확인한 뒤 산출물을 생성했다.
+- `validate_concept_map.py`가 context packet CSV field, row count, key 누락, 재생성 결과 일치, 전체 row의 `pending_context_review` 상태와 `source_ref_upgrade_allowed: no`, Markdown 존재 여부를 검증하도록 확장했다.
+- 이번 산출물은 연구보고서 원문 검토를 빠르게 하기 위한 패킷이며, 교과서 page-level 근거를 대체하지 않고 concept source ref 또는 confidence를 자동 변경하지 않는다.
+
+## 2026-06-28 research report context packet 검증 결과
+
+- 좁은 생성기 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p 'test_build_research_report_context_packet.py'`: 3개 통과.
+- 좁은 validator 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p 'test_validate_concept_map.py'`: 57개 통과.
+- 전체 단위 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p 'test_*.py'`: 174개 통과.
+- 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 476개 concept, 1966개 edge, 4개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map 교과서_원본`: 종료 코드 0, CRLF 변환 경고만 확인.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
-- 교과서 PDF가 추가되기 전에는 `research-report-concept-signal.*`의 `inspect_research_report_context_before_confidence_change`와 `inspect_research_report_context_before_source_ref_upgrade` row를 원문 page 단위로 검토해, 공식 연구보고서 맥락이 실제 concept 정의·예시 평가도구·채점 기준 근거인지 확인한다.
+- 교과서 PDF가 추가되기 전에는 `research-report-context-packet.*`의 `pending_context_review` row를 검토해, 공식 연구보고서 맥락이 실제 concept 정의·예시 평가도구·채점 기준 근거인지 확인하고 source ref 또는 confidence 보강 여부를 별도로 결정한다.
 - 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.
 - 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 40개와 edge packet row 202개, 총 242개 row로 유지하되, 전체 단원 검토는 `unit-map-packets/index.*`에서 rank 1~34 순서로 이어간다.
 - 새 concept, alias, `related_ids`, 또는 `equivalent_to` 후보가 추가되면 `equivalence-alias-audit.*`, `related-edge-resolution-queue.*`, `textbook-edge-evidence-packets/*`, `edge-evidence-depth.*`를 함께 재생성한다.
