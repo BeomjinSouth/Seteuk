@@ -16,6 +16,13 @@ class BuildSourceInventoryTests(unittest.TestCase):
             (root / "2022_개정_중학교_교육과정_PDF" / "교과" / "02_[별책8] 수학과 교육과정.pdf").write_bytes(b"%PDF-1.7\n")
             (root / "2022_개정_중학교_성취수준_PDF" / "성취수준").mkdir(parents=True)
             (root / "2022_개정_중학교_성취수준_PDF" / "성취수준" / "02_수학_성취수준.pdf").write_bytes(b"%PDF-1.7\n")
+            (root / "2022_개정_중학교_성취수준_PDF" / "연구보고서").mkdir(parents=True)
+            (
+                root
+                / "2022_개정_중학교_성취수준_PDF"
+                / "연구보고서"
+                / "02_수학_성취수준_개발_연구보고서.pdf"
+            ).write_bytes(b"%PDF-1.7\n")
             (root / "교육과정_단원_정리" / "교과별_JSON").mkdir(parents=True)
             (root / "교육과정_단원_정리" / "교과별_JSON" / "02_수학_단원_정리.json").write_text("{}", encoding="utf-8")
             (root / "교과서_원본").mkdir()
@@ -27,6 +34,8 @@ class BuildSourceInventoryTests(unittest.TestCase):
             self.assertEqual(by_group["curriculum_pdf"]["status"], "available")
             self.assertEqual(by_group["curriculum_pdf"]["pdf_count"], 1)
             self.assertEqual(by_group["achievement_pdf"]["status"], "available")
+            self.assertEqual(by_group["achievement_research_report_pdf"]["status"], "available")
+            self.assertEqual(by_group["achievement_research_report_pdf"]["pdf_count"], 1)
             self.assertEqual(by_group["unit_summary_json"]["json_count"], 1)
             self.assertEqual(by_group["textbook_originals"]["status"], "empty")
             self.assertEqual(by_group["textbook_originals"]["pdf_count"], 0)

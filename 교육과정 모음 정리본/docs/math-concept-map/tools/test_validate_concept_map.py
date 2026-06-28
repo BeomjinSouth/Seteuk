@@ -102,7 +102,7 @@ class AchievementCoverageTests(unittest.TestCase):
 
         self.assertEqual(
             validator.missing_source_inventory_groups(rows),
-            ["unit_summary_json"],
+            ["achievement_research_report_pdf", "unit_summary_json"],
         )
 
     def test_invalid_source_inventory_statuses_are_reported(self) -> None:
@@ -355,6 +355,35 @@ class AchievementCoverageTests(unittest.TestCase):
         self.assertEqual(
             validator.missing_equivalence_alias_audit_record_ids(expected_rows, actual_rows),
             ["equivalent_edge:coord__equivalent_to__point"],
+        )
+
+    def test_research_report_signal_action_count_counts_rows(self) -> None:
+        rows = [
+            {"recommended_action": "inspect_research_report_context_before_confidence_change"},
+            {"recommended_action": "inspect_research_report_context_before_confidence_change"},
+            {"recommended_action": "use_as_supplemental_trace_only"},
+        ]
+
+        self.assertEqual(
+            validator.research_report_signal_action_count(
+                rows,
+                "inspect_research_report_context_before_confidence_change",
+            ),
+            2,
+        )
+
+    def test_missing_research_report_signal_concept_ids_are_reported(self) -> None:
+        expected_rows = [
+            {"concept_id": "coord"},
+            {"concept_id": "axis_point"},
+        ]
+        actual_rows = [
+            {"concept_id": "coord"},
+        ]
+
+        self.assertEqual(
+            validator.missing_research_report_signal_concept_ids(expected_rows, actual_rows),
+            ["axis_point"],
         )
 
     def test_textbook_workplan_pending_count_sums_rows(self) -> None:

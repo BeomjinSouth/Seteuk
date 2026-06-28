@@ -6,6 +6,7 @@
 | --- | --- | --- | --- |
 | `curriculum_math_2022` | 2022 개정 수학과 교육과정 [별책8] | `2022_개정_중학교_교육과정_PDF/교과/02_[별책8] 수학과 교육과정.pdf` | 사용 |
 | `achievement_math_2022` | 2022 개정 중학교 수학 성취수준 | `2022_개정_중학교_성취수준_PDF/성취수준/02_수학_성취수준.pdf` | 사용 |
+| `achievement_research_report_2022` | 2022 개정 초·중학교 수학과 성취수준 개발 연구보고서 | `2022_개정_중학교_성취수준_PDF/연구보고서/02_수학_성취수준_개발_연구보고서.pdf` | 보조 후보 신호로 사용 |
 | `unit_summary_math_json` | 수학 단원 정리 JSON | `교육과정_단원_정리/교과별_JSON/02_수학_단원_정리.json` | 보조 사용 |
 | `textbook_originals` | 교과서·익힘책·지도서 원본 | `교과서_원본/` | 현재 비어 있음 |
 
@@ -61,9 +62,16 @@
 ## Source Inventory Snapshot
 
 - `source-inventory.md`와 `source-inventory.csv`를 추가해 현재 로컬 출처 파일 가용성을 재생성 가능하게 기록했다.
-- 현재 `curriculum_pdf`, `achievement_pdf`, `unit_summary_json`은 `available`이다.
+- 현재 `curriculum_pdf`, `achievement_pdf`, `achievement_research_report_pdf`, `unit_summary_json`은 `available`이다.
 - 현재 `textbook_originals`는 폴더 안에 `README.md`만 있고 PDF가 없어 `empty`이다.
 - 이번 작업은 출처 현황 기록만 보강했으므로 기존 PDF 원본, 다운로드 manifest, 출처 선택 규칙은 변경하지 않았다.
+
+## Research Report Concept Signal
+
+- `research-report-concept-signal.md`와 `research-report-concept-signal.csv`를 추가해 수학과 성취수준 개발 연구보고서 PDF에서 현재 concept `label_ko` 또는 2자 이상 alias가 출현하는 page 후보를 추적한다.
+- 현재 연구보고서 신호는 239개 concept에 잡혔으며, 이 중 `confidence: low` concept은 `비` 1개, `confidence: medium` concept은 31개, `confidence: high` concept은 207개이다.
+- 이 산출물은 연구보고서 원문 맥락을 확인하기 위한 후보 신호이며, row가 있다고 해서 `concepts.json`의 source ref나 confidence를 자동 변경하지 않는다.
+- 현재 교과서 PDF가 없으므로 연구보고서 신호는 교과서 page-level 근거를 대체하지 않고, 보조 공식 문서 기반 검토 순서를 좁히는 용도로만 사용한다.
 
 ## Source Reference Audit
 

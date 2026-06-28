@@ -19,6 +19,7 @@ import build_textbook_evidence_workplan as textbook_evidence_workplan
 import build_textbook_source_audit as textbook_source_audit
 import build_pilot_unit_map as pilot_unit_map
 import build_equivalence_alias_audit as equivalence_alias_audit
+import build_research_report_concept_signal as research_report_concept_signal
 import build_legacy_gap_audit as legacy_gap_audit
 import build_legacy_gap_resolution as legacy_gap_resolution
 import build_legacy_gap_integration_plan as legacy_gap_integration_plan
@@ -326,6 +327,18 @@ def missing_equivalence_alias_audit_record_ids(
     ]
 
 
+def research_report_signal_action_count(records: list[dict], action: str) -> int:
+    return sum(1 for record in records if record.get("recommended_action") == action)
+
+
+def missing_research_report_signal_concept_ids(
+    expected_rows: list[dict],
+    actual_rows: list[dict],
+) -> list[str]:
+    present = {record.get("concept_id") for record in actual_rows}
+    return sorted(str(row.get("concept_id")) for row in expected_rows if row.get("concept_id") not in present)
+
+
 def textbook_source_audit_not_ready_count(records: list[dict]) -> int:
     return sum(1 for record in records if record.get("intake_status") != "ready_for_textbook_extraction")
 
@@ -564,6 +577,8 @@ def main() -> None:
     unit_map_packet_index_md = unit_map_packet_dir / "index.md"
     equivalence_alias_audit_csv = equivalence_alias_audit.EQUIVALENCE_ALIAS_AUDIT_CSV
     equivalence_alias_audit_md = equivalence_alias_audit.EQUIVALENCE_ALIAS_AUDIT_MD
+    research_report_signal_csv = research_report_concept_signal.RESEARCH_REPORT_SIGNAL_CSV
+    research_report_signal_md = research_report_concept_signal.RESEARCH_REPORT_SIGNAL_MD
     legacy_gap_audit_csv = OUT_DIR / "legacy-gap-audit.csv"
     legacy_gap_audit_md = OUT_DIR / "legacy-gap-audit.md"
     legacy_gap_resolution_csv = OUT_DIR / "legacy-gap-resolution.csv"
@@ -624,6 +639,36 @@ def main() -> None:
         fail("equivalence-alias-audit.csv equivalent_edge count does not match equivalent_to edges")
     if not equivalence_alias_audit_md.exists() or "# Equivalence Alias Audit" not in equivalence_alias_audit_md.read_text(encoding="utf-8"):
         fail("equivalence-alias-audit.md missing or invalid")
+    if not research_report_signal_csv.exists():
+        fail("research-report-concept-signal.csv missing")
+    research_signal_rows = read_csv_rows(research_report_signal_csv)
+    expected_research_signal_rows = research_report_concept_signal.research_report_signal_rows(
+        concepts,
+        research_report_concept_signal.extract_page_texts(),
+    )
+    expected_research_signal_csv_rows = csv_rows_for_fields(
+        expected_research_signal_rows,
+        research_report_concept_signal.CSV_FIELDS,
+    )
+    if research_signal_rows and list(research_signal_rows[0]) != research_report_concept_signal.CSV_FIELDS:
+        fail("research-report-concept-signal.csv fields do not match schema")
+    if len(research_signal_rows) != len(expected_research_signal_rows):
+        fail("research-report-concept-signal.csv row count does not match generated signal")
+    missing_research_signal_ids = missing_research_report_signal_concept_ids(
+        expected_research_signal_rows,
+        research_signal_rows,
+    )
+    if missing_research_signal_ids:
+        fail(f"research-report-concept-signal.csv missing concept ids: {missing_research_signal_ids}")
+    if research_signal_rows != expected_research_signal_csv_rows:
+        fail("research-report-concept-signal.csv rows do not match generated signal")
+    if research_report_signal_action_count(
+        research_signal_rows,
+        "inspect_research_report_context_before_confidence_change",
+    ) == 0:
+        fail("research-report-concept-signal.csv has no low-confidence inspection candidates")
+    if not research_report_signal_md.exists() or "# Research Report Concept Signal" not in research_report_signal_md.read_text(encoding="utf-8"):
+        fail("research-report-concept-signal.md missing or invalid")
     unit_rows = read_csv_rows(unit_coverage_csv)
     if len(unit_rows) != unit_group_count(concepts):
         fail("unit-coverage.csv row count does not match concept unit groups")

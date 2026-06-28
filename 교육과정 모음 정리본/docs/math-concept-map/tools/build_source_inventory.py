@@ -44,6 +44,18 @@ SOURCE_SPECS = [
         "missing_note": "Official achievement-level PDF is missing from the expected path.",
     },
     {
+        "source_group": "achievement_research_report_pdf",
+        "title": "2022 개정 초·중학교 수학과 성취수준 개발 연구보고서",
+        "relative_path": Path("2022_개정_중학교_성취수준_PDF")
+        / "연구보고서"
+        / "02_수학_성취수준_개발_연구보고서.pdf",
+        "expected_extensions": (".pdf",),
+        "use_for_concept_map": "supplemental research-report and example assessment-tool context",
+        "available_note": "Official KICE research report PDF is available; use it as a candidate signal source before adding source_refs.",
+        "empty_note": "Expected math achievement research report path exists but no PDF file was counted.",
+        "missing_note": "Math achievement research report PDF is missing from the expected path.",
+    },
+    {
         "source_group": "unit_summary_json",
         "title": "수학 단원 정리 JSON",
         "relative_path": Path("교육과정_단원_정리") / "교과별_JSON" / "02_수학_단원_정리.json",

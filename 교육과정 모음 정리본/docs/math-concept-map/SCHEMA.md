@@ -218,7 +218,7 @@
 
 | 필드 | 설명 |
 | --- | --- |
-| `source_group` | 출처 묶음 식별자. 예: `curriculum_pdf`, `achievement_pdf`, `unit_summary_json`, `textbook_originals` |
+| `source_group` | 출처 묶음 식별자. 예: `curriculum_pdf`, `achievement_pdf`, `achievement_research_report_pdf`, `unit_summary_json`, `textbook_originals` |
 | `title` | 사람이 읽는 출처 이름 |
 | `path` | 저장소 루트 기준 상대 경로 |
 | `file_count` | 해당 경로에서 확인한 전체 파일 수 |
@@ -227,6 +227,29 @@
 | `status` | `available`, `empty`, `missing` |
 | `use_for_concept_map` | 개념 Map 구축에서의 사용 목적 |
 | `notes` | 현재 상태에 대한 운영 메모 |
+
+## Research Report Concept Signal CSV
+
+`research-report-concept-signal.csv`는 한국교육과정평가원의 수학과 성취수준 개발 연구보고서 PDF에서 현재 concept의 `label_ko`와 2자 이상 alias가 출현하는 페이지 후보를 기록한 파생 산출물이다. 이 파일은 연구보고서 원문 맥락을 검토하기 위한 신호이며, row가 있다고 해서 `concepts.json`의 `source_refs`나 `confidence`를 자동 변경하지 않는다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `concept_id` | 연구보고서에서 label 또는 alias 출현 신호가 잡힌 concept id |
+| `label_ko` | concept 한국어 이름 |
+| `grade` | concept 학년 또는 학년군 |
+| `domain` | concept 영역 |
+| `unit` | concept 단원 |
+| `concept_type` | concept 유형 |
+| `confidence` | 현재 concept 신뢰도 |
+| `source_ref_count` | 현재 concept에 연결된 source ref 수 |
+| `current_sources` | 현재 concept source id 목록. 세미콜론으로 구분한다. |
+| `match_count` | 연구보고서 전체에서 label/alias가 출현한 횟수 |
+| `matched_terms` | 실제 매칭된 label 또는 alias 목록 |
+| `matched_pages` | 매칭이 확인된 연구보고서 PDF page 번호 목록. 길어질 경우 앞쪽 page만 보존한다. |
+| `first_matched_page` | 첫 매칭 page 번호 |
+| `candidate_status` | 현재는 `research_report_signal` |
+| `recommended_action` | `inspect_research_report_context_before_confidence_change`, `inspect_research_report_context_before_source_ref_upgrade`, `use_as_supplemental_trace_only` 중 하나 |
+| `notes` | 자동 승격 금지와 원문 맥락 확인 필요 메모 |
 
 ## Source Reference Audit CSV
 
