@@ -74,6 +74,8 @@
 - 현재 교과서 PDF가 없으므로 연구보고서 신호는 교과서 page-level 근거를 대체하지 않고, 보조 공식 문서 기반 검토 순서를 좁히는 용도로만 사용한다.
 - `research-report-context-packet.md`와 `research-report-context-packet.csv`를 추가해 low-confidence 후보와 상위 medium 후보를 연구보고서 page 맥락 48개 row로 좁혔다.
 - context packet의 모든 row는 `pending_context_review`와 `source_ref_upgrade_allowed: no` 상태를 유지하므로, 사람이 page 맥락을 확인하기 전에는 `concepts.json`의 source ref나 confidence를 바꾸지 않는다.
+- `research-report-source-review.md`와 `research-report-source-review.csv`를 추가해 같은 48개 row를 `candidate_prerequisite_evidence` 3개, `candidate_assessment_item_evidence` 8개, `candidate_achievement_level_evidence` 25개, `broad_report_context_only` 6개, `weak_occurrence_only` 6개로 분리했다.
+- `비`의 직접 연구보고서 후보 page 172, 180, 181은 high priority 수동 검토 후보로 두되, 교과서 또는 중학교 과정 직접 근거가 확인되기 전까지 `confidence: low` 유지 대상으로 기록한다.
 
 ## Source Reference Audit
 
@@ -175,7 +177,7 @@
 - `legacy-gap-source-review.md`와 `legacy-gap-source-review.csv`는 현재 남은 integration 후보 0개를 기록한다.
 - 현재 검토 상태는 `needs_official_prerequisite_confirmation`, `needs_alias_confirmation`, `needs_source_detail` 모두 0개다.
 - target concept이 있는 후보는 기존 concept의 `source_refs`를 압축해 함께 기록하여, 새 prerequisite node 또는 alias 확정 전에 확인할 공식 문서 위치를 좁혔다.
-- `비` 후보는 별도 source review 후보로 남기지 않고, `m1_num_ratio` 노드의 `confidence: low`와 notes에 교과서 본문 및 초등 연계 근거 보강 필요를 보존했다.
+- `비` 후보는 별도 legacy gap source review 후보로 남기지 않고, `m1_num_ratio` 노드의 `confidence: low`와 notes에 교과서 본문 및 초등 연계 근거 보강 필요를 보존했다.
 - 이번 작업도 보조 검토 산출물과 검증만 추가했으므로 PDF 원본, 다운로드 manifest, 공식 출처 선택 규칙은 변경하지 않았다.
 
 ## Legacy Gap Evidence Scan

@@ -415,6 +415,35 @@ class AchievementCoverageTests(unittest.TestCase):
             ["figure:20:도형"],
         )
 
+    def test_research_report_source_review_action_count_counts_rows(self) -> None:
+        rows = [
+            {"source_ref_action": "candidate_add_after_manual_review"},
+            {"source_ref_action": "candidate_add_after_manual_review"},
+            {"source_ref_action": "do_not_add_from_this_row"},
+        ]
+
+        self.assertEqual(
+            validator.research_report_source_review_action_count(
+                rows,
+                "candidate_add_after_manual_review",
+            ),
+            2,
+        )
+
+    def test_missing_research_report_source_review_keys_are_reported(self) -> None:
+        expected_rows = [
+            {"context_packet_rank": "1", "concept_id": "ratio", "page_number": "180"},
+            {"context_packet_rank": "2", "concept_id": "figure", "page_number": "9"},
+        ]
+        actual_rows = [
+            {"context_packet_rank": "1", "concept_id": "ratio", "page_number": "180"},
+        ]
+
+        self.assertEqual(
+            validator.missing_research_report_source_review_keys(expected_rows, actual_rows),
+            ["2:figure:9"],
+        )
+
     def test_textbook_workplan_pending_count_sums_rows(self) -> None:
         rows = [
             {"total_pending_evidence_count": "6"},

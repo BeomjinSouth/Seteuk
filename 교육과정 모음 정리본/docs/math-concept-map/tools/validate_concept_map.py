@@ -21,6 +21,7 @@ import build_pilot_unit_map as pilot_unit_map
 import build_equivalence_alias_audit as equivalence_alias_audit
 import build_research_report_concept_signal as research_report_concept_signal
 import build_research_report_context_packet as research_report_context_packet
+import build_research_report_source_review as research_report_source_review
 import build_legacy_gap_audit as legacy_gap_audit
 import build_legacy_gap_resolution as legacy_gap_resolution
 import build_legacy_gap_integration_plan as legacy_gap_integration_plan
@@ -360,6 +361,26 @@ def missing_research_report_context_packet_keys(
     ]
 
 
+def research_report_source_review_action_count(records: list[dict], action: str) -> int:
+    return sum(1 for record in records if record.get("source_ref_action") == action)
+
+
+def research_report_source_review_key(record: dict) -> str:
+    return f"{record.get('context_packet_rank', '')}:{record.get('concept_id', '')}:{record.get('page_number', '')}"
+
+
+def missing_research_report_source_review_keys(
+    expected_rows: list[dict],
+    actual_rows: list[dict],
+) -> list[str]:
+    actual_keys = {research_report_source_review_key(row) for row in actual_rows}
+    return [
+        research_report_source_review_key(row)
+        for row in expected_rows
+        if research_report_source_review_key(row) not in actual_keys
+    ]
+
+
 def textbook_source_audit_not_ready_count(records: list[dict]) -> int:
     return sum(1 for record in records if record.get("intake_status") != "ready_for_textbook_extraction")
 
@@ -602,6 +623,8 @@ def main() -> None:
     research_report_signal_md = research_report_concept_signal.RESEARCH_REPORT_SIGNAL_MD
     research_report_context_packet_csv = research_report_context_packet.RESEARCH_REPORT_CONTEXT_PACKET_CSV
     research_report_context_packet_md = research_report_context_packet.RESEARCH_REPORT_CONTEXT_PACKET_MD
+    research_report_source_review_csv = research_report_source_review.RESEARCH_REPORT_SOURCE_REVIEW_CSV
+    research_report_source_review_md = research_report_source_review.RESEARCH_REPORT_SOURCE_REVIEW_MD
     legacy_gap_audit_csv = OUT_DIR / "legacy-gap-audit.csv"
     legacy_gap_audit_md = OUT_DIR / "legacy-gap-audit.md"
     legacy_gap_resolution_csv = OUT_DIR / "legacy-gap-resolution.csv"
@@ -725,6 +748,37 @@ def main() -> None:
         fail("research-report-context-packet.csv allows source_ref upgrades without review")
     if not research_report_context_packet_md.exists() or "# Research Report Context Packet" not in research_report_context_packet_md.read_text(encoding="utf-8"):
         fail("research-report-context-packet.md missing or invalid")
+    if not research_report_source_review_csv.exists():
+        fail("research-report-source-review.csv missing")
+    research_source_review_rows = read_csv_rows(research_report_source_review_csv)
+    expected_research_source_review_rows = research_report_source_review.research_report_source_review_rows(
+        research_context_packet_rows,
+    )
+    expected_research_source_review_csv_rows = csv_rows_for_fields(
+        expected_research_source_review_rows,
+        research_report_source_review.CSV_FIELDS,
+    )
+    if research_source_review_rows and list(research_source_review_rows[0]) != research_report_source_review.CSV_FIELDS:
+        fail("research-report-source-review.csv fields do not match schema")
+    if len(research_source_review_rows) != len(expected_research_source_review_rows):
+        fail("research-report-source-review.csv row count does not match generated source review")
+    missing_research_source_review_keys = missing_research_report_source_review_keys(
+        expected_research_source_review_rows,
+        research_source_review_rows,
+    )
+    if missing_research_source_review_keys:
+        fail(f"research-report-source-review.csv missing review keys: {missing_research_source_review_keys}")
+    if research_source_review_rows != expected_research_source_review_csv_rows:
+        fail("research-report-source-review.csv rows do not match generated source review")
+    if research_report_source_review_action_count(
+        research_source_review_rows,
+        "candidate_add_after_manual_review",
+    ) == 0:
+        fail("research-report-source-review.csv has no source-ref review candidates")
+    if any(row.get("source_ref_upgrade_allowed") != "no" for row in research_source_review_rows):
+        fail("research-report-source-review.csv allows source_ref upgrades without review")
+    if not research_report_source_review_md.exists() or "# Research Report Source Review" not in research_report_source_review_md.read_text(encoding="utf-8"):
+        fail("research-report-source-review.md missing or invalid")
     unit_rows = read_csv_rows(unit_coverage_csv)
     if len(unit_rows) != unit_group_count(concepts):
         fail("unit-coverage.csv row count does not match concept unit groups")

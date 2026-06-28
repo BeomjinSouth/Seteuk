@@ -277,6 +277,33 @@
 | `source_ref_upgrade_allowed` | 검토 전 자동 승격 금지 표시. 현재는 `no` |
 | `notes` | 수동 검토 전 source ref 또는 confidence를 바꾸지 말라는 메모 |
 
+## Research Report Source Review CSV
+
+`research-report-source-review.csv`는 `research-report-context-packet.csv`의 page 맥락을 source ref 보강 후보, 평가도구 근거 후보, 넓은 보고서 맥락, 약한 출현으로 분류한 파생 검토 큐다. 이 파일은 `concepts.json`을 직접 수정하지 않으며, 모든 row는 수동 검토 전 자동 source ref 승격을 금지한다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `rank` | source review 내부 검토 순서 |
+| `context_packet_rank` | 원본 context packet row 순서 |
+| `concept_id` | 원본 concept id |
+| `label_ko` | concept 한국어 이름 |
+| `matched_term` | 연구보고서 page에서 매칭된 용어 |
+| `grade` | concept 학년 또는 학년군 |
+| `domain` | concept 영역 |
+| `unit` | concept 단원 |
+| `confidence` | 현재 concept 신뢰도 |
+| `page_number` | 연구보고서 PDF page 번호 |
+| `source_locator_candidate` | 후보 출처 위치 |
+| `context_signal` | 원본 context packet의 page 맥락 신호 |
+| `evidence_candidate_type` | `candidate_prerequisite_evidence`, `candidate_assessment_item_evidence`, `candidate_achievement_level_evidence`, `broad_report_context_only`, `weak_occurrence_only` 중 하나 |
+| `review_decision` | 현재는 `manual_review_required` |
+| `review_priority` | `high`, `medium`, `low` 중 하나 |
+| `source_ref_action` | `candidate_add_after_manual_review` 또는 `do_not_add_from_this_row` |
+| `confidence_action` | 신뢰도 유지 또는 low 유지 사유 |
+| `source_ref_upgrade_allowed` | 검토 전 자동 승격 금지 표시. 현재는 `no` |
+| `review_reason` | 분류와 다음 행동의 간단한 이유 |
+| `notes` | `concepts.json` 변경 전 page 원문 검토 필요 메모 |
+
 ## Source Reference Audit CSV
 
 `source-ref-audit.csv`는 `concepts.json`의 concept/edge `source_refs`를 출처와 근거 유형별로 요약한 파생 산출물이다.
