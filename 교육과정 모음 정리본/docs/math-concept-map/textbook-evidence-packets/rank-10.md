@@ -34,7 +34,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded e
 | m1_num_square_root | 제곱근 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 3 |
 | m1_num_square_root_property | 제곱근의 성질 | property | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 2 |
 | m1_num_square_root_real_unit | 제곱근과 실수 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 9 |
-| m1_num_unit_square_diagonal | 한 변의 길이가 1인 정사각형의 대각선 | representation | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 2 |
+| m1_num_unit_square_diagonal | 한 변의 길이가 1인 정사각형의 대각선 | representation | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 3 |
 
 ## Textbook Evidence Fields
 

@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-29T13:21:48",
+    "generated_at": "2026-06-29T13:44:34",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
     "concept_count": 476,
-    "edge_count": 1966
+    "edge_count": 1967
   },
   "sources": [
     {
@@ -3167,6 +3167,12 @@
           "locator": "제곱근과 실수 section; [9수01-08] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "무리수의 개념, 유리수가 아닌 예, 실수 수 체계, 무리수의 필요성과 유용성 인식 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 213; 제곱근과 실수 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "한 변의 길이가 1인 정사각형의 대각선의 길이 등 유리수가 아닌 예를 통해 무리수의 개념을 이해하는 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -13627,6 +13633,12 @@
           "locator": "평면도형의 성질 section; [9수03-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다각형의 내각과 외각의 크기, 다각형의 대각선 개수 등 성질 이해 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 213; 제곱근과 실수 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "한 변의 길이가 1인 정사각형의 대각선의 길이 등 유리수가 아닌 예를 통해 무리수의 개념을 이해하는 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -23953,6 +23965,34 @@
         }
       ],
       "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_diagonal__used_in__m1_num_unit_square_diagonal",
+      "source_id": "m1_geo_diagonal",
+      "target_id": "m1_num_unit_square_diagonal",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 33-34; [9수01-08] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "제곱근과 무리수는 피타고라스 정리나 한 변의 길이가 1인 정사각형의 대각선 등으로 도입할 수 있고, 제곱근 값은 계산기 등을 이용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "제곱근과 실수 section; [9수01-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "무리수의 개념, 유리수가 아닌 예, 실수 수 체계, 무리수의 필요성과 유용성 인식 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 213; 제곱근과 실수 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "한 변의 길이가 1인 정사각형의 대각선의 길이 등 유리수가 아닌 예를 통해 무리수의 개념을 이해하는 성취수준 맥락"
+        }
+      ],
+      "notes": "The unit-square diagonal is a cross-domain geometric representation used to introduce irrational numbers.",
       "confidence": "medium"
     },
     {
@@ -42500,6 +42540,12 @@
           "locator": "제곱근과 실수 section; [9수01-08] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "무리수의 개념, 유리수가 아닌 예, 실수 수 체계, 무리수의 필요성과 유용성 인식 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 213; 제곱근과 실수 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "한 변의 길이가 1인 정사각형의 대각선의 길이 등 유리수가 아닌 예를 통해 무리수의 개념을 이해하는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -45836,6 +45882,12 @@
           "locator": "평면도형의 성질 section; [9수03-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다각형의 내각과 외각의 크기, 다각형의 대각선 개수 등 성질 이해 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 213; 제곱근과 실수 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "한 변의 길이가 1인 정사각형의 대각선의 길이 등 유리수가 아닌 예를 통해 무리수의 개념을 이해하는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -51906,6 +51958,12 @@
           "locator": "제곱근과 실수 section; [9수01-08] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "무리수의 개념, 유리수가 아닌 예, 실수 수 체계, 무리수의 필요성과 유용성 인식 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 213; 제곱근과 실수 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "한 변의 길이가 1인 정사각형의 대각선의 길이 등 유리수가 아닌 예를 통해 무리수의 개념을 이해하는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -60210,6 +60268,12 @@
           "locator": "평면도형의 성질 section; [9수03-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다각형의 내각과 외각의 크기, 다각형의 대각선 개수 등 성질 이해 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 213; 제곱근과 실수 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "한 변의 길이가 1인 정사각형의 대각선의 길이 등 유리수가 아닌 예를 통해 무리수의 개념을 이해하는 성취수준 맥락"
         }
       ],
       "notes": "",

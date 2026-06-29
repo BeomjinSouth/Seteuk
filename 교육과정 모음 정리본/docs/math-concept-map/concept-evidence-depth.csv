@@ -70,7 +70,7 @@ m1_num_radical_expression,근호를 포함한 식,중3(교육과정 학년군: �
 m1_num_radical_operations,근호를 포함한 식의 사칙계산,중3(교육과정 학년군: 중1-3),수와 연산,제곱근과 실수,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
 m1_num_rationalize_denominator,분모의 유리화,중3(교육과정 학년군: 중1-3),수와 연산,제곱근과 실수,medium,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes
 m1_num_square_root_calculator,계산기로 제곱근 값 구하기,중3(교육과정 학년군: 중1-3),수와 연산,제곱근과 실수,medium,1,1,1,curriculum_math_2022,teaching_note,yes,no,no,official_single_source,yes
-m1_num_unit_square_diagonal,한 변의 길이가 1인 정사각형의 대각선,중3(교육과정 학년군: 중1-3),수와 연산,제곱근과 실수,medium,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; teaching_note,yes,yes,no,official_dual_source,yes
+m1_num_unit_square_diagonal,한 변의 길이가 1인 정사각형의 대각선,중3(교육과정 학년군: 중1-3),수와 연산,제곱근과 실수,medium,3,3,3,achievement_math_2022; achievement_research_report_2022; curriculum_math_2022,achievement_level; research_report_achievement_level_context; teaching_note,yes,yes,no,official_dual_source,yes
 m1_mis_radical_principal_root,근호가 나타내는 제곱근의 부호를 혼동하는 오류,중3(교육과정 학년군: 중1-3),수와 연산,제곱근과 실수,low,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
 m1_mis_irrational_decimal,무한소수와 무리수를 같은 말로 보는 오류,중3(교육과정 학년군: 중1-3),수와 연산,제곱근과 실수,low,4,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
 m1_mis_radical_like_terms,근호 안의 수가 다른 제곱근을 동류항처럼 더하는 오류,중3(교육과정 학년군: 중1-3),수와 연산,제곱근과 실수,low,1,1,1,achievement_math_2022,achievement_level,no,yes,no,official_single_source,yes
@@ -324,7 +324,7 @@ m1_geo_convex_polygon_scope,볼록다각형 범위,중1(교육과정 학년군: 
 m1_geo_interior_angle,내각,중1(교육과정 학년군: 중1-3),도형과 측정,평면도형의 성질,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes
 m1_geo_exterior_angle,외각,중1(교육과정 학년군: 중1-3),도형과 측정,평면도형의 성질,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes
 m1_geo_polygon_angle_sum,다각형의 내각과 외각의 크기,중1(교육과정 학년군: 중1-3),도형과 측정,평면도형의 성질,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; teaching_note,yes,yes,no,official_dual_source,yes
-m1_geo_diagonal,대각선,중1(교육과정 학년군: 중1-3),도형과 측정,평면도형의 성질,medium,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
+m1_geo_diagonal,대각선,중1(교육과정 학년군: 중1-3),도형과 측정,평면도형의 성질,medium,3,3,3,achievement_math_2022; achievement_research_report_2022; curriculum_math_2022,achievement_level; achievement_standard; research_report_achievement_level_context,yes,yes,no,official_dual_source,yes
 m1_geo_diagonal_count,다각형의 대각선 개수,중1(교육과정 학년군: 중1-3),도형과 측정,평면도형의 성질,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; teaching_note,yes,yes,no,official_dual_source,yes
 m1_geo_sector,부채꼴,중1(교육과정 학년군: 중1-3),도형과 측정,평면도형의 성질,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes
 m1_geo_central_angle,중심각,중1(교육과정 학년군: 중1-3),도형과 측정,평면도형의 성질,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes

@@ -16,6 +16,13 @@ def edge_keys() -> set[tuple[str, str, str]]:
     }
 
 
+def edges_by_key() -> dict[tuple[str, str, str], dict]:
+    return {
+        (edge["source_id"], edge["target_id"], edge["relationship_type"]): edge
+        for edge in build_pilot.EDGES
+    }
+
+
 def research_refs(concept: dict) -> list[dict]:
     return [
         ref
@@ -93,6 +100,29 @@ class GeometryFoundationConceptTests(unittest.TestCase):
                     "research_report_assessment_item_context",
                     {ref["evidence_kind"] for ref in refs},
                 )
+
+    def test_diagonal_bridges_to_unit_square_diagonal_irrational_context(self) -> None:
+        concepts = concepts_by_id()
+        edges = edges_by_key()
+
+        for concept_id in ("m1_geo_diagonal", "m1_num_unit_square_diagonal"):
+            with self.subTest(concept_id=concept_id):
+                refs = research_refs(concepts[concept_id])
+                locators = " ".join(ref["locator"] for ref in refs)
+                summaries = " ".join(ref["summary"] for ref in refs)
+
+                self.assertIn("p. 213", locators)
+                self.assertIn("정사각형의 대각선의 길이", summaries)
+                self.assertIn(
+                    "research_report_achievement_level_context",
+                    {ref["evidence_kind"] for ref in refs},
+                )
+
+        bridge = edges[("m1_geo_diagonal", "m1_num_unit_square_diagonal", "used_in")]
+        bridge_refs = research_refs(bridge)
+
+        self.assertIn("p. 213", " ".join(ref["locator"] for ref in bridge_refs))
+        self.assertEqual(bridge["confidence"], "medium")
 
 
 if __name__ == "__main__":

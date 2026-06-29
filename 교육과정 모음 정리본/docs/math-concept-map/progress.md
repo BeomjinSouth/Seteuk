@@ -1106,10 +1106,29 @@
 - diff check: `git diff --check -- docs/math-concept-map 교과서_원본`: 종료 코드 0, CRLF 변환 경고만 확인.
 - PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
 
+## 2026-06-29 research report 대각선 source refs 적용
+
+- AGENTS.md를 다시 확인했고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` concept/edge source ref와 파생 산출물 정비로 제한했다.
+- 연구보고서 PDF p. 213의 제곱근과 실수 성취기준별 성취수준 맥락에서 `한 변의 길이가 1인 정사각형의 대각선의 길이 등 유리수가 아닌 예`를 통해 무리수 개념을 다루는 것을 확인했다.
+- TDD red: `python -m unittest discover -s .\docs\math-concept-map\tools -p "test_build_pilot_geometry_foundations.py"`가 `m1_geo_diagonal`, `m1_num_unit_square_diagonal`, 두 concept 사이 `used_in` edge의 연구보고서 p. 213 source ref 부재로 실패하는 것을 확인했다.
+- `build_pilot.py`에 `ACH_RESEARCH_UNIT_SQUARE_DIAGONAL_213` source ref를 추가하고, `m1_geo_diagonal`과 `m1_num_unit_square_diagonal`에 수동 적용했다. 두 concept의 confidence는 기존 상태를 유지하고, p. 213은 성취수준 맥락 보조 근거로만 사용한다.
+- `m1_geo_diagonal -> m1_num_unit_square_diagonal` `used_in` edge를 추가해 도형의 대각선이 한 변의 길이가 1인 정사각형의 대각선 표현을 거쳐 무리수 도입 맥락에 쓰이는 cross-grade/cross-domain 연결을 보존했다.
+- `research-report-source-review.*`를 재생성해 p. 213 row를 `applied_after_manual_review`로 정리했다.
+- source ref 적용 상태는 `applied_after_manual_review` 14개, `pending_manual_review` 7개, `not_applicable_from_this_row` 27개로 정리되었다.
+- source ref 총계는 concept 1254개, edge 4872개, 총 6126개이며 source catalogue는 5개이다. 전체 산출물은 concept 476개, edge 1967개이다.
+- `research-report-concept-signal.*`, `research-report-context-packet.*`, `research-report-source-review.*`, `review-queue.*`, `source-ref-audit.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`, `equivalence-alias-audit.*`, `textbook-evidence-packets/*`, `textbook-edge-evidence-packets/*`, `textbook-evidence-workplan.*`, `pilot-unit-map.*`, `unit-map-packets/*`를 재생성했다.
+- `README.md`, `source-audit.md`, `progress.md`를 새 source review 적용 상태, edge/source-ref 총계, p. 213 대각선 보조 출처 반영 상태에 맞게 갱신했다.
+- 좁은 생성기 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p "test_build_pilot_geometry_foundations.py"`가 5개 통과했다.
+- 전체 단위 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p "test_*.py"`: 191개 통과.
+- 전체 validator 1차 실행에서 `unit-map-packets/index.csv`의 rank 10 `제곱근과 실수` 행이 workplan보다 한 단계 전 상태인 것을 확인했다. 원인은 새 cross-unit edge가 `textbook-evidence-workplan.*`에는 반영됐지만 unit-map packet index가 덜 갱신된 상태였기 때문이다.
+- `python docs/math-concept-map/tools/build_pilot_unit_map.py --all`로 unit-map packet을 다시 생성한 뒤, 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 476개 concept, 1967개 edge, 5개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map 교과서_원본`: 종료 코드 0, CRLF 변환 경고만 확인.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
-- 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 남은 `pending_manual_review` 8개를 검토해, 공식 연구보고서 맥락이 실제 concept 정의·예시 평가도구·채점 기준 근거인지 확인하고 source ref 또는 confidence 보강 여부를 별도로 결정한다. 단, `비` confidence 승격은 교과서 본문 또는 중학교 과정 직접 근거 확인 후 판단한다.
+- 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 남은 `pending_manual_review` 7개를 검토해, 공식 연구보고서 맥락이 실제 concept 정의·예시 평가도구·채점 기준 근거인지 확인하고 source ref 또는 confidence 보강 여부를 별도로 결정한다. 단, `비` confidence 승격은 교과서 본문 또는 중학교 과정 직접 근거 확인 후 판단한다.
 - 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.
 - 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 40개와 edge packet row 202개, 총 242개 row로 유지하되, 전체 단원 검토는 `unit-map-packets/index.*`에서 rank 1~34 순서로 이어간다.
 - 새 concept, alias, `related_ids`, 또는 `equivalent_to` 후보가 추가되면 `equivalence-alias-audit.*`, `related-edge-resolution-queue.*`, `textbook-edge-evidence-packets/*`, `edge-evidence-depth.*`를 함께 재생성한다.

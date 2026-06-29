@@ -30,6 +30,7 @@ digraph pilot_unit_map {
   "m1_num_repeating_decimal_unit" [label="유리수와 순환소수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_standard_deviation" [label="표준편차\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_pythagorean_theorem" [label="피타고라스 정리\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_diagonal" [label="대각선\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_integer_rational_unit" [label="정수와 유리수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_square_root_real_unit" -> "m1_mis_irrational_decimal" [label="contains", style="solid", color="#b91c1c"];
   "m1_num_square_root_real_unit" -> "m1_mis_radical_like_terms" [label="contains", style="solid", color="#b91c1c"];
@@ -101,6 +102,7 @@ digraph pilot_unit_map {
   "m1_num_repeating_decimal_unit" -> "m1_num_square_root_real_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_square_root" -> "m1_data_standard_deviation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_square_root" -> "m1_geo_pythagorean_theorem" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_geo_diagonal" -> "m1_num_unit_square_diagonal" [label="used_in", style="dashed", color="#6b7280"];
   "m1_num_irrational_number" -> "m1_num_rational_number" [label="contrasts_with", style="dashed", color="#6b7280"];
   "m1_num_rational_number" -> "m1_num_irrational_number" [label="contrasts_with", style="dashed", color="#6b7280"];
   "m1_num_integer_rational_unit" -> "m1_num_square_root_real_unit" [label="related_to", style="dashed", color="#6b7280"];

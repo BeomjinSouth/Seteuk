@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 평면도형의 성질
 - priority tier: high
 - priority score: 26
-- edges in packet: 99
-- cross-unit edges: 43
+- edges in packet: 100
+- cross-unit edges: 44
 - low confidence edges: 8
 
 ## Relationship Evidence Slots
@@ -31,7 +31,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_geo_plane_properties_unit__contains__m1_geo_chord | intra_unit | 평면도형의 성질 | contains | 현 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 5 |
 | m1_geo_plane_properties_unit__contains__m1_geo_circular_segment | intra_unit | 평면도형의 성질 | contains | 활꼴 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
 | m1_geo_plane_properties_unit__contains__m1_geo_convex_polygon_scope | intra_unit | 평면도형의 성질 | contains | 볼록다각형 범위 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 1 |
-| m1_geo_plane_properties_unit__contains__m1_geo_diagonal | intra_unit | 평면도형의 성질 | contains | 대각선 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_geo_plane_properties_unit__contains__m1_geo_diagonal | intra_unit | 평면도형의 성질 | contains | 대각선 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
 | m1_geo_plane_properties_unit__contains__m1_geo_diagonal_count | intra_unit | 평면도형의 성질 | contains | 다각형의 대각선 개수 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
 | m1_geo_plane_properties_unit__contains__m1_geo_exterior_angle | intra_unit | 평면도형의 성질 | contains | 외각 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
 | m1_geo_plane_properties_unit__contains__m1_geo_interior_angle | intra_unit | 평면도형의 성질 | contains | 내각 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
@@ -50,7 +50,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_geo_exterior_angle__prerequisite_for__m1_geo_polygon_angle_sum | intra_unit | 외각 | prerequisite_for | 다각형의 내각과 외각의 크기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_interior_angle__prerequisite_for__m1_geo_polygon_angle_sum | intra_unit | 내각 | prerequisite_for | 다각형의 내각과 외각의 크기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_polygon__prerequisite_for__m1_geo_convex_polygon_scope | intra_unit | 다각형 | prerequisite_for | 볼록다각형 범위 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
-| m1_geo_polygon__prerequisite_for__m1_geo_diagonal | intra_unit | 다각형 | prerequisite_for | 대각선 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_geo_polygon__prerequisite_for__m1_geo_diagonal | intra_unit | 다각형 | prerequisite_for | 대각선 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_polygon__prerequisite_for__m1_geo_diagonal_count | intra_unit | 다각형 | prerequisite_for | 다각형의 대각선 개수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_polygon__prerequisite_for__m1_geo_exterior_angle | intra_unit | 다각형 | prerequisite_for | 외각 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_polygon__prerequisite_for__m1_geo_interior_angle | intra_unit | 다각형 | prerequisite_for | 내각 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
@@ -111,6 +111,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_geo_chord__used_in__m1_geo_circle_chord_property | cross_unit | 현 | used_in | 원의 현에 관한 성질 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_geo_circle__used_in__m1_geo_sector_arc_length_area | cross_unit | 원 | used_in | 부채꼴의 호의 길이와 넓이 구하기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_geo_diagonal__used_in__m1_geo_quadrilateral_diagonal_properties | cross_unit | 대각선 | used_in | 사각형의 대각선에 관한 성질 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_geo_diagonal__used_in__m1_num_unit_square_diagonal | cross_unit | 대각선 | used_in | 한 변의 길이가 1인 정사각형의 대각선 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
 | m1_geo_figure__used_in__m1_geo_plane_properties_unit | cross_unit | 도형 | used_in | 평면도형의 성질 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 4 |
 | m1_geo_length__used_in__m1_geo_sector_arc_length_area | cross_unit | 길이 | used_in | 부채꼴의 호의 길이와 넓이 구하기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_geo_parallel_angle_properties__used_in__m1_geo_polygon_angle_sum | cross_unit | 평행선에서 동위각과 엇각의 성질 | used_in | 다각형의 내각과 외각의 크기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |

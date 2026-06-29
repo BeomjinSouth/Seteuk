@@ -6,8 +6,8 @@ This generated index tracks compact concept hierarchy maps for every textbook ev
 
 - unit maps: 34
 - concept rows: 476
-- edge rows touching units: 2411
-- cross-unit edge rows: 890
+- edge rows touching units: 2413
+- cross-unit edge rows: 892
 
 ## Packets
 
@@ -22,13 +22,13 @@ This generated index tracks compact concept hierarchy maps for every textbook ev
 | 7 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 문자의 사용과 식 | 18 | 112 | 60 | 3 | 20 | rank-07.md | rank-07.dot |
 | 8 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차방정식 | 19 | 96 | 40 | 3 | 19 | rank-08.md | rank-08.dot |
 | 9 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 다항식의 곱셈과 인수분해 | 18 | 89 | 33 | 4 | 22 | rank-09.md | rank-09.dot |
-| 10 | 중3(교육과정 학년군: 중1-3) | 수와 연산 | 제곱근과 실수 | 17 | 73 | 18 | 3 | 16 | rank-10.md | rank-10.dot |
+| 10 | 중3(교육과정 학년군: 중1-3) | 수와 연산 | 제곱근과 실수 | 17 | 74 | 19 | 3 | 16 | rank-10.md | rank-10.dot |
 | 11 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 이차방정식 | 14 | 69 | 24 | 3 | 16 | rank-11.md | rank-11.dot |
 | 12 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 기본 도형 | 22 | 132 | 48 | 2 | 15 | rank-12.md | rank-12.dot |
 | 13 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 소인수분해 | 15 | 64 | 10 | 2 | 11 | rank-13.md | rank-13.dot |
 | 14 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 입체도형의 성질 | 17 | 74 | 13 | 2 | 12 | rank-14.md | rank-14.dot |
 | 15 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 식의 계산 | 14 | 78 | 38 | 2 | 13 | rank-15.md | rank-15.dot |
-| 16 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 평면도형의 성질 | 16 | 99 | 43 | 1 | 8 | rank-16.md | rank-16.dot |
+| 16 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 평면도형의 성질 | 16 | 100 | 44 | 1 | 8 | rank-16.md | rank-16.dot |
 | 17 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 연립일차방정식 | 13 | 62 | 27 | 3 | 13 | rank-17.md | rank-17.dot |
 | 18 | 중3(교육과정 학년군: 중1-3) | 도형과 측정 | 삼각비 | 11 | 47 | 12 | 2 | 11 | rank-18.md | rank-18.dot |
 | 19 | 중2(교육과정 학년군: 중1-3) | 도형과 측정 | 삼각형과 사각형의 성질 | 16 | 82 | 36 | 2 | 14 | rank-19.md | rank-19.dot |

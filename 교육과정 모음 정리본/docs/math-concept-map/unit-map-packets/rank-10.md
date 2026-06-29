@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 수와 연산
 - unit: 제곱근과 실수
 - priority tier: high
-- workplan score: 115
+- workplan score: 116
 - concepts: 17
-- edges touching unit: 73
-- cross-unit edges: 18
+- edges touching unit: 74
+- cross-unit edges: 19
 - low confidence concepts: 3
 - low confidence edges: 16
 
@@ -37,7 +37,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | prerequisite_for | 29 |
 | related_to | 1 |
 | represented_by | 2 |
-| used_in | 11 |
+| used_in | 12 |
 
 ## Low Confidence Concepts
 
@@ -66,6 +66,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_repeating_decimal_unit__prerequisite_for__m1_num_square_root_real_unit | 유리수와 순환소수 | prerequisite_for | 제곱근과 실수 | medium | official_dual_source |
 | m1_num_square_root__prerequisite_for__m1_data_standard_deviation | 제곱근 | prerequisite_for | 표준편차 | high | official_dual_source |
 | m1_num_square_root__prerequisite_for__m1_geo_pythagorean_theorem | 제곱근 | prerequisite_for | 피타고라스 정리 | high | official_dual_source |
+| m1_geo_diagonal__used_in__m1_num_unit_square_diagonal | 대각선 | used_in | 한 변의 길이가 1인 정사각형의 대각선 | medium | official_dual_source |
 | m1_num_irrational_number__contrasts_with__m1_num_rational_number | 무리수 | contrasts_with | 유리수 | high | official_dual_source |
 | m1_num_rational_number__contrasts_with__m1_num_irrational_number | 유리수 | contrasts_with | 무리수 | high | official_dual_source |
 | m1_num_integer_rational_unit__related_to__m1_num_square_root_real_unit | 정수와 유리수 | related_to | 제곱근과 실수 | medium | official_dual_source |

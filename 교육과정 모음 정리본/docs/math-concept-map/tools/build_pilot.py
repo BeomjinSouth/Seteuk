@@ -601,6 +601,12 @@ ACH_NUM_IRRATIONAL = source_ref(
     "achievement_level",
     "무리수의 개념, 유리수가 아닌 예, 실수 수 체계, 무리수의 필요성과 유용성 인식 수준을 구분",
 )
+ACH_RESEARCH_UNIT_SQUARE_DIAGONAL_213 = source_ref(
+    "achievement_research_report_2022",
+    "연구보고서 p. 213; 제곱근과 실수 성취기준별 성취수준",
+    "research_report_achievement_level_context",
+    "한 변의 길이가 1인 정사각형의 대각선의 길이 등 유리수가 아닌 예를 통해 무리수의 개념을 이해하는 성취수준 맥락",
+)
 ACH_NUM_REAL_ORDER = source_ref(
     "achievement_math_2022",
     "제곱근과 실수 section; [9수01-09] achievement levels",
@@ -2075,7 +2081,7 @@ CONCEPTS = [
         ["단위정사각형의 대각선"],
         "representation",
         "무리수의 존재를 직관적으로 이해하기 위해 사용하는 기하적 예.",
-        [CURR_NUM_REAL_NOTE, ACH_NUM_IRRATIONAL],
+        [CURR_NUM_REAL_NOTE, ACH_NUM_IRRATIONAL, ACH_RESEARCH_UNIT_SQUARE_DIAGONAL_213],
         prerequisite_ids=["m1_num_square_root"],
         parent_ids=["m1_num_square_root_real_unit"],
         related_ids=["m1_num_irrational_number"],
@@ -5216,7 +5222,7 @@ GEO_CONCEPTS = [
         ["diagonal"],
         "term",
         "다각형에서 이웃하지 않는 두 꼭짓점을 잇는 선분.",
-        [CURR_GEO_05, ACH_GEO_POLYGON],
+        [CURR_GEO_05, ACH_GEO_POLYGON, ACH_RESEARCH_UNIT_SQUARE_DIAGONAL_213],
         prerequisite_ids=["m1_geo_polygon"],
         parent_ids=["m1_geo_plane_properties_unit"],
         related_ids=["m1_geo_diagonal_count", "m1_geo_quadrilateral_diagonal_properties"],
@@ -7444,6 +7450,7 @@ EDGES = [
     edge("m1_num_square_root_property", "m1_num_compare_square_roots", "used_in", [CURR_NUM_07, ACH_NUM_SQUARE_ROOT]),
     edge("m1_num_compare_square_roots", "m1_num_real_order", "used_in", [CURR_NUM_09, ACH_NUM_REAL_ORDER]),
     edge("m1_num_unit_square_diagonal", "m1_num_irrational_number", "represented_by", [CURR_NUM_REAL_NOTE, ACH_NUM_IRRATIONAL], confidence="medium"),
+    edge("m1_geo_diagonal", "m1_num_unit_square_diagonal", "used_in", [CURR_NUM_REAL_NOTE, ACH_NUM_IRRATIONAL, ACH_RESEARCH_UNIT_SQUARE_DIAGONAL_213], notes="The unit-square diagonal is a cross-domain geometric representation used to introduce irrational numbers.", confidence="medium"),
     edge("m1_num_rational_number", "m1_num_irrational_number", "contrasts_with", [CURR_NUM_08, ACH_NUM_IRRATIONAL]),
     edge("m1_num_irrational_number", "m1_num_rational_number", "contrasts_with", [CURR_NUM_08, ACH_NUM_IRRATIONAL]),
     edge("m1_num_real_number", "m1_num_rational_number", "contains", [CURR_NUM_08, ACH_NUM_IRRATIONAL]),

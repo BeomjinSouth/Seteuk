@@ -40,6 +40,7 @@ digraph pilot_unit_map {
   "m1_geo_quadrilateral" [label="사각형\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_regular_polyhedron" [label="정다면체\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_area" [label="넓이\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_num_unit_square_diagonal" [label="한 변의 길이가 1인 정사각형의 대각선\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_figure" [label="도형\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_length" [label="길이\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_tangent_line" [label="접선\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -136,6 +137,7 @@ digraph pilot_unit_map {
   "m1_geo_chord" -> "m1_geo_circle_chord_property" [label="used_in", style="dashed", color="#6b7280"];
   "m1_geo_circle" -> "m1_geo_sector_arc_length_area" [label="used_in", style="dashed", color="#6b7280"];
   "m1_geo_diagonal" -> "m1_geo_quadrilateral_diagonal_properties" [label="used_in", style="dashed", color="#6b7280"];
+  "m1_geo_diagonal" -> "m1_num_unit_square_diagonal" [label="used_in", style="dashed", color="#6b7280"];
   "m1_geo_figure" -> "m1_geo_plane_properties_unit" [label="used_in", style="dashed", color="#6b7280"];
   "m1_geo_length" -> "m1_geo_sector_arc_length_area" [label="used_in", style="dashed", color="#6b7280"];
   "m1_geo_parallel_angle_properties" -> "m1_geo_polygon_angle_sum" [label="used_in", style="dashed", color="#6b7280"];

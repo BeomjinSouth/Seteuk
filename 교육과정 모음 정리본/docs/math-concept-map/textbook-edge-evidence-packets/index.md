@@ -5,8 +5,8 @@ This generated index tracks the prepared unit-level textbook edge evidence packe
 ## Summary
 
 - packets: 34
-- edges in packets: 2411
-- cross-unit edges in packets: 890
+- edges in packets: 2413
+- cross-unit edges in packets: 892
 
 ## Packets
 
@@ -21,13 +21,13 @@ This generated index tracks the prepared unit-level textbook edge evidence packe
 | 7 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 문자의 사용과 식 | 112 | 52 | 60 | 20 | highest | 42 | rank-07.md |
 | 8 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차방정식 | 96 | 56 | 40 | 19 | highest | 41 | rank-08.md |
 | 9 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 다항식의 곱셈과 인수분해 | 89 | 56 | 33 | 22 | high | 36 | rank-09.md |
-| 10 | 중3(교육과정 학년군: 중1-3) | 수와 연산 | 제곱근과 실수 | 73 | 55 | 18 | 16 | high | 33 | rank-10.md |
+| 10 | 중3(교육과정 학년군: 중1-3) | 수와 연산 | 제곱근과 실수 | 74 | 55 | 19 | 16 | high | 33 | rank-10.md |
 | 11 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 이차방정식 | 69 | 45 | 24 | 16 | high | 32 | rank-11.md |
 | 12 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 기본 도형 | 132 | 84 | 48 | 15 | high | 30 | rank-12.md |
 | 13 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 소인수분해 | 64 | 54 | 10 | 11 | high | 27 | rank-13.md |
 | 14 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 입체도형의 성질 | 74 | 61 | 13 | 12 | high | 27 | rank-14.md |
 | 15 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 식의 계산 | 78 | 40 | 38 | 13 | high | 26 | rank-15.md |
-| 16 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 평면도형의 성질 | 99 | 56 | 43 | 8 | high | 26 | rank-16.md |
+| 16 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 평면도형의 성질 | 100 | 56 | 44 | 8 | high | 26 | rank-16.md |
 | 17 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 연립일차방정식 | 62 | 35 | 27 | 13 | high | 25 | rank-17.md |
 | 18 | 중3(교육과정 학년군: 중1-3) | 도형과 측정 | 삼각비 | 47 | 35 | 12 | 11 | high | 25 | rank-18.md |
 | 19 | 중2(교육과정 학년군: 중1-3) | 도형과 측정 | 삼각형과 사각형의 성질 | 82 | 46 | 36 | 14 | high | 24 | rank-19.md |

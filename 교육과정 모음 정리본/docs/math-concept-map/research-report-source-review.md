@@ -22,9 +22,9 @@ The generated review still does not permit automatic source_ref or confidence up
 
 | application_status | rows |
 |---|---:|
-| applied_after_manual_review | 13 |
+| applied_after_manual_review | 14 |
 | not_applicable_from_this_row | 27 |
-| pending_manual_review | 8 |
+| pending_manual_review | 7 |
 
 ## Review Priority
 
@@ -52,7 +52,7 @@ The generated review still does not permit automatic source_ref or confidence up
 | 12 | m1_data_mean | 평균 | 177 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_current_confidence_until_source_review |
 | 13 | m1_geo_pyramid | 뿔 모양 입체도형 | 181 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_current_confidence_until_source_review |
 | 14 | m1_num_ratio | 비 | 183 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_low_until_textbook_or_middle_course_evidence |
-| 15 | m1_geo_diagonal | 대각선 | 213 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_current_confidence_until_source_review |
+| 15 | m1_geo_diagonal | 대각선 | 213 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
 | 16 | m1_data_or_cases | 사건 A 또는 사건 B가 일어나는 경우의 수 | 228 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
 | 17 | m1_data_or_cases | 사건 A 또는 사건 B가 일어나는 경우의 수 | 240 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
 | 18 | m1_num_ratio | 비 | 61 | candidate_assessment_item_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_low_until_textbook_or_middle_course_evidence |

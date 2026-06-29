@@ -56,7 +56,7 @@
 - `review-queue.md`와 `review-queue.csv`는 위 잠정 노드 중 `confidence: low`인 67개 concept을 다음 교과서·출처 보강 우선순위로 모아 둔 파생 산출물이다.
 - `official-term-coverage.md`와 `official-term-coverage.csv`는 공식 문서 용어·기호 168개가 concept label 또는 alias로 연결되는지 추적하는 파생 산출물이다. 현재 `needs_concept` 항목은 없다.
 - `unit-coverage.md`와 `unit-coverage.csv`는 현재 concept/edge를 34개 학년·영역·단원 그룹으로 나누어 다음 교과서 원문 보강 단위를 추적하는 파생 산출물이다.
-- `relationship-audit.md`와 `relationship-audit.csv`는 현재 edge 1966개가 관계 유형별로 어떻게 분포하는지와 고립 concept이 없는지 추적하는 파생 산출물이다.
+- `relationship-audit.md`와 `relationship-audit.csv`는 현재 edge 1967개가 관계 유형별로 어떻게 분포하는지와 고립 concept이 없는지 추적하는 파생 산출물이다.
 - `related-edge-resolution-queue.md`와 `related-edge-resolution-queue.csv`는 현재 남은 `related_ids` 해소 후보 0개를 기록하며, 새 후보가 생기면 관계 유형 후보와 처리 우선순위로 분리해 edge 확정 순서를 좁히는 파생 산출물이다.
 
 ## Source Inventory Snapshot
@@ -75,12 +75,12 @@
 - `research-report-context-packet.md`와 `research-report-context-packet.csv`를 추가해 low-confidence 후보와 상위 medium 후보를 연구보고서 page 맥락 48개 row로 좁혔다.
 - context packet의 모든 row는 `pending_context_review`와 `source_ref_upgrade_allowed: no` 상태를 유지하므로, 사람이 page 맥락을 확인하기 전에는 `concepts.json`의 source ref나 confidence를 바꾸지 않는다.
 - `research-report-source-review.md`와 `research-report-source-review.csv`는 같은 48개 row를 `candidate_prerequisite_evidence` 3개, `candidate_assessment_item_evidence` 5개, `candidate_achievement_level_evidence` 13개, `broad_report_context_only` 26개, `weak_occurrence_only` 1개로 분리한다.
-- `비`의 직접 연구보고서 후보 page 172, 180, 181, `사건 A 또는 사건 B가 일어나는 경우의 수`의 page 228, 240, `반비례`와 `교점`의 page 58, `전개도`의 page 173, 174, `뿔 모양 입체도형`의 page 174, `삼각형`·`길이`·`넓이`의 page 62 도형 평가 과제 맥락은 source ref로 수동 적용되어 `applied_after_manual_review` 13개로 표시된다. 남은 row는 `pending_manual_review` 8개와 `not_applicable_from_this_row` 27개이며, 교과서 또는 중학교 과정 직접 근거가 확인되기 전까지 `비`는 `confidence: low`, 나머지 수동 적용 concept은 기존 `confidence: medium`을 유지한다.
+- `비`의 직접 연구보고서 후보 page 172, 180, 181, `사건 A 또는 사건 B가 일어나는 경우의 수`의 page 228, 240, `반비례`와 `교점`의 page 58, `전개도`의 page 173, 174, `뿔 모양 입체도형`의 page 174, `삼각형`·`길이`·`넓이`의 page 62 도형 평가 과제 맥락, `대각선`과 `한 변의 길이가 1인 정사각형의 대각선`의 page 213 무리수 성취수준 맥락은 source ref로 수동 적용되어 `applied_after_manual_review` 14개로 표시된다. 남은 row는 `pending_manual_review` 7개와 `not_applicable_from_this_row` 27개이며, 교과서 또는 중학교 과정 직접 근거가 확인되기 전까지 `비`는 `confidence: low`, 나머지 수동 적용 concept은 기존 `confidence: medium`을 유지한다.
 
 ## Source Reference Audit
 
 - `source-ref-audit.md`와 `source-ref-audit.csv`를 추가해 concept/edge의 `source_refs`를 출처와 근거 유형별로 추적한다.
-- 현재 source ref는 concept 1252개, edge 4865개, 총 6117개이다.
+- 현재 source ref는 concept 1254개, edge 4872개, 총 6126개이다.
 - 현재 `locator` 누락은 0개, `summary` 누락은 0개이다.
 - 이 감사는 교과서 PDF가 추가되기 전에도 공식 문서 기반 개념과 관계가 어떤 근거 유형에 기대고 있는지 확인하기 위한 재생성 가능한 점검표이다.
 
@@ -94,9 +94,9 @@
 ## Edge Evidence Depth
 
 - `edge-evidence-depth.md`와 `edge-evidence-depth.csv`를 추가해 edge별 공식/교과서 근거 깊이를 추적한다.
-- 현재 1966개 edge 중 `official_dual_source`는 1681개, `official_single_source`는 285개이다.
-- 현재 `textbook_supported` edge는 0개이며, 1966개 edge 모두 교과서 본문·예제·문제 근거 보강이 필요하다.
-- 현재 edge scope 분포는 `same_unit` 1521개, `cross_unit_same_domain` 198개, `cross_domain_same_grade` 41개, `cross_grade_same_domain` 185개, `cross_grade_cross_domain` 21개이다.
+- 현재 1967개 edge 중 `official_dual_source`는 1682개, `official_single_source`는 285개이다.
+- 현재 `textbook_supported` edge는 0개이며, 1967개 edge 모두 교과서 본문·예제·문제 근거 보강이 필요하다.
+- 현재 edge scope 분포는 `same_unit` 1521개, `cross_unit_same_domain` 198개, `cross_domain_same_grade` 41개, `cross_grade_same_domain` 185개, `cross_grade_cross_domain` 22개이다.
 - 교과서 PDF가 추가되면 이 산출물에서 `needs_textbook_evidence`를 줄이는 방식으로 관계 근거 보강 진행률을 추적한다.
 
 ## Textbook Extraction Queue
@@ -127,15 +127,15 @@
 
 - `textbook-edge-evidence-packets/index.md`와 `textbook-edge-evidence-packets/index.csv`를 추가해 전체 단원 관계 edge 교과서 근거 패킷을 추적한다.
 - `rank-01`~`rank-34` 패킷은 `textbook-extraction-queue.csv`의 전체 34개 단원 그룹을 포함한다.
-- 전체 edge 패킷은 단원 concept에 닿는 관계 edge 2411개 row를 포함하며, 같은 edge가 cross-unit 관계이면 양쪽 단원 패킷에 중복 배치될 수 있다.
-- 현재 분포는 intra-unit edge row 1521개, cross-unit edge row 890개, `low` 신뢰도 edge row 416개이다.
+- 전체 edge 패킷은 단원 concept에 닿는 관계 edge 2413개 row를 포함하며, 같은 edge가 cross-unit 관계이면 양쪽 단원 패킷에 중복 배치될 수 있다.
+- 현재 분포는 intra-unit edge row 1521개, cross-unit edge row 892개, `low` 신뢰도 edge row 416개이다.
 - 각 row는 관계 유형별로 구조 근거, 선수 순서 근거, 표현 근거, 절차 활용 근거, 대조 근거, 오개념·문제 패턴 근거, 관련 근거, 쪽수 슬롯을 분리한다.
-- 현재 `교과서_원본/`에는 PDF가 없으므로 2411개 row 모두 `pending_textbook_pdf` 상태이며, 관계 근거 슬롯은 비워 두었다.
+- 현재 `교과서_원본/`에는 PDF가 없으므로 2413개 row 모두 `pending_textbook_pdf` 상태이며, 관계 근거 슬롯은 비워 두었다.
 
 ## Textbook Evidence Workplan
 
 - `textbook-evidence-workplan.md`와 `textbook-evidence-workplan.csv`를 추가해 concept 근거 패킷과 관계 edge 근거 패킷을 같은 rank 단위로 결합한다.
-- 전체 workplan은 34개 단원 그룹, concept evidence row 476개, edge evidence row 2411개, pending textbook evidence row 2887개를 포함한다.
+- 전체 workplan은 34개 단원 그룹, concept evidence row 476개, edge evidence row 2413개, pending textbook evidence row 2889개를 포함한다.
 - 전체 low-confidence 보강 대상은 concept 67개와 edge row 416개를 합친 483개 row이다.
 - 현재 최상위 단원 `좌표평면과 그래프`는 concept 40개와 edge row 202개, 총 242개 row가 모두 `pending_textbook_pdf` 상태이다.
 - 이 산출물은 새 출처가 아니라 교과서 PDF 추가 후의 작업 순서와 보강 부담을 추적하는 파생 관리표이다.

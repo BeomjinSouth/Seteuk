@@ -6,8 +6,8 @@ This generated workplan combines concept evidence packets and relationship edge 
 
 - unit groups: 34
 - concept evidence rows: 476
-- edge evidence rows: 2411
-- pending textbook evidence rows: 2887
+- edge evidence rows: 2413
+- pending textbook evidence rows: 2889
 - low confidence concept/edge rows: 483
 
 ## Unit Workplan
@@ -23,13 +23,13 @@ This generated workplan combines concept evidence packets and relationship edge 
 | 7 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 문자의 사용과 식 | highest | 182 | 18/3 | 112/20/60 | fill_low_confidence_concept_and_edge_evidence | rank-07.md; rank-07.md |
 | 8 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차방정식 | highest | 157 | 19/3 | 96/19/40 | fill_low_confidence_concept_and_edge_evidence | rank-08.md; rank-08.md |
 | 9 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 다항식의 곱셈과 인수분해 | high | 157 | 18/4 | 89/22/33 | fill_low_confidence_concept_and_edge_evidence | rank-09.md; rank-09.md |
-| 10 | 중3(교육과정 학년군: 중1-3) | 수와 연산 | 제곱근과 실수 | high | 115 | 17/3 | 73/16/18 | fill_low_confidence_concept_and_edge_evidence | rank-10.md; rank-10.md |
+| 10 | 중3(교육과정 학년군: 중1-3) | 수와 연산 | 제곱근과 실수 | high | 116 | 17/3 | 74/16/19 | fill_low_confidence_concept_and_edge_evidence | rank-10.md; rank-10.md |
 | 11 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 이차방정식 | high | 120 | 14/3 | 69/16/24 | fill_low_confidence_concept_and_edge_evidence | rank-11.md; rank-11.md |
 | 12 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 기본 도형 | high | 138 | 22/2 | 132/15/48 | fill_low_confidence_concept_and_edge_evidence | rank-12.md; rank-12.md |
 | 13 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 소인수분해 | high | 81 | 15/2 | 64/11/10 | fill_low_confidence_concept_and_edge_evidence | rank-13.md; rank-13.md |
 | 14 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 입체도형의 성질 | high | 88 | 17/2 | 74/12/13 | fill_low_confidence_concept_and_edge_evidence | rank-14.md; rank-14.md |
 | 15 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 식의 계산 | high | 116 | 14/2 | 78/13/38 | fill_low_confidence_concept_and_edge_evidence | rank-15.md; rank-15.md |
-| 16 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 평면도형의 성질 | high | 101 | 16/1 | 99/8/43 | fill_low_confidence_concept_and_edge_evidence | rank-16.md; rank-16.md |
+| 16 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 평면도형의 성질 | high | 102 | 16/1 | 100/8/44 | fill_low_confidence_concept_and_edge_evidence | rank-16.md; rank-16.md |
 | 17 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 연립일차방정식 | high | 104 | 13/3 | 62/13/27 | fill_low_confidence_concept_and_edge_evidence | rank-17.md; rank-17.md |
 | 18 | 중3(교육과정 학년군: 중1-3) | 도형과 측정 | 삼각비 | high | 81 | 11/2 | 47/11/12 | fill_low_confidence_concept_and_edge_evidence | rank-18.md; rank-18.md |
 | 19 | 중2(교육과정 학년군: 중1-3) | 도형과 측정 | 삼각형과 사각형의 성질 | high | 116 | 16/2 | 82/14/36 | fill_low_confidence_concept_and_edge_evidence | rank-19.md; rank-19.md |

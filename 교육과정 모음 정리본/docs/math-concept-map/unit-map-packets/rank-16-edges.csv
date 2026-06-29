@@ -12,7 +12,7 @@
 16,평면도형의 성질,m1_geo_plane_properties_unit__contains__m1_geo_chord,m1_geo_plane_properties_unit,평면도형의 성질,평면도형의 성질,m1_geo_chord,현,평면도형의 성질,contains,intra_unit,high,official_dual_source,yes,5,
 16,평면도형의 성질,m1_geo_plane_properties_unit__contains__m1_geo_circular_segment,m1_geo_plane_properties_unit,평면도형의 성질,평면도형의 성질,m1_geo_circular_segment,활꼴,평면도형의 성질,contains,intra_unit,high,official_single_source,yes,2,
 16,평면도형의 성질,m1_geo_plane_properties_unit__contains__m1_geo_convex_polygon_scope,m1_geo_plane_properties_unit,평면도형의 성질,평면도형의 성질,m1_geo_convex_polygon_scope,볼록다각형 범위,평면도형의 성질,contains,intra_unit,medium,official_single_source,yes,1,
-16,평면도형의 성질,m1_geo_plane_properties_unit__contains__m1_geo_diagonal,m1_geo_plane_properties_unit,평면도형의 성질,평면도형의 성질,m1_geo_diagonal,대각선,평면도형의 성질,contains,intra_unit,medium,official_dual_source,yes,2,
+16,평면도형의 성질,m1_geo_plane_properties_unit__contains__m1_geo_diagonal,m1_geo_plane_properties_unit,평면도형의 성질,평면도형의 성질,m1_geo_diagonal,대각선,평면도형의 성질,contains,intra_unit,medium,official_dual_source,yes,3,
 16,평면도형의 성질,m1_geo_plane_properties_unit__contains__m1_geo_diagonal_count,m1_geo_plane_properties_unit,평면도형의 성질,평면도형의 성질,m1_geo_diagonal_count,다각형의 대각선 개수,평면도형의 성질,contains,intra_unit,high,official_dual_source,yes,3,
 16,평면도형의 성질,m1_geo_plane_properties_unit__contains__m1_geo_exterior_angle,m1_geo_plane_properties_unit,평면도형의 성질,평면도형의 성질,m1_geo_exterior_angle,외각,평면도형의 성질,contains,intra_unit,high,official_dual_source,yes,3,
 16,평면도형의 성질,m1_geo_plane_properties_unit__contains__m1_geo_interior_angle,m1_geo_plane_properties_unit,평면도형의 성질,평면도형의 성질,m1_geo_interior_angle,내각,평면도형의 성질,contains,intra_unit,high,official_dual_source,yes,3,
@@ -31,7 +31,7 @@
 16,평면도형의 성질,m1_geo_exterior_angle__prerequisite_for__m1_geo_polygon_angle_sum,m1_geo_exterior_angle,외각,평면도형의 성질,m1_geo_polygon_angle_sum,다각형의 내각과 외각의 크기,평면도형의 성질,prerequisite_for,intra_unit,high,official_dual_source,yes,3,
 16,평면도형의 성질,m1_geo_interior_angle__prerequisite_for__m1_geo_polygon_angle_sum,m1_geo_interior_angle,내각,평면도형의 성질,m1_geo_polygon_angle_sum,다각형의 내각과 외각의 크기,평면도형의 성질,prerequisite_for,intra_unit,high,official_dual_source,yes,3,
 16,평면도형의 성질,m1_geo_polygon__prerequisite_for__m1_geo_convex_polygon_scope,m1_geo_polygon,다각형,평면도형의 성질,m1_geo_convex_polygon_scope,볼록다각형 범위,평면도형의 성질,prerequisite_for,intra_unit,medium,official_single_source,yes,1,
-16,평면도형의 성질,m1_geo_polygon__prerequisite_for__m1_geo_diagonal,m1_geo_polygon,다각형,평면도형의 성질,m1_geo_diagonal,대각선,평면도형의 성질,prerequisite_for,intra_unit,medium,official_dual_source,yes,2,
+16,평면도형의 성질,m1_geo_polygon__prerequisite_for__m1_geo_diagonal,m1_geo_polygon,다각형,평면도형의 성질,m1_geo_diagonal,대각선,평면도형의 성질,prerequisite_for,intra_unit,medium,official_dual_source,yes,3,
 16,평면도형의 성질,m1_geo_polygon__prerequisite_for__m1_geo_diagonal_count,m1_geo_polygon,다각형,평면도형의 성질,m1_geo_diagonal_count,다각형의 대각선 개수,평면도형의 성질,prerequisite_for,intra_unit,high,official_dual_source,yes,3,
 16,평면도형의 성질,m1_geo_polygon__prerequisite_for__m1_geo_exterior_angle,m1_geo_polygon,다각형,평면도형의 성질,m1_geo_exterior_angle,외각,평면도형의 성질,prerequisite_for,intra_unit,high,official_dual_source,yes,3,
 16,평면도형의 성질,m1_geo_polygon__prerequisite_for__m1_geo_interior_angle,m1_geo_polygon,다각형,평면도형의 성질,m1_geo_interior_angle,내각,평면도형의 성질,prerequisite_for,intra_unit,high,official_dual_source,yes,3,
@@ -92,6 +92,7 @@
 16,평면도형의 성질,m1_geo_chord__used_in__m1_geo_circle_chord_property,m1_geo_chord,현,평면도형의 성질,m1_geo_circle_chord_property,원의 현에 관한 성질,원의 성질,used_in,cross_unit,high,official_dual_source,yes,2,
 16,평면도형의 성질,m1_geo_circle__used_in__m1_geo_sector_arc_length_area,m1_geo_circle,원,원의 성질,m1_geo_sector_arc_length_area,부채꼴의 호의 길이와 넓이 구하기,평면도형의 성질,used_in,cross_unit,medium,official_dual_source,yes,2,"A sector is part of a circle, so circle concepts are used when calculating sector arc length and area."
 16,평면도형의 성질,m1_geo_diagonal__used_in__m1_geo_quadrilateral_diagonal_properties,m1_geo_diagonal,대각선,평면도형의 성질,m1_geo_quadrilateral_diagonal_properties,사각형의 대각선에 관한 성질,삼각형과 사각형의 성질,used_in,cross_unit,high,official_dual_source,yes,2,
+16,평면도형의 성질,m1_geo_diagonal__used_in__m1_num_unit_square_diagonal,m1_geo_diagonal,대각선,평면도형의 성질,m1_num_unit_square_diagonal,한 변의 길이가 1인 정사각형의 대각선,제곱근과 실수,used_in,cross_unit,medium,official_dual_source,yes,3,The unit-square diagonal is a cross-domain geometric representation used to introduce irrational numbers.
 16,평면도형의 성질,m1_geo_figure__used_in__m1_geo_plane_properties_unit,m1_geo_figure,도형,도형과 측정,m1_geo_plane_properties_unit,평면도형의 성질,평면도형의 성질,used_in,cross_unit,medium,official_dual_source,yes,4,
 16,평면도형의 성질,m1_geo_length__used_in__m1_geo_sector_arc_length_area,m1_geo_length,길이,도형과 측정,m1_geo_sector_arc_length_area,부채꼴의 호의 길이와 넓이 구하기,평면도형의 성질,used_in,cross_unit,medium,official_dual_source,yes,2,
 16,평면도형의 성질,m1_geo_parallel_angle_properties__used_in__m1_geo_polygon_angle_sum,m1_geo_parallel_angle_properties,평행선에서 동위각과 엇각의 성질,기본 도형,m1_geo_polygon_angle_sum,다각형의 내각과 외각의 크기,평면도형의 성질,used_in,cross_unit,medium,official_dual_source,yes,3,

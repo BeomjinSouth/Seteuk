@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 도형과 측정
 - unit: 평면도형의 성질
 - priority tier: high
-- workplan score: 101
+- workplan score: 102
 - concepts: 16
-- edges touching unit: 99
-- cross-unit edges: 43
+- edges touching unit: 100
+- cross-unit edges: 44
 - low confidence concepts: 1
 - low confidence edges: 8
 
@@ -36,7 +36,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | prerequisite_for | 44 |
 | related_to | 4 |
 | represented_by | 4 |
-| used_in | 16 |
+| used_in | 17 |
 
 ## Low Confidence Concepts
 
@@ -85,6 +85,6 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_geo_chord__used_in__m1_geo_circle_chord_property | 현 | used_in | 원의 현에 관한 성질 | high | official_dual_source |
 | m1_geo_circle__used_in__m1_geo_sector_arc_length_area | 원 | used_in | 부채꼴의 호의 길이와 넓이 구하기 | medium | official_dual_source |
 | m1_geo_diagonal__used_in__m1_geo_quadrilateral_diagonal_properties | 대각선 | used_in | 사각형의 대각선에 관한 성질 | high | official_dual_source |
+| m1_geo_diagonal__used_in__m1_num_unit_square_diagonal | 대각선 | used_in | 한 변의 길이가 1인 정사각형의 대각선 | medium | official_dual_source |
 | m1_geo_figure__used_in__m1_geo_plane_properties_unit | 도형 | used_in | 평면도형의 성질 | medium | official_dual_source |
 | m1_geo_length__used_in__m1_geo_sector_arc_length_area | 길이 | used_in | 부채꼴의 호의 길이와 넓이 구하기 | medium | official_dual_source |
-| m1_geo_parallel_angle_properties__used_in__m1_geo_polygon_angle_sum | 평행선에서 동위각과 엇각의 성질 | used_in | 다각형의 내각과 외각의 크기 | medium | official_dual_source |
