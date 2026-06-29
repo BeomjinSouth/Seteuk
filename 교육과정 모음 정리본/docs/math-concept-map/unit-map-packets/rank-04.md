@@ -9,12 +9,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 수와 연산
 - unit: 정수와 유리수
 - priority tier: highest
-- workplan score: 173
-- concepts: 31
-- edges touching unit: 135
-- cross-unit edges: 38
-- low confidence concepts: 3
-- low confidence edges: 22
+- workplan score: 248
+- concepts: 41
+- edges touching unit: 191
+- cross-unit edges: 39
+- low confidence concepts: 5
+- low confidence edges: 36
 
 ## Concept Type Distribution
 
@@ -22,28 +22,30 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 |---|---:|
 | core_concept | 3 |
 | misconception_risk | 3 |
-| procedure | 8 |
-| property | 6 |
-| representation | 1 |
-| term | 10 |
+| procedure | 14 |
+| property | 8 |
+| representation | 2 |
+| term | 11 |
 
 ## Relationship Distribution
 
 | relationship_type | count |
 |---|---:|
-| contains | 34 |
-| contrasts_with | 7 |
+| contains | 44 |
+| contrasts_with | 11 |
 | equivalent_to | 1 |
-| often_confused_with | 8 |
-| prerequisite_for | 58 |
-| related_to | 7 |
-| represented_by | 2 |
-| used_in | 18 |
+| often_confused_with | 15 |
+| prerequisite_for | 79 |
+| related_to | 10 |
+| represented_by | 6 |
+| used_in | 25 |
 
 ## Low Confidence Concepts
 
 | concept_id | label_ko | type | evidence_depth | notes |
 |---|---|---|---|---|
+| m1_num_subtraction_as_add_opposite | 뺄셈을 반대 부호의 덧셈으로 바꾸기 | procedure | official_dual_source | 공식 성취기준의 사칙계산 원리에서 추론한 대표 절차이며, 교과서 본문 표현과 예제 근거를 확인하기 전까지 낮은 신뢰도로 둔다. |
+| m1_num_opposite_numbers | 절댓값이 같고 부호가 다른 두 수 | property | official_dual_source | 공식 문서의 절댓값·부호·대소 관계에서 추론한 교과서 확인 필요 미시 concept이다. 교과서 본문 표현을 확인하기 전까지 낮은 신뢰도로 둔다. |
 | m1_mis_absolute_value_positive | 절댓값을 항상 양수로만 말하는 오류 | misconception_risk | official_dual_source |  |
 | m1_mis_negative_order | 음수의 대소를 절댓값 크기로 판단하는 오류 | misconception_risk | official_dual_source |  |
 | m1_mis_sign_operation | 부호와 연산 기호를 혼동하는 오류 | misconception_risk | official_dual_source |  |
@@ -90,3 +92,4 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_positive_integer__equivalent_to__m1_num_natural_number | 양의 정수 | equivalent_to | 자연수 | medium | official_dual_source |
 | m1_num_integer_rational_unit__related_to__m1_num_square_root_real_unit | 정수와 유리수 | related_to | 제곱근과 실수 | medium | official_dual_source |
 | m1_num_number_line__related_to__m1_coord_number_line | 수직선 | related_to | 수직선 | medium | official_dual_source |
+| m1_num_rational_fraction_form__related_to__m1_num_rational_repeating_relation | 유리수의 분수 꼴 표현 | related_to | 유리수와 순환소수의 관계 | medium | official_dual_source |

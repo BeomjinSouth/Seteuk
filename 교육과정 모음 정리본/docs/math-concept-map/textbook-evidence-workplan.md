@@ -5,10 +5,10 @@ This generated workplan combines concept evidence packets and relationship edge 
 ## Summary
 
 - unit groups: 34
-- concept evidence rows: 493
-- edge evidence rows: 2518
-- pending textbook evidence rows: 3011
-- low confidence concept/edge rows: 559
+- concept evidence rows: 503
+- edge evidence rows: 2575
+- pending textbook evidence rows: 3078
+- low confidence concept/edge rows: 575
 
 ## Unit Workplan
 
@@ -17,7 +17,7 @@ This generated workplan combines concept evidence packets and relationship edge 
 | 1 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 좌표평면과 그래프 | highest | 484 | 43/9 | 237/76/75 | fill_low_confidence_concept_and_edge_evidence | rank-01.md; rank-01.md |
 | 2 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 그 그래프 | highest | 339 | 33/11 | 161/52/38 | fill_low_confidence_concept_and_edge_evidence | rank-02.md; rank-02.md |
 | 3 | 중2(교육과정 학년군: 중1-3) | 자료와 가능성 | 경우의 수와 확률 | highest | 178 | 26/6 | 112/24/10 | fill_low_confidence_concept_and_edge_evidence | rank-03.md; rank-03.md |
-| 4 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 정수와 유리수 | highest | 173 | 31/3 | 135/22/38 | fill_low_confidence_concept_and_edge_evidence | rank-04.md; rank-04.md |
+| 4 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 정수와 유리수 | highest | 248 | 41/5 | 191/36/39 | fill_low_confidence_concept_and_edge_evidence | rank-04.md; rank-04.md |
 | 5 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 이차함수와 그 그래프 | highest | 126 | 20/3 | 87/15/20 | fill_low_confidence_concept_and_edge_evidence | rank-05.md; rank-05.md |
 | 6 | 중1(교육과정 학년군: 중1-3) | 자료와 가능성 | 도수분포표와 상대도수 | highest | 166 | 26/3 | 144/18/50 | fill_low_confidence_concept_and_edge_evidence | rank-06.md; rank-06.md |
 | 7 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 문자의 사용과 식 | highest | 182 | 18/3 | 112/20/60 | fill_low_confidence_concept_and_edge_evidence | rank-07.md; rank-07.md |
@@ -36,7 +36,7 @@ This generated workplan combines concept evidence packets and relationship edge 
 | 20 | 중3(교육과정 학년군: 중1-3) | 도형과 측정 | 원의 성질 | high | 99 | 13/2 | 76/11/32 | fill_low_confidence_concept_and_edge_evidence | rank-20.md; rank-20.md |
 | 21 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차부등식 | high | 82 | 11/2 | 51/11/17 | fill_low_confidence_concept_and_edge_evidence | rank-21.md; rank-21.md |
 | 22 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 일차방정식의 관계 | medium | 66 | 9/1 | 43/7/19 | fill_low_confidence_concept_and_edge_evidence | rank-22.md; rank-22.md |
-| 23 | 중2(교육과정 학년군: 중1-3) | 수와 연산 | 유리수와 순환소수 | medium | 68 | 10/1 | 44/9/14 | fill_low_confidence_concept_and_edge_evidence | rank-23.md; rank-23.md |
+| 23 | 중2(교육과정 학년군: 중1-3) | 수와 연산 | 유리수와 순환소수 | medium | 69 | 10/1 | 45/9/15 | fill_low_confidence_concept_and_edge_evidence | rank-23.md; rank-23.md |
 | 24 | 중2(교육과정 학년군: 중1-3) | 도형과 측정 | 도형의 닮음 | medium | 82 | 11/1 | 59/10/27 | fill_low_confidence_concept_and_edge_evidence | rank-24.md; rank-24.md |
 | 25 | 중3(교육과정 학년군: 중1-3) | 자료와 가능성 | 상자그림과 산점도 | medium | 47 | 11/1 | 48/4/16 | fill_low_confidence_concept_and_edge_evidence | rank-25.md; rank-25.md |
 | 26 | 중3(교육과정 학년군: 중1-3) | 자료와 가능성 | 산포도 | medium | 54 | 8/1 | 46/6/18 | fill_low_confidence_concept_and_edge_evidence | rank-26.md; rank-26.md |

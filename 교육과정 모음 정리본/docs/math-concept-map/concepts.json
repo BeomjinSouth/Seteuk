@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-29T15:32:59",
+    "generated_at": "2026-06-29T16:00:53",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
-    "concept_count": 493,
-    "edge_count": 2064
+    "concept_count": 503,
+    "edge_count": 2120
   },
   "sources": [
     {
@@ -821,6 +821,18 @@
           "locator": "정수와 유리수 section; [9수01-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 211; 정수와 유리수 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수의 개념과 분류를 다루는 성취기준별 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -858,6 +870,12 @@
           "locator": "정수와 유리수 section; [9수01-03] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "음수의 필요성, 양수와 음수, 정수와 유리수 개념 이해 및 분류 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 211; 정수와 유리수 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수의 개념과 분류를 다루는 성취기준별 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [],
@@ -900,6 +918,12 @@
           "locator": "정수와 유리수 section; [9수01-03] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "음수의 필요성, 양수와 음수, 정수와 유리수 개념 이해 및 분류 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 211; 정수와 유리수 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수의 개념과 분류를 다루는 성취기준별 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [],
@@ -942,6 +966,12 @@
           "locator": "정수와 유리수 section; [9수01-03] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "음수의 필요성, 양수와 음수, 정수와 유리수 개념 이해 및 분류 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 211; 정수와 유리수 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수의 개념과 분류를 다루는 성취기준별 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -1069,6 +1099,12 @@
           "locator": "정수와 유리수 section; [9수01-03] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "음수의 필요성, 양수와 음수, 정수와 유리수 개념 이해 및 분류 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 211; 정수와 유리수 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수의 개념과 분류를 다루는 성취기준별 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -1081,6 +1117,50 @@
       "related_ids": [],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_num_zero",
+      "label_ko": "0",
+      "aliases": [
+        "영",
+        "zero"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "정수와 유리수",
+      "concept_type": "term",
+      "short_definition": "양의 정수도 음의 정수도 아니며 정수에 포함되는 기준값.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "음수의 필요성을 인식하고 양수와 음수, 정수와 유리수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수 개념 이해 및 분류 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 211; 정수와 유리수 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수의 개념과 분류를 다루는 성취기준별 성취수준 맥락"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_num_integer"
+      ],
+      "related_ids": [
+        "m1_num_positive_number",
+        "m1_num_negative_number",
+        "m1_num_absolute_value"
+      ],
+      "notes": "정수의 분류와 절댓값의 0 사례를 분리하기 위해 미시 concept으로 둔다. 교과서 본문에서 0의 분류와 절댓값 사례를 추가 확인한다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_num_rational_number",
@@ -1123,6 +1203,12 @@
           "locator": "유리수와 순환소수 section; [9수01-06] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "유한소수 또는 순환소수로 나타낼 수 있는 분수의 특징, 순환소수를 분수로 나타내기, 유리수와 순환소수 관계 설명 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 211; 정수와 유리수 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수의 개념과 분류를 다루는 성취기준별 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -1133,10 +1219,62 @@
         "m1_num_real_number"
       ],
       "related_ids": [
+        "m1_num_rational_fraction_form",
         "m1_num_rational_repeating_relation"
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_num_rational_fraction_form",
+      "label_ko": "유리수의 분수 꼴 표현",
+      "aliases": [
+        "분수 꼴로 나타낼 수 있는 수",
+        "유리수의 분수 표현"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "정수와 유리수",
+      "concept_type": "representation",
+      "short_definition": "유리수를 두 정수의 비 또는 분수 꼴로 나타내는 표현 방식.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "음수의 필요성을 인식하고 양수와 음수, 정수와 유리수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "순환소수의 뜻을 알고 유리수와 순환소수의 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수 개념 이해 및 분류 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "유리수와 순환소수 section; [9수01-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "유한소수 또는 순환소수로 나타낼 수 있는 분수의 특징, 순환소수를 분수로 나타내기, 유리수와 순환소수 관계 설명 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_integer"
+      ],
+      "parent_ids": [
+        "m1_num_rational_number"
+      ],
+      "related_ids": [
+        "m1_num_reciprocal",
+        "m1_num_rational_repeating_relation"
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_num_ratio",
@@ -1372,6 +1510,12 @@
           "locator": "정수와 유리수 section; [9수01-04] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [],
@@ -1380,6 +1524,7 @@
       ],
       "related_ids": [
         "m1_num_order_relation",
+        "m1_num_number_line_position_order",
         "m1_coord_number_line"
       ],
       "notes": "",
@@ -1429,6 +1574,53 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_num_opposite_numbers",
+      "label_ko": "절댓값이 같고 부호가 다른 두 수",
+      "aliases": [
+        "서로 부호가 반대인 두 수",
+        "opposite numbers"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "정수와 유리수",
+      "concept_type": "property",
+      "short_definition": "0을 사이에 두고 수직선에서 같은 거리에 있는 양수와 음수의 관계.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 대소 관계를 판단하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_absolute_value",
+        "m1_num_plus_sign",
+        "m1_num_minus_sign"
+      ],
+      "parent_ids": [
+        "m1_num_absolute_value"
+      ],
+      "related_ids": [
+        "m1_num_zero",
+        "m1_mis_absolute_value_positive"
+      ],
+      "notes": "공식 문서의 절댓값·부호·대소 관계에서 추론한 교과서 확인 필요 미시 concept이다. 교과서 본문 표현을 확인하기 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
     },
     {
       "id": "m1_num_plus_sign",
@@ -1522,6 +1714,12 @@
           "locator": "정수와 유리수 section; [9수01-04] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -1534,10 +1732,55 @@
       ],
       "related_ids": [
         "m1_num_absolute_value",
+        "m1_num_number_line_position_order",
         "m1_mis_negative_order"
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_num_number_line_position_order",
+      "label_ko": "수직선에서 오른쪽에 있는 수가 더 큼",
+      "aliases": [
+        "수직선 위 대소 판단",
+        "오른쪽에 있는 수가 큼"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "정수와 유리수",
+      "concept_type": "property",
+      "short_definition": "수직선에서 두 수를 나타내는 점을 비교할 때 오른쪽에 있는 점이 나타내는 수가 더 크다는 판단 규칙.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 대소 관계를 판단하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_number_line"
+      ],
+      "parent_ids": [
+        "m1_num_order_relation"
+      ],
+      "related_ids": [
+        "m1_mis_negative_order"
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_num_four_operations",
@@ -1568,6 +1811,12 @@
           "locator": "정수와 유리수 section; [9수01-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -1577,9 +1826,7 @@
       "parent_ids": [
         "m1_num_integer_rational_unit"
       ],
-      "related_ids": [
-        "m1_num_operation_laws"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -1607,6 +1854,12 @@
           "locator": "정수와 유리수 section; [9수01-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [],
@@ -1644,6 +1897,12 @@
           "locator": "정수와 유리수 section; [9수01-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [],
@@ -1681,6 +1940,12 @@
           "locator": "정수와 유리수 section; [9수01-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [],
@@ -1718,6 +1983,12 @@
           "locator": "정수와 유리수 section; [9수01-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [],
@@ -1755,6 +2026,12 @@
           "locator": "정수와 유리수 section; [9수01-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -1772,6 +2049,142 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_num_same_sign_addition",
+      "label_ko": "부호가 같은 수의 덧셈",
+      "aliases": [
+        "같은 부호의 두 수 더하기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "정수와 유리수",
+      "concept_type": "procedure",
+      "short_definition": "부호가 같은 두 정수 또는 유리수를 더할 때 절댓값끼리 더하고 공통 부호를 붙이는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_addition",
+        "m1_num_absolute_value",
+        "m1_num_plus_sign",
+        "m1_num_minus_sign"
+      ],
+      "parent_ids": [
+        "m1_num_integer_rational_add_sub"
+      ],
+      "related_ids": [
+        "m1_num_different_sign_addition"
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_different_sign_addition",
+      "label_ko": "부호가 다른 수의 덧셈",
+      "aliases": [
+        "다른 부호의 두 수 더하기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "정수와 유리수",
+      "concept_type": "procedure",
+      "short_definition": "부호가 다른 두 정수 또는 유리수를 더할 때 절댓값의 차를 이용해 합의 크기와 부호를 판단하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_addition",
+        "m1_num_absolute_value",
+        "m1_num_order_relation",
+        "m1_num_plus_sign",
+        "m1_num_minus_sign"
+      ],
+      "parent_ids": [
+        "m1_num_integer_rational_add_sub"
+      ],
+      "related_ids": [
+        "m1_num_same_sign_addition",
+        "m1_mis_sign_operation"
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_subtraction_as_add_opposite",
+      "label_ko": "뺄셈을 반대 부호의 덧셈으로 바꾸기",
+      "aliases": [
+        "빼기를 더하기로 바꾸기",
+        "반대 부호 더하기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "정수와 유리수",
+      "concept_type": "procedure",
+      "short_definition": "정수와 유리수의 뺄셈을 빼는 수의 부호를 바꾸어 더하는 절차로 해석하는 방법.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_subtraction",
+        "m1_num_addition",
+        "m1_num_plus_sign",
+        "m1_num_minus_sign",
+        "m1_num_opposite_numbers"
+      ],
+      "parent_ids": [
+        "m1_num_integer_rational_add_sub"
+      ],
+      "related_ids": [
+        "m1_mis_sign_operation"
+      ],
+      "notes": "공식 성취기준의 사칙계산 원리에서 추론한 대표 절차이며, 교과서 본문 표현과 예제 근거를 확인하기 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
     },
     {
       "id": "m1_num_integer_rational_mul_div",
@@ -1796,6 +2209,12 @@
           "locator": "정수와 유리수 section; [9수01-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -1813,6 +2232,96 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_num_mul_div_sign_rule",
+      "label_ko": "곱셈과 나눗셈의 부호 결정",
+      "aliases": [
+        "곱셈의 부호 규칙",
+        "나눗셈의 부호 규칙"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "정수와 유리수",
+      "concept_type": "procedure",
+      "short_definition": "정수와 유리수의 곱셈과 나눗셈에서 양수와 음수의 개수 또는 조합에 따라 결과의 부호를 결정하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_multiplication",
+        "m1_num_division",
+        "m1_num_plus_sign",
+        "m1_num_minus_sign"
+      ],
+      "parent_ids": [
+        "m1_num_integer_rational_mul_div"
+      ],
+      "related_ids": [
+        "m1_mis_sign_operation"
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_division_as_multiply_reciprocal",
+      "label_ko": "나눗셈을 역수의 곱셈으로 바꾸기",
+      "aliases": [
+        "역수의 곱셈으로 나누기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "정수와 유리수",
+      "concept_type": "procedure",
+      "short_definition": "정수와 유리수의 나눗셈을 나누는 수의 역수를 곱하는 절차로 바꾸어 계산하는 방법.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_division",
+        "m1_num_multiplication",
+        "m1_num_reciprocal"
+      ],
+      "parent_ids": [
+        "m1_num_integer_rational_mul_div"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_num_operation_laws",
@@ -1880,9 +2389,7 @@
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_num_operation_laws"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_num_operation_laws"
       ],
@@ -1917,9 +2424,7 @@
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_num_operation_laws"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_num_operation_laws"
       ],
@@ -1954,9 +2459,7 @@
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_num_operation_laws"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_num_operation_laws"
       ],
@@ -1998,7 +2501,8 @@
         }
       ],
       "prerequisite_ids": [
-        "m1_num_rational_number"
+        "m1_num_rational_number",
+        "m1_num_multiplication"
       ],
       "parent_ids": [
         "m1_num_integer_rational_unit"
@@ -2038,6 +2542,12 @@
           "locator": "정수와 유리수 section; [9수01-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -2048,9 +2558,59 @@
         "m1_num_integer_rational_unit"
       ],
       "related_ids": [
+        "m1_num_operation_order_mixed",
         "m1_calc_simplify_expression"
       ],
       "notes": "공식 문서에서는 지나치게 복잡한 계산을 다루지 않는다는 제한이 있다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_operation_order_mixed",
+      "label_ko": "혼합계산의 계산 순서",
+      "aliases": [
+        "계산 순서",
+        "연산 순서"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "정수와 유리수",
+      "concept_type": "procedure",
+      "short_definition": "여러 사칙연산이 섞인 정수와 유리수 식에서 정해진 순서와 연산 법칙에 따라 계산하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 33-34; [9수01-05] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "정수의 사칙계산 원리는 여러 가지 모델로 직관적으로 이해하게 하며 정수와 유리수의 지나치게 복잡한 계산과 사칙계산 이외의 이항연산은 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_four_operations",
+        "m1_num_operation_laws"
+      ],
+      "parent_ids": [
+        "m1_num_mixed_calculation"
+      ],
+      "related_ids": [],
+      "notes": "지나치게 복잡한 계산은 다루지 않는다는 공식 문서의 범위 제한을 함께 보존한다.",
       "confidence": "medium"
     },
     {
@@ -2078,14 +2638,13 @@
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_num_plus_sign",
-        "m1_num_minus_sign"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_num_integer_rational_unit"
       ],
       "related_ids": [
+        "m1_num_plus_sign",
+        "m1_num_minus_sign",
         "m1_num_integer_rational_add_sub",
         "m1_num_integer_rational_mul_div"
       ],
@@ -2117,14 +2676,14 @@
           "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_num_absolute_value"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_num_integer_rational_unit"
       ],
       "related_ids": [
-        "m1_num_number_line"
+        "m1_num_absolute_value",
+        "m1_num_number_line",
+        "m1_num_zero"
       ],
       "notes": "",
       "confidence": "low"
@@ -2154,15 +2713,14 @@
           "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_num_order_relation",
-        "m1_num_absolute_value"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_num_integer_rational_unit"
       ],
       "related_ids": [
-        "m1_num_negative_number"
+        "m1_num_negative_number",
+        "m1_num_order_relation",
+        "m1_num_absolute_value"
       ],
       "notes": "",
       "confidence": "low"
@@ -22455,6 +23013,96 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_num_zero__contrasts_with__m1_num_positive_number",
+      "source_id": "m1_num_zero",
+      "target_id": "m1_num_positive_number",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "음수의 필요성을 인식하고 양수와 음수, 정수와 유리수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수 개념 이해 및 분류 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 211; 정수와 유리수 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수의 개념과 분류를 다루는 성취기준별 성취수준 맥락"
+        }
+      ],
+      "notes": "0은 양수도 음수도 아닌 정수의 기준값이므로 양수와 구별한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_zero__contrasts_with__m1_num_negative_number",
+      "source_id": "m1_num_zero",
+      "target_id": "m1_num_negative_number",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "음수의 필요성을 인식하고 양수와 음수, 정수와 유리수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수 개념 이해 및 분류 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 211; 정수와 유리수 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수의 개념과 분류를 다루는 성취기준별 성취수준 맥락"
+        }
+      ],
+      "notes": "0은 양수도 음수도 아닌 정수의 기준값이므로 음수와 구별한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_zero__related_to__m1_num_absolute_value",
+      "source_id": "m1_num_zero",
+      "target_id": "m1_num_absolute_value",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "음수의 필요성을 인식하고 양수와 음수, 정수와 유리수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 대소 관계를 판단하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수 개념 이해 및 분류 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
+        }
+      ],
+      "notes": "0은 절댓값을 거리로 해석할 때 기준점이자 절댓값이 0인 사례로 연결된다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_num_domain__related_to__m1_expr_unit",
       "source_id": "m1_num_domain",
       "target_id": "m1_expr_unit",
@@ -22833,6 +23481,62 @@
       "confidence": "high"
     },
     {
+      "id": "m1_num_number_line__used_in__m1_num_number_line_position_order",
+      "source_id": "m1_num_number_line",
+      "target_id": "m1_num_number_line_position_order",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 대소 관계를 판단하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_number_line_position_order__used_in__m1_num_order_relation",
+      "source_id": "m1_num_number_line_position_order",
+      "target_id": "m1_num_order_relation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 대소 관계를 판단하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_num_negative_need__represented_by__m1_num_number_line",
       "source_id": "m1_num_negative_need",
       "target_id": "m1_num_number_line",
@@ -22864,6 +23568,34 @@
         }
       ],
       "notes": "The need for negative numbers is represented through positions and order on the number line.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_absolute_value__represented_by__m1_num_number_line",
+      "source_id": "m1_num_absolute_value",
+      "target_id": "m1_num_number_line",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 대소 관계를 판단하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
+        }
+      ],
+      "notes": "절댓값은 수직선에서 0과의 거리로 표현된다.",
       "confidence": "medium"
     },
     {
@@ -23081,6 +23813,90 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_num_positive_number__represented_by__m1_num_plus_sign",
+      "source_id": "m1_num_positive_number",
+      "target_id": "m1_num_plus_sign",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "음수의 필요성을 인식하고 양수와 음수, 정수와 유리수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수 개념 이해 및 분류 수준을 구분"
+        }
+      ],
+      "notes": "양수는 양의 부호로 나타낼 수 있으나, 실제 표기에서는 양의 부호가 생략되기도 하므로 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_negative_number__represented_by__m1_num_minus_sign",
+      "source_id": "m1_num_negative_number",
+      "target_id": "m1_num_minus_sign",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "음수의 필요성을 인식하고 양수와 음수, 정수와 유리수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수 개념 이해 및 분류 수준을 구분"
+        }
+      ],
+      "notes": "음수는 음의 부호로 나타낸다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_opposite_numbers__contrasts_with__m1_num_zero",
+      "source_id": "m1_num_opposite_numbers",
+      "target_id": "m1_num_zero",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 대소 관계를 판단하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
+        }
+      ],
+      "notes": "부호가 반대인 두 수의 관계는 0 자체와 구별해야 한다. 교과서 표현 확인 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
       "id": "m1_num_plus_sign__used_in__m1_num_integer_rational_add_sub",
       "source_id": "m1_num_plus_sign",
       "target_id": "m1_num_integer_rational_add_sub",
@@ -23122,6 +23938,108 @@
         }
       ],
       "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_rational_number__represented_by__m1_num_rational_fraction_form",
+      "source_id": "m1_num_rational_number",
+      "target_id": "m1_num_rational_fraction_form",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "음수의 필요성을 인식하고 양수와 음수, 정수와 유리수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "순환소수의 뜻을 알고 유리수와 순환소수의 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수 개념 이해 및 분류 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "유리수와 순환소수 section; [9수01-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "유한소수 또는 순환소수로 나타낼 수 있는 분수의 특징, 순환소수를 분수로 나타내기, 유리수와 순환소수 관계 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_rational_fraction_form__related_to__m1_num_reciprocal",
+      "source_id": "m1_num_rational_fraction_form",
+      "target_id": "m1_num_reciprocal",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "음수의 필요성을 인식하고 양수와 음수, 정수와 유리수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수 개념 이해 및 분류 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "유리수의 분수 꼴 표현과 역수는 모두 분자와 분모의 관계를 다루지만, 교과서 절차 근거 확인 전까지 관련 관계로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_rational_fraction_form__related_to__m1_num_rational_repeating_relation",
+      "source_id": "m1_num_rational_fraction_form",
+      "target_id": "m1_num_rational_repeating_relation",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "음수의 필요성을 인식하고 양수와 음수, 정수와 유리수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "순환소수의 뜻을 알고 유리수와 순환소수의 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수 개념 이해 및 분류 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "유리수와 순환소수 section; [9수01-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "유한소수 또는 순환소수로 나타낼 수 있는 분수의 특징, 순환소수를 분수로 나타내기, 유리수와 순환소수 관계 설명 수준을 구분"
+        }
+      ],
+      "notes": "유리수의 분수 꼴 표현은 유리수와 순환소수의 관계를 설명할 때 다시 쓰이는 표현 맥락이다.",
       "confidence": "medium"
     },
     {
@@ -23301,6 +24219,112 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_num_same_sign_addition__contrasts_with__m1_num_different_sign_addition",
+      "source_id": "m1_num_same_sign_addition",
+      "target_id": "m1_num_different_sign_addition",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "같은 부호의 덧셈과 다른 부호의 덧셈은 절댓값 처리와 결과 부호 판단 방식이 다르므로 구별한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_same_sign_addition__used_in__m1_num_integer_rational_add_sub",
+      "source_id": "m1_num_same_sign_addition",
+      "target_id": "m1_num_integer_rational_add_sub",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_different_sign_addition__used_in__m1_num_integer_rational_add_sub",
+      "source_id": "m1_num_different_sign_addition",
+      "target_id": "m1_num_integer_rational_add_sub",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_subtraction_as_add_opposite__used_in__m1_num_integer_rational_add_sub",
+      "source_id": "m1_num_subtraction_as_add_opposite",
+      "target_id": "m1_num_integer_rational_add_sub",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_num_multiplication__used_in__m1_num_integer_rational_mul_div",
       "source_id": "m1_num_multiplication",
       "target_id": "m1_num_integer_rational_mul_div",
@@ -23333,6 +24357,62 @@
           "locator": "printed p. 33; [9수01-05]",
           "evidence_kind": "achievement_standard",
           "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_mul_div_sign_rule__used_in__m1_num_integer_rational_mul_div",
+      "source_id": "m1_num_mul_div_sign_rule",
+      "target_id": "m1_num_integer_rational_mul_div",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_division_as_multiply_reciprocal__used_in__m1_num_integer_rational_mul_div",
+      "source_id": "m1_num_division_as_multiply_reciprocal",
+      "target_id": "m1_num_integer_rational_mul_div",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
         },
         {
           "source_id": "achievement_math_2022",
@@ -23420,34 +24500,6 @@
       "id": "m1_num_reciprocal__used_in__m1_num_integer_rational_mul_div",
       "source_id": "m1_num_reciprocal",
       "target_id": "m1_num_integer_rational_mul_div",
-      "relationship_type": "used_in",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 34; terms and symbols for 수와 연산",
-          "evidence_kind": "term_list",
-          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
-        },
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 33; [9수01-05]",
-          "evidence_kind": "achievement_standard",
-          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "high"
-    },
-    {
-      "id": "m1_num_four_operations__used_in__m1_num_operation_laws",
-      "source_id": "m1_num_four_operations",
-      "target_id": "m1_num_operation_laws",
       "relationship_type": "used_in",
       "source_refs": [
         {
@@ -23699,6 +24751,40 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_num_operation_order_mixed__used_in__m1_num_mixed_calculation",
+      "source_id": "m1_num_operation_order_mixed",
+      "target_id": "m1_num_mixed_calculation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 33-34; [9수01-05] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "정수의 사칙계산 원리는 여러 가지 모델로 직관적으로 이해하게 하며 정수와 유리수의 지나치게 복잡한 계산과 사칙계산 이외의 이항연산은 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_num_mixed_calculation__used_in__m1_calc_simplify_expression",
@@ -44253,6 +45339,258 @@
       "confidence": "low"
     },
     {
+      "id": "m1_num_integer__contains__m1_num_zero",
+      "source_id": "m1_num_integer",
+      "target_id": "m1_num_zero",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "음수의 필요성을 인식하고 양수와 음수, 정수와 유리수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수 개념 이해 및 분류 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 211; 정수와 유리수 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수의 개념과 분류를 다루는 성취기준별 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_rational_number__contains__m1_num_rational_fraction_form",
+      "source_id": "m1_num_rational_number",
+      "target_id": "m1_num_rational_fraction_form",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "음수의 필요성을 인식하고 양수와 음수, 정수와 유리수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "순환소수의 뜻을 알고 유리수와 순환소수의 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수 개념 이해 및 분류 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "유리수와 순환소수 section; [9수01-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "유한소수 또는 순환소수로 나타낼 수 있는 분수의 특징, 순환소수를 분수로 나타내기, 유리수와 순환소수 관계 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_absolute_value__contains__m1_num_opposite_numbers",
+      "source_id": "m1_num_absolute_value",
+      "target_id": "m1_num_opposite_numbers",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 대소 관계를 판단하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_num_order_relation__contains__m1_num_number_line_position_order",
+      "source_id": "m1_num_order_relation",
+      "target_id": "m1_num_number_line_position_order",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 대소 관계를 판단하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_integer_rational_add_sub__contains__m1_num_same_sign_addition",
+      "source_id": "m1_num_integer_rational_add_sub",
+      "target_id": "m1_num_same_sign_addition",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_integer_rational_add_sub__contains__m1_num_different_sign_addition",
+      "source_id": "m1_num_integer_rational_add_sub",
+      "target_id": "m1_num_different_sign_addition",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_integer_rational_add_sub__contains__m1_num_subtraction_as_add_opposite",
+      "source_id": "m1_num_integer_rational_add_sub",
+      "target_id": "m1_num_subtraction_as_add_opposite",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_num_integer_rational_mul_div__contains__m1_num_mul_div_sign_rule",
+      "source_id": "m1_num_integer_rational_mul_div",
+      "target_id": "m1_num_mul_div_sign_rule",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_integer_rational_mul_div__contains__m1_num_division_as_multiply_reciprocal",
+      "source_id": "m1_num_integer_rational_mul_div",
+      "target_id": "m1_num_division_as_multiply_reciprocal",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_num_integer_rational_unit__contains__m1_num_operation_laws",
       "source_id": "m1_num_integer_rational_unit",
       "target_id": "m1_num_operation_laws",
@@ -44331,6 +45669,46 @@
           "locator": "정수와 유리수 section; [9수01-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_mixed_calculation__contains__m1_num_operation_order_mixed",
+      "source_id": "m1_num_mixed_calculation",
+      "target_id": "m1_num_operation_order_mixed",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 33-34; [9수01-05] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "정수의 사칙계산 원리는 여러 가지 모델로 직관적으로 이해하게 하며 정수와 유리수의 지나치게 복잡한 계산과 사칙계산 이외의 이항연산은 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -52853,6 +54231,12 @@
           "locator": "정수와 유리수 section; [9수01-03] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "음수의 필요성, 양수와 음수, 정수와 유리수 개념 이해 및 분류 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 211; 정수와 유리수 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수의 개념과 분류를 다루는 성취기준별 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -52881,6 +54265,12 @@
           "locator": "정수와 유리수 section; [9수01-03] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "음수의 필요성, 양수와 음수, 정수와 유리수 개념 이해 및 분류 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 211; 정수와 유리수 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수의 개념과 분류를 다루는 성취기준별 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -52909,10 +54299,50 @@
           "locator": "정수와 유리수 section; [9수01-03] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "음수의 필요성, 양수와 음수, 정수와 유리수 개념 이해 및 분류 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 211; 정수와 유리수 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수의 개념과 분류를 다루는 성취기준별 성취수준 맥락"
         }
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_num_integer__prerequisite_for__m1_num_rational_fraction_form",
+      "source_id": "m1_num_integer",
+      "target_id": "m1_num_rational_fraction_form",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "음수의 필요성을 인식하고 양수와 음수, 정수와 유리수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "순환소수의 뜻을 알고 유리수와 순환소수의 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "음수의 필요성, 양수와 음수, 정수와 유리수 개념 이해 및 분류 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "유리수와 순환소수 section; [9수01-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "유한소수 또는 순환소수로 나타낼 수 있는 분수의 특징, 순환소수를 분수로 나타내기, 유리수와 순환소수 관계 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_num_number_line__prerequisite_for__m1_num_absolute_value",
@@ -52943,6 +54373,90 @@
       "confidence": "high"
     },
     {
+      "id": "m1_num_absolute_value__prerequisite_for__m1_num_opposite_numbers",
+      "source_id": "m1_num_absolute_value",
+      "target_id": "m1_num_opposite_numbers",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 대소 관계를 판단하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_num_plus_sign__prerequisite_for__m1_num_opposite_numbers",
+      "source_id": "m1_num_plus_sign",
+      "target_id": "m1_num_opposite_numbers",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 대소 관계를 판단하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_num_minus_sign__prerequisite_for__m1_num_opposite_numbers",
+      "source_id": "m1_num_minus_sign",
+      "target_id": "m1_num_opposite_numbers",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 대소 관계를 판단하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_num_integer__prerequisite_for__m1_num_order_relation",
       "source_id": "m1_num_integer",
       "target_id": "m1_num_order_relation",
@@ -52965,6 +54479,12 @@
           "locator": "정수와 유리수 section; [9수01-04] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -52993,6 +54513,12 @@
           "locator": "정수와 유리수 section; [9수01-04] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -53021,10 +54547,44 @@
           "locator": "정수와 유리수 section; [9수01-04] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_num_number_line__prerequisite_for__m1_num_number_line_position_order",
+      "source_id": "m1_num_number_line",
+      "target_id": "m1_num_number_line_position_order",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 대소 관계를 판단하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_num_integer__prerequisite_for__m1_num_four_operations",
@@ -53049,6 +54609,12 @@
           "locator": "정수와 유리수 section; [9수01-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -53077,6 +54643,12 @@
           "locator": "정수와 유리수 section; [9수01-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -53099,6 +54671,12 @@
           "locator": "정수와 유리수 section; [9수01-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -53121,6 +54699,12 @@
           "locator": "정수와 유리수 section; [9수01-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -53143,6 +54727,12 @@
           "locator": "정수와 유리수 section; [9수01-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -53165,6 +54755,12 @@
           "locator": "정수와 유리수 section; [9수01-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -53187,10 +54783,378 @@
           "locator": "정수와 유리수 section; [9수01-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_num_addition__prerequisite_for__m1_num_same_sign_addition",
+      "source_id": "m1_num_addition",
+      "target_id": "m1_num_same_sign_addition",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_absolute_value__prerequisite_for__m1_num_same_sign_addition",
+      "source_id": "m1_num_absolute_value",
+      "target_id": "m1_num_same_sign_addition",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_plus_sign__prerequisite_for__m1_num_same_sign_addition",
+      "source_id": "m1_num_plus_sign",
+      "target_id": "m1_num_same_sign_addition",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_minus_sign__prerequisite_for__m1_num_same_sign_addition",
+      "source_id": "m1_num_minus_sign",
+      "target_id": "m1_num_same_sign_addition",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_addition__prerequisite_for__m1_num_different_sign_addition",
+      "source_id": "m1_num_addition",
+      "target_id": "m1_num_different_sign_addition",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_absolute_value__prerequisite_for__m1_num_different_sign_addition",
+      "source_id": "m1_num_absolute_value",
+      "target_id": "m1_num_different_sign_addition",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_order_relation__prerequisite_for__m1_num_different_sign_addition",
+      "source_id": "m1_num_order_relation",
+      "target_id": "m1_num_different_sign_addition",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_plus_sign__prerequisite_for__m1_num_different_sign_addition",
+      "source_id": "m1_num_plus_sign",
+      "target_id": "m1_num_different_sign_addition",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_minus_sign__prerequisite_for__m1_num_different_sign_addition",
+      "source_id": "m1_num_minus_sign",
+      "target_id": "m1_num_different_sign_addition",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_subtraction__prerequisite_for__m1_num_subtraction_as_add_opposite",
+      "source_id": "m1_num_subtraction",
+      "target_id": "m1_num_subtraction_as_add_opposite",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_num_addition__prerequisite_for__m1_num_subtraction_as_add_opposite",
+      "source_id": "m1_num_addition",
+      "target_id": "m1_num_subtraction_as_add_opposite",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_num_plus_sign__prerequisite_for__m1_num_subtraction_as_add_opposite",
+      "source_id": "m1_num_plus_sign",
+      "target_id": "m1_num_subtraction_as_add_opposite",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_num_minus_sign__prerequisite_for__m1_num_subtraction_as_add_opposite",
+      "source_id": "m1_num_minus_sign",
+      "target_id": "m1_num_subtraction_as_add_opposite",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_num_opposite_numbers__prerequisite_for__m1_num_subtraction_as_add_opposite",
+      "source_id": "m1_num_opposite_numbers",
+      "target_id": "m1_num_subtraction_as_add_opposite",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
     },
     {
       "id": "m1_num_multiplication__prerequisite_for__m1_num_integer_rational_mul_div",
@@ -53209,6 +55173,12 @@
           "locator": "정수와 유리수 section; [9수01-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -53231,6 +55201,12 @@
           "locator": "정수와 유리수 section; [9수01-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -53253,6 +55229,12 @@
           "locator": "정수와 유리수 section; [9수01-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -53275,6 +55257,12 @@
           "locator": "정수와 유리수 section; [9수01-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -53297,10 +55285,212 @@
           "locator": "정수와 유리수 section; [9수01-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_num_multiplication__prerequisite_for__m1_num_mul_div_sign_rule",
+      "source_id": "m1_num_multiplication",
+      "target_id": "m1_num_mul_div_sign_rule",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_division__prerequisite_for__m1_num_mul_div_sign_rule",
+      "source_id": "m1_num_division",
+      "target_id": "m1_num_mul_div_sign_rule",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_plus_sign__prerequisite_for__m1_num_mul_div_sign_rule",
+      "source_id": "m1_num_plus_sign",
+      "target_id": "m1_num_mul_div_sign_rule",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_minus_sign__prerequisite_for__m1_num_mul_div_sign_rule",
+      "source_id": "m1_num_minus_sign",
+      "target_id": "m1_num_mul_div_sign_rule",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_division__prerequisite_for__m1_num_division_as_multiply_reciprocal",
+      "source_id": "m1_num_division",
+      "target_id": "m1_num_division_as_multiply_reciprocal",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_multiplication__prerequisite_for__m1_num_division_as_multiply_reciprocal",
+      "source_id": "m1_num_multiplication",
+      "target_id": "m1_num_division_as_multiply_reciprocal",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_reciprocal__prerequisite_for__m1_num_division_as_multiply_reciprocal",
+      "source_id": "m1_num_reciprocal",
+      "target_id": "m1_num_division_as_multiply_reciprocal",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_num_four_operations__prerequisite_for__m1_num_operation_laws",
@@ -53331,74 +55521,36 @@
       "confidence": "high"
     },
     {
-      "id": "m1_num_operation_laws__prerequisite_for__m1_num_commutative_law",
-      "source_id": "m1_num_operation_laws",
-      "target_id": "m1_num_commutative_law",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 34; terms and symbols for 수와 연산",
-          "evidence_kind": "term_list",
-          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "high"
-    },
-    {
-      "id": "m1_num_operation_laws__prerequisite_for__m1_num_associative_law",
-      "source_id": "m1_num_operation_laws",
-      "target_id": "m1_num_associative_law",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 34; terms and symbols for 수와 연산",
-          "evidence_kind": "term_list",
-          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "high"
-    },
-    {
-      "id": "m1_num_operation_laws__prerequisite_for__m1_num_distributive_law",
-      "source_id": "m1_num_operation_laws",
-      "target_id": "m1_num_distributive_law",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 34; terms and symbols for 수와 연산",
-          "evidence_kind": "term_list",
-          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "high"
-    },
-    {
       "id": "m1_num_rational_number__prerequisite_for__m1_num_reciprocal",
       "source_id": "m1_num_rational_number",
+      "target_id": "m1_num_reciprocal",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_multiplication__prerequisite_for__m1_num_reciprocal",
+      "source_id": "m1_num_multiplication",
       "target_id": "m1_num_reciprocal",
       "relationship_type": "prerequisite_for",
       "source_refs": [
@@ -53447,6 +55599,12 @@
           "locator": "정수와 유리수 section; [9수01-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -53475,120 +55633,84 @@
           "locator": "정수와 유리수 section; [9수01-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
       "confidence": "medium"
     },
     {
-      "id": "m1_num_plus_sign__prerequisite_for__m1_mis_sign_operation",
-      "source_id": "m1_num_plus_sign",
-      "target_id": "m1_mis_sign_operation",
+      "id": "m1_num_four_operations__prerequisite_for__m1_num_operation_order_mixed",
+      "source_id": "m1_num_four_operations",
+      "target_id": "m1_num_operation_order_mixed",
       "relationship_type": "prerequisite_for",
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
-          "locator": "printed p. 34; terms and symbols for 수와 연산",
-          "evidence_kind": "term_list",
-          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 33-34; [9수01-05] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "정수의 사칙계산 원리는 여러 가지 모델로 직관적으로 이해하게 하며 정수와 유리수의 지나치게 복잡한 계산과 사칙계산 이외의 이항연산은 다루지 않음"
         },
         {
           "source_id": "achievement_math_2022",
           "locator": "정수와 유리수 section; [9수01-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
-      "confidence": "low"
+      "confidence": "medium"
     },
     {
-      "id": "m1_num_minus_sign__prerequisite_for__m1_mis_sign_operation",
-      "source_id": "m1_num_minus_sign",
-      "target_id": "m1_mis_sign_operation",
+      "id": "m1_num_operation_laws__prerequisite_for__m1_num_operation_order_mixed",
+      "source_id": "m1_num_operation_laws",
+      "target_id": "m1_num_operation_order_mixed",
       "relationship_type": "prerequisite_for",
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
-          "locator": "printed p. 34; terms and symbols for 수와 연산",
-          "evidence_kind": "term_list",
-          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+          "locator": "printed p. 33; [9수01-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 사칙계산 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 33-34; [9수01-05] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "정수의 사칙계산 원리는 여러 가지 모델로 직관적으로 이해하게 하며 정수와 유리수의 지나치게 복잡한 계산과 사칙계산 이외의 이항연산은 다루지 않음"
         },
         {
           "source_id": "achievement_math_2022",
           "locator": "정수와 유리수 section; [9수01-05] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_num_absolute_value__prerequisite_for__m1_mis_absolute_value_positive",
-      "source_id": "m1_num_absolute_value",
-      "target_id": "m1_mis_absolute_value_positive",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 34; terms and symbols for 수와 연산",
-          "evidence_kind": "term_list",
-          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
         },
         {
-          "source_id": "achievement_math_2022",
-          "locator": "정수와 유리수 section; [9수01-04] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 212; 정수와 유리수 대소 관계와 사칙계산 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_num_order_relation__prerequisite_for__m1_mis_negative_order",
-      "source_id": "m1_num_order_relation",
-      "target_id": "m1_mis_negative_order",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 33; [9수01-04]",
-          "evidence_kind": "achievement_standard",
-          "summary": "정수와 유리수의 대소 관계를 판단하는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "정수와 유리수 section; [9수01-04] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_num_absolute_value__prerequisite_for__m1_mis_negative_order",
-      "source_id": "m1_num_absolute_value",
-      "target_id": "m1_mis_negative_order",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 33; [9수01-04]",
-          "evidence_kind": "achievement_standard",
-          "summary": "정수와 유리수의 대소 관계를 판단하는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "정수와 유리수 section; [9수01-04] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
+      "confidence": "medium"
     },
     {
       "id": "m1_num_rational_number__prerequisite_for__m1_num_repeating_decimal_unit",
@@ -70541,9 +72663,97 @@
       "confidence": "low"
     },
     {
+      "id": "m1_mis_absolute_value_positive__often_confused_with__m1_num_opposite_numbers",
+      "source_id": "m1_mis_absolute_value_positive",
+      "target_id": "m1_num_opposite_numbers",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_negative_order__often_confused_with__m1_num_number_line_position_order",
+      "source_id": "m1_mis_negative_order",
+      "target_id": "m1_num_number_line_position_order",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 대소 관계를 판단하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
       "id": "m1_mis_sign_operation__often_confused_with__m1_num_integer_rational_add_sub",
       "source_id": "m1_mis_sign_operation",
       "target_id": "m1_num_integer_rational_add_sub",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_sign_operation__often_confused_with__m1_num_different_sign_addition",
+      "source_id": "m1_mis_sign_operation",
+      "target_id": "m1_num_different_sign_addition",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_sign_operation__often_confused_with__m1_num_subtraction_as_add_opposite",
+      "source_id": "m1_mis_sign_operation",
+      "target_id": "m1_num_subtraction_as_add_opposite",
       "relationship_type": "often_confused_with",
       "source_refs": [
         {
@@ -70585,6 +72795,28 @@
       "confidence": "low"
     },
     {
+      "id": "m1_mis_sign_operation__often_confused_with__m1_num_mul_div_sign_rule",
+      "source_id": "m1_mis_sign_operation",
+      "target_id": "m1_num_mul_div_sign_rule",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 사칙계산 원리 이해, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
       "id": "m1_mis_absolute_value_positive__often_confused_with__m1_num_number_line",
       "source_id": "m1_mis_absolute_value_positive",
       "target_id": "m1_num_number_line",
@@ -70595,6 +72827,50 @@
           "locator": "printed p. 34; terms and symbols for 수와 연산",
           "evidence_kind": "term_list",
           "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_absolute_value_positive__often_confused_with__m1_num_zero",
+      "source_id": "m1_mis_absolute_value_positive",
+      "target_id": "m1_num_zero",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "정수와 유리수 section; [9수01-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "정수와 유리수의 대소 관계를 판단하고 수직선 위에서 비교하는 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_negative_order__often_confused_with__m1_num_absolute_value",
+      "source_id": "m1_mis_negative_order",
+      "target_id": "m1_num_absolute_value",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "정수와 유리수의 대소 관계를 판단하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",

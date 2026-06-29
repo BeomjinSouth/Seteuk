@@ -5,9 +5,9 @@ This generated index tracks compact concept hierarchy maps for every textbook ev
 ## Summary
 
 - unit maps: 34
-- concept rows: 493
-- edge rows touching units: 2518
-- cross-unit edge rows: 908
+- concept rows: 503
+- edge rows touching units: 2575
+- cross-unit edge rows: 910
 
 ## Packets
 
@@ -16,7 +16,7 @@ This generated index tracks compact concept hierarchy maps for every textbook ev
 | 1 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 좌표평면과 그래프 | 43 | 237 | 75 | 9 | 76 | rank-01.md | rank-01.dot |
 | 2 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 그 그래프 | 33 | 161 | 38 | 11 | 52 | rank-02.md | rank-02.dot |
 | 3 | 중2(교육과정 학년군: 중1-3) | 자료와 가능성 | 경우의 수와 확률 | 26 | 112 | 10 | 6 | 24 | rank-03.md | rank-03.dot |
-| 4 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 정수와 유리수 | 31 | 135 | 38 | 3 | 22 | rank-04.md | rank-04.dot |
+| 4 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 정수와 유리수 | 41 | 191 | 39 | 5 | 36 | rank-04.md | rank-04.dot |
 | 5 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 이차함수와 그 그래프 | 20 | 87 | 20 | 3 | 15 | rank-05.md | rank-05.dot |
 | 6 | 중1(교육과정 학년군: 중1-3) | 자료와 가능성 | 도수분포표와 상대도수 | 26 | 144 | 50 | 3 | 18 | rank-06.md | rank-06.dot |
 | 7 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 문자의 사용과 식 | 18 | 112 | 60 | 3 | 20 | rank-07.md | rank-07.dot |
@@ -35,7 +35,7 @@ This generated index tracks compact concept hierarchy maps for every textbook ev
 | 20 | 중3(교육과정 학년군: 중1-3) | 도형과 측정 | 원의 성질 | 13 | 76 | 32 | 2 | 11 | rank-20.md | rank-20.dot |
 | 21 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차부등식 | 11 | 51 | 17 | 2 | 11 | rank-21.md | rank-21.dot |
 | 22 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 일차방정식의 관계 | 9 | 43 | 19 | 1 | 7 | rank-22.md | rank-22.dot |
-| 23 | 중2(교육과정 학년군: 중1-3) | 수와 연산 | 유리수와 순환소수 | 10 | 44 | 14 | 1 | 9 | rank-23.md | rank-23.dot |
+| 23 | 중2(교육과정 학년군: 중1-3) | 수와 연산 | 유리수와 순환소수 | 10 | 45 | 15 | 1 | 9 | rank-23.md | rank-23.dot |
 | 24 | 중2(교육과정 학년군: 중1-3) | 도형과 측정 | 도형의 닮음 | 11 | 59 | 27 | 1 | 10 | rank-24.md | rank-24.dot |
 | 25 | 중3(교육과정 학년군: 중1-3) | 자료와 가능성 | 상자그림과 산점도 | 11 | 48 | 16 | 1 | 4 | rank-25.md | rank-25.dot |
 | 26 | 중3(교육과정 학년군: 중1-3) | 자료와 가능성 | 산포도 | 8 | 46 | 18 | 1 | 6 | rank-26.md | rank-26.dot |

@@ -1204,10 +1204,26 @@
 - diff check: `git diff --check -- docs/math-concept-map 교과서_원본`: 종료 코드 0, CRLF 변환 경고만 확인.
 - PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
 
+## 2026-06-29 정수와 유리수 미시 concept 병렬 보강
+
+- AGENTS.md를 다시 확인했고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` concept map 보강, 파생 산출물 정비, 검증 보강으로 제한했다.
+- 멀티에이전트 explorer 3개를 병렬로 사용해 rank 4 `정수와 유리수`의 누락 미시 concept, edge 의미 품질, 연구보고서 보조 출처 후보를 독립 감사했다.
+- `0`, `유리수의 분수 꼴 표현`, `수직선에서 오른쪽에 있는 수가 더 큼`, `절댓값이 같고 부호가 다른 두 수`, `부호가 같은 수의 덧셈`, `부호가 다른 수의 덧셈`, `뺄셈을 반대 부호의 덧셈으로 바꾸기`, `곱셈과 나눗셈의 부호 결정`, `나눗셈을 역수의 곱셈으로 바꾸기`, `혼합계산의 계산 순서`를 추가했다.
+- 연구보고서 p. 211의 음수·양수·정수·유리수 성취수준 맥락과 p. 212의 대소 관계·수직선·사칙계산 성취수준 맥락을 보조 source ref로 반영했다. 이 두 page는 교과서 본문 근거가 아니므로 concept confidence 승격 근거로 쓰지 않는다.
+- 오개념 위험 노드로 들어가던 noisy prerequisite edge를 제거하고, `절댓값 -> 수직선` 표현 관계, 양수·음수와 양의 부호·음의 부호 표현 관계, 같은/다른 부호 덧셈 대조 관계, 유리수 분수 꼴 표현과 역수·유리수-순환소수 관계를 명시해 `related-edge-resolution-queue.*`를 0건으로 유지했다.
+- 전체 파생 산출물을 재생성한 결과 concept은 503개, edge는 2120개가 되었다. source ref 총계는 concept 1355개, edge 5326개, 총 6681개이며 source catalogue는 5개이다.
+- `review-queue.*`는 80개 low-confidence concept, `concept-evidence-depth.*`는 concept 503개, `edge-evidence-depth.*`는 edge 2120개, `prerequisite-map.*`는 782개 선수 관계 edge로 갱신되었다.
+- `textbook-evidence-workplan.*`는 34개 단원 그룹, concept evidence row 503개, edge evidence row 2575개, pending textbook evidence row 3078개, low-confidence concept/edge row 575개를 기록한다. rank 4 `정수와 유리수`는 41개 concept과 191개 edge row, 총 232개 row이다.
+- `test_build_pilot_integer_rational_microconcepts.py`를 추가해 새 정수와 유리수 미시 concept, noisy prerequisite 제거, p. 211~212 보조 source ref, 중간/낮은 confidence 유지 조건을 고정했다.
+- 좁은 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p "test_build_pilot_integer_rational_microconcepts.py"` 4개, `test_build_pilot_edge_sync.py` 21개 통과.
+- 전체 단위 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p "test_*.py"`: 211개 통과.
+- 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 503개 concept, 2120개 edge, 5개 source, 60개 공식 성취기준 검증 통과.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
 - 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 `not_applicable_from_this_row` 33개가 broad context, 용어 충돌, 도구·자료 입력, 또는 약한 출현으로 유지되는지 주기적으로 감사하되, 현재 남은 `pending_manual_review`는 0개이다. 단, `비`와 `입력값` confidence 승격은 교과서 본문 또는 중학교 과정 직접 근거 확인 후 판단한다.
 - 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.
-- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 237개, 총 280개 row로 유지하되, rank 2 `일차함수와 그 그래프`의 concept 33개와 edge packet row 161개, 총 194개 row, rank 3 `경우의 수와 확률`의 concept 26개와 edge packet row 112개, 총 138개 row도 같은 방식으로 교과서 근거를 보강한다. 전체 단원 검토는 `unit-map-packets/index.*`에서 rank 1~34 순서로 이어간다.
+- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 237개, 총 280개 row로 유지하되, rank 2 `일차함수와 그 그래프`의 concept 33개와 edge packet row 161개, 총 194개 row, rank 3 `경우의 수와 확률`의 concept 26개와 edge packet row 112개, 총 138개 row, rank 4 `정수와 유리수`의 concept 41개와 edge packet row 191개, 총 232개 row도 같은 방식으로 교과서 근거를 보강한다. 교과서 PDF 없이 공식·보조 문서 기반 미시 concept 보강을 계속한다면 다음 반복 후보는 rank 5 `이차함수와 그 그래프`와 rank 6 `도수분포표와 상대도수`이다.
 - 새 concept, alias, `related_ids`, 또는 `equivalent_to` 후보가 추가되면 `equivalence-alias-audit.*`, `related-edge-resolution-queue.*`, `textbook-edge-evidence-packets/*`, `edge-evidence-depth.*`를 함께 재생성한다.

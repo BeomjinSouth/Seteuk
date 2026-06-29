@@ -5,8 +5,8 @@ This generated queue ranks units for the next textbook-grounded concept extracti
 ## Summary
 
 - unit groups: 34
-- concepts needing textbook evidence: 493
-- low confidence concepts in queue: 78
+- concepts needing textbook evidence: 503
+- low confidence concepts in queue: 80
 
 ## Queue
 
@@ -15,7 +15,7 @@ This generated queue ranks units for the next textbook-grounded concept extracti
 | 1 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 좌표평면과 그래프 | highest | 105 | 43 | 9 | 13 | textbook_evidence_for_low_confidence |
 | 2 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 그 그래프 | highest | 93 | 33 | 11 | 8 | textbook_evidence_for_low_confidence |
 | 3 | 중2(교육과정 학년군: 중1-3) | 자료와 가능성 | 경우의 수와 확률 | highest | 72 | 26 | 6 | 11 | textbook_evidence_for_low_confidence |
-| 4 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 정수와 유리수 | highest | 47 | 31 | 3 | 2 | textbook_evidence_for_low_confidence |
+| 4 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 정수와 유리수 | highest | 65 | 41 | 5 | 2 | textbook_evidence_for_low_confidence |
 | 5 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 이차함수와 그 그래프 | highest | 46 | 20 | 3 | 7 | textbook_evidence_for_low_confidence |
 | 6 | 중1(교육과정 학년군: 중1-3) | 자료와 가능성 | 도수분포표와 상대도수 | highest | 44 | 26 | 3 | 3 | textbook_evidence_for_low_confidence |
 | 7 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 문자의 사용과 식 | highest | 42 | 18 | 3 | 6 | textbook_evidence_for_low_confidence |

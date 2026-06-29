@@ -2,13 +2,13 @@
 
 이 문서는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 출처 보강 때 먼저 확인할 대상을 정리한다.
 
-- 검토 대상 concept: 78개
+- 검토 대상 concept: 80개
 
 ## 영역별 검토 대상
 
 | 영역 | concept 수 |
 |---|---:|
-| 수와 연산 | 10 |
+| 수와 연산 | 12 |
 | 변화와 관계 | 44 |
 | 도형과 측정 | 12 |
 | 자료와 가능성 | 12 |
@@ -18,7 +18,8 @@
 | concept_type | concept 수 |
 |---|---:|
 | misconception_risk | 66 |
-| property | 1 |
+| procedure | 1 |
+| property | 2 |
 | representation | 1 |
 | sub_concept | 6 |
 | term | 4 |
@@ -34,6 +35,8 @@
 | m1_mis_absolute_value_positive | 수와 연산 | 정수와 유리수 | misconception_risk | textbook_evidence_needed | 절댓값을 항상 양수로만 말하는 오류 |  |
 | m1_mis_negative_order | 수와 연산 | 정수와 유리수 | misconception_risk | textbook_evidence_needed | 음수의 대소를 절댓값 크기로 판단하는 오류 |  |
 | m1_mis_sign_operation | 수와 연산 | 정수와 유리수 | misconception_risk | textbook_evidence_needed | 부호와 연산 기호를 혼동하는 오류 |  |
+| m1_num_subtraction_as_add_opposite | 수와 연산 | 정수와 유리수 | procedure | source_detail_needed | 뺄셈을 반대 부호의 덧셈으로 바꾸기 | 공식 성취기준의 사칙계산 원리에서 추론한 대표 절차이며, 교과서 본문 표현과 예제 근거를 확인하기 전까지 낮은 신뢰도로 둔다. |
+| m1_num_opposite_numbers | 수와 연산 | 정수와 유리수 | property | source_detail_needed | 절댓값이 같고 부호가 다른 두 수 | 공식 문서의 절댓값·부호·대소 관계에서 추론한 교과서 확인 필요 미시 concept이다. 교과서 본문 표현을 확인하기 전까지 낮은 신뢰도로 둔다. |
 | m1_mis_irrational_decimal | 수와 연산 | 제곱근과 실수 | misconception_risk | textbook_evidence_needed | 무한소수와 무리수를 같은 말로 보는 오류 |  |
 | m1_mis_radical_like_terms | 수와 연산 | 제곱근과 실수 | misconception_risk | textbook_evidence_needed | 근호 안의 수가 다른 제곱근을 동류항처럼 더하는 오류 |  |
 | m1_mis_radical_principal_root | 수와 연산 | 제곱근과 실수 | misconception_risk | textbook_evidence_needed | 근호가 나타내는 제곱근의 부호를 혼동하는 오류 |  |

@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 수와 연산
 - unit: 유리수와 순환소수
 - priority tier: medium
-- workplan score: 68
+- workplan score: 69
 - concepts: 10
-- edges touching unit: 44
-- cross-unit edges: 14
+- edges touching unit: 45
+- cross-unit edges: 15
 - low confidence concepts: 1
 - low confidence edges: 9
 
@@ -35,6 +35,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contrasts_with | 1 |
 | often_confused_with | 6 |
 | prerequisite_for | 17 |
+| related_to | 1 |
 | represented_by | 2 |
 | used_in | 6 |
 
@@ -62,3 +63,4 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_repeating_decimal_unit__prerequisite_for__m1_num_square_root_real_unit | 유리수와 순환소수 | prerequisite_for | 제곱근과 실수 | medium | official_dual_source |
 | m1_num_repeating_decimal_to_fraction__represented_by__m1_num_rational_number | 순환소수를 분수로 나타내기 | represented_by | 유리수 | high | official_dual_source |
 | m1_num_rational_number__used_in__m1_num_rational_repeating_relation | 유리수 | used_in | 유리수와 순환소수의 관계 | high | official_dual_source |
+| m1_num_rational_fraction_form__related_to__m1_num_rational_repeating_relation | 유리수의 분수 꼴 표현 | related_to | 유리수와 순환소수의 관계 | medium | official_dual_source |

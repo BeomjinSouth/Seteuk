@@ -11,8 +11,8 @@
 
 ## 현재 데이터 규모
 
-- 개념 노드: 493개
-- 관계 edge: 2064개
+- 개념 노드: 503개
+- 관계 edge: 2120개
 - `concepts.json` 출처: 5개
 - 로컬 출처 inventory: 5개 그룹
 
@@ -147,6 +147,7 @@ python docs/math-concept-map/tools/test_build_pilot_ratio_foundation.py
 python docs/math-concept-map/tools/test_build_pilot_data_representative_refs.py
 python docs/math-concept-map/tools/test_build_pilot_data_probability.py
 python docs/math-concept-map/tools/test_build_pilot_data_probability_microconcepts.py
+python docs/math-concept-map/tools/test_build_pilot_integer_rational_microconcepts.py
 python docs/math-concept-map/tools/test_build_textbook_extraction_queue.py
 python docs/math-concept-map/tools/test_build_textbook_evidence_packet.py
 python docs/math-concept-map/tools/test_build_textbook_edge_evidence_packet.py
@@ -167,9 +168,9 @@ python docs/math-concept-map/tools/test_build_unit_coverage.py
 python docs/math-concept-map/tools/test_validate_concept_map.py
 ```
 
-검증기는 필수 필드, id 중복, source/ref 무결성, CSV 행 수, Mermaid 파일, 공식 성취기준 60개(`9수01-01`~`9수04-09`)의 concept 근거 커버리지, `review-queue.csv`와 `low` 신뢰도 concept 수의 일치, 공식 용어·기호 168개 커버리지, concept alias 651개와 `equivalent_to` edge 3개, 연구보고서 concept 출현 후보 242개, 연구보고서 context/source-review 53개 row, `related-edge-resolution-queue.csv` 0개, `prerequisite-map.csv`의 `prerequisite_for` edge 761개, 단원 전이 edge 112개, 고립 concept 0개, concept 493개와 edge 2064개의 근거 깊이, 교과서 PDF 부재 상태의 concept 패킷 493개와 edge 패킷 2518개 row, workplan pending 3011개, rank 1 `좌표평면과 그래프` concept 43개와 edge 237개, 전체 unit-map concept 493개와 단원 접점 edge row 2518개를 재생성 결과와 일치하게 보존하는지 확인한다.
+검증기는 필수 필드, id 중복, source/ref 무결성, CSV 행 수, Mermaid 파일, 공식 성취기준 60개(`9수01-01`~`9수04-09`)의 concept 근거 커버리지, `review-queue.csv`와 `low` 신뢰도 concept 수 80개의 일치, 공식 용어·기호 168개 커버리지, concept alias 감사 row 503개와 `equivalent_to` edge 3개, 연구보고서 concept 출현 후보 242개, 연구보고서 context/source-review 53개 row, `related-edge-resolution-queue.csv` 0개, `prerequisite-map.csv`의 `prerequisite_for` edge 782개, 단원 전이 edge 127개, 고립 concept 0개, concept 503개와 edge 2120개의 근거 깊이, 교과서 PDF 부재 상태의 concept 패킷 503개와 edge 패킷 2575개 row, workplan pending 3078개, rank 1 `좌표평면과 그래프` concept 43개와 edge 237개, rank 4 `정수와 유리수` concept 41개와 edge 191개, 전체 unit-map concept 503개와 단원 접점 edge row 2575개를 재생성 결과와 일치하게 보존하는지 확인한다.
 
-단원별 고정 테스트는 좌표평면, 일차함수, 도형 기초, 변화와 관계, 입체도형, 비, 대푯값, 경우의 수와 확률의 보조 출처와 edge 방향을 함께 확인한다. `test_build_pilot_data_probability.py`는 `사건 A 또는 사건 B가 일어나는 경우의 수`의 연구보고서 p. 228, p. 240 보조 출처를 고정하고, `test_build_pilot_data_probability_microconcepts.py`는 `전체 경우의 수`, `사건이 일어나는 경우의 수`, `경우의 수의 비율로 확률 구하기`, `확률값`, `확률의 범위`, 확률이 0 또는 1인 사건과 OR/AND 경우의 수 edge 방향, 상대도수와 확률 표현 관계, 연구보고서 p. 260 및 p. 266~268의 보조 출처를 고정한다. `test_build_research_report_source_review.py`는 `비율그래프`만으로 매칭된 p. 183 row와 도구·자료 입력 맥락으로 매칭된 `입력` row를 직접 source ref 후보에서 제외하는지 고정한다. `achievement-coverage.*`는 같은 성취기준 추출 로직을 사용해 사람용/기계용 검토 표로 재생성한다.
+단원별 고정 테스트는 좌표평면, 일차함수, 도형 기초, 변화와 관계, 입체도형, 비, 대푯값, 경우의 수와 확률, 정수와 유리수의 보조 출처와 edge 방향을 함께 확인한다. `test_build_pilot_data_probability.py`는 `사건 A 또는 사건 B가 일어나는 경우의 수`의 연구보고서 p. 228, p. 240 보조 출처를 고정하고, `test_build_pilot_data_probability_microconcepts.py`는 `전체 경우의 수`, `사건이 일어나는 경우의 수`, `경우의 수의 비율로 확률 구하기`, `확률값`, `확률의 범위`, 확률이 0 또는 1인 사건과 OR/AND 경우의 수 edge 방향, 상대도수와 확률 표현 관계, 연구보고서 p. 260 및 p. 266~268의 보조 출처를 고정한다. `test_build_pilot_integer_rational_microconcepts.py`는 `0`, `유리수의 분수 꼴 표현`, 부호별 덧셈, 뺄셈을 덧셈으로 바꾸기, 곱셈·나눗셈 부호 결정, 나눗셈을 역수의 곱셈으로 바꾸기, 혼합계산 순서, 연구보고서 p. 211~212 보조 출처와 noisy prerequisite edge 제거를 고정한다. `test_build_research_report_source_review.py`는 `비율그래프`만으로 매칭된 p. 183 row와 도구·자료 입력 맥락으로 매칭된 `입력` row를 직접 source ref 후보에서 제외하는지 고정한다. `achievement-coverage.*`는 같은 성취기준 추출 로직을 사용해 사람용/기계용 검토 표로 재생성한다.
 
 `research-report-source-review.*`는 `research-report-context-packet.*`의 53개 row를 source ref 후보, 이미 반영한 source ref, 제외 대상으로 다시 분류하고, 모든 row의 `source_ref_upgrade_allowed: no` 상태를 보존하는지 검증한다.
 

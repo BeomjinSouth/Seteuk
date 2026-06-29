@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 유리수와 순환소수
 - priority tier: medium
 - priority score: 18
-- edges in packet: 44
-- cross-unit edges: 14
+- edges in packet: 45
+- cross-unit edges: 15
 - low confidence edges: 9
 
 ## Relationship Evidence Slots
@@ -62,6 +62,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_num_repeating_decimal_unit__prerequisite_for__m1_num_square_root_real_unit | cross_unit | 유리수와 순환소수 | prerequisite_for | 제곱근과 실수 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_num_repeating_decimal_to_fraction__represented_by__m1_num_rational_number | cross_unit | 순환소수를 분수로 나타내기 | represented_by | 유리수 | high | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
 | m1_num_rational_number__used_in__m1_num_rational_repeating_relation | cross_unit | 유리수 | used_in | 유리수와 순환소수의 관계 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_num_rational_fraction_form__related_to__m1_num_rational_repeating_relation | cross_unit | 유리수의 분수 꼴 표현 | related_to | 유리수와 순환소수의 관계 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 4 |
 
 ## Textbook Edge Evidence Fields
 
