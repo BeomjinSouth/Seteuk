@@ -7,7 +7,7 @@
 27,대푯값,m1_mis_mean_only_representative__often_confused_with__m1_data_median,m1_mis_mean_only_representative,대푯값을 평균으로만 보는 오류,대푯값,m1_data_median,중앙값,대푯값,often_confused_with,intra_unit,low,official_dual_source,yes,2,related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.
 27,대푯값,m1_mis_mean_only_representative__often_confused_with__m1_data_mode,m1_mis_mean_only_representative,대푯값을 평균으로만 보는 오류,대푯값,m1_data_mode,최빈값,대푯값,often_confused_with,intra_unit,low,official_dual_source,yes,2,related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.
 27,대푯값,m1_data_representative_unit__contains__m1_data_choose_representative_value,m1_data_representative_unit,대푯값,대푯값,m1_data_choose_representative_value,자료의 특성에 맞는 대푯값 선택,대푯값,contains,intra_unit,high,official_dual_source,yes,3,
-27,대푯값,m1_data_representative_unit__contains__m1_data_mean,m1_data_representative_unit,대푯값,대푯값,m1_data_mean,평균,대푯값,contains,intra_unit,medium,official_dual_source,yes,2,
+27,대푯값,m1_data_representative_unit__contains__m1_data_mean,m1_data_representative_unit,대푯값,대푯값,m1_data_mean,평균,대푯값,contains,intra_unit,medium,official_dual_source,yes,3,
 27,대푯값,m1_data_representative_unit__contains__m1_data_median,m1_data_representative_unit,대푯값,대푯값,m1_data_median,중앙값,대푯값,contains,intra_unit,high,official_dual_source,yes,3,
 27,대푯값,m1_data_representative_unit__contains__m1_data_mode,m1_data_representative_unit,대푯값,대푯값,m1_data_mode,최빈값,대푯값,contains,intra_unit,high,official_dual_source,yes,3,
 27,대푯값,m1_data_representative_unit__contains__m1_data_representative_value,m1_data_representative_unit,대푯값,대푯값,m1_data_representative_value,대푯값,대푯값,contains,intra_unit,high,official_dual_source,yes,4,
@@ -36,7 +36,7 @@
 27,대푯값,m1_data_representative_value__prerequisite_for__m1_data_variability,m1_data_representative_value,대푯값,대푯값,m1_data_variability,산포도,산포도,prerequisite_for,cross_unit,high,official_dual_source,yes,3,
 27,대푯값,m1_data_representative_value__prerequisite_for__m1_data_variability_unit,m1_data_representative_value,대푯값,대푯값,m1_data_variability_unit,산포도,산포도,prerequisite_for,cross_unit,high,official_dual_source,yes,2,
 27,대푯값,m1_num_order_relation__prerequisite_for__m1_data_median,m1_num_order_relation,정수와 유리수의 대소 관계,정수와 유리수,m1_data_median,중앙값,대푯값,prerequisite_for,cross_unit,high,official_dual_source,yes,3,
-27,대푯값,m1_num_rational_number__prerequisite_for__m1_data_mean,m1_num_rational_number,유리수,정수와 유리수,m1_data_mean,평균,대푯값,prerequisite_for,cross_unit,medium,official_dual_source,yes,2,
+27,대푯값,m1_num_rational_number__prerequisite_for__m1_data_mean,m1_num_rational_number,유리수,정수와 유리수,m1_data_mean,평균,대푯값,prerequisite_for,cross_unit,medium,official_dual_source,yes,3,
 27,대푯값,m1_data_distribution__used_in__m1_data_choose_representative_value,m1_data_distribution,자료의 분포,도수분포표와 상대도수,m1_data_choose_representative_value,자료의 특성에 맞는 대푯값 선택,대푯값,used_in,cross_unit,high,official_dual_source,yes,2,
 27,대푯값,m1_data_mean__used_in__m1_data_deviation,m1_data_mean,평균,대푯값,m1_data_deviation,편차,산포도,used_in,cross_unit,medium,official_dual_source,yes,2,
 27,대푯값,m1_data_representative_value__used_in__m1_data_variability,m1_data_representative_value,대푯값,대푯값,m1_data_variability,산포도,산포도,used_in,cross_unit,medium,official_dual_source,yes,2,

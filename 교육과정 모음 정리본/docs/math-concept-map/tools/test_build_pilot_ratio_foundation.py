@@ -48,10 +48,15 @@ class RatioFoundationConceptTests(unittest.TestCase):
         self.assertIn("achievement_research_report_2022", source_ids)
         self.assertEqual(ratio["confidence"], "low")
         self.assertIn("교과서", ratio["notes"])
-        self.assertEqual({ref["evidence_kind"] for ref in research_refs}, {"research_report_prerequisite_context"})
+        self.assertEqual(
+            {ref["evidence_kind"] for ref in research_refs},
+            {"research_report_prerequisite_context", "research_report_assessment_item_context"},
+        )
+        self.assertIn("p. 61", locators)
         self.assertIn("p. 172", locators)
         self.assertIn("p. 180", locators)
         self.assertIn("p. 181", locators)
+        self.assertIn("p. 184", locators)
 
     def test_ratio_links_cross_domain_ratio_based_concepts(self) -> None:
         edges = edge_keys()

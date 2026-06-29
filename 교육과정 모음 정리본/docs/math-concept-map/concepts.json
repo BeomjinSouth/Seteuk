@@ -2,7 +2,7 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-29T13:44:34",
+    "generated_at": "2026-06-29T14:03:37",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
     "concept_count": 476,
     "edge_count": 1967
@@ -1214,6 +1214,12 @@
         },
         {
           "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 61; 비율 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "동일한 비율을 분수, 소수, 백분율로 나타내고 비율을 활용하여 문제를 해결하는 초등 연계 평가 과제 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
           "locator": "연구보고서 p. 172; 비와 비율 성취기준별 성취수준",
           "evidence_kind": "research_report_prerequisite_context",
           "summary": "초등 연계 비와 비율 성취수준에서 비가 적용되는 상황과 비율 표현을 다루어 중학교 비율 계열의 공통 선수개념 근거를 보강함"
@@ -1229,6 +1235,12 @@
           "locator": "연구보고서 p. 181; 비와 비율 적용 및 실생활 문제 해결 맥락",
           "evidence_kind": "research_report_prerequisite_context",
           "summary": "안내된 절차에 따라 비와 비율, 비례식, 비례배분 문제 해결 및 실생활 맥락을 다루는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 184; 비율 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "동일한 비율을 분수, 소수, 백분율로 나타내고 백분율에 해당하는 양을 구하며 비율을 활용하여 문제를 해결하는 평가 과제 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -1246,7 +1258,7 @@
         "m1_data_relative_frequency",
         "m1_data_theoretical_probability"
       ],
-      "notes": "단독 용어로서의 직접 출처는 아직 약하지만 정비례·반비례, 닮음비, 평행선 사이의 선분 길이의 비, 삼각비, 상대도수와 확률의 비율 표현에서 반복되는 공통 선수개념으로 분리했다. 연구보고서 p. 172, p. 180, p. 181은 비와 비율의 선수 맥락을 보조하지만, 교과서 본문 또는 중학교 과정의 직접 근거 확인 전까지 낮은 신뢰도로 유지한다.",
+      "notes": "단독 용어로서의 직접 출처는 아직 약하지만 정비례·반비례, 닮음비, 평행선 사이의 선분 길이의 비, 삼각비, 상대도수와 확률의 비율 표현에서 반복되는 공통 선수개념으로 분리했다. 연구보고서 p. 61, p. 172, p. 180, p. 181, p. 184는 비와 비율의 선수·평가 맥락을 보조하지만, 교과서 본문 또는 중학교 과정의 직접 근거 확인 전까지 낮은 신뢰도로 유지한다.",
       "confidence": "low"
     },
     {
@@ -14518,6 +14530,18 @@
           "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 103; 입체도형의 모양 성취기준별 성취수준",
+          "evidence_kind": "research_report_prerequisite_context",
+          "summary": "주변 물건에서 직육면체, 원기둥, 구의 모양을 찾고 특징을 말하는 초등 연계 입체도형 기초 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 108; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체, 원기둥, 구의 모양을 이해하고 주변 물건을 분류하는 도형과 측정 영역별 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -14564,6 +14588,12 @@
           "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
           "evidence_kind": "research_report_achievement_level_context",
           "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -17387,6 +17417,12 @@
           "locator": "자료와 가능성 section; [9수04-01] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 177; 평균 성취기준별 성취수준",
+          "evidence_kind": "research_report_prerequisite_context",
+          "summary": "평균의 의미와 유용성을 인식하고 자료를 수집하여 평균을 구하고 해석하는 초등 연계 대푯값 선수 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -46476,6 +46512,18 @@
           "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 103; 입체도형의 모양 성취기준별 성취수준",
+          "evidence_kind": "research_report_prerequisite_context",
+          "summary": "주변 물건에서 직육면체, 원기둥, 구의 모양을 찾고 특징을 말하는 초등 연계 입체도형 기초 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 108; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체, 원기둥, 구의 모양을 이해하고 주변 물건을 분류하는 도형과 측정 영역별 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -46504,6 +46552,12 @@
           "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
           "evidence_kind": "research_report_achievement_level_context",
           "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -48314,6 +48368,12 @@
           "locator": "자료와 가능성 section; [9수04-01] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 177; 평균 성취기준별 성취수준",
+          "evidence_kind": "research_report_prerequisite_context",
+          "summary": "평균의 의미와 유용성을 인식하고 자료를 수집하여 평균을 구하고 해석하는 초등 연계 대푯값 선수 맥락"
         }
       ],
       "notes": "",
@@ -61264,6 +61324,18 @@
           "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 103; 입체도형의 모양 성취기준별 성취수준",
+          "evidence_kind": "research_report_prerequisite_context",
+          "summary": "주변 물건에서 직육면체, 원기둥, 구의 모양을 찾고 특징을 말하는 초등 연계 입체도형 기초 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 108; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체, 원기둥, 구의 모양을 이해하고 주변 물건을 분류하는 도형과 측정 영역별 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -61292,6 +61364,12 @@
           "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
           "evidence_kind": "research_report_achievement_level_context",
           "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -64254,6 +64332,12 @@
           "locator": "자료와 가능성 section; [9수04-01] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 177; 평균 성취기준별 성취수준",
+          "evidence_kind": "research_report_prerequisite_context",
+          "summary": "평균의 의미와 유용성을 인식하고 자료를 수집하여 평균을 구하고 해석하는 초등 연계 대푯값 선수 맥락"
         }
       ],
       "notes": "",

@@ -430,6 +430,23 @@ class AchievementCoverageTests(unittest.TestCase):
             2,
         )
 
+    def test_research_report_source_review_has_source_ref_work_accepts_applied_rows(self) -> None:
+        self.assertTrue(
+            validator.research_report_source_review_has_source_ref_work(
+                [{"source_ref_action": "applied_to_concepts_json"}]
+            )
+        )
+        self.assertTrue(
+            validator.research_report_source_review_has_source_ref_work(
+                [{"source_ref_action": "candidate_add_after_manual_review"}]
+            )
+        )
+        self.assertFalse(
+            validator.research_report_source_review_has_source_ref_work(
+                [{"source_ref_action": "do_not_add_from_this_row"}]
+            )
+        )
+
     def test_missing_research_report_source_review_keys_are_reported(self) -> None:
         expected_rows = [
             {"context_packet_rank": "1", "concept_id": "ratio", "page_number": "180"},

@@ -74,13 +74,13 @@
 - 현재 교과서 PDF가 없으므로 연구보고서 신호는 교과서 page-level 근거를 대체하지 않고, 보조 공식 문서 기반 검토 순서를 좁히는 용도로만 사용한다.
 - `research-report-context-packet.md`와 `research-report-context-packet.csv`를 추가해 low-confidence 후보와 상위 medium 후보를 연구보고서 page 맥락 48개 row로 좁혔다.
 - context packet의 모든 row는 `pending_context_review`와 `source_ref_upgrade_allowed: no` 상태를 유지하므로, 사람이 page 맥락을 확인하기 전에는 `concepts.json`의 source ref나 confidence를 바꾸지 않는다.
-- `research-report-source-review.md`와 `research-report-source-review.csv`는 같은 48개 row를 `candidate_prerequisite_evidence` 3개, `candidate_assessment_item_evidence` 5개, `candidate_achievement_level_evidence` 13개, `broad_report_context_only` 26개, `weak_occurrence_only` 1개로 분리한다.
-- `비`의 직접 연구보고서 후보 page 172, 180, 181, `사건 A 또는 사건 B가 일어나는 경우의 수`의 page 228, 240, `반비례`와 `교점`의 page 58, `전개도`의 page 173, 174, `뿔 모양 입체도형`의 page 174, `삼각형`·`길이`·`넓이`의 page 62 도형 평가 과제 맥락, `대각선`과 `한 변의 길이가 1인 정사각형의 대각선`의 page 213 무리수 성취수준 맥락은 source ref로 수동 적용되어 `applied_after_manual_review` 14개로 표시된다. 남은 row는 `pending_manual_review` 7개와 `not_applicable_from_this_row` 27개이며, 교과서 또는 중학교 과정 직접 근거가 확인되기 전까지 `비`는 `confidence: low`, 나머지 수동 적용 concept은 기존 `confidence: medium`을 유지한다.
+- `research-report-source-review.md`와 `research-report-source-review.csv`는 같은 48개 row를 `candidate_prerequisite_evidence` 3개, `candidate_assessment_item_evidence` 5개, `candidate_achievement_level_evidence` 12개, `broad_report_context_only` 28개로 분리한다.
+- `비`의 직접 연구보고서 후보 page 61, 172, 180, 181, 184, `사건 A 또는 사건 B가 일어나는 경우의 수`의 page 228, 240, `반비례`와 `교점`의 page 58, `전개도`의 page 173, 174, `기둥 모양 입체도형`의 page 103, 108, `뿔 모양 입체도형`의 page 174, 181, `평균`의 page 177, `삼각형`·`길이`·`넓이`의 page 62 도형 평가 과제 맥락, `대각선`과 `한 변의 길이가 1인 정사각형의 대각선`의 page 213 무리수 성취수준 맥락은 source ref로 수동 적용되어 `applied_after_manual_review` 20개로 표시된다. `비율그래프`만으로 매칭된 page 183은 `비` concept의 직접 근거로 보지 않아 제외했으며, 남은 row는 `not_applicable_from_this_row` 28개이고 `pending_manual_review`는 0개이다. 교과서 또는 중학교 과정 직접 근거가 확인되기 전까지 `비`는 `confidence: low`, 나머지 수동 적용 concept은 기존 `confidence: medium`을 유지한다.
 
 ## Source Reference Audit
 
 - `source-ref-audit.md`와 `source-ref-audit.csv`를 추가해 concept/edge의 `source_refs`를 출처와 근거 유형별로 추적한다.
-- 현재 source ref는 concept 1254개, edge 4872개, 총 6126개이다.
+- 현재 source ref는 concept 1260개, edge 4880개, 총 6140개이다.
 - 현재 `locator` 누락은 0개, `summary` 누락은 0개이다.
 - 이 감사는 교과서 PDF가 추가되기 전에도 공식 문서 기반 개념과 관계가 어떤 근거 유형에 기대고 있는지 확인하기 위한 재생성 가능한 점검표이다.
 

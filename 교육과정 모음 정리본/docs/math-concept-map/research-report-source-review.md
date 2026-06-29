@@ -12,19 +12,17 @@ The generated review still does not permit automatic source_ref or confidence up
 
 | evidence_candidate_type | rows |
 |---|---:|
-| broad_report_context_only | 26 |
-| candidate_achievement_level_evidence | 13 |
+| broad_report_context_only | 28 |
+| candidate_achievement_level_evidence | 12 |
 | candidate_assessment_item_evidence | 5 |
 | candidate_prerequisite_evidence | 3 |
-| weak_occurrence_only | 1 |
 
 ## Source Ref Application
 
 | application_status | rows |
 |---|---:|
-| applied_after_manual_review | 14 |
-| not_applicable_from_this_row | 27 |
-| pending_manual_review | 7 |
+| applied_after_manual_review | 20 |
+| not_applicable_from_this_row | 28 |
 
 ## Review Priority
 
@@ -42,25 +40,25 @@ The generated review still does not permit automatic source_ref or confidence up
 | 2 | m1_num_ratio | 비 | 180 | candidate_prerequisite_evidence | high | applied_to_concepts_json | applied_after_manual_review | keep_low_until_textbook_or_middle_course_evidence |
 | 3 | m1_num_ratio | 비 | 181 | candidate_prerequisite_evidence | high | applied_to_concepts_json | applied_after_manual_review | keep_low_until_textbook_or_middle_course_evidence |
 | 4 | m1_num_ratio | 비 | 91 | broad_report_context_only | medium | do_not_add_from_this_row | not_applicable_from_this_row | keep_low_until_textbook_or_middle_course_evidence |
-| 5 | m1_func_intersection_point | 교점 | 58 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
-| 6 | m1_prop_inverse_proportion | 반비례 | 58 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
-| 7 | m1_geo_prism | 기둥 모양 입체도형 | 103 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_current_confidence_until_source_review |
-| 8 | m1_geo_prism | 기둥 모양 입체도형 | 108 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_current_confidence_until_source_review |
-| 9 | m1_geo_solid_net | 전개도 | 173 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
-| 10 | m1_geo_pyramid | 뿔 모양 입체도형 | 174 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
-| 11 | m1_geo_solid_net | 전개도 | 174 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
-| 12 | m1_data_mean | 평균 | 177 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_current_confidence_until_source_review |
-| 13 | m1_geo_pyramid | 뿔 모양 입체도형 | 181 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_current_confidence_until_source_review |
-| 14 | m1_num_ratio | 비 | 183 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_low_until_textbook_or_middle_course_evidence |
-| 15 | m1_geo_diagonal | 대각선 | 213 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
-| 16 | m1_data_or_cases | 사건 A 또는 사건 B가 일어나는 경우의 수 | 228 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
-| 17 | m1_data_or_cases | 사건 A 또는 사건 B가 일어나는 경우의 수 | 240 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
-| 18 | m1_num_ratio | 비 | 61 | candidate_assessment_item_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_low_until_textbook_or_middle_course_evidence |
-| 19 | m1_geo_area | 넓이 | 62 | candidate_assessment_item_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
-| 20 | m1_geo_length | 길이 | 62 | candidate_assessment_item_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
-| 21 | m1_geo_triangle | 삼각형 | 62 | candidate_assessment_item_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
-| 22 | m1_num_ratio | 비 | 184 | candidate_assessment_item_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_low_until_textbook_or_middle_course_evidence |
-| 23 | m1_num_ratio | 비 | 177 | weak_occurrence_only | medium | do_not_add_from_this_row | not_applicable_from_this_row | keep_low_until_textbook_or_middle_course_evidence |
+| 5 | m1_num_ratio | 비 | 177 | broad_report_context_only | medium | do_not_add_from_this_row | not_applicable_from_this_row | keep_low_until_textbook_or_middle_course_evidence |
+| 6 | m1_num_ratio | 비 | 183 | broad_report_context_only | medium | do_not_add_from_this_row | not_applicable_from_this_row | keep_low_until_textbook_or_middle_course_evidence |
+| 7 | m1_func_intersection_point | 교점 | 58 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
+| 8 | m1_prop_inverse_proportion | 반비례 | 58 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
+| 9 | m1_geo_prism | 기둥 모양 입체도형 | 103 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
+| 10 | m1_geo_prism | 기둥 모양 입체도형 | 108 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
+| 11 | m1_geo_solid_net | 전개도 | 173 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
+| 12 | m1_geo_pyramid | 뿔 모양 입체도형 | 174 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
+| 13 | m1_geo_solid_net | 전개도 | 174 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
+| 14 | m1_data_mean | 평균 | 177 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
+| 15 | m1_geo_pyramid | 뿔 모양 입체도형 | 181 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
+| 16 | m1_geo_diagonal | 대각선 | 213 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
+| 17 | m1_data_or_cases | 사건 A 또는 사건 B가 일어나는 경우의 수 | 228 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
+| 18 | m1_data_or_cases | 사건 A 또는 사건 B가 일어나는 경우의 수 | 240 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
+| 19 | m1_num_ratio | 비 | 61 | candidate_assessment_item_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_low_until_textbook_or_middle_course_evidence |
+| 20 | m1_geo_area | 넓이 | 62 | candidate_assessment_item_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
+| 21 | m1_geo_length | 길이 | 62 | candidate_assessment_item_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
+| 22 | m1_geo_triangle | 삼각형 | 62 | candidate_assessment_item_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
+| 23 | m1_num_ratio | 비 | 184 | candidate_assessment_item_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_low_until_textbook_or_middle_course_evidence |
 | 24 | m1_geo_correspondence | 도형의 대응 | 5 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
 | 25 | m1_geo_figure | 도형 | 9 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
 | 26 | m1_geo_correspondence | 도형의 대응 | 12 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |

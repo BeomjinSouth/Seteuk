@@ -215,6 +215,39 @@ class BuildResearchReportSourceReviewTests(unittest.TestCase):
         self.assertEqual(row["source_ref_application_status"], "not_applicable_from_this_row")
         self.assertIn("전개도", row["review_reason"])
 
+    def test_source_review_rejects_ratio_graph_occurrence_as_ratio_source_ref(self) -> None:
+        context_rows = [
+            {
+                "rank": "1",
+                "concept_id": "m1_num_ratio",
+                "label_ko": "비",
+                "matched_term": "비율",
+                "grade": "중1(교육과정 학년군: 중1-3)",
+                "domain": "수와 연산",
+                "unit": "공통 선수개념",
+                "concept_type": "term",
+                "confidence": "low",
+                "recommended_action": "inspect_research_report_context_before_confidence_change",
+                "page_number": "183",
+                "match_count_on_page": "5",
+                "context_signal": "achievement_level_context",
+                "context_excerpt": "실생활에서 평균과 비율그래프의 유용성과 편리함을 인식한다.",
+                "source_locator_candidate": "연구보고서 p. 183",
+            }
+        ]
+
+        rows = review.research_report_source_review_rows(
+            context_rows,
+            applied_source_ref_keys=set(),
+            page_text_by_number={183: "자료와 가능성 영역별 성취수준 평균과 비율그래프의 유용성"},
+        )
+        row = rows[0]
+
+        self.assertEqual(row["evidence_candidate_type"], "broad_report_context_only")
+        self.assertEqual(row["source_ref_action"], "do_not_add_from_this_row")
+        self.assertEqual(row["source_ref_application_status"], "not_applicable_from_this_row")
+        self.assertIn("비율그래프", row["review_reason"])
+
     def test_markdown_and_csv_are_stable_outputs(self) -> None:
         rows = [
             {

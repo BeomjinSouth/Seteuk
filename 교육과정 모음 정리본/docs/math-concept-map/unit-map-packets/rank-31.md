@@ -34,7 +34,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 
 | concept_id | label_ko | type | evidence_depth | notes |
 |---|---|---|---|---|
-| m1_num_ratio | 비 | term | official_dual_source | 단독 용어로서의 직접 출처는 아직 약하지만 정비례·반비례, 닮음비, 평행선 사이의 선분 길이의 비, 삼각비, 상대도수와 확률의 비율 표현에서 반복되는 공통 선수개념으로 분리했다. 연구보고서 p. 172, p. 180, p. 181은 비와 비율의 선수 맥락을 보조하지만, 교과서 본문 또는 중학교 과정의 직접 근거 확인 전까지 낮은 신뢰도로 유지한다. |
+| m1_num_ratio | 비 | term | official_dual_source | 단독 용어로서의 직접 출처는 아직 약하지만 정비례·반비례, 닮음비, 평행선 사이의 선분 길이의 비, 삼각비, 상대도수와 확률의 비율 표현에서 반복되는 공통 선수개념으로 분리했다. 연구보고서 p. 61, p. 172, p. 180, p. 181, p. 184는 비와 비율의 선수·평가 맥락을 보조하지만, 교과서 본문 또는 중학교 과정의 직접 근거 확인 전까지 낮은 신뢰도로 유지한다. |
 
 ## Cross-Unit Edges
 

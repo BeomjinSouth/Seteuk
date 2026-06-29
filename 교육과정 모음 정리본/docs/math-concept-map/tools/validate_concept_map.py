@@ -365,6 +365,11 @@ def research_report_source_review_action_count(records: list[dict], action: str)
     return sum(1 for record in records if record.get("source_ref_action") == action)
 
 
+def research_report_source_review_has_source_ref_work(records: list[dict]) -> bool:
+    source_ref_actions = {"candidate_add_after_manual_review", "applied_to_concepts_json"}
+    return any(record.get("source_ref_action") in source_ref_actions for record in records)
+
+
 def research_report_source_review_key(record: dict) -> str:
     return f"{record.get('context_packet_rank', '')}:{record.get('concept_id', '')}:{record.get('page_number', '')}"
 
@@ -770,11 +775,8 @@ def main() -> None:
         fail(f"research-report-source-review.csv missing review keys: {missing_research_source_review_keys}")
     if research_source_review_rows != expected_research_source_review_csv_rows:
         fail("research-report-source-review.csv rows do not match generated source review")
-    if research_report_source_review_action_count(
-        research_source_review_rows,
-        "candidate_add_after_manual_review",
-    ) == 0:
-        fail("research-report-source-review.csv has no source-ref review candidates")
+    if not research_report_source_review_has_source_ref_work(research_source_review_rows):
+        fail("research-report-source-review.csv has no source-ref review candidates or applied refs")
     if any(row.get("source_ref_upgrade_allowed") != "no" for row in research_source_review_rows):
         fail("research-report-source-review.csv allows source_ref upgrades without review")
     if not research_report_source_review_md.exists() or "# Research Report Source Review" not in research_report_source_review_md.read_text(encoding="utf-8"):

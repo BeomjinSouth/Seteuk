@@ -823,6 +823,24 @@ ACH_RESEARCH_PYRAMID_174 = source_ref(
     "research_report_achievement_level_context",
     "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락",
 )
+ACH_RESEARCH_PRISM_103 = source_ref(
+    "achievement_research_report_2022",
+    "연구보고서 p. 103; 입체도형의 모양 성취기준별 성취수준",
+    "research_report_prerequisite_context",
+    "주변 물건에서 직육면체, 원기둥, 구의 모양을 찾고 특징을 말하는 초등 연계 입체도형 기초 맥락",
+)
+ACH_RESEARCH_PRISM_108 = source_ref(
+    "achievement_research_report_2022",
+    "연구보고서 p. 108; 도형과 측정 영역별 성취수준",
+    "research_report_achievement_level_context",
+    "직육면체, 원기둥, 구의 모양을 이해하고 주변 물건을 분류하는 도형과 측정 영역별 성취수준 맥락",
+)
+ACH_RESEARCH_PYRAMID_181 = source_ref(
+    "achievement_research_report_2022",
+    "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+    "research_report_achievement_level_context",
+    "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락",
+)
 ACH_RESEARCH_TRIANGLE_ITEM_62 = source_ref(
     "achievement_research_report_2022",
     "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
@@ -877,6 +895,12 @@ ACH_DATA_REPRESENTATIVE = source_ref(
     "achievement_level",
     "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분",
 )
+ACH_RESEARCH_MEAN_177 = source_ref(
+    "achievement_research_report_2022",
+    "연구보고서 p. 177; 평균 성취기준별 성취수준",
+    "research_report_prerequisite_context",
+    "평균의 의미와 유용성을 인식하고 자료를 수집하여 평균을 구하고 해석하는 초등 연계 대푯값 선수 맥락",
+)
 ACH_DATA_FREQ_REL = source_ref(
     "achievement_math_2022",
     "자료와 가능성 section; [9수04-02]~[9수04-04] achievement levels",
@@ -895,6 +919,12 @@ ACH_RESEARCH_RATIO_172 = source_ref(
     "research_report_prerequisite_context",
     "초등 연계 비와 비율 성취수준에서 비가 적용되는 상황과 비율 표현을 다루어 중학교 비율 계열의 공통 선수개념 근거를 보강함",
 )
+ACH_RESEARCH_RATIO_ITEM_61 = source_ref(
+    "achievement_research_report_2022",
+    "연구보고서 p. 61; 비율 예시 평가도구",
+    "research_report_assessment_item_context",
+    "동일한 비율을 분수, 소수, 백분율로 나타내고 비율을 활용하여 문제를 해결하는 초등 연계 평가 과제 맥락",
+)
 ACH_RESEARCH_RATIO_180 = source_ref(
     "achievement_research_report_2022",
     "연구보고서 p. 180; 비와 비율, 비례식과 비례배분 성취수준 맥락",
@@ -906,6 +936,12 @@ ACH_RESEARCH_RATIO_181 = source_ref(
     "연구보고서 p. 181; 비와 비율 적용 및 실생활 문제 해결 맥락",
     "research_report_prerequisite_context",
     "안내된 절차에 따라 비와 비율, 비례식, 비례배분 문제 해결 및 실생활 맥락을 다루는 성취수준 맥락",
+)
+ACH_RESEARCH_RATIO_ITEM_184 = source_ref(
+    "achievement_research_report_2022",
+    "연구보고서 p. 184; 비율 예시 평가도구",
+    "research_report_assessment_item_context",
+    "동일한 비율을 분수, 소수, 백분율로 나타내고 백분율에 해당하는 양을 구하며 비율을 활용하여 문제를 해결하는 평가 과제 맥락",
 )
 ACH_DATA_VARIABILITY = source_ref(
     "achievement_math_2022",
@@ -1391,9 +1427,11 @@ CONCEPTS = [
             ACH_GEO_SIMILARITY,
             ACH_GEO_TRIG,
             ACH_DATA_PROBABILITY,
+            ACH_RESEARCH_RATIO_ITEM_61,
             ACH_RESEARCH_RATIO_172,
             ACH_RESEARCH_RATIO_180,
             ACH_RESEARCH_RATIO_181,
+            ACH_RESEARCH_RATIO_ITEM_184,
         ],
         prerequisite_ids=["m1_num_rational_number"],
         parent_ids=["m1_num_domain"],
@@ -1406,7 +1444,7 @@ CONCEPTS = [
             "m1_data_relative_frequency",
             "m1_data_theoretical_probability",
         ],
-        notes="단독 용어로서의 직접 출처는 아직 약하지만 정비례·반비례, 닮음비, 평행선 사이의 선분 길이의 비, 삼각비, 상대도수와 확률의 비율 표현에서 반복되는 공통 선수개념으로 분리했다. 연구보고서 p. 172, p. 180, p. 181은 비와 비율의 선수 맥락을 보조하지만, 교과서 본문 또는 중학교 과정의 직접 근거 확인 전까지 낮은 신뢰도로 유지한다.",
+        notes="단독 용어로서의 직접 출처는 아직 약하지만 정비례·반비례, 닮음비, 평행선 사이의 선분 길이의 비, 삼각비, 상대도수와 확률의 비율 표현에서 반복되는 공통 선수개념으로 분리했다. 연구보고서 p. 61, p. 172, p. 180, p. 181, p. 184는 비와 비율의 선수·평가 맥락을 보조하지만, 교과서 본문 또는 중학교 과정의 직접 근거 확인 전까지 낮은 신뢰도로 유지한다.",
         confidence="low",
         grade="중1(교육과정 학년군: 중1-3)",
         domain="수와 연산",
@@ -5466,7 +5504,7 @@ GEO_CONCEPTS = [
         ["각기둥", "원기둥", "prism"],
         "sub_concept",
         "서로 평행하고 합동인 두 밑면을 가진 입체도형 계열.",
-        [CURR_GEO_08, ACH_GEO_SOLID],
+        [CURR_GEO_08, ACH_GEO_SOLID, ACH_RESEARCH_PRISM_103, ACH_RESEARCH_PRISM_108],
         prerequisite_ids=["m1_geo_polyhedron"],
         parent_ids=["m1_geo_solid_unit"],
         related_ids=["m1_geo_surface_area", "m1_geo_volume"],
@@ -5479,7 +5517,7 @@ GEO_CONCEPTS = [
         ["각뿔", "원뿔", "pyramid"],
         "sub_concept",
         "하나의 밑면과 꼭짓점으로 모이는 옆면을 가진 입체도형 계열.",
-        [CURR_GEO_08, ACH_GEO_SOLID, ACH_RESEARCH_PYRAMID_174],
+        [CURR_GEO_08, ACH_GEO_SOLID, ACH_RESEARCH_PYRAMID_174, ACH_RESEARCH_PYRAMID_181],
         prerequisite_ids=["m1_geo_polyhedron"],
         parent_ids=["m1_geo_solid_unit"],
         related_ids=["m1_geo_surface_area", "m1_geo_volume", "m1_geo_frustum_pyramid"],
@@ -6364,7 +6402,7 @@ DATA_CONCEPTS = [
         ["average", "산술평균"],
         "term",
         "자료의 값을 모두 더해 자료 수로 나눈 대푯값.",
-        [CURR_DATA_REP_NOTE, ACH_DATA_REPRESENTATIVE],
+        [CURR_DATA_REP_NOTE, ACH_DATA_REPRESENTATIVE, ACH_RESEARCH_MEAN_177],
         prerequisite_ids=["m1_num_rational_number"],
         parent_ids=["m1_data_representative_unit"],
         related_ids=["m1_data_median", "m1_data_mode", "m1_mis_mean_only_representative"],

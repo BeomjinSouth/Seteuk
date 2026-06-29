@@ -128,10 +128,19 @@ def is_term_collision_context(row: dict, page_text_by_number: dict[int, str] | N
     )
 
 
+def is_ratio_graph_occurrence(row: dict, page_text_by_number: dict[int, str] | None = None) -> bool:
+    page_number = int_value(row.get("page_number", ""))
+    full_page_text = (page_text_by_number or {}).get(page_number, "")
+    review_text = " ".join([str(row.get("context_excerpt", "")), str(full_page_text)])
+    return str(row.get("concept_id", "")) == "m1_num_ratio" and "비율그래프" in review_text
+
+
 def evidence_candidate_type(row: dict, page_text_by_number: dict[int, str] | None = None) -> str:
     if is_broad_context(row, page_text_by_number=page_text_by_number):
         return "broad_report_context_only"
     if is_term_collision_context(row, page_text_by_number=page_text_by_number):
+        return "broad_report_context_only"
+    if is_ratio_graph_occurrence(row, page_text_by_number=page_text_by_number):
         return "broad_report_context_only"
     if is_prerequisite_context(row):
         return "candidate_prerequisite_evidence"
@@ -187,6 +196,8 @@ def review_reason(row: dict, candidate_type: str) -> str:
         return "Research-report page appears to contain achievement-level context with repeated matches."
     if is_term_collision_context(row):
         return "Matched term is the solid-geometry 전개도 context, not algebraic expansion."
+    if is_ratio_graph_occurrence(row):
+        return "Matched term is the 비율그래프 context, not a direct source for the ratio concept."
     if candidate_type == "broad_report_context_only":
         return "Page appears to be table-of-contents, overview, or broad curriculum context."
     return "Matched term appears without enough page context for a source_ref decision."
