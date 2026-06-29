@@ -73,6 +73,13 @@ PREREQUISITE_CONTEXT_MARKERS = (
     "비례식",
     "비례배분",
 )
+SOLID_NET_CONTEXT_MARKERS = (
+    "전개도",
+    "직육면체",
+    "정육면체",
+    "각기둥",
+    "원기둥",
+)
 
 
 def split_semicolon(value: object) -> list[str]:
@@ -112,8 +119,19 @@ def is_prerequisite_context(row: dict) -> bool:
     )
 
 
+def is_term_collision_context(row: dict, page_text_by_number: dict[int, str] | None = None) -> bool:
+    page_number = int_value(row.get("page_number", ""))
+    full_page_text = (page_text_by_number or {}).get(page_number, "")
+    review_text = " ".join([str(row.get("context_excerpt", "")), str(full_page_text)])
+    return str(row.get("concept_id", "")) == "m1_calc_expansion" and "전개도" in review_text and any(
+        marker in review_text for marker in SOLID_NET_CONTEXT_MARKERS
+    )
+
+
 def evidence_candidate_type(row: dict, page_text_by_number: dict[int, str] | None = None) -> str:
     if is_broad_context(row, page_text_by_number=page_text_by_number):
+        return "broad_report_context_only"
+    if is_term_collision_context(row, page_text_by_number=page_text_by_number):
         return "broad_report_context_only"
     if is_prerequisite_context(row):
         return "candidate_prerequisite_evidence"
@@ -167,6 +185,8 @@ def review_reason(row: dict, candidate_type: str) -> str:
         return "Research-report page appears to contain assessment-item context for the matched concept."
     if candidate_type == "candidate_achievement_level_evidence":
         return "Research-report page appears to contain achievement-level context with repeated matches."
+    if is_term_collision_context(row):
+        return "Matched term is the solid-geometry 전개도 context, not algebraic expansion."
     if candidate_type == "broad_report_context_only":
         return "Page appears to be table-of-contents, overview, or broad curriculum context."
     return "Matched term appears without enough page context for a source_ref decision."

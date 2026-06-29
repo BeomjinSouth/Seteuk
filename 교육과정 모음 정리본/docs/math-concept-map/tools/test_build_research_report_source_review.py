@@ -182,6 +182,39 @@ class BuildResearchReportSourceReviewTests(unittest.TestCase):
         self.assertEqual(row["source_ref_action"], "do_not_add_from_this_row")
         self.assertEqual(row["source_ref_application_status"], "not_applicable_from_this_row")
 
+    def test_source_review_rejects_algebraic_expansion_on_solid_net_pages(self) -> None:
+        context_rows = [
+            {
+                "rank": "1",
+                "concept_id": "m1_calc_expansion",
+                "label_ko": "전개",
+                "matched_term": "전개",
+                "grade": "중1(교육과정 학년군: 중1-3)",
+                "domain": "변화와 관계",
+                "unit": "식의 계산",
+                "concept_type": "procedure",
+                "confidence": "medium",
+                "recommended_action": "inspect_research_report_context_before_source_ref_upgrade",
+                "page_number": "174",
+                "match_count_on_page": "3",
+                "context_signal": "achievement_level_context; curriculum_context",
+                "context_excerpt": "각기둥의 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별할 수 있다.",
+                "source_locator_candidate": "연구보고서 p. 174",
+            }
+        ]
+
+        rows = review.research_report_source_review_rows(
+            context_rows,
+            applied_source_ref_keys=set(),
+            page_text_by_number={174: "각기둥과 각뿔 원기둥의 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별한다."},
+        )
+        row = rows[0]
+
+        self.assertEqual(row["evidence_candidate_type"], "broad_report_context_only")
+        self.assertEqual(row["source_ref_action"], "do_not_add_from_this_row")
+        self.assertEqual(row["source_ref_application_status"], "not_applicable_from_this_row")
+        self.assertIn("전개도", row["review_reason"])
+
     def test_markdown_and_csv_are_stable_outputs(self) -> None:
         rows = [
             {

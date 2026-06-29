@@ -1071,10 +1071,27 @@
 - diff check: `git diff --check -- docs/math-concept-map 교과서_원본`: 종료 코드 0, CRLF 변환 경고만 확인.
 - PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
 
+## 2026-06-29 research report source review 전개 오탐 제외
+
+- AGENTS.md를 다시 확인했고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` source-review 생성 로직과 파생 산출물 정비로 제한했다.
+- 연구보고서 p. 173, p. 174의 `전개` 매칭은 대수적 `m1_calc_expansion`이 아니라 입체도형의 `전개도` 맥락임을 이전 원문 확인 결과에 따라 source review 제외 규칙으로 고정했다.
+- TDD red: `python -m unittest discover -s .\docs\math-concept-map\tools -p "test_build_research_report_source_review.py"`가 `m1_calc_expansion`의 입체도형 전개도 page를 `candidate_achievement_level_evidence`로 분류해 실패하는 것을 확인했다.
+- `build_research_report_source_review.py`에 `m1_calc_expansion`과 입체도형 `전개도` 문맥의 용어 충돌 제외 규칙을 추가했다.
+- `research-report-source-review.*`를 재생성해 `m1_calc_expansion` p. 173, p. 174 row를 `broad_report_context_only`와 `not_applicable_from_this_row`로 정리했다.
+- source review 분포는 `candidate_prerequisite_evidence` 3개, `candidate_assessment_item_evidence` 5개, `candidate_achievement_level_evidence` 13개, `broad_report_context_only` 26개, `weak_occurrence_only` 1개가 되었다.
+- source ref 적용 상태는 `applied_after_manual_review` 10개, `pending_manual_review` 11개, `not_applicable_from_this_row` 27개로 정리되었다.
+- source ref 총계는 변하지 않았으며 concept 1249개, edge 4859개, 총 6108개이다.
+- `README.md`와 `source-audit.md`를 새 source review 분포와 적용 상태에 맞게 갱신했다.
+- 좁은 생성기 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p "test_build_research_report_source_review.py"`가 6개 통과했다.
+- 전체 단위 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p "test_*.py"`: 189개 통과.
+- 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 476개 concept, 1966개 edge, 5개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map 교과서_원본`: 종료 코드 0, CRLF 변환 경고만 확인.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
-- 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 남은 `pending_manual_review` 13개를 검토해, 공식 연구보고서 맥락이 실제 concept 정의·예시 평가도구·채점 기준 근거인지 확인하고 source ref 또는 confidence 보강 여부를 별도로 결정한다. 단, `비` confidence 승격은 교과서 본문 또는 중학교 과정 직접 근거 확인 후 판단한다.
+- 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 남은 `pending_manual_review` 11개를 검토해, 공식 연구보고서 맥락이 실제 concept 정의·예시 평가도구·채점 기준 근거인지 확인하고 source ref 또는 confidence 보강 여부를 별도로 결정한다. 단, `비` confidence 승격은 교과서 본문 또는 중학교 과정 직접 근거 확인 후 판단한다.
 - 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.
 - 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 40개와 edge packet row 202개, 총 242개 row로 유지하되, 전체 단원 검토는 `unit-map-packets/index.*`에서 rank 1~34 순서로 이어간다.
 - 새 concept, alias, `related_ids`, 또는 `equivalent_to` 후보가 추가되면 `equivalence-alias-audit.*`, `related-edge-resolution-queue.*`, `textbook-edge-evidence-packets/*`, `edge-evidence-depth.*`를 함께 재생성한다.
