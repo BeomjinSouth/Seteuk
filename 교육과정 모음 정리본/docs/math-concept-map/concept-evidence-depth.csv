@@ -23,7 +23,7 @@ m1_num_positive_integer,양의 정수,중1(교육과정 학년군: 중1-3),수�
 m1_num_negative_integer,음의 정수,중1(교육과정 학년군: 중1-3),수와 연산,정수와 유리수,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes
 m1_num_integer,정수,중1(교육과정 학년군: 중1-3),수와 연산,정수와 유리수,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes
 m1_num_rational_number,유리수,중1(교육과정 학년군: 중1-3),수와 연산,정수와 유리수,high,5,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes
-m1_num_ratio,비,중1(교육과정 학년군: 중1-3),수와 연산,공통 선수개념,low,10,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; teaching_note,yes,yes,no,official_dual_source,yes
+m1_num_ratio,비,중1(교육과정 학년군: 중1-3),수와 연산,공통 선수개념,low,13,3,4,achievement_math_2022; achievement_research_report_2022; curriculum_math_2022,achievement_level; achievement_standard; research_report_prerequisite_context; teaching_note,yes,yes,no,official_dual_source,yes
 m1_num_positive_rational,양의 유리수,중1(교육과정 학년군: 중1-3),수와 연산,정수와 유리수,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes
 m1_num_negative_rational,음의 유리수,중1(교육과정 학년군: 중1-3),수와 연산,정수와 유리수,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes
 m1_num_number_line,수직선,중1(교육과정 학년군: 중1-3),수와 연산,정수와 유리수,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes

@@ -25,7 +25,7 @@
 
 | concept_id | 영역 | 단원 | 유형 | 우선순위 | label_ko | notes |
 |---|---|---|---|---|---|---|
-| m1_num_ratio | 수와 연산 | 공통 선수개념 | term | source_detail_needed | 비 | 단독 용어로서의 직접 출처는 아직 약하지만 정비례·반비례, 닮음비, 평행선 사이의 선분 길이의 비, 삼각비, 상대도수와 확률의 비율 표현에서 반복되는 공통 선수개념으로 분리했다. 교과서 본문 및 초등 연계 근거 보강이 필요하다. |
+| m1_num_ratio | 수와 연산 | 공통 선수개념 | term | source_detail_needed | 비 | 단독 용어로서의 직접 출처는 아직 약하지만 정비례·반비례, 닮음비, 평행선 사이의 선분 길이의 비, 삼각비, 상대도수와 확률의 비율 표현에서 반복되는 공통 선수개념으로 분리했다. 연구보고서 p. 172, p. 180, p. 181은 비와 비율의 선수 맥락을 보조하지만, 교과서 본문 또는 중학교 과정의 직접 근거 확인 전까지 낮은 신뢰도로 유지한다. |
 | m1_mis_gcd_lcm_scope | 수와 연산 | 소인수분해 | misconception_risk | textbook_evidence_needed | 최대공약수·최소공배수 활용 문제를 범위로 오인하는 오류 | 공식 문서의 제외 범위를 학습 범위 관리용 오개념 위험으로 기록했다. |
 | m1_mis_prime_one | 수와 연산 | 소인수분해 | misconception_risk | textbook_evidence_needed | 1을 소수나 합성수로 보는 오류 |  |
 | m1_mis_finite_to_repeating_scope | 수와 연산 | 유리수와 순환소수 | misconception_risk | textbook_evidence_needed | 유한소수를 순환소수로 나타내는 활동을 범위로 오인하는 오류 | 공식 문서의 제외 범위를 학습 범위 관리용 오개념 위험으로 기록했다. |

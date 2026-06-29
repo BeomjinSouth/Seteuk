@@ -835,6 +835,24 @@ ACH_DATA_PROBABILITY = source_ref(
     "achievement_level",
     "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분",
 )
+ACH_RESEARCH_RATIO_172 = source_ref(
+    "achievement_research_report_2022",
+    "연구보고서 p. 172; 비와 비율 성취기준별 성취수준",
+    "research_report_prerequisite_context",
+    "초등 연계 비와 비율 성취수준에서 비가 적용되는 상황과 비율 표현을 다루어 중학교 비율 계열의 공통 선수개념 근거를 보강함",
+)
+ACH_RESEARCH_RATIO_180 = source_ref(
+    "achievement_research_report_2022",
+    "연구보고서 p. 180; 비와 비율, 비례식과 비례배분 성취수준 맥락",
+    "research_report_prerequisite_context",
+    "비와 비율의 의미와 표현 방법, 비례식과 비례배분의 의미를 종합적으로 이해하는 맥락으로 비 개념의 선수 맥락을 보강함",
+)
+ACH_RESEARCH_RATIO_181 = source_ref(
+    "achievement_research_report_2022",
+    "연구보고서 p. 181; 비와 비율 적용 및 실생활 문제 해결 맥락",
+    "research_report_prerequisite_context",
+    "안내된 절차에 따라 비와 비율, 비례식, 비례배분 문제 해결 및 실생활 맥락을 다루는 성취수준 맥락",
+)
 ACH_DATA_VARIABILITY = source_ref(
     "achievement_math_2022",
     "자료와 가능성 section; [9수04-07] achievement levels",
@@ -1296,7 +1314,21 @@ CONCEPTS = [
         ["ratio", "비율", "두 양의 비"],
         "term",
         "두 양을 나눗셈으로 비교하여 한 양이 다른 양의 몇 배인지 나타내는 관계.",
-        [CURR_07, CURR_GEO_12, CURR_GEO_14, CURR_GEO_16, CURR_DATA_03, CURR_DATA_PROB_NOTE, ACH_PROP, ACH_GEO_SIMILARITY, ACH_GEO_TRIG, ACH_DATA_PROBABILITY],
+        [
+            CURR_07,
+            CURR_GEO_12,
+            CURR_GEO_14,
+            CURR_GEO_16,
+            CURR_DATA_03,
+            CURR_DATA_PROB_NOTE,
+            ACH_PROP,
+            ACH_GEO_SIMILARITY,
+            ACH_GEO_TRIG,
+            ACH_DATA_PROBABILITY,
+            ACH_RESEARCH_RATIO_172,
+            ACH_RESEARCH_RATIO_180,
+            ACH_RESEARCH_RATIO_181,
+        ],
         prerequisite_ids=["m1_num_rational_number"],
         parent_ids=["m1_num_domain"],
         related_ids=[
@@ -1308,7 +1340,7 @@ CONCEPTS = [
             "m1_data_relative_frequency",
             "m1_data_theoretical_probability",
         ],
-        notes="단독 용어로서의 직접 출처는 아직 약하지만 정비례·반비례, 닮음비, 평행선 사이의 선분 길이의 비, 삼각비, 상대도수와 확률의 비율 표현에서 반복되는 공통 선수개념으로 분리했다. 교과서 본문 및 초등 연계 근거 보강이 필요하다.",
+        notes="단독 용어로서의 직접 출처는 아직 약하지만 정비례·반비례, 닮음비, 평행선 사이의 선분 길이의 비, 삼각비, 상대도수와 확률의 비율 표현에서 반복되는 공통 선수개념으로 분리했다. 연구보고서 p. 172, p. 180, p. 181은 비와 비율의 선수 맥락을 보조하지만, 교과서 본문 또는 중학교 과정의 직접 근거 확인 전까지 낮은 신뢰도로 유지한다.",
         confidence="low",
         grade="중1(교육과정 학년군: 중1-3)",
         domain="수와 연산",
@@ -8139,6 +8171,12 @@ SOURCES = [
         "title": "2022 개정 중학교 수학 성취수준",
         "path": "2022_개정_중학교_성취수준_PDF/성취수준/02_수학_성취수준.pdf",
         "source_type": "official_achievement_level_pdf",
+    },
+    {
+        "id": "achievement_research_report_2022",
+        "title": "2022 개정 초·중학교 수학과 성취수준 개발 연구보고서",
+        "path": "2022_개정_중학교_성취수준_PDF/연구보고서/02_수학_성취수준_개발_연구보고서.pdf",
+        "source_type": "official_research_report_pdf",
     },
     {
         "id": "unit_summary_math_json",

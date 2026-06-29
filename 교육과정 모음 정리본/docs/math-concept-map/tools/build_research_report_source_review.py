@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import csv
+import json
+import re
 from collections import Counter
 from pathlib import Path
 from typing import Iterable
@@ -10,8 +12,10 @@ import build_research_report_context_packet as context_packet
 
 ROOT = Path(__file__).resolve().parents[3]
 OUT_DIR = ROOT / "docs" / "math-concept-map"
+CONCEPTS_JSON = OUT_DIR / "concepts.json"
 RESEARCH_REPORT_SOURCE_REVIEW_CSV = OUT_DIR / "research-report-source-review.csv"
 RESEARCH_REPORT_SOURCE_REVIEW_MD = OUT_DIR / "research-report-source-review.md"
+RESEARCH_REPORT_SOURCE_ID = "achievement_research_report_2022"
 
 CSV_FIELDS = [
     "rank",
@@ -30,6 +34,7 @@ CSV_FIELDS = [
     "review_decision",
     "review_priority",
     "source_ref_action",
+    "source_ref_application_status",
     "confidence_action",
     "source_ref_upgrade_allowed",
     "review_reason",
@@ -38,10 +43,15 @@ CSV_FIELDS = [
 
 SOURCE_REF_UPGRADE_ALLOWED = "no"
 MANUAL_REVIEW_REQUIRED = "manual_review_required"
+APPLIED_AFTER_MANUAL_REVIEW = "applied_after_manual_review"
 DO_NOT_ADD_FROM_THIS_ROW = "do_not_add_from_this_row"
 CANDIDATE_ADD_AFTER_REVIEW = "candidate_add_after_manual_review"
+APPLIED_TO_CONCEPTS_JSON = "applied_to_concepts_json"
+PENDING_MANUAL_REVIEW = "pending_manual_review"
+NOT_APPLICABLE_FROM_THIS_ROW = "not_applicable_from_this_row"
 KEEP_CONFIDENCE = "keep_current_confidence_until_source_review"
 KEEP_LOW = "keep_low_until_textbook_or_middle_course_evidence"
+PAGE_RE = re.compile(r"p\.\s*(\d+)")
 
 BROAD_CONTEXT_MARKERS = (
     "목차",
@@ -119,6 +129,14 @@ def source_ref_action(candidate_type: str) -> str:
     return DO_NOT_ADD_FROM_THIS_ROW
 
 
+def source_ref_application_status(action: str) -> str:
+    if action == APPLIED_TO_CONCEPTS_JSON:
+        return APPLIED_AFTER_MANUAL_REVIEW
+    if action == CANDIDATE_ADD_AFTER_REVIEW:
+        return PENDING_MANUAL_REVIEW
+    return NOT_APPLICABLE_FROM_THIS_ROW
+
+
 def confidence_action(row: dict, candidate_type: str) -> str:
     if str(row.get("confidence", "")) == "low":
         return KEEP_LOW
@@ -139,8 +157,47 @@ def review_reason(row: dict, candidate_type: str) -> str:
     return "Matched term appears without enough page context for a source_ref decision."
 
 
-def source_review_row(row: dict, rank: int) -> dict:
+def source_ref_page_numbers(locator: object) -> set[str]:
+    return set(PAGE_RE.findall(str(locator or "")))
+
+
+def applied_source_ref_keys(concepts: Iterable[dict]) -> set[tuple[str, str]]:
+    keys: set[tuple[str, str]] = set()
+    for concept in concepts:
+        concept_id = str(concept.get("id", ""))
+        for ref in concept.get("source_refs", []):
+            if str(ref.get("source_id", "")) != RESEARCH_REPORT_SOURCE_ID:
+                continue
+            for page_number in source_ref_page_numbers(ref.get("locator", "")):
+                keys.add((concept_id, page_number))
+    return keys
+
+
+def read_applied_source_ref_keys(path: Path = CONCEPTS_JSON) -> set[tuple[str, str]]:
+    if not path.exists():
+        return set()
+    data = json.loads(path.read_text(encoding="utf-8"))
+    return applied_source_ref_keys(data.get("concepts", []))
+
+
+def source_review_row(row: dict, rank: int, applied_source_ref_keys: set[tuple[str, str]] | None = None) -> dict:
     candidate_type = evidence_candidate_type(row)
+    applied = (
+        str(row.get("concept_id", "")),
+        str(row.get("page_number", "")),
+    ) in (applied_source_ref_keys or set())
+    action = APPLIED_TO_CONCEPTS_JSON if applied else source_ref_action(candidate_type)
+    decision = APPLIED_AFTER_MANUAL_REVIEW if applied else MANUAL_REVIEW_REQUIRED
+    reason = (
+        "Matching research-report source_ref exists in concepts.json; keep confidence decisions separate."
+        if applied
+        else review_reason(row, candidate_type)
+    )
+    notes = (
+        "Applied source_ref exists in concepts.json; confidence still waits for textbook or direct middle-course evidence."
+        if applied
+        else "Review source page before changing concepts.json; this generated review does not apply source_refs."
+    )
     return {
         "rank": rank,
         "context_packet_rank": row.get("rank", ""),
@@ -155,18 +212,26 @@ def source_review_row(row: dict, rank: int) -> dict:
         "source_locator_candidate": row.get("source_locator_candidate", ""),
         "context_signal": row.get("context_signal", ""),
         "evidence_candidate_type": candidate_type,
-        "review_decision": MANUAL_REVIEW_REQUIRED,
+        "review_decision": decision,
         "review_priority": review_priority(candidate_type, row),
-        "source_ref_action": source_ref_action(candidate_type),
+        "source_ref_action": action,
+        "source_ref_application_status": source_ref_application_status(action),
         "confidence_action": confidence_action(row, candidate_type),
         "source_ref_upgrade_allowed": SOURCE_REF_UPGRADE_ALLOWED,
-        "review_reason": review_reason(row, candidate_type),
-        "notes": "Review source page before changing concepts.json; this generated review does not apply source_refs.",
+        "review_reason": reason,
+        "notes": notes,
     }
 
 
-def research_report_source_review_rows(context_rows: Iterable[dict]) -> list[dict]:
-    rows = [source_review_row(row, rank=index) for index, row in enumerate(context_rows, start=1)]
+def research_report_source_review_rows(
+    context_rows: Iterable[dict],
+    applied_source_ref_keys: set[tuple[str, str]] | None = None,
+) -> list[dict]:
+    applied_keys = read_applied_source_ref_keys() if applied_source_ref_keys is None else applied_source_ref_keys
+    rows = [
+        source_review_row(row, rank=index, applied_source_ref_keys=applied_keys)
+        for index, row in enumerate(context_rows, start=1)
+    ]
     priority_order = {"high": 0, "medium": 1, "low": 2}
     rows.sort(
         key=lambda row: (
@@ -196,11 +261,13 @@ def write_csv(rows: list[dict], path: Path = RESEARCH_REPORT_SOURCE_REVIEW_CSV) 
 def render_markdown(rows: list[dict]) -> str:
     candidate_counts = Counter(str(row.get("evidence_candidate_type", "")) for row in rows)
     priority_counts = Counter(str(row.get("review_priority", "")) for row in rows)
+    application_counts = Counter(str(row.get("source_ref_application_status", "")) for row in rows)
     lines = [
         "# Research Report Source Review",
         "",
         "This generated review separates source-worthy research-report context from broad or weak occurrences.",
-        "Rows remain review tasks only; they do not modify `concepts.json` or permit automatic source_ref upgrades.",
+        "Rows with matching reviewed source_refs in `concepts.json` are marked as applied; all other rows remain review tasks.",
+        "The generated review still does not permit automatic source_ref or confidence upgrades.",
         "",
         "## Summary",
         "",
@@ -213,6 +280,18 @@ def render_markdown(rows: list[dict]) -> str:
     ]
     for candidate_type, count in sorted(candidate_counts.items()):
         lines.append(f"| {candidate_type} | {count} |")
+
+    lines.extend(
+        [
+            "",
+            "## Source Ref Application",
+            "",
+            "| application_status | rows |",
+            "|---|---:|",
+        ]
+    )
+    for status, count in sorted(application_counts.items()):
+        lines.append(f"| {status} | {count} |")
 
     lines.extend(
         [
@@ -231,14 +310,14 @@ def render_markdown(rows: list[dict]) -> str:
             "",
             "## Review Rows",
             "",
-            "| rank | concept_id | label | page | candidate type | priority | source_ref_action | confidence_action |",
-            "|---:|---|---|---:|---|---|---|---|",
+            "| rank | concept_id | label | page | candidate type | priority | source_ref_action | application_status | confidence_action |",
+            "|---:|---|---|---:|---|---|---|---|---|",
         ]
     )
     for row in rows[:80]:
         lines.append(
             "| {rank} | {concept_id} | {label_ko} | {page_number} | {evidence_candidate_type} | "
-            "{review_priority} | {source_ref_action} | {confidence_action} |".format(**row)
+            "{review_priority} | {source_ref_action} | {source_ref_application_status} | {confidence_action} |".format(**row)
         )
     lines.append("")
     return "\n".join(lines)

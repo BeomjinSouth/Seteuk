@@ -34,6 +34,25 @@ class RatioFoundationConceptTests(unittest.TestCase):
         self.assertIn("교과서", ratio["notes"])
         self.assertTrue(ratio["source_refs"])
 
+    def test_ratio_keeps_reviewed_research_report_prerequisite_context(self) -> None:
+        concepts = concepts_by_id()
+        ratio = concepts["m1_num_ratio"]
+        source_ids = {source["id"] for source in build_pilot.SOURCES}
+        research_refs = [
+            ref
+            for ref in ratio["source_refs"]
+            if ref["source_id"] == "achievement_research_report_2022"
+        ]
+        locators = " ".join(ref["locator"] for ref in research_refs)
+
+        self.assertIn("achievement_research_report_2022", source_ids)
+        self.assertEqual(ratio["confidence"], "low")
+        self.assertIn("교과서", ratio["notes"])
+        self.assertEqual({ref["evidence_kind"] for ref in research_refs}, {"research_report_prerequisite_context"})
+        self.assertIn("p. 172", locators)
+        self.assertIn("p. 180", locators)
+        self.assertIn("p. 181", locators)
+
     def test_ratio_links_cross_domain_ratio_based_concepts(self) -> None:
         edges = edge_keys()
         expected_edges = {

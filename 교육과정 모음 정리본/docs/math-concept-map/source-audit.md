@@ -6,7 +6,7 @@
 | --- | --- | --- | --- |
 | `curriculum_math_2022` | 2022 개정 수학과 교육과정 [별책8] | `2022_개정_중학교_교육과정_PDF/교과/02_[별책8] 수학과 교육과정.pdf` | 사용 |
 | `achievement_math_2022` | 2022 개정 중학교 수학 성취수준 | `2022_개정_중학교_성취수준_PDF/성취수준/02_수학_성취수준.pdf` | 사용 |
-| `achievement_research_report_2022` | 2022 개정 초·중학교 수학과 성취수준 개발 연구보고서 | `2022_개정_중학교_성취수준_PDF/연구보고서/02_수학_성취수준_개발_연구보고서.pdf` | 보조 후보 신호로 사용 |
+| `achievement_research_report_2022` | 2022 개정 초·중학교 수학과 성취수준 개발 연구보고서 | `2022_개정_중학교_성취수준_PDF/연구보고서/02_수학_성취수준_개발_연구보고서.pdf` | 보조 출처로 일부 적용 |
 | `unit_summary_math_json` | 수학 단원 정리 JSON | `교육과정_단원_정리/교과별_JSON/02_수학_단원_정리.json` | 보조 사용 |
 | `textbook_originals` | 교과서·익힘책·지도서 원본 | `교과서_원본/` | 현재 비어 있음 |
 
@@ -43,7 +43,7 @@
 - 공식 교육과정 PDF와 성취수준 PDF에서 평균 외 중앙값·최빈값의 필요성, 자료의 특성에 따른 대푯값 선택, 줄기와 잎 그림·도수분포표·히스토그램·도수분포다각형 표현과 해석, 상대도수의 분포와 두 집단 비교 상황을 확인했다.
 - 공식 교육과정 PDF와 성취수준 PDF에서 통계적 탐구 문제 설정, 자료 수집 계획, 인터넷 검색·웹 기반 소프트웨어·통계 프로그램 등 공학 도구 활용, 표·그래프·수치 분석, 탐구 문제와 연결한 결과 해석, 통계적 근거에 따른 토론을 확인했다.
 - 공식 교육과정 PDF와 성취수준 PDF에서 경우의 수는 두 경우의 수를 합하거나 곱하는 정도로 다루며 복잡한 순열·조합 문제는 다루지 않는 범위, 사건 A 또는 B와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하는 예시 평가 문항, 확률의 기본 성질, 상대도수로서의 확률과 경우의 수의 비율로서의 확률, 동등 가능성 가정을 확인했다.
-- `비`는 공식 문서에서 단독 용어로 강하게 분리된 항목은 아니지만 정비례·반비례, 닮음비, 평행선 사이의 선분 길이의 비, 삼각비, 상대도수와 확률의 비율 표현에서 반복되므로 `confidence: low`인 공통 선수개념으로 분리했다. 교과서 본문과 초등 연계 근거로 보강해야 한다.
+- `비`는 공식 문서에서 단독 용어로 강하게 분리된 항목은 아니지만 정비례·반비례, 닮음비, 평행선 사이의 선분 길이의 비, 삼각비, 상대도수와 확률의 비율 표현에서 반복되므로 `confidence: low`인 공통 선수개념으로 분리했다. 연구보고서 p. 172, p. 180, p. 181은 비와 비율의 선수 맥락 보조 출처로 반영했지만, 교과서 본문 또는 중학교 과정 직접 근거 확인 전까지 confidence는 올리지 않는다.
 - 공식 교육과정 PDF와 성취수준 PDF에서 산포도, 편차, 분산, 표준편차, 두 집단 분포 비교, 공학 도구를 이용한 사분위수와 상자그림, 상자그림으로 두 집단의 분포 비교, 산점도와 양의 상관관계·음의 상관관계·상관관계가 없는 경우를 확인했다.
 
 ## 현재 제한
@@ -74,13 +74,13 @@
 - 현재 교과서 PDF가 없으므로 연구보고서 신호는 교과서 page-level 근거를 대체하지 않고, 보조 공식 문서 기반 검토 순서를 좁히는 용도로만 사용한다.
 - `research-report-context-packet.md`와 `research-report-context-packet.csv`를 추가해 low-confidence 후보와 상위 medium 후보를 연구보고서 page 맥락 48개 row로 좁혔다.
 - context packet의 모든 row는 `pending_context_review`와 `source_ref_upgrade_allowed: no` 상태를 유지하므로, 사람이 page 맥락을 확인하기 전에는 `concepts.json`의 source ref나 confidence를 바꾸지 않는다.
-- `research-report-source-review.md`와 `research-report-source-review.csv`를 추가해 같은 48개 row를 `candidate_prerequisite_evidence` 3개, `candidate_assessment_item_evidence` 8개, `candidate_achievement_level_evidence` 25개, `broad_report_context_only` 6개, `weak_occurrence_only` 6개로 분리했다.
-- `비`의 직접 연구보고서 후보 page 172, 180, 181은 high priority 수동 검토 후보로 두되, 교과서 또는 중학교 과정 직접 근거가 확인되기 전까지 `confidence: low` 유지 대상으로 기록한다.
+- `research-report-source-review.md`와 `research-report-source-review.csv`는 같은 48개 row를 `candidate_prerequisite_evidence` 3개, `candidate_assessment_item_evidence` 8개, `candidate_achievement_level_evidence` 25개, `broad_report_context_only` 6개, `weak_occurrence_only` 6개로 분리한다.
+- `비`의 직접 연구보고서 후보 page 172, 180, 181은 source ref로 수동 적용되어 `applied_after_manual_review` 3개로 표시된다. 남은 row는 `pending_manual_review` 33개와 `not_applicable_from_this_row` 12개이며, 교과서 또는 중학교 과정 직접 근거가 확인되기 전까지 `confidence: low` 유지 대상으로 기록한다.
 
 ## Source Reference Audit
 
 - `source-ref-audit.md`와 `source-ref-audit.csv`를 추가해 concept/edge의 `source_refs`를 출처와 근거 유형별로 추적한다.
-- 현재 source ref는 concept 1239개, edge 4839개, 총 6078개이다.
+- 현재 source ref는 concept 1242개, edge 4839개, 총 6081개이다.
 - 현재 `locator` 누락은 0개, `summary` 누락은 0개이다.
 - 이 감사는 교과서 PDF가 추가되기 전에도 공식 문서 기반 개념과 관계가 어떤 근거 유형에 기대고 있는지 확인하기 위한 재생성 가능한 점검표이다.
 

@@ -279,7 +279,7 @@
 
 ## Research Report Source Review CSV
 
-`research-report-source-review.csv`는 `research-report-context-packet.csv`의 page 맥락을 source ref 보강 후보, 평가도구 근거 후보, 넓은 보고서 맥락, 약한 출현으로 분류한 파생 검토 큐다. 이 파일은 `concepts.json`을 직접 수정하지 않으며, 모든 row는 수동 검토 전 자동 source ref 승격을 금지한다.
+`research-report-source-review.csv`는 `research-report-context-packet.csv`의 page 맥락을 source ref 보강 후보, 평가도구 근거 후보, 넓은 보고서 맥락, 약한 출현으로 분류한 파생 검토 큐다. 이 파일은 자동으로 `concepts.json`을 수정하지 않으며, 이미 수동 검토 후 반영된 연구보고서 source ref가 있으면 적용 상태만 표시한다. 모든 row는 수동 검토 전 자동 source ref 또는 confidence 승격을 금지한다.
 
 | 필드 | 설명 |
 | --- | --- |
@@ -296,13 +296,14 @@
 | `source_locator_candidate` | 후보 출처 위치 |
 | `context_signal` | 원본 context packet의 page 맥락 신호 |
 | `evidence_candidate_type` | `candidate_prerequisite_evidence`, `candidate_assessment_item_evidence`, `candidate_achievement_level_evidence`, `broad_report_context_only`, `weak_occurrence_only` 중 하나 |
-| `review_decision` | 현재는 `manual_review_required` |
+| `review_decision` | `manual_review_required` 또는 `applied_after_manual_review` |
 | `review_priority` | `high`, `medium`, `low` 중 하나 |
-| `source_ref_action` | `candidate_add_after_manual_review` 또는 `do_not_add_from_this_row` |
+| `source_ref_action` | `candidate_add_after_manual_review`, `applied_to_concepts_json`, `do_not_add_from_this_row` 중 하나 |
+| `source_ref_application_status` | `pending_manual_review`, `applied_after_manual_review`, `not_applicable_from_this_row` 중 하나 |
 | `confidence_action` | 신뢰도 유지 또는 low 유지 사유 |
-| `source_ref_upgrade_allowed` | 검토 전 자동 승격 금지 표시. 현재는 `no` |
+| `source_ref_upgrade_allowed` | 검토 전 자동 승격 금지 표시. 적용된 row도 confidence 자동 승격은 금지하므로 현재는 `no` |
 | `review_reason` | 분류와 다음 행동의 간단한 이유 |
-| `notes` | `concepts.json` 변경 전 page 원문 검토 필요 메모 |
+| `notes` | `concepts.json` 변경 전 page 원문 검토 필요 또는 이미 반영된 source ref의 confidence 보류 메모 |
 
 ## Source Reference Audit CSV
 

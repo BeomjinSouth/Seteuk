@@ -18,7 +18,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded e
 
 | concept_id | label_ko | type | confidence | evidence_depth | status | required evidence | focus | source refs |
 |---|---|---|---|---|---|---|---|---:|
-| m1_num_ratio | 비 | term | low | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs;extraction_notes | Find textbook term explanation or definition. | 10 |
+| m1_num_ratio | 비 | term | low | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs;extraction_notes | Find textbook term explanation or definition. | 13 |
 
 ## Textbook Evidence Fields
 

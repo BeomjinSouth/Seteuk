@@ -64,17 +64,52 @@ class BuildResearchReportSourceReviewTests(unittest.TestCase):
             },
         ]
 
-        rows = review.research_report_source_review_rows(context_rows)
+        rows = review.research_report_source_review_rows(context_rows, applied_source_ref_keys=set())
         by_id = {row["concept_id"]: row for row in rows}
 
         self.assertEqual(by_id["ratio"]["evidence_candidate_type"], "candidate_prerequisite_evidence")
         self.assertEqual(by_id["ratio"]["source_ref_action"], "candidate_add_after_manual_review")
+        self.assertEqual(by_id["ratio"]["source_ref_application_status"], "pending_manual_review")
         self.assertEqual(by_id["ratio"]["confidence_action"], "keep_low_until_textbook_or_middle_course_evidence")
         self.assertEqual(by_id["figure"]["evidence_candidate_type"], "broad_report_context_only")
         self.assertEqual(by_id["figure"]["source_ref_action"], "do_not_add_from_this_row")
+        self.assertEqual(by_id["figure"]["source_ref_application_status"], "not_applicable_from_this_row")
         self.assertEqual(by_id["triangle"]["evidence_candidate_type"], "candidate_assessment_item_evidence")
         self.assertEqual(by_id["triangle"]["review_decision"], "manual_review_required")
         self.assertEqual(by_id["triangle"]["source_ref_upgrade_allowed"], "no")
+
+    def test_source_review_marks_matching_research_report_refs_as_applied(self) -> None:
+        context_rows = [
+            {
+                "rank": "1",
+                "concept_id": "m1_num_ratio",
+                "label_ko": "비",
+                "matched_term": "비율",
+                "grade": "중1",
+                "domain": "수와 연산",
+                "unit": "공통 선수개념",
+                "concept_type": "term",
+                "confidence": "low",
+                "recommended_action": "inspect_research_report_context_before_confidence_change",
+                "page_number": "180",
+                "match_count_on_page": "8",
+                "context_signal": "achievement_level_context; curriculum_context",
+                "context_excerpt": "비와 비율의 의미와 표현 방법을 종합적으로 이해한다.",
+                "source_locator_candidate": "연구보고서 p. 180",
+            }
+        ]
+
+        rows = review.research_report_source_review_rows(
+            context_rows,
+            applied_source_ref_keys={("m1_num_ratio", "180")},
+        )
+        row = rows[0]
+
+        self.assertEqual(row["review_decision"], "applied_after_manual_review")
+        self.assertEqual(row["source_ref_action"], "applied_to_concepts_json")
+        self.assertEqual(row["source_ref_application_status"], "applied_after_manual_review")
+        self.assertEqual(row["source_ref_upgrade_allowed"], "no")
+        self.assertEqual(row["confidence_action"], "keep_low_until_textbook_or_middle_course_evidence")
 
     def test_markdown_and_csv_are_stable_outputs(self) -> None:
         rows = [
@@ -95,6 +130,7 @@ class BuildResearchReportSourceReviewTests(unittest.TestCase):
                 "review_decision": "manual_review_required",
                 "review_priority": "high",
                 "source_ref_action": "candidate_add_after_manual_review",
+                "source_ref_application_status": "pending_manual_review",
                 "confidence_action": "keep_low_until_textbook_or_middle_course_evidence",
                 "source_ref_upgrade_allowed": "no",
                 "review_reason": "Low-confidence prerequisite concept has direct ratio context.",
