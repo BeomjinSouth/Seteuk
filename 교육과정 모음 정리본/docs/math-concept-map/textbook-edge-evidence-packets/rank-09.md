@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 다항식의 곱셈과 인수분해
 - priority tier: high
 - priority score: 36
-- edges in packet: 89
-- cross-unit edges: 33
+- edges in packet: 90
+- cross-unit edges: 34
 - low confidence edges: 22
 
 ## Relationship Evidence Slots
@@ -94,9 +94,10 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_factor_factorization__prerequisite_for__m1_quad_eq_factorization_solving | cross_unit | 인수분해 | prerequisite_for | 인수분해를 이용한 이차방정식 풀이 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_factor_factorization__prerequisite_for__m1_quad_eq_solving | cross_unit | 인수분해 | prerequisite_for | 이차방정식 풀기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_factor_quadratic_expression__prerequisite_for__m1_quad_eq_quadratic_equation | cross_unit | 이차식 | prerequisite_for | 이차방정식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
-| m1_factor_quadratic_expression__prerequisite_for__m1_quad_func_formula | cross_unit | 이차식 | prerequisite_for | 이차함수의 식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
-| m1_factor_quadratic_expression__prerequisite_for__m1_quad_func_general_form | cross_unit | 이차식 | prerequisite_for | y=ax^2+bx+c 꼴 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
-| m1_factor_quadratic_expression__prerequisite_for__m1_quad_func_quadratic_function | cross_unit | 이차식 | prerequisite_for | 이차함수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_factor_quadratic_expression__prerequisite_for__m1_quad_func_formula | cross_unit | 이차식 | prerequisite_for | 이차함수의 식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_factor_quadratic_expression__prerequisite_for__m1_quad_func_general_form | cross_unit | 이차식 | prerequisite_for | y=ax^2+bx+c 꼴 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_factor_quadratic_expression__prerequisite_for__m1_quad_func_quadratic_function | cross_unit | 이차식 | prerequisite_for | 이차함수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_factor_quadratic_expression__prerequisite_for__m1_quad_func_situation_to_formula | cross_unit | 이차식 | prerequisite_for | 상황을 이차함수 식으로 나타내기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_factor_unit__prerequisite_for__m1_quad_eq_unit | cross_unit | 다항식의 곱셈과 인수분해 | prerequisite_for | 이차방정식 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_factor_quadratic_expression__represented_by__m1_quad_eq_standard_form | cross_unit | 이차식 | represented_by | 이차방정식의 식 표현 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 3 |
 | m1_factor_binomial_product_xab__used_in__m1_quad_eq_factorization_solving | cross_unit | (x+a)(x+b) 공식 | used_in | 인수분해를 이용한 이차방정식 풀이 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 4 |

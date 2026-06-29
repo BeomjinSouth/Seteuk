@@ -38,6 +38,7 @@ digraph pilot_unit_map {
   "m1_quad_func_formula" [label="이차함수의 식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_quad_func_general_form" [label="y=ax^2+bx+c 꼴\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_quad_func_quadratic_function" [label="이차함수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_quad_func_situation_to_formula" [label="상황을 이차함수 식으로 나타내기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_quad_eq_standard_form" [label="이차방정식의 식 표현\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_distributive_law" [label="분배법칙\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_expr_term" [label="항\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -122,6 +123,7 @@ digraph pilot_unit_map {
   "m1_factor_quadratic_expression" -> "m1_quad_func_formula" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_factor_quadratic_expression" -> "m1_quad_func_general_form" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_factor_quadratic_expression" -> "m1_quad_func_quadratic_function" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_factor_quadratic_expression" -> "m1_quad_func_situation_to_formula" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_factor_unit" -> "m1_quad_eq_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_factor_quadratic_expression" -> "m1_quad_eq_standard_form" [label="represented_by", style="dashed", color="#6b7280"];
   "m1_factor_binomial_product_xab" -> "m1_quad_eq_factorization_solving" [label="used_in", style="dashed", color="#6b7280"];

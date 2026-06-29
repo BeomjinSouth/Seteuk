@@ -242,14 +242,24 @@ flowchart LR
   m1_quad_func_unit["이차함수와 그 그래프"]
   m1_quad_func_quadratic_function["이차함수"]
   m1_quad_func_formula["이차함수의 식"]
+  m1_quad_func_identifying_quadratic_function["이차함수 판별하기"]
+  m1_quad_func_situation_to_formula["상황을 이차함수 식으로 나타내기"]
   m1_quad_func_y_fx["y=f(x)"]
   m1_quad_func_graph["이차함수의 그래프"]
   m1_quad_func_parabola["포물선"]
   m1_quad_func_axis["축"]
   m1_quad_func_vertex["꼭짓점"]
   m1_quad_func_y_ax2_graph["y=ax^2 그래프"]
+  m1_quad_func_y_ax2_form["y=ax^2 꼴"]
+  m1_quad_func_shifted_square_form["y=a(x-p)^2 꼴"]
+  m1_quad_func_vertical_shift_form["y=ax^2+q 꼴"]
   m1_quad_func_vertex_form["y=a(x-p)^2+q 꼴"]
   m1_quad_func_general_form["y=ax^2+bx+c 꼴"]
+  m1_quad_func_value_table["이차함수의 값의 표"]
+  m1_quad_func_vertex_coordinates["꼭짓점 좌표"]
+  m1_quad_func_axis_equation["축의 방정식"]
+  m1_quad_func_opening_direction["위로 열린 그래프와 아래로 열린 그래프"]
+  m1_quad_func_vertex_form_graph_reading["꼭짓점형에서 그래프 성질 읽기"]
   m1_quad_func_graph_drawing["이차함수 그래프 그리기"]
   m1_quad_func_graph_properties["이차함수 그래프의 성질"]
   m1_quad_func_maximum["최댓값"]
@@ -1048,19 +1058,39 @@ flowchart LR
   m1_factor_quadratic_expression -- "사용" --> m1_quad_func_formula
   m1_quad_func_quadratic_function -- "표현" --> m1_quad_func_formula
   m1_quad_func_quadratic_function -- "표현" --> m1_quad_func_graph
+  m1_quad_func_quadratic_function -- "사용" --> m1_quad_func_identifying_quadratic_function
+  m1_quad_func_quadratic_function -- "사용" --> m1_quad_func_situation_to_formula
+  m1_quad_func_situation_to_formula -- "사용" --> m1_quad_func_identifying_quadratic_function
+  m1_quad_func_formula -- "사용" --> m1_quad_func_situation_to_formula
   m1_quad_func_formula -- "표현" --> m1_quad_func_y_fx
-  m1_quad_func_formula -- "포함" --> m1_quad_func_y_ax2_graph
+  m1_quad_func_formula -- "포함" --> m1_quad_func_y_ax2_form
+  m1_quad_func_formula -- "포함" --> m1_quad_func_shifted_square_form
+  m1_quad_func_formula -- "포함" --> m1_quad_func_vertical_shift_form
   m1_quad_func_formula -- "포함" --> m1_quad_func_vertex_form
   m1_quad_func_formula -- "포함" --> m1_quad_func_general_form
-  m1_quad_func_vertex_form -- "연관" --> m1_quad_func_general_form
+  m1_quad_func_y_ax2_form -- "표현" --> m1_quad_func_y_ax2_graph
+  m1_quad_func_y_ax2_form -- "연관" --> m1_quad_func_shifted_square_form
+  m1_quad_func_y_ax2_form -- "연관" --> m1_quad_func_vertical_shift_form
+  m1_quad_func_y_ax2_form -- "연관" --> m1_quad_func_vertex_form
   m1_quad_func_y_ax2_graph -- "연관" --> m1_quad_func_vertex_form
+  m1_quad_func_shifted_square_form -- "연관" --> m1_quad_func_vertex_form
+  m1_quad_func_vertical_shift_form -- "연관" --> m1_quad_func_vertex_form
+  m1_quad_func_shifted_square_form -- "표현" --> m1_quad_func_axis_equation
+  m1_quad_func_shifted_square_form -- "표현" --> m1_quad_func_vertex_coordinates
+  m1_quad_func_vertical_shift_form -- "표현" --> m1_quad_func_axis_equation
+  m1_quad_func_vertical_shift_form -- "표현" --> m1_quad_func_vertex_coordinates
+  m1_quad_func_vertex_form -- "연관" --> m1_quad_func_general_form
   m1_coord_coordinate_plane -- "사용" --> m1_quad_func_graph
   m1_graph_graph -- "선수" --> m1_quad_func_graph
   m1_quad_func_graph -- "포함" --> m1_quad_func_parabola
+  m1_quad_func_graph -- "표현" --> m1_quad_func_parabola
   m1_quad_func_graph -- "사용" --> m1_quad_func_graph_properties
   m1_quad_func_graph -- "사용" --> m1_quad_func_graph_drawing
+  m1_quad_func_value_table -- "사용" --> m1_quad_func_graph
+  m1_quad_func_value_table -- "사용" --> m1_quad_func_y_ax2_graph
   m1_quad_func_y_ax2_graph -- "사용" --> m1_quad_func_graph_drawing
   m1_quad_func_vertex_form -- "사용" --> m1_quad_func_graph_drawing
+  m1_quad_func_vertex_form_graph_reading -- "사용" --> m1_quad_func_graph_drawing
   m1_quad_func_graph_properties -- "사용" --> m1_quad_func_graph_drawing
   m1_quad_func_general_form -- "사용" --> m1_quad_func_graph_properties
   m1_func_parallel_translation -- "사용" --> m1_quad_func_vertex_form
@@ -1068,12 +1098,26 @@ flowchart LR
   m1_quad_func_graph_properties -- "포함" --> m1_quad_func_vertex
   m1_quad_func_vertex_form -- "표현" --> m1_quad_func_axis
   m1_quad_func_vertex_form -- "표현" --> m1_quad_func_vertex
+  m1_quad_func_vertex_form -- "표현" --> m1_quad_func_vertex_coordinates
+  m1_quad_func_vertex_form -- "표현" --> m1_quad_func_axis_equation
+  m1_quad_func_axis_equation -- "사용" --> m1_quad_func_vertex_form_graph_reading
+  m1_quad_func_vertex_coordinates -- "사용" --> m1_quad_func_vertex_form_graph_reading
+  m1_quad_func_vertex_form_graph_reading -- "사용" --> m1_quad_func_graph_properties
   m1_quad_func_graph_properties -- "포함" --> m1_quad_func_maximum
   m1_quad_func_graph_properties -- "포함" --> m1_quad_func_minimum
   m1_quad_func_graph_properties -- "포함" --> m1_quad_func_max_min_real_scope
   m1_quad_func_parabola -- "포함" --> m1_quad_func_axis
   m1_quad_func_parabola -- "포함" --> m1_quad_func_vertex
   m1_quad_func_axis -- "연관" --> m1_quad_func_vertex
+  m1_quad_func_axis -- "대조" --> m1_quad_func_vertex
+  m1_quad_func_vertex -- "대조" --> m1_quad_func_axis
+  m1_quad_func_axis -- "표현" --> m1_quad_func_axis_equation
+  m1_quad_func_vertex -- "표현" --> m1_quad_func_vertex_coordinates
+  m1_quad_func_axis_equation -- "연관" --> m1_quad_func_vertex_coordinates
+  m1_quad_func_opening_direction -- "사용" --> m1_quad_func_graph_properties
+  m1_quad_func_opening_direction -- "연관" --> m1_quad_func_y_ax2_graph
+  m1_quad_func_opening_direction -- "연관" --> m1_quad_func_maximum
+  m1_quad_func_opening_direction -- "연관" --> m1_quad_func_minimum
   m1_quad_func_maximum -- "대조" --> m1_quad_func_minimum
   m1_quad_func_minimum -- "대조" --> m1_quad_func_maximum
   m1_quad_func_vertex -- "사용" --> m1_quad_func_maximum
@@ -1574,7 +1618,14 @@ flowchart LR
   m1_quad_eq_unit -- "포함" --> m1_mis_quadratic_expression_equation
   m1_quad_eq_unit -- "포함" --> m1_mis_quadratic_factorization_solution
   m1_quad_eq_unit -- "포함" --> m1_mis_root_coefficient_relation_scope
+  m1_quad_func_unit -- "포함" --> m1_quad_func_identifying_quadratic_function
+  m1_quad_func_formula -- "포함" --> m1_quad_func_situation_to_formula
   m1_quad_func_graph -- "포함" --> m1_quad_func_y_ax2_graph
+  m1_quad_func_graph_drawing -- "포함" --> m1_quad_func_value_table
+  m1_quad_func_graph_properties -- "포함" --> m1_quad_func_vertex_coordinates
+  m1_quad_func_graph_properties -- "포함" --> m1_quad_func_axis_equation
+  m1_quad_func_graph_properties -- "포함" --> m1_quad_func_opening_direction
+  m1_quad_func_vertex_form -- "포함" --> m1_quad_func_vertex_form_graph_reading
   m1_quad_func_unit -- "포함" --> m1_quad_func_tech_tool_graph
   m1_quad_func_unit -- "포함" --> m1_mis_quadratic_function_equation
   m1_quad_func_unit -- "포함" --> m1_mis_axis_vertex
@@ -2120,18 +2171,37 @@ flowchart LR
   m1_factor_quadratic_expression -- "선수" --> m1_quad_func_quadratic_function
   m1_quad_func_quadratic_function -- "선수" --> m1_quad_func_formula
   m1_factor_quadratic_expression -- "선수" --> m1_quad_func_formula
+  m1_quad_func_quadratic_function -- "선수" --> m1_quad_func_identifying_quadratic_function
+  m1_quad_func_formula -- "선수" --> m1_quad_func_identifying_quadratic_function
+  m1_func_function -- "선수" --> m1_quad_func_situation_to_formula
+  m1_factor_quadratic_expression -- "선수" --> m1_quad_func_situation_to_formula
   m1_func_value -- "선수" --> m1_quad_func_y_fx
   m1_coord_coordinate_plane -- "선수" --> m1_quad_func_graph
   m1_quad_func_quadratic_function -- "선수" --> m1_quad_func_graph
   m1_quad_func_graph -- "선수" --> m1_quad_func_parabola
   m1_quad_func_parabola -- "선수" --> m1_quad_func_axis
   m1_quad_func_parabola -- "선수" --> m1_quad_func_vertex
-  m1_quad_func_formula -- "선수" --> m1_quad_func_y_ax2_graph
+  m1_quad_func_y_ax2_form -- "선수" --> m1_quad_func_y_ax2_graph
   m1_quad_func_graph -- "선수" --> m1_quad_func_y_ax2_graph
+  m1_quad_func_formula -- "선수" --> m1_quad_func_y_ax2_form
+  m1_quad_func_y_ax2_form -- "선수" --> m1_quad_func_shifted_square_form
+  m1_func_parallel_translation -- "선수" --> m1_quad_func_shifted_square_form
+  m1_quad_func_y_ax2_form -- "선수" --> m1_quad_func_vertical_shift_form
+  m1_func_parallel_translation -- "선수" --> m1_quad_func_vertical_shift_form
   m1_quad_func_formula -- "선수" --> m1_quad_func_vertex_form
   m1_func_parallel_translation -- "선수" --> m1_quad_func_vertex_form
   m1_quad_func_formula -- "선수" --> m1_quad_func_general_form
   m1_factor_quadratic_expression -- "선수" --> m1_quad_func_general_form
+  m1_func_value -- "선수" --> m1_quad_func_value_table
+  m1_quad_func_y_fx -- "선수" --> m1_quad_func_value_table
+  m1_quad_func_vertex_form -- "선수" --> m1_quad_func_vertex_coordinates
+  m1_coord_coordinate -- "선수" --> m1_quad_func_vertex_coordinates
+  m1_quad_func_vertex_form -- "선수" --> m1_quad_func_axis_equation
+  m1_quad_func_axis -- "선수" --> m1_quad_func_axis_equation
+  m1_quad_func_parabola -- "선수" --> m1_quad_func_opening_direction
+  m1_quad_func_vertex_form -- "선수" --> m1_quad_func_vertex_form_graph_reading
+  m1_quad_func_axis_equation -- "선수" --> m1_quad_func_vertex_form_graph_reading
+  m1_quad_func_vertex_coordinates -- "선수" --> m1_quad_func_vertex_form_graph_reading
   m1_quad_func_graph -- "선수" --> m1_quad_func_graph_drawing
   m1_coord_coordinate_plane -- "선수" --> m1_quad_func_graph_drawing
   m1_quad_func_graph -- "선수" --> m1_quad_func_graph_properties
@@ -2142,11 +2212,6 @@ flowchart LR
   m1_quad_func_maximum -- "선수" --> m1_quad_func_max_min_real_scope
   m1_quad_func_minimum -- "선수" --> m1_quad_func_max_min_real_scope
   m1_quad_func_graph -- "선수" --> m1_quad_func_tech_tool_graph
-  m1_quad_func_quadratic_function -- "선수" --> m1_mis_quadratic_function_equation
-  m1_quad_eq_quadratic_equation -- "선수" --> m1_mis_quadratic_function_equation
-  m1_quad_func_axis -- "선수" --> m1_mis_axis_vertex
-  m1_quad_func_vertex -- "선수" --> m1_mis_axis_vertex
-  m1_quad_func_max_min_real_scope -- "선수" --> m1_mis_max_min_scope
   m1_coord_ordered_pair -- "선수" --> m1_coord_coordinate_plane
   m1_coord_coordinate -- "선수" --> m1_coord_point_location
   m1_coord_ordered_pair -- "선수" --> m1_coord_x_coordinate
@@ -2591,6 +2656,7 @@ flowchart LR
   m1_mis_root_coefficient_relation_scope -- "혼동" --> m1_quad_eq_real_solution_scope
   m1_mis_quadratic_factorization_solution -- "혼동" --> m1_quad_eq_solution
   m1_mis_quadratic_factorization_solution -- "혼동" --> m1_factor_factorization
+  m1_mis_quadratic_function_equation -- "혼동" --> m1_quad_func_identifying_quadratic_function
   m1_mis_max_min_scope -- "혼동" --> m1_quad_func_maximum
   m1_mis_max_min_scope -- "혼동" --> m1_quad_func_minimum
   m1_mis_axis_quadrant -- "혼동" --> m1_coord_x_axis_point
@@ -2867,14 +2933,24 @@ flowchart LR
   class m1_quad_func_unit core;
   class m1_quad_func_quadratic_function core;
   class m1_quad_func_formula representation;
+  class m1_quad_func_identifying_quadratic_function procedure;
+  class m1_quad_func_situation_to_formula procedure;
   class m1_quad_func_y_fx default;
   class m1_quad_func_graph representation;
   class m1_quad_func_parabola default;
   class m1_quad_func_axis default;
   class m1_quad_func_vertex default;
   class m1_quad_func_y_ax2_graph representation;
+  class m1_quad_func_y_ax2_form representation;
+  class m1_quad_func_shifted_square_form representation;
+  class m1_quad_func_vertical_shift_form representation;
   class m1_quad_func_vertex_form representation;
   class m1_quad_func_general_form representation;
+  class m1_quad_func_value_table representation;
+  class m1_quad_func_vertex_coordinates representation;
+  class m1_quad_func_axis_equation representation;
+  class m1_quad_func_opening_direction default;
+  class m1_quad_func_vertex_form_graph_reading procedure;
   class m1_quad_func_graph_drawing procedure;
   class m1_quad_func_graph_properties default;
   class m1_quad_func_maximum default;

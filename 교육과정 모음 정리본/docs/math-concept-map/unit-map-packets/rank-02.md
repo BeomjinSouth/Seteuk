@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 일차함수와 그 그래프
 - priority tier: highest
-- workplan score: 339
+- workplan score: 343
 - concepts: 33
-- edges touching unit: 161
-- cross-unit edges: 38
+- edges touching unit: 165
+- cross-unit edges: 42
 - low confidence concepts: 11
 - low confidence edges: 52
 
@@ -35,7 +35,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 34 |
 | contrasts_with | 5 |
 | often_confused_with | 16 |
-| prerequisite_for | 66 |
+| prerequisite_for | 70 |
 | related_to | 5 |
 | represented_by | 6 |
 | used_in | 29 |
@@ -75,13 +75,17 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_expr_substitution__prerequisite_for__m1_func_value | 대입 | prerequisite_for | 함숫값 | high | official_dual_source |
 | m1_expr_unit__prerequisite_for__m1_func_unit | 문자의 사용과 식 | prerequisite_for | 일차함수와 그 그래프 | high | official_dual_source |
 | m1_func_function__prerequisite_for__m1_quad_func_quadratic_function | 함수 | prerequisite_for | 이차함수 | high | official_dual_source |
+| m1_func_function__prerequisite_for__m1_quad_func_situation_to_formula | 함수 | prerequisite_for | 상황을 이차함수 식으로 나타내기 | high | official_dual_source |
 | m1_func_linear_graph__prerequisite_for__m1_func_two_linear_graphs | 일차함수의 그래프 | prerequisite_for | 두 일차함수의 그래프 | high | official_dual_source |
 | m1_func_linear_graph__prerequisite_for__m1_func_two_variable_equation_as_graph | 일차함수의 그래프 | prerequisite_for | 미지수가 2개인 일차방정식의 해를 그래프로 나타내기 | high | official_dual_source |
+| m1_func_parallel_translation__prerequisite_for__m1_quad_func_shifted_square_form | 평행이동 | prerequisite_for | y=a(x-p)^2 꼴 | medium | official_single_source |
 | m1_func_parallel_translation__prerequisite_for__m1_quad_func_vertex_form | 평행이동 | prerequisite_for | y=a(x-p)^2+q 꼴 | medium | official_single_source |
+| m1_func_parallel_translation__prerequisite_for__m1_quad_func_vertical_shift_form | 평행이동 | prerequisite_for | y=ax^2+q 꼴 | medium | official_single_source |
 | m1_func_unit__prerequisite_for__m1_func_eq_relation_unit | 일차함수와 그 그래프 | prerequisite_for | 일차함수와 일차방정식의 관계 | high | official_dual_source |
 | m1_func_unit__prerequisite_for__m1_quad_func_unit | 일차함수와 그 그래프 | prerequisite_for | 이차함수와 그 그래프 | high | official_dual_source |
 | m1_func_value__prerequisite_for__m1_quad_func_maximum | 함숫값 | prerequisite_for | 최댓값 | high | official_dual_source |
 | m1_func_value__prerequisite_for__m1_quad_func_minimum | 함숫값 | prerequisite_for | 최솟값 | high | official_dual_source |
+| m1_func_value__prerequisite_for__m1_quad_func_value_table | 함숫값 | prerequisite_for | 이차함수의 값의 표 | medium | official_single_source |
 | m1_func_value__prerequisite_for__m1_quad_func_y_fx | 함숫값 | prerequisite_for | y=f(x) | high | official_single_source |
 | m1_graph_graph__prerequisite_for__m1_func_linear_graph | 그래프 | prerequisite_for | 일차함수의 그래프 | high | official_dual_source |
 | m1_prop_direct_proportion__prerequisite_for__m1_func_y_ax_graph | 정비례 | prerequisite_for | 일차함수 y=ax의 그래프 | medium | official_single_source |
@@ -96,5 +100,3 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_func_x_intercept__used_in__m1_coord_x_axis | x절편 | used_in | x축 | high | official_dual_source |
 | m1_func_y_intercept__used_in__m1_coord_y_axis | y절편 | used_in | y축 | high | official_dual_source |
 | m1_graph_increase_decrease__used_in__m1_func_slope_sign | 증가와 감소 | used_in | 기울기의 부호 | medium | official_single_source |
-| m1_func_value__contrasts_with__m1_expr_value | 함숫값 | contrasts_with | 식의 값 | medium | official_dual_source |
-| m1_system_unit__related_to__m1_func_unit | 연립일차방정식 | related_to | 일차함수와 그 그래프 | medium | official_dual_source |

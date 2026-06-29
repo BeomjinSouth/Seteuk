@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-29T16:00:53",
+    "generated_at": "2026-06-29T20:32:02",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
-    "concept_count": 503,
-    "edge_count": 2120
+    "concept_count": 513,
+    "edge_count": 2176
   },
   "sources": [
     {
@@ -9844,6 +9844,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -9885,6 +9891,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-21] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "주어진 상황을 식으로 나타내어 이차함수인지 판단하거나 주어진 함수 중 이차함수를 찾는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -9897,6 +9909,8 @@
       "related_ids": [
         "m1_quad_func_formula",
         "m1_quad_func_graph",
+        "m1_quad_func_identifying_quadratic_function",
+        "m1_quad_func_situation_to_formula",
         "m1_mis_quadratic_function_equation"
       ],
       "notes": "",
@@ -9932,6 +9946,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -9942,7 +9962,100 @@
         "m1_quad_func_unit"
       ],
       "related_ids": [
-        "m1_quad_func_y_fx"
+        "m1_quad_func_y_fx",
+        "m1_quad_func_situation_to_formula"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_quad_func_identifying_quadratic_function",
+      "label_ko": "이차함수 판별하기",
+      "aliases": [
+        "이차함수인지 판단하기",
+        "이차함수 찾기"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "이차함수와 그 그래프",
+      "concept_type": "procedure",
+      "short_definition": "주어진 상황이나 식이 이차함수의 조건을 만족하는지 판단하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-21]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차함수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-21] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "주어진 상황을 식으로 나타내어 이차함수인지 판단하거나 주어진 함수 중 이차함수를 찾는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_quad_func_quadratic_function",
+        "m1_quad_func_formula"
+      ],
+      "parent_ids": [
+        "m1_quad_func_unit"
+      ],
+      "related_ids": [
+        "m1_quad_func_situation_to_formula",
+        "m1_mis_quadratic_function_equation"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_quad_func_situation_to_formula",
+      "label_ko": "상황을 이차함수 식으로 나타내기",
+      "aliases": [
+        "상황을 식으로 나타내기",
+        "이차함수 식 세우기"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "이차함수와 그 그래프",
+      "concept_type": "procedure",
+      "short_definition": "주어진 상황의 두 양 사이 관계를 이차함수의 식으로 표현하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-21]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차함수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-21] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "주어진 상황을 식으로 나타내어 이차함수인지 판단하거나 주어진 함수 중 이차함수를 찾는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_func_function",
+        "m1_factor_quadratic_expression"
+      ],
+      "parent_ids": [
+        "m1_quad_func_formula"
+      ],
+      "related_ids": [
+        "m1_quad_func_quadratic_function",
+        "m1_quad_func_identifying_quadratic_function"
       ],
       "notes": "",
       "confidence": "high"
@@ -10014,6 +10127,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -10025,6 +10144,8 @@
         "m1_quad_func_unit"
       ],
       "related_ids": [
+        "m1_quad_func_parabola",
+        "m1_quad_func_value_table",
         "m1_quad_func_graph_properties",
         "m1_quad_func_graph_drawing"
       ],
@@ -10183,19 +10304,148 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
-        "m1_quad_func_formula",
+        "m1_quad_func_y_ax2_form",
         "m1_quad_func_graph"
       ],
       "parent_ids": [
-        "m1_quad_func_graph",
+        "m1_quad_func_graph"
+      ],
+      "related_ids": [
+        "m1_quad_func_y_ax2_form",
+        "m1_quad_func_value_table",
+        "m1_quad_func_graph_drawing"
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_y_ax2_form",
+      "label_ko": "y=ax^2 꼴",
+      "aliases": [
+        "기본 이차함수 식",
+        "y=ax^2"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "이차함수와 그 그래프",
+      "concept_type": "representation",
+      "short_definition": "이차함수 그래프 학습의 기본 사례가 되는 y=ax^2 형태의 식.",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_quad_func_formula"
+      ],
+      "parent_ids": [
+        "m1_quad_func_formula"
+      ],
+      "related_ids": [
+        "m1_quad_func_y_ax2_graph",
+        "m1_quad_func_shifted_square_form",
+        "m1_quad_func_vertical_shift_form",
+        "m1_quad_func_vertex_form"
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_shifted_square_form",
+      "label_ko": "y=a(x-p)^2 꼴",
+      "aliases": [
+        "x방향 평행이동형",
+        "y=a(x-p)^2"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "이차함수와 그 그래프",
+      "concept_type": "representation",
+      "short_definition": "y=ax^2 꼴에서 x축 방향 평행이동을 반영한 이차함수 식 표현.",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_quad_func_y_ax2_form",
+        "m1_func_parallel_translation"
+      ],
+      "parent_ids": [
         "m1_quad_func_formula"
       ],
       "related_ids": [
         "m1_quad_func_vertex_form",
-        "m1_quad_func_graph_drawing"
+        "m1_quad_func_axis_equation",
+        "m1_quad_func_vertex_coordinates"
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_vertical_shift_form",
+      "label_ko": "y=ax^2+q 꼴",
+      "aliases": [
+        "y방향 평행이동형",
+        "y=ax^2+q"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "이차함수와 그 그래프",
+      "concept_type": "representation",
+      "short_definition": "y=ax^2 꼴에서 y축 방향 평행이동을 반영한 이차함수 식 표현.",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_quad_func_y_ax2_form",
+        "m1_func_parallel_translation"
+      ],
+      "parent_ids": [
+        "m1_quad_func_formula"
+      ],
+      "related_ids": [
+        "m1_quad_func_vertex_form",
+        "m1_quad_func_axis_equation",
+        "m1_quad_func_vertex_coordinates"
       ],
       "notes": "",
       "confidence": "medium"
@@ -10218,6 +10468,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -10228,8 +10484,12 @@
         "m1_quad_func_formula"
       ],
       "related_ids": [
+        "m1_quad_func_shifted_square_form",
+        "m1_quad_func_vertical_shift_form",
         "m1_quad_func_vertex",
         "m1_quad_func_axis",
+        "m1_quad_func_vertex_coordinates",
+        "m1_quad_func_axis_equation",
         "m1_quad_func_general_form"
       ],
       "notes": "",
@@ -10253,6 +10513,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -10264,6 +10530,231 @@
       ],
       "related_ids": [
         "m1_quad_func_vertex_form",
+        "m1_quad_func_graph_properties"
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_value_table",
+      "label_ko": "이차함수의 값의 표",
+      "aliases": [
+        "이차함수 표",
+        "함숫값의 표"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "이차함수와 그 그래프",
+      "concept_type": "representation",
+      "short_definition": "x의 값에 따른 이차함수의 함숫값을 정리하여 그래프 그리기에 쓰는 표.",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_func_value",
+        "m1_quad_func_y_fx"
+      ],
+      "parent_ids": [
+        "m1_quad_func_graph_drawing"
+      ],
+      "related_ids": [
+        "m1_quad_func_graph",
+        "m1_quad_func_y_ax2_graph"
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_vertex_coordinates",
+      "label_ko": "꼭짓점 좌표",
+      "aliases": [
+        "꼭짓점의 좌표"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "이차함수와 그 그래프",
+      "concept_type": "representation",
+      "short_definition": "포물선의 꼭짓점을 좌표평면의 순서쌍으로 나타낸 표현.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-22]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차함수의 그래프를 그리고 그 성질을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_quad_func_vertex_form",
+        "m1_coord_coordinate"
+      ],
+      "parent_ids": [
+        "m1_quad_func_graph_properties"
+      ],
+      "related_ids": [
+        "m1_quad_func_vertex",
+        "m1_quad_func_axis_equation",
+        "m1_quad_func_vertex_form_graph_reading"
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_axis_equation",
+      "label_ko": "축의 방정식",
+      "aliases": [
+        "포물선의 축의 식"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "이차함수와 그 그래프",
+      "concept_type": "representation",
+      "short_definition": "포물선의 축을 x=p와 같은 방정식 형태로 나타낸 표현.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-22]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차함수의 그래프를 그리고 그 성질을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_quad_func_vertex_form",
+        "m1_quad_func_axis"
+      ],
+      "parent_ids": [
+        "m1_quad_func_graph_properties"
+      ],
+      "related_ids": [
+        "m1_quad_func_axis",
+        "m1_quad_func_vertex_coordinates",
+        "m1_quad_func_vertex_form_graph_reading"
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_opening_direction",
+      "label_ko": "위로 열린 그래프와 아래로 열린 그래프",
+      "aliases": [
+        "포물선이 열린 방향",
+        "위로 열린 포물선",
+        "아래로 열린 포물선"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "이차함수와 그 그래프",
+      "concept_type": "property",
+      "short_definition": "이차함수 그래프가 위쪽 또는 아래쪽으로 열리는 성질.",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_quad_func_parabola"
+      ],
+      "parent_ids": [
+        "m1_quad_func_graph_properties"
+      ],
+      "related_ids": [
+        "m1_quad_func_maximum",
+        "m1_quad_func_minimum",
+        "m1_quad_func_y_ax2_graph"
+      ],
+      "notes": "a의 부호와 폭의 세부 효과는 교과서 본문 근거 확인 후 별도 노드로 세분화한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_vertex_form_graph_reading",
+      "label_ko": "꼭짓점형에서 그래프 성질 읽기",
+      "aliases": [
+        "꼭짓점형 그래프 해석"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "이차함수와 그 그래프",
+      "concept_type": "procedure",
+      "short_definition": "y=a(x-p)^2+q 꼴에서 꼭짓점, 축, 그래프 성질을 읽어 그래프 그리기에 활용하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_quad_func_vertex_form",
+        "m1_quad_func_axis_equation",
+        "m1_quad_func_vertex_coordinates"
+      ],
+      "parent_ids": [
+        "m1_quad_func_vertex_form"
+      ],
+      "related_ids": [
+        "m1_quad_func_graph_drawing",
         "m1_quad_func_graph_properties"
       ],
       "notes": "",
@@ -10292,6 +10783,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -10304,6 +10801,7 @@
       "related_ids": [
         "m1_quad_func_y_ax2_graph",
         "m1_quad_func_vertex_form",
+        "m1_quad_func_vertex_form_graph_reading",
         "m1_quad_func_graph_properties"
       ],
       "notes": "",
@@ -10338,6 +10836,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -10346,7 +10850,10 @@
       "parent_ids": [
         "m1_quad_func_unit"
       ],
-      "related_ids": [],
+      "related_ids": [
+        "m1_quad_func_opening_direction",
+        "m1_quad_func_vertex_form_graph_reading"
+      ],
       "notes": "",
       "confidence": "high"
     },
@@ -10547,10 +11054,7 @@
           "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_quad_func_quadratic_function",
-        "m1_quad_eq_quadratic_equation"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_quad_func_unit"
       ],
@@ -10592,10 +11096,7 @@
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_quad_func_axis",
-        "m1_quad_func_vertex"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_quad_func_unit"
       ],
@@ -10625,9 +11126,7 @@
           "summary": "이차함수의 최댓값과 최솟값은 x의 범위가 실수 전체인 경우만 다루고, 이차방정식은 해가 실수인 경우만 다루며 근과 계수와의 관계는 다루지 않음"
         }
       ],
-      "prerequisite_ids": [
-        "m1_quad_func_max_min_real_scope"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_quad_func_unit"
       ],
@@ -34605,6 +35104,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-21] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "주어진 상황을 식으로 나타내어 이차함수인지 판단하거나 주어진 함수 중 이차함수를 찾는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -34633,6 +35138,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -34683,6 +35194,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -34705,6 +35222,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -34733,6 +35256,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -34817,6 +35346,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -34839,6 +35374,124 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_quad_func_quadratic_function__used_in__m1_quad_func_identifying_quadratic_function",
+      "source_id": "m1_quad_func_quadratic_function",
+      "target_id": "m1_quad_func_identifying_quadratic_function",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-21]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차함수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-21] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "주어진 상황을 식으로 나타내어 이차함수인지 판단하거나 주어진 함수 중 이차함수를 찾는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_quad_func_quadratic_function__used_in__m1_quad_func_situation_to_formula",
+      "source_id": "m1_quad_func_quadratic_function",
+      "target_id": "m1_quad_func_situation_to_formula",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-21]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차함수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-21] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "주어진 상황을 식으로 나타내어 이차함수인지 판단하거나 주어진 함수 중 이차함수를 찾는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_situation_to_formula__used_in__m1_quad_func_identifying_quadratic_function",
+      "source_id": "m1_quad_func_situation_to_formula",
+      "target_id": "m1_quad_func_identifying_quadratic_function",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-21]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차함수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-21] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "주어진 상황을 식으로 나타내어 이차함수인지 판단하거나 주어진 함수 중 이차함수를 찾는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_quad_func_formula__used_in__m1_quad_func_situation_to_formula",
+      "source_id": "m1_quad_func_formula",
+      "target_id": "m1_quad_func_situation_to_formula",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-21]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차함수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-21] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "주어진 상황을 식으로 나타내어 이차함수인지 판단하거나 주어진 함수 중 이차함수를 찾는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -34867,9 +35520,9 @@
       "confidence": "high"
     },
     {
-      "id": "m1_quad_func_formula__contains__m1_quad_func_y_ax2_graph",
+      "id": "m1_quad_func_formula__contains__m1_quad_func_y_ax2_form",
       "source_id": "m1_quad_func_formula",
-      "target_id": "m1_quad_func_y_ax2_graph",
+      "target_id": "m1_quad_func_y_ax2_form",
       "relationship_type": "contains",
       "source_refs": [
         {
@@ -34877,6 +35530,56 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_formula__contains__m1_quad_func_shifted_square_form",
+      "source_id": "m1_quad_func_formula",
+      "target_id": "m1_quad_func_shifted_square_form",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_formula__contains__m1_quad_func_vertical_shift_form",
+      "source_id": "m1_quad_func_formula",
+      "target_id": "m1_quad_func_vertical_shift_form",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -34893,6 +35596,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -34909,15 +35618,43 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
       "confidence": "medium"
     },
     {
-      "id": "m1_quad_func_vertex_form__related_to__m1_quad_func_general_form",
-      "source_id": "m1_quad_func_vertex_form",
-      "target_id": "m1_quad_func_general_form",
+      "id": "m1_quad_func_y_ax2_form__represented_by__m1_quad_func_y_ax2_graph",
+      "source_id": "m1_quad_func_y_ax2_form",
+      "target_id": "m1_quad_func_y_ax2_graph",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_y_ax2_form__related_to__m1_quad_func_shifted_square_form",
+      "source_id": "m1_quad_func_y_ax2_form",
+      "target_id": "m1_quad_func_shifted_square_form",
       "relationship_type": "related_to",
       "source_refs": [
         {
@@ -34925,9 +35662,59 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
-      "notes": "이차함수의 꼭짓점형과 일반형은 같은 이차함수 식 표현군에서 그래프 해석에 함께 쓰인다.",
+      "notes": "The shifted square form extends the base y=ax^2 form by horizontal translation.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_y_ax2_form__related_to__m1_quad_func_vertical_shift_form",
+      "source_id": "m1_quad_func_y_ax2_form",
+      "target_id": "m1_quad_func_vertical_shift_form",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "The vertical-shift form extends the base y=ax^2 form by vertical translation.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_y_ax2_form__related_to__m1_quad_func_vertex_form",
+      "source_id": "m1_quad_func_y_ax2_form",
+      "target_id": "m1_quad_func_vertex_form",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "The vertex form is a combined translation form related to the base y=ax^2 expression.",
       "confidence": "medium"
     },
     {
@@ -34941,9 +35728,169 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
-      "notes": "The graph of y=ax^2 is the base case connected to the vertex form y=a(x-p)^2+q.",
+      "notes": "The graph of y=ax^2 is the base graph connected to interpreting vertex form.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_shifted_square_form__related_to__m1_quad_func_vertex_form",
+      "source_id": "m1_quad_func_shifted_square_form",
+      "target_id": "m1_quad_func_vertex_form",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_vertical_shift_form__related_to__m1_quad_func_vertex_form",
+      "source_id": "m1_quad_func_vertical_shift_form",
+      "target_id": "m1_quad_func_vertex_form",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_shifted_square_form__represented_by__m1_quad_func_axis_equation",
+      "source_id": "m1_quad_func_shifted_square_form",
+      "target_id": "m1_quad_func_axis_equation",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "In y=a(x-p)^2, the parameter p supports reading the axis equation.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_shifted_square_form__represented_by__m1_quad_func_vertex_coordinates",
+      "source_id": "m1_quad_func_shifted_square_form",
+      "target_id": "m1_quad_func_vertex_coordinates",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "In y=a(x-p)^2, the vertex can be read as a special case of vertex coordinates.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_vertical_shift_form__represented_by__m1_quad_func_axis_equation",
+      "source_id": "m1_quad_func_vertical_shift_form",
+      "target_id": "m1_quad_func_axis_equation",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "In y=ax^2+q, the axis remains readable from the shifted form.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_vertical_shift_form__represented_by__m1_quad_func_vertex_coordinates",
+      "source_id": "m1_quad_func_vertical_shift_form",
+      "target_id": "m1_quad_func_vertex_coordinates",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "In y=ax^2+q, the vertex coordinates can be read as a special case.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_vertex_form__related_to__m1_quad_func_general_form",
+      "source_id": "m1_quad_func_vertex_form",
+      "target_id": "m1_quad_func_general_form",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "이차함수의 꼭짓점형과 일반형은 같은 이차함수 식 표현군에서 그래프 해석에 함께 쓰인다.",
       "confidence": "medium"
     },
     {
@@ -35025,6 +35972,34 @@
       "confidence": "high"
     },
     {
+      "id": "m1_quad_func_graph__represented_by__m1_quad_func_parabola",
+      "source_id": "m1_quad_func_graph",
+      "target_id": "m1_quad_func_parabola",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-22]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차함수의 그래프를 그리고 그 성질을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "A quadratic-function graph is represented as a parabola in this unit.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_quad_func_graph__used_in__m1_quad_func_graph_properties",
       "source_id": "m1_quad_func_graph",
       "target_id": "m1_quad_func_graph_properties",
@@ -35041,6 +36016,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -35063,10 +36044,60 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_quad_func_value_table__used_in__m1_quad_func_graph",
+      "source_id": "m1_quad_func_value_table",
+      "target_id": "m1_quad_func_graph",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_value_table__used_in__m1_quad_func_y_ax2_graph",
+      "source_id": "m1_quad_func_value_table",
+      "target_id": "m1_quad_func_y_ax2_graph",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_quad_func_y_ax2_graph__used_in__m1_quad_func_graph_drawing",
@@ -35079,6 +36110,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -35095,6 +36132,34 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_vertex_form_graph_reading__used_in__m1_quad_func_graph_drawing",
+      "source_id": "m1_quad_func_vertex_form_graph_reading",
+      "target_id": "m1_quad_func_graph_drawing",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -35117,6 +36182,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "Axis, vertex, and other graph properties support drawing quadratic-function graphs.",
@@ -35133,6 +36204,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -35149,6 +36226,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -35221,6 +36304,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "The vertex form y=a(x-p)^2+q directly represents the axis of symmetry.",
@@ -35237,9 +36326,125 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "The vertex form y=a(x-p)^2+q directly represents the vertex.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_vertex_form__represented_by__m1_quad_func_vertex_coordinates",
+      "source_id": "m1_quad_func_vertex_form",
+      "target_id": "m1_quad_func_vertex_coordinates",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "The vertex form directly represents the vertex coordinates.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_vertex_form__represented_by__m1_quad_func_axis_equation",
+      "source_id": "m1_quad_func_vertex_form",
+      "target_id": "m1_quad_func_axis_equation",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "The vertex form directly represents the axis equation.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_axis_equation__used_in__m1_quad_func_vertex_form_graph_reading",
+      "source_id": "m1_quad_func_axis_equation",
+      "target_id": "m1_quad_func_vertex_form_graph_reading",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_vertex_coordinates__used_in__m1_quad_func_vertex_form_graph_reading",
+      "source_id": "m1_quad_func_vertex_coordinates",
+      "target_id": "m1_quad_func_vertex_form_graph_reading",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_vertex_form_graph_reading__used_in__m1_quad_func_graph_properties",
+      "source_id": "m1_quad_func_vertex_form_graph_reading",
+      "target_id": "m1_quad_func_graph_properties",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
       "confidence": "medium"
     },
     {
@@ -35379,6 +36584,210 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_quad_func_axis__contrasts_with__m1_quad_func_vertex",
+      "source_id": "m1_quad_func_axis",
+      "target_id": "m1_quad_func_vertex",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "The axis is a line, while the vertex is a point.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_vertex__contrasts_with__m1_quad_func_axis",
+      "source_id": "m1_quad_func_vertex",
+      "target_id": "m1_quad_func_axis",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "The vertex is a point, while the axis is a line.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_axis__represented_by__m1_quad_func_axis_equation",
+      "source_id": "m1_quad_func_axis",
+      "target_id": "m1_quad_func_axis_equation",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_vertex__represented_by__m1_quad_func_vertex_coordinates",
+      "source_id": "m1_quad_func_vertex",
+      "target_id": "m1_quad_func_vertex_coordinates",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_axis_equation__related_to__m1_quad_func_vertex_coordinates",
+      "source_id": "m1_quad_func_axis_equation",
+      "target_id": "m1_quad_func_vertex_coordinates",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "The axis equation and vertex coordinates are read together when interpreting vertex form.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_opening_direction__used_in__m1_quad_func_graph_properties",
+      "source_id": "m1_quad_func_opening_direction",
+      "target_id": "m1_quad_func_graph_properties",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_opening_direction__related_to__m1_quad_func_y_ax2_graph",
+      "source_id": "m1_quad_func_opening_direction",
+      "target_id": "m1_quad_func_y_ax2_graph",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_opening_direction__related_to__m1_quad_func_maximum",
+      "source_id": "m1_quad_func_opening_direction",
+      "target_id": "m1_quad_func_maximum",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_opening_direction__related_to__m1_quad_func_minimum",
+      "source_id": "m1_quad_func_opening_direction",
+      "target_id": "m1_quad_func_minimum",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_quad_func_maximum__contrasts_with__m1_quad_func_minimum",
@@ -47239,6 +48648,62 @@
       "confidence": "low"
     },
     {
+      "id": "m1_quad_func_unit__contains__m1_quad_func_identifying_quadratic_function",
+      "source_id": "m1_quad_func_unit",
+      "target_id": "m1_quad_func_identifying_quadratic_function",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-21]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차함수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-21] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "주어진 상황을 식으로 나타내어 이차함수인지 판단하거나 주어진 함수 중 이차함수를 찾는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_quad_func_formula__contains__m1_quad_func_situation_to_formula",
+      "source_id": "m1_quad_func_formula",
+      "target_id": "m1_quad_func_situation_to_formula",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-21]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차함수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-21] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "주어진 상황을 식으로 나타내어 이차함수인지 판단하거나 주어진 함수 중 이차함수를 찾는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
       "id": "m1_quad_func_graph__contains__m1_quad_func_y_ax2_graph",
       "source_id": "m1_quad_func_graph",
       "target_id": "m1_quad_func_y_ax2_graph",
@@ -47249,6 +48714,146 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_graph_drawing__contains__m1_quad_func_value_table",
+      "source_id": "m1_quad_func_graph_drawing",
+      "target_id": "m1_quad_func_value_table",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_graph_properties__contains__m1_quad_func_vertex_coordinates",
+      "source_id": "m1_quad_func_graph_properties",
+      "target_id": "m1_quad_func_vertex_coordinates",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-22]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차함수의 그래프를 그리고 그 성질을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_graph_properties__contains__m1_quad_func_axis_equation",
+      "source_id": "m1_quad_func_graph_properties",
+      "target_id": "m1_quad_func_axis_equation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-22]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차함수의 그래프를 그리고 그 성질을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_graph_properties__contains__m1_quad_func_opening_direction",
+      "source_id": "m1_quad_func_graph_properties",
+      "target_id": "m1_quad_func_opening_direction",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_vertex_form__contains__m1_quad_func_vertex_form_graph_reading",
+      "source_id": "m1_quad_func_vertex_form",
+      "target_id": "m1_quad_func_vertex_form_graph_reading",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -61379,6 +62984,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-21] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "주어진 상황을 식으로 나타내어 이차함수인지 판단하거나 주어진 함수 중 이차함수를 찾는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -61407,6 +63018,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -61435,6 +63052,124 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_quad_func_quadratic_function__prerequisite_for__m1_quad_func_identifying_quadratic_function",
+      "source_id": "m1_quad_func_quadratic_function",
+      "target_id": "m1_quad_func_identifying_quadratic_function",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-21]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차함수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-21] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "주어진 상황을 식으로 나타내어 이차함수인지 판단하거나 주어진 함수 중 이차함수를 찾는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_quad_func_formula__prerequisite_for__m1_quad_func_identifying_quadratic_function",
+      "source_id": "m1_quad_func_formula",
+      "target_id": "m1_quad_func_identifying_quadratic_function",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-21]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차함수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-21] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "주어진 상황을 식으로 나타내어 이차함수인지 판단하거나 주어진 함수 중 이차함수를 찾는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_func_function__prerequisite_for__m1_quad_func_situation_to_formula",
+      "source_id": "m1_func_function",
+      "target_id": "m1_quad_func_situation_to_formula",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-21]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차함수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-21] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "주어진 상황을 식으로 나타내어 이차함수인지 판단하거나 주어진 함수 중 이차함수를 찾는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_factor_quadratic_expression__prerequisite_for__m1_quad_func_situation_to_formula",
+      "source_id": "m1_factor_quadratic_expression",
+      "target_id": "m1_quad_func_situation_to_formula",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-21]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차함수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-21] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "주어진 상황을 식으로 나타내어 이차함수인지 판단하거나 주어진 함수 중 이차함수를 찾는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -61485,6 +63220,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -61513,6 +63254,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -61603,8 +63350,8 @@
       "confidence": "high"
     },
     {
-      "id": "m1_quad_func_formula__prerequisite_for__m1_quad_func_y_ax2_graph",
-      "source_id": "m1_quad_func_formula",
+      "id": "m1_quad_func_y_ax2_form__prerequisite_for__m1_quad_func_y_ax2_graph",
+      "source_id": "m1_quad_func_y_ax2_form",
       "target_id": "m1_quad_func_y_ax2_graph",
       "relationship_type": "prerequisite_for",
       "source_refs": [
@@ -61613,6 +63360,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -61629,6 +63382,122 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_formula__prerequisite_for__m1_quad_func_y_ax2_form",
+      "source_id": "m1_quad_func_formula",
+      "target_id": "m1_quad_func_y_ax2_form",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_y_ax2_form__prerequisite_for__m1_quad_func_shifted_square_form",
+      "source_id": "m1_quad_func_y_ax2_form",
+      "target_id": "m1_quad_func_shifted_square_form",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_func_parallel_translation__prerequisite_for__m1_quad_func_shifted_square_form",
+      "source_id": "m1_func_parallel_translation",
+      "target_id": "m1_quad_func_shifted_square_form",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_y_ax2_form__prerequisite_for__m1_quad_func_vertical_shift_form",
+      "source_id": "m1_quad_func_y_ax2_form",
+      "target_id": "m1_quad_func_vertical_shift_form",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_func_parallel_translation__prerequisite_for__m1_quad_func_vertical_shift_form",
+      "source_id": "m1_func_parallel_translation",
+      "target_id": "m1_quad_func_vertical_shift_form",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -61645,6 +63514,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -61661,6 +63536,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -61677,6 +63558,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -61693,6 +63580,280 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_func_value__prerequisite_for__m1_quad_func_value_table",
+      "source_id": "m1_func_value",
+      "target_id": "m1_quad_func_value_table",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_y_fx__prerequisite_for__m1_quad_func_value_table",
+      "source_id": "m1_quad_func_y_fx",
+      "target_id": "m1_quad_func_value_table",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_vertex_form__prerequisite_for__m1_quad_func_vertex_coordinates",
+      "source_id": "m1_quad_func_vertex_form",
+      "target_id": "m1_quad_func_vertex_coordinates",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-22]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차함수의 그래프를 그리고 그 성질을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_coord_coordinate__prerequisite_for__m1_quad_func_vertex_coordinates",
+      "source_id": "m1_coord_coordinate",
+      "target_id": "m1_quad_func_vertex_coordinates",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-22]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차함수의 그래프를 그리고 그 성질을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_vertex_form__prerequisite_for__m1_quad_func_axis_equation",
+      "source_id": "m1_quad_func_vertex_form",
+      "target_id": "m1_quad_func_axis_equation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-22]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차함수의 그래프를 그리고 그 성질을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_axis__prerequisite_for__m1_quad_func_axis_equation",
+      "source_id": "m1_quad_func_axis",
+      "target_id": "m1_quad_func_axis_equation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-22]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차함수의 그래프를 그리고 그 성질을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_parabola__prerequisite_for__m1_quad_func_opening_direction",
+      "source_id": "m1_quad_func_parabola",
+      "target_id": "m1_quad_func_opening_direction",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_vertex_form__prerequisite_for__m1_quad_func_vertex_form_graph_reading",
+      "source_id": "m1_quad_func_vertex_form",
+      "target_id": "m1_quad_func_vertex_form_graph_reading",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_axis_equation__prerequisite_for__m1_quad_func_vertex_form_graph_reading",
+      "source_id": "m1_quad_func_axis_equation",
+      "target_id": "m1_quad_func_vertex_form_graph_reading",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_func_vertex_coordinates__prerequisite_for__m1_quad_func_vertex_form_graph_reading",
+      "source_id": "m1_quad_func_vertex_coordinates",
+      "target_id": "m1_quad_func_vertex_form_graph_reading",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -61715,6 +63876,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -61737,6 +63904,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -61765,6 +63938,12 @@
           "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차함수와 그 그래프 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "이차함수 개념, 이차함수인지 판단하기, 상황을 식으로 나타내기, y=ax^2, y=a(x-p)^2, y=ax^2+q, y=a(x-p)^2+q, y=ax^2+bx+c 그래프와 성질, 표를 이용한 y=ax^2 그래프 그리기를 다루는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -61935,146 +64114,6 @@
       ],
       "notes": "",
       "confidence": "medium"
-    },
-    {
-      "id": "m1_quad_func_quadratic_function__prerequisite_for__m1_mis_quadratic_function_equation",
-      "source_id": "m1_quad_func_quadratic_function",
-      "target_id": "m1_mis_quadratic_function_equation",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 35; [9수02-20]",
-          "evidence_kind": "achievement_standard",
-          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
-        },
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 35; [9수02-21]",
-          "evidence_kind": "achievement_standard",
-          "summary": "이차함수의 개념을 이해하는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "이차함수와 그 그래프 section; [9수02-21] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "주어진 상황을 식으로 나타내어 이차함수인지 판단하거나 주어진 함수 중 이차함수를 찾는 수준을 구분"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "이차방정식 section; [9수02-20] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_quad_eq_quadratic_equation__prerequisite_for__m1_mis_quadratic_function_equation",
-      "source_id": "m1_quad_eq_quadratic_equation",
-      "target_id": "m1_mis_quadratic_function_equation",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 35; [9수02-20]",
-          "evidence_kind": "achievement_standard",
-          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
-        },
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 35; [9수02-21]",
-          "evidence_kind": "achievement_standard",
-          "summary": "이차함수의 개념을 이해하는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "이차함수와 그 그래프 section; [9수02-21] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "주어진 상황을 식으로 나타내어 이차함수인지 판단하거나 주어진 함수 중 이차함수를 찾는 수준을 구분"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "이차방정식 section; [9수02-20] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_quad_func_axis__prerequisite_for__m1_mis_axis_vertex",
-      "source_id": "m1_quad_func_axis",
-      "target_id": "m1_mis_axis_vertex",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 36; terms and symbols for 변화와 관계",
-          "evidence_kind": "term_list",
-          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
-        },
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 35; [9수02-22]",
-          "evidence_kind": "achievement_standard",
-          "summary": "이차함수의 그래프를 그리고 그 성질을 설명하는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_quad_func_vertex__prerequisite_for__m1_mis_axis_vertex",
-      "source_id": "m1_quad_func_vertex",
-      "target_id": "m1_mis_axis_vertex",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 36; terms and symbols for 변화와 관계",
-          "evidence_kind": "term_list",
-          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
-        },
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 35; [9수02-22]",
-          "evidence_kind": "achievement_standard",
-          "summary": "이차함수의 그래프를 그리고 그 성질을 설명하는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "이차함수와 그 그래프 section; [9수02-22] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "y=ax^2, y=a(x-p)^2+q, y=ax^2+bx+c 꼴의 이차함수 그래프를 그리고 성질을 설명하는 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_quad_func_max_min_real_scope__prerequisite_for__m1_mis_max_min_scope",
-      "source_id": "m1_quad_func_max_min_real_scope",
-      "target_id": "m1_mis_max_min_scope",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 36; achievement-standard considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "이차함수의 최댓값과 최솟값은 x의 범위가 실수 전체인 경우만 다루고, 이차방정식은 해가 실수인 경우만 다루며 근과 계수와의 관계는 다루지 않음"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
     },
     {
       "id": "m1_coord_ordered_pair__prerequisite_for__m1_coord_coordinate_plane",
@@ -73693,6 +75732,40 @@
           "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_quadratic_function_equation__often_confused_with__m1_quad_func_identifying_quadratic_function",
+      "source_id": "m1_mis_quadratic_function_equation",
+      "target_id": "m1_quad_func_identifying_quadratic_function",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-21]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차함수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차함수와 그 그래프 section; [9수02-21] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "주어진 상황을 식으로 나타내어 이차함수인지 판단하거나 주어진 함수 중 이차함수를 찾는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
         }
       ],
       "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",

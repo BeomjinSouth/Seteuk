@@ -61,6 +61,7 @@ digraph pilot_unit_map {
   "m1_geo_point" [label="점\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_expr_unit" [label="문자의 사용과 식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_func_intersection_point" [label="교점\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_quad_func_vertex_coordinates" [label="꼭짓점 좌표\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_scatter_plot" [label="산점도\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_func_graph_drawing" [label="일차함수 그래프 그리기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_func_linear_graph" [label="일차함수의 그래프\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -274,6 +275,7 @@ digraph pilot_unit_map {
   "m1_expr_unit" -> "m1_repr_expression" [label="contains", style="dashed", color="#6b7280"];
   "m1_expr_unit" -> "m1_term_variable" [label="contains", style="dashed", color="#6b7280"];
   "m1_coord_coordinate" -> "m1_func_intersection_point" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_coord_coordinate" -> "m1_quad_func_vertex_coordinates" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_coord_coordinate_plane" -> "m1_data_scatter_plot" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_coord_coordinate_plane" -> "m1_func_graph_drawing" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_coord_coordinate_plane" -> "m1_func_linear_graph" [label="prerequisite_for", style="dashed", color="#6b7280"];

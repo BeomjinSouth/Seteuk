@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 좌표평면과 그래프
 - priority tier: highest
 - priority score: 105
-- edges in packet: 237
-- cross-unit edges: 75
+- edges in packet: 238
+- cross-unit edges: 76
 - low confidence edges: 76
 
 ## Relationship Evidence Slots
@@ -199,11 +199,12 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_expr_unit__contains__m1_repr_expression | cross_unit | 문자의 사용과 식 | contains | 식 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
 | m1_expr_unit__contains__m1_term_variable | cross_unit | 문자의 사용과 식 | contains | 변수 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 5 |
 | m1_coord_coordinate__prerequisite_for__m1_func_intersection_point | cross_unit | 좌표 | prerequisite_for | 교점 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_coord_coordinate__prerequisite_for__m1_quad_func_vertex_coordinates | cross_unit | 좌표 | prerequisite_for | 꼭짓점 좌표 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_coord_coordinate_plane__prerequisite_for__m1_data_scatter_plot | cross_unit | 좌표평면 | prerequisite_for | 산점도 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_coord_coordinate_plane__prerequisite_for__m1_func_graph_drawing | cross_unit | 좌표평면 | prerequisite_for | 일차함수 그래프 그리기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_coord_coordinate_plane__prerequisite_for__m1_func_linear_graph | cross_unit | 좌표평면 | prerequisite_for | 일차함수의 그래프 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
-| m1_coord_coordinate_plane__prerequisite_for__m1_quad_func_graph | cross_unit | 좌표평면 | prerequisite_for | 이차함수의 그래프 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
-| m1_coord_coordinate_plane__prerequisite_for__m1_quad_func_graph_drawing | cross_unit | 좌표평면 | prerequisite_for | 이차함수 그래프 그리기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_coord_coordinate_plane__prerequisite_for__m1_quad_func_graph | cross_unit | 좌표평면 | prerequisite_for | 이차함수의 그래프 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_coord_coordinate_plane__prerequisite_for__m1_quad_func_graph_drawing | cross_unit | 좌표평면 | prerequisite_for | 이차함수 그래프 그리기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_coord_graph_unit__prerequisite_for__m1_func_unit | cross_unit | 좌표평면과 그래프 | prerequisite_for | 일차함수와 그 그래프 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 6 |
 | m1_coord_graph_unit__prerequisite_for__m1_quad_func_unit | cross_unit | 좌표평면과 그래프 | prerequisite_for | 이차함수와 그 그래프 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_coord_x_axis__prerequisite_for__m1_func_x_intercept | cross_unit | x축 | prerequisite_for | x절편 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |

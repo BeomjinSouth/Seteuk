@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 다항식의 곱셈과 인수분해
 - priority tier: high
-- workplan score: 157
+- workplan score: 158
 - concepts: 18
-- edges touching unit: 89
-- cross-unit edges: 33
+- edges touching unit: 90
+- cross-unit edges: 34
 - low confidence concepts: 4
 - low confidence edges: 22
 
@@ -34,7 +34,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 18 |
 | contrasts_with | 6 |
 | often_confused_with | 13 |
-| prerequisite_for | 35 |
+| prerequisite_for | 36 |
 | represented_by | 5 |
 | used_in | 12 |
 
@@ -74,6 +74,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_factor_quadratic_expression__prerequisite_for__m1_quad_func_formula | 이차식 | prerequisite_for | 이차함수의 식 | high | official_dual_source |
 | m1_factor_quadratic_expression__prerequisite_for__m1_quad_func_general_form | 이차식 | prerequisite_for | y=ax^2+bx+c 꼴 | medium | official_single_source |
 | m1_factor_quadratic_expression__prerequisite_for__m1_quad_func_quadratic_function | 이차식 | prerequisite_for | 이차함수 | high | official_dual_source |
+| m1_factor_quadratic_expression__prerequisite_for__m1_quad_func_situation_to_formula | 이차식 | prerequisite_for | 상황을 이차함수 식으로 나타내기 | high | official_dual_source |
 | m1_factor_unit__prerequisite_for__m1_quad_eq_unit | 다항식의 곱셈과 인수분해 | prerequisite_for | 이차방정식 | medium | official_dual_source |
 | m1_factor_quadratic_expression__represented_by__m1_quad_eq_standard_form | 이차식 | represented_by | 이차방정식의 식 표현 | medium | official_dual_source |
 | m1_factor_binomial_product_xab__used_in__m1_quad_eq_factorization_solving | (x+a)(x+b) 공식 | used_in | 인수분해를 이용한 이차방정식 풀이 | medium | official_dual_source |

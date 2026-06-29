@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 좌표평면과 그래프
 - priority tier: highest
-- workplan score: 484
+- workplan score: 485
 - concepts: 43
-- edges touching unit: 237
-- cross-unit edges: 75
+- edges touching unit: 238
+- cross-unit edges: 76
 - low confidence concepts: 9
 - low confidence edges: 76
 
@@ -35,7 +35,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 51 |
 | contrasts_with | 9 |
 | often_confused_with | 24 |
-| prerequisite_for | 78 |
+| prerequisite_for | 79 |
 | related_to | 21 |
 | represented_by | 24 |
 | used_in | 30 |
@@ -77,6 +77,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_expr_unit__contains__m1_repr_expression | 문자의 사용과 식 | contains | 식 | high | official_dual_source |
 | m1_expr_unit__contains__m1_term_variable | 문자의 사용과 식 | contains | 변수 | high | official_dual_source |
 | m1_coord_coordinate__prerequisite_for__m1_func_intersection_point | 좌표 | prerequisite_for | 교점 | medium | official_single_source |
+| m1_coord_coordinate__prerequisite_for__m1_quad_func_vertex_coordinates | 좌표 | prerequisite_for | 꼭짓점 좌표 | medium | official_dual_source |
 | m1_coord_coordinate_plane__prerequisite_for__m1_data_scatter_plot | 좌표평면 | prerequisite_for | 산점도 | high | official_dual_source |
 | m1_coord_coordinate_plane__prerequisite_for__m1_func_graph_drawing | 좌표평면 | prerequisite_for | 일차함수 그래프 그리기 | high | official_dual_source |
 | m1_coord_coordinate_plane__prerequisite_for__m1_func_linear_graph | 좌표평면 | prerequisite_for | 일차함수의 그래프 | high | official_dual_source |
@@ -97,4 +98,3 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_prop_direct_proportion__prerequisite_for__m1_func_y_ax_graph | 정비례 | prerequisite_for | 일차함수 y=ax의 그래프 | medium | official_single_source |
 | m1_repr_expression__prerequisite_for__m1_eq_equality | 식 | prerequisite_for | 등식 | high | official_dual_source |
 | m1_repr_expression__prerequisite_for__m1_func_linear_formula | 식 | prerequisite_for | 일차함수의 식 | high | official_dual_source |
-| m1_repr_expression__prerequisite_for__m1_func_two_quantity_relation | 식 | prerequisite_for | 두 양 사이의 관계 | high | official_dual_source |

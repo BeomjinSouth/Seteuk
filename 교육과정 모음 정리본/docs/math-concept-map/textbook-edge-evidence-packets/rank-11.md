@@ -10,9 +10,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 이차방정식
 - priority tier: high
 - priority score: 32
-- edges in packet: 69
-- cross-unit edges: 24
-- low confidence edges: 16
+- edges in packet: 68
+- cross-unit edges: 23
+- low confidence edges: 15
 
 ## Relationship Evidence Slots
 
@@ -30,7 +30,6 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_mis_root_coefficient_relation_scope__often_confused_with__m1_quad_eq_real_solution_scope | intra_unit | 근과 계수와의 관계를 중학교 범위로 오인하는 오류 | often_confused_with | 이차방정식의 실수 해 범위 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 1 |
 | m1_mis_root_coefficient_relation_scope__often_confused_with__m1_quad_eq_root_formula | intra_unit | 근과 계수와의 관계를 중학교 범위로 오인하는 오류 | often_confused_with | 근의 공식 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 1 |
 | m1_factor_quadratic_expression__prerequisite_for__m1_mis_quadratic_expression_equation | cross_unit | 이차식 | prerequisite_for | 이차식과 이차방정식을 혼동하는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
-| m1_quad_eq_quadratic_equation__prerequisite_for__m1_mis_quadratic_function_equation | cross_unit | 이차방정식 | prerequisite_for | 이차함수와 이차방정식을 혼동하는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_mis_quadratic_expression_equation__often_confused_with__m1_factor_quadratic_expression | cross_unit | 이차식과 이차방정식을 혼동하는 오류 | often_confused_with | 이차식 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_quadratic_factorization_solution__often_confused_with__m1_factor_factorization | cross_unit | 인수분해한 식에서 해 조건을 빠뜨리는 오류 | often_confused_with | 인수분해 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_quadratic_function_equation__often_confused_with__m1_quad_eq_quadratic_equation | cross_unit | 이차함수와 이차방정식을 혼동하는 오류 | often_confused_with | 이차방정식 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
