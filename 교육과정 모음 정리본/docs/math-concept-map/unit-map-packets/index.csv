@@ -1,6 +1,6 @@
 ﻿rank,grade,domain,unit,priority_tier,workplan_score,concept_count,edge_count,intra_unit_edge_count,cross_unit_edge_count,low_confidence_concept_count,low_confidence_edge_count,total_pending_evidence_count,next_action,node_csv,edge_csv,map_md,map_dot
-1,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,highest,474,43,235,162,73,9,74,278,fill_low_confidence_concept_and_edge_evidence,rank-01-nodes.csv,rank-01-edges.csv,rank-01.md,rank-01.dot
-2,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,highest,208,27,131,96,35,6,28,158,fill_low_confidence_concept_and_edge_evidence,rank-02-nodes.csv,rank-02-edges.csv,rank-02.md,rank-02.dot
+1,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,highest,484,43,237,162,75,9,76,280,fill_low_confidence_concept_and_edge_evidence,rank-01-nodes.csv,rank-01-edges.csv,rank-01.md,rank-01.dot
+2,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,highest,339,33,161,123,38,11,52,194,fill_low_confidence_concept_and_edge_evidence,rank-02-nodes.csv,rank-02-edges.csv,rank-02.md,rank-02.dot
 3,중2(교육과정 학년군: 중1-3),자료와 가능성,경우의 수와 확률,highest,133,18,78,71,7,3,19,96,fill_low_confidence_concept_and_edge_evidence,rank-03-nodes.csv,rank-03-edges.csv,rank-03.md,rank-03.dot
 4,중1(교육과정 학년군: 중1-3),수와 연산,정수와 유리수,highest,168,31,134,97,37,3,21,165,fill_low_confidence_concept_and_edge_evidence,rank-04-nodes.csv,rank-04-edges.csv,rank-04.md,rank-04.dot
 5,중3(교육과정 학년군: 중1-3),변화와 관계,이차함수와 그 그래프,highest,126,20,87,67,20,3,15,107,fill_low_confidence_concept_and_edge_evidence,rank-05-nodes.csv,rank-05-edges.csv,rank-05.md,rank-05.dot
@@ -29,7 +29,7 @@
 28,중1(교육과정 학년군: 중1-3),도형과 측정,작도와 합동,medium,39,8,44,21,23,0,2,52,fill_low_confidence_edge_evidence,rank-28-nodes.csv,rank-28-edges.csv,rank-28.md,rank-28.dot
 29,중학교(교육과정 학년군: 중1-3),도형과 측정,도형과 측정,low,44,5,33,4,29,0,2,38,fill_low_confidence_edge_evidence,rank-29-nodes.csv,rank-29-edges.csv,rank-29.md,rank-29.dot
 30,중2(교육과정 학년군: 중1-3),도형과 측정,피타고라스 정리,low,20,6,29,15,14,0,0,35,confirm_cross_unit_edge_evidence,rank-30-nodes.csv,rank-30-edges.csv,rank-30.md,rank-30.dot
-31,중1(교육과정 학년군: 중1-3),수와 연산,공통 선수개념,low,50,1,9,0,9,1,9,10,fill_low_confidence_concept_and_edge_evidence,rank-31-nodes.csv,rank-31-edges.csv,rank-31.md,rank-31.dot
+31,중1(교육과정 학년군: 중1-3),수와 연산,공통 선수개념,low,55,1,10,0,10,1,10,11,fill_low_confidence_concept_and_edge_evidence,rank-31-nodes.csv,rank-31-edges.csv,rank-31.md,rank-31.dot
 32,중학교(교육과정 학년군: 중1-3),수와 연산,수와 연산,low,28,1,9,0,9,0,4,10,fill_low_confidence_edge_evidence,rank-32-nodes.csv,rank-32-edges.csv,rank-32.md,rank-32.dot
 33,중학교(교육과정 학년군: 중1-3),자료와 가능성,자료와 가능성,low,18,1,11,0,11,0,1,12,fill_low_confidence_edge_evidence,rank-33-nodes.csv,rank-33-edges.csv,rank-33.md,rank-33.dot
 34,중1(교육과정 학년군: 중1-3),자료와 가능성,자료와 가능성,low,18,2,17,1,16,0,0,19,confirm_cross_unit_edge_evidence,rank-34-nodes.csv,rank-34-edges.csv,rank-34.md,rank-34.dot

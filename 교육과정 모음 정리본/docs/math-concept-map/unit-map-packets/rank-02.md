@@ -9,44 +9,49 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 일차함수와 그 그래프
 - priority tier: highest
-- workplan score: 208
-- concepts: 27
-- edges touching unit: 131
-- cross-unit edges: 35
-- low confidence concepts: 6
-- low confidence edges: 28
+- workplan score: 339
+- concepts: 33
+- edges touching unit: 161
+- cross-unit edges: 38
+- low confidence concepts: 11
+- low confidence edges: 52
 
 ## Concept Type Distribution
 
 | concept_type | count |
 |---|---:|
 | core_concept | 3 |
-| misconception_risk | 6 |
+| misconception_risk | 7 |
 | procedure | 6 |
-| property | 2 |
-| representation | 4 |
+| property | 3 |
+| representation | 5 |
 | sub_concept | 2 |
-| term | 4 |
+| term | 7 |
 
 ## Relationship Distribution
 
 | relationship_type | count |
 |---|---:|
-| contains | 28 |
-| contrasts_with | 2 |
-| often_confused_with | 13 |
-| prerequisite_for | 55 |
+| contains | 34 |
+| contrasts_with | 5 |
+| often_confused_with | 16 |
+| prerequisite_for | 66 |
 | related_to | 5 |
-| represented_by | 5 |
-| used_in | 23 |
+| represented_by | 6 |
+| used_in | 29 |
 
 ## Low Confidence Concepts
 
 | concept_id | label_ko | type | evidence_depth | notes |
 |---|---|---|---|---|
+| m1_func_slope_ratio_formula | 기울기 계산식 | representation | official_single_source | 성취수준 문서의 기울기 부호 판단과 그래프의 식 구하기 맥락에서 추출한 미시 표현이다. 증가량의 비 표현은 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_func_input_value | 입력값 | term | official_dual_source | 공식 문서에는 함숫값을 구하는 수행이 확인되지만 '입력값' 용어 자체는 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_func_x_increment | x의 증가량 | term | official_single_source | 성취수준 문서에는 기울기 부호와 그래프의 식 구하기가 확인된다. x의 증가량이라는 세부 계산 용어는 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_func_y_increment | y의 증가량 | term | official_single_source | 성취수준 문서에는 기울기 부호와 그래프의 식 구하기가 확인된다. y의 증가량이라는 세부 계산 용어는 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_mis_all_relations_are_functions | 모든 두 양의 관계를 함수로 보는 오류 | misconception_risk | official_dual_source |  |
 | m1_mis_function_linear_function | 함수와 일차함수 혼동 | misconception_risk | official_dual_source |  |
 | m1_mis_function_value_input_output | 함숫값과 입력값 혼동 | misconception_risk | official_dual_source |  |
+| m1_mis_multiple_outputs_same_input | 하나의 입력에 여러 출력이 대응하는 경우를 함수로 보는 오류 | misconception_risk | official_dual_source | 공식 문서의 '하나씩 정해지는 대응 관계'와 함수 판단 성취수준에서 추론한 오개념 위험이다. 교과서 예제·문항 근거 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_mis_slope_intercept | 기울기와 절편 혼동 | misconception_risk | official_dual_source |  |
 | m1_mis_slope_sign | 기울기 부호와 그래프 방향 혼동 | misconception_risk | official_single_source |  |
 | m1_mis_x_y_intercept | x절편과 y절편 혼동 | misconception_risk | official_dual_source |  |
@@ -55,6 +60,9 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
+| m1_coord_x_coordinate__prerequisite_for__m1_func_x_increment | x좌표 | prerequisite_for | x의 증가량 | low | official_dual_source |
+| m1_coord_y_coordinate__prerequisite_for__m1_func_y_increment | y좌표 | prerequisite_for | y의 증가량 | low | official_dual_source |
+| m1_num_ratio__prerequisite_for__m1_func_slope_ratio_formula | 비 | prerequisite_for | 기울기 계산식 | low | official_single_source |
 | m1_mis_function_value_input_output__often_confused_with__m1_expr_substitution | 함숫값과 입력값 혼동 | often_confused_with | 대입 | low | official_dual_source |
 | m1_mis_slope_sign__often_confused_with__m1_graph_increase_decrease | 기울기 부호와 그래프 방향 혼동 | often_confused_with | 증가와 감소 | low | official_single_source |
 | m1_coord_coordinate_plane__prerequisite_for__m1_func_graph_drawing | 좌표평면 | prerequisite_for | 일차함수 그래프 그리기 | high | official_dual_source |

@@ -5,16 +5,16 @@ This generated index tracks compact concept hierarchy maps for every textbook ev
 ## Summary
 
 - unit maps: 34
-- concept rows: 479
-- edge rows touching units: 2448
-- cross-unit edge rows: 896
+- concept rows: 485
+- edge rows touching units: 2481
+- cross-unit edge rows: 902
 
 ## Packets
 
 | rank | grade | domain | unit | concepts | edges | cross | low concepts | low edges | map | dot |
 |---:|---|---|---|---:|---:|---:|---:|---:|---|---|
-| 1 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 좌표평면과 그래프 | 43 | 235 | 73 | 9 | 74 | rank-01.md | rank-01.dot |
-| 2 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 그 그래프 | 27 | 131 | 35 | 6 | 28 | rank-02.md | rank-02.dot |
+| 1 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 좌표평면과 그래프 | 43 | 237 | 75 | 9 | 76 | rank-01.md | rank-01.dot |
+| 2 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 그 그래프 | 33 | 161 | 38 | 11 | 52 | rank-02.md | rank-02.dot |
 | 3 | 중2(교육과정 학년군: 중1-3) | 자료와 가능성 | 경우의 수와 확률 | 18 | 78 | 7 | 3 | 19 | rank-03.md | rank-03.dot |
 | 4 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 정수와 유리수 | 31 | 134 | 37 | 3 | 21 | rank-04.md | rank-04.dot |
 | 5 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 이차함수와 그 그래프 | 20 | 87 | 20 | 3 | 15 | rank-05.md | rank-05.dot |
@@ -43,7 +43,7 @@ This generated index tracks compact concept hierarchy maps for every textbook ev
 | 28 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 작도와 합동 | 8 | 44 | 23 | 0 | 2 | rank-28.md | rank-28.dot |
 | 29 | 중학교(교육과정 학년군: 중1-3) | 도형과 측정 | 도형과 측정 | 5 | 33 | 29 | 0 | 2 | rank-29.md | rank-29.dot |
 | 30 | 중2(교육과정 학년군: 중1-3) | 도형과 측정 | 피타고라스 정리 | 6 | 29 | 14 | 0 | 0 | rank-30.md | rank-30.dot |
-| 31 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 공통 선수개념 | 1 | 9 | 9 | 1 | 9 | rank-31.md | rank-31.dot |
+| 31 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 공통 선수개념 | 1 | 10 | 10 | 1 | 10 | rank-31.md | rank-31.dot |
 | 32 | 중학교(교육과정 학년군: 중1-3) | 수와 연산 | 수와 연산 | 1 | 9 | 9 | 0 | 4 | rank-32.md | rank-32.dot |
 | 33 | 중학교(교육과정 학년군: 중1-3) | 자료와 가능성 | 자료와 가능성 | 1 | 11 | 11 | 0 | 1 | rank-33.md | rank-33.dot |
 | 34 | 중1(교육과정 학년군: 중1-3) | 자료와 가능성 | 자료와 가능성 | 2 | 17 | 16 | 0 | 0 | rank-34.md | rank-34.dot |

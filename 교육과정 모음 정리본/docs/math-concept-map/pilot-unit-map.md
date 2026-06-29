@@ -9,12 +9,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 좌표평면과 그래프
 - priority tier: highest
-- workplan score: 474
+- workplan score: 484
 - concepts: 43
-- edges touching unit: 235
-- cross-unit edges: 73
+- edges touching unit: 237
+- cross-unit edges: 75
 - low confidence concepts: 9
-- low confidence edges: 74
+- low confidence edges: 76
 
 ## Concept Type Distribution
 
@@ -35,7 +35,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 51 |
 | contrasts_with | 9 |
 | often_confused_with | 24 |
-| prerequisite_for | 76 |
+| prerequisite_for | 78 |
 | related_to | 21 |
 | represented_by | 24 |
 | used_in | 30 |
@@ -58,6 +58,8 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
+| m1_coord_x_coordinate__prerequisite_for__m1_func_x_increment | x좌표 | prerequisite_for | x의 증가량 | low | official_dual_source |
+| m1_coord_y_coordinate__prerequisite_for__m1_func_y_increment | y좌표 | prerequisite_for | y의 증가량 | low | official_dual_source |
 | m1_graph_graph__prerequisite_for__m1_mis_histogram_bar_graph | 그래프 | prerequisite_for | 히스토그램과 막대그래프를 같은 표현으로 보는 오류 | low | official_dual_source |
 | m1_num_negative_number__prerequisite_for__m1_coord_quadrant_signs | 음수 | prerequisite_for | 사분면별 좌표 부호 | low | official_dual_source |
 | m1_num_positive_number__prerequisite_for__m1_coord_quadrant_signs | 양수 | prerequisite_for | 사분면별 좌표 부호 | low | official_dual_source |
@@ -96,5 +98,3 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_repr_expression__prerequisite_for__m1_eq_equality | 식 | prerequisite_for | 등식 | high | official_dual_source |
 | m1_repr_expression__prerequisite_for__m1_func_linear_formula | 식 | prerequisite_for | 일차함수의 식 | high | official_dual_source |
 | m1_repr_expression__prerequisite_for__m1_func_two_quantity_relation | 식 | prerequisite_for | 두 양 사이의 관계 | high | official_dual_source |
-| m1_repr_expression__prerequisite_for__m1_ineq_inequality | 식 | prerequisite_for | 부등식 | high | official_dual_source |
-| m1_repr_table__prerequisite_for__m1_data_critical_graph_reading | 표 | prerequisite_for | 표와 그래프의 오류 비판적으로 읽기 | medium | official_single_source |

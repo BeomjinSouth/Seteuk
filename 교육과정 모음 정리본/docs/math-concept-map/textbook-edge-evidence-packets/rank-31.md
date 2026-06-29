@@ -10,15 +10,16 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 공통 선수개념
 - priority tier: low
 - priority score: 5
-- edges in packet: 9
-- cross-unit edges: 9
-- low confidence edges: 9
+- edges in packet: 10
+- cross-unit edges: 10
+- low confidence edges: 10
 
 ## Relationship Evidence Slots
 
 | edge_id | scope | source | relationship | target | confidence | required evidence | focus | source refs |
 |---|---|---|---|---|---|---|---|---:|
 | m1_num_domain__contains__m1_num_ratio | cross_unit | 수와 연산 | contains | 비 | low | structure_ref;textbook_page_refs;extraction_notes | Find textbook structure evidence for the containment relation. | 6 |
+| m1_num_ratio__prerequisite_for__m1_func_slope_ratio_formula | cross_unit | 비 | prerequisite_for | 기울기 계산식 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
 | m1_num_rational_number__prerequisite_for__m1_num_ratio | cross_unit | 유리수 | prerequisite_for | 비 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_ratio__used_in__m1_data_relative_frequency | cross_unit | 비 | used_in | 상대도수 | low | procedure_ref;textbook_page_refs;extraction_notes | Find a worked example, procedure, or application where this source concept is used. | 3 |
 | m1_num_ratio__used_in__m1_data_theoretical_probability | cross_unit | 비 | used_in | 경우의 수의 비율로서의 확률 | low | procedure_ref;textbook_page_refs;extraction_notes | Find a worked example, procedure, or application where this source concept is used. | 2 |

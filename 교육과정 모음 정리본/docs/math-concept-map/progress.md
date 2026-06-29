@@ -1166,10 +1166,30 @@
 - diff check: `git diff --check -- docs/math-concept-map 교과서_원본`: 종료 코드 0, CRLF 변환 경고만 확인.
 - PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
 
+## 2026-06-29 일차함수 미시 concept 병렬 보강
+
+- AGENTS.md를 다시 확인했고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` concept map 보강, source-review 생성 규칙, 파생 산출물 정비, 검증 보강으로 제한했다.
+- 멀티에이전트 explorer 3개를 병렬로 사용해 rank 2 `일차함수와 그 그래프`의 누락 미시 concept, edge 의미 품질, low-confidence·source-review 후보를 독립 감사했다.
+- 공식 교육과정과 성취수준의 함수·일차함수 맥락을 근거로 `하나씩 정해지는 대응`을 `property` concept으로 추가하고, `대응 관계`, `함수인지 판단하기`, `함수와 일차함수 혼동`, `하나의 입력에 여러 출력이 대응하는 경우를 함수로 보는 오류`와 연결했다.
+- `입력값`, `x의 증가량`, `y의 증가량`, `기울기 계산식`은 교과서 본문 확인이 필요한 미시 concept으로 `confidence: low`를 유지했다. `입력값`은 `함숫값`과 대조하고, `x의 증가량`·`y의 증가량`은 `기울기 계산식`, `기울기`, `일차함수 그래프 그리기`, `일차함수 그래프의 식 구하기`와 연결했다.
+- `y=ax` 그래프와 `y=ax+b` 그래프의 대조, `기울기`와 `y절편`의 대조, `기울기의 부호`가 그래프 그리기에 쓰이는 관계를 명시해 일차함수 단원의 구조 edge를 보강했다.
+- 대응표, 독립변수·종속변수, 초깃값, 두 점으로 그래프 그리기, 그래프 위의 점 판별 등은 공식 문서 근거만으로 확정하기보다 교과서 본문·예제 확인 후 처리할 후보로 보류했다.
+- 연구보고서 source review에서 자료·좌표·수식을 도구에 `입력`하는 맥락을 함수의 `입력값` 직접 근거로 보지 않도록 제외 규칙과 테스트를 추가했다.
+- 전체 파생 산출물을 재생성한 결과 concept은 485개, edge는 2030개가 되었다. source ref 총계는 concept 1275개, edge 5000개, 총 6275개이며 source catalogue는 5개이다.
+- `research-report-context-packet.*`는 53개 row, `research-report-source-review.*`는 `applied_after_manual_review` 20개와 `not_applicable_from_this_row` 33개를 기록하며 `pending_manual_review`는 0개이다.
+- `review-queue.*`는 75개 low-confidence concept, `concept-evidence-depth.*`는 concept 485개, `edge-evidence-depth.*`는 edge 2030개, `prerequisite-map.*`는 747개 선수 관계 edge로 갱신되었다.
+- `textbook-evidence-workplan.*`는 34개 단원 그룹, concept evidence row 485개, edge evidence row 2481개, pending textbook evidence row 2966개, low-confidence concept/edge row 550개를 기록한다. rank 1 `좌표평면과 그래프`는 43개 concept과 237개 edge row, 총 280개 row이고, rank 2 `일차함수와 그 그래프`는 33개 concept과 161개 edge row, 총 194개 row이다.
+- `test_build_pilot_linear_function_microconcepts.py`를 추가해 새 일차함수 미시 concept과 함수 판별·함숫값·기울기·절편·그래프 그리기 관계 edge를 고정했다. `test_build_research_report_source_review.py`에는 도구·자료 입력 맥락을 `입력값` source ref 후보에서 제외하는 검사를 추가했다.
+- 좁은 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p "test_build_pilot_linear_function_microconcepts.py"` 3개, `test_build_pilot_edge_sync.py` 21개, `test_build_research_report_source_review.py` 8개 통과.
+- 전체 단위 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p "test_*.py"`: 203개 통과.
+- 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 485개 concept, 2030개 edge, 5개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map 교과서_원본`: 종료 코드 0, CRLF 변환 경고만 확인.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
-- 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 `not_applicable_from_this_row` 28개가 broad context, 용어 충돌, 또는 약한 출현으로 유지되는지 주기적으로 감사하되, 현재 남은 `pending_manual_review`는 0개이다. 단, `비` confidence 승격은 교과서 본문 또는 중학교 과정 직접 근거 확인 후 판단한다.
+- 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 `not_applicable_from_this_row` 33개가 broad context, 용어 충돌, 도구·자료 입력, 또는 약한 출현으로 유지되는지 주기적으로 감사하되, 현재 남은 `pending_manual_review`는 0개이다. 단, `비`와 `입력값` confidence 승격은 교과서 본문 또는 중학교 과정 직접 근거 확인 후 판단한다.
 - 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.
-- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 235개, 총 278개 row로 유지하되, 전체 단원 검토는 `unit-map-packets/index.*`에서 rank 1~34 순서로 이어간다.
+- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 237개, 총 280개 row로 유지하되, rank 2 `일차함수와 그 그래프`의 concept 33개와 edge packet row 161개, 총 194개 row도 같은 방식으로 교과서 근거를 보강한다. 전체 단원 검토는 `unit-map-packets/index.*`에서 rank 1~34 순서로 이어간다.
 - 새 concept, alias, `related_ids`, 또는 `equivalent_to` 후보가 추가되면 `equivalence-alias-audit.*`, `related-edge-resolution-queue.*`, `textbook-edge-evidence-packets/*`, `edge-evidence-depth.*`를 함께 재생성한다.

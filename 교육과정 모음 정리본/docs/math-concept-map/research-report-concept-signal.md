@@ -5,21 +5,21 @@ Rows are candidate signals only; inspect the local page context before changing 
 
 ## Summary
 
-- matched concepts: 239
+- matched concepts: 240
 
 ## Confidence
 
 | confidence | matched concepts |
 |---|---:|
 | high | 207 |
-| low | 1 |
+| low | 2 |
 | medium | 31 |
 
 ## Recommended Actions
 
 | action | matched concepts |
 |---|---:|
-| inspect_research_report_context_before_confidence_change | 1 |
+| inspect_research_report_context_before_confidence_change | 2 |
 | inspect_research_report_context_before_source_ref_upgrade | 31 |
 | use_as_supplemental_trace_only | 207 |
 
@@ -28,6 +28,7 @@ Rows are candidate signals only; inspect the local page context before changing 
 | concept_id | label | unit | confidence | matches | pages | status | action |
 |---|---|---|---|---:|---|---|---|
 | m1_num_ratio | 비 | 공통 선수개념 | low | 77 | 61; 91; 172; 177; 180; 181; 183; 184; 185; 187; 188; 192; 194; 195; 208; 209; 260; 262 | research_report_signal | inspect_research_report_context_before_confidence_change |
+| m1_func_input_value | 입력값 | 일차함수와 그 그래프 | low | 11 | 193; 196; 253; 254; 259 | research_report_signal | inspect_research_report_context_before_confidence_change |
 | m1_geo_figure | 도형 | 도형과 측정 | medium | 433 | 9; 12; 23; 26; 45; 46; 60; 61; 62; 76; 77; 78; 79; 80; 84; 85; 86; 103; 108; 109; 110; 111; 112; 113 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_geo_triangle | 삼각형 | 도형과 측정 | medium | 367 | 60; 62; 77; 78; 79; 80; 84; 85; 86; 103; 108; 109; 111; 112; 113; 114; 115; 118; 119; 120; 131; 135; 138; 139 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_num_addition | 덧셈 | 정수와 유리수 | medium | 190 | 26; 47; 48; 55; 56; 57; 58; 59; 60; 101; 105; 107; 108; 109; 110; 125; 127; 128; 129; 132; 133; 134; 136; 137 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
@@ -106,4 +107,3 @@ Rows are candidate signals only; inspect the local page context before changing 
 | m1_func_slope | 기울기 | 일차함수와 그 그래프 | high | 42 | 58; 59; 87; 88; 89; 90; 205; 218; 234; 235; 252; 255; 257; 258 | research_report_signal | use_as_supplemental_trace_only |
 | m1_geo_parallel_lines | 평행선 | 기본 도형 | high | 40 | 62; 78; 79; 80; 221; 224; 235; 236; 237; 238; 242; 272 | research_report_signal | use_as_supplemental_trace_only |
 | m1_func_correspondence | 대응 관계 | 일차함수와 그 그래프 | high | 40 | 5; 12; 22; 24; 54; 75; 76; 84; 171; 173; 180; 181 | research_report_signal | use_as_supplemental_trace_only |
-| m1_geo_surface_area | 겉넓이 | 입체도형의 성질 | high | 39 | 77; 79; 176; 181; 182; 222; 235; 236; 237; 238; 242; 263 | research_report_signal | use_as_supplemental_trace_only |

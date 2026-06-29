@@ -153,7 +153,9 @@ m1_func_unit,일차함수와 그 그래프,중1(교육과정 학년군: 중1-3),
 m1_func_function,함수,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,high,4,2,4,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; teaching_note; term_list,yes,yes,no,official_dual_source,yes
 m1_func_two_quantity_relation,두 양 사이의 관계,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; teaching_note,yes,yes,no,official_dual_source,yes
 m1_func_correspondence,대응 관계,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; teaching_note,yes,yes,no,official_dual_source,yes
+m1_func_unique_correspondence,하나씩 정해지는 대응,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; teaching_note,yes,yes,no,official_dual_source,yes
 m1_func_function_judgement,함수인지 판단하기,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
+m1_func_input_value,입력값,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,low,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
 m1_func_value,함숫값,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes
 m1_func_linear_function,일차함수,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes
 m1_func_linear_formula,일차함수의 식,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
@@ -163,6 +165,9 @@ m1_func_y_ax_graph,일차함수 y=ax의 그래프,중1(교육과정 학년군: �
 m1_func_y_ax_b_graph,일차함수 y=ax+b의 그래프,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,medium,1,1,1,achievement_math_2022,achievement_level,no,yes,no,official_single_source,yes
 m1_func_graph_properties,일차함수의 그래프의 성질,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
 m1_func_slope,기울기,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,high,3,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; term_list,yes,yes,no,official_dual_source,yes
+m1_func_x_increment,x의 증가량,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,low,1,1,1,achievement_math_2022,achievement_level,no,yes,no,official_single_source,yes
+m1_func_y_increment,y의 증가량,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,low,1,1,1,achievement_math_2022,achievement_level,no,yes,no,official_single_source,yes
+m1_func_slope_ratio_formula,기울기 계산식,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,low,1,1,1,achievement_math_2022,achievement_level,no,yes,no,official_single_source,yes
 m1_func_slope_sign,기울기의 부호,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,high,1,1,1,achievement_math_2022,achievement_level,no,yes,no,official_single_source,yes
 m1_func_x_intercept,x절편,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; term_list,yes,yes,no,official_dual_source,yes
 m1_func_y_intercept,y절편,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,high,3,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; term_list,yes,yes,no,official_dual_source,yes
@@ -179,6 +184,7 @@ m1_func_intersection_count,교점의 개수,중1(교육과정 학년군: 중1-3)
 m1_func_system_graph_relation,두 일차함수의 그래프와 연립일차방정식의 관계,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 일차방정식의 관계,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
 m1_func_system_solution_from_intersection,교점으로 연립일차방정식의 해 말하기,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 일차방정식의 관계,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
 m1_mis_all_relations_are_functions,모든 두 양의 관계를 함수로 보는 오류,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,low,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; teaching_note,yes,yes,no,official_dual_source,yes
+m1_mis_multiple_outputs_same_input,하나의 입력에 여러 출력이 대응하는 경우를 함수로 보는 오류,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,low,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; teaching_note,yes,yes,no,official_dual_source,yes
 m1_mis_function_value_input_output,함숫값과 입력값 혼동,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,low,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
 m1_mis_function_linear_function,함수와 일차함수 혼동,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,low,4,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
 m1_mis_slope_intercept,기울기와 절편 혼동,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,low,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; term_list,yes,yes,no,official_dual_source,yes

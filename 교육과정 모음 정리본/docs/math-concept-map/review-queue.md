@@ -2,14 +2,14 @@
 
 이 문서는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 출처 보강 때 먼저 확인할 대상을 정리한다.
 
-- 검토 대상 concept: 70개
+- 검토 대상 concept: 75개
 
 ## 영역별 검토 대상
 
 | 영역 | concept 수 |
 |---|---:|
 | 수와 연산 | 10 |
-| 변화와 관계 | 39 |
+| 변화와 관계 | 44 |
 | 도형과 측정 | 12 |
 | 자료와 가능성 | 9 |
 
@@ -17,10 +17,11 @@
 
 | concept_type | concept 수 |
 |---|---:|
-| misconception_risk | 65 |
+| misconception_risk | 66 |
 | property | 1 |
+| representation | 1 |
 | sub_concept | 3 |
-| term | 1 |
+| term | 4 |
 
 ## 검토 항목
 
@@ -62,9 +63,14 @@
 | m1_mis_all_relations_are_functions | 변화와 관계 | 일차함수와 그 그래프 | misconception_risk | textbook_evidence_needed | 모든 두 양의 관계를 함수로 보는 오류 |  |
 | m1_mis_function_linear_function | 변화와 관계 | 일차함수와 그 그래프 | misconception_risk | textbook_evidence_needed | 함수와 일차함수 혼동 |  |
 | m1_mis_function_value_input_output | 변화와 관계 | 일차함수와 그 그래프 | misconception_risk | textbook_evidence_needed | 함숫값과 입력값 혼동 |  |
+| m1_mis_multiple_outputs_same_input | 변화와 관계 | 일차함수와 그 그래프 | misconception_risk | textbook_evidence_needed | 하나의 입력에 여러 출력이 대응하는 경우를 함수로 보는 오류 | 공식 문서의 '하나씩 정해지는 대응 관계'와 함수 판단 성취수준에서 추론한 오개념 위험이다. 교과서 예제·문항 근거 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_mis_slope_intercept | 변화와 관계 | 일차함수와 그 그래프 | misconception_risk | textbook_evidence_needed | 기울기와 절편 혼동 |  |
 | m1_mis_slope_sign | 변화와 관계 | 일차함수와 그 그래프 | misconception_risk | textbook_evidence_needed | 기울기 부호와 그래프 방향 혼동 |  |
 | m1_mis_x_y_intercept | 변화와 관계 | 일차함수와 그 그래프 | misconception_risk | textbook_evidence_needed | x절편과 y절편 혼동 |  |
+| m1_func_slope_ratio_formula | 변화와 관계 | 일차함수와 그 그래프 | representation | source_detail_needed | 기울기 계산식 | 성취수준 문서의 기울기 부호 판단과 그래프의 식 구하기 맥락에서 추출한 미시 표현이다. 증가량의 비 표현은 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_func_input_value | 변화와 관계 | 일차함수와 그 그래프 | term | source_detail_needed | 입력값 | 공식 문서에는 함숫값을 구하는 수행이 확인되지만 '입력값' 용어 자체는 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_func_x_increment | 변화와 관계 | 일차함수와 그 그래프 | term | source_detail_needed | x의 증가량 | 성취수준 문서에는 기울기 부호와 그래프의 식 구하기가 확인된다. x의 증가량이라는 세부 계산 용어는 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_func_y_increment | 변화와 관계 | 일차함수와 그 그래프 | term | source_detail_needed | y의 증가량 | 성취수준 문서에는 기울기 부호와 그래프의 식 구하기가 확인된다. y의 증가량이라는 세부 계산 용어는 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_mis_intersection_solution | 변화와 관계 | 일차함수와 일차방정식의 관계 | misconception_risk | textbook_evidence_needed | 그래프의 교점과 연립방정식의 해를 분리해서 보는 오류 |  |
 | m1_mis_axis_quadrant | 변화와 관계 | 좌표평면과 그래프 | misconception_risk | textbook_evidence_needed | 축 위의 점을 사분면에 포함하는 오류 | 공식 문서에서 좌표축과 사분면 용어는 확인되지만, 오류 자체는 교과서·문항 근거 확인 전 잠정 노드이다. |
 | m1_mis_direct_inverse_generalization | 변화와 관계 | 좌표평면과 그래프 | misconception_risk | textbook_evidence_needed | 증가·감소만으로 정비례·반비례 판단 | 공식 문서의 정비례·반비례 관계 판단 요구와 변화 상태 해석 요구를 함께 본 추론이다. |

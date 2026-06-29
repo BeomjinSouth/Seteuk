@@ -5,17 +5,17 @@ This generated workplan combines concept evidence packets and relationship edge 
 ## Summary
 
 - unit groups: 34
-- concept evidence rows: 479
-- edge evidence rows: 2448
-- pending textbook evidence rows: 2927
-- low confidence concept/edge rows: 518
+- concept evidence rows: 485
+- edge evidence rows: 2481
+- pending textbook evidence rows: 2966
+- low confidence concept/edge rows: 550
 
 ## Unit Workplan
 
 | rank | grade | domain | unit | tier | workplan score | concepts pending/low | edges pending/low/cross | next action | packets |
 |---:|---|---|---|---|---:|---:|---:|---|---|
-| 1 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 좌표평면과 그래프 | highest | 474 | 43/9 | 235/74/73 | fill_low_confidence_concept_and_edge_evidence | rank-01.md; rank-01.md |
-| 2 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 그 그래프 | highest | 208 | 27/6 | 131/28/35 | fill_low_confidence_concept_and_edge_evidence | rank-02.md; rank-02.md |
+| 1 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 좌표평면과 그래프 | highest | 484 | 43/9 | 237/76/75 | fill_low_confidence_concept_and_edge_evidence | rank-01.md; rank-01.md |
+| 2 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 그 그래프 | highest | 339 | 33/11 | 161/52/38 | fill_low_confidence_concept_and_edge_evidence | rank-02.md; rank-02.md |
 | 3 | 중2(교육과정 학년군: 중1-3) | 자료와 가능성 | 경우의 수와 확률 | highest | 133 | 18/3 | 78/19/7 | fill_low_confidence_concept_and_edge_evidence | rank-03.md; rank-03.md |
 | 4 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 정수와 유리수 | highest | 168 | 31/3 | 134/21/37 | fill_low_confidence_concept_and_edge_evidence | rank-04.md; rank-04.md |
 | 5 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 이차함수와 그 그래프 | highest | 126 | 20/3 | 87/15/20 | fill_low_confidence_concept_and_edge_evidence | rank-05.md; rank-05.md |
@@ -44,7 +44,7 @@ This generated workplan combines concept evidence packets and relationship edge 
 | 28 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 작도와 합동 | medium | 39 | 8/0 | 44/2/23 | fill_low_confidence_edge_evidence | rank-28.md; rank-28.md |
 | 29 | 중학교(교육과정 학년군: 중1-3) | 도형과 측정 | 도형과 측정 | low | 44 | 5/0 | 33/2/29 | fill_low_confidence_edge_evidence | rank-29.md; rank-29.md |
 | 30 | 중2(교육과정 학년군: 중1-3) | 도형과 측정 | 피타고라스 정리 | low | 20 | 6/0 | 29/0/14 | confirm_cross_unit_edge_evidence | rank-30.md; rank-30.md |
-| 31 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 공통 선수개념 | low | 50 | 1/1 | 9/9/9 | fill_low_confidence_concept_and_edge_evidence | rank-31.md; rank-31.md |
+| 31 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 공통 선수개념 | low | 55 | 1/1 | 10/10/10 | fill_low_confidence_concept_and_edge_evidence | rank-31.md; rank-31.md |
 | 32 | 중학교(교육과정 학년군: 중1-3) | 수와 연산 | 수와 연산 | low | 28 | 1/0 | 9/4/9 | fill_low_confidence_edge_evidence | rank-32.md; rank-32.md |
 | 33 | 중학교(교육과정 학년군: 중1-3) | 자료와 가능성 | 자료와 가능성 | low | 18 | 1/0 | 11/1/11 | fill_low_confidence_edge_evidence | rank-33.md; rank-33.md |
 | 34 | 중1(교육과정 학년군: 중1-3) | 자료와 가능성 | 자료와 가능성 | low | 18 | 2/0 | 17/0/16 | confirm_cross_unit_edge_evidence | rank-34.md; rank-34.md |

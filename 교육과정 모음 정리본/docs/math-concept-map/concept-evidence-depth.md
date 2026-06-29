@@ -4,16 +4,16 @@ This generated audit summarizes source evidence depth for each concept node.
 
 ## Summary
 
-- concepts: 479
-- needs textbook evidence: 479
-- low confidence concepts: 70
+- concepts: 485
+- needs textbook evidence: 485
+- low confidence concepts: 75
 
 ## Evidence Depth Counts
 
 | evidence_depth | concept count |
 |---|---:|
-| official_dual_source | 401 |
-| official_single_source | 78 |
+| official_dual_source | 404 |
+| official_single_source | 81 |
 
 ## Priority Rows
 
@@ -54,8 +54,8 @@ This generated audit summarizes source evidence depth for each concept node.
 | m1_mis_transposition_sign | 이항할 때 부호를 잘못 바꾸는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_ineq_negative | 음수를 곱하거나 나눌 때 부등호 방향을 바꾸지 않는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_ineq_solution_single_value | 부등식의 해를 한 값으로만 이해하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
+| m1_func_input_value | 입력값 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
+| m1_func_slope_ratio_formula | 기울기 계산식 | low | official_single_source | 1 | achievement_math_2022 |
+| m1_func_x_increment | x의 증가량 | low | official_single_source | 1 | achievement_math_2022 |
+| m1_func_y_increment | y의 증가량 | low | official_single_source | 1 | achievement_math_2022 |
 | m1_mis_all_relations_are_functions | 모든 두 양의 관계를 함수로 보는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_function_linear_function | 함수와 일차함수 혼동 | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_function_value_input_output | 함숫값과 입력값 혼동 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_slope_intercept | 기울기와 절편 혼동 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_slope_sign | 기울기 부호와 그래프 방향 혼동 | low | official_single_source | 1 | achievement_math_2022 |

@@ -10,9 +10,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 좌표평면과 그래프
 - priority tier: highest
 - priority score: 105
-- edges in packet: 235
-- cross-unit edges: 73
-- low confidence edges: 74
+- edges in packet: 237
+- cross-unit edges: 75
+- low confidence edges: 76
 
 ## Relationship Evidence Slots
 
@@ -79,6 +79,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_coord_quadrant_signs__related_to__m1_coord_quadrant_4 | intra_unit | 사분면별 좌표 부호 | related_to | 제4사분면 | low | related_ref;textbook_page_refs;extraction_notes | Find textbook wording or examples that justify keeping these concepts linked. | 2 |
 | m1_coord_x_axis__related_to__m1_coord_axis_point | intra_unit | x축 | related_to | 축 위의 점 | low | related_ref;textbook_page_refs;extraction_notes | Find textbook wording or examples that justify keeping these concepts linked. | 2 |
 | m1_coord_y_axis__related_to__m1_coord_axis_point | intra_unit | y축 | related_to | 축 위의 점 | low | related_ref;textbook_page_refs;extraction_notes | Find textbook wording or examples that justify keeping these concepts linked. | 2 |
+| m1_coord_x_coordinate__prerequisite_for__m1_func_x_increment | cross_unit | x좌표 | prerequisite_for | x의 증가량 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_coord_y_coordinate__prerequisite_for__m1_func_y_increment | cross_unit | y좌표 | prerequisite_for | y의 증가량 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_graph_graph__prerequisite_for__m1_mis_histogram_bar_graph | cross_unit | 그래프 | prerequisite_for | 히스토그램과 막대그래프를 같은 표현으로 보는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_negative_number__prerequisite_for__m1_coord_quadrant_signs | cross_unit | 음수 | prerequisite_for | 사분면별 좌표 부호 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_positive_number__prerequisite_for__m1_coord_quadrant_signs | cross_unit | 양수 | prerequisite_for | 사분면별 좌표 부호 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |

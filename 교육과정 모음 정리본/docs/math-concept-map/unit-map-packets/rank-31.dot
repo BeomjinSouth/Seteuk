@@ -5,6 +5,7 @@ digraph pilot_unit_map {
   edge [fontname="Malgun Gothic", color="#6b7280"];
   "m1_num_ratio" [label="비\\nterm", fillcolor="#fff7ed"];
   "m1_num_domain" [label="수와 연산\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_func_slope_ratio_formula" [label="기울기 계산식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_rational_number" [label="유리수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_relative_frequency" [label="상대도수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_theoretical_probability" [label="경우의 수의 비율로서의 확률\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -14,6 +15,7 @@ digraph pilot_unit_map {
   "m1_prop_direct_proportion" [label="정비례\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_prop_inverse_proportion" [label="반비례\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_domain" -> "m1_num_ratio" [label="contains", style="dashed", color="#b91c1c"];
+  "m1_num_ratio" -> "m1_func_slope_ratio_formula" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_num_rational_number" -> "m1_num_ratio" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_num_ratio" -> "m1_data_relative_frequency" [label="used_in", style="dashed", color="#b91c1c"];
   "m1_num_ratio" -> "m1_data_theoretical_probability" [label="used_in", style="dashed", color="#b91c1c"];

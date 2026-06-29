@@ -46,6 +46,8 @@ digraph pilot_unit_map {
   "m1_coord_y_axis" [label="y축\\nterm", fillcolor="#f7fbff"];
   "m1_coord_y_coordinate" [label="y좌표\\nterm", fillcolor="#f7fbff"];
   "m1_term_variable" [label="변수\\nterm", fillcolor="#f7fbff"];
+  "m1_func_x_increment" [label="x의 증가량\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_func_y_increment" [label="y의 증가량\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_mis_histogram_bar_graph" [label="히스토그램과 막대그래프를 같은 표현으로 보는 오류\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_negative_number" [label="음수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_positive_number" [label="양수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -152,6 +154,8 @@ digraph pilot_unit_map {
   "m1_coord_quadrant_signs" -> "m1_coord_quadrant_4" [label="related_to", style="solid", color="#b91c1c"];
   "m1_coord_x_axis" -> "m1_coord_axis_point" [label="related_to", style="solid", color="#b91c1c"];
   "m1_coord_y_axis" -> "m1_coord_axis_point" [label="related_to", style="solid", color="#b91c1c"];
+  "m1_coord_x_coordinate" -> "m1_func_x_increment" [label="prerequisite_for", style="dashed", color="#b91c1c"];
+  "m1_coord_y_coordinate" -> "m1_func_y_increment" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_graph_graph" -> "m1_mis_histogram_bar_graph" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_num_negative_number" -> "m1_coord_quadrant_signs" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_num_positive_number" -> "m1_coord_quadrant_signs" [label="prerequisite_for", style="dashed", color="#b91c1c"];
