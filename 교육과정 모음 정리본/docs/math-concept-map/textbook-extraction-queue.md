@@ -5,7 +5,7 @@ This generated queue ranks units for the next textbook-grounded concept extracti
 ## Summary
 
 - unit groups: 34
-- concepts needing textbook evidence: 526
+- concepts needing textbook evidence: 538
 - low confidence concepts in queue: 81
 
 ## Queue
@@ -18,8 +18,8 @@ This generated queue ranks units for the next textbook-grounded concept extracti
 | 4 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 이차함수와 그 그래프 | highest | 68 | 30 | 3 | 13 | textbook_evidence_for_low_confidence |
 | 5 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 정수와 유리수 | highest | 65 | 41 | 5 | 2 | textbook_evidence_for_low_confidence |
 | 6 | 중1(교육과정 학년군: 중1-3) | 자료와 가능성 | 도수분포표와 상대도수 | highest | 57 | 33 | 4 | 4 | textbook_evidence_for_low_confidence |
-| 7 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 문자의 사용과 식 | highest | 48 | 24 | 3 | 6 | textbook_evidence_for_low_confidence |
-| 8 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차방정식 | highest | 41 | 19 | 3 | 5 | textbook_evidence_for_low_confidence |
+| 7 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차방정식 | highest | 53 | 31 | 3 | 5 | textbook_evidence_for_low_confidence |
+| 8 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 문자의 사용과 식 | highest | 48 | 24 | 3 | 6 | textbook_evidence_for_low_confidence |
 | 9 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 다항식의 곱셈과 인수분해 | high | 36 | 18 | 4 | 1 | textbook_evidence_for_low_confidence |
 | 10 | 중3(교육과정 학년군: 중1-3) | 수와 연산 | 제곱근과 실수 | high | 33 | 17 | 3 | 2 | textbook_evidence_for_low_confidence |
 | 11 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 이차방정식 | high | 32 | 14 | 3 | 3 | textbook_evidence_for_low_confidence |

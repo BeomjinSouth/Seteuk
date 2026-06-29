@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-29T21:26:34",
+    "generated_at": "2026-06-29T21:53:19",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
-    "concept_count": 526,
-    "edge_count": 2236
+    "concept_count": 538,
+    "edge_count": 2297
   },
   "sources": [
     {
@@ -4894,6 +4894,18 @@
           "locator": "printed p. 34; [9수02-04]",
           "evidence_kind": "achievement_standard",
           "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
         }
       ],
       "prerequisite_ids": [
@@ -4936,6 +4948,12 @@
           "locator": "일차방정식 section; [9수02-03] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
         }
       ],
       "prerequisite_ids": [
@@ -4980,6 +4998,12 @@
           "locator": "일차방정식 section; [9수02-03] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
         }
       ],
       "prerequisite_ids": [
@@ -5064,6 +5088,12 @@
           "locator": "일차방정식 section; [9수02-03] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
         }
       ],
       "prerequisite_ids": [
@@ -5074,7 +5104,8 @@
         "m1_eq_equation"
       ],
       "related_ids": [
-        "m1_eq_root"
+        "m1_eq_root",
+        "m1_eq_solution_check"
       ],
       "notes": "",
       "confidence": "high"
@@ -5137,6 +5168,12 @@
           "locator": "일차방정식 section; [9수02-03] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
         }
       ],
       "prerequisite_ids": [
@@ -5175,6 +5212,12 @@
           "locator": "일차방정식 section; [9수02-03] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
         }
       ],
       "prerequisite_ids": [
@@ -5186,6 +5229,283 @@
       "related_ids": [
         "m1_eq_both_sides",
         "m1_eq_solving_linear_equation"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_judge_solution",
+      "label_ko": "해인지 판단하기",
+      "aliases": [
+        "해 판단",
+        "해인지 확인"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "procedure",
+      "short_definition": "주어진 값을 방정식에 대입하여 등식이 참이 되는지 판단하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_eq_equation",
+        "m1_expr_substitution"
+      ],
+      "parent_ids": [
+        "m1_eq_unit"
+      ],
+      "related_ids": [
+        "m1_eq_solution",
+        "m1_eq_solution_check"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_truth_value_by_substitution",
+      "label_ko": "대입값에 따른 등식의 참거짓",
+      "aliases": [
+        "방정식의 참거짓",
+        "대입 후 참거짓"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "sub_concept",
+      "short_definition": "미지수에 값을 대입했을 때 등식이 참이 되거나 거짓이 되는 상태.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_eq_equality",
+        "m1_expr_substitution"
+      ],
+      "parent_ids": [
+        "m1_eq_equation"
+      ],
+      "related_ids": [
+        "m1_eq_judge_solution"
+      ],
+      "notes": "성취수준의 해인지 판단 수행에서 분리한 미시 concept이다. 교과서 본문 표현 확인이 필요하다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_equation_identity_distinction",
+      "label_ko": "방정식과 항등식 구별하기",
+      "aliases": [
+        "방정식·항등식 구별",
+        "항등식과 방정식 구별"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "procedure",
+      "short_definition": "문자의 값에 따라 참거짓이 달라지는 등식과 항상 참인 등식을 구별하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_eq_equation",
+        "m1_eq_identity",
+        "m1_eq_equality"
+      ],
+      "parent_ids": [
+        "m1_eq_unit"
+      ],
+      "related_ids": [
+        "m1_mis_expression_equation"
+      ],
+      "notes": "방정식, 항등식 용어 목록과 해의 뜻 성취수준에서 분리했다. 교과서 예제 근거로 보강한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_equal_add_subtract_property",
+      "label_ko": "양변에 같은 수를 더하거나 빼기",
+      "aliases": [
+        "등식의 덧셈 성질",
+        "등식의 뺄셈 성질"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "property",
+      "short_definition": "등식의 양변에 같은 수를 더하거나 빼도 등식이 유지되는 성질.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_eq_both_sides",
+        "m1_num_addition",
+        "m1_num_subtraction"
+      ],
+      "parent_ids": [
+        "m1_eq_equality_properties"
+      ],
+      "related_ids": [],
+      "notes": "공식 문서는 등식의 성질을 직접 제시하지만 세부 규칙 명칭은 교과서 본문으로 확인해야 한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_equal_multiply_divide_property",
+      "label_ko": "양변에 같은 수를 곱하거나 나누기",
+      "aliases": [
+        "등식의 곱셈 성질",
+        "등식의 나눗셈 성질"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "property",
+      "short_definition": "등식의 양변에 같은 수를 곱하거나 0이 아닌 같은 수로 나누어도 등식이 유지되는 성질.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_eq_both_sides",
+        "m1_num_multiplication",
+        "m1_num_division"
+      ],
+      "parent_ids": [
+        "m1_eq_equality_properties"
+      ],
+      "related_ids": [],
+      "notes": "0이 아닌 수로 나누는 조건과 명시 표현은 교과서 정의·예제 확인 전까지 보수적으로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_apply_equality_properties",
+      "label_ko": "등식의 성질을 이용해 방정식 변형하기",
+      "aliases": [
+        "등식의 성질 적용",
+        "방정식 변형"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "procedure",
+      "short_definition": "등식의 성질을 적용하여 방정식을 같은 해를 갖는 더 단순한 방정식으로 바꾸는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_eq_equality_properties",
+        "m1_eq_both_sides"
+      ],
+      "parent_ids": [
+        "m1_eq_solving_linear_equation"
+      ],
+      "related_ids": [
+        "m1_eq_equal_add_subtract_property",
+        "m1_eq_equal_multiply_divide_property"
       ],
       "notes": "",
       "confidence": "high"
@@ -5347,6 +5667,12 @@
           "locator": "일차방정식 section; [9수02-04] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
         }
       ],
       "prerequisite_ids": [
@@ -5393,6 +5719,12 @@
           "locator": "일차방정식 section; [9수02-04] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
         }
       ],
       "prerequisite_ids": [
@@ -5404,10 +5736,156 @@
       ],
       "related_ids": [
         "m1_eq_solution_check",
-        "m1_mis_transposition_sign"
+        "m1_mis_transposition_sign",
+        "m1_eq_apply_equality_properties"
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_eq_collect_unknown_terms",
+      "label_ko": "미지수항 모으기",
+      "aliases": [
+        "문자가 있는 항 모으기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "procedure",
+      "short_definition": "이항을 이용하여 미지수를 포함한 항을 등식의 한쪽으로 모으는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_eq_transposition",
+        "m1_eq_unknown",
+        "m1_expr_term"
+      ],
+      "parent_ids": [
+        "m1_eq_solving_linear_equation"
+      ],
+      "related_ids": [
+        "m1_eq_collect_constant_terms"
+      ],
+      "notes": "일차방정식 풀이 수행에서 분리한 미시 절차이다. 교과서 풀이 단계 표현 확인이 필요하다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_collect_constant_terms",
+      "label_ko": "상수항 모으기",
+      "aliases": [
+        "수만 있는 항 모으기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "procedure",
+      "short_definition": "이항을 이용하여 상수항을 미지수항과 반대쪽으로 모으는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_eq_transposition",
+        "m1_expr_constant_term"
+      ],
+      "parent_ids": [
+        "m1_eq_solving_linear_equation"
+      ],
+      "related_ids": [
+        "m1_eq_collect_unknown_terms"
+      ],
+      "notes": "일차방정식 풀이 수행에서 분리한 미시 절차이다. 교과서 풀이 단계 표현 확인이 필요하다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_multiple_solving_methods",
+      "label_ko": "방정식의 여러 풀이 방법",
+      "aliases": [
+        "다양한 방정식 풀이 방법"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "sub_concept",
+      "short_definition": "방정식을 등식의 성질, 이항 등 여러 방법으로 풀 수 있다는 풀이 관점.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_eq_equality_properties",
+        "m1_eq_transposition"
+      ],
+      "parent_ids": [
+        "m1_eq_solving_linear_equation"
+      ],
+      "related_ids": [
+        "m1_eq_apply_equality_properties"
+      ],
+      "notes": "교육과정 유의사항의 '여러 방법으로 풀며'에서 분리했다. 방법 목록은 교과서 본문으로 보강한다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_eq_modeling_linear_equation",
@@ -5433,6 +5911,12 @@
           "locator": "일차방정식 section; [9수02-04] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
         }
       ],
       "prerequisite_ids": [
@@ -5444,6 +5928,109 @@
       ],
       "related_ids": [
         "m1_eq_solving_linear_equation",
+        "m1_eq_solution_check",
+        "m1_eq_choose_unknown_from_context"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_choose_unknown_from_context",
+      "label_ko": "문제 상황에서 미지수 정하기",
+      "aliases": [
+        "구하려는 값을 미지수로 놓기",
+        "미지수 설정"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "procedure",
+      "short_definition": "문제 상황에서 구하려는 양을 정하고 그 양을 미지수로 나타내는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_expr_letter_quantity",
+        "m1_eq_unknown"
+      ],
+      "parent_ids": [
+        "m1_eq_modeling_linear_equation"
+      ],
+      "related_ids": [],
+      "notes": "문제의 뜻에 맞게 방정식을 세우는 수행을 미시 절차로 분리했다. 교과서 예제 표현 확인이 필요하다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_linear_equation_problem_solving",
+      "label_ko": "일차방정식 활용 문제 해결",
+      "aliases": [
+        "일차방정식의 활용",
+        "일차방정식으로 문제 해결하기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "procedure",
+      "short_definition": "문제 상황을 일차방정식으로 나타내고 풀어 해가 상황에 맞는지 확인하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_eq_modeling_linear_equation",
+        "m1_eq_solving_linear_equation",
+        "m1_eq_solution_check"
+      ],
+      "parent_ids": [
+        "m1_eq_unit"
+      ],
+      "related_ids": [
+        "m1_eq_modeling_linear_equation",
         "m1_eq_solution_check"
       ],
       "notes": "",
@@ -5479,6 +6066,18 @@
           "locator": "일차방정식 section; [9수02-04] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
         }
       ],
       "prerequisite_ids": [
@@ -5489,10 +6088,57 @@
         "m1_eq_unit"
       ],
       "related_ids": [
-        "m1_mis_solution_check"
+        "m1_mis_solution_check",
+        "m1_eq_interpret_solution_context"
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_eq_interpret_solution_context",
+      "label_ko": "해를 문제 상황에 맞게 해석하기",
+      "aliases": [
+        "해의 상황 적합성 확인",
+        "해의 의미 해석"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차방정식",
+      "concept_type": "procedure",
+      "short_definition": "구한 해가 원래 문제의 조건과 의미에 맞는지 해석하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_eq_solution_check",
+        "m1_eq_solution"
+      ],
+      "parent_ids": [
+        "m1_eq_solution_check"
+      ],
+      "related_ids": [
+        "m1_eq_modeling_linear_equation",
+        "m1_mis_solution_check"
+      ],
+      "notes": "교육과정 유의사항의 해가 상황에 적합한지 확인하는 요구를 별도 절차로 분리했다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_mis_expression_equation",
@@ -5520,11 +6166,7 @@
           "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_repr_expression",
-        "m1_eq_equality",
-        "m1_eq_equation"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_eq_unit"
       ],
@@ -5568,10 +6210,7 @@
           "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_eq_transposition",
-        "m1_eq_equality_properties"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_eq_unit"
       ],
@@ -5608,9 +6247,7 @@
           "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_eq_solution_check"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_eq_unit"
       ],
@@ -6614,10 +7251,7 @@
           "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_ineq_solution",
-        "m1_eq_solution"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_ineq_unit"
       ],
@@ -6654,9 +7288,7 @@
           "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_ineq_properties"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_ineq_unit"
       ],
@@ -29271,6 +29903,74 @@
       "confidence": "high"
     },
     {
+      "id": "m1_repr_expression__contrasts_with__m1_eq_equality",
+      "source_id": "m1_repr_expression",
+      "target_id": "m1_eq_equality",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "식과 등식은 등호 사용 여부와 참거짓 판단 맥락이 다르므로 구별한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_repr_expression__contrasts_with__m1_eq_equation",
+      "source_id": "m1_repr_expression",
+      "target_id": "m1_eq_equation",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "식과 방정식은 문자의 값에 따라 참거짓을 판단하는지 여부가 다르므로 구별한다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_eq_equality__used_in__m1_eq_equality_properties",
       "source_id": "m1_eq_equality",
       "target_id": "m1_eq_equality_properties",
@@ -29291,6 +29991,146 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_eq_equation__used_in__m1_eq_judge_solution",
+      "source_id": "m1_eq_equation",
+      "target_id": "m1_eq_judge_solution",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_substitution__used_in__m1_eq_judge_solution",
+      "source_id": "m1_expr_substitution",
+      "target_id": "m1_eq_judge_solution",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_truth_value_by_substitution__used_in__m1_eq_judge_solution",
+      "source_id": "m1_eq_truth_value_by_substitution",
+      "target_id": "m1_eq_judge_solution",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_judge_solution__used_in__m1_eq_solution",
+      "source_id": "m1_eq_judge_solution",
+      "target_id": "m1_eq_solution",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_equation_identity_distinction__used_in__m1_eq_equation",
+      "source_id": "m1_eq_equation_identity_distinction",
+      "target_id": "m1_eq_equation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "방정식과 항등식의 구별은 방정식의 의미를 정교화하는 데 사용된다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_eq_equality_properties__used_in__m1_eq_solving_linear_equation",
@@ -29315,6 +30155,90 @@
           "locator": "일차방정식 section; [9수02-04] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_equal_add_subtract_property__used_in__m1_eq_apply_equality_properties",
+      "source_id": "m1_eq_equal_add_subtract_property",
+      "target_id": "m1_eq_apply_equality_properties",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_equal_multiply_divide_property__used_in__m1_eq_apply_equality_properties",
+      "source_id": "m1_eq_equal_multiply_divide_property",
+      "target_id": "m1_eq_apply_equality_properties",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_apply_equality_properties__used_in__m1_eq_solving_linear_equation",
+      "source_id": "m1_eq_apply_equality_properties",
+      "target_id": "m1_eq_solving_linear_equation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
         }
       ],
       "notes": "",
@@ -29397,6 +30321,34 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_eq_equality_properties__used_in__m1_eq_transposition",
+      "source_id": "m1_eq_equality_properties",
+      "target_id": "m1_eq_transposition",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_eq_transposition__used_in__m1_eq_solving_linear_equation",
       "source_id": "m1_eq_transposition",
       "target_id": "m1_eq_solving_linear_equation",
@@ -29423,6 +30375,220 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_eq_transposition__used_in__m1_eq_collect_unknown_terms",
+      "source_id": "m1_eq_transposition",
+      "target_id": "m1_eq_collect_unknown_terms",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_transposition__used_in__m1_eq_collect_constant_terms",
+      "source_id": "m1_eq_transposition",
+      "target_id": "m1_eq_collect_constant_terms",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_collect_unknown_terms__related_to__m1_eq_collect_constant_terms",
+      "source_id": "m1_eq_collect_unknown_terms",
+      "target_id": "m1_eq_collect_constant_terms",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "일차방정식 풀이에서 미지수항과 상수항을 서로 다른 쪽으로 정리하는 병렬 절차이다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_collect_unknown_terms__used_in__m1_eq_solving_linear_equation",
+      "source_id": "m1_eq_collect_unknown_terms",
+      "target_id": "m1_eq_solving_linear_equation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_collect_constant_terms__used_in__m1_eq_solving_linear_equation",
+      "source_id": "m1_eq_collect_constant_terms",
+      "target_id": "m1_eq_solving_linear_equation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_multiple_solving_methods__related_to__m1_eq_apply_equality_properties",
+      "source_id": "m1_eq_multiple_solving_methods",
+      "target_id": "m1_eq_apply_equality_properties",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "등식의 성질 적용은 방정식을 여러 방법으로 푸는 관점 중 하나로 검토한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_multiple_solving_methods__used_in__m1_eq_solving_linear_equation",
+      "source_id": "m1_eq_multiple_solving_methods",
+      "target_id": "m1_eq_solving_linear_equation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_eq_linear_equation__used_in__m1_eq_solving_linear_equation",
@@ -29469,6 +30635,40 @@
       "confidence": "high"
     },
     {
+      "id": "m1_eq_choose_unknown_from_context__used_in__m1_eq_modeling_linear_equation",
+      "source_id": "m1_eq_choose_unknown_from_context",
+      "target_id": "m1_eq_modeling_linear_equation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_eq_modeling_linear_equation__used_in__m1_eq_solving_linear_equation",
       "source_id": "m1_eq_modeling_linear_equation",
       "target_id": "m1_eq_solving_linear_equation",
@@ -29489,6 +30689,90 @@
       ],
       "notes": "Modeling with a linear equation leads into solving the represented equation.",
       "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_modeling_linear_equation__used_in__m1_eq_linear_equation_problem_solving",
+      "source_id": "m1_eq_modeling_linear_equation",
+      "target_id": "m1_eq_linear_equation_problem_solving",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_solving_linear_equation__used_in__m1_eq_linear_equation_problem_solving",
+      "source_id": "m1_eq_solving_linear_equation",
+      "target_id": "m1_eq_linear_equation_problem_solving",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_solution_check__used_in__m1_eq_linear_equation_problem_solving",
+      "source_id": "m1_eq_solution_check",
+      "target_id": "m1_eq_linear_equation_problem_solving",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
     },
     {
       "id": "m1_eq_solving_linear_equation__used_in__m1_eq_solution_check",
@@ -29532,6 +30816,164 @@
         }
       ],
       "notes": "Checking a solution is used to confirm answers in linear-equation modeling contexts.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_solution__used_in__m1_eq_solution_check",
+      "source_id": "m1_eq_solution",
+      "target_id": "m1_eq_solution_check",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_equation__used_in__m1_eq_solution_check",
+      "source_id": "m1_eq_equation",
+      "target_id": "m1_eq_solution_check",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_judge_solution__used_in__m1_eq_solution_check",
+      "source_id": "m1_eq_judge_solution",
+      "target_id": "m1_eq_solution_check",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_solution_check__used_in__m1_eq_interpret_solution_context",
+      "source_id": "m1_eq_solution_check",
+      "target_id": "m1_eq_interpret_solution_context",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_interpret_solution_context__used_in__m1_eq_modeling_linear_equation",
+      "source_id": "m1_eq_interpret_solution_context",
+      "target_id": "m1_eq_modeling_linear_equation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
       "confidence": "medium"
     },
     {
@@ -29600,6 +31042,28 @@
       "id": "m1_mis_expression_equation__often_confused_with__m1_repr_expression",
       "source_id": "m1_mis_expression_equation",
       "target_id": "m1_repr_expression",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_expression_equation__often_confused_with__m1_eq_equality",
+      "source_id": "m1_mis_expression_equation",
+      "target_id": "m1_eq_equality",
       "relationship_type": "often_confused_with",
       "source_refs": [
         {
@@ -49449,6 +50913,186 @@
           "locator": "일차방정식 section; [9수02-03] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_unit__contains__m1_eq_judge_solution",
+      "source_id": "m1_eq_unit",
+      "target_id": "m1_eq_judge_solution",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_equation__contains__m1_eq_truth_value_by_substitution",
+      "source_id": "m1_eq_equation",
+      "target_id": "m1_eq_truth_value_by_substitution",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_unit__contains__m1_eq_equation_identity_distinction",
+      "source_id": "m1_eq_unit",
+      "target_id": "m1_eq_equation_identity_distinction",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_equality_properties__contains__m1_eq_equal_add_subtract_property",
+      "source_id": "m1_eq_equality_properties",
+      "target_id": "m1_eq_equal_add_subtract_property",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_equality_properties__contains__m1_eq_equal_multiply_divide_property",
+      "source_id": "m1_eq_equality_properties",
+      "target_id": "m1_eq_equal_multiply_divide_property",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_solving_linear_equation__contains__m1_eq_apply_equality_properties",
+      "source_id": "m1_eq_solving_linear_equation",
+      "target_id": "m1_eq_apply_equality_properties",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
         }
       ],
       "notes": "",
@@ -49525,6 +51169,102 @@
       "confidence": "high"
     },
     {
+      "id": "m1_eq_solving_linear_equation__contains__m1_eq_collect_unknown_terms",
+      "source_id": "m1_eq_solving_linear_equation",
+      "target_id": "m1_eq_collect_unknown_terms",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_solving_linear_equation__contains__m1_eq_collect_constant_terms",
+      "source_id": "m1_eq_solving_linear_equation",
+      "target_id": "m1_eq_collect_constant_terms",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_solving_linear_equation__contains__m1_eq_multiple_solving_methods",
+      "source_id": "m1_eq_solving_linear_equation",
+      "target_id": "m1_eq_multiple_solving_methods",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_eq_unit__contains__m1_eq_modeling_linear_equation",
       "source_id": "m1_eq_unit",
       "target_id": "m1_eq_modeling_linear_equation",
@@ -49541,6 +51281,80 @@
           "locator": "일차방정식 section; [9수02-04] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_modeling_linear_equation__contains__m1_eq_choose_unknown_from_context",
+      "source_id": "m1_eq_modeling_linear_equation",
+      "target_id": "m1_eq_choose_unknown_from_context",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_unit__contains__m1_eq_linear_equation_problem_solving",
+      "source_id": "m1_eq_unit",
+      "target_id": "m1_eq_linear_equation_problem_solving",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
         }
       ],
       "notes": "",
@@ -49569,10 +51383,50 @@
           "locator": "일차방정식 section; [9수02-04] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
         }
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_eq_solution_check__contains__m1_eq_interpret_solution_context",
+      "source_id": "m1_eq_solution_check",
+      "target_id": "m1_eq_interpret_solution_context",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_eq_unit__contains__m1_mis_expression_equation",
@@ -61217,6 +63071,18 @@
           "locator": "printed p. 34; [9수02-04]",
           "evidence_kind": "achievement_standard",
           "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
         }
       ],
       "notes": "",
@@ -61245,6 +63111,12 @@
           "locator": "일차방정식 section; [9수02-03] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
         }
       ],
       "notes": "",
@@ -61273,6 +63145,12 @@
           "locator": "일차방정식 section; [9수02-03] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
         }
       ],
       "notes": "",
@@ -61323,6 +63201,12 @@
           "locator": "일차방정식 section; [9수02-03] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
         }
       ],
       "notes": "",
@@ -61351,6 +63235,12 @@
           "locator": "일차방정식 section; [9수02-03] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
         }
       ],
       "notes": "",
@@ -61373,6 +63263,12 @@
           "locator": "일차방정식 section; [9수02-03] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
         }
       ],
       "notes": "",
@@ -61395,6 +63291,432 @@
           "locator": "일차방정식 section; [9수02-03] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_equation__prerequisite_for__m1_eq_judge_solution",
+      "source_id": "m1_eq_equation",
+      "target_id": "m1_eq_judge_solution",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_substitution__prerequisite_for__m1_eq_judge_solution",
+      "source_id": "m1_expr_substitution",
+      "target_id": "m1_eq_judge_solution",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_equality__prerequisite_for__m1_eq_truth_value_by_substitution",
+      "source_id": "m1_eq_equality",
+      "target_id": "m1_eq_truth_value_by_substitution",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_expr_substitution__prerequisite_for__m1_eq_truth_value_by_substitution",
+      "source_id": "m1_expr_substitution",
+      "target_id": "m1_eq_truth_value_by_substitution",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_equation__prerequisite_for__m1_eq_equation_identity_distinction",
+      "source_id": "m1_eq_equation",
+      "target_id": "m1_eq_equation_identity_distinction",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_identity__prerequisite_for__m1_eq_equation_identity_distinction",
+      "source_id": "m1_eq_identity",
+      "target_id": "m1_eq_equation_identity_distinction",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_equality__prerequisite_for__m1_eq_equation_identity_distinction",
+      "source_id": "m1_eq_equality",
+      "target_id": "m1_eq_equation_identity_distinction",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_both_sides__prerequisite_for__m1_eq_equal_add_subtract_property",
+      "source_id": "m1_eq_both_sides",
+      "target_id": "m1_eq_equal_add_subtract_property",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_addition__prerequisite_for__m1_eq_equal_add_subtract_property",
+      "source_id": "m1_num_addition",
+      "target_id": "m1_eq_equal_add_subtract_property",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_subtraction__prerequisite_for__m1_eq_equal_add_subtract_property",
+      "source_id": "m1_num_subtraction",
+      "target_id": "m1_eq_equal_add_subtract_property",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_both_sides__prerequisite_for__m1_eq_equal_multiply_divide_property",
+      "source_id": "m1_eq_both_sides",
+      "target_id": "m1_eq_equal_multiply_divide_property",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_multiplication__prerequisite_for__m1_eq_equal_multiply_divide_property",
+      "source_id": "m1_num_multiplication",
+      "target_id": "m1_eq_equal_multiply_divide_property",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_division__prerequisite_for__m1_eq_equal_multiply_divide_property",
+      "source_id": "m1_num_division",
+      "target_id": "m1_eq_equal_multiply_divide_property",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_equality_properties__prerequisite_for__m1_eq_apply_equality_properties",
+      "source_id": "m1_eq_equality_properties",
+      "target_id": "m1_eq_apply_equality_properties",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_both_sides__prerequisite_for__m1_eq_apply_equality_properties",
+      "source_id": "m1_eq_both_sides",
+      "target_id": "m1_eq_apply_equality_properties",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
         }
       ],
       "notes": "",
@@ -61467,6 +63789,12 @@
           "locator": "일차방정식 section; [9수02-04] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
         }
       ],
       "notes": "",
@@ -61495,6 +63823,12 @@
           "locator": "일차방정식 section; [9수02-04] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
         }
       ],
       "notes": "",
@@ -61523,10 +63857,242 @@
           "locator": "일차방정식 section; [9수02-04] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
         }
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_eq_transposition__prerequisite_for__m1_eq_collect_unknown_terms",
+      "source_id": "m1_eq_transposition",
+      "target_id": "m1_eq_collect_unknown_terms",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_unknown__prerequisite_for__m1_eq_collect_unknown_terms",
+      "source_id": "m1_eq_unknown",
+      "target_id": "m1_eq_collect_unknown_terms",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_expr_term__prerequisite_for__m1_eq_collect_unknown_terms",
+      "source_id": "m1_expr_term",
+      "target_id": "m1_eq_collect_unknown_terms",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_transposition__prerequisite_for__m1_eq_collect_constant_terms",
+      "source_id": "m1_eq_transposition",
+      "target_id": "m1_eq_collect_constant_terms",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_expr_constant_term__prerequisite_for__m1_eq_collect_constant_terms",
+      "source_id": "m1_expr_constant_term",
+      "target_id": "m1_eq_collect_constant_terms",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_equality_properties__prerequisite_for__m1_eq_multiple_solving_methods",
+      "source_id": "m1_eq_equality_properties",
+      "target_id": "m1_eq_multiple_solving_methods",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_transposition__prerequisite_for__m1_eq_multiple_solving_methods",
+      "source_id": "m1_eq_transposition",
+      "target_id": "m1_eq_multiple_solving_methods",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_eq_linear_equation__prerequisite_for__m1_eq_modeling_linear_equation",
@@ -61545,6 +64111,182 @@
           "locator": "일차방정식 section; [9수02-04] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_letter_quantity__prerequisite_for__m1_eq_choose_unknown_from_context",
+      "source_id": "m1_expr_letter_quantity",
+      "target_id": "m1_eq_choose_unknown_from_context",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_unknown__prerequisite_for__m1_eq_choose_unknown_from_context",
+      "source_id": "m1_eq_unknown",
+      "target_id": "m1_eq_choose_unknown_from_context",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_modeling_linear_equation__prerequisite_for__m1_eq_linear_equation_problem_solving",
+      "source_id": "m1_eq_modeling_linear_equation",
+      "target_id": "m1_eq_linear_equation_problem_solving",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_solving_linear_equation__prerequisite_for__m1_eq_linear_equation_problem_solving",
+      "source_id": "m1_eq_solving_linear_equation",
+      "target_id": "m1_eq_linear_equation_problem_solving",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_solution_check__prerequisite_for__m1_eq_linear_equation_problem_solving",
+      "source_id": "m1_eq_solution_check",
+      "target_id": "m1_eq_linear_equation_problem_solving",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
         }
       ],
       "notes": "",
@@ -61573,6 +64315,18 @@
           "locator": "일차방정식 section; [9수02-04] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
         }
       ],
       "notes": "",
@@ -61601,137 +64355,27 @@
           "locator": "일차방정식 section; [9수02-04] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-03] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "방정식과 해의 뜻, 항등식, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
         }
       ],
       "notes": "",
       "confidence": "high"
     },
     {
-      "id": "m1_repr_expression__prerequisite_for__m1_mis_expression_equation",
-      "source_id": "m1_repr_expression",
-      "target_id": "m1_mis_expression_equation",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 34; [9수02-03]",
-          "evidence_kind": "achievement_standard",
-          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "일차방정식 section; [9수02-03] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_eq_equality__prerequisite_for__m1_mis_expression_equation",
-      "source_id": "m1_eq_equality",
-      "target_id": "m1_mis_expression_equation",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 34; [9수02-03]",
-          "evidence_kind": "achievement_standard",
-          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "일차방정식 section; [9수02-03] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_eq_equation__prerequisite_for__m1_mis_expression_equation",
-      "source_id": "m1_eq_equation",
-      "target_id": "m1_mis_expression_equation",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 34; [9수02-03]",
-          "evidence_kind": "achievement_standard",
-          "summary": "방정식과 그 해의 뜻, 등식의 성질을 다루는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "일차방정식 section; [9수02-03] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "방정식과 해의 뜻, 등식의 성질, 해인지 판단하는 수행 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_eq_transposition__prerequisite_for__m1_mis_transposition_sign",
-      "source_id": "m1_eq_transposition",
-      "target_id": "m1_mis_transposition_sign",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 36; terms and symbols for 변화와 관계",
-          "evidence_kind": "term_list",
-          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
-        },
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 36; achievement-standard considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "일차방정식 section; [9수02-04] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_eq_equality_properties__prerequisite_for__m1_mis_transposition_sign",
-      "source_id": "m1_eq_equality_properties",
-      "target_id": "m1_mis_transposition_sign",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 36; terms and symbols for 변화와 관계",
-          "evidence_kind": "term_list",
-          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
-        },
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 36; achievement-standard considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "일차방정식 section; [9수02-04] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_eq_solution_check__prerequisite_for__m1_mis_solution_check",
+      "id": "m1_eq_solution_check__prerequisite_for__m1_eq_interpret_solution_context",
       "source_id": "m1_eq_solution_check",
-      "target_id": "m1_mis_solution_check",
+      "target_id": "m1_eq_interpret_solution_context",
       "relationship_type": "prerequisite_for",
       "source_refs": [
         {
@@ -61745,10 +64389,44 @@
           "locator": "일차방정식 section; [9수02-04] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
         }
       ],
       "notes": "",
-      "confidence": "low"
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_solution__prerequisite_for__m1_eq_interpret_solution_context",
+      "source_id": "m1_eq_solution",
+      "target_id": "m1_eq_interpret_solution_context",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 214; 일차방정식 [9수02-04] 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 문제의 뜻에 맞는 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_expr_polynomial__prerequisite_for__m1_calc_unit",
@@ -62629,72 +65307,6 @@
       ],
       "notes": "",
       "confidence": "high"
-    },
-    {
-      "id": "m1_ineq_solution__prerequisite_for__m1_mis_ineq_solution_single_value",
-      "source_id": "m1_ineq_solution",
-      "target_id": "m1_mis_ineq_solution_single_value",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 35; [9수02-11]",
-          "evidence_kind": "achievement_standard",
-          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "일차부등식 section; [9수02-11] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_eq_solution__prerequisite_for__m1_mis_ineq_solution_single_value",
-      "source_id": "m1_eq_solution",
-      "target_id": "m1_mis_ineq_solution_single_value",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 35; [9수02-11]",
-          "evidence_kind": "achievement_standard",
-          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "일차부등식 section; [9수02-11] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_ineq_properties__prerequisite_for__m1_mis_ineq_negative",
-      "source_id": "m1_ineq_properties",
-      "target_id": "m1_mis_ineq_negative",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 35; [9수02-11]",
-          "evidence_kind": "achievement_standard",
-          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "일차부등식 section; [9수02-11] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
     },
     {
       "id": "m1_eq_linear_equation__prerequisite_for__m1_system_two_variable_linear_equation",
@@ -78083,9 +80695,9 @@
       "confidence": "low"
     },
     {
-      "id": "m1_mis_expression_equation__often_confused_with__m1_eq_equality",
+      "id": "m1_mis_expression_equation__often_confused_with__m1_eq_equation_identity_distinction",
       "source_id": "m1_mis_expression_equation",
-      "target_id": "m1_eq_equality",
+      "target_id": "m1_eq_equation_identity_distinction",
       "relationship_type": "often_confused_with",
       "source_refs": [
         {
@@ -78116,6 +80728,28 @@
           "evidence_kind": "term_list",
           "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
         },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차방정식 section; [9수02-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차방정식을 풀고 활용 문제를 해결하거나 식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_solution_check__often_confused_with__m1_eq_interpret_solution_context",
+      "source_id": "m1_mis_solution_check",
+      "target_id": "m1_eq_interpret_solution_context",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
         {
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; achievement-standard considerations",

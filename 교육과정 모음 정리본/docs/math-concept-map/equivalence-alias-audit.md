@@ -4,13 +4,13 @@ This generated audit separates aliases, explicit equivalent edges, repeated labe
 
 ## Summary
 
-- audit rows: 549
+- audit rows: 561
 
 ## Record Types
 
 | record_type | count |
 |---|---:|
-| concept_alias | 526 |
+| concept_alias | 538 |
 | duplicate_label | 11 |
 | equivalent_edge | 3 |
 | official_term_multi_match | 9 |
@@ -20,7 +20,7 @@ This generated audit separates aliases, explicit equivalent edges, repeated labe
 | recommended_action | count |
 |---|---:|
 | keep_edge_and_confirm_textbook_usage | 3 |
-| preserve_alias_and_check_textbook_wording | 526 |
+| preserve_alias_and_check_textbook_wording | 538 |
 | review_term_scope_and_preserve_alias_or_split_reason | 9 |
 | review_unit_vs_micro_concept_split_before_equivalent_edge | 11 |
 
@@ -36,7 +36,7 @@ This generated audit separates aliases, explicit equivalent edges, repeated labe
 | duplicate_label | 수직선 |  | same_label_multiple_nodes | review_unit_vs_micro_concept_split_before_equivalent_edge | medium | 6 |
 | duplicate_label | 연립일차방정식 |  | same_label_multiple_nodes | review_unit_vs_micro_concept_split_before_equivalent_edge | medium | 5 |
 | duplicate_label | 이차방정식 |  | same_label_multiple_nodes | review_unit_vs_micro_concept_split_before_equivalent_edge | medium | 6 |
-| duplicate_label | 일차방정식 |  | same_label_multiple_nodes | review_unit_vs_micro_concept_split_before_equivalent_edge | medium | 5 |
+| duplicate_label | 일차방정식 |  | same_label_multiple_nodes | review_unit_vs_micro_concept_split_before_equivalent_edge | medium | 8 |
 | duplicate_label | 일차부등식 |  | same_label_multiple_nodes | review_unit_vs_micro_concept_split_before_equivalent_edge | medium | 5 |
 | duplicate_label | 피타고라스 정리 |  | same_label_multiple_nodes | review_unit_vs_micro_concept_split_before_equivalent_edge | medium | 5 |
 | equivalent_edge | 양의 정수 = 자연수 |  | explicit_equivalent_to_edge | keep_edge_and_confirm_textbook_usage | medium | 5 |

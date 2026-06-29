@@ -10,9 +10,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 일차부등식
 - priority tier: high
 - priority score: 21
-- edges in packet: 51
-- cross-unit edges: 17
-- low confidence edges: 11
+- edges in packet: 48
+- cross-unit edges: 16
+- low confidence edges: 8
 
 ## Relationship Evidence Slots
 
@@ -20,14 +20,11 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 |---|---|---|---|---|---|---|---|---:|
 | m1_ineq_unit__contains__m1_mis_ineq_negative | intra_unit | 일차부등식 | contains | 음수를 곱하거나 나눌 때 부등호 방향을 바꾸지 않는 오류 | low | structure_ref;textbook_page_refs;extraction_notes | Find textbook structure evidence for the containment relation. | 2 |
 | m1_ineq_unit__contains__m1_mis_ineq_solution_single_value | intra_unit | 일차부등식 | contains | 부등식의 해를 한 값으로만 이해하는 오류 | low | structure_ref;textbook_page_refs;extraction_notes | Find textbook structure evidence for the containment relation. | 2 |
-| m1_ineq_properties__prerequisite_for__m1_mis_ineq_negative | intra_unit | 부등식의 성질 | prerequisite_for | 음수를 곱하거나 나눌 때 부등호 방향을 바꾸지 않는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
-| m1_ineq_solution__prerequisite_for__m1_mis_ineq_solution_single_value | intra_unit | 부등식의 해 | prerequisite_for | 부등식의 해를 한 값으로만 이해하는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_mis_ineq_negative__often_confused_with__m1_ineq_properties | intra_unit | 음수를 곱하거나 나눌 때 부등호 방향을 바꾸지 않는 오류 | often_confused_with | 부등식의 성질 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_ineq_negative__often_confused_with__m1_ineq_solving_linear_inequality | intra_unit | 음수를 곱하거나 나눌 때 부등호 방향을 바꾸지 않는 오류 | often_confused_with | 일차부등식 풀기 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_ineq_solution_single_value__often_confused_with__m1_ineq_inequality | intra_unit | 부등식의 해를 한 값으로만 이해하는 오류 | often_confused_with | 부등식 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_ineq_solution_single_value__often_confused_with__m1_ineq_solution | intra_unit | 부등식의 해를 한 값으로만 이해하는 오류 | often_confused_with | 부등식의 해 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_ineq_solution_single_value__often_confused_with__m1_ineq_solution_check | intra_unit | 부등식의 해를 한 값으로만 이해하는 오류 | often_confused_with | 부등식 해의 확인 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
-| m1_eq_solution__prerequisite_for__m1_mis_ineq_solution_single_value | cross_unit | 해 | prerequisite_for | 부등식의 해를 한 값으로만 이해하는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_mis_ineq_solution_single_value__often_confused_with__m1_eq_solution | cross_unit | 부등식의 해를 한 값으로만 이해하는 오류 | often_confused_with | 해 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_ineq_inequality__contains__m1_ineq_linear_inequality | intra_unit | 부등식 | contains | 일차부등식 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
 | m1_ineq_inequality__contains__m1_ineq_solution | intra_unit | 부등식 | contains | 부등식의 해 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |

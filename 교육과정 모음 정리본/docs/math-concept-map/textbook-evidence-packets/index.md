@@ -5,8 +5,8 @@ This generated index tracks the prepared unit-level textbook evidence packets.
 ## Summary
 
 - packets: 34
-- concepts in packets: 526
-- pending textbook evidence rows: 526
+- concepts in packets: 538
+- pending textbook evidence rows: 538
 
 ## Packets
 
@@ -18,8 +18,8 @@ This generated index tracks the prepared unit-level textbook evidence packets.
 | 4 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 이차함수와 그 그래프 | 30 | 30 | 3 | highest | 68 | rank-04.md |
 | 5 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 정수와 유리수 | 41 | 41 | 5 | highest | 65 | rank-05.md |
 | 6 | 중1(교육과정 학년군: 중1-3) | 자료와 가능성 | 도수분포표와 상대도수 | 33 | 33 | 4 | highest | 57 | rank-06.md |
-| 7 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 문자의 사용과 식 | 24 | 24 | 3 | highest | 48 | rank-07.md |
-| 8 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차방정식 | 19 | 19 | 3 | highest | 41 | rank-08.md |
+| 7 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차방정식 | 31 | 31 | 3 | highest | 53 | rank-07.md |
+| 8 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 문자의 사용과 식 | 24 | 24 | 3 | highest | 48 | rank-08.md |
 | 9 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 다항식의 곱셈과 인수분해 | 18 | 18 | 4 | high | 36 | rank-09.md |
 | 10 | 중3(교육과정 학년군: 중1-3) | 수와 연산 | 제곱근과 실수 | 17 | 17 | 3 | high | 33 | rank-10.md |
 | 11 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 이차방정식 | 14 | 14 | 3 | high | 32 | rank-11.md |

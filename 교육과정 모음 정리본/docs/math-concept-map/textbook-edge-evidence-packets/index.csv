@@ -1,12 +1,12 @@
 ﻿rank,grade,domain,unit,edge_count,intra_unit_edge_count,cross_unit_edge_count,low_confidence_count,priority_tier,priority_score,next_action,packet_csv,packet_md
-1,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,236,162,74,75,highest,105,textbook_evidence_for_low_confidence,rank-01.csv,rank-01.md
+1,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,237,162,75,74,highest,105,textbook_evidence_for_low_confidence,rank-01.csv,rank-01.md
 2,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,165,123,42,52,highest,93,textbook_evidence_for_low_confidence,rank-02.csv,rank-02.md
 3,중2(교육과정 학년군: 중1-3),자료와 가능성,경우의 수와 확률,112,102,10,24,highest,72,textbook_evidence_for_low_confidence,rank-03.csv,rank-03.md
 4,중3(교육과정 학년군: 중1-3),변화와 관계,이차함수와 그 그래프,143,118,25,11,highest,68,textbook_evidence_for_low_confidence,rank-04.csv,rank-04.md
-5,중1(교육과정 학년군: 중1-3),수와 연산,정수와 유리수,193,152,41,36,highest,65,textbook_evidence_for_low_confidence,rank-05.csv,rank-05.md
+5,중1(교육과정 학년군: 중1-3),수와 연산,정수와 유리수,197,152,45,36,highest,65,textbook_evidence_for_low_confidence,rank-05.csv,rank-05.md
 6,중1(교육과정 학년군: 중1-3),자료와 가능성,도수분포표와 상대도수,180,132,48,18,highest,57,textbook_evidence_for_low_confidence,rank-06.csv,rank-06.md
-7,중1(교육과정 학년군: 중1-3),변화와 관계,문자의 사용과 식,137,74,63,14,highest,48,textbook_evidence_for_low_confidence,rank-07.csv,rank-07.md
-8,중1(교육과정 학년군: 중1-3),변화와 관계,일차방정식,96,56,40,19,highest,41,textbook_evidence_for_low_confidence,rank-08.csv,rank-08.md
+7,중1(교육과정 학년군: 중1-3),변화와 관계,일차방정식,159,109,50,14,highest,53,textbook_evidence_for_low_confidence,rank-07.csv,rank-07.md
+8,중1(교육과정 학년군: 중1-3),변화와 관계,문자의 사용과 식,143,74,69,14,highest,48,textbook_evidence_for_low_confidence,rank-08.csv,rank-08.md
 9,중3(교육과정 학년군: 중1-3),변화와 관계,다항식의 곱셈과 인수분해,90,56,34,22,high,36,textbook_evidence_for_low_confidence,rank-09.csv,rank-09.md
 10,중3(교육과정 학년군: 중1-3),수와 연산,제곱근과 실수,74,55,19,16,high,33,textbook_evidence_for_low_confidence,rank-10.csv,rank-10.md
 11,중3(교육과정 학년군: 중1-3),변화와 관계,이차방정식,68,45,23,15,high,32,textbook_evidence_for_low_confidence,rank-11.csv,rank-11.md
@@ -19,7 +19,7 @@
 18,중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,47,35,12,11,high,25,textbook_evidence_for_low_confidence,rank-18.csv,rank-18.md
 19,중2(교육과정 학년군: 중1-3),도형과 측정,삼각형과 사각형의 성질,82,46,36,14,high,24,textbook_evidence_for_low_confidence,rank-19.csv,rank-19.md
 20,중3(교육과정 학년군: 중1-3),도형과 측정,원의 성질,76,44,32,11,high,23,textbook_evidence_for_low_confidence,rank-20.csv,rank-20.md
-21,중1(교육과정 학년군: 중1-3),변화와 관계,일차부등식,51,34,17,11,high,21,textbook_evidence_for_low_confidence,rank-21.csv,rank-21.md
+21,중1(교육과정 학년군: 중1-3),변화와 관계,일차부등식,48,32,16,8,high,21,textbook_evidence_for_low_confidence,rank-21.csv,rank-21.md
 22,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 일차방정식의 관계,43,24,19,7,medium,19,textbook_evidence_for_low_confidence,rank-22.csv,rank-22.md
 23,중2(교육과정 학년군: 중1-3),수와 연산,유리수와 순환소수,45,30,15,9,medium,18,textbook_evidence_for_low_confidence,rank-23.csv,rank-23.md
 24,중2(교육과정 학년군: 중1-3),도형과 측정,도형의 닮음,59,32,27,10,medium,15,textbook_evidence_for_low_confidence,rank-24.csv,rank-24.md

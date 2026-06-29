@@ -9,12 +9,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 좌표평면과 그래프
 - priority tier: highest
-- workplan score: 479
+- workplan score: 476
 - concepts: 43
-- edges touching unit: 236
-- cross-unit edges: 74
+- edges touching unit: 237
+- cross-unit edges: 75
 - low confidence concepts: 9
-- low confidence edges: 75
+- low confidence edges: 74
 
 ## Concept Type Distribution
 
@@ -33,9 +33,9 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | relationship_type | count |
 |---|---:|
 | contains | 51 |
-| contrasts_with | 9 |
+| contrasts_with | 11 |
 | often_confused_with | 24 |
-| prerequisite_for | 81 |
+| prerequisite_for | 80 |
 | related_to | 21 |
 | represented_by | 19 |
 | used_in | 31 |
@@ -62,7 +62,6 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_coord_y_coordinate__prerequisite_for__m1_func_y_increment | y좌표 | prerequisite_for | y의 증가량 | low | official_dual_source |
 | m1_num_negative_number__prerequisite_for__m1_coord_quadrant_signs | 음수 | prerequisite_for | 사분면별 좌표 부호 | low | official_dual_source |
 | m1_num_positive_number__prerequisite_for__m1_coord_quadrant_signs | 양수 | prerequisite_for | 사분면별 좌표 부호 | low | official_dual_source |
-| m1_repr_expression__prerequisite_for__m1_mis_expression_equation | 식 | prerequisite_for | 식과 방정식 혼동 | low | official_dual_source |
 | m1_num_ratio__used_in__m1_prop_direct_proportion | 비 | used_in | 정비례 | low | official_dual_source |
 | m1_num_ratio__used_in__m1_prop_inverse_proportion | 비 | used_in | 반비례 | low | official_dual_source |
 | m1_mis_expression_equation__often_confused_with__m1_repr_expression | 식과 방정식 혼동 | often_confused_with | 식 | low | official_dual_source |
@@ -98,3 +97,4 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_prop_direct_proportion__prerequisite_for__m1_func_y_ax_graph | 정비례 | prerequisite_for | 일차함수 y=ax의 그래프 | medium | official_single_source |
 | m1_repr_everyday_language__prerequisite_for__m1_expr_situation_to_literal_expression | 일상 언어 | prerequisite_for | 상황을 문자를 사용한 식으로 나타내기 | high | official_dual_source |
 | m1_repr_expression__prerequisite_for__m1_eq_equality | 식 | prerequisite_for | 등식 | high | official_dual_source |
+| m1_repr_expression__prerequisite_for__m1_func_linear_formula | 식 | prerequisite_for | 일차함수의 식 | high | official_dual_source |

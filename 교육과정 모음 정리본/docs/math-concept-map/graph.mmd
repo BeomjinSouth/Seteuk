@@ -122,14 +122,26 @@ flowchart LR
   m1_eq_root["근"]
   m1_eq_identity["항등식"]
   m1_eq_equality_properties["등식의 성질"]
+  m1_eq_judge_solution["해인지 판단하기"]
+  m1_eq_truth_value_by_substitution["대입값에 따른 등식의 참거짓"]
+  m1_eq_equation_identity_distinction["방정식과 항등식 구별하기"]
+  m1_eq_equal_add_subtract_property["양변에 같은 수를 더하거나 빼기"]
+  m1_eq_equal_multiply_divide_property["양변에 같은 수를 곱하거나 나누기"]
+  m1_eq_apply_equality_properties["등식의 성질을 이용해 방정식 변형하기"]
   m1_eq_left_side["좌변"]
   m1_eq_right_side["우변"]
   m1_eq_both_sides["양변"]
   m1_eq_transposition["이항"]
   m1_eq_linear_equation["일차방정식"]
   m1_eq_solving_linear_equation["일차방정식 풀기"]
+  m1_eq_collect_unknown_terms["미지수항 모으기"]
+  m1_eq_collect_constant_terms["상수항 모으기"]
+  m1_eq_multiple_solving_methods["방정식의 여러 풀이 방법"]
   m1_eq_modeling_linear_equation["일차방정식 세우기"]
+  m1_eq_choose_unknown_from_context["문제 상황에서 미지수 정하기"]
+  m1_eq_linear_equation_problem_solving["일차방정식 활용 문제 해결"]
   m1_eq_solution_check["해의 확인"]
+  m1_eq_interpret_solution_context["해를 문제 상황에 맞게 해석하기"]
   m1_mis_expression_equation["식과 방정식 혼동"]
   m1_mis_transposition_sign["이항할 때 부호를 잘못 바꾸는 오류"]
   m1_mis_solution_check["구한 해의 상황 적합성 확인 누락"]
@@ -789,21 +801,49 @@ flowchart LR
   m1_eq_unknown -- "대조" --> m1_term_variable
   m1_eq_solution -- "동치" --> m1_eq_root
   m1_eq_equation -- "대조" --> m1_eq_identity
+  m1_repr_expression -- "대조" --> m1_eq_equality
+  m1_repr_expression -- "대조" --> m1_eq_equation
   m1_eq_equality -- "사용" --> m1_eq_equality_properties
+  m1_eq_equation -- "사용" --> m1_eq_judge_solution
+  m1_expr_substitution -- "사용" --> m1_eq_judge_solution
+  m1_eq_truth_value_by_substitution -- "사용" --> m1_eq_judge_solution
+  m1_eq_judge_solution -- "사용" --> m1_eq_solution
+  m1_eq_equation_identity_distinction -- "사용" --> m1_eq_equation
   m1_eq_equality_properties -- "사용" --> m1_eq_solving_linear_equation
+  m1_eq_equal_add_subtract_property -- "사용" --> m1_eq_apply_equality_properties
+  m1_eq_equal_multiply_divide_property -- "사용" --> m1_eq_apply_equality_properties
+  m1_eq_apply_equality_properties -- "사용" --> m1_eq_solving_linear_equation
   m1_eq_left_side -- "대조" --> m1_eq_right_side
   m1_eq_both_sides -- "포함" --> m1_eq_left_side
   m1_eq_both_sides -- "포함" --> m1_eq_right_side
   m1_eq_both_sides -- "사용" --> m1_eq_equality_properties
+  m1_eq_equality_properties -- "사용" --> m1_eq_transposition
   m1_eq_transposition -- "사용" --> m1_eq_solving_linear_equation
+  m1_eq_transposition -- "사용" --> m1_eq_collect_unknown_terms
+  m1_eq_transposition -- "사용" --> m1_eq_collect_constant_terms
+  m1_eq_collect_unknown_terms -- "연관" --> m1_eq_collect_constant_terms
+  m1_eq_collect_unknown_terms -- "사용" --> m1_eq_solving_linear_equation
+  m1_eq_collect_constant_terms -- "사용" --> m1_eq_solving_linear_equation
+  m1_eq_multiple_solving_methods -- "연관" --> m1_eq_apply_equality_properties
+  m1_eq_multiple_solving_methods -- "사용" --> m1_eq_solving_linear_equation
   m1_eq_linear_equation -- "사용" --> m1_eq_solving_linear_equation
   m1_eq_modeling_linear_equation -- "표현" --> m1_eq_linear_equation
+  m1_eq_choose_unknown_from_context -- "사용" --> m1_eq_modeling_linear_equation
   m1_eq_modeling_linear_equation -- "사용" --> m1_eq_solving_linear_equation
+  m1_eq_modeling_linear_equation -- "사용" --> m1_eq_linear_equation_problem_solving
+  m1_eq_solving_linear_equation -- "사용" --> m1_eq_linear_equation_problem_solving
+  m1_eq_solution_check -- "사용" --> m1_eq_linear_equation_problem_solving
   m1_eq_solving_linear_equation -- "사용" --> m1_eq_solution_check
   m1_eq_solution_check -- "사용" --> m1_eq_modeling_linear_equation
+  m1_eq_solution -- "사용" --> m1_eq_solution_check
+  m1_eq_equation -- "사용" --> m1_eq_solution_check
+  m1_eq_judge_solution -- "사용" --> m1_eq_solution_check
+  m1_eq_solution_check -- "사용" --> m1_eq_interpret_solution_context
+  m1_eq_interpret_solution_context -- "사용" --> m1_eq_modeling_linear_equation
   m1_expr_substitution -- "사용" --> m1_eq_solution_check
   m1_eq_unit -- "선수" --> m1_coord_graph_unit
   m1_mis_expression_equation -- "혼동" --> m1_repr_expression
+  m1_mis_expression_equation -- "혼동" --> m1_eq_equality
   m1_mis_expression_equation -- "혼동" --> m1_eq_equation
   m1_mis_transposition_sign -- "혼동" --> m1_eq_transposition
   m1_mis_solution_check -- "혼동" --> m1_eq_solution_check
@@ -1620,12 +1660,24 @@ flowchart LR
   m1_eq_equation -- "포함" --> m1_eq_unknown
   m1_eq_equation -- "포함" --> m1_eq_root
   m1_eq_unit -- "포함" --> m1_eq_identity
+  m1_eq_unit -- "포함" --> m1_eq_judge_solution
+  m1_eq_equation -- "포함" --> m1_eq_truth_value_by_substitution
+  m1_eq_unit -- "포함" --> m1_eq_equation_identity_distinction
+  m1_eq_equality_properties -- "포함" --> m1_eq_equal_add_subtract_property
+  m1_eq_equality_properties -- "포함" --> m1_eq_equal_multiply_divide_property
+  m1_eq_solving_linear_equation -- "포함" --> m1_eq_apply_equality_properties
   m1_eq_equality -- "포함" --> m1_eq_left_side
   m1_eq_equality -- "포함" --> m1_eq_right_side
   m1_eq_equality -- "포함" --> m1_eq_both_sides
   m1_eq_solving_linear_equation -- "포함" --> m1_eq_transposition
+  m1_eq_solving_linear_equation -- "포함" --> m1_eq_collect_unknown_terms
+  m1_eq_solving_linear_equation -- "포함" --> m1_eq_collect_constant_terms
+  m1_eq_solving_linear_equation -- "포함" --> m1_eq_multiple_solving_methods
   m1_eq_unit -- "포함" --> m1_eq_modeling_linear_equation
+  m1_eq_modeling_linear_equation -- "포함" --> m1_eq_choose_unknown_from_context
+  m1_eq_unit -- "포함" --> m1_eq_linear_equation_problem_solving
   m1_eq_unit -- "포함" --> m1_eq_solution_check
+  m1_eq_solution_check -- "포함" --> m1_eq_interpret_solution_context
   m1_eq_unit -- "포함" --> m1_mis_expression_equation
   m1_eq_unit -- "포함" --> m1_mis_transposition_sign
   m1_eq_unit -- "포함" --> m1_mis_solution_check
@@ -2064,20 +2116,43 @@ flowchart LR
   m1_expr_substitution -- "선수" --> m1_eq_solution
   m1_eq_equality -- "선수" --> m1_eq_identity
   m1_eq_equality -- "선수" --> m1_eq_equality_properties
+  m1_eq_equation -- "선수" --> m1_eq_judge_solution
+  m1_expr_substitution -- "선수" --> m1_eq_judge_solution
+  m1_eq_equality -- "선수" --> m1_eq_truth_value_by_substitution
+  m1_expr_substitution -- "선수" --> m1_eq_truth_value_by_substitution
+  m1_eq_equation -- "선수" --> m1_eq_equation_identity_distinction
+  m1_eq_identity -- "선수" --> m1_eq_equation_identity_distinction
+  m1_eq_equality -- "선수" --> m1_eq_equation_identity_distinction
+  m1_eq_both_sides -- "선수" --> m1_eq_equal_add_subtract_property
+  m1_num_addition -- "선수" --> m1_eq_equal_add_subtract_property
+  m1_num_subtraction -- "선수" --> m1_eq_equal_add_subtract_property
+  m1_eq_both_sides -- "선수" --> m1_eq_equal_multiply_divide_property
+  m1_num_multiplication -- "선수" --> m1_eq_equal_multiply_divide_property
+  m1_num_division -- "선수" --> m1_eq_equal_multiply_divide_property
+  m1_eq_equality_properties -- "선수" --> m1_eq_apply_equality_properties
+  m1_eq_both_sides -- "선수" --> m1_eq_apply_equality_properties
   m1_eq_equality_properties -- "선수" --> m1_eq_transposition
   m1_expr_term -- "선수" --> m1_eq_transposition
   m1_eq_equation -- "선수" --> m1_eq_linear_equation
   m1_eq_linear_equation -- "선수" --> m1_eq_solving_linear_equation
   m1_eq_equality_properties -- "선수" --> m1_eq_solving_linear_equation
+  m1_eq_transposition -- "선수" --> m1_eq_collect_unknown_terms
+  m1_eq_unknown -- "선수" --> m1_eq_collect_unknown_terms
+  m1_expr_term -- "선수" --> m1_eq_collect_unknown_terms
+  m1_eq_transposition -- "선수" --> m1_eq_collect_constant_terms
+  m1_expr_constant_term -- "선수" --> m1_eq_collect_constant_terms
+  m1_eq_equality_properties -- "선수" --> m1_eq_multiple_solving_methods
+  m1_eq_transposition -- "선수" --> m1_eq_multiple_solving_methods
   m1_eq_linear_equation -- "선수" --> m1_eq_modeling_linear_equation
+  m1_expr_letter_quantity -- "선수" --> m1_eq_choose_unknown_from_context
+  m1_eq_unknown -- "선수" --> m1_eq_choose_unknown_from_context
+  m1_eq_modeling_linear_equation -- "선수" --> m1_eq_linear_equation_problem_solving
+  m1_eq_solving_linear_equation -- "선수" --> m1_eq_linear_equation_problem_solving
+  m1_eq_solution_check -- "선수" --> m1_eq_linear_equation_problem_solving
   m1_eq_solution -- "선수" --> m1_eq_solution_check
   m1_expr_substitution -- "선수" --> m1_eq_solution_check
-  m1_repr_expression -- "선수" --> m1_mis_expression_equation
-  m1_eq_equality -- "선수" --> m1_mis_expression_equation
-  m1_eq_equation -- "선수" --> m1_mis_expression_equation
-  m1_eq_transposition -- "선수" --> m1_mis_transposition_sign
-  m1_eq_equality_properties -- "선수" --> m1_mis_transposition_sign
-  m1_eq_solution_check -- "선수" --> m1_mis_solution_check
+  m1_eq_solution_check -- "선수" --> m1_eq_interpret_solution_context
+  m1_eq_solution -- "선수" --> m1_eq_interpret_solution_context
   m1_expr_polynomial -- "선수" --> m1_calc_unit
   m1_expr_monomial -- "선수" --> m1_calc_unit
   m1_calc_power -- "선수" --> m1_calc_exponent_laws
@@ -2112,9 +2187,6 @@ flowchart LR
   m1_ineq_linear_inequality -- "선수" --> m1_ineq_modeling_linear_inequality
   m1_ineq_solution -- "선수" --> m1_ineq_solution_check
   m1_expr_substitution -- "선수" --> m1_ineq_solution_check
-  m1_ineq_solution -- "선수" --> m1_mis_ineq_solution_single_value
-  m1_eq_solution -- "선수" --> m1_mis_ineq_solution_single_value
-  m1_ineq_properties -- "선수" --> m1_mis_ineq_negative
   m1_eq_linear_equation -- "선수" --> m1_system_two_variable_linear_equation
   m1_eq_unknown -- "선수" --> m1_system_two_variable_linear_equation
   m1_eq_equation -- "선수" --> m1_system_simultaneous_equations
@@ -2699,8 +2771,9 @@ flowchart LR
   m1_mis_irrational_decimal -- "혼동" --> m1_num_rational_repeating_relation
   m1_mis_radical_like_terms -- "혼동" --> m1_num_radical_expression
   m1_mis_letter_as_label_only -- "혼동" --> m1_term_variable
-  m1_mis_expression_equation -- "혼동" --> m1_eq_equality
+  m1_mis_expression_equation -- "혼동" --> m1_eq_equation_identity_distinction
   m1_mis_transposition_sign -- "혼동" --> m1_eq_solving_linear_equation
+  m1_mis_solution_check -- "혼동" --> m1_eq_interpret_solution_context
   m1_mis_solution_check -- "혼동" --> m1_eq_modeling_linear_equation
   m1_mis_exponent_base -- "혼동" --> m1_calc_base
   m1_mis_exponent_base -- "혼동" --> m1_calc_exponent
@@ -2886,14 +2959,26 @@ flowchart LR
   class m1_eq_root default;
   class m1_eq_identity default;
   class m1_eq_equality_properties default;
+  class m1_eq_judge_solution procedure;
+  class m1_eq_truth_value_by_substitution default;
+  class m1_eq_equation_identity_distinction procedure;
+  class m1_eq_equal_add_subtract_property default;
+  class m1_eq_equal_multiply_divide_property default;
+  class m1_eq_apply_equality_properties procedure;
   class m1_eq_left_side default;
   class m1_eq_right_side default;
   class m1_eq_both_sides default;
   class m1_eq_transposition procedure;
   class m1_eq_linear_equation core;
   class m1_eq_solving_linear_equation procedure;
+  class m1_eq_collect_unknown_terms procedure;
+  class m1_eq_collect_constant_terms procedure;
+  class m1_eq_multiple_solving_methods default;
   class m1_eq_modeling_linear_equation procedure;
+  class m1_eq_choose_unknown_from_context procedure;
+  class m1_eq_linear_equation_problem_solving procedure;
   class m1_eq_solution_check procedure;
+  class m1_eq_interpret_solution_context procedure;
   class m1_mis_expression_equation risk;
   class m1_mis_transposition_sign risk;
   class m1_mis_solution_check risk;

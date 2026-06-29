@@ -27,14 +27,11 @@ digraph pilot_unit_map {
   "m1_system_unit" [label="연립일차방정식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_ineq_unit" -> "m1_mis_ineq_negative" [label="contains", style="solid", color="#b91c1c"];
   "m1_ineq_unit" -> "m1_mis_ineq_solution_single_value" [label="contains", style="solid", color="#b91c1c"];
-  "m1_ineq_properties" -> "m1_mis_ineq_negative" [label="prerequisite_for", style="solid", color="#b91c1c"];
-  "m1_ineq_solution" -> "m1_mis_ineq_solution_single_value" [label="prerequisite_for", style="solid", color="#b91c1c"];
   "m1_mis_ineq_negative" -> "m1_ineq_properties" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_ineq_negative" -> "m1_ineq_solving_linear_inequality" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_ineq_solution_single_value" -> "m1_ineq_inequality" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_ineq_solution_single_value" -> "m1_ineq_solution" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_ineq_solution_single_value" -> "m1_ineq_solution_check" [label="often_confused_with", style="solid", color="#b91c1c"];
-  "m1_eq_solution" -> "m1_mis_ineq_solution_single_value" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_mis_ineq_solution_single_value" -> "m1_eq_solution" [label="often_confused_with", style="dashed", color="#b91c1c"];
   "m1_ineq_inequality" -> "m1_ineq_linear_inequality" [label="contains", style="solid", color="#6b7280"];
   "m1_ineq_inequality" -> "m1_ineq_solution" [label="contains", style="solid", color="#6b7280"];

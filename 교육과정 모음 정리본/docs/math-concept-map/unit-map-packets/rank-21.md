@@ -9,12 +9,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 일차부등식
 - priority tier: high
-- workplan score: 82
+- workplan score: 69
 - concepts: 11
-- edges touching unit: 51
-- cross-unit edges: 17
+- edges touching unit: 48
+- cross-unit edges: 16
 - low confidence concepts: 2
-- low confidence edges: 11
+- low confidence edges: 8
 
 ## Concept Type Distribution
 
@@ -33,7 +33,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 12 |
 | contrasts_with | 3 |
 | often_confused_with | 6 |
-| prerequisite_for | 21 |
+| prerequisite_for | 18 |
 | related_to | 1 |
 | represented_by | 1 |
 | used_in | 7 |
@@ -49,7 +49,6 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
-| m1_eq_solution__prerequisite_for__m1_mis_ineq_solution_single_value | 해 | prerequisite_for | 부등식의 해를 한 값으로만 이해하는 오류 | low | official_dual_source |
 | m1_mis_ineq_solution_single_value__often_confused_with__m1_eq_solution | 부등식의 해를 한 값으로만 이해하는 오류 | often_confused_with | 해 | low | official_dual_source |
 | m1_calc_unit__prerequisite_for__m1_ineq_solving_linear_inequality | 식의 계산 | prerequisite_for | 일차부등식 풀기 | high | official_dual_source |
 | m1_calc_unit__prerequisite_for__m1_ineq_unit | 식의 계산 | prerequisite_for | 일차부등식 | high | official_dual_source |
