@@ -279,7 +279,7 @@
 
 ## Research Report Source Review CSV
 
-`research-report-source-review.csv`는 `research-report-context-packet.csv`의 page 맥락을 source ref 보강 후보, 평가도구 근거 후보, 넓은 보고서 맥락, 약한 출현으로 분류한 파생 검토 큐다. 이 파일은 자동으로 `concepts.json`을 수정하지 않으며, 이미 수동 검토 후 반영된 연구보고서 source ref가 있으면 적용 상태만 표시한다. 모든 row는 수동 검토 전 자동 source ref 또는 confidence 승격을 금지한다.
+`research-report-source-review.csv`는 `research-report-context-packet.csv`의 page 맥락을 source ref 보강 후보, 평가도구 근거 후보, 넓은 보고서 맥락, 약한 출현으로 분류한 파생 검토 큐다. 분류할 때 짧은 excerpt뿐 아니라 연구보고서의 전체 page 텍스트도 확인해 내용 체계 표나 목차성 page가 source ref 후보로 남지 않게 한다. 이 파일은 자동으로 `concepts.json`을 수정하지 않으며, 이미 수동 검토 후 반영된 연구보고서 source ref가 있으면 적용 상태만 표시한다. 모든 row는 수동 검토 전 자동 source ref 또는 confidence 승격을 금지한다.
 
 | 필드 | 설명 |
 | --- | --- |

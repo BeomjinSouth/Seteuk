@@ -64,7 +64,11 @@ class BuildResearchReportSourceReviewTests(unittest.TestCase):
             },
         ]
 
-        rows = review.research_report_source_review_rows(context_rows, applied_source_ref_keys=set())
+        rows = review.research_report_source_review_rows(
+            context_rows,
+            applied_source_ref_keys=set(),
+            page_text_by_number={},
+        )
         by_id = {row["concept_id"]: row for row in rows}
 
         self.assertEqual(by_id["ratio"]["evidence_candidate_type"], "candidate_prerequisite_evidence")
@@ -102,6 +106,7 @@ class BuildResearchReportSourceReviewTests(unittest.TestCase):
         rows = review.research_report_source_review_rows(
             context_rows,
             applied_source_ref_keys={("m1_num_ratio", "180")},
+            page_text_by_number={},
         )
         row = rows[0]
 
@@ -110,6 +115,38 @@ class BuildResearchReportSourceReviewTests(unittest.TestCase):
         self.assertEqual(row["source_ref_application_status"], "applied_after_manual_review")
         self.assertEqual(row["source_ref_upgrade_allowed"], "no")
         self.assertEqual(row["confidence_action"], "keep_low_until_textbook_or_middle_course_evidence")
+
+    def test_source_review_uses_full_page_text_to_reject_broad_content_tables(self) -> None:
+        context_rows = [
+            {
+                "rank": "1",
+                "concept_id": "m1_num_addition",
+                "label_ko": "덧셈",
+                "matched_term": "덧셈",
+                "grade": "중1",
+                "domain": "수와 연산",
+                "unit": "정수와 유리수",
+                "concept_type": "procedure",
+                "confidence": "medium",
+                "recommended_action": "inspect_research_report_context_before_source_ref_upgrade",
+                "page_number": "26",
+                "match_count_on_page": "4",
+                "context_signal": "achievement_level_context; teaching_learning_context; curriculum_context",
+                "context_excerpt": "정수와 유리수의 덧셈과 뺄셈",
+                "source_locator_candidate": "연구보고서 p. 26",
+            }
+        ]
+
+        rows = review.research_report_source_review_rows(
+            context_rows,
+            applied_source_ref_keys=set(),
+            page_text_by_number={26: "<표 Ⅱ-1-2> 수와 연산 영역 내용 체계"},
+        )
+        row = rows[0]
+
+        self.assertEqual(row["evidence_candidate_type"], "broad_report_context_only")
+        self.assertEqual(row["source_ref_action"], "do_not_add_from_this_row")
+        self.assertEqual(row["source_ref_application_status"], "not_applicable_from_this_row")
 
     def test_markdown_and_csv_are_stable_outputs(self) -> None:
         rows = [

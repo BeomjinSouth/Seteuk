@@ -4,6 +4,7 @@ import csv
 import json
 import re
 from collections import Counter
+from functools import lru_cache
 from pathlib import Path
 from typing import Iterable
 
@@ -84,10 +85,19 @@ def has_signal(row: dict, signal_name: str) -> bool:
     return signal_name in split_semicolon(row.get("context_signal", ""))
 
 
-def is_broad_context(row: dict) -> bool:
-    excerpt = str(row.get("context_excerpt", ""))
+@lru_cache(maxsize=1)
+def default_page_text_by_number() -> dict[int, str]:
+    return {
+        int(page.get("page_number", 0)): str(page.get("text", ""))
+        for page in context_packet.signal.extract_page_texts()
+    }
+
+
+def is_broad_context(row: dict, page_text_by_number: dict[int, str] | None = None) -> bool:
     page_number = int_value(row.get("page_number", ""))
-    return page_number <= 20 or any(marker in excerpt for marker in BROAD_CONTEXT_MARKERS)
+    full_page_text = (page_text_by_number or {}).get(page_number, "")
+    review_text = " ".join([str(row.get("context_excerpt", "")), str(full_page_text)])
+    return page_number <= 20 or any(marker in review_text for marker in BROAD_CONTEXT_MARKERS)
 
 
 def is_prerequisite_context(row: dict) -> bool:
@@ -97,8 +107,8 @@ def is_prerequisite_context(row: dict) -> bool:
     )
 
 
-def evidence_candidate_type(row: dict) -> str:
-    if is_broad_context(row):
+def evidence_candidate_type(row: dict, page_text_by_number: dict[int, str] | None = None) -> str:
+    if is_broad_context(row, page_text_by_number=page_text_by_number):
         return "broad_report_context_only"
     if is_prerequisite_context(row):
         return "candidate_prerequisite_evidence"
@@ -180,8 +190,13 @@ def read_applied_source_ref_keys(path: Path = CONCEPTS_JSON) -> set[tuple[str, s
     return applied_source_ref_keys(data.get("concepts", []))
 
 
-def source_review_row(row: dict, rank: int, applied_source_ref_keys: set[tuple[str, str]] | None = None) -> dict:
-    candidate_type = evidence_candidate_type(row)
+def source_review_row(
+    row: dict,
+    rank: int,
+    applied_source_ref_keys: set[tuple[str, str]] | None = None,
+    page_text_by_number: dict[int, str] | None = None,
+) -> dict:
+    candidate_type = evidence_candidate_type(row, page_text_by_number=page_text_by_number)
     applied = (
         str(row.get("concept_id", "")),
         str(row.get("page_number", "")),
@@ -226,10 +241,17 @@ def source_review_row(row: dict, rank: int, applied_source_ref_keys: set[tuple[s
 def research_report_source_review_rows(
     context_rows: Iterable[dict],
     applied_source_ref_keys: set[tuple[str, str]] | None = None,
+    page_text_by_number: dict[int, str] | None = None,
 ) -> list[dict]:
     applied_keys = read_applied_source_ref_keys() if applied_source_ref_keys is None else applied_source_ref_keys
+    page_texts = default_page_text_by_number() if page_text_by_number is None else page_text_by_number
     rows = [
-        source_review_row(row, rank=index, applied_source_ref_keys=applied_keys)
+        source_review_row(
+            row,
+            rank=index,
+            applied_source_ref_keys=applied_keys,
+            page_text_by_number=page_texts,
+        )
         for index, row in enumerate(context_rows, start=1)
     ]
     priority_order = {"high": 0, "medium": 1, "low": 2}
