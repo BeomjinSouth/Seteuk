@@ -2,7 +2,7 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-29T12:07:32",
+    "generated_at": "2026-06-29T12:36:03",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
     "concept_count": 476,
     "edge_count": 1966
@@ -18688,6 +18688,18 @@
           "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
           "evidence_kind": "assessment_item",
           "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 228; 경우의 수와 확률 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 사건 A와 사건 B가 동시에 일어나는 경우의 수를 구하고 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -49004,6 +49016,18 @@
           "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
           "evidence_kind": "assessment_item",
           "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 228; 경우의 수와 확률 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 사건 A와 사건 B가 동시에 일어나는 경우의 수를 구하고 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -65534,6 +65558,18 @@
           "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
           "evidence_kind": "assessment_item",
           "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 228; 경우의 수와 확률 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 사건 A와 사건 B가 동시에 일어나는 경우의 수를 구하고 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -65556,6 +65592,18 @@
           "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
           "evidence_kind": "assessment_item",
           "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 228; 경우의 수와 확률 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 사건 A와 사건 B가 동시에 일어나는 경우의 수를 구하고 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락"
         }
       ],
       "notes": "",

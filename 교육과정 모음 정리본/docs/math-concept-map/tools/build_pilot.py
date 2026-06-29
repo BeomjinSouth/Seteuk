@@ -871,6 +871,18 @@ ACH_DATA_COUNTING_ITEM = source_ref(
     "assessment_item",
     "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항",
 )
+ACH_RESEARCH_OR_CASES_228 = source_ref(
+    "achievement_research_report_2022",
+    "연구보고서 p. 228; 경우의 수와 확률 성취기준별 성취수준",
+    "research_report_achievement_level_context",
+    "사건 A 또는 사건 B가 일어나는 경우의 수와 사건 A와 사건 B가 동시에 일어나는 경우의 수를 구하고 설명하는 성취수준 맥락",
+)
+ACH_RESEARCH_OR_CASES_240 = source_ref(
+    "achievement_research_report_2022",
+    "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
+    "research_report_achievement_level_context",
+    "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락",
+)
 
 
 def concept(
@@ -6682,7 +6694,7 @@ DATA_CONCEPTS = [
         ["A 또는 B의 경우의 수"],
         "sub_concept",
         "두 사건 중 적어도 하나가 일어나는 경우의 수.",
-        [ACH_DATA_PROBABILITY, ACH_DATA_COUNTING_ITEM],
+        [ACH_DATA_PROBABILITY, ACH_DATA_COUNTING_ITEM, ACH_RESEARCH_OR_CASES_228, ACH_RESEARCH_OR_CASES_240],
         prerequisite_ids=["m1_data_event", "m1_data_counting_cases"],
         parent_ids=["m1_data_probability_unit"],
         related_ids=["m1_data_addition_counting", "m1_mis_or_and_counting_confusion"],

@@ -443,7 +443,7 @@ m1_data_critical_graph_reading,표와 그래프의 오류 비판적으로 읽기
 m1_mis_graph_scale_distortion,눈금 왜곡 그래프를 그대로 해석하는 오류,중1(교육과정 학년군: 중1-3),자료와 가능성,도수분포표와 상대도수,low,1,1,1,curriculum_math_2022,teaching_note,yes,no,no,official_single_source,yes
 m1_data_event,사건,중2(교육과정 학년군: 중1-3),자료와 가능성,경우의 수와 확률,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes
 m1_data_counting_cases,경우의 수,중2(교육과정 학년군: 중1-3),자료와 가능성,경우의 수와 확률,high,4,2,4,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; instructional_term_list; teaching_note,yes,yes,no,official_dual_source,yes
-m1_data_or_cases,사건 A 또는 사건 B가 일어나는 경우의 수,중2(교육과정 학년군: 중1-3),자료와 가능성,경우의 수와 확률,medium,2,1,2,achievement_math_2022,achievement_level; assessment_item,no,yes,no,official_single_source,yes
+m1_data_or_cases,사건 A 또는 사건 B가 일어나는 경우의 수,중2(교육과정 학년군: 중1-3),자료와 가능성,경우의 수와 확률,medium,4,2,3,achievement_math_2022; achievement_research_report_2022,achievement_level; assessment_item; research_report_achievement_level_context,no,yes,no,official_single_source,yes
 m1_data_and_cases,사건 A와 사건 B가 동시에 일어나는 경우의 수,중2(교육과정 학년군: 중1-3),자료와 가능성,경우의 수와 확률,medium,2,1,2,achievement_math_2022,achievement_level; assessment_item,no,yes,no,official_single_source,yes
 m1_data_addition_counting,두 경우의 수를 합하는 상황,중2(교육과정 학년군: 중1-3),자료와 가능성,경우의 수와 확률,medium,2,2,2,achievement_math_2022; curriculum_math_2022,assessment_item; teaching_note,yes,yes,no,official_dual_source,yes
 m1_data_multiplication_counting,두 경우의 수를 곱하는 상황,중2(교육과정 학년군: 중1-3),자료와 가능성,경우의 수와 확률,medium,2,2,2,achievement_math_2022; curriculum_math_2022,assessment_item; teaching_note,yes,yes,no,official_dual_source,yes
