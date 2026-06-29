@@ -17,9 +17,9 @@ digraph pilot_unit_map {
   "m1_calc_exponent" [label="지수\\nterm", fillcolor="#f7fbff"];
   "m1_calc_power" [label="거듭제곱\\nterm", fillcolor="#f7fbff"];
   "m1_mis_polynomial_division_scope" [label="다항식을 단항식으로 나누는 범위 혼동\\nmisconception_risk", fillcolor="#f7fbff"];
-  "m1_expr_like_terms" [label="동류항\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_mixed_calculation" [label="정수와 유리수의 혼합계산\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_mis_expansion_factorization_direction" [label="전개와 인수분해 방향을 혼동하는 오류\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_expr_like_terms" [label="동류항\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_factor_expansion_factorization_inverse" [label="전개와 인수분해의 역관계\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_factor_factorization" [label="인수분해\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_factor_polynomial_multiplication" [label="다항식의 곱셈\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -45,12 +45,10 @@ digraph pilot_unit_map {
   "m1_calc_unit" -> "m1_mis_polynomial_like_terms" [label="contains", style="solid", color="#b91c1c"];
   "m1_calc_base" -> "m1_mis_exponent_base" [label="prerequisite_for", style="solid", color="#b91c1c"];
   "m1_calc_exponent_laws" -> "m1_mis_exponent_base" [label="prerequisite_for", style="solid", color="#b91c1c"];
-  "m1_calc_polynomial_add_sub" -> "m1_mis_polynomial_like_terms" [label="prerequisite_for", style="solid", color="#b91c1c"];
   "m1_mis_exponent_base" -> "m1_calc_base" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_exponent_base" -> "m1_calc_exponent" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_exponent_base" -> "m1_calc_exponent_laws" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_polynomial_like_terms" -> "m1_calc_polynomial_add_sub" [label="often_confused_with", style="solid", color="#b91c1c"];
-  "m1_expr_like_terms" -> "m1_mis_polynomial_like_terms" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_num_mixed_calculation" -> "m1_calc_simplify_expression" [label="used_in", style="dashed", color="#b91c1c"];
   "m1_mis_expansion_factorization_direction" -> "m1_calc_expansion" [label="often_confused_with", style="dashed", color="#b91c1c"];
   "m1_mis_polynomial_like_terms" -> "m1_expr_like_terms" [label="often_confused_with", style="dashed", color="#b91c1c"];

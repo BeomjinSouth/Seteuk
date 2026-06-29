@@ -76,6 +76,7 @@ digraph pilot_unit_map {
   "m1_data_histogram_drawing" [label="히스토그램으로 나타내기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_relative_frequency_table_graph" [label="상대도수의 분포를 표나 그래프로 나타내기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_func_y_ax_graph" [label="일차함수 y=ax의 그래프\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_expr_situation_to_literal_expression" [label="상황을 문자를 사용한 식으로 나타내기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_eq_equality" [label="등식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_func_linear_formula" [label="일차함수의 식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_func_two_quantity_relation" [label="두 양 사이의 관계\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -294,6 +295,7 @@ digraph pilot_unit_map {
   "m1_graph_graph" -> "m1_func_linear_graph" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_graph_graph" -> "m1_quad_func_graph" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_prop_direct_proportion" -> "m1_func_y_ax_graph" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_repr_everyday_language" -> "m1_expr_situation_to_literal_expression" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_repr_expression" -> "m1_eq_equality" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_repr_expression" -> "m1_func_linear_formula" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_repr_expression" -> "m1_func_two_quantity_relation" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -321,6 +323,7 @@ digraph pilot_unit_map {
   "m1_func_x_intercept" -> "m1_coord_x_axis" [label="used_in", style="dashed", color="#6b7280"];
   "m1_func_y_intercept" -> "m1_coord_y_axis" [label="used_in", style="dashed", color="#6b7280"];
   "m1_graph_increase_decrease" -> "m1_func_slope_sign" [label="used_in", style="dashed", color="#6b7280"];
+  "m1_repr_everyday_language" -> "m1_expr_situation_to_literal_expression" [label="used_in", style="dashed", color="#6b7280"];
   "m1_repr_expression" -> "m1_expr_value" [label="used_in", style="dashed", color="#6b7280"];
   "m1_eq_unknown" -> "m1_term_variable" [label="contrasts_with", style="dashed", color="#6b7280"];
   "m1_coord_graph_unit" -> "m1_func_eq_relation_unit" [label="related_to", style="dashed", color="#6b7280"];

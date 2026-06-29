@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 좌표평면과 그래프
 - priority tier: highest
 - priority score: 105
-- edges in packet: 234
-- cross-unit edges: 72
+- edges in packet: 236
+- cross-unit edges: 74
 - low confidence edges: 75
 
 ## Relationship Evidence Slots
@@ -218,6 +218,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_graph_graph__prerequisite_for__m1_func_linear_graph | cross_unit | 그래프 | prerequisite_for | 일차함수의 그래프 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_graph_graph__prerequisite_for__m1_quad_func_graph | cross_unit | 그래프 | prerequisite_for | 이차함수의 그래프 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_prop_direct_proportion__prerequisite_for__m1_func_y_ax_graph | cross_unit | 정비례 | prerequisite_for | 일차함수 y=ax의 그래프 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
+| m1_repr_everyday_language__prerequisite_for__m1_expr_situation_to_literal_expression | cross_unit | 일상 언어 | prerequisite_for | 상황을 문자를 사용한 식으로 나타내기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_repr_expression__prerequisite_for__m1_eq_equality | cross_unit | 식 | prerequisite_for | 등식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_repr_expression__prerequisite_for__m1_func_linear_formula | cross_unit | 식 | prerequisite_for | 일차함수의 식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_repr_expression__prerequisite_for__m1_func_two_quantity_relation | cross_unit | 식 | prerequisite_for | 두 양 사이의 관계 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
@@ -245,6 +246,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_func_x_intercept__used_in__m1_coord_x_axis | cross_unit | x절편 | used_in | x축 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_func_y_intercept__used_in__m1_coord_y_axis | cross_unit | y절편 | used_in | y축 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_graph_increase_decrease__used_in__m1_func_slope_sign | cross_unit | 증가와 감소 | used_in | 기울기의 부호 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 1 |
+| m1_repr_everyday_language__used_in__m1_expr_situation_to_literal_expression | cross_unit | 일상 언어 | used_in | 상황을 문자를 사용한 식으로 나타내기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 4 |
 | m1_repr_expression__used_in__m1_expr_value | cross_unit | 식 | used_in | 식의 값 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 4 |
 | m1_eq_unknown__contrasts_with__m1_term_variable | cross_unit | 미지수 | contrasts_with | 변수 | medium | contrast_ref;textbook_page_refs | Find textbook wording or examples that distinguish the two concepts. | 5 |
 | m1_coord_graph_unit__related_to__m1_func_eq_relation_unit | cross_unit | 좌표평면과 그래프 | related_to | 일차함수와 일차방정식의 관계 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 8 |

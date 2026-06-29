@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 수와 연산
 - unit: 정수와 유리수
 - priority tier: highest
-- workplan score: 248
+- workplan score: 250
 - concepts: 41
-- edges touching unit: 191
-- cross-unit edges: 39
+- edges touching unit: 193
+- cross-unit edges: 41
 - low confidence concepts: 5
 - low confidence edges: 36
 
@@ -35,10 +35,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contrasts_with | 11 |
 | equivalent_to | 1 |
 | often_confused_with | 15 |
-| prerequisite_for | 79 |
+| prerequisite_for | 80 |
 | related_to | 10 |
 | represented_by | 6 |
-| used_in | 25 |
+| used_in | 26 |
 
 ## Low Confidence Concepts
 
@@ -64,6 +64,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_real_number__contains__m1_num_rational_number | 실수 | contains | 유리수 | high | official_dual_source |
 | m1_num_distributive_law__prerequisite_for__m1_calc_expansion | 분배법칙 | prerequisite_for | 전개 | medium | official_single_source |
 | m1_num_four_operations__prerequisite_for__m1_calc_unit | 정수와 유리수의 사칙계산 | prerequisite_for | 식의 계산 | medium | official_single_source |
+| m1_num_four_operations__prerequisite_for__m1_expr_evaluate_expression_value | 정수와 유리수의 사칙계산 | prerequisite_for | 식의 값 구하기 | high | official_dual_source |
 | m1_num_integer_rational_unit__prerequisite_for__m1_num_repeating_decimal_unit | 정수와 유리수 | prerequisite_for | 유리수와 순환소수 | high | official_dual_source |
 | m1_num_order_relation__prerequisite_for__m1_data_class | 정수와 유리수의 대소 관계 | prerequisite_for | 계급 | high | official_dual_source |
 | m1_num_order_relation__prerequisite_for__m1_data_median | 정수와 유리수의 대소 관계 | prerequisite_for | 중앙값 | high | official_dual_source |
@@ -86,10 +87,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_rational_number__prerequisite_for__m1_num_square_root_real_unit | 유리수 | prerequisite_for | 제곱근과 실수 | high | official_dual_source |
 | m1_num_repeating_decimal_to_fraction__represented_by__m1_num_rational_number | 순환소수를 분수로 나타내기 | represented_by | 유리수 | high | official_dual_source |
 | m1_num_distributive_law__used_in__m1_factor_polynomial_multiplication | 분배법칙 | used_in | 다항식의 곱셈 | medium | official_dual_source |
+| m1_num_four_operations__used_in__m1_expr_evaluate_expression_value | 정수와 유리수의 사칙계산 | used_in | 식의 값 구하기 | medium | official_dual_source |
 | m1_num_rational_number__used_in__m1_num_rational_repeating_relation | 유리수 | used_in | 유리수와 순환소수의 관계 | high | official_dual_source |
 | m1_num_irrational_number__contrasts_with__m1_num_rational_number | 무리수 | contrasts_with | 유리수 | high | official_dual_source |
 | m1_num_rational_number__contrasts_with__m1_num_irrational_number | 유리수 | contrasts_with | 무리수 | high | official_dual_source |
 | m1_num_positive_integer__equivalent_to__m1_num_natural_number | 양의 정수 | equivalent_to | 자연수 | medium | official_dual_source |
 | m1_num_integer_rational_unit__related_to__m1_num_square_root_real_unit | 정수와 유리수 | related_to | 제곱근과 실수 | medium | official_dual_source |
 | m1_num_number_line__related_to__m1_coord_number_line | 수직선 | related_to | 수직선 | medium | official_dual_source |
-| m1_num_rational_fraction_form__related_to__m1_num_rational_repeating_relation | 유리수의 분수 꼴 표현 | related_to | 유리수와 순환소수의 관계 | medium | official_dual_source |

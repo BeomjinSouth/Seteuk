@@ -9,12 +9,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 식의 계산
 - priority tier: high
-- workplan score: 116
+- workplan score: 107
 - concepts: 14
-- edges touching unit: 78
-- cross-unit edges: 38
+- edges touching unit: 76
+- cross-unit edges: 37
 - low confidence concepts: 2
-- low confidence edges: 13
+- low confidence edges: 11
 
 ## Concept Type Distribution
 
@@ -33,7 +33,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 13 |
 | contrasts_with | 1 |
 | often_confused_with | 7 |
-| prerequisite_for | 38 |
+| prerequisite_for | 36 |
 | related_to | 3 |
 | used_in | 16 |
 
@@ -48,7 +48,6 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
-| m1_expr_like_terms__prerequisite_for__m1_mis_polynomial_like_terms | 동류항 | prerequisite_for | 다항식에서 동류항 처리를 누락하는 오류 | low | official_dual_source |
 | m1_num_mixed_calculation__used_in__m1_calc_simplify_expression | 정수와 유리수의 혼합계산 | used_in | 식을 간단히 하기 | low | official_dual_source |
 | m1_mis_expansion_factorization_direction__often_confused_with__m1_calc_expansion | 전개와 인수분해 방향을 혼동하는 오류 | often_confused_with | 전개 | low | official_dual_source |
 | m1_mis_polynomial_like_terms__often_confused_with__m1_expr_like_terms | 다항식에서 동류항 처리를 누락하는 오류 | often_confused_with | 동류항 | low | official_dual_source |

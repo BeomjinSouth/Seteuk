@@ -161,6 +161,23 @@
 - 현재 `교과서_원본/`에 PDF가 없으므로 465개 row 모두 `pending_textbook_pdf` 상태로 유지했다.
 - `validate_concept_map.py`가 전체 33개 패킷과 인덱스의 row 수, schema, concept 순서, 대상 단원 범위, 누락 concept, 교과서 원본 부재 시 pending 상태를 검증하도록 보강했다.
 
+## 2026-06-29 문자의 사용과 식 미시 concept 병렬 보강
+
+- AGENTS.md를 다시 확인했고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` concept/edge 보강과 파생 산출물 정비로 제한했다.
+- Peirce, Gibbs, Pascal subagent를 병렬로 사용해 rank 7 `문자의 사용과 식`의 누락 미시 concept, noisy edge, 연구보고서 source ref 적용 가능성을 분리 감사했다.
+- TDD red: `python -m unittest discover -s .\docs\math-concept-map\tools -p "test_build_pilot_expression_microconcepts.py"`가 새 미시 concept과 연구보고서 p. 214 보조 source ref 부재, 오개념 대상 noisy prerequisite edge 존재로 실패하는 것을 확인했다.
+- `상황 속 수량 관계`, `문자가 나타내는 수량 정하기`, `상황을 문자를 사용한 식으로 나타내기`, `식의 값 구하기`, `일차식의 덧셈과 뺄셈 원리`, `일차식 계산 과정 설명하기`를 새 concept으로 추가했다.
+- 연구보고서 p. 214의 `문자의 사용과 식` 성취기준별 성취수준을 `m1_expr_unit`, `m1_expr_letter`, `m1_expr_literal_expression`, `m1_expr_value`, `m1_expr_usefulness`, `m1_expr_linear_expression`, `m1_expr_add_sub_linear_expression` 및 새 절차/성질 concept의 보조 source ref로 반영했다.
+- p. 214는 교과서 본문 근거가 아니므로 `m1_mis_letter_as_label_only`, `m1_mis_like_terms`, `m1_mis_coefficient_constant_degree`의 confidence는 `low`로 유지하고 p. 214 source ref를 붙이지 않았다.
+- 오개념 위험 노드로 들어가던 `prerequisite_for` edge를 제거하기 위해 `m1_mis_letter_as_label_only`, `m1_mis_like_terms`, `m1_mis_coefficient_constant_degree`, `m1_mis_polynomial_like_terms`의 선수 배열을 정리했다.
+- `수량 관계 -> 문자 정하기 -> 문자식 세우기 -> 식의 값 구하기`와 `일차식 원리 -> 일차식 계산 -> 계산 과정 설명`의 `used_in` edge를 명시했다.
+- 전체 파생 산출물을 재생성한 결과 concept은 526개, edge는 2236개가 되었다. source ref 총계는 concept 1458개, edge 5776개, 총 7234개이며 source catalogue는 5개이다.
+- `review-queue.*`는 81개 low-confidence concept, `concept-evidence-depth.*`는 concept 526개, `edge-evidence-depth.*`는 edge 2236개, `prerequisite-map.*`는 811개 선수 관계 edge로 갱신되었다.
+- `textbook-evidence-workplan.*`는 34개 단원 그룹, concept evidence row 526개, edge evidence row 2697개, pending textbook evidence row 3223개, low-confidence concept/edge row 563개를 기록한다. rank 7 `문자의 사용과 식`은 24개 concept과 137개 edge row, 총 161개 row이다.
+- `test_build_pilot_expression_microconcepts.py`를 추가해 새 문자의 사용과 식 미시 concept, p. 214 보조 source ref, 오개념 confidence 유지, noisy prerequisite edge 제거를 고정했다.
+- 좁은 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p "test_build_pilot_expression_microconcepts.py"` 4개, `test_build_pilot_edge_sync.py` 21개 통과.
+- 전체 파생 산출물 파이프라인을 재실행했고 `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
+
 ## 남은 작업
 
 - 2022 개정 중학교 수학 공식 교육과정 4개 영역은 모두 1차 반영되었다.

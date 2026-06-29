@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 좌표평면과 그래프
 - priority tier: highest
-- workplan score: 477
+- workplan score: 479
 - concepts: 43
-- edges touching unit: 234
-- cross-unit edges: 72
+- edges touching unit: 236
+- cross-unit edges: 74
 - low confidence concepts: 9
 - low confidence edges: 75
 
@@ -35,10 +35,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 51 |
 | contrasts_with | 9 |
 | often_confused_with | 24 |
-| prerequisite_for | 80 |
+| prerequisite_for | 81 |
 | related_to | 21 |
 | represented_by | 19 |
-| used_in | 30 |
+| used_in | 31 |
 
 ## Low Confidence Concepts
 
@@ -96,5 +96,5 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_graph_graph__prerequisite_for__m1_func_linear_graph | 그래프 | prerequisite_for | 일차함수의 그래프 | high | official_dual_source |
 | m1_graph_graph__prerequisite_for__m1_quad_func_graph | 그래프 | prerequisite_for | 이차함수의 그래프 | medium | official_dual_source |
 | m1_prop_direct_proportion__prerequisite_for__m1_func_y_ax_graph | 정비례 | prerequisite_for | 일차함수 y=ax의 그래프 | medium | official_single_source |
+| m1_repr_everyday_language__prerequisite_for__m1_expr_situation_to_literal_expression | 일상 언어 | prerequisite_for | 상황을 문자를 사용한 식으로 나타내기 | high | official_dual_source |
 | m1_repr_expression__prerequisite_for__m1_eq_equality | 식 | prerequisite_for | 등식 | high | official_dual_source |
-| m1_repr_expression__prerequisite_for__m1_func_linear_formula | 식 | prerequisite_for | 일차함수의 식 | high | official_dual_source |

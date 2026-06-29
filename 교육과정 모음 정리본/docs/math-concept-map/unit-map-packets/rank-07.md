@@ -9,12 +9,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 문자의 사용과 식
 - priority tier: highest
-- workplan score: 182
-- concepts: 18
-- edges touching unit: 112
-- cross-unit edges: 60
+- workplan score: 167
+- concepts: 24
+- edges touching unit: 137
+- cross-unit edges: 63
 - low confidence concepts: 3
-- low confidence edges: 20
+- low confidence edges: 14
 
 ## Concept Type Distribution
 
@@ -22,23 +22,23 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 |---|---:|
 | core_concept | 3 |
 | misconception_risk | 3 |
-| procedure | 2 |
-| property | 1 |
+| procedure | 6 |
+| property | 2 |
 | representation | 1 |
-| sub_concept | 1 |
+| sub_concept | 2 |
 | term | 7 |
 
 ## Relationship Distribution
 
 | relationship_type | count |
 |---|---:|
-| contains | 21 |
+| contains | 27 |
 | contrasts_with | 4 |
 | often_confused_with | 10 |
-| prerequisite_for | 56 |
+| prerequisite_for | 61 |
 | related_to | 4 |
 | represented_by | 2 |
-| used_in | 15 |
+| used_in | 29 |
 
 ## Low Confidence Concepts
 
@@ -52,7 +52,6 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
-| m1_expr_like_terms__prerequisite_for__m1_mis_polynomial_like_terms | 동류항 | prerequisite_for | 다항식에서 동류항 처리를 누락하는 오류 | low | official_dual_source |
 | m1_mis_function_value_input_output__often_confused_with__m1_expr_substitution | 함숫값과 입력값 혼동 | often_confused_with | 대입 | low | official_dual_source |
 | m1_mis_letter_as_label_only__often_confused_with__m1_term_variable | 문자를 이름표로만 해석하는 오류 | often_confused_with | 변수 | low | official_dual_source |
 | m1_mis_polynomial_like_terms__often_confused_with__m1_expr_like_terms | 다항식에서 동류항 처리를 누락하는 오류 | often_confused_with | 동류항 | low | official_dual_source |
@@ -92,3 +91,4 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_expr_substitution__prerequisite_for__m1_ineq_solution | 대입 | prerequisite_for | 부등식의 해 | high | official_dual_source |
 | m1_expr_substitution__prerequisite_for__m1_ineq_solution_check | 대입 | prerequisite_for | 부등식 해의 확인 | high | official_dual_source |
 | m1_expr_substitution__prerequisite_for__m1_system_substitution_method | 대입 | prerequisite_for | 대입법 | high | official_dual_source |
+| m1_expr_term__prerequisite_for__m1_eq_transposition | 항 | prerequisite_for | 이항 | high | official_single_source |

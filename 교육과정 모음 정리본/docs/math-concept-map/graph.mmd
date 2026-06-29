@@ -96,6 +96,10 @@ flowchart LR
   m1_expr_value["식의 값"]
   m1_expr_substitution["대입"]
   m1_expr_usefulness["문자를 사용한 식의 유용성"]
+  m1_expr_quantity_relationship["상황 속 수량 관계"]
+  m1_expr_letter_quantity["문자가 나타내는 수량 정하기"]
+  m1_expr_situation_to_literal_expression["상황을 문자를 사용한 식으로 나타내기"]
+  m1_expr_evaluate_expression_value["식의 값 구하기"]
   m1_expr_term["항"]
   m1_expr_monomial["단항식"]
   m1_expr_polynomial["다항식"]
@@ -103,8 +107,10 @@ flowchart LR
   m1_expr_coefficient["계수"]
   m1_expr_degree["차수"]
   m1_expr_linear_expression["일차식"]
+  m1_expr_linear_expression_add_sub_principle["일차식의 덧셈과 뺄셈 원리"]
   m1_expr_like_terms["동류항"]
   m1_expr_add_sub_linear_expression["일차식의 덧셈과 뺄셈"]
+  m1_expr_explain_linear_expression_calculation["일차식 계산 과정 설명하기"]
   m1_mis_letter_as_label_only["문자를 이름표로만 해석하는 오류"]
   m1_mis_like_terms["동류항이 아닌 항을 합치는 오류"]
   m1_mis_coefficient_constant_degree["계수·상수항·차수 혼동"]
@@ -735,6 +741,20 @@ flowchart LR
   m1_repr_everyday_language -- "표현" --> m1_repr_expression
   m1_expr_literal_expression -- "사용" --> m1_expr_usefulness
   m1_expr_usefulness -- "연관" --> m1_term_variable
+  m1_expr_quantity_relationship -- "사용" --> m1_expr_letter_quantity
+  m1_expr_letter -- "사용" --> m1_expr_letter_quantity
+  m1_expr_quantity_relationship -- "사용" --> m1_expr_situation_to_literal_expression
+  m1_expr_letter_quantity -- "사용" --> m1_expr_situation_to_literal_expression
+  m1_repr_everyday_language -- "사용" --> m1_expr_situation_to_literal_expression
+  m1_expr_situation_to_literal_expression -- "사용" --> m1_expr_literal_expression
+  m1_expr_situation_to_literal_expression -- "사용" --> m1_expr_usefulness
+  m1_expr_literal_expression -- "사용" --> m1_expr_evaluate_expression_value
+  m1_expr_substitution -- "사용" --> m1_expr_evaluate_expression_value
+  m1_num_four_operations -- "사용" --> m1_expr_evaluate_expression_value
+  m1_expr_evaluate_expression_value -- "사용" --> m1_expr_value
+  m1_expr_linear_expression_add_sub_principle -- "사용" --> m1_expr_add_sub_linear_expression
+  m1_expr_add_sub_linear_expression -- "사용" --> m1_expr_explain_linear_expression_calculation
+  m1_expr_linear_expression_add_sub_principle -- "사용" --> m1_expr_explain_linear_expression_calculation
   m1_expr_polynomial -- "포함" --> m1_expr_term
   m1_expr_polynomial -- "포함" --> m1_expr_monomial
   m1_expr_monomial -- "연관" --> m1_expr_term
@@ -1587,7 +1607,13 @@ flowchart LR
   m1_num_square_root_real_unit -- "포함" --> m1_mis_irrational_decimal
   m1_num_square_root_real_unit -- "포함" --> m1_mis_radical_like_terms
   m1_expr_unit -- "포함" --> m1_expr_usefulness
+  m1_expr_unit -- "포함" --> m1_expr_quantity_relationship
+  m1_expr_unit -- "포함" --> m1_expr_letter_quantity
+  m1_expr_unit -- "포함" --> m1_expr_situation_to_literal_expression
+  m1_expr_unit -- "포함" --> m1_expr_evaluate_expression_value
   m1_expr_term -- "포함" --> m1_expr_degree
+  m1_expr_unit -- "포함" --> m1_expr_linear_expression_add_sub_principle
+  m1_expr_unit -- "포함" --> m1_expr_explain_linear_expression_calculation
   m1_expr_unit -- "포함" --> m1_mis_letter_as_label_only
   m1_expr_unit -- "포함" --> m1_mis_like_terms
   m1_expr_unit -- "포함" --> m1_mis_coefficient_constant_degree
@@ -2010,20 +2036,26 @@ flowchart LR
   m1_expr_substitution -- "선수" --> m1_expr_value
   m1_expr_letter -- "선수" --> m1_expr_substitution
   m1_expr_literal_expression -- "선수" --> m1_expr_substitution
+  m1_expr_letter -- "선수" --> m1_expr_letter_quantity
+  m1_expr_quantity_relationship -- "선수" --> m1_expr_letter_quantity
+  m1_expr_letter_quantity -- "선수" --> m1_expr_situation_to_literal_expression
+  m1_repr_everyday_language -- "선수" --> m1_expr_situation_to_literal_expression
+  m1_expr_literal_expression -- "선수" --> m1_expr_evaluate_expression_value
+  m1_expr_substitution -- "선수" --> m1_expr_evaluate_expression_value
+  m1_num_four_operations -- "선수" --> m1_expr_evaluate_expression_value
   m1_expr_term -- "선수" --> m1_expr_constant_term
   m1_expr_term -- "선수" --> m1_expr_coefficient
   m1_expr_term -- "선수" --> m1_expr_degree
   m1_expr_polynomial -- "선수" --> m1_expr_linear_expression
   m1_expr_degree -- "선수" --> m1_expr_linear_expression
+  m1_expr_linear_expression -- "선수" --> m1_expr_linear_expression_add_sub_principle
+  m1_expr_like_terms -- "선수" --> m1_expr_linear_expression_add_sub_principle
   m1_expr_term -- "선수" --> m1_expr_like_terms
   m1_expr_coefficient -- "선수" --> m1_expr_like_terms
   m1_expr_linear_expression -- "선수" --> m1_expr_add_sub_linear_expression
   m1_expr_like_terms -- "선수" --> m1_expr_add_sub_linear_expression
-  m1_expr_letter -- "선수" --> m1_mis_letter_as_label_only
-  m1_expr_like_terms -- "선수" --> m1_mis_like_terms
-  m1_expr_coefficient -- "선수" --> m1_mis_coefficient_constant_degree
-  m1_expr_constant_term -- "선수" --> m1_mis_coefficient_constant_degree
-  m1_expr_degree -- "선수" --> m1_mis_coefficient_constant_degree
+  m1_expr_add_sub_linear_expression -- "선수" --> m1_expr_explain_linear_expression_calculation
+  m1_expr_linear_expression_add_sub_principle -- "선수" --> m1_expr_explain_linear_expression_calculation
   m1_expr_linear_expression -- "선수" --> m1_eq_unit
   m1_repr_expression -- "선수" --> m1_eq_equality
   m1_eq_unknown -- "선수" --> m1_eq_equation
@@ -2064,8 +2096,6 @@ flowchart LR
   m1_expr_polynomial -- "선수" --> m1_calc_arithmetic_to_polynomial_extension
   m1_calc_base -- "선수" --> m1_mis_exponent_base
   m1_calc_exponent_laws -- "선수" --> m1_mis_exponent_base
-  m1_calc_polynomial_add_sub -- "선수" --> m1_mis_polynomial_like_terms
-  m1_expr_like_terms -- "선수" --> m1_mis_polynomial_like_terms
   m1_calc_monomial_polynomial_mul_div -- "선수" --> m1_mis_polynomial_division_scope
   m1_repr_expression -- "선수" --> m1_ineq_inequality
   m1_ineq_inequality -- "선수" --> m1_ineq_solution
@@ -2830,6 +2860,10 @@ flowchart LR
   class m1_expr_value default;
   class m1_expr_substitution procedure;
   class m1_expr_usefulness default;
+  class m1_expr_quantity_relationship default;
+  class m1_expr_letter_quantity procedure;
+  class m1_expr_situation_to_literal_expression procedure;
+  class m1_expr_evaluate_expression_value procedure;
   class m1_expr_term default;
   class m1_expr_monomial default;
   class m1_expr_polynomial core;
@@ -2837,8 +2871,10 @@ flowchart LR
   class m1_expr_coefficient default;
   class m1_expr_degree default;
   class m1_expr_linear_expression core;
+  class m1_expr_linear_expression_add_sub_principle default;
   class m1_expr_like_terms default;
   class m1_expr_add_sub_linear_expression procedure;
+  class m1_expr_explain_linear_expression_calculation procedure;
   class m1_mis_letter_as_label_only risk;
   class m1_mis_like_terms risk;
   class m1_mis_coefficient_constant_degree risk;

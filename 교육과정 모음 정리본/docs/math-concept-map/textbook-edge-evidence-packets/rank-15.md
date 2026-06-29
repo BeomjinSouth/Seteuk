@@ -10,9 +10,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 식의 계산
 - priority tier: high
 - priority score: 26
-- edges in packet: 78
-- cross-unit edges: 38
-- low confidence edges: 13
+- edges in packet: 76
+- cross-unit edges: 37
+- low confidence edges: 11
 
 ## Relationship Evidence Slots
 
@@ -22,12 +22,10 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_calc_unit__contains__m1_mis_polynomial_like_terms | intra_unit | 식의 계산 | contains | 다항식에서 동류항 처리를 누락하는 오류 | low | structure_ref;textbook_page_refs;extraction_notes | Find textbook structure evidence for the containment relation. | 2 |
 | m1_calc_base__prerequisite_for__m1_mis_exponent_base | intra_unit | 밑 | prerequisite_for | 밑이 다른 거듭제곱에 지수법칙을 잘못 적용하는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_calc_exponent_laws__prerequisite_for__m1_mis_exponent_base | intra_unit | 지수법칙 | prerequisite_for | 밑이 다른 거듭제곱에 지수법칙을 잘못 적용하는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
-| m1_calc_polynomial_add_sub__prerequisite_for__m1_mis_polynomial_like_terms | intra_unit | 다항식의 덧셈과 뺄셈 | prerequisite_for | 다항식에서 동류항 처리를 누락하는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_mis_exponent_base__often_confused_with__m1_calc_base | intra_unit | 밑이 다른 거듭제곱에 지수법칙을 잘못 적용하는 오류 | often_confused_with | 밑 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 3 |
 | m1_mis_exponent_base__often_confused_with__m1_calc_exponent | intra_unit | 밑이 다른 거듭제곱에 지수법칙을 잘못 적용하는 오류 | often_confused_with | 지수 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 3 |
 | m1_mis_exponent_base__often_confused_with__m1_calc_exponent_laws | intra_unit | 밑이 다른 거듭제곱에 지수법칙을 잘못 적용하는 오류 | often_confused_with | 지수법칙 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 3 |
 | m1_mis_polynomial_like_terms__often_confused_with__m1_calc_polynomial_add_sub | intra_unit | 다항식에서 동류항 처리를 누락하는 오류 | often_confused_with | 다항식의 덧셈과 뺄셈 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
-| m1_expr_like_terms__prerequisite_for__m1_mis_polynomial_like_terms | cross_unit | 동류항 | prerequisite_for | 다항식에서 동류항 처리를 누락하는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_mixed_calculation__used_in__m1_calc_simplify_expression | cross_unit | 정수와 유리수의 혼합계산 | used_in | 식을 간단히 하기 | low | procedure_ref;textbook_page_refs;extraction_notes | Find a worked example, procedure, or application where this source concept is used. | 5 |
 | m1_mis_expansion_factorization_direction__often_confused_with__m1_calc_expansion | cross_unit | 전개와 인수분해 방향을 혼동하는 오류 | often_confused_with | 전개 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_polynomial_like_terms__often_confused_with__m1_expr_like_terms | cross_unit | 다항식에서 동류항 처리를 누락하는 오류 | often_confused_with | 동류항 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |

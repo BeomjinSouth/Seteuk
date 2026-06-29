@@ -53,6 +53,7 @@ digraph pilot_unit_map {
   "m1_num_real_number" [label="실수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_calc_expansion" [label="전개\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_calc_unit" [label="식의 계산\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_expr_evaluate_expression_value" [label="식의 값 구하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_repeating_decimal_unit" [label="유리수와 순환소수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_class" [label="계급\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_median" [label="중앙값\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -237,6 +238,7 @@ digraph pilot_unit_map {
   "m1_num_real_number" -> "m1_num_rational_number" [label="contains", style="dashed", color="#6b7280"];
   "m1_num_distributive_law" -> "m1_calc_expansion" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_four_operations" -> "m1_calc_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_num_four_operations" -> "m1_expr_evaluate_expression_value" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_integer_rational_unit" -> "m1_num_repeating_decimal_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_order_relation" -> "m1_data_class" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_order_relation" -> "m1_data_median" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -259,6 +261,7 @@ digraph pilot_unit_map {
   "m1_num_rational_number" -> "m1_num_square_root_real_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_repeating_decimal_to_fraction" -> "m1_num_rational_number" [label="represented_by", style="dashed", color="#6b7280"];
   "m1_num_distributive_law" -> "m1_factor_polynomial_multiplication" [label="used_in", style="dashed", color="#6b7280"];
+  "m1_num_four_operations" -> "m1_expr_evaluate_expression_value" [label="used_in", style="dashed", color="#6b7280"];
   "m1_num_rational_number" -> "m1_num_rational_repeating_relation" [label="used_in", style="dashed", color="#6b7280"];
   "m1_num_irrational_number" -> "m1_num_rational_number" [label="contrasts_with", style="dashed", color="#6b7280"];
   "m1_num_rational_number" -> "m1_num_irrational_number" [label="contrasts_with", style="dashed", color="#6b7280"];
