@@ -1,5 +1,5 @@
 ﻿rank,grade,domain,unit,concept_count,pending_textbook_evidence_count,low_confidence_count,priority_tier,priority_score,next_action,packet_csv,packet_md
-1,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,40,40,6,highest,90,textbook_evidence_for_low_confidence,rank-01.csv,rank-01.md
+1,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,43,43,9,highest,105,textbook_evidence_for_low_confidence,rank-01.csv,rank-01.md
 2,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,27,27,6,highest,61,textbook_evidence_for_low_confidence,rank-02.csv,rank-02.md
 3,중2(교육과정 학년군: 중1-3),자료와 가능성,경우의 수와 확률,18,18,3,highest,50,textbook_evidence_for_low_confidence,rank-03.csv,rank-03.md
 4,중1(교육과정 학년군: 중1-3),수와 연산,정수와 유리수,31,31,3,highest,47,textbook_evidence_for_low_confidence,rank-04.csv,rank-04.md

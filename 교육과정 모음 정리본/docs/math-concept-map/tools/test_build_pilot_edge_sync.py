@@ -78,6 +78,16 @@ class BuildPilotEdgeSyncTests(unittest.TestCase):
         self.assertEqual([], missing[:20])
         self.assertEqual(0, len(missing))
 
+    def test_equivalent_pairs_do_not_also_use_contains(self) -> None:
+        pairs_by_type = relationship_types_by_pair()
+        conflicting = [
+            tuple(sorted(pair))
+            for pair, relationship_types in pairs_by_type.items()
+            if {"equivalent_to", "contains"}.issubset(relationship_types)
+        ]
+
+        self.assertEqual([], conflicting)
+
     def test_every_prerequisite_edge_is_mirrored_by_prerequisite_id(self) -> None:
         concepts = concepts_by_id()
         missing = [

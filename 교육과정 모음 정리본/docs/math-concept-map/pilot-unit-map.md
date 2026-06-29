@@ -9,12 +9,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 좌표평면과 그래프
 - priority tier: highest
-- workplan score: 337
-- concepts: 40
-- edges touching unit: 202
-- cross-unit edges: 71
-- low confidence concepts: 6
-- low confidence edges: 44
+- workplan score: 474
+- concepts: 43
+- edges touching unit: 235
+- cross-unit edges: 73
+- low confidence concepts: 9
+- low confidence edges: 74
 
 ## Concept Type Distribution
 
@@ -23,20 +23,20 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | core_concept | 3 |
 | misconception_risk | 5 |
 | procedure | 4 |
-| property | 3 |
+| property | 4 |
 | representation | 6 |
-| sub_concept | 6 |
+| sub_concept | 8 |
 | term | 13 |
 
 ## Relationship Distribution
 
 | relationship_type | count |
 |---|---:|
-| contains | 43 |
-| contrasts_with | 5 |
-| often_confused_with | 21 |
-| prerequisite_for | 65 |
-| related_to | 14 |
+| contains | 51 |
+| contrasts_with | 9 |
+| often_confused_with | 24 |
+| prerequisite_for | 76 |
+| related_to | 21 |
 | represented_by | 24 |
 | used_in | 30 |
 
@@ -45,6 +45,9 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | concept_id | label_ko | type | evidence_depth | notes |
 |---|---|---|---|---|
 | m1_coord_axis_point | 축 위의 점 | sub_concept | official_dual_source | 공식 문서에는 좌표축과 좌표평면 위의 점이 확인된다. '축 위의 점' 명명과 세부 처리는 교과서 본문 확인이 필요하다. |
+| m1_coord_x_axis_point | x축 위의 점 | sub_concept | official_dual_source | 공식 문서에는 x축, 좌표, 좌표평면 위의 점이 확인된다. y좌표가 0인 점이라는 세부 조건은 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_coord_y_axis_point | y축 위의 점 | sub_concept | official_dual_source | 공식 문서에는 y축, 좌표, 좌표평면 위의 점이 확인된다. x좌표가 0인 점이라는 세부 조건은 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_coord_quadrant_signs | 사분면별 좌표 부호 | property | official_dual_source | 공식 문서에는 사분면, x좌표, y좌표, 양수, 음수 용어가 확인된다. 각 사분면의 부호 패턴은 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_mis_axis_quadrant | 축 위의 점을 사분면에 포함하는 오류 | misconception_risk | official_dual_source | 공식 문서에서 좌표축과 사분면 용어는 확인되지만, 오류 자체는 교과서·문항 근거 확인 전 잠정 노드이다. |
 | m1_mis_direct_inverse_generalization | 증가·감소만으로 정비례·반비례 판단 | misconception_risk | official_dual_source | 공식 문서의 정비례·반비례 관계 판단 요구와 변화 상태 해석 요구를 함께 본 추론이다. |
 | m1_mis_graph_picture | 그래프를 상황 그림으로만 보는 오류 | misconception_risk | official_dual_source | 그래프가 나타내는 상황을 설명하게 한다는 공식 문서 근거에서 추론한 오개념 위험이다. |
@@ -56,6 +59,8 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
 | m1_graph_graph__prerequisite_for__m1_mis_histogram_bar_graph | 그래프 | prerequisite_for | 히스토그램과 막대그래프를 같은 표현으로 보는 오류 | low | official_dual_source |
+| m1_num_negative_number__prerequisite_for__m1_coord_quadrant_signs | 음수 | prerequisite_for | 사분면별 좌표 부호 | low | official_dual_source |
+| m1_num_positive_number__prerequisite_for__m1_coord_quadrant_signs | 양수 | prerequisite_for | 사분면별 좌표 부호 | low | official_dual_source |
 | m1_repr_expression__prerequisite_for__m1_mis_expression_equation | 식 | prerequisite_for | 식과 방정식 혼동 | low | official_dual_source |
 | m1_num_ratio__used_in__m1_prop_direct_proportion | 비 | used_in | 정비례 | low | official_dual_source |
 | m1_num_ratio__used_in__m1_prop_inverse_proportion | 비 | used_in | 반비례 | low | official_dual_source |
@@ -93,5 +98,3 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_repr_expression__prerequisite_for__m1_func_two_quantity_relation | 식 | prerequisite_for | 두 양 사이의 관계 | high | official_dual_source |
 | m1_repr_expression__prerequisite_for__m1_ineq_inequality | 식 | prerequisite_for | 부등식 | high | official_dual_source |
 | m1_repr_table__prerequisite_for__m1_data_critical_graph_reading | 표 | prerequisite_for | 표와 그래프의 오류 비판적으로 읽기 | medium | official_single_source |
-| m1_repr_table__prerequisite_for__m1_data_frequency_table | 표 | prerequisite_for | 도수분포표 | high | official_dual_source |
-| m1_repr_table__prerequisite_for__m1_data_frequency_unit | 표 | prerequisite_for | 도수분포표와 상대도수 | high | official_dual_source |

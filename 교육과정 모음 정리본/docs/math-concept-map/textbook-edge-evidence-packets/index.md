@@ -5,17 +5,17 @@ This generated index tracks the prepared unit-level textbook edge evidence packe
 ## Summary
 
 - packets: 34
-- edges in packets: 2413
-- cross-unit edges in packets: 892
+- edges in packets: 2448
+- cross-unit edges in packets: 896
 
 ## Packets
 
 | rank | grade | domain | unit | edges | intra-unit | cross-unit | low | tier | score | packet |
 |---:|---|---|---|---:|---:|---:|---:|---|---:|---|
-| 1 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 좌표평면과 그래프 | 202 | 131 | 71 | 44 | highest | 90 | rank-01.md |
+| 1 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 좌표평면과 그래프 | 235 | 162 | 73 | 74 | highest | 105 | rank-01.md |
 | 2 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 그 그래프 | 131 | 96 | 35 | 28 | highest | 61 | rank-02.md |
 | 3 | 중2(교육과정 학년군: 중1-3) | 자료와 가능성 | 경우의 수와 확률 | 78 | 71 | 7 | 19 | highest | 50 | rank-03.md |
-| 4 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 정수와 유리수 | 132 | 97 | 35 | 19 | highest | 47 | rank-04.md |
+| 4 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 정수와 유리수 | 134 | 97 | 37 | 21 | highest | 47 | rank-04.md |
 | 5 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 이차함수와 그 그래프 | 87 | 67 | 20 | 15 | highest | 46 | rank-05.md |
 | 6 | 중1(교육과정 학년군: 중1-3) | 자료와 가능성 | 도수분포표와 상대도수 | 143 | 94 | 49 | 18 | highest | 44 | rank-06.md |
 | 7 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 문자의 사용과 식 | 112 | 52 | 60 | 20 | highest | 42 | rank-07.md |

@@ -15,6 +15,6 @@
 8,중1(교육과정 학년군: 중1-3),변화와 관계,일차방정식,m1_eq_identity,항등식,term,high,official_dual_source,yes,2,m1_eq_unit,m1_eq_equality,m1_eq_equation,문자의 값에 관계없이 항상 참인 등식.,
 8,중1(교육과정 학년군: 중1-3),변화와 관계,일차방정식,m1_eq_left_side,좌변,term,medium,official_single_source,yes,1,m1_eq_equality; m1_eq_both_sides,,m1_eq_right_side,등식이나 방정식에서 등호의 왼쪽에 있는 식.,공식 문서에서 교수·학습 상황에서 사용할 수 있는 용어로 제시된다.
 8,중1(교육과정 학년군: 중1-3),변화와 관계,일차방정식,m1_eq_right_side,우변,term,medium,official_single_source,yes,1,m1_eq_equality; m1_eq_both_sides,,m1_eq_left_side,등식이나 방정식에서 등호의 오른쪽에 있는 식.,공식 문서에서 교수·학습 상황에서 사용할 수 있는 용어로 제시된다.
-8,중1(교육과정 학년군: 중1-3),변화와 관계,일차방정식,m1_eq_root,근,term,medium,official_dual_source,yes,2,m1_eq_solution,,m1_eq_solution,방정식의 해를 가리키는 용어.,중학교 변화와 관계 용어 목록에는 해와 근이 모두 제시된다. 단원별 사용 차이는 교과서 확인 필요.
+8,중1(교육과정 학년군: 중1-3),변화와 관계,일차방정식,m1_eq_root,근,term,medium,official_dual_source,yes,2,m1_eq_equation,,m1_eq_solution,방정식의 해를 가리키는 용어.,중학교 변화와 관계 용어 목록에는 해와 근이 모두 제시된다. 해의 하위 개념으로 두지 않고 방정식 맥락의 동치 용어로 보존한다. 단원별 사용 차이는 교과서 확인 필요.
 8,중1(교육과정 학년군: 중1-3),변화와 관계,일차방정식,m1_eq_solution,해,term,high,official_dual_source,yes,3,m1_eq_equation,m1_eq_equation; m1_expr_substitution,m1_eq_root,방정식을 참이 되게 하는 미지수의 값.,
 8,중1(교육과정 학년군: 중1-3),변화와 관계,일차방정식,m1_eq_unknown,미지수,term,high,official_dual_source,yes,2,m1_eq_equation,m1_expr_letter,m1_term_variable; m1_eq_solution,방정식에서 아직 값을 알지 못해 구하려는 문자.,

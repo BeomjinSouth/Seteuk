@@ -5,14 +5,14 @@ This generated queue ranks units for the next textbook-grounded concept extracti
 ## Summary
 
 - unit groups: 34
-- concepts needing textbook evidence: 476
-- low confidence concepts in queue: 67
+- concepts needing textbook evidence: 479
+- low confidence concepts in queue: 70
 
 ## Queue
 
 | rank | grade | domain | unit | tier | score | needs textbook | low | official single | next action |
 |---:|---|---|---|---|---:|---:|---:|---:|---|
-| 1 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 좌표평면과 그래프 | highest | 90 | 40 | 6 | 13 | textbook_evidence_for_low_confidence |
+| 1 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 좌표평면과 그래프 | highest | 105 | 43 | 9 | 13 | textbook_evidence_for_low_confidence |
 | 2 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 그 그래프 | highest | 61 | 27 | 6 | 5 | textbook_evidence_for_low_confidence |
 | 3 | 중2(교육과정 학년군: 중1-3) | 자료와 가능성 | 경우의 수와 확률 | highest | 50 | 18 | 3 | 10 | textbook_evidence_for_low_confidence |
 | 4 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 정수와 유리수 | highest | 47 | 31 | 3 | 2 | textbook_evidence_for_low_confidence |

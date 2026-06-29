@@ -9,12 +9,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 수와 연산
 - unit: 정수와 유리수
 - priority tier: highest
-- workplan score: 158
+- workplan score: 168
 - concepts: 31
-- edges touching unit: 132
-- cross-unit edges: 35
+- edges touching unit: 134
+- cross-unit edges: 37
 - low confidence concepts: 3
-- low confidence edges: 19
+- low confidence edges: 21
 
 ## Concept Type Distribution
 
@@ -35,7 +35,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contrasts_with | 7 |
 | equivalent_to | 1 |
 | often_confused_with | 8 |
-| prerequisite_for | 55 |
+| prerequisite_for | 57 |
 | related_to | 7 |
 | represented_by | 2 |
 | used_in | 18 |
@@ -52,6 +52,8 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
+| m1_num_negative_number__prerequisite_for__m1_coord_quadrant_signs | 음수 | prerequisite_for | 사분면별 좌표 부호 | low | official_dual_source |
+| m1_num_positive_number__prerequisite_for__m1_coord_quadrant_signs | 양수 | prerequisite_for | 사분면별 좌표 부호 | low | official_dual_source |
 | m1_num_rational_number__prerequisite_for__m1_num_ratio | 유리수 | prerequisite_for | 비 | low | official_single_source |
 | m1_num_mixed_calculation__used_in__m1_calc_simplify_expression | 정수와 유리수의 혼합계산 | used_in | 식을 간단히 하기 | low | official_dual_source |
 | m1_num_absolute_value__related_to__m1_geo_distance_between_two_points | 절댓값 | related_to | 두 점 사이의 거리 | low | official_dual_source |

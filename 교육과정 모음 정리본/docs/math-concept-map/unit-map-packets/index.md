@@ -5,18 +5,18 @@ This generated index tracks compact concept hierarchy maps for every textbook ev
 ## Summary
 
 - unit maps: 34
-- concept rows: 476
-- edge rows touching units: 2413
-- cross-unit edge rows: 892
+- concept rows: 479
+- edge rows touching units: 2448
+- cross-unit edge rows: 896
 
 ## Packets
 
 | rank | grade | domain | unit | concepts | edges | cross | low concepts | low edges | map | dot |
 |---:|---|---|---|---:|---:|---:|---:|---:|---|---|
-| 1 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 좌표평면과 그래프 | 40 | 202 | 71 | 6 | 44 | rank-01.md | rank-01.dot |
+| 1 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 좌표평면과 그래프 | 43 | 235 | 73 | 9 | 74 | rank-01.md | rank-01.dot |
 | 2 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 그 그래프 | 27 | 131 | 35 | 6 | 28 | rank-02.md | rank-02.dot |
 | 3 | 중2(교육과정 학년군: 중1-3) | 자료와 가능성 | 경우의 수와 확률 | 18 | 78 | 7 | 3 | 19 | rank-03.md | rank-03.dot |
-| 4 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 정수와 유리수 | 31 | 132 | 35 | 3 | 19 | rank-04.md | rank-04.dot |
+| 4 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 정수와 유리수 | 31 | 134 | 37 | 3 | 21 | rank-04.md | rank-04.dot |
 | 5 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 이차함수와 그 그래프 | 20 | 87 | 20 | 3 | 15 | rank-05.md | rank-05.dot |
 | 6 | 중1(교육과정 학년군: 중1-3) | 자료와 가능성 | 도수분포표와 상대도수 | 26 | 143 | 49 | 3 | 18 | rank-06.md | rank-06.dot |
 | 7 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 문자의 사용과 식 | 18 | 112 | 60 | 3 | 20 | rank-07.md | rank-07.dot |

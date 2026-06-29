@@ -1148,10 +1148,28 @@
 - 전체 단위 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p "test_*.py"`: 195개 통과.
 - 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 476개 concept, 1967개 edge, 5개 source, 60개 공식 성취기준 검증 통과.
 
+## 2026-06-29 좌표평면 미시 concept 병렬 보강
+
+- AGENTS.md를 다시 확인했고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` concept map 보강, 파생 산출물 정비, 검증 보강으로 제한했다.
+- 멀티에이전트 explorer 3개를 병렬로 사용해 rank 1 `좌표평면과 그래프`의 미시 concept 누락, `official_single_source`/`low` 후보, edge 의미 품질을 독립 감사했다.
+- 좌표 단원의 공식 용어표와 성취수준 맥락을 근거로 `x축 위의 점`, `y축 위의 점`, `사분면별 좌표 부호`를 `confidence: low` concept으로 추가했다. 축 위 점의 0좌표 조건과 사분면별 부호 패턴은 교과서 본문 확인 전까지 낮은 신뢰도로 유지한다.
+- `좌표축`, `x축`, `y축`, `원점`, `순서쌍`, `x좌표`, `y좌표`, `사분면`, `축 위의 점`, `점의 위치` 사이의 `contains`, `prerequisite_for`, `contrasts_with`, `related_to` edge를 명시해 `related-edge-resolution-queue.*`를 0건으로 유지했다.
+- `해`와 `근`이 `equivalent_to`와 `contains`로 동시에 연결되던 충돌을 정리했다. `근`은 `해`의 하위 concept이 아니라 `방정식` 맥락의 동치 용어로 보존하고, `equivalent_to` 쌍은 `contains`를 중복 사용하지 않도록 테스트로 고정했다.
+- 전체 파생 산출물을 재생성한 결과 concept은 479개, edge는 2000개가 되었다. source ref 총계는 concept 1266개, edge 4946개, 총 6212개이며 source catalogue는 5개이다.
+- `review-queue.*`는 70개 low-confidence concept, `concept-evidence-depth.*`는 concept 479개, `edge-evidence-depth.*`는 edge 2000개, `prerequisite-map.*`는 736개 선수 관계 edge로 갱신되었다.
+- `textbook-evidence-workplan.*`는 34개 단원 그룹, concept evidence row 479개, edge evidence row 2448개, pending textbook evidence row 2927개, low-confidence concept/edge row 518개를 기록한다.
+- 최상위 단원 `좌표평면과 그래프`는 concept 43개, edge row 235개, 총 278개 근거 row가 모두 `pending_textbook_pdf` 상태로 남아 있다.
+- `test_build_pilot_coordinate_microconcepts.py`를 추가해 좌표 단원의 새 미시 concept과 축·원점·순서쌍·사분면 관계 edge를 고정했다. `test_build_pilot_edge_sync.py`에는 `equivalent_to` 쌍이 동시에 `contains`로 중복되지 않는 검사를 추가했다.
+- 좁은 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p "test_build_pilot_coordinate_microconcepts.py"` 3개 통과, `python -m unittest discover -s .\docs\math-concept-map\tools -p "test_build_pilot_edge_sync.py"` 21개 통과.
+- 전체 단위 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p "test_*.py"`: 199개 통과.
+- 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 479개 concept, 2000개 edge, 5개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map 교과서_원본`: 종료 코드 0, CRLF 변환 경고만 확인.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
 - 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 `not_applicable_from_this_row` 28개가 broad context, 용어 충돌, 또는 약한 출현으로 유지되는지 주기적으로 감사하되, 현재 남은 `pending_manual_review`는 0개이다. 단, `비` confidence 승격은 교과서 본문 또는 중학교 과정 직접 근거 확인 후 판단한다.
 - 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.
-- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 40개와 edge packet row 202개, 총 242개 row로 유지하되, 전체 단원 검토는 `unit-map-packets/index.*`에서 rank 1~34 순서로 이어간다.
+- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 235개, 총 278개 row로 유지하되, 전체 단원 검토는 `unit-map-packets/index.*`에서 rank 1~34 순서로 이어간다.
 - 새 concept, alias, `related_ids`, 또는 `equivalent_to` 후보가 추가되면 `equivalence-alias-audit.*`, `related-edge-resolution-queue.*`, `textbook-edge-evidence-packets/*`, `edge-evidence-depth.*`를 함께 재생성한다.

@@ -76,9 +76,9 @@ digraph pilot_unit_map {
   "m1_eq_equality" -> "m1_eq_both_sides" [label="contains", style="solid", color="#6b7280"];
   "m1_eq_equality" -> "m1_eq_left_side" [label="contains", style="solid", color="#6b7280"];
   "m1_eq_equality" -> "m1_eq_right_side" [label="contains", style="solid", color="#6b7280"];
+  "m1_eq_equation" -> "m1_eq_root" [label="contains", style="solid", color="#6b7280"];
   "m1_eq_equation" -> "m1_eq_solution" [label="contains", style="solid", color="#6b7280"];
   "m1_eq_equation" -> "m1_eq_unknown" [label="contains", style="solid", color="#6b7280"];
-  "m1_eq_solution" -> "m1_eq_root" [label="contains", style="solid", color="#6b7280"];
   "m1_eq_solving_linear_equation" -> "m1_eq_transposition" [label="contains", style="solid", color="#6b7280"];
   "m1_eq_unit" -> "m1_eq_equality" [label="contains", style="solid", color="#6b7280"];
   "m1_eq_unit" -> "m1_eq_equality_properties" [label="contains", style="solid", color="#6b7280"];

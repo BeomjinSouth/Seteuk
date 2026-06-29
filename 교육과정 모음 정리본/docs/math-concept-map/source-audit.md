@@ -49,14 +49,15 @@
 ## 현재 제한
 
 - `교과서_원본/`에 분석할 PDF 또는 이미지가 없어, 교과서 본문·정리·예제·문제에서 반복 출현하는 암묵 개념은 아직 확정할 수 없다.
+- `x축 위의 점`, `y축 위의 점`, `사분면별 좌표 부호`는 공식 용어표와 성취수준의 좌표평면 위 점 맥락에서 추출한 좌표 단원 미시 concept이지만, 축 위 점의 0좌표 조건과 사분면별 부호 패턴은 교과서 본문·예제 확인 전까지 `confidence: low`로 둔다.
 - `1을 소수나 합성수로 보는 오류`, `최대공약수·최소공배수 활용 범위 오류`, `부호와 연산 기호 혼동`, `절댓값 의미 오류`, `음수 대소 비교 오류`, `유한소수의 순환소수 표현 범위 오류`, `근호 부호 오류`, `무한소수와 무리수 혼동`, `근호 식 덧셈 오류`, `문자를 이름표로만 해석하는 오류`, `동류항이 아닌 항을 합치는 오류`, `이항 부호 오류`, `밑이 다른 거듭제곱에 지수법칙을 잘못 적용하는 오류`, `부등식의 해를 한 값으로만 이해하는 오류`, `가감법에서 부호와 계수 처리를 잘못하는 오류`, `함수와 일차함수 혼동`, `기울기와 절편 혼동`, `교점과 연립방정식의 해를 분리해서 보는 오류`, `축 위의 점과 사분면 혼동`, `공통인수 누락`, `완전제곱식 부호 오류`, `이차식과 이차방정식 혼동`, `이차함수와 이차방정식 혼동`, `축과 꼭짓점 혼동`, `최댓값·최솟값 범위 오류`처럼 교과서 본문이나 학생 오답에서 자주 드러나는 미시 항목은 공식 문서의 용어 체계와 성취수준 수행 진술에 근거한 파일럿 노드로 두고, 교과서 원본 확보 후 쪽수 근거를 보강해야 한다.
 - `동위각과 엇각 위치 혼동`, `꼬인 위치와 평행 혼동`, `호와 현 혼동`, `겉넓이와 부피 혼동`, `관찰 결과와 증명 혼동`, `외심과 내심 혼동`, `합동과 닮음 혼동`, `삼각비 범위 혼동`, `접선과 반지름 관계 오류` 등 도형 영역의 오개념 위험도 공식 문서와 성취수준에 근거한 잠정 노드이며, 교과서 예제·오답·문항 근거를 추가해야 한다.
 - `평균만 대푯값으로 보는 오류`, `히스토그램과 막대그래프 혼동`, `도수와 상대도수 혼동`, `눈금 왜곡 그래프 해석`, `또는과 동시에의 경우의 수 혼동`, `동등 가능성 조건 누락`, `복잡한 순열·조합 범위 혼동`, `분산과 표준편차 혼동`, `상관관계와 인과관계 혼동` 등 자료와 가능성 영역의 오개념 위험도 공식 문서와 성취수준에 근거한 잠정 노드이며, 교과서 예제·오답·문항 근거를 추가해야 한다.
 - 공식 문서의 학년 표기는 중학교 1~3학년군이다. 파일럿에서는 통상 배치에 맞추어 소인수분해·정수와 유리수 및 초반 변화와 관계·기본 도형·작도와 합동·평면도형·입체도형·대푯값·도수분포표와 상대도수 단원은 `중1(교육과정 학년군: 중1-3)`, 유리수와 순환소수 및 삼각형과 사각형·닮음·피타고라스 정리·경우의 수와 확률은 `중2(교육과정 학년군: 중1-3)`, 제곱근과 실수 및 다항식의 곱셈과 인수분해·이차방정식·이차함수·삼각비·원의 성질·산포도·상자그림과 산점도 단원은 `중3(교육과정 학년군: 중1-3)`로 적되, 실제 학교·출판사 배치는 교과서 확인 후 조정한다.
-- `review-queue.md`와 `review-queue.csv`는 위 잠정 노드 중 `confidence: low`인 67개 concept을 다음 교과서·출처 보강 우선순위로 모아 둔 파생 산출물이다.
+- `review-queue.md`와 `review-queue.csv`는 위 잠정 노드 중 `confidence: low`인 70개 concept을 다음 교과서·출처 보강 우선순위로 모아 둔 파생 산출물이다.
 - `official-term-coverage.md`와 `official-term-coverage.csv`는 공식 문서 용어·기호 168개가 concept label 또는 alias로 연결되는지 추적하는 파생 산출물이다. 현재 `needs_concept` 항목은 없다.
 - `unit-coverage.md`와 `unit-coverage.csv`는 현재 concept/edge를 34개 학년·영역·단원 그룹으로 나누어 다음 교과서 원문 보강 단위를 추적하는 파생 산출물이다.
-- `relationship-audit.md`와 `relationship-audit.csv`는 현재 edge 1967개가 관계 유형별로 어떻게 분포하는지와 고립 concept이 없는지 추적하는 파생 산출물이다.
+- `relationship-audit.md`와 `relationship-audit.csv`는 현재 edge 2000개가 관계 유형별로 어떻게 분포하는지와 고립 concept이 없는지 추적하는 파생 산출물이다.
 - `related-edge-resolution-queue.md`와 `related-edge-resolution-queue.csv`는 현재 남은 `related_ids` 해소 후보 0개를 기록하며, 새 후보가 생기면 관계 유형 후보와 처리 우선순위로 분리해 edge 확정 순서를 좁히는 파생 산출물이다.
 
 ## Source Inventory Snapshot
@@ -80,29 +81,29 @@
 ## Source Reference Audit
 
 - `source-ref-audit.md`와 `source-ref-audit.csv`를 추가해 concept/edge의 `source_refs`를 출처와 근거 유형별로 추적한다.
-- 현재 source ref는 concept 1260개, edge 4880개, 총 6140개이다.
+- 현재 source ref는 concept 1266개, edge 4946개, 총 6212개이다.
 - 현재 `locator` 누락은 0개, `summary` 누락은 0개이다.
 - 이 감사는 교과서 PDF가 추가되기 전에도 공식 문서 기반 개념과 관계가 어떤 근거 유형에 기대고 있는지 확인하기 위한 재생성 가능한 점검표이다.
 
 ## Concept Evidence Depth
 
 - `concept-evidence-depth.md`와 `concept-evidence-depth.csv`를 추가해 concept별 공식/교과서 근거 깊이를 추적한다.
-- 현재 476개 concept 중 `official_dual_source`는 398개, `official_single_source`는 78개이다.
-- 현재 `textbook_supported` concept은 0개이며, 476개 concept 모두 교과서 본문·정리·예제·문제 근거 보강이 필요하다.
+- 현재 479개 concept 중 `official_dual_source`는 401개, `official_single_source`는 78개이다.
+- 현재 `textbook_supported` concept은 0개이며, 479개 concept 모두 교과서 본문·정리·예제·문제 근거 보강이 필요하다.
 - 교과서 PDF가 추가되면 이 산출물에서 `needs_textbook_evidence`를 줄이는 방식으로 보강 진행률을 추적한다.
 
 ## Edge Evidence Depth
 
 - `edge-evidence-depth.md`와 `edge-evidence-depth.csv`를 추가해 edge별 공식/교과서 근거 깊이를 추적한다.
-- 현재 1967개 edge 중 `official_dual_source`는 1682개, `official_single_source`는 285개이다.
-- 현재 `textbook_supported` edge는 0개이며, 1967개 edge 모두 교과서 본문·예제·문제 근거 보강이 필요하다.
-- 현재 edge scope 분포는 `same_unit` 1521개, `cross_unit_same_domain` 198개, `cross_domain_same_grade` 41개, `cross_grade_same_domain` 185개, `cross_grade_cross_domain` 22개이다.
+- 현재 2000개 edge 중 `official_dual_source`는 1715개, `official_single_source`는 285개이다.
+- 현재 `textbook_supported` edge는 0개이며, 2000개 edge 모두 교과서 본문·예제·문제 근거 보강이 필요하다.
+- 현재 edge scope 분포는 `same_unit` 1552개, `cross_unit_same_domain` 198개, `cross_domain_same_grade` 43개, `cross_grade_same_domain` 185개, `cross_grade_cross_domain` 22개이다.
 - 교과서 PDF가 추가되면 이 산출물에서 `needs_textbook_evidence`를 줄이는 방식으로 관계 근거 보강 진행률을 추적한다.
 
 ## Textbook Extraction Queue
 
 - `textbook-extraction-queue.md`와 `textbook-extraction-queue.csv`를 추가해 교과서 PDF가 추가된 뒤의 단원별 원문 추출 우선순위를 추적한다.
-- 현재 큐는 34개 단원 그룹을 포함하며, 교과서 근거 보강 필요 concept 476개와 `low` 신뢰도 concept 67개를 반영한다.
+- 현재 큐는 34개 단원 그룹을 포함하며, 교과서 근거 보강 필요 concept 479개와 `low` 신뢰도 concept 70개를 반영한다.
 - 현재 최상위 우선 단원은 `좌표평면과 그래프`, `일차함수와 그 그래프`, `경우의 수와 확률`, `정수와 유리수`, `이차함수와 그 그래프`이다.
 - 교과서 PDF가 추가되면 큐 순서대로 목차, 학습목표, 본문 정의, 정리, 예제, 문제 반복 표현을 추출한다.
 
@@ -110,9 +111,9 @@
 
 - `textbook-evidence-packets/index.md`와 `textbook-evidence-packets/index.csv`를 추가해 전체 단원 교과서 근거 패킷을 추적한다.
 - `rank-01`~`rank-34` 패킷은 `textbook-extraction-queue.csv`의 전체 34개 단원 그룹을 포함한다.
-- 전체 패킷은 concept 476개를 포함하며, 그중 `low` 신뢰도 concept 67개를 단원 안에서 먼저 정렬한다.
+- 전체 패킷은 concept 479개를 포함하며, 그중 `low` 신뢰도 concept 70개를 단원 안에서 먼저 정렬한다.
 - 각 패킷 row는 `required_evidence_fields`와 `evidence_focus`를 포함해, concept 유형별로 우선 확인할 교과서 근거 슬롯을 구분한다. 예를 들어 `misconception_risk`는 예제·문제 반복 패턴·쪽수·추출 메모를 우선 채우고, `term`은 용어 설명·정의·쪽수 근거를 우선 채운다.
-- 현재 `교과서_원본/`에는 PDF가 없으므로 476개 row 모두 `pending_textbook_pdf` 상태이며, 목차·학습목표·정의·정리·예제·용어 설명·문제 패턴·쪽수 슬롯은 비워 두었다.
+- 현재 `교과서_원본/`에는 PDF가 없으므로 479개 row 모두 `pending_textbook_pdf` 상태이며, 목차·학습목표·정의·정리·예제·용어 설명·문제 패턴·쪽수 슬롯은 비워 두었다.
 - 교과서 PDF가 추가되면 이 패킷들의 빈 슬롯을 채운 뒤 `concepts.json`의 `source_refs`, `confidence`, 병합/분리 판단을 갱신한다.
 
 ## Textbook Source Audit
@@ -127,17 +128,17 @@
 
 - `textbook-edge-evidence-packets/index.md`와 `textbook-edge-evidence-packets/index.csv`를 추가해 전체 단원 관계 edge 교과서 근거 패킷을 추적한다.
 - `rank-01`~`rank-34` 패킷은 `textbook-extraction-queue.csv`의 전체 34개 단원 그룹을 포함한다.
-- 전체 edge 패킷은 단원 concept에 닿는 관계 edge 2413개 row를 포함하며, 같은 edge가 cross-unit 관계이면 양쪽 단원 패킷에 중복 배치될 수 있다.
-- 현재 분포는 intra-unit edge row 1521개, cross-unit edge row 892개, `low` 신뢰도 edge row 416개이다.
+- 전체 edge 패킷은 단원 concept에 닿는 관계 edge 2448개 row를 포함하며, 같은 edge가 cross-unit 관계이면 양쪽 단원 패킷에 중복 배치될 수 있다.
+- 현재 분포는 intra-unit edge row 1552개, cross-unit edge row 896개, `low` 신뢰도 edge row 448개이다.
 - 각 row는 관계 유형별로 구조 근거, 선수 순서 근거, 표현 근거, 절차 활용 근거, 대조 근거, 오개념·문제 패턴 근거, 관련 근거, 쪽수 슬롯을 분리한다.
-- 현재 `교과서_원본/`에는 PDF가 없으므로 2413개 row 모두 `pending_textbook_pdf` 상태이며, 관계 근거 슬롯은 비워 두었다.
+- 현재 `교과서_원본/`에는 PDF가 없으므로 2448개 row 모두 `pending_textbook_pdf` 상태이며, 관계 근거 슬롯은 비워 두었다.
 
 ## Textbook Evidence Workplan
 
 - `textbook-evidence-workplan.md`와 `textbook-evidence-workplan.csv`를 추가해 concept 근거 패킷과 관계 edge 근거 패킷을 같은 rank 단위로 결합한다.
-- 전체 workplan은 34개 단원 그룹, concept evidence row 476개, edge evidence row 2413개, pending textbook evidence row 2889개를 포함한다.
-- 전체 low-confidence 보강 대상은 concept 67개와 edge row 416개를 합친 483개 row이다.
-- 현재 최상위 단원 `좌표평면과 그래프`는 concept 40개와 edge row 202개, 총 242개 row가 모두 `pending_textbook_pdf` 상태이다.
+- 전체 workplan은 34개 단원 그룹, concept evidence row 479개, edge evidence row 2448개, pending textbook evidence row 2927개를 포함한다.
+- 전체 low-confidence 보강 대상은 concept 70개와 edge row 448개를 합친 518개 row이다.
+- 현재 최상위 단원 `좌표평면과 그래프`는 concept 43개와 edge row 235개, 총 278개 row가 모두 `pending_textbook_pdf` 상태이다.
 - 이 산출물은 새 출처가 아니라 교과서 PDF 추가 후의 작업 순서와 보강 부담을 추적하는 파생 관리표이다.
 - 교과서 PDF가 추가되면 concept 패킷과 edge 패킷을 함께 채워 `concepts.json`의 concept source refs뿐 아니라 `edges.csv`/`concepts.json`의 edge source refs와 신뢰도를 갱신하고, `edge-evidence-depth.*`의 보강 필요 수를 줄인다.
 

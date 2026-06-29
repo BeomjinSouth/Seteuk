@@ -9,16 +9,19 @@ This generated packet is the unit-level worksheet for adding textbook-grounded e
 - domain: 변화와 관계
 - unit: 좌표평면과 그래프
 - priority tier: highest
-- priority score: 90
-- concepts in packet: 40
-- pending textbook evidence: 40
-- low confidence concepts: 6
+- priority score: 105
+- concepts in packet: 43
+- pending textbook evidence: 43
+- low confidence concepts: 9
 
 ## Concept Evidence Slots
 
 | concept_id | label_ko | type | confidence | evidence_depth | status | required evidence | focus | source refs |
 |---|---|---|---|---|---|---|---|---:|
 | m1_coord_axis_point | 축 위의 점 | sub_concept | low | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs;extraction_notes | Find textbook definition or example that names the sub-concept. | 2 |
+| m1_coord_quadrant_signs | 사분면별 좌표 부호 | property | low | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs;extraction_notes | Find textbook statement of the property and any summary box. | 2 |
+| m1_coord_x_axis_point | x축 위의 점 | sub_concept | low | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs;extraction_notes | Find textbook definition or example that names the sub-concept. | 2 |
+| m1_coord_y_axis_point | y축 위의 점 | sub_concept | low | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs;extraction_notes | Find textbook definition or example that names the sub-concept. | 2 |
 | m1_mis_axis_quadrant | 축 위의 점을 사분면에 포함하는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
 | m1_mis_direct_inverse_generalization | 증가·감소만으로 정비례·반비례 판단 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 3 |
 | m1_mis_graph_picture | 그래프를 상황 그림으로만 보는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 3 |

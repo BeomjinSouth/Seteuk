@@ -1,8 +1,8 @@
 ﻿rank,grade,domain,unit,priority_tier,workplan_score,concept_count,edge_count,intra_unit_edge_count,cross_unit_edge_count,low_confidence_concept_count,low_confidence_edge_count,total_pending_evidence_count,next_action,node_csv,edge_csv,map_md,map_dot
-1,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,highest,337,40,202,131,71,6,44,242,fill_low_confidence_concept_and_edge_evidence,rank-01-nodes.csv,rank-01-edges.csv,rank-01.md,rank-01.dot
+1,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,highest,474,43,235,162,73,9,74,278,fill_low_confidence_concept_and_edge_evidence,rank-01-nodes.csv,rank-01-edges.csv,rank-01.md,rank-01.dot
 2,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,highest,208,27,131,96,35,6,28,158,fill_low_confidence_concept_and_edge_evidence,rank-02-nodes.csv,rank-02-edges.csv,rank-02.md,rank-02.dot
 3,중2(교육과정 학년군: 중1-3),자료와 가능성,경우의 수와 확률,highest,133,18,78,71,7,3,19,96,fill_low_confidence_concept_and_edge_evidence,rank-03-nodes.csv,rank-03-edges.csv,rank-03.md,rank-03.dot
-4,중1(교육과정 학년군: 중1-3),수와 연산,정수와 유리수,highest,158,31,132,97,35,3,19,163,fill_low_confidence_concept_and_edge_evidence,rank-04-nodes.csv,rank-04-edges.csv,rank-04.md,rank-04.dot
+4,중1(교육과정 학년군: 중1-3),수와 연산,정수와 유리수,highest,168,31,134,97,37,3,21,165,fill_low_confidence_concept_and_edge_evidence,rank-04-nodes.csv,rank-04-edges.csv,rank-04.md,rank-04.dot
 5,중3(교육과정 학년군: 중1-3),변화와 관계,이차함수와 그 그래프,highest,126,20,87,67,20,3,15,107,fill_low_confidence_concept_and_edge_evidence,rank-05-nodes.csv,rank-05-edges.csv,rank-05.md,rank-05.dot
 6,중1(교육과정 학년군: 중1-3),자료와 가능성,도수분포표와 상대도수,highest,165,26,143,94,49,3,18,169,fill_low_confidence_concept_and_edge_evidence,rank-06-nodes.csv,rank-06-edges.csv,rank-06.md,rank-06.dot
 7,중1(교육과정 학년군: 중1-3),변화와 관계,문자의 사용과 식,highest,182,18,112,52,60,3,20,130,fill_low_confidence_concept_and_edge_evidence,rank-07-nodes.csv,rank-07-edges.csv,rank-07.md,rank-07.dot

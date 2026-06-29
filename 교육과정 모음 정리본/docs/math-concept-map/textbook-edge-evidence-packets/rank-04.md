@@ -10,9 +10,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 정수와 유리수
 - priority tier: highest
 - priority score: 47
-- edges in packet: 132
-- cross-unit edges: 35
-- low confidence edges: 19
+- edges in packet: 134
+- cross-unit edges: 37
+- low confidence edges: 21
 
 ## Relationship Evidence Slots
 
@@ -34,6 +34,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_mis_sign_operation__often_confused_with__m1_num_integer_rational_mul_div | intra_unit | 부호와 연산 기호를 혼동하는 오류 | often_confused_with | 정수와 유리수의 곱셈과 나눗셈 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_sign_operation__often_confused_with__m1_num_minus_sign | intra_unit | 부호와 연산 기호를 혼동하는 오류 | often_confused_with | 음의 부호 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_sign_operation__often_confused_with__m1_num_plus_sign | intra_unit | 부호와 연산 기호를 혼동하는 오류 | often_confused_with | 양의 부호 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
+| m1_num_negative_number__prerequisite_for__m1_coord_quadrant_signs | cross_unit | 음수 | prerequisite_for | 사분면별 좌표 부호 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_num_positive_number__prerequisite_for__m1_coord_quadrant_signs | cross_unit | 양수 | prerequisite_for | 사분면별 좌표 부호 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_rational_number__prerequisite_for__m1_num_ratio | cross_unit | 유리수 | prerequisite_for | 비 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_mixed_calculation__used_in__m1_calc_simplify_expression | cross_unit | 정수와 유리수의 혼합계산 | used_in | 식을 간단히 하기 | low | procedure_ref;textbook_page_refs;extraction_notes | Find a worked example, procedure, or application where this source concept is used. | 5 |
 | m1_num_absolute_value__related_to__m1_geo_distance_between_two_points | cross_unit | 절댓값 | related_to | 두 점 사이의 거리 | low | related_ref;textbook_page_refs;extraction_notes | Find textbook wording or examples that justify keeping these concepts linked. | 6 |

@@ -34,6 +34,7 @@ digraph pilot_unit_map {
   "m1_num_positive_number" [label="양수\\nterm", fillcolor="#f7fbff"];
   "m1_num_positive_rational" [label="양의 유리수\\nterm", fillcolor="#f7fbff"];
   "m1_num_reciprocal" [label="역수\\nterm", fillcolor="#f7fbff"];
+  "m1_coord_quadrant_signs" [label="사분면별 좌표 부호\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_ratio" [label="비\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_calc_simplify_expression" [label="식을 간단히 하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_distance_between_two_points" [label="두 점 사이의 거리\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -79,6 +80,8 @@ digraph pilot_unit_map {
   "m1_mis_sign_operation" -> "m1_num_integer_rational_mul_div" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_sign_operation" -> "m1_num_minus_sign" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_sign_operation" -> "m1_num_plus_sign" [label="often_confused_with", style="solid", color="#b91c1c"];
+  "m1_num_negative_number" -> "m1_coord_quadrant_signs" [label="prerequisite_for", style="dashed", color="#b91c1c"];
+  "m1_num_positive_number" -> "m1_coord_quadrant_signs" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_num_rational_number" -> "m1_num_ratio" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_num_mixed_calculation" -> "m1_calc_simplify_expression" [label="used_in", style="dashed", color="#b91c1c"];
   "m1_num_absolute_value" -> "m1_geo_distance_between_two_points" [label="related_to", style="dashed", color="#b91c1c"];

@@ -261,6 +261,9 @@ flowchart LR
   m1_coord_quadrant_3["제3사분면"]
   m1_coord_quadrant_4["제4사분면"]
   m1_coord_axis_point["축 위의 점"]
+  m1_coord_x_axis_point["x축 위의 점"]
+  m1_coord_y_axis_point["y축 위의 점"]
+  m1_coord_quadrant_signs["사분면별 좌표 부호"]
   m1_coord_usefulness["좌표 표현의 편리함"]
   m1_graph_graph["그래프"]
   m1_graph_situation_graphing["상황을 그래프로 나타내기"]
@@ -1032,6 +1035,8 @@ flowchart LR
   m1_coord_quadrant -- "포함" --> m1_coord_quadrant_3
   m1_coord_quadrant -- "포함" --> m1_coord_quadrant_4
   m1_coord_axis -- "포함" --> m1_coord_axis_point
+  m1_coord_x_axis_point -- "대조" --> m1_coord_y_axis_point
+  m1_coord_quadrant_signs -- "대조" --> m1_coord_axis_point
   m1_coord_coordinate_plane -- "사용" --> m1_coord_usefulness
   m1_coord_coordinate_plane -- "표현" --> m1_graph_graph
   m1_coord_x_axis -- "대조" --> m1_coord_y_axis
@@ -1039,6 +1044,18 @@ flowchart LR
   m1_coord_origin -- "연관" --> m1_coord_y_axis
   m1_coord_x_axis -- "연관" --> m1_coord_axis_point
   m1_coord_y_axis -- "연관" --> m1_coord_axis_point
+  m1_coord_axis -- "연관" --> m1_coord_x_axis_point
+  m1_coord_axis -- "연관" --> m1_coord_y_axis_point
+  m1_coord_axis_point -- "연관" --> m1_coord_origin
+  m1_coord_coordinate_plane -- "포함" --> m1_coord_point_location
+  m1_coord_ordered_pair -- "포함" --> m1_coord_x_coordinate
+  m1_coord_ordered_pair -- "포함" --> m1_coord_y_coordinate
+  m1_coord_quadrant_signs -- "연관" --> m1_coord_quadrant_1
+  m1_coord_quadrant_signs -- "연관" --> m1_coord_quadrant_2
+  m1_coord_quadrant_signs -- "연관" --> m1_coord_quadrant_3
+  m1_coord_quadrant_signs -- "연관" --> m1_coord_quadrant_4
+  m1_coord_x_axis_point -- "대조" --> m1_coord_quadrant_signs
+  m1_coord_y_axis_point -- "대조" --> m1_coord_quadrant_signs
   m1_coord_coordinate -- "표현" --> m1_coord_ordered_pair
   m1_coord_coordinate -- "표현" --> m1_coord_number_line
   m1_coord_coordinate -- "사용" --> m1_coord_usefulness
@@ -1415,7 +1432,7 @@ flowchart LR
   m1_expr_unit -- "포함" --> m1_mis_like_terms
   m1_expr_unit -- "포함" --> m1_mis_coefficient_constant_degree
   m1_eq_equation -- "포함" --> m1_eq_unknown
-  m1_eq_solution -- "포함" --> m1_eq_root
+  m1_eq_equation -- "포함" --> m1_eq_root
   m1_eq_unit -- "포함" --> m1_eq_identity
   m1_eq_equality -- "포함" --> m1_eq_left_side
   m1_eq_equality -- "포함" --> m1_eq_right_side
@@ -1473,6 +1490,11 @@ flowchart LR
   m1_coord_graph_unit -- "포함" --> m1_coord_number_line
   m1_coord_coordinate -- "포함" --> m1_coord_point_location
   m1_coord_point_location -- "포함" --> m1_coord_axis_point
+  m1_coord_axis_point -- "포함" --> m1_coord_x_axis_point
+  m1_coord_x_axis -- "포함" --> m1_coord_x_axis_point
+  m1_coord_axis_point -- "포함" --> m1_coord_y_axis_point
+  m1_coord_y_axis -- "포함" --> m1_coord_y_axis_point
+  m1_coord_quadrant -- "포함" --> m1_coord_quadrant_signs
   m1_graph_graph -- "포함" --> m1_graph_situation_graphing
   m1_graph_graph -- "포함" --> m1_graph_graph_interpretation
   m1_graph_graph_interpretation -- "포함" --> m1_graph_change_state
@@ -2009,6 +2031,17 @@ flowchart LR
   m1_coord_axis -- "선수" --> m1_coord_quadrant
   m1_coord_axis -- "선수" --> m1_coord_axis_point
   m1_coord_coordinate -- "선수" --> m1_coord_axis_point
+  m1_coord_x_axis -- "선수" --> m1_coord_x_axis_point
+  m1_coord_coordinate -- "선수" --> m1_coord_x_axis_point
+  m1_coord_y_coordinate -- "선수" --> m1_coord_x_axis_point
+  m1_coord_y_axis -- "선수" --> m1_coord_y_axis_point
+  m1_coord_coordinate -- "선수" --> m1_coord_y_axis_point
+  m1_coord_x_coordinate -- "선수" --> m1_coord_y_axis_point
+  m1_coord_quadrant -- "선수" --> m1_coord_quadrant_signs
+  m1_coord_x_coordinate -- "선수" --> m1_coord_quadrant_signs
+  m1_coord_y_coordinate -- "선수" --> m1_coord_quadrant_signs
+  m1_num_positive_number -- "선수" --> m1_coord_quadrant_signs
+  m1_num_negative_number -- "선수" --> m1_coord_quadrant_signs
   m1_coord_coordinate_plane -- "선수" --> m1_graph_graph
   m1_graph_graph -- "선수" --> m1_graph_situation_graphing
   m1_coord_coordinate_plane -- "선수" --> m1_graph_situation_graphing
@@ -2416,6 +2449,9 @@ flowchart LR
   m1_mis_quadratic_factorization_solution -- "혼동" --> m1_factor_factorization
   m1_mis_max_min_scope -- "혼동" --> m1_quad_func_maximum
   m1_mis_max_min_scope -- "혼동" --> m1_quad_func_minimum
+  m1_mis_axis_quadrant -- "혼동" --> m1_coord_x_axis_point
+  m1_mis_axis_quadrant -- "혼동" --> m1_coord_y_axis_point
+  m1_mis_axis_quadrant -- "혼동" --> m1_coord_quadrant_signs
   m1_mis_graph_picture -- "혼동" --> m1_graph_graph
   m1_mis_direct_inverse_generalization -- "혼동" --> m1_prop_direct_proportion
   m1_mis_direct_inverse_generalization -- "혼동" --> m1_prop_inverse_proportion
@@ -2706,6 +2742,9 @@ flowchart LR
   class m1_coord_quadrant_3 default;
   class m1_coord_quadrant_4 default;
   class m1_coord_axis_point default;
+  class m1_coord_x_axis_point default;
+  class m1_coord_y_axis_point default;
+  class m1_coord_quadrant_signs default;
   class m1_coord_usefulness default;
   class m1_graph_graph representation;
   class m1_graph_situation_graphing procedure;

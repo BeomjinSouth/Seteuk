@@ -42,9 +42,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_eq_equality__contains__m1_eq_both_sides | intra_unit | 등식 | contains | 양변 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 1 |
 | m1_eq_equality__contains__m1_eq_left_side | intra_unit | 등식 | contains | 좌변 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 1 |
 | m1_eq_equality__contains__m1_eq_right_side | intra_unit | 등식 | contains | 우변 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 1 |
+| m1_eq_equation__contains__m1_eq_root | intra_unit | 방정식 | contains | 근 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
 | m1_eq_equation__contains__m1_eq_solution | intra_unit | 방정식 | contains | 해 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
 | m1_eq_equation__contains__m1_eq_unknown | intra_unit | 방정식 | contains | 미지수 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
-| m1_eq_solution__contains__m1_eq_root | intra_unit | 해 | contains | 근 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
 | m1_eq_solving_linear_equation__contains__m1_eq_transposition | intra_unit | 일차방정식 풀기 | contains | 이항 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
 | m1_eq_unit__contains__m1_eq_equality | intra_unit | 일차방정식 | contains | 등식 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
 | m1_eq_unit__contains__m1_eq_equality_properties | intra_unit | 일차방정식 | contains | 등식의 성질 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |

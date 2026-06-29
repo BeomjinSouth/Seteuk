@@ -255,6 +255,9 @@ m1_coord_quadrant_2,제2사분면,중1(교육과정 학년군: 중1-3),변화와
 m1_coord_quadrant_3,제3사분면,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,medium,1,1,1,curriculum_math_2022,term_list,yes,no,no,official_single_source,yes
 m1_coord_quadrant_4,제4사분면,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,medium,1,1,1,curriculum_math_2022,term_list,yes,no,no,official_single_source,yes
 m1_coord_axis_point,축 위의 점,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,low,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; term_list,yes,yes,no,official_dual_source,yes
+m1_coord_x_axis_point,x축 위의 점,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,low,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; term_list,yes,yes,no,official_dual_source,yes
+m1_coord_y_axis_point,y축 위의 점,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,low,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; term_list,yes,yes,no,official_dual_source,yes
+m1_coord_quadrant_signs,사분면별 좌표 부호,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,low,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; term_list,yes,yes,no,official_dual_source,yes
 m1_coord_usefulness,좌표 표현의 편리함,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; teaching_note,yes,yes,no,official_dual_source,yes
 m1_graph_graph,그래프,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes
 m1_graph_situation_graphing,상황을 그래프로 나타내기,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes

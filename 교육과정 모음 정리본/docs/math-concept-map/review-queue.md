@@ -2,14 +2,14 @@
 
 이 문서는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 출처 보강 때 먼저 확인할 대상을 정리한다.
 
-- 검토 대상 concept: 67개
+- 검토 대상 concept: 70개
 
 ## 영역별 검토 대상
 
 | 영역 | concept 수 |
 |---|---:|
 | 수와 연산 | 10 |
-| 변화와 관계 | 36 |
+| 변화와 관계 | 39 |
 | 도형과 측정 | 12 |
 | 자료와 가능성 | 9 |
 
@@ -18,7 +18,8 @@
 | concept_type | concept 수 |
 |---|---:|
 | misconception_risk | 65 |
-| sub_concept | 1 |
+| property | 1 |
+| sub_concept | 3 |
 | term | 1 |
 
 ## 검토 항목
@@ -70,7 +71,10 @@
 | m1_mis_graph_picture | 변화와 관계 | 좌표평면과 그래프 | misconception_risk | textbook_evidence_needed | 그래프를 상황 그림으로만 보는 오류 | 그래프가 나타내는 상황을 설명하게 한다는 공식 문서 근거에서 추론한 오개념 위험이다. |
 | m1_mis_order_swap | 변화와 관계 | 좌표평면과 그래프 | misconception_risk | textbook_evidence_needed | 순서쌍의 순서 혼동 | 성취수준 문서의 '주어진 좌표를 점으로 나타내기' 수행에서 드러날 수 있는 위험으로 추론했다. 교과서 오개념 코너 확인 필요. |
 | m1_mis_representation_conversion | 변화와 관계 | 좌표평면과 그래프 | misconception_risk | textbook_evidence_needed | 표·식·그래프 변환 오류 | 상호 변환 활동과 표·식·그래프 성취수준에서 추론한 위험이다. 교과서 예제와 문항으로 보강 필요. |
+| m1_coord_quadrant_signs | 변화와 관계 | 좌표평면과 그래프 | property | source_detail_needed | 사분면별 좌표 부호 | 공식 문서에는 사분면, x좌표, y좌표, 양수, 음수 용어가 확인된다. 각 사분면의 부호 패턴은 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_coord_axis_point | 변화와 관계 | 좌표평면과 그래프 | sub_concept | source_detail_needed | 축 위의 점 | 공식 문서에는 좌표축과 좌표평면 위의 점이 확인된다. '축 위의 점' 명명과 세부 처리는 교과서 본문 확인이 필요하다. |
+| m1_coord_x_axis_point | 변화와 관계 | 좌표평면과 그래프 | sub_concept | source_detail_needed | x축 위의 점 | 공식 문서에는 x축, 좌표, 좌표평면 위의 점이 확인된다. y좌표가 0인 점이라는 세부 조건은 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_coord_y_axis_point | 변화와 관계 | 좌표평면과 그래프 | sub_concept | source_detail_needed | y축 위의 점 | 공식 문서에는 y축, 좌표, 좌표평면 위의 점이 확인된다. x좌표가 0인 점이라는 세부 조건은 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_mis_corresponding_alternate_angles | 도형과 측정 | 기본 도형 | misconception_risk | textbook_evidence_needed | 동위각과 엇각의 위치를 혼동하는 오류 | 성취수준의 각 찾기와 크기 구하기 수행에서 추론한 위험이다. 교과서 오개념 코너 확인 필요. |
 | m1_mis_skew_parallel_lines | 도형과 측정 | 기본 도형 | misconception_risk | textbook_evidence_needed | 꼬인 위치와 평행을 같은 관계로 보는 오류 |  |
 | m1_mis_congruence_similarity | 도형과 측정 | 도형의 닮음 | misconception_risk | textbook_evidence_needed | 합동과 닮음을 같은 관계로 보는 오류 |  |
