@@ -22,9 +22,9 @@ The generated review still does not permit automatic source_ref or confidence up
 
 | application_status | rows |
 |---|---:|
-| applied_after_manual_review | 7 |
+| applied_after_manual_review | 10 |
 | not_applicable_from_this_row | 25 |
-| pending_manual_review | 16 |
+| pending_manual_review | 13 |
 
 ## Review Priority
 
@@ -47,10 +47,10 @@ The generated review still does not permit automatic source_ref or confidence up
 | 7 | m1_geo_prism | 기둥 모양 입체도형 | 103 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_current_confidence_until_source_review |
 | 8 | m1_geo_prism | 기둥 모양 입체도형 | 108 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_current_confidence_until_source_review |
 | 9 | m1_calc_expansion | 전개 | 173 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_current_confidence_until_source_review |
-| 10 | m1_geo_solid_net | 전개도 | 173 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_current_confidence_until_source_review |
+| 10 | m1_geo_solid_net | 전개도 | 173 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
 | 11 | m1_calc_expansion | 전개 | 174 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_current_confidence_until_source_review |
-| 12 | m1_geo_pyramid | 뿔 모양 입체도형 | 174 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_current_confidence_until_source_review |
-| 13 | m1_geo_solid_net | 전개도 | 174 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_current_confidence_until_source_review |
+| 12 | m1_geo_pyramid | 뿔 모양 입체도형 | 174 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
+| 13 | m1_geo_solid_net | 전개도 | 174 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
 | 14 | m1_data_mean | 평균 | 177 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_current_confidence_until_source_review |
 | 15 | m1_geo_pyramid | 뿔 모양 입체도형 | 181 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_current_confidence_until_source_review |
 | 16 | m1_num_ratio | 비 | 183 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_low_until_textbook_or_middle_course_evidence |

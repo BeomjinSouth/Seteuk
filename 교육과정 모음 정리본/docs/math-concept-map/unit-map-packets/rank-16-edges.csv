@@ -76,7 +76,7 @@
 16,평면도형의 성질,m1_geo_line__prerequisite_for__m1_geo_polygon,m1_geo_line,직선,기본 도형,m1_geo_polygon,다각형,평면도형의 성질,prerequisite_for,cross_unit,high,official_dual_source,yes,2,
 16,평면도형의 성질,m1_geo_line__prerequisite_for__m1_geo_secant,m1_geo_line,직선,기본 도형,m1_geo_secant,할선,평면도형의 성질,prerequisite_for,cross_unit,high,official_single_source,yes,2,
 16,평면도형의 성질,m1_geo_parallel_angle_properties__prerequisite_for__m1_geo_polygon_angle_sum,m1_geo_parallel_angle_properties,평행선에서 동위각과 엇각의 성질,기본 도형,m1_geo_polygon_angle_sum,다각형의 내각과 외각의 크기,평면도형의 성질,prerequisite_for,cross_unit,high,official_dual_source,yes,3,
-16,평면도형의 성질,m1_geo_plane_properties_unit__prerequisite_for__m1_geo_solid_net,m1_geo_plane_properties_unit,평면도형의 성질,평면도형의 성질,m1_geo_solid_net,전개도,입체도형의 성질,prerequisite_for,cross_unit,medium,official_dual_source,yes,3,
+16,평면도형의 성질,m1_geo_plane_properties_unit__prerequisite_for__m1_geo_solid_net,m1_geo_plane_properties_unit,평면도형의 성질,평면도형의 성질,m1_geo_solid_net,전개도,입체도형의 성질,prerequisite_for,cross_unit,medium,official_dual_source,yes,5,
 16,평면도형의 성질,m1_geo_plane_properties_unit__prerequisite_for__m1_geo_solid_of_revolution,m1_geo_plane_properties_unit,평면도형의 성질,평면도형의 성질,m1_geo_solid_of_revolution,회전체,입체도형의 성질,prerequisite_for,cross_unit,high,official_dual_source,yes,3,
 16,평면도형의 성질,m1_geo_plane_properties_unit__prerequisite_for__m1_geo_solid_unit,m1_geo_plane_properties_unit,평면도형의 성질,평면도형의 성질,m1_geo_solid_unit,입체도형의 성질,입체도형의 성질,prerequisite_for,cross_unit,high,official_dual_source,yes,4,
 16,평면도형의 성질,m1_geo_plane_properties_unit__prerequisite_for__m1_geo_surface_area,m1_geo_plane_properties_unit,평면도형의 성질,평면도형의 성질,m1_geo_surface_area,겉넓이,입체도형의 성질,prerequisite_for,cross_unit,high,official_dual_source,yes,2,

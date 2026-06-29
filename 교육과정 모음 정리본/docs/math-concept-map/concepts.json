@@ -2,7 +2,7 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-29T12:47:27",
+    "generated_at": "2026-06-29T13:00:29",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
     "concept_count": 476,
     "edge_count": 1966
@@ -14359,6 +14359,18 @@
           "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 173; 직육면체와 정육면체 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체와 정육면체의 겨냥도와 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 원기둥 전개도 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 원기둥의 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -14516,6 +14528,12 @@
           "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -46292,6 +46310,18 @@
           "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 173; 직육면체와 정육면체 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체와 정육면체의 겨냥도와 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 원기둥 전개도 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 원기둥의 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -46380,6 +46410,12 @@
           "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -60970,6 +61006,18 @@
           "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 173; 직육면체와 정육면체 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체와 정육면체의 겨냥도와 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 원기둥 전개도 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 원기둥의 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -60998,6 +61046,18 @@
           "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 173; 직육면체와 정육면체 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체와 정육면체의 겨냥도와 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 원기둥 전개도 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 원기둥의 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -61108,6 +61168,12 @@
           "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
         }
       ],
       "notes": "",

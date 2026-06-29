@@ -799,6 +799,24 @@ ACH_GEO_SOLID = source_ref(
     "achievement_level",
     "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분",
 )
+ACH_RESEARCH_SOLID_NET_173 = source_ref(
+    "achievement_research_report_2022",
+    "연구보고서 p. 173; 직육면체와 정육면체 성취기준별 성취수준",
+    "research_report_achievement_level_context",
+    "직육면체와 정육면체의 겨냥도와 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락",
+)
+ACH_RESEARCH_SOLID_NET_174 = source_ref(
+    "achievement_research_report_2022",
+    "연구보고서 p. 174; 각기둥과 원기둥 전개도 성취기준별 성취수준",
+    "research_report_achievement_level_context",
+    "각기둥과 원기둥의 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락",
+)
+ACH_RESEARCH_PYRAMID_174 = source_ref(
+    "achievement_research_report_2022",
+    "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+    "research_report_achievement_level_context",
+    "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락",
+)
 ACH_GEO_TRI_QUAD = source_ref(
     "achievement_math_2022",
     "삼각형과 사각형의 성질 section; [9수03-09]~[9수03-11] achievement levels",
@@ -5387,7 +5405,7 @@ GEO_CONCEPTS = [
         ["net of solid"],
         "representation",
         "입체도형을 펼쳐 평면 위에 나타낸 그림.",
-        [CURR_GEO_POLYGON_SOLID_NOTE, CURR_GEO_07, ACH_GEO_SOLID],
+        [CURR_GEO_POLYGON_SOLID_NOTE, CURR_GEO_07, ACH_GEO_SOLID, ACH_RESEARCH_SOLID_NET_173, ACH_RESEARCH_SOLID_NET_174],
         prerequisite_ids=["m1_geo_solid_unit", "m1_geo_plane_properties_unit"],
         parent_ids=["m1_geo_solid_unit"],
         related_ids=["m1_geo_surface_area"],
@@ -5437,7 +5455,7 @@ GEO_CONCEPTS = [
         ["각뿔", "원뿔", "pyramid"],
         "sub_concept",
         "하나의 밑면과 꼭짓점으로 모이는 옆면을 가진 입체도형 계열.",
-        [CURR_GEO_08, ACH_GEO_SOLID],
+        [CURR_GEO_08, ACH_GEO_SOLID, ACH_RESEARCH_PYRAMID_174],
         prerequisite_ids=["m1_geo_polyhedron"],
         parent_ids=["m1_geo_solid_unit"],
         related_ids=["m1_geo_surface_area", "m1_geo_volume", "m1_geo_frustum_pyramid"],
