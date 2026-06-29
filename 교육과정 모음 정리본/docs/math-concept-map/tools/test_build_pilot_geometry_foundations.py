@@ -16,6 +16,14 @@ def edge_keys() -> set[tuple[str, str, str]]:
     }
 
 
+def research_refs(concept: dict) -> list[dict]:
+    return [
+        ref
+        for ref in concept["source_refs"]
+        if ref["source_id"] == "achievement_research_report_2022"
+    ]
+
+
 class GeometryFoundationConceptTests(unittest.TestCase):
     def test_geometry_foundations_are_explicit_concepts(self) -> None:
         concepts = concepts_by_id()
@@ -63,6 +71,28 @@ class GeometryFoundationConceptTests(unittest.TestCase):
         for concept_id in ("m1_geo_pythagorean_unit", "m1_geo_pythagorean_theorem"):
             with self.subTest(concept_id=concept_id):
                 self.assertIn("피타고라스", concepts[concept_id]["aliases"])
+
+    def test_geometry_foundations_keep_reviewed_assessment_item_context(self) -> None:
+        concepts = concepts_by_id()
+
+        expected_summaries = {
+            "m1_geo_triangle": "삼각형의 외심의 성질을 이용하여 외접원의 넓이를 구하는 중학교 도형 평가 과제 맥락",
+            "m1_geo_length": "피타고라스 정리를 이용하여 직각삼각형의 빗변의 길이를 구하는 중학교 도형 평가 과제 맥락",
+            "m1_geo_area": "뿔의 부피를 구하는 과정과 입체도형의 겉넓이·부피를 다루는 중학교 도형 평가 과제 맥락",
+        }
+
+        for concept_id, expected_summary in expected_summaries.items():
+            with self.subTest(concept_id=concept_id):
+                refs = research_refs(concepts[concept_id])
+                locators = " ".join(ref["locator"] for ref in refs)
+                summaries = " ".join(ref["summary"] for ref in refs)
+
+                self.assertIn("p. 62", locators)
+                self.assertIn(expected_summary, summaries)
+                self.assertIn(
+                    "research_report_assessment_item_context",
+                    {ref["evidence_kind"] for ref in refs},
+                )
 
 
 if __name__ == "__main__":

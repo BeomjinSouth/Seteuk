@@ -22,9 +22,9 @@ The generated review still does not permit automatic source_ref or confidence up
 
 | application_status | rows |
 |---|---:|
-| applied_after_manual_review | 10 |
+| applied_after_manual_review | 13 |
 | not_applicable_from_this_row | 27 |
-| pending_manual_review | 11 |
+| pending_manual_review | 8 |
 
 ## Review Priority
 
@@ -56,9 +56,9 @@ The generated review still does not permit automatic source_ref or confidence up
 | 16 | m1_data_or_cases | 사건 A 또는 사건 B가 일어나는 경우의 수 | 228 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
 | 17 | m1_data_or_cases | 사건 A 또는 사건 B가 일어나는 경우의 수 | 240 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
 | 18 | m1_num_ratio | 비 | 61 | candidate_assessment_item_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_low_until_textbook_or_middle_course_evidence |
-| 19 | m1_geo_area | 넓이 | 62 | candidate_assessment_item_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_current_confidence_until_source_review |
-| 20 | m1_geo_length | 길이 | 62 | candidate_assessment_item_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_current_confidence_until_source_review |
-| 21 | m1_geo_triangle | 삼각형 | 62 | candidate_assessment_item_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_current_confidence_until_source_review |
+| 19 | m1_geo_area | 넓이 | 62 | candidate_assessment_item_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
+| 20 | m1_geo_length | 길이 | 62 | candidate_assessment_item_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
+| 21 | m1_geo_triangle | 삼각형 | 62 | candidate_assessment_item_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
 | 22 | m1_num_ratio | 비 | 184 | candidate_assessment_item_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_low_until_textbook_or_middle_course_evidence |
 | 23 | m1_num_ratio | 비 | 177 | weak_occurrence_only | medium | do_not_add_from_this_row | not_applicable_from_this_row | keep_low_until_textbook_or_middle_course_evidence |
 | 24 | m1_geo_correspondence | 도형의 대응 | 5 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |

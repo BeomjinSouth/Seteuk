@@ -817,6 +817,24 @@ ACH_RESEARCH_PYRAMID_174 = source_ref(
     "research_report_achievement_level_context",
     "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락",
 )
+ACH_RESEARCH_TRIANGLE_ITEM_62 = source_ref(
+    "achievement_research_report_2022",
+    "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+    "research_report_assessment_item_context",
+    "삼각형의 외심의 성질을 이용하여 외접원의 넓이를 구하는 중학교 도형 평가 과제 맥락",
+)
+ACH_RESEARCH_LENGTH_ITEM_62 = source_ref(
+    "achievement_research_report_2022",
+    "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+    "research_report_assessment_item_context",
+    "피타고라스 정리를 이용하여 직각삼각형의 빗변의 길이를 구하는 중학교 도형 평가 과제 맥락",
+)
+ACH_RESEARCH_AREA_ITEM_62 = source_ref(
+    "achievement_research_report_2022",
+    "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+    "research_report_assessment_item_context",
+    "뿔의 부피를 구하는 과정과 입체도형의 겉넓이·부피를 다루는 중학교 도형 평가 과제 맥락",
+)
 ACH_GEO_TRI_QUAD = source_ref(
     "achievement_math_2022",
     "삼각형과 사각형의 성질 section; [9수03-09]~[9수03-11] achievement levels",
@@ -4646,7 +4664,7 @@ GEO_CONCEPTS = [
         ["triangle"],
         "core_concept",
         "세 선분으로 둘러싸인 평면도형.",
-        [CURR_GEO_03, CURR_GEO_04, CURR_GEO_09, CURR_GEO_13, ACH_GEO_CONSTRUCTION, ACH_GEO_TRI_CONGRUENCE, ACH_GEO_TRI_QUAD, ACH_GEO_SIMILARITY],
+        [CURR_GEO_03, CURR_GEO_04, CURR_GEO_09, CURR_GEO_13, ACH_GEO_CONSTRUCTION, ACH_GEO_TRI_CONGRUENCE, ACH_GEO_TRI_QUAD, ACH_GEO_SIMILARITY, ACH_RESEARCH_TRIANGLE_ITEM_62],
         prerequisite_ids=["m1_geo_point", "m1_geo_line", "m1_geo_angle"],
         parent_ids=["m1_geo_figure"],
         related_ids=["m1_geo_triangle_construction", "m1_geo_triangle_congruence_conditions", "m1_geo_triangle_similarity_conditions", "m1_geo_right_triangle"],
@@ -4661,7 +4679,7 @@ GEO_CONCEPTS = [
         ["length"],
         "term",
         "선분, 호, 변, 접선 등 1차원 대상의 크기를 나타내는 측정량.",
-        [CURR_GEO_06, CURR_GEO_14, CURR_GEO_SCOPE_NOTE, ACH_GEO_SECTOR, ACH_GEO_SIMILARITY, ACH_GEO_PYTHAGOREAN],
+        [CURR_GEO_06, CURR_GEO_14, CURR_GEO_SCOPE_NOTE, ACH_GEO_SECTOR, ACH_GEO_SIMILARITY, ACH_GEO_PYTHAGOREAN, ACH_RESEARCH_LENGTH_ITEM_62],
         parent_ids=["m1_geo_domain"],
         related_ids=["m1_geo_distance_between_two_points", "m1_geo_sector_arc_length_area", "m1_geo_right_triangle_judgement", "m1_geo_parallel_segment_ratio"],
         notes="호의 길이, 평행선 사이의 선분의 길이의 비, 세 변의 길이 등 공식 근거에서 반복되는 측정 개념으로 분리했다. 교과서 쪽수 근거는 추후 보강한다.",
@@ -4675,7 +4693,7 @@ GEO_CONCEPTS = [
         ["area"],
         "term",
         "평면도형이나 입체도형의 겉면이 차지하는 크기를 나타내는 측정량.",
-        [CURR_GEO_06, CURR_GEO_08, CURR_GEO_SCOPE_NOTE, ACH_GEO_SECTOR, ACH_GEO_SOLID, ACH_GEO_TRIG],
+        [CURR_GEO_06, CURR_GEO_08, CURR_GEO_SCOPE_NOTE, ACH_GEO_SECTOR, ACH_GEO_SOLID, ACH_GEO_TRIG, ACH_RESEARCH_AREA_ITEM_62],
         parent_ids=["m1_geo_domain"],
         related_ids=["m1_geo_sector_arc_length_area", "m1_geo_surface_area", "m1_geo_trig_triangle_area"],
         notes="부채꼴의 넓이, 입체도형의 겉넓이, 삼각비를 이용한 삼각형의 넓이 등에서 반복되는 측정 개념으로 분리했다. 교과서 쪽수 근거는 추후 보강한다.",

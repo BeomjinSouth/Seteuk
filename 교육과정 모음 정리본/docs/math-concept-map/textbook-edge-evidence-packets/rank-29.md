@@ -20,10 +20,10 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 |---|---|---|---|---|---|---|---|---:|
 | m1_geo_domain__related_to__m1_coord_graph_unit | cross_unit | 도형과 측정 | related_to | 좌표평면과 그래프 | low | related_ref;textbook_page_refs;extraction_notes | Find textbook wording or examples that justify keeping these concepts linked. | 7 |
 | m1_geo_domain__related_to__m1_num_domain | cross_unit | 도형과 측정 | related_to | 수와 연산 | low | related_ref;textbook_page_refs;extraction_notes | Find textbook wording or examples that justify keeping these concepts linked. | 10 |
-| m1_geo_domain__contains__m1_geo_area | intra_unit | 도형과 측정 | contains | 넓이 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 6 |
+| m1_geo_domain__contains__m1_geo_area | intra_unit | 도형과 측정 | contains | 넓이 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 7 |
 | m1_geo_domain__contains__m1_geo_figure | intra_unit | 도형과 측정 | contains | 도형 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 4 |
-| m1_geo_domain__contains__m1_geo_length | intra_unit | 도형과 측정 | contains | 길이 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 6 |
-| m1_geo_figure__contains__m1_geo_triangle | intra_unit | 도형 | contains | 삼각형 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 8 |
+| m1_geo_domain__contains__m1_geo_length | intra_unit | 도형과 측정 | contains | 길이 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 7 |
+| m1_geo_figure__contains__m1_geo_triangle | intra_unit | 도형 | contains | 삼각형 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 9 |
 | m1_geo_domain__contains__m1_geo_basic_unit | cross_unit | 도형과 측정 | contains | 기본 도형 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 5 |
 | m1_geo_domain__contains__m1_geo_circle_unit | cross_unit | 도형과 측정 | contains | 원의 성질 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 4 |
 | m1_geo_domain__contains__m1_geo_construction_congruence_unit | cross_unit | 도형과 측정 | contains | 작도와 합동 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 4 |
@@ -33,9 +33,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_geo_domain__contains__m1_geo_solid_unit | cross_unit | 도형과 측정 | contains | 입체도형의 성질 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 4 |
 | m1_geo_domain__contains__m1_geo_triangle_quadrilateral_unit | cross_unit | 도형과 측정 | contains | 삼각형과 사각형의 성질 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 5 |
 | m1_geo_domain__contains__m1_geo_trig_unit | cross_unit | 도형과 측정 | contains | 삼각비 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 4 |
-| m1_geo_angle__prerequisite_for__m1_geo_triangle | cross_unit | 각 | prerequisite_for | 삼각형 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 8 |
-| m1_geo_line__prerequisite_for__m1_geo_triangle | cross_unit | 직선 | prerequisite_for | 삼각형 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 8 |
-| m1_geo_point__prerequisite_for__m1_geo_triangle | cross_unit | 점 | prerequisite_for | 삼각형 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 8 |
+| m1_geo_angle__prerequisite_for__m1_geo_triangle | cross_unit | 각 | prerequisite_for | 삼각형 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 9 |
+| m1_geo_line__prerequisite_for__m1_geo_triangle | cross_unit | 직선 | prerequisite_for | 삼각형 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 9 |
+| m1_geo_point__prerequisite_for__m1_geo_triangle | cross_unit | 점 | prerequisite_for | 삼각형 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 9 |
 | m1_geo_area__used_in__m1_geo_sector_arc_length_area | cross_unit | 넓이 | used_in | 부채꼴의 호의 길이와 넓이 구하기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_geo_area__used_in__m1_geo_surface_area | cross_unit | 넓이 | used_in | 겉넓이 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_geo_area__used_in__m1_geo_trig_triangle_area | cross_unit | 넓이 | used_in | 삼각비를 이용한 삼각형의 넓이 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 1 |

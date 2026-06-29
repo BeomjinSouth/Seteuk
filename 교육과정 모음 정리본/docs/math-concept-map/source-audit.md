@@ -75,12 +75,12 @@
 - `research-report-context-packet.md`와 `research-report-context-packet.csv`를 추가해 low-confidence 후보와 상위 medium 후보를 연구보고서 page 맥락 48개 row로 좁혔다.
 - context packet의 모든 row는 `pending_context_review`와 `source_ref_upgrade_allowed: no` 상태를 유지하므로, 사람이 page 맥락을 확인하기 전에는 `concepts.json`의 source ref나 confidence를 바꾸지 않는다.
 - `research-report-source-review.md`와 `research-report-source-review.csv`는 같은 48개 row를 `candidate_prerequisite_evidence` 3개, `candidate_assessment_item_evidence` 5개, `candidate_achievement_level_evidence` 13개, `broad_report_context_only` 26개, `weak_occurrence_only` 1개로 분리한다.
-- `비`의 직접 연구보고서 후보 page 172, 180, 181, `사건 A 또는 사건 B가 일어나는 경우의 수`의 page 228, 240, `반비례`와 `교점`의 page 58, `전개도`의 page 173, 174와 `뿔 모양 입체도형`의 page 174는 source ref로 수동 적용되어 `applied_after_manual_review` 10개로 표시된다. 남은 row는 `pending_manual_review` 11개와 `not_applicable_from_this_row` 27개이며, 교과서 또는 중학교 과정 직접 근거가 확인되기 전까지 `비`는 `confidence: low`, 나머지 수동 적용 concept은 기존 `confidence: medium`을 유지한다.
+- `비`의 직접 연구보고서 후보 page 172, 180, 181, `사건 A 또는 사건 B가 일어나는 경우의 수`의 page 228, 240, `반비례`와 `교점`의 page 58, `전개도`의 page 173, 174, `뿔 모양 입체도형`의 page 174, `삼각형`·`길이`·`넓이`의 page 62 도형 평가 과제 맥락은 source ref로 수동 적용되어 `applied_after_manual_review` 13개로 표시된다. 남은 row는 `pending_manual_review` 8개와 `not_applicable_from_this_row` 27개이며, 교과서 또는 중학교 과정 직접 근거가 확인되기 전까지 `비`는 `confidence: low`, 나머지 수동 적용 concept은 기존 `confidence: medium`을 유지한다.
 
 ## Source Reference Audit
 
 - `source-ref-audit.md`와 `source-ref-audit.csv`를 추가해 concept/edge의 `source_refs`를 출처와 근거 유형별로 추적한다.
-- 현재 source ref는 concept 1249개, edge 4859개, 총 6108개이다.
+- 현재 source ref는 concept 1252개, edge 4865개, 총 6117개이다.
 - 현재 `locator` 누락은 0개, `summary` 누락은 0개이다.
 - 이 감사는 교과서 PDF가 추가되기 전에도 공식 문서 기반 개념과 관계가 어떤 근거 유형에 기대고 있는지 확인하기 위한 재생성 가능한 점검표이다.
 
@@ -160,7 +160,7 @@
 
 - `legacy-gap-resolution.md`와 `legacy-gap-resolution.csv`는 현재 `legacy-gap-audit`의 남은 `needs_review` 후보가 없음을 기록한다.
 - 현재 분류는 `foundational_prerequisite_candidate`, `alias_candidate_for_existing_concept`, `source_detail_needed` 모두 0개다.
-- 기초 선수개념 후보 중 약수, 배수, 덧셈, 뺄셈, 곱셈, 나눗셈, 도형, 삼각형, 길이, 넓이는 공식 target source ref에서 직접 확인되어 `medium` 신뢰도 concept과 edge로 반영했다. 피타고라스는 기존 피타고라스 정리 concept의 alias로 반영했다. `비`는 단독 용어 근거가 약한 상태로 정비례·반비례, 닮음비, 평행선 사이의 선분 길이의 비, 삼각비, 상대도수와 확률의 비율 표현을 잇는 `low` 신뢰도 공통 선수개념으로 반영했다.
+- 기초 선수개념 후보 중 약수, 배수, 덧셈, 뺄셈, 곱셈, 나눗셈, 도형, 삼각형, 길이, 넓이는 공식 target source ref에서 직접 확인되어 `medium` 신뢰도 concept과 edge로 반영했다. 이 중 삼각형, 길이, 넓이는 연구보고서 p. 62의 중학교 도형 평가 과제 맥락도 보조 source ref로 반영했다. 피타고라스는 기존 피타고라스 정리 concept의 alias로 반영했다. `비`는 단독 용어 근거가 약한 상태로 정비례·반비례, 닮음비, 평행선 사이의 선분 길이의 비, 삼각비, 상대도수와 확률의 비율 표현을 잇는 `low` 신뢰도 공통 선수개념으로 반영했다.
 - `피타고라스`는 독립 concept으로 바로 추가하지 않고 `피타고라스 정리` 계열 기존 concept의 alias 후보로 검토한다.
 - 이번 작업도 보조 감사 산출물과 검증만 추가했으므로 PDF 원본, 다운로드 manifest, 공식 출처 선택 규칙은 변경하지 않았다.
 

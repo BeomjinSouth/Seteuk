@@ -2,7 +2,7 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-29T13:00:29",
+    "generated_at": "2026-06-29T13:21:48",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
     "concept_count": 476,
     "edge_count": 1966
@@ -11635,6 +11635,12 @@
           "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "삼각형의 외심의 성질을 이용하여 외접원의 넓이를 구하는 중학교 도형 평가 과제 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -11701,6 +11707,12 @@
           "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "피타고라스 정리를 이용하여 직각삼각형의 빗변의 길이를 구하는 중학교 도형 평가 과제 맥락"
         }
       ],
       "prerequisite_ids": [],
@@ -11763,6 +11775,12 @@
           "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "뿔의 부피를 구하는 과정과 입체도형의 겉넓이·부피를 다루는 중학교 도형 평가 과제 맥락"
         }
       ],
       "prerequisite_ids": [],
@@ -44540,6 +44558,12 @@
           "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "삼각형의 외심의 성질을 이용하여 외접원의 넓이를 구하는 중학교 도형 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -44586,6 +44610,12 @@
           "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "피타고라스 정리를 이용하여 직각삼각형의 빗변의 길이를 구하는 중학교 도형 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -44632,6 +44662,12 @@
           "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "뿔의 부피를 구하는 과정과 입체도형의 겉넓이·부피를 다루는 중학교 도형 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -58198,6 +58234,12 @@
           "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "삼각형의 외심의 성질을 이용하여 외접원의 넓이를 구하는 중학교 도형 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -58256,6 +58298,12 @@
           "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "삼각형의 외심의 성질을 이용하여 외접원의 넓이를 구하는 중학교 도형 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -58314,6 +58362,12 @@
           "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "삼각형의 외심의 성질을 이용하여 외접원의 넓이를 구하는 중학교 도형 평가 과제 맥락"
         }
       ],
       "notes": "",
