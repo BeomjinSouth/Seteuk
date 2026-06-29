@@ -29,19 +29,17 @@ digraph pilot_unit_map {
   "m1_factor_unit" [label="다항식의 곱셈과 인수분해\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_quad_func_unit" [label="이차함수와 그 그래프\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_factor_binomial_product_xab" [label="(x+a)(x+b) 공식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_factor_quadratic_factorization" [label="이차식 인수분해\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_eq_root" [label="근\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_quad_eq_unit" -> "m1_mis_quadratic_expression_equation" [label="contains", style="solid", color="#b91c1c"];
   "m1_quad_eq_unit" -> "m1_mis_quadratic_factorization_solution" [label="contains", style="solid", color="#b91c1c"];
   "m1_quad_eq_unit" -> "m1_mis_root_coefficient_relation_scope" [label="contains", style="solid", color="#b91c1c"];
-  "m1_quad_eq_factorization_solving" -> "m1_mis_quadratic_factorization_solution" [label="prerequisite_for", style="solid", color="#b91c1c"];
-  "m1_quad_eq_quadratic_equation" -> "m1_mis_quadratic_expression_equation" [label="prerequisite_for", style="solid", color="#b91c1c"];
   "m1_quad_eq_root_formula" -> "m1_mis_root_coefficient_relation_scope" [label="prerequisite_for", style="solid", color="#b91c1c"];
   "m1_mis_quadratic_expression_equation" -> "m1_quad_eq_quadratic_equation" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_quadratic_factorization_solution" -> "m1_quad_eq_factorization_solving" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_quadratic_factorization_solution" -> "m1_quad_eq_solution" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_root_coefficient_relation_scope" -> "m1_quad_eq_real_solution_scope" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_root_coefficient_relation_scope" -> "m1_quad_eq_root_formula" [label="often_confused_with", style="solid", color="#b91c1c"];
-  "m1_factor_quadratic_expression" -> "m1_mis_quadratic_expression_equation" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_mis_quadratic_expression_equation" -> "m1_factor_quadratic_expression" [label="often_confused_with", style="dashed", color="#b91c1c"];
   "m1_mis_quadratic_factorization_solution" -> "m1_factor_factorization" [label="often_confused_with", style="dashed", color="#b91c1c"];
   "m1_mis_quadratic_function_equation" -> "m1_quad_eq_quadratic_equation" [label="often_confused_with", style="dashed", color="#b91c1c"];
@@ -95,6 +93,7 @@ digraph pilot_unit_map {
   "m1_factor_binomial_product_xab" -> "m1_quad_eq_factorization_solving" [label="used_in", style="dashed", color="#6b7280"];
   "m1_factor_factorization" -> "m1_quad_eq_unit" [label="used_in", style="dashed", color="#6b7280"];
   "m1_factor_quadratic_expression" -> "m1_quad_eq_quadratic_equation" [label="used_in", style="dashed", color="#6b7280"];
+  "m1_factor_quadratic_factorization" -> "m1_quad_eq_factorization_solving" [label="used_in", style="dashed", color="#6b7280"];
   "m1_quad_eq_solving" -> "m1_eq_solution_check" [label="used_in", style="dashed", color="#6b7280"];
   "m1_factor_quadratic_expression" -> "m1_quad_eq_quadratic_term" [label="contrasts_with", style="dashed", color="#6b7280"];
   "m1_quad_eq_solution" -> "m1_eq_root" [label="equivalent_to", style="dashed", color="#6b7280"];

@@ -53,6 +53,7 @@ digraph pilot_unit_map {
   "m1_num_real_number" [label="실수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_eq_equal_add_subtract_property" [label="양변에 같은 수를 더하거나 빼기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_calc_expansion" [label="전개\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_factor_common_factor_formula" [label="m(a+b) 공식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_eq_equal_multiply_divide_property" [label="양변에 같은 수를 곱하거나 나누기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_calc_unit" [label="식의 계산\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_expr_evaluate_expression_value" [label="식의 값 구하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -240,6 +241,7 @@ digraph pilot_unit_map {
   "m1_num_real_number" -> "m1_num_rational_number" [label="contains", style="dashed", color="#6b7280"];
   "m1_num_addition" -> "m1_eq_equal_add_subtract_property" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_distributive_law" -> "m1_calc_expansion" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_num_distributive_law" -> "m1_factor_common_factor_formula" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_division" -> "m1_eq_equal_multiply_divide_property" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_four_operations" -> "m1_calc_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_four_operations" -> "m1_expr_evaluate_expression_value" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -266,6 +268,7 @@ digraph pilot_unit_map {
   "m1_num_rational_number" -> "m1_num_square_root_real_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_subtraction" -> "m1_eq_equal_add_subtract_property" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_repeating_decimal_to_fraction" -> "m1_num_rational_number" [label="represented_by", style="dashed", color="#6b7280"];
+  "m1_num_distributive_law" -> "m1_factor_common_factor_formula" [label="used_in", style="dashed", color="#6b7280"];
   "m1_num_distributive_law" -> "m1_factor_polynomial_multiplication" [label="used_in", style="dashed", color="#6b7280"];
   "m1_num_four_operations" -> "m1_expr_evaluate_expression_value" [label="used_in", style="dashed", color="#6b7280"];
   "m1_num_rational_number" -> "m1_num_rational_repeating_relation" [label="used_in", style="dashed", color="#6b7280"];

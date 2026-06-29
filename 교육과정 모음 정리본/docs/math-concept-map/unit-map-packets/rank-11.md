@@ -9,12 +9,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 이차방정식
 - priority tier: high
-- workplan score: 115
+- workplan score: 103
 - concepts: 14
-- edges touching unit: 68
+- edges touching unit: 66
 - cross-unit edges: 23
 - low confidence concepts: 3
-- low confidence edges: 15
+- low confidence edges: 12
 
 ## Concept Type Distribution
 
@@ -35,10 +35,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contrasts_with | 1 |
 | equivalent_to | 1 |
 | often_confused_with | 8 |
-| prerequisite_for | 24 |
+| prerequisite_for | 21 |
 | related_to | 3 |
 | represented_by | 3 |
-| used_in | 13 |
+| used_in | 14 |
 
 ## Low Confidence Concepts
 
@@ -52,7 +52,6 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
-| m1_factor_quadratic_expression__prerequisite_for__m1_mis_quadratic_expression_equation | 이차식 | prerequisite_for | 이차식과 이차방정식을 혼동하는 오류 | low | official_dual_source |
 | m1_mis_quadratic_expression_equation__often_confused_with__m1_factor_quadratic_expression | 이차식과 이차방정식을 혼동하는 오류 | often_confused_with | 이차식 | low | official_dual_source |
 | m1_mis_quadratic_factorization_solution__often_confused_with__m1_factor_factorization | 인수분해한 식에서 해 조건을 빠뜨리는 오류 | often_confused_with | 인수분해 | low | official_single_source |
 | m1_mis_quadratic_function_equation__often_confused_with__m1_quad_eq_quadratic_equation | 이차함수와 이차방정식을 혼동하는 오류 | often_confused_with | 이차방정식 | low | official_dual_source |
@@ -72,6 +71,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_factor_binomial_product_xab__used_in__m1_quad_eq_factorization_solving | (x+a)(x+b) 공식 | used_in | 인수분해를 이용한 이차방정식 풀이 | medium | official_dual_source |
 | m1_factor_factorization__used_in__m1_quad_eq_unit | 인수분해 | used_in | 이차방정식 | medium | official_dual_source |
 | m1_factor_quadratic_expression__used_in__m1_quad_eq_quadratic_equation | 이차식 | used_in | 이차방정식 | medium | official_dual_source |
+| m1_factor_quadratic_factorization__used_in__m1_quad_eq_factorization_solving | 이차식 인수분해 | used_in | 인수분해를 이용한 이차방정식 풀이 | medium | official_single_source |
 | m1_quad_eq_solving__used_in__m1_eq_solution_check | 이차방정식 풀기 | used_in | 해의 확인 | high | official_dual_source |
 | m1_factor_quadratic_expression__contrasts_with__m1_quad_eq_quadratic_term | 이차식 | contrasts_with | 이차항 | medium | official_dual_source |
 | m1_quad_eq_solution__equivalent_to__m1_eq_root | 이차방정식의 해 | equivalent_to | 근 | medium | official_dual_source |

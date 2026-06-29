@@ -233,11 +233,13 @@ flowchart LR
   m1_factor_common_factor["공통인수"]
   m1_factor_perfect_square_expression["완전제곱식"]
   m1_factor_formula_scope["다항식의 곱셈과 인수분해 공식 범위"]
+  m1_factor_common_factor_formula["m(a+b) 공식"]
   m1_factor_square_sum_formula["(a+b)^2 공식"]
   m1_factor_square_difference_formula["(a-b)^2 공식"]
   m1_factor_sum_difference_product_formula["(a+b)(a-b) 공식"]
   m1_factor_binomial_product_xab["(x+a)(x+b) 공식"]
   m1_factor_linear_product_axb_cxd["(ax+b)(cx+d) 공식"]
+  m1_factor_quadratic_factorization["이차식 인수분해"]
   m1_factor_quadratic_expression["이차식"]
   m1_mis_expansion_factorization_direction["전개와 인수분해 방향을 혼동하는 오류"]
   m1_mis_factor_common_factor_missing["공통인수를 빠뜨리는 오류"]
@@ -1053,6 +1055,8 @@ flowchart LR
   m1_factor_unit -- "포함" --> m1_factor_perfect_square_expression
   m1_factor_unit -- "포함" --> m1_factor_formula_scope
   m1_factor_unit -- "포함" --> m1_factor_quadratic_expression
+  m1_factor_factorization -- "포함" --> m1_factor_quadratic_factorization
+  m1_factor_formula_scope -- "포함" --> m1_factor_common_factor_formula
   m1_factor_formula_scope -- "포함" --> m1_factor_square_sum_formula
   m1_factor_formula_scope -- "포함" --> m1_factor_square_difference_formula
   m1_factor_formula_scope -- "포함" --> m1_factor_sum_difference_product_formula
@@ -1066,20 +1070,42 @@ flowchart LR
   m1_factor_factor -- "사용" --> m1_factor_factorization
   m1_factor_factor -- "대조" --> m1_expr_term
   m1_factor_common_factor -- "사용" --> m1_factor_factorization
+  m1_factor_common_factor -- "사용" --> m1_factor_common_factor_formula
+  m1_num_distributive_law -- "사용" --> m1_factor_common_factor_formula
+  m1_factor_common_factor_formula -- "사용" --> m1_factor_polynomial_multiplication
+  m1_factor_common_factor_formula -- "사용" --> m1_factor_factorization
   m1_factor_perfect_square_expression -- "표현" --> m1_factor_square_sum_formula
   m1_factor_perfect_square_expression -- "표현" --> m1_factor_square_difference_formula
+  m1_factor_square_sum_formula -- "사용" --> m1_factor_polynomial_multiplication
+  m1_factor_square_difference_formula -- "사용" --> m1_factor_polynomial_multiplication
+  m1_factor_sum_difference_product_formula -- "사용" --> m1_factor_polynomial_multiplication
+  m1_factor_binomial_product_xab -- "사용" --> m1_factor_polynomial_multiplication
+  m1_factor_linear_product_axb_cxd -- "사용" --> m1_factor_polynomial_multiplication
   m1_factor_square_sum_formula -- "사용" --> m1_factor_factorization
   m1_factor_square_difference_formula -- "사용" --> m1_factor_factorization
   m1_factor_square_sum_formula -- "대조" --> m1_factor_square_difference_formula
+  m1_factor_square_difference_formula -- "대조" --> m1_factor_square_sum_formula
   m1_factor_sum_difference_product_formula -- "사용" --> m1_factor_factorization
-  m1_factor_binomial_product_xab -- "표현" --> m1_factor_quadratic_expression
+  m1_factor_sum_difference_product_formula -- "대조" --> m1_factor_square_difference_formula
+  m1_factor_binomial_product_xab -- "사용" --> m1_factor_factorization
   m1_factor_binomial_product_xab -- "사용" --> m1_quad_eq_factorization_solving
-  m1_factor_linear_product_axb_cxd -- "표현" --> m1_factor_quadratic_expression
+  m1_factor_linear_product_axb_cxd -- "사용" --> m1_factor_factorization
+  m1_factor_binomial_product_xab -- "사용" --> m1_factor_quadratic_factorization
+  m1_factor_linear_product_axb_cxd -- "사용" --> m1_factor_quadratic_factorization
+  m1_factor_quadratic_expression -- "표현" --> m1_factor_binomial_product_xab
+  m1_factor_quadratic_expression -- "표현" --> m1_factor_linear_product_axb_cxd
+  m1_factor_quadratic_expression -- "사용" --> m1_factor_quadratic_factorization
+  m1_factor_formula_scope -- "사용" --> m1_factor_quadratic_factorization
+  m1_factor_factorization -- "사용" --> m1_factor_quadratic_factorization
+  m1_factor_quadratic_factorization -- "사용" --> m1_factor_factorization
+  m1_factor_quadratic_factorization -- "사용" --> m1_quad_eq_factorization_solving
   m1_factor_quadratic_expression -- "사용" --> m1_quad_eq_quadratic_equation
   m1_factor_quadratic_expression -- "대조" --> m1_quad_eq_quadratic_term
   m1_mis_expansion_factorization_direction -- "혼동" --> m1_factor_expansion_factorization_inverse
+  m1_mis_expansion_factorization_direction -- "혼동" --> m1_factor_polynomial_multiplication
   m1_mis_factor_common_factor_missing -- "혼동" --> m1_factor_common_factor
   m1_mis_factor_formula_pattern -- "혼동" --> m1_factor_formula_scope
+  m1_mis_factor_formula_pattern -- "혼동" --> m1_factor_binomial_product_xab
   m1_mis_perfect_square_sign -- "혼동" --> m1_factor_perfect_square_expression
   m1_quad_eq_unit -- "포함" --> m1_quad_eq_quadratic_equation
   m1_quad_eq_unit -- "포함" --> m1_quad_eq_quadratic_term
@@ -2269,6 +2295,8 @@ flowchart LR
   m1_factor_formula_scope -- "선수" --> m1_factor_perfect_square_expression
   m1_factor_polynomial_multiplication -- "선수" --> m1_factor_formula_scope
   m1_factor_factorization -- "선수" --> m1_factor_formula_scope
+  m1_factor_common_factor -- "선수" --> m1_factor_common_factor_formula
+  m1_num_distributive_law -- "선수" --> m1_factor_common_factor_formula
   m1_factor_formula_scope -- "선수" --> m1_factor_square_sum_formula
   m1_factor_formula_scope -- "선수" --> m1_factor_square_difference_formula
   m1_factor_formula_scope -- "선수" --> m1_factor_sum_difference_product_formula
@@ -2276,12 +2304,11 @@ flowchart LR
   m1_expr_coefficient -- "선수" --> m1_factor_binomial_product_xab
   m1_factor_formula_scope -- "선수" --> m1_factor_linear_product_axb_cxd
   m1_expr_coefficient -- "선수" --> m1_factor_linear_product_axb_cxd
+  m1_factor_quadratic_expression -- "선수" --> m1_factor_quadratic_factorization
+  m1_factor_formula_scope -- "선수" --> m1_factor_quadratic_factorization
+  m1_factor_factorization -- "선수" --> m1_factor_quadratic_factorization
   m1_expr_degree -- "선수" --> m1_factor_quadratic_expression
   m1_expr_polynomial -- "선수" --> m1_factor_quadratic_expression
-  m1_factor_expansion_factorization_inverse -- "선수" --> m1_mis_expansion_factorization_direction
-  m1_factor_common_factor -- "선수" --> m1_mis_factor_common_factor_missing
-  m1_factor_formula_scope -- "선수" --> m1_mis_factor_formula_pattern
-  m1_factor_perfect_square_expression -- "선수" --> m1_mis_perfect_square_sign
   m1_factor_quadratic_expression -- "선수" --> m1_quad_eq_quadratic_equation
   m1_expr_term -- "선수" --> m1_quad_eq_quadratic_term
   m1_expr_degree -- "선수" --> m1_quad_eq_quadratic_term
@@ -2297,9 +2324,6 @@ flowchart LR
   m1_quad_eq_solution -- "선수" --> m1_quad_eq_real_solution_scope
   m1_quad_eq_solving -- "선수" --> m1_quad_eq_modeling
   m1_eq_solution_check -- "선수" --> m1_quad_eq_modeling
-  m1_factor_quadratic_expression -- "선수" --> m1_mis_quadratic_expression_equation
-  m1_quad_eq_quadratic_equation -- "선수" --> m1_mis_quadratic_expression_equation
-  m1_quad_eq_factorization_solving -- "선수" --> m1_mis_quadratic_factorization_solution
   m1_quad_eq_root_formula -- "선수" --> m1_mis_root_coefficient_relation_scope
   m1_factor_quadratic_expression -- "선수" --> m1_quad_func_quadratic_function
   m1_quad_func_quadratic_function -- "선수" --> m1_quad_func_formula
@@ -3070,11 +3094,13 @@ flowchart LR
   class m1_factor_common_factor default;
   class m1_factor_perfect_square_expression default;
   class m1_factor_formula_scope default;
+  class m1_factor_common_factor_formula default;
   class m1_factor_square_sum_formula default;
   class m1_factor_square_difference_formula default;
   class m1_factor_sum_difference_product_formula default;
   class m1_factor_binomial_product_xab default;
   class m1_factor_linear_product_axb_cxd default;
+  class m1_factor_quadratic_factorization procedure;
   class m1_factor_quadratic_expression default;
   class m1_mis_expansion_factorization_direction risk;
   class m1_mis_factor_common_factor_missing risk;

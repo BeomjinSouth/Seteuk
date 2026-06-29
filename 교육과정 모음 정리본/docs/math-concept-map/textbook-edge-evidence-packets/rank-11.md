@@ -10,9 +10,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 이차방정식
 - priority tier: high
 - priority score: 32
-- edges in packet: 68
+- edges in packet: 66
 - cross-unit edges: 23
-- low confidence edges: 15
+- low confidence edges: 12
 
 ## Relationship Evidence Slots
 
@@ -21,15 +21,12 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_quad_eq_unit__contains__m1_mis_quadratic_expression_equation | intra_unit | 이차방정식 | contains | 이차식과 이차방정식을 혼동하는 오류 | low | structure_ref;textbook_page_refs;extraction_notes | Find textbook structure evidence for the containment relation. | 3 |
 | m1_quad_eq_unit__contains__m1_mis_quadratic_factorization_solution | intra_unit | 이차방정식 | contains | 인수분해한 식에서 해 조건을 빠뜨리는 오류 | low | structure_ref;textbook_page_refs;extraction_notes | Find textbook structure evidence for the containment relation. | 2 |
 | m1_quad_eq_unit__contains__m1_mis_root_coefficient_relation_scope | intra_unit | 이차방정식 | contains | 근과 계수와의 관계를 중학교 범위로 오인하는 오류 | low | structure_ref;textbook_page_refs;extraction_notes | Find textbook structure evidence for the containment relation. | 1 |
-| m1_quad_eq_factorization_solving__prerequisite_for__m1_mis_quadratic_factorization_solution | intra_unit | 인수분해를 이용한 이차방정식 풀이 | prerequisite_for | 인수분해한 식에서 해 조건을 빠뜨리는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
-| m1_quad_eq_quadratic_equation__prerequisite_for__m1_mis_quadratic_expression_equation | intra_unit | 이차방정식 | prerequisite_for | 이차식과 이차방정식을 혼동하는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_quad_eq_root_formula__prerequisite_for__m1_mis_root_coefficient_relation_scope | intra_unit | 근의 공식 | prerequisite_for | 근과 계수와의 관계를 중학교 범위로 오인하는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
 | m1_mis_quadratic_expression_equation__often_confused_with__m1_quad_eq_quadratic_equation | intra_unit | 이차식과 이차방정식을 혼동하는 오류 | often_confused_with | 이차방정식 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_quadratic_factorization_solution__often_confused_with__m1_quad_eq_factorization_solving | intra_unit | 인수분해한 식에서 해 조건을 빠뜨리는 오류 | often_confused_with | 인수분해를 이용한 이차방정식 풀이 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_quadratic_factorization_solution__often_confused_with__m1_quad_eq_solution | intra_unit | 인수분해한 식에서 해 조건을 빠뜨리는 오류 | often_confused_with | 이차방정식의 해 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_root_coefficient_relation_scope__often_confused_with__m1_quad_eq_real_solution_scope | intra_unit | 근과 계수와의 관계를 중학교 범위로 오인하는 오류 | often_confused_with | 이차방정식의 실수 해 범위 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 1 |
 | m1_mis_root_coefficient_relation_scope__often_confused_with__m1_quad_eq_root_formula | intra_unit | 근과 계수와의 관계를 중학교 범위로 오인하는 오류 | often_confused_with | 근의 공식 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 1 |
-| m1_factor_quadratic_expression__prerequisite_for__m1_mis_quadratic_expression_equation | cross_unit | 이차식 | prerequisite_for | 이차식과 이차방정식을 혼동하는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_mis_quadratic_expression_equation__often_confused_with__m1_factor_quadratic_expression | cross_unit | 이차식과 이차방정식을 혼동하는 오류 | often_confused_with | 이차식 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_quadratic_factorization_solution__often_confused_with__m1_factor_factorization | cross_unit | 인수분해한 식에서 해 조건을 빠뜨리는 오류 | often_confused_with | 인수분해 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_quadratic_function_equation__often_confused_with__m1_quad_eq_quadratic_equation | cross_unit | 이차함수와 이차방정식을 혼동하는 오류 | often_confused_with | 이차방정식 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
@@ -67,7 +64,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_quad_eq_double_root__related_to__m1_quad_eq_real_solution_scope | intra_unit | 중근 | related_to | 이차방정식의 실수 해 범위 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 3 |
 | m1_quad_eq_double_root__related_to__m1_quad_eq_root_formula | intra_unit | 중근 | related_to | 근의 공식 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 2 |
 | m1_quad_eq_real_solution_scope__related_to__m1_quad_eq_root_formula | intra_unit | 이차방정식의 실수 해 범위 | related_to | 근의 공식 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 3 |
-| m1_quad_eq_unit__contains__m1_factor_quadratic_expression | cross_unit | 이차방정식 | contains | 이차식 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_quad_eq_unit__contains__m1_factor_quadratic_expression | cross_unit | 이차방정식 | contains | 이차식 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
 | m1_eq_equation__prerequisite_for__m1_quad_eq_quadratic_equation | cross_unit | 방정식 | prerequisite_for | 이차방정식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_eq_solution__prerequisite_for__m1_quad_eq_solution | cross_unit | 해 | prerequisite_for | 이차방정식의 해 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_eq_solution_check__prerequisite_for__m1_quad_eq_modeling | cross_unit | 해의 확인 | prerequisite_for | 이차방정식 활용 문제 해결 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
@@ -83,6 +80,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_factor_binomial_product_xab__used_in__m1_quad_eq_factorization_solving | cross_unit | (x+a)(x+b) 공식 | used_in | 인수분해를 이용한 이차방정식 풀이 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 4 |
 | m1_factor_factorization__used_in__m1_quad_eq_unit | cross_unit | 인수분해 | used_in | 이차방정식 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 4 |
 | m1_factor_quadratic_expression__used_in__m1_quad_eq_quadratic_equation | cross_unit | 이차식 | used_in | 이차방정식 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
+| m1_factor_quadratic_factorization__used_in__m1_quad_eq_factorization_solving | cross_unit | 이차식 인수분해 | used_in | 인수분해를 이용한 이차방정식 풀이 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_quad_eq_solving__used_in__m1_eq_solution_check | cross_unit | 이차방정식 풀기 | used_in | 해의 확인 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_factor_quadratic_expression__contrasts_with__m1_quad_eq_quadratic_term | cross_unit | 이차식 | contrasts_with | 이차항 | medium | contrast_ref;textbook_page_refs | Find textbook wording or examples that distinguish the two concepts. | 4 |
 | m1_quad_eq_solution__equivalent_to__m1_eq_root | cross_unit | 이차방정식의 해 | equivalent_to | 근 | medium | related_ref;textbook_page_refs | Find textbook wording that treats the two concepts or labels as equivalent in context. | 2 |

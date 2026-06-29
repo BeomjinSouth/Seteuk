@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-29T21:53:19",
+    "generated_at": "2026-06-29T22:14:10",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
-    "concept_count": 538,
-    "edge_count": 2297
+    "concept_count": 540,
+    "edge_count": 2319
   },
   "sources": [
     {
@@ -9476,6 +9476,12 @@
           "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
         }
       ],
       "prerequisite_ids": [
@@ -9517,6 +9523,12 @@
           "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
         }
       ],
       "prerequisite_ids": [
@@ -9611,6 +9623,12 @@
           "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
         }
       ],
       "prerequisite_ids": [
@@ -9650,6 +9668,12 @@
           "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
         }
       ],
       "prerequisite_ids": [
@@ -9683,6 +9707,12 @@
           "locator": "printed p. 35; [9수02-19]",
           "evidence_kind": "achievement_standard",
           "summary": "다항식의 곱셈과 인수분해를 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
         },
         {
           "source_id": "achievement_math_2022",
@@ -9780,6 +9810,40 @@
       ],
       "related_ids": [],
       "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_factor_common_factor_formula",
+      "label_ko": "m(a+b) 공식",
+      "aliases": [
+        "공통인수 묶기 공식",
+        "m(a+b)=ma+mb"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "다항식의 곱셈과 인수분해",
+      "concept_type": "property",
+      "short_definition": "공통인수 m을 묶거나 분배하여 단항식과 이항식의 곱과 합을 서로 바꾸는 공식.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_factor_common_factor",
+        "m1_num_distributive_law"
+      ],
+      "parent_ids": [
+        "m1_factor_formula_scope"
+      ],
+      "related_ids": [
+        "m1_factor_factorization",
+        "m1_factor_common_factor"
+      ],
+      "notes": "교육과정의 공식 범위에 제시된 m(a+b)를 공통인수 묶기와 연결한 미시 공식 노드다.",
       "confidence": "high"
     },
     {
@@ -9980,6 +10044,59 @@
       "confidence": "high"
     },
     {
+      "id": "m1_factor_quadratic_factorization",
+      "label_ko": "이차식 인수분해",
+      "aliases": [
+        "이차식을 인수분해하기"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "다항식의 곱셈과 인수분해",
+      "concept_type": "procedure",
+      "short_definition": "이차식을 공식이나 공통인수 구조를 이용해 여러 인수의 곱으로 나타내는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다항식의 곱셈과 인수분해를 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_factor_quadratic_expression",
+        "m1_factor_formula_scope",
+        "m1_factor_factorization"
+      ],
+      "parent_ids": [
+        "m1_factor_factorization"
+      ],
+      "related_ids": [
+        "m1_factor_binomial_product_xab",
+        "m1_factor_linear_product_axb_cxd",
+        "m1_quad_eq_factorization_solving"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
       "id": "m1_factor_quadratic_expression",
       "label_ko": "이차식",
       "aliases": [
@@ -10002,6 +10119,12 @@
           "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
         }
       ],
       "prerequisite_ids": [
@@ -10044,9 +10167,7 @@
           "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_factor_expansion_factorization_inverse"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_factor_unit"
       ],
@@ -10082,9 +10203,7 @@
           "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_factor_common_factor"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_factor_unit"
       ],
@@ -10119,9 +10238,7 @@
           "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_factor_formula_scope"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_factor_unit"
       ],
@@ -10157,9 +10274,7 @@
           "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_factor_perfect_square_expression"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_factor_unit"
       ],
@@ -10665,10 +10780,7 @@
           "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_factor_quadratic_expression",
-        "m1_quad_eq_quadratic_equation"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_quad_eq_unit"
       ],
@@ -10704,9 +10816,7 @@
           "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_quad_eq_factorization_solving"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_quad_eq_unit"
       ],
@@ -36299,6 +36409,56 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_factor_factorization__contains__m1_factor_quadratic_factorization",
+      "source_id": "m1_factor_factorization",
+      "target_id": "m1_factor_quadratic_factorization",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다항식의 곱셈과 인수분해를 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_factor_formula_scope__contains__m1_factor_common_factor_formula",
+      "source_id": "m1_factor_formula_scope",
+      "target_id": "m1_factor_common_factor_formula",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
       "id": "m1_factor_formula_scope__contains__m1_factor_square_sum_formula",
       "source_id": "m1_factor_formula_scope",
       "target_id": "m1_factor_square_sum_formula",
@@ -36567,6 +36727,70 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_factor_common_factor__used_in__m1_factor_common_factor_formula",
+      "source_id": "m1_factor_common_factor",
+      "target_id": "m1_factor_common_factor_formula",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_distributive_law__used_in__m1_factor_common_factor_formula",
+      "source_id": "m1_num_distributive_law",
+      "target_id": "m1_factor_common_factor_formula",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_factor_common_factor_formula__used_in__m1_factor_polynomial_multiplication",
+      "source_id": "m1_factor_common_factor_formula",
+      "target_id": "m1_factor_polynomial_multiplication",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_factor_common_factor_formula__used_in__m1_factor_factorization",
+      "source_id": "m1_factor_common_factor_formula",
+      "target_id": "m1_factor_factorization",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
       "id": "m1_factor_perfect_square_expression__represented_by__m1_factor_square_sum_formula",
       "source_id": "m1_factor_perfect_square_expression",
       "target_id": "m1_factor_square_sum_formula",
@@ -36605,6 +36829,146 @@
           "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_factor_square_sum_formula__used_in__m1_factor_polynomial_multiplication",
+      "source_id": "m1_factor_square_sum_formula",
+      "target_id": "m1_factor_polynomial_multiplication",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_factor_square_difference_formula__used_in__m1_factor_polynomial_multiplication",
+      "source_id": "m1_factor_square_difference_formula",
+      "target_id": "m1_factor_polynomial_multiplication",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_factor_sum_difference_product_formula__used_in__m1_factor_polynomial_multiplication",
+      "source_id": "m1_factor_sum_difference_product_formula",
+      "target_id": "m1_factor_polynomial_multiplication",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_factor_binomial_product_xab__used_in__m1_factor_polynomial_multiplication",
+      "source_id": "m1_factor_binomial_product_xab",
+      "target_id": "m1_factor_polynomial_multiplication",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_factor_linear_product_axb_cxd__used_in__m1_factor_polynomial_multiplication",
+      "source_id": "m1_factor_linear_product_axb_cxd",
+      "target_id": "m1_factor_polynomial_multiplication",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
         }
       ],
       "notes": "",
@@ -36677,6 +37041,28 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_factor_square_difference_formula__contrasts_with__m1_factor_square_sum_formula",
+      "source_id": "m1_factor_square_difference_formula",
+      "target_id": "m1_factor_square_sum_formula",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "차의 제곱 공식과 합의 제곱 공식은 중항의 부호가 달라 전개와 인수분해에서 구별한다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_factor_sum_difference_product_formula__used_in__m1_factor_factorization",
       "source_id": "m1_factor_sum_difference_product_formula",
       "target_id": "m1_factor_factorization",
@@ -36699,10 +37085,10 @@
       "confidence": "high"
     },
     {
-      "id": "m1_factor_binomial_product_xab__represented_by__m1_factor_quadratic_expression",
-      "source_id": "m1_factor_binomial_product_xab",
-      "target_id": "m1_factor_quadratic_expression",
-      "relationship_type": "represented_by",
+      "id": "m1_factor_sum_difference_product_formula__contrasts_with__m1_factor_square_difference_formula",
+      "source_id": "m1_factor_sum_difference_product_formula",
+      "target_id": "m1_factor_square_difference_formula",
+      "relationship_type": "contrasts_with",
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
@@ -36715,6 +37101,34 @@
           "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "합과 차의 곱 공식은 제곱의 차를 만들고, 차의 제곱 공식은 완전제곱식의 한 형태를 만든다는 점을 구별한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_factor_binomial_product_xab__used_in__m1_factor_factorization",
+      "source_id": "m1_factor_binomial_product_xab",
+      "target_id": "m1_factor_factorization",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
         }
       ],
       "notes": "",
@@ -36755,9 +37169,93 @@
       "confidence": "medium"
     },
     {
-      "id": "m1_factor_linear_product_axb_cxd__represented_by__m1_factor_quadratic_expression",
+      "id": "m1_factor_linear_product_axb_cxd__used_in__m1_factor_factorization",
       "source_id": "m1_factor_linear_product_axb_cxd",
-      "target_id": "m1_factor_quadratic_expression",
+      "target_id": "m1_factor_factorization",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_factor_binomial_product_xab__used_in__m1_factor_quadratic_factorization",
+      "source_id": "m1_factor_binomial_product_xab",
+      "target_id": "m1_factor_quadratic_factorization",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_factor_linear_product_axb_cxd__used_in__m1_factor_quadratic_factorization",
+      "source_id": "m1_factor_linear_product_axb_cxd",
+      "target_id": "m1_factor_quadratic_factorization",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_factor_quadratic_expression__represented_by__m1_factor_binomial_product_xab",
+      "source_id": "m1_factor_quadratic_expression",
+      "target_id": "m1_factor_binomial_product_xab",
       "relationship_type": "represented_by",
       "source_refs": [
         {
@@ -36771,10 +37269,172 @@
           "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
         }
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_factor_quadratic_expression__represented_by__m1_factor_linear_product_axb_cxd",
+      "source_id": "m1_factor_quadratic_expression",
+      "target_id": "m1_factor_linear_product_axb_cxd",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_factor_quadratic_expression__used_in__m1_factor_quadratic_factorization",
+      "source_id": "m1_factor_quadratic_expression",
+      "target_id": "m1_factor_quadratic_factorization",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_factor_formula_scope__used_in__m1_factor_quadratic_factorization",
+      "source_id": "m1_factor_formula_scope",
+      "target_id": "m1_factor_quadratic_factorization",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_factor_factorization__used_in__m1_factor_quadratic_factorization",
+      "source_id": "m1_factor_factorization",
+      "target_id": "m1_factor_quadratic_factorization",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다항식의 곱셈과 인수분해를 하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_factor_quadratic_factorization__used_in__m1_factor_factorization",
+      "source_id": "m1_factor_quadratic_factorization",
+      "target_id": "m1_factor_factorization",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다항식의 곱셈과 인수분해를 하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_factor_quadratic_factorization__used_in__m1_quad_eq_factorization_solving",
+      "source_id": "m1_factor_quadratic_factorization",
+      "target_id": "m1_quad_eq_factorization_solving",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_factor_quadratic_expression__used_in__m1_quad_eq_quadratic_equation",
@@ -36861,6 +37521,28 @@
       "confidence": "low"
     },
     {
+      "id": "m1_mis_expansion_factorization_direction__often_confused_with__m1_factor_polynomial_multiplication",
+      "source_id": "m1_mis_expansion_factorization_direction",
+      "target_id": "m1_factor_polynomial_multiplication",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_mis_factor_common_factor_missing__often_confused_with__m1_factor_common_factor",
       "source_id": "m1_mis_factor_common_factor_missing",
       "target_id": "m1_factor_common_factor",
@@ -36880,6 +37562,28 @@
       "id": "m1_mis_factor_formula_pattern__often_confused_with__m1_factor_formula_scope",
       "source_id": "m1_mis_factor_formula_pattern",
       "target_id": "m1_factor_formula_scope",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_factor_formula_pattern__often_confused_with__m1_factor_binomial_product_xab",
+      "source_id": "m1_mis_factor_formula_pattern",
+      "target_id": "m1_factor_binomial_product_xab",
       "relationship_type": "often_confused_with",
       "source_refs": [
         {
@@ -52211,6 +52915,12 @@
           "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
         }
       ],
       "notes": "",
@@ -66955,6 +67665,12 @@
           "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
         }
       ],
       "notes": "",
@@ -66983,6 +67699,12 @@
           "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
         }
       ],
       "notes": "",
@@ -67017,6 +67739,12 @@
           "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
         }
       ],
       "notes": "",
@@ -67051,6 +67779,12 @@
           "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
         }
       ],
       "notes": "",
@@ -67073,6 +67807,12 @@
           "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
         }
       ],
       "notes": "",
@@ -67095,6 +67835,12 @@
           "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
         }
       ],
       "notes": "",
@@ -67111,6 +67857,12 @@
           "locator": "printed p. 35; [9수02-19]",
           "evidence_kind": "achievement_standard",
           "summary": "다항식의 곱셈과 인수분해를 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
         },
         {
           "source_id": "achievement_math_2022",
@@ -67133,6 +67885,12 @@
           "locator": "printed p. 35; [9수02-19]",
           "evidence_kind": "achievement_standard",
           "summary": "다항식의 곱셈과 인수분해를 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
         },
         {
           "source_id": "achievement_math_2022",
@@ -67220,6 +67978,38 @@
       "id": "m1_factor_factorization__prerequisite_for__m1_factor_formula_scope",
       "source_id": "m1_factor_factorization",
       "target_id": "m1_factor_formula_scope",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_factor_common_factor__prerequisite_for__m1_factor_common_factor_formula",
+      "source_id": "m1_factor_common_factor",
+      "target_id": "m1_factor_common_factor_formula",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_distributive_law__prerequisite_for__m1_factor_common_factor_formula",
+      "source_id": "m1_num_distributive_law",
+      "target_id": "m1_factor_common_factor_formula",
       "relationship_type": "prerequisite_for",
       "source_refs": [
         {
@@ -67387,6 +68177,108 @@
       "confidence": "high"
     },
     {
+      "id": "m1_factor_quadratic_expression__prerequisite_for__m1_factor_quadratic_factorization",
+      "source_id": "m1_factor_quadratic_expression",
+      "target_id": "m1_factor_quadratic_factorization",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다항식의 곱셈과 인수분해를 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_factor_formula_scope__prerequisite_for__m1_factor_quadratic_factorization",
+      "source_id": "m1_factor_formula_scope",
+      "target_id": "m1_factor_quadratic_factorization",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다항식의 곱셈과 인수분해를 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_factor_factorization__prerequisite_for__m1_factor_quadratic_factorization",
+      "source_id": "m1_factor_factorization",
+      "target_id": "m1_factor_quadratic_factorization",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다항식의 곱셈과 인수분해를 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
       "id": "m1_expr_degree__prerequisite_for__m1_factor_quadratic_expression",
       "source_id": "m1_expr_degree",
       "target_id": "m1_factor_quadratic_expression",
@@ -67403,6 +68295,12 @@
           "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
         }
       ],
       "notes": "",
@@ -67425,98 +68323,16 @@
           "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
         }
       ],
       "notes": "",
       "confidence": "medium"
-    },
-    {
-      "id": "m1_factor_expansion_factorization_inverse__prerequisite_for__m1_mis_expansion_factorization_direction",
-      "source_id": "m1_factor_expansion_factorization_inverse",
-      "target_id": "m1_mis_expansion_factorization_direction",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 36; [9수02-19] explanation",
-          "evidence_kind": "teaching_note",
-          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_factor_common_factor__prerequisite_for__m1_mis_factor_common_factor_missing",
-      "source_id": "m1_factor_common_factor",
-      "target_id": "m1_mis_factor_common_factor_missing",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 36; [9수02-19] explanation",
-          "evidence_kind": "teaching_note",
-          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_factor_formula_scope__prerequisite_for__m1_mis_factor_formula_pattern",
-      "source_id": "m1_factor_formula_scope",
-      "target_id": "m1_mis_factor_formula_pattern",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 36; [9수02-19] explanation",
-          "evidence_kind": "teaching_note",
-          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_factor_perfect_square_expression__prerequisite_for__m1_mis_perfect_square_sign",
-      "source_id": "m1_factor_perfect_square_expression",
-      "target_id": "m1_mis_perfect_square_sign",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 36; [9수02-19] explanation",
-          "evidence_kind": "teaching_note",
-          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
     },
     {
       "id": "m1_factor_quadratic_expression__prerequisite_for__m1_quad_eq_quadratic_equation",
@@ -67889,84 +68705,6 @@
       ],
       "notes": "",
       "confidence": "high"
-    },
-    {
-      "id": "m1_factor_quadratic_expression__prerequisite_for__m1_mis_quadratic_expression_equation",
-      "source_id": "m1_factor_quadratic_expression",
-      "target_id": "m1_mis_quadratic_expression_equation",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 36; terms usable in teaching and learning situations",
-          "evidence_kind": "instructional_term_list",
-          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
-        },
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 35; [9수02-20]",
-          "evidence_kind": "achievement_standard",
-          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "이차방정식 section; [9수02-20] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_quad_eq_quadratic_equation__prerequisite_for__m1_mis_quadratic_expression_equation",
-      "source_id": "m1_quad_eq_quadratic_equation",
-      "target_id": "m1_mis_quadratic_expression_equation",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 36; terms usable in teaching and learning situations",
-          "evidence_kind": "instructional_term_list",
-          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
-        },
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 35; [9수02-20]",
-          "evidence_kind": "achievement_standard",
-          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "이차방정식 section; [9수02-20] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_quad_eq_factorization_solving__prerequisite_for__m1_mis_quadratic_factorization_solution",
-      "source_id": "m1_quad_eq_factorization_solving",
-      "target_id": "m1_mis_quadratic_factorization_solution",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "이차방정식 section; [9수02-20] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
     },
     {
       "id": "m1_quad_eq_root_formula__prerequisite_for__m1_mis_root_coefficient_relation_scope",

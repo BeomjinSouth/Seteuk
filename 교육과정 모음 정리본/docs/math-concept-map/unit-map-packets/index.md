@@ -5,9 +5,9 @@ This generated index tracks compact concept hierarchy maps for every textbook ev
 ## Summary
 
 - unit maps: 34
-- concept rows: 538
-- edge rows touching units: 2768
-- cross-unit edge rows: 942
+- concept rows: 540
+- edge rows touching units: 2792
+- cross-unit edge rows: 946
 
 ## Packets
 
@@ -17,13 +17,13 @@ This generated index tracks compact concept hierarchy maps for every textbook ev
 | 2 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 그 그래프 | 33 | 165 | 42 | 11 | 52 | rank-02.md | rank-02.dot |
 | 3 | 중2(교육과정 학년군: 중1-3) | 자료와 가능성 | 경우의 수와 확률 | 26 | 112 | 10 | 6 | 24 | rank-03.md | rank-03.dot |
 | 4 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 이차함수와 그 그래프 | 30 | 143 | 25 | 3 | 11 | rank-04.md | rank-04.dot |
-| 5 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 정수와 유리수 | 41 | 197 | 45 | 5 | 36 | rank-05.md | rank-05.dot |
+| 5 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 정수와 유리수 | 41 | 199 | 47 | 5 | 36 | rank-05.md | rank-05.dot |
 | 6 | 중1(교육과정 학년군: 중1-3) | 자료와 가능성 | 도수분포표와 상대도수 | 33 | 180 | 48 | 4 | 18 | rank-06.md | rank-06.dot |
 | 7 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차방정식 | 31 | 159 | 50 | 3 | 14 | rank-07.md | rank-07.dot |
 | 8 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 문자의 사용과 식 | 24 | 143 | 69 | 3 | 14 | rank-08.md | rank-08.dot |
-| 9 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 다항식의 곱셈과 인수분해 | 18 | 90 | 34 | 4 | 22 | rank-09.md | rank-09.dot |
+| 9 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 다항식의 곱셈과 인수분해 | 20 | 114 | 36 | 4 | 19 | rank-09.md | rank-09.dot |
 | 10 | 중3(교육과정 학년군: 중1-3) | 수와 연산 | 제곱근과 실수 | 17 | 74 | 19 | 3 | 16 | rank-10.md | rank-10.dot |
-| 11 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 이차방정식 | 14 | 68 | 23 | 3 | 15 | rank-11.md | rank-11.dot |
+| 11 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 이차방정식 | 14 | 66 | 23 | 3 | 12 | rank-11.md | rank-11.dot |
 | 12 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 기본 도형 | 22 | 132 | 48 | 2 | 15 | rank-12.md | rank-12.dot |
 | 13 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 소인수분해 | 15 | 64 | 10 | 2 | 11 | rank-13.md | rank-13.dot |
 | 14 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 입체도형의 성질 | 17 | 74 | 13 | 2 | 12 | rank-14.md | rank-14.dot |
