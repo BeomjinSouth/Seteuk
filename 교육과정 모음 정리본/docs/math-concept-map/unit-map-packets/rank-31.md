@@ -9,12 +9,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 수와 연산
 - unit: 공통 선수개념
 - priority tier: low
-- workplan score: 56
+- workplan score: 62
 - concepts: 1
-- edges touching unit: 11
-- cross-unit edges: 11
+- edges touching unit: 13
+- cross-unit edges: 13
 - low confidence concepts: 1
-- low confidence edges: 10
+- low confidence edges: 11
 
 ## Concept Type Distribution
 
@@ -27,8 +27,8 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | relationship_type | count |
 |---|---:|
 | contains | 1 |
-| prerequisite_for | 3 |
-| used_in | 7 |
+| prerequisite_for | 4 |
+| used_in | 8 |
 
 ## Low Confidence Concepts
 
@@ -44,6 +44,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_ratio__prerequisite_for__m1_func_slope_ratio_formula | 비 | prerequisite_for | 기울기 계산식 | low | official_single_source |
 | m1_num_rational_number__prerequisite_for__m1_num_ratio | 유리수 | prerequisite_for | 비 | low | official_single_source |
 | m1_num_ratio__used_in__m1_data_relative_frequency | 비 | used_in | 상대도수 | low | official_dual_source |
+| m1_num_ratio__used_in__m1_data_relative_frequency_calculation | 비 | used_in | 상대도수 구하기 | low | official_single_source |
 | m1_num_ratio__used_in__m1_data_theoretical_probability | 비 | used_in | 경우의 수의 비율로서의 확률 | low | official_dual_source |
 | m1_num_ratio__used_in__m1_geo_parallel_segment_ratio | 비 | used_in | 평행선 사이의 선분의 길이의 비 | low | official_dual_source |
 | m1_num_ratio__used_in__m1_geo_similarity_ratio | 비 | used_in | 닮음비 | low | official_dual_source |
@@ -51,3 +52,4 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_ratio__used_in__m1_prop_direct_proportion | 비 | used_in | 정비례 | low | official_dual_source |
 | m1_num_ratio__used_in__m1_prop_inverse_proportion | 비 | used_in | 반비례 | low | official_dual_source |
 | m1_num_ratio__prerequisite_for__m1_data_probability_by_case_ratio | 비 | prerequisite_for | 경우의 수의 비율로 확률 구하기 | medium | official_dual_source |
+| m1_num_ratio__prerequisite_for__m1_data_relative_frequency_calculation | 비 | prerequisite_for | 상대도수 구하기 | high | official_dual_source |

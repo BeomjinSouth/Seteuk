@@ -9,12 +9,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 좌표평면과 그래프
 - priority tier: highest
-- workplan score: 485
+- workplan score: 477
 - concepts: 43
-- edges touching unit: 238
-- cross-unit edges: 76
+- edges touching unit: 234
+- cross-unit edges: 72
 - low confidence concepts: 9
-- low confidence edges: 76
+- low confidence edges: 75
 
 ## Concept Type Distribution
 
@@ -35,9 +35,9 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 51 |
 | contrasts_with | 9 |
 | often_confused_with | 24 |
-| prerequisite_for | 79 |
+| prerequisite_for | 80 |
 | related_to | 21 |
-| represented_by | 24 |
+| represented_by | 19 |
 | used_in | 30 |
 
 ## Low Confidence Concepts
@@ -60,7 +60,6 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 |---|---|---|---|---|---|
 | m1_coord_x_coordinate__prerequisite_for__m1_func_x_increment | x좌표 | prerequisite_for | x의 증가량 | low | official_dual_source |
 | m1_coord_y_coordinate__prerequisite_for__m1_func_y_increment | y좌표 | prerequisite_for | y의 증가량 | low | official_dual_source |
-| m1_graph_graph__prerequisite_for__m1_mis_histogram_bar_graph | 그래프 | prerequisite_for | 히스토그램과 막대그래프를 같은 표현으로 보는 오류 | low | official_dual_source |
 | m1_num_negative_number__prerequisite_for__m1_coord_quadrant_signs | 음수 | prerequisite_for | 사분면별 좌표 부호 | low | official_dual_source |
 | m1_num_positive_number__prerequisite_for__m1_coord_quadrant_signs | 양수 | prerequisite_for | 사분면별 좌표 부호 | low | official_dual_source |
 | m1_repr_expression__prerequisite_for__m1_mis_expression_equation | 식 | prerequisite_for | 식과 방정식 혼동 | low | official_dual_source |
@@ -91,6 +90,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_graph_graph__prerequisite_for__m1_data_critical_graph_reading | 그래프 | prerequisite_for | 표와 그래프의 오류 비판적으로 읽기 | medium | official_single_source |
 | m1_graph_graph__prerequisite_for__m1_data_frequency_unit | 그래프 | prerequisite_for | 도수분포표와 상대도수 | high | official_dual_source |
 | m1_graph_graph__prerequisite_for__m1_data_histogram | 그래프 | prerequisite_for | 히스토그램 | high | official_dual_source |
+| m1_graph_graph__prerequisite_for__m1_data_histogram_drawing | 그래프 | prerequisite_for | 히스토그램으로 나타내기 | high | official_dual_source |
 | m1_graph_graph__prerequisite_for__m1_data_relative_frequency_table_graph | 그래프 | prerequisite_for | 상대도수의 분포를 표나 그래프로 나타내기 | high | official_dual_source |
 | m1_graph_graph__prerequisite_for__m1_data_scatter_plot | 그래프 | prerequisite_for | 산점도 | high | official_dual_source |
 | m1_graph_graph__prerequisite_for__m1_func_linear_graph | 그래프 | prerequisite_for | 일차함수의 그래프 | high | official_dual_source |

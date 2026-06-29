@@ -8,6 +8,7 @@ digraph pilot_unit_map {
   "m1_func_slope_ratio_formula" [label="기울기 계산식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_rational_number" [label="유리수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_relative_frequency" [label="상대도수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_data_relative_frequency_calculation" [label="상대도수 구하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_theoretical_probability" [label="경우의 수의 비율로서의 확률\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_parallel_segment_ratio" [label="평행선 사이의 선분의 길이의 비\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_similarity_ratio" [label="닮음비\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -19,6 +20,7 @@ digraph pilot_unit_map {
   "m1_num_ratio" -> "m1_func_slope_ratio_formula" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_num_rational_number" -> "m1_num_ratio" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_num_ratio" -> "m1_data_relative_frequency" [label="used_in", style="dashed", color="#b91c1c"];
+  "m1_num_ratio" -> "m1_data_relative_frequency_calculation" [label="used_in", style="dashed", color="#b91c1c"];
   "m1_num_ratio" -> "m1_data_theoretical_probability" [label="used_in", style="dashed", color="#b91c1c"];
   "m1_num_ratio" -> "m1_geo_parallel_segment_ratio" [label="used_in", style="dashed", color="#b91c1c"];
   "m1_num_ratio" -> "m1_geo_similarity_ratio" [label="used_in", style="dashed", color="#b91c1c"];
@@ -26,4 +28,5 @@ digraph pilot_unit_map {
   "m1_num_ratio" -> "m1_prop_direct_proportion" [label="used_in", style="dashed", color="#b91c1c"];
   "m1_num_ratio" -> "m1_prop_inverse_proportion" [label="used_in", style="dashed", color="#b91c1c"];
   "m1_num_ratio" -> "m1_data_probability_by_case_ratio" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_num_ratio" -> "m1_data_relative_frequency_calculation" [label="prerequisite_for", style="dashed", color="#6b7280"];
 }

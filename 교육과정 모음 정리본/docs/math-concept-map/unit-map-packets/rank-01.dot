@@ -48,7 +48,6 @@ digraph pilot_unit_map {
   "m1_term_variable" [label="변수\\nterm", fillcolor="#f7fbff"];
   "m1_func_x_increment" [label="x의 증가량\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_func_y_increment" [label="y의 증가량\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
-  "m1_mis_histogram_bar_graph" [label="히스토그램과 막대그래프를 같은 표현으로 보는 오류\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_negative_number" [label="음수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_positive_number" [label="양수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_mis_expression_equation" [label="식과 방정식 혼동\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -74,6 +73,7 @@ digraph pilot_unit_map {
   "m1_eq_unit" [label="일차방정식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_frequency_unit" [label="도수분포표와 상대도수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_histogram" [label="히스토그램\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_data_histogram_drawing" [label="히스토그램으로 나타내기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_relative_frequency_table_graph" [label="상대도수의 분포를 표나 그래프로 나타내기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_func_y_ax_graph" [label="일차함수 y=ax의 그래프\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_eq_equality" [label="등식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -81,10 +81,10 @@ digraph pilot_unit_map {
   "m1_func_two_quantity_relation" [label="두 양 사이의 관계\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_ineq_inequality" [label="부등식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_frequency_table" [label="도수분포표\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_data_frequency_table_construction" [label="도수분포표로 나타내기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_system_unit" [label="연립일차방정식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_domain" [label="자료와 가능성\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_expr_literal_expression" [label="문자를 사용한 식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
-  "m1_data_frequency_polygon" [label="도수분포다각형\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_system_solution" [label="연립일차방정식의 해\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_expr_letter" [label="문자\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_func_slope_sign" [label="기울기의 부호\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -157,7 +157,6 @@ digraph pilot_unit_map {
   "m1_coord_y_axis" -> "m1_coord_axis_point" [label="related_to", style="solid", color="#b91c1c"];
   "m1_coord_x_coordinate" -> "m1_func_x_increment" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_coord_y_coordinate" -> "m1_func_y_increment" [label="prerequisite_for", style="dashed", color="#b91c1c"];
-  "m1_graph_graph" -> "m1_mis_histogram_bar_graph" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_num_negative_number" -> "m1_coord_quadrant_signs" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_num_positive_number" -> "m1_coord_quadrant_signs" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_repr_expression" -> "m1_mis_expression_equation" [label="prerequisite_for", style="dashed", color="#b91c1c"];
@@ -289,6 +288,7 @@ digraph pilot_unit_map {
   "m1_graph_graph" -> "m1_data_critical_graph_reading" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_graph_graph" -> "m1_data_frequency_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_graph_graph" -> "m1_data_histogram" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_graph_graph" -> "m1_data_histogram_drawing" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_graph_graph" -> "m1_data_relative_frequency_table_graph" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_graph_graph" -> "m1_data_scatter_plot" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_graph_graph" -> "m1_func_linear_graph" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -300,6 +300,7 @@ digraph pilot_unit_map {
   "m1_repr_expression" -> "m1_ineq_inequality" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_repr_table" -> "m1_data_critical_graph_reading" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_repr_table" -> "m1_data_frequency_table" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_repr_table" -> "m1_data_frequency_table_construction" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_repr_table" -> "m1_data_frequency_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_repr_table" -> "m1_data_relative_frequency_table_graph" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_repr_table" -> "m1_func_two_quantity_relation" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -307,14 +308,9 @@ digraph pilot_unit_map {
   "m1_coord_coordinate_plane" -> "m1_data_scatter_plot" [label="represented_by", style="dashed", color="#6b7280"];
   "m1_data_domain" -> "m1_graph_graph" [label="represented_by", style="dashed", color="#6b7280"];
   "m1_data_domain" -> "m1_repr_table" [label="represented_by", style="dashed", color="#6b7280"];
-  "m1_data_relative_frequency_table_graph" -> "m1_graph_graph" [label="represented_by", style="dashed", color="#6b7280"];
-  "m1_data_relative_frequency_table_graph" -> "m1_repr_table" [label="represented_by", style="dashed", color="#6b7280"];
   "m1_expr_literal_expression" -> "m1_repr_expression" [label="represented_by", style="dashed", color="#6b7280"];
-  "m1_graph_graph" -> "m1_data_frequency_polygon" [label="represented_by", style="dashed", color="#6b7280"];
-  "m1_graph_graph" -> "m1_data_histogram" [label="represented_by", style="dashed", color="#6b7280"];
   "m1_graph_graph" -> "m1_data_scatter_plot" [label="represented_by", style="dashed", color="#6b7280"];
   "m1_repr_everyday_language" -> "m1_expr_literal_expression" [label="represented_by", style="dashed", color="#6b7280"];
-  "m1_repr_table" -> "m1_data_frequency_table" [label="represented_by", style="dashed", color="#6b7280"];
   "m1_system_solution" -> "m1_coord_ordered_pair" [label="represented_by", style="dashed", color="#6b7280"];
   "m1_coord_coordinate_plane" -> "m1_func_linear_graph" [label="used_in", style="dashed", color="#6b7280"];
   "m1_coord_coordinate_plane" -> "m1_quad_func_graph" [label="used_in", style="dashed", color="#6b7280"];

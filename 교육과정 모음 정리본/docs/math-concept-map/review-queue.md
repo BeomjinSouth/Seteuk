@@ -2,7 +2,7 @@
 
 이 문서는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 출처 보강 때 먼저 확인할 대상을 정리한다.
 
-- 검토 대상 concept: 80개
+- 검토 대상 concept: 81개
 
 ## 영역별 검토 대상
 
@@ -11,7 +11,7 @@
 | 수와 연산 | 12 |
 | 변화와 관계 | 44 |
 | 도형과 측정 | 12 |
-| 자료와 가능성 | 12 |
+| 자료와 가능성 | 13 |
 
 ## 유형별 검토 대상
 
@@ -19,7 +19,7 @@
 |---|---:|
 | misconception_risk | 66 |
 | procedure | 1 |
-| property | 2 |
+| property | 3 |
 | representation | 1 |
 | sub_concept | 6 |
 | term | 4 |
@@ -106,5 +106,6 @@
 | m1_mis_graph_scale_distortion | 자료와 가능성 | 도수분포표와 상대도수 | misconception_risk | textbook_evidence_needed | 눈금 왜곡 그래프를 그대로 해석하는 오류 | 교육과정의 '부적절한 눈금으로 자료를 부정확하게 나타낸 표나 그래프 오류 찾기'에 근거한 노드다. |
 | m1_mis_histogram_bar_graph | 자료와 가능성 | 도수분포표와 상대도수 | misconception_risk | textbook_evidence_needed | 히스토그램과 막대그래프를 같은 표현으로 보는 오류 | 공식 문서의 히스토그램 표현 요구에서 추론한 오개념 위험이다. 교과서 예제와 문항 근거 보강 필요. |
 | m1_mis_relative_frequency_frequency | 자료와 가능성 | 도수분포표와 상대도수 | misconception_risk | textbook_evidence_needed | 도수와 상대도수를 혼동하는 오류 |  |
+| m1_data_relative_frequency_sum | 자료와 가능성 | 도수분포표와 상대도수 | property | source_detail_needed | 상대도수의 합 | 공식 문서의 상대도수 구하기와 도수의 총합 표현에서 추론한 성질이다. 교과서 본문이나 정리 근거 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_mis_variance_standard_deviation | 자료와 가능성 | 산포도 | misconception_risk | textbook_evidence_needed | 분산과 표준편차를 같은 값으로 보는 오류 |  |
 | m1_mis_correlation_causation | 자료와 가능성 | 상자그림과 산점도 | misconception_risk | textbook_evidence_needed | 상관관계를 원인과 결과로 단정하는 오류 | 공식 문서는 상관관계를 말하는 수준을 다룬다. 인과 판단 오류는 교과서 본문이나 문항 근거 보강 전까지 잠정 노드로 둔다. |

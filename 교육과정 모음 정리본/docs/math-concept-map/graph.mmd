@@ -462,9 +462,16 @@ flowchart LR
   m1_data_histogram["히스토그램"]
   m1_data_frequency_polygon["도수분포다각형"]
   m1_data_distribution_interpretation["자료의 분포 특징 해석"]
+  m1_data_frequency_table_construction["도수분포표로 나타내기"]
+  m1_data_histogram_drawing["히스토그램으로 나타내기"]
+  m1_data_frequency_polygon_drawing["도수분포다각형으로 나타내기"]
+  m1_data_total_frequency["총도수"]
+  m1_data_relative_frequency_calculation["상대도수 구하기"]
   m1_data_relative_frequency["상대도수"]
   m1_data_relative_frequency_distribution["상대도수의 분포"]
   m1_data_relative_frequency_table_graph["상대도수의 분포를 표나 그래프로 나타내기"]
+  m1_data_compare_groups_by_relative_frequency["상대도수로 두 집단의 분포 비교하기"]
+  m1_data_relative_frequency_sum["상대도수의 합"]
   m1_mis_histogram_bar_graph["히스토그램과 막대그래프를 같은 표현으로 보는 오류"]
   m1_mis_relative_frequency_frequency["도수와 상대도수를 혼동하는 오류"]
   m1_data_statistical_inquiry_problem["통계적 탐구 문제"]
@@ -1430,22 +1437,39 @@ flowchart LR
   m1_data_class_width -- "사용" --> m1_data_histogram
   m1_data_class -- "사용" --> m1_data_frequency_table
   m1_data_frequency -- "사용" --> m1_data_frequency_table
+  m1_data_class -- "사용" --> m1_data_frequency_table_construction
+  m1_data_frequency -- "사용" --> m1_data_frequency_table_construction
+  m1_data_frequency_table_construction -- "사용" --> m1_data_frequency_table
+  m1_data_frequency_table_construction -- "사용" --> m1_data_histogram_drawing
   m1_data_frequency_table -- "표현" --> m1_data_histogram
   m1_data_frequency_table -- "표현" --> m1_data_frequency_polygon
-  m1_data_histogram -- "표현" --> m1_data_frequency_polygon
+  m1_data_frequency_table -- "사용" --> m1_data_histogram_drawing
+  m1_data_class_width -- "사용" --> m1_data_histogram_drawing
+  m1_data_histogram_drawing -- "사용" --> m1_data_histogram
+  m1_data_histogram_drawing -- "사용" --> m1_data_frequency_polygon_drawing
+  m1_data_histogram -- "사용" --> m1_data_frequency_polygon_drawing
+  m1_data_class_mark -- "사용" --> m1_data_frequency_polygon_drawing
+  m1_data_frequency_polygon_drawing -- "사용" --> m1_data_frequency_polygon
   m1_data_frequency_table -- "사용" --> m1_data_distribution_interpretation
   m1_data_histogram -- "사용" --> m1_data_distribution_interpretation
   m1_data_frequency_polygon -- "사용" --> m1_data_distribution_interpretation
-  m1_repr_table -- "표현" --> m1_data_frequency_table
-  m1_graph_graph -- "표현" --> m1_data_histogram
-  m1_graph_graph -- "표현" --> m1_data_frequency_polygon
   m1_data_frequency -- "사용" --> m1_data_relative_frequency
+  m1_data_frequency -- "사용" --> m1_data_relative_frequency_calculation
+  m1_data_total_frequency -- "사용" --> m1_data_relative_frequency_calculation
+  m1_num_ratio -- "사용" --> m1_data_relative_frequency_calculation
+  m1_data_frequency_table -- "사용" --> m1_data_relative_frequency_calculation
+  m1_data_relative_frequency_calculation -- "사용" --> m1_data_relative_frequency
   m1_data_relative_frequency -- "사용" --> m1_data_relative_frequency_distribution
-  m1_data_relative_frequency_distribution -- "표현" --> m1_data_relative_frequency_table_graph
-  m1_data_relative_frequency_table_graph -- "표현" --> m1_repr_table
-  m1_data_relative_frequency_table_graph -- "표현" --> m1_graph_graph
+  m1_data_relative_frequency_calculation -- "사용" --> m1_data_relative_frequency_distribution
+  m1_data_relative_frequency_distribution -- "사용" --> m1_data_relative_frequency_table_graph
   m1_data_frequency_table -- "사용" --> m1_data_relative_frequency
   m1_data_relative_frequency -- "사용" --> m1_data_distribution_interpretation
+  m1_data_relative_frequency -- "사용" --> m1_data_compare_groups_by_relative_frequency
+  m1_data_relative_frequency -- "사용" --> m1_data_relative_frequency_sum
+  m1_data_relative_frequency_distribution -- "사용" --> m1_data_compare_groups_by_relative_frequency
+  m1_data_distribution_interpretation -- "사용" --> m1_data_compare_groups_by_relative_frequency
+  m1_data_relative_frequency_table_graph -- "사용" --> m1_data_compare_groups_by_relative_frequency
+  m1_data_total_frequency -- "사용" --> m1_data_compare_groups_by_relative_frequency
   m1_data_relative_frequency_table_graph -- "사용" --> m1_data_distribution_interpretation
   m1_data_statistical_inquiry_problem -- "사용" --> m1_data_inquiry_plan
   m1_data_inquiry_plan -- "사용" --> m1_data_data_collection
@@ -1809,9 +1833,16 @@ flowchart LR
   m1_data_frequency_unit -- "포함" --> m1_data_histogram
   m1_data_frequency_unit -- "포함" --> m1_data_frequency_polygon
   m1_data_frequency_unit -- "포함" --> m1_data_distribution_interpretation
+  m1_data_frequency_unit -- "포함" --> m1_data_frequency_table_construction
+  m1_data_frequency_unit -- "포함" --> m1_data_histogram_drawing
+  m1_data_frequency_unit -- "포함" --> m1_data_frequency_polygon_drawing
+  m1_data_frequency_unit -- "포함" --> m1_data_total_frequency
+  m1_data_frequency_unit -- "포함" --> m1_data_relative_frequency_calculation
   m1_data_frequency_unit -- "포함" --> m1_data_relative_frequency
   m1_data_frequency_unit -- "포함" --> m1_data_relative_frequency_distribution
   m1_data_frequency_unit -- "포함" --> m1_data_relative_frequency_table_graph
+  m1_data_frequency_unit -- "포함" --> m1_data_compare_groups_by_relative_frequency
+  m1_data_relative_frequency_distribution -- "포함" --> m1_data_relative_frequency_sum
   m1_data_frequency_unit -- "포함" --> m1_mis_histogram_bar_graph
   m1_data_frequency_unit -- "포함" --> m1_mis_relative_frequency_frequency
   m1_data_statistical_inquiry_unit -- "포함" --> m1_data_statistical_inquiry_problem
@@ -2508,17 +2539,29 @@ flowchart LR
   m1_data_frequency_table -- "선수" --> m1_data_distribution_interpretation
   m1_data_histogram -- "선수" --> m1_data_distribution_interpretation
   m1_data_frequency_polygon -- "선수" --> m1_data_distribution_interpretation
+  m1_data_class -- "선수" --> m1_data_frequency_table_construction
+  m1_data_frequency -- "선수" --> m1_data_frequency_table_construction
+  m1_repr_table -- "선수" --> m1_data_frequency_table_construction
+  m1_data_frequency_table -- "선수" --> m1_data_histogram_drawing
+  m1_data_class_width -- "선수" --> m1_data_histogram_drawing
+  m1_graph_graph -- "선수" --> m1_data_histogram_drawing
+  m1_data_histogram -- "선수" --> m1_data_frequency_polygon_drawing
+  m1_data_class_mark -- "선수" --> m1_data_frequency_polygon_drawing
+  m1_data_frequency -- "선수" --> m1_data_total_frequency
+  m1_data_frequency -- "선수" --> m1_data_relative_frequency_calculation
+  m1_data_total_frequency -- "선수" --> m1_data_relative_frequency_calculation
+  m1_num_ratio -- "선수" --> m1_data_relative_frequency_calculation
   m1_data_frequency -- "선수" --> m1_data_relative_frequency
+  m1_data_total_frequency -- "선수" --> m1_data_relative_frequency
   m1_num_rational_number -- "선수" --> m1_data_relative_frequency
   m1_data_relative_frequency -- "선수" --> m1_data_relative_frequency_distribution
   m1_data_distribution -- "선수" --> m1_data_relative_frequency_distribution
   m1_data_relative_frequency_distribution -- "선수" --> m1_data_relative_frequency_table_graph
   m1_repr_table -- "선수" --> m1_data_relative_frequency_table_graph
   m1_graph_graph -- "선수" --> m1_data_relative_frequency_table_graph
-  m1_data_histogram -- "선수" --> m1_mis_histogram_bar_graph
-  m1_graph_graph -- "선수" --> m1_mis_histogram_bar_graph
-  m1_data_frequency -- "선수" --> m1_mis_relative_frequency_frequency
-  m1_data_relative_frequency -- "선수" --> m1_mis_relative_frequency_frequency
+  m1_data_relative_frequency_distribution -- "선수" --> m1_data_compare_groups_by_relative_frequency
+  m1_data_distribution_interpretation -- "선수" --> m1_data_compare_groups_by_relative_frequency
+  m1_data_relative_frequency_calculation -- "선수" --> m1_data_relative_frequency_sum
   m1_data_dataset -- "선수" --> m1_data_statistical_inquiry_problem
   m1_data_statistical_inquiry_problem -- "선수" --> m1_data_inquiry_plan
   m1_data_inquiry_plan -- "선수" --> m1_data_data_collection
@@ -2533,7 +2576,6 @@ flowchart LR
   m1_repr_table -- "선수" --> m1_data_critical_graph_reading
   m1_graph_graph -- "선수" --> m1_data_critical_graph_reading
   m1_data_distribution_interpretation -- "선수" --> m1_data_critical_graph_reading
-  m1_data_critical_graph_reading -- "선수" --> m1_mis_graph_scale_distortion
   m1_data_event -- "선수" --> m1_data_counting_cases
   m1_data_event -- "선수" --> m1_data_or_cases
   m1_data_counting_cases -- "선수" --> m1_data_or_cases
@@ -2683,6 +2725,7 @@ flowchart LR
   m1_mis_tangent_radius -- "혼동" --> m1_geo_tangent_point
   m1_mis_mean_only_representative -- "혼동" --> m1_data_median
   m1_mis_mean_only_representative -- "혼동" --> m1_data_mode
+  m1_mis_relative_frequency_frequency -- "혼동" --> m1_data_relative_frequency_sum
   m1_mis_histogram_bar_graph -- "혼동" --> m1_data_class
   m1_mis_histogram_bar_graph -- "혼동" --> m1_data_frequency
   m1_mis_relative_frequency_frequency -- "혼동" --> m1_data_relative_frequency_distribution
@@ -3153,9 +3196,16 @@ flowchart LR
   class m1_data_histogram representation;
   class m1_data_frequency_polygon representation;
   class m1_data_distribution_interpretation procedure;
+  class m1_data_frequency_table_construction procedure;
+  class m1_data_histogram_drawing procedure;
+  class m1_data_frequency_polygon_drawing procedure;
+  class m1_data_total_frequency default;
+  class m1_data_relative_frequency_calculation procedure;
   class m1_data_relative_frequency default;
   class m1_data_relative_frequency_distribution representation;
   class m1_data_relative_frequency_table_graph procedure;
+  class m1_data_compare_groups_by_relative_frequency procedure;
+  class m1_data_relative_frequency_sum default;
   class m1_mis_histogram_bar_graph risk;
   class m1_mis_relative_frequency_frequency risk;
   class m1_data_statistical_inquiry_problem core;

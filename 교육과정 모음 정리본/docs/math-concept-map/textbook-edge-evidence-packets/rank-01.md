@@ -10,9 +10,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 좌표평면과 그래프
 - priority tier: highest
 - priority score: 105
-- edges in packet: 238
-- cross-unit edges: 76
-- low confidence edges: 76
+- edges in packet: 234
+- cross-unit edges: 72
+- low confidence edges: 75
 
 ## Relationship Evidence Slots
 
@@ -81,7 +81,6 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_coord_y_axis__related_to__m1_coord_axis_point | intra_unit | y축 | related_to | 축 위의 점 | low | related_ref;textbook_page_refs;extraction_notes | Find textbook wording or examples that justify keeping these concepts linked. | 2 |
 | m1_coord_x_coordinate__prerequisite_for__m1_func_x_increment | cross_unit | x좌표 | prerequisite_for | x의 증가량 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_coord_y_coordinate__prerequisite_for__m1_func_y_increment | cross_unit | y좌표 | prerequisite_for | y의 증가량 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
-| m1_graph_graph__prerequisite_for__m1_mis_histogram_bar_graph | cross_unit | 그래프 | prerequisite_for | 히스토그램과 막대그래프를 같은 표현으로 보는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_negative_number__prerequisite_for__m1_coord_quadrant_signs | cross_unit | 음수 | prerequisite_for | 사분면별 좌표 부호 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_positive_number__prerequisite_for__m1_coord_quadrant_signs | cross_unit | 양수 | prerequisite_for | 사분면별 좌표 부호 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_repr_expression__prerequisite_for__m1_mis_expression_equation | cross_unit | 식 | prerequisite_for | 식과 방정식 혼동 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
@@ -211,9 +210,10 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_coord_y_axis__prerequisite_for__m1_func_y_intercept | cross_unit | y축 | prerequisite_for | y절편 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_eq_unit__prerequisite_for__m1_coord_graph_unit | cross_unit | 일차방정식 | prerequisite_for | 좌표평면과 그래프 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_graph_graph__prerequisite_for__m1_data_critical_graph_reading | cross_unit | 그래프 | prerequisite_for | 표와 그래프의 오류 비판적으로 읽기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
-| m1_graph_graph__prerequisite_for__m1_data_frequency_unit | cross_unit | 그래프 | prerequisite_for | 도수분포표와 상대도수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
-| m1_graph_graph__prerequisite_for__m1_data_histogram | cross_unit | 그래프 | prerequisite_for | 히스토그램 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
-| m1_graph_graph__prerequisite_for__m1_data_relative_frequency_table_graph | cross_unit | 그래프 | prerequisite_for | 상대도수의 분포를 표나 그래프로 나타내기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_graph_graph__prerequisite_for__m1_data_frequency_unit | cross_unit | 그래프 | prerequisite_for | 도수분포표와 상대도수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 5 |
+| m1_graph_graph__prerequisite_for__m1_data_histogram | cross_unit | 그래프 | prerequisite_for | 히스토그램 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_graph_graph__prerequisite_for__m1_data_histogram_drawing | cross_unit | 그래프 | prerequisite_for | 히스토그램으로 나타내기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_graph_graph__prerequisite_for__m1_data_relative_frequency_table_graph | cross_unit | 그래프 | prerequisite_for | 상대도수의 분포를 표나 그래프로 나타내기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_graph_graph__prerequisite_for__m1_data_scatter_plot | cross_unit | 그래프 | prerequisite_for | 산점도 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_graph_graph__prerequisite_for__m1_func_linear_graph | cross_unit | 그래프 | prerequisite_for | 일차함수의 그래프 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_graph_graph__prerequisite_for__m1_quad_func_graph | cross_unit | 그래프 | prerequisite_for | 이차함수의 그래프 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
@@ -223,22 +223,18 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_repr_expression__prerequisite_for__m1_func_two_quantity_relation | cross_unit | 식 | prerequisite_for | 두 양 사이의 관계 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_repr_expression__prerequisite_for__m1_ineq_inequality | cross_unit | 식 | prerequisite_for | 부등식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_repr_table__prerequisite_for__m1_data_critical_graph_reading | cross_unit | 표 | prerequisite_for | 표와 그래프의 오류 비판적으로 읽기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
-| m1_repr_table__prerequisite_for__m1_data_frequency_table | cross_unit | 표 | prerequisite_for | 도수분포표 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
-| m1_repr_table__prerequisite_for__m1_data_frequency_unit | cross_unit | 표 | prerequisite_for | 도수분포표와 상대도수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
-| m1_repr_table__prerequisite_for__m1_data_relative_frequency_table_graph | cross_unit | 표 | prerequisite_for | 상대도수의 분포를 표나 그래프로 나타내기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_repr_table__prerequisite_for__m1_data_frequency_table | cross_unit | 표 | prerequisite_for | 도수분포표 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_repr_table__prerequisite_for__m1_data_frequency_table_construction | cross_unit | 표 | prerequisite_for | 도수분포표로 나타내기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_repr_table__prerequisite_for__m1_data_frequency_unit | cross_unit | 표 | prerequisite_for | 도수분포표와 상대도수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 5 |
+| m1_repr_table__prerequisite_for__m1_data_relative_frequency_table_graph | cross_unit | 표 | prerequisite_for | 상대도수의 분포를 표나 그래프로 나타내기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_repr_table__prerequisite_for__m1_func_two_quantity_relation | cross_unit | 표 | prerequisite_for | 두 양 사이의 관계 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_system_unit__prerequisite_for__m1_coord_graph_unit | cross_unit | 연립일차방정식 | prerequisite_for | 좌표평면과 그래프 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_coord_coordinate_plane__represented_by__m1_data_scatter_plot | cross_unit | 좌표평면 | represented_by | 산점도 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
 | m1_data_domain__represented_by__m1_graph_graph | cross_unit | 자료와 가능성 | represented_by | 그래프 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 4 |
 | m1_data_domain__represented_by__m1_repr_table | cross_unit | 자료와 가능성 | represented_by | 표 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 6 |
-| m1_data_relative_frequency_table_graph__represented_by__m1_graph_graph | cross_unit | 상대도수의 분포를 표나 그래프로 나타내기 | represented_by | 그래프 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
-| m1_data_relative_frequency_table_graph__represented_by__m1_repr_table | cross_unit | 상대도수의 분포를 표나 그래프로 나타내기 | represented_by | 표 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
 | m1_expr_literal_expression__represented_by__m1_repr_expression | cross_unit | 문자를 사용한 식 | represented_by | 식 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
-| m1_graph_graph__represented_by__m1_data_frequency_polygon | cross_unit | 그래프 | represented_by | 도수분포다각형 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
-| m1_graph_graph__represented_by__m1_data_histogram | cross_unit | 그래프 | represented_by | 히스토그램 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
 | m1_graph_graph__represented_by__m1_data_scatter_plot | cross_unit | 그래프 | represented_by | 산점도 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
 | m1_repr_everyday_language__represented_by__m1_expr_literal_expression | cross_unit | 일상 언어 | represented_by | 문자를 사용한 식 | high | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 3 |
-| m1_repr_table__represented_by__m1_data_frequency_table | cross_unit | 표 | represented_by | 도수분포표 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
 | m1_system_solution__represented_by__m1_coord_ordered_pair | cross_unit | 연립일차방정식의 해 | represented_by | 순서쌍 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
 | m1_coord_coordinate_plane__used_in__m1_func_linear_graph | cross_unit | 좌표평면 | used_in | 일차함수의 그래프 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_coord_coordinate_plane__used_in__m1_quad_func_graph | cross_unit | 좌표평면 | used_in | 이차함수의 그래프 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
