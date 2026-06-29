@@ -1186,10 +1186,28 @@
 - diff check: `git diff --check -- docs/math-concept-map 교과서_원본`: 종료 코드 0, CRLF 변환 경고만 확인.
 - PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
 
+## 2026-06-29 경우의 수와 확률 미시 concept 병렬 보강
+
+- AGENTS.md를 다시 확인했고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` concept map 보강, 파생 산출물 정비, 검증 보강으로 제한했다.
+- 멀티에이전트 explorer 3개를 병렬로 사용해 rank 3 `경우의 수와 확률`의 누락 미시 concept, edge 방향성, 연구보고서 보조 출처 후보를 독립 감사했다.
+- 연구보고서 p. 228과 p. 240의 OR/AND 경우의 수 성취수준 맥락, p. 260의 확률 평가 문항, p. 266~268의 이동 경로 평가 문항을 직접 확인해 경우의 수와 확률 미시 concept의 source ref로 반영했다. p. 260과 p. 266~268은 이번 수동 페이지 확인으로 반영했으며, 기존 `research-report-source-review.*` 53개 row의 적용 개수에는 더하지 않았다.
+- `전체 경우의 수`, `사건이 일어나는 경우의 수`, `경우의 수의 비율로 확률 구하기`, `확률값`, `확률의 범위`, `확률이 0인 사건`, `확률이 1인 사건`, `상대도수와 경우의 수의 비율 연결`을 추가했다. 이 중 `확률값`, `확률이 0인 사건`, `확률이 1인 사건`은 교과서 본문 확인 전까지 `confidence: low`로 유지한다.
+- `경우의 수`가 OR/AND 경우의 수를 포함하도록 `contains` edge를 정리하고, `합의 법칙`과 `곱의 법칙`은 각각 OR/AND 경우의 수에 `used_in`으로 쓰이도록 방향을 바로잡았다. `전체 경우의 수`와 `사건이 일어나는 경우의 수`는 경우의 수의 비율로 확률을 구하는 절차에 쓰이도록 연결했다.
+- `상대도수`와 `상대도수로서의 확률`의 `represented_by` 방향을 `상대도수로서의 확률 -> 상대도수`로 고정하고, OR/AND 경우의 수 대조 edge와 오개념 위험 노드의 noisy prerequisite edge를 정리해 `related-edge-resolution-queue.*`를 0건으로 유지했다.
+- 전체 파생 산출물을 재생성한 결과 concept은 493개, edge는 2064개가 되었다. source ref 총계는 concept 1307개, edge 5133개, 총 6440개이며 source catalogue는 5개이다.
+- `review-queue.*`는 78개 low-confidence concept, `concept-evidence-depth.*`는 concept 493개, `edge-evidence-depth.*`는 edge 2064개, `prerequisite-map.*`는 761개 선수 관계 edge로 갱신되었다.
+- `textbook-evidence-workplan.*`는 34개 단원 그룹, concept evidence row 493개, edge evidence row 2518개, pending textbook evidence row 3011개, low-confidence concept/edge row 559개를 기록한다. rank 1 `좌표평면과 그래프`는 43개 concept과 237개 edge row, 총 280개 row이고, rank 2 `일차함수와 그 그래프`는 33개 concept과 161개 edge row, 총 194개 row이며, rank 3 `경우의 수와 확률`은 26개 concept과 112개 edge row, 총 138개 row이다.
+- `test_build_pilot_data_probability_microconcepts.py`를 추가해 새 확률 미시 concept, OR/AND 경우의 수 edge 방향, 상대도수 표현 관계, p. 260 및 p. 266~268 보조 source ref를 고정했다. 기존 `test_build_pilot_data_probability.py`는 `사건 A 또는 사건 B가 일어나는 경우의 수`의 p. 228, p. 240, p. 266 보조 출처까지 확인하도록 갱신했다.
+- 좁은 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p "test_build_pilot_data_probability_microconcepts.py"` 4개, `test_build_pilot_edge_sync.py` 21개, `test_build_pilot_data_probability.py` 1개, `test_build_pilot_data_representative_refs.py` 1개 통과.
+- 전체 단위 테스트: `python -m unittest discover -s .\docs\math-concept-map\tools -p "test_*.py"`: 207개 통과.
+- 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 493개 concept, 2064개 edge, 5개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map 교과서_원본`: 종료 코드 0, CRLF 변환 경고만 확인.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
 - 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 `not_applicable_from_this_row` 33개가 broad context, 용어 충돌, 도구·자료 입력, 또는 약한 출현으로 유지되는지 주기적으로 감사하되, 현재 남은 `pending_manual_review`는 0개이다. 단, `비`와 `입력값` confidence 승격은 교과서 본문 또는 중학교 과정 직접 근거 확인 후 판단한다.
 - 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.
-- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 237개, 총 280개 row로 유지하되, rank 2 `일차함수와 그 그래프`의 concept 33개와 edge packet row 161개, 총 194개 row도 같은 방식으로 교과서 근거를 보강한다. 전체 단원 검토는 `unit-map-packets/index.*`에서 rank 1~34 순서로 이어간다.
+- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 237개, 총 280개 row로 유지하되, rank 2 `일차함수와 그 그래프`의 concept 33개와 edge packet row 161개, 총 194개 row, rank 3 `경우의 수와 확률`의 concept 26개와 edge packet row 112개, 총 138개 row도 같은 방식으로 교과서 근거를 보강한다. 전체 단원 검토는 `unit-map-packets/index.*`에서 rank 1~34 순서로 이어간다.
 - 새 concept, alias, `related_ids`, 또는 `equivalent_to` 후보가 추가되면 `equivalence-alias-audit.*`, `related-edge-resolution-queue.*`, `textbook-edge-evidence-packets/*`, `edge-evidence-depth.*`를 함께 재생성한다.

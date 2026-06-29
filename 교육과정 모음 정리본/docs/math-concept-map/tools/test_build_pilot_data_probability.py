@@ -23,10 +23,11 @@ class DataProbabilityConceptTests(unittest.TestCase):
         self.assertEqual(or_cases["confidence"], "medium")
         self.assertEqual(
             {ref["evidence_kind"] for ref in research_refs},
-            {"research_report_achievement_level_context"},
+            {"research_report_achievement_level_context", "research_report_assessment_item_context"},
         )
         self.assertIn("p. 228", locators)
         self.assertIn("p. 240", locators)
+        self.assertIn("p. 266", locators)
 
 
 if __name__ == "__main__":

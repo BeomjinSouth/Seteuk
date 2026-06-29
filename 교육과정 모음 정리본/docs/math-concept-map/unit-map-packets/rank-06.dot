@@ -43,6 +43,7 @@ digraph pilot_unit_map {
   "m1_data_mode" [label="최빈값\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_experimental_probability" [label="상대도수로서의 확률\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_probability_unit" [label="경우의 수와 확률\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_data_relative_frequency_case_ratio_link" [label="상대도수와 경우의 수의 비율 연결\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_representative_unit" [label="대푯값\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_box_plot" [label="상자그림\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_box_scatter_unit" [label="상자그림과 산점도\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -163,6 +164,7 @@ digraph pilot_unit_map {
   "m1_data_frequency" -> "m1_data_mode" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_data_relative_frequency" -> "m1_data_experimental_probability" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_data_relative_frequency" -> "m1_data_probability_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_data_relative_frequency" -> "m1_data_relative_frequency_case_ratio_link" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_data_representative_unit" -> "m1_data_frequency_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_data_technology_tool_stats" -> "m1_data_box_plot" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_data_technology_tool_stats" -> "m1_data_box_scatter_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -179,7 +181,7 @@ digraph pilot_unit_map {
   "m1_repr_table" -> "m1_data_relative_frequency_table_graph" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_data_dataset" -> "m1_data_frequency_table" [label="represented_by", style="dashed", color="#6b7280"];
   "m1_data_dataset" -> "m1_data_stem_leaf_plot" [label="represented_by", style="dashed", color="#6b7280"];
-  "m1_data_relative_frequency" -> "m1_data_experimental_probability" [label="represented_by", style="dashed", color="#6b7280"];
+  "m1_data_experimental_probability" -> "m1_data_relative_frequency" [label="represented_by", style="dashed", color="#6b7280"];
   "m1_data_relative_frequency_table_graph" -> "m1_graph_graph" [label="represented_by", style="dashed", color="#6b7280"];
   "m1_data_relative_frequency_table_graph" -> "m1_repr_table" [label="represented_by", style="dashed", color="#6b7280"];
   "m1_graph_graph" -> "m1_data_frequency_polygon" [label="represented_by", style="dashed", color="#6b7280"];

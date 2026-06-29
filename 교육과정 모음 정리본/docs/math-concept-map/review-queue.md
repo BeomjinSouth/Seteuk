@@ -2,7 +2,7 @@
 
 이 문서는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 출처 보강 때 먼저 확인할 대상을 정리한다.
 
-- 검토 대상 concept: 75개
+- 검토 대상 concept: 78개
 
 ## 영역별 검토 대상
 
@@ -11,7 +11,7 @@
 | 수와 연산 | 10 |
 | 변화와 관계 | 44 |
 | 도형과 측정 | 12 |
-| 자료와 가능성 | 9 |
+| 자료와 가능성 | 12 |
 
 ## 유형별 검토 대상
 
@@ -20,7 +20,7 @@
 | misconception_risk | 66 |
 | property | 1 |
 | representation | 1 |
-| sub_concept | 3 |
+| sub_concept | 6 |
 | term | 4 |
 
 ## 검토 항목
@@ -94,8 +94,11 @@
 | m1_mis_surface_area_volume | 도형과 측정 | 입체도형의 성질 | misconception_risk | textbook_evidence_needed | 겉넓이와 부피를 같은 측정량으로 보는 오류 |  |
 | m1_mis_arc_chord | 도형과 측정 | 평면도형의 성질 | misconception_risk | textbook_evidence_needed | 호와 현을 같은 대상으로 보는 오류 |  |
 | m1_mis_or_and_counting_confusion | 자료와 가능성 | 경우의 수와 확률 | misconception_risk | textbook_evidence_needed | 또는과 동시에의 경우의 수를 혼동하는 오류 |  |
-| m1_mis_permutation_combination_scope | 자료와 가능성 | 경우의 수와 확률 | misconception_risk | textbook_evidence_needed | 복잡한 순열·조합 문제를 중학교 범위로 확정하는 오류 | 교육과정 유의사항에 근거한 범위 관리 노드다. |
+| m1_mis_permutation_combination_scope | 자료와 가능성 | 경우의 수와 확률 | misconception_risk | textbook_evidence_needed | 복잡한 순열·조합 문항을 중학교 경우의 수 범위에 포함하는 범위 오판 | 교육과정 유의사항에 근거한 범위 관리 노드다. |
 | m1_mis_probability_no_equal_likely | 자료와 가능성 | 경우의 수와 확률 | misconception_risk | textbook_evidence_needed | 동등 가능성 가정 없이 경우의 수 비율을 적용하는 오류 |  |
+| m1_data_one_probability_event | 자료와 가능성 | 경우의 수와 확률 | sub_concept | source_detail_needed | 확률이 1인 사건 | 확률의 기본 성질에서 분리한 끝값 해석 concept이다. 교과서 본문 표현 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_data_probability_value | 자료와 가능성 | 경우의 수와 확률 | sub_concept | source_detail_needed | 확률값 | 공식 문서의 '가능성을 수로 나타낸 값' 맥락에서 분리한 미시 concept이다. 교과서 용어 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_data_zero_probability_event | 자료와 가능성 | 경우의 수와 확률 | sub_concept | source_detail_needed | 확률이 0인 사건 | 확률의 기본 성질에서 분리한 끝값 해석 concept이다. 교과서 본문 표현 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_mis_mean_only_representative | 자료와 가능성 | 대푯값 | misconception_risk | textbook_evidence_needed | 대푯값을 평균으로만 보는 오류 |  |
 | m1_mis_graph_scale_distortion | 자료와 가능성 | 도수분포표와 상대도수 | misconception_risk | textbook_evidence_needed | 눈금 왜곡 그래프를 그대로 해석하는 오류 | 교육과정의 '부적절한 눈금으로 자료를 부정확하게 나타낸 표나 그래프 오류 찾기'에 근거한 노드다. |
 | m1_mis_histogram_bar_graph | 자료와 가능성 | 도수분포표와 상대도수 | misconception_risk | textbook_evidence_needed | 히스토그램과 막대그래프를 같은 표현으로 보는 오류 | 공식 문서의 히스토그램 표현 요구에서 추론한 오개념 위험이다. 교과서 예제와 문항 근거 보강 필요. |

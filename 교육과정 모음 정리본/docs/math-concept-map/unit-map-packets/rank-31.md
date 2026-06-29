@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 수와 연산
 - unit: 공통 선수개념
 - priority tier: low
-- workplan score: 55
+- workplan score: 56
 - concepts: 1
-- edges touching unit: 10
-- cross-unit edges: 10
+- edges touching unit: 11
+- cross-unit edges: 11
 - low confidence concepts: 1
 - low confidence edges: 10
 
@@ -27,7 +27,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | relationship_type | count |
 |---|---:|
 | contains | 1 |
-| prerequisite_for | 2 |
+| prerequisite_for | 3 |
 | used_in | 7 |
 
 ## Low Confidence Concepts
@@ -50,3 +50,4 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_ratio__used_in__m1_geo_trigonometric_ratio | 비 | used_in | 삼각비 | low | official_dual_source |
 | m1_num_ratio__used_in__m1_prop_direct_proportion | 비 | used_in | 정비례 | low | official_dual_source |
 | m1_num_ratio__used_in__m1_prop_inverse_proportion | 비 | used_in | 반비례 | low | official_dual_source |
+| m1_num_ratio__prerequisite_for__m1_data_probability_by_case_ratio | 비 | prerequisite_for | 경우의 수의 비율로 확률 구하기 | medium | official_dual_source |

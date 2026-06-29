@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 자료와 가능성
 - unit: 도수분포표와 상대도수
 - priority tier: highest
-- workplan score: 165
+- workplan score: 166
 - concepts: 26
-- edges touching unit: 143
-- cross-unit edges: 49
+- edges touching unit: 144
+- cross-unit edges: 50
 - low confidence concepts: 3
 - low confidence edges: 18
 
@@ -32,7 +32,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 |---|---:|
 | contains | 26 |
 | often_confused_with | 9 |
-| prerequisite_for | 59 |
+| prerequisite_for | 60 |
 | related_to | 2 |
 | represented_by | 16 |
 | used_in | 31 |
@@ -68,6 +68,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_data_frequency__prerequisite_for__m1_data_mode | 도수 | prerequisite_for | 최빈값 | high | official_dual_source |
 | m1_data_relative_frequency__prerequisite_for__m1_data_experimental_probability | 상대도수 | prerequisite_for | 상대도수로서의 확률 | medium | official_single_source |
 | m1_data_relative_frequency__prerequisite_for__m1_data_probability_unit | 상대도수 | prerequisite_for | 경우의 수와 확률 | high | official_dual_source |
+| m1_data_relative_frequency__prerequisite_for__m1_data_relative_frequency_case_ratio_link | 상대도수 | prerequisite_for | 상대도수와 경우의 수의 비율 연결 | medium | official_single_source |
 | m1_data_representative_unit__prerequisite_for__m1_data_frequency_unit | 대푯값 | prerequisite_for | 도수분포표와 상대도수 | high | official_dual_source |
 | m1_data_technology_tool_stats__prerequisite_for__m1_data_box_plot | 공학 도구로 자료 수집·분석하기 | prerequisite_for | 상자그림 | high | official_dual_source |
 | m1_data_technology_tool_stats__prerequisite_for__m1_data_box_scatter_unit | 공학 도구로 자료 수집·분석하기 | prerequisite_for | 상자그림과 산점도 | high | official_dual_source |
@@ -84,8 +85,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_repr_table__prerequisite_for__m1_data_relative_frequency_table_graph | 표 | prerequisite_for | 상대도수의 분포를 표나 그래프로 나타내기 | high | official_dual_source |
 | m1_data_dataset__represented_by__m1_data_frequency_table | 자료 | represented_by | 도수분포표 | high | official_dual_source |
 | m1_data_dataset__represented_by__m1_data_stem_leaf_plot | 자료 | represented_by | 줄기와 잎 그림 | high | official_dual_source |
-| m1_data_relative_frequency__represented_by__m1_data_experimental_probability | 상대도수 | represented_by | 상대도수로서의 확률 | medium | official_single_source |
+| m1_data_experimental_probability__represented_by__m1_data_relative_frequency | 상대도수로서의 확률 | represented_by | 상대도수 | medium | official_single_source |
 | m1_data_relative_frequency_table_graph__represented_by__m1_graph_graph | 상대도수의 분포를 표나 그래프로 나타내기 | represented_by | 그래프 | medium | official_dual_source |
 | m1_data_relative_frequency_table_graph__represented_by__m1_repr_table | 상대도수의 분포를 표나 그래프로 나타내기 | represented_by | 표 | medium | official_dual_source |
 | m1_graph_graph__represented_by__m1_data_frequency_polygon | 그래프 | represented_by | 도수분포다각형 | medium | official_dual_source |
-| m1_graph_graph__represented_by__m1_data_histogram | 그래프 | represented_by | 히스토그램 | medium | official_dual_source |

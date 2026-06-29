@@ -5,7 +5,7 @@ Rows are candidate signals only; inspect the local page context before changing 
 
 ## Summary
 
-- matched concepts: 240
+- matched concepts: 242
 
 ## Confidence
 
@@ -13,14 +13,14 @@ Rows are candidate signals only; inspect the local page context before changing 
 |---|---:|
 | high | 207 |
 | low | 2 |
-| medium | 31 |
+| medium | 33 |
 
 ## Recommended Actions
 
 | action | matched concepts |
 |---|---:|
 | inspect_research_report_context_before_confidence_change | 2 |
-| inspect_research_report_context_before_source_ref_upgrade | 31 |
+| inspect_research_report_context_before_source_ref_upgrade | 33 |
 | use_as_supplemental_trace_only | 207 |
 
 ## Highest Priority Signals
@@ -50,9 +50,11 @@ Rows are candidate signals only; inspect the local page context before changing 
 | m1_geo_diagonal | 대각선 | 평면도형의 성질 | medium | 14 | 78; 213; 222; 231; 235; 236; 237; 238 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_data_or_cases | 사건 A 또는 사건 B가 일어나는 경우의 수 | 경우의 수와 확률 | medium | 12 | 228; 240; 266; 267; 268 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_data_and_cases | 사건 A와 사건 B가 동시에 일어나는 경우의 수 | 경우의 수와 확률 | medium | 11 | 228; 240; 266; 267; 268 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
+| m1_data_event_cases_count | 사건이 일어나는 경우의 수 | 경우의 수와 확률 | medium | 7 | 228; 241; 260; 266 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_quad_eq_quadratic_term | 이차항 | 이차방정식 | medium | 6 | 58; 59; 220; 234; 235 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_eq_both_sides | 양변 | 일차방정식 | medium | 4 | 98; 217 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_data_and_probability | 사건 A와 사건 B가 동시에 일어날 확률 | 경우의 수와 확률 | medium | 4 | 228; 260 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
+| m1_data_total_cases | 전체 경우의 수 | 경우의 수와 확률 | medium | 4 | 260; 262 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_geo_quadrilateral_relationship | 여러 가지 사각형 사이의 관계 | 삼각형과 사각형의 성질 | medium | 3 | 235; 236; 237 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_num_unit_square_diagonal | 한 변의 길이가 1인 정사각형의 대각선 | 제곱근과 실수 | medium | 3 | 213; 231 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_geo_pythagorean_converse | 피타고라스 정리의 역 | 피타고라스 정리 | medium | 2 | 269 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
@@ -105,5 +107,3 @@ Rows are candidate signals only; inspect the local page context before changing 
 | m1_num_integer_rational_unit | 정수와 유리수 | 정수와 유리수 | high | 43 | 27; 45; 211; 212; 230; 231; 232 | research_report_signal | use_as_supplemental_trace_only |
 | m1_data_domain | 자료와 가능성 | 자료와 가능성 | high | 43 | 9; 12; 23; 26; 45; 46; 76; 77; 78; 106; 110; 135; 140; 177; 183; 190; 198; 205; 208; 227; 239; 260; 266 | research_report_signal | use_as_supplemental_trace_only |
 | m1_func_slope | 기울기 | 일차함수와 그 그래프 | high | 42 | 58; 59; 87; 88; 89; 90; 205; 218; 234; 235; 252; 255; 257; 258 | research_report_signal | use_as_supplemental_trace_only |
-| m1_geo_parallel_lines | 평행선 | 기본 도형 | high | 40 | 62; 78; 79; 80; 221; 224; 235; 236; 237; 238; 242; 272 | research_report_signal | use_as_supplemental_trace_only |
-| m1_func_correspondence | 대응 관계 | 일차함수와 그 그래프 | high | 40 | 5; 12; 22; 24; 54; 75; 76; 84; 171; 173; 180; 181 | research_report_signal | use_as_supplemental_trace_only |

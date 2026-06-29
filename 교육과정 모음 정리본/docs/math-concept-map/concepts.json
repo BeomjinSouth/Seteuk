@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-29T14:57:28",
+    "generated_at": "2026-06-29T15:32:59",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
-    "concept_count": 485,
-    "edge_count": 2030
+    "concept_count": 493,
+    "edge_count": 2064
   },
   "sources": [
     {
@@ -19160,6 +19160,12 @@
           "locator": "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
           "evidence_kind": "research_report_achievement_level_context",
           "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -19167,7 +19173,8 @@
         "m1_data_counting_cases"
       ],
       "parent_ids": [
-        "m1_data_probability_unit"
+        "m1_data_probability_unit",
+        "m1_data_counting_cases"
       ],
       "related_ids": [
         "m1_data_addition_counting",
@@ -19199,6 +19206,24 @@
           "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
           "evidence_kind": "assessment_item",
           "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 228; 경우의 수와 확률 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 사건 A와 사건 B가 동시에 일어나는 경우의 수를 구하고 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -19206,7 +19231,8 @@
         "m1_data_counting_cases"
       ],
       "parent_ids": [
-        "m1_data_probability_unit"
+        "m1_data_probability_unit",
+        "m1_data_counting_cases"
       ],
       "related_ids": [
         "m1_data_multiplication_counting",
@@ -19238,10 +19264,16 @@
           "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
           "evidence_kind": "assessment_item",
           "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
         }
       ],
       "prerequisite_ids": [
-        "m1_data_or_cases"
+        "m1_data_counting_cases"
       ],
       "parent_ids": [
         "m1_data_probability_unit"
@@ -19275,16 +19307,168 @@
           "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
           "evidence_kind": "assessment_item",
           "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
         }
       ],
       "prerequisite_ids": [
-        "m1_data_and_cases"
+        "m1_data_counting_cases"
       ],
       "parent_ids": [
         "m1_data_probability_unit"
       ],
       "related_ids": [
         "m1_data_addition_counting"
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_total_cases",
+      "label_ko": "전체 경우의 수",
+      "aliases": [
+        "모든 경우의 수",
+        "일어날 수 있는 모든 경우의 수"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "경우의 수와 확률",
+      "concept_type": "sub_concept",
+      "short_definition": "가능성이 같은 전체 경우의 개수로, 경우의 수의 비율로 확률을 구할 때 분모 역할을 하는 값.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-05]~[9수04-06] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "경우의 수는 두 경우의 수를 합하거나 곱하는 정도로 다루며, 확률은 실험·관찰로 구한 상대도수와 경우의 수의 비율을 연결해 이해하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_counting_cases"
+      ],
+      "parent_ids": [
+        "m1_data_theoretical_probability"
+      ],
+      "related_ids": [
+        "m1_data_event_cases_count",
+        "m1_data_probability_by_case_ratio"
+      ],
+      "notes": "공식 문서의 경우의 수의 비율 맥락과 연구보고서 p. 260 평가 과제에 근거한 미시 concept이다. 교과서 용어 확인 전까지 별도 공식 용어로 보지 않는다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_event_cases_count",
+      "label_ko": "사건이 일어나는 경우의 수",
+      "aliases": [
+        "주어진 사건이 일어나는 경우의 수",
+        "유리한 경우의 수"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "경우의 수와 확률",
+      "concept_type": "sub_concept",
+      "short_definition": "관심 있는 사건이 실제로 일어나는 경우의 개수로, 경우의 수의 비율로 확률을 구할 때 분자 역할을 하는 값.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_event",
+        "m1_data_counting_cases"
+      ],
+      "parent_ids": [
+        "m1_data_theoretical_probability"
+      ],
+      "related_ids": [
+        "m1_data_total_cases",
+        "m1_data_probability_by_case_ratio"
+      ],
+      "notes": "교과서에서는 '사건이 일어나는 경우의 수'나 '유리한 경우의 수'로 표현될 수 있어 alias와 source_refs에 표현 차이를 보존한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_probability_by_case_ratio",
+      "label_ko": "경우의 수의 비율로 확률 구하기",
+      "aliases": [
+        "확률을 경우의 수의 비율로 구하기",
+        "사건의 확률 구하기"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "경우의 수와 확률",
+      "concept_type": "procedure",
+      "short_definition": "전체 경우의 수에 대한 사건이 일어나는 경우의 수의 비율로 확률을 구하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-05]~[9수04-06] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "경우의 수는 두 경우의 수를 합하거나 곱하는 정도로 다루며, 확률은 실험·관찰로 구한 상대도수와 경우의 수의 비율을 연결해 이해하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_total_cases",
+        "m1_data_event_cases_count",
+        "m1_num_ratio",
+        "m1_data_equally_likely_assumption"
+      ],
+      "parent_ids": [
+        "m1_data_theoretical_probability"
+      ],
+      "related_ids": [
+        "m1_data_probability",
+        "m1_data_or_probability",
+        "m1_data_and_probability"
       ],
       "notes": "",
       "confidence": "medium"
@@ -19343,6 +19527,43 @@
       "confidence": "high"
     },
     {
+      "id": "m1_data_probability_value",
+      "label_ko": "확률값",
+      "aliases": [
+        "확률의 값",
+        "가능성을 나타내는 수"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "경우의 수와 확률",
+      "concept_type": "sub_concept",
+      "short_definition": "사건에 대응되는 확률의 수값.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_probability",
+        "m1_num_rational_number"
+      ],
+      "parent_ids": [
+        "m1_data_probability"
+      ],
+      "related_ids": [],
+      "notes": "공식 문서의 '가능성을 수로 나타낸 값' 맥락에서 분리한 미시 concept이다. 교과서 용어 확인 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_probability_basic_properties",
       "label_ko": "확률의 기본 성질",
       "aliases": [
@@ -19381,6 +19602,120 @@
       "confidence": "high"
     },
     {
+      "id": "m1_data_probability_range_0_1",
+      "label_ko": "확률의 범위",
+      "aliases": [
+        "확률은 0 이상 1 이하",
+        "0 이상 1 이하"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "경우의 수와 확률",
+      "concept_type": "property",
+      "short_definition": "확률값이 0 이상 1 이하의 범위에 놓인다는 기본 성질.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_probability_value"
+      ],
+      "parent_ids": [
+        "m1_data_probability_basic_properties"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_zero_probability_event",
+      "label_ko": "확률이 0인 사건",
+      "aliases": [
+        "불가능한 사건",
+        "일어나지 않는 사건"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "경우의 수와 확률",
+      "concept_type": "sub_concept",
+      "short_definition": "확률값이 0인 사건으로, 일어날 가능성이 없는 경우를 나타낸다.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_probability_range_0_1",
+        "m1_data_event"
+      ],
+      "parent_ids": [
+        "m1_data_probability_basic_properties"
+      ],
+      "related_ids": [
+        "m1_data_one_probability_event"
+      ],
+      "notes": "확률의 기본 성질에서 분리한 끝값 해석 concept이다. 교과서 본문 표현 확인 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_one_probability_event",
+      "label_ko": "확률이 1인 사건",
+      "aliases": [
+        "반드시 일어나는 사건",
+        "확실한 사건"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "경우의 수와 확률",
+      "concept_type": "sub_concept",
+      "short_definition": "확률값이 1인 사건으로, 반드시 일어나는 경우를 나타낸다.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_probability_range_0_1",
+        "m1_data_event"
+      ],
+      "parent_ids": [
+        "m1_data_probability_basic_properties"
+      ],
+      "related_ids": [
+        "m1_data_zero_probability_event"
+      ],
+      "notes": "확률의 기본 성질에서 분리한 끝값 해석 concept이다. 교과서 본문 표현 확인 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_or_probability",
       "label_ko": "사건 A 또는 사건 B가 일어날 확률",
       "aliases": [
@@ -19397,11 +19732,24 @@
           "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
         }
       ],
       "prerequisite_ids": [
         "m1_data_probability_basic_properties",
-        "m1_data_or_cases"
+        "m1_data_or_cases",
+        "m1_data_probability_by_case_ratio"
       ],
       "parent_ids": [
         "m1_data_probability_unit"
@@ -19429,11 +19777,24 @@
           "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
         }
       ],
       "prerequisite_ids": [
         "m1_data_probability_basic_properties",
-        "m1_data_and_cases"
+        "m1_data_and_cases",
+        "m1_data_probability_by_case_ratio"
       ],
       "parent_ids": [
         "m1_data_probability_unit"
@@ -19505,6 +19866,12 @@
           "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -19516,6 +19883,7 @@
         "m1_data_probability_unit"
       ],
       "related_ids": [
+        "m1_data_probability_by_case_ratio",
         "m1_data_experimental_probability"
       ],
       "notes": "",
@@ -19569,6 +19937,12 @@
           "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
           "evidence_kind": "assessment_item",
           "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -19580,6 +19954,39 @@
       "related_ids": [
         "m1_data_or_cases",
         "m1_data_and_cases"
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_relative_frequency_case_ratio_link",
+      "label_ko": "상대도수와 경우의 수의 비율 연결",
+      "aliases": [
+        "실험적 확률과 이론적 확률 연결"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "경우의 수와 확률",
+      "concept_type": "sub_concept",
+      "short_definition": "실험·관찰로 얻은 상대도수와 가능성이 같은 경우의 수의 비율을 연결해 확률을 이해하는 관점.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-05]~[9수04-06] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "경우의 수는 두 경우의 수를 합하거나 곱하는 정도로 다루며, 확률은 실험·관찰로 구한 상대도수와 경우의 수의 비율을 연결해 이해하게 함"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_relative_frequency",
+        "m1_data_experimental_probability",
+        "m1_data_theoretical_probability"
+      ],
+      "parent_ids": [
+        "m1_data_probability_unit"
+      ],
+      "related_ids": [
+        "m1_data_probability"
       ],
       "notes": "",
       "confidence": "medium"
@@ -19607,16 +20014,21 @@
           "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
           "evidence_kind": "assessment_item",
           "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
         }
       ],
-      "prerequisite_ids": [
-        "m1_data_or_cases",
-        "m1_data_and_cases"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_data_probability_unit"
       ],
       "related_ids": [
+        "m1_data_or_cases",
+        "m1_data_and_cases",
         "m1_data_addition_counting",
         "m1_data_multiplication_counting"
       ],
@@ -19627,13 +20039,14 @@
       "id": "m1_mis_probability_no_equal_likely",
       "label_ko": "동등 가능성 가정 없이 경우의 수 비율을 적용하는 오류",
       "aliases": [
-        "확률 동등 가능성 조건 누락"
+        "확률 동등 가능성 조건 누락",
+        "경우의 수 비율의 동등 가능성 누락"
       ],
       "grade": "중2(교육과정 학년군: 중1-3)",
       "domain": "자료와 가능성",
       "unit": "경우의 수와 확률",
       "concept_type": "misconception_risk",
-      "short_definition": "각 경우가 같은 가능성으로 일어난다는 조건을 확인하지 않고 경우의 수의 비율로 확률을 구하는 위험.",
+      "short_definition": "경우의 수의 비율로 확률을 구할 때 각 경우가 같은 가능성으로 일어난다는 조건을 확인하지 않는 위험.",
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
@@ -19642,22 +20055,21 @@
           "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
         }
       ],
-      "prerequisite_ids": [
-        "m1_data_theoretical_probability",
-        "m1_data_equally_likely_assumption"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_data_probability_unit"
       ],
       "related_ids": [
-        "m1_data_probability"
+        "m1_data_probability_by_case_ratio",
+        "m1_data_theoretical_probability",
+        "m1_data_equally_likely_assumption"
       ],
       "notes": "",
       "confidence": "low"
     },
     {
       "id": "m1_mis_permutation_combination_scope",
-      "label_ko": "복잡한 순열·조합 문제를 중학교 범위로 확정하는 오류",
+      "label_ko": "복잡한 순열·조합 문항을 중학교 경우의 수 범위에 포함하는 범위 오판",
       "aliases": [
         "순열조합 범위 혼동"
       ],
@@ -19674,13 +20086,12 @@
           "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
         }
       ],
-      "prerequisite_ids": [
-        "m1_data_counting_cases"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_data_probability_unit"
       ],
       "related_ids": [
+        "m1_data_counting_cases",
         "m1_data_addition_counting",
         "m1_data_multiplication_counting"
       ],
@@ -42196,9 +42607,9 @@
       "confidence": "medium"
     },
     {
-      "id": "m1_data_or_cases__used_in__m1_data_addition_counting",
-      "source_id": "m1_data_or_cases",
-      "target_id": "m1_data_addition_counting",
+      "id": "m1_data_addition_counting__used_in__m1_data_or_cases",
+      "source_id": "m1_data_addition_counting",
+      "target_id": "m1_data_or_cases",
       "relationship_type": "used_in",
       "source_refs": [
         {
@@ -42212,15 +42623,21 @@
           "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
           "evidence_kind": "assessment_item",
           "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
       "confidence": "medium"
     },
     {
-      "id": "m1_data_and_cases__used_in__m1_data_multiplication_counting",
-      "source_id": "m1_data_and_cases",
-      "target_id": "m1_data_multiplication_counting",
+      "id": "m1_data_multiplication_counting__used_in__m1_data_and_cases",
+      "source_id": "m1_data_multiplication_counting",
+      "target_id": "m1_data_and_cases",
       "relationship_type": "used_in",
       "source_refs": [
         {
@@ -42234,6 +42651,12 @@
           "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
           "evidence_kind": "assessment_item",
           "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -42250,22 +42673,12 @@
           "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
           "evidence_kind": "assessment_item",
           "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
-        }
-      ],
-      "notes": "",
-      "confidence": "medium"
-    },
-    {
-      "id": "m1_data_and_cases__contrasts_with__m1_data_or_cases",
-      "source_id": "m1_data_and_cases",
-      "target_id": "m1_data_or_cases",
-      "relationship_type": "contrasts_with",
-      "source_refs": [
+        },
         {
-          "source_id": "achievement_math_2022",
-          "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
-          "evidence_kind": "assessment_item",
-          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -42294,6 +42707,166 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_data_total_cases__used_in__m1_data_probability_by_case_ratio",
+      "source_id": "m1_data_total_cases",
+      "target_id": "m1_data_probability_by_case_ratio",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-05]~[9수04-06] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "경우의 수는 두 경우의 수를 합하거나 곱하는 정도로 다루며, 확률은 실험·관찰로 구한 상대도수와 경우의 수의 비율을 연결해 이해하게 함"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_event_cases_count__used_in__m1_data_probability_by_case_ratio",
+      "source_id": "m1_data_event_cases_count",
+      "target_id": "m1_data_probability_by_case_ratio",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_total_cases__contrasts_with__m1_data_event_cases_count",
+      "source_id": "m1_data_total_cases",
+      "target_id": "m1_data_event_cases_count",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-05]~[9수04-06] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "경우의 수는 두 경우의 수를 합하거나 곱하는 정도로 다루며, 확률은 실험·관찰로 구한 상대도수와 경우의 수의 비율을 연결해 이해하게 함"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
+        }
+      ],
+      "notes": "전체 경우의 수와 사건이 일어나는 경우의 수는 경우의 수의 비율로 확률을 구할 때 분모와 분자로 구별된다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_probability_by_case_ratio__used_in__m1_data_theoretical_probability",
+      "source_id": "m1_data_probability_by_case_ratio",
+      "target_id": "m1_data_theoretical_probability",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-05]~[9수04-06] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "경우의 수는 두 경우의 수를 합하거나 곱하는 정도로 다루며, 확률은 실험·관찰로 구한 상대도수와 경우의 수의 비율을 연결해 이해하게 함"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_probability_by_case_ratio__used_in__m1_data_probability",
+      "source_id": "m1_data_probability_by_case_ratio",
+      "target_id": "m1_data_probability",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-05]~[9수04-06] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "경우의 수는 두 경우의 수를 합하거나 곱하는 정도로 다루며, 확률은 실험·관찰로 구한 상대도수와 경우의 수의 비율을 연결해 이해하게 함"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_probability_by_case_ratio__used_in__m1_data_or_probability",
+      "source_id": "m1_data_probability_by_case_ratio",
+      "target_id": "m1_data_or_probability",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_probability_by_case_ratio__used_in__m1_data_and_probability",
+      "source_id": "m1_data_probability_by_case_ratio",
+      "target_id": "m1_data_and_probability",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_data_counting_cases__used_in__m1_data_theoretical_probability",
       "source_id": "m1_data_counting_cases",
       "target_id": "m1_data_theoretical_probability",
@@ -42316,9 +42889,9 @@
       "confidence": "high"
     },
     {
-      "id": "m1_data_relative_frequency__represented_by__m1_data_experimental_probability",
-      "source_id": "m1_data_relative_frequency",
-      "target_id": "m1_data_experimental_probability",
+      "id": "m1_data_experimental_probability__represented_by__m1_data_relative_frequency",
+      "source_id": "m1_data_experimental_probability",
+      "target_id": "m1_data_relative_frequency",
       "relationship_type": "represented_by",
       "source_refs": [
         {
@@ -42370,6 +42943,50 @@
       "confidence": "high"
     },
     {
+      "id": "m1_data_theoretical_probability__used_in__m1_data_or_probability",
+      "source_id": "m1_data_theoretical_probability",
+      "target_id": "m1_data_or_probability",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_theoretical_probability__used_in__m1_data_and_probability",
+      "source_id": "m1_data_theoretical_probability",
+      "target_id": "m1_data_and_probability",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_data_experimental_probability__contrasts_with__m1_data_theoretical_probability",
       "source_id": "m1_data_experimental_probability",
       "target_id": "m1_data_theoretical_probability",
@@ -42400,6 +43017,22 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_data_relative_frequency_case_ratio_link__used_in__m1_data_probability",
+      "source_id": "m1_data_relative_frequency_case_ratio_link",
+      "target_id": "m1_data_probability",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-05]~[9수04-06] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "경우의 수는 두 경우의 수를 합하거나 곱하는 정도로 다루며, 확률은 실험·관찰로 구한 상대도수와 경우의 수의 비율을 연결해 이해하게 함"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_data_probability__used_in__m1_data_probability_basic_properties",
@@ -42456,6 +43089,28 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_data_zero_probability_event__contrasts_with__m1_data_one_probability_event",
+      "source_id": "m1_data_zero_probability_event",
+      "target_id": "m1_data_one_probability_event",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        }
+      ],
+      "notes": "확률의 범위에서 양 끝값 0과 1의 의미를 구별한다. 교과서 표현 확인 전까지 낮은 신뢰도 concept으로 유지한다.",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_or_probability__contrasts_with__m1_data_and_probability",
       "source_id": "m1_data_or_probability",
       "target_id": "m1_data_and_probability",
@@ -42494,6 +43149,12 @@
           "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
           "evidence_kind": "assessment_item",
           "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -42510,6 +43171,12 @@
           "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
           "evidence_kind": "assessment_item",
           "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -50636,6 +51303,52 @@
           "locator": "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
           "evidence_kind": "research_report_achievement_level_context",
           "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_counting_cases__contains__m1_data_or_cases",
+      "source_id": "m1_data_counting_cases",
+      "target_id": "m1_data_or_cases",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
+          "evidence_kind": "assessment_item",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 228; 경우의 수와 확률 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 사건 A와 사건 B가 동시에 일어나는 경우의 수를 구하고 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -50658,6 +51371,64 @@
           "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
           "evidence_kind": "assessment_item",
           "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 228; 경우의 수와 확률 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 사건 A와 사건 B가 동시에 일어나는 경우의 수를 구하고 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_counting_cases__contains__m1_data_and_cases",
+      "source_id": "m1_data_counting_cases",
+      "target_id": "m1_data_and_cases",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
+          "evidence_kind": "assessment_item",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 228; 경우의 수와 확률 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 사건 A와 사건 B가 동시에 일어나는 경우의 수를 구하고 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -50680,6 +51451,12 @@
           "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
           "evidence_kind": "assessment_item",
           "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -50702,6 +51479,102 @@
           "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
           "evidence_kind": "assessment_item",
           "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_theoretical_probability__contains__m1_data_total_cases",
+      "source_id": "m1_data_theoretical_probability",
+      "target_id": "m1_data_total_cases",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-05]~[9수04-06] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "경우의 수는 두 경우의 수를 합하거나 곱하는 정도로 다루며, 확률은 실험·관찰로 구한 상대도수와 경우의 수의 비율을 연결해 이해하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_theoretical_probability__contains__m1_data_event_cases_count",
+      "source_id": "m1_data_theoretical_probability",
+      "target_id": "m1_data_event_cases_count",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_theoretical_probability__contains__m1_data_probability_by_case_ratio",
+      "source_id": "m1_data_theoretical_probability",
+      "target_id": "m1_data_probability_by_case_ratio",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-05]~[9수04-06] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "경우의 수는 두 경우의 수를 합하거나 곱하는 정도로 다루며, 확률은 실험·관찰로 구한 상대도수와 경우의 수의 비율을 연결해 이해하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -50742,6 +51615,28 @@
       "confidence": "high"
     },
     {
+      "id": "m1_data_probability__contains__m1_data_probability_value",
+      "source_id": "m1_data_probability",
+      "target_id": "m1_data_probability_value",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_probability_unit__contains__m1_data_probability_basic_properties",
       "source_id": "m1_data_probability_unit",
       "target_id": "m1_data_probability_basic_properties",
@@ -50764,6 +51659,72 @@
       "confidence": "high"
     },
     {
+      "id": "m1_data_probability_basic_properties__contains__m1_data_probability_range_0_1",
+      "source_id": "m1_data_probability_basic_properties",
+      "target_id": "m1_data_probability_range_0_1",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_probability_basic_properties__contains__m1_data_zero_probability_event",
+      "source_id": "m1_data_probability_basic_properties",
+      "target_id": "m1_data_zero_probability_event",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_probability_basic_properties__contains__m1_data_one_probability_event",
+      "source_id": "m1_data_probability_basic_properties",
+      "target_id": "m1_data_one_probability_event",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_probability_unit__contains__m1_data_or_probability",
       "source_id": "m1_data_probability_unit",
       "target_id": "m1_data_or_probability",
@@ -50774,6 +51735,18 @@
           "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -50790,6 +51763,18 @@
           "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -50834,6 +51819,12 @@
           "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -50866,6 +51857,28 @@
           "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
           "evidence_kind": "assessment_item",
           "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_probability_unit__contains__m1_data_relative_frequency_case_ratio_link",
+      "source_id": "m1_data_probability_unit",
+      "target_id": "m1_data_relative_frequency_case_ratio_link",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-05]~[9수04-06] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "경우의 수는 두 경우의 수를 합하거나 곱하는 정도로 다루며, 확률은 실험·관찰로 구한 상대도수와 경우의 수의 비율을 연결해 이해하게 함"
         }
       ],
       "notes": "",
@@ -50888,6 +51901,12 @@
           "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
           "evidence_kind": "assessment_item",
           "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -67534,6 +68553,12 @@
           "locator": "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
           "evidence_kind": "research_report_achievement_level_context",
           "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -67568,6 +68593,12 @@
           "locator": "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
           "evidence_kind": "research_report_achievement_level_context",
           "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -67590,6 +68621,24 @@
           "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
           "evidence_kind": "assessment_item",
           "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 228; 경우의 수와 확률 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 사건 A와 사건 B가 동시에 일어나는 경우의 수를 구하고 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -67612,14 +68661,32 @@
           "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
           "evidence_kind": "assessment_item",
           "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 228; 경우의 수와 확률 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 사건 A와 사건 B가 동시에 일어나는 경우의 수를 구하고 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
       "confidence": "medium"
     },
     {
-      "id": "m1_data_or_cases__prerequisite_for__m1_data_addition_counting",
-      "source_id": "m1_data_or_cases",
+      "id": "m1_data_counting_cases__prerequisite_for__m1_data_addition_counting",
+      "source_id": "m1_data_counting_cases",
       "target_id": "m1_data_addition_counting",
       "relationship_type": "prerequisite_for",
       "source_refs": [
@@ -67634,14 +68701,20 @@
           "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
           "evidence_kind": "assessment_item",
           "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
       "confidence": "medium"
     },
     {
-      "id": "m1_data_and_cases__prerequisite_for__m1_data_multiplication_counting",
-      "source_id": "m1_data_and_cases",
+      "id": "m1_data_counting_cases__prerequisite_for__m1_data_multiplication_counting",
+      "source_id": "m1_data_counting_cases",
       "target_id": "m1_data_multiplication_counting",
       "relationship_type": "prerequisite_for",
       "source_refs": [
@@ -67656,6 +68729,232 @@
           "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
           "evidence_kind": "assessment_item",
           "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_counting_cases__prerequisite_for__m1_data_total_cases",
+      "source_id": "m1_data_counting_cases",
+      "target_id": "m1_data_total_cases",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-05]~[9수04-06] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "경우의 수는 두 경우의 수를 합하거나 곱하는 정도로 다루며, 확률은 실험·관찰로 구한 상대도수와 경우의 수의 비율을 연결해 이해하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_event__prerequisite_for__m1_data_event_cases_count",
+      "source_id": "m1_data_event",
+      "target_id": "m1_data_event_cases_count",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_counting_cases__prerequisite_for__m1_data_event_cases_count",
+      "source_id": "m1_data_counting_cases",
+      "target_id": "m1_data_event_cases_count",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_total_cases__prerequisite_for__m1_data_probability_by_case_ratio",
+      "source_id": "m1_data_total_cases",
+      "target_id": "m1_data_probability_by_case_ratio",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-05]~[9수04-06] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "경우의 수는 두 경우의 수를 합하거나 곱하는 정도로 다루며, 확률은 실험·관찰로 구한 상대도수와 경우의 수의 비율을 연결해 이해하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_event_cases_count__prerequisite_for__m1_data_probability_by_case_ratio",
+      "source_id": "m1_data_event_cases_count",
+      "target_id": "m1_data_probability_by_case_ratio",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-05]~[9수04-06] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "경우의 수는 두 경우의 수를 합하거나 곱하는 정도로 다루며, 확률은 실험·관찰로 구한 상대도수와 경우의 수의 비율을 연결해 이해하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_ratio__prerequisite_for__m1_data_probability_by_case_ratio",
+      "source_id": "m1_num_ratio",
+      "target_id": "m1_data_probability_by_case_ratio",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-05]~[9수04-06] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "경우의 수는 두 경우의 수를 합하거나 곱하는 정도로 다루며, 확률은 실험·관찰로 구한 상대도수와 경우의 수의 비율을 연결해 이해하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_equally_likely_assumption__prerequisite_for__m1_data_probability_by_case_ratio",
+      "source_id": "m1_data_equally_likely_assumption",
+      "target_id": "m1_data_probability_by_case_ratio",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-05]~[9수04-06] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "경우의 수는 두 경우의 수를 합하거나 곱하는 정도로 다루며, 확률은 실험·관찰로 구한 상대도수와 경우의 수의 비율을 연결해 이해하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -67764,6 +69063,50 @@
       "confidence": "high"
     },
     {
+      "id": "m1_data_probability__prerequisite_for__m1_data_probability_value",
+      "source_id": "m1_data_probability",
+      "target_id": "m1_data_probability_value",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_num_rational_number__prerequisite_for__m1_data_probability_value",
+      "source_id": "m1_num_rational_number",
+      "target_id": "m1_data_probability_value",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_probability__prerequisite_for__m1_data_probability_basic_properties",
       "source_id": "m1_data_probability",
       "target_id": "m1_data_probability_basic_properties",
@@ -67786,6 +69129,116 @@
       "confidence": "high"
     },
     {
+      "id": "m1_data_probability_value__prerequisite_for__m1_data_probability_range_0_1",
+      "source_id": "m1_data_probability_value",
+      "target_id": "m1_data_probability_range_0_1",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_probability_range_0_1__prerequisite_for__m1_data_zero_probability_event",
+      "source_id": "m1_data_probability_range_0_1",
+      "target_id": "m1_data_zero_probability_event",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_event__prerequisite_for__m1_data_zero_probability_event",
+      "source_id": "m1_data_event",
+      "target_id": "m1_data_zero_probability_event",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_probability_range_0_1__prerequisite_for__m1_data_one_probability_event",
+      "source_id": "m1_data_probability_range_0_1",
+      "target_id": "m1_data_one_probability_event",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_event__prerequisite_for__m1_data_one_probability_event",
+      "source_id": "m1_data_event",
+      "target_id": "m1_data_one_probability_event",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "확률의 개념과 기본 성질을 이해하고 확률을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_probability_basic_properties__prerequisite_for__m1_data_or_probability",
       "source_id": "m1_data_probability_basic_properties",
       "target_id": "m1_data_or_probability",
@@ -67796,6 +69249,18 @@
           "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -67812,6 +69277,46 @@
           "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_probability_by_case_ratio__prerequisite_for__m1_data_or_probability",
+      "source_id": "m1_data_probability_by_case_ratio",
+      "target_id": "m1_data_or_probability",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -67828,6 +69333,18 @@
           "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -67844,6 +69361,46 @@
           "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_probability_by_case_ratio__prerequisite_for__m1_data_and_probability",
+      "source_id": "m1_data_probability_by_case_ratio",
+      "target_id": "m1_data_and_probability",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 240; 자료와 가능성 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "사건 A 또는 사건 B가 일어나는 경우의 수와 확률, 사건 A와 사건 B가 동시에 일어나는 경우의 수와 확률을 구하는 영역별 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -67904,6 +69461,12 @@
           "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -67932,6 +69495,12 @@
           "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -67960,6 +69529,12 @@
           "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 260; 확률 예시 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "모든 경우의 수에 대해 주어진 사건이 일어나는 경우의 수의 비율을 구해 간단한 상황의 확률을 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
@@ -67992,102 +69567,64 @@
           "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
           "evidence_kind": "assessment_item",
           "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
         }
       ],
       "notes": "",
       "confidence": "medium"
     },
     {
-      "id": "m1_data_or_cases__prerequisite_for__m1_mis_or_and_counting_confusion",
-      "source_id": "m1_data_or_cases",
-      "target_id": "m1_mis_or_and_counting_confusion",
+      "id": "m1_data_relative_frequency__prerequisite_for__m1_data_relative_frequency_case_ratio_link",
+      "source_id": "m1_data_relative_frequency",
+      "target_id": "m1_data_relative_frequency_case_ratio_link",
       "relationship_type": "prerequisite_for",
       "source_refs": [
         {
-          "source_id": "achievement_math_2022",
-          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
-          "evidence_kind": "assessment_item",
-          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-05]~[9수04-06] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "경우의 수는 두 경우의 수를 합하거나 곱하는 정도로 다루며, 확률은 실험·관찰로 구한 상대도수와 경우의 수의 비율을 연결해 이해하게 함"
         }
       ],
       "notes": "",
-      "confidence": "low"
+      "confidence": "medium"
     },
     {
-      "id": "m1_data_and_cases__prerequisite_for__m1_mis_or_and_counting_confusion",
-      "source_id": "m1_data_and_cases",
-      "target_id": "m1_mis_or_and_counting_confusion",
+      "id": "m1_data_experimental_probability__prerequisite_for__m1_data_relative_frequency_case_ratio_link",
+      "source_id": "m1_data_experimental_probability",
+      "target_id": "m1_data_relative_frequency_case_ratio_link",
       "relationship_type": "prerequisite_for",
       "source_refs": [
         {
-          "source_id": "achievement_math_2022",
-          "locator": "자료와 가능성 section; [9수04-05]~[9수04-06] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "사건 A 또는 B, 사건 A와 B가 동시에 일어나는 경우의 수, 확률의 개념과 기본 성질, 사건의 확률을 구하는 수준을 구분"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
-          "evidence_kind": "assessment_item",
-          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-05]~[9수04-06] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "경우의 수는 두 경우의 수를 합하거나 곱하는 정도로 다루며, 확률은 실험·관찰로 구한 상대도수와 경우의 수의 비율을 연결해 이해하게 함"
         }
       ],
       "notes": "",
-      "confidence": "low"
+      "confidence": "medium"
     },
     {
-      "id": "m1_data_theoretical_probability__prerequisite_for__m1_mis_probability_no_equal_likely",
+      "id": "m1_data_theoretical_probability__prerequisite_for__m1_data_relative_frequency_case_ratio_link",
       "source_id": "m1_data_theoretical_probability",
-      "target_id": "m1_mis_probability_no_equal_likely",
+      "target_id": "m1_data_relative_frequency_case_ratio_link",
       "relationship_type": "prerequisite_for",
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
-          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "locator": "printed p. 41; [9수04-05]~[9수04-06] explanation",
           "evidence_kind": "teaching_note",
-          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+          "summary": "경우의 수는 두 경우의 수를 합하거나 곱하는 정도로 다루며, 확률은 실험·관찰로 구한 상대도수와 경우의 수의 비율을 연결해 이해하게 함"
         }
       ],
       "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_data_equally_likely_assumption__prerequisite_for__m1_mis_probability_no_equal_likely",
-      "source_id": "m1_data_equally_likely_assumption",
-      "target_id": "m1_mis_probability_no_equal_likely",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed pp. 41-42; achievement-standard considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_data_counting_cases__prerequisite_for__m1_mis_permutation_combination_scope",
-      "source_id": "m1_data_counting_cases",
-      "target_id": "m1_mis_permutation_combination_scope",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed pp. 41-42; achievement-standard considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
+      "confidence": "medium"
     },
     {
       "id": "m1_data_distribution__prerequisite_for__m1_data_variability",
@@ -70624,6 +72161,12 @@
           "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
           "evidence_kind": "assessment_item",
           "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
         }
       ],
       "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
@@ -70646,15 +72189,21 @@
           "locator": "example item 경주로의 수학 탐방 ③; [9수04-05]",
           "evidence_kind": "assessment_item",
           "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구분하여 구하는 문항"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 266, p. 267, p. 268; 경주로의 수학 탐방 ③ 이동 경로 평가도구",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "이동 경로 맥락에서 사건 A 또는 B가 일어나는 경우의 수와 사건 A와 B가 동시에 일어나는 경우의 수를 구별해 구하는 평가 과제 맥락"
         }
       ],
       "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
       "confidence": "low"
     },
     {
-      "id": "m1_mis_probability_no_equal_likely__often_confused_with__m1_data_probability",
+      "id": "m1_mis_probability_no_equal_likely__often_confused_with__m1_data_probability_by_case_ratio",
       "source_id": "m1_mis_probability_no_equal_likely",
-      "target_id": "m1_data_probability",
+      "target_id": "m1_data_probability_by_case_ratio",
       "relationship_type": "often_confused_with",
       "source_refs": [
         {

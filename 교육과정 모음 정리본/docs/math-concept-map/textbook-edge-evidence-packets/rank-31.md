@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 공통 선수개념
 - priority tier: low
 - priority score: 5
-- edges in packet: 10
-- cross-unit edges: 10
+- edges in packet: 11
+- cross-unit edges: 11
 - low confidence edges: 10
 
 ## Relationship Evidence Slots
@@ -28,6 +28,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_num_ratio__used_in__m1_geo_trigonometric_ratio | cross_unit | 비 | used_in | 삼각비 | low | procedure_ref;textbook_page_refs;extraction_notes | Find a worked example, procedure, or application where this source concept is used. | 3 |
 | m1_num_ratio__used_in__m1_prop_direct_proportion | cross_unit | 비 | used_in | 정비례 | low | procedure_ref;textbook_page_refs;extraction_notes | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_num_ratio__used_in__m1_prop_inverse_proportion | cross_unit | 비 | used_in | 반비례 | low | procedure_ref;textbook_page_refs;extraction_notes | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_num_ratio__prerequisite_for__m1_data_probability_by_case_ratio | cross_unit | 비 | prerequisite_for | 경우의 수의 비율로 확률 구하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 
 ## Textbook Edge Evidence Fields
 

@@ -14,6 +14,7 @@ digraph pilot_unit_map {
   "m1_geo_trigonometric_ratio" [label="삼각비\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_prop_direct_proportion" [label="정비례\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_prop_inverse_proportion" [label="반비례\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_data_probability_by_case_ratio" [label="경우의 수의 비율로 확률 구하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_domain" -> "m1_num_ratio" [label="contains", style="dashed", color="#b91c1c"];
   "m1_num_ratio" -> "m1_func_slope_ratio_formula" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_num_rational_number" -> "m1_num_ratio" [label="prerequisite_for", style="dashed", color="#b91c1c"];
@@ -24,4 +25,5 @@ digraph pilot_unit_map {
   "m1_num_ratio" -> "m1_geo_trigonometric_ratio" [label="used_in", style="dashed", color="#b91c1c"];
   "m1_num_ratio" -> "m1_prop_direct_proportion" [label="used_in", style="dashed", color="#b91c1c"];
   "m1_num_ratio" -> "m1_prop_inverse_proportion" [label="used_in", style="dashed", color="#b91c1c"];
+  "m1_num_ratio" -> "m1_data_probability_by_case_ratio" [label="prerequisite_for", style="dashed", color="#6b7280"];
 }

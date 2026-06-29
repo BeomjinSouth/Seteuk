@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 도수분포표와 상대도수
 - priority tier: highest
 - priority score: 44
-- edges in packet: 143
-- cross-unit edges: 49
+- edges in packet: 144
+- cross-unit edges: 50
 - low confidence edges: 18
 
 ## Relationship Evidence Slots
@@ -131,6 +131,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_data_frequency__prerequisite_for__m1_data_mode | cross_unit | 도수 | prerequisite_for | 최빈값 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_data_relative_frequency__prerequisite_for__m1_data_experimental_probability | cross_unit | 상대도수 | prerequisite_for | 상대도수로서의 확률 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
 | m1_data_relative_frequency__prerequisite_for__m1_data_probability_unit | cross_unit | 상대도수 | prerequisite_for | 경우의 수와 확률 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 5 |
+| m1_data_relative_frequency__prerequisite_for__m1_data_relative_frequency_case_ratio_link | cross_unit | 상대도수 | prerequisite_for | 상대도수와 경우의 수의 비율 연결 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
 | m1_data_representative_unit__prerequisite_for__m1_data_frequency_unit | cross_unit | 대푯값 | prerequisite_for | 도수분포표와 상대도수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_data_technology_tool_stats__prerequisite_for__m1_data_box_plot | cross_unit | 공학 도구로 자료 수집·분석하기 | prerequisite_for | 상자그림 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_data_technology_tool_stats__prerequisite_for__m1_data_box_scatter_unit | cross_unit | 공학 도구로 자료 수집·분석하기 | prerequisite_for | 상자그림과 산점도 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
@@ -147,7 +148,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_repr_table__prerequisite_for__m1_data_relative_frequency_table_graph | cross_unit | 표 | prerequisite_for | 상대도수의 분포를 표나 그래프로 나타내기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_data_dataset__represented_by__m1_data_frequency_table | cross_unit | 자료 | represented_by | 도수분포표 | high | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 3 |
 | m1_data_dataset__represented_by__m1_data_stem_leaf_plot | cross_unit | 자료 | represented_by | 줄기와 잎 그림 | high | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 3 |
-| m1_data_relative_frequency__represented_by__m1_data_experimental_probability | cross_unit | 상대도수 | represented_by | 상대도수로서의 확률 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 1 |
+| m1_data_experimental_probability__represented_by__m1_data_relative_frequency | cross_unit | 상대도수로서의 확률 | represented_by | 상대도수 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 1 |
 | m1_data_relative_frequency_table_graph__represented_by__m1_graph_graph | cross_unit | 상대도수의 분포를 표나 그래프로 나타내기 | represented_by | 그래프 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
 | m1_data_relative_frequency_table_graph__represented_by__m1_repr_table | cross_unit | 상대도수의 분포를 표나 그래프로 나타내기 | represented_by | 표 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
 | m1_graph_graph__represented_by__m1_data_frequency_polygon | cross_unit | 그래프 | represented_by | 도수분포다각형 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |

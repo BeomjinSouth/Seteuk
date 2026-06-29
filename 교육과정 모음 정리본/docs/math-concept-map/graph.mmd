@@ -462,17 +462,25 @@ flowchart LR
   m1_data_and_cases["사건 A와 사건 B가 동시에 일어나는 경우의 수"]
   m1_data_addition_counting["두 경우의 수를 합하는 상황"]
   m1_data_multiplication_counting["두 경우의 수를 곱하는 상황"]
+  m1_data_total_cases["전체 경우의 수"]
+  m1_data_event_cases_count["사건이 일어나는 경우의 수"]
+  m1_data_probability_by_case_ratio["경우의 수의 비율로 확률 구하기"]
   m1_data_probability["확률"]
+  m1_data_probability_value["확률값"]
   m1_data_probability_basic_properties["확률의 기본 성질"]
+  m1_data_probability_range_0_1["확률의 범위"]
+  m1_data_zero_probability_event["확률이 0인 사건"]
+  m1_data_one_probability_event["확률이 1인 사건"]
   m1_data_or_probability["사건 A 또는 사건 B가 일어날 확률"]
   m1_data_and_probability["사건 A와 사건 B가 동시에 일어날 확률"]
   m1_data_experimental_probability["상대도수로서의 확률"]
   m1_data_theoretical_probability["경우의 수의 비율로서의 확률"]
   m1_data_equally_likely_assumption["각 경우가 발생할 가능성이 동등하다는 가정"]
   m1_data_route_counting_context["이동 경로의 경우의 수 맥락"]
+  m1_data_relative_frequency_case_ratio_link["상대도수와 경우의 수의 비율 연결"]
   m1_mis_or_and_counting_confusion["또는과 동시에의 경우의 수를 혼동하는 오류"]
   m1_mis_probability_no_equal_likely["동등 가능성 가정 없이 경우의 수 비율을 적용하는 오류"]
-  m1_mis_permutation_combination_scope["복잡한 순열·조합 문제를 중학교 범위로 확정하는 오류"]
+  m1_mis_permutation_combination_scope["복잡한 순열·조합 문항을 중학교 경우의 수 범위에 포함하는 범위 오판"]
   m1_data_variability["산포도"]
   m1_data_deviation["편차"]
   m1_data_variance["분산"]
@@ -1382,20 +1390,30 @@ flowchart LR
   m1_data_event -- "사용" --> m1_data_counting_cases
   m1_data_counting_cases -- "사용" --> m1_data_or_cases
   m1_data_counting_cases -- "사용" --> m1_data_and_cases
-  m1_data_or_cases -- "사용" --> m1_data_addition_counting
-  m1_data_and_cases -- "사용" --> m1_data_multiplication_counting
+  m1_data_addition_counting -- "사용" --> m1_data_or_cases
+  m1_data_multiplication_counting -- "사용" --> m1_data_and_cases
   m1_data_or_cases -- "대조" --> m1_data_and_cases
-  m1_data_and_cases -- "대조" --> m1_data_or_cases
   m1_data_addition_counting -- "대조" --> m1_data_multiplication_counting
+  m1_data_total_cases -- "사용" --> m1_data_probability_by_case_ratio
+  m1_data_event_cases_count -- "사용" --> m1_data_probability_by_case_ratio
+  m1_data_total_cases -- "대조" --> m1_data_event_cases_count
+  m1_data_probability_by_case_ratio -- "사용" --> m1_data_theoretical_probability
+  m1_data_probability_by_case_ratio -- "사용" --> m1_data_probability
+  m1_data_probability_by_case_ratio -- "사용" --> m1_data_or_probability
+  m1_data_probability_by_case_ratio -- "사용" --> m1_data_and_probability
   m1_data_counting_cases -- "사용" --> m1_data_theoretical_probability
-  m1_data_relative_frequency -- "표현" --> m1_data_experimental_probability
+  m1_data_experimental_probability -- "표현" --> m1_data_relative_frequency
   m1_data_experimental_probability -- "사용" --> m1_data_probability
   m1_data_theoretical_probability -- "사용" --> m1_data_probability
+  m1_data_theoretical_probability -- "사용" --> m1_data_or_probability
+  m1_data_theoretical_probability -- "사용" --> m1_data_and_probability
   m1_data_experimental_probability -- "대조" --> m1_data_theoretical_probability
   m1_data_equally_likely_assumption -- "사용" --> m1_data_theoretical_probability
+  m1_data_relative_frequency_case_ratio_link -- "사용" --> m1_data_probability
   m1_data_probability -- "사용" --> m1_data_probability_basic_properties
   m1_data_probability_basic_properties -- "사용" --> m1_data_or_probability
   m1_data_probability_basic_properties -- "사용" --> m1_data_and_probability
+  m1_data_zero_probability_event -- "대조" --> m1_data_one_probability_event
   m1_data_or_probability -- "대조" --> m1_data_and_probability
   m1_data_route_counting_context -- "사용" --> m1_data_or_cases
   m1_data_route_counting_context -- "사용" --> m1_data_and_cases
@@ -1719,17 +1737,27 @@ flowchart LR
   m1_data_probability_unit -- "포함" --> m1_data_event
   m1_data_probability_unit -- "포함" --> m1_data_counting_cases
   m1_data_probability_unit -- "포함" --> m1_data_or_cases
+  m1_data_counting_cases -- "포함" --> m1_data_or_cases
   m1_data_probability_unit -- "포함" --> m1_data_and_cases
+  m1_data_counting_cases -- "포함" --> m1_data_and_cases
   m1_data_probability_unit -- "포함" --> m1_data_addition_counting
   m1_data_probability_unit -- "포함" --> m1_data_multiplication_counting
+  m1_data_theoretical_probability -- "포함" --> m1_data_total_cases
+  m1_data_theoretical_probability -- "포함" --> m1_data_event_cases_count
+  m1_data_theoretical_probability -- "포함" --> m1_data_probability_by_case_ratio
   m1_data_probability_unit -- "포함" --> m1_data_probability
+  m1_data_probability -- "포함" --> m1_data_probability_value
   m1_data_probability_unit -- "포함" --> m1_data_probability_basic_properties
+  m1_data_probability_basic_properties -- "포함" --> m1_data_probability_range_0_1
+  m1_data_probability_basic_properties -- "포함" --> m1_data_zero_probability_event
+  m1_data_probability_basic_properties -- "포함" --> m1_data_one_probability_event
   m1_data_probability_unit -- "포함" --> m1_data_or_probability
   m1_data_probability_unit -- "포함" --> m1_data_and_probability
   m1_data_probability_unit -- "포함" --> m1_data_experimental_probability
   m1_data_probability_unit -- "포함" --> m1_data_theoretical_probability
   m1_data_probability_unit -- "포함" --> m1_data_equally_likely_assumption
   m1_data_probability_unit -- "포함" --> m1_data_route_counting_context
+  m1_data_probability_unit -- "포함" --> m1_data_relative_frequency_case_ratio_link
   m1_data_probability_unit -- "포함" --> m1_mis_or_and_counting_confusion
   m1_data_probability_unit -- "포함" --> m1_mis_probability_no_equal_likely
   m1_data_probability_unit -- "포함" --> m1_mis_permutation_combination_scope
@@ -2387,16 +2415,32 @@ flowchart LR
   m1_data_counting_cases -- "선수" --> m1_data_or_cases
   m1_data_event -- "선수" --> m1_data_and_cases
   m1_data_counting_cases -- "선수" --> m1_data_and_cases
-  m1_data_or_cases -- "선수" --> m1_data_addition_counting
-  m1_data_and_cases -- "선수" --> m1_data_multiplication_counting
+  m1_data_counting_cases -- "선수" --> m1_data_addition_counting
+  m1_data_counting_cases -- "선수" --> m1_data_multiplication_counting
+  m1_data_counting_cases -- "선수" --> m1_data_total_cases
+  m1_data_event -- "선수" --> m1_data_event_cases_count
+  m1_data_counting_cases -- "선수" --> m1_data_event_cases_count
+  m1_data_total_cases -- "선수" --> m1_data_probability_by_case_ratio
+  m1_data_event_cases_count -- "선수" --> m1_data_probability_by_case_ratio
+  m1_num_ratio -- "선수" --> m1_data_probability_by_case_ratio
+  m1_data_equally_likely_assumption -- "선수" --> m1_data_probability_by_case_ratio
   m1_data_event -- "선수" --> m1_data_probability
   m1_data_counting_cases -- "선수" --> m1_data_probability
   m1_num_rational_number -- "선수" --> m1_data_probability
+  m1_data_probability -- "선수" --> m1_data_probability_value
+  m1_num_rational_number -- "선수" --> m1_data_probability_value
   m1_data_probability -- "선수" --> m1_data_probability_basic_properties
+  m1_data_probability_value -- "선수" --> m1_data_probability_range_0_1
+  m1_data_probability_range_0_1 -- "선수" --> m1_data_zero_probability_event
+  m1_data_event -- "선수" --> m1_data_zero_probability_event
+  m1_data_probability_range_0_1 -- "선수" --> m1_data_one_probability_event
+  m1_data_event -- "선수" --> m1_data_one_probability_event
   m1_data_probability_basic_properties -- "선수" --> m1_data_or_probability
   m1_data_or_cases -- "선수" --> m1_data_or_probability
+  m1_data_probability_by_case_ratio -- "선수" --> m1_data_or_probability
   m1_data_probability_basic_properties -- "선수" --> m1_data_and_probability
   m1_data_and_cases -- "선수" --> m1_data_and_probability
+  m1_data_probability_by_case_ratio -- "선수" --> m1_data_and_probability
   m1_data_relative_frequency -- "선수" --> m1_data_experimental_probability
   m1_data_probability -- "선수" --> m1_data_experimental_probability
   m1_data_counting_cases -- "선수" --> m1_data_theoretical_probability
@@ -2404,11 +2448,9 @@ flowchart LR
   m1_data_equally_likely_assumption -- "선수" --> m1_data_theoretical_probability
   m1_data_counting_cases -- "선수" --> m1_data_equally_likely_assumption
   m1_data_counting_cases -- "선수" --> m1_data_route_counting_context
-  m1_data_or_cases -- "선수" --> m1_mis_or_and_counting_confusion
-  m1_data_and_cases -- "선수" --> m1_mis_or_and_counting_confusion
-  m1_data_theoretical_probability -- "선수" --> m1_mis_probability_no_equal_likely
-  m1_data_equally_likely_assumption -- "선수" --> m1_mis_probability_no_equal_likely
-  m1_data_counting_cases -- "선수" --> m1_mis_permutation_combination_scope
+  m1_data_relative_frequency -- "선수" --> m1_data_relative_frequency_case_ratio_link
+  m1_data_experimental_probability -- "선수" --> m1_data_relative_frequency_case_ratio_link
+  m1_data_theoretical_probability -- "선수" --> m1_data_relative_frequency_case_ratio_link
   m1_data_distribution -- "선수" --> m1_data_variability
   m1_data_representative_value -- "선수" --> m1_data_variability
   m1_data_variable -- "선수" --> m1_data_deviation
@@ -2517,7 +2559,7 @@ flowchart LR
   m1_mis_probability_no_equal_likely -- "혼동" --> m1_data_equally_likely_assumption
   m1_mis_or_and_counting_confusion -- "혼동" --> m1_data_addition_counting
   m1_mis_or_and_counting_confusion -- "혼동" --> m1_data_multiplication_counting
-  m1_mis_probability_no_equal_likely -- "혼동" --> m1_data_probability
+  m1_mis_probability_no_equal_likely -- "혼동" --> m1_data_probability_by_case_ratio
   m1_mis_permutation_combination_scope -- "혼동" --> m1_data_addition_counting
   m1_mis_permutation_combination_scope -- "혼동" --> m1_data_multiplication_counting
   m1_mis_variance_standard_deviation -- "혼동" --> m1_data_calculate_variance_sd
@@ -2979,14 +3021,22 @@ flowchart LR
   class m1_data_and_cases default;
   class m1_data_addition_counting procedure;
   class m1_data_multiplication_counting procedure;
+  class m1_data_total_cases default;
+  class m1_data_event_cases_count default;
+  class m1_data_probability_by_case_ratio procedure;
   class m1_data_probability core;
+  class m1_data_probability_value default;
   class m1_data_probability_basic_properties default;
+  class m1_data_probability_range_0_1 default;
+  class m1_data_zero_probability_event default;
+  class m1_data_one_probability_event default;
   class m1_data_or_probability default;
   class m1_data_and_probability default;
   class m1_data_experimental_probability core;
   class m1_data_theoretical_probability core;
   class m1_data_equally_likely_assumption default;
   class m1_data_route_counting_context default;
+  class m1_data_relative_frequency_case_ratio_link default;
   class m1_mis_or_and_counting_confusion risk;
   class m1_mis_probability_no_equal_likely risk;
   class m1_mis_permutation_combination_scope risk;
