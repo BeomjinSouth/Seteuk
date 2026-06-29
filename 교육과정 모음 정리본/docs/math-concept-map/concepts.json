@@ -2,7 +2,7 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-29T12:36:03",
+    "generated_at": "2026-06-29T12:47:27",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
     "concept_count": 476,
     "edge_count": 1966
@@ -7287,6 +7287,12 @@
           "locator": "일차함수와 일차방정식의 관계 section; [9수02-18] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "두 일차함수의 그래프의 교점과 연립일차방정식의 해 사이의 관계를 설명하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 58; 변화와 관계 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "두 일차함수의 그래프의 교점이 한 개인 경우, 그래프의 교점과 연립일차방정식의 해 사이의 관계를 말하는 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -10984,6 +10990,12 @@
           "locator": "좌표평면과 그래프 section; [9수02-07] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정비례·반비례 관계를 표, 식, 그래프로 나타내는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 58; 변화와 관계 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "속력과 거리, 속력과 시간 같은 실생활 예에서 정비례 관계와 반비례 관계를 말하고 표, 식, 그래프로 나타내는 성취수준 맥락"
         }
       ],
       "prerequisite_ids": [
@@ -43376,6 +43388,12 @@
           "locator": "일차함수와 일차방정식의 관계 section; [9수02-18] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "두 일차함수의 그래프의 교점과 연립일차방정식의 해 사이의 관계를 설명하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 58; 변화와 관계 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "두 일차함수의 그래프의 교점이 한 개인 경우, 그래프의 교점과 연립일차방정식의 해 사이의 관계를 말하는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -55168,6 +55186,12 @@
           "locator": "일차함수와 일차방정식의 관계 section; [9수02-18] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "두 일차함수의 그래프의 교점과 연립일차방정식의 해 사이의 관계를 설명하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 58; 변화와 관계 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "두 일차함수의 그래프의 교점이 한 개인 경우, 그래프의 교점과 연립일차방정식의 해 사이의 관계를 말하는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -55184,6 +55208,12 @@
           "locator": "일차함수와 일차방정식의 관계 section; [9수02-18] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "두 일차함수의 그래프의 교점과 연립일차방정식의 해 사이의 관계를 설명하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 58; 변화와 관계 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "두 일차함수의 그래프의 교점이 한 개인 경우, 그래프의 교점과 연립일차방정식의 해 사이의 관계를 말하는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -57790,6 +57820,12 @@
           "locator": "좌표평면과 그래프 section; [9수02-07] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정비례·반비례 관계를 표, 식, 그래프로 나타내는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 58; 변화와 관계 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "속력과 거리, 속력과 시간 같은 실생활 예에서 정비례 관계와 반비례 관계를 말하고 표, 식, 그래프로 나타내는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -57818,6 +57854,12 @@
           "locator": "좌표평면과 그래프 section; [9수02-07] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정비례·반비례 관계를 표, 식, 그래프로 나타내는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 58; 변화와 관계 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "속력과 거리, 속력과 시간 같은 실생활 예에서 정비례 관계와 반비례 관계를 말하고 표, 식, 그래프로 나타내는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -57846,6 +57888,12 @@
           "locator": "좌표평면과 그래프 section; [9수02-07] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정비례·반비례 관계를 표, 식, 그래프로 나타내는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 58; 변화와 관계 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "속력과 거리, 속력과 시간 같은 실생활 예에서 정비례 관계와 반비례 관계를 말하고 표, 식, 그래프로 나타내는 성취수준 맥락"
         }
       ],
       "notes": "",

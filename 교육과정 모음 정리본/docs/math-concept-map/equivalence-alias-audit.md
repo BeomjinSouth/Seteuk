@@ -28,7 +28,7 @@ This generated audit separates aliases, explicit equivalent edges, repeated labe
 
 | type | label | alias_or_term | status | action | confidence | source refs |
 |---|---|---|---|---|---|---:|
-| duplicate_label | 교점 |  | same_label_multiple_nodes | review_unit_vs_micro_concept_split_before_equivalent_edge | medium | 4 |
+| duplicate_label | 교점 |  | same_label_multiple_nodes | review_unit_vs_micro_concept_split_before_equivalent_edge | medium | 5 |
 | duplicate_label | 대푯값 |  | same_label_multiple_nodes | review_unit_vs_micro_concept_split_before_equivalent_edge | medium | 7 |
 | duplicate_label | 산포도 |  | same_label_multiple_nodes | review_unit_vs_micro_concept_split_before_equivalent_edge | medium | 5 |
 | duplicate_label | 삼각비 |  | same_label_multiple_nodes | review_unit_vs_micro_concept_split_before_equivalent_edge | medium | 7 |

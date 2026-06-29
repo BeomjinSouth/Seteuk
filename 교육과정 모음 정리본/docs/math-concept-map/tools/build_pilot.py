@@ -655,6 +655,12 @@ ACH_PROP = source_ref(
     "achievement_level",
     "정비례·반비례 관계를 표, 식, 그래프로 나타내는 수준을 구분",
 )
+ACH_RESEARCH_INVERSE_PROP_58 = source_ref(
+    "achievement_research_report_2022",
+    "연구보고서 p. 58; 변화와 관계 영역별 성취수준",
+    "research_report_achievement_level_context",
+    "속력과 거리, 속력과 시간 같은 실생활 예에서 정비례 관계와 반비례 관계를 말하고 표, 식, 그래프로 나타내는 성취수준 맥락",
+)
 ACH_EXPONENT = source_ref(
     "achievement_math_2022",
     "식의 계산 section; [9수02-08] achievement levels",
@@ -720,6 +726,12 @@ ACH_SYSTEM_GRAPH_REL = source_ref(
     "일차함수와 일차방정식의 관계 section; [9수02-18] achievement levels",
     "achievement_level",
     "두 일차함수의 그래프의 교점과 연립일차방정식의 해 사이의 관계를 설명하는 수행 수준을 구분",
+)
+ACH_RESEARCH_INTERSECTION_58 = source_ref(
+    "achievement_research_report_2022",
+    "연구보고서 p. 58; 변화와 관계 영역별 성취수준",
+    "research_report_achievement_level_context",
+    "두 일차함수의 그래프의 교점이 한 개인 경우, 그래프의 교점과 연립일차방정식의 해 사이의 관계를 말하는 성취수준 맥락",
 )
 ACH_POLY_FACTOR = source_ref(
     "achievement_math_2022",
@@ -3308,7 +3320,7 @@ CONCEPTS = [
         ["그래프의 교점"],
         "term",
         "두 그래프가 만나는 점.",
-        [ACH_SYSTEM_GRAPH_REL],
+        [ACH_SYSTEM_GRAPH_REL, ACH_RESEARCH_INTERSECTION_58],
         prerequisite_ids=["m1_func_two_linear_graphs", "m1_coord_coordinate"],
         parent_ids=["m1_func_eq_relation_unit"],
         related_ids=["m1_func_system_solution_from_intersection"],
@@ -4464,7 +4476,7 @@ CONCEPTS = [
         ["inverse proportion", "반비례 관계"],
         "core_concept",
         "두 양 사이에 곱이 일정한 형태로 직관화되는 관계.",
-        [CURR_07, CURR_TERMS, ACH_PROP],
+        [CURR_07, CURR_TERMS, ACH_PROP, ACH_RESEARCH_INVERSE_PROP_58],
         prerequisite_ids=["m1_repr_table", "m1_repr_expression", "m1_graph_graph"],
         parent_ids=["m1_coord_graph_unit"],
         related_ids=["m1_prop_direct_proportion", "m1_prop_proportion_relation"],

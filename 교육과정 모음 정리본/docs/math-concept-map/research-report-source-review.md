@@ -22,9 +22,9 @@ The generated review still does not permit automatic source_ref or confidence up
 
 | application_status | rows |
 |---|---:|
-| applied_after_manual_review | 5 |
+| applied_after_manual_review | 7 |
 | not_applicable_from_this_row | 25 |
-| pending_manual_review | 18 |
+| pending_manual_review | 16 |
 
 ## Review Priority
 
@@ -42,8 +42,8 @@ The generated review still does not permit automatic source_ref or confidence up
 | 2 | m1_num_ratio | 비 | 180 | candidate_prerequisite_evidence | high | applied_to_concepts_json | applied_after_manual_review | keep_low_until_textbook_or_middle_course_evidence |
 | 3 | m1_num_ratio | 비 | 181 | candidate_prerequisite_evidence | high | applied_to_concepts_json | applied_after_manual_review | keep_low_until_textbook_or_middle_course_evidence |
 | 4 | m1_num_ratio | 비 | 91 | broad_report_context_only | medium | do_not_add_from_this_row | not_applicable_from_this_row | keep_low_until_textbook_or_middle_course_evidence |
-| 5 | m1_func_intersection_point | 교점 | 58 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_current_confidence_until_source_review |
-| 6 | m1_prop_inverse_proportion | 반비례 | 58 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_current_confidence_until_source_review |
+| 5 | m1_func_intersection_point | 교점 | 58 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
+| 6 | m1_prop_inverse_proportion | 반비례 | 58 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
 | 7 | m1_geo_prism | 기둥 모양 입체도형 | 103 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_current_confidence_until_source_review |
 | 8 | m1_geo_prism | 기둥 모양 입체도형 | 108 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_current_confidence_until_source_review |
 | 9 | m1_calc_expansion | 전개 | 173 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_current_confidence_until_source_review |

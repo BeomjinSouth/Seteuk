@@ -174,7 +174,7 @@ m1_func_eq_relation_unit,일차함수와 일차방정식의 관계,중1(교육�
 m1_func_two_variable_equation_as_graph,미지수가 2개인 일차방정식의 해를 그래프로 나타내기,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 일차방정식의 관계,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
 m1_func_equation_relation,일차함수와 미지수가 2개인 일차방정식의 관계,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 일차방정식의 관계,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
 m1_func_two_linear_graphs,두 일차함수의 그래프,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 일차방정식의 관계,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
-m1_func_intersection_point,교점,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 일차방정식의 관계,medium,1,1,1,achievement_math_2022,achievement_level,no,yes,no,official_single_source,yes
+m1_func_intersection_point,교점,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 일차방정식의 관계,medium,2,2,2,achievement_math_2022; achievement_research_report_2022,achievement_level; research_report_achievement_level_context,no,yes,no,official_single_source,yes
 m1_func_intersection_count,교점의 개수,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 일차방정식의 관계,medium,1,1,1,achievement_math_2022,achievement_level,no,yes,no,official_single_source,yes
 m1_func_system_graph_relation,두 일차함수의 그래프와 연립일차방정식의 관계,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 일차방정식의 관계,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
 m1_func_system_solution_from_intersection,교점으로 연립일차방정식의 해 말하기,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 일차방정식의 관계,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
@@ -267,7 +267,7 @@ m1_repr_expression,식,중1(교육과정 학년군: 중1-3),변화와 관계,좌
 m1_repr_everyday_language,일상 언어,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,high,2,1,1,curriculum_math_2022,teaching_note,yes,no,no,official_single_source,yes
 m1_repr_conversion,표·식·그래프 상호 변환,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; teaching_note,yes,yes,no,official_dual_source,yes
 m1_prop_direct_proportion,정비례,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes
-m1_prop_inverse_proportion,반비례,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,medium,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes
+m1_prop_inverse_proportion,반비례,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,medium,4,3,4,achievement_math_2022; achievement_research_report_2022; curriculum_math_2022,achievement_level; achievement_standard; research_report_achievement_level_context; term_list,yes,yes,no,official_dual_source,yes
 m1_prop_proportion_relation,정비례·반비례 관계 판단,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
 m1_context_speed_distance,속력과 거리 맥락,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,medium,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; teaching_note,yes,yes,no,official_dual_source,yes
 m1_context_speed_time,속력과 시간 맥락,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,medium,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; teaching_note,yes,yes,no,official_dual_source,yes
