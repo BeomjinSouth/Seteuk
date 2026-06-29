@@ -148,6 +148,40 @@ class BuildResearchReportSourceReviewTests(unittest.TestCase):
         self.assertEqual(row["source_ref_action"], "do_not_add_from_this_row")
         self.assertEqual(row["source_ref_application_status"], "not_applicable_from_this_row")
 
+    def test_source_review_rejects_assessment_reporting_pages(self) -> None:
+        context_rows = [
+            {
+                "rank": "1",
+                "concept_id": "m1_data_mean",
+                "label_ko": "평균",
+                "matched_term": "평균",
+                "grade": "중1",
+                "domain": "자료와 가능성",
+                "unit": "대푯값",
+                "concept_type": "core_concept",
+                "confidence": "medium",
+                "recommended_action": "inspect_research_report_context_before_source_ref_upgrade",
+                "page_number": "91",
+                "match_count_on_page": "2",
+                "context_signal": "achievement_level_context; assessment_context",
+                "context_excerpt": "지필평가의 경우 평균, 표준편차, 성취수준별 학생 비율 분포",
+                "source_locator_candidate": "연구보고서 p. 91",
+            }
+        ]
+
+        rows = review.research_report_source_review_rows(
+            context_rows,
+            applied_source_ref_keys=set(),
+            page_text_by_number={
+                91: "성취 결과 산출 및 보고의 근거로 활용 지필평가의 경우 평균, 표준편차, 문항 정답률, 문항 변별도 등을 분석한다.",
+            },
+        )
+        row = rows[0]
+
+        self.assertEqual(row["evidence_candidate_type"], "broad_report_context_only")
+        self.assertEqual(row["source_ref_action"], "do_not_add_from_this_row")
+        self.assertEqual(row["source_ref_application_status"], "not_applicable_from_this_row")
+
     def test_markdown_and_csv_are_stable_outputs(self) -> None:
         rows = [
             {

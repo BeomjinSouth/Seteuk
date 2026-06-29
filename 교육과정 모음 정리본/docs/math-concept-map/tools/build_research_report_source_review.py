@@ -61,6 +61,11 @@ BROAD_CONTEXT_MARKERS = (
     "<표",
     "통합 제시",
     "학습 내용 재구조화",
+    "성취 결과 산출",
+    "성취도 산출",
+    "분할점수",
+    "문항 정답률",
+    "문항 변별도",
 )
 PREREQUISITE_CONTEXT_MARKERS = (
     "비와 비율",
