@@ -9,12 +9,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 도형과 측정
 - unit: 평면도형의 성질
 - priority tier: high
-- workplan score: 107
+- workplan score: 105
 - concepts: 16
-- edges touching unit: 101
-- cross-unit edges: 45
+- edges touching unit: 103
+- cross-unit edges: 47
 - low confidence concepts: 1
-- low confidence edges: 9
+- low confidence edges: 8
 
 ## Concept Type Distribution
 
@@ -32,9 +32,9 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 |---|---:|
 | contains | 18 |
 | contrasts_with | 8 |
-| often_confused_with | 5 |
-| prerequisite_for | 44 |
-| related_to | 5 |
+| often_confused_with | 4 |
+| prerequisite_for | 46 |
+| related_to | 6 |
 | represented_by | 4 |
 | used_in | 17 |
 
@@ -48,7 +48,6 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
-| m1_mis_complex_area_volume_scope__often_confused_with__m1_geo_plane_properties_unit | 지나치게 복잡한 넓이·부피 변형 문제 범위 혼동 | often_confused_with | 평면도형의 성질 | low | official_single_source |
 | m1_geo_parallel_angle_property_explanation__related_to__m1_geo_polygon_angle_sum | 평행선에서 동위각과 엇각의 성질 설명하기 | related_to | 다각형의 내각과 외각의 크기 | low | official_dual_source |
 | m1_geo_circle_unit__contains__m1_geo_chord | 원의 성질 | contains | 현 | high | official_dual_source |
 | m1_geo_domain__contains__m1_geo_plane_properties_unit | 도형과 측정 | contains | 평면도형의 성질 | high | official_dual_source |
@@ -70,6 +69,8 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_geo_line__prerequisite_for__m1_geo_polygon | 직선 | prerequisite_for | 다각형 | high | official_dual_source |
 | m1_geo_line__prerequisite_for__m1_geo_secant | 직선 | prerequisite_for | 할선 | high | official_single_source |
 | m1_geo_parallel_angle_properties__prerequisite_for__m1_geo_polygon_angle_sum | 평행선에서 동위각과 엇각의 성질 | prerequisite_for | 다각형의 내각과 외각의 크기 | high | official_dual_source |
+| m1_geo_plane_properties_unit__prerequisite_for__m1_geo_rotation_generation | 평면도형의 성질 | prerequisite_for | 평면도형을 회전시켜 회전체 만들기 | high | official_dual_source |
+| m1_geo_plane_properties_unit__prerequisite_for__m1_geo_solid_face | 평면도형의 성질 | prerequisite_for | 입체도형의 면 | medium | official_dual_source |
 | m1_geo_plane_properties_unit__prerequisite_for__m1_geo_solid_net | 평면도형의 성질 | prerequisite_for | 전개도 | medium | official_dual_source |
 | m1_geo_plane_properties_unit__prerequisite_for__m1_geo_solid_of_revolution | 평면도형의 성질 | prerequisite_for | 회전체 | high | official_dual_source |
 | m1_geo_plane_properties_unit__prerequisite_for__m1_geo_solid_unit | 평면도형의 성질 | prerequisite_for | 입체도형의 성질 | high | official_dual_source |
@@ -87,4 +88,3 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_geo_circle__used_in__m1_geo_sector_arc_length_area | 원 | used_in | 부채꼴의 호의 길이와 넓이 구하기 | medium | official_dual_source |
 | m1_geo_diagonal__used_in__m1_geo_quadrilateral_diagonal_properties | 대각선 | used_in | 사각형의 대각선에 관한 성질 | high | official_dual_source |
 | m1_geo_diagonal__used_in__m1_num_unit_square_diagonal | 대각선 | used_in | 한 변의 길이가 1인 정사각형의 대각선 | medium | official_dual_source |
-| m1_geo_figure__used_in__m1_geo_plane_properties_unit | 도형 | used_in | 평면도형의 성질 | medium | official_dual_source |

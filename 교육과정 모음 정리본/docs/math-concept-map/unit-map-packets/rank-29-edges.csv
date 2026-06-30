@@ -15,6 +15,7 @@
 29,도형과 측정,m1_geo_domain__contains__m1_geo_triangle_quadrilateral_unit,m1_geo_domain,도형과 측정,도형과 측정,m1_geo_triangle_quadrilateral_unit,삼각형과 사각형의 성질,삼각형과 사각형의 성질,contains,cross_unit,high,official_dual_source,yes,5,
 29,도형과 측정,m1_geo_domain__contains__m1_geo_trig_unit,m1_geo_domain,도형과 측정,도형과 측정,m1_geo_trig_unit,삼각비,삼각비,contains,cross_unit,high,official_dual_source,yes,4,
 29,도형과 측정,m1_geo_angle__prerequisite_for__m1_geo_triangle,m1_geo_angle,각,기본 도형,m1_geo_triangle,삼각형,도형과 측정,prerequisite_for,cross_unit,medium,official_dual_source,yes,9,
+29,도형과 측정,m1_geo_area__prerequisite_for__m1_geo_net_surface_area_strategy,m1_geo_area,넓이,도형과 측정,m1_geo_net_surface_area_strategy,전개도로 겉넓이 구하기,입체도형의 성질,prerequisite_for,cross_unit,medium,official_dual_source,yes,3,
 29,도형과 측정,m1_geo_line__prerequisite_for__m1_geo_triangle,m1_geo_line,직선,기본 도형,m1_geo_triangle,삼각형,도형과 측정,prerequisite_for,cross_unit,medium,official_dual_source,yes,9,
 29,도형과 측정,m1_geo_point__prerequisite_for__m1_geo_triangle,m1_geo_point,점,기본 도형,m1_geo_triangle,삼각형,도형과 측정,prerequisite_for,cross_unit,medium,official_dual_source,yes,9,
 29,도형과 측정,m1_geo_area__used_in__m1_geo_sector_arc_length_area,m1_geo_area,넓이,도형과 측정,m1_geo_sector_arc_length_area,부채꼴의 호의 길이와 넓이 구하기,평면도형의 성질,used_in,cross_unit,medium,official_dual_source,yes,2,

@@ -61,6 +61,7 @@ digraph pilot_unit_map {
   "m1_geo_axis_of_rotation" [label="회전축\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_secant" [label="할선\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_tangent_line" [label="접선\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_solid_edge" [label="입체도형의 모서리\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_median" [label="중선\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_triangle_midpoint_theorem" [label="삼각형의 중점연결정리\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_frustum_pyramid" [label="각뿔대\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -68,7 +69,9 @@ digraph pilot_unit_map {
   "m1_geo_circumcenter" [label="외심\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_circle" [label="원\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_solid_cross_section" [label="입체도형의 단면\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_solid_cross_section_prediction" [label="단면 모양 예상하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_chord" [label="현\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_solid_vertex" [label="입체도형의 꼭짓점\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_figure" [label="도형\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_length" [label="길이\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_func_intersection_point" [label="교점\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -261,6 +264,7 @@ digraph pilot_unit_map {
   "m1_geo_line" -> "m1_geo_secant" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_line" -> "m1_geo_tangent_line" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_line" -> "m1_geo_triangle" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_geo_line_segment" -> "m1_geo_solid_edge" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_midpoint" -> "m1_geo_median" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_midpoint" -> "m1_geo_triangle_midpoint_theorem" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_parallel_angle_properties" -> "m1_geo_polygon_angle_sum" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -269,11 +273,13 @@ digraph pilot_unit_map {
   "m1_geo_perpendicular_bisector" -> "m1_geo_circumcenter" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_plane" -> "m1_geo_circle" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_plane" -> "m1_geo_solid_cross_section" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_geo_plane" -> "m1_geo_solid_cross_section_prediction" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_point" -> "m1_geo_chord" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_point" -> "m1_geo_circle" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_point" -> "m1_geo_construction" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_point" -> "m1_geo_correspondence" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_point" -> "m1_geo_polygon" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_geo_point" -> "m1_geo_solid_vertex" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_point" -> "m1_geo_triangle" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_figure" -> "m1_geo_basic_unit" [label="used_in", style="dashed", color="#6b7280"];
   "m1_geo_length" -> "m1_geo_distance_between_two_points" [label="used_in", style="dashed", color="#6b7280"];

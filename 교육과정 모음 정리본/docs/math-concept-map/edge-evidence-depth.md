@@ -4,16 +4,16 @@ This generated audit summarizes source evidence depth for each relationship edge
 
 ## Summary
 
-- edges: 2551
-- needs textbook evidence: 2551
-- low confidence edges: 443
+- edges: 2600
+- needs textbook evidence: 2600
+- low confidence edges: 445
 
 ## Evidence Depth Counts
 
 | evidence_depth | edge count |
 |---|---:|
-| official_dual_source | 2165 |
-| official_single_source | 386 |
+| official_dual_source | 2205 |
+| official_single_source | 395 |
 
 ## Edge Scope Counts
 
@@ -21,9 +21,9 @@ This generated audit summarizes source evidence depth for each relationship edge
 |---|---:|
 | cross_domain_same_grade | 51 |
 | cross_grade_cross_domain | 29 |
-| cross_grade_same_domain | 200 |
-| cross_unit_same_domain | 210 |
-| same_unit | 2061 |
+| cross_grade_same_domain | 201 |
+| cross_unit_same_domain | 215 |
+| same_unit | 2104 |
 
 ## Priority Rows
 
@@ -61,7 +61,6 @@ This generated audit summarizes source evidence depth for each relationship edge
 | m1_geo_congruence__prerequisite_for__m1_mis_congruence_similarity | prerequisite_for | cross_grade_same_domain | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |
 | m1_geo_similarity_ratio__prerequisite_for__m1_mis_circle_proportion_scope | prerequisite_for | cross_grade_same_domain | low | official_single_source | 1 | curriculum_math_2022 |
 | m1_geo_tangent_ratio__contrasts_with__m1_geo_tangent_line | contrasts_with | cross_unit_same_domain | low | official_single_source | 1 | curriculum_math_2022 |
-| m1_mis_complex_area_volume_scope__often_confused_with__m1_geo_plane_properties_unit | often_confused_with | cross_unit_same_domain | low | official_single_source | 1 | curriculum_math_2022 |
 | m1_mis_expression_equation__often_confused_with__m1_repr_expression | often_confused_with | cross_unit_same_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_function_value_input_output__often_confused_with__m1_expr_substitution | often_confused_with | cross_unit_same_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_ineq_solution_single_value__often_confused_with__m1_eq_solution | often_confused_with | cross_unit_same_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
@@ -69,3 +68,4 @@ This generated audit summarizes source evidence depth for each relationship edge
 | m1_mis_letter_as_label_only__often_confused_with__m1_term_variable | often_confused_with | cross_unit_same_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_polynomial_like_terms__often_confused_with__m1_expr_like_terms | often_confused_with | cross_unit_same_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_quadratic_expression_equation__often_confused_with__m1_factor_quadratic_expression | often_confused_with | cross_unit_same_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
+| m1_mis_quadratic_factorization_solution__often_confused_with__m1_factor_factorization | often_confused_with | cross_unit_same_domain | low | official_single_source | 2 | achievement_math_2022 |

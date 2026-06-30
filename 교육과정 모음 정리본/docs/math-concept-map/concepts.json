@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-30T12:00:06",
+    "generated_at": "2026-06-30T12:39:12",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
-    "concept_count": 585,
-    "edge_count": 2551
+    "concept_count": 597,
+    "edge_count": 2600
   },
   "sources": [
     {
@@ -18803,7 +18803,8 @@
       ],
       "related_ids": [
         "m1_geo_solid_net",
-        "m1_geo_model_tool_solid"
+        "m1_geo_model_tool_solid",
+        "m1_geo_solid_cross_section_prediction"
       ],
       "notes": "",
       "confidence": "medium"
@@ -18859,10 +18860,524 @@
         "m1_geo_solid_unit"
       ],
       "related_ids": [
-        "m1_geo_surface_area"
+        "m1_geo_surface_area",
+        "m1_geo_solid_net_drawing",
+        "m1_geo_solid_net_validity_judgement",
+        "m1_geo_net_surface_area_strategy"
       ],
       "notes": "",
       "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_face",
+      "label_ko": "입체도형의 면",
+      "aliases": [
+        "입체의 면",
+        "solid face"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "입체도형의 성질",
+      "concept_type": "term",
+      "short_definition": "입체도형을 둘러싸는 평면도형 부분.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_plane_properties_unit"
+      ],
+      "parent_ids": [
+        "m1_geo_solid_unit"
+      ],
+      "related_ids": [
+        "m1_geo_solid_vertex",
+        "m1_geo_solid_component_identification"
+      ],
+      "notes": "연구보고서 p.174와 p.181의 구성 요소 맥락을 보조 근거로 둔다. 교과서의 정확한 정의 문구는 추후 확인한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_edge",
+      "label_ko": "입체도형의 모서리",
+      "aliases": [
+        "입체의 모서리",
+        "solid edge"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "입체도형의 성질",
+      "concept_type": "term",
+      "short_definition": "입체도형에서 두 면이 만날 때 생기는 선분.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_line_segment",
+        "m1_geo_solid_face"
+      ],
+      "parent_ids": [
+        "m1_geo_solid_unit"
+      ],
+      "related_ids": [
+        "m1_geo_solid_component_identification"
+      ],
+      "notes": "연구보고서 p.174와 p.181의 구성 요소 맥락을 보조 근거로 둔다. 교과서의 정확한 정의 문구는 추후 확인한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_vertex",
+      "label_ko": "입체도형의 꼭짓점",
+      "aliases": [
+        "입체의 꼭짓점",
+        "solid vertex"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "입체도형의 성질",
+      "concept_type": "term",
+      "short_definition": "입체도형에서 여러 모서리가 만나는 점.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_point",
+        "m1_geo_solid_edge"
+      ],
+      "parent_ids": [
+        "m1_geo_solid_unit"
+      ],
+      "related_ids": [
+        "m1_geo_solid_face",
+        "m1_geo_solid_component_identification"
+      ],
+      "notes": "연구보고서 p.174와 p.181의 구성 요소 맥락을 보조 근거로 둔다. 교과서의 정확한 정의 문구는 추후 확인한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_component_identification",
+      "label_ko": "면·모서리·꼭짓점 찾기",
+      "aliases": [
+        "입체도형의 구성 요소 찾기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "입체도형의 성질",
+      "concept_type": "procedure",
+      "short_definition": "입체도형에서 면, 모서리, 꼭짓점을 구별하여 찾고 성질 설명에 사용하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_solid_face",
+        "m1_geo_solid_edge",
+        "m1_geo_solid_vertex"
+      ],
+      "parent_ids": [
+        "m1_geo_solid_unit"
+      ],
+      "related_ids": [
+        "m1_geo_polyhedron",
+        "m1_geo_prism",
+        "m1_geo_pyramid"
+      ],
+      "notes": "연구보고서 p.174와 p.181의 구성 요소 찾기 맥락을 보조 근거로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_orthographic_drawing",
+      "label_ko": "겨냥도",
+      "aliases": [
+        "입체도형의 겨냥도"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "입체도형의 성질",
+      "concept_type": "representation",
+      "short_definition": "입체도형의 보이는 모양과 보이지 않는 모서리를 약속에 따라 평면에 나타낸 그림.",
+      "source_refs": [
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 173; 직육면체와 정육면체 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체와 정육면체의 겨냥도와 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_solid_unit"
+      ],
+      "parent_ids": [
+        "m1_geo_solid_unit"
+      ],
+      "related_ids": [
+        "m1_geo_solid_net"
+      ],
+      "notes": "현재는 연구보고서 p.173의 보조 성취수준 맥락만 확인된다. 중학교 교과서 본문 근거 확인 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_solid_net_drawing",
+      "label_ko": "전개도 그리기",
+      "aliases": [
+        "입체도형의 전개도 그리기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "입체도형의 성질",
+      "concept_type": "procedure",
+      "short_definition": "입체도형을 펼쳤을 때의 면 배치를 평면 그림으로 나타내는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 173; 직육면체와 정육면체 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체와 정육면체의 겨냥도와 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 원기둥 전개도 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 원기둥의 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_solid_net",
+        "m1_geo_solid_face"
+      ],
+      "parent_ids": [
+        "m1_geo_solid_unit"
+      ],
+      "related_ids": [
+        "m1_geo_solid_net_validity_judgement",
+        "m1_geo_net_surface_area_strategy"
+      ],
+      "notes": "연구보고서 p.173과 p.174의 전개도 그리기 맥락을 보조 근거로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_net_validity_judgement",
+      "label_ko": "전개도가 될 수 있는지 판단하기",
+      "aliases": [
+        "전개도 가능 여부 판단",
+        "전개도 판별"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "입체도형의 성질",
+      "concept_type": "procedure",
+      "short_definition": "평면에 놓인 면 배치가 접어서 주어진 입체도형이 될 수 있는지 판단하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 173; 직육면체와 정육면체 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체와 정육면체의 겨냥도와 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 원기둥 전개도 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 원기둥의 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_solid_net",
+        "m1_geo_solid_face",
+        "m1_geo_solid_edge"
+      ],
+      "parent_ids": [
+        "m1_geo_solid_unit"
+      ],
+      "related_ids": [
+        "m1_geo_solid_net_drawing",
+        "m1_mis_solid_net_adjacency"
+      ],
+      "notes": "연구보고서 p.173과 p.174의 전개도 가능/불가능 구별 맥락을 보조 근거로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_cross_section_prediction",
+      "label_ko": "단면 모양 예상하기",
+      "aliases": [
+        "입체도형의 단면 예상",
+        "단면 추론"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "입체도형의 성질",
+      "concept_type": "procedure",
+      "short_definition": "입체도형을 평면으로 자를 때 생길 수 있는 단면의 모양을 예상하고 설명하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_solid_cross_section",
+        "m1_geo_plane"
+      ],
+      "parent_ids": [
+        "m1_geo_solid_unit"
+      ],
+      "related_ids": [
+        "m1_geo_solid_of_revolution",
+        "m1_geo_model_tool_solid"
+      ],
+      "notes": "공식 문서는 회전체의 단면을 성질 이해에 필요한 정도로 다룬다고 제한한다. 구체적 단면 유형은 교과서 본문 확인 후 보강한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_rotation_generation",
+      "label_ko": "평면도형을 회전시켜 회전체 만들기",
+      "aliases": [
+        "회전체 만들기",
+        "회전으로 생기는 입체도형"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "입체도형의 성질",
+      "concept_type": "procedure",
+      "short_definition": "평면도형을 회전축 둘레로 돌려 회전체가 생기는 과정을 해석하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_plane_properties_unit",
+        "m1_geo_axis_of_rotation"
+      ],
+      "parent_ids": [
+        "m1_geo_solid_unit"
+      ],
+      "related_ids": [
+        "m1_geo_solid_of_revolution"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_net_surface_area_strategy",
+      "label_ko": "전개도로 겉넓이 구하기",
+      "aliases": [
+        "전개도와 겉넓이"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "입체도형의 성질",
+      "concept_type": "procedure",
+      "short_definition": "입체도형의 전개도에서 각 면의 넓이를 확인하여 겉넓이를 구하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "입체도형의 겉넓이와 부피를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_solid_net",
+        "m1_geo_surface_area",
+        "m1_geo_area"
+      ],
+      "parent_ids": [
+        "m1_geo_solid_unit"
+      ],
+      "related_ids": [
+        "m1_geo_solid_net_drawing"
+      ],
+      "notes": "전개도와 겉넓이의 연결은 공식 문서의 전개도와 겉넓이 성취기준을 결합한 미시 절차다. 교과서 예제 근거로 세부 공식을 보강해야 한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_convex_polyhedron_scope",
+      "label_ko": "볼록한 다면체 범위",
+      "aliases": [
+        "볼록 다면체",
+        "다면체의 볼록 범위"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "입체도형의 성질",
+      "concept_type": "property",
+      "short_definition": "중학교 입체도형 성질에서 다면체는 볼록한 경우만 다룬다는 교육과정 범위 조건.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_polyhedron"
+      ],
+      "parent_ids": [
+        "m1_geo_solid_unit"
+      ],
+      "related_ids": [
+        "m1_geo_polyhedron",
+        "m1_geo_convex_polygon_scope"
+      ],
+      "notes": "교육과정 교수·학습 유의사항에 근거한 범위 관리 노드다.",
+      "confidence": "high"
     },
     {
       "id": "m1_geo_surface_area",
@@ -18898,7 +19413,8 @@
       ],
       "related_ids": [
         "m1_geo_volume",
-        "m1_mis_surface_area_volume"
+        "m1_mis_surface_area_volume",
+        "m1_geo_net_surface_area_strategy"
       ],
       "notes": "",
       "confidence": "high"
@@ -19154,17 +19670,49 @@
           "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_geo_surface_area",
-        "m1_geo_volume"
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_geo_solid_unit"
       ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_solid_net_adjacency",
+      "label_ko": "전개도에서 붙는 면의 이웃 관계를 잘못 판단하는 오류",
+      "aliases": [
+        "전개도 이웃 면 판단 오류",
+        "전개도 접힘 오류"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "입체도형의 성질",
+      "concept_type": "misconception_risk",
+      "short_definition": "전개도에서 접었을 때 맞닿는 면과 모서리의 관계를 평면 그림의 이웃 관계만으로 잘못 판단하는 위험.",
+      "source_refs": [
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 173; 직육면체와 정육면체 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체와 정육면체의 겨냥도와 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 원기둥 전개도 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 원기둥의 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        }
+      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_geo_solid_unit"
       ],
       "related_ids": [
+        "m1_geo_solid_net_validity_judgement",
         "m1_geo_solid_net"
       ],
-      "notes": "",
+      "notes": "전개도 가능/불가능 구별 맥락에서 추론한 오개념 위험이다. 교과서 예제·문제·오답 근거 확인 전까지 낮은 신뢰도로 둔다.",
       "confidence": "low"
     },
     {
@@ -19186,16 +19734,11 @@
           "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
         }
       ],
-      "prerequisite_ids": [
-        "m1_geo_surface_area",
-        "m1_geo_volume"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_geo_solid_unit"
       ],
-      "related_ids": [
-        "m1_geo_plane_properties_unit"
-      ],
+      "related_ids": [],
       "notes": "교수·학습 및 평가 유의사항에 근거한 범위 관리 노드다.",
       "confidence": "low"
     },
@@ -49122,34 +49665,6 @@
       "confidence": "high"
     },
     {
-      "id": "m1_geo_solid_of_revolution__represented_by__m1_geo_axis_of_rotation",
-      "source_id": "m1_geo_solid_of_revolution",
-      "target_id": "m1_geo_axis_of_rotation",
-      "relationship_type": "represented_by",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 38; [9수03-07]",
-          "evidence_kind": "achievement_standard",
-          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
-        },
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
-          "evidence_kind": "term_list",
-          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "high"
-    },
-    {
       "id": "m1_geo_axis_of_rotation__used_in__m1_geo_solid_of_revolution",
       "source_id": "m1_geo_axis_of_rotation",
       "target_id": "m1_geo_solid_of_revolution",
@@ -49222,10 +49737,240 @@
       "confidence": "medium"
     },
     {
-      "id": "m1_geo_solid_unit__represented_by__m1_geo_solid_cross_section",
-      "source_id": "m1_geo_solid_unit",
-      "target_id": "m1_geo_solid_cross_section",
-      "relationship_type": "represented_by",
+      "id": "m1_geo_solid_face__used_in__m1_geo_solid_component_identification",
+      "source_id": "m1_geo_solid_face",
+      "target_id": "m1_geo_solid_component_identification",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락"
+        }
+      ],
+      "notes": "입체도형의 구성 요소 찾기는 면을 구별해 세는 절차를 포함한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_edge__used_in__m1_geo_solid_component_identification",
+      "source_id": "m1_geo_solid_edge",
+      "target_id": "m1_geo_solid_component_identification",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락"
+        }
+      ],
+      "notes": "입체도형의 구성 요소 찾기는 모서리를 구별해 세는 절차를 포함한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_vertex__used_in__m1_geo_solid_component_identification",
+      "source_id": "m1_geo_solid_vertex",
+      "target_id": "m1_geo_solid_component_identification",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락"
+        }
+      ],
+      "notes": "입체도형의 구성 요소 찾기는 꼭짓점을 구별해 세는 절차를 포함한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_face__related_to__m1_geo_solid_vertex",
+      "source_id": "m1_geo_solid_face",
+      "target_id": "m1_geo_solid_vertex",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락"
+        }
+      ],
+      "notes": "면과 꼭짓점은 입체도형의 구성 요소를 구별해 설명할 때 함께 쓰인다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_component_identification__used_in__m1_geo_polyhedron",
+      "source_id": "m1_geo_solid_component_identification",
+      "target_id": "m1_geo_polyhedron",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락"
+        }
+      ],
+      "notes": "다면체의 성질 설명에서 면, 모서리, 꼭짓점 확인 절차가 사용된다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_component_identification__used_in__m1_geo_prism",
+      "source_id": "m1_geo_solid_component_identification",
+      "target_id": "m1_geo_prism",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락"
+        }
+      ],
+      "notes": "각기둥의 구성 요소 찾기 맥락을 기둥 모양 입체도형 계열에 보수적으로 연결한다. 원기둥까지 포함되는 세부 범위는 교과서 확인이 필요하다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_solid_component_identification__used_in__m1_geo_pyramid",
+      "source_id": "m1_geo_solid_component_identification",
+      "target_id": "m1_geo_pyramid",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락"
+        }
+      ],
+      "notes": "각뿔의 구성 요소 찾기 맥락을 뿔 모양 입체도형 계열에 보수적으로 연결한다. 원뿔까지 포함되는 세부 범위는 교과서 확인이 필요하다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_orthographic_drawing__contrasts_with__m1_geo_solid_net",
+      "source_id": "m1_geo_orthographic_drawing",
+      "target_id": "m1_geo_solid_net",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 173; 직육면체와 정육면체 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체와 정육면체의 겨냥도와 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        }
+      ],
+      "notes": "겨냥도와 전개도는 모두 입체도형을 평면에 나타내지만 표현 목적이 다르다. 중학교 교과서 근거 확인 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_solid_net__used_in__m1_geo_solid_net_drawing",
+      "source_id": "m1_geo_solid_net",
+      "target_id": "m1_geo_solid_net_drawing",
+      "relationship_type": "used_in",
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
@@ -49238,16 +49983,28 @@
           "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 173; 직육면체와 정육면체 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체와 정육면체의 겨냥도와 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 원기둥 전개도 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 원기둥의 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
         }
       ],
       "notes": "",
       "confidence": "medium"
     },
     {
-      "id": "m1_geo_solid_unit__represented_by__m1_geo_solid_net",
-      "source_id": "m1_geo_solid_unit",
-      "target_id": "m1_geo_solid_net",
-      "relationship_type": "represented_by",
+      "id": "m1_geo_solid_net__used_in__m1_geo_solid_net_validity_judgement",
+      "source_id": "m1_geo_solid_net",
+      "target_id": "m1_geo_solid_net_validity_judgement",
+      "relationship_type": "used_in",
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
@@ -49260,9 +50017,71 @@
           "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 173; 직육면체와 정육면체 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체와 정육면체의 겨냥도와 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 원기둥 전개도 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 원기둥의 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
         }
       ],
       "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_net_drawing__related_to__m1_geo_solid_net_validity_judgement",
+      "source_id": "m1_geo_solid_net_drawing",
+      "target_id": "m1_geo_solid_net_validity_judgement",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 173; 직육면체와 정육면체 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체와 정육면체의 겨냥도와 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 원기둥 전개도 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 원기둥의 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        }
+      ],
+      "notes": "전개도를 그리는 절차와 전개도 가능 여부를 판단하는 절차는 연구보고서 성취수준 맥락에서 함께 등장한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_net_drawing__related_to__m1_geo_net_surface_area_strategy",
+      "source_id": "m1_geo_solid_net_drawing",
+      "target_id": "m1_geo_net_surface_area_strategy",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "입체도형의 겉넓이와 부피를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "전개도 그리기와 전개도로 겉넓이를 구하는 전략은 같은 전개도 표현을 쓰지만, 전자는 표현 생성이고 후자는 계산 전략이다.",
       "confidence": "medium"
     },
     {
@@ -49288,6 +50107,118 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_geo_solid_cross_section__used_in__m1_geo_solid_cross_section_prediction",
+      "source_id": "m1_geo_solid_cross_section",
+      "target_id": "m1_geo_solid_cross_section_prediction",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_of_revolution__used_in__m1_geo_solid_cross_section_prediction",
+      "source_id": "m1_geo_solid_of_revolution",
+      "target_id": "m1_geo_solid_cross_section_prediction",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "회전체 단면은 성질 이해에 필요한 정도로 다루므로 단면 모양 예상 절차와 연결한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_axis_of_rotation__used_in__m1_geo_rotation_generation",
+      "source_id": "m1_geo_axis_of_rotation",
+      "target_id": "m1_geo_rotation_generation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_rotation_generation__used_in__m1_geo_solid_of_revolution",
+      "source_id": "m1_geo_rotation_generation",
+      "target_id": "m1_geo_solid_of_revolution",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
       "id": "m1_geo_solid_net__used_in__m1_geo_surface_area",
       "source_id": "m1_geo_solid_net",
       "target_id": "m1_geo_surface_area",
@@ -49307,6 +50238,84 @@
         }
       ],
       "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_net__used_in__m1_geo_net_surface_area_strategy",
+      "source_id": "m1_geo_solid_net",
+      "target_id": "m1_geo_net_surface_area_strategy",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "입체도형의 겉넓이와 부피를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_surface_area__used_in__m1_geo_net_surface_area_strategy",
+      "source_id": "m1_geo_surface_area",
+      "target_id": "m1_geo_net_surface_area_strategy",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "입체도형의 겉넓이와 부피를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_net_surface_area_strategy__used_in__m1_geo_surface_area",
+      "source_id": "m1_geo_net_surface_area_strategy",
+      "target_id": "m1_geo_surface_area",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "입체도형의 겉넓이와 부피를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "전개도를 이용한 각 면의 넓이 합산은 겉넓이 계산 전략으로 사용된다.",
       "confidence": "medium"
     },
     {
@@ -49352,6 +50361,62 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_convex_polyhedron_scope__related_to__m1_geo_polyhedron",
+      "source_id": "m1_geo_convex_polyhedron_scope",
+      "target_id": "m1_geo_polyhedron",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "다면체 성질은 교육과정 유의사항의 볼록한 다면체 범위 안에서 다룬다.",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_convex_polyhedron_scope__related_to__m1_geo_convex_polygon_scope",
+      "source_id": "m1_geo_convex_polyhedron_scope",
+      "target_id": "m1_geo_convex_polygon_scope",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 37-38; [9수03-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다각형의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        }
+      ],
+      "notes": "다각형과 다면체 모두 교육과정 유의사항에서 볼록한 경우로 범위를 제한한다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_prism__used_in__m1_geo_surface_area",
@@ -49584,6 +50649,56 @@
       ],
       "notes": "모형과 공학 도구 탐구는 입체도형의 단면 관찰을 보조하는 절차로 연결된다.",
       "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_model_tool_solid__used_in__m1_geo_solid_cross_section_prediction",
+      "source_id": "m1_geo_model_tool_solid",
+      "target_id": "m1_geo_solid_cross_section_prediction",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "모형과 공학 도구 탐구는 단면 모양을 관찰하고 예상하는 절차를 보조한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_mis_solid_net_adjacency__often_confused_with__m1_geo_solid_net_validity_judgement",
+      "source_id": "m1_mis_solid_net_adjacency",
+      "target_id": "m1_geo_solid_net_validity_judgement",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 173; 직육면체와 정육면체 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체와 정육면체의 겨냥도와 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 원기둥 전개도 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 원기둥의 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        }
+      ],
+      "notes": "전개도 가능 여부 판단에서 접었을 때 맞닿는 면과 모서리 관계를 잘못 해석할 위험을 분리했다.",
+      "confidence": "low"
     },
     {
       "id": "m1_geo_justification__used_in__m1_geo_proof",
@@ -61746,6 +62861,326 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_geo_solid_unit__contains__m1_geo_solid_face",
+      "source_id": "m1_geo_solid_unit",
+      "target_id": "m1_geo_solid_face",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_unit__contains__m1_geo_solid_edge",
+      "source_id": "m1_geo_solid_unit",
+      "target_id": "m1_geo_solid_edge",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_unit__contains__m1_geo_solid_vertex",
+      "source_id": "m1_geo_solid_unit",
+      "target_id": "m1_geo_solid_vertex",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_unit__contains__m1_geo_solid_component_identification",
+      "source_id": "m1_geo_solid_unit",
+      "target_id": "m1_geo_solid_component_identification",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_unit__contains__m1_geo_orthographic_drawing",
+      "source_id": "m1_geo_solid_unit",
+      "target_id": "m1_geo_orthographic_drawing",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 173; 직육면체와 정육면체 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체와 정육면체의 겨냥도와 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_solid_unit__contains__m1_geo_solid_net_drawing",
+      "source_id": "m1_geo_solid_unit",
+      "target_id": "m1_geo_solid_net_drawing",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 173; 직육면체와 정육면체 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체와 정육면체의 겨냥도와 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 원기둥 전개도 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 원기둥의 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_unit__contains__m1_geo_solid_net_validity_judgement",
+      "source_id": "m1_geo_solid_unit",
+      "target_id": "m1_geo_solid_net_validity_judgement",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 173; 직육면체와 정육면체 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체와 정육면체의 겨냥도와 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 원기둥 전개도 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 원기둥의 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_unit__contains__m1_geo_solid_cross_section_prediction",
+      "source_id": "m1_geo_solid_unit",
+      "target_id": "m1_geo_solid_cross_section_prediction",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_unit__contains__m1_geo_rotation_generation",
+      "source_id": "m1_geo_solid_unit",
+      "target_id": "m1_geo_rotation_generation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_solid_unit__contains__m1_geo_net_surface_area_strategy",
+      "source_id": "m1_geo_solid_unit",
+      "target_id": "m1_geo_net_surface_area_strategy",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "입체도형의 겉넓이와 부피를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_unit__contains__m1_geo_convex_polyhedron_scope",
+      "source_id": "m1_geo_solid_unit",
+      "target_id": "m1_geo_convex_polyhedron_scope",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
       "id": "m1_geo_solid_unit__contains__m1_geo_surface_area",
       "source_id": "m1_geo_solid_unit",
       "target_id": "m1_geo_surface_area",
@@ -61924,6 +63359,28 @@
           "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_solid_unit__contains__m1_mis_solid_net_adjacency",
+      "source_id": "m1_geo_solid_unit",
+      "target_id": "m1_mis_solid_net_adjacency",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 173; 직육면체와 정육면체 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체와 정육면체의 겨냥도와 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 원기둥 전개도 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 원기둥의 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
         }
       ],
       "notes": "",
@@ -81784,6 +83241,676 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_geo_plane_properties_unit__prerequisite_for__m1_geo_solid_face",
+      "source_id": "m1_geo_plane_properties_unit",
+      "target_id": "m1_geo_solid_face",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_line_segment__prerequisite_for__m1_geo_solid_edge",
+      "source_id": "m1_geo_line_segment",
+      "target_id": "m1_geo_solid_edge",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_face__prerequisite_for__m1_geo_solid_edge",
+      "source_id": "m1_geo_solid_face",
+      "target_id": "m1_geo_solid_edge",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_point__prerequisite_for__m1_geo_solid_vertex",
+      "source_id": "m1_geo_point",
+      "target_id": "m1_geo_solid_vertex",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_edge__prerequisite_for__m1_geo_solid_vertex",
+      "source_id": "m1_geo_solid_edge",
+      "target_id": "m1_geo_solid_vertex",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_face__prerequisite_for__m1_geo_solid_component_identification",
+      "source_id": "m1_geo_solid_face",
+      "target_id": "m1_geo_solid_component_identification",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_edge__prerequisite_for__m1_geo_solid_component_identification",
+      "source_id": "m1_geo_solid_edge",
+      "target_id": "m1_geo_solid_component_identification",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_vertex__prerequisite_for__m1_geo_solid_component_identification",
+      "source_id": "m1_geo_solid_vertex",
+      "target_id": "m1_geo_solid_component_identification",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 각뿔 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔에서 면, 모서리, 꼭짓점을 찾고 성질을 설명하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 181; 도형과 측정 영역별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 각뿔, 원기둥, 원뿔, 구의 구성 요소와 성질을 이해하는 도형과 측정 영역별 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_unit__prerequisite_for__m1_geo_orthographic_drawing",
+      "source_id": "m1_geo_solid_unit",
+      "target_id": "m1_geo_orthographic_drawing",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 173; 직육면체와 정육면체 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체와 정육면체의 겨냥도와 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_solid_net__prerequisite_for__m1_geo_solid_net_drawing",
+      "source_id": "m1_geo_solid_net",
+      "target_id": "m1_geo_solid_net_drawing",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 173; 직육면체와 정육면체 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체와 정육면체의 겨냥도와 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 원기둥 전개도 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 원기둥의 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_face__prerequisite_for__m1_geo_solid_net_drawing",
+      "source_id": "m1_geo_solid_face",
+      "target_id": "m1_geo_solid_net_drawing",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 173; 직육면체와 정육면체 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체와 정육면체의 겨냥도와 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 원기둥 전개도 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 원기둥의 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_net__prerequisite_for__m1_geo_solid_net_validity_judgement",
+      "source_id": "m1_geo_solid_net",
+      "target_id": "m1_geo_solid_net_validity_judgement",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 173; 직육면체와 정육면체 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체와 정육면체의 겨냥도와 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 원기둥 전개도 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 원기둥의 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_face__prerequisite_for__m1_geo_solid_net_validity_judgement",
+      "source_id": "m1_geo_solid_face",
+      "target_id": "m1_geo_solid_net_validity_judgement",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 173; 직육면체와 정육면체 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체와 정육면체의 겨냥도와 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 원기둥 전개도 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 원기둥의 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_edge__prerequisite_for__m1_geo_solid_net_validity_judgement",
+      "source_id": "m1_geo_solid_edge",
+      "target_id": "m1_geo_solid_net_validity_judgement",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 173; 직육면체와 정육면체 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체와 정육면체의 겨냥도와 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 원기둥 전개도 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 원기둥의 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_solid_cross_section__prerequisite_for__m1_geo_solid_cross_section_prediction",
+      "source_id": "m1_geo_solid_cross_section",
+      "target_id": "m1_geo_solid_cross_section_prediction",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_plane__prerequisite_for__m1_geo_solid_cross_section_prediction",
+      "source_id": "m1_geo_plane",
+      "target_id": "m1_geo_solid_cross_section_prediction",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_plane_properties_unit__prerequisite_for__m1_geo_rotation_generation",
+      "source_id": "m1_geo_plane_properties_unit",
+      "target_id": "m1_geo_rotation_generation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_axis_of_rotation__prerequisite_for__m1_geo_rotation_generation",
+      "source_id": "m1_geo_axis_of_rotation",
+      "target_id": "m1_geo_rotation_generation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "모형이나 공학 도구로 다면체와 회전체의 성질을 탐구하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_solid_net__prerequisite_for__m1_geo_net_surface_area_strategy",
+      "source_id": "m1_geo_solid_net",
+      "target_id": "m1_geo_net_surface_area_strategy",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "입체도형의 겉넓이와 부피를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_surface_area__prerequisite_for__m1_geo_net_surface_area_strategy",
+      "source_id": "m1_geo_surface_area",
+      "target_id": "m1_geo_net_surface_area_strategy",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "입체도형의 겉넓이와 부피를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_area__prerequisite_for__m1_geo_net_surface_area_strategy",
+      "source_id": "m1_geo_area",
+      "target_id": "m1_geo_net_surface_area_strategy",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "입체도형의 겉넓이와 부피를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_polyhedron__prerequisite_for__m1_geo_convex_polyhedron_scope",
+      "source_id": "m1_geo_polyhedron",
+      "target_id": "m1_geo_convex_polyhedron_scope",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-05], [9수03-07] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "다각형의 내각·외각·대각선을 탐구해 성질을 일반화하고, 다각형과 다면체는 볼록인 경우만 다루며 회전체 단면은 성질 이해에 필요한 정도로 다룸"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
       "id": "m1_geo_solid_net__prerequisite_for__m1_geo_surface_area",
       "source_id": "m1_geo_solid_net",
       "target_id": "m1_geo_surface_area",
@@ -81966,82 +84093,6 @@
       ],
       "notes": "",
       "confidence": "high"
-    },
-    {
-      "id": "m1_geo_surface_area__prerequisite_for__m1_mis_surface_area_volume",
-      "source_id": "m1_geo_surface_area",
-      "target_id": "m1_mis_surface_area_volume",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 38; [9수03-08]",
-          "evidence_kind": "achievement_standard",
-          "summary": "입체도형의 겉넓이와 부피를 구하는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_geo_volume__prerequisite_for__m1_mis_surface_area_volume",
-      "source_id": "m1_geo_volume",
-      "target_id": "m1_mis_surface_area_volume",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 38; [9수03-08]",
-          "evidence_kind": "achievement_standard",
-          "summary": "입체도형의 겉넓이와 부피를 구하는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_geo_surface_area__prerequisite_for__m1_mis_complex_area_volume_scope",
-      "source_id": "m1_geo_surface_area",
-      "target_id": "m1_mis_complex_area_volume_scope",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 39; achievement-standard considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_geo_volume__prerequisite_for__m1_mis_complex_area_volume_scope",
-      "source_id": "m1_geo_volume",
-      "target_id": "m1_mis_complex_area_volume_scope",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 39; achievement-standard considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
     },
     {
       "id": "m1_geo_basic_unit__prerequisite_for__m1_geo_justification",
@@ -90508,38 +92559,22 @@
       "confidence": "low"
     },
     {
-      "id": "m1_mis_surface_area_volume__often_confused_with__m1_geo_solid_net",
-      "source_id": "m1_mis_surface_area_volume",
+      "id": "m1_mis_solid_net_adjacency__often_confused_with__m1_geo_solid_net",
+      "source_id": "m1_mis_solid_net_adjacency",
       "target_id": "m1_geo_solid_net",
       "relationship_type": "often_confused_with",
       "source_refs": [
         {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 38; [9수03-08]",
-          "evidence_kind": "achievement_standard",
-          "summary": "입체도형의 겉넓이와 부피를 구하는 성취기준"
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 173; 직육면체와 정육면체 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "직육면체와 정육면체의 겨냥도와 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
         },
         {
-          "source_id": "achievement_math_2022",
-          "locator": "입체도형의 성질 section; [9수03-07]~[9수03-08] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "다면체와 회전체의 성질을 모형이나 공학 도구로 탐구하고 입체도형의 겉넓이와 부피를 구하는 수준을 구분"
-        }
-      ],
-      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_mis_complex_area_volume_scope__often_confused_with__m1_geo_plane_properties_unit",
-      "source_id": "m1_mis_complex_area_volume_scope",
-      "target_id": "m1_geo_plane_properties_unit",
-      "relationship_type": "often_confused_with",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 39; achievement-standard considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 174; 각기둥과 원기둥 전개도 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "각기둥과 원기둥의 전개도를 그리고 전개도가 될 수 있는 것과 될 수 없는 것을 구별하는 성취수준 맥락"
         }
       ],
       "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",

@@ -20,6 +20,7 @@ digraph pilot_unit_map {
   "m1_geo_triangle_quadrilateral_unit" [label="삼각형과 사각형의 성질\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_trig_unit" [label="삼각비\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_angle" [label="각\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_net_surface_area_strategy" [label="전개도로 겉넓이 구하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_line" [label="직선\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_point" [label="점\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_sector_arc_length_area" [label="부채꼴의 호의 길이와 넓이 구하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -48,6 +49,7 @@ digraph pilot_unit_map {
   "m1_geo_domain" -> "m1_geo_triangle_quadrilateral_unit" [label="contains", style="dashed", color="#6b7280"];
   "m1_geo_domain" -> "m1_geo_trig_unit" [label="contains", style="dashed", color="#6b7280"];
   "m1_geo_angle" -> "m1_geo_triangle" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_geo_area" -> "m1_geo_net_surface_area_strategy" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_line" -> "m1_geo_triangle" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_point" -> "m1_geo_triangle" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_area" -> "m1_geo_sector_arc_length_area" [label="used_in", style="dashed", color="#6b7280"];

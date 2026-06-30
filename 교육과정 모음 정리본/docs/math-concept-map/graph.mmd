@@ -442,6 +442,17 @@ flowchart LR
   m1_geo_frustum_cone["원뿔대"]
   m1_geo_solid_cross_section["입체도형의 단면"]
   m1_geo_solid_net["전개도"]
+  m1_geo_solid_face["입체도형의 면"]
+  m1_geo_solid_edge["입체도형의 모서리"]
+  m1_geo_solid_vertex["입체도형의 꼭짓점"]
+  m1_geo_solid_component_identification["면·모서리·꼭짓점 찾기"]
+  m1_geo_orthographic_drawing["겨냥도"]
+  m1_geo_solid_net_drawing["전개도 그리기"]
+  m1_geo_solid_net_validity_judgement["전개도가 될 수 있는지 판단하기"]
+  m1_geo_solid_cross_section_prediction["단면 모양 예상하기"]
+  m1_geo_rotation_generation["평면도형을 회전시켜 회전체 만들기"]
+  m1_geo_net_surface_area_strategy["전개도로 겉넓이 구하기"]
+  m1_geo_convex_polyhedron_scope["볼록한 다면체 범위"]
   m1_geo_surface_area["겉넓이"]
   m1_geo_volume["부피"]
   m1_geo_prism["기둥 모양 입체도형"]
@@ -449,6 +460,7 @@ flowchart LR
   m1_geo_sphere["구"]
   m1_geo_model_tool_solid["모형과 공학 도구로 입체도형 탐구"]
   m1_mis_surface_area_volume["겉넓이와 부피를 같은 측정량으로 보는 오류"]
+  m1_mis_solid_net_adjacency["전개도에서 붙는 면의 이웃 관계를 잘못 판단하는 오류"]
   m1_mis_complex_area_volume_scope["지나치게 복잡한 넓이·부피 변형 문제 범위 혼동"]
   m1_geo_justification["정당화"]
   m1_geo_proof["증명"]
@@ -1545,16 +1557,34 @@ flowchart LR
   m1_geo_polyhedron -- "사용" --> m1_geo_prism
   m1_geo_polyhedron -- "사용" --> m1_geo_pyramid
   m1_geo_pyramid -- "사용" --> m1_geo_frustum_pyramid
-  m1_geo_solid_of_revolution -- "표현" --> m1_geo_axis_of_rotation
   m1_geo_axis_of_rotation -- "사용" --> m1_geo_solid_of_revolution
   m1_geo_solid_of_revolution -- "사용" --> m1_geo_frustum_cone
   m1_geo_frustum_pyramid -- "대조" --> m1_geo_frustum_cone
-  m1_geo_solid_unit -- "표현" --> m1_geo_solid_cross_section
-  m1_geo_solid_unit -- "표현" --> m1_geo_solid_net
+  m1_geo_solid_face -- "사용" --> m1_geo_solid_component_identification
+  m1_geo_solid_edge -- "사용" --> m1_geo_solid_component_identification
+  m1_geo_solid_vertex -- "사용" --> m1_geo_solid_component_identification
+  m1_geo_solid_face -- "연관" --> m1_geo_solid_vertex
+  m1_geo_solid_component_identification -- "사용" --> m1_geo_polyhedron
+  m1_geo_solid_component_identification -- "사용" --> m1_geo_prism
+  m1_geo_solid_component_identification -- "사용" --> m1_geo_pyramid
+  m1_geo_orthographic_drawing -- "대조" --> m1_geo_solid_net
+  m1_geo_solid_net -- "사용" --> m1_geo_solid_net_drawing
+  m1_geo_solid_net -- "사용" --> m1_geo_solid_net_validity_judgement
+  m1_geo_solid_net_drawing -- "연관" --> m1_geo_solid_net_validity_judgement
+  m1_geo_solid_net_drawing -- "연관" --> m1_geo_net_surface_area_strategy
   m1_geo_solid_cross_section -- "연관" --> m1_geo_solid_net
+  m1_geo_solid_cross_section -- "사용" --> m1_geo_solid_cross_section_prediction
+  m1_geo_solid_of_revolution -- "사용" --> m1_geo_solid_cross_section_prediction
+  m1_geo_axis_of_rotation -- "사용" --> m1_geo_rotation_generation
+  m1_geo_rotation_generation -- "사용" --> m1_geo_solid_of_revolution
   m1_geo_solid_net -- "사용" --> m1_geo_surface_area
+  m1_geo_solid_net -- "사용" --> m1_geo_net_surface_area_strategy
+  m1_geo_surface_area -- "사용" --> m1_geo_net_surface_area_strategy
+  m1_geo_net_surface_area_strategy -- "사용" --> m1_geo_surface_area
   m1_geo_surface_area -- "대조" --> m1_geo_volume
   m1_geo_volume -- "대조" --> m1_geo_surface_area
+  m1_geo_convex_polyhedron_scope -- "연관" --> m1_geo_polyhedron
+  m1_geo_convex_polyhedron_scope -- "연관" --> m1_geo_convex_polygon_scope
   m1_geo_prism -- "사용" --> m1_geo_surface_area
   m1_geo_prism -- "사용" --> m1_geo_volume
   m1_geo_pyramid -- "사용" --> m1_geo_surface_area
@@ -1565,6 +1595,8 @@ flowchart LR
   m1_geo_model_tool_solid -- "사용" --> m1_geo_solid_of_revolution
   m1_geo_model_tool_solid -- "연관" --> m1_geo_solid_net
   m1_geo_model_tool_solid -- "사용" --> m1_geo_solid_cross_section
+  m1_geo_model_tool_solid -- "사용" --> m1_geo_solid_cross_section_prediction
+  m1_mis_solid_net_adjacency -- "혼동" --> m1_geo_solid_net_validity_judgement
   m1_geo_justification -- "사용" --> m1_geo_proof
   m1_geo_triangle_congruence_conditions -- "사용" --> m1_geo_proof
   m1_geo_triangle_congruence_judgement -- "사용" --> m1_geo_justification
@@ -2046,6 +2078,17 @@ flowchart LR
   m1_geo_solid_unit -- "포함" --> m1_geo_frustum_cone
   m1_geo_solid_unit -- "포함" --> m1_geo_solid_cross_section
   m1_geo_solid_unit -- "포함" --> m1_geo_solid_net
+  m1_geo_solid_unit -- "포함" --> m1_geo_solid_face
+  m1_geo_solid_unit -- "포함" --> m1_geo_solid_edge
+  m1_geo_solid_unit -- "포함" --> m1_geo_solid_vertex
+  m1_geo_solid_unit -- "포함" --> m1_geo_solid_component_identification
+  m1_geo_solid_unit -- "포함" --> m1_geo_orthographic_drawing
+  m1_geo_solid_unit -- "포함" --> m1_geo_solid_net_drawing
+  m1_geo_solid_unit -- "포함" --> m1_geo_solid_net_validity_judgement
+  m1_geo_solid_unit -- "포함" --> m1_geo_solid_cross_section_prediction
+  m1_geo_solid_unit -- "포함" --> m1_geo_rotation_generation
+  m1_geo_solid_unit -- "포함" --> m1_geo_net_surface_area_strategy
+  m1_geo_solid_unit -- "포함" --> m1_geo_convex_polyhedron_scope
   m1_geo_solid_unit -- "포함" --> m1_geo_surface_area
   m1_geo_solid_unit -- "포함" --> m1_geo_volume
   m1_geo_solid_unit -- "포함" --> m1_geo_prism
@@ -2053,6 +2096,7 @@ flowchart LR
   m1_geo_solid_unit -- "포함" --> m1_geo_sphere
   m1_geo_solid_unit -- "포함" --> m1_geo_model_tool_solid
   m1_geo_solid_unit -- "포함" --> m1_mis_surface_area_volume
+  m1_geo_solid_unit -- "포함" --> m1_mis_solid_net_adjacency
   m1_geo_solid_unit -- "포함" --> m1_mis_complex_area_volume_scope
   m1_geo_triangle_quadrilateral_unit -- "포함" --> m1_geo_justification
   m1_geo_triangle_quadrilateral_unit -- "포함" --> m1_geo_proof
@@ -2791,6 +2835,28 @@ flowchart LR
   m1_geo_plane -- "선수" --> m1_geo_solid_cross_section
   m1_geo_solid_unit -- "선수" --> m1_geo_solid_net
   m1_geo_plane_properties_unit -- "선수" --> m1_geo_solid_net
+  m1_geo_plane_properties_unit -- "선수" --> m1_geo_solid_face
+  m1_geo_line_segment -- "선수" --> m1_geo_solid_edge
+  m1_geo_solid_face -- "선수" --> m1_geo_solid_edge
+  m1_geo_point -- "선수" --> m1_geo_solid_vertex
+  m1_geo_solid_edge -- "선수" --> m1_geo_solid_vertex
+  m1_geo_solid_face -- "선수" --> m1_geo_solid_component_identification
+  m1_geo_solid_edge -- "선수" --> m1_geo_solid_component_identification
+  m1_geo_solid_vertex -- "선수" --> m1_geo_solid_component_identification
+  m1_geo_solid_unit -- "선수" --> m1_geo_orthographic_drawing
+  m1_geo_solid_net -- "선수" --> m1_geo_solid_net_drawing
+  m1_geo_solid_face -- "선수" --> m1_geo_solid_net_drawing
+  m1_geo_solid_net -- "선수" --> m1_geo_solid_net_validity_judgement
+  m1_geo_solid_face -- "선수" --> m1_geo_solid_net_validity_judgement
+  m1_geo_solid_edge -- "선수" --> m1_geo_solid_net_validity_judgement
+  m1_geo_solid_cross_section -- "선수" --> m1_geo_solid_cross_section_prediction
+  m1_geo_plane -- "선수" --> m1_geo_solid_cross_section_prediction
+  m1_geo_plane_properties_unit -- "선수" --> m1_geo_rotation_generation
+  m1_geo_axis_of_rotation -- "선수" --> m1_geo_rotation_generation
+  m1_geo_solid_net -- "선수" --> m1_geo_net_surface_area_strategy
+  m1_geo_surface_area -- "선수" --> m1_geo_net_surface_area_strategy
+  m1_geo_area -- "선수" --> m1_geo_net_surface_area_strategy
+  m1_geo_polyhedron -- "선수" --> m1_geo_convex_polyhedron_scope
   m1_geo_solid_net -- "선수" --> m1_geo_surface_area
   m1_geo_plane_properties_unit -- "선수" --> m1_geo_surface_area
   m1_geo_solid_unit -- "선수" --> m1_geo_volume
@@ -2798,10 +2864,6 @@ flowchart LR
   m1_geo_polyhedron -- "선수" --> m1_geo_pyramid
   m1_geo_solid_of_revolution -- "선수" --> m1_geo_sphere
   m1_geo_solid_unit -- "선수" --> m1_geo_model_tool_solid
-  m1_geo_surface_area -- "선수" --> m1_mis_surface_area_volume
-  m1_geo_volume -- "선수" --> m1_mis_surface_area_volume
-  m1_geo_surface_area -- "선수" --> m1_mis_complex_area_volume_scope
-  m1_geo_volume -- "선수" --> m1_mis_complex_area_volume_scope
   m1_geo_basic_unit -- "선수" --> m1_geo_justification
   m1_geo_justification -- "선수" --> m1_geo_proof
   m1_geo_triangle_congruence_conditions -- "선수" --> m1_geo_proof
@@ -3118,8 +3180,7 @@ flowchart LR
   m1_mis_skew_parallel_lines -- "혼동" --> m1_geo_position_relation
   m1_mis_arc_chord -- "혼동" --> m1_geo_sector
   m1_mis_arc_chord -- "혼동" --> m1_geo_circular_segment
-  m1_mis_surface_area_volume -- "혼동" --> m1_geo_solid_net
-  m1_mis_complex_area_volume_scope -- "혼동" --> m1_geo_plane_properties_unit
+  m1_mis_solid_net_adjacency -- "혼동" --> m1_geo_solid_net
   m1_mis_proof_observation -- "혼동" --> m1_geo_isosceles_properties
   m1_mis_circumcenter_incenter -- "혼동" --> m1_geo_circumcircle
   m1_mis_circumcenter_incenter -- "혼동" --> m1_geo_incircle
@@ -3580,6 +3641,17 @@ flowchart LR
   class m1_geo_frustum_cone default;
   class m1_geo_solid_cross_section representation;
   class m1_geo_solid_net representation;
+  class m1_geo_solid_face default;
+  class m1_geo_solid_edge default;
+  class m1_geo_solid_vertex default;
+  class m1_geo_solid_component_identification procedure;
+  class m1_geo_orthographic_drawing representation;
+  class m1_geo_solid_net_drawing procedure;
+  class m1_geo_solid_net_validity_judgement procedure;
+  class m1_geo_solid_cross_section_prediction procedure;
+  class m1_geo_rotation_generation procedure;
+  class m1_geo_net_surface_area_strategy procedure;
+  class m1_geo_convex_polyhedron_scope default;
   class m1_geo_surface_area procedure;
   class m1_geo_volume procedure;
   class m1_geo_prism default;
@@ -3587,6 +3659,7 @@ flowchart LR
   class m1_geo_sphere default;
   class m1_geo_model_tool_solid procedure;
   class m1_mis_surface_area_volume risk;
+  class m1_mis_solid_net_adjacency risk;
   class m1_mis_complex_area_volume_scope risk;
   class m1_geo_justification procedure;
   class m1_geo_proof procedure;

@@ -10,9 +10,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 평면도형의 성질
 - priority tier: high
 - priority score: 26
-- edges in packet: 101
-- cross-unit edges: 45
-- low confidence edges: 9
+- edges in packet: 103
+- cross-unit edges: 47
+- low confidence edges: 8
 
 ## Relationship Evidence Slots
 
@@ -25,7 +25,6 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_mis_arc_chord__often_confused_with__m1_geo_chord | intra_unit | 호와 현을 같은 대상으로 보는 오류 | often_confused_with | 현 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_arc_chord__often_confused_with__m1_geo_circular_segment | intra_unit | 호와 현을 같은 대상으로 보는 오류 | often_confused_with | 활꼴 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 3 |
 | m1_mis_arc_chord__often_confused_with__m1_geo_sector | intra_unit | 호와 현을 같은 대상으로 보는 오류 | often_confused_with | 부채꼴 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 3 |
-| m1_mis_complex_area_volume_scope__often_confused_with__m1_geo_plane_properties_unit | cross_unit | 지나치게 복잡한 넓이·부피 변형 문제 범위 혼동 | often_confused_with | 평면도형의 성질 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 1 |
 | m1_geo_parallel_angle_property_explanation__related_to__m1_geo_polygon_angle_sum | cross_unit | 평행선에서 동위각과 엇각의 성질 설명하기 | related_to | 다각형의 내각과 외각의 크기 | low | related_ref;textbook_page_refs;extraction_notes | Find textbook wording or examples that justify keeping these concepts linked. | 4 |
 | m1_geo_plane_properties_unit__contains__m1_geo_arc | intra_unit | 평면도형의 성질 | contains | 호 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
 | m1_geo_plane_properties_unit__contains__m1_geo_central_angle | intra_unit | 평면도형의 성질 | contains | 중심각 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
@@ -96,6 +95,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_geo_line__prerequisite_for__m1_geo_polygon | cross_unit | 직선 | prerequisite_for | 다각형 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_line__prerequisite_for__m1_geo_secant | cross_unit | 직선 | prerequisite_for | 할선 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_parallel_angle_properties__prerequisite_for__m1_geo_polygon_angle_sum | cross_unit | 평행선에서 동위각과 엇각의 성질 | prerequisite_for | 다각형의 내각과 외각의 크기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_geo_plane_properties_unit__prerequisite_for__m1_geo_rotation_generation | cross_unit | 평면도형의 성질 | prerequisite_for | 평면도형을 회전시켜 회전체 만들기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_geo_plane_properties_unit__prerequisite_for__m1_geo_solid_face | cross_unit | 평면도형의 성질 | prerequisite_for | 입체도형의 면 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_geo_plane_properties_unit__prerequisite_for__m1_geo_solid_net | cross_unit | 평면도형의 성질 | prerequisite_for | 전개도 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 5 |
 | m1_geo_plane_properties_unit__prerequisite_for__m1_geo_solid_of_revolution | cross_unit | 평면도형의 성질 | prerequisite_for | 회전체 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_plane_properties_unit__prerequisite_for__m1_geo_solid_unit | cross_unit | 평면도형의 성질 | prerequisite_for | 입체도형의 성질 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
@@ -118,6 +119,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_geo_parallel_angle_properties__used_in__m1_geo_polygon_angle_sum | cross_unit | 평행선에서 동위각과 엇각의 성질 | used_in | 다각형의 내각과 외각의 크기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
 | m1_geo_secant__contrasts_with__m1_geo_tangent_line | cross_unit | 할선 | contrasts_with | 접선 | medium | contrast_ref;textbook_page_refs | Find textbook wording or examples that distinguish the two concepts. | 2 |
 | m1_geo_tangent_line__contrasts_with__m1_geo_secant | cross_unit | 접선 | contrasts_with | 할선 | medium | contrast_ref;textbook_page_refs | Find textbook wording or examples that distinguish the two concepts. | 2 |
+| m1_geo_convex_polyhedron_scope__related_to__m1_geo_convex_polygon_scope | cross_unit | 볼록한 다면체 범위 | related_to | 볼록다각형 범위 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 3 |
 | m1_geo_plane_properties_unit__related_to__m1_geo_circle_unit | cross_unit | 평면도형의 성질 | related_to | 원의 성질 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 7 |
 
 ## Textbook Edge Evidence Fields

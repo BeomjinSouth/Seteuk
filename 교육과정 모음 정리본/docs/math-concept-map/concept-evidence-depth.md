@@ -4,16 +4,16 @@ This generated audit summarizes source evidence depth for each concept node.
 
 ## Summary
 
-- concepts: 585
-- needs textbook evidence: 585
-- low confidence concepts: 88
+- concepts: 597
+- needs textbook evidence: 597
+- low confidence concepts: 90
 
 ## Evidence Depth Counts
 
 | evidence_depth | concept count |
 |---|---:|
-| official_dual_source | 489 |
-| official_single_source | 96 |
+| official_dual_source | 498 |
+| official_single_source | 99 |
 
 ## Priority Rows
 
@@ -31,7 +31,9 @@ This generated audit summarizes source evidence depth for each concept node.
 | m1_mis_proof_observation | 관찰 결과와 증명을 같은 수준의 근거로 보는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_circle_proportion_scope | 원과 비례에 관한 성질을 범위에 포함하는 오류 | low | official_single_source | 1 | curriculum_math_2022 |
 | m1_mis_tangent_radius | 접선과 반지름의 수직 관계를 놓치는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
+| m1_geo_orthographic_drawing | 겨냥도 | low | official_single_source | 1 | achievement_research_report_2022 |
 | m1_mis_complex_area_volume_scope | 지나치게 복잡한 넓이·부피 변형 문제 범위 혼동 | low | official_single_source | 1 | curriculum_math_2022 |
+| m1_mis_solid_net_adjacency | 전개도에서 붙는 면의 이웃 관계를 잘못 판단하는 오류 | low | official_single_source | 2 | achievement_research_report_2022 |
 | m1_mis_surface_area_volume | 겉넓이와 부피를 같은 측정량으로 보는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_arc_chord | 호와 현을 같은 대상으로 보는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_expansion_factorization_direction | 전개와 인수분해 방향을 혼동하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
@@ -57,5 +59,3 @@ This generated audit summarizes source evidence depth for each concept node.
 | m1_mis_expression_equation | 식과 방정식 혼동 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_solution_check | 구한 해의 상황 적합성 확인 누락 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_transposition_sign | 이항할 때 부호를 잘못 바꾸는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_ineq_negative | 음수를 곱하거나 나눌 때 부등호 방향을 바꾸지 않는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_ineq_solution_single_value | 부등식의 해를 한 값으로만 이해하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |

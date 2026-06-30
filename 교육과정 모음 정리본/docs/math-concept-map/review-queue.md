@@ -2,7 +2,7 @@
 
 이 문서는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 출처 보강 때 먼저 확인할 대상을 정리한다.
 
-- 검토 대상 concept: 88개
+- 검토 대상 concept: 90개
 
 ## 영역별 검토 대상
 
@@ -10,17 +10,17 @@
 |---|---:|
 | 수와 연산 | 14 |
 | 변화와 관계 | 46 |
-| 도형과 측정 | 15 |
+| 도형과 측정 | 17 |
 | 자료와 가능성 | 13 |
 
 ## 유형별 검토 대상
 
 | concept_type | concept 수 |
 |---|---:|
-| misconception_risk | 67 |
+| misconception_risk | 68 |
 | procedure | 2 |
 | property | 6 |
-| representation | 1 |
+| representation | 2 |
 | sub_concept | 6 |
 | term | 6 |
 
@@ -101,7 +101,9 @@
 | m1_mis_circle_proportion_scope | 도형과 측정 | 원의 성질 | misconception_risk | textbook_evidence_needed | 원과 비례에 관한 성질을 범위에 포함하는 오류 | 교육과정 유의사항에 근거한 범위 관리 노드다. |
 | m1_mis_tangent_radius | 도형과 측정 | 원의 성질 | misconception_risk | textbook_evidence_needed | 접선과 반지름의 수직 관계를 놓치는 오류 |  |
 | m1_mis_complex_area_volume_scope | 도형과 측정 | 입체도형의 성질 | misconception_risk | textbook_evidence_needed | 지나치게 복잡한 넓이·부피 변형 문제 범위 혼동 | 교수·학습 및 평가 유의사항에 근거한 범위 관리 노드다. |
+| m1_mis_solid_net_adjacency | 도형과 측정 | 입체도형의 성질 | misconception_risk | textbook_evidence_needed | 전개도에서 붙는 면의 이웃 관계를 잘못 판단하는 오류 | 전개도 가능/불가능 구별 맥락에서 추론한 오개념 위험이다. 교과서 예제·문제·오답 근거 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_mis_surface_area_volume | 도형과 측정 | 입체도형의 성질 | misconception_risk | textbook_evidence_needed | 겉넓이와 부피를 같은 측정량으로 보는 오류 |  |
+| m1_geo_orthographic_drawing | 도형과 측정 | 입체도형의 성질 | representation | source_detail_needed | 겨냥도 | 현재는 연구보고서 p.173의 보조 성취수준 맥락만 확인된다. 중학교 교과서 본문 근거 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_mis_arc_chord | 도형과 측정 | 평면도형의 성질 | misconception_risk | textbook_evidence_needed | 호와 현을 같은 대상으로 보는 오류 |  |
 | m1_mis_or_and_counting_confusion | 자료와 가능성 | 경우의 수와 확률 | misconception_risk | textbook_evidence_needed | 또는과 동시에의 경우의 수를 혼동하는 오류 |  |
 | m1_mis_permutation_combination_scope | 자료와 가능성 | 경우의 수와 확률 | misconception_risk | textbook_evidence_needed | 복잡한 순열·조합 문항을 중학교 경우의 수 범위에 포함하는 범위 오판 | 교육과정 유의사항에 근거한 범위 관리 노드다. |
