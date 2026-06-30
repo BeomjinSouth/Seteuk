@@ -18,13 +18,14 @@ digraph pilot_unit_map {
   "m1_num_integer_rational_unit" [label="정수와 유리수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_rational_number" [label="유리수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_square_root_real_unit" [label="제곱근과 실수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_num_rational_irrational_classification" [label="유리수와 무리수의 구분\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_num_irrational_number" [label="무리수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_rational_fraction_form" [label="유리수의 분수 꼴 표현\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_repeating_decimal_unit" -> "m1_mis_finite_to_repeating_scope" [label="contains", style="solid", color="#b91c1c"];
   "m1_num_rational_repeating_relation" -> "m1_mis_finite_to_repeating_scope" [label="prerequisite_for", style="solid", color="#b91c1c"];
   "m1_mis_finite_to_repeating_scope" -> "m1_num_finite_decimal" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_finite_to_repeating_scope" -> "m1_num_rational_repeating_relation" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_finite_to_repeating_scope" -> "m1_num_repeating_decimal" [label="often_confused_with", style="solid", color="#b91c1c"];
-  "m1_num_infinite_decimal" -> "m1_mis_irrational_decimal" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_mis_irrational_decimal" -> "m1_num_infinite_decimal" [label="often_confused_with", style="dashed", color="#b91c1c"];
   "m1_mis_irrational_decimal" -> "m1_num_rational_repeating_relation" [label="often_confused_with", style="dashed", color="#b91c1c"];
   "m1_mis_irrational_decimal" -> "m1_num_repeating_decimal" [label="often_confused_with", style="dashed", color="#b91c1c"];
@@ -63,5 +64,8 @@ digraph pilot_unit_map {
   "m1_num_repeating_decimal_unit" -> "m1_num_square_root_real_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_repeating_decimal_to_fraction" -> "m1_num_rational_number" [label="represented_by", style="dashed", color="#6b7280"];
   "m1_num_rational_number" -> "m1_num_rational_repeating_relation" [label="used_in", style="dashed", color="#6b7280"];
+  "m1_num_rational_repeating_relation" -> "m1_num_rational_irrational_classification" [label="used_in", style="dashed", color="#6b7280"];
+  "m1_num_irrational_number" -> "m1_num_repeating_decimal" [label="contrasts_with", style="dashed", color="#6b7280"];
+  "m1_num_repeating_decimal" -> "m1_num_irrational_number" [label="contrasts_with", style="dashed", color="#6b7280"];
   "m1_num_rational_fraction_form" -> "m1_num_rational_repeating_relation" [label="related_to", style="dashed", color="#6b7280"];
 }

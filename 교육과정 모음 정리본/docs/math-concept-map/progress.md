@@ -317,6 +317,23 @@
 - 전체 파생 산출물 파이프라인을 재실행했고 `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
 - PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
 
+## 2026-06-30 제곱근과 실수 미시 concept 병렬 보강
+
+- AGENTS.md를 다시 확인했고, 이번 작업은 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` concept map 보강, 파생 산출물 재생성, 검증 보강으로 제한했다.
+- 멀티에이전트 explorer 3개를 읽기 전용으로 사용해 rank 후보 `제곱근과 실수`의 누락 미시 concept, edge 품질, source ref 적용 범위를 병렬 감사했다. 감사 결과에 따라 오개념 노드는 선수 관계에서 제거하고 `often_confused_with` 중심의 진단 관계로 남겼으며, 연구보고서 p. 213은 교과서 근거 대체가 아닌 보조 source ref로만 적용했다.
+- 연구보고서 p. 213의 `[9수01-07]`~`[9수01-10]` 성취기준별 성취수준 맥락을 직접 확인해 `제곱수`, `제곱근 구하기`, `제곱근을 근호로 나타내기`, `근호 안의 수`, `근호를 포함한 식 간단히 하기`, `제곱근의 곱셈과 나눗셈`, `근호 안의 수가 같은 제곱근의 덧셈과 뺄셈`, `실수의 수 체계`를 추가했다.
+- 기존 `제곱근`, `제곱근의 성질`, `제곱근의 대소 관계`, `무리수`, `실수`, `실수의 대소 관계`, `근호를 포함한 식`, `근호를 포함한 식의 사칙계산`에도 p. 213 보조 source ref를 추가했다. 단, `근호가 나타내는 제곱근의 부호를 혼동하는 오류`, `무한소수와 무리수를 같은 말로 보는 오류`, `근호 안의 수가 다른 제곱근을 동류항처럼 더하는 오류`에는 p. 213을 붙이지 않았고 confidence도 `low`로 유지했다.
+- edge 품질 보강으로 단위정사각형 대각선 표현 방향을 `무리수 -> 한 변의 길이가 1인 정사각형의 대각선`의 `represented_by`로 바로잡고, `제곱수`, `제곱근 구하기`, 근호 표현, 근호식 간단히 하기, 제곱근의 곱셈·나눗셈, 같은 근호 덧셈·뺄셈, 실수 수 체계, 수직선 기반 실수 대소 관계, 순환소수와 무리수 대비 관계를 명시했다.
+- 전체 파생 산출물을 재생성한 결과 concept은 548개, edge는 2365개가 되었다. source ref 총계는 concept 1553개, edge 6215개, 총 7768개이며 source catalogue는 5개이다.
+- `review-queue.*`는 81개 low-confidence concept, `concept-evidence-depth.*`는 concept 548개, `edge-evidence-depth.*`는 edge 2365개, `prerequisite-map.*`는 838개 선수 관계 edge로 갱신되었다. `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
+- `textbook-evidence-workplan.*`는 34개 단원 그룹, concept evidence row 548개, edge evidence row 2847개, pending textbook evidence row 3395개, low-confidence concept/edge row 546개를 기록한다. 이번 보강 뒤 `제곱근과 실수`는 현재 workplan rank 9이며 25개 concept과 120개 edge row, 총 145개 row가 모두 `pending_textbook_pdf` 상태이다. 이전 rank 9였던 `다항식의 곱셈과 인수분해`는 rank 10으로 재정렬되었다.
+- `test_build_pilot_square_root_microconcepts.py`를 추가해 제곱근·근호 미시 절차, p. 213 source ref 범위, 오개념 prerequisite 제거, 새 edge 방향을 고정했다.
+- 표적 테스트: `python -m unittest test_build_pilot_square_root_microconcepts.py` 5개, `python -m unittest test_build_pilot_edge_sync.py` 21개 통과.
+- 전체 단위 테스트: `python -m unittest discover -s . -p "test_*.py"`: 239개 통과.
+- 전체 validator: `python docs/math-concept-map/tools/validate_concept_map.py`: 548개 concept, 2365개 edge, 5개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map 교과서_원본`: 종료 코드 0, CRLF 변환 경고만 확인.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
 - 중1~중3 수학 교과서 PDF가 추가되면 목차, 학습 목표, 본문 정의, 정리, 예제, 용어 설명 순서로 모든 영역의 노드를 보강한다.
@@ -1315,5 +1332,5 @@
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
 - 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 `not_applicable_from_this_row` 33개가 broad context, 용어 충돌, 도구·자료 입력, 또는 약한 출현으로 유지되는지 주기적으로 감사하되, 현재 남은 `pending_manual_review`는 0개이다. 단, `비`와 `입력값` confidence 승격은 교과서 본문 또는 중학교 과정 직접 근거 확인 후 판단한다.
 - 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.
-- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 237개, 총 280개 row로 유지하되, rank 2 `일차함수와 그 그래프`의 concept 33개와 edge packet row 165개, 총 198개 row, rank 3 `경우의 수와 확률`의 concept 26개와 edge packet row 112개, 총 138개 row, rank 4 `이차함수와 그 그래프`의 concept 30개와 edge packet row 143개, 총 173개 row, rank 5 `정수와 유리수`의 concept 41개와 edge packet row 199개, 총 240개 row, rank 6 `도수분포표와 상대도수`의 concept 33개와 edge packet row 180개, 총 213개 row, rank 7 `일차방정식`의 concept 31개와 edge packet row 159개, 총 190개 row, rank 8 `문자의 사용과 식`의 concept 24개와 edge packet row 143개, 총 167개 row, rank 9 `다항식의 곱셈과 인수분해`의 concept 20개와 edge packet row 114개, 총 134개 row도 같은 방식으로 교과서 근거를 보강한다. 교과서 PDF 없이 공식·보조 문서 기반 미시 concept 보강을 계속한다면 다음 반복 후보는 rank 10 `제곱근과 실수` 또는 rank 11 `이차방정식`이다.
+- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 237개, 총 280개 row로 유지하되, rank 2 `일차함수와 그 그래프`의 concept 33개와 edge packet row 165개, 총 198개 row, rank 3 `경우의 수와 확률`의 concept 26개와 edge packet row 112개, 총 138개 row, rank 4 `이차함수와 그 그래프`의 concept 30개와 edge packet row 143개, 총 173개 row, rank 5 `정수와 유리수`의 concept 41개와 edge packet row 203개, 총 244개 row, rank 6 `도수분포표와 상대도수`의 concept 33개와 edge packet row 180개, 총 213개 row, rank 7 `일차방정식`의 concept 31개와 edge packet row 159개, 총 190개 row, rank 8 `문자의 사용과 식`의 concept 24개와 edge packet row 144개, 총 168개 row, rank 9 `제곱근과 실수`의 concept 25개와 edge packet row 120개, 총 145개 row, rank 10 `다항식의 곱셈과 인수분해`의 concept 20개와 edge packet row 114개, 총 134개 row도 같은 방식으로 교과서 근거를 보강한다. 교과서 PDF 없이 공식·보조 문서 기반 미시 concept 보강을 계속한다면 다음 반복 후보는 rank 11 `이차방정식`이다.
 - 새 concept, alias, `related_ids`, 또는 `equivalent_to` 후보가 추가되면 `equivalence-alias-audit.*`, `related-edge-resolution-queue.*`, `textbook-edge-evidence-packets/*`, `edge-evidence-depth.*`를 함께 재생성한다.

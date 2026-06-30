@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 정수와 유리수
 - priority tier: highest
 - priority score: 65
-- edges in packet: 199
-- cross-unit edges: 47
+- edges in packet: 203
+- cross-unit edges: 51
 - low confidence edges: 36
 
 ## Relationship Evidence Slots
@@ -199,17 +199,21 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_num_rational_number__prerequisite_for__m1_num_finite_decimal | cross_unit | 유리수 | prerequisite_for | 유한소수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_rational_number__prerequisite_for__m1_num_fraction_decimal_classification | cross_unit | 유리수 | prerequisite_for | 분수가 유한소수 또는 순환소수로 나타나는지 구분하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
 | m1_num_rational_number__prerequisite_for__m1_num_infinite_decimal | cross_unit | 유리수 | prerequisite_for | 무한소수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
-| m1_num_rational_number__prerequisite_for__m1_num_irrational_number | cross_unit | 유리수 | prerequisite_for | 무리수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_num_rational_number__prerequisite_for__m1_num_irrational_number | cross_unit | 유리수 | prerequisite_for | 무리수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 5 |
 | m1_num_rational_number__prerequisite_for__m1_num_rational_irrational_classification | cross_unit | 유리수 | prerequisite_for | 유리수와 무리수의 구분 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_rational_number__prerequisite_for__m1_num_rational_repeating_relation | cross_unit | 유리수 | prerequisite_for | 유리수와 순환소수의 관계 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
-| m1_num_rational_number__prerequisite_for__m1_num_real_number | cross_unit | 유리수 | prerequisite_for | 실수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 5 |
+| m1_num_rational_number__prerequisite_for__m1_num_real_number | cross_unit | 유리수 | prerequisite_for | 실수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 6 |
+| m1_num_rational_number__prerequisite_for__m1_num_real_number_system | cross_unit | 유리수 | prerequisite_for | 실수의 수 체계 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_rational_number__prerequisite_for__m1_num_repeating_decimal_unit | cross_unit | 유리수 | prerequisite_for | 유리수와 순환소수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
-| m1_num_rational_number__prerequisite_for__m1_num_square_root_real_unit | cross_unit | 유리수 | prerequisite_for | 제곱근과 실수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 9 |
+| m1_num_rational_number__prerequisite_for__m1_num_square_root_real_unit | cross_unit | 유리수 | prerequisite_for | 제곱근과 실수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 10 |
 | m1_num_subtraction__prerequisite_for__m1_eq_equal_add_subtract_property | cross_unit | 뺄셈 | prerequisite_for | 양변에 같은 수를 더하거나 빼기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_num_real_number__represented_by__m1_num_number_line | cross_unit | 실수 | represented_by | 수직선 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
 | m1_num_repeating_decimal_to_fraction__represented_by__m1_num_rational_number | cross_unit | 순환소수를 분수로 나타내기 | represented_by | 유리수 | high | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
 | m1_num_distributive_law__used_in__m1_factor_common_factor_formula | cross_unit | 분배법칙 | used_in | m(a+b) 공식 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 1 |
 | m1_num_distributive_law__used_in__m1_factor_polynomial_multiplication | cross_unit | 분배법칙 | used_in | 다항식의 곱셈 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 7 |
 | m1_num_four_operations__used_in__m1_expr_evaluate_expression_value | cross_unit | 정수와 유리수의 사칙계산 | used_in | 식의 값 구하기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
+| m1_num_number_line__used_in__m1_num_real_order | cross_unit | 수직선 | used_in | 실수의 대소 관계 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_num_rational_number__used_in__m1_num_rational_irrational_classification | cross_unit | 유리수 | used_in | 유리수와 무리수의 구분 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_num_rational_number__used_in__m1_num_rational_repeating_relation | cross_unit | 유리수 | used_in | 유리수와 순환소수의 관계 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_num_irrational_number__contrasts_with__m1_num_rational_number | cross_unit | 무리수 | contrasts_with | 유리수 | high | contrast_ref;textbook_page_refs | Find textbook wording or examples that distinguish the two concepts. | 2 |
 | m1_num_rational_number__contrasts_with__m1_num_irrational_number | cross_unit | 유리수 | contrasts_with | 무리수 | high | contrast_ref;textbook_page_refs | Find textbook wording or examples that distinguish the two concepts. | 2 |

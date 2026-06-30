@@ -9,12 +9,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 문자의 사용과 식
 - priority tier: highest
-- workplan score: 173
+- workplan score: 178
 - concepts: 24
-- edges touching unit: 143
-- cross-unit edges: 69
+- edges touching unit: 144
+- cross-unit edges: 70
 - low confidence concepts: 3
-- low confidence edges: 14
+- low confidence edges: 15
 
 ## Concept Type Distribution
 
@@ -34,7 +34,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 |---|---:|
 | contains | 27 |
 | contrasts_with | 4 |
-| often_confused_with | 10 |
+| often_confused_with | 11 |
 | prerequisite_for | 66 |
 | related_to | 4 |
 | represented_by | 2 |
@@ -55,6 +55,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_mis_function_value_input_output__often_confused_with__m1_expr_substitution | 함숫값과 입력값 혼동 | often_confused_with | 대입 | low | official_dual_source |
 | m1_mis_letter_as_label_only__often_confused_with__m1_term_variable | 문자를 이름표로만 해석하는 오류 | often_confused_with | 변수 | low | official_dual_source |
 | m1_mis_polynomial_like_terms__often_confused_with__m1_expr_like_terms | 다항식에서 동류항 처리를 누락하는 오류 | often_confused_with | 동류항 | low | official_dual_source |
+| m1_mis_radical_like_terms__often_confused_with__m1_expr_like_terms | 근호 안의 수가 다른 제곱근을 동류항처럼 더하는 오류 | often_confused_with | 동류항 | low | official_single_source |
 | m1_mis_system_substitution__often_confused_with__m1_expr_substitution | 대입법에서 식 전체를 대입하지 않는 오류 | often_confused_with | 대입 | low | official_dual_source |
 | m1_num_domain__related_to__m1_expr_unit | 수와 연산 | related_to | 문자의 사용과 식 | low | official_dual_source |
 | m1_expr_unit__contains__m1_repr_everyday_language | 문자의 사용과 식 | contains | 일상 언어 | high | official_single_source |
@@ -91,4 +92,3 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_expr_substitution__prerequisite_for__m1_eq_solution | 대입 | prerequisite_for | 해 | high | official_dual_source |
 | m1_expr_substitution__prerequisite_for__m1_eq_solution_check | 대입 | prerequisite_for | 해의 확인 | high | official_dual_source |
 | m1_expr_substitution__prerequisite_for__m1_eq_truth_value_by_substitution | 대입 | prerequisite_for | 대입값에 따른 등식의 참거짓 | medium | official_dual_source |
-| m1_expr_substitution__prerequisite_for__m1_func_value | 대입 | prerequisite_for | 함숫값 | high | official_dual_source |

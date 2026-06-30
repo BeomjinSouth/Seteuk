@@ -75,15 +75,23 @@ flowchart LR
   m1_mis_finite_to_repeating_scope["유한소수를 순환소수로 나타내는 활동을 범위로 오인하는 오류"]
   m1_num_square_root_real_unit["제곱근과 실수"]
   m1_num_square_root["제곱근"]
+  m1_num_square_number["제곱수"]
+  m1_num_find_square_root["제곱근 구하기"]
   m1_num_square_root_property["제곱근의 성질"]
   m1_num_radical_sign["근호"]
+  m1_num_represent_square_root_radical["제곱근을 근호로 나타내기"]
   m1_num_compare_square_roots["제곱근의 대소 관계"]
   m1_num_irrational_number["무리수"]
   m1_num_real_number["실수"]
+  m1_num_real_number_system["실수의 수 체계"]
   m1_num_rational_irrational_classification["유리수와 무리수의 구분"]
   m1_num_real_order["실수의 대소 관계"]
   m1_num_radical_expression["근호를 포함한 식"]
+  m1_num_radicand["근호 안의 수"]
   m1_num_radical_operations["근호를 포함한 식의 사칙계산"]
+  m1_num_simplify_radical_expression["근호를 포함한 식 간단히 하기"]
+  m1_num_radical_mul_div["제곱근의 곱셈과 나눗셈"]
+  m1_num_radical_add_sub_same_radicand["근호 안의 수가 같은 제곱근의 덧셈과 뺄셈"]
   m1_num_rationalize_denominator["분모의 유리화"]
   m1_num_square_root_calculator["계산기로 제곱근 값 구하기"]
   m1_num_unit_square_diagonal["한 변의 길이가 1인 정사각형의 대각선"]
@@ -711,30 +719,67 @@ flowchart LR
   m1_num_square_root_real_unit -- "포함" --> m1_num_real_number
   m1_num_square_root_real_unit -- "포함" --> m1_num_real_order
   m1_num_square_root_real_unit -- "포함" --> m1_num_radical_operations
+  m1_num_square_root_real_unit -- "포함" --> m1_num_square_number
+  m1_num_square_root_real_unit -- "포함" --> m1_num_find_square_root
+  m1_num_square_root_real_unit -- "포함" --> m1_num_represent_square_root_radical
+  m1_num_radical_expression -- "포함" --> m1_num_radicand
+  m1_num_radical_operations -- "포함" --> m1_num_simplify_radical_expression
+  m1_num_radical_operations -- "포함" --> m1_num_radical_mul_div
+  m1_num_radical_operations -- "포함" --> m1_num_radical_add_sub_same_radicand
   m1_calc_power -- "선수" --> m1_num_square_root
+  m1_calc_power -- "사용" --> m1_num_square_number
+  m1_num_square_number -- "연관" --> m1_num_square_root
+  m1_num_square_root -- "사용" --> m1_num_find_square_root
+  m1_num_square_number -- "사용" --> m1_num_find_square_root
   m1_num_square_root -- "사용" --> m1_num_square_root_property
+  m1_num_square_root_property -- "사용" --> m1_num_find_square_root
   m1_num_square_root -- "표현" --> m1_num_radical_sign
+  m1_num_square_root -- "사용" --> m1_num_represent_square_root_radical
+  m1_num_radical_sign -- "사용" --> m1_num_represent_square_root_radical
+  m1_num_radical_expression -- "사용" --> m1_num_represent_square_root_radical
   m1_num_radical_sign -- "사용" --> m1_num_radical_expression
   m1_num_square_root_property -- "사용" --> m1_num_compare_square_roots
   m1_num_compare_square_roots -- "사용" --> m1_num_real_order
-  m1_num_unit_square_diagonal -- "표현" --> m1_num_irrational_number
+  m1_num_irrational_number -- "표현" --> m1_num_unit_square_diagonal
+  m1_num_square_root -- "사용" --> m1_num_unit_square_diagonal
   m1_geo_diagonal -- "사용" --> m1_num_unit_square_diagonal
   m1_num_rational_number -- "대조" --> m1_num_irrational_number
   m1_num_irrational_number -- "대조" --> m1_num_rational_number
+  m1_num_repeating_decimal -- "대조" --> m1_num_irrational_number
+  m1_num_irrational_number -- "대조" --> m1_num_repeating_decimal
   m1_num_real_number -- "포함" --> m1_num_rational_number
   m1_num_real_number -- "포함" --> m1_num_irrational_number
+  m1_num_real_number -- "포함" --> m1_num_real_number_system
+  m1_num_real_number -- "표현" --> m1_num_real_number_system
   m1_num_real_number -- "사용" --> m1_num_rational_irrational_classification
-  m1_num_real_number -- "포함" --> m1_num_real_order
+  m1_num_real_number_system -- "사용" --> m1_num_rational_irrational_classification
+  m1_num_rational_number -- "사용" --> m1_num_rational_irrational_classification
+  m1_num_irrational_number -- "사용" --> m1_num_rational_irrational_classification
+  m1_num_rational_repeating_relation -- "사용" --> m1_num_rational_irrational_classification
+  m1_num_real_number -- "사용" --> m1_num_real_order
+  m1_num_number_line -- "사용" --> m1_num_real_order
+  m1_num_real_number -- "표현" --> m1_num_number_line
   m1_num_radical_expression -- "사용" --> m1_num_radical_operations
   m1_num_radical_expression -- "사용" --> m1_num_rationalize_denominator
   m1_num_square_root_property -- "사용" --> m1_num_radical_operations
+  m1_num_square_root_property -- "사용" --> m1_num_simplify_radical_expression
+  m1_num_simplify_radical_expression -- "사용" --> m1_num_radical_operations
+  m1_num_radical_mul_div -- "사용" --> m1_num_simplify_radical_expression
+  m1_num_square_root_property -- "사용" --> m1_num_radical_mul_div
+  m1_num_radical_mul_div -- "사용" --> m1_num_radical_operations
+  m1_num_radicand -- "사용" --> m1_num_radical_add_sub_same_radicand
+  m1_num_radical_add_sub_same_radicand -- "사용" --> m1_num_radical_operations
+  m1_num_radical_operations -- "포함" --> m1_num_rationalize_denominator
   m1_num_radical_operations -- "사용" --> m1_num_rationalize_denominator
   m1_num_square_root -- "사용" --> m1_num_square_root_calculator
   m1_num_square_root_calculator -- "사용" --> m1_num_compare_square_roots
   m1_mis_radical_principal_root -- "혼동" --> m1_num_radical_sign
+  m1_mis_radical_principal_root -- "혼동" --> m1_num_square_root
   m1_mis_irrational_decimal -- "혼동" --> m1_num_infinite_decimal
   m1_mis_irrational_decimal -- "혼동" --> m1_num_irrational_number
   m1_mis_radical_like_terms -- "혼동" --> m1_num_radical_operations
+  m1_mis_radical_like_terms -- "혼동" --> m1_num_radical_add_sub_same_radicand
+  m1_mis_radical_like_terms -- "혼동" --> m1_expr_like_terms
   m1_expr_unit -- "포함" --> m1_expr_letter
   m1_expr_unit -- "포함" --> m1_expr_literal_expression
   m1_expr_unit -- "포함" --> m1_repr_expression
@@ -2086,29 +2131,38 @@ flowchart LR
   m1_num_rational_number -- "선수" --> m1_num_fraction_decimal_classification
   m1_num_rational_repeating_relation -- "선수" --> m1_mis_finite_to_repeating_scope
   m1_num_rational_number -- "선수" --> m1_num_square_root_real_unit
+  m1_calc_power -- "선수" --> m1_num_square_number
+  m1_num_square_root -- "선수" --> m1_num_find_square_root
+  m1_num_square_number -- "선수" --> m1_num_find_square_root
   m1_num_square_root -- "선수" --> m1_num_square_root_property
   m1_num_square_root -- "선수" --> m1_num_radical_sign
+  m1_num_square_root -- "선수" --> m1_num_represent_square_root_radical
+  m1_num_radical_sign -- "선수" --> m1_num_represent_square_root_radical
   m1_num_square_root_property -- "선수" --> m1_num_compare_square_roots
   m1_num_rational_number -- "선수" --> m1_num_irrational_number
   m1_num_square_root -- "선수" --> m1_num_irrational_number
   m1_num_rational_number -- "선수" --> m1_num_real_number
   m1_num_irrational_number -- "선수" --> m1_num_real_number
+  m1_num_rational_number -- "선수" --> m1_num_real_number_system
+  m1_num_irrational_number -- "선수" --> m1_num_real_number_system
   m1_num_rational_number -- "선수" --> m1_num_rational_irrational_classification
   m1_num_irrational_number -- "선수" --> m1_num_rational_irrational_classification
   m1_num_real_number -- "선수" --> m1_num_real_order
   m1_num_compare_square_roots -- "선수" --> m1_num_real_order
   m1_num_radical_sign -- "선수" --> m1_num_radical_expression
   m1_num_square_root_property -- "선수" --> m1_num_radical_expression
+  m1_num_radical_sign -- "선수" --> m1_num_radicand
   m1_num_radical_expression -- "선수" --> m1_num_radical_operations
   m1_num_square_root_property -- "선수" --> m1_num_radical_operations
+  m1_num_square_root_property -- "선수" --> m1_num_simplify_radical_expression
+  m1_num_radical_expression -- "선수" --> m1_num_simplify_radical_expression
+  m1_num_radical_expression -- "선수" --> m1_num_radical_mul_div
+  m1_num_square_root_property -- "선수" --> m1_num_radical_mul_div
+  m1_num_radical_expression -- "선수" --> m1_num_radical_add_sub_same_radicand
+  m1_num_radicand -- "선수" --> m1_num_radical_add_sub_same_radicand
   m1_num_radical_operations -- "선수" --> m1_num_rationalize_denominator
   m1_num_square_root -- "선수" --> m1_num_square_root_calculator
   m1_num_square_root -- "선수" --> m1_num_unit_square_diagonal
-  m1_num_square_root -- "선수" --> m1_mis_radical_principal_root
-  m1_num_radical_sign -- "선수" --> m1_mis_radical_principal_root
-  m1_num_infinite_decimal -- "선수" --> m1_mis_irrational_decimal
-  m1_num_irrational_number -- "선수" --> m1_mis_irrational_decimal
-  m1_num_radical_operations -- "선수" --> m1_mis_radical_like_terms
   m1_expr_letter -- "선수" --> m1_expr_literal_expression
   m1_expr_literal_expression -- "선수" --> m1_expr_value
   m1_expr_substitution -- "선수" --> m1_expr_value
@@ -2936,15 +2990,23 @@ flowchart LR
   class m1_mis_finite_to_repeating_scope risk;
   class m1_num_square_root_real_unit core;
   class m1_num_square_root core;
+  class m1_num_square_number default;
+  class m1_num_find_square_root procedure;
   class m1_num_square_root_property default;
   class m1_num_radical_sign default;
+  class m1_num_represent_square_root_radical procedure;
   class m1_num_compare_square_roots procedure;
   class m1_num_irrational_number core;
   class m1_num_real_number core;
+  class m1_num_real_number_system representation;
   class m1_num_rational_irrational_classification procedure;
   class m1_num_real_order default;
   class m1_num_radical_expression representation;
+  class m1_num_radicand default;
   class m1_num_radical_operations procedure;
+  class m1_num_simplify_radical_expression procedure;
+  class m1_num_radical_mul_div procedure;
+  class m1_num_radical_add_sub_same_radicand procedure;
   class m1_num_rationalize_denominator procedure;
   class m1_num_square_root_calculator procedure;
   class m1_num_unit_square_diagonal representation;

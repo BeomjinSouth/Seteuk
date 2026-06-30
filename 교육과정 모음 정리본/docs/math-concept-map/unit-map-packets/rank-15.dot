@@ -27,6 +27,7 @@ digraph pilot_unit_map {
   "m1_factor_perfect_square_expression" [label="완전제곱식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_prime_factor_product" [label="소인수의 곱으로 표현하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_prime_factorization" [label="소인수분해\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_num_square_number" [label="제곱수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_square_root" [label="제곱근\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_factor_unit" [label="다항식의 곱셈과 인수분해\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_ineq_solving_linear_inequality" [label="일차부등식 풀기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -91,6 +92,7 @@ digraph pilot_unit_map {
   "m1_calc_power" -> "m1_factor_perfect_square_expression" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_calc_power" -> "m1_num_prime_factor_product" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_calc_power" -> "m1_num_prime_factorization" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_calc_power" -> "m1_num_square_number" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_calc_power" -> "m1_num_square_root" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_calc_unit" -> "m1_factor_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_calc_unit" -> "m1_ineq_solving_linear_inequality" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -111,6 +113,7 @@ digraph pilot_unit_map {
   "m1_calc_base" -> "m1_num_prime_factor_product" [label="used_in", style="dashed", color="#6b7280"];
   "m1_calc_exponent" -> "m1_num_prime_factor_product" [label="used_in", style="dashed", color="#6b7280"];
   "m1_calc_power" -> "m1_num_prime_factor_product" [label="used_in", style="dashed", color="#6b7280"];
+  "m1_calc_power" -> "m1_num_square_number" [label="used_in", style="dashed", color="#6b7280"];
   "m1_expr_add_sub_linear_expression" -> "m1_calc_polynomial_add_sub" [label="used_in", style="dashed", color="#6b7280"];
   "m1_expr_like_terms" -> "m1_calc_polynomial_add_sub" [label="used_in", style="dashed", color="#6b7280"];
   "m1_expr_polynomial" -> "m1_calc_polynomial_add_sub" [label="used_in", style="dashed", color="#6b7280"];

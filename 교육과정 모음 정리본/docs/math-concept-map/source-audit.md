@@ -57,7 +57,7 @@
 - `review-queue.md`와 `review-queue.csv`는 위 잠정 노드 중 `confidence: low`인 81개 concept을 다음 교과서·출처 보강 우선순위로 모아 둔 파생 산출물이다.
 - `official-term-coverage.md`와 `official-term-coverage.csv`는 공식 문서 용어·기호 168개가 concept label 또는 alias로 연결되는지 추적하는 파생 산출물이다. 현재 `needs_concept` 항목은 없다.
 - `unit-coverage.md`와 `unit-coverage.csv`는 현재 concept/edge를 34개 학년·영역·단원 그룹으로 나누어 다음 교과서 원문 보강 단위를 추적하는 파생 산출물이다.
-- `relationship-audit.md`와 `relationship-audit.csv`는 현재 edge 2319개가 관계 유형별로 어떻게 분포하는지와 고립 concept이 없는지 추적하는 파생 산출물이다.
+- `relationship-audit.md`와 `relationship-audit.csv`는 현재 edge 2365개가 관계 유형별로 어떻게 분포하는지와 고립 concept이 없는지 추적하는 파생 산출물이다.
 - `related-edge-resolution-queue.md`와 `related-edge-resolution-queue.csv`는 현재 남은 `related_ids` 해소 후보 0개를 기록하며, 새 후보가 생기면 관계 유형 후보와 처리 우선순위로 분리해 edge 확정 순서를 좁히는 파생 산출물이다.
 
 ## Source Inventory Snapshot
@@ -70,7 +70,7 @@
 ## Research Report Concept Signal
 
 - `research-report-concept-signal.md`와 `research-report-concept-signal.csv`를 추가해 수학과 성취수준 개발 연구보고서 PDF에서 현재 concept `label_ko` 또는 2자 이상 alias가 출현하는 page 후보를 추적한다.
-- 현재 연구보고서 신호는 242개 concept에 잡혔으며, 이 중 `confidence: low` concept은 2개, `confidence: medium` concept은 33개, `confidence: high` concept은 207개이다.
+- 현재 연구보고서 신호는 247개 concept에 잡혔으며, 이 중 `confidence: low` concept은 2개, `confidence: medium` concept은 33개, `confidence: high` concept은 212개이다.
 - 이 산출물은 연구보고서 원문 맥락을 확인하기 위한 후보 신호이며, row가 있다고 해서 `concepts.json`의 source ref나 confidence를 자동 변경하지 않는다.
 - 현재 교과서 PDF가 없으므로 연구보고서 신호는 교과서 page-level 근거를 대체하지 않고, 보조 공식 문서 기반 검토 순서를 좁히는 용도로만 사용한다.
 - `research-report-context-packet.md`와 `research-report-context-packet.csv`를 추가해 low-confidence 후보와 상위 medium 후보를 연구보고서 page 맥락 53개 row로 좁혔다.
@@ -84,32 +84,34 @@
 
 - 이번 다항식의 곱셈과 인수분해 보강에서는 연구보고서 p. 219의 `[9수02-19]` 성취기준별 성취수준 맥락을 직접 확인해 `다항식의 곱셈과 인수분해`, `다항식의 곱셈`, `인수분해`, `전개와 인수분해의 역관계`, `이차식`, `이차식 인수분해`의 보조 source ref로 반영했다. p. 219는 교과서 본문 근거가 아니므로 `전개와 인수분해 방향을 혼동하는 오류`, `공통인수를 빠뜨리는 오류`, `곱셈·인수분해 공식을 기계적으로 끼워 맞추는 오류`, `완전제곱식의 가운데 항 부호를 혼동하는 오류`의 confidence 승격이나 교과서 근거 대체에는 쓰지 않는다.
 
+- 이번 제곱근과 실수 보강에서는 연구보고서 p. 213의 `[9수01-07]`~`[9수01-10]` 성취기준별 성취수준 맥락을 직접 확인해 `제곱수`, `제곱근 구하기`, `제곱근을 근호로 나타내기`, `근호 안의 수`, `근호를 포함한 식 간단히 하기`, `제곱근의 곱셈과 나눗셈`, `근호 안의 수가 같은 제곱근의 덧셈과 뺄셈`, `실수의 수 체계`와 기존 제곱근·무리수·실수·근호식 계산 concept의 보조 source ref로 반영했다. p. 213은 교과서 본문 근거가 아니므로 `근호가 나타내는 제곱근의 부호를 혼동하는 오류`, `무한소수와 무리수를 같은 말로 보는 오류`, `근호 안의 수가 다른 제곱근을 동류항처럼 더하는 오류`의 confidence 승격이나 교과서 근거 대체에는 쓰지 않고, 이 오개념 노드는 `often_confused_with` 관계로만 연결했다.
+
 ## Source Reference Audit
 
 - `source-ref-audit.md`와 `source-ref-audit.csv`를 추가해 concept/edge의 `source_refs`를 출처와 근거 유형별로 추적한다.
-- 현재 source ref는 concept 1522개, edge 6076개, 총 7598개이다.
+- 현재 source ref는 concept 1553개, edge 6215개, 총 7768개이다.
 - 현재 `locator` 누락은 0개, `summary` 누락은 0개이다.
 - 이 감사는 교과서 PDF가 추가되기 전에도 공식 문서 기반 개념과 관계가 어떤 근거 유형에 기대고 있는지 확인하기 위한 재생성 가능한 점검표이다.
 
 ## Concept Evidence Depth
 
 - `concept-evidence-depth.md`와 `concept-evidence-depth.csv`를 추가해 concept별 공식/교과서 근거 깊이를 추적한다.
-- 현재 540개 concept 중 `official_dual_source`는 450개, `official_single_source`는 90개이다.
-- 현재 `textbook_supported` concept은 0개이며, 540개 concept 모두 교과서 본문·정리·예제·문제 근거 보강이 필요하다.
+- 현재 548개 concept 중 `official_dual_source`는 456개, `official_single_source`는 92개이다.
+- 현재 `textbook_supported` concept은 0개이며, 548개 concept 모두 교과서 본문·정리·예제·문제 근거 보강이 필요하다.
 - 교과서 PDF가 추가되면 이 산출물에서 `needs_textbook_evidence`를 줄이는 방식으로 보강 진행률을 추적한다.
 
 ## Edge Evidence Depth
 
 - `edge-evidence-depth.md`와 `edge-evidence-depth.csv`를 추가해 edge별 공식/교과서 근거 깊이를 추적한다.
-- 현재 2319개 edge 중 `official_dual_source`는 1955개, `official_single_source`는 364개이다.
-- 현재 `textbook_supported` edge는 0개이며, 2319개 edge 모두 교과서 본문·예제·문제 근거 보강이 필요하다.
-- 현재 edge scope 분포는 `same_unit` 1846개, `cross_unit_same_domain` 207개, `cross_domain_same_grade` 48개, `cross_grade_same_domain` 192개, `cross_grade_cross_domain` 26개이다.
+- 현재 2365개 edge 중 `official_dual_source`는 1993개, `official_single_source`는 372개이다.
+- 현재 `textbook_supported` edge는 0개이며, 2365개 edge 모두 교과서 본문·예제·문제 근거 보강이 필요하다.
+- 현재 edge scope 분포는 `same_unit` 1883개, `cross_unit_same_domain` 207개, `cross_domain_same_grade` 48개, `cross_grade_same_domain` 198개, `cross_grade_cross_domain` 29개이다.
 - 교과서 PDF가 추가되면 이 산출물에서 `needs_textbook_evidence`를 줄이는 방식으로 관계 근거 보강 진행률을 추적한다.
 
 ## Textbook Extraction Queue
 
 - `textbook-extraction-queue.md`와 `textbook-extraction-queue.csv`를 추가해 교과서 PDF가 추가된 뒤의 단원별 원문 추출 우선순위를 추적한다.
-- 현재 큐는 34개 단원 그룹을 포함하며, 교과서 근거 보강 필요 concept 540개와 `low` 신뢰도 concept 81개를 반영한다.
+- 현재 큐는 34개 단원 그룹을 포함하며, 교과서 근거 보강 필요 concept 548개와 `low` 신뢰도 concept 81개를 반영한다.
 - 현재 최상위 우선 단원은 `좌표평면과 그래프`, `일차함수와 그 그래프`, `경우의 수와 확률`, `이차함수와 그 그래프`, `정수와 유리수`이다.
 - 교과서 PDF가 추가되면 큐 순서대로 목차, 학습목표, 본문 정의, 정리, 예제, 문제 반복 표현을 추출한다.
 
@@ -117,9 +119,9 @@
 
 - `textbook-evidence-packets/index.md`와 `textbook-evidence-packets/index.csv`를 추가해 전체 단원 교과서 근거 패킷을 추적한다.
 - `rank-01`~`rank-34` 패킷은 `textbook-extraction-queue.csv`의 전체 34개 단원 그룹을 포함한다.
-- 전체 패킷은 concept 540개를 포함하며, 그중 `low` 신뢰도 concept 81개를 단원 안에서 먼저 정렬한다.
+- 전체 패킷은 concept 548개를 포함하며, 그중 `low` 신뢰도 concept 81개를 단원 안에서 먼저 정렬한다.
 - 각 패킷 row는 `required_evidence_fields`와 `evidence_focus`를 포함해, concept 유형별로 우선 확인할 교과서 근거 슬롯을 구분한다. 예를 들어 `misconception_risk`는 예제·문제 반복 패턴·쪽수·추출 메모를 우선 채우고, `term`은 용어 설명·정의·쪽수 근거를 우선 채운다.
-- 현재 `교과서_원본/`에는 PDF가 없으므로 540개 row 모두 `pending_textbook_pdf` 상태이며, 목차·학습목표·정의·정리·예제·용어 설명·문제 패턴·쪽수 슬롯은 비워 두었다.
+- 현재 `교과서_원본/`에는 PDF가 없으므로 548개 row 모두 `pending_textbook_pdf` 상태이며, 목차·학습목표·정의·정리·예제·용어 설명·문제 패턴·쪽수 슬롯은 비워 두었다.
 - 교과서 PDF가 추가되면 이 패킷들의 빈 슬롯을 채운 뒤 `concepts.json`의 `source_refs`, `confidence`, 병합/분리 판단을 갱신한다.
 
 ## Textbook Source Audit
@@ -134,17 +136,17 @@
 
 - `textbook-edge-evidence-packets/index.md`와 `textbook-edge-evidence-packets/index.csv`를 추가해 전체 단원 관계 edge 교과서 근거 패킷을 추적한다.
 - `rank-01`~`rank-34` 패킷은 `textbook-extraction-queue.csv`의 전체 34개 단원 그룹을 포함한다.
-- 전체 edge 패킷은 단원 concept에 닿는 관계 edge 2792개 row를 포함하며, 같은 edge가 cross-unit 관계이면 양쪽 단원 패킷에 중복 배치될 수 있다.
-- 현재 분포는 intra-unit edge row 1846개, cross-unit edge row 946개, `low` 신뢰도 edge row 467개이다.
+- 전체 edge 패킷은 단원 concept에 닿는 관계 edge 2847개 row를 포함하며, 같은 edge가 cross-unit 관계이면 양쪽 단원 패킷에 중복 배치될 수 있다.
+- 현재 분포는 intra-unit edge row 1883개, cross-unit edge row 964개, `low` 신뢰도 edge row 465개이다.
 - 각 row는 관계 유형별로 구조 근거, 선수 순서 근거, 표현 근거, 절차 활용 근거, 대조 근거, 오개념·문제 패턴 근거, 관련 근거, 쪽수 슬롯을 분리한다.
-- 현재 `교과서_원본/`에는 PDF가 없으므로 2792개 row 모두 `pending_textbook_pdf` 상태이며, 관계 근거 슬롯은 비워 두었다.
+- 현재 `교과서_원본/`에는 PDF가 없으므로 2847개 row 모두 `pending_textbook_pdf` 상태이며, 관계 근거 슬롯은 비워 두었다.
 
 ## Textbook Evidence Workplan
 
 - `textbook-evidence-workplan.md`와 `textbook-evidence-workplan.csv`를 추가해 concept 근거 패킷과 관계 edge 근거 패킷을 같은 rank 단위로 결합한다.
-- 전체 workplan은 34개 단원 그룹, concept evidence row 540개, edge evidence row 2792개, pending textbook evidence row 3332개를 포함한다.
-- 전체 low-confidence 보강 대상은 concept 81개와 edge row 467개를 합친 548개 row이다.
-- 현재 최상위 단원 `좌표평면과 그래프`는 concept 43개와 edge row 237개, 총 280개 row가 모두 `pending_textbook_pdf` 상태이다. workplan 재정렬 후 `이차함수와 그 그래프`는 rank 4이며 concept 30개와 edge row 143개, 총 173개 row가 모두 `pending_textbook_pdf` 상태이고, `도수분포표와 상대도수`는 rank 6이며 concept 33개와 edge row 180개, 총 213개 row가 모두 `pending_textbook_pdf` 상태이다. `일차방정식`은 rank 7이며 concept 31개와 edge row 159개, 총 190개 row가 모두 `pending_textbook_pdf` 상태이고, `문자의 사용과 식`은 rank 8이며 concept 24개와 edge row 143개, 총 167개 row가 모두 `pending_textbook_pdf` 상태이다. 이번 보강 대상인 `다항식의 곱셈과 인수분해`는 rank 9이며 concept 20개와 edge row 114개, 총 134개 row가 모두 `pending_textbook_pdf` 상태이다.
+- 전체 workplan은 34개 단원 그룹, concept evidence row 548개, edge evidence row 2847개, pending textbook evidence row 3395개를 포함한다.
+- 전체 low-confidence 보강 대상은 concept 81개와 edge row 465개를 합친 546개 row이다.
+- 현재 최상위 단원 `좌표평면과 그래프`는 concept 43개와 edge row 237개, 총 280개 row가 모두 `pending_textbook_pdf` 상태이다. workplan 재정렬 후 `이차함수와 그 그래프`는 rank 4이며 concept 30개와 edge row 143개, 총 173개 row가 모두 `pending_textbook_pdf` 상태이고, `도수분포표와 상대도수`는 rank 6이며 concept 33개와 edge row 180개, 총 213개 row가 모두 `pending_textbook_pdf` 상태이다. `일차방정식`은 rank 7이며 concept 31개와 edge row 159개, 총 190개 row가 모두 `pending_textbook_pdf` 상태이고, `문자의 사용과 식`은 rank 8이며 concept 24개와 edge row 144개, 총 168개 row가 모두 `pending_textbook_pdf` 상태이다. 이번 보강 대상인 `제곱근과 실수`는 rank 9이며 concept 25개와 edge row 120개, 총 145개 row가 모두 `pending_textbook_pdf` 상태이고, `다항식의 곱셈과 인수분해`는 rank 10이며 concept 20개와 edge row 114개, 총 134개 row가 모두 `pending_textbook_pdf` 상태이다.
 - 이 산출물은 새 출처가 아니라 교과서 PDF 추가 후의 작업 순서와 보강 부담을 추적하는 파생 관리표이다.
 - 교과서 PDF가 추가되면 concept 패킷과 edge 패킷을 함께 채워 `concepts.json`의 concept source refs뿐 아니라 `edges.csv`/`concepts.json`의 edge source refs와 신뢰도를 갱신하고, `edge-evidence-depth.*`의 보강 필요 수를 줄인다.
 

@@ -10,9 +10,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 문자의 사용과 식
 - priority tier: highest
 - priority score: 48
-- edges in packet: 143
-- cross-unit edges: 69
-- low confidence edges: 14
+- edges in packet: 144
+- cross-unit edges: 70
+- low confidence edges: 15
 
 ## Relationship Evidence Slots
 
@@ -30,6 +30,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_mis_function_value_input_output__often_confused_with__m1_expr_substitution | cross_unit | 함숫값과 입력값 혼동 | often_confused_with | 대입 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_letter_as_label_only__often_confused_with__m1_term_variable | cross_unit | 문자를 이름표로만 해석하는 오류 | often_confused_with | 변수 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_polynomial_like_terms__often_confused_with__m1_expr_like_terms | cross_unit | 다항식에서 동류항 처리를 누락하는 오류 | often_confused_with | 동류항 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
+| m1_mis_radical_like_terms__often_confused_with__m1_expr_like_terms | cross_unit | 근호 안의 수가 다른 제곱근을 동류항처럼 더하는 오류 | often_confused_with | 동류항 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 1 |
 | m1_mis_system_substitution__often_confused_with__m1_expr_substitution | cross_unit | 대입법에서 식 전체를 대입하지 않는 오류 | often_confused_with | 대입 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_num_domain__related_to__m1_expr_unit | cross_unit | 수와 연산 | related_to | 문자의 사용과 식 | low | related_ref;textbook_page_refs;extraction_notes | Find textbook wording or examples that justify keeping these concepts linked. | 7 |
 | m1_expr_linear_expression__contains__m1_expr_like_terms | intra_unit | 일차식 | contains | 동류항 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |

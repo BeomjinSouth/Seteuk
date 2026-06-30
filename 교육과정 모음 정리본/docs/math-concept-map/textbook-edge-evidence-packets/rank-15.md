@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 식의 계산
 - priority tier: high
 - priority score: 26
-- edges in packet: 76
-- cross-unit edges: 37
+- edges in packet: 78
+- cross-unit edges: 39
 - low confidence edges: 11
 
 ## Relationship Evidence Slots
@@ -68,6 +68,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_calc_power__prerequisite_for__m1_factor_perfect_square_expression | cross_unit | 거듭제곱 | prerequisite_for | 완전제곱식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_calc_power__prerequisite_for__m1_num_prime_factor_product | cross_unit | 거듭제곱 | prerequisite_for | 소인수의 곱으로 표현하기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_calc_power__prerequisite_for__m1_num_prime_factorization | cross_unit | 거듭제곱 | prerequisite_for | 소인수분해 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_calc_power__prerequisite_for__m1_num_square_number | cross_unit | 거듭제곱 | prerequisite_for | 제곱수 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
 | m1_calc_power__prerequisite_for__m1_num_square_root | cross_unit | 거듭제곱 | prerequisite_for | 제곱근 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_calc_unit__prerequisite_for__m1_factor_unit | cross_unit | 식의 계산 | prerequisite_for | 다항식의 곱셈과 인수분해 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_calc_unit__prerequisite_for__m1_ineq_solving_linear_inequality | cross_unit | 식의 계산 | prerequisite_for | 일차부등식 풀기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
@@ -88,6 +89,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_calc_base__used_in__m1_num_prime_factor_product | cross_unit | 밑 | used_in | 소인수의 곱으로 표현하기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_calc_exponent__used_in__m1_num_prime_factor_product | cross_unit | 지수 | used_in | 소인수의 곱으로 표현하기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_calc_power__used_in__m1_num_prime_factor_product | cross_unit | 거듭제곱 | used_in | 소인수의 곱으로 표현하기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
+| m1_calc_power__used_in__m1_num_square_number | cross_unit | 거듭제곱 | used_in | 제곱수 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 1 |
 | m1_expr_add_sub_linear_expression__used_in__m1_calc_polynomial_add_sub | cross_unit | 일차식의 덧셈과 뺄셈 | used_in | 다항식의 덧셈과 뺄셈 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 4 |
 | m1_expr_like_terms__used_in__m1_calc_polynomial_add_sub | cross_unit | 동류항 | used_in | 다항식의 덧셈과 뺄셈 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_expr_polynomial__used_in__m1_calc_polynomial_add_sub | cross_unit | 다항식 | used_in | 다항식의 덧셈과 뺄셈 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |

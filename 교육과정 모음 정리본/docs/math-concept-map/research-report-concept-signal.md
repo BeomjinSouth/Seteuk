@@ -5,23 +5,23 @@ Rows are candidate signals only; inspect the local page context before changing 
 
 ## Summary
 
-- matched concepts: 242
+- matched concepts: 247
 
 ## Confidence
 
 | confidence | matched concepts |
 |---|---:|
-| high | 207 |
+| high | 210 |
 | low | 2 |
-| medium | 33 |
+| medium | 35 |
 
 ## Recommended Actions
 
 | action | matched concepts |
 |---|---:|
 | inspect_research_report_context_before_confidence_change | 2 |
-| inspect_research_report_context_before_source_ref_upgrade | 33 |
-| use_as_supplemental_trace_only | 207 |
+| inspect_research_report_context_before_source_ref_upgrade | 35 |
+| use_as_supplemental_trace_only | 210 |
 
 ## Highest Priority Signals
 
@@ -58,6 +58,8 @@ Rows are candidate signals only; inspect the local page context before changing 
 | m1_geo_quadrilateral_relationship | 여러 가지 사각형 사이의 관계 | 삼각형과 사각형의 성질 | medium | 3 | 235; 236; 237 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_num_unit_square_diagonal | 한 변의 길이가 1인 정사각형의 대각선 | 제곱근과 실수 | medium | 3 | 213; 231 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_geo_pythagorean_converse | 피타고라스 정리의 역 | 피타고라스 정리 | medium | 2 | 269 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
+| m1_num_radicand | 근호 안의 수 | 제곱근과 실수 | medium | 2 | 213; 232 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
+| m1_num_square_number | 제곱수 | 제곱근과 실수 | medium | 2 | 213; 232 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_geo_solid_cross_section | 입체도형의 단면 | 입체도형의 성질 | medium | 1 | 265 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_factor_quadratic_expression | 이차식 | 다항식의 곱셈과 인수분해 | medium | 1 | 219 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_func_intersection_count | 교점의 개수 | 일차함수와 일차방정식의 관계 | medium | 1 | 219 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
@@ -105,5 +107,3 @@ Rows are candidate signals only; inspect the local page context before changing 
 | m1_factor_factor | 인수 | 다항식의 곱셈과 인수분해 | high | 46 | 26; 54; 57; 58; 59; 107; 121; 211; 219; 230; 231; 232; 233; 234; 235 | research_report_signal | use_as_supplemental_trace_only |
 | m1_data_statistical_inquiry_problem | 통계적 탐구 문제 | 도수분포표와 상대도수 | high | 45 | 45; 61; 62; 77; 79; 135; 140; 177; 183; 184; 190; 205; 228; 239; 240; 241 | research_report_signal | use_as_supplemental_trace_only |
 | m1_num_integer_rational_unit | 정수와 유리수 | 정수와 유리수 | high | 43 | 27; 45; 211; 212; 230; 231; 232 | research_report_signal | use_as_supplemental_trace_only |
-| m1_data_domain | 자료와 가능성 | 자료와 가능성 | high | 43 | 9; 12; 23; 26; 45; 46; 76; 77; 78; 106; 110; 135; 140; 177; 183; 190; 198; 205; 208; 227; 239; 260; 266 | research_report_signal | use_as_supplemental_trace_only |
-| m1_func_slope | 기울기 | 일차함수와 그 그래프 | high | 42 | 58; 59; 87; 88; 89; 90; 205; 218; 234; 235; 252; 255; 257; 258 | research_report_signal | use_as_supplemental_trace_only |

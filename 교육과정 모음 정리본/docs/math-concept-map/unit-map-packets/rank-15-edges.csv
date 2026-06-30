@@ -49,6 +49,7 @@
 15,식의 계산,m1_calc_power__prerequisite_for__m1_factor_perfect_square_expression,m1_calc_power,거듭제곱,식의 계산,m1_factor_perfect_square_expression,완전제곱식,다항식의 곱셈과 인수분해,prerequisite_for,cross_unit,high,official_dual_source,yes,3,
 15,식의 계산,m1_calc_power__prerequisite_for__m1_num_prime_factor_product,m1_calc_power,거듭제곱,식의 계산,m1_num_prime_factor_product,소인수의 곱으로 표현하기,소인수분해,prerequisite_for,cross_unit,high,official_dual_source,yes,2,
 15,식의 계산,m1_calc_power__prerequisite_for__m1_num_prime_factorization,m1_calc_power,거듭제곱,식의 계산,m1_num_prime_factorization,소인수분해,소인수분해,prerequisite_for,cross_unit,high,official_dual_source,yes,3,
+15,식의 계산,m1_calc_power__prerequisite_for__m1_num_square_number,m1_calc_power,거듭제곱,식의 계산,m1_num_square_number,제곱수,제곱근과 실수,prerequisite_for,cross_unit,medium,official_single_source,yes,1,
 15,식의 계산,m1_calc_power__prerequisite_for__m1_num_square_root,m1_calc_power,거듭제곱,식의 계산,m1_num_square_root,제곱근,제곱근과 실수,prerequisite_for,cross_unit,medium,official_dual_source,yes,3,
 15,식의 계산,m1_calc_unit__prerequisite_for__m1_factor_unit,m1_calc_unit,식의 계산,식의 계산,m1_factor_unit,다항식의 곱셈과 인수분해,다항식의 곱셈과 인수분해,prerequisite_for,cross_unit,high,official_single_source,yes,4,식의 계산에서 다항식 연산 원리를 익힌 뒤 다항식의 곱셈과 인수분해로 확장된다.
 15,식의 계산,m1_calc_unit__prerequisite_for__m1_ineq_solving_linear_inequality,m1_calc_unit,식의 계산,식의 계산,m1_ineq_solving_linear_inequality,일차부등식 풀기,일차부등식,prerequisite_for,cross_unit,high,official_dual_source,yes,3,
@@ -69,6 +70,7 @@
 15,식의 계산,m1_calc_base__used_in__m1_num_prime_factor_product,m1_calc_base,밑,식의 계산,m1_num_prime_factor_product,소인수의 곱으로 표현하기,소인수분해,used_in,cross_unit,medium,official_dual_source,yes,2,
 15,식의 계산,m1_calc_exponent__used_in__m1_num_prime_factor_product,m1_calc_exponent,지수,식의 계산,m1_num_prime_factor_product,소인수의 곱으로 표현하기,소인수분해,used_in,cross_unit,medium,official_dual_source,yes,2,
 15,식의 계산,m1_calc_power__used_in__m1_num_prime_factor_product,m1_calc_power,거듭제곱,식의 계산,m1_num_prime_factor_product,소인수의 곱으로 표현하기,소인수분해,used_in,cross_unit,medium,official_dual_source,yes,3,
+15,식의 계산,m1_calc_power__used_in__m1_num_square_number,m1_calc_power,거듭제곱,식의 계산,m1_num_square_number,제곱수,제곱근과 실수,used_in,cross_unit,medium,official_single_source,yes,1,
 15,식의 계산,m1_expr_add_sub_linear_expression__used_in__m1_calc_polynomial_add_sub,m1_expr_add_sub_linear_expression,일차식의 덧셈과 뺄셈,문자의 사용과 식,m1_calc_polynomial_add_sub,다항식의 덧셈과 뺄셈,식의 계산,used_in,cross_unit,medium,official_dual_source,yes,4,Adding and subtracting linear expressions is a prior symbolic manipulation used when extending to polynomial addition and subtraction.
 15,식의 계산,m1_expr_like_terms__used_in__m1_calc_polynomial_add_sub,m1_expr_like_terms,동류항,문자의 사용과 식,m1_calc_polynomial_add_sub,다항식의 덧셈과 뺄셈,식의 계산,used_in,cross_unit,high,official_dual_source,yes,2,
 15,식의 계산,m1_expr_polynomial__used_in__m1_calc_polynomial_add_sub,m1_expr_polynomial,다항식,문자의 사용과 식,m1_calc_polynomial_add_sub,다항식의 덧셈과 뺄셈,식의 계산,used_in,cross_unit,high,official_dual_source,yes,2,

@@ -10,9 +10,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 유리수와 순환소수
 - priority tier: medium
 - priority score: 18
-- edges in packet: 45
-- cross-unit edges: 15
-- low confidence edges: 9
+- edges in packet: 47
+- cross-unit edges: 17
+- low confidence edges: 8
 
 ## Relationship Evidence Slots
 
@@ -23,7 +23,6 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_mis_finite_to_repeating_scope__often_confused_with__m1_num_finite_decimal | intra_unit | 유한소수를 순환소수로 나타내는 활동을 범위로 오인하는 오류 | often_confused_with | 유한소수 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 1 |
 | m1_mis_finite_to_repeating_scope__often_confused_with__m1_num_rational_repeating_relation | intra_unit | 유한소수를 순환소수로 나타내는 활동을 범위로 오인하는 오류 | often_confused_with | 유리수와 순환소수의 관계 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 1 |
 | m1_mis_finite_to_repeating_scope__often_confused_with__m1_num_repeating_decimal | intra_unit | 유한소수를 순환소수로 나타내는 활동을 범위로 오인하는 오류 | often_confused_with | 순환소수 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 1 |
-| m1_num_infinite_decimal__prerequisite_for__m1_mis_irrational_decimal | cross_unit | 무한소수 | prerequisite_for | 무한소수와 무리수를 같은 말로 보는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_mis_irrational_decimal__often_confused_with__m1_num_infinite_decimal | cross_unit | 무한소수와 무리수를 같은 말로 보는 오류 | often_confused_with | 무한소수 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 4 |
 | m1_mis_irrational_decimal__often_confused_with__m1_num_rational_repeating_relation | cross_unit | 무한소수와 무리수를 같은 말로 보는 오류 | often_confused_with | 유리수와 순환소수의 관계 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 4 |
 | m1_mis_irrational_decimal__often_confused_with__m1_num_repeating_decimal | cross_unit | 무한소수와 무리수를 같은 말로 보는 오류 | often_confused_with | 순환소수 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 4 |
@@ -62,6 +61,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_num_repeating_decimal_unit__prerequisite_for__m1_num_square_root_real_unit | cross_unit | 유리수와 순환소수 | prerequisite_for | 제곱근과 실수 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_num_repeating_decimal_to_fraction__represented_by__m1_num_rational_number | cross_unit | 순환소수를 분수로 나타내기 | represented_by | 유리수 | high | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
 | m1_num_rational_number__used_in__m1_num_rational_repeating_relation | cross_unit | 유리수 | used_in | 유리수와 순환소수의 관계 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_num_rational_repeating_relation__used_in__m1_num_rational_irrational_classification | cross_unit | 유리수와 순환소수의 관계 | used_in | 유리수와 무리수의 구분 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 4 |
+| m1_num_irrational_number__contrasts_with__m1_num_repeating_decimal | cross_unit | 무리수 | contrasts_with | 순환소수 | medium | contrast_ref;textbook_page_refs | Find textbook wording or examples that distinguish the two concepts. | 4 |
+| m1_num_repeating_decimal__contrasts_with__m1_num_irrational_number | cross_unit | 순환소수 | contrasts_with | 무리수 | medium | contrast_ref;textbook_page_refs | Find textbook wording or examples that distinguish the two concepts. | 4 |
 | m1_num_rational_fraction_form__related_to__m1_num_rational_repeating_relation | cross_unit | 유리수의 분수 꼴 표현 | related_to | 유리수와 순환소수의 관계 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 4 |
 
 ## Textbook Edge Evidence Fields

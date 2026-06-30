@@ -74,6 +74,7 @@ digraph pilot_unit_map {
   "m1_num_irrational_number" [label="무리수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_rational_irrational_classification" [label="유리수와 무리수의 구분\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_rational_repeating_relation" [label="유리수와 순환소수의 관계\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_num_real_number_system" [label="실수의 수 체계\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_square_root_real_unit" [label="제곱근과 실수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_repeating_decimal_to_fraction" [label="순환소수를 분수로 나타내기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_factor_polynomial_multiplication" [label="다항식의 곱셈\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -264,13 +265,17 @@ digraph pilot_unit_map {
   "m1_num_rational_number" -> "m1_num_rational_irrational_classification" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_rational_number" -> "m1_num_rational_repeating_relation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_rational_number" -> "m1_num_real_number" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_num_rational_number" -> "m1_num_real_number_system" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_rational_number" -> "m1_num_repeating_decimal_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_rational_number" -> "m1_num_square_root_real_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_subtraction" -> "m1_eq_equal_add_subtract_property" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_num_real_number" -> "m1_num_number_line" [label="represented_by", style="dashed", color="#6b7280"];
   "m1_num_repeating_decimal_to_fraction" -> "m1_num_rational_number" [label="represented_by", style="dashed", color="#6b7280"];
   "m1_num_distributive_law" -> "m1_factor_common_factor_formula" [label="used_in", style="dashed", color="#6b7280"];
   "m1_num_distributive_law" -> "m1_factor_polynomial_multiplication" [label="used_in", style="dashed", color="#6b7280"];
   "m1_num_four_operations" -> "m1_expr_evaluate_expression_value" [label="used_in", style="dashed", color="#6b7280"];
+  "m1_num_number_line" -> "m1_num_real_order" [label="used_in", style="dashed", color="#6b7280"];
+  "m1_num_rational_number" -> "m1_num_rational_irrational_classification" [label="used_in", style="dashed", color="#6b7280"];
   "m1_num_rational_number" -> "m1_num_rational_repeating_relation" [label="used_in", style="dashed", color="#6b7280"];
   "m1_num_irrational_number" -> "m1_num_rational_number" [label="contrasts_with", style="dashed", color="#6b7280"];
   "m1_num_rational_number" -> "m1_num_irrational_number" [label="contrasts_with", style="dashed", color="#6b7280"];

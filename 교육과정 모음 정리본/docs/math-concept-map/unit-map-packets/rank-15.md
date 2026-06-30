@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 식의 계산
 - priority tier: high
-- workplan score: 107
+- workplan score: 109
 - concepts: 14
-- edges touching unit: 76
-- cross-unit edges: 37
+- edges touching unit: 78
+- cross-unit edges: 39
 - low confidence concepts: 2
 - low confidence edges: 11
 
@@ -33,9 +33,9 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 13 |
 | contrasts_with | 1 |
 | often_confused_with | 7 |
-| prerequisite_for | 36 |
+| prerequisite_for | 37 |
 | related_to | 3 |
-| used_in | 16 |
+| used_in | 17 |
 
 ## Low Confidence Concepts
 
@@ -59,6 +59,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_calc_power__prerequisite_for__m1_factor_perfect_square_expression | 거듭제곱 | prerequisite_for | 완전제곱식 | high | official_dual_source |
 | m1_calc_power__prerequisite_for__m1_num_prime_factor_product | 거듭제곱 | prerequisite_for | 소인수의 곱으로 표현하기 | high | official_dual_source |
 | m1_calc_power__prerequisite_for__m1_num_prime_factorization | 거듭제곱 | prerequisite_for | 소인수분해 | high | official_dual_source |
+| m1_calc_power__prerequisite_for__m1_num_square_number | 거듭제곱 | prerequisite_for | 제곱수 | medium | official_single_source |
 | m1_calc_power__prerequisite_for__m1_num_square_root | 거듭제곱 | prerequisite_for | 제곱근 | medium | official_dual_source |
 | m1_calc_unit__prerequisite_for__m1_factor_unit | 식의 계산 | prerequisite_for | 다항식의 곱셈과 인수분해 | high | official_single_source |
 | m1_calc_unit__prerequisite_for__m1_ineq_solving_linear_inequality | 식의 계산 | prerequisite_for | 일차부등식 풀기 | high | official_dual_source |
@@ -79,6 +80,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_calc_base__used_in__m1_num_prime_factor_product | 밑 | used_in | 소인수의 곱으로 표현하기 | medium | official_dual_source |
 | m1_calc_exponent__used_in__m1_num_prime_factor_product | 지수 | used_in | 소인수의 곱으로 표현하기 | medium | official_dual_source |
 | m1_calc_power__used_in__m1_num_prime_factor_product | 거듭제곱 | used_in | 소인수의 곱으로 표현하기 | medium | official_dual_source |
+| m1_calc_power__used_in__m1_num_square_number | 거듭제곱 | used_in | 제곱수 | medium | official_single_source |
 | m1_expr_add_sub_linear_expression__used_in__m1_calc_polynomial_add_sub | 일차식의 덧셈과 뺄셈 | used_in | 다항식의 덧셈과 뺄셈 | medium | official_dual_source |
 | m1_expr_like_terms__used_in__m1_calc_polynomial_add_sub | 동류항 | used_in | 다항식의 덧셈과 뺄셈 | high | official_dual_source |
 | m1_expr_polynomial__used_in__m1_calc_polynomial_add_sub | 다항식 | used_in | 다항식의 덧셈과 뺄셈 | high | official_dual_source |

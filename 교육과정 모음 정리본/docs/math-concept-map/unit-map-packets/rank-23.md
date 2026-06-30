@@ -9,12 +9,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 수와 연산
 - unit: 유리수와 순환소수
 - priority tier: medium
-- workplan score: 69
+- workplan score: 67
 - concepts: 10
-- edges touching unit: 45
-- cross-unit edges: 15
+- edges touching unit: 47
+- cross-unit edges: 17
 - low confidence concepts: 1
-- low confidence edges: 9
+- low confidence edges: 8
 
 ## Concept Type Distribution
 
@@ -32,12 +32,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | relationship_type | count |
 |---|---:|
 | contains | 12 |
-| contrasts_with | 1 |
+| contrasts_with | 3 |
 | often_confused_with | 6 |
-| prerequisite_for | 17 |
+| prerequisite_for | 16 |
 | related_to | 1 |
 | represented_by | 2 |
-| used_in | 6 |
+| used_in | 7 |
 
 ## Low Confidence Concepts
 
@@ -49,7 +49,6 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
-| m1_num_infinite_decimal__prerequisite_for__m1_mis_irrational_decimal | 무한소수 | prerequisite_for | 무한소수와 무리수를 같은 말로 보는 오류 | low | official_dual_source |
 | m1_mis_irrational_decimal__often_confused_with__m1_num_infinite_decimal | 무한소수와 무리수를 같은 말로 보는 오류 | often_confused_with | 무한소수 | low | official_dual_source |
 | m1_mis_irrational_decimal__often_confused_with__m1_num_rational_repeating_relation | 무한소수와 무리수를 같은 말로 보는 오류 | often_confused_with | 유리수와 순환소수의 관계 | low | official_dual_source |
 | m1_mis_irrational_decimal__often_confused_with__m1_num_repeating_decimal | 무한소수와 무리수를 같은 말로 보는 오류 | often_confused_with | 순환소수 | low | official_dual_source |
@@ -63,4 +62,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_repeating_decimal_unit__prerequisite_for__m1_num_square_root_real_unit | 유리수와 순환소수 | prerequisite_for | 제곱근과 실수 | medium | official_dual_source |
 | m1_num_repeating_decimal_to_fraction__represented_by__m1_num_rational_number | 순환소수를 분수로 나타내기 | represented_by | 유리수 | high | official_dual_source |
 | m1_num_rational_number__used_in__m1_num_rational_repeating_relation | 유리수 | used_in | 유리수와 순환소수의 관계 | high | official_dual_source |
+| m1_num_rational_repeating_relation__used_in__m1_num_rational_irrational_classification | 유리수와 순환소수의 관계 | used_in | 유리수와 무리수의 구분 | medium | official_dual_source |
+| m1_num_irrational_number__contrasts_with__m1_num_repeating_decimal | 무리수 | contrasts_with | 순환소수 | medium | official_dual_source |
+| m1_num_repeating_decimal__contrasts_with__m1_num_irrational_number | 순환소수 | contrasts_with | 무리수 | medium | official_dual_source |
 | m1_num_rational_fraction_form__related_to__m1_num_rational_repeating_relation | 유리수의 분수 꼴 표현 | related_to | 유리수와 순환소수의 관계 | medium | official_dual_source |
