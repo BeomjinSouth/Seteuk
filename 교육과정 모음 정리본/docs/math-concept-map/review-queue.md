@@ -2,14 +2,14 @@
 
 이 문서는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 출처 보강 때 먼저 확인할 대상을 정리한다.
 
-- 검토 대상 concept: 81개
+- 검토 대상 concept: 83개
 
 ## 영역별 검토 대상
 
 | 영역 | concept 수 |
 |---|---:|
 | 수와 연산 | 12 |
-| 변화와 관계 | 44 |
+| 변화와 관계 | 46 |
 | 도형과 측정 | 12 |
 | 자료와 가능성 | 13 |
 
@@ -18,8 +18,8 @@
 | concept_type | concept 수 |
 |---|---:|
 | misconception_risk | 66 |
-| procedure | 1 |
-| property | 3 |
+| procedure | 2 |
+| property | 4 |
 | representation | 1 |
 | sub_concept | 6 |
 | term | 4 |
@@ -55,6 +55,8 @@
 | m1_mis_quadratic_expression_equation | 변화와 관계 | 이차방정식 | misconception_risk | textbook_evidence_needed | 이차식과 이차방정식을 혼동하는 오류 |  |
 | m1_mis_quadratic_factorization_solution | 변화와 관계 | 이차방정식 | misconception_risk | textbook_evidence_needed | 인수분해한 식에서 해 조건을 빠뜨리는 오류 |  |
 | m1_mis_root_coefficient_relation_scope | 변화와 관계 | 이차방정식 | misconception_risk | textbook_evidence_needed | 근과 계수와의 관계를 중학교 범위로 오인하는 오류 | 공식 문서의 제외 범위를 학습 범위 관리용 오개념 위험으로 기록했다. |
+| m1_quad_eq_root_formula_substitution | 변화와 관계 | 이차방정식 | procedure | source_detail_needed | 근의 공식에 계수 대입하기 | 근의 공식 용어와 이차방정식 풀이 맥락을 바탕으로 둔 미시 절차이며, 교과서 예제 근거 확보 전까지 낮은 신뢰도로 둔다. |
+| m1_quad_eq_zero_product_condition | 변화와 관계 | 이차방정식 | property | source_detail_needed | 각 인수가 0이 되는 조건 | 공식 문서에는 풀이 방법의 세부 문구가 직접 제시되지 않아, 인수분해 풀이와 오개념 위험에서 추론한 미시 조건으로 낮은 신뢰도로 둔다. |
 | m1_mis_axis_vertex | 변화와 관계 | 이차함수와 그 그래프 | misconception_risk | textbook_evidence_needed | 포물선의 축과 꼭짓점을 혼동하는 오류 |  |
 | m1_mis_max_min_scope | 변화와 관계 | 이차함수와 그 그래프 | misconception_risk | textbook_evidence_needed | 최댓값·최솟값의 범위를 임의로 확장하는 오류 |  |
 | m1_mis_quadratic_function_equation | 변화와 관계 | 이차함수와 그 그래프 | misconception_risk | textbook_evidence_needed | 이차함수와 이차방정식을 혼동하는 오류 |  |

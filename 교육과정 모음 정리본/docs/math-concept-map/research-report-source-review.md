@@ -12,8 +12,8 @@ The generated review still does not permit automatic source_ref or confidence up
 
 | evidence_candidate_type | rows |
 |---|---:|
-| broad_report_context_only | 33 |
-| candidate_achievement_level_evidence | 12 |
+| broad_report_context_only | 35 |
+| candidate_achievement_level_evidence | 10 |
 | candidate_assessment_item_evidence | 5 |
 | candidate_prerequisite_evidence | 3 |
 
@@ -21,16 +21,16 @@ The generated review still does not permit automatic source_ref or confidence up
 
 | application_status | rows |
 |---|---:|
-| applied_after_manual_review | 20 |
-| not_applicable_from_this_row | 33 |
+| applied_after_manual_review | 18 |
+| not_applicable_from_this_row | 35 |
 
 ## Review Priority
 
 | priority | rows |
 |---|---:|
 | high | 3 |
-| low | 25 |
-| medium | 25 |
+| low | 27 |
+| medium | 23 |
 
 ## Review Rows
 
@@ -57,25 +57,25 @@ The generated review still does not permit automatic source_ref or confidence up
 | 19 | m1_data_mean | 평균 | 177 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
 | 20 | m1_geo_pyramid | 뿔 모양 입체도형 | 181 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
 | 21 | m1_geo_diagonal | 대각선 | 213 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
-| 22 | m1_data_or_cases | 사건 A 또는 사건 B가 일어나는 경우의 수 | 228 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
-| 23 | m1_data_or_cases | 사건 A 또는 사건 B가 일어나는 경우의 수 | 240 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
-| 24 | m1_num_ratio | 비 | 61 | candidate_assessment_item_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_low_until_textbook_or_middle_course_evidence |
-| 25 | m1_geo_area | 넓이 | 62 | candidate_assessment_item_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
-| 26 | m1_geo_length | 길이 | 62 | candidate_assessment_item_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
-| 27 | m1_geo_triangle | 삼각형 | 62 | candidate_assessment_item_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
-| 28 | m1_num_ratio | 비 | 184 | candidate_assessment_item_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_low_until_textbook_or_middle_course_evidence |
-| 29 | m1_geo_correspondence | 도형의 대응 | 5 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
-| 30 | m1_geo_figure | 도형 | 9 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
-| 31 | m1_geo_correspondence | 도형의 대응 | 12 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
-| 32 | m1_geo_figure | 도형 | 12 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
-| 33 | m1_num_divisor | 약수 | 13 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
-| 34 | m1_num_multiple | 배수 | 13 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
-| 35 | m1_num_addition | 덧셈 | 26 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
-| 36 | m1_num_division | 나눗셈 | 26 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
-| 37 | m1_num_divisor | 약수 | 26 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
-| 38 | m1_num_multiple | 배수 | 26 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
-| 39 | m1_num_multiplication | 곱셈 | 26 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
-| 40 | m1_num_subtraction | 뺄셈 | 26 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
+| 22 | m1_num_ratio | 비 | 61 | candidate_assessment_item_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_low_until_textbook_or_middle_course_evidence |
+| 23 | m1_geo_area | 넓이 | 62 | candidate_assessment_item_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
+| 24 | m1_geo_length | 길이 | 62 | candidate_assessment_item_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
+| 25 | m1_geo_triangle | 삼각형 | 62 | candidate_assessment_item_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
+| 26 | m1_num_ratio | 비 | 184 | candidate_assessment_item_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_low_until_textbook_or_middle_course_evidence |
+| 27 | m1_geo_correspondence | 도형의 대응 | 5 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
+| 28 | m1_geo_figure | 도형 | 9 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
+| 29 | m1_geo_correspondence | 도형의 대응 | 12 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
+| 30 | m1_geo_figure | 도형 | 12 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
+| 31 | m1_num_divisor | 약수 | 13 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
+| 32 | m1_num_multiple | 배수 | 13 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
+| 33 | m1_num_addition | 덧셈 | 26 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
+| 34 | m1_num_division | 나눗셈 | 26 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
+| 35 | m1_num_divisor | 약수 | 26 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
+| 36 | m1_num_multiple | 배수 | 26 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
+| 37 | m1_num_multiplication | 곱셈 | 26 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
+| 38 | m1_num_subtraction | 뺄셈 | 26 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
+| 39 | m1_quad_eq_coefficients_in_standard_form | 이차방정식의 계수 | 35 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
+| 40 | m1_quad_eq_coefficients_in_standard_form | 이차방정식의 계수 | 37 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
 | 41 | m1_num_addition | 덧셈 | 47 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
 | 42 | m1_num_multiplication | 곱셈 | 47 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |
 | 43 | m1_num_subtraction | 뺄셈 | 47 | broad_report_context_only | low | do_not_add_from_this_row | not_applicable_from_this_row | keep_current_confidence_until_source_review |

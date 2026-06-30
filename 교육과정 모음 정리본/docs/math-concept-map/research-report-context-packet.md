@@ -19,11 +19,11 @@ Rows are manual-review candidates only; `source_ref_upgrade_allowed` stays `no` 
 | signal | rows |
 |---|---:|
 | achievement_level_context | 50 |
-| assessment_context | 19 |
+| assessment_context | 20 |
 | curriculum_context | 44 |
 | example_assessment_tool_context | 13 |
 | general_report_context | 1 |
-| teaching_learning_context | 19 |
+| teaching_learning_context | 20 |
 
 ## Review Rows
 
@@ -70,15 +70,15 @@ Rows are manual-review candidates only; `source_ref_upgrade_allowed` stays `no` 
 | 39 | m1_num_multiple | 배수 | 26 | 배수 | medium | achievement_level_context; teaching_learning_context; curriculum_context | no |
 | 40 | m1_num_divisor | 약수 | 13 | 약수 | medium | achievement_level_context; assessment_context; teaching_learning_context; curriculum_context | no |
 | 41 | m1_num_divisor | 약수 | 26 | 약수 | medium | achievement_level_context; teaching_learning_context; curriculum_context | no |
-| 42 | m1_geo_correspondence | 도형의 대응 | 5 | 대응 | medium | achievement_level_context; example_assessment_tool_context; assessment_context; teaching_learning_context; curriculum_context | no |
-| 43 | m1_geo_correspondence | 도형의 대응 | 12 | 대응 | medium | achievement_level_context; assessment_context; teaching_learning_context; curriculum_context | no |
-| 44 | m1_data_mean | 평균 | 91 | 평균 | medium | achievement_level_context; example_assessment_tool_context; assessment_context; teaching_learning_context; curriculum_context | no |
-| 45 | m1_data_mean | 평균 | 177 | 평균 | medium | achievement_level_context; curriculum_context | no |
-| 46 | m1_calc_expansion | 전개 | 173 | 전개 | medium | achievement_level_context; curriculum_context | no |
-| 47 | m1_calc_expansion | 전개 | 174 | 전개 | medium | achievement_level_context; curriculum_context | no |
-| 48 | m1_geo_solid_net | 전개도 | 173 | 전개도 | medium | achievement_level_context; curriculum_context | no |
-| 49 | m1_geo_solid_net | 전개도 | 174 | 전개도 | medium | achievement_level_context; curriculum_context | no |
-| 50 | m1_geo_diagonal | 대각선 | 78 | 대각선 | medium | achievement_level_context; curriculum_context | no |
-| 51 | m1_geo_diagonal | 대각선 | 213 | 대각선 | medium | achievement_level_context; curriculum_context | no |
-| 52 | m1_data_or_cases | 사건 A 또는 사건 B가 일어나는 경우의 수 | 228 | 사건 A 또는 사건 B가 일어나는 경우의 수 | medium | achievement_level_context; curriculum_context | no |
-| 53 | m1_data_or_cases | 사건 A 또는 사건 B가 일어나는 경우의 수 | 240 | 사건 A 또는 사건 B가 일어나는 경우의 수 | medium | achievement_level_context; curriculum_context | no |
+| 42 | m1_quad_eq_coefficients_in_standard_form | 이차방정식의 계수 | 35 | a, b, c | medium | achievement_level_context; assessment_context; teaching_learning_context; curriculum_context | no |
+| 43 | m1_quad_eq_coefficients_in_standard_form | 이차방정식의 계수 | 37 | a, b, c | medium | achievement_level_context; curriculum_context | no |
+| 44 | m1_geo_correspondence | 도형의 대응 | 5 | 대응 | medium | achievement_level_context; example_assessment_tool_context; assessment_context; teaching_learning_context; curriculum_context | no |
+| 45 | m1_geo_correspondence | 도형의 대응 | 12 | 대응 | medium | achievement_level_context; assessment_context; teaching_learning_context; curriculum_context | no |
+| 46 | m1_data_mean | 평균 | 91 | 평균 | medium | achievement_level_context; example_assessment_tool_context; assessment_context; teaching_learning_context; curriculum_context | no |
+| 47 | m1_data_mean | 평균 | 177 | 평균 | medium | achievement_level_context; curriculum_context | no |
+| 48 | m1_calc_expansion | 전개 | 173 | 전개 | medium | achievement_level_context; curriculum_context | no |
+| 49 | m1_calc_expansion | 전개 | 174 | 전개 | medium | achievement_level_context; curriculum_context | no |
+| 50 | m1_geo_solid_net | 전개도 | 173 | 전개도 | medium | achievement_level_context; curriculum_context | no |
+| 51 | m1_geo_solid_net | 전개도 | 174 | 전개도 | medium | achievement_level_context; curriculum_context | no |
+| 52 | m1_geo_diagonal | 대각선 | 78 | 대각선 | medium | achievement_level_context; curriculum_context | no |
+| 53 | m1_geo_diagonal | 대각선 | 213 | 대각선 | medium | achievement_level_context; curriculum_context | no |

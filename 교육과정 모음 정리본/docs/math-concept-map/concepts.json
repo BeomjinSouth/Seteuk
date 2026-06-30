@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-29T22:36:35",
+    "generated_at": "2026-06-30T10:54:28",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
-    "concept_count": 548,
-    "edge_count": 2365
+    "concept_count": 556,
+    "edge_count": 2402
   },
   "sources": [
     {
@@ -10520,8 +10520,7 @@
         "m1_expr_polynomial"
       ],
       "parent_ids": [
-        "m1_factor_unit",
-        "m1_quad_eq_unit"
+        "m1_factor_unit"
       ],
       "related_ids": [
         "m1_quad_eq_quadratic_equation",
@@ -10702,6 +10701,12 @@
           "locator": "이차방정식 section; [9수02-20] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
         }
       ],
       "prerequisite_ids": [
@@ -10744,6 +10749,12 @@
           "locator": "이차방정식 section; [9수02-20] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
         }
       ],
       "prerequisite_ids": [
@@ -10773,16 +10784,16 @@
       "short_definition": "이차식이나 이차방정식에서 차수가 2인 항.",
       "source_refs": [
         {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 36; terms usable in teaching and learning situations",
-          "evidence_kind": "instructional_term_list",
-          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
-        },
-        {
           "source_id": "achievement_math_2022",
           "locator": "이차방정식 section; [9수02-20] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
         }
       ],
       "prerequisite_ids": [
@@ -10798,6 +10809,53 @@
       ],
       "notes": "",
       "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_eq_leading_coefficient_one_case",
+      "label_ko": "이차항의 계수가 1인 이차방정식",
+      "aliases": [
+        "monic quadratic equation",
+        "이차항 계수가 1인 이차방정식"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "이차방정식",
+      "concept_type": "sub_concept",
+      "short_definition": "이차항의 계수가 1인 형태의 이차방정식.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_quad_eq_quadratic_equation",
+        "m1_quad_eq_quadratic_term",
+        "m1_expr_coefficient"
+      ],
+      "parent_ids": [
+        "m1_quad_eq_unit"
+      ],
+      "related_ids": [
+        "m1_quad_eq_factorization_solving",
+        "m1_factor_binomial_product_xab"
+      ],
+      "notes": "",
+      "confidence": "high"
     },
     {
       "id": "m1_quad_eq_standard_form",
@@ -10839,6 +10897,52 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_quad_eq_coefficients_in_standard_form",
+      "label_ko": "이차방정식의 계수",
+      "aliases": [
+        "이차방정식 계수",
+        "a, b, c"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "이차방정식",
+      "concept_type": "term",
+      "short_definition": "이차방정식의 식 표현에서 이차항, 일차항, 상수항에 붙는 수.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_expr_coefficient",
+        "m1_quad_eq_standard_form"
+      ],
+      "parent_ids": [
+        "m1_quad_eq_standard_form"
+      ],
+      "related_ids": [
+        "m1_quad_eq_root_formula",
+        "m1_quad_eq_leading_coefficient_one_case"
+      ],
+      "notes": "교육과정 용어 목록의 계수와 성취수준의 '이차항의 계수가 1' 표현을 이차방정식 표준형 맥락으로 좁혀 둔 노드이다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_quad_eq_solving",
       "label_ko": "이차방정식 풀기",
       "aliases": [
@@ -10861,6 +10965,12 @@
           "locator": "이차방정식 section; [9수02-20] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
         }
       ],
       "prerequisite_ids": [
@@ -10872,6 +10982,52 @@
       ],
       "related_ids": [
         "m1_quad_eq_solution",
+        "m1_quad_eq_factorization_solving",
+        "m1_quad_eq_root_formula"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_quad_eq_process_explanation",
+      "label_ko": "이차방정식 풀이 과정 설명하기",
+      "aliases": [
+        "풀이 과정 설명",
+        "이차방정식 풀이 설명"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "이차방정식",
+      "concept_type": "procedure",
+      "short_definition": "이차방정식을 푸는 데 사용한 변형과 계산 과정을 말이나 식으로 정당화하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_quad_eq_solution",
+        "m1_quad_eq_solving"
+      ],
+      "parent_ids": [
+        "m1_quad_eq_solving"
+      ],
+      "related_ids": [
         "m1_quad_eq_factorization_solving",
         "m1_quad_eq_root_formula"
       ],
@@ -10915,8 +11071,7 @@
         "m1_quad_eq_quadratic_equation"
       ],
       "parent_ids": [
-        "m1_quad_eq_unit",
-        "m1_quad_eq_double_root"
+        "m1_quad_eq_unit"
       ],
       "related_ids": [
         "m1_eq_root",
@@ -10971,6 +11126,88 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_quad_eq_factorized_form",
+      "label_ko": "이차방정식의 인수분해된 식 표현",
+      "aliases": [
+        "인수분해된 이차방정식",
+        "factorized quadratic equation form"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "이차방정식",
+      "concept_type": "representation",
+      "short_definition": "이차방정식을 일차식들의 곱이 0인 꼴로 나타낸 표현.",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_factor_quadratic_factorization",
+        "m1_quad_eq_standard_form"
+      ],
+      "parent_ids": [
+        "m1_quad_eq_factorization_solving"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_eq_zero_product_condition",
+      "label_ko": "각 인수가 0이 되는 조건",
+      "aliases": [
+        "곱이 0이 되는 조건",
+        "zero product condition"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "이차방정식",
+      "concept_type": "property",
+      "short_definition": "인수분해된 이차방정식에서 곱이 0이 되려면 적어도 한 인수가 0이 되어야 한다는 풀이 조건.",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_factor_factorization",
+        "m1_quad_eq_factorized_form"
+      ],
+      "parent_ids": [
+        "m1_quad_eq_factorization_solving"
+      ],
+      "related_ids": [
+        "m1_mis_quadratic_factorization_solution"
+      ],
+      "notes": "공식 문서에는 풀이 방법의 세부 문구가 직접 제시되지 않아, 인수분해 풀이와 오개념 위험에서 추론한 미시 조건으로 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
       "id": "m1_quad_eq_root_formula",
       "label_ko": "근의 공식",
       "aliases": [
@@ -11016,6 +11253,46 @@
       "confidence": "high"
     },
     {
+      "id": "m1_quad_eq_root_formula_substitution",
+      "label_ko": "근의 공식에 계수 대입하기",
+      "aliases": [
+        "근의 공식 대입",
+        "계수 대입"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "이차방정식",
+      "concept_type": "procedure",
+      "short_definition": "이차방정식의 계수를 근의 공식에 넣어 해를 구하는 계산 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_quad_eq_root_formula",
+        "m1_quad_eq_coefficients_in_standard_form",
+        "m1_num_radical_expression"
+      ],
+      "parent_ids": [
+        "m1_quad_eq_root_formula"
+      ],
+      "related_ids": [
+        "m1_quad_eq_solution"
+      ],
+      "notes": "근의 공식 용어와 이차방정식 풀이 맥락을 바탕으로 둔 미시 절차이며, 교과서 예제 근거 확보 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
       "id": "m1_quad_eq_double_root",
       "label_ko": "중근",
       "aliases": [
@@ -11050,7 +11327,8 @@
         "m1_quad_eq_solution"
       ],
       "parent_ids": [
-        "m1_quad_eq_unit"
+        "m1_quad_eq_unit",
+        "m1_quad_eq_solution"
       ],
       "related_ids": [
         "m1_quad_eq_root_formula",
@@ -11086,8 +11364,7 @@
         "m1_quad_eq_unit"
       ],
       "related_ids": [
-        "m1_quad_eq_root_formula",
-        "m1_mis_root_coefficient_relation_scope"
+        "m1_quad_eq_root_formula"
       ],
       "notes": "",
       "confidence": "high"
@@ -11122,6 +11399,12 @@
           "locator": "이차방정식 section; [9수02-20] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
         }
       ],
       "prerequisite_ids": [
@@ -11133,6 +11416,103 @@
       ],
       "related_ids": [
         "m1_quad_eq_standard_form"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_quad_eq_set_up_from_context",
+      "label_ko": "문제 상황을 이차방정식으로 나타내기",
+      "aliases": [
+        "이차방정식 세우기",
+        "상황을 이차방정식으로 나타내기"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "이차방정식",
+      "concept_type": "procedure",
+      "short_definition": "문제 상황의 수량 관계를 미지수와 이차방정식으로 나타내는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_quad_eq_quadratic_equation",
+        "m1_quad_eq_standard_form"
+      ],
+      "parent_ids": [
+        "m1_quad_eq_modeling"
+      ],
+      "related_ids": [
+        "m1_quad_eq_context_solution_check"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_quad_eq_context_solution_check",
+      "label_ko": "해가 문제 상황에 적합한지 확인하기",
+      "aliases": [
+        "해의 적합성 확인",
+        "상황에 맞는 해 확인"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "이차방정식",
+      "concept_type": "procedure",
+      "short_definition": "구한 이차방정식의 해가 원래 문제 상황의 조건에 맞는지 확인하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_quad_eq_solution",
+        "m1_eq_solution_check"
+      ],
+      "parent_ids": [
+        "m1_quad_eq_modeling"
+      ],
+      "related_ids": [
+        "m1_quad_eq_set_up_from_context",
+        "m1_quad_eq_real_solution_scope"
       ],
       "notes": "",
       "confidence": "high"
@@ -11234,14 +11614,12 @@
           "summary": "이차함수의 최댓값과 최솟값은 x의 범위가 실수 전체인 경우만 다루고, 이차방정식은 해가 실수인 경우만 다루며 근과 계수와의 관계는 다루지 않음"
         }
       ],
-      "prerequisite_ids": [
-        "m1_quad_eq_root_formula"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_quad_eq_unit"
       ],
       "related_ids": [
-        "m1_quad_eq_real_solution_scope"
+        "m1_quad_eq_root_formula"
       ],
       "notes": "공식 문서의 제외 범위를 학습 범위 관리용 오개념 위험으로 기록했다.",
       "confidence": "low"
@@ -38543,6 +38921,34 @@
       "confidence": "high"
     },
     {
+      "id": "m1_factor_linear_product_axb_cxd__used_in__m1_quad_eq_factorization_solving",
+      "source_id": "m1_factor_linear_product_axb_cxd",
+      "target_id": "m1_quad_eq_factorization_solving",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        }
+      ],
+      "notes": "The (ax+b)(cx+d) factorization pattern can support factorization-based quadratic-equation solving within the stated factorization scope.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_factor_binomial_product_xab__used_in__m1_factor_quadratic_factorization",
       "source_id": "m1_factor_binomial_product_xab",
       "target_id": "m1_factor_quadratic_factorization",
@@ -39243,17 +39649,11 @@
       "confidence": "high"
     },
     {
-      "id": "m1_factor_quadratic_expression__represented_by__m1_quad_eq_standard_form",
-      "source_id": "m1_factor_quadratic_expression",
+      "id": "m1_quad_eq_quadratic_equation__represented_by__m1_quad_eq_standard_form",
+      "source_id": "m1_quad_eq_quadratic_equation",
       "target_id": "m1_quad_eq_standard_form",
       "relationship_type": "represented_by",
       "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 36; terms usable in teaching and learning situations",
-          "evidence_kind": "instructional_term_list",
-          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
-        },
         {
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 35; [9수02-20]",
@@ -39271,6 +39671,40 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_factor_quadratic_expression__contrasts_with__m1_quad_eq_quadratic_equation",
+      "source_id": "m1_factor_quadratic_expression",
+      "target_id": "m1_quad_eq_quadratic_equation",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        }
+      ],
+      "notes": "A quadratic expression is not itself an equation unless an equality relation and solution condition are introduced.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_quad_eq_quadratic_term__used_in__m1_quad_eq_standard_form",
       "source_id": "m1_quad_eq_quadratic_term",
       "target_id": "m1_quad_eq_standard_form",
@@ -39285,6 +39719,100 @@
       ],
       "notes": "",
       "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_eq_coefficients_in_standard_form__related_to__m1_quad_eq_root_formula",
+      "source_id": "m1_quad_eq_coefficients_in_standard_form",
+      "target_id": "m1_quad_eq_root_formula",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        }
+      ],
+      "notes": "The coefficients named in a quadratic-equation form are the quantities used when interpreting the quadratic formula.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_eq_coefficients_in_standard_form__related_to__m1_quad_eq_leading_coefficient_one_case",
+      "source_id": "m1_quad_eq_coefficients_in_standard_form",
+      "target_id": "m1_quad_eq_leading_coefficient_one_case",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
+        }
+      ],
+      "notes": "The coefficient-1 case is a special coefficient condition for a quadratic equation.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_eq_leading_coefficient_one_case__related_to__m1_quad_eq_factorization_solving",
+      "source_id": "m1_quad_eq_leading_coefficient_one_case",
+      "target_id": "m1_quad_eq_factorization_solving",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
+        }
+      ],
+      "notes": "Achievement levels distinguish coefficient-1 quadratic equations within the broader solving context.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_eq_leading_coefficient_one_case__related_to__m1_factor_binomial_product_xab",
+      "source_id": "m1_quad_eq_leading_coefficient_one_case",
+      "target_id": "m1_factor_binomial_product_xab",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; [9수02-19] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "다항식의 곱셈과 인수분해의 역관계를 이해하고, m(a+b), (a±b)^2, (a+b)(a-b), (x+a)(x+b), (ax+b)(cx+d) 범위의 공식을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        }
+      ],
+      "notes": "Coefficient-1 quadratic equations are often connected to recognizing (x+a)(x+b)-type factors, pending textbook example evidence.",
+      "confidence": "low"
     },
     {
       "id": "m1_quad_eq_standard_form__used_in__m1_quad_eq_solving",
@@ -39351,6 +39879,62 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_quad_eq_factorization_solving__used_in__m1_quad_eq_process_explanation",
+      "source_id": "m1_quad_eq_factorization_solving",
+      "target_id": "m1_quad_eq_process_explanation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
+        }
+      ],
+      "notes": "Solving by factorization is one route whose process may be explained in the quadratic-equation achievement levels.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_eq_root_formula__used_in__m1_quad_eq_process_explanation",
+      "source_id": "m1_quad_eq_root_formula",
+      "target_id": "m1_quad_eq_process_explanation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        }
+      ],
+      "notes": "The quadratic formula can be one route whose calculation process is explained, pending textbook example evidence.",
+      "confidence": "medium"
     },
     {
       "id": "m1_quad_eq_solution__equivalent_to__m1_eq_root",
@@ -39491,9 +40075,31 @@
       "confidence": "medium"
     },
     {
-      "id": "m1_quad_eq_double_root__contains__m1_quad_eq_solution",
-      "source_id": "m1_quad_eq_double_root",
+      "id": "m1_quad_eq_root_formula_substitution__used_in__m1_quad_eq_solution",
+      "source_id": "m1_quad_eq_root_formula_substitution",
       "target_id": "m1_quad_eq_solution",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        }
+      ],
+      "notes": "Substituting coefficients into the quadratic formula is used to obtain a solution, pending textbook example evidence.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_quad_eq_solution__contains__m1_quad_eq_double_root",
+      "source_id": "m1_quad_eq_solution",
+      "target_id": "m1_quad_eq_double_root",
       "relationship_type": "contains",
       "source_refs": [
         {
@@ -39509,7 +40115,7 @@
           "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
         }
       ],
-      "notes": "",
+      "notes": "A double root is a special case of a quadratic-equation root.",
       "confidence": "medium"
     },
     {
@@ -39657,9 +40263,87 @@
       "confidence": "medium"
     },
     {
-      "id": "m1_quad_eq_solving__used_in__m1_eq_solution_check",
-      "source_id": "m1_quad_eq_solving",
-      "target_id": "m1_eq_solution_check",
+      "id": "m1_quad_eq_set_up_from_context__related_to__m1_quad_eq_context_solution_check",
+      "source_id": "m1_quad_eq_set_up_from_context",
+      "target_id": "m1_quad_eq_context_solution_check",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        }
+      ],
+      "notes": "Setting up a contextual quadratic equation and checking the contextual suitability of its solution are adjacent modeling steps.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_eq_context_solution_check__related_to__m1_quad_eq_real_solution_scope",
+      "source_id": "m1_quad_eq_context_solution_check",
+      "target_id": "m1_quad_eq_real_solution_scope",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "이차함수의 최댓값과 최솟값은 x의 범위가 실수 전체인 경우만 다루고, 이차방정식은 해가 실수인 경우만 다루며 근과 계수와의 관계는 다루지 않음"
+        }
+      ],
+      "notes": "Contextual solution checks are constrained by the curriculum scope that treats real solutions.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_solution_check__used_in__m1_quad_eq_modeling",
+      "source_id": "m1_eq_solution_check",
+      "target_id": "m1_quad_eq_modeling",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_quad_eq_solution__used_in__m1_quad_eq_modeling",
+      "source_id": "m1_quad_eq_solution",
+      "target_id": "m1_quad_eq_modeling",
       "relationship_type": "used_in",
       "source_refs": [
         {
@@ -39676,7 +40360,23 @@
         }
       ],
       "notes": "",
-      "confidence": "high"
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_eq_real_solution_scope__related_to__m1_mis_root_coefficient_relation_scope",
+      "source_id": "m1_quad_eq_real_solution_scope",
+      "target_id": "m1_mis_root_coefficient_relation_scope",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "이차함수의 최댓값과 최솟값은 x의 범위가 실수 전체인 경우만 다루고, 이차방정식은 해가 실수인 경우만 다루며 근과 계수와의 관계는 다루지 않음"
+        }
+      ],
+      "notes": "Both nodes record curriculum boundary information, but the scope exclusion is not a prerequisite target or an often-confused concept.",
+      "confidence": "low"
     },
     {
       "id": "m1_mis_quadratic_expression_equation__often_confused_with__m1_factor_quadratic_expression",
@@ -54251,34 +54951,6 @@
       "confidence": "low"
     },
     {
-      "id": "m1_quad_eq_unit__contains__m1_factor_quadratic_expression",
-      "source_id": "m1_quad_eq_unit",
-      "target_id": "m1_factor_quadratic_expression",
-      "relationship_type": "contains",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 36; terms usable in teaching and learning situations",
-          "evidence_kind": "instructional_term_list",
-          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
-        },
-        {
-          "source_id": "achievement_research_report_2022",
-          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
-          "evidence_kind": "research_report_achievement_level_context",
-          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "medium"
-    },
-    {
       "id": "m1_factor_unit__contains__m1_mis_expansion_factorization_direction",
       "source_id": "m1_factor_unit",
       "target_id": "m1_mis_expansion_factorization_direction",
@@ -54365,6 +55037,224 @@
       ],
       "notes": "",
       "confidence": "low"
+    },
+    {
+      "id": "m1_quad_eq_unit__contains__m1_quad_eq_leading_coefficient_one_case",
+      "source_id": "m1_quad_eq_unit",
+      "target_id": "m1_quad_eq_leading_coefficient_one_case",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_quad_eq_standard_form__contains__m1_quad_eq_coefficients_in_standard_form",
+      "source_id": "m1_quad_eq_standard_form",
+      "target_id": "m1_quad_eq_coefficients_in_standard_form",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_eq_solving__contains__m1_quad_eq_process_explanation",
+      "source_id": "m1_quad_eq_solving",
+      "target_id": "m1_quad_eq_process_explanation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_quad_eq_factorization_solving__contains__m1_quad_eq_factorized_form",
+      "source_id": "m1_quad_eq_factorization_solving",
+      "target_id": "m1_quad_eq_factorized_form",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_eq_factorization_solving__contains__m1_quad_eq_zero_product_condition",
+      "source_id": "m1_quad_eq_factorization_solving",
+      "target_id": "m1_quad_eq_zero_product_condition",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_quad_eq_root_formula__contains__m1_quad_eq_root_formula_substitution",
+      "source_id": "m1_quad_eq_root_formula",
+      "target_id": "m1_quad_eq_root_formula_substitution",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_quad_eq_modeling__contains__m1_quad_eq_set_up_from_context",
+      "source_id": "m1_quad_eq_modeling",
+      "target_id": "m1_quad_eq_set_up_from_context",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_quad_eq_modeling__contains__m1_quad_eq_context_solution_check",
+      "source_id": "m1_quad_eq_modeling",
+      "target_id": "m1_quad_eq_context_solution_check",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
     },
     {
       "id": "m1_quad_eq_unit__contains__m1_mis_quadratic_expression_equation",
@@ -70039,6 +70929,12 @@
           "locator": "이차방정식 section; [9수02-20] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
         }
       ],
       "notes": "",
@@ -70051,16 +70947,16 @@
       "relationship_type": "prerequisite_for",
       "source_refs": [
         {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 36; terms usable in teaching and learning situations",
-          "evidence_kind": "instructional_term_list",
-          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
-        },
-        {
           "source_id": "achievement_math_2022",
           "locator": "이차방정식 section; [9수02-20] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
         }
       ],
       "notes": "",
@@ -70073,20 +70969,104 @@
       "relationship_type": "prerequisite_for",
       "source_refs": [
         {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_eq_quadratic_equation__prerequisite_for__m1_quad_eq_leading_coefficient_one_case",
+      "source_id": "m1_quad_eq_quadratic_equation",
+      "target_id": "m1_quad_eq_leading_coefficient_one_case",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
           "source_id": "curriculum_math_2022",
-          "locator": "printed p. 36; terms usable in teaching and learning situations",
-          "evidence_kind": "instructional_term_list",
-          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",
           "locator": "이차방정식 section; [9수02-20] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
         }
       ],
       "notes": "",
-      "confidence": "medium"
+      "confidence": "high"
+    },
+    {
+      "id": "m1_quad_eq_quadratic_term__prerequisite_for__m1_quad_eq_leading_coefficient_one_case",
+      "source_id": "m1_quad_eq_quadratic_term",
+      "target_id": "m1_quad_eq_leading_coefficient_one_case",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_expr_coefficient__prerequisite_for__m1_quad_eq_leading_coefficient_one_case",
+      "source_id": "m1_expr_coefficient",
+      "target_id": "m1_quad_eq_leading_coefficient_one_case",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
     },
     {
       "id": "m1_quad_eq_quadratic_equation__prerequisite_for__m1_quad_eq_standard_form",
@@ -70133,6 +71113,62 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_expr_coefficient__prerequisite_for__m1_quad_eq_coefficients_in_standard_form",
+      "source_id": "m1_expr_coefficient",
+      "target_id": "m1_quad_eq_coefficients_in_standard_form",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_eq_standard_form__prerequisite_for__m1_quad_eq_coefficients_in_standard_form",
+      "source_id": "m1_quad_eq_standard_form",
+      "target_id": "m1_quad_eq_coefficients_in_standard_form",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_quad_eq_quadratic_equation__prerequisite_for__m1_quad_eq_solving",
       "source_id": "m1_quad_eq_quadratic_equation",
       "target_id": "m1_quad_eq_solving",
@@ -70149,6 +71185,12 @@
           "locator": "이차방정식 section; [9수02-20] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
         }
       ],
       "notes": "",
@@ -70171,6 +71213,68 @@
           "locator": "이차방정식 section; [9수02-20] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_quad_eq_solution__prerequisite_for__m1_quad_eq_process_explanation",
+      "source_id": "m1_quad_eq_solution",
+      "target_id": "m1_quad_eq_process_explanation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_quad_eq_solving__prerequisite_for__m1_quad_eq_process_explanation",
+      "source_id": "m1_quad_eq_solving",
+      "target_id": "m1_quad_eq_process_explanation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
         }
       ],
       "notes": "",
@@ -70261,6 +71365,106 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_factor_quadratic_factorization__prerequisite_for__m1_quad_eq_factorized_form",
+      "source_id": "m1_factor_quadratic_factorization",
+      "target_id": "m1_quad_eq_factorized_form",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_quad_eq_standard_form__prerequisite_for__m1_quad_eq_factorized_form",
+      "source_id": "m1_quad_eq_standard_form",
+      "target_id": "m1_quad_eq_factorized_form",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 219; 다항식의 곱셈과 인수분해 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해와 과정 설명, 두 다항식의 곱 전개, 이차식 인수분해, 안내된 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_factor_factorization__prerequisite_for__m1_quad_eq_zero_product_condition",
+      "source_id": "m1_factor_factorization",
+      "target_id": "m1_quad_eq_zero_product_condition",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_quad_eq_factorized_form__prerequisite_for__m1_quad_eq_zero_product_condition",
+      "source_id": "m1_quad_eq_factorized_form",
+      "target_id": "m1_quad_eq_zero_product_condition",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_quad_eq_standard_form__prerequisite_for__m1_quad_eq_root_formula",
       "source_id": "m1_quad_eq_standard_form",
       "target_id": "m1_quad_eq_root_formula",
@@ -70287,6 +71491,72 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_quad_eq_root_formula__prerequisite_for__m1_quad_eq_root_formula_substitution",
+      "source_id": "m1_quad_eq_root_formula",
+      "target_id": "m1_quad_eq_root_formula_substitution",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_quad_eq_coefficients_in_standard_form__prerequisite_for__m1_quad_eq_root_formula_substitution",
+      "source_id": "m1_quad_eq_coefficients_in_standard_form",
+      "target_id": "m1_quad_eq_root_formula_substitution",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_num_radical_expression__prerequisite_for__m1_quad_eq_root_formula_substitution",
+      "source_id": "m1_num_radical_expression",
+      "target_id": "m1_quad_eq_root_formula_substitution",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
     },
     {
       "id": "m1_quad_eq_solution__prerequisite_for__m1_quad_eq_double_root",
@@ -70355,6 +71625,12 @@
           "locator": "이차방정식 section; [9수02-20] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
         }
       ],
       "notes": "",
@@ -70383,26 +71659,140 @@
           "locator": "이차방정식 section; [9수02-20] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
         }
       ],
       "notes": "",
       "confidence": "high"
     },
     {
-      "id": "m1_quad_eq_root_formula__prerequisite_for__m1_mis_root_coefficient_relation_scope",
-      "source_id": "m1_quad_eq_root_formula",
-      "target_id": "m1_mis_root_coefficient_relation_scope",
+      "id": "m1_quad_eq_quadratic_equation__prerequisite_for__m1_quad_eq_set_up_from_context",
+      "source_id": "m1_quad_eq_quadratic_equation",
+      "target_id": "m1_quad_eq_set_up_from_context",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_quad_eq_standard_form__prerequisite_for__m1_quad_eq_set_up_from_context",
+      "source_id": "m1_quad_eq_standard_form",
+      "target_id": "m1_quad_eq_set_up_from_context",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 220; 이차방정식 성취기준별 성취수준",
+          "evidence_kind": "research_report_achievement_level_context",
+          "summary": "[9수02-20] 성취수준에서 이차방정식 풀이와 과정 설명, 문제 상황의 이차방정식 설정, 이차항의 계수가 1인 이차방정식 풀이를 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_quad_eq_solution__prerequisite_for__m1_quad_eq_context_solution_check",
+      "source_id": "m1_quad_eq_solution",
+      "target_id": "m1_quad_eq_context_solution_check",
       "relationship_type": "prerequisite_for",
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; achievement-standard considerations",
           "evidence_kind": "teaching_note",
-          "summary": "이차함수의 최댓값과 최솟값은 x의 범위가 실수 전체인 경우만 다루고, 이차방정식은 해가 실수인 경우만 다루며 근과 계수와의 관계는 다루지 않음"
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
         }
       ],
       "notes": "",
-      "confidence": "low"
+      "confidence": "high"
+    },
+    {
+      "id": "m1_eq_solution_check__prerequisite_for__m1_quad_eq_context_solution_check",
+      "source_id": "m1_eq_solution_check",
+      "target_id": "m1_quad_eq_context_solution_check",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "방정식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-20]",
+          "evidence_kind": "achievement_standard",
+          "summary": "이차방정식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
     },
     {
       "id": "m1_factor_quadratic_expression__prerequisite_for__m1_quad_func_quadratic_function",
@@ -83733,16 +85123,22 @@
       "confidence": "low"
     },
     {
-      "id": "m1_mis_root_coefficient_relation_scope__often_confused_with__m1_quad_eq_real_solution_scope",
-      "source_id": "m1_mis_root_coefficient_relation_scope",
-      "target_id": "m1_quad_eq_real_solution_scope",
+      "id": "m1_mis_quadratic_factorization_solution__often_confused_with__m1_quad_eq_zero_product_condition",
+      "source_id": "m1_mis_quadratic_factorization_solution",
+      "target_id": "m1_quad_eq_zero_product_condition",
       "relationship_type": "often_confused_with",
       "source_refs": [
         {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 36; achievement-standard considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "이차함수의 최댓값과 최솟값은 x의 범위가 실수 전체인 경우만 다루고, 이차방정식은 해가 실수인 경우만 다루며 근과 계수와의 관계는 다루지 않음"
+          "source_id": "achievement_math_2022",
+          "locator": "이차방정식 section; [9수02-20] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이차방정식을 풀고 과정을 설명하거나 활용하며, 이차항의 계수가 1인 이차방정식을 푸는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "다항식의 곱셈과 인수분해 section; [9수02-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다항식의 곱셈과 인수분해의 역관계 이해, 두 다항식의 곱 전개, 이차식 인수분해, 간단한 절차 수행 수준을 구분"
         }
       ],
       "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",

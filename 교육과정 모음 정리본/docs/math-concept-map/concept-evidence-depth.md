@@ -4,16 +4,16 @@ This generated audit summarizes source evidence depth for each concept node.
 
 ## Summary
 
-- concepts: 548
-- needs textbook evidence: 548
-- low confidence concepts: 81
+- concepts: 556
+- needs textbook evidence: 556
+- low confidence concepts: 83
 
 ## Evidence Depth Counts
 
 | evidence_depth | concept count |
 |---|---:|
-| official_dual_source | 456 |
-| official_single_source | 92 |
+| official_dual_source | 460 |
+| official_single_source | 96 |
 
 ## Priority Rows
 
@@ -46,6 +46,8 @@ This generated audit summarizes source evidence depth for each concept node.
 | m1_mis_quadratic_expression_equation | 이차식과 이차방정식을 혼동하는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_quadratic_factorization_solution | 인수분해한 식에서 해 조건을 빠뜨리는 오류 | low | official_single_source | 2 | achievement_math_2022 |
 | m1_mis_root_coefficient_relation_scope | 근과 계수와의 관계를 중학교 범위로 오인하는 오류 | low | official_single_source | 1 | curriculum_math_2022 |
+| m1_quad_eq_root_formula_substitution | 근의 공식에 계수 대입하기 | low | official_single_source | 2 | curriculum_math_2022 |
+| m1_quad_eq_zero_product_condition | 각 인수가 0이 되는 조건 | low | official_single_source | 2 | achievement_math_2022 |
 | m1_mis_axis_vertex | 포물선의 축과 꼭짓점을 혼동하는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_max_min_scope | 최댓값·최솟값의 범위를 임의로 확장하는 오류 | low | official_single_source | 1 | curriculum_math_2022 |
 | m1_mis_quadratic_function_equation | 이차함수와 이차방정식을 혼동하는 오류 | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |
@@ -57,5 +59,3 @@ This generated audit summarizes source evidence depth for each concept node.
 | m1_func_input_value | 입력값 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_func_slope_ratio_formula | 기울기 계산식 | low | official_single_source | 1 | achievement_math_2022 |
 | m1_func_x_increment | x의 증가량 | low | official_single_source | 1 | achievement_math_2022 |
-| m1_func_y_increment | y의 증가량 | low | official_single_source | 1 | achievement_math_2022 |
-| m1_mis_all_relations_are_functions | 모든 두 양의 관계를 함수로 보는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |

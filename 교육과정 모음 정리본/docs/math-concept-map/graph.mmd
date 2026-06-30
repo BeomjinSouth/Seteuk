@@ -256,14 +256,22 @@ flowchart LR
   m1_quad_eq_unit["이차방정식"]
   m1_quad_eq_quadratic_equation["이차방정식"]
   m1_quad_eq_quadratic_term["이차항"]
+  m1_quad_eq_leading_coefficient_one_case["이차항의 계수가 1인 이차방정식"]
   m1_quad_eq_standard_form["이차방정식의 식 표현"]
+  m1_quad_eq_coefficients_in_standard_form["이차방정식의 계수"]
   m1_quad_eq_solving["이차방정식 풀기"]
+  m1_quad_eq_process_explanation["이차방정식 풀이 과정 설명하기"]
   m1_quad_eq_solution["이차방정식의 해"]
   m1_quad_eq_factorization_solving["인수분해를 이용한 이차방정식 풀이"]
+  m1_quad_eq_factorized_form["이차방정식의 인수분해된 식 표현"]
+  m1_quad_eq_zero_product_condition["각 인수가 0이 되는 조건"]
   m1_quad_eq_root_formula["근의 공식"]
+  m1_quad_eq_root_formula_substitution["근의 공식에 계수 대입하기"]
   m1_quad_eq_double_root["중근"]
   m1_quad_eq_real_solution_scope["이차방정식의 실수 해 범위"]
   m1_quad_eq_modeling["이차방정식 활용 문제 해결"]
+  m1_quad_eq_set_up_from_context["문제 상황을 이차방정식으로 나타내기"]
+  m1_quad_eq_context_solution_check["해가 문제 상황에 적합한지 확인하기"]
   m1_mis_quadratic_expression_equation["이차식과 이차방정식을 혼동하는 오류"]
   m1_mis_quadratic_factorization_solution["인수분해한 식에서 해 조건을 빠뜨리는 오류"]
   m1_mis_root_coefficient_relation_scope["근과 계수와의 관계를 중학교 범위로 오인하는 오류"]
@@ -1135,6 +1143,7 @@ flowchart LR
   m1_factor_binomial_product_xab -- "사용" --> m1_factor_factorization
   m1_factor_binomial_product_xab -- "사용" --> m1_quad_eq_factorization_solving
   m1_factor_linear_product_axb_cxd -- "사용" --> m1_factor_factorization
+  m1_factor_linear_product_axb_cxd -- "사용" --> m1_quad_eq_factorization_solving
   m1_factor_binomial_product_xab -- "사용" --> m1_factor_quadratic_factorization
   m1_factor_linear_product_axb_cxd -- "사용" --> m1_factor_quadratic_factorization
   m1_factor_quadratic_expression -- "표현" --> m1_factor_binomial_product_xab
@@ -1163,25 +1172,37 @@ flowchart LR
   m1_quad_eq_unit -- "포함" --> m1_quad_eq_real_solution_scope
   m1_quad_eq_unit -- "포함" --> m1_quad_eq_modeling
   m1_eq_equation -- "선수" --> m1_quad_eq_quadratic_equation
-  m1_factor_quadratic_expression -- "표현" --> m1_quad_eq_standard_form
+  m1_quad_eq_quadratic_equation -- "표현" --> m1_quad_eq_standard_form
+  m1_factor_quadratic_expression -- "대조" --> m1_quad_eq_quadratic_equation
   m1_quad_eq_quadratic_term -- "사용" --> m1_quad_eq_standard_form
+  m1_quad_eq_coefficients_in_standard_form -- "연관" --> m1_quad_eq_root_formula
+  m1_quad_eq_coefficients_in_standard_form -- "연관" --> m1_quad_eq_leading_coefficient_one_case
+  m1_quad_eq_leading_coefficient_one_case -- "연관" --> m1_quad_eq_factorization_solving
+  m1_quad_eq_leading_coefficient_one_case -- "연관" --> m1_factor_binomial_product_xab
   m1_quad_eq_standard_form -- "사용" --> m1_quad_eq_solving
   m1_quad_eq_quadratic_equation -- "사용" --> m1_quad_eq_solving
   m1_quad_eq_solving -- "사용" --> m1_quad_eq_solution
+  m1_quad_eq_factorization_solving -- "사용" --> m1_quad_eq_process_explanation
+  m1_quad_eq_root_formula -- "사용" --> m1_quad_eq_process_explanation
   m1_quad_eq_solution -- "동치" --> m1_eq_root
   m1_factor_factorization -- "선수" --> m1_quad_eq_factorization_solving
   m1_quad_eq_factorization_solving -- "사용" --> m1_quad_eq_solution
   m1_quad_eq_factorization_solving -- "사용" --> m1_quad_eq_solving
   m1_quad_eq_root_formula -- "사용" --> m1_quad_eq_solving
   m1_quad_eq_root_formula -- "사용" --> m1_quad_eq_solution
-  m1_quad_eq_double_root -- "포함" --> m1_quad_eq_solution
+  m1_quad_eq_root_formula_substitution -- "사용" --> m1_quad_eq_solution
+  m1_quad_eq_solution -- "포함" --> m1_quad_eq_double_root
   m1_quad_eq_double_root -- "연관" --> m1_quad_eq_root_formula
   m1_quad_eq_double_root -- "연관" --> m1_quad_eq_real_solution_scope
   m1_quad_eq_real_solution_scope -- "사용" --> m1_quad_eq_solution
   m1_quad_eq_real_solution_scope -- "연관" --> m1_quad_eq_root_formula
   m1_quad_eq_modeling -- "표현" --> m1_quad_eq_quadratic_equation
   m1_quad_eq_modeling -- "표현" --> m1_quad_eq_standard_form
-  m1_quad_eq_solving -- "사용" --> m1_eq_solution_check
+  m1_quad_eq_set_up_from_context -- "연관" --> m1_quad_eq_context_solution_check
+  m1_quad_eq_context_solution_check -- "연관" --> m1_quad_eq_real_solution_scope
+  m1_eq_solution_check -- "사용" --> m1_quad_eq_modeling
+  m1_quad_eq_solution -- "사용" --> m1_quad_eq_modeling
+  m1_quad_eq_real_solution_scope -- "연관" --> m1_mis_root_coefficient_relation_scope
   m1_mis_quadratic_expression_equation -- "혼동" --> m1_factor_quadratic_expression
   m1_mis_quadratic_expression_equation -- "혼동" --> m1_quad_eq_quadratic_equation
   m1_mis_quadratic_factorization_solution -- "혼동" --> m1_quad_eq_factorization_solving
@@ -1783,11 +1804,18 @@ flowchart LR
   m1_func_unit -- "포함" --> m1_mis_slope_sign
   m1_func_unit -- "포함" --> m1_mis_x_y_intercept
   m1_func_eq_relation_unit -- "포함" --> m1_mis_intersection_solution
-  m1_quad_eq_unit -- "포함" --> m1_factor_quadratic_expression
   m1_factor_unit -- "포함" --> m1_mis_expansion_factorization_direction
   m1_factor_unit -- "포함" --> m1_mis_factor_common_factor_missing
   m1_factor_unit -- "포함" --> m1_mis_factor_formula_pattern
   m1_factor_unit -- "포함" --> m1_mis_perfect_square_sign
+  m1_quad_eq_unit -- "포함" --> m1_quad_eq_leading_coefficient_one_case
+  m1_quad_eq_standard_form -- "포함" --> m1_quad_eq_coefficients_in_standard_form
+  m1_quad_eq_solving -- "포함" --> m1_quad_eq_process_explanation
+  m1_quad_eq_factorization_solving -- "포함" --> m1_quad_eq_factorized_form
+  m1_quad_eq_factorization_solving -- "포함" --> m1_quad_eq_zero_product_condition
+  m1_quad_eq_root_formula -- "포함" --> m1_quad_eq_root_formula_substitution
+  m1_quad_eq_modeling -- "포함" --> m1_quad_eq_set_up_from_context
+  m1_quad_eq_modeling -- "포함" --> m1_quad_eq_context_solution_check
   m1_quad_eq_unit -- "포함" --> m1_mis_quadratic_expression_equation
   m1_quad_eq_unit -- "포함" --> m1_mis_quadratic_factorization_solution
   m1_quad_eq_unit -- "포함" --> m1_mis_root_coefficient_relation_scope
@@ -2366,19 +2394,36 @@ flowchart LR
   m1_factor_quadratic_expression -- "선수" --> m1_quad_eq_quadratic_equation
   m1_expr_term -- "선수" --> m1_quad_eq_quadratic_term
   m1_expr_degree -- "선수" --> m1_quad_eq_quadratic_term
+  m1_quad_eq_quadratic_equation -- "선수" --> m1_quad_eq_leading_coefficient_one_case
+  m1_quad_eq_quadratic_term -- "선수" --> m1_quad_eq_leading_coefficient_one_case
+  m1_expr_coefficient -- "선수" --> m1_quad_eq_leading_coefficient_one_case
   m1_quad_eq_quadratic_equation -- "선수" --> m1_quad_eq_standard_form
   m1_quad_eq_quadratic_term -- "선수" --> m1_quad_eq_standard_form
+  m1_expr_coefficient -- "선수" --> m1_quad_eq_coefficients_in_standard_form
+  m1_quad_eq_standard_form -- "선수" --> m1_quad_eq_coefficients_in_standard_form
   m1_quad_eq_quadratic_equation -- "선수" --> m1_quad_eq_solving
   m1_factor_factorization -- "선수" --> m1_quad_eq_solving
+  m1_quad_eq_solution -- "선수" --> m1_quad_eq_process_explanation
+  m1_quad_eq_solving -- "선수" --> m1_quad_eq_process_explanation
   m1_eq_solution -- "선수" --> m1_quad_eq_solution
   m1_quad_eq_quadratic_equation -- "선수" --> m1_quad_eq_solution
   m1_quad_eq_quadratic_equation -- "선수" --> m1_quad_eq_factorization_solving
+  m1_factor_quadratic_factorization -- "선수" --> m1_quad_eq_factorized_form
+  m1_quad_eq_standard_form -- "선수" --> m1_quad_eq_factorized_form
+  m1_factor_factorization -- "선수" --> m1_quad_eq_zero_product_condition
+  m1_quad_eq_factorized_form -- "선수" --> m1_quad_eq_zero_product_condition
   m1_quad_eq_standard_form -- "선수" --> m1_quad_eq_root_formula
+  m1_quad_eq_root_formula -- "선수" --> m1_quad_eq_root_formula_substitution
+  m1_quad_eq_coefficients_in_standard_form -- "선수" --> m1_quad_eq_root_formula_substitution
+  m1_num_radical_expression -- "선수" --> m1_quad_eq_root_formula_substitution
   m1_quad_eq_solution -- "선수" --> m1_quad_eq_double_root
   m1_quad_eq_solution -- "선수" --> m1_quad_eq_real_solution_scope
   m1_quad_eq_solving -- "선수" --> m1_quad_eq_modeling
   m1_eq_solution_check -- "선수" --> m1_quad_eq_modeling
-  m1_quad_eq_root_formula -- "선수" --> m1_mis_root_coefficient_relation_scope
+  m1_quad_eq_quadratic_equation -- "선수" --> m1_quad_eq_set_up_from_context
+  m1_quad_eq_standard_form -- "선수" --> m1_quad_eq_set_up_from_context
+  m1_quad_eq_solution -- "선수" --> m1_quad_eq_context_solution_check
+  m1_eq_solution_check -- "선수" --> m1_quad_eq_context_solution_check
   m1_factor_quadratic_expression -- "선수" --> m1_quad_func_quadratic_function
   m1_quad_func_quadratic_function -- "선수" --> m1_quad_func_formula
   m1_factor_quadratic_expression -- "선수" --> m1_quad_func_formula
@@ -2876,7 +2921,7 @@ flowchart LR
   m1_mis_expansion_factorization_direction -- "혼동" --> m1_factor_factorization
   m1_mis_factor_common_factor_missing -- "혼동" --> m1_factor_factorization
   m1_mis_perfect_square_sign -- "혼동" --> m1_factor_square_sum_formula
-  m1_mis_root_coefficient_relation_scope -- "혼동" --> m1_quad_eq_real_solution_scope
+  m1_mis_quadratic_factorization_solution -- "혼동" --> m1_quad_eq_zero_product_condition
   m1_mis_quadratic_factorization_solution -- "혼동" --> m1_quad_eq_solution
   m1_mis_quadratic_factorization_solution -- "혼동" --> m1_factor_factorization
   m1_mis_quadratic_function_equation -- "혼동" --> m1_quad_func_identifying_quadratic_function
@@ -3171,14 +3216,22 @@ flowchart LR
   class m1_quad_eq_unit core;
   class m1_quad_eq_quadratic_equation core;
   class m1_quad_eq_quadratic_term default;
+  class m1_quad_eq_leading_coefficient_one_case default;
   class m1_quad_eq_standard_form representation;
+  class m1_quad_eq_coefficients_in_standard_form default;
   class m1_quad_eq_solving procedure;
+  class m1_quad_eq_process_explanation procedure;
   class m1_quad_eq_solution default;
   class m1_quad_eq_factorization_solving procedure;
+  class m1_quad_eq_factorized_form representation;
+  class m1_quad_eq_zero_product_condition default;
   class m1_quad_eq_root_formula default;
+  class m1_quad_eq_root_formula_substitution procedure;
   class m1_quad_eq_double_root default;
   class m1_quad_eq_real_solution_scope default;
   class m1_quad_eq_modeling procedure;
+  class m1_quad_eq_set_up_from_context procedure;
+  class m1_quad_eq_context_solution_check procedure;
   class m1_mis_quadratic_expression_equation risk;
   class m1_mis_quadratic_factorization_solution risk;
   class m1_mis_root_coefficient_relation_scope risk;

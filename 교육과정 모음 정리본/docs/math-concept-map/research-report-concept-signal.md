@@ -5,23 +5,23 @@ Rows are candidate signals only; inspect the local page context before changing 
 
 ## Summary
 
-- matched concepts: 247
+- matched concepts: 249
 
 ## Confidence
 
 | confidence | matched concepts |
 |---|---:|
-| high | 210 |
+| high | 211 |
 | low | 2 |
-| medium | 35 |
+| medium | 36 |
 
 ## Recommended Actions
 
 | action | matched concepts |
 |---|---:|
 | inspect_research_report_context_before_confidence_change | 2 |
-| inspect_research_report_context_before_source_ref_upgrade | 35 |
-| use_as_supplemental_trace_only | 210 |
+| inspect_research_report_context_before_source_ref_upgrade | 36 |
+| use_as_supplemental_trace_only | 211 |
 
 ## Highest Priority Signals
 
@@ -43,6 +43,7 @@ Rows are candidate signals only; inspect the local page context before changing 
 | m1_func_intersection_point | 교점 | 일차함수와 일차방정식의 관계 | medium | 36 | 57; 58; 219; 232; 233; 234; 254 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_num_multiple | 배수 | 소인수분해 | medium | 35 | 13; 26; 169; 179; 180; 211; 230; 231 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_num_divisor | 약수 | 소인수분해 | medium | 34 | 13; 26; 169; 179; 180; 211; 230; 231 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
+| m1_quad_eq_coefficients_in_standard_form | 이차방정식의 계수 | 이차방정식 | medium | 26 | 35; 37; 39; 64; 65; 84; 87 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_geo_correspondence | 도형의 대응 | 도형의 닮음 | medium | 25 | 5; 12; 22; 24; 54; 75; 76; 84; 171; 173; 180; 181 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_data_mean | 평균 | 대푯값 | medium | 24 | 91; 177; 183; 186; 187 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_calc_expansion | 전개 | 식의 계산 | medium | 20 | 173; 174; 181; 182; 219 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
@@ -106,4 +107,3 @@ Rows are candidate signals only; inspect the local page context before changing 
 | m1_geo_line | 직선 | 기본 도형 | high | 47 | 77; 78; 130; 138; 139; 212; 215; 221; 231; 235; 236; 237; 238; 254; 257 | research_report_signal | use_as_supplemental_trace_only |
 | m1_factor_factor | 인수 | 다항식의 곱셈과 인수분해 | high | 46 | 26; 54; 57; 58; 59; 107; 121; 211; 219; 230; 231; 232; 233; 234; 235 | research_report_signal | use_as_supplemental_trace_only |
 | m1_data_statistical_inquiry_problem | 통계적 탐구 문제 | 도수분포표와 상대도수 | high | 45 | 45; 61; 62; 77; 79; 135; 140; 177; 183; 184; 190; 205; 228; 239; 240; 241 | research_report_signal | use_as_supplemental_trace_only |
-| m1_num_integer_rational_unit | 정수와 유리수 | 정수와 유리수 | high | 43 | 27; 45; 211; 212; 230; 231; 232 | research_report_signal | use_as_supplemental_trace_only |
