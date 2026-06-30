@@ -13,6 +13,22 @@ flowchart LR
   m1_num_prime_factor["소인수"]
   m1_num_prime_factorization["소인수분해"]
   m1_num_prime_factor_product["소인수의 곱으로 표현하기"]
+  m1_num_prime_factorization_meaning_explanation["소인수분해의 뜻 설명하기"]
+  m1_num_prime_factorization_guided_procedure["안내된 절차에 따라 소인수분해하기"]
+  m1_num_prime_composite_classification["소수와 합성수 판별하기"]
+  m1_num_one_not_prime_or_composite["1은 소수도 합성수도 아님"]
+  m1_num_prime_factorization_division_method["나눗셈을 이용한 소인수분해"]
+  m1_num_prime_factorization_exponent_notation["소인수분해 결과를 거듭제곱으로 정리하기"]
+  m1_num_prime_factorization_uniqueness["소인수분해의 유일성"]
+  m1_num_common_divisor["공약수"]
+  m1_num_common_multiple["공배수"]
+  m1_num_common_prime_factor["공통 소인수"]
+  m1_num_select_common_prime_factors["공통 소인수 선택하기"]
+  m1_num_select_all_prime_factors["필요한 모든 소인수 선택하기"]
+  m1_num_gcd_prime_factor_product["최대공약수를 공통 소인수의 곱으로 나타내기"]
+  m1_num_lcm_prime_factor_product["최소공배수를 필요한 모든 소인수의 곱으로 나타내기"]
+  m1_num_gcd_lcm_principle_explanation["최대공약수와 최소공배수의 원리 설명하기"]
+  m1_num_coprime_judgement_prime_factorization["소인수분해로 서로소 판별하기"]
   m1_num_coprime["서로소"]
   m1_num_divisor["약수"]
   m1_num_multiple["배수"]
@@ -21,6 +37,7 @@ flowchart LR
   m1_num_find_gcd_lcm_prime_factorization["소인수분해로 최대공약수와 최소공배수 구하기"]
   m1_mis_prime_one["1을 소수나 합성수로 보는 오류"]
   m1_mis_gcd_lcm_scope["최대공약수·최소공배수 활용 문제를 범위로 오인하는 오류"]
+  m1_mis_gcd_lcm_common_all_prime_factor["최대공약수와 최소공배수에서 공통 소인수와 모든 소인수를 뒤바꾸는 오류"]
   m1_num_integer_rational_unit["정수와 유리수"]
   m1_num_negative_need["음수의 필요성"]
   m1_num_positive_number["양수"]
@@ -590,32 +607,60 @@ flowchart LR
   m1_num_prime_factor_unit -- "포함" --> m1_num_find_gcd_lcm_prime_factorization
   m1_num_natural_number -- "선수" --> m1_num_prime_number
   m1_num_natural_number -- "선수" --> m1_num_composite_number
+  m1_num_divisor -- "선수" --> m1_num_prime_number
+  m1_num_divisor -- "선수" --> m1_num_composite_number
+  m1_num_divisor -- "선수" --> m1_num_prime_factor
   m1_num_prime_number -- "대조" --> m1_num_composite_number
   m1_num_composite_number -- "대조" --> m1_num_prime_number
   m1_num_prime_number -- "사용" --> m1_num_prime_factor
   m1_num_composite_number -- "사용" --> m1_num_prime_factorization
   m1_num_prime_factor -- "사용" --> m1_num_prime_factorization
+  m1_num_prime_factor -- "사용" --> m1_num_prime_factorization_meaning_explanation
   m1_num_prime_factor -- "대조" --> m1_factor_factor
   m1_calc_power -- "사용" --> m1_num_prime_factor_product
   m1_calc_base -- "사용" --> m1_num_prime_factor_product
   m1_calc_exponent -- "사용" --> m1_num_prime_factor_product
   m1_num_prime_factorization -- "표현" --> m1_num_prime_factor_product
   m1_num_prime_factorization -- "사용" --> m1_num_find_gcd_lcm_prime_factorization
+  m1_num_prime_factorization_guided_procedure -- "사용" --> m1_num_prime_factorization
+  m1_num_prime_composite_classification -- "사용" --> m1_num_prime_factorization
+  m1_num_prime_factorization_division_method -- "사용" --> m1_num_prime_factorization
+  m1_num_prime_factorization_exponent_notation -- "사용" --> m1_num_prime_factorization
   m1_num_prime_factorization -- "사용" --> m1_num_coprime
+  m1_num_prime_factorization -- "사용" --> m1_num_coprime_judgement_prime_factorization
+  m1_num_coprime_judgement_prime_factorization -- "사용" --> m1_num_coprime
+  m1_num_one_not_prime_or_composite -- "사용" --> m1_num_prime_composite_classification
+  m1_num_prime_factorization -- "사용" --> m1_num_common_prime_factor
   m1_num_divisor -- "사용" --> m1_num_gcd
   m1_num_multiple -- "사용" --> m1_num_lcm
+  m1_num_common_divisor -- "사용" --> m1_num_gcd
+  m1_num_common_multiple -- "사용" --> m1_num_lcm
+  m1_num_common_prime_factor -- "사용" --> m1_num_gcd_prime_factor_product
+  m1_num_common_prime_factor -- "사용" --> m1_num_select_common_prime_factors
+  m1_num_select_common_prime_factors -- "사용" --> m1_num_gcd_prime_factor_product
+  m1_num_select_all_prime_factors -- "사용" --> m1_num_lcm_prime_factor_product
+  m1_num_gcd_prime_factor_product -- "사용" --> m1_num_find_gcd_lcm_prime_factorization
+  m1_num_lcm_prime_factor_product -- "사용" --> m1_num_find_gcd_lcm_prime_factorization
+  m1_num_gcd_lcm_principle_explanation -- "사용" --> m1_num_find_gcd_lcm_prime_factorization
+  m1_num_prime_factor_product -- "사용" --> m1_num_find_gcd_lcm_prime_factorization
   m1_num_gcd -- "사용" --> m1_num_find_gcd_lcm_prime_factorization
   m1_num_lcm -- "사용" --> m1_num_find_gcd_lcm_prime_factorization
   m1_num_divisor -- "대조" --> m1_num_multiple
   m1_num_multiple -- "대조" --> m1_num_divisor
+  m1_num_common_divisor -- "대조" --> m1_num_common_multiple
+  m1_num_common_multiple -- "대조" --> m1_num_common_divisor
+  m1_num_select_common_prime_factors -- "대조" --> m1_num_select_all_prime_factors
+  m1_num_select_all_prime_factors -- "대조" --> m1_num_select_common_prime_factors
+  m1_num_gcd_prime_factor_product -- "대조" --> m1_num_lcm_prime_factor_product
+  m1_num_lcm_prime_factor_product -- "대조" --> m1_num_gcd_prime_factor_product
   m1_num_gcd -- "대조" --> m1_num_lcm
   m1_num_lcm -- "대조" --> m1_num_gcd
-  m1_num_coprime -- "사용" --> m1_num_gcd
+  m1_num_gcd -- "사용" --> m1_num_coprime
   m1_mis_prime_one -- "혼동" --> m1_num_prime_number
   m1_mis_prime_one -- "혼동" --> m1_num_composite_number
   m1_mis_gcd_lcm_scope -- "혼동" --> m1_num_find_gcd_lcm_prime_factorization
-  m1_num_prime_factor_unit -- "선수" --> m1_num_integer_rational_unit
-  m1_num_prime_factor_unit -- "연관" --> m1_calc_power
+  m1_mis_gcd_lcm_common_all_prime_factor -- "혼동" --> m1_num_select_common_prime_factors
+  m1_mis_gcd_lcm_common_all_prime_factor -- "혼동" --> m1_num_select_all_prime_factors
   m1_num_integer_rational_unit -- "포함" --> m1_num_negative_need
   m1_num_integer_rational_unit -- "포함" --> m1_num_positive_number
   m1_num_integer_rational_unit -- "포함" --> m1_num_negative_number
@@ -1758,8 +1803,25 @@ flowchart LR
   m1_mis_correlation_causation -- "혼동" --> m1_data_scatter_plot_interpretation
   m1_num_prime_factor_unit -- "포함" --> m1_num_natural_number
   m1_num_prime_factor_unit -- "포함" --> m1_num_prime_factor_product
+  m1_num_prime_factor_unit -- "포함" --> m1_num_prime_factorization_meaning_explanation
+  m1_num_prime_factor_unit -- "포함" --> m1_num_prime_factorization_guided_procedure
+  m1_num_prime_factor_unit -- "포함" --> m1_num_prime_composite_classification
+  m1_num_prime_factor_unit -- "포함" --> m1_num_one_not_prime_or_composite
+  m1_num_prime_factor_unit -- "포함" --> m1_num_prime_factorization_division_method
+  m1_num_prime_factor_unit -- "포함" --> m1_num_prime_factorization_exponent_notation
+  m1_num_prime_factor_unit -- "포함" --> m1_num_prime_factorization_uniqueness
+  m1_num_prime_factor_unit -- "포함" --> m1_num_common_divisor
+  m1_num_prime_factor_unit -- "포함" --> m1_num_common_multiple
+  m1_num_prime_factor_unit -- "포함" --> m1_num_common_prime_factor
+  m1_num_prime_factor_unit -- "포함" --> m1_num_select_common_prime_factors
+  m1_num_prime_factor_unit -- "포함" --> m1_num_select_all_prime_factors
+  m1_num_prime_factor_unit -- "포함" --> m1_num_gcd_prime_factor_product
+  m1_num_prime_factor_unit -- "포함" --> m1_num_lcm_prime_factor_product
+  m1_num_prime_factor_unit -- "포함" --> m1_num_gcd_lcm_principle_explanation
+  m1_num_prime_factor_unit -- "포함" --> m1_num_coprime_judgement_prime_factorization
   m1_num_prime_factor_unit -- "포함" --> m1_mis_prime_one
   m1_num_prime_factor_unit -- "포함" --> m1_mis_gcd_lcm_scope
+  m1_num_prime_factor_unit -- "포함" --> m1_mis_gcd_lcm_common_all_prime_factor
   m1_num_integer -- "포함" --> m1_num_zero
   m1_num_rational_number -- "포함" --> m1_num_rational_fraction_form
   m1_num_absolute_value -- "포함" --> m1_num_opposite_numbers
@@ -2137,23 +2199,49 @@ flowchart LR
   m1_data_box_scatter_unit -- "포함" --> m1_data_no_correlation
   m1_data_box_scatter_unit -- "포함" --> m1_data_scatter_plot_interpretation
   m1_data_box_scatter_unit -- "포함" --> m1_mis_correlation_causation
-  m1_num_prime_number -- "선수" --> m1_num_composite_number
   m1_num_prime_number -- "선수" --> m1_num_prime_factor
   m1_num_prime_factor -- "선수" --> m1_num_prime_factorization
   m1_calc_power -- "선수" --> m1_num_prime_factorization
   m1_num_prime_factorization -- "선수" --> m1_num_prime_factor_product
   m1_calc_power -- "선수" --> m1_num_prime_factor_product
+  m1_num_prime_factorization -- "선수" --> m1_num_prime_factorization_meaning_explanation
+  m1_num_prime_factor -- "선수" --> m1_num_prime_factorization_meaning_explanation
+  m1_num_prime_composite_classification -- "선수" --> m1_num_prime_factorization_guided_procedure
+  m1_num_prime_factor -- "선수" --> m1_num_prime_factorization_guided_procedure
+  m1_num_prime_number -- "선수" --> m1_num_prime_composite_classification
+  m1_num_composite_number -- "선수" --> m1_num_prime_composite_classification
+  m1_num_divisor -- "선수" --> m1_num_prime_composite_classification
+  m1_num_natural_number -- "선수" --> m1_num_one_not_prime_or_composite
+  m1_num_prime_factor -- "선수" --> m1_num_prime_factorization_division_method
+  m1_num_prime_factorization -- "선수" --> m1_num_prime_factorization_division_method
+  m1_num_prime_factor_product -- "선수" --> m1_num_prime_factorization_exponent_notation
+  m1_calc_power -- "선수" --> m1_num_prime_factorization_exponent_notation
+  m1_calc_base -- "선수" --> m1_num_prime_factorization_exponent_notation
+  m1_calc_exponent -- "선수" --> m1_num_prime_factorization_exponent_notation
+  m1_num_prime_factorization -- "선수" --> m1_num_prime_factorization_uniqueness
+  m1_num_prime_factor_product -- "선수" --> m1_num_prime_factorization_uniqueness
+  m1_num_divisor -- "선수" --> m1_num_common_divisor
+  m1_num_multiple -- "선수" --> m1_num_common_multiple
+  m1_num_prime_factorization -- "선수" --> m1_num_common_prime_factor
+  m1_num_prime_factor -- "선수" --> m1_num_common_prime_factor
+  m1_num_common_prime_factor -- "선수" --> m1_num_select_common_prime_factors
+  m1_num_prime_factor_product -- "선수" --> m1_num_select_common_prime_factors
+  m1_num_prime_factor_product -- "선수" --> m1_num_select_all_prime_factors
+  m1_num_select_common_prime_factors -- "선수" --> m1_num_gcd_prime_factor_product
+  m1_num_gcd -- "선수" --> m1_num_gcd_prime_factor_product
+  m1_num_select_all_prime_factors -- "선수" --> m1_num_lcm_prime_factor_product
+  m1_num_lcm -- "선수" --> m1_num_lcm_prime_factor_product
+  m1_num_gcd_prime_factor_product -- "선수" --> m1_num_gcd_lcm_principle_explanation
+  m1_num_lcm_prime_factor_product -- "선수" --> m1_num_gcd_lcm_principle_explanation
+  m1_num_prime_factorization -- "선수" --> m1_num_coprime_judgement_prime_factorization
+  m1_num_coprime -- "선수" --> m1_num_coprime_judgement_prime_factorization
+  m1_num_gcd -- "선수" --> m1_num_coprime_judgement_prime_factorization
   m1_num_gcd -- "선수" --> m1_num_coprime
-  m1_num_prime_factorization -- "선수" --> m1_num_gcd
   m1_num_divisor -- "선수" --> m1_num_gcd
-  m1_num_prime_factorization -- "선수" --> m1_num_lcm
   m1_num_multiple -- "선수" --> m1_num_lcm
   m1_num_prime_factorization -- "선수" --> m1_num_find_gcd_lcm_prime_factorization
   m1_num_gcd -- "선수" --> m1_num_find_gcd_lcm_prime_factorization
   m1_num_lcm -- "선수" --> m1_num_find_gcd_lcm_prime_factorization
-  m1_num_prime_number -- "선수" --> m1_mis_prime_one
-  m1_num_composite_number -- "선수" --> m1_mis_prime_one
-  m1_num_find_gcd_lcm_prime_factorization -- "선수" --> m1_mis_gcd_lcm_scope
   m1_num_negative_need -- "선수" --> m1_num_negative_number
   m1_num_positive_number -- "선수" --> m1_num_integer
   m1_num_negative_number -- "선수" --> m1_num_integer
@@ -2959,6 +3047,8 @@ flowchart LR
   m1_data_scatter_plot -- "선수" --> m1_data_scatter_plot_interpretation
   m1_data_correlation -- "선수" --> m1_data_scatter_plot_interpretation
   m1_data_correlation -- "선수" --> m1_mis_correlation_causation
+  m1_mis_prime_one -- "혼동" --> m1_num_prime_composite_classification
+  m1_mis_prime_one -- "혼동" --> m1_num_one_not_prime_or_composite
   m1_mis_prime_one -- "혼동" --> m1_num_natural_number
   m1_mis_gcd_lcm_scope -- "혼동" --> m1_num_gcd
   m1_mis_gcd_lcm_scope -- "혼동" --> m1_num_lcm
@@ -3061,6 +3151,22 @@ flowchart LR
   class m1_num_prime_factor default;
   class m1_num_prime_factorization procedure;
   class m1_num_prime_factor_product representation;
+  class m1_num_prime_factorization_meaning_explanation procedure;
+  class m1_num_prime_factorization_guided_procedure procedure;
+  class m1_num_prime_composite_classification procedure;
+  class m1_num_one_not_prime_or_composite default;
+  class m1_num_prime_factorization_division_method procedure;
+  class m1_num_prime_factorization_exponent_notation procedure;
+  class m1_num_prime_factorization_uniqueness default;
+  class m1_num_common_divisor default;
+  class m1_num_common_multiple default;
+  class m1_num_common_prime_factor default;
+  class m1_num_select_common_prime_factors procedure;
+  class m1_num_select_all_prime_factors procedure;
+  class m1_num_gcd_prime_factor_product procedure;
+  class m1_num_lcm_prime_factor_product procedure;
+  class m1_num_gcd_lcm_principle_explanation procedure;
+  class m1_num_coprime_judgement_prime_factorization procedure;
   class m1_num_coprime default;
   class m1_num_divisor default;
   class m1_num_multiple default;
@@ -3069,6 +3175,7 @@ flowchart LR
   class m1_num_find_gcd_lcm_prime_factorization procedure;
   class m1_mis_prime_one risk;
   class m1_mis_gcd_lcm_scope risk;
+  class m1_mis_gcd_lcm_common_all_prime_factor risk;
   class m1_num_integer_rational_unit core;
   class m1_num_negative_need default;
   class m1_num_positive_number default;

@@ -5,7 +5,7 @@ Rows are candidate signals only; inspect the local page context before changing 
 
 ## Summary
 
-- matched concepts: 252
+- matched concepts: 254
 
 ## Confidence
 
@@ -13,14 +13,14 @@ Rows are candidate signals only; inspect the local page context before changing 
 |---|---:|
 | high | 212 |
 | low | 4 |
-| medium | 36 |
+| medium | 38 |
 
 ## Recommended Actions
 
 | action | matched concepts |
 |---|---:|
 | inspect_research_report_context_before_confidence_change | 4 |
-| inspect_research_report_context_before_source_ref_upgrade | 36 |
+| inspect_research_report_context_before_source_ref_upgrade | 38 |
 | use_as_supplemental_trace_only | 212 |
 
 ## Highest Priority Signals
@@ -49,7 +49,9 @@ Rows are candidate signals only; inspect the local page context before changing 
 | m1_geo_correspondence | 도형의 대응 | 도형의 닮음 | medium | 25 | 5; 12; 22; 24; 54; 75; 76; 84; 171; 173; 180; 181 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_data_mean | 평균 | 대푯값 | medium | 24 | 91; 177; 183; 186; 187 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_calc_expansion | 전개 | 식의 계산 | medium | 20 | 173; 174; 181; 182; 219 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
+| m1_num_common_multiple | 공배수 | 소인수분해 | medium | 20 | 13; 26; 169; 211; 230; 231 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_geo_solid_net | 전개도 | 입체도형의 성질 | medium | 19 | 173; 174; 181; 182 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
+| m1_num_common_divisor | 공약수 | 소인수분해 | medium | 19 | 13; 26; 169; 211; 230; 231 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_geo_diagonal | 대각선 | 평면도형의 성질 | medium | 14 | 78; 213; 222; 231; 235; 236; 237; 238 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_data_or_cases | 사건 A 또는 사건 B가 일어나는 경우의 수 | 경우의 수와 확률 | medium | 12 | 228; 240; 266; 267; 268 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_data_and_cases | 사건 A와 사건 B가 동시에 일어나는 경우의 수 | 경우의 수와 확률 | medium | 11 | 228; 240; 266; 267; 268 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
@@ -105,5 +107,3 @@ Rows are candidate signals only; inspect the local page context before changing 
 | m1_geo_congruence | 합동 | 작도와 합동 | high | 55 | 77; 78; 97; 173; 181; 182; 221; 235; 236; 237; 238 | research_report_signal | use_as_supplemental_trace_only |
 | m1_calc_exponent | 지수 | 식의 계산 | high | 54 | 54; 57; 58; 59; 97; 148; 149; 150; 152; 157; 159; 160; 163; 166; 168; 179; 216; 217; 219; 232; 233; 234; 235 | research_report_signal | use_as_supplemental_trace_only |
 | m1_num_domain | 수와 연산 | 수와 연산 | high | 54 | 9; 12; 26; 27; 45; 46; 47; 48; 49; 52; 76; 100; 107; 121; 125; 136; 137; 151; 162; 165; 168; 179; 180; 202 | research_report_signal | use_as_supplemental_trace_only |
-| m1_prop_direct_proportion | 정비례 | 좌표평면과 그래프 | high | 49 | 57; 58; 59; 215; 232; 233; 234; 245 | research_report_signal | use_as_supplemental_trace_only |
-| m1_geo_line | 직선 | 기본 도형 | high | 47 | 77; 78; 130; 138; 139; 212; 215; 221; 231; 235; 236; 237; 238; 254; 257 | research_report_signal | use_as_supplemental_trace_only |

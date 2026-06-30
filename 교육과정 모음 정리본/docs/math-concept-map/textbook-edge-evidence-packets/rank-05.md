@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 정수와 유리수
 - priority tier: highest
 - priority score: 65
-- edges in packet: 203
-- cross-unit edges: 51
+- edges in packet: 202
+- cross-unit edges: 50
 - low confidence edges: 36
 
 ## Relationship Evidence Slots
@@ -191,7 +191,6 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_num_order_relation__prerequisite_for__m1_data_quartile | cross_unit | 정수와 유리수의 대소 관계 | prerequisite_for | 사분위수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_order_relation__prerequisite_for__m1_data_stem_leaf_plot | cross_unit | 정수와 유리수의 대소 관계 | prerequisite_for | 줄기와 잎 그림 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_num_order_relation__prerequisite_for__m1_num_real_order | cross_unit | 정수와 유리수의 대소 관계 | prerequisite_for | 실수의 대소 관계 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
-| m1_num_prime_factor_unit__prerequisite_for__m1_num_integer_rational_unit | cross_unit | 소인수분해 | prerequisite_for | 정수와 유리수 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_rational_number__prerequisite_for__m1_data_mean | cross_unit | 유리수 | prerequisite_for | 평균 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_rational_number__prerequisite_for__m1_data_probability | cross_unit | 유리수 | prerequisite_for | 확률 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_num_rational_number__prerequisite_for__m1_data_probability_unit | cross_unit | 유리수 | prerequisite_for | 경우의 수와 확률 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 5 |

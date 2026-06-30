@@ -4,26 +4,26 @@ This generated audit summarizes source evidence depth for each relationship edge
 
 ## Summary
 
-- edges: 2478
-- needs textbook evidence: 2478
-- low confidence edges: 438
+- edges: 2551
+- needs textbook evidence: 2551
+- low confidence edges: 443
 
 ## Evidence Depth Counts
 
 | evidence_depth | edge count |
 |---|---:|
-| official_dual_source | 2090 |
-| official_single_source | 388 |
+| official_dual_source | 2165 |
+| official_single_source | 386 |
 
 ## Edge Scope Counts
 
 | edge_scope | edge count |
 |---|---:|
-| cross_domain_same_grade | 49 |
+| cross_domain_same_grade | 51 |
 | cross_grade_cross_domain | 29 |
 | cross_grade_same_domain | 200 |
-| cross_unit_same_domain | 211 |
-| same_unit | 1989 |
+| cross_unit_same_domain | 210 |
+| same_unit | 2061 |
 
 ## Priority Rows
 

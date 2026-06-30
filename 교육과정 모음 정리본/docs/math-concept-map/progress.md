@@ -1366,10 +1366,31 @@
 - 전체 파생 산출물 파이프라인을 재실행했고 `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
 - PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
 
+## 2026-06-30 소인수분해 미시 concept 병렬 보강
+
+- AGENTS.md를 다시 확인했고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` concept map 보강, 파생 산출물 정비, 검증 보강으로 제한했다.
+- 멀티에이전트 explorer 3개를 읽기 전용으로 사용해 `소인수분해`의 누락 미시 concept 후보, source ref 적용 경계, edge 방향과 noisy prerequisite 후보를 병렬 감사했다.
+- `소인수분해의 뜻 설명하기`, `안내된 절차에 따라 소인수분해하기`, `소수와 합성수 판별하기`, `나눗셈을 이용한 소인수분해`, `소인수분해 결과를 거듭제곱으로 정리하기`, `소인수분해의 유일성`, `1은 소수도 합성수도 아님`, `공약수`, `공배수`, `공통 소인수`, `공통 소인수 선택하기`, `필요한 모든 소인수 선택하기`, `최대공약수를 공통 소인수의 곱으로 나타내기`, `최소공배수를 필요한 모든 소인수의 곱으로 나타내기`, `최대공약수와 최소공배수의 원리 설명하기`, `소인수분해로 서로소 판별하기`를 추가했다.
+- 이번 보강의 source ref는 교육과정 수와 연산 성취기준, 용어·기호, 교수학습 유의사항, 성취수준 문서에 한정했다. 연구보고서 row는 새 source ref로 붙이지 않았고, 다항식 인수분해 근거인 연구보고서 p. 219는 소인수분해 근거로 전용하지 않는다.
+- `1은 소수도 합성수도 아님`과 `소인수분해의 유일성`은 교과서 본문 확인 전까지 각각 `medium`, `low` 근거로 유지한다. `공약수`, `공배수`, `공통 소인수`, 소인수 선택 절차는 공식 문서의 최대공약수·최소공배수 진술에서 추론한 하위 개념이므로 교과서 본문·정리·예제 근거 보강 대상으로 둔다.
+- 오개념 위험 노드로 들어가던 noisy `prerequisite_for` edge를 제거했고, `소수 -> 합성수` 직접 선수 edge, `소인수분해 -> 최대공약수/최소공배수` 직접 선수 edge, 단원 간 broad 선수/관련 edge를 정리했다. `서로소 -> 최대공약수` 흐름은 `최대공약수 -> 서로소`의 `used_in` 방향으로 바로잡았다.
+- `공약수 -> 최대공약수`, `공배수 -> 최소공배수`, `공통 소인수 -> 최대공약수를 공통 소인수의 곱으로 나타내기`, `공통 소인수 선택하기 -> 최대공약수`, `필요한 모든 소인수 선택하기 -> 최소공배수`, `최대공약수/최소공배수 원리 설명하기 -> 소인수분해를 이용한 최대공약수·최소공배수 구하기`의 수행 흐름을 `used_in` edge로 명시했다.
+- 전체 파생 산출물을 재생성한 결과 concept은 585개, edge는 2551개가 되었다. source ref 총계는 concept 1654개, edge 6698개, 총 8352개이며 source catalogue는 5개이다.
+- `review-queue.*`는 88개 low-confidence concept, `concept-evidence-depth.*`는 concept 585개, `edge-evidence-depth.*`는 edge 2551개, `prerequisite-map.*`는 907개 선수 관계 edge로 갱신되었다.
+- `textbook-evidence-workplan.*`는 34개 단원 그룹, concept evidence row 585개, edge evidence row 3041개, pending textbook evidence row 3626개, low-confidence concept/edge row 583개를 기록한다. 이번 보강 대상 `소인수분해`는 rank 10이며 32개 concept과 137개 edge row, 총 169개 row가 모두 `pending_textbook_pdf` 상태이다.
+- `test_build_pilot_prime_factor_microconcepts.py`를 추가해 새 소인수분해 미시 concept, 최대공약수·최소공배수 선택 절차 edge, 소수/합성수/1 관련 오개념 confidence 유지, noisy prerequisite edge 제거를 고정했다.
+- 좁은 테스트: `python -m unittest test_build_pilot_prime_factor_microconcepts.py test_build_pilot_edge_sync.py` 25개 통과.
+- 전체 단위 테스트: `python -m unittest discover -s . -p "test_*.py"`를 `docs/math-concept-map/tools`에서 실행해 251개 통과.
+- 전체 validator 1차 실행에서 rank 10 textbook edge evidence packet이 이전 생성 상태로 남아 있음을 확인했다. `build_textbook_evidence_packet.py --all`, `build_textbook_edge_evidence_packet.py --all`, `build_textbook_evidence_workplan.py`, `build_pilot_unit_map.py --all`을 다시 실행해 전체 rank 패킷과 workplan을 현재 데이터로 맞췄다.
+- 전체 validator: `python .\docs\math-concept-map\tools\validate_concept_map.py`: 585개 concept, 2551개 edge, 5개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map`: 종료 코드 0, CRLF 변환 경고만 확인.
+- 전체 파생 산출물 파이프라인을 재실행했고 `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
-- 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 `not_applicable_from_this_row` 39개가 broad context, 용어 충돌, 도구·자료 입력, 또는 약한 출현으로 유지되는지 주기적으로 감사한다. 현재 `pending_manual_review`는 7개이며, 주로 `선분`·`반직선` 후보이므로 교과서 본문 또는 중학교 기본 도형 직접 근거 확인 후 source ref 반영 여부를 판단한다.
+- 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 `not_applicable_from_this_row` 40개가 broad context, 용어 충돌, 도구·자료 입력, 또는 약한 출현으로 유지되는지 주기적으로 감사한다. 현재 `pending_manual_review`는 7개이며, 주로 `선분`·`반직선` 후보이므로 교과서 본문 또는 중학교 기본 도형 직접 근거 확인 후 source ref 반영 여부를 판단한다.
 - 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.
-- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 237개, 총 280개 row로 유지하되, rank 2 `일차함수와 그 그래프`의 concept 33개와 edge packet row 165개, 총 198개 row, rank 3 `경우의 수와 확률`의 concept 26개와 edge packet row 112개, 총 138개 row, rank 4 `이차함수와 그 그래프`의 concept 30개와 edge packet row 143개, 총 173개 row, rank 5 `정수와 유리수`의 concept 41개와 edge packet row 203개, 총 244개 row, rank 6 `도수분포표와 상대도수`의 concept 33개와 edge packet row 180개, 총 213개 row, rank 7 `이차방정식`의 concept 22개와 edge packet row 103개, 총 125개 row, rank 8 `기본 도형`의 concept 34개와 edge packet row 209개, 총 243개 row, rank 9 `일차방정식`의 concept 31개와 edge packet row 160개, 총 191개 row, rank 10 `문자의 사용과 식`의 concept 24개와 edge packet row 146개, 총 170개 row, rank 11 `제곱근과 실수`의 concept 25개와 edge packet row 121개, 총 146개 row, rank 12 `다항식의 곱셈과 인수분해`의 concept 20개와 edge packet row 117개, 총 137개 row도 같은 방식으로 교과서 근거를 보강한다. 교과서 PDF 없이 공식·보조 문서 기반 미시 concept 보강을 계속한다면 다음 반복 후보는 workplan 상위권에서 이미 보강한 단원을 제외하고 rank 13 `소인수분해` 또는 rank 14 `입체도형의 성질`처럼 미시 concept이 덜 분해된 단원을 우선 검토한다.
+- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 237개, 총 280개 row로 유지하되, rank 2 `일차함수와 그 그래프`의 concept 33개와 edge packet row 165개, 총 198개 row, rank 3 `경우의 수와 확률`의 concept 26개와 edge packet row 112개, 총 138개 row, rank 4 `이차함수와 그 그래프`의 concept 30개와 edge packet row 143개, 총 173개 row, rank 5 `정수와 유리수`의 concept 41개와 edge packet row 202개, 총 243개 row, rank 6 `도수분포표와 상대도수`의 concept 33개와 edge packet row 180개, 총 213개 row, rank 7 `이차방정식`의 concept 22개와 edge packet row 103개, 총 125개 row, rank 8 `기본 도형`의 concept 34개와 edge packet row 209개, 총 243개 row, rank 9 `일차방정식`의 concept 31개와 edge packet row 160개, 총 191개 row, rank 10 `소인수분해`의 concept 32개와 edge packet row 137개, 총 169개 row, rank 11 `문자의 사용과 식`의 concept 24개와 edge packet row 146개, 총 170개 row, rank 12 `제곱근과 실수`의 concept 25개와 edge packet row 121개, 총 146개 row, rank 13 `다항식의 곱셈과 인수분해`의 concept 20개와 edge packet row 117개, 총 137개 row도 같은 방식으로 교과서 근거를 보강한다. 교과서 PDF 없이 공식·보조 문서 기반 미시 concept 보강을 계속한다면 다음 반복 후보는 workplan 상위권에서 이미 보강한 단원을 제외하고 rank 14 `입체도형의 성질` 또는 rank 15 `식의 계산`처럼 미시 concept이 덜 분해된 단원을 우선 검토한다.
 - 새 concept, alias, `related_ids`, 또는 `equivalent_to` 후보가 추가되면 `equivalence-alias-audit.*`, `related-edge-resolution-queue.*`, `textbook-edge-evidence-packets/*`, `edge-evidence-depth.*`를 함께 재생성한다.

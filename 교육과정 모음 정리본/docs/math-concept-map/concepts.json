@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-30T11:26:55",
+    "generated_at": "2026-06-30T12:00:06",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
-    "concept_count": 568,
-    "edge_count": 2478
+    "concept_count": 585,
+    "edge_count": 2551
   },
   "sources": [
     {
@@ -172,9 +172,7 @@
       "parent_ids": [
         "m1_num_domain"
       ],
-      "related_ids": [
-        "m1_calc_power"
-      ],
+      "related_ids": [],
       "notes": "",
       "confidence": "high"
     },
@@ -250,7 +248,8 @@
         }
       ],
       "prerequisite_ids": [
-        "m1_num_natural_number"
+        "m1_num_natural_number",
+        "m1_num_divisor"
       ],
       "parent_ids": [
         "m1_num_prime_factor_unit"
@@ -296,7 +295,7 @@
       ],
       "prerequisite_ids": [
         "m1_num_natural_number",
-        "m1_num_prime_number"
+        "m1_num_divisor"
       ],
       "parent_ids": [
         "m1_num_prime_factor_unit"
@@ -340,7 +339,8 @@
         }
       ],
       "prerequisite_ids": [
-        "m1_num_prime_number"
+        "m1_num_prime_number",
+        "m1_num_divisor"
       ],
       "parent_ids": [
         "m1_num_prime_factor_unit"
@@ -435,6 +435,691 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_num_prime_factorization_meaning_explanation",
+      "label_ko": "소인수분해의 뜻 설명하기",
+      "aliases": [
+        "소인수분해 의미 설명"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "소인수분해",
+      "concept_type": "procedure",
+      "short_definition": "소인수분해가 자연수를 소인수의 곱으로 나타내는 일임을 말이나 식으로 설명하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_prime_factorization",
+        "m1_num_prime_factor"
+      ],
+      "parent_ids": [
+        "m1_num_prime_factor_unit"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_prime_factorization_guided_procedure",
+      "label_ko": "안내된 절차에 따라 소인수분해하기",
+      "aliases": [
+        "절차에 따른 소인수분해"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "소인수분해",
+      "concept_type": "procedure",
+      "short_definition": "제시된 단계나 안내를 따라 자연수를 소인수분해하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_prime_composite_classification",
+        "m1_num_prime_factor"
+      ],
+      "parent_ids": [
+        "m1_num_prime_factor_unit"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_prime_composite_classification",
+      "label_ko": "소수와 합성수 판별하기",
+      "aliases": [
+        "소수 판별",
+        "합성수 판별"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "소인수분해",
+      "concept_type": "procedure",
+      "short_definition": "자연수가 1보다 큰지와 약수의 개수를 살펴 소수인지 합성수인지 구분하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_prime_number",
+        "m1_num_composite_number",
+        "m1_num_divisor"
+      ],
+      "parent_ids": [
+        "m1_num_prime_factor_unit"
+      ],
+      "related_ids": [
+        "m1_mis_prime_one"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_one_not_prime_or_composite",
+      "label_ko": "1은 소수도 합성수도 아님",
+      "aliases": [
+        "1의 소수·합성수 제외"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "소인수분해",
+      "concept_type": "property",
+      "short_definition": "1은 자연수이지만 소수와 합성수를 정의할 때의 1보다 큰 자연수 조건을 만족하지 않으므로 둘 다 아니다.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_natural_number"
+      ],
+      "parent_ids": [
+        "m1_num_prime_factor_unit"
+      ],
+      "related_ids": [
+        "m1_mis_prime_one"
+      ],
+      "notes": "소수와 합성수 정의의 '1보다 큰 자연수' 조건에서 분리한 성질이다. 교과서 정의 문장 근거는 추후 보강한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_prime_factorization_division_method",
+      "label_ko": "나눗셈을 이용한 소인수분해",
+      "aliases": [
+        "나눗셈식으로 소인수분해하기",
+        "연속 나눗셈 소인수분해"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "소인수분해",
+      "concept_type": "procedure",
+      "short_definition": "자연수를 소수로 차례로 나누어 소인수의 곱으로 나타내는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_prime_factor",
+        "m1_num_prime_factorization"
+      ],
+      "parent_ids": [
+        "m1_num_prime_factor_unit"
+      ],
+      "related_ids": [],
+      "notes": "성취수준의 안내된 절차에 따른 소인수분해를 미시 절차로 분리했다. 교과서별 세로 나눗셈 표기 근거는 추후 보강한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_prime_factorization_exponent_notation",
+      "label_ko": "소인수분해 결과를 거듭제곱으로 정리하기",
+      "aliases": [
+        "소인수분해 결과의 지수 표현"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "소인수분해",
+      "concept_type": "procedure",
+      "short_definition": "같은 소인수가 반복될 때 밑과 지수를 사용하여 소인수분해 결과를 간단히 나타내는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_prime_factor_product",
+        "m1_calc_power",
+        "m1_calc_base",
+        "m1_calc_exponent"
+      ],
+      "parent_ids": [
+        "m1_num_prime_factor_unit"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_prime_factorization_uniqueness",
+      "label_ko": "소인수분해의 유일성",
+      "aliases": [
+        "소인수분해 결과의 유일성"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "소인수분해",
+      "concept_type": "property",
+      "short_definition": "소인수의 순서를 제외하면 자연수의 소인수분해 결과가 하나로 정해진다는 성질.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_prime_factorization",
+        "m1_num_prime_factor_product"
+      ],
+      "parent_ids": [
+        "m1_num_prime_factor_unit"
+      ],
+      "related_ids": [],
+      "notes": "중학교 소인수분해 학습에서 자연스럽게 쓰이는 성질이나 공식 문서 직접 용어 근거는 약하므로 교과서 본문 확인 전까지 low로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_num_common_divisor",
+      "label_ko": "공약수",
+      "aliases": [
+        "common divisor"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "소인수분해",
+      "concept_type": "term",
+      "short_definition": "두 자연수에 공통으로 들어 있는 약수.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_divisor"
+      ],
+      "parent_ids": [
+        "m1_num_prime_factor_unit"
+      ],
+      "related_ids": [
+        "m1_num_gcd",
+        "m1_num_common_multiple"
+      ],
+      "notes": "최대공약수의 정의를 받치는 기초 용어로 분리했다. 교과서 정의 쪽수 근거는 추후 보강한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_common_multiple",
+      "label_ko": "공배수",
+      "aliases": [
+        "common multiple"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "소인수분해",
+      "concept_type": "term",
+      "short_definition": "두 자연수에 공통으로 들어 있는 배수.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_multiple"
+      ],
+      "parent_ids": [
+        "m1_num_prime_factor_unit"
+      ],
+      "related_ids": [
+        "m1_num_lcm",
+        "m1_num_common_divisor"
+      ],
+      "notes": "최소공배수의 정의를 받치는 기초 용어로 분리했다. 교과서 정의 쪽수 근거는 추후 보강한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_common_prime_factor",
+      "label_ko": "공통 소인수",
+      "aliases": [
+        "common prime factor"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "소인수분해",
+      "concept_type": "sub_concept",
+      "short_definition": "두 자연수의 소인수분해 결과에서 공통으로 나타나는 소인수.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_prime_factorization",
+        "m1_num_prime_factor"
+      ],
+      "parent_ids": [
+        "m1_num_prime_factor_unit"
+      ],
+      "related_ids": [
+        "m1_num_select_common_prime_factors",
+        "m1_num_gcd_prime_factor_product"
+      ],
+      "notes": "최대공약수를 소인수분해로 구하는 절차를 설명하기 위한 미시 개념이다. 교과서 표현 차이는 추후 aliases에 보존한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_select_common_prime_factors",
+      "label_ko": "공통 소인수 선택하기",
+      "aliases": [
+        "공통인 소인수 고르기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "소인수분해",
+      "concept_type": "procedure",
+      "short_definition": "두 자연수의 소인수분해 결과에서 공통으로 들어 있는 소인수를 골라내는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_common_prime_factor",
+        "m1_num_prime_factor_product"
+      ],
+      "parent_ids": [
+        "m1_num_prime_factor_unit"
+      ],
+      "related_ids": [
+        "m1_num_select_all_prime_factors",
+        "m1_mis_gcd_lcm_common_all_prime_factor"
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_select_all_prime_factors",
+      "label_ko": "필요한 모든 소인수 선택하기",
+      "aliases": [
+        "최소공배수에 필요한 소인수 고르기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "소인수분해",
+      "concept_type": "procedure",
+      "short_definition": "두 자연수의 소인수분해 결과에서 공통인 것과 공통이 아닌 것을 포함하여 최소공배수에 필요한 소인수를 고르는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_prime_factor_product"
+      ],
+      "parent_ids": [
+        "m1_num_prime_factor_unit"
+      ],
+      "related_ids": [
+        "m1_num_select_common_prime_factors",
+        "m1_mis_gcd_lcm_common_all_prime_factor"
+      ],
+      "notes": "최소공배수 절차의 핵심 선택 기준을 분리했다. 교과서별 표현은 추후 보강한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_gcd_prime_factor_product",
+      "label_ko": "최대공약수를 공통 소인수의 곱으로 나타내기",
+      "aliases": [
+        "공통 소인수의 곱으로 최대공약수 구하기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "소인수분해",
+      "concept_type": "procedure",
+      "short_definition": "소인수분해 결과에서 공통 소인수를 골라 곱해 최대공약수를 구하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_select_common_prime_factors",
+        "m1_num_gcd"
+      ],
+      "parent_ids": [
+        "m1_num_prime_factor_unit"
+      ],
+      "related_ids": [
+        "m1_num_lcm_prime_factor_product"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_lcm_prime_factor_product",
+      "label_ko": "최소공배수를 필요한 모든 소인수의 곱으로 나타내기",
+      "aliases": [
+        "필요한 소인수의 곱으로 최소공배수 구하기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "소인수분해",
+      "concept_type": "procedure",
+      "short_definition": "소인수분해 결과에서 최소공배수에 필요한 소인수를 모두 골라 곱하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_select_all_prime_factors",
+        "m1_num_lcm"
+      ],
+      "parent_ids": [
+        "m1_num_prime_factor_unit"
+      ],
+      "related_ids": [
+        "m1_num_gcd_prime_factor_product"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_gcd_lcm_principle_explanation",
+      "label_ko": "최대공약수와 최소공배수의 원리 설명하기",
+      "aliases": [
+        "최대공약수와 최소공배수 구하는 원리 설명"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "소인수분해",
+      "concept_type": "procedure",
+      "short_definition": "소인수분해에서 공통 소인수와 필요한 모든 소인수를 선택하는 이유를 설명하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_gcd_prime_factor_product",
+        "m1_num_lcm_prime_factor_product"
+      ],
+      "parent_ids": [
+        "m1_num_prime_factor_unit"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_coprime_judgement_prime_factorization",
+      "label_ko": "소인수분해로 서로소 판별하기",
+      "aliases": [
+        "소인수분해를 이용한 서로소 판별"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "소인수분해",
+      "concept_type": "procedure",
+      "short_definition": "두 자연수의 소인수분해 결과나 최대공약수를 이용하여 서로소인지 판단하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_prime_factorization",
+        "m1_num_coprime",
+        "m1_num_gcd"
+      ],
+      "parent_ids": [
+        "m1_num_prime_factor_unit"
+      ],
+      "related_ids": [],
+      "notes": "서로소는 공식 용어이나 판별 절차는 교과서 전개 근거가 필요하므로 medium으로 둔다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_num_coprime",
@@ -593,7 +1278,6 @@
         }
       ],
       "prerequisite_ids": [
-        "m1_num_prime_factorization",
         "m1_num_divisor"
       ],
       "parent_ids": [
@@ -640,7 +1324,6 @@
         }
       ],
       "prerequisite_ids": [
-        "m1_num_prime_factorization",
         "m1_num_multiple"
       ],
       "parent_ids": [
@@ -723,10 +1406,7 @@
           "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_num_prime_number",
-        "m1_num_composite_number"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_num_prime_factor_unit"
       ],
@@ -755,9 +1435,7 @@
           "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
         }
       ],
-      "prerequisite_ids": [
-        "m1_num_find_gcd_lcm_prime_factorization"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_num_prime_factor_unit"
       ],
@@ -766,6 +1444,48 @@
         "m1_num_lcm"
       ],
       "notes": "공식 문서의 제외 범위를 학습 범위 관리용 오개념 위험으로 기록했다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_gcd_lcm_common_all_prime_factor",
+      "label_ko": "최대공약수와 최소공배수에서 공통 소인수와 모든 소인수를 뒤바꾸는 오류",
+      "aliases": [
+        "공통 소인수-모든 소인수 선택 혼동"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "수와 연산",
+      "unit": "소인수분해",
+      "concept_type": "misconception_risk",
+      "short_definition": "최대공약수에는 공통 소인수를, 최소공배수에는 필요한 모든 소인수를 사용한다는 절차 차이를 뒤바꾸는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_num_prime_factor_unit"
+      ],
+      "related_ids": [
+        "m1_num_select_common_prime_factors",
+        "m1_num_select_all_prime_factors"
+      ],
+      "notes": "공식 성취기준의 원리 설명 요구에서 추론한 오개념 위험이다. 교과서 문제나 오답 예시 근거가 확인될 때까지 low로 둔다.",
       "confidence": "low"
     },
     {
@@ -835,9 +1555,7 @@
           "summary": "정수와 유리수의 대소 관계, 수직선 위 비교, 사칙계산 원리, 덧셈·뺄셈·곱셈·나눗셈, 혼합계산을 다루는 성취수준 맥락"
         }
       ],
-      "prerequisite_ids": [
-        "m1_num_prime_factor_unit"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_num_domain"
       ],
@@ -25032,6 +25750,90 @@
       "confidence": "high"
     },
     {
+      "id": "m1_num_divisor__prerequisite_for__m1_num_prime_number",
+      "source_id": "m1_num_divisor",
+      "target_id": "m1_num_prime_number",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "The definition of prime number depends on having exactly 1 and itself as divisors.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_divisor__prerequisite_for__m1_num_composite_number",
+      "source_id": "m1_num_divisor",
+      "target_id": "m1_num_composite_number",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "The definition of composite number depends on having divisors other than 1 and itself.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_divisor__prerequisite_for__m1_num_prime_factor",
+      "source_id": "m1_num_divisor",
+      "target_id": "m1_num_prime_factor",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "A prime factor is a divisor/factor that is prime.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_num_prime_number__contrasts_with__m1_num_composite_number",
       "source_id": "m1_num_prime_number",
       "target_id": "m1_num_composite_number",
@@ -25130,6 +25932,34 @@
           "locator": "printed p. 33; [9수01-01]",
           "evidence_kind": "achievement_standard",
           "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_prime_factor__used_in__m1_num_prime_factorization_meaning_explanation",
+      "source_id": "m1_num_prime_factor",
+      "target_id": "m1_num_prime_factorization_meaning_explanation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
         },
         {
           "source_id": "achievement_math_2022",
@@ -25304,6 +26134,100 @@
       "confidence": "high"
     },
     {
+      "id": "m1_num_prime_factorization_guided_procedure__used_in__m1_num_prime_factorization",
+      "source_id": "m1_num_prime_factorization_guided_procedure",
+      "target_id": "m1_num_prime_factorization",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_prime_composite_classification__used_in__m1_num_prime_factorization",
+      "source_id": "m1_num_prime_composite_classification",
+      "target_id": "m1_num_prime_factorization",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "Prime/composite classification helps decide the factorization target and stopping point.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_prime_factorization_division_method__used_in__m1_num_prime_factorization",
+      "source_id": "m1_num_prime_factorization_division_method",
+      "target_id": "m1_num_prime_factorization",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "The division method is a guided procedure for carrying out prime factorization.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_prime_factorization_exponent_notation__used_in__m1_num_prime_factorization",
+      "source_id": "m1_num_prime_factorization_exponent_notation",
+      "target_id": "m1_num_prime_factorization",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
       "id": "m1_num_prime_factorization__used_in__m1_num_coprime",
       "source_id": "m1_num_prime_factorization",
       "target_id": "m1_num_coprime",
@@ -25329,6 +26253,130 @@
         }
       ],
       "notes": "Prime factorization can be used to judge whether two natural numbers are coprime.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_prime_factorization__used_in__m1_num_coprime_judgement_prime_factorization",
+      "source_id": "m1_num_prime_factorization",
+      "target_id": "m1_num_coprime_judgement_prime_factorization",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_coprime_judgement_prime_factorization__used_in__m1_num_coprime",
+      "source_id": "m1_num_coprime_judgement_prime_factorization",
+      "target_id": "m1_num_coprime",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_one_not_prime_or_composite__used_in__m1_num_prime_composite_classification",
+      "source_id": "m1_num_one_not_prime_or_composite",
+      "target_id": "m1_num_prime_composite_classification",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_prime_factorization__used_in__m1_num_common_prime_factor",
+      "source_id": "m1_num_prime_factorization",
+      "target_id": "m1_num_common_prime_factor",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
       "confidence": "medium"
     },
     {
@@ -25385,6 +26433,286 @@
         }
       ],
       "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_common_divisor__used_in__m1_num_gcd",
+      "source_id": "m1_num_common_divisor",
+      "target_id": "m1_num_gcd",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_common_multiple__used_in__m1_num_lcm",
+      "source_id": "m1_num_common_multiple",
+      "target_id": "m1_num_lcm",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_common_prime_factor__used_in__m1_num_gcd_prime_factor_product",
+      "source_id": "m1_num_common_prime_factor",
+      "target_id": "m1_num_gcd_prime_factor_product",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_common_prime_factor__used_in__m1_num_select_common_prime_factors",
+      "source_id": "m1_num_common_prime_factor",
+      "target_id": "m1_num_select_common_prime_factors",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_select_common_prime_factors__used_in__m1_num_gcd_prime_factor_product",
+      "source_id": "m1_num_select_common_prime_factors",
+      "target_id": "m1_num_gcd_prime_factor_product",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_select_all_prime_factors__used_in__m1_num_lcm_prime_factor_product",
+      "source_id": "m1_num_select_all_prime_factors",
+      "target_id": "m1_num_lcm_prime_factor_product",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_gcd_prime_factor_product__used_in__m1_num_find_gcd_lcm_prime_factorization",
+      "source_id": "m1_num_gcd_prime_factor_product",
+      "target_id": "m1_num_find_gcd_lcm_prime_factorization",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_lcm_prime_factor_product__used_in__m1_num_find_gcd_lcm_prime_factorization",
+      "source_id": "m1_num_lcm_prime_factor_product",
+      "target_id": "m1_num_find_gcd_lcm_prime_factorization",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_gcd_lcm_principle_explanation__used_in__m1_num_find_gcd_lcm_prime_factorization",
+      "source_id": "m1_num_gcd_lcm_principle_explanation",
+      "target_id": "m1_num_find_gcd_lcm_prime_factorization",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_prime_factor_product__used_in__m1_num_find_gcd_lcm_prime_factorization",
+      "source_id": "m1_num_prime_factor_product",
+      "target_id": "m1_num_find_gcd_lcm_prime_factorization",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "GCD/LCM procedures compare the prime-factor product or exponent notation of each natural number.",
       "confidence": "medium"
     },
     {
@@ -25476,6 +26804,174 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_num_common_divisor__contrasts_with__m1_num_common_multiple",
+      "source_id": "m1_num_common_divisor",
+      "target_id": "m1_num_common_multiple",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_common_multiple__contrasts_with__m1_num_common_divisor",
+      "source_id": "m1_num_common_multiple",
+      "target_id": "m1_num_common_divisor",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_select_common_prime_factors__contrasts_with__m1_num_select_all_prime_factors",
+      "source_id": "m1_num_select_common_prime_factors",
+      "target_id": "m1_num_select_all_prime_factors",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_select_all_prime_factors__contrasts_with__m1_num_select_common_prime_factors",
+      "source_id": "m1_num_select_all_prime_factors",
+      "target_id": "m1_num_select_common_prime_factors",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_gcd_prime_factor_product__contrasts_with__m1_num_lcm_prime_factor_product",
+      "source_id": "m1_num_gcd_prime_factor_product",
+      "target_id": "m1_num_lcm_prime_factor_product",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_lcm_prime_factor_product__contrasts_with__m1_num_gcd_prime_factor_product",
+      "source_id": "m1_num_lcm_prime_factor_product",
+      "target_id": "m1_num_gcd_prime_factor_product",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
       "id": "m1_num_gcd__contrasts_with__m1_num_lcm",
       "source_id": "m1_num_gcd",
       "target_id": "m1_num_lcm",
@@ -25520,9 +27016,9 @@
       "confidence": "high"
     },
     {
-      "id": "m1_num_coprime__used_in__m1_num_gcd",
-      "source_id": "m1_num_coprime",
-      "target_id": "m1_num_gcd",
+      "id": "m1_num_gcd__used_in__m1_num_coprime",
+      "source_id": "m1_num_gcd",
+      "target_id": "m1_num_coprime",
       "relationship_type": "used_in",
       "source_refs": [
         {
@@ -25602,39 +27098,11 @@
       "confidence": "low"
     },
     {
-      "id": "m1_num_prime_factor_unit__prerequisite_for__m1_num_integer_rational_unit",
-      "source_id": "m1_num_prime_factor_unit",
-      "target_id": "m1_num_integer_rational_unit",
-      "relationship_type": "prerequisite_for",
+      "id": "m1_mis_gcd_lcm_common_all_prime_factor__often_confused_with__m1_num_select_common_prime_factors",
+      "source_id": "m1_mis_gcd_lcm_common_all_prime_factor",
+      "target_id": "m1_num_select_common_prime_factors",
+      "relationship_type": "often_confused_with",
       "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 33; [9수01-01]",
-          "evidence_kind": "achievement_standard",
-          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
-        },
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 33; [9수01-03]",
-          "evidence_kind": "achievement_standard",
-          "summary": "음수의 필요성을 인식하고 양수와 음수, 정수와 유리수의 개념을 이해하는 성취기준"
-        }
-      ],
-      "notes": "자연수 범위의 수 분류와 거듭제곱 표현 경험이 정수와 유리수의 수 체계 확장을 받친다.",
-      "confidence": "medium"
-    },
-    {
-      "id": "m1_num_prime_factor_unit__related_to__m1_calc_power",
-      "source_id": "m1_num_prime_factor_unit",
-      "target_id": "m1_calc_power",
-      "relationship_type": "related_to",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 33; [9수01-01]",
-          "evidence_kind": "achievement_standard",
-          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
-        },
         {
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 33; [9수01-02]",
@@ -25643,31 +27111,47 @@
         },
         {
           "source_id": "curriculum_math_2022",
-          "locator": "printed p. 34; terms and symbols for 수와 연산",
-          "evidence_kind": "term_list",
-          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_gcd_lcm_common_all_prime_factor__often_confused_with__m1_num_select_all_prime_factors",
+      "source_id": "m1_mis_gcd_lcm_common_all_prime_factor",
+      "target_id": "m1_num_select_all_prime_factors",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
         },
         {
           "source_id": "curriculum_math_2022",
-          "locator": "printed p. 35; [9수02-08]",
-          "evidence_kind": "achievement_standard",
-          "summary": "지수법칙을 이해하고 이를 이용하여 식을 간단히 하는 성취기준"
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
         },
         {
           "source_id": "achievement_math_2022",
-          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
           "evidence_kind": "achievement_level",
-          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "식의 계산 section; [9수02-08] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "지수법칙을 이용하여 거듭제곱이나 단항식의 곱셈과 나눗셈을 하는 수준을 구분"
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
         }
       ],
-      "notes": "Prime-factorization work uses exponent notation, but the exact textbook sequencing still needs page-level confirmation.",
-      "confidence": "medium"
+      "notes": "",
+      "confidence": "low"
     },
     {
       "id": "m1_num_integer_rational_unit__contains__m1_num_negative_need",
@@ -53908,6 +55392,442 @@
       "confidence": "high"
     },
     {
+      "id": "m1_num_prime_factor_unit__contains__m1_num_prime_factorization_meaning_explanation",
+      "source_id": "m1_num_prime_factor_unit",
+      "target_id": "m1_num_prime_factorization_meaning_explanation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_prime_factor_unit__contains__m1_num_prime_factorization_guided_procedure",
+      "source_id": "m1_num_prime_factor_unit",
+      "target_id": "m1_num_prime_factorization_guided_procedure",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_prime_factor_unit__contains__m1_num_prime_composite_classification",
+      "source_id": "m1_num_prime_factor_unit",
+      "target_id": "m1_num_prime_composite_classification",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_prime_factor_unit__contains__m1_num_one_not_prime_or_composite",
+      "source_id": "m1_num_prime_factor_unit",
+      "target_id": "m1_num_one_not_prime_or_composite",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_prime_factor_unit__contains__m1_num_prime_factorization_division_method",
+      "source_id": "m1_num_prime_factor_unit",
+      "target_id": "m1_num_prime_factorization_division_method",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_prime_factor_unit__contains__m1_num_prime_factorization_exponent_notation",
+      "source_id": "m1_num_prime_factor_unit",
+      "target_id": "m1_num_prime_factorization_exponent_notation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_prime_factor_unit__contains__m1_num_prime_factorization_uniqueness",
+      "source_id": "m1_num_prime_factor_unit",
+      "target_id": "m1_num_prime_factorization_uniqueness",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_num_prime_factor_unit__contains__m1_num_common_divisor",
+      "source_id": "m1_num_prime_factor_unit",
+      "target_id": "m1_num_common_divisor",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_prime_factor_unit__contains__m1_num_common_multiple",
+      "source_id": "m1_num_prime_factor_unit",
+      "target_id": "m1_num_common_multiple",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_prime_factor_unit__contains__m1_num_common_prime_factor",
+      "source_id": "m1_num_prime_factor_unit",
+      "target_id": "m1_num_common_prime_factor",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_prime_factor_unit__contains__m1_num_select_common_prime_factors",
+      "source_id": "m1_num_prime_factor_unit",
+      "target_id": "m1_num_select_common_prime_factors",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_prime_factor_unit__contains__m1_num_select_all_prime_factors",
+      "source_id": "m1_num_prime_factor_unit",
+      "target_id": "m1_num_select_all_prime_factors",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_prime_factor_unit__contains__m1_num_gcd_prime_factor_product",
+      "source_id": "m1_num_prime_factor_unit",
+      "target_id": "m1_num_gcd_prime_factor_product",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_prime_factor_unit__contains__m1_num_lcm_prime_factor_product",
+      "source_id": "m1_num_prime_factor_unit",
+      "target_id": "m1_num_lcm_prime_factor_product",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_prime_factor_unit__contains__m1_num_gcd_lcm_principle_explanation",
+      "source_id": "m1_num_prime_factor_unit",
+      "target_id": "m1_num_gcd_lcm_principle_explanation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_prime_factor_unit__contains__m1_num_coprime_judgement_prime_factorization",
+      "source_id": "m1_num_prime_factor_unit",
+      "target_id": "m1_num_coprime_judgement_prime_factorization",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_num_prime_factor_unit__contains__m1_mis_prime_one",
       "source_id": "m1_num_prime_factor_unit",
       "target_id": "m1_mis_prime_one",
@@ -53940,6 +55860,34 @@
           "locator": "printed p. 33; [9수01-02] explanation and considerations",
           "evidence_kind": "teaching_note",
           "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_num_prime_factor_unit__contains__m1_mis_gcd_lcm_common_all_prime_factor",
+      "source_id": "m1_num_prime_factor_unit",
+      "target_id": "m1_mis_gcd_lcm_common_all_prime_factor",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
         }
       ],
       "notes": "",
@@ -63986,34 +65934,6 @@
       "confidence": "low"
     },
     {
-      "id": "m1_num_prime_number__prerequisite_for__m1_num_composite_number",
-      "source_id": "m1_num_prime_number",
-      "target_id": "m1_num_composite_number",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 34; terms and symbols for 수와 연산",
-          "evidence_kind": "term_list",
-          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
-        },
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 33; [9수01-01]",
-          "evidence_kind": "achievement_standard",
-          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "소인수분해 section; [9수01-01] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "high"
-    },
-    {
       "id": "m1_num_prime_number__prerequisite_for__m1_num_prime_factor",
       "source_id": "m1_num_prime_number",
       "target_id": "m1_num_prime_factor",
@@ -64142,6 +66062,884 @@
       "confidence": "high"
     },
     {
+      "id": "m1_num_prime_factorization__prerequisite_for__m1_num_prime_factorization_meaning_explanation",
+      "source_id": "m1_num_prime_factorization",
+      "target_id": "m1_num_prime_factorization_meaning_explanation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_prime_factor__prerequisite_for__m1_num_prime_factorization_meaning_explanation",
+      "source_id": "m1_num_prime_factor",
+      "target_id": "m1_num_prime_factorization_meaning_explanation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_prime_composite_classification__prerequisite_for__m1_num_prime_factorization_guided_procedure",
+      "source_id": "m1_num_prime_composite_classification",
+      "target_id": "m1_num_prime_factorization_guided_procedure",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_prime_factor__prerequisite_for__m1_num_prime_factorization_guided_procedure",
+      "source_id": "m1_num_prime_factor",
+      "target_id": "m1_num_prime_factorization_guided_procedure",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_prime_number__prerequisite_for__m1_num_prime_composite_classification",
+      "source_id": "m1_num_prime_number",
+      "target_id": "m1_num_prime_composite_classification",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_composite_number__prerequisite_for__m1_num_prime_composite_classification",
+      "source_id": "m1_num_composite_number",
+      "target_id": "m1_num_prime_composite_classification",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_divisor__prerequisite_for__m1_num_prime_composite_classification",
+      "source_id": "m1_num_divisor",
+      "target_id": "m1_num_prime_composite_classification",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_natural_number__prerequisite_for__m1_num_one_not_prime_or_composite",
+      "source_id": "m1_num_natural_number",
+      "target_id": "m1_num_one_not_prime_or_composite",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_prime_factor__prerequisite_for__m1_num_prime_factorization_division_method",
+      "source_id": "m1_num_prime_factor",
+      "target_id": "m1_num_prime_factorization_division_method",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_prime_factorization__prerequisite_for__m1_num_prime_factorization_division_method",
+      "source_id": "m1_num_prime_factorization",
+      "target_id": "m1_num_prime_factorization_division_method",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_prime_factor_product__prerequisite_for__m1_num_prime_factorization_exponent_notation",
+      "source_id": "m1_num_prime_factor_product",
+      "target_id": "m1_num_prime_factorization_exponent_notation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_calc_power__prerequisite_for__m1_num_prime_factorization_exponent_notation",
+      "source_id": "m1_calc_power",
+      "target_id": "m1_num_prime_factorization_exponent_notation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_calc_base__prerequisite_for__m1_num_prime_factorization_exponent_notation",
+      "source_id": "m1_calc_base",
+      "target_id": "m1_num_prime_factorization_exponent_notation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_calc_exponent__prerequisite_for__m1_num_prime_factorization_exponent_notation",
+      "source_id": "m1_calc_exponent",
+      "target_id": "m1_num_prime_factorization_exponent_notation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_prime_factorization__prerequisite_for__m1_num_prime_factorization_uniqueness",
+      "source_id": "m1_num_prime_factorization",
+      "target_id": "m1_num_prime_factorization_uniqueness",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_num_prime_factor_product__prerequisite_for__m1_num_prime_factorization_uniqueness",
+      "source_id": "m1_num_prime_factor_product",
+      "target_id": "m1_num_prime_factorization_uniqueness",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_num_divisor__prerequisite_for__m1_num_common_divisor",
+      "source_id": "m1_num_divisor",
+      "target_id": "m1_num_common_divisor",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_multiple__prerequisite_for__m1_num_common_multiple",
+      "source_id": "m1_num_multiple",
+      "target_id": "m1_num_common_multiple",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_prime_factorization__prerequisite_for__m1_num_common_prime_factor",
+      "source_id": "m1_num_prime_factorization",
+      "target_id": "m1_num_common_prime_factor",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_prime_factor__prerequisite_for__m1_num_common_prime_factor",
+      "source_id": "m1_num_prime_factor",
+      "target_id": "m1_num_common_prime_factor",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_common_prime_factor__prerequisite_for__m1_num_select_common_prime_factors",
+      "source_id": "m1_num_common_prime_factor",
+      "target_id": "m1_num_select_common_prime_factors",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_prime_factor_product__prerequisite_for__m1_num_select_common_prime_factors",
+      "source_id": "m1_num_prime_factor_product",
+      "target_id": "m1_num_select_common_prime_factors",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_prime_factor_product__prerequisite_for__m1_num_select_all_prime_factors",
+      "source_id": "m1_num_prime_factor_product",
+      "target_id": "m1_num_select_all_prime_factors",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_select_common_prime_factors__prerequisite_for__m1_num_gcd_prime_factor_product",
+      "source_id": "m1_num_select_common_prime_factors",
+      "target_id": "m1_num_gcd_prime_factor_product",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_gcd__prerequisite_for__m1_num_gcd_prime_factor_product",
+      "source_id": "m1_num_gcd",
+      "target_id": "m1_num_gcd_prime_factor_product",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_select_all_prime_factors__prerequisite_for__m1_num_lcm_prime_factor_product",
+      "source_id": "m1_num_select_all_prime_factors",
+      "target_id": "m1_num_lcm_prime_factor_product",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_lcm__prerequisite_for__m1_num_lcm_prime_factor_product",
+      "source_id": "m1_num_lcm",
+      "target_id": "m1_num_lcm_prime_factor_product",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_gcd_prime_factor_product__prerequisite_for__m1_num_gcd_lcm_principle_explanation",
+      "source_id": "m1_num_gcd_prime_factor_product",
+      "target_id": "m1_num_gcd_lcm_principle_explanation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_lcm_prime_factor_product__prerequisite_for__m1_num_gcd_lcm_principle_explanation",
+      "source_id": "m1_num_lcm_prime_factor_product",
+      "target_id": "m1_num_gcd_lcm_principle_explanation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_prime_factorization__prerequisite_for__m1_num_coprime_judgement_prime_factorization",
+      "source_id": "m1_num_prime_factorization",
+      "target_id": "m1_num_coprime_judgement_prime_factorization",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_coprime__prerequisite_for__m1_num_coprime_judgement_prime_factorization",
+      "source_id": "m1_num_coprime",
+      "target_id": "m1_num_coprime_judgement_prime_factorization",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_gcd__prerequisite_for__m1_num_coprime_judgement_prime_factorization",
+      "source_id": "m1_num_gcd",
+      "target_id": "m1_num_coprime_judgement_prime_factorization",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; terms and symbols for 수와 연산",
+          "evidence_kind": "term_list",
+          "summary": "소수, 합성수, 거듭제곱, 지수, 밑, 소인수, 소인수분해, 서로소, 양수, 음수, 정수, 수직선, 유리수, 절댓값, 교환법칙, 결합법칙, 분배법칙, 역수, 유한소수, 무한소수, 순환소수, 순환마디, 제곱근, 근호, 무리수, 실수, 분모의 유리화 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-02] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_num_gcd__prerequisite_for__m1_num_coprime",
       "source_id": "m1_num_gcd",
       "target_id": "m1_num_coprime",
@@ -64164,65 +66962,9 @@
       "confidence": "medium"
     },
     {
-      "id": "m1_num_prime_factorization__prerequisite_for__m1_num_gcd",
-      "source_id": "m1_num_prime_factorization",
-      "target_id": "m1_num_gcd",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 33; [9수01-02]",
-          "evidence_kind": "achievement_standard",
-          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
-        },
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 33; [9수01-02] explanation and considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "소인수분해 section; [9수01-02] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "high"
-    },
-    {
       "id": "m1_num_divisor__prerequisite_for__m1_num_gcd",
       "source_id": "m1_num_divisor",
       "target_id": "m1_num_gcd",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 33; [9수01-02]",
-          "evidence_kind": "achievement_standard",
-          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하는 성취기준"
-        },
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 33; [9수01-02] explanation and considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "소인수분해 section; [9수01-02] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "소인수분해를 이용하여 최대공약수와 최소공배수를 구하고 원리를 설명하는 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "high"
-    },
-    {
-      "id": "m1_num_prime_factorization__prerequisite_for__m1_num_lcm",
-      "source_id": "m1_num_prime_factorization",
-      "target_id": "m1_num_lcm",
       "relationship_type": "prerequisite_for",
       "source_refs": [
         {
@@ -64358,66 +67100,6 @@
       ],
       "notes": "",
       "confidence": "high"
-    },
-    {
-      "id": "m1_num_prime_number__prerequisite_for__m1_mis_prime_one",
-      "source_id": "m1_num_prime_number",
-      "target_id": "m1_mis_prime_one",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 33; [9수01-01]",
-          "evidence_kind": "achievement_standard",
-          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "소인수분해 section; [9수01-01] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_num_composite_number__prerequisite_for__m1_mis_prime_one",
-      "source_id": "m1_num_composite_number",
-      "target_id": "m1_mis_prime_one",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 33; [9수01-01]",
-          "evidence_kind": "achievement_standard",
-          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "소인수분해 section; [9수01-01] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_num_find_gcd_lcm_prime_factorization__prerequisite_for__m1_mis_gcd_lcm_scope",
-      "source_id": "m1_num_find_gcd_lcm_prime_factorization",
-      "target_id": "m1_mis_gcd_lcm_scope",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 33; [9수01-02] explanation and considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "초등학교의 최대공약수와 최소공배수 개념을 바탕으로 자연수의 소인수분해를 이용하는 범위에서 다루며 활용 문제는 다루지 않음"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
     },
     {
       "id": "m1_num_negative_need__prerequisite_for__m1_num_negative_number",
@@ -86201,6 +88883,50 @@
         }
       ],
       "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_prime_one__often_confused_with__m1_num_prime_composite_classification",
+      "source_id": "m1_mis_prime_one",
+      "target_id": "m1_num_prime_composite_classification",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_prime_one__often_confused_with__m1_num_one_not_prime_or_composite",
+      "source_id": "m1_mis_prime_one",
+      "target_id": "m1_num_one_not_prime_or_composite",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "소인수분해 section; [9수01-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "소인수분해의 뜻 설명, 자연수를 소인수의 곱으로 표현, 안내된 절차에 따른 소인수분해 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
       "confidence": "low"
     },
     {

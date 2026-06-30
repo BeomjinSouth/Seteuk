@@ -63,7 +63,6 @@ digraph pilot_unit_map {
   "m1_data_quartile" [label="사분위수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_stem_leaf_plot" [label="줄기와 잎 그림\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_real_order" [label="실수의 대소 관계\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
-  "m1_num_prime_factor_unit" [label="소인수분해\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_mean" [label="평균\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_probability" [label="확률\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_probability_unit" [label="경우의 수와 확률\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -253,7 +252,6 @@ digraph pilot_unit_map {
   "m1_num_order_relation" -> "m1_data_quartile" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_order_relation" -> "m1_data_stem_leaf_plot" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_order_relation" -> "m1_num_real_order" [label="prerequisite_for", style="dashed", color="#6b7280"];
-  "m1_num_prime_factor_unit" -> "m1_num_integer_rational_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_rational_number" -> "m1_data_mean" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_rational_number" -> "m1_data_probability" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_rational_number" -> "m1_data_probability_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];

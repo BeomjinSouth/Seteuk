@@ -20,6 +20,7 @@ digraph pilot_unit_map {
   "m1_num_mixed_calculation" [label="정수와 유리수의 혼합계산\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_mis_expansion_factorization_direction" [label="전개와 인수분해 방향을 혼동하는 오류\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_expr_like_terms" [label="동류항\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_num_prime_factorization_exponent_notation" [label="소인수분해 결과를 거듭제곱으로 정리하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_factor_expansion_factorization_inverse" [label="전개와 인수분해의 역관계\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_factor_factorization" [label="인수분해\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_factor_polynomial_multiplication" [label="다항식의 곱셈\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -41,7 +42,6 @@ digraph pilot_unit_map {
   "m1_expr_add_sub_linear_expression" [label="일차식의 덧셈과 뺄셈\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_eq_unit" [label="일차방정식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_domain" [label="수와 연산\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
-  "m1_num_prime_factor_unit" [label="소인수분해\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_calc_unit" -> "m1_mis_exponent_base" [label="contains", style="solid", color="#b91c1c"];
   "m1_calc_unit" -> "m1_mis_polynomial_like_terms" [label="contains", style="solid", color="#b91c1c"];
   "m1_calc_base" -> "m1_mis_exponent_base" [label="prerequisite_for", style="solid", color="#b91c1c"];
@@ -84,14 +84,17 @@ digraph pilot_unit_map {
   "m1_calc_simplify_expression" -> "m1_calc_polynomial_add_sub" [label="used_in", style="solid", color="#6b7280"];
   "m1_calc_base" -> "m1_calc_exponent" [label="contrasts_with", style="solid", color="#6b7280"];
   "m1_mis_polynomial_division_scope" -> "m1_calc_monomial_polynomial_mul_div" [label="often_confused_with", style="solid", color="#6b7280"];
+  "m1_calc_base" -> "m1_num_prime_factorization_exponent_notation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_calc_expansion" -> "m1_factor_expansion_factorization_inverse" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_calc_expansion" -> "m1_factor_factorization" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_calc_expansion" -> "m1_factor_polynomial_multiplication" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_calc_exponent" -> "m1_num_prime_factorization_exponent_notation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_calc_monomial_polynomial_mul_div" -> "m1_factor_polynomial_multiplication" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_calc_power" -> "m1_data_variance" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_calc_power" -> "m1_factor_perfect_square_expression" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_calc_power" -> "m1_num_prime_factor_product" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_calc_power" -> "m1_num_prime_factorization" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_calc_power" -> "m1_num_prime_factorization_exponent_notation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_calc_power" -> "m1_num_square_number" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_calc_power" -> "m1_num_square_root" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_calc_unit" -> "m1_factor_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -119,5 +122,4 @@ digraph pilot_unit_map {
   "m1_expr_polynomial" -> "m1_calc_polynomial_add_sub" [label="used_in", style="dashed", color="#6b7280"];
   "m1_calc_unit" -> "m1_eq_unit" [label="related_to", style="dashed", color="#6b7280"];
   "m1_num_domain" -> "m1_calc_unit" [label="related_to", style="dashed", color="#6b7280"];
-  "m1_num_prime_factor_unit" -> "m1_calc_power" [label="related_to", style="dashed", color="#6b7280"];
 }

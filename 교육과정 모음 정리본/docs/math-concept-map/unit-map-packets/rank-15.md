@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 식의 계산
 - priority tier: high
-- workplan score: 109
+- workplan score: 111
 - concepts: 14
-- edges touching unit: 78
-- cross-unit edges: 39
+- edges touching unit: 80
+- cross-unit edges: 41
 - low confidence concepts: 2
 - low confidence edges: 11
 
@@ -33,8 +33,8 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 13 |
 | contrasts_with | 1 |
 | often_confused_with | 7 |
-| prerequisite_for | 37 |
-| related_to | 3 |
+| prerequisite_for | 40 |
+| related_to | 2 |
 | used_in | 17 |
 
 ## Low Confidence Concepts
@@ -51,14 +51,17 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_mixed_calculation__used_in__m1_calc_simplify_expression | 정수와 유리수의 혼합계산 | used_in | 식을 간단히 하기 | low | official_dual_source |
 | m1_mis_expansion_factorization_direction__often_confused_with__m1_calc_expansion | 전개와 인수분해 방향을 혼동하는 오류 | often_confused_with | 전개 | low | official_dual_source |
 | m1_mis_polynomial_like_terms__often_confused_with__m1_expr_like_terms | 다항식에서 동류항 처리를 누락하는 오류 | often_confused_with | 동류항 | low | official_dual_source |
+| m1_calc_base__prerequisite_for__m1_num_prime_factorization_exponent_notation | 밑 | prerequisite_for | 소인수분해 결과를 거듭제곱으로 정리하기 | high | official_dual_source |
 | m1_calc_expansion__prerequisite_for__m1_factor_expansion_factorization_inverse | 전개 | prerequisite_for | 전개와 인수분해의 역관계 | high | official_dual_source |
 | m1_calc_expansion__prerequisite_for__m1_factor_factorization | 전개 | prerequisite_for | 인수분해 | high | official_dual_source |
 | m1_calc_expansion__prerequisite_for__m1_factor_polynomial_multiplication | 전개 | prerequisite_for | 다항식의 곱셈 | high | official_single_source |
+| m1_calc_exponent__prerequisite_for__m1_num_prime_factorization_exponent_notation | 지수 | prerequisite_for | 소인수분해 결과를 거듭제곱으로 정리하기 | high | official_dual_source |
 | m1_calc_monomial_polynomial_mul_div__prerequisite_for__m1_factor_polynomial_multiplication | 단항식과 다항식의 곱셈과 나눗셈 | prerequisite_for | 다항식의 곱셈 | high | official_dual_source |
 | m1_calc_power__prerequisite_for__m1_data_variance | 거듭제곱 | prerequisite_for | 분산 | high | official_dual_source |
 | m1_calc_power__prerequisite_for__m1_factor_perfect_square_expression | 거듭제곱 | prerequisite_for | 완전제곱식 | high | official_dual_source |
 | m1_calc_power__prerequisite_for__m1_num_prime_factor_product | 거듭제곱 | prerequisite_for | 소인수의 곱으로 표현하기 | high | official_dual_source |
 | m1_calc_power__prerequisite_for__m1_num_prime_factorization | 거듭제곱 | prerequisite_for | 소인수분해 | high | official_dual_source |
+| m1_calc_power__prerequisite_for__m1_num_prime_factorization_exponent_notation | 거듭제곱 | prerequisite_for | 소인수분해 결과를 거듭제곱으로 정리하기 | high | official_dual_source |
 | m1_calc_power__prerequisite_for__m1_num_square_number | 거듭제곱 | prerequisite_for | 제곱수 | medium | official_single_source |
 | m1_calc_power__prerequisite_for__m1_num_square_root | 거듭제곱 | prerequisite_for | 제곱근 | medium | official_dual_source |
 | m1_calc_unit__prerequisite_for__m1_factor_unit | 식의 계산 | prerequisite_for | 다항식의 곱셈과 인수분해 | high | official_single_source |
@@ -85,5 +88,3 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_expr_like_terms__used_in__m1_calc_polynomial_add_sub | 동류항 | used_in | 다항식의 덧셈과 뺄셈 | high | official_dual_source |
 | m1_expr_polynomial__used_in__m1_calc_polynomial_add_sub | 다항식 | used_in | 다항식의 덧셈과 뺄셈 | high | official_dual_source |
 | m1_calc_unit__related_to__m1_eq_unit | 식의 계산 | related_to | 일차방정식 | medium | official_dual_source |
-| m1_num_domain__related_to__m1_calc_unit | 수와 연산 | related_to | 식의 계산 | medium | official_dual_source |
-| m1_num_prime_factor_unit__related_to__m1_calc_power | 소인수분해 | related_to | 거듭제곱 | medium | official_dual_source |

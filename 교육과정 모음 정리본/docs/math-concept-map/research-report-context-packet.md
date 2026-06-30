@@ -19,11 +19,11 @@ Rows are manual-review candidates only; `source_ref_upgrade_allowed` stays `no` 
 | signal | rows |
 |---|---:|
 | achievement_level_context | 60 |
-| assessment_context | 23 |
+| assessment_context | 24 |
 | curriculum_context | 52 |
 | example_assessment_tool_context | 16 |
 | general_report_context | 1 |
-| teaching_learning_context | 20 |
+| teaching_learning_context | 22 |
 
 ## Review Rows
 
@@ -89,7 +89,7 @@ Rows are manual-review candidates only; `source_ref_upgrade_allowed` stays `no` 
 | 58 | m1_data_mean | 평균 | 177 | 평균 | medium | achievement_level_context; curriculum_context | no |
 | 59 | m1_calc_expansion | 전개 | 173 | 전개 | medium | achievement_level_context; curriculum_context | no |
 | 60 | m1_calc_expansion | 전개 | 174 | 전개 | medium | achievement_level_context; curriculum_context | no |
-| 61 | m1_geo_solid_net | 전개도 | 173 | 전개도 | medium | achievement_level_context; curriculum_context | no |
-| 62 | m1_geo_solid_net | 전개도 | 174 | 전개도 | medium | achievement_level_context; curriculum_context | no |
-| 63 | m1_geo_diagonal | 대각선 | 78 | 대각선 | medium | achievement_level_context; curriculum_context | no |
-| 64 | m1_geo_diagonal | 대각선 | 213 | 대각선 | medium | achievement_level_context; curriculum_context | no |
+| 61 | m1_num_common_multiple | 공배수 | 13 | 공배수 | medium | achievement_level_context; assessment_context; teaching_learning_context; curriculum_context | no |
+| 62 | m1_num_common_multiple | 공배수 | 26 | 공배수 | medium | achievement_level_context; teaching_learning_context; curriculum_context | no |
+| 63 | m1_geo_solid_net | 전개도 | 173 | 전개도 | medium | achievement_level_context; curriculum_context | no |
+| 64 | m1_geo_solid_net | 전개도 | 174 | 전개도 | medium | achievement_level_context; curriculum_context | no |

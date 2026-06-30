@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 수와 연산
 - unit: 정수와 유리수
 - priority tier: highest
-- workplan score: 260
+- workplan score: 259
 - concepts: 41
-- edges touching unit: 203
-- cross-unit edges: 51
+- edges touching unit: 202
+- cross-unit edges: 50
 - low confidence concepts: 5
 - low confidence edges: 36
 
@@ -35,7 +35,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contrasts_with | 11 |
 | equivalent_to | 1 |
 | often_confused_with | 15 |
-| prerequisite_for | 86 |
+| prerequisite_for | 85 |
 | related_to | 10 |
 | represented_by | 7 |
 | used_in | 29 |
@@ -75,7 +75,6 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_order_relation__prerequisite_for__m1_data_quartile | 정수와 유리수의 대소 관계 | prerequisite_for | 사분위수 | high | official_dual_source |
 | m1_num_order_relation__prerequisite_for__m1_data_stem_leaf_plot | 정수와 유리수의 대소 관계 | prerequisite_for | 줄기와 잎 그림 | high | official_dual_source |
 | m1_num_order_relation__prerequisite_for__m1_num_real_order | 정수와 유리수의 대소 관계 | prerequisite_for | 실수의 대소 관계 | high | official_dual_source |
-| m1_num_prime_factor_unit__prerequisite_for__m1_num_integer_rational_unit | 소인수분해 | prerequisite_for | 정수와 유리수 | medium | official_single_source |
 | m1_num_rational_number__prerequisite_for__m1_data_mean | 유리수 | prerequisite_for | 평균 | medium | official_dual_source |
 | m1_num_rational_number__prerequisite_for__m1_data_probability | 유리수 | prerequisite_for | 확률 | high | official_dual_source |
 | m1_num_rational_number__prerequisite_for__m1_data_probability_unit | 유리수 | prerequisite_for | 경우의 수와 확률 | high | official_dual_source |
@@ -94,3 +93,4 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_real_number__represented_by__m1_num_number_line | 실수 | represented_by | 수직선 | medium | official_dual_source |
 | m1_num_repeating_decimal_to_fraction__represented_by__m1_num_rational_number | 순환소수를 분수로 나타내기 | represented_by | 유리수 | high | official_dual_source |
 | m1_num_distributive_law__used_in__m1_factor_common_factor_formula | 분배법칙 | used_in | m(a+b) 공식 | medium | official_single_source |
+| m1_num_distributive_law__used_in__m1_factor_polynomial_multiplication | 분배법칙 | used_in | 다항식의 곱셈 | medium | official_dual_source |

@@ -481,7 +481,6 @@ class BuildPilotEdgeSyncTests(unittest.TestCase):
             frozenset(["m1_expr_usefulness", "m1_term_variable"]): "related_to",
             frozenset(["m1_ineq_inequality", "m1_eq_equality"]): "contrasts_with",
             frozenset(["m1_geo_point", "m1_coord_point_location"]): "related_to",
-            frozenset(["m1_num_prime_factor_unit", "m1_calc_power"]): "related_to",
         }
         missing = [
             (tuple(sorted(pair)), relationship_type)

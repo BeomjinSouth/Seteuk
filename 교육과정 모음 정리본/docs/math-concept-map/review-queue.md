@@ -2,13 +2,13 @@
 
 이 문서는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 출처 보강 때 먼저 확인할 대상을 정리한다.
 
-- 검토 대상 concept: 86개
+- 검토 대상 concept: 88개
 
 ## 영역별 검토 대상
 
 | 영역 | concept 수 |
 |---|---:|
-| 수와 연산 | 12 |
+| 수와 연산 | 14 |
 | 변화와 관계 | 46 |
 | 도형과 측정 | 15 |
 | 자료와 가능성 | 13 |
@@ -17,9 +17,9 @@
 
 | concept_type | concept 수 |
 |---|---:|
-| misconception_risk | 66 |
+| misconception_risk | 67 |
 | procedure | 2 |
-| property | 5 |
+| property | 6 |
 | representation | 1 |
 | sub_concept | 6 |
 | term | 6 |
@@ -29,8 +29,10 @@
 | concept_id | 영역 | 단원 | 유형 | 우선순위 | label_ko | notes |
 |---|---|---|---|---|---|---|
 | m1_num_ratio | 수와 연산 | 공통 선수개념 | term | source_detail_needed | 비 | 단독 용어로서의 직접 출처는 아직 약하지만 정비례·반비례, 닮음비, 평행선 사이의 선분 길이의 비, 삼각비, 상대도수와 확률의 비율 표현에서 반복되는 공통 선수개념으로 분리했다. 연구보고서 p. 61, p. 172, p. 180, p. 181, p. 184는 비와 비율의 선수·평가 맥락을 보조하지만, 교과서 본문 또는 중학교 과정의 직접 근거 확인 전까지 낮은 신뢰도로 유지한다. |
+| m1_mis_gcd_lcm_common_all_prime_factor | 수와 연산 | 소인수분해 | misconception_risk | textbook_evidence_needed | 최대공약수와 최소공배수에서 공통 소인수와 모든 소인수를 뒤바꾸는 오류 | 공식 성취기준의 원리 설명 요구에서 추론한 오개념 위험이다. 교과서 문제나 오답 예시 근거가 확인될 때까지 low로 둔다. |
 | m1_mis_gcd_lcm_scope | 수와 연산 | 소인수분해 | misconception_risk | textbook_evidence_needed | 최대공약수·최소공배수 활용 문제를 범위로 오인하는 오류 | 공식 문서의 제외 범위를 학습 범위 관리용 오개념 위험으로 기록했다. |
 | m1_mis_prime_one | 수와 연산 | 소인수분해 | misconception_risk | textbook_evidence_needed | 1을 소수나 합성수로 보는 오류 |  |
+| m1_num_prime_factorization_uniqueness | 수와 연산 | 소인수분해 | property | source_detail_needed | 소인수분해의 유일성 | 중학교 소인수분해 학습에서 자연스럽게 쓰이는 성질이나 공식 문서 직접 용어 근거는 약하므로 교과서 본문 확인 전까지 low로 둔다. |
 | m1_mis_finite_to_repeating_scope | 수와 연산 | 유리수와 순환소수 | misconception_risk | textbook_evidence_needed | 유한소수를 순환소수로 나타내는 활동을 범위로 오인하는 오류 | 공식 문서의 제외 범위를 학습 범위 관리용 오개념 위험으로 기록했다. |
 | m1_mis_absolute_value_positive | 수와 연산 | 정수와 유리수 | misconception_risk | textbook_evidence_needed | 절댓값을 항상 양수로만 말하는 오류 |  |
 | m1_mis_negative_order | 수와 연산 | 정수와 유리수 | misconception_risk | textbook_evidence_needed | 음수의 대소를 절댓값 크기로 판단하는 오류 |  |

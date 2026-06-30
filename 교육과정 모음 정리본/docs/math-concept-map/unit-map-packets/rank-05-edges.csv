@@ -172,7 +172,6 @@
 5,정수와 유리수,m1_num_order_relation__prerequisite_for__m1_data_quartile,m1_num_order_relation,정수와 유리수의 대소 관계,정수와 유리수,m1_data_quartile,사분위수,상자그림과 산점도,prerequisite_for,cross_unit,high,official_dual_source,yes,3,
 5,정수와 유리수,m1_num_order_relation__prerequisite_for__m1_data_stem_leaf_plot,m1_num_order_relation,정수와 유리수의 대소 관계,정수와 유리수,m1_data_stem_leaf_plot,줄기와 잎 그림,도수분포표와 상대도수,prerequisite_for,cross_unit,high,official_dual_source,yes,4,
 5,정수와 유리수,m1_num_order_relation__prerequisite_for__m1_num_real_order,m1_num_order_relation,정수와 유리수의 대소 관계,정수와 유리수,m1_num_real_order,실수의 대소 관계,제곱근과 실수,prerequisite_for,cross_unit,high,official_dual_source,yes,4,
-5,정수와 유리수,m1_num_prime_factor_unit__prerequisite_for__m1_num_integer_rational_unit,m1_num_prime_factor_unit,소인수분해,소인수분해,m1_num_integer_rational_unit,정수와 유리수,정수와 유리수,prerequisite_for,cross_unit,medium,official_single_source,yes,2,자연수 범위의 수 분류와 거듭제곱 표현 경험이 정수와 유리수의 수 체계 확장을 받친다.
 5,정수와 유리수,m1_num_rational_number__prerequisite_for__m1_data_mean,m1_num_rational_number,유리수,정수와 유리수,m1_data_mean,평균,대푯값,prerequisite_for,cross_unit,medium,official_dual_source,yes,3,
 5,정수와 유리수,m1_num_rational_number__prerequisite_for__m1_data_probability,m1_num_rational_number,유리수,정수와 유리수,m1_data_probability,확률,경우의 수와 확률,prerequisite_for,cross_unit,high,official_dual_source,yes,4,
 5,정수와 유리수,m1_num_rational_number__prerequisite_for__m1_data_probability_unit,m1_num_rational_number,유리수,정수와 유리수,m1_data_probability_unit,경우의 수와 확률,경우의 수와 확률,prerequisite_for,cross_unit,high,official_dual_source,yes,5,
