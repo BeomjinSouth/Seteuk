@@ -364,9 +364,15 @@ flowchart LR
   m1_geo_circle_unit["원의 성질"]
   m1_geo_point["점"]
   m1_geo_line["직선"]
+  m1_geo_line_segment["선분"]
   m1_geo_plane["평면"]
+  m1_geo_ray["반직선"]
   m1_geo_angle["각"]
+  m1_geo_basic_figure_notation["점·선·면·각의 용어와 기호"]
+  m1_geo_angle_measure["각의 크기"]
   m1_geo_position_relation["점, 직선, 평면의 위치 관계"]
+  m1_geo_position_relation_explanation["점·직선·평면의 위치 관계 설명하기"]
+  m1_geo_coplanar_condition["한 평면 위에 있음"]
   m1_geo_intersection_point["교점"]
   m1_geo_intersection_line["교선"]
   m1_geo_distance_between_two_points["두 점 사이의 거리"]
@@ -378,9 +384,15 @@ flowchart LR
   m1_geo_perpendicular["직교"]
   m1_geo_foot_of_perpendicular["수선의 발"]
   m1_geo_parallel_lines["평행선"]
+  m1_geo_transversal_line_context["두 직선을 만나는 한 직선"]
   m1_geo_corresponding_angles["동위각"]
   m1_geo_alternate_interior_angles["엇각"]
   m1_geo_parallel_angle_properties["평행선에서 동위각과 엇각의 성질"]
+  m1_geo_corresponding_angles_equal["평행선에서 동위각의 크기가 같음"]
+  m1_geo_alternate_interior_angles_equal["평행선에서 엇각의 크기가 같음"]
+  m1_geo_identify_corresponding_alternate_angles["동위각과 엇각 찾기"]
+  m1_geo_parallel_angle_measure_calculation["평행선에서 각의 크기 구하기"]
+  m1_geo_parallel_angle_property_explanation["평행선에서 동위각과 엇각의 성질 설명하기"]
   m1_mis_corresponding_alternate_angles["동위각과 엇각의 위치를 혼동하는 오류"]
   m1_mis_skew_parallel_lines["꼬인 위치와 평행을 같은 관계로 보는 오류"]
   m1_geo_construction["작도"]
@@ -1394,27 +1406,63 @@ flowchart LR
   m1_geo_area -- "사용" --> m1_geo_sector_arc_length_area
   m1_geo_area -- "사용" --> m1_geo_surface_area
   m1_geo_area -- "사용" --> m1_geo_trig_triangle_area
-  m1_geo_position_relation -- "사용" --> m1_geo_intersection_point
-  m1_geo_position_relation -- "사용" --> m1_geo_intersection_line
-  m1_geo_position_relation -- "사용" --> m1_geo_skew_lines
+  m1_geo_point -- "사용" --> m1_geo_basic_figure_notation
+  m1_geo_line -- "사용" --> m1_geo_basic_figure_notation
+  m1_geo_plane -- "사용" --> m1_geo_basic_figure_notation
+  m1_geo_angle -- "사용" --> m1_geo_basic_figure_notation
+  m1_geo_basic_unit -- "표현" --> m1_geo_basic_figure_notation
+  m1_geo_position_relation -- "표현" --> m1_geo_basic_figure_notation
+  m1_geo_intersection_point -- "사용" --> m1_geo_position_relation
+  m1_geo_intersection_line -- "사용" --> m1_geo_position_relation
+  m1_geo_skew_lines -- "사용" --> m1_geo_position_relation
+  m1_geo_position_relation -- "사용" --> m1_geo_position_relation_explanation
+  m1_geo_intersection_point -- "사용" --> m1_geo_position_relation_explanation
+  m1_geo_intersection_line -- "사용" --> m1_geo_position_relation_explanation
+  m1_geo_skew_lines -- "사용" --> m1_geo_position_relation_explanation
   m1_geo_intersection_line -- "연관" --> m1_geo_intersection_point
   m1_geo_intersection_point -- "대조" --> m1_func_intersection_point
   m1_geo_point -- "대조" --> m1_geo_line
   m1_geo_point -- "대조" --> m1_geo_plane
   m1_geo_line -- "대조" --> m1_geo_plane
   m1_geo_point -- "연관" --> m1_coord_point_location
+  m1_geo_line_segment -- "사용" --> m1_geo_distance_between_two_points
+  m1_geo_line_segment -- "사용" --> m1_geo_midpoint
+  m1_geo_line_segment -- "사용" --> m1_geo_perpendicular_bisector
+  m1_geo_ray -- "사용" --> m1_geo_angle
   m1_geo_distance_between_two_points -- "사용" --> m1_geo_midpoint
   m1_geo_midpoint -- "사용" --> m1_geo_perpendicular_bisector
   m1_geo_angle -- "사용" --> m1_geo_vertical_angles
   m1_geo_angle -- "사용" --> m1_geo_straight_angle
+  m1_geo_angle -- "사용" --> m1_geo_angle_measure
   m1_geo_straight_angle -- "대조" --> m1_geo_vertical_angles
   m1_geo_angle -- "사용" --> m1_geo_parallel_angle_properties
   m1_geo_vertical_angles -- "연관" --> m1_geo_parallel_angle_properties
   m1_geo_perpendicular -- "사용" --> m1_geo_foot_of_perpendicular
-  m1_geo_parallel_lines -- "사용" --> m1_geo_corresponding_angles
-  m1_geo_parallel_lines -- "사용" --> m1_geo_alternate_interior_angles
+  m1_geo_transversal_line_context -- "사용" --> m1_geo_corresponding_angles
+  m1_geo_transversal_line_context -- "사용" --> m1_geo_alternate_interior_angles
+  m1_geo_transversal_line_context -- "사용" --> m1_geo_parallel_angle_properties
+  m1_geo_parallel_lines -- "사용" --> m1_geo_parallel_angle_properties
   m1_geo_corresponding_angles -- "사용" --> m1_geo_parallel_angle_properties
   m1_geo_alternate_interior_angles -- "사용" --> m1_geo_parallel_angle_properties
+  m1_geo_parallel_lines -- "사용" --> m1_geo_corresponding_angles_equal
+  m1_geo_parallel_lines -- "사용" --> m1_geo_alternate_interior_angles_equal
+  m1_geo_corresponding_angles -- "사용" --> m1_geo_corresponding_angles_equal
+  m1_geo_alternate_interior_angles -- "사용" --> m1_geo_alternate_interior_angles_equal
+  m1_geo_corresponding_angles_equal -- "사용" --> m1_geo_parallel_angle_properties
+  m1_geo_alternate_interior_angles_equal -- "사용" --> m1_geo_parallel_angle_properties
+  m1_geo_corresponding_angles -- "사용" --> m1_geo_identify_corresponding_alternate_angles
+  m1_geo_alternate_interior_angles -- "사용" --> m1_geo_identify_corresponding_alternate_angles
+  m1_geo_identify_corresponding_alternate_angles -- "사용" --> m1_geo_parallel_angle_measure_calculation
+  m1_geo_angle_measure -- "사용" --> m1_geo_parallel_angle_measure_calculation
+  m1_geo_corresponding_angles_equal -- "사용" --> m1_geo_parallel_angle_measure_calculation
+  m1_geo_alternate_interior_angles_equal -- "사용" --> m1_geo_parallel_angle_measure_calculation
+  m1_geo_vertical_angles -- "사용" --> m1_geo_parallel_angle_measure_calculation
+  m1_geo_parallel_angle_properties -- "사용" --> m1_geo_parallel_angle_measure_calculation
+  m1_geo_parallel_angle_properties -- "사용" --> m1_geo_parallel_angle_property_explanation
+  m1_geo_parallel_angle_property_explanation -- "연관" --> m1_geo_polygon_angle_sum
+  m1_geo_coplanar_condition -- "사용" --> m1_geo_parallel_lines
+  m1_geo_coplanar_condition -- "사용" --> m1_geo_skew_lines
+  m1_geo_coplanar_condition -- "대조" --> m1_geo_skew_lines
   m1_geo_corresponding_angles -- "대조" --> m1_geo_alternate_interior_angles
   m1_geo_alternate_interior_angles -- "대조" --> m1_geo_corresponding_angles
   m1_geo_skew_lines -- "대조" --> m1_geo_parallel_lines
@@ -1872,9 +1920,15 @@ flowchart LR
   m1_geo_domain -- "포함" --> m1_geo_circle_unit
   m1_geo_basic_unit -- "포함" --> m1_geo_point
   m1_geo_basic_unit -- "포함" --> m1_geo_line
+  m1_geo_basic_unit -- "포함" --> m1_geo_line_segment
   m1_geo_basic_unit -- "포함" --> m1_geo_plane
+  m1_geo_basic_unit -- "포함" --> m1_geo_ray
   m1_geo_basic_unit -- "포함" --> m1_geo_angle
+  m1_geo_basic_unit -- "포함" --> m1_geo_basic_figure_notation
+  m1_geo_basic_unit -- "포함" --> m1_geo_angle_measure
   m1_geo_basic_unit -- "포함" --> m1_geo_position_relation
+  m1_geo_basic_unit -- "포함" --> m1_geo_position_relation_explanation
+  m1_geo_basic_unit -- "포함" --> m1_geo_coplanar_condition
   m1_geo_basic_unit -- "포함" --> m1_geo_intersection_point
   m1_geo_basic_unit -- "포함" --> m1_geo_intersection_line
   m1_geo_basic_unit -- "포함" --> m1_geo_distance_between_two_points
@@ -1886,9 +1940,17 @@ flowchart LR
   m1_geo_basic_unit -- "포함" --> m1_geo_perpendicular
   m1_geo_basic_unit -- "포함" --> m1_geo_foot_of_perpendicular
   m1_geo_basic_unit -- "포함" --> m1_geo_parallel_lines
+  m1_geo_basic_unit -- "포함" --> m1_geo_transversal_line_context
   m1_geo_basic_unit -- "포함" --> m1_geo_corresponding_angles
   m1_geo_basic_unit -- "포함" --> m1_geo_alternate_interior_angles
   m1_geo_basic_unit -- "포함" --> m1_geo_parallel_angle_properties
+  m1_geo_basic_unit -- "포함" --> m1_geo_corresponding_angles_equal
+  m1_geo_parallel_angle_properties -- "포함" --> m1_geo_corresponding_angles_equal
+  m1_geo_basic_unit -- "포함" --> m1_geo_alternate_interior_angles_equal
+  m1_geo_parallel_angle_properties -- "포함" --> m1_geo_alternate_interior_angles_equal
+  m1_geo_basic_unit -- "포함" --> m1_geo_identify_corresponding_alternate_angles
+  m1_geo_basic_unit -- "포함" --> m1_geo_parallel_angle_measure_calculation
+  m1_geo_basic_unit -- "포함" --> m1_geo_parallel_angle_property_explanation
   m1_geo_basic_unit -- "포함" --> m1_mis_corresponding_alternate_angles
   m1_geo_basic_unit -- "포함" --> m1_mis_skew_parallel_lines
   m1_geo_construction_congruence_unit -- "포함" --> m1_geo_construction
@@ -2523,9 +2585,24 @@ flowchart LR
   m1_geo_similarity_unit -- "선수" --> m1_geo_pythagorean_unit
   m1_geo_pythagorean_unit -- "선수" --> m1_geo_trig_unit
   m1_geo_triangle_quadrilateral_unit -- "선수" --> m1_geo_circle_unit
+  m1_geo_point -- "선수" --> m1_geo_line_segment
+  m1_geo_line -- "선수" --> m1_geo_line_segment
+  m1_geo_point -- "선수" --> m1_geo_ray
+  m1_geo_line -- "선수" --> m1_geo_ray
+  m1_geo_point -- "선수" --> m1_geo_basic_figure_notation
+  m1_geo_line -- "선수" --> m1_geo_basic_figure_notation
+  m1_geo_plane -- "선수" --> m1_geo_basic_figure_notation
+  m1_geo_angle -- "선수" --> m1_geo_basic_figure_notation
+  m1_geo_angle -- "선수" --> m1_geo_angle_measure
   m1_geo_point -- "선수" --> m1_geo_position_relation
   m1_geo_line -- "선수" --> m1_geo_position_relation
   m1_geo_plane -- "선수" --> m1_geo_position_relation
+  m1_geo_position_relation -- "선수" --> m1_geo_position_relation_explanation
+  m1_geo_point -- "선수" --> m1_geo_position_relation_explanation
+  m1_geo_line -- "선수" --> m1_geo_position_relation_explanation
+  m1_geo_plane -- "선수" --> m1_geo_position_relation_explanation
+  m1_geo_line -- "선수" --> m1_geo_coplanar_condition
+  m1_geo_plane -- "선수" --> m1_geo_coplanar_condition
   m1_geo_point -- "선수" --> m1_geo_intersection_point
   m1_geo_line -- "선수" --> m1_geo_intersection_point
   m1_geo_line -- "선수" --> m1_geo_intersection_line
@@ -2546,17 +2623,28 @@ flowchart LR
   m1_geo_point -- "선수" --> m1_geo_foot_of_perpendicular
   m1_geo_line -- "선수" --> m1_geo_parallel_lines
   m1_geo_plane -- "선수" --> m1_geo_parallel_lines
+  m1_geo_line -- "선수" --> m1_geo_transversal_line_context
+  m1_geo_intersection_point -- "선수" --> m1_geo_transversal_line_context
   m1_geo_angle -- "선수" --> m1_geo_corresponding_angles
-  m1_geo_parallel_lines -- "선수" --> m1_geo_corresponding_angles
+  m1_geo_transversal_line_context -- "선수" --> m1_geo_corresponding_angles
   m1_geo_angle -- "선수" --> m1_geo_alternate_interior_angles
-  m1_geo_parallel_lines -- "선수" --> m1_geo_alternate_interior_angles
+  m1_geo_transversal_line_context -- "선수" --> m1_geo_alternate_interior_angles
   m1_geo_parallel_lines -- "선수" --> m1_geo_parallel_angle_properties
   m1_geo_corresponding_angles -- "선수" --> m1_geo_parallel_angle_properties
   m1_geo_alternate_interior_angles -- "선수" --> m1_geo_parallel_angle_properties
-  m1_geo_corresponding_angles -- "선수" --> m1_mis_corresponding_alternate_angles
-  m1_geo_alternate_interior_angles -- "선수" --> m1_mis_corresponding_alternate_angles
-  m1_geo_skew_lines -- "선수" --> m1_mis_skew_parallel_lines
-  m1_geo_parallel_lines -- "선수" --> m1_mis_skew_parallel_lines
+  m1_geo_parallel_lines -- "선수" --> m1_geo_corresponding_angles_equal
+  m1_geo_corresponding_angles -- "선수" --> m1_geo_corresponding_angles_equal
+  m1_geo_parallel_lines -- "선수" --> m1_geo_alternate_interior_angles_equal
+  m1_geo_alternate_interior_angles -- "선수" --> m1_geo_alternate_interior_angles_equal
+  m1_geo_parallel_lines -- "선수" --> m1_geo_identify_corresponding_alternate_angles
+  m1_geo_transversal_line_context -- "선수" --> m1_geo_identify_corresponding_alternate_angles
+  m1_geo_corresponding_angles -- "선수" --> m1_geo_identify_corresponding_alternate_angles
+  m1_geo_alternate_interior_angles -- "선수" --> m1_geo_identify_corresponding_alternate_angles
+  m1_geo_parallel_angle_properties -- "선수" --> m1_geo_parallel_angle_measure_calculation
+  m1_geo_corresponding_angles -- "선수" --> m1_geo_parallel_angle_measure_calculation
+  m1_geo_alternate_interior_angles -- "선수" --> m1_geo_parallel_angle_measure_calculation
+  m1_geo_angle_measure -- "선수" --> m1_geo_parallel_angle_measure_calculation
+  m1_geo_parallel_angle_properties -- "선수" --> m1_geo_parallel_angle_property_explanation
   m1_geo_point -- "선수" --> m1_geo_construction
   m1_geo_line -- "선수" --> m1_geo_construction
   m1_geo_angle -- "선수" --> m1_geo_construction
@@ -2720,8 +2808,6 @@ flowchart LR
   m1_geo_proof -- "선수" --> m1_geo_circle_justification
   m1_geo_circle -- "선수" --> m1_mis_circle_proportion_scope
   m1_geo_similarity_ratio -- "선수" --> m1_mis_circle_proportion_scope
-  m1_geo_tangent_property -- "선수" --> m1_mis_tangent_radius
-  m1_geo_perpendicular -- "선수" --> m1_mis_tangent_radius
   m1_data_representative_unit -- "선수" --> m1_data_frequency_unit
   m1_repr_table -- "선수" --> m1_data_frequency_unit
   m1_graph_graph -- "선수" --> m1_data_frequency_unit
@@ -2936,6 +3022,8 @@ flowchart LR
   m1_mis_representation_conversion -- "혼동" --> m1_repr_table
   m1_mis_representation_conversion -- "혼동" --> m1_repr_expression
   m1_mis_representation_conversion -- "혼동" --> m1_graph_graph
+  m1_mis_skew_parallel_lines -- "혼동" --> m1_geo_coplanar_condition
+  m1_mis_corresponding_alternate_angles -- "혼동" --> m1_geo_identify_corresponding_alternate_angles
   m1_mis_corresponding_alternate_angles -- "혼동" --> m1_geo_parallel_angle_properties
   m1_mis_skew_parallel_lines -- "혼동" --> m1_geo_position_relation
   m1_mis_arc_chord -- "혼동" --> m1_geo_sector
@@ -3324,9 +3412,15 @@ flowchart LR
   class m1_geo_circle_unit core;
   class m1_geo_point default;
   class m1_geo_line default;
+  class m1_geo_line_segment default;
   class m1_geo_plane default;
+  class m1_geo_ray default;
   class m1_geo_angle default;
+  class m1_geo_basic_figure_notation representation;
+  class m1_geo_angle_measure default;
   class m1_geo_position_relation core;
+  class m1_geo_position_relation_explanation procedure;
+  class m1_geo_coplanar_condition default;
   class m1_geo_intersection_point default;
   class m1_geo_intersection_line default;
   class m1_geo_distance_between_two_points default;
@@ -3338,9 +3432,15 @@ flowchart LR
   class m1_geo_perpendicular default;
   class m1_geo_foot_of_perpendicular default;
   class m1_geo_parallel_lines default;
+  class m1_geo_transversal_line_context default;
   class m1_geo_corresponding_angles default;
   class m1_geo_alternate_interior_angles default;
   class m1_geo_parallel_angle_properties default;
+  class m1_geo_corresponding_angles_equal default;
+  class m1_geo_alternate_interior_angles_equal default;
+  class m1_geo_identify_corresponding_alternate_angles procedure;
+  class m1_geo_parallel_angle_measure_calculation procedure;
+  class m1_geo_parallel_angle_property_explanation procedure;
   class m1_mis_corresponding_alternate_angles risk;
   class m1_mis_skew_parallel_lines risk;
   class m1_geo_construction procedure;

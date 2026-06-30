@@ -5,30 +5,32 @@ Rows are candidate signals only; inspect the local page context before changing 
 
 ## Summary
 
-- matched concepts: 249
+- matched concepts: 252
 
 ## Confidence
 
 | confidence | matched concepts |
 |---|---:|
-| high | 211 |
-| low | 2 |
+| high | 212 |
+| low | 4 |
 | medium | 36 |
 
 ## Recommended Actions
 
 | action | matched concepts |
 |---|---:|
-| inspect_research_report_context_before_confidence_change | 2 |
+| inspect_research_report_context_before_confidence_change | 4 |
 | inspect_research_report_context_before_source_ref_upgrade | 36 |
-| use_as_supplemental_trace_only | 211 |
+| use_as_supplemental_trace_only | 212 |
 
 ## Highest Priority Signals
 
 | concept_id | label | unit | confidence | matches | pages | status | action |
 |---|---|---|---|---:|---|---|---|
 | m1_num_ratio | 비 | 공통 선수개념 | low | 77 | 61; 91; 172; 177; 180; 181; 183; 184; 185; 187; 188; 192; 194; 195; 208; 209; 260; 262 | research_report_signal | inspect_research_report_context_before_confidence_change |
+| m1_geo_line_segment | 선분 | 기본 도형 | low | 37 | 62; 78; 79; 80; 114; 117; 130; 138; 139; 142; 224; 235; 236; 237; 238; 242; 270; 272 | research_report_signal | inspect_research_report_context_before_confidence_change |
 | m1_func_input_value | 입력값 | 일차함수와 그 그래프 | low | 11 | 193; 196; 253; 254; 259 | research_report_signal | inspect_research_report_context_before_confidence_change |
+| m1_geo_ray | 반직선 | 기본 도형 | low | 7 | 130; 138; 139 | research_report_signal | inspect_research_report_context_before_confidence_change |
 | m1_geo_figure | 도형 | 도형과 측정 | medium | 433 | 9; 12; 23; 26; 45; 46; 60; 61; 62; 76; 77; 78; 79; 80; 84; 85; 86; 103; 108; 109; 110; 111; 112; 113 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_geo_triangle | 삼각형 | 도형과 측정 | medium | 367 | 60; 62; 77; 78; 79; 80; 84; 85; 86; 103; 108; 109; 111; 112; 113; 114; 115; 118; 119; 120; 131; 135; 138; 139 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_num_addition | 덧셈 | 정수와 유리수 | medium | 190 | 26; 47; 48; 55; 56; 57; 58; 59; 60; 101; 105; 107; 108; 109; 110; 125; 127; 128; 129; 132; 133; 134; 136; 137 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
@@ -105,5 +107,3 @@ Rows are candidate signals only; inspect the local page context before changing 
 | m1_num_domain | 수와 연산 | 수와 연산 | high | 54 | 9; 12; 26; 27; 45; 46; 47; 48; 49; 52; 76; 100; 107; 121; 125; 136; 137; 151; 162; 165; 168; 179; 180; 202 | research_report_signal | use_as_supplemental_trace_only |
 | m1_prop_direct_proportion | 정비례 | 좌표평면과 그래프 | high | 49 | 57; 58; 59; 215; 232; 233; 234; 245 | research_report_signal | use_as_supplemental_trace_only |
 | m1_geo_line | 직선 | 기본 도형 | high | 47 | 77; 78; 130; 138; 139; 212; 215; 221; 231; 235; 236; 237; 238; 254; 257 | research_report_signal | use_as_supplemental_trace_only |
-| m1_factor_factor | 인수 | 다항식의 곱셈과 인수분해 | high | 46 | 26; 54; 57; 58; 59; 107; 121; 211; 219; 230; 231; 232; 233; 234; 235 | research_report_signal | use_as_supplemental_trace_only |
-| m1_data_statistical_inquiry_problem | 통계적 탐구 문제 | 도수분포표와 상대도수 | high | 45 | 45; 61; 62; 77; 79; 135; 140; 177; 183; 184; 190; 205; 228; 239; 240; 241 | research_report_signal | use_as_supplemental_trace_only |

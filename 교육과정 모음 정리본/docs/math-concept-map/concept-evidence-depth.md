@@ -4,21 +4,24 @@ This generated audit summarizes source evidence depth for each concept node.
 
 ## Summary
 
-- concepts: 556
-- needs textbook evidence: 556
-- low confidence concepts: 83
+- concepts: 568
+- needs textbook evidence: 568
+- low confidence concepts: 86
 
 ## Evidence Depth Counts
 
 | evidence_depth | concept count |
 |---|---:|
-| official_dual_source | 460 |
+| official_dual_source | 472 |
 | official_single_source | 96 |
 
 ## Priority Rows
 
 | concept_id | label_ko | confidence | evidence_depth | source refs | sources |
 |---|---|---|---|---:|---|
+| m1_geo_coplanar_condition | 한 평면 위에 있음 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
+| m1_geo_line_segment | 선분 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
+| m1_geo_ray | 반직선 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_corresponding_alternate_angles | 동위각과 엇각의 위치를 혼동하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_skew_parallel_lines | 꼬인 위치와 평행을 같은 관계로 보는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_congruence_similarity | 합동과 닮음을 같은 관계로 보는 오류 | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |
@@ -56,6 +59,3 @@ This generated audit summarizes source evidence depth for each concept node.
 | m1_mis_transposition_sign | 이항할 때 부호를 잘못 바꾸는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_ineq_negative | 음수를 곱하거나 나눌 때 부등호 방향을 바꾸지 않는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_ineq_solution_single_value | 부등식의 해를 한 값으로만 이해하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
-| m1_func_input_value | 입력값 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
-| m1_func_slope_ratio_formula | 기울기 계산식 | low | official_single_source | 1 | achievement_math_2022 |
-| m1_func_x_increment | x의 증가량 | low | official_single_source | 1 | achievement_math_2022 |

@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-30T10:54:28",
+    "generated_at": "2026-06-30T11:26:55",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
-    "concept_count": 556,
-    "edge_count": 2402
+    "concept_count": 568,
+    "edge_count": 2478
   },
   "sources": [
     {
@@ -15559,6 +15559,46 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_line_segment",
+      "label_ko": "선분",
+      "aliases": [
+        "line segment"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "기본 도형",
+      "concept_type": "term",
+      "short_definition": "두 점을 끝점으로 하는 직선의 한 부분.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_point",
+        "m1_geo_line"
+      ],
+      "parent_ids": [
+        "m1_geo_basic_unit"
+      ],
+      "related_ids": [
+        "m1_geo_distance_between_two_points",
+        "m1_geo_midpoint",
+        "m1_geo_perpendicular_bisector"
+      ],
+      "notes": "공식 용어표의 직접 열거가 아니라 중점, 수직이등분선, 두 점 사이의 거리 설명에서 필요한 하위 용어로 분리했다. 교과서 본문 근거가 필요하다.",
+      "confidence": "low"
+    },
+    {
       "id": "m1_geo_plane",
       "label_ko": "평면",
       "aliases": [
@@ -15596,6 +15636,44 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_ray",
+      "label_ko": "반직선",
+      "aliases": [
+        "ray"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "기본 도형",
+      "concept_type": "term",
+      "short_definition": "한 점에서 시작하여 한쪽 방향으로 한없이 뻗는 직선의 한 부분.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_point",
+        "m1_geo_line"
+      ],
+      "parent_ids": [
+        "m1_geo_basic_unit"
+      ],
+      "related_ids": [
+        "m1_geo_angle"
+      ],
+      "notes": "각의 정의에 필요한 하위 용어지만 공식 용어표 직접 근거는 아직 확인되지 않아 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
       "id": "m1_geo_angle",
       "label_ko": "각",
       "aliases": [
@@ -15625,9 +15703,95 @@
         "m1_geo_basic_unit"
       ],
       "related_ids": [
+        "m1_geo_ray",
+        "m1_geo_angle_measure",
         "m1_geo_vertical_angles",
         "m1_geo_straight_angle",
         "m1_geo_parallel_angle_properties"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_basic_figure_notation",
+      "label_ko": "점·선·면·각의 용어와 기호",
+      "aliases": [
+        "기본 도형 기호",
+        "점선면각 기호"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "기본 도형",
+      "concept_type": "representation",
+      "short_definition": "점, 선, 면, 각을 이름과 기호로 나타내고 구별하는 표현 방식.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; geometry achievement-standard explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "점, 선, 면, 각 관련 용어는 직관적으로 이해하게 하고, 합동과 닮음은 교구나 공학 도구를 이용하여 의미를 이해하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_point",
+        "m1_geo_line",
+        "m1_geo_plane",
+        "m1_geo_angle"
+      ],
+      "parent_ids": [
+        "m1_geo_basic_unit"
+      ],
+      "related_ids": [
+        "m1_geo_position_relation"
+      ],
+      "notes": "성취수준의 '용어와 기호' 표현을 별도 representation 노드로 분리했다. 개별 기호 목록은 교과서 확인 후 세분화한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_angle_measure",
+      "label_ko": "각의 크기",
+      "aliases": [
+        "angle measure"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "기본 도형",
+      "concept_type": "term",
+      "short_definition": "각이 벌어진 정도를 수치로 나타낸 크기.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_angle"
+      ],
+      "parent_ids": [
+        "m1_geo_basic_unit"
+      ],
+      "related_ids": [
+        "m1_geo_parallel_angle_measure_calculation"
       ],
       "notes": "",
       "confidence": "high"
@@ -15672,6 +15836,89 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_position_relation_explanation",
+      "label_ko": "점·직선·평면의 위치 관계 설명하기",
+      "aliases": [
+        "위치 관계 설명"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "기본 도형",
+      "concept_type": "procedure",
+      "short_definition": "점, 직선, 평면이 만나는 경우와 만나지 않는 경우를 용어와 기호로 설명하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_position_relation",
+        "m1_geo_point",
+        "m1_geo_line",
+        "m1_geo_plane"
+      ],
+      "parent_ids": [
+        "m1_geo_basic_unit"
+      ],
+      "related_ids": [
+        "m1_geo_intersection_point",
+        "m1_geo_intersection_line",
+        "m1_geo_skew_lines"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_coplanar_condition",
+      "label_ko": "한 평면 위에 있음",
+      "aliases": [
+        "coplanar condition",
+        "공면 조건"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "기본 도형",
+      "concept_type": "property",
+      "short_definition": "두 직선이나 도형이 같은 평면 위에 놓이는 조건.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_line",
+        "m1_geo_plane"
+      ],
+      "parent_ids": [
+        "m1_geo_basic_unit"
+      ],
+      "related_ids": [
+        "m1_geo_parallel_lines",
+        "m1_geo_skew_lines",
+        "m1_mis_skew_parallel_lines"
+      ],
+      "notes": "평행선과 꼬인 위치의 구별에 쓰이는 조건이지만 공식 독립 용어로 확인되지는 않아 낮은 신뢰도로 둔다.",
+      "confidence": "low"
     },
     {
       "id": "m1_geo_intersection_point",
@@ -16146,11 +16393,50 @@
         "m1_geo_basic_unit"
       ],
       "related_ids": [
-        "m1_geo_corresponding_angles",
-        "m1_geo_alternate_interior_angles"
+        "m1_geo_parallel_angle_properties"
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_transversal_line_context",
+      "label_ko": "두 직선을 만나는 한 직선",
+      "aliases": [
+        "transversal context"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "기본 도형",
+      "concept_type": "sub_concept",
+      "short_definition": "한 직선이 서로 다른 두 직선과 만나는 상황으로, 동위각과 엇각을 찾는 기준이 되는 맥락.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_line",
+        "m1_geo_intersection_point"
+      ],
+      "parent_ids": [
+        "m1_geo_basic_unit"
+      ],
+      "related_ids": [
+        "m1_geo_corresponding_angles",
+        "m1_geo_alternate_interior_angles",
+        "m1_geo_parallel_angle_properties"
+      ],
+      "notes": "'횡단선'이라는 공식 용어 근거는 아직 확인하지 못했으므로 일반 표현으로 둔다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_corresponding_angles",
@@ -16185,7 +16471,7 @@
       ],
       "prerequisite_ids": [
         "m1_geo_angle",
-        "m1_geo_parallel_lines"
+        "m1_geo_transversal_line_context"
       ],
       "parent_ids": [
         "m1_geo_basic_unit"
@@ -16230,7 +16516,7 @@
       ],
       "prerequisite_ids": [
         "m1_geo_angle",
-        "m1_geo_parallel_lines"
+        "m1_geo_transversal_line_context"
       ],
       "parent_ids": [
         "m1_geo_basic_unit"
@@ -16283,6 +16569,202 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_corresponding_angles_equal",
+      "label_ko": "평행선에서 동위각의 크기가 같음",
+      "aliases": [
+        "동위각의 크기 관계"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "기본 도형",
+      "concept_type": "property",
+      "short_definition": "평행한 두 직선이 한 직선과 만날 때 생기는 동위각의 크기가 같다는 성질.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_parallel_lines",
+        "m1_geo_corresponding_angles"
+      ],
+      "parent_ids": [
+        "m1_geo_basic_unit",
+        "m1_geo_parallel_angle_properties"
+      ],
+      "related_ids": [
+        "m1_geo_parallel_angle_measure_calculation"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_alternate_interior_angles_equal",
+      "label_ko": "평행선에서 엇각의 크기가 같음",
+      "aliases": [
+        "엇각의 크기 관계"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "기본 도형",
+      "concept_type": "property",
+      "short_definition": "평행한 두 직선이 한 직선과 만날 때 생기는 엇각의 크기가 같다는 성질.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_parallel_lines",
+        "m1_geo_alternate_interior_angles"
+      ],
+      "parent_ids": [
+        "m1_geo_basic_unit",
+        "m1_geo_parallel_angle_properties"
+      ],
+      "related_ids": [
+        "m1_geo_parallel_angle_measure_calculation"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_identify_corresponding_alternate_angles",
+      "label_ko": "동위각과 엇각 찾기",
+      "aliases": [
+        "동위각 찾기",
+        "엇각 찾기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "기본 도형",
+      "concept_type": "procedure",
+      "short_definition": "평행선과 이를 만나는 직선에서 같은 위치와 엇갈린 위치의 각을 판별하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_parallel_lines",
+        "m1_geo_transversal_line_context",
+        "m1_geo_corresponding_angles",
+        "m1_geo_alternate_interior_angles"
+      ],
+      "parent_ids": [
+        "m1_geo_basic_unit"
+      ],
+      "related_ids": [
+        "m1_mis_corresponding_alternate_angles"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_parallel_angle_measure_calculation",
+      "label_ko": "평행선에서 각의 크기 구하기",
+      "aliases": [
+        "평행선 각도 구하기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "기본 도형",
+      "concept_type": "procedure",
+      "short_definition": "평행선에서 동위각과 엇각의 성질을 이용하여 각의 크기를 구하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_parallel_angle_properties",
+        "m1_geo_corresponding_angles",
+        "m1_geo_alternate_interior_angles",
+        "m1_geo_angle_measure"
+      ],
+      "parent_ids": [
+        "m1_geo_basic_unit"
+      ],
+      "related_ids": [
+        "m1_geo_vertical_angles"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_parallel_angle_property_explanation",
+      "label_ko": "평행선에서 동위각과 엇각의 성질 설명하기",
+      "aliases": [
+        "평행선 각 성질 설명"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "기본 도형",
+      "concept_type": "procedure",
+      "short_definition": "평행선에서 동위각과 엇각의 크기 관계가 성립함을 말이나 식, 그림으로 설명하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_parallel_angle_properties"
+      ],
+      "parent_ids": [
+        "m1_geo_basic_unit"
+      ],
+      "related_ids": [
+        "m1_geo_polygon_angle_sum"
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_mis_corresponding_alternate_angles",
       "label_ko": "동위각과 엇각의 위치를 혼동하는 오류",
       "aliases": [
@@ -16307,10 +16789,7 @@
           "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_geo_corresponding_angles",
-        "m1_geo_alternate_interior_angles"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_geo_basic_unit"
       ],
@@ -16351,10 +16830,7 @@
           "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_geo_skew_lines",
-        "m1_geo_parallel_lines"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_geo_basic_unit"
       ],
@@ -20139,10 +20615,7 @@
           "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_geo_tangent_property",
-        "m1_geo_perpendicular"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_geo_circle_unit"
       ],
@@ -44863,9 +45336,147 @@
       "confidence": "medium"
     },
     {
-      "id": "m1_geo_position_relation__used_in__m1_geo_intersection_point",
+      "id": "m1_geo_point__used_in__m1_geo_basic_figure_notation",
+      "source_id": "m1_geo_point",
+      "target_id": "m1_geo_basic_figure_notation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_line__used_in__m1_geo_basic_figure_notation",
+      "source_id": "m1_geo_line",
+      "target_id": "m1_geo_basic_figure_notation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_plane__used_in__m1_geo_basic_figure_notation",
+      "source_id": "m1_geo_plane",
+      "target_id": "m1_geo_basic_figure_notation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_angle__used_in__m1_geo_basic_figure_notation",
+      "source_id": "m1_geo_angle",
+      "target_id": "m1_geo_basic_figure_notation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_basic_unit__represented_by__m1_geo_basic_figure_notation",
+      "source_id": "m1_geo_basic_unit",
+      "target_id": "m1_geo_basic_figure_notation",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; geometry achievement-standard explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "점, 선, 면, 각 관련 용어는 직관적으로 이해하게 하고, 합동과 닮음은 교구나 공학 도구를 이용하여 의미를 이해하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_position_relation__represented_by__m1_geo_basic_figure_notation",
       "source_id": "m1_geo_position_relation",
-      "target_id": "m1_geo_intersection_point",
+      "target_id": "m1_geo_basic_figure_notation",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_intersection_point__used_in__m1_geo_position_relation",
+      "source_id": "m1_geo_intersection_point",
+      "target_id": "m1_geo_position_relation",
       "relationship_type": "used_in",
       "source_refs": [
         {
@@ -44885,9 +45496,65 @@
       "confidence": "high"
     },
     {
-      "id": "m1_geo_position_relation__used_in__m1_geo_intersection_line",
+      "id": "m1_geo_intersection_line__used_in__m1_geo_position_relation",
+      "source_id": "m1_geo_intersection_line",
+      "target_id": "m1_geo_position_relation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_skew_lines__used_in__m1_geo_position_relation",
+      "source_id": "m1_geo_skew_lines",
+      "target_id": "m1_geo_position_relation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_position_relation__used_in__m1_geo_position_relation_explanation",
       "source_id": "m1_geo_position_relation",
-      "target_id": "m1_geo_intersection_line",
+      "target_id": "m1_geo_position_relation_explanation",
       "relationship_type": "used_in",
       "source_refs": [
         {
@@ -44907,9 +45574,59 @@
       "confidence": "high"
     },
     {
-      "id": "m1_geo_position_relation__used_in__m1_geo_skew_lines",
-      "source_id": "m1_geo_position_relation",
-      "target_id": "m1_geo_skew_lines",
+      "id": "m1_geo_intersection_point__used_in__m1_geo_position_relation_explanation",
+      "source_id": "m1_geo_intersection_point",
+      "target_id": "m1_geo_position_relation_explanation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_intersection_line__used_in__m1_geo_position_relation_explanation",
+      "source_id": "m1_geo_intersection_line",
+      "target_id": "m1_geo_position_relation_explanation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_skew_lines__used_in__m1_geo_position_relation_explanation",
+      "source_id": "m1_geo_skew_lines",
+      "target_id": "m1_geo_position_relation_explanation",
       "relationship_type": "used_in",
       "source_refs": [
         {
@@ -45109,6 +45826,94 @@
       "confidence": "low"
     },
     {
+      "id": "m1_geo_line_segment__used_in__m1_geo_distance_between_two_points",
+      "source_id": "m1_geo_line_segment",
+      "target_id": "m1_geo_distance_between_two_points",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_line_segment__used_in__m1_geo_midpoint",
+      "source_id": "m1_geo_line_segment",
+      "target_id": "m1_geo_midpoint",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_line_segment__used_in__m1_geo_perpendicular_bisector",
+      "source_id": "m1_geo_line_segment",
+      "target_id": "m1_geo_perpendicular_bisector",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_ray__used_in__m1_geo_angle",
+      "source_id": "m1_geo_ray",
+      "target_id": "m1_geo_angle",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_geo_distance_between_two_points__used_in__m1_geo_midpoint",
       "source_id": "m1_geo_distance_between_two_points",
       "target_id": "m1_geo_midpoint",
@@ -45191,6 +45996,28 @@
           "locator": "기본 도형 section; [9수03-01] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_angle__used_in__m1_geo_angle_measure",
+      "source_id": "m1_geo_angle",
+      "target_id": "m1_geo_angle_measure",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
         }
       ],
       "notes": "",
@@ -45315,8 +46142,8 @@
       "confidence": "high"
     },
     {
-      "id": "m1_geo_parallel_lines__used_in__m1_geo_corresponding_angles",
-      "source_id": "m1_geo_parallel_lines",
+      "id": "m1_geo_transversal_line_context__used_in__m1_geo_corresponding_angles",
+      "source_id": "m1_geo_transversal_line_context",
       "target_id": "m1_geo_corresponding_angles",
       "relationship_type": "used_in",
       "source_refs": [
@@ -45327,12 +46154,6 @@
           "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
         },
         {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
-          "evidence_kind": "term_list",
-          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
-        },
-        {
           "source_id": "achievement_math_2022",
           "locator": "기본 도형 section; [9수03-02] achievement levels",
           "evidence_kind": "achievement_level",
@@ -45340,11 +46161,11 @@
         }
       ],
       "notes": "",
-      "confidence": "high"
+      "confidence": "medium"
     },
     {
-      "id": "m1_geo_parallel_lines__used_in__m1_geo_alternate_interior_angles",
-      "source_id": "m1_geo_parallel_lines",
+      "id": "m1_geo_transversal_line_context__used_in__m1_geo_alternate_interior_angles",
+      "source_id": "m1_geo_transversal_line_context",
       "target_id": "m1_geo_alternate_interior_angles",
       "relationship_type": "used_in",
       "source_refs": [
@@ -45355,10 +46176,48 @@
           "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
         },
         {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_transversal_line_context__used_in__m1_geo_parallel_angle_properties",
+      "source_id": "m1_geo_transversal_line_context",
+      "target_id": "m1_geo_parallel_angle_properties",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
           "source_id": "curriculum_math_2022",
-          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
-          "evidence_kind": "term_list",
-          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_parallel_lines__used_in__m1_geo_parallel_angle_properties",
+      "source_id": "m1_geo_parallel_lines",
+      "target_id": "m1_geo_parallel_angle_properties",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",
@@ -45413,6 +46272,448 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_parallel_lines__used_in__m1_geo_corresponding_angles_equal",
+      "source_id": "m1_geo_parallel_lines",
+      "target_id": "m1_geo_corresponding_angles_equal",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_parallel_lines__used_in__m1_geo_alternate_interior_angles_equal",
+      "source_id": "m1_geo_parallel_lines",
+      "target_id": "m1_geo_alternate_interior_angles_equal",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_corresponding_angles__used_in__m1_geo_corresponding_angles_equal",
+      "source_id": "m1_geo_corresponding_angles",
+      "target_id": "m1_geo_corresponding_angles_equal",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_alternate_interior_angles__used_in__m1_geo_alternate_interior_angles_equal",
+      "source_id": "m1_geo_alternate_interior_angles",
+      "target_id": "m1_geo_alternate_interior_angles_equal",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_corresponding_angles_equal__used_in__m1_geo_parallel_angle_properties",
+      "source_id": "m1_geo_corresponding_angles_equal",
+      "target_id": "m1_geo_parallel_angle_properties",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_alternate_interior_angles_equal__used_in__m1_geo_parallel_angle_properties",
+      "source_id": "m1_geo_alternate_interior_angles_equal",
+      "target_id": "m1_geo_parallel_angle_properties",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_corresponding_angles__used_in__m1_geo_identify_corresponding_alternate_angles",
+      "source_id": "m1_geo_corresponding_angles",
+      "target_id": "m1_geo_identify_corresponding_alternate_angles",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_alternate_interior_angles__used_in__m1_geo_identify_corresponding_alternate_angles",
+      "source_id": "m1_geo_alternate_interior_angles",
+      "target_id": "m1_geo_identify_corresponding_alternate_angles",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_identify_corresponding_alternate_angles__used_in__m1_geo_parallel_angle_measure_calculation",
+      "source_id": "m1_geo_identify_corresponding_alternate_angles",
+      "target_id": "m1_geo_parallel_angle_measure_calculation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_angle_measure__used_in__m1_geo_parallel_angle_measure_calculation",
+      "source_id": "m1_geo_angle_measure",
+      "target_id": "m1_geo_parallel_angle_measure_calculation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_corresponding_angles_equal__used_in__m1_geo_parallel_angle_measure_calculation",
+      "source_id": "m1_geo_corresponding_angles_equal",
+      "target_id": "m1_geo_parallel_angle_measure_calculation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_alternate_interior_angles_equal__used_in__m1_geo_parallel_angle_measure_calculation",
+      "source_id": "m1_geo_alternate_interior_angles_equal",
+      "target_id": "m1_geo_parallel_angle_measure_calculation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_vertical_angles__used_in__m1_geo_parallel_angle_measure_calculation",
+      "source_id": "m1_geo_vertical_angles",
+      "target_id": "m1_geo_parallel_angle_measure_calculation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_parallel_angle_properties__used_in__m1_geo_parallel_angle_measure_calculation",
+      "source_id": "m1_geo_parallel_angle_properties",
+      "target_id": "m1_geo_parallel_angle_measure_calculation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_parallel_angle_properties__used_in__m1_geo_parallel_angle_property_explanation",
+      "source_id": "m1_geo_parallel_angle_properties",
+      "target_id": "m1_geo_parallel_angle_property_explanation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_parallel_angle_property_explanation__related_to__m1_geo_polygon_angle_sum",
+      "source_id": "m1_geo_parallel_angle_property_explanation",
+      "target_id": "m1_geo_polygon_angle_sum",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 37-38; [9수03-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "다각형의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "평면도형의 성질 section; [9수03-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "다각형의 내각과 외각의 크기, 다각형의 대각선 개수 등 성질 이해 수준을 구분"
+        }
+      ],
+      "notes": "Parallel-line angle reasoning is later reused around polygon angle sums, but textbook sequence evidence is still needed.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_coplanar_condition__used_in__m1_geo_parallel_lines",
+      "source_id": "m1_geo_coplanar_condition",
+      "target_id": "m1_geo_parallel_lines",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_coplanar_condition__used_in__m1_geo_skew_lines",
+      "source_id": "m1_geo_coplanar_condition",
+      "target_id": "m1_geo_skew_lines",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_coplanar_condition__contrasts_with__m1_geo_skew_lines",
+      "source_id": "m1_geo_coplanar_condition",
+      "target_id": "m1_geo_skew_lines",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "Skew lines are distinguished from parallel lines by the same-plane condition.",
+      "confidence": "low"
     },
     {
       "id": "m1_geo_corresponding_angles__contrasts_with__m1_geo_alternate_interior_angles",
@@ -56837,6 +58138,28 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_basic_unit__contains__m1_geo_line_segment",
+      "source_id": "m1_geo_basic_unit",
+      "target_id": "m1_geo_line_segment",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_geo_basic_unit__contains__m1_geo_plane",
       "source_id": "m1_geo_basic_unit",
       "target_id": "m1_geo_plane",
@@ -56859,6 +58182,28 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_basic_unit__contains__m1_geo_ray",
+      "source_id": "m1_geo_basic_unit",
+      "target_id": "m1_geo_ray",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_geo_basic_unit__contains__m1_geo_angle",
       "source_id": "m1_geo_basic_unit",
       "target_id": "m1_geo_angle",
@@ -56875,6 +58220,56 @@
           "locator": "기본 도형 section; [9수03-01] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_basic_unit__contains__m1_geo_basic_figure_notation",
+      "source_id": "m1_geo_basic_unit",
+      "target_id": "m1_geo_basic_figure_notation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; geometry achievement-standard explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "점, 선, 면, 각 관련 용어는 직관적으로 이해하게 하고, 합동과 닮음은 교구나 공학 도구를 이용하여 의미를 이해하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_basic_unit__contains__m1_geo_angle_measure",
+      "source_id": "m1_geo_basic_unit",
+      "target_id": "m1_geo_angle_measure",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
         }
       ],
       "notes": "",
@@ -56901,6 +58296,50 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_basic_unit__contains__m1_geo_position_relation_explanation",
+      "source_id": "m1_geo_basic_unit",
+      "target_id": "m1_geo_position_relation_explanation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_basic_unit__contains__m1_geo_coplanar_condition",
+      "source_id": "m1_geo_basic_unit",
+      "target_id": "m1_geo_coplanar_condition",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
     },
     {
       "id": "m1_geo_basic_unit__contains__m1_geo_intersection_point",
@@ -57205,6 +58644,28 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_basic_unit__contains__m1_geo_transversal_line_context",
+      "source_id": "m1_geo_basic_unit",
+      "target_id": "m1_geo_transversal_line_context",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_basic_unit__contains__m1_geo_corresponding_angles",
       "source_id": "m1_geo_basic_unit",
       "target_id": "m1_geo_corresponding_angles",
@@ -57281,6 +58742,160 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_basic_unit__contains__m1_geo_corresponding_angles_equal",
+      "source_id": "m1_geo_basic_unit",
+      "target_id": "m1_geo_corresponding_angles_equal",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_parallel_angle_properties__contains__m1_geo_corresponding_angles_equal",
+      "source_id": "m1_geo_parallel_angle_properties",
+      "target_id": "m1_geo_corresponding_angles_equal",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_basic_unit__contains__m1_geo_alternate_interior_angles_equal",
+      "source_id": "m1_geo_basic_unit",
+      "target_id": "m1_geo_alternate_interior_angles_equal",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_parallel_angle_properties__contains__m1_geo_alternate_interior_angles_equal",
+      "source_id": "m1_geo_parallel_angle_properties",
+      "target_id": "m1_geo_alternate_interior_angles_equal",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_basic_unit__contains__m1_geo_identify_corresponding_alternate_angles",
+      "source_id": "m1_geo_basic_unit",
+      "target_id": "m1_geo_identify_corresponding_alternate_angles",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_basic_unit__contains__m1_geo_parallel_angle_measure_calculation",
+      "source_id": "m1_geo_basic_unit",
+      "target_id": "m1_geo_parallel_angle_measure_calculation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_basic_unit__contains__m1_geo_parallel_angle_property_explanation",
+      "source_id": "m1_geo_basic_unit",
+      "target_id": "m1_geo_parallel_angle_property_explanation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_basic_unit__contains__m1_mis_corresponding_alternate_angles",
@@ -74441,6 +76056,228 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_point__prerequisite_for__m1_geo_line_segment",
+      "source_id": "m1_geo_point",
+      "target_id": "m1_geo_line_segment",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_line__prerequisite_for__m1_geo_line_segment",
+      "source_id": "m1_geo_line",
+      "target_id": "m1_geo_line_segment",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_point__prerequisite_for__m1_geo_ray",
+      "source_id": "m1_geo_point",
+      "target_id": "m1_geo_ray",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_line__prerequisite_for__m1_geo_ray",
+      "source_id": "m1_geo_line",
+      "target_id": "m1_geo_ray",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_point__prerequisite_for__m1_geo_basic_figure_notation",
+      "source_id": "m1_geo_point",
+      "target_id": "m1_geo_basic_figure_notation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; geometry achievement-standard explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "점, 선, 면, 각 관련 용어는 직관적으로 이해하게 하고, 합동과 닮음은 교구나 공학 도구를 이용하여 의미를 이해하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_line__prerequisite_for__m1_geo_basic_figure_notation",
+      "source_id": "m1_geo_line",
+      "target_id": "m1_geo_basic_figure_notation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; geometry achievement-standard explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "점, 선, 면, 각 관련 용어는 직관적으로 이해하게 하고, 합동과 닮음은 교구나 공학 도구를 이용하여 의미를 이해하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_plane__prerequisite_for__m1_geo_basic_figure_notation",
+      "source_id": "m1_geo_plane",
+      "target_id": "m1_geo_basic_figure_notation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; geometry achievement-standard explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "점, 선, 면, 각 관련 용어는 직관적으로 이해하게 하고, 합동과 닮음은 교구나 공학 도구를 이용하여 의미를 이해하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_angle__prerequisite_for__m1_geo_basic_figure_notation",
+      "source_id": "m1_geo_angle",
+      "target_id": "m1_geo_basic_figure_notation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; geometry achievement-standard explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "점, 선, 면, 각 관련 용어는 직관적으로 이해하게 하고, 합동과 닮음은 교구나 공학 도구를 이용하여 의미를 이해하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_angle__prerequisite_for__m1_geo_angle_measure",
+      "source_id": "m1_geo_angle",
+      "target_id": "m1_geo_angle_measure",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
       "id": "m1_geo_point__prerequisite_for__m1_geo_position_relation",
       "source_id": "m1_geo_point",
       "target_id": "m1_geo_position_relation",
@@ -74505,6 +76342,138 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_position_relation__prerequisite_for__m1_geo_position_relation_explanation",
+      "source_id": "m1_geo_position_relation",
+      "target_id": "m1_geo_position_relation_explanation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_point__prerequisite_for__m1_geo_position_relation_explanation",
+      "source_id": "m1_geo_point",
+      "target_id": "m1_geo_position_relation_explanation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_line__prerequisite_for__m1_geo_position_relation_explanation",
+      "source_id": "m1_geo_line",
+      "target_id": "m1_geo_position_relation_explanation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_plane__prerequisite_for__m1_geo_position_relation_explanation",
+      "source_id": "m1_geo_plane",
+      "target_id": "m1_geo_position_relation_explanation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_line__prerequisite_for__m1_geo_coplanar_condition",
+      "source_id": "m1_geo_line",
+      "target_id": "m1_geo_coplanar_condition",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_plane__prerequisite_for__m1_geo_coplanar_condition",
+      "source_id": "m1_geo_plane",
+      "target_id": "m1_geo_coplanar_condition",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
     },
     {
       "id": "m1_geo_point__prerequisite_for__m1_geo_intersection_point",
@@ -75055,6 +77024,50 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_line__prerequisite_for__m1_geo_transversal_line_context",
+      "source_id": "m1_geo_line",
+      "target_id": "m1_geo_transversal_line_context",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_intersection_point__prerequisite_for__m1_geo_transversal_line_context",
+      "source_id": "m1_geo_intersection_point",
+      "target_id": "m1_geo_transversal_line_context",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_angle__prerequisite_for__m1_geo_corresponding_angles",
       "source_id": "m1_geo_angle",
       "target_id": "m1_geo_corresponding_angles",
@@ -75083,8 +77096,8 @@
       "confidence": "high"
     },
     {
-      "id": "m1_geo_parallel_lines__prerequisite_for__m1_geo_corresponding_angles",
-      "source_id": "m1_geo_parallel_lines",
+      "id": "m1_geo_transversal_line_context__prerequisite_for__m1_geo_corresponding_angles",
+      "source_id": "m1_geo_transversal_line_context",
       "target_id": "m1_geo_corresponding_angles",
       "relationship_type": "prerequisite_for",
       "source_refs": [
@@ -75139,8 +77152,8 @@
       "confidence": "high"
     },
     {
-      "id": "m1_geo_parallel_lines__prerequisite_for__m1_geo_alternate_interior_angles",
-      "source_id": "m1_geo_parallel_lines",
+      "id": "m1_geo_transversal_line_context__prerequisite_for__m1_geo_alternate_interior_angles",
+      "source_id": "m1_geo_transversal_line_context",
       "target_id": "m1_geo_alternate_interior_angles",
       "relationship_type": "prerequisite_for",
       "source_refs": [
@@ -75233,104 +77246,290 @@
       "confidence": "high"
     },
     {
-      "id": "m1_geo_corresponding_angles__prerequisite_for__m1_mis_corresponding_alternate_angles",
-      "source_id": "m1_geo_corresponding_angles",
-      "target_id": "m1_mis_corresponding_alternate_angles",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 37; [9수03-02]",
-          "evidence_kind": "achievement_standard",
-          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "기본 도형 section; [9수03-02] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_geo_alternate_interior_angles__prerequisite_for__m1_mis_corresponding_alternate_angles",
-      "source_id": "m1_geo_alternate_interior_angles",
-      "target_id": "m1_mis_corresponding_alternate_angles",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 37; [9수03-02]",
-          "evidence_kind": "achievement_standard",
-          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "기본 도형 section; [9수03-02] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_geo_skew_lines__prerequisite_for__m1_mis_skew_parallel_lines",
-      "source_id": "m1_geo_skew_lines",
-      "target_id": "m1_mis_skew_parallel_lines",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 37; [9수03-01]",
-          "evidence_kind": "achievement_standard",
-          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
-        },
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
-          "evidence_kind": "term_list",
-          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "기본 도형 section; [9수03-01] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_geo_parallel_lines__prerequisite_for__m1_mis_skew_parallel_lines",
+      "id": "m1_geo_parallel_lines__prerequisite_for__m1_geo_corresponding_angles_equal",
       "source_id": "m1_geo_parallel_lines",
-      "target_id": "m1_mis_skew_parallel_lines",
+      "target_id": "m1_geo_corresponding_angles_equal",
       "relationship_type": "prerequisite_for",
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
-          "locator": "printed p. 37; [9수03-01]",
+          "locator": "printed p. 37; [9수03-02]",
           "evidence_kind": "achievement_standard",
-          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
-        },
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
-          "evidence_kind": "term_list",
-          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",
-          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
           "evidence_kind": "achievement_level",
-          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
         }
       ],
       "notes": "",
-      "confidence": "low"
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_corresponding_angles__prerequisite_for__m1_geo_corresponding_angles_equal",
+      "source_id": "m1_geo_corresponding_angles",
+      "target_id": "m1_geo_corresponding_angles_equal",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_parallel_lines__prerequisite_for__m1_geo_alternate_interior_angles_equal",
+      "source_id": "m1_geo_parallel_lines",
+      "target_id": "m1_geo_alternate_interior_angles_equal",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_alternate_interior_angles__prerequisite_for__m1_geo_alternate_interior_angles_equal",
+      "source_id": "m1_geo_alternate_interior_angles",
+      "target_id": "m1_geo_alternate_interior_angles_equal",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_parallel_lines__prerequisite_for__m1_geo_identify_corresponding_alternate_angles",
+      "source_id": "m1_geo_parallel_lines",
+      "target_id": "m1_geo_identify_corresponding_alternate_angles",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_transversal_line_context__prerequisite_for__m1_geo_identify_corresponding_alternate_angles",
+      "source_id": "m1_geo_transversal_line_context",
+      "target_id": "m1_geo_identify_corresponding_alternate_angles",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_corresponding_angles__prerequisite_for__m1_geo_identify_corresponding_alternate_angles",
+      "source_id": "m1_geo_corresponding_angles",
+      "target_id": "m1_geo_identify_corresponding_alternate_angles",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_alternate_interior_angles__prerequisite_for__m1_geo_identify_corresponding_alternate_angles",
+      "source_id": "m1_geo_alternate_interior_angles",
+      "target_id": "m1_geo_identify_corresponding_alternate_angles",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_parallel_angle_properties__prerequisite_for__m1_geo_parallel_angle_measure_calculation",
+      "source_id": "m1_geo_parallel_angle_properties",
+      "target_id": "m1_geo_parallel_angle_measure_calculation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_corresponding_angles__prerequisite_for__m1_geo_parallel_angle_measure_calculation",
+      "source_id": "m1_geo_corresponding_angles",
+      "target_id": "m1_geo_parallel_angle_measure_calculation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_alternate_interior_angles__prerequisite_for__m1_geo_parallel_angle_measure_calculation",
+      "source_id": "m1_geo_alternate_interior_angles",
+      "target_id": "m1_geo_parallel_angle_measure_calculation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_angle_measure__prerequisite_for__m1_geo_parallel_angle_measure_calculation",
+      "source_id": "m1_geo_angle_measure",
+      "target_id": "m1_geo_parallel_angle_measure_calculation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_parallel_angle_properties__prerequisite_for__m1_geo_parallel_angle_property_explanation",
+      "source_id": "m1_geo_parallel_angle_properties",
+      "target_id": "m1_geo_parallel_angle_property_explanation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_point__prerequisite_for__m1_geo_construction",
@@ -79549,50 +81748,6 @@
           "locator": "printed p. 39; achievement-standard considerations",
           "evidence_kind": "teaching_note",
           "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_geo_tangent_property__prerequisite_for__m1_mis_tangent_radius",
-      "source_id": "m1_geo_tangent_property",
-      "target_id": "m1_mis_tangent_radius",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 38; [9수03-18]",
-          "evidence_kind": "achievement_standard",
-          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_geo_perpendicular__prerequisite_for__m1_mis_tangent_radius",
-      "source_id": "m1_geo_perpendicular",
-      "target_id": "m1_mis_tangent_radius",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 38; [9수03-18]",
-          "evidence_kind": "achievement_standard",
-          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
         }
       ],
       "notes": "",
@@ -85465,6 +87620,56 @@
           "locator": "좌표평면과 그래프 section; [9수02-07] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "정비례·반비례 관계를 표, 식, 그래프로 나타내는 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_skew_parallel_lines__often_confused_with__m1_geo_coplanar_condition",
+      "source_id": "m1_mis_skew_parallel_lines",
+      "target_id": "m1_geo_coplanar_condition",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "점, 선, 면, 각을 이해하고 점, 직선, 평면의 위치 관계를 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_corresponding_alternate_angles__often_confused_with__m1_geo_identify_corresponding_alternate_angles",
+      "source_id": "m1_mis_corresponding_alternate_angles",
+      "target_id": "m1_geo_identify_corresponding_alternate_angles",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선에서 동위각과 엇각의 성질을 이해하고 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "기본 도형 section; [9수03-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "평행선에서 동위각과 엇각을 찾고 각의 크기를 구하거나 성질을 설명하는 수준을 구분"
         }
       ],
       "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",

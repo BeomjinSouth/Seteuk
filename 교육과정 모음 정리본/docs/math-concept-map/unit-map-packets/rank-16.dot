@@ -20,6 +20,7 @@ digraph pilot_unit_map {
   "m1_geo_interior_angle" [label="내각\\nterm", fillcolor="#f7fbff"];
   "m1_geo_secant" [label="할선\\nterm", fillcolor="#f7fbff"];
   "m1_mis_complex_area_volume_scope" [label="지나치게 복잡한 넓이·부피 변형 문제 범위 혼동\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_parallel_angle_property_explanation" [label="평행선에서 동위각과 엇각의 성질 설명하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_circle_unit" [label="원의 성질\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_domain" [label="도형과 측정\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_circle" [label="원\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -52,6 +53,7 @@ digraph pilot_unit_map {
   "m1_mis_arc_chord" -> "m1_geo_circular_segment" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_arc_chord" -> "m1_geo_sector" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_complex_area_volume_scope" -> "m1_geo_plane_properties_unit" [label="often_confused_with", style="dashed", color="#b91c1c"];
+  "m1_geo_parallel_angle_property_explanation" -> "m1_geo_polygon_angle_sum" [label="related_to", style="dashed", color="#b91c1c"];
   "m1_geo_plane_properties_unit" -> "m1_geo_arc" [label="contains", style="solid", color="#6b7280"];
   "m1_geo_plane_properties_unit" -> "m1_geo_central_angle" [label="contains", style="solid", color="#6b7280"];
   "m1_geo_plane_properties_unit" -> "m1_geo_chord" [label="contains", style="solid", color="#6b7280"];

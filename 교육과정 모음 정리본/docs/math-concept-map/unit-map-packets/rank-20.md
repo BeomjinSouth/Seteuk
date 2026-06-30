@@ -9,12 +9,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 도형과 측정
 - unit: 원의 성질
 - priority tier: high
-- workplan score: 99
+- workplan score: 90
 - concepts: 13
-- edges touching unit: 76
-- cross-unit edges: 32
+- edges touching unit: 74
+- cross-unit edges: 31
 - low confidence concepts: 2
-- low confidence edges: 11
+- low confidence edges: 9
 
 ## Concept Type Distribution
 
@@ -33,7 +33,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 15 |
 | contrasts_with | 3 |
 | often_confused_with | 4 |
-| prerequisite_for | 35 |
+| prerequisite_for | 33 |
 | related_to | 1 |
 | represented_by | 4 |
 | used_in | 14 |
@@ -49,7 +49,6 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
-| m1_geo_perpendicular__prerequisite_for__m1_mis_tangent_radius | 직교 | prerequisite_for | 접선과 반지름의 수직 관계를 놓치는 오류 | low | official_dual_source |
 | m1_geo_similarity_ratio__prerequisite_for__m1_mis_circle_proportion_scope | 닮음비 | prerequisite_for | 원과 비례에 관한 성질을 범위에 포함하는 오류 | low | official_single_source |
 | m1_geo_tangent_ratio__contrasts_with__m1_geo_tangent_line | 탄젠트 | contrasts_with | 접선 | low | official_single_source |
 | m1_geo_circle_unit__contains__m1_geo_chord | 원의 성질 | contains | 현 | high | official_dual_source |

@@ -10,9 +10,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 원의 성질
 - priority tier: high
 - priority score: 23
-- edges in packet: 76
-- cross-unit edges: 32
-- low confidence edges: 11
+- edges in packet: 74
+- cross-unit edges: 31
+- low confidence edges: 9
 
 ## Relationship Evidence Slots
 
@@ -21,12 +21,10 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_geo_circle_unit__contains__m1_mis_circle_proportion_scope | intra_unit | 원의 성질 | contains | 원과 비례에 관한 성질을 범위에 포함하는 오류 | low | structure_ref;textbook_page_refs;extraction_notes | Find textbook structure evidence for the containment relation. | 1 |
 | m1_geo_circle_unit__contains__m1_mis_tangent_radius | intra_unit | 원의 성질 | contains | 접선과 반지름의 수직 관계를 놓치는 오류 | low | structure_ref;textbook_page_refs;extraction_notes | Find textbook structure evidence for the containment relation. | 2 |
 | m1_geo_circle__prerequisite_for__m1_mis_circle_proportion_scope | intra_unit | 원 | prerequisite_for | 원과 비례에 관한 성질을 범위에 포함하는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
-| m1_geo_tangent_property__prerequisite_for__m1_mis_tangent_radius | intra_unit | 원의 접선에 관한 성질 | prerequisite_for | 접선과 반지름의 수직 관계를 놓치는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_mis_circle_proportion_scope__often_confused_with__m1_geo_circle_chord_property | intra_unit | 원과 비례에 관한 성질을 범위에 포함하는 오류 | often_confused_with | 원의 현에 관한 성질 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 1 |
 | m1_mis_tangent_radius__often_confused_with__m1_geo_tangent_line | intra_unit | 접선과 반지름의 수직 관계를 놓치는 오류 | often_confused_with | 접선 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_tangent_radius__often_confused_with__m1_geo_tangent_point | intra_unit | 접선과 반지름의 수직 관계를 놓치는 오류 | often_confused_with | 접점 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_tangent_radius__often_confused_with__m1_geo_tangent_property | intra_unit | 접선과 반지름의 수직 관계를 놓치는 오류 | often_confused_with | 원의 접선에 관한 성질 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
-| m1_geo_perpendicular__prerequisite_for__m1_mis_tangent_radius | cross_unit | 직교 | prerequisite_for | 접선과 반지름의 수직 관계를 놓치는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_similarity_ratio__prerequisite_for__m1_mis_circle_proportion_scope | cross_unit | 닮음비 | prerequisite_for | 원과 비례에 관한 성질을 범위에 포함하는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
 | m1_geo_tangent_ratio__contrasts_with__m1_geo_tangent_line | cross_unit | 탄젠트 | contrasts_with | 접선 | low | contrast_ref;textbook_page_refs;extraction_notes | Find textbook wording or examples that distinguish the two concepts. | 1 |
 | m1_geo_circle_unit__contains__m1_geo_circle | intra_unit | 원의 성질 | contains | 원 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 5 |

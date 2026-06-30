@@ -16,7 +16,6 @@ digraph pilot_unit_map {
   "m1_geo_tangent_line" [label="접선\\nterm", fillcolor="#f7fbff"];
   "m1_geo_tangent_point" [label="접점\\nterm", fillcolor="#f7fbff"];
   "m1_geo_tangent_relation" [label="접한다\\nterm", fillcolor="#f7fbff"];
-  "m1_geo_perpendicular" [label="직교\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_similarity_ratio" [label="닮음비\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_tangent_ratio" [label="탄젠트\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_chord" [label="현\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -39,12 +38,10 @@ digraph pilot_unit_map {
   "m1_geo_circle_unit" -> "m1_mis_circle_proportion_scope" [label="contains", style="solid", color="#b91c1c"];
   "m1_geo_circle_unit" -> "m1_mis_tangent_radius" [label="contains", style="solid", color="#b91c1c"];
   "m1_geo_circle" -> "m1_mis_circle_proportion_scope" [label="prerequisite_for", style="solid", color="#b91c1c"];
-  "m1_geo_tangent_property" -> "m1_mis_tangent_radius" [label="prerequisite_for", style="solid", color="#b91c1c"];
   "m1_mis_circle_proportion_scope" -> "m1_geo_circle_chord_property" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_tangent_radius" -> "m1_geo_tangent_line" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_tangent_radius" -> "m1_geo_tangent_point" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_tangent_radius" -> "m1_geo_tangent_property" [label="often_confused_with", style="solid", color="#b91c1c"];
-  "m1_geo_perpendicular" -> "m1_mis_tangent_radius" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_geo_similarity_ratio" -> "m1_mis_circle_proportion_scope" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_geo_tangent_ratio" -> "m1_geo_tangent_line" [label="contrasts_with", style="dashed", color="#b91c1c"];
   "m1_geo_circle_unit" -> "m1_geo_circle" [label="contains", style="solid", color="#6b7280"];

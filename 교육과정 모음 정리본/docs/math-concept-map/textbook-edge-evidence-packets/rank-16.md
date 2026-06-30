@@ -10,9 +10,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 평면도형의 성질
 - priority tier: high
 - priority score: 26
-- edges in packet: 100
-- cross-unit edges: 44
-- low confidence edges: 8
+- edges in packet: 101
+- cross-unit edges: 45
+- low confidence edges: 9
 
 ## Relationship Evidence Slots
 
@@ -26,6 +26,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_mis_arc_chord__often_confused_with__m1_geo_circular_segment | intra_unit | 호와 현을 같은 대상으로 보는 오류 | often_confused_with | 활꼴 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 3 |
 | m1_mis_arc_chord__often_confused_with__m1_geo_sector | intra_unit | 호와 현을 같은 대상으로 보는 오류 | often_confused_with | 부채꼴 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 3 |
 | m1_mis_complex_area_volume_scope__often_confused_with__m1_geo_plane_properties_unit | cross_unit | 지나치게 복잡한 넓이·부피 변형 문제 범위 혼동 | often_confused_with | 평면도형의 성질 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 1 |
+| m1_geo_parallel_angle_property_explanation__related_to__m1_geo_polygon_angle_sum | cross_unit | 평행선에서 동위각과 엇각의 성질 설명하기 | related_to | 다각형의 내각과 외각의 크기 | low | related_ref;textbook_page_refs;extraction_notes | Find textbook wording or examples that justify keeping these concepts linked. | 4 |
 | m1_geo_plane_properties_unit__contains__m1_geo_arc | intra_unit | 평면도형의 성질 | contains | 호 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
 | m1_geo_plane_properties_unit__contains__m1_geo_central_angle | intra_unit | 평면도형의 성질 | contains | 중심각 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
 | m1_geo_plane_properties_unit__contains__m1_geo_chord | intra_unit | 평면도형의 성질 | contains | 현 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 5 |

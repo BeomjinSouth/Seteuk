@@ -2,7 +2,7 @@
 
 이 문서는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 출처 보강 때 먼저 확인할 대상을 정리한다.
 
-- 검토 대상 concept: 83개
+- 검토 대상 concept: 86개
 
 ## 영역별 검토 대상
 
@@ -10,7 +10,7 @@
 |---|---:|
 | 수와 연산 | 12 |
 | 변화와 관계 | 46 |
-| 도형과 측정 | 12 |
+| 도형과 측정 | 15 |
 | 자료와 가능성 | 13 |
 
 ## 유형별 검토 대상
@@ -19,10 +19,10 @@
 |---|---:|
 | misconception_risk | 66 |
 | procedure | 2 |
-| property | 4 |
+| property | 5 |
 | representation | 1 |
 | sub_concept | 6 |
-| term | 4 |
+| term | 6 |
 
 ## 검토 항목
 
@@ -88,6 +88,9 @@
 | m1_coord_y_axis_point | 변화와 관계 | 좌표평면과 그래프 | sub_concept | source_detail_needed | y축 위의 점 | 공식 문서에는 y축, 좌표, 좌표평면 위의 점이 확인된다. x좌표가 0인 점이라는 세부 조건은 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_mis_corresponding_alternate_angles | 도형과 측정 | 기본 도형 | misconception_risk | textbook_evidence_needed | 동위각과 엇각의 위치를 혼동하는 오류 | 성취수준의 각 찾기와 크기 구하기 수행에서 추론한 위험이다. 교과서 오개념 코너 확인 필요. |
 | m1_mis_skew_parallel_lines | 도형과 측정 | 기본 도형 | misconception_risk | textbook_evidence_needed | 꼬인 위치와 평행을 같은 관계로 보는 오류 |  |
+| m1_geo_coplanar_condition | 도형과 측정 | 기본 도형 | property | source_detail_needed | 한 평면 위에 있음 | 평행선과 꼬인 위치의 구별에 쓰이는 조건이지만 공식 독립 용어로 확인되지는 않아 낮은 신뢰도로 둔다. |
+| m1_geo_line_segment | 도형과 측정 | 기본 도형 | term | source_detail_needed | 선분 | 공식 용어표의 직접 열거가 아니라 중점, 수직이등분선, 두 점 사이의 거리 설명에서 필요한 하위 용어로 분리했다. 교과서 본문 근거가 필요하다. |
+| m1_geo_ray | 도형과 측정 | 기본 도형 | term | source_detail_needed | 반직선 | 각의 정의에 필요한 하위 용어지만 공식 용어표 직접 근거는 아직 확인되지 않아 낮은 신뢰도로 둔다. |
 | m1_mis_congruence_similarity | 도형과 측정 | 도형의 닮음 | misconception_risk | textbook_evidence_needed | 합동과 닮음을 같은 관계로 보는 오류 |  |
 | m1_mis_trig_angle_scope | 도형과 측정 | 삼각비 | misconception_risk | textbook_evidence_needed | 삼각비 각의 범위를 0도~90도 밖으로 확장하는 오류 | 교육과정 유의사항에 근거한 범위 관리 노드다. |
 | m1_mis_trig_relation_scope | 도형과 측정 | 삼각비 | misconception_risk | textbook_evidence_needed | 삼각비 사이의 관계를 교육과정 범위로 오해하는 오류 | 교육과정 유의사항은 삼각비 사이의 관계는 다루지 않는다고 명시한다. |
