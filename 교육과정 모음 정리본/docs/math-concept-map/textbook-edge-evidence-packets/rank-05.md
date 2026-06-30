@@ -10,9 +10,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 정수와 유리수
 - priority tier: highest
 - priority score: 65
-- edges in packet: 202
-- cross-unit edges: 50
-- low confidence edges: 36
+- edges in packet: 210
+- cross-unit edges: 58
+- low confidence edges: 38
 
 ## Relationship Evidence Slots
 
@@ -53,6 +53,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_num_rational_number__prerequisite_for__m1_data_probability_value | cross_unit | 유리수 | prerequisite_for | 확률값 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_rational_number__prerequisite_for__m1_num_ratio | cross_unit | 유리수 | prerequisite_for | 비 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_mixed_calculation__used_in__m1_calc_simplify_expression | cross_unit | 정수와 유리수의 혼합계산 | used_in | 식을 간단히 하기 | low | procedure_ref;textbook_page_refs;extraction_notes | Find a worked example, procedure, or application where this source concept is used. | 5 |
+| m1_mis_polynomial_subtraction_sign__often_confused_with__m1_mis_sign_operation | cross_unit | 다항식 뺄셈에서 괄호 앞 음수를 분배하지 않는 오류 | often_confused_with | 부호와 연산 기호를 혼동하는 오류 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 4 |
+| m1_mis_sign_operation__often_confused_with__m1_calc_polynomial_subtraction_sign_distribution | cross_unit | 부호와 연산 기호를 혼동하는 오류 | often_confused_with | 다항식의 뺄셈에서 부호 바꾸기 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_num_absolute_value__related_to__m1_geo_distance_between_two_points | cross_unit | 절댓값 | related_to | 두 점 사이의 거리 | low | related_ref;textbook_page_refs;extraction_notes | Find textbook wording or examples that justify keeping these concepts linked. | 6 |
 | m1_num_four_operations__contains__m1_num_addition | intra_unit | 정수와 유리수의 사칙계산 | contains | 덧셈 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
 | m1_num_four_operations__contains__m1_num_division | intra_unit | 정수와 유리수의 사칙계산 | contains | 나눗셈 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
@@ -180,11 +182,15 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_num_real_number__contains__m1_num_rational_number | cross_unit | 실수 | contains | 유리수 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
 | m1_num_addition__prerequisite_for__m1_eq_equal_add_subtract_property | cross_unit | 덧셈 | prerequisite_for | 양변에 같은 수를 더하거나 빼기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_distributive_law__prerequisite_for__m1_calc_expansion | cross_unit | 분배법칙 | prerequisite_for | 전개 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_num_distributive_law__prerequisite_for__m1_calc_monomial_times_polynomial_distribution | cross_unit | 분배법칙 | prerequisite_for | 단항식을 다항식에 분배하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_num_distributive_law__prerequisite_for__m1_calc_polynomial_parentheses_removal | cross_unit | 분배법칙 | prerequisite_for | 다항식의 괄호 풀기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_distributive_law__prerequisite_for__m1_factor_common_factor_formula | cross_unit | 분배법칙 | prerequisite_for | m(a+b) 공식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
 | m1_num_division__prerequisite_for__m1_eq_equal_multiply_divide_property | cross_unit | 나눗셈 | prerequisite_for | 양변에 같은 수를 곱하거나 나누기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_num_four_operations__prerequisite_for__m1_calc_monomial_coefficient_calculation | cross_unit | 정수와 유리수의 사칙계산 | prerequisite_for | 단항식 계산에서 계수끼리 계산하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_num_four_operations__prerequisite_for__m1_calc_unit | cross_unit | 정수와 유리수의 사칙계산 | prerequisite_for | 식의 계산 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_four_operations__prerequisite_for__m1_expr_evaluate_expression_value | cross_unit | 정수와 유리수의 사칙계산 | prerequisite_for | 식의 값 구하기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_num_integer_rational_unit__prerequisite_for__m1_num_repeating_decimal_unit | cross_unit | 정수와 유리수 | prerequisite_for | 유리수와 순환소수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_num_minus_sign__prerequisite_for__m1_calc_polynomial_subtraction_sign_distribution | cross_unit | 음의 부호 | prerequisite_for | 다항식의 뺄셈에서 부호 바꾸기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_num_multiplication__prerequisite_for__m1_eq_equal_multiply_divide_property | cross_unit | 곱셈 | prerequisite_for | 양변에 같은 수를 곱하거나 나누기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_order_relation__prerequisite_for__m1_data_class | cross_unit | 정수와 유리수의 대소 관계 | prerequisite_for | 계급 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_order_relation__prerequisite_for__m1_data_median | cross_unit | 정수와 유리수의 대소 관계 | prerequisite_for | 중앙값 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
@@ -206,8 +212,10 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_num_rational_number__prerequisite_for__m1_num_repeating_decimal_unit | cross_unit | 유리수 | prerequisite_for | 유리수와 순환소수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_rational_number__prerequisite_for__m1_num_square_root_real_unit | cross_unit | 유리수 | prerequisite_for | 제곱근과 실수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 10 |
 | m1_num_subtraction__prerequisite_for__m1_eq_equal_add_subtract_property | cross_unit | 뺄셈 | prerequisite_for | 양변에 같은 수를 더하거나 빼기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_num_subtraction_as_add_opposite__prerequisite_for__m1_calc_polynomial_subtraction_sign_distribution | cross_unit | 뺄셈을 반대 부호의 덧셈으로 바꾸기 | prerequisite_for | 다항식의 뺄셈에서 부호 바꾸기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_num_real_number__represented_by__m1_num_number_line | cross_unit | 실수 | represented_by | 수직선 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
 | m1_num_repeating_decimal_to_fraction__represented_by__m1_num_rational_number | cross_unit | 순환소수를 분수로 나타내기 | represented_by | 유리수 | high | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
+| m1_num_distributive_law__used_in__m1_calc_monomial_times_polynomial_distribution | cross_unit | 분배법칙 | used_in | 단항식을 다항식에 분배하기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 5 |
 | m1_num_distributive_law__used_in__m1_factor_common_factor_formula | cross_unit | 분배법칙 | used_in | m(a+b) 공식 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 1 |
 | m1_num_distributive_law__used_in__m1_factor_polynomial_multiplication | cross_unit | 분배법칙 | used_in | 다항식의 곱셈 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 7 |
 | m1_num_four_operations__used_in__m1_expr_evaluate_expression_value | cross_unit | 정수와 유리수의 사칙계산 | used_in | 식의 값 구하기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |

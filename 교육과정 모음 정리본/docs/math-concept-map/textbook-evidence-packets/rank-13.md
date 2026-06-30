@@ -5,44 +5,43 @@ This generated packet is the unit-level worksheet for adding textbook-grounded e
 ## Target Unit
 
 - rank: 13
-- grade: 중3(교육과정 학년군: 중1-3)
-- domain: 수와 연산
-- unit: 제곱근과 실수
+- grade: 중1(교육과정 학년군: 중1-3)
+- domain: 변화와 관계
+- unit: 문자의 사용과 식
 - priority tier: highest
-- priority score: 45
-- concepts in packet: 25
-- pending textbook evidence: 25
+- priority score: 48
+- concepts in packet: 24
+- pending textbook evidence: 24
 - low confidence concepts: 3
 
 ## Concept Evidence Slots
 
 | concept_id | label_ko | type | confidence | evidence_depth | status | required evidence | focus | source refs |
 |---|---|---|---|---|---|---|---|---:|
-| m1_mis_radical_like_terms | 근호 안의 수가 다른 제곱근을 동류항처럼 더하는 오류 | misconception_risk | low | official_single_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 1 |
-| m1_mis_irrational_decimal | 무한소수와 무리수를 같은 말로 보는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 4 |
-| m1_mis_radical_principal_root | 근호가 나타내는 제곱근의 부호를 혼동하는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
-| m1_num_radicand | 근호 안의 수 | term | medium | official_single_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 2 |
-| m1_num_square_number | 제곱수 | term | medium | official_single_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 1 |
-| m1_num_square_root_calculator | 계산기로 제곱근 값 구하기 | procedure | medium | official_single_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 1 |
-| m1_num_compare_square_roots | 제곱근의 대소 관계 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_num_find_square_root | 제곱근 구하기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_num_irrational_number | 무리수 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 5 |
-| m1_num_radical_add_sub_same_radicand | 근호 안의 수가 같은 제곱근의 덧셈과 뺄셈 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_num_radical_expression | 근호를 포함한 식 | representation | high | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 3 |
-| m1_num_radical_mul_div | 제곱근의 곱셈과 나눗셈 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_num_radical_operations | 근호를 포함한 식의 사칙계산 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_num_radical_sign | 근호 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 4 |
-| m1_num_rational_irrational_classification | 유리수와 무리수의 구분 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 2 |
-| m1_num_rationalize_denominator | 분모의 유리화 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_num_real_number | 실수 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 6 |
-| m1_num_real_number_system | 실수의 수 체계 | representation | high | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 3 |
-| m1_num_real_order | 실수의 대소 관계 | property | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 3 |
-| m1_num_represent_square_root_radical | 제곱근을 근호로 나타내기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_num_simplify_radical_expression | 근호를 포함한 식 간단히 하기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_num_square_root | 제곱근 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 4 |
-| m1_num_square_root_property | 제곱근의 성질 | property | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 3 |
-| m1_num_square_root_real_unit | 제곱근과 실수 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 10 |
-| m1_num_unit_square_diagonal | 한 변의 길이가 1인 정사각형의 대각선 | representation | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 3 |
+| m1_mis_coefficient_constant_degree | 계수·상수항·차수 혼동 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
+| m1_mis_letter_as_label_only | 문자를 이름표로만 해석하는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
+| m1_mis_like_terms | 동류항이 아닌 항을 합치는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
+| m1_expr_coefficient | 계수 | term | high | official_single_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 1 |
+| m1_expr_constant_term | 상수항 | term | high | official_single_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 1 |
+| m1_expr_degree | 차수 | term | high | official_single_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 1 |
+| m1_expr_monomial | 단항식 | sub_concept | high | official_single_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 1 |
+| m1_expr_term | 항 | term | high | official_single_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 1 |
+| m1_expr_unit | 문자의 사용과 식 | core_concept | high | official_single_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 3 |
+| m1_expr_add_sub_linear_expression | 일차식의 덧셈과 뺄셈 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_expr_evaluate_expression_value | 식의 값 구하기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
+| m1_expr_explain_linear_expression_calculation | 일차식 계산 과정 설명하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_expr_letter | 문자 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 4 |
+| m1_expr_letter_quantity | 문자가 나타내는 수량 정하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
+| m1_expr_like_terms | 동류항 | term | medium | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 2 |
+| m1_expr_linear_expression | 일차식 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 4 |
+| m1_expr_linear_expression_add_sub_principle | 일차식의 덧셈과 뺄셈 원리 | property | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 3 |
+| m1_expr_literal_expression | 문자를 사용한 식 | representation | high | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 3 |
+| m1_expr_polynomial | 다항식 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 2 |
+| m1_expr_quantity_relationship | 상황 속 수량 관계 | sub_concept | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 3 |
+| m1_expr_situation_to_literal_expression | 상황을 문자를 사용한 식으로 나타내기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_expr_substitution | 대입 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_expr_usefulness | 문자를 사용한 식의 유용성 | property | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 4 |
+| m1_expr_value | 식의 값 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 4 |
 
 ## Textbook Evidence Fields
 

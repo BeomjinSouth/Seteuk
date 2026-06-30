@@ -5,8 +5,8 @@ This generated index tracks the prepared unit-level textbook evidence packets.
 ## Summary
 
 - packets: 34
-- concepts in packets: 597
-- pending textbook evidence rows: 597
+- concepts in packets: 613
+- pending textbook evidence rows: 613
 
 ## Packets
 
@@ -23,10 +23,10 @@ This generated index tracks the prepared unit-level textbook evidence packets.
 | 9 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 입체도형의 성질 | 29 | 29 | 4 | highest | 53 | rank-09.md |
 | 10 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차방정식 | 31 | 31 | 3 | highest | 53 | rank-10.md |
 | 11 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 소인수분해 | 32 | 32 | 4 | highest | 52 | rank-11.md |
-| 12 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 문자의 사용과 식 | 24 | 24 | 3 | highest | 48 | rank-12.md |
-| 13 | 중3(교육과정 학년군: 중1-3) | 수와 연산 | 제곱근과 실수 | 25 | 25 | 3 | highest | 45 | rank-13.md |
-| 14 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 다항식의 곱셈과 인수분해 | 20 | 20 | 4 | highest | 40 | rank-14.md |
-| 15 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 식의 계산 | 14 | 14 | 2 | high | 26 | rank-15.md |
+| 12 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 식의 계산 | 30 | 30 | 4 | highest | 50 | rank-12.md |
+| 13 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 문자의 사용과 식 | 24 | 24 | 3 | highest | 48 | rank-13.md |
+| 14 | 중3(교육과정 학년군: 중1-3) | 수와 연산 | 제곱근과 실수 | 25 | 25 | 3 | highest | 45 | rank-14.md |
+| 15 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 다항식의 곱셈과 인수분해 | 20 | 20 | 4 | highest | 40 | rank-15.md |
 | 16 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 평면도형의 성질 | 16 | 16 | 1 | high | 26 | rank-16.md |
 | 17 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 연립일차방정식 | 13 | 13 | 3 | high | 25 | rank-17.md |
 | 18 | 중3(교육과정 학년군: 중1-3) | 도형과 측정 | 삼각비 | 11 | 11 | 2 | high | 25 | rank-18.md |

@@ -175,15 +175,31 @@ flowchart LR
   m1_calc_base["밑"]
   m1_calc_exponent["지수"]
   m1_calc_exponent_laws["지수법칙"]
+  m1_calc_exponent_law_same_base_condition["지수법칙 적용 조건: 밑이 같음"]
+  m1_calc_same_base_power_multiplication["같은 밑의 거듭제곱의 곱셈"]
+  m1_calc_same_base_power_division["같은 밑의 거듭제곱의 나눗셈"]
+  m1_calc_power_of_power["거듭제곱의 거듭제곱"]
   m1_calc_simplify_expression["식을 간단히 하기"]
   m1_calc_polynomial_add_sub["다항식의 덧셈과 뺄셈"]
+  m1_calc_polynomial_add_sub_principle["다항식의 덧셈과 뺄셈 원리"]
+  m1_calc_polynomial_term_structure_check["다항식의 항·계수·차수 확인하기"]
+  m1_calc_collect_like_terms_polynomial["다항식에서 동류항 모으기"]
+  m1_calc_polynomial_parentheses_removal["다항식의 괄호 풀기"]
+  m1_calc_polynomial_subtraction_sign_distribution["다항식의 뺄셈에서 부호 바꾸기"]
   m1_calc_monomial_mul_div["단항식의 곱셈과 나눗셈"]
+  m1_calc_apply_exponent_laws_to_monomials["지수법칙을 단항식 계산에 적용하기"]
+  m1_calc_monomial_coefficient_calculation["단항식 계산에서 계수끼리 계산하기"]
+  m1_calc_monomial_literal_part_calculation["단항식 계산에서 문자 부분 계산하기"]
   m1_calc_monomial_polynomial_mul_div["단항식과 다항식의 곱셈과 나눗셈"]
+  m1_calc_monomial_times_polynomial_distribution["단항식을 다항식에 분배하기"]
+  m1_calc_polynomial_divided_by_monomial_termwise["다항식의 각 항을 단항식으로 나누기"]
+  m1_calc_polynomial_division_quotient_scope_check["몫이 다항식인지 확인하기"]
   m1_calc_expansion["전개"]
   m1_calc_arithmetic_to_polynomial_extension["수의 사칙연산에서 다항식 계산으로의 확장"]
   m1_mis_exponent_base["밑이 다른 거듭제곱에 지수법칙을 잘못 적용하는 오류"]
   m1_mis_polynomial_like_terms["다항식에서 동류항 처리를 누락하는 오류"]
   m1_mis_polynomial_division_scope["다항식을 단항식으로 나누는 범위 혼동"]
+  m1_mis_polynomial_subtraction_sign["다항식 뺄셈에서 괄호 앞 음수를 분배하지 않는 오류"]
   m1_ineq_unit["일차부등식"]
   m1_ineq_inequality["부등식"]
   m1_ineq_solution["부등식의 해"]
@@ -986,22 +1002,60 @@ flowchart LR
   m1_calc_base -- "대조" --> m1_calc_exponent
   m1_calc_base -- "사용" --> m1_calc_exponent_laws
   m1_calc_exponent -- "사용" --> m1_calc_exponent_laws
+  m1_calc_exponent_law_same_base_condition -- "사용" --> m1_calc_same_base_power_multiplication
+  m1_calc_exponent_law_same_base_condition -- "사용" --> m1_calc_same_base_power_division
+  m1_calc_exponent_law_same_base_condition -- "사용" --> m1_calc_exponent_laws
+  m1_calc_same_base_power_multiplication -- "연관" --> m1_calc_same_base_power_division
+  m1_calc_same_base_power_division -- "연관" --> m1_calc_same_base_power_multiplication
+  m1_calc_same_base_power_multiplication -- "사용" --> m1_calc_monomial_literal_part_calculation
+  m1_calc_same_base_power_division -- "사용" --> m1_calc_monomial_literal_part_calculation
+  m1_calc_power_of_power -- "사용" --> m1_calc_simplify_expression
+  m1_calc_power_of_power -- "사용" --> m1_calc_monomial_literal_part_calculation
   m1_calc_exponent_laws -- "사용" --> m1_calc_simplify_expression
   m1_calc_exponent_laws -- "사용" --> m1_calc_monomial_mul_div
+  m1_calc_exponent_laws -- "사용" --> m1_calc_apply_exponent_laws_to_monomials
   m1_calc_arithmetic_to_polynomial_extension -- "사용" --> m1_calc_polynomial_add_sub
   m1_calc_arithmetic_to_polynomial_extension -- "사용" --> m1_calc_monomial_polynomial_mul_div
   m1_calc_simplify_expression -- "사용" --> m1_calc_polynomial_add_sub
+  m1_calc_simplify_expression -- "사용" --> m1_calc_collect_like_terms_polynomial
   m1_calc_simplify_expression -- "사용" --> m1_calc_monomial_polynomial_mul_div
+  m1_calc_simplify_expression -- "사용" --> m1_calc_apply_exponent_laws_to_monomials
   m1_expr_polynomial -- "사용" --> m1_calc_polynomial_add_sub
   m1_expr_like_terms -- "사용" --> m1_calc_polynomial_add_sub
   m1_expr_add_sub_linear_expression -- "사용" --> m1_calc_polynomial_add_sub
+  m1_expr_linear_expression_add_sub_principle -- "연관" --> m1_calc_polynomial_add_sub_principle
+  m1_calc_polynomial_add_sub_principle -- "사용" --> m1_calc_collect_like_terms_polynomial
+  m1_calc_polynomial_term_structure_check -- "사용" --> m1_calc_collect_like_terms_polynomial
+  m1_calc_collect_like_terms_polynomial -- "사용" --> m1_calc_polynomial_add_sub
+  m1_calc_polynomial_parentheses_removal -- "사용" --> m1_calc_polynomial_add_sub
+  m1_calc_polynomial_parentheses_removal -- "사용" --> m1_calc_polynomial_subtraction_sign_distribution
+  m1_calc_polynomial_parentheses_removal -- "사용" --> m1_calc_collect_like_terms_polynomial
+  m1_calc_polynomial_subtraction_sign_distribution -- "사용" --> m1_calc_polynomial_add_sub
+  m1_calc_polynomial_subtraction_sign_distribution -- "대조" --> m1_calc_collect_like_terms_polynomial
   m1_calc_monomial_mul_div -- "선수" --> m1_calc_monomial_polynomial_mul_div
+  m1_calc_apply_exponent_laws_to_monomials -- "연관" --> m1_calc_monomial_coefficient_calculation
+  m1_calc_apply_exponent_laws_to_monomials -- "사용" --> m1_calc_monomial_literal_part_calculation
+  m1_calc_monomial_coefficient_calculation -- "사용" --> m1_calc_monomial_mul_div
+  m1_calc_monomial_literal_part_calculation -- "사용" --> m1_calc_monomial_mul_div
+  m1_calc_monomial_coefficient_calculation -- "연관" --> m1_calc_monomial_literal_part_calculation
   m1_calc_monomial_polynomial_mul_div -- "사용" --> m1_calc_expansion
-  m1_calc_unit -- "선수" --> m1_ineq_unit
-  m1_calc_unit -- "선수" --> m1_system_unit
+  m1_num_distributive_law -- "사용" --> m1_calc_monomial_times_polynomial_distribution
+  m1_calc_monomial_times_polynomial_distribution -- "사용" --> m1_calc_monomial_polynomial_mul_div
+  m1_calc_monomial_times_polynomial_distribution -- "사용" --> m1_calc_expansion
+  m1_calc_polynomial_division_quotient_scope_check -- "사용" --> m1_calc_polynomial_divided_by_monomial_termwise
+  m1_calc_polynomial_divided_by_monomial_termwise -- "사용" --> m1_calc_monomial_polynomial_mul_div
+  m1_calc_unit -- "연관" --> m1_ineq_unit
+  m1_calc_unit -- "연관" --> m1_system_unit
+  m1_expr_add_sub_linear_expression -- "사용" --> m1_ineq_solving_linear_inequality
+  m1_expr_add_sub_linear_expression -- "사용" --> m1_system_addition_subtraction_method
+  m1_mis_exponent_base -- "혼동" --> m1_calc_exponent_law_same_base_condition
   m1_mis_exponent_base -- "혼동" --> m1_calc_exponent_laws
   m1_mis_polynomial_like_terms -- "혼동" --> m1_calc_polynomial_add_sub
-  m1_mis_polynomial_division_scope -- "혼동" --> m1_calc_monomial_polynomial_mul_div
+  m1_mis_polynomial_like_terms -- "혼동" --> m1_calc_collect_like_terms_polynomial
+  m1_mis_polynomial_division_scope -- "혼동" --> m1_calc_polynomial_division_quotient_scope_check
+  m1_mis_polynomial_division_scope -- "혼동" --> m1_calc_polynomial_divided_by_monomial_termwise
+  m1_mis_polynomial_subtraction_sign -- "혼동" --> m1_calc_polynomial_subtraction_sign_distribution
+  m1_mis_polynomial_subtraction_sign -- "혼동" --> m1_calc_polynomial_add_sub
   m1_eq_unit -- "선수" --> m1_ineq_unit
   m1_ineq_unit -- "연관" --> m1_system_unit
   m1_ineq_unit -- "포함" --> m1_ineq_inequality
@@ -1915,9 +1969,25 @@ flowchart LR
   m1_eq_unit -- "포함" --> m1_mis_expression_equation
   m1_eq_unit -- "포함" --> m1_mis_transposition_sign
   m1_eq_unit -- "포함" --> m1_mis_solution_check
+  m1_calc_exponent_laws -- "포함" --> m1_calc_exponent_law_same_base_condition
+  m1_calc_exponent_laws -- "포함" --> m1_calc_same_base_power_multiplication
+  m1_calc_exponent_laws -- "포함" --> m1_calc_same_base_power_division
+  m1_calc_exponent_laws -- "포함" --> m1_calc_power_of_power
+  m1_calc_polynomial_add_sub -- "포함" --> m1_calc_polynomial_add_sub_principle
+  m1_calc_polynomial_add_sub -- "포함" --> m1_calc_polynomial_term_structure_check
+  m1_calc_polynomial_add_sub -- "포함" --> m1_calc_collect_like_terms_polynomial
+  m1_calc_polynomial_add_sub -- "포함" --> m1_calc_polynomial_parentheses_removal
+  m1_calc_polynomial_add_sub -- "포함" --> m1_calc_polynomial_subtraction_sign_distribution
+  m1_calc_monomial_mul_div -- "포함" --> m1_calc_apply_exponent_laws_to_monomials
+  m1_calc_monomial_mul_div -- "포함" --> m1_calc_monomial_coefficient_calculation
+  m1_calc_monomial_mul_div -- "포함" --> m1_calc_monomial_literal_part_calculation
+  m1_calc_monomial_polynomial_mul_div -- "포함" --> m1_calc_monomial_times_polynomial_distribution
+  m1_calc_monomial_polynomial_mul_div -- "포함" --> m1_calc_polynomial_divided_by_monomial_termwise
+  m1_calc_monomial_polynomial_mul_div -- "포함" --> m1_calc_polynomial_division_quotient_scope_check
   m1_calc_unit -- "포함" --> m1_mis_exponent_base
   m1_calc_unit -- "포함" --> m1_mis_polynomial_like_terms
   m1_calc_unit -- "포함" --> m1_mis_polynomial_division_scope
+  m1_calc_unit -- "포함" --> m1_mis_polynomial_subtraction_sign
   m1_ineq_unit -- "포함" --> m1_ineq_compare_equality_properties
   m1_ineq_unit -- "포함" --> m1_ineq_solution_check
   m1_ineq_unit -- "포함" --> m1_mis_ineq_solution_single_value
@@ -2460,20 +2530,54 @@ flowchart LR
   m1_calc_power -- "선수" --> m1_calc_exponent_laws
   m1_calc_base -- "선수" --> m1_calc_exponent_laws
   m1_calc_exponent -- "선수" --> m1_calc_exponent_laws
+  m1_calc_base -- "선수" --> m1_calc_exponent_law_same_base_condition
+  m1_calc_exponent -- "선수" --> m1_calc_exponent_law_same_base_condition
+  m1_calc_exponent_law_same_base_condition -- "선수" --> m1_calc_same_base_power_multiplication
+  m1_calc_exponent_law_same_base_condition -- "선수" --> m1_calc_same_base_power_division
+  m1_calc_power -- "선수" --> m1_calc_power_of_power
+  m1_calc_exponent -- "선수" --> m1_calc_power_of_power
   m1_calc_exponent_laws -- "선수" --> m1_calc_simplify_expression
   m1_expr_like_terms -- "선수" --> m1_calc_simplify_expression
   m1_expr_polynomial -- "선수" --> m1_calc_polynomial_add_sub
   m1_expr_like_terms -- "선수" --> m1_calc_polynomial_add_sub
+  m1_expr_polynomial -- "선수" --> m1_calc_polynomial_add_sub_principle
+  m1_expr_like_terms -- "선수" --> m1_calc_polynomial_add_sub_principle
+  m1_expr_polynomial -- "선수" --> m1_calc_polynomial_term_structure_check
+  m1_expr_term -- "선수" --> m1_calc_polynomial_term_structure_check
+  m1_expr_coefficient -- "선수" --> m1_calc_polynomial_term_structure_check
+  m1_expr_degree -- "선수" --> m1_calc_polynomial_term_structure_check
+  m1_expr_polynomial -- "선수" --> m1_calc_collect_like_terms_polynomial
+  m1_expr_like_terms -- "선수" --> m1_calc_collect_like_terms_polynomial
+  m1_expr_coefficient -- "선수" --> m1_calc_collect_like_terms_polynomial
+  m1_calc_polynomial_add_sub -- "선수" --> m1_calc_polynomial_parentheses_removal
+  m1_num_distributive_law -- "선수" --> m1_calc_polynomial_parentheses_removal
+  m1_calc_polynomial_parentheses_removal -- "선수" --> m1_calc_polynomial_subtraction_sign_distribution
+  m1_num_minus_sign -- "선수" --> m1_calc_polynomial_subtraction_sign_distribution
+  m1_num_subtraction_as_add_opposite -- "선수" --> m1_calc_polynomial_subtraction_sign_distribution
+  m1_expr_polynomial -- "선수" --> m1_calc_polynomial_subtraction_sign_distribution
   m1_expr_monomial -- "선수" --> m1_calc_monomial_mul_div
   m1_calc_exponent_laws -- "선수" --> m1_calc_monomial_mul_div
+  m1_expr_monomial -- "선수" --> m1_calc_apply_exponent_laws_to_monomials
+  m1_calc_exponent_laws -- "선수" --> m1_calc_apply_exponent_laws_to_monomials
+  m1_expr_monomial -- "선수" --> m1_calc_monomial_coefficient_calculation
+  m1_expr_coefficient -- "선수" --> m1_calc_monomial_coefficient_calculation
+  m1_num_four_operations -- "선수" --> m1_calc_monomial_coefficient_calculation
+  m1_expr_monomial -- "선수" --> m1_calc_monomial_literal_part_calculation
+  m1_calc_exponent_laws -- "선수" --> m1_calc_monomial_literal_part_calculation
+  m1_calc_same_base_power_multiplication -- "선수" --> m1_calc_monomial_literal_part_calculation
+  m1_calc_same_base_power_division -- "선수" --> m1_calc_monomial_literal_part_calculation
   m1_expr_monomial -- "선수" --> m1_calc_monomial_polynomial_mul_div
   m1_expr_polynomial -- "선수" --> m1_calc_monomial_polynomial_mul_div
   m1_calc_exponent_laws -- "선수" --> m1_calc_monomial_polynomial_mul_div
+  m1_num_distributive_law -- "선수" --> m1_calc_monomial_times_polynomial_distribution
+  m1_expr_monomial -- "선수" --> m1_calc_monomial_times_polynomial_distribution
+  m1_expr_polynomial -- "선수" --> m1_calc_monomial_times_polynomial_distribution
+  m1_calc_monomial_mul_div -- "선수" --> m1_calc_polynomial_divided_by_monomial_termwise
+  m1_expr_term -- "선수" --> m1_calc_polynomial_divided_by_monomial_termwise
+  m1_expr_polynomial -- "선수" --> m1_calc_polynomial_divided_by_monomial_termwise
+  m1_calc_polynomial_divided_by_monomial_termwise -- "선수" --> m1_calc_polynomial_division_quotient_scope_check
   m1_calc_monomial_polynomial_mul_div -- "선수" --> m1_calc_expansion
   m1_expr_polynomial -- "선수" --> m1_calc_arithmetic_to_polynomial_extension
-  m1_calc_base -- "선수" --> m1_mis_exponent_base
-  m1_calc_exponent_laws -- "선수" --> m1_mis_exponent_base
-  m1_calc_monomial_polynomial_mul_div -- "선수" --> m1_mis_polynomial_division_scope
   m1_repr_expression -- "선수" --> m1_ineq_inequality
   m1_ineq_inequality -- "선수" --> m1_ineq_solution
   m1_expr_substitution -- "선수" --> m1_ineq_solution
@@ -2484,7 +2588,7 @@ flowchart LR
   m1_expr_linear_expression -- "선수" --> m1_ineq_linear_inequality
   m1_ineq_linear_inequality -- "선수" --> m1_ineq_solving_linear_inequality
   m1_ineq_properties -- "선수" --> m1_ineq_solving_linear_inequality
-  m1_calc_unit -- "선수" --> m1_ineq_solving_linear_inequality
+  m1_expr_add_sub_linear_expression -- "선수" --> m1_ineq_solving_linear_inequality
   m1_expr_literal_expression -- "선수" --> m1_ineq_modeling_linear_inequality
   m1_ineq_linear_inequality -- "선수" --> m1_ineq_modeling_linear_inequality
   m1_ineq_solution -- "선수" --> m1_ineq_solution_check
@@ -3136,9 +3240,9 @@ flowchart LR
   m1_mis_transposition_sign -- "혼동" --> m1_eq_solving_linear_equation
   m1_mis_solution_check -- "혼동" --> m1_eq_interpret_solution_context
   m1_mis_solution_check -- "혼동" --> m1_eq_modeling_linear_equation
-  m1_mis_exponent_base -- "혼동" --> m1_calc_base
-  m1_mis_exponent_base -- "혼동" --> m1_calc_exponent
+  m1_mis_sign_operation -- "혼동" --> m1_calc_polynomial_subtraction_sign_distribution
   m1_mis_polynomial_like_terms -- "혼동" --> m1_expr_like_terms
+  m1_mis_polynomial_subtraction_sign -- "혼동" --> m1_mis_sign_operation
   m1_mis_ineq_solution_single_value -- "혼동" --> m1_ineq_inequality
   m1_mis_ineq_solution_single_value -- "혼동" --> m1_ineq_solution_check
   m1_mis_system_elimination_sign -- "혼동" --> m1_system_elimination
@@ -3374,15 +3478,31 @@ flowchart LR
   class m1_calc_base default;
   class m1_calc_exponent default;
   class m1_calc_exponent_laws default;
+  class m1_calc_exponent_law_same_base_condition default;
+  class m1_calc_same_base_power_multiplication default;
+  class m1_calc_same_base_power_division default;
+  class m1_calc_power_of_power default;
   class m1_calc_simplify_expression procedure;
   class m1_calc_polynomial_add_sub procedure;
+  class m1_calc_polynomial_add_sub_principle default;
+  class m1_calc_polynomial_term_structure_check procedure;
+  class m1_calc_collect_like_terms_polynomial procedure;
+  class m1_calc_polynomial_parentheses_removal procedure;
+  class m1_calc_polynomial_subtraction_sign_distribution procedure;
   class m1_calc_monomial_mul_div procedure;
+  class m1_calc_apply_exponent_laws_to_monomials procedure;
+  class m1_calc_monomial_coefficient_calculation procedure;
+  class m1_calc_monomial_literal_part_calculation procedure;
   class m1_calc_monomial_polynomial_mul_div procedure;
+  class m1_calc_monomial_times_polynomial_distribution procedure;
+  class m1_calc_polynomial_divided_by_monomial_termwise procedure;
+  class m1_calc_polynomial_division_quotient_scope_check procedure;
   class m1_calc_expansion procedure;
   class m1_calc_arithmetic_to_polynomial_extension default;
   class m1_mis_exponent_base risk;
   class m1_mis_polynomial_like_terms risk;
   class m1_mis_polynomial_division_scope risk;
+  class m1_mis_polynomial_subtraction_sign risk;
   class m1_ineq_unit core;
   class m1_ineq_inequality core;
   class m1_ineq_solution default;

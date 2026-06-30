@@ -19,7 +19,6 @@ digraph pilot_unit_map {
   "m1_mis_intersection_solution" [label="그래프의 교점과 연립방정식의 해를 분리해서 보는 오류\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_eq_solution" [label="해\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_expr_substitution" [label="대입\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
-  "m1_calc_unit" [label="식의 계산\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_eq_equation" [label="방정식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_eq_linear_equation" [label="일차방정식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_eq_solving_linear_equation" [label="일차방정식 풀기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -33,7 +32,9 @@ digraph pilot_unit_map {
   "m1_func_eq_relation_unit" [label="일차함수와 일차방정식의 관계\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_coord_ordered_pair" [label="순서쌍\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_func_intersection_point" [label="교점\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_expr_add_sub_linear_expression" [label="일차식의 덧셈과 뺄셈\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_func_equation_relation" [label="일차함수와 미지수가 2개인 일차방정식의 관계\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_calc_unit" [label="식의 계산\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_ineq_unit" [label="일차부등식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_func_unit" [label="일차함수와 그 그래프\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_system_unit" -> "m1_mis_system_elimination_sign" [label="contains", style="solid", color="#b91c1c"];
@@ -74,7 +75,6 @@ digraph pilot_unit_map {
   "m1_system_solution" -> "m1_system_modeling" [label="used_in", style="solid", color="#6b7280"];
   "m1_system_two_variable_linear_equation" -> "m1_system_simultaneous_linear_equations" [label="used_in", style="solid", color="#6b7280"];
   "m1_system_addition_subtraction_method" -> "m1_system_substitution_method" [label="contrasts_with", style="solid", color="#6b7280"];
-  "m1_calc_unit" -> "m1_system_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_eq_equation" -> "m1_system_simultaneous_equations" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_eq_linear_equation" -> "m1_system_two_variable_linear_equation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_eq_solution" -> "m1_system_solution" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -92,9 +92,11 @@ digraph pilot_unit_map {
   "m1_system_solution" -> "m1_coord_ordered_pair" [label="represented_by", style="dashed", color="#6b7280"];
   "m1_system_solution" -> "m1_func_intersection_point" [label="represented_by", style="dashed", color="#6b7280"];
   "m1_system_two_variable_linear_equation" -> "m1_func_two_variable_equation_as_graph" [label="represented_by", style="dashed", color="#6b7280"];
+  "m1_expr_add_sub_linear_expression" -> "m1_system_addition_subtraction_method" [label="used_in", style="dashed", color="#6b7280"];
   "m1_func_system_solution_from_intersection" -> "m1_system_solution" [label="used_in", style="dashed", color="#6b7280"];
   "m1_func_two_variable_equation_as_graph" -> "m1_system_solution" [label="used_in", style="dashed", color="#6b7280"];
   "m1_system_two_variable_linear_equation" -> "m1_func_equation_relation" [label="used_in", style="dashed", color="#6b7280"];
+  "m1_calc_unit" -> "m1_system_unit" [label="related_to", style="dashed", color="#6b7280"];
   "m1_ineq_unit" -> "m1_system_unit" [label="related_to", style="dashed", color="#6b7280"];
   "m1_system_two_variable_linear_equation" -> "m1_coord_graph_unit" [label="related_to", style="dashed", color="#6b7280"];
   "m1_system_unit" -> "m1_func_unit" [label="related_to", style="dashed", color="#6b7280"];

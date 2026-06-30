@@ -4,15 +4,15 @@ This generated audit summarizes source evidence depth for each concept node.
 
 ## Summary
 
-- concepts: 597
-- needs textbook evidence: 597
-- low confidence concepts: 90
+- concepts: 613
+- needs textbook evidence: 613
+- low confidence concepts: 92
 
 ## Evidence Depth Counts
 
 | evidence_depth | concept count |
 |---|---:|
-| official_dual_source | 498 |
+| official_dual_source | 514 |
 | official_single_source | 99 |
 
 ## Priority Rows
@@ -44,7 +44,9 @@ This generated audit summarizes source evidence depth for each concept node.
 | m1_mis_letter_as_label_only | 문자를 이름표로만 해석하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_like_terms | 동류항이 아닌 항을 합치는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_exponent_base | 밑이 다른 거듭제곱에 지수법칙을 잘못 적용하는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
+| m1_mis_polynomial_division_scope | 다항식을 단항식으로 나누는 범위 혼동 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_polynomial_like_terms | 다항식에서 동류항 처리를 누락하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
+| m1_mis_polynomial_subtraction_sign | 다항식 뺄셈에서 괄호 앞 음수를 분배하지 않는 오류 | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_system_elimination_sign | 가감법에서 부호와 계수 처리를 잘못하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_system_one_equation_only | 연립방정식의 해를 한 방정식만 만족해도 된다고 보는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_system_substitution | 대입법에서 식 전체를 대입하지 않는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
@@ -57,5 +59,3 @@ This generated audit summarizes source evidence depth for each concept node.
 | m1_mis_max_min_scope | 최댓값·최솟값의 범위를 임의로 확장하는 오류 | low | official_single_source | 1 | curriculum_math_2022 |
 | m1_mis_quadratic_function_equation | 이차함수와 이차방정식을 혼동하는 오류 | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_expression_equation | 식과 방정식 혼동 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_solution_check | 구한 해의 상황 적합성 확인 누락 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_transposition_sign | 이항할 때 부호를 잘못 바꾸는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |

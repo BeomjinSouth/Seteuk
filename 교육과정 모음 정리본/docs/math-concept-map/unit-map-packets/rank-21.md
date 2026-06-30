@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 일차부등식
 - priority tier: high
-- workplan score: 69
+- workplan score: 70
 - concepts: 11
-- edges touching unit: 48
-- cross-unit edges: 16
+- edges touching unit: 49
+- cross-unit edges: 17
 - low confidence concepts: 2
 - low confidence edges: 8
 
@@ -33,10 +33,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 12 |
 | contrasts_with | 3 |
 | often_confused_with | 6 |
-| prerequisite_for | 18 |
-| related_to | 1 |
+| prerequisite_for | 17 |
+| related_to | 2 |
 | represented_by | 1 |
-| used_in | 7 |
+| used_in | 8 |
 
 ## Low Confidence Concepts
 
@@ -50,18 +50,19 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
 | m1_mis_ineq_solution_single_value__often_confused_with__m1_eq_solution | 부등식의 해를 한 값으로만 이해하는 오류 | often_confused_with | 해 | low | official_dual_source |
-| m1_calc_unit__prerequisite_for__m1_ineq_solving_linear_inequality | 식의 계산 | prerequisite_for | 일차부등식 풀기 | high | official_dual_source |
-| m1_calc_unit__prerequisite_for__m1_ineq_unit | 식의 계산 | prerequisite_for | 일차부등식 | high | official_dual_source |
 | m1_eq_equality_properties__prerequisite_for__m1_ineq_compare_equality_properties | 등식의 성질 | prerequisite_for | 등식의 성질과 부등식의 성질 비교 | high | official_dual_source |
 | m1_eq_equality_properties__prerequisite_for__m1_ineq_properties | 등식의 성질 | prerequisite_for | 부등식의 성질 | high | official_dual_source |
 | m1_eq_unit__prerequisite_for__m1_ineq_unit | 일차방정식 | prerequisite_for | 일차부등식 | high | official_dual_source |
+| m1_expr_add_sub_linear_expression__prerequisite_for__m1_ineq_solving_linear_inequality | 일차식의 덧셈과 뺄셈 | prerequisite_for | 일차부등식 풀기 | high | official_dual_source |
 | m1_expr_linear_expression__prerequisite_for__m1_ineq_linear_inequality | 일차식 | prerequisite_for | 일차부등식 | high | official_dual_source |
 | m1_expr_literal_expression__prerequisite_for__m1_ineq_modeling_linear_inequality | 문자를 사용한 식 | prerequisite_for | 일차부등식 세우기 | high | official_dual_source |
 | m1_expr_substitution__prerequisite_for__m1_ineq_solution | 대입 | prerequisite_for | 부등식의 해 | high | official_dual_source |
 | m1_expr_substitution__prerequisite_for__m1_ineq_solution_check | 대입 | prerequisite_for | 부등식 해의 확인 | high | official_dual_source |
 | m1_repr_expression__prerequisite_for__m1_ineq_inequality | 식 | prerequisite_for | 부등식 | high | official_dual_source |
 | m1_eq_equality_properties__used_in__m1_ineq_compare_equality_properties | 등식의 성질 | used_in | 등식의 성질과 부등식의 성질 비교 | high | official_dual_source |
+| m1_expr_add_sub_linear_expression__used_in__m1_ineq_solving_linear_inequality | 일차식의 덧셈과 뺄셈 | used_in | 일차부등식 풀기 | medium | official_dual_source |
 | m1_ineq_inequality__contrasts_with__m1_eq_equality | 부등식 | contrasts_with | 등식 | medium | official_dual_source |
 | m1_ineq_inequality__contrasts_with__m1_eq_equation | 부등식 | contrasts_with | 방정식 | high | official_dual_source |
 | m1_ineq_solution__contrasts_with__m1_eq_solution | 부등식의 해 | contrasts_with | 해 | medium | official_dual_source |
+| m1_calc_unit__related_to__m1_ineq_unit | 식의 계산 | related_to | 일차부등식 | medium | official_dual_source |
 | m1_ineq_unit__related_to__m1_system_unit | 일차부등식 | related_to | 연립일차방정식 | medium | official_dual_source |

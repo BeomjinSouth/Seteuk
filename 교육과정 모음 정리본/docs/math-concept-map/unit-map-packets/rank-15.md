@@ -5,86 +5,89 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 ## Target Unit
 
 - rank: 15
-- grade: 중1(교육과정 학년군: 중1-3)
+- grade: 중3(교육과정 학년군: 중1-3)
 - domain: 변화와 관계
-- unit: 식의 계산
-- priority tier: high
-- workplan score: 111
-- concepts: 14
-- edges touching unit: 80
-- cross-unit edges: 41
-- low confidence concepts: 2
-- low confidence edges: 11
+- unit: 다항식의 곱셈과 인수분해
+- priority tier: highest
+- workplan score: 163
+- concepts: 20
+- edges touching unit: 117
+- cross-unit edges: 39
+- low confidence concepts: 4
+- low confidence edges: 21
 
 ## Concept Type Distribution
 
 | concept_type | count |
 |---|---:|
 | core_concept | 1 |
-| misconception_risk | 3 |
-| procedure | 5 |
-| property | 2 |
+| misconception_risk | 4 |
+| procedure | 3 |
+| property | 8 |
+| sub_concept | 1 |
 | term | 3 |
 
 ## Relationship Distribution
 
 | relationship_type | count |
 |---|---:|
-| contains | 13 |
-| contrasts_with | 1 |
-| often_confused_with | 7 |
-| prerequisite_for | 40 |
-| related_to | 2 |
-| used_in | 17 |
+| contains | 19 |
+| contrasts_with | 9 |
+| often_confused_with | 15 |
+| prerequisite_for | 38 |
+| related_to | 1 |
+| represented_by | 4 |
+| used_in | 31 |
 
 ## Low Confidence Concepts
 
 | concept_id | label_ko | type | evidence_depth | notes |
 |---|---|---|---|---|
-| m1_mis_exponent_base | 밑이 다른 거듭제곱에 지수법칙을 잘못 적용하는 오류 | misconception_risk | official_dual_source | 성취수준에 '밑이 같은' 거듭제곱 계산이 드러나므로 잠정 오개념으로 기록했다. |
-| m1_mis_polynomial_like_terms | 다항식에서 동류항 처리를 누락하는 오류 | misconception_risk | official_dual_source |  |
+| m1_mis_expansion_factorization_direction | 전개와 인수분해 방향을 혼동하는 오류 | misconception_risk | official_dual_source |  |
+| m1_mis_factor_common_factor_missing | 공통인수를 빠뜨리는 오류 | misconception_risk | official_dual_source | 공식 문서의 공식 범위에서 추론한 오개념 위험이다. 교과서 예제와 문항 근거 확인이 필요하다. |
+| m1_mis_factor_formula_pattern | 곱셈·인수분해 공식을 기계적으로 끼워 맞추는 오류 | misconception_risk | official_dual_source | 공식 문서의 공식 범위와 성취수준의 과정 설명 요구에서 추론한 오개념 위험이다. |
+| m1_mis_perfect_square_sign | 완전제곱식의 가운데 항 부호를 혼동하는 오류 | misconception_risk | official_dual_source |  |
 
 ## Cross-Unit Edges
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
-| m1_num_mixed_calculation__used_in__m1_calc_simplify_expression | 정수와 유리수의 혼합계산 | used_in | 식을 간단히 하기 | low | official_dual_source |
+| m1_factor_factorization__prerequisite_for__m1_quad_eq_zero_product_condition | 인수분해 | prerequisite_for | 각 인수가 0이 되는 조건 | low | official_single_source |
 | m1_mis_expansion_factorization_direction__often_confused_with__m1_calc_expansion | 전개와 인수분해 방향을 혼동하는 오류 | often_confused_with | 전개 | low | official_dual_source |
-| m1_mis_polynomial_like_terms__often_confused_with__m1_expr_like_terms | 다항식에서 동류항 처리를 누락하는 오류 | often_confused_with | 동류항 | low | official_dual_source |
-| m1_calc_base__prerequisite_for__m1_num_prime_factorization_exponent_notation | 밑 | prerequisite_for | 소인수분해 결과를 거듭제곱으로 정리하기 | high | official_dual_source |
+| m1_mis_quadratic_expression_equation__often_confused_with__m1_factor_quadratic_expression | 이차식과 이차방정식을 혼동하는 오류 | often_confused_with | 이차식 | low | official_dual_source |
+| m1_mis_quadratic_factorization_solution__often_confused_with__m1_factor_factorization | 인수분해한 식에서 해 조건을 빠뜨리는 오류 | often_confused_with | 인수분해 | low | official_single_source |
+| m1_quad_eq_leading_coefficient_one_case__related_to__m1_factor_binomial_product_xab | 이차항의 계수가 1인 이차방정식 | related_to | (x+a)(x+b) 공식 | low | official_dual_source |
 | m1_calc_expansion__prerequisite_for__m1_factor_expansion_factorization_inverse | 전개 | prerequisite_for | 전개와 인수분해의 역관계 | high | official_dual_source |
 | m1_calc_expansion__prerequisite_for__m1_factor_factorization | 전개 | prerequisite_for | 인수분해 | high | official_dual_source |
 | m1_calc_expansion__prerequisite_for__m1_factor_polynomial_multiplication | 전개 | prerequisite_for | 다항식의 곱셈 | high | official_single_source |
-| m1_calc_exponent__prerequisite_for__m1_num_prime_factorization_exponent_notation | 지수 | prerequisite_for | 소인수분해 결과를 거듭제곱으로 정리하기 | high | official_dual_source |
 | m1_calc_monomial_polynomial_mul_div__prerequisite_for__m1_factor_polynomial_multiplication | 단항식과 다항식의 곱셈과 나눗셈 | prerequisite_for | 다항식의 곱셈 | high | official_dual_source |
-| m1_calc_power__prerequisite_for__m1_data_variance | 거듭제곱 | prerequisite_for | 분산 | high | official_dual_source |
 | m1_calc_power__prerequisite_for__m1_factor_perfect_square_expression | 거듭제곱 | prerequisite_for | 완전제곱식 | high | official_dual_source |
-| m1_calc_power__prerequisite_for__m1_num_prime_factor_product | 거듭제곱 | prerequisite_for | 소인수의 곱으로 표현하기 | high | official_dual_source |
-| m1_calc_power__prerequisite_for__m1_num_prime_factorization | 거듭제곱 | prerequisite_for | 소인수분해 | high | official_dual_source |
-| m1_calc_power__prerequisite_for__m1_num_prime_factorization_exponent_notation | 거듭제곱 | prerequisite_for | 소인수분해 결과를 거듭제곱으로 정리하기 | high | official_dual_source |
-| m1_calc_power__prerequisite_for__m1_num_square_number | 거듭제곱 | prerequisite_for | 제곱수 | medium | official_single_source |
-| m1_calc_power__prerequisite_for__m1_num_square_root | 거듭제곱 | prerequisite_for | 제곱근 | medium | official_dual_source |
 | m1_calc_unit__prerequisite_for__m1_factor_unit | 식의 계산 | prerequisite_for | 다항식의 곱셈과 인수분해 | high | official_single_source |
-| m1_calc_unit__prerequisite_for__m1_ineq_solving_linear_inequality | 식의 계산 | prerequisite_for | 일차부등식 풀기 | high | official_dual_source |
-| m1_calc_unit__prerequisite_for__m1_ineq_unit | 식의 계산 | prerequisite_for | 일차부등식 | high | official_dual_source |
-| m1_calc_unit__prerequisite_for__m1_system_unit | 식의 계산 | prerequisite_for | 연립일차방정식 | high | official_dual_source |
-| m1_expr_like_terms__prerequisite_for__m1_calc_polynomial_add_sub | 동류항 | prerequisite_for | 다항식의 덧셈과 뺄셈 | high | official_dual_source |
-| m1_expr_like_terms__prerequisite_for__m1_calc_simplify_expression | 동류항 | prerequisite_for | 식을 간단히 하기 | high | official_dual_source |
-| m1_expr_monomial__prerequisite_for__m1_calc_monomial_mul_div | 단항식 | prerequisite_for | 단항식의 곱셈과 나눗셈 | high | official_dual_source |
-| m1_expr_monomial__prerequisite_for__m1_calc_monomial_polynomial_mul_div | 단항식 | prerequisite_for | 단항식과 다항식의 곱셈과 나눗셈 | high | official_dual_source |
-| m1_expr_monomial__prerequisite_for__m1_calc_unit | 단항식 | prerequisite_for | 식의 계산 | high | official_single_source |
-| m1_expr_polynomial__prerequisite_for__m1_calc_arithmetic_to_polynomial_extension | 다항식 | prerequisite_for | 수의 사칙연산에서 다항식 계산으로의 확장 | medium | official_single_source |
-| m1_expr_polynomial__prerequisite_for__m1_calc_monomial_polynomial_mul_div | 다항식 | prerequisite_for | 단항식과 다항식의 곱셈과 나눗셈 | high | official_dual_source |
-| m1_expr_polynomial__prerequisite_for__m1_calc_polynomial_add_sub | 다항식 | prerequisite_for | 다항식의 덧셈과 뺄셈 | high | official_dual_source |
-| m1_expr_polynomial__prerequisite_for__m1_calc_unit | 다항식 | prerequisite_for | 식의 계산 | high | official_single_source |
-| m1_expr_unit__prerequisite_for__m1_calc_unit | 문자의 사용과 식 | prerequisite_for | 식의 계산 | high | official_single_source |
-| m1_num_distributive_law__prerequisite_for__m1_calc_expansion | 분배법칙 | prerequisite_for | 전개 | medium | official_single_source |
-| m1_num_four_operations__prerequisite_for__m1_calc_unit | 정수와 유리수의 사칙계산 | prerequisite_for | 식의 계산 | medium | official_single_source |
-| m1_calc_base__used_in__m1_num_prime_factor_product | 밑 | used_in | 소인수의 곱으로 표현하기 | medium | official_dual_source |
-| m1_calc_exponent__used_in__m1_num_prime_factor_product | 지수 | used_in | 소인수의 곱으로 표현하기 | medium | official_dual_source |
-| m1_calc_power__used_in__m1_num_prime_factor_product | 거듭제곱 | used_in | 소인수의 곱으로 표현하기 | medium | official_dual_source |
-| m1_calc_power__used_in__m1_num_square_number | 거듭제곱 | used_in | 제곱수 | medium | official_single_source |
-| m1_expr_add_sub_linear_expression__used_in__m1_calc_polynomial_add_sub | 일차식의 덧셈과 뺄셈 | used_in | 다항식의 덧셈과 뺄셈 | medium | official_dual_source |
-| m1_expr_like_terms__used_in__m1_calc_polynomial_add_sub | 동류항 | used_in | 다항식의 덧셈과 뺄셈 | high | official_dual_source |
-| m1_expr_polynomial__used_in__m1_calc_polynomial_add_sub | 다항식 | used_in | 다항식의 덧셈과 뺄셈 | high | official_dual_source |
-| m1_calc_unit__related_to__m1_eq_unit | 식의 계산 | related_to | 일차방정식 | medium | official_dual_source |
+| m1_expr_coefficient__prerequisite_for__m1_factor_binomial_product_xab | 계수 | prerequisite_for | (x+a)(x+b) 공식 | high | official_dual_source |
+| m1_expr_coefficient__prerequisite_for__m1_factor_linear_product_axb_cxd | 계수 | prerequisite_for | (ax+b)(cx+d) 공식 | high | official_dual_source |
+| m1_expr_degree__prerequisite_for__m1_factor_quadratic_expression | 차수 | prerequisite_for | 이차식 | medium | official_dual_source |
+| m1_expr_like_terms__prerequisite_for__m1_factor_common_factor | 동류항 | prerequisite_for | 공통인수 | medium | official_dual_source |
+| m1_expr_polynomial__prerequisite_for__m1_factor_quadratic_expression | 다항식 | prerequisite_for | 이차식 | medium | official_dual_source |
+| m1_expr_polynomial__prerequisite_for__m1_factor_unit | 다항식 | prerequisite_for | 다항식의 곱셈과 인수분해 | high | official_dual_source |
+| m1_factor_factorization__prerequisite_for__m1_quad_eq_factorization_solving | 인수분해 | prerequisite_for | 인수분해를 이용한 이차방정식 풀이 | medium | official_single_source |
+| m1_factor_factorization__prerequisite_for__m1_quad_eq_solving | 인수분해 | prerequisite_for | 이차방정식 풀기 | high | official_dual_source |
+| m1_factor_quadratic_expression__prerequisite_for__m1_quad_eq_quadratic_equation | 이차식 | prerequisite_for | 이차방정식 | high | official_dual_source |
+| m1_factor_quadratic_expression__prerequisite_for__m1_quad_func_formula | 이차식 | prerequisite_for | 이차함수의 식 | high | official_dual_source |
+| m1_factor_quadratic_expression__prerequisite_for__m1_quad_func_general_form | 이차식 | prerequisite_for | y=ax^2+bx+c 꼴 | medium | official_single_source |
+| m1_factor_quadratic_expression__prerequisite_for__m1_quad_func_quadratic_function | 이차식 | prerequisite_for | 이차함수 | high | official_dual_source |
+| m1_factor_quadratic_expression__prerequisite_for__m1_quad_func_situation_to_formula | 이차식 | prerequisite_for | 상황을 이차함수 식으로 나타내기 | high | official_dual_source |
+| m1_factor_quadratic_factorization__prerequisite_for__m1_quad_eq_factorized_form | 이차식 인수분해 | prerequisite_for | 이차방정식의 인수분해된 식 표현 | medium | official_single_source |
+| m1_factor_unit__prerequisite_for__m1_quad_eq_unit | 다항식의 곱셈과 인수분해 | prerequisite_for | 이차방정식 | medium | official_dual_source |
+| m1_num_distributive_law__prerequisite_for__m1_factor_common_factor_formula | 분배법칙 | prerequisite_for | m(a+b) 공식 | high | official_single_source |
+| m1_factor_binomial_product_xab__used_in__m1_quad_eq_factorization_solving | (x+a)(x+b) 공식 | used_in | 인수분해를 이용한 이차방정식 풀이 | medium | official_dual_source |
+| m1_factor_factorization__used_in__m1_quad_eq_unit | 인수분해 | used_in | 이차방정식 | medium | official_dual_source |
+| m1_factor_linear_product_axb_cxd__used_in__m1_quad_eq_factorization_solving | (ax+b)(cx+d) 공식 | used_in | 인수분해를 이용한 이차방정식 풀이 | medium | official_dual_source |
+| m1_factor_quadratic_expression__used_in__m1_quad_eq_quadratic_equation | 이차식 | used_in | 이차방정식 | medium | official_dual_source |
+| m1_factor_quadratic_expression__used_in__m1_quad_func_formula | 이차식 | used_in | 이차함수의 식 | medium | official_dual_source |
+| m1_factor_quadratic_factorization__used_in__m1_quad_eq_factorization_solving | 이차식 인수분해 | used_in | 인수분해를 이용한 이차방정식 풀이 | medium | official_single_source |
+| m1_num_distributive_law__used_in__m1_factor_common_factor_formula | 분배법칙 | used_in | m(a+b) 공식 | medium | official_single_source |
+| m1_num_distributive_law__used_in__m1_factor_polynomial_multiplication | 분배법칙 | used_in | 다항식의 곱셈 | medium | official_dual_source |
+| m1_factor_factor__contrasts_with__m1_expr_term | 인수 | contrasts_with | 항 | medium | official_dual_source |
+| m1_factor_quadratic_expression__contrasts_with__m1_quad_eq_quadratic_equation | 이차식 | contrasts_with | 이차방정식 | medium | official_dual_source |
+| m1_factor_quadratic_expression__contrasts_with__m1_quad_eq_quadratic_term | 이차식 | contrasts_with | 이차항 | medium | official_dual_source |
+| m1_num_prime_factor__contrasts_with__m1_factor_factor | 소인수 | contrasts_with | 인수 | medium | official_dual_source |

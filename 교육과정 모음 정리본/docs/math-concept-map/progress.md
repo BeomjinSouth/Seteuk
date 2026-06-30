@@ -1408,10 +1408,30 @@
 - 전체 파생 산출물 파이프라인을 재실행했고 `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
 - PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
 
+## 2026-06-30 식의 계산 미시 concept 병렬 보강
+
+- AGENTS.md를 다시 확인했고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` concept map 보강, 파생 산출물 정비, 검증 보강으로 제한했다.
+- 멀티에이전트 explorer 3개를 읽기 전용으로 사용해 `식의 계산`의 누락 미시 concept 후보, source ref 적용 경계, edge 방향과 noisy prerequisite 후보를 병렬 감사했다.
+- `지수법칙 적용 조건: 밑이 같음`, `같은 밑의 거듭제곱의 곱셈`, `같은 밑의 거듭제곱의 나눗셈`, `거듭제곱의 거듭제곱`, `다항식의 덧셈과 뺄셈 원리`, `다항식의 항·계수·차수 확인하기`, `다항식에서 동류항 모으기`, `다항식의 괄호 풀기`, `다항식의 뺄셈에서 부호 바꾸기`, `지수법칙을 단항식 계산에 적용하기`, `단항식 계산에서 계수끼리 계산하기`, `단항식 계산에서 문자 부분 계산하기`, `단항식을 다항식에 분배하기`, `다항식의 각 항을 단항식으로 나누기`, `몫이 다항식인지 확인하기`, `다항식 뺄셈에서 괄호 앞 음수를 분배하지 않는 오류`를 추가했다.
+- 이번 보강의 source ref는 `CURR_08`, `CURR_09`, `CURR_10`, `CURR_CALC_NOTE`, `ACH_EXPONENT`, `ACH_POLY_ADD_SUB`, `ACH_POLY_MUL_DIV`, 공식 용어·기호와 정수·유리수 사칙연산 근거에 한정했다. 연구보고서 자동 매칭 row와 교과서 원본 근거는 새 source ref로 붙이지 않았고, 교과서 본문·정리·예제·문제 패턴 확인 전까지 세부 법칙·절차와 오개념 후보의 confidence를 보수적으로 유지했다.
+- `밑/지수/지수법칙 -> 오개념`과 `단항식과 다항식의 곱셈과 나눗셈 -> 다항식 나눗셈 범위 혼동`으로 들어가던 noisy `prerequisite_for` edge를 제거하고, 오개념 위험은 `지수법칙 적용 조건: 밑이 같음`, `몫이 다항식인지 확인하기`, `다항식의 뺄셈에서 부호 바꾸기`에 대한 `often_confused_with` edge로 연결했다.
+- `식의 계산 -> 일차부등식/연립일차방정식`의 broad prerequisite edge를 `related_to`로 낮추고, 실제 선수 흐름은 `일차식의 덧셈과 뺄셈 -> 일차부등식 풀기`, `일차식의 덧셈과 뺄셈 -> 가감법`의 더 작은 `used_in` edge로 보존했다.
+- 전체 파생 산출물을 재생성한 결과 concept은 613개, edge는 2688개가 되었다. source ref 총계는 concept 1742개, edge 7150개, 총 8892개이며 source catalogue는 5개이다.
+- `review-queue.*`는 92개 low-confidence concept, `concept-evidence-depth.*`는 concept 613개, `edge-evidence-depth.*`는 edge 2688개, `prerequisite-map.*`는 957개 선수 관계 edge로 갱신되었다.
+- `textbook-evidence-workplan.*`는 34개 단원 그룹, concept evidence row 613개, edge evidence row 3213개, pending textbook evidence row 3826개, low-confidence concept/edge row 596개를 기록한다. 이번 보강 대상 `식의 계산`은 rank 12로 재정렬되었고 30개 concept과 165개 edge row, 총 195개 row가 모두 `pending_textbook_pdf` 상태이다.
+- `test_build_pilot_calculation_microconcepts.py`를 추가해 새 식의 계산 미시 concept, 지수법칙·단항식·다항식 계산 절차 edge, 오개념 confidence 유지, noisy prerequisite edge 제거, 연구보고서 직접 source ref 미사용을 고정했다.
+- 좁은 테스트: `python -m unittest test_build_pilot_calculation_microconcepts.py` 5개 통과.
+- edge/queue 테스트: `python -m unittest test_build_pilot_edge_sync.py test_build_related_edge_resolution_queue.py test_build_node_edge_consistency_audit.py` 28개 통과.
+- 전체 단위 테스트: `python -m unittest discover -s . -p "test_*.py"`를 `docs/math-concept-map/tools`에서 실행해 259개 통과.
+- 전체 validator: `python docs/math-concept-map/tools/validate_concept_map.py`: 613개 concept, 2688개 edge, 5개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map`: 종료 코드 0, CRLF 변환 경고만 확인.
+- 전체 파생 산출물 파이프라인을 재실행했고 `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
 - 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 `not_applicable_from_this_row` 40개가 broad context, 용어 충돌, 도구·자료 입력, 또는 약한 출현으로 유지되는지 주기적으로 감사한다. 현재 `pending_manual_review`는 7개이며, 주로 `선분`·`반직선` 후보이므로 교과서 본문 또는 중학교 기본 도형 직접 근거 확인 후 source ref 반영 여부를 판단한다.
 - 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.
-- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 237개, 총 280개 row로 유지하되, rank 2 `일차함수와 그 그래프`, rank 3 `경우의 수와 확률`, rank 4 `이차함수와 그 그래프`, rank 5 `정수와 유리수`, rank 6 `도수분포표와 상대도수`, rank 7 `이차방정식`, rank 8 `기본 도형`, rank 9 `입체도형의 성질`, rank 10 `일차방정식`, rank 11 `소인수분해`, rank 12 `문자의 사용과 식`, rank 13 `제곱근과 실수`, rank 14 `다항식의 곱셈과 인수분해`도 같은 방식으로 교과서 근거를 보강한다. 교과서 PDF 없이 공식·보조 문서 기반 미시 concept 보강을 계속한다면 다음 반복 후보는 workplan 상위권에서 이미 보강한 단원을 제외하고 rank 15 `식의 계산` 또는 rank 16 `평면도형의 성질`처럼 미시 concept이 덜 분해된 단원을 우선 검토한다.
+- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 237개, 총 280개 row로 유지하되, rank 2 `일차함수와 그 그래프`, rank 3 `경우의 수와 확률`, rank 4 `이차함수와 그 그래프`, rank 5 `정수와 유리수`, rank 6 `도수분포표와 상대도수`, rank 7 `이차방정식`, rank 8 `기본 도형`, rank 9 `입체도형의 성질`, rank 10 `일차방정식`, rank 11 `소인수분해`, rank 12 `식의 계산`, rank 13 `문자의 사용과 식`, rank 14 `제곱근과 실수`, rank 15 `다항식의 곱셈과 인수분해`도 같은 방식으로 교과서 근거를 보강한다. 교과서 PDF 없이 공식·보조 문서 기반 미시 concept 보강을 계속한다면 다음 반복 후보는 workplan 상위권에서 이미 보강한 단원을 제외하고 rank 16 `평면도형의 성질` 또는 rank 17 `연립일차방정식`처럼 미시 concept이 덜 분해된 단원을 우선 검토한다.
 - 새 concept, alias, `related_ids`, 또는 `equivalent_to` 후보가 추가되면 `equivalence-alias-audit.*`, `related-edge-resolution-queue.*`, `textbook-edge-evidence-packets/*`, `edge-evidence-depth.*`를 함께 재생성한다.

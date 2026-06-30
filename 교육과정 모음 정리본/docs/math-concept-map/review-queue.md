@@ -2,14 +2,14 @@
 
 이 문서는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 출처 보강 때 먼저 확인할 대상을 정리한다.
 
-- 검토 대상 concept: 90개
+- 검토 대상 concept: 92개
 
 ## 영역별 검토 대상
 
 | 영역 | concept 수 |
 |---|---:|
 | 수와 연산 | 14 |
-| 변화와 관계 | 46 |
+| 변화와 관계 | 48 |
 | 도형과 측정 | 17 |
 | 자료와 가능성 | 13 |
 
@@ -17,7 +17,7 @@
 
 | concept_type | concept 수 |
 |---|---:|
-| misconception_risk | 68 |
+| misconception_risk | 70 |
 | procedure | 2 |
 | property | 6 |
 | representation | 2 |
@@ -50,7 +50,9 @@
 | m1_mis_letter_as_label_only | 변화와 관계 | 문자의 사용과 식 | misconception_risk | textbook_evidence_needed | 문자를 이름표로만 해석하는 오류 | 공식 문서의 문자와 일상 언어 비교 지도 유의점에서 추론한 위험이다. 교과서 도입 활동으로 보강 필요. |
 | m1_mis_like_terms | 변화와 관계 | 문자의 사용과 식 | misconception_risk | textbook_evidence_needed | 동류항이 아닌 항을 합치는 오류 | 성취수준의 일차식 계산 수행에서 발생할 수 있는 위험으로 추론했다. 교과서 예제와 오답 분석으로 보강 필요. |
 | m1_mis_exponent_base | 변화와 관계 | 식의 계산 | misconception_risk | textbook_evidence_needed | 밑이 다른 거듭제곱에 지수법칙을 잘못 적용하는 오류 | 성취수준에 '밑이 같은' 거듭제곱 계산이 드러나므로 잠정 오개념으로 기록했다. |
+| m1_mis_polynomial_division_scope | 변화와 관계 | 식의 계산 | misconception_risk | textbook_evidence_needed | 다항식을 단항식으로 나누는 범위 혼동 | 교육과정 해설의 제한 사항을 개념 지도에서 보존하기 위한 노드이다. |
 | m1_mis_polynomial_like_terms | 변화와 관계 | 식의 계산 | misconception_risk | textbook_evidence_needed | 다항식에서 동류항 처리를 누락하는 오류 |  |
+| m1_mis_polynomial_subtraction_sign | 변화와 관계 | 식의 계산 | misconception_risk | textbook_evidence_needed | 다항식 뺄셈에서 괄호 앞 음수를 분배하지 않는 오류 | 성취기준/성취수준의 요구 조건에서 추론한 오개념 후보이다. 교과서 주의 문구, 오답 예, 반복 문제 패턴 확인 전까지 low로 유지한다. |
 | m1_mis_system_elimination_sign | 변화와 관계 | 연립일차방정식 | misconception_risk | textbook_evidence_needed | 가감법에서 부호와 계수 처리를 잘못하는 오류 |  |
 | m1_mis_system_one_equation_only | 변화와 관계 | 연립일차방정식 | misconception_risk | textbook_evidence_needed | 연립방정식의 해를 한 방정식만 만족해도 된다고 보는 오류 |  |
 | m1_mis_system_substitution | 변화와 관계 | 연립일차방정식 | misconception_risk | textbook_evidence_needed | 대입법에서 식 전체를 대입하지 않는 오류 |  |
