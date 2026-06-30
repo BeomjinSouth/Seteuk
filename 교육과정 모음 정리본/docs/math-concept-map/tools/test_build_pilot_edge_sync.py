@@ -428,7 +428,7 @@ class BuildPilotEdgeSyncTests(unittest.TestCase):
             frozenset(["m1_func_unit", "m1_system_unit"]): "related_to",
             frozenset(["m1_func_value", "m1_expr_value"]): "contrasts_with",
             frozenset(["m1_func_eq_relation_unit", "m1_coord_graph_unit"]): "related_to",
-            frozenset(["m1_func_two_variable_equation_as_graph", "m1_system_solution"]): "used_in",
+            frozenset(["m1_func_two_variable_equation_as_graph", "m1_func_system_graph_relation"]): "used_in",
             frozenset(["m1_repr_everyday_language", "m1_expr_letter"]): "used_in",
             frozenset(["m1_repr_expression", "m1_expr_value"]): "used_in",
             frozenset(["m1_term_variable", "m1_prop_direct_proportion"]): "used_in",

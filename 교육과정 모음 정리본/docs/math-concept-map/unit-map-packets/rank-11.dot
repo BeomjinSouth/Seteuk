@@ -39,10 +39,13 @@ digraph pilot_unit_map {
   "m1_mis_system_one_equation_only" [label="연립방정식의 해를 한 방정식만 만족해도 된다고 보는 오류\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_ineq_compare_equality_properties" [label="등식의 성질과 부등식의 성질 비교\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_ineq_properties" [label="부등식의 성질\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_system_add_or_subtract_equations" [label="두 방정식 더하거나 빼기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_system_substitution_isolate_variable" [label="한 미지수를 다른 미지수의 식으로 나타내기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_quad_eq_quadratic_equation" [label="이차방정식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_system_simultaneous_equations" [label="연립방정식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_system_two_variable_linear_equation" [label="미지수가 2개인 일차방정식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_quad_eq_solution" [label="이차방정식의 해\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_system_common_solution_condition" [label="공통 해 조건\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_system_solution" [label="연립일차방정식의 해\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_quad_eq_context_solution_check" [label="해가 문제 상황에 적합한지 확인하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_quad_eq_modeling" [label="이차방정식 활용 문제 해결\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -53,6 +56,7 @@ digraph pilot_unit_map {
   "m1_ineq_unit" [label="일차부등식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_quad_eq_unit" [label="이차방정식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_system_unit" [label="연립일차방정식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_system_modeling_variable_assignment" [label="두 미지수 정하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_expr_constant_term" [label="상수항\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_expr_letter" [label="문자\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_expr_letter_quantity" [label="문자가 나타내는 수량 정하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -184,10 +188,13 @@ digraph pilot_unit_map {
   "m1_eq_multiple_solving_methods" -> "m1_eq_apply_equality_properties" [label="related_to", style="solid", color="#6b7280"];
   "m1_eq_equality_properties" -> "m1_ineq_compare_equality_properties" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_eq_equality_properties" -> "m1_ineq_properties" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_eq_equality_properties" -> "m1_system_add_or_subtract_equations" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_eq_equality_properties" -> "m1_system_substitution_isolate_variable" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_eq_equation" -> "m1_quad_eq_quadratic_equation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_eq_equation" -> "m1_system_simultaneous_equations" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_eq_linear_equation" -> "m1_system_two_variable_linear_equation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_eq_solution" -> "m1_quad_eq_solution" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_eq_solution" -> "m1_system_common_solution_condition" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_eq_solution" -> "m1_system_solution" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_eq_solution_check" -> "m1_quad_eq_context_solution_check" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_eq_solution_check" -> "m1_quad_eq_modeling" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -198,6 +205,7 @@ digraph pilot_unit_map {
   "m1_eq_unit" -> "m1_ineq_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_eq_unit" -> "m1_quad_eq_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_eq_unit" -> "m1_system_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_eq_unknown" -> "m1_system_modeling_variable_assignment" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_eq_unknown" -> "m1_system_two_variable_linear_equation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_constant_term" -> "m1_eq_collect_constant_terms" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_letter" -> "m1_eq_unknown" [label="prerequisite_for", style="dashed", color="#6b7280"];

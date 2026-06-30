@@ -54,6 +54,7 @@ digraph pilot_unit_map {
   "m1_num_domain" [label="수와 연산\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_real_number" [label="실수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_eq_equal_add_subtract_property" [label="양변에 같은 수를 더하거나 빼기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_system_add_or_subtract_equations" [label="두 방정식 더하거나 빼기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_calc_expansion" [label="전개\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_calc_monomial_times_polynomial_distribution" [label="단항식을 다항식에 분배하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_calc_polynomial_parentheses_removal" [label="다항식의 괄호 풀기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -248,6 +249,7 @@ digraph pilot_unit_map {
   "m1_num_domain" -> "m1_num_integer_rational_unit" [label="contains", style="dashed", color="#6b7280"];
   "m1_num_real_number" -> "m1_num_rational_number" [label="contains", style="dashed", color="#6b7280"];
   "m1_num_addition" -> "m1_eq_equal_add_subtract_property" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_num_addition" -> "m1_system_add_or_subtract_equations" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_distributive_law" -> "m1_calc_expansion" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_distributive_law" -> "m1_calc_monomial_times_polynomial_distribution" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_distributive_law" -> "m1_calc_polynomial_parentheses_removal" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -280,6 +282,7 @@ digraph pilot_unit_map {
   "m1_num_rational_number" -> "m1_num_repeating_decimal_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_rational_number" -> "m1_num_square_root_real_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_subtraction" -> "m1_eq_equal_add_subtract_property" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_num_subtraction" -> "m1_system_add_or_subtract_equations" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_subtraction_as_add_opposite" -> "m1_calc_polynomial_subtraction_sign_distribution" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_real_number" -> "m1_num_number_line" [label="represented_by", style="dashed", color="#6b7280"];
   "m1_num_repeating_decimal_to_fraction" -> "m1_num_rational_number" [label="represented_by", style="dashed", color="#6b7280"];

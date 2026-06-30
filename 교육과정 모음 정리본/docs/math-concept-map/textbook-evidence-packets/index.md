@@ -5,8 +5,8 @@ This generated index tracks the prepared unit-level textbook evidence packets.
 ## Summary
 
 - packets: 34
-- concepts in packets: 636
-- pending textbook evidence rows: 636
+- concepts in packets: 650
+- pending textbook evidence rows: 650
 
 ## Packets
 
@@ -28,7 +28,7 @@ This generated index tracks the prepared unit-level textbook evidence packets.
 | 14 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 문자의 사용과 식 | 24 | 24 | 3 | highest | 48 | rank-14.md |
 | 15 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 평면도형의 성질 | 29 | 29 | 3 | highest | 47 | rank-15.md |
 | 16 | 중3(교육과정 학년군: 중1-3) | 수와 연산 | 제곱근과 실수 | 25 | 25 | 3 | highest | 45 | rank-16.md |
-| 17 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 연립일차방정식 | 13 | 13 | 3 | high | 25 | rank-17.md |
+| 17 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 연립일차방정식 | 27 | 27 | 4 | highest | 43 | rank-17.md |
 | 18 | 중3(교육과정 학년군: 중1-3) | 도형과 측정 | 삼각비 | 11 | 11 | 2 | high | 25 | rank-18.md |
 | 19 | 중2(교육과정 학년군: 중1-3) | 도형과 측정 | 삼각형과 사각형의 성질 | 16 | 16 | 2 | high | 24 | rank-19.md |
 | 20 | 중3(교육과정 학년군: 중1-3) | 도형과 측정 | 원의 성질 | 13 | 13 | 2 | high | 23 | rank-20.md |

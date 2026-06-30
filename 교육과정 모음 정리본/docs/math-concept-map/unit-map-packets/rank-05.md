@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 수와 연산
 - unit: 정수와 유리수
 - priority tier: highest
-- workplan score: 277
+- workplan score: 279
 - concepts: 41
-- edges touching unit: 212
-- cross-unit edges: 60
+- edges touching unit: 214
+- cross-unit edges: 62
 - low confidence concepts: 5
 - low confidence edges: 38
 
@@ -35,7 +35,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contrasts_with | 11 |
 | equivalent_to | 1 |
 | often_confused_with | 17 |
-| prerequisite_for | 91 |
+| prerequisite_for | 93 |
 | related_to | 10 |
 | represented_by | 7 |
 | used_in | 31 |
@@ -65,6 +65,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_domain__contains__m1_num_integer_rational_unit | 수와 연산 | contains | 정수와 유리수 | high | official_single_source |
 | m1_num_real_number__contains__m1_num_rational_number | 실수 | contains | 유리수 | high | official_dual_source |
 | m1_num_addition__prerequisite_for__m1_eq_equal_add_subtract_property | 덧셈 | prerequisite_for | 양변에 같은 수를 더하거나 빼기 | medium | official_dual_source |
+| m1_num_addition__prerequisite_for__m1_system_add_or_subtract_equations | 덧셈 | prerequisite_for | 두 방정식 더하거나 빼기 | medium | official_dual_source |
 | m1_num_distributive_law__prerequisite_for__m1_calc_expansion | 분배법칙 | prerequisite_for | 전개 | medium | official_single_source |
 | m1_num_distributive_law__prerequisite_for__m1_calc_monomial_times_polynomial_distribution | 분배법칙 | prerequisite_for | 단항식을 다항식에 분배하기 | medium | official_dual_source |
 | m1_num_distributive_law__prerequisite_for__m1_calc_polynomial_parentheses_removal | 분배법칙 | prerequisite_for | 다항식의 괄호 풀기 | medium | official_dual_source |
@@ -93,4 +94,3 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_rational_number__prerequisite_for__m1_num_rational_irrational_classification | 유리수 | prerequisite_for | 유리수와 무리수의 구분 | high | official_dual_source |
 | m1_num_rational_number__prerequisite_for__m1_num_rational_repeating_relation | 유리수 | prerequisite_for | 유리수와 순환소수의 관계 | high | official_dual_source |
 | m1_num_rational_number__prerequisite_for__m1_num_real_number | 유리수 | prerequisite_for | 실수 | high | official_dual_source |
-| m1_num_rational_number__prerequisite_for__m1_num_real_number_system | 유리수 | prerequisite_for | 실수의 수 체계 | high | official_dual_source |

@@ -4,15 +4,15 @@ This generated audit summarizes source evidence depth for each concept node.
 
 ## Summary
 
-- concepts: 636
-- needs textbook evidence: 636
-- low confidence concepts: 95
+- concepts: 650
+- needs textbook evidence: 650
+- low confidence concepts: 96
 
 ## Evidence Depth Counts
 
 | evidence_depth | concept count |
 |---|---:|
-| official_dual_source | 537 |
+| official_dual_source | 551 |
 | official_single_source | 99 |
 
 ## Priority Rows
@@ -52,10 +52,10 @@ This generated audit summarizes source evidence depth for each concept node.
 | m1_mis_polynomial_subtraction_sign | 다항식 뺄셈에서 괄호 앞 음수를 분배하지 않는 오류 | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_system_elimination_sign | 가감법에서 부호와 계수 처리를 잘못하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_system_one_equation_only | 연립방정식의 해를 한 방정식만 만족해도 된다고 보는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
+| m1_mis_system_ordered_pair_swap | 해의 순서쌍에서 두 미지수 값을 바꾸는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_system_substitution | 대입법에서 식 전체를 대입하지 않는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_quadratic_expression_equation | 이차식과 이차방정식을 혼동하는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_quadratic_factorization_solution | 인수분해한 식에서 해 조건을 빠뜨리는 오류 | low | official_single_source | 2 | achievement_math_2022 |
 | m1_mis_root_coefficient_relation_scope | 근과 계수와의 관계를 중학교 범위로 오인하는 오류 | low | official_single_source | 1 | curriculum_math_2022 |
 | m1_quad_eq_root_formula_substitution | 근의 공식에 계수 대입하기 | low | official_single_source | 2 | curriculum_math_2022 |
 | m1_quad_eq_zero_product_condition | 각 인수가 0이 되는 조건 | low | official_single_source | 2 | achievement_math_2022 |
-| m1_mis_axis_vertex | 포물선의 축과 꼭짓점을 혼동하는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |

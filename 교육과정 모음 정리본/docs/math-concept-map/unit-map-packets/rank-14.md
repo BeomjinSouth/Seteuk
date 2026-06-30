@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 문자의 사용과 식
 - priority tier: highest
-- workplan score: 206
+- workplan score: 213
 - concepts: 24
-- edges touching unit: 172
-- cross-unit edges: 98
+- edges touching unit: 179
+- cross-unit edges: 105
 - low confidence concepts: 3
 - low confidence edges: 15
 
@@ -35,10 +35,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 27 |
 | contrasts_with | 6 |
 | often_confused_with | 11 |
-| prerequisite_for | 89 |
+| prerequisite_for | 95 |
 | related_to | 5 |
 | represented_by | 2 |
-| used_in | 32 |
+| used_in | 33 |
 
 ## Low Confidence Concepts
 
@@ -62,6 +62,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_expr_unit__contains__m1_repr_expression | 문자의 사용과 식 | contains | 식 | high | official_dual_source |
 | m1_expr_unit__contains__m1_term_variable | 문자의 사용과 식 | contains | 변수 | high | official_dual_source |
 | m1_expr_add_sub_linear_expression__prerequisite_for__m1_ineq_solving_linear_inequality | 일차식의 덧셈과 뺄셈 | prerequisite_for | 일차부등식 풀기 | high | official_dual_source |
+| m1_expr_add_sub_linear_expression__prerequisite_for__m1_system_elimination_coefficient_matching | 일차식의 덧셈과 뺄셈 | prerequisite_for | 소거할 미지수의 계수 맞추기 | medium | official_dual_source |
 | m1_expr_coefficient__prerequisite_for__m1_calc_collect_like_terms_polynomial | 계수 | prerequisite_for | 다항식에서 동류항 모으기 | high | official_dual_source |
 | m1_expr_coefficient__prerequisite_for__m1_calc_monomial_coefficient_calculation | 계수 | prerequisite_for | 단항식 계산에서 계수끼리 계산하기 | medium | official_dual_source |
 | m1_expr_coefficient__prerequisite_for__m1_calc_polynomial_term_structure_check | 계수 | prerequisite_for | 다항식의 항·계수·차수 확인하기 | medium | official_dual_source |
@@ -89,6 +90,5 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_expr_literal_expression__prerequisite_for__m1_eq_modeling_linear_equation | 문자를 사용한 식 | prerequisite_for | 일차방정식 세우기 | high | official_dual_source |
 | m1_expr_literal_expression__prerequisite_for__m1_ineq_modeling_linear_inequality | 문자를 사용한 식 | prerequisite_for | 일차부등식 세우기 | high | official_dual_source |
 | m1_expr_literal_expression__prerequisite_for__m1_system_modeling | 문자를 사용한 식 | prerequisite_for | 연립일차방정식 세우기 | high | official_dual_source |
-| m1_expr_monomial__prerequisite_for__m1_calc_apply_exponent_laws_to_monomials | 단항식 | prerequisite_for | 지수법칙을 단항식 계산에 적용하기 | high | official_dual_source |
-| m1_expr_monomial__prerequisite_for__m1_calc_monomial_coefficient_calculation | 단항식 | prerequisite_for | 단항식 계산에서 계수끼리 계산하기 | medium | official_dual_source |
-| m1_expr_monomial__prerequisite_for__m1_calc_monomial_literal_part_calculation | 단항식 | prerequisite_for | 단항식 계산에서 문자 부분 계산하기 | medium | official_dual_source |
+| m1_expr_literal_expression__prerequisite_for__m1_system_modeling_variable_assignment | 문자를 사용한 식 | prerequisite_for | 두 미지수 정하기 | medium | official_dual_source |
+| m1_expr_literal_expression__prerequisite_for__m1_system_substitution_isolate_variable | 문자를 사용한 식 | prerequisite_for | 한 미지수를 다른 미지수의 식으로 나타내기 | medium | official_dual_source |

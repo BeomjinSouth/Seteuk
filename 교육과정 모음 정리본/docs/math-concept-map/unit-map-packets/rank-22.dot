@@ -46,7 +46,9 @@ digraph pilot_unit_map {
   "m1_func_intersection_count" -> "m1_func_system_graph_relation" [label="used_in", style="solid", color="#6b7280"];
   "m1_func_intersection_point" -> "m1_func_system_solution_from_intersection" [label="used_in", style="solid", color="#6b7280"];
   "m1_func_system_graph_relation" -> "m1_func_system_solution_from_intersection" [label="used_in", style="solid", color="#6b7280"];
+  "m1_func_system_solution_from_intersection" -> "m1_func_system_graph_relation" [label="used_in", style="solid", color="#6b7280"];
   "m1_func_two_variable_equation_as_graph" -> "m1_func_equation_relation" [label="used_in", style="solid", color="#6b7280"];
+  "m1_func_two_variable_equation_as_graph" -> "m1_func_system_graph_relation" [label="used_in", style="solid", color="#6b7280"];
   "m1_coord_coordinate" -> "m1_func_intersection_point" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_eq_unit" -> "m1_func_eq_relation_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_func_linear_graph" -> "m1_func_two_linear_graphs" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -56,13 +58,11 @@ digraph pilot_unit_map {
   "m1_system_solution" -> "m1_func_system_solution_from_intersection" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_system_two_variable_linear_equation" -> "m1_func_two_variable_equation_as_graph" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_system_unit" -> "m1_func_eq_relation_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
-  "m1_system_simultaneous_linear_equations" -> "m1_func_system_graph_relation" [label="represented_by", style="dashed", color="#6b7280"];
+  "m1_system_simultaneous_linear_equations" -> "m1_func_two_linear_graphs" [label="represented_by", style="dashed", color="#6b7280"];
   "m1_system_solution" -> "m1_func_intersection_point" [label="represented_by", style="dashed", color="#6b7280"];
-  "m1_system_two_variable_linear_equation" -> "m1_func_two_variable_equation_as_graph" [label="represented_by", style="dashed", color="#6b7280"];
   "m1_func_linear_graph" -> "m1_func_equation_relation" [label="used_in", style="dashed", color="#6b7280"];
-  "m1_func_system_solution_from_intersection" -> "m1_system_solution" [label="used_in", style="dashed", color="#6b7280"];
-  "m1_func_two_variable_equation_as_graph" -> "m1_system_solution" [label="used_in", style="dashed", color="#6b7280"];
   "m1_system_two_variable_linear_equation" -> "m1_func_equation_relation" [label="used_in", style="dashed", color="#6b7280"];
+  "m1_system_two_variable_linear_equation" -> "m1_func_two_variable_equation_as_graph" [label="used_in", style="dashed", color="#6b7280"];
   "m1_geo_intersection_point" -> "m1_func_intersection_point" [label="contrasts_with", style="dashed", color="#6b7280"];
   "m1_coord_graph_unit" -> "m1_func_eq_relation_unit" [label="related_to", style="dashed", color="#6b7280"];
 }

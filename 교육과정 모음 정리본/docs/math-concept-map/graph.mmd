@@ -216,14 +216,28 @@ flowchart LR
   m1_system_simultaneous_equations["연립방정식"]
   m1_system_simultaneous_linear_equations["연립일차방정식"]
   m1_system_solution["연립일차방정식의 해"]
+  m1_system_common_solution_condition["공통 해 조건"]
+  m1_system_solution_ordered_pair["해의 순서쌍 표현"]
+  m1_system_solution_check["연립일차방정식 해의 확인"]
   m1_system_solving["연립일차방정식 풀기"]
   m1_system_elimination["소거"]
   m1_system_addition_subtraction_method["가감법"]
+  m1_system_elimination_coefficient_matching["소거할 미지수의 계수 맞추기"]
+  m1_system_add_or_subtract_equations["두 방정식 더하거나 빼기"]
+  m1_system_back_substitution["한 미지수 값을 대입해 다른 미지수 구하기"]
   m1_system_substitution_method["대입법"]
+  m1_system_substitution_isolate_variable["한 미지수를 다른 미지수의 식으로 나타내기"]
+  m1_system_substitution_into_other_equation["다른 방정식에 식 전체 대입하기"]
   m1_system_modeling["연립일차방정식 세우기"]
+  m1_system_modeling_variable_assignment["두 미지수 정하기"]
+  m1_system_modeling_two_conditions["두 조건을 두 방정식으로 나타내기"]
+  m1_system_problem_solving["연립일차방정식 활용 문제 해결"]
+  m1_system_process_explanation["연립일차방정식 풀이 과정 설명하기"]
+  m1_system_solution_context_interpretation["해를 문제 상황에 맞게 해석하기"]
   m1_mis_system_one_equation_only["연립방정식의 해를 한 방정식만 만족해도 된다고 보는 오류"]
   m1_mis_system_elimination_sign["가감법에서 부호와 계수 처리를 잘못하는 오류"]
   m1_mis_system_substitution["대입법에서 식 전체를 대입하지 않는 오류"]
+  m1_mis_system_ordered_pair_swap["해의 순서쌍에서 두 미지수 값을 바꾸는 오류"]
   m1_func_unit["일차함수와 그 그래프"]
   m1_func_function["함수"]
   m1_func_two_quantity_relation["두 양 사이의 관계"]
@@ -1122,14 +1136,46 @@ flowchart LR
   m1_system_elimination -- "사용" --> m1_system_addition_subtraction_method
   m1_system_solving -- "포함" --> m1_system_substitution_method
   m1_system_addition_subtraction_method -- "대조" --> m1_system_substitution_method
+  m1_system_solution -- "표현" --> m1_system_solution_ordered_pair
+  m1_system_solution_ordered_pair -- "표현" --> m1_coord_ordered_pair
+  m1_system_common_solution_condition -- "사용" --> m1_system_solution_check
+  m1_expr_substitution -- "사용" --> m1_system_solution_check
+  m1_system_solution_check -- "사용" --> m1_system_modeling
+  m1_system_elimination_coefficient_matching -- "사용" --> m1_system_addition_subtraction_method
+  m1_system_add_or_subtract_equations -- "사용" --> m1_system_elimination
+  m1_system_add_or_subtract_equations -- "사용" --> m1_system_addition_subtraction_method
+  m1_system_add_or_subtract_equations -- "사용" --> m1_system_back_substitution
+  m1_system_back_substitution -- "사용" --> m1_system_addition_subtraction_method
+  m1_system_back_substitution -- "사용" --> m1_system_substitution_method
+  m1_system_substitution_isolate_variable -- "사용" --> m1_system_substitution_method
+  m1_system_substitution_into_other_equation -- "사용" --> m1_system_substitution_method
+  m1_system_substitution_into_other_equation -- "사용" --> m1_system_back_substitution
+  m1_system_back_substitution -- "사용" --> m1_system_solution_check
+  m1_system_modeling_variable_assignment -- "사용" --> m1_system_modeling
+  m1_system_modeling_two_conditions -- "사용" --> m1_system_modeling
+  m1_system_modeling_two_conditions -- "표현" --> m1_system_simultaneous_linear_equations
+  m1_system_modeling_two_conditions -- "연관" --> m1_system_solving
+  m1_system_elimination_coefficient_matching -- "대조" --> m1_system_substitution_isolate_variable
   m1_system_modeling -- "표현" --> m1_system_simultaneous_linear_equations
   m1_system_modeling -- "사용" --> m1_system_solving
   m1_system_solution -- "사용" --> m1_system_modeling
+  m1_system_modeling -- "사용" --> m1_system_problem_solving
+  m1_system_solving -- "사용" --> m1_system_problem_solving
+  m1_system_solution_check -- "사용" --> m1_system_problem_solving
+  m1_system_solving -- "사용" --> m1_system_solution_check
+  m1_system_process_explanation -- "사용" --> m1_system_solving
+  m1_system_solution_context_interpretation -- "사용" --> m1_system_problem_solving
+  m1_system_solution_context_interpretation -- "연관" --> m1_system_modeling
+  m1_system_solution_context_interpretation -- "연관" --> m1_system_modeling_variable_assignment
   m1_system_solution -- "표현" --> m1_coord_ordered_pair
-  m1_system_unit -- "선수" --> m1_coord_graph_unit
+  m1_system_unit -- "연관" --> m1_coord_graph_unit
   m1_mis_system_one_equation_only -- "혼동" --> m1_system_solution
+  m1_mis_system_one_equation_only -- "혼동" --> m1_system_common_solution_condition
   m1_mis_system_elimination_sign -- "혼동" --> m1_system_addition_subtraction_method
+  m1_mis_system_elimination_sign -- "혼동" --> m1_system_elimination_coefficient_matching
   m1_mis_system_substitution -- "혼동" --> m1_system_substitution_method
+  m1_mis_system_substitution -- "혼동" --> m1_system_substitution_into_other_equation
+  m1_mis_system_ordered_pair_swap -- "혼동" --> m1_system_solution_ordered_pair
   m1_coord_graph_unit -- "선수" --> m1_func_unit
   m1_expr_unit -- "선수" --> m1_func_unit
   m1_eq_unit -- "선수" --> m1_func_eq_relation_unit
@@ -1216,18 +1262,18 @@ flowchart LR
   m1_func_eq_relation_unit -- "포함" --> m1_func_equation_relation
   m1_func_eq_relation_unit -- "포함" --> m1_func_two_linear_graphs
   m1_func_eq_relation_unit -- "포함" --> m1_func_system_graph_relation
-  m1_system_two_variable_linear_equation -- "표현" --> m1_func_two_variable_equation_as_graph
+  m1_system_two_variable_linear_equation -- "사용" --> m1_func_two_variable_equation_as_graph
   m1_system_two_variable_linear_equation -- "사용" --> m1_func_equation_relation
   m1_func_two_variable_equation_as_graph -- "사용" --> m1_func_equation_relation
-  m1_func_two_variable_equation_as_graph -- "사용" --> m1_system_solution
+  m1_func_two_variable_equation_as_graph -- "사용" --> m1_func_system_graph_relation
   m1_func_linear_graph -- "사용" --> m1_func_equation_relation
   m1_func_two_linear_graphs -- "포함" --> m1_func_intersection_point
   m1_func_two_linear_graphs -- "포함" --> m1_func_intersection_count
   m1_func_intersection_point -- "사용" --> m1_func_system_solution_from_intersection
   m1_func_intersection_count -- "사용" --> m1_func_system_graph_relation
-  m1_system_simultaneous_linear_equations -- "표현" --> m1_func_system_graph_relation
+  m1_system_simultaneous_linear_equations -- "표현" --> m1_func_two_linear_graphs
   m1_func_system_graph_relation -- "사용" --> m1_func_system_solution_from_intersection
-  m1_func_system_solution_from_intersection -- "사용" --> m1_system_solution
+  m1_func_system_solution_from_intersection -- "사용" --> m1_func_system_graph_relation
   m1_system_solution -- "표현" --> m1_func_intersection_point
   m1_mis_all_relations_are_functions -- "혼동" --> m1_func_function_judgement
   m1_mis_function_value_input_output -- "혼동" --> m1_func_value
@@ -2078,10 +2124,24 @@ flowchart LR
   m1_ineq_unit -- "포함" --> m1_ineq_solution_check
   m1_ineq_unit -- "포함" --> m1_mis_ineq_solution_single_value
   m1_ineq_unit -- "포함" --> m1_mis_ineq_negative
+  m1_system_solution -- "포함" --> m1_system_common_solution_condition
+  m1_system_solution -- "포함" --> m1_system_solution_ordered_pair
+  m1_system_solution -- "포함" --> m1_system_solution_check
   m1_system_solving -- "포함" --> m1_system_addition_subtraction_method
+  m1_system_addition_subtraction_method -- "포함" --> m1_system_elimination_coefficient_matching
+  m1_system_addition_subtraction_method -- "포함" --> m1_system_add_or_subtract_equations
+  m1_system_solving -- "포함" --> m1_system_back_substitution
+  m1_system_substitution_method -- "포함" --> m1_system_substitution_isolate_variable
+  m1_system_substitution_method -- "포함" --> m1_system_substitution_into_other_equation
+  m1_system_modeling -- "포함" --> m1_system_modeling_variable_assignment
+  m1_system_modeling -- "포함" --> m1_system_modeling_two_conditions
+  m1_system_unit -- "포함" --> m1_system_problem_solving
+  m1_system_solving -- "포함" --> m1_system_process_explanation
+  m1_system_problem_solving -- "포함" --> m1_system_solution_context_interpretation
   m1_system_unit -- "포함" --> m1_mis_system_one_equation_only
   m1_system_unit -- "포함" --> m1_mis_system_elimination_sign
   m1_system_unit -- "포함" --> m1_mis_system_substitution
+  m1_system_unit -- "포함" --> m1_mis_system_ordered_pair_swap
   m1_func_function -- "포함" --> m1_func_correspondence
   m1_func_unit -- "포함" --> m1_func_function_judgement
   m1_func_linear_function -- "포함" --> m1_func_linear_formula
@@ -2707,17 +2767,46 @@ flowchart LR
   m1_eq_equation -- "선수" --> m1_system_simultaneous_equations
   m1_system_two_variable_linear_equation -- "선수" --> m1_system_simultaneous_linear_equations
   m1_system_simultaneous_linear_equations -- "선수" --> m1_system_solution
+  m1_system_simultaneous_linear_equations -- "선수" --> m1_system_common_solution_condition
+  m1_eq_solution -- "선수" --> m1_system_common_solution_condition
+  m1_system_solution -- "선수" --> m1_system_solution_ordered_pair
+  m1_coord_ordered_pair -- "선수" --> m1_system_solution_ordered_pair
+  m1_system_solution -- "선수" --> m1_system_solution_check
+  m1_expr_substitution -- "선수" --> m1_system_solution_check
+  m1_system_common_solution_condition -- "선수" --> m1_system_solution_check
   m1_system_simultaneous_linear_equations -- "선수" --> m1_system_solving
   m1_eq_solving_linear_equation -- "선수" --> m1_system_solving
   m1_system_simultaneous_linear_equations -- "선수" --> m1_system_elimination
   m1_system_elimination -- "선수" --> m1_system_addition_subtraction_method
+  m1_system_elimination -- "선수" --> m1_system_elimination_coefficient_matching
+  m1_expr_add_sub_linear_expression -- "선수" --> m1_system_elimination_coefficient_matching
+  m1_system_elimination_coefficient_matching -- "선수" --> m1_system_add_or_subtract_equations
+  m1_eq_equality_properties -- "선수" --> m1_system_add_or_subtract_equations
+  m1_num_addition -- "선수" --> m1_system_add_or_subtract_equations
+  m1_num_subtraction -- "선수" --> m1_system_add_or_subtract_equations
+  m1_system_solution -- "선수" --> m1_system_back_substitution
+  m1_expr_substitution -- "선수" --> m1_system_back_substitution
   m1_expr_substitution -- "선수" --> m1_system_substitution_method
   m1_system_simultaneous_linear_equations -- "선수" --> m1_system_substitution_method
+  m1_eq_equality_properties -- "선수" --> m1_system_substitution_isolate_variable
+  m1_expr_literal_expression -- "선수" --> m1_system_substitution_isolate_variable
+  m1_system_simultaneous_linear_equations -- "선수" --> m1_system_substitution_isolate_variable
+  m1_system_substitution_isolate_variable -- "선수" --> m1_system_substitution_into_other_equation
+  m1_expr_substitution -- "선수" --> m1_system_substitution_into_other_equation
   m1_expr_literal_expression -- "선수" --> m1_system_modeling
   m1_system_simultaneous_linear_equations -- "선수" --> m1_system_modeling
-  m1_system_solution -- "선수" --> m1_mis_system_one_equation_only
-  m1_system_addition_subtraction_method -- "선수" --> m1_mis_system_elimination_sign
-  m1_system_substitution_method -- "선수" --> m1_mis_system_substitution
+  m1_eq_unknown -- "선수" --> m1_system_modeling_variable_assignment
+  m1_expr_literal_expression -- "선수" --> m1_system_modeling_variable_assignment
+  m1_system_modeling_variable_assignment -- "선수" --> m1_system_modeling_two_conditions
+  m1_system_two_variable_linear_equation -- "선수" --> m1_system_modeling_two_conditions
+  m1_system_modeling -- "선수" --> m1_system_problem_solving
+  m1_system_solving -- "선수" --> m1_system_problem_solving
+  m1_system_solution_check -- "선수" --> m1_system_problem_solving
+  m1_system_solving -- "선수" --> m1_system_process_explanation
+  m1_system_addition_subtraction_method -- "선수" --> m1_system_process_explanation
+  m1_system_substitution_method -- "선수" --> m1_system_process_explanation
+  m1_system_solution -- "선수" --> m1_system_solution_context_interpretation
+  m1_system_solution_check -- "선수" --> m1_system_solution_context_interpretation
   m1_eq_unit -- "선수" --> m1_func_unit
   m1_func_two_quantity_relation -- "선수" --> m1_func_function
   m1_func_correspondence -- "선수" --> m1_func_function
@@ -3393,9 +3482,14 @@ flowchart LR
   m1_mis_polynomial_subtraction_sign -- "혼동" --> m1_mis_sign_operation
   m1_mis_ineq_solution_single_value -- "혼동" --> m1_ineq_inequality
   m1_mis_ineq_solution_single_value -- "혼동" --> m1_ineq_solution_check
+  m1_mis_system_ordered_pair_swap -- "혼동" --> m1_system_solution
+  m1_mis_system_one_equation_only -- "혼동" --> m1_system_solution_check
   m1_mis_system_elimination_sign -- "혼동" --> m1_system_elimination
+  m1_mis_system_elimination_sign -- "혼동" --> m1_system_add_or_subtract_equations
+  m1_mis_system_substitution -- "혼동" --> m1_system_substitution_isolate_variable
   m1_mis_system_one_equation_only -- "혼동" --> m1_eq_solution
   m1_mis_system_substitution -- "혼동" --> m1_expr_substitution
+  m1_mis_system_ordered_pair_swap -- "혼동" --> m1_coord_ordered_pair
   m1_mis_all_relations_are_functions -- "혼동" --> m1_func_function
   m1_mis_intersection_solution -- "혼동" --> m1_func_intersection_count
   m1_mis_intersection_solution -- "혼동" --> m1_func_system_solution_from_intersection
@@ -3667,14 +3761,28 @@ flowchart LR
   class m1_system_simultaneous_equations default;
   class m1_system_simultaneous_linear_equations core;
   class m1_system_solution default;
+  class m1_system_common_solution_condition default;
+  class m1_system_solution_ordered_pair representation;
+  class m1_system_solution_check procedure;
   class m1_system_solving procedure;
   class m1_system_elimination procedure;
   class m1_system_addition_subtraction_method procedure;
+  class m1_system_elimination_coefficient_matching procedure;
+  class m1_system_add_or_subtract_equations procedure;
+  class m1_system_back_substitution procedure;
   class m1_system_substitution_method procedure;
+  class m1_system_substitution_isolate_variable procedure;
+  class m1_system_substitution_into_other_equation procedure;
   class m1_system_modeling procedure;
+  class m1_system_modeling_variable_assignment procedure;
+  class m1_system_modeling_two_conditions procedure;
+  class m1_system_problem_solving procedure;
+  class m1_system_process_explanation procedure;
+  class m1_system_solution_context_interpretation procedure;
   class m1_mis_system_one_equation_only risk;
   class m1_mis_system_elimination_sign risk;
   class m1_mis_system_substitution risk;
+  class m1_mis_system_ordered_pair_swap risk;
   class m1_func_unit core;
   class m1_func_function core;
   class m1_func_two_quantity_relation default;

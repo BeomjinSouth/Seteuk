@@ -11,7 +11,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - priority tier: medium
 - priority score: 19
 - edges in packet: 43
-- cross-unit edges: 19
+- cross-unit edges: 17
 - low confidence edges: 7
 
 ## Relationship Evidence Slots
@@ -42,7 +42,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_func_intersection_count__used_in__m1_func_system_graph_relation | intra_unit | 교점의 개수 | used_in | 두 일차함수의 그래프와 연립일차방정식의 관계 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_func_intersection_point__used_in__m1_func_system_solution_from_intersection | intra_unit | 교점 | used_in | 교점으로 연립일차방정식의 해 말하기 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_func_system_graph_relation__used_in__m1_func_system_solution_from_intersection | intra_unit | 두 일차함수의 그래프와 연립일차방정식의 관계 | used_in | 교점으로 연립일차방정식의 해 말하기 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_func_system_solution_from_intersection__used_in__m1_func_system_graph_relation | intra_unit | 교점으로 연립일차방정식의 해 말하기 | used_in | 두 일차함수의 그래프와 연립일차방정식의 관계 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_func_two_variable_equation_as_graph__used_in__m1_func_equation_relation | intra_unit | 미지수가 2개인 일차방정식의 해를 그래프로 나타내기 | used_in | 일차함수와 미지수가 2개인 일차방정식의 관계 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_func_two_variable_equation_as_graph__used_in__m1_func_system_graph_relation | intra_unit | 미지수가 2개인 일차방정식의 해를 그래프로 나타내기 | used_in | 두 일차함수의 그래프와 연립일차방정식의 관계 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 4 |
 | m1_coord_coordinate__prerequisite_for__m1_func_intersection_point | cross_unit | 좌표 | prerequisite_for | 교점 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_eq_unit__prerequisite_for__m1_func_eq_relation_unit | cross_unit | 일차방정식 | prerequisite_for | 일차함수와 일차방정식의 관계 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_func_linear_graph__prerequisite_for__m1_func_two_linear_graphs | cross_unit | 일차함수의 그래프 | prerequisite_for | 두 일차함수의 그래프 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
@@ -52,13 +54,11 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_system_solution__prerequisite_for__m1_func_system_solution_from_intersection | cross_unit | 연립일차방정식의 해 | prerequisite_for | 교점으로 연립일차방정식의 해 말하기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_system_two_variable_linear_equation__prerequisite_for__m1_func_two_variable_equation_as_graph | cross_unit | 미지수가 2개인 일차방정식 | prerequisite_for | 미지수가 2개인 일차방정식의 해를 그래프로 나타내기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_system_unit__prerequisite_for__m1_func_eq_relation_unit | cross_unit | 연립일차방정식 | prerequisite_for | 일차함수와 일차방정식의 관계 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
-| m1_system_simultaneous_linear_equations__represented_by__m1_func_system_graph_relation | cross_unit | 연립일차방정식 | represented_by | 두 일차함수의 그래프와 연립일차방정식의 관계 | high | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
+| m1_system_simultaneous_linear_equations__represented_by__m1_func_two_linear_graphs | cross_unit | 연립일차방정식 | represented_by | 두 일차함수의 그래프 | high | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
 | m1_system_solution__represented_by__m1_func_intersection_point | cross_unit | 연립일차방정식의 해 | represented_by | 교점 | high | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
-| m1_system_two_variable_linear_equation__represented_by__m1_func_two_variable_equation_as_graph | cross_unit | 미지수가 2개인 일차방정식 | represented_by | 미지수가 2개인 일차방정식의 해를 그래프로 나타내기 | high | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
 | m1_func_linear_graph__used_in__m1_func_equation_relation | cross_unit | 일차함수의 그래프 | used_in | 일차함수와 미지수가 2개인 일차방정식의 관계 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
-| m1_func_system_solution_from_intersection__used_in__m1_system_solution | cross_unit | 교점으로 연립일차방정식의 해 말하기 | used_in | 연립일차방정식의 해 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
-| m1_func_two_variable_equation_as_graph__used_in__m1_system_solution | cross_unit | 미지수가 2개인 일차방정식의 해를 그래프로 나타내기 | used_in | 연립일차방정식의 해 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 4 |
 | m1_system_two_variable_linear_equation__used_in__m1_func_equation_relation | cross_unit | 미지수가 2개인 일차방정식 | used_in | 일차함수와 미지수가 2개인 일차방정식의 관계 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 4 |
+| m1_system_two_variable_linear_equation__used_in__m1_func_two_variable_equation_as_graph | cross_unit | 미지수가 2개인 일차방정식 | used_in | 미지수가 2개인 일차방정식의 해를 그래프로 나타내기 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_geo_intersection_point__contrasts_with__m1_func_intersection_point | cross_unit | 교점 | contrasts_with | 교점 | medium | contrast_ref;textbook_page_refs | Find textbook wording or examples that distinguish the two concepts. | 5 |
 | m1_coord_graph_unit__related_to__m1_func_eq_relation_unit | cross_unit | 좌표평면과 그래프 | related_to | 일차함수와 일차방정식의 관계 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 8 |
 

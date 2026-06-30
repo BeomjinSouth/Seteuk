@@ -36,6 +36,7 @@ digraph pilot_unit_map {
   "m1_repr_everyday_language" [label="일상 언어\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_repr_expression" [label="식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_ineq_solving_linear_inequality" [label="일차부등식 풀기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_system_elimination_coefficient_matching" [label="소거할 미지수의 계수 맞추기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_calc_collect_like_terms_polynomial" [label="다항식에서 동류항 모으기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_calc_monomial_coefficient_calculation" [label="단항식 계산에서 계수끼리 계산하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_calc_polynomial_term_structure_check" [label="다항식의 항·계수·차수 확인하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -61,6 +62,8 @@ digraph pilot_unit_map {
   "m1_eq_modeling_linear_equation" [label="일차방정식 세우기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_ineq_modeling_linear_inequality" [label="일차부등식 세우기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_system_modeling" [label="연립일차방정식 세우기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_system_modeling_variable_assignment" [label="두 미지수 정하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_system_substitution_isolate_variable" [label="한 미지수를 다른 미지수의 식으로 나타내기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_calc_apply_exponent_laws_to_monomials" [label="지수법칙을 단항식 계산에 적용하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_calc_monomial_literal_part_calculation" [label="단항식 계산에서 문자 부분 계산하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_calc_monomial_mul_div" [label="단항식의 곱셈과 나눗셈\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -79,6 +82,9 @@ digraph pilot_unit_map {
   "m1_func_value" [label="함숫값\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_ineq_solution" [label="부등식의 해\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_ineq_solution_check" [label="부등식 해의 확인\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_system_back_substitution" [label="한 미지수 값을 대입해 다른 미지수 구하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_system_solution_check" [label="연립일차방정식 해의 확인\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_system_substitution_into_other_equation" [label="다른 방정식에 식 전체 대입하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_system_substitution_method" [label="대입법\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_eq_collect_unknown_terms" [label="미지수항 모으기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_eq_transposition" [label="이항\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -172,6 +178,7 @@ digraph pilot_unit_map {
   "m1_expr_unit" -> "m1_repr_expression" [label="contains", style="dashed", color="#6b7280"];
   "m1_expr_unit" -> "m1_term_variable" [label="contains", style="dashed", color="#6b7280"];
   "m1_expr_add_sub_linear_expression" -> "m1_ineq_solving_linear_inequality" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_expr_add_sub_linear_expression" -> "m1_system_elimination_coefficient_matching" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_coefficient" -> "m1_calc_collect_like_terms_polynomial" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_coefficient" -> "m1_calc_monomial_coefficient_calculation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_coefficient" -> "m1_calc_polynomial_term_structure_check" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -199,6 +206,8 @@ digraph pilot_unit_map {
   "m1_expr_literal_expression" -> "m1_eq_modeling_linear_equation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_literal_expression" -> "m1_ineq_modeling_linear_inequality" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_literal_expression" -> "m1_system_modeling" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_expr_literal_expression" -> "m1_system_modeling_variable_assignment" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_expr_literal_expression" -> "m1_system_substitution_isolate_variable" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_monomial" -> "m1_calc_apply_exponent_laws_to_monomials" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_monomial" -> "m1_calc_monomial_coefficient_calculation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_monomial" -> "m1_calc_monomial_literal_part_calculation" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -226,6 +235,9 @@ digraph pilot_unit_map {
   "m1_expr_substitution" -> "m1_func_value" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_substitution" -> "m1_ineq_solution" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_substitution" -> "m1_ineq_solution_check" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_expr_substitution" -> "m1_system_back_substitution" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_expr_substitution" -> "m1_system_solution_check" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_expr_substitution" -> "m1_system_substitution_into_other_equation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_substitution" -> "m1_system_substitution_method" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_term" -> "m1_calc_polynomial_divided_by_monomial_termwise" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_term" -> "m1_calc_polynomial_term_structure_check" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -250,6 +262,7 @@ digraph pilot_unit_map {
   "m1_expr_substitution" -> "m1_eq_judge_solution" [label="used_in", style="dashed", color="#6b7280"];
   "m1_expr_substitution" -> "m1_eq_solution_check" [label="used_in", style="dashed", color="#6b7280"];
   "m1_expr_substitution" -> "m1_func_value" [label="used_in", style="dashed", color="#6b7280"];
+  "m1_expr_substitution" -> "m1_system_solution_check" [label="used_in", style="dashed", color="#6b7280"];
   "m1_num_four_operations" -> "m1_expr_evaluate_expression_value" [label="used_in", style="dashed", color="#6b7280"];
   "m1_repr_everyday_language" -> "m1_expr_situation_to_literal_expression" [label="used_in", style="dashed", color="#6b7280"];
   "m1_repr_expression" -> "m1_expr_value" [label="used_in", style="dashed", color="#6b7280"];

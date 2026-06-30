@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-30T22:53:41",
+    "generated_at": "2026-06-30T23:17:04",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
-    "concept_count": 636,
-    "edge_count": 2813
+    "concept_count": 650,
+    "edge_count": 2893
   },
   "sources": [
     {
@@ -9198,7 +9198,9 @@
         "m1_eq_unit"
       ],
       "parent_ids": [],
-      "related_ids": [],
+      "related_ids": [
+        "m1_coord_graph_unit"
+      ],
       "notes": "",
       "confidence": "high"
     },
@@ -9353,11 +9355,134 @@
         "m1_system_unit"
       ],
       "related_ids": [
+        "m1_system_solution_ordered_pair",
         "m1_coord_ordered_pair",
-        "m1_mis_system_one_equation_only"
+        "m1_mis_system_one_equation_only",
+        "m1_mis_system_ordered_pair_swap"
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_system_common_solution_condition",
+      "label_ko": "공통 해 조건",
+      "aliases": [
+        "두 방정식을 모두 만족하는 조건",
+        "동시에 만족하는 조건"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "연립일차방정식",
+      "concept_type": "property",
+      "short_definition": "연립된 모든 방정식이 동시에 참이 되어야 연립일차방정식의 해가 되는 조건.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_system_simultaneous_linear_equations",
+        "m1_eq_solution"
+      ],
+      "parent_ids": [
+        "m1_system_solution"
+      ],
+      "related_ids": [
+        "m1_system_solution_check",
+        "m1_mis_system_one_equation_only"
+      ],
+      "notes": "공식 성취기준의 풀이·활용 맥락에서 추론한 해의 판별 조건이다. 교과서 정의와 예제로 wording 보강이 필요하다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_solution_ordered_pair",
+      "label_ko": "해의 순서쌍 표현",
+      "aliases": [
+        "연립방정식 해의 순서쌍",
+        "(x, y)로 나타낸 해"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "연립일차방정식",
+      "concept_type": "representation",
+      "short_definition": "미지수가 2개인 연립일차방정식의 해를 두 미지수 값의 순서쌍으로 나타내는 표현.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_system_solution",
+        "m1_coord_ordered_pair"
+      ],
+      "parent_ids": [
+        "m1_system_solution"
+      ],
+      "related_ids": [
+        "m1_coord_ordered_pair",
+        "m1_mis_system_ordered_pair_swap"
+      ],
+      "notes": "미지수가 2개인 해의 표현 방식으로 추론했다. 좌표·그래프 단원과의 연결 및 교과서 표기 확인이 필요하다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_solution_check",
+      "label_ko": "연립일차방정식 해의 확인",
+      "aliases": [
+        "연립방정식 해 확인",
+        "연립일차방정식 검산"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "연립일차방정식",
+      "concept_type": "procedure",
+      "short_definition": "구한 두 미지수 값을 연립된 각 방정식에 대입하여 모두 성립하는지 확인하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_system_solution",
+        "m1_expr_substitution",
+        "m1_system_common_solution_condition"
+      ],
+      "parent_ids": [
+        "m1_system_solution"
+      ],
+      "related_ids": [
+        "m1_system_modeling",
+        "m1_mis_system_one_equation_only"
+      ],
+      "notes": "풀이와 활용 성취수준에서 필요한 검산 절차로 추론했다. 교과서 예제의 확인 단계 근거가 필요하다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_system_solving",
@@ -9391,7 +9516,9 @@
       "parent_ids": [
         "m1_system_unit"
       ],
-      "related_ids": [],
+      "related_ids": [
+        "m1_system_solution_check"
+      ],
       "notes": "",
       "confidence": "high"
     },
@@ -9428,6 +9555,7 @@
       ],
       "related_ids": [
         "m1_system_addition_subtraction_method",
+        "m1_system_add_or_subtract_equations",
         "m1_mis_system_elimination_sign"
       ],
       "notes": "",
@@ -9465,11 +9593,135 @@
         "m1_system_solving"
       ],
       "related_ids": [
+        "m1_system_elimination_coefficient_matching",
+        "m1_system_add_or_subtract_equations",
         "m1_system_substitution_method",
         "m1_mis_system_elimination_sign"
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_system_elimination_coefficient_matching",
+      "label_ko": "소거할 미지수의 계수 맞추기",
+      "aliases": [
+        "소거 계수 맞추기",
+        "계수 통일"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "연립일차방정식",
+      "concept_type": "procedure",
+      "short_definition": "가감법에서 없앨 미지수의 계수 절댓값이나 부호를 같게 만들어 더하거나 빼기 쉽게 준비하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_system_elimination",
+        "m1_expr_add_sub_linear_expression"
+      ],
+      "parent_ids": [
+        "m1_system_addition_subtraction_method"
+      ],
+      "related_ids": [
+        "m1_mis_system_elimination_sign"
+      ],
+      "notes": "가감법의 세부 수행 단계로 추론했다. 공식 문서는 용어 수준이므로 교과서 예제 근거 보강이 필요하다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_add_or_subtract_equations",
+      "label_ko": "두 방정식 더하거나 빼기",
+      "aliases": [
+        "두 식을 더하거나 빼기",
+        "방정식끼리 더하기와 빼기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "연립일차방정식",
+      "concept_type": "procedure",
+      "short_definition": "계수를 맞춘 두 방정식을 더하거나 빼서 한 미지수가 소거된 일차방정식을 얻는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_system_elimination_coefficient_matching",
+        "m1_eq_equality_properties",
+        "m1_num_addition",
+        "m1_num_subtraction"
+      ],
+      "parent_ids": [
+        "m1_system_addition_subtraction_method"
+      ],
+      "related_ids": [
+        "m1_system_back_substitution",
+        "m1_mis_system_elimination_sign"
+      ],
+      "notes": "가감법의 세부 수행 단계로 추론했다. 교과서의 풀이 예제와 부호 처리 설명으로 보강해야 한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_back_substitution",
+      "label_ko": "한 미지수 값을 대입해 다른 미지수 구하기",
+      "aliases": [
+        "되대입",
+        "다른 미지수 구하기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "연립일차방정식",
+      "concept_type": "procedure",
+      "short_definition": "한 미지수의 값을 구한 뒤 원래 방정식이나 정리된 식에 대입하여 나머지 미지수 값을 구하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_system_solution",
+        "m1_expr_substitution"
+      ],
+      "parent_ids": [
+        "m1_system_solving"
+      ],
+      "related_ids": [
+        "m1_system_addition_subtraction_method",
+        "m1_system_substitution_method",
+        "m1_system_solution_check"
+      ],
+      "notes": "연립일차방정식 풀이에서 두 미지수 값을 모두 구하기 위한 공통 후속 단계로 추론했다. 교과서 예제 근거가 필요하다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_system_substitution_method",
@@ -9504,11 +9756,93 @@
         "m1_system_solving"
       ],
       "related_ids": [
+        "m1_system_substitution_isolate_variable",
+        "m1_system_substitution_into_other_equation",
         "m1_system_addition_subtraction_method",
         "m1_mis_system_substitution"
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_system_substitution_isolate_variable",
+      "label_ko": "한 미지수를 다른 미지수의 식으로 나타내기",
+      "aliases": [
+        "한 문자에 대해 정리하기",
+        "미지수 나타내기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "연립일차방정식",
+      "concept_type": "procedure",
+      "short_definition": "한 방정식을 변형하여 한 미지수를 다른 미지수를 포함한 식으로 나타내는 대입법의 준비 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_eq_equality_properties",
+        "m1_expr_literal_expression",
+        "m1_system_simultaneous_linear_equations"
+      ],
+      "parent_ids": [
+        "m1_system_substitution_method"
+      ],
+      "related_ids": [
+        "m1_mis_system_substitution"
+      ],
+      "notes": "대입법의 세부 수행 단계로 추론했다. 교과서 풀이 예제의 식 변형 근거가 필요하다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_substitution_into_other_equation",
+      "label_ko": "다른 방정식에 식 전체 대입하기",
+      "aliases": [
+        "식 전체 대입",
+        "다른 식에 대입하기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "연립일차방정식",
+      "concept_type": "procedure",
+      "short_definition": "한 미지수를 나타낸 식 전체를 다른 방정식의 해당 미지수 자리에 대입하여 한 미지수만 있는 방정식으로 만드는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_system_substitution_isolate_variable",
+        "m1_expr_substitution"
+      ],
+      "parent_ids": [
+        "m1_system_substitution_method"
+      ],
+      "related_ids": [
+        "m1_system_back_substitution",
+        "m1_mis_system_substitution"
+      ],
+      "notes": "대입법의 세부 수행 단계로 추론했다. 괄호와 식 전체 대입의 교과서 예제 근거가 필요하다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_system_modeling",
@@ -9544,11 +9878,209 @@
         "m1_system_unit"
       ],
       "related_ids": [
+        "m1_system_modeling_variable_assignment",
+        "m1_system_modeling_two_conditions",
         "m1_system_solving",
-        "m1_system_solution"
+        "m1_system_solution",
+        "m1_system_solution_check"
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_system_modeling_variable_assignment",
+      "label_ko": "두 미지수 정하기",
+      "aliases": [
+        "미지수 정하기",
+        "문제 상황의 두 양 정하기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "연립일차방정식",
+      "concept_type": "procedure",
+      "short_definition": "문제 상황에서 구해야 할 두 양을 각각 미지수로 정하는 모델링 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_eq_unknown",
+        "m1_expr_literal_expression"
+      ],
+      "parent_ids": [
+        "m1_system_modeling"
+      ],
+      "related_ids": [],
+      "notes": "활용 성취수준에서 필요한 세부 모델링 단계로 추론했다. 교과서 문제 풀이 과정 근거가 필요하다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_modeling_two_conditions",
+      "label_ko": "두 조건을 두 방정식으로 나타내기",
+      "aliases": [
+        "조건을 방정식으로 나타내기",
+        "두 식 세우기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "연립일차방정식",
+      "concept_type": "procedure",
+      "short_definition": "문제 상황의 두 관계나 조건을 각각 미지수가 2개인 일차방정식으로 나타내는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_system_modeling_variable_assignment",
+        "m1_system_two_variable_linear_equation"
+      ],
+      "parent_ids": [
+        "m1_system_modeling"
+      ],
+      "related_ids": [
+        "m1_system_simultaneous_linear_equations",
+        "m1_system_solving"
+      ],
+      "notes": "활용 성취수준에서 필요한 세부 모델링 단계로 추론했다. 교과서 문장제 예제 근거가 필요하다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_problem_solving",
+      "label_ko": "연립일차방정식 활용 문제 해결",
+      "aliases": [
+        "연립일차방정식 활용",
+        "연립방정식 활용 문제"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "연립일차방정식",
+      "concept_type": "procedure",
+      "short_definition": "문제 상황을 연립일차방정식으로 나타내고 풀어 구한 해를 상황에 맞게 해석하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_system_modeling",
+        "m1_system_solving",
+        "m1_system_solution_check"
+      ],
+      "parent_ids": [
+        "m1_system_unit"
+      ],
+      "related_ids": [
+        "m1_system_solution_context_interpretation"
+      ],
+      "notes": "공식 성취기준의 활용 맥락에서 분리한 절차다. 교과서 문장제 예제 근거가 필요하므로 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_process_explanation",
+      "label_ko": "연립일차방정식 풀이 과정 설명하기",
+      "aliases": [
+        "연립방정식 풀이 과정 설명",
+        "풀이 과정 설명"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "연립일차방정식",
+      "concept_type": "procedure",
+      "short_definition": "가감법이나 대입법으로 연립일차방정식을 푼 절차와 이유를 말이나 식으로 설명하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_system_solving",
+        "m1_system_addition_subtraction_method",
+        "m1_system_substitution_method"
+      ],
+      "parent_ids": [
+        "m1_system_solving"
+      ],
+      "related_ids": [],
+      "notes": "성취수준의 풀이 수행 맥락에서 추론했다. 현재 source summary에는 과정 설명의 직접 문구가 약하므로 교과서 또는 원문 확인 전 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_solution_context_interpretation",
+      "label_ko": "해를 문제 상황에 맞게 해석하기",
+      "aliases": [
+        "해의 상황 해석",
+        "답의 의미 해석"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "연립일차방정식",
+      "concept_type": "procedure",
+      "short_definition": "연립일차방정식의 해가 문제에서 묻는 두 양을 어떻게 나타내는지 해석하고 답으로 정리하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_system_solution",
+        "m1_system_solution_check"
+      ],
+      "parent_ids": [
+        "m1_system_problem_solving"
+      ],
+      "related_ids": [
+        "m1_system_modeling",
+        "m1_system_modeling_variable_assignment"
+      ],
+      "notes": "활용 문제 해결에서 필요한 해석 단계로 추론했다. 교과서 문장제 풀이와 답 확인 근거가 필요하다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_mis_system_one_equation_only",
@@ -9576,17 +10108,16 @@
           "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_system_solution"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_system_unit"
       ],
       "related_ids": [
         "m1_system_solution",
+        "m1_system_common_solution_condition",
         "m1_eq_solution"
       ],
-      "notes": "",
+      "notes": "공식 문서는 해 맥락만 제공하므로 교과서 예제·오답 근거 확인 전 낮은 신뢰도로 둔다.",
       "confidence": "low"
     },
     {
@@ -9615,17 +10146,17 @@
           "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_system_addition_subtraction_method"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_system_unit"
       ],
       "related_ids": [
         "m1_system_elimination",
-        "m1_system_addition_subtraction_method"
+        "m1_system_addition_subtraction_method",
+        "m1_system_elimination_coefficient_matching",
+        "m1_system_add_or_subtract_equations"
       ],
-      "notes": "",
+      "notes": "소거·가감법 용어에서 추론한 오개념 위험이다. 교과서 예제나 오답 근거 확인 전 낮은 신뢰도로 둔다.",
       "confidence": "low"
     },
     {
@@ -9654,17 +10185,53 @@
           "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_system_substitution_method"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_system_unit"
       ],
       "related_ids": [
         "m1_system_substitution_method",
+        "m1_system_substitution_into_other_equation",
         "m1_expr_substitution"
       ],
-      "notes": "",
+      "notes": "대입법 용어에서 추론한 오개념 위험이다. 교과서 예제나 오답 근거 확인 전 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_system_ordered_pair_swap",
+      "label_ko": "해의 순서쌍에서 두 미지수 값을 바꾸는 오류",
+      "aliases": [
+        "x와 y의 값 바꿈",
+        "순서쌍 순서 오류"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "연립일차방정식",
+      "concept_type": "misconception_risk",
+      "short_definition": "연립일차방정식의 해를 순서쌍으로 나타낼 때 첫째 자리와 둘째 자리의 미지수 값을 바꾸어 쓰는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_system_unit"
+      ],
+      "related_ids": [
+        "m1_system_solution_ordered_pair",
+        "m1_coord_ordered_pair"
+      ],
+      "notes": "미지수가 2개인 해를 순서쌍으로 표현할 때 생길 수 있는 위험으로 추론했다. 교과서 표기와 오답 근거가 필요하다.",
       "confidence": "low"
     },
     {
@@ -10766,7 +11333,7 @@
       ],
       "related_ids": [
         "m1_func_equation_relation",
-        "m1_system_solution"
+        "m1_func_system_graph_relation"
       ],
       "notes": "",
       "confidence": "high"
@@ -14854,8 +15421,7 @@
         }
       ],
       "prerequisite_ids": [
-        "m1_eq_unit",
-        "m1_system_unit"
+        "m1_eq_unit"
       ],
       "parent_ids": [],
       "related_ids": [],
@@ -40207,6 +40773,464 @@
       "confidence": "high"
     },
     {
+      "id": "m1_system_solution__represented_by__m1_system_solution_ordered_pair",
+      "source_id": "m1_system_solution",
+      "target_id": "m1_system_solution_ordered_pair",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "미지수가 2개인 해는 두 값의 쌍으로 표현된다. 교과서 표기 근거 확인 전 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_solution_ordered_pair__represented_by__m1_coord_ordered_pair",
+      "source_id": "m1_system_solution_ordered_pair",
+      "target_id": "m1_coord_ordered_pair",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-05]",
+          "evidence_kind": "achievement_standard",
+          "summary": "순서쌍과 좌표를 이해하고 편리함을 인식하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "좌표평면과 그래프 section; [9수02-05] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "수직선과 좌표평면 위의 점을 좌표로 나타내거나 주어진 좌표를 점으로 나타내는 수행을 구분"
+        }
+      ],
+      "notes": "연립일차방정식 해의 순서쌍 표현은 좌표 단원의 순서쌍 개념과 연결된다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_common_solution_condition__used_in__m1_system_solution_check",
+      "source_id": "m1_system_common_solution_condition",
+      "target_id": "m1_system_solution_check",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_expr_substitution__used_in__m1_system_solution_check",
+      "source_id": "m1_expr_substitution",
+      "target_id": "m1_system_solution_check",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_solution_check__used_in__m1_system_modeling",
+      "source_id": "m1_system_solution_check",
+      "target_id": "m1_system_modeling",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "활용 문제에서는 구한 해가 원래 조건과 두 방정식을 만족하는지 확인한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_elimination_coefficient_matching__used_in__m1_system_addition_subtraction_method",
+      "source_id": "m1_system_elimination_coefficient_matching",
+      "target_id": "m1_system_addition_subtraction_method",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_add_or_subtract_equations__used_in__m1_system_elimination",
+      "source_id": "m1_system_add_or_subtract_equations",
+      "target_id": "m1_system_elimination",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_add_or_subtract_equations__used_in__m1_system_addition_subtraction_method",
+      "source_id": "m1_system_add_or_subtract_equations",
+      "target_id": "m1_system_addition_subtraction_method",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_add_or_subtract_equations__used_in__m1_system_back_substitution",
+      "source_id": "m1_system_add_or_subtract_equations",
+      "target_id": "m1_system_back_substitution",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_back_substitution__used_in__m1_system_addition_subtraction_method",
+      "source_id": "m1_system_back_substitution",
+      "target_id": "m1_system_addition_subtraction_method",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "가감법으로 한 미지수 값을 구한 뒤 나머지 미지수를 구하는 후속 단계로 쓰인다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_back_substitution__used_in__m1_system_substitution_method",
+      "source_id": "m1_system_back_substitution",
+      "target_id": "m1_system_substitution_method",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "대입법으로 한 미지수만 있는 방정식을 푼 뒤 나머지 미지수를 구하는 후속 단계로 쓰인다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_substitution_isolate_variable__used_in__m1_system_substitution_method",
+      "source_id": "m1_system_substitution_isolate_variable",
+      "target_id": "m1_system_substitution_method",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_substitution_into_other_equation__used_in__m1_system_substitution_method",
+      "source_id": "m1_system_substitution_into_other_equation",
+      "target_id": "m1_system_substitution_method",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_substitution_into_other_equation__used_in__m1_system_back_substitution",
+      "source_id": "m1_system_substitution_into_other_equation",
+      "target_id": "m1_system_back_substitution",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_back_substitution__used_in__m1_system_solution_check",
+      "source_id": "m1_system_back_substitution",
+      "target_id": "m1_system_solution_check",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_modeling_variable_assignment__used_in__m1_system_modeling",
+      "source_id": "m1_system_modeling_variable_assignment",
+      "target_id": "m1_system_modeling",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_modeling_two_conditions__used_in__m1_system_modeling",
+      "source_id": "m1_system_modeling_two_conditions",
+      "target_id": "m1_system_modeling",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_modeling_two_conditions__represented_by__m1_system_simultaneous_linear_equations",
+      "source_id": "m1_system_modeling_two_conditions",
+      "target_id": "m1_system_simultaneous_linear_equations",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "두 조건을 두 방정식으로 나타내면 연립일차방정식 구조가 된다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_modeling_two_conditions__related_to__m1_system_solving",
+      "source_id": "m1_system_modeling_two_conditions",
+      "target_id": "m1_system_solving",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "조건을 두 방정식으로 나타낸 뒤 해당 연립일차방정식을 푸는 흐름으로 이어진다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_elimination_coefficient_matching__contrasts_with__m1_system_substitution_isolate_variable",
+      "source_id": "m1_system_elimination_coefficient_matching",
+      "target_id": "m1_system_substitution_isolate_variable",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "가감법은 소거할 계수를 맞추는 반면, 대입법은 한 미지수를 식으로 나타내는 준비가 핵심이다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_system_modeling__represented_by__m1_system_simultaneous_linear_equations",
       "source_id": "m1_system_modeling",
       "target_id": "m1_system_simultaneous_linear_equations",
@@ -40273,6 +41297,182 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_system_modeling__used_in__m1_system_problem_solving",
+      "source_id": "m1_system_modeling",
+      "target_id": "m1_system_problem_solving",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_solving__used_in__m1_system_problem_solving",
+      "source_id": "m1_system_solving",
+      "target_id": "m1_system_problem_solving",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_solution_check__used_in__m1_system_problem_solving",
+      "source_id": "m1_system_solution_check",
+      "target_id": "m1_system_problem_solving",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_solving__used_in__m1_system_solution_check",
+      "source_id": "m1_system_solving",
+      "target_id": "m1_system_solution_check",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "연립일차방정식을 푼 뒤 구한 해가 두 방정식을 모두 만족하는지 확인한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_process_explanation__used_in__m1_system_solving",
+      "source_id": "m1_system_process_explanation",
+      "target_id": "m1_system_solving",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "풀이 과정을 설명하는 활동은 가감법과 대입법 등 풀이 절차를 점검하게 한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_solution_context_interpretation__used_in__m1_system_problem_solving",
+      "source_id": "m1_system_solution_context_interpretation",
+      "target_id": "m1_system_problem_solving",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_solution_context_interpretation__related_to__m1_system_modeling",
+      "source_id": "m1_system_solution_context_interpretation",
+      "target_id": "m1_system_modeling",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "해석 단계는 처음 정한 미지수와 모델링한 조건으로 되돌아가 답의 의미를 확인한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_solution_context_interpretation__related_to__m1_system_modeling_variable_assignment",
+      "source_id": "m1_system_solution_context_interpretation",
+      "target_id": "m1_system_modeling_variable_assignment",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "답의 의미 해석은 두 미지수가 무엇을 뜻하는지 확인하는 단계와 연결된다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_system_solution__represented_by__m1_coord_ordered_pair",
       "source_id": "m1_system_solution",
       "target_id": "m1_coord_ordered_pair",
@@ -40295,10 +41495,10 @@
       "confidence": "medium"
     },
     {
-      "id": "m1_system_unit__prerequisite_for__m1_coord_graph_unit",
+      "id": "m1_system_unit__related_to__m1_coord_graph_unit",
       "source_id": "m1_system_unit",
       "target_id": "m1_coord_graph_unit",
-      "relationship_type": "prerequisite_for",
+      "relationship_type": "related_to",
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
@@ -40319,13 +41519,35 @@
           "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
         }
       ],
-      "notes": "연립일차방정식의 해와 좌표·그래프 연결은 후속 일차함수 관계 단원에서 보강한다.",
+      "notes": "연립일차방정식의 해와 좌표·그래프 연결은 후속 일차함수 관계 단원에서 보강하므로 broad prerequisite 대신 관련 관계로 둔다.",
       "confidence": "medium"
     },
     {
       "id": "m1_mis_system_one_equation_only__often_confused_with__m1_system_solution",
       "source_id": "m1_mis_system_one_equation_only",
       "target_id": "m1_system_solution",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_system_one_equation_only__often_confused_with__m1_system_common_solution_condition",
+      "source_id": "m1_mis_system_one_equation_only",
+      "target_id": "m1_system_common_solution_condition",
       "relationship_type": "often_confused_with",
       "source_refs": [
         {
@@ -40367,6 +41589,28 @@
       "confidence": "low"
     },
     {
+      "id": "m1_mis_system_elimination_sign__often_confused_with__m1_system_elimination_coefficient_matching",
+      "source_id": "m1_mis_system_elimination_sign",
+      "target_id": "m1_system_elimination_coefficient_matching",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_mis_system_substitution__often_confused_with__m1_system_substitution_method",
       "source_id": "m1_mis_system_substitution",
       "target_id": "m1_system_substitution_method",
@@ -40377,6 +41621,50 @@
           "locator": "printed p. 36; terms usable in teaching and learning situations",
           "evidence_kind": "instructional_term_list",
           "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_system_substitution__often_confused_with__m1_system_substitution_into_other_equation",
+      "source_id": "m1_mis_system_substitution",
+      "target_id": "m1_system_substitution_into_other_equation",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_system_ordered_pair_swap__often_confused_with__m1_system_solution_ordered_pair",
+      "source_id": "m1_mis_system_ordered_pair_swap",
+      "target_id": "m1_system_solution_ordered_pair",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",
@@ -42443,10 +43731,10 @@
       "confidence": "high"
     },
     {
-      "id": "m1_system_two_variable_linear_equation__represented_by__m1_func_two_variable_equation_as_graph",
+      "id": "m1_system_two_variable_linear_equation__used_in__m1_func_two_variable_equation_as_graph",
       "source_id": "m1_system_two_variable_linear_equation",
       "target_id": "m1_func_two_variable_equation_as_graph",
-      "relationship_type": "represented_by",
+      "relationship_type": "used_in",
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
@@ -42521,9 +43809,9 @@
       "confidence": "high"
     },
     {
-      "id": "m1_func_two_variable_equation_as_graph__used_in__m1_system_solution",
+      "id": "m1_func_two_variable_equation_as_graph__used_in__m1_func_system_graph_relation",
       "source_id": "m1_func_two_variable_equation_as_graph",
-      "target_id": "m1_system_solution",
+      "target_id": "m1_func_system_graph_relation",
       "relationship_type": "used_in",
       "source_refs": [
         {
@@ -42551,7 +43839,7 @@
           "summary": "두 일차함수의 그래프의 교점과 연립일차방정식의 해 사이의 관계를 설명하는 수행 수준을 구분"
         }
       ],
-      "notes": "Graphing two-variable linear equations supports interpreting simultaneous-equation solutions graphically.",
+      "notes": "Graphing two-variable linear equations supports interpreting the graph relation with simultaneous equations.",
       "confidence": "medium"
     },
     {
@@ -42653,9 +43941,9 @@
       "confidence": "medium"
     },
     {
-      "id": "m1_system_simultaneous_linear_equations__represented_by__m1_func_system_graph_relation",
+      "id": "m1_system_simultaneous_linear_equations__represented_by__m1_func_two_linear_graphs",
       "source_id": "m1_system_simultaneous_linear_equations",
-      "target_id": "m1_func_system_graph_relation",
+      "target_id": "m1_func_two_linear_graphs",
       "relationship_type": "represented_by",
       "source_refs": [
         {
@@ -42697,9 +43985,9 @@
       "confidence": "high"
     },
     {
-      "id": "m1_func_system_solution_from_intersection__used_in__m1_system_solution",
+      "id": "m1_func_system_solution_from_intersection__used_in__m1_func_system_graph_relation",
       "source_id": "m1_func_system_solution_from_intersection",
-      "target_id": "m1_system_solution",
+      "target_id": "m1_func_system_graph_relation",
       "relationship_type": "used_in",
       "source_refs": [
         {
@@ -63447,6 +64735,72 @@
       "confidence": "low"
     },
     {
+      "id": "m1_system_solution__contains__m1_system_common_solution_condition",
+      "source_id": "m1_system_solution",
+      "target_id": "m1_system_common_solution_condition",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_solution__contains__m1_system_solution_ordered_pair",
+      "source_id": "m1_system_solution",
+      "target_id": "m1_system_solution_ordered_pair",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_solution__contains__m1_system_solution_check",
+      "source_id": "m1_system_solution",
+      "target_id": "m1_system_solution_check",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_system_solving__contains__m1_system_addition_subtraction_method",
       "source_id": "m1_system_solving",
       "target_id": "m1_system_addition_subtraction_method",
@@ -63467,6 +64821,226 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_system_addition_subtraction_method__contains__m1_system_elimination_coefficient_matching",
+      "source_id": "m1_system_addition_subtraction_method",
+      "target_id": "m1_system_elimination_coefficient_matching",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_addition_subtraction_method__contains__m1_system_add_or_subtract_equations",
+      "source_id": "m1_system_addition_subtraction_method",
+      "target_id": "m1_system_add_or_subtract_equations",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_solving__contains__m1_system_back_substitution",
+      "source_id": "m1_system_solving",
+      "target_id": "m1_system_back_substitution",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_substitution_method__contains__m1_system_substitution_isolate_variable",
+      "source_id": "m1_system_substitution_method",
+      "target_id": "m1_system_substitution_isolate_variable",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_substitution_method__contains__m1_system_substitution_into_other_equation",
+      "source_id": "m1_system_substitution_method",
+      "target_id": "m1_system_substitution_into_other_equation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_modeling__contains__m1_system_modeling_variable_assignment",
+      "source_id": "m1_system_modeling",
+      "target_id": "m1_system_modeling_variable_assignment",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_modeling__contains__m1_system_modeling_two_conditions",
+      "source_id": "m1_system_modeling",
+      "target_id": "m1_system_modeling_two_conditions",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_unit__contains__m1_system_problem_solving",
+      "source_id": "m1_system_unit",
+      "target_id": "m1_system_problem_solving",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_solving__contains__m1_system_process_explanation",
+      "source_id": "m1_system_solving",
+      "target_id": "m1_system_process_explanation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_problem_solving__contains__m1_system_solution_context_interpretation",
+      "source_id": "m1_system_problem_solving",
+      "target_id": "m1_system_solution_context_interpretation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_system_unit__contains__m1_mis_system_one_equation_only",
@@ -63523,6 +65097,28 @@
           "locator": "printed p. 36; terms usable in teaching and learning situations",
           "evidence_kind": "instructional_term_list",
           "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_system_unit__contains__m1_mis_system_ordered_pair_swap",
+      "source_id": "m1_system_unit",
+      "target_id": "m1_mis_system_ordered_pair_swap",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",
@@ -80657,6 +82253,160 @@
       "confidence": "high"
     },
     {
+      "id": "m1_system_simultaneous_linear_equations__prerequisite_for__m1_system_common_solution_condition",
+      "source_id": "m1_system_simultaneous_linear_equations",
+      "target_id": "m1_system_common_solution_condition",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_solution__prerequisite_for__m1_system_common_solution_condition",
+      "source_id": "m1_eq_solution",
+      "target_id": "m1_system_common_solution_condition",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_solution__prerequisite_for__m1_system_solution_ordered_pair",
+      "source_id": "m1_system_solution",
+      "target_id": "m1_system_solution_ordered_pair",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_coord_ordered_pair__prerequisite_for__m1_system_solution_ordered_pair",
+      "source_id": "m1_coord_ordered_pair",
+      "target_id": "m1_system_solution_ordered_pair",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_solution__prerequisite_for__m1_system_solution_check",
+      "source_id": "m1_system_solution",
+      "target_id": "m1_system_solution_check",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_expr_substitution__prerequisite_for__m1_system_solution_check",
+      "source_id": "m1_expr_substitution",
+      "target_id": "m1_system_solution_check",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_common_solution_condition__prerequisite_for__m1_system_solution_check",
+      "source_id": "m1_system_common_solution_condition",
+      "target_id": "m1_system_solution_check",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_system_simultaneous_linear_equations__prerequisite_for__m1_system_solving",
       "source_id": "m1_system_simultaneous_linear_equations",
       "target_id": "m1_system_solving",
@@ -80745,6 +82495,182 @@
       "confidence": "high"
     },
     {
+      "id": "m1_system_elimination__prerequisite_for__m1_system_elimination_coefficient_matching",
+      "source_id": "m1_system_elimination",
+      "target_id": "m1_system_elimination_coefficient_matching",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_expr_add_sub_linear_expression__prerequisite_for__m1_system_elimination_coefficient_matching",
+      "source_id": "m1_expr_add_sub_linear_expression",
+      "target_id": "m1_system_elimination_coefficient_matching",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_elimination_coefficient_matching__prerequisite_for__m1_system_add_or_subtract_equations",
+      "source_id": "m1_system_elimination_coefficient_matching",
+      "target_id": "m1_system_add_or_subtract_equations",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_equality_properties__prerequisite_for__m1_system_add_or_subtract_equations",
+      "source_id": "m1_eq_equality_properties",
+      "target_id": "m1_system_add_or_subtract_equations",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_addition__prerequisite_for__m1_system_add_or_subtract_equations",
+      "source_id": "m1_num_addition",
+      "target_id": "m1_system_add_or_subtract_equations",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_subtraction__prerequisite_for__m1_system_add_or_subtract_equations",
+      "source_id": "m1_num_subtraction",
+      "target_id": "m1_system_add_or_subtract_equations",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_solution__prerequisite_for__m1_system_back_substitution",
+      "source_id": "m1_system_solution",
+      "target_id": "m1_system_back_substitution",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_expr_substitution__prerequisite_for__m1_system_back_substitution",
+      "source_id": "m1_expr_substitution",
+      "target_id": "m1_system_back_substitution",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_expr_substitution__prerequisite_for__m1_system_substitution_method",
       "source_id": "m1_expr_substitution",
       "target_id": "m1_system_substitution_method",
@@ -80787,6 +82713,116 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_eq_equality_properties__prerequisite_for__m1_system_substitution_isolate_variable",
+      "source_id": "m1_eq_equality_properties",
+      "target_id": "m1_system_substitution_isolate_variable",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_expr_literal_expression__prerequisite_for__m1_system_substitution_isolate_variable",
+      "source_id": "m1_expr_literal_expression",
+      "target_id": "m1_system_substitution_isolate_variable",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_simultaneous_linear_equations__prerequisite_for__m1_system_substitution_isolate_variable",
+      "source_id": "m1_system_simultaneous_linear_equations",
+      "target_id": "m1_system_substitution_isolate_variable",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_substitution_isolate_variable__prerequisite_for__m1_system_substitution_into_other_equation",
+      "source_id": "m1_system_substitution_isolate_variable",
+      "target_id": "m1_system_substitution_into_other_equation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_expr_substitution__prerequisite_for__m1_system_substitution_into_other_equation",
+      "source_id": "m1_expr_substitution",
+      "target_id": "m1_system_substitution_into_other_equation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_expr_literal_expression__prerequisite_for__m1_system_modeling",
@@ -80833,9 +82869,9 @@
       "confidence": "high"
     },
     {
-      "id": "m1_system_solution__prerequisite_for__m1_mis_system_one_equation_only",
-      "source_id": "m1_system_solution",
-      "target_id": "m1_mis_system_one_equation_only",
+      "id": "m1_eq_unknown__prerequisite_for__m1_system_modeling_variable_assignment",
+      "source_id": "m1_eq_unknown",
+      "target_id": "m1_system_modeling_variable_assignment",
       "relationship_type": "prerequisite_for",
       "source_refs": [
         {
@@ -80852,19 +82888,173 @@
         }
       ],
       "notes": "",
-      "confidence": "low"
+      "confidence": "medium"
     },
     {
-      "id": "m1_system_addition_subtraction_method__prerequisite_for__m1_mis_system_elimination_sign",
+      "id": "m1_expr_literal_expression__prerequisite_for__m1_system_modeling_variable_assignment",
+      "source_id": "m1_expr_literal_expression",
+      "target_id": "m1_system_modeling_variable_assignment",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_modeling_variable_assignment__prerequisite_for__m1_system_modeling_two_conditions",
+      "source_id": "m1_system_modeling_variable_assignment",
+      "target_id": "m1_system_modeling_two_conditions",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_two_variable_linear_equation__prerequisite_for__m1_system_modeling_two_conditions",
+      "source_id": "m1_system_two_variable_linear_equation",
+      "target_id": "m1_system_modeling_two_conditions",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_modeling__prerequisite_for__m1_system_problem_solving",
+      "source_id": "m1_system_modeling",
+      "target_id": "m1_system_problem_solving",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_solving__prerequisite_for__m1_system_problem_solving",
+      "source_id": "m1_system_solving",
+      "target_id": "m1_system_problem_solving",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_solution_check__prerequisite_for__m1_system_problem_solving",
+      "source_id": "m1_system_solution_check",
+      "target_id": "m1_system_problem_solving",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_solving__prerequisite_for__m1_system_process_explanation",
+      "source_id": "m1_system_solving",
+      "target_id": "m1_system_process_explanation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_addition_subtraction_method__prerequisite_for__m1_system_process_explanation",
       "source_id": "m1_system_addition_subtraction_method",
-      "target_id": "m1_mis_system_elimination_sign",
+      "target_id": "m1_system_process_explanation",
       "relationship_type": "prerequisite_for",
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
-          "locator": "printed p. 36; terms usable in teaching and learning situations",
-          "evidence_kind": "instructional_term_list",
-          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",
@@ -80874,19 +83064,19 @@
         }
       ],
       "notes": "",
-      "confidence": "low"
+      "confidence": "medium"
     },
     {
-      "id": "m1_system_substitution_method__prerequisite_for__m1_mis_system_substitution",
+      "id": "m1_system_substitution_method__prerequisite_for__m1_system_process_explanation",
       "source_id": "m1_system_substitution_method",
-      "target_id": "m1_mis_system_substitution",
+      "target_id": "m1_system_process_explanation",
       "relationship_type": "prerequisite_for",
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
-          "locator": "printed p. 36; terms usable in teaching and learning situations",
-          "evidence_kind": "instructional_term_list",
-          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",
@@ -80896,7 +83086,51 @@
         }
       ],
       "notes": "",
-      "confidence": "low"
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_solution__prerequisite_for__m1_system_solution_context_interpretation",
+      "source_id": "m1_system_solution",
+      "target_id": "m1_system_solution_context_interpretation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_system_solution_check__prerequisite_for__m1_system_solution_context_interpretation",
+      "source_id": "m1_system_solution_check",
+      "target_id": "m1_system_solution_context_interpretation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_eq_unit__prerequisite_for__m1_func_unit",
@@ -98725,9 +100959,97 @@
       "confidence": "low"
     },
     {
+      "id": "m1_mis_system_ordered_pair_swap__often_confused_with__m1_system_solution",
+      "source_id": "m1_mis_system_ordered_pair_swap",
+      "target_id": "m1_system_solution",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_system_one_equation_only__often_confused_with__m1_system_solution_check",
+      "source_id": "m1_mis_system_one_equation_only",
+      "target_id": "m1_system_solution_check",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
       "id": "m1_mis_system_elimination_sign__often_confused_with__m1_system_elimination",
       "source_id": "m1_mis_system_elimination_sign",
       "target_id": "m1_system_elimination",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_system_elimination_sign__often_confused_with__m1_system_add_or_subtract_equations",
+      "source_id": "m1_mis_system_elimination_sign",
+      "target_id": "m1_system_add_or_subtract_equations",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_system_substitution__often_confused_with__m1_system_substitution_isolate_variable",
+      "source_id": "m1_mis_system_substitution",
+      "target_id": "m1_system_substitution_isolate_variable",
       "relationship_type": "often_confused_with",
       "source_refs": [
         {
@@ -98779,6 +101101,28 @@
           "locator": "printed p. 36; terms usable in teaching and learning situations",
           "evidence_kind": "instructional_term_list",
           "summary": "식의 값, 좌변, 우변, 양변, 이차식, 전개식, 연립일차방정식, 소거, 가감법, 대입법, 함수의 그래프 등은 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "연립일차방정식 section; [9수02-13] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "미지수가 2개인 연립일차방정식을 여러 가지 방법으로 풀고 활용하는 수행 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_system_ordered_pair_swap__often_confused_with__m1_coord_ordered_pair",
+      "source_id": "m1_mis_system_ordered_pair_swap",
+      "target_id": "m1_coord_ordered_pair",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "미지수가 2개인 연립일차방정식을 풀고 활용하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",

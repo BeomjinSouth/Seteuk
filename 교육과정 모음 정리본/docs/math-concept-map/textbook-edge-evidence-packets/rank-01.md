@@ -10,9 +10,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 좌표평면과 그래프
 - priority tier: highest
 - priority score: 105
-- edges in packet: 237
-- cross-unit edges: 75
-- low confidence edges: 74
+- edges in packet: 240
+- cross-unit edges: 78
+- low confidence edges: 75
 
 ## Relationship Evidence Slots
 
@@ -90,6 +90,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_mis_letter_as_label_only__often_confused_with__m1_term_variable | cross_unit | 문자를 이름표로만 해석하는 오류 | often_confused_with | 변수 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_representation_conversion__often_confused_with__m1_data_critical_graph_reading | cross_unit | 표·식·그래프 변환 오류 | often_confused_with | 표와 그래프의 오류 비판적으로 읽기 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_slope_sign__often_confused_with__m1_graph_increase_decrease | cross_unit | 기울기 부호와 그래프 방향 혼동 | often_confused_with | 증가와 감소 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 1 |
+| m1_mis_system_ordered_pair_swap__often_confused_with__m1_coord_ordered_pair | cross_unit | 해의 순서쌍에서 두 미지수 값을 바꾸는 오류 | often_confused_with | 순서쌍 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_geo_domain__related_to__m1_coord_graph_unit | cross_unit | 도형과 측정 | related_to | 좌표평면과 그래프 | low | related_ref;textbook_page_refs;extraction_notes | Find textbook wording or examples that justify keeping these concepts linked. | 7 |
 | m1_geo_point__related_to__m1_coord_point_location | cross_unit | 점 | related_to | 점의 위치 | low | related_ref;textbook_page_refs;extraction_notes | Find textbook wording or examples that justify keeping these concepts linked. | 5 |
 | m1_coord_axis__contains__m1_coord_x_axis | intra_unit | 좌표축 | contains | x축 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 1 |
@@ -205,6 +206,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_coord_coordinate_plane__prerequisite_for__m1_quad_func_graph_drawing | cross_unit | 좌표평면 | prerequisite_for | 이차함수 그래프 그리기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_coord_graph_unit__prerequisite_for__m1_func_unit | cross_unit | 좌표평면과 그래프 | prerequisite_for | 일차함수와 그 그래프 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 6 |
 | m1_coord_graph_unit__prerequisite_for__m1_quad_func_unit | cross_unit | 좌표평면과 그래프 | prerequisite_for | 이차함수와 그 그래프 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_coord_ordered_pair__prerequisite_for__m1_system_solution_ordered_pair | cross_unit | 순서쌍 | prerequisite_for | 해의 순서쌍 표현 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_coord_x_axis__prerequisite_for__m1_func_x_intercept | cross_unit | x축 | prerequisite_for | x절편 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_coord_y_axis__prerequisite_for__m1_func_y_intercept | cross_unit | y축 | prerequisite_for | y절편 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_eq_unit__prerequisite_for__m1_coord_graph_unit | cross_unit | 일차방정식 | prerequisite_for | 좌표평면과 그래프 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
@@ -228,7 +230,6 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_repr_table__prerequisite_for__m1_data_frequency_unit | cross_unit | 표 | prerequisite_for | 도수분포표와 상대도수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 5 |
 | m1_repr_table__prerequisite_for__m1_data_relative_frequency_table_graph | cross_unit | 표 | prerequisite_for | 상대도수의 분포를 표나 그래프로 나타내기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_repr_table__prerequisite_for__m1_func_two_quantity_relation | cross_unit | 표 | prerequisite_for | 두 양 사이의 관계 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
-| m1_system_unit__prerequisite_for__m1_coord_graph_unit | cross_unit | 연립일차방정식 | prerequisite_for | 좌표평면과 그래프 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_coord_coordinate_plane__represented_by__m1_data_scatter_plot | cross_unit | 좌표평면 | represented_by | 산점도 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
 | m1_data_domain__represented_by__m1_graph_graph | cross_unit | 자료와 가능성 | represented_by | 그래프 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 4 |
 | m1_data_domain__represented_by__m1_repr_table | cross_unit | 자료와 가능성 | represented_by | 표 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 6 |
@@ -236,6 +237,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_graph_graph__represented_by__m1_data_scatter_plot | cross_unit | 그래프 | represented_by | 산점도 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
 | m1_repr_everyday_language__represented_by__m1_expr_literal_expression | cross_unit | 일상 언어 | represented_by | 문자를 사용한 식 | high | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 3 |
 | m1_system_solution__represented_by__m1_coord_ordered_pair | cross_unit | 연립일차방정식의 해 | represented_by | 순서쌍 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
+| m1_system_solution_ordered_pair__represented_by__m1_coord_ordered_pair | cross_unit | 해의 순서쌍 표현 | represented_by | 순서쌍 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 4 |
 | m1_coord_coordinate_plane__used_in__m1_func_linear_graph | cross_unit | 좌표평면 | used_in | 일차함수의 그래프 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_coord_coordinate_plane__used_in__m1_quad_func_graph | cross_unit | 좌표평면 | used_in | 이차함수의 그래프 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_data_critical_graph_reading__used_in__m1_graph_graph_interpretation | cross_unit | 표와 그래프의 오류 비판적으로 읽기 | used_in | 그래프 해석 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 1 |
@@ -255,6 +257,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_expr_usefulness__related_to__m1_term_variable | cross_unit | 문자를 사용한 식의 유용성 | related_to | 변수 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 4 |
 | m1_num_number_line__related_to__m1_coord_number_line | cross_unit | 수직선 | related_to | 수직선 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 5 |
 | m1_system_two_variable_linear_equation__related_to__m1_coord_graph_unit | cross_unit | 미지수가 2개인 일차방정식 | related_to | 좌표평면과 그래프 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 7 |
+| m1_system_unit__related_to__m1_coord_graph_unit | cross_unit | 연립일차방정식 | related_to | 좌표평면과 그래프 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 3 |
 
 ## Textbook Edge Evidence Fields
 

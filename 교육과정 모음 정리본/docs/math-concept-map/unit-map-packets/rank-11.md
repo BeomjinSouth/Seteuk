@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 일차방정식
 - priority tier: highest
-- workplan score: 160
+- workplan score: 164
 - concepts: 31
-- edges touching unit: 160
-- cross-unit edges: 51
+- edges touching unit: 164
+- cross-unit edges: 55
 - low confidence concepts: 3
 - low confidence edges: 14
 
@@ -35,7 +35,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contrasts_with | 9 |
 | equivalent_to | 2 |
 | often_confused_with | 11 |
-| prerequisite_for | 67 |
+| prerequisite_for | 71 |
 | related_to | 3 |
 | represented_by | 1 |
 | used_in | 35 |
@@ -57,10 +57,13 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_mis_system_one_equation_only__often_confused_with__m1_eq_solution | 연립방정식의 해를 한 방정식만 만족해도 된다고 보는 오류 | often_confused_with | 해 | low | official_dual_source |
 | m1_eq_equality_properties__prerequisite_for__m1_ineq_compare_equality_properties | 등식의 성질 | prerequisite_for | 등식의 성질과 부등식의 성질 비교 | high | official_dual_source |
 | m1_eq_equality_properties__prerequisite_for__m1_ineq_properties | 등식의 성질 | prerequisite_for | 부등식의 성질 | high | official_dual_source |
+| m1_eq_equality_properties__prerequisite_for__m1_system_add_or_subtract_equations | 등식의 성질 | prerequisite_for | 두 방정식 더하거나 빼기 | medium | official_dual_source |
+| m1_eq_equality_properties__prerequisite_for__m1_system_substitution_isolate_variable | 등식의 성질 | prerequisite_for | 한 미지수를 다른 미지수의 식으로 나타내기 | medium | official_dual_source |
 | m1_eq_equation__prerequisite_for__m1_quad_eq_quadratic_equation | 방정식 | prerequisite_for | 이차방정식 | high | official_dual_source |
 | m1_eq_equation__prerequisite_for__m1_system_simultaneous_equations | 방정식 | prerequisite_for | 연립방정식 | high | official_dual_source |
 | m1_eq_linear_equation__prerequisite_for__m1_system_two_variable_linear_equation | 일차방정식 | prerequisite_for | 미지수가 2개인 일차방정식 | high | official_dual_source |
 | m1_eq_solution__prerequisite_for__m1_quad_eq_solution | 해 | prerequisite_for | 이차방정식의 해 | high | official_dual_source |
+| m1_eq_solution__prerequisite_for__m1_system_common_solution_condition | 해 | prerequisite_for | 공통 해 조건 | medium | official_dual_source |
 | m1_eq_solution__prerequisite_for__m1_system_solution | 해 | prerequisite_for | 연립일차방정식의 해 | high | official_dual_source |
 | m1_eq_solution_check__prerequisite_for__m1_quad_eq_context_solution_check | 해의 확인 | prerequisite_for | 해가 문제 상황에 적합한지 확인하기 | high | official_dual_source |
 | m1_eq_solution_check__prerequisite_for__m1_quad_eq_modeling | 해의 확인 | prerequisite_for | 이차방정식 활용 문제 해결 | high | official_dual_source |
@@ -71,6 +74,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_eq_unit__prerequisite_for__m1_ineq_unit | 일차방정식 | prerequisite_for | 일차부등식 | high | official_dual_source |
 | m1_eq_unit__prerequisite_for__m1_quad_eq_unit | 일차방정식 | prerequisite_for | 이차방정식 | high | official_dual_source |
 | m1_eq_unit__prerequisite_for__m1_system_unit | 일차방정식 | prerequisite_for | 연립일차방정식 | high | official_dual_source |
+| m1_eq_unknown__prerequisite_for__m1_system_modeling_variable_assignment | 미지수 | prerequisite_for | 두 미지수 정하기 | medium | official_dual_source |
 | m1_eq_unknown__prerequisite_for__m1_system_two_variable_linear_equation | 미지수 | prerequisite_for | 미지수가 2개인 일차방정식 | high | official_dual_source |
 | m1_expr_constant_term__prerequisite_for__m1_eq_collect_constant_terms | 상수항 | prerequisite_for | 상수항 모으기 | medium | official_dual_source |
 | m1_expr_letter__prerequisite_for__m1_eq_unknown | 문자 | prerequisite_for | 미지수 | high | official_dual_source |
@@ -88,7 +92,3 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_expr_unit__prerequisite_for__m1_eq_unit | 문자의 사용과 식 | prerequisite_for | 일차방정식 | high | official_dual_source |
 | m1_num_addition__prerequisite_for__m1_eq_equal_add_subtract_property | 덧셈 | prerequisite_for | 양변에 같은 수를 더하거나 빼기 | medium | official_dual_source |
 | m1_num_division__prerequisite_for__m1_eq_equal_multiply_divide_property | 나눗셈 | prerequisite_for | 양변에 같은 수를 곱하거나 나누기 | medium | official_dual_source |
-| m1_num_multiplication__prerequisite_for__m1_eq_equal_multiply_divide_property | 곱셈 | prerequisite_for | 양변에 같은 수를 곱하거나 나누기 | medium | official_dual_source |
-| m1_num_subtraction__prerequisite_for__m1_eq_equal_add_subtract_property | 뺄셈 | prerequisite_for | 양변에 같은 수를 더하거나 빼기 | medium | official_dual_source |
-| m1_repr_expression__prerequisite_for__m1_eq_equality | 식 | prerequisite_for | 등식 | high | official_dual_source |
-| m1_eq_equality_properties__used_in__m1_ineq_compare_equality_properties | 등식의 성질 | used_in | 등식의 성질과 부등식의 성질 비교 | high | official_dual_source |

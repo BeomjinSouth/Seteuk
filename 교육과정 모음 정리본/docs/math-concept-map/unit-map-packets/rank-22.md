@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 일차함수와 일차방정식의 관계
 - priority tier: medium
-- workplan score: 66
+- workplan score: 64
 - concepts: 9
 - edges touching unit: 43
-- cross-unit edges: 19
+- cross-unit edges: 17
 - low confidence concepts: 1
 - low confidence edges: 7
 
@@ -36,8 +36,8 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | often_confused_with | 5 |
 | prerequisite_for | 15 |
 | related_to | 1 |
-| represented_by | 3 |
-| used_in | 8 |
+| represented_by | 2 |
+| used_in | 9 |
 
 ## Low Confidence Concepts
 
@@ -59,12 +59,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_system_solution__prerequisite_for__m1_func_system_solution_from_intersection | 연립일차방정식의 해 | prerequisite_for | 교점으로 연립일차방정식의 해 말하기 | high | official_dual_source |
 | m1_system_two_variable_linear_equation__prerequisite_for__m1_func_two_variable_equation_as_graph | 미지수가 2개인 일차방정식 | prerequisite_for | 미지수가 2개인 일차방정식의 해를 그래프로 나타내기 | high | official_dual_source |
 | m1_system_unit__prerequisite_for__m1_func_eq_relation_unit | 연립일차방정식 | prerequisite_for | 일차함수와 일차방정식의 관계 | high | official_dual_source |
-| m1_system_simultaneous_linear_equations__represented_by__m1_func_system_graph_relation | 연립일차방정식 | represented_by | 두 일차함수의 그래프와 연립일차방정식의 관계 | high | official_dual_source |
+| m1_system_simultaneous_linear_equations__represented_by__m1_func_two_linear_graphs | 연립일차방정식 | represented_by | 두 일차함수의 그래프 | high | official_dual_source |
 | m1_system_solution__represented_by__m1_func_intersection_point | 연립일차방정식의 해 | represented_by | 교점 | high | official_dual_source |
-| m1_system_two_variable_linear_equation__represented_by__m1_func_two_variable_equation_as_graph | 미지수가 2개인 일차방정식 | represented_by | 미지수가 2개인 일차방정식의 해를 그래프로 나타내기 | high | official_dual_source |
 | m1_func_linear_graph__used_in__m1_func_equation_relation | 일차함수의 그래프 | used_in | 일차함수와 미지수가 2개인 일차방정식의 관계 | high | official_dual_source |
-| m1_func_system_solution_from_intersection__used_in__m1_system_solution | 교점으로 연립일차방정식의 해 말하기 | used_in | 연립일차방정식의 해 | high | official_dual_source |
-| m1_func_two_variable_equation_as_graph__used_in__m1_system_solution | 미지수가 2개인 일차방정식의 해를 그래프로 나타내기 | used_in | 연립일차방정식의 해 | medium | official_dual_source |
 | m1_system_two_variable_linear_equation__used_in__m1_func_equation_relation | 미지수가 2개인 일차방정식 | used_in | 일차함수와 미지수가 2개인 일차방정식의 관계 | medium | official_dual_source |
+| m1_system_two_variable_linear_equation__used_in__m1_func_two_variable_equation_as_graph | 미지수가 2개인 일차방정식 | used_in | 미지수가 2개인 일차방정식의 해를 그래프로 나타내기 | high | official_dual_source |
 | m1_geo_intersection_point__contrasts_with__m1_func_intersection_point | 교점 | contrasts_with | 교점 | medium | official_dual_source |
 | m1_coord_graph_unit__related_to__m1_func_eq_relation_unit | 좌표평면과 그래프 | related_to | 일차함수와 일차방정식의 관계 | medium | official_dual_source |

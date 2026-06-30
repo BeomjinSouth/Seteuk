@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 일차방정식
 - priority tier: highest
 - priority score: 53
-- edges in packet: 160
-- cross-unit edges: 51
+- edges in packet: 164
+- cross-unit edges: 55
 - low confidence edges: 14
 
 ## Relationship Evidence Slots
@@ -132,10 +132,13 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_eq_multiple_solving_methods__related_to__m1_eq_apply_equality_properties | intra_unit | 방정식의 여러 풀이 방법 | related_to | 등식의 성질을 이용해 방정식 변형하기 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 3 |
 | m1_eq_equality_properties__prerequisite_for__m1_ineq_compare_equality_properties | cross_unit | 등식의 성질 | prerequisite_for | 등식의 성질과 부등식의 성질 비교 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_eq_equality_properties__prerequisite_for__m1_ineq_properties | cross_unit | 등식의 성질 | prerequisite_for | 부등식의 성질 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_eq_equality_properties__prerequisite_for__m1_system_add_or_subtract_equations | cross_unit | 등식의 성질 | prerequisite_for | 두 방정식 더하거나 빼기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_eq_equality_properties__prerequisite_for__m1_system_substitution_isolate_variable | cross_unit | 등식의 성질 | prerequisite_for | 한 미지수를 다른 미지수의 식으로 나타내기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_eq_equation__prerequisite_for__m1_quad_eq_quadratic_equation | cross_unit | 방정식 | prerequisite_for | 이차방정식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_eq_equation__prerequisite_for__m1_system_simultaneous_equations | cross_unit | 방정식 | prerequisite_for | 연립방정식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_eq_linear_equation__prerequisite_for__m1_system_two_variable_linear_equation | cross_unit | 일차방정식 | prerequisite_for | 미지수가 2개인 일차방정식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_eq_solution__prerequisite_for__m1_quad_eq_solution | cross_unit | 해 | prerequisite_for | 이차방정식의 해 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_eq_solution__prerequisite_for__m1_system_common_solution_condition | cross_unit | 해 | prerequisite_for | 공통 해 조건 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_eq_solution__prerequisite_for__m1_system_solution | cross_unit | 해 | prerequisite_for | 연립일차방정식의 해 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_eq_solution_check__prerequisite_for__m1_quad_eq_context_solution_check | cross_unit | 해의 확인 | prerequisite_for | 해가 문제 상황에 적합한지 확인하기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_eq_solution_check__prerequisite_for__m1_quad_eq_modeling | cross_unit | 해의 확인 | prerequisite_for | 이차방정식 활용 문제 해결 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
@@ -146,6 +149,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_eq_unit__prerequisite_for__m1_ineq_unit | cross_unit | 일차방정식 | prerequisite_for | 일차부등식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 5 |
 | m1_eq_unit__prerequisite_for__m1_quad_eq_unit | cross_unit | 일차방정식 | prerequisite_for | 이차방정식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_eq_unit__prerequisite_for__m1_system_unit | cross_unit | 일차방정식 | prerequisite_for | 연립일차방정식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_eq_unknown__prerequisite_for__m1_system_modeling_variable_assignment | cross_unit | 미지수 | prerequisite_for | 두 미지수 정하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_eq_unknown__prerequisite_for__m1_system_two_variable_linear_equation | cross_unit | 미지수 | prerequisite_for | 미지수가 2개인 일차방정식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_expr_constant_term__prerequisite_for__m1_eq_collect_constant_terms | cross_unit | 상수항 | prerequisite_for | 상수항 모으기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_expr_letter__prerequisite_for__m1_eq_unknown | cross_unit | 문자 | prerequisite_for | 미지수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |

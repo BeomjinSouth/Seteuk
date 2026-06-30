@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 정수와 유리수
 - priority tier: highest
 - priority score: 65
-- edges in packet: 212
-- cross-unit edges: 60
+- edges in packet: 214
+- cross-unit edges: 62
 - low confidence edges: 38
 
 ## Relationship Evidence Slots
@@ -181,6 +181,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_num_domain__contains__m1_num_integer_rational_unit | cross_unit | 수와 연산 | contains | 정수와 유리수 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
 | m1_num_real_number__contains__m1_num_rational_number | cross_unit | 실수 | contains | 유리수 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
 | m1_num_addition__prerequisite_for__m1_eq_equal_add_subtract_property | cross_unit | 덧셈 | prerequisite_for | 양변에 같은 수를 더하거나 빼기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_num_addition__prerequisite_for__m1_system_add_or_subtract_equations | cross_unit | 덧셈 | prerequisite_for | 두 방정식 더하거나 빼기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_distributive_law__prerequisite_for__m1_calc_expansion | cross_unit | 분배법칙 | prerequisite_for | 전개 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_distributive_law__prerequisite_for__m1_calc_monomial_times_polynomial_distribution | cross_unit | 분배법칙 | prerequisite_for | 단항식을 다항식에 분배하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_num_distributive_law__prerequisite_for__m1_calc_polynomial_parentheses_removal | cross_unit | 분배법칙 | prerequisite_for | 다항식의 괄호 풀기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
@@ -213,6 +214,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_num_rational_number__prerequisite_for__m1_num_repeating_decimal_unit | cross_unit | 유리수 | prerequisite_for | 유리수와 순환소수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_rational_number__prerequisite_for__m1_num_square_root_real_unit | cross_unit | 유리수 | prerequisite_for | 제곱근과 실수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 10 |
 | m1_num_subtraction__prerequisite_for__m1_eq_equal_add_subtract_property | cross_unit | 뺄셈 | prerequisite_for | 양변에 같은 수를 더하거나 빼기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_num_subtraction__prerequisite_for__m1_system_add_or_subtract_equations | cross_unit | 뺄셈 | prerequisite_for | 두 방정식 더하거나 빼기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_subtraction_as_add_opposite__prerequisite_for__m1_calc_polynomial_subtraction_sign_distribution | cross_unit | 뺄셈을 반대 부호의 덧셈으로 바꾸기 | prerequisite_for | 다항식의 뺄셈에서 부호 바꾸기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_num_real_number__represented_by__m1_num_number_line | cross_unit | 실수 | represented_by | 수직선 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
 | m1_num_repeating_decimal_to_fraction__represented_by__m1_num_rational_number | cross_unit | 순환소수를 분수로 나타내기 | represented_by | 유리수 | high | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |

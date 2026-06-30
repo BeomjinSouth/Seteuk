@@ -2,14 +2,14 @@
 
 이 문서는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 출처 보강 때 먼저 확인할 대상을 정리한다.
 
-- 검토 대상 concept: 95개
+- 검토 대상 concept: 96개
 
 ## 영역별 검토 대상
 
 | 영역 | concept 수 |
 |---|---:|
 | 수와 연산 | 14 |
-| 변화와 관계 | 49 |
+| 변화와 관계 | 50 |
 | 도형과 측정 | 19 |
 | 자료와 가능성 | 13 |
 
@@ -17,7 +17,7 @@
 
 | concept_type | concept 수 |
 |---|---:|
-| misconception_risk | 73 |
+| misconception_risk | 74 |
 | procedure | 2 |
 | property | 6 |
 | representation | 2 |
@@ -54,9 +54,10 @@
 | m1_mis_polynomial_division_scope | 변화와 관계 | 식의 계산 | misconception_risk | textbook_evidence_needed | 다항식을 단항식으로 나누는 범위 혼동 | 교육과정 해설의 제한 사항을 개념 지도에서 보존하기 위한 노드이다. |
 | m1_mis_polynomial_like_terms | 변화와 관계 | 식의 계산 | misconception_risk | textbook_evidence_needed | 다항식에서 동류항 처리를 누락하는 오류 |  |
 | m1_mis_polynomial_subtraction_sign | 변화와 관계 | 식의 계산 | misconception_risk | textbook_evidence_needed | 다항식 뺄셈에서 괄호 앞 음수를 분배하지 않는 오류 | 성취기준/성취수준의 요구 조건에서 추론한 오개념 후보이다. 교과서 주의 문구, 오답 예, 반복 문제 패턴 확인 전까지 low로 유지한다. |
-| m1_mis_system_elimination_sign | 변화와 관계 | 연립일차방정식 | misconception_risk | textbook_evidence_needed | 가감법에서 부호와 계수 처리를 잘못하는 오류 |  |
-| m1_mis_system_one_equation_only | 변화와 관계 | 연립일차방정식 | misconception_risk | textbook_evidence_needed | 연립방정식의 해를 한 방정식만 만족해도 된다고 보는 오류 |  |
-| m1_mis_system_substitution | 변화와 관계 | 연립일차방정식 | misconception_risk | textbook_evidence_needed | 대입법에서 식 전체를 대입하지 않는 오류 |  |
+| m1_mis_system_elimination_sign | 변화와 관계 | 연립일차방정식 | misconception_risk | textbook_evidence_needed | 가감법에서 부호와 계수 처리를 잘못하는 오류 | 소거·가감법 용어에서 추론한 오개념 위험이다. 교과서 예제나 오답 근거 확인 전 낮은 신뢰도로 둔다. |
+| m1_mis_system_one_equation_only | 변화와 관계 | 연립일차방정식 | misconception_risk | textbook_evidence_needed | 연립방정식의 해를 한 방정식만 만족해도 된다고 보는 오류 | 공식 문서는 해 맥락만 제공하므로 교과서 예제·오답 근거 확인 전 낮은 신뢰도로 둔다. |
+| m1_mis_system_ordered_pair_swap | 변화와 관계 | 연립일차방정식 | misconception_risk | textbook_evidence_needed | 해의 순서쌍에서 두 미지수 값을 바꾸는 오류 | 미지수가 2개인 해를 순서쌍으로 표현할 때 생길 수 있는 위험으로 추론했다. 교과서 표기와 오답 근거가 필요하다. |
+| m1_mis_system_substitution | 변화와 관계 | 연립일차방정식 | misconception_risk | textbook_evidence_needed | 대입법에서 식 전체를 대입하지 않는 오류 | 대입법 용어에서 추론한 오개념 위험이다. 교과서 예제나 오답 근거 확인 전 낮은 신뢰도로 둔다. |
 | m1_mis_quadratic_expression_equation | 변화와 관계 | 이차방정식 | misconception_risk | textbook_evidence_needed | 이차식과 이차방정식을 혼동하는 오류 |  |
 | m1_mis_quadratic_factorization_solution | 변화와 관계 | 이차방정식 | misconception_risk | textbook_evidence_needed | 인수분해한 식에서 해 조건을 빠뜨리는 오류 |  |
 | m1_mis_root_coefficient_relation_scope | 변화와 관계 | 이차방정식 | misconception_risk | textbook_evidence_needed | 근과 계수와의 관계를 중학교 범위로 오인하는 오류 | 공식 문서의 제외 범위를 학습 범위 관리용 오개념 위험으로 기록했다. |

@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 문자의 사용과 식
 - priority tier: highest
 - priority score: 48
-- edges in packet: 172
-- cross-unit edges: 98
+- edges in packet: 179
+- cross-unit edges: 105
 - low confidence edges: 15
 
 ## Relationship Evidence Slots
@@ -102,6 +102,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_expr_unit__contains__m1_repr_expression | cross_unit | 문자의 사용과 식 | contains | 식 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
 | m1_expr_unit__contains__m1_term_variable | cross_unit | 문자의 사용과 식 | contains | 변수 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 5 |
 | m1_expr_add_sub_linear_expression__prerequisite_for__m1_ineq_solving_linear_inequality | cross_unit | 일차식의 덧셈과 뺄셈 | prerequisite_for | 일차부등식 풀기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_expr_add_sub_linear_expression__prerequisite_for__m1_system_elimination_coefficient_matching | cross_unit | 일차식의 덧셈과 뺄셈 | prerequisite_for | 소거할 미지수의 계수 맞추기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_expr_coefficient__prerequisite_for__m1_calc_collect_like_terms_polynomial | cross_unit | 계수 | prerequisite_for | 다항식에서 동류항 모으기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_expr_coefficient__prerequisite_for__m1_calc_monomial_coefficient_calculation | cross_unit | 계수 | prerequisite_for | 단항식 계산에서 계수끼리 계산하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_expr_coefficient__prerequisite_for__m1_calc_polynomial_term_structure_check | cross_unit | 계수 | prerequisite_for | 다항식의 항·계수·차수 확인하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
@@ -129,6 +130,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_expr_literal_expression__prerequisite_for__m1_eq_modeling_linear_equation | cross_unit | 문자를 사용한 식 | prerequisite_for | 일차방정식 세우기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_expr_literal_expression__prerequisite_for__m1_ineq_modeling_linear_inequality | cross_unit | 문자를 사용한 식 | prerequisite_for | 일차부등식 세우기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_expr_literal_expression__prerequisite_for__m1_system_modeling | cross_unit | 문자를 사용한 식 | prerequisite_for | 연립일차방정식 세우기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_literal_expression__prerequisite_for__m1_system_modeling_variable_assignment | cross_unit | 문자를 사용한 식 | prerequisite_for | 두 미지수 정하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_literal_expression__prerequisite_for__m1_system_substitution_isolate_variable | cross_unit | 문자를 사용한 식 | prerequisite_for | 한 미지수를 다른 미지수의 식으로 나타내기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_expr_monomial__prerequisite_for__m1_calc_apply_exponent_laws_to_monomials | cross_unit | 단항식 | prerequisite_for | 지수법칙을 단항식 계산에 적용하기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_expr_monomial__prerequisite_for__m1_calc_monomial_coefficient_calculation | cross_unit | 단항식 | prerequisite_for | 단항식 계산에서 계수끼리 계산하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_expr_monomial__prerequisite_for__m1_calc_monomial_literal_part_calculation | cross_unit | 단항식 | prerequisite_for | 단항식 계산에서 문자 부분 계산하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
@@ -156,6 +159,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_expr_substitution__prerequisite_for__m1_func_value | cross_unit | 대입 | prerequisite_for | 함숫값 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_expr_substitution__prerequisite_for__m1_ineq_solution | cross_unit | 대입 | prerequisite_for | 부등식의 해 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_expr_substitution__prerequisite_for__m1_ineq_solution_check | cross_unit | 대입 | prerequisite_for | 부등식 해의 확인 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_expr_substitution__prerequisite_for__m1_system_back_substitution | cross_unit | 대입 | prerequisite_for | 한 미지수 값을 대입해 다른 미지수 구하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_substitution__prerequisite_for__m1_system_solution_check | cross_unit | 대입 | prerequisite_for | 연립일차방정식 해의 확인 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_expr_substitution__prerequisite_for__m1_system_substitution_into_other_equation | cross_unit | 대입 | prerequisite_for | 다른 방정식에 식 전체 대입하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_expr_substitution__prerequisite_for__m1_system_substitution_method | cross_unit | 대입 | prerequisite_for | 대입법 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_expr_term__prerequisite_for__m1_calc_polynomial_divided_by_monomial_termwise | cross_unit | 항 | prerequisite_for | 다항식의 각 항을 단항식으로 나누기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_expr_term__prerequisite_for__m1_calc_polynomial_term_structure_check | cross_unit | 항 | prerequisite_for | 다항식의 항·계수·차수 확인하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
@@ -180,6 +186,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_expr_substitution__used_in__m1_eq_judge_solution | cross_unit | 대입 | used_in | 해인지 판단하기 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
 | m1_expr_substitution__used_in__m1_eq_solution_check | cross_unit | 대입 | used_in | 해의 확인 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
 | m1_expr_substitution__used_in__m1_func_value | cross_unit | 대입 | used_in | 함숫값 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
+| m1_expr_substitution__used_in__m1_system_solution_check | cross_unit | 대입 | used_in | 연립일차방정식 해의 확인 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
 | m1_num_four_operations__used_in__m1_expr_evaluate_expression_value | cross_unit | 정수와 유리수의 사칙계산 | used_in | 식의 값 구하기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
 | m1_repr_everyday_language__used_in__m1_expr_situation_to_literal_expression | cross_unit | 일상 언어 | used_in | 상황을 문자를 사용한 식으로 나타내기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 4 |
 | m1_repr_expression__used_in__m1_expr_value | cross_unit | 식 | used_in | 식의 값 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 4 |
