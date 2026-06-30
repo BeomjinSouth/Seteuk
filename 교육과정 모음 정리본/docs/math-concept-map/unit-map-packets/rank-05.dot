@@ -57,6 +57,7 @@ digraph pilot_unit_map {
   "m1_calc_expansion" [label="전개\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_calc_monomial_times_polynomial_distribution" [label="단항식을 다항식에 분배하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_calc_polynomial_parentheses_removal" [label="다항식의 괄호 풀기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_factor_common_factor_extraction" [label="공통인수로 묶기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_factor_common_factor_formula" [label="m(a+b) 공식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_eq_equal_multiply_divide_property" [label="양변에 같은 수를 곱하거나 나누기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_calc_monomial_coefficient_calculation" [label="단항식 계산에서 계수끼리 계산하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -250,6 +251,7 @@ digraph pilot_unit_map {
   "m1_num_distributive_law" -> "m1_calc_expansion" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_distributive_law" -> "m1_calc_monomial_times_polynomial_distribution" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_distributive_law" -> "m1_calc_polynomial_parentheses_removal" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_num_distributive_law" -> "m1_factor_common_factor_extraction" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_distributive_law" -> "m1_factor_common_factor_formula" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_division" -> "m1_eq_equal_multiply_divide_property" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_four_operations" -> "m1_calc_monomial_coefficient_calculation" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -282,6 +284,7 @@ digraph pilot_unit_map {
   "m1_num_real_number" -> "m1_num_number_line" [label="represented_by", style="dashed", color="#6b7280"];
   "m1_num_repeating_decimal_to_fraction" -> "m1_num_rational_number" [label="represented_by", style="dashed", color="#6b7280"];
   "m1_num_distributive_law" -> "m1_calc_monomial_times_polynomial_distribution" [label="used_in", style="dashed", color="#6b7280"];
+  "m1_num_distributive_law" -> "m1_factor_common_factor_extraction" [label="used_in", style="dashed", color="#6b7280"];
   "m1_num_distributive_law" -> "m1_factor_common_factor_formula" [label="used_in", style="dashed", color="#6b7280"];
   "m1_num_distributive_law" -> "m1_factor_polynomial_multiplication" [label="used_in", style="dashed", color="#6b7280"];
   "m1_num_four_operations" -> "m1_expr_evaluate_expression_value" [label="used_in", style="dashed", color="#6b7280"];

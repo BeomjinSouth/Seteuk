@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 정수와 유리수
 - priority tier: highest
 - priority score: 65
-- edges in packet: 210
-- cross-unit edges: 58
+- edges in packet: 212
+- cross-unit edges: 60
 - low confidence edges: 38
 
 ## Relationship Evidence Slots
@@ -184,6 +184,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_num_distributive_law__prerequisite_for__m1_calc_expansion | cross_unit | 분배법칙 | prerequisite_for | 전개 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_distributive_law__prerequisite_for__m1_calc_monomial_times_polynomial_distribution | cross_unit | 분배법칙 | prerequisite_for | 단항식을 다항식에 분배하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_num_distributive_law__prerequisite_for__m1_calc_polynomial_parentheses_removal | cross_unit | 분배법칙 | prerequisite_for | 다항식의 괄호 풀기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_num_distributive_law__prerequisite_for__m1_factor_common_factor_extraction | cross_unit | 분배법칙 | prerequisite_for | 공통인수로 묶기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_distributive_law__prerequisite_for__m1_factor_common_factor_formula | cross_unit | 분배법칙 | prerequisite_for | m(a+b) 공식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
 | m1_num_division__prerequisite_for__m1_eq_equal_multiply_divide_property | cross_unit | 나눗셈 | prerequisite_for | 양변에 같은 수를 곱하거나 나누기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_four_operations__prerequisite_for__m1_calc_monomial_coefficient_calculation | cross_unit | 정수와 유리수의 사칙계산 | prerequisite_for | 단항식 계산에서 계수끼리 계산하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
@@ -216,6 +217,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_num_real_number__represented_by__m1_num_number_line | cross_unit | 실수 | represented_by | 수직선 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
 | m1_num_repeating_decimal_to_fraction__represented_by__m1_num_rational_number | cross_unit | 순환소수를 분수로 나타내기 | represented_by | 유리수 | high | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
 | m1_num_distributive_law__used_in__m1_calc_monomial_times_polynomial_distribution | cross_unit | 분배법칙 | used_in | 단항식을 다항식에 분배하기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 5 |
+| m1_num_distributive_law__used_in__m1_factor_common_factor_extraction | cross_unit | 분배법칙 | used_in | 공통인수로 묶기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_num_distributive_law__used_in__m1_factor_common_factor_formula | cross_unit | 분배법칙 | used_in | m(a+b) 공식 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 1 |
 | m1_num_distributive_law__used_in__m1_factor_polynomial_multiplication | cross_unit | 분배법칙 | used_in | 다항식의 곱셈 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 7 |
 | m1_num_four_operations__used_in__m1_expr_evaluate_expression_value | cross_unit | 정수와 유리수의 사칙계산 | used_in | 식의 값 구하기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |

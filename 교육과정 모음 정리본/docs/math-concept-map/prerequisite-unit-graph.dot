@@ -54,7 +54,7 @@ digraph prerequisite_unit_graph {
   unit_013 -> unit_013 [label="22 prerequisite edges\nH7 M15 L0", color="#506070", penwidth=5];
   unit_015 -> unit_015 [label="21 prerequisite edges\nH12 M6 L3", color="#b73535", penwidth=5];
   unit_016 -> unit_016 [label="15 prerequisite edges\nH13 M1 L1", color="#b73535", penwidth=5];
-  unit_017 -> unit_017 [label="15 prerequisite edges\nH14 M1 L0", color="#506070", penwidth=5];
+  unit_017 -> unit_017 [label="15 prerequisite edges\nH5 M10 L0", color="#506070", penwidth=5];
   unit_012 -> unit_009 [label="14 prerequisite edges\nH9 M5 L0", color="#506070", penwidth=5];
   unit_018 -> unit_018 [label="13 prerequisite edges\nH7 M2 L4", color="#b73535", penwidth=5];
   unit_001 -> unit_003 [label="12 prerequisite edges\nH12 M0 L0", color="#506070", penwidth=5];
@@ -64,17 +64,17 @@ digraph prerequisite_unit_graph {
   unit_021 -> unit_021 [label="10 prerequisite edges\nH7 M0 L3", color="#b73535", penwidth=4];
   unit_006 -> unit_010 [label="10 prerequisite edges\nH6 M4 L0", color="#506070", penwidth=4];
   unit_004 -> unit_007 [label="10 prerequisite edges\nH8 M2 L0", color="#506070", penwidth=4];
+  unit_013 -> unit_017 [label="9 prerequisite edges\nH7 M2 L0", color="#506070", penwidth=4];
   unit_022 -> unit_022 [label="9 prerequisite edges\nH6 M2 L1", color="#b73535", penwidth=4];
   unit_023 -> unit_023 [label="9 prerequisite edges\nH8 M0 L1", color="#b73535", penwidth=4];
   unit_001 -> unit_024 [label="8 prerequisite edges\nH8 M0 L0", color="#506070", penwidth=3];
   unit_003 -> unit_011 [label="8 prerequisite edges\nH6 M2 L0", color="#506070", penwidth=3];
+  unit_012 -> unit_017 [label="8 prerequisite edges\nH3 M5 L0", color="#506070", penwidth=3];
   unit_025 -> unit_025 [label="8 prerequisite edges\nH8 M0 L0", color="#506070", penwidth=3];
   unit_026 -> unit_026 [label="8 prerequisite edges\nH6 M0 L2", color="#b73535", penwidth=3];
   unit_002 -> unit_013 [label="7 prerequisite edges\nH0 M7 L0", color="#506070", penwidth=3];
   unit_001 -> unit_011 [label="6 prerequisite edges\nH2 M4 L0", color="#506070", penwidth=3];
   unit_024 -> unit_024 [label="6 prerequisite edges\nH6 M0 L0", color="#506070", penwidth=3];
-  unit_012 -> unit_017 [label="6 prerequisite edges\nH3 M3 L0", color="#506070", penwidth=3];
-  unit_013 -> unit_017 [label="6 prerequisite edges\nH6 M0 L0", color="#506070", penwidth=3];
   unit_009 -> unit_021 [label="6 prerequisite edges\nH6 M0 L0", color="#506070", penwidth=3];
   unit_027 -> unit_027 [label="6 prerequisite edges\nH3 M2 L1", color="#b73535", penwidth=3];
   unit_002 -> unit_022 [label="6 prerequisite edges\nH5 M1 L0", color="#506070", penwidth=3];
@@ -118,6 +118,7 @@ digraph prerequisite_unit_graph {
   unit_004 -> unit_023 [label="2 prerequisite edges\nH2 M0 L0", color="#506070", penwidth=1];
   unit_002 -> unit_004 [label="2 prerequisite edges\nH0 M0 L2", color="#b73535", penwidth=1];
   unit_002 -> unit_028 [label="2 prerequisite edges\nH1 M1 L0", color="#506070", penwidth=1];
+  unit_002 -> unit_017 [label="2 prerequisite edges\nH1 M1 L0", color="#506070", penwidth=1];
   unit_007 -> unit_028 [label="2 prerequisite edges\nH2 M0 L0", color="#506070", penwidth=1];
   unit_018 -> unit_020 [label="2 prerequisite edges\nH2 M0 L0", color="#506070", penwidth=1];
   unit_018 -> unit_016 [label="2 prerequisite edges\nH2 M0 L0", color="#506070", penwidth=1];
@@ -139,7 +140,6 @@ digraph prerequisite_unit_graph {
   unit_032 -> unit_008 [label="1 prerequisite edges\nH0 M1 L0", color="#506070", penwidth=1];
   unit_002 -> unit_012 [label="1 prerequisite edges\nH1 M0 L0", color="#506070", penwidth=1];
   unit_002 -> unit_032 [label="1 prerequisite edges\nH0 M0 L1", color="#b73535", penwidth=1];
-  unit_002 -> unit_017 [label="1 prerequisite edges\nH1 M0 L0", color="#506070", penwidth=1];
   unit_002 -> unit_023 [label="1 prerequisite edges\nH1 M0 L0", color="#506070", penwidth=1];
   unit_028 -> unit_007 [label="1 prerequisite edges\nH1 M0 L0", color="#506070", penwidth=1];
   unit_028 -> unit_023 [label="1 prerequisite edges\nH1 M0 L0", color="#506070", penwidth=1];

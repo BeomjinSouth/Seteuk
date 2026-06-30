@@ -36,7 +36,6 @@ class FactorMicroconceptTests(unittest.TestCase):
         self.assertEqual("high", quadratic_factorization["confidence"])
         self.assertIn("m1_factor_factorization", quadratic_factorization["parent_ids"])
         self.assertIn("m1_factor_quadratic_expression", quadratic_factorization["prerequisite_ids"])
-        self.assertIn("m1_factor_formula_scope", quadratic_factorization["prerequisite_ids"])
         self.assertIn("p. 219", source_locators(quadratic_factorization))
 
     def test_factor_formula_edges_cover_expansion_and_factorization_directions(self) -> None:

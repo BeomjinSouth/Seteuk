@@ -2,14 +2,14 @@
 
 이 문서는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 출처 보강 때 먼저 확인할 대상을 정리한다.
 
-- 검토 대상 concept: 94개
+- 검토 대상 concept: 95개
 
 ## 영역별 검토 대상
 
 | 영역 | concept 수 |
 |---|---:|
 | 수와 연산 | 14 |
-| 변화와 관계 | 48 |
+| 변화와 관계 | 49 |
 | 도형과 측정 | 19 |
 | 자료와 가능성 | 13 |
 
@@ -17,7 +17,7 @@
 
 | concept_type | concept 수 |
 |---|---:|
-| misconception_risk | 72 |
+| misconception_risk | 73 |
 | procedure | 2 |
 | property | 6 |
 | representation | 2 |
@@ -45,6 +45,7 @@
 | m1_mis_expansion_factorization_direction | 변화와 관계 | 다항식의 곱셈과 인수분해 | misconception_risk | textbook_evidence_needed | 전개와 인수분해 방향을 혼동하는 오류 |  |
 | m1_mis_factor_common_factor_missing | 변화와 관계 | 다항식의 곱셈과 인수분해 | misconception_risk | textbook_evidence_needed | 공통인수를 빠뜨리는 오류 | 공식 문서의 공식 범위에서 추론한 오개념 위험이다. 교과서 예제와 문항 근거 확인이 필요하다. |
 | m1_mis_factor_formula_pattern | 변화와 관계 | 다항식의 곱셈과 인수분해 | misconception_risk | textbook_evidence_needed | 곱셈·인수분해 공식을 기계적으로 끼워 맞추는 오류 | 공식 문서의 공식 범위와 성취수준의 과정 설명 요구에서 추론한 오개념 위험이다. |
+| m1_mis_factorization_unchecked_result | 변화와 관계 | 다항식의 곱셈과 인수분해 | misconception_risk | textbook_evidence_needed | 인수분해 결과를 확인하지 않는 오류 | 전개와 인수분해의 역관계에서 추론한 오개념 위험이다. 실제 교과서 예제와 문항 근거 확인이 필요하다. |
 | m1_mis_perfect_square_sign | 변화와 관계 | 다항식의 곱셈과 인수분해 | misconception_risk | textbook_evidence_needed | 완전제곱식의 가운데 항 부호를 혼동하는 오류 |  |
 | m1_mis_coefficient_constant_degree | 변화와 관계 | 문자의 사용과 식 | misconception_risk | textbook_evidence_needed | 계수·상수항·차수 혼동 | 용어 목록과 일차식 계산 성취수준을 바탕으로 둔 잠정 오개념 노드이다. |
 | m1_mis_letter_as_label_only | 변화와 관계 | 문자의 사용과 식 | misconception_risk | textbook_evidence_needed | 문자를 이름표로만 해석하는 오류 | 공식 문서의 문자와 일상 언어 비교 지도 유의점에서 추론한 위험이다. 교과서 도입 활동으로 보강 필요. |

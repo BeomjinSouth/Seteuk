@@ -4,15 +4,15 @@ This generated audit summarizes source evidence depth for each concept node.
 
 ## Summary
 
-- concepts: 626
-- needs textbook evidence: 626
-- low confidence concepts: 94
+- concepts: 636
+- needs textbook evidence: 636
+- low confidence concepts: 95
 
 ## Evidence Depth Counts
 
 | evidence_depth | concept count |
 |---|---:|
-| official_dual_source | 527 |
+| official_dual_source | 537 |
 | official_single_source | 99 |
 
 ## Priority Rows
@@ -41,6 +41,7 @@ This generated audit summarizes source evidence depth for each concept node.
 | m1_mis_expansion_factorization_direction | 전개와 인수분해 방향을 혼동하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_factor_common_factor_missing | 공통인수를 빠뜨리는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_factor_formula_pattern | 곱셈·인수분해 공식을 기계적으로 끼워 맞추는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
+| m1_mis_factorization_unchecked_result | 인수분해 결과를 확인하지 않는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_perfect_square_sign | 완전제곱식의 가운데 항 부호를 혼동하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_coefficient_constant_degree | 계수·상수항·차수 혼동 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_letter_as_label_only | 문자를 이름표로만 해석하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
@@ -58,4 +59,3 @@ This generated audit summarizes source evidence depth for each concept node.
 | m1_quad_eq_root_formula_substitution | 근의 공식에 계수 대입하기 | low | official_single_source | 2 | curriculum_math_2022 |
 | m1_quad_eq_zero_product_condition | 각 인수가 0이 되는 조건 | low | official_single_source | 2 | achievement_math_2022 |
 | m1_mis_axis_vertex | 포물선의 축과 꼭짓점을 혼동하는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_max_min_scope | 최댓값·최솟값의 범위를 임의로 확장하는 오류 | low | official_single_source | 1 | curriculum_math_2022 |
