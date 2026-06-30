@@ -54,10 +54,12 @@ digraph pilot_unit_map {
   "m1_geo_right_triangle" [label="직각삼각형\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_triangle" [label="삼각형\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_triangle_construction" [label="삼각형의 작도\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_trig_reference_angle" [label="삼각비의 기준각\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_construction_congruence_unit" [label="작도와 합동\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_justification" [label="정당화\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_plane_properties_unit" [label="평면도형의 성질\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_trig_distance_height" [label="삼각비로 거리와 높이 구하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_trig_distance_height_modeling" [label="거리와 높이 문제를 직각삼각형으로 나타내기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_axis_of_rotation" [label="회전축\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_secant" [label="할선\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_tangent_line" [label="접선\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -255,11 +257,13 @@ digraph pilot_unit_map {
   "m1_geo_angle" -> "m1_geo_right_triangle" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_angle" -> "m1_geo_triangle" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_angle" -> "m1_geo_triangle_construction" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_geo_angle" -> "m1_geo_trig_reference_angle" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_basic_unit" -> "m1_geo_construction_congruence_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_basic_unit" -> "m1_geo_justification" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_basic_unit" -> "m1_geo_plane_properties_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_distance_between_two_points" -> "m1_geo_triangle_construction" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_foot_of_perpendicular" -> "m1_geo_trig_distance_height" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_geo_foot_of_perpendicular" -> "m1_geo_trig_distance_height_modeling" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_line" -> "m1_geo_axis_of_rotation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_line" -> "m1_geo_construction" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_line" -> "m1_geo_polygon" [label="prerequisite_for", style="dashed", color="#6b7280"];

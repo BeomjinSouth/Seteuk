@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 삼각형과 사각형의 성질
 - priority tier: high
 - priority score: 24
-- edges in packet: 82
-- cross-unit edges: 36
+- edges in packet: 81
+- cross-unit edges: 35
 - low confidence edges: 14
 
 ## Relationship Evidence Slots
@@ -90,7 +90,6 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_geo_triangle_quadrilateral_unit__prerequisite_for__m1_geo_pythagorean_unit | cross_unit | 삼각형과 사각형의 성질 | prerequisite_for | 피타고라스 정리 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_triangle_quadrilateral_unit__prerequisite_for__m1_geo_right_triangle | cross_unit | 삼각형과 사각형의 성질 | prerequisite_for | 직각삼각형 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_triangle_quadrilateral_unit__prerequisite_for__m1_geo_similarity_unit | cross_unit | 삼각형과 사각형의 성질 | prerequisite_for | 도형의 닮음 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
-| m1_geo_triangle_quadrilateral_unit__prerequisite_for__m1_geo_trig_triangle_area | cross_unit | 삼각형과 사각형의 성질 | prerequisite_for | 삼각비를 이용한 삼각형의 넓이 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
 | m1_geo_centroid__used_in__m1_geo_centroid_from_parallel_ratio | cross_unit | 무게중심 | used_in | 평행선과 선분의 비로 무게중심 찾기 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_geo_diagonal__used_in__m1_geo_quadrilateral_diagonal_properties | cross_unit | 대각선 | used_in | 사각형의 대각선에 관한 성질 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_geo_justification__used_in__m1_geo_circle_justification | cross_unit | 정당화 | used_in | 원의 성질 정당화 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 4 |

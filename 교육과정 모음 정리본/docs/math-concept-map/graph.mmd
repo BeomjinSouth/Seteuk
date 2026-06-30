@@ -546,15 +546,28 @@ flowchart LR
   m1_geo_right_triangle_judgement["세 변의 길이로 직각삼각형 판별"]
   m1_geo_pythagorean_justification["피타고라스 정리의 정당화"]
   m1_geo_trigonometric_ratio["삼각비"]
+  m1_geo_trig_reference_angle["삼각비의 기준각"]
+  m1_geo_trig_hypotenuse["삼각비에서의 빗변"]
+  m1_geo_trig_opposite_side["기준각의 대변"]
+  m1_geo_trig_adjacent_side["기준각의 이웃변"]
+  m1_geo_trig_angle_range_0_90["삼각비 값의 각도 범위"]
   m1_geo_sine["사인"]
+  m1_geo_sine_ratio_formula["사인의 비 표현"]
   m1_geo_cosine["코사인"]
+  m1_geo_cosine_ratio_formula["코사인의 비 표현"]
   m1_geo_tangent_ratio["탄젠트"]
+  m1_geo_tangent_ratio_formula["탄젠트의 비 표현"]
   m1_geo_special_angles_30_45_60["30도, 45도, 60도의 삼각비"]
+  m1_geo_trig_value_table["삼각비의 값 표"]
   m1_geo_right_triangle_trig_value["직각삼각형에서 삼각비 값 구하기"]
+  m1_geo_special_angle_value_lookup["특수각 삼각비 값 찾기"]
+  m1_geo_trig_select_ratio_for_unknown["구하려는 길이에 맞는 삼각비 선택하기"]
   m1_geo_trig_distance_height["삼각비로 거리와 높이 구하기"]
+  m1_geo_trig_distance_height_modeling["거리와 높이 문제를 직각삼각형으로 나타내기"]
   m1_geo_trig_triangle_area["삼각비를 이용한 삼각형의 넓이"]
   m1_mis_trig_relation_scope["삼각비 사이의 관계를 교육과정 범위로 오해하는 오류"]
   m1_mis_trig_angle_scope["삼각비 각의 범위를 0도~90도 밖으로 확장하는 오류"]
+  m1_mis_trig_opposite_adjacent_swap["기준각에 따라 대변과 이웃변을 바꾸는 오류"]
   m1_geo_circle["원"]
   m1_geo_circle_chord_property["원의 현에 관한 성질"]
   m1_geo_tangent_line["접선"]
@@ -1611,6 +1624,7 @@ flowchart LR
   m1_geo_domain -- "연관" --> m1_num_domain
   m1_geo_plane_properties_unit -- "연관" --> m1_geo_circle_unit
   m1_geo_triangle_quadrilateral_unit -- "연관" --> m1_geo_trig_unit
+  m1_geo_pythagorean_unit -- "연관" --> m1_geo_trig_unit
   m1_geo_triangle -- "사용" --> m1_geo_triangle_construction
   m1_geo_triangle -- "사용" --> m1_geo_triangle_congruence_conditions
   m1_geo_triangle -- "사용" --> m1_geo_triangle_similarity_conditions
@@ -1819,6 +1833,30 @@ flowchart LR
   m1_geo_trigonometric_ratio -- "표현" --> m1_geo_sine
   m1_geo_trigonometric_ratio -- "표현" --> m1_geo_cosine
   m1_geo_trigonometric_ratio -- "표현" --> m1_geo_tangent_ratio
+  m1_geo_trig_opposite_side -- "연관" --> m1_geo_opposite_side
+  m1_geo_sine -- "표현" --> m1_geo_sine_ratio_formula
+  m1_geo_cosine -- "표현" --> m1_geo_cosine_ratio_formula
+  m1_geo_tangent_ratio -- "표현" --> m1_geo_tangent_ratio_formula
+  m1_geo_trig_angle_range_0_90 -- "연관" --> m1_geo_special_angles_30_45_60
+  m1_geo_special_angles_30_45_60 -- "표현" --> m1_geo_trig_value_table
+  m1_geo_trig_value_table -- "연관" --> m1_repr_table
+  m1_geo_trig_reference_angle -- "사용" --> m1_geo_sine_ratio_formula
+  m1_geo_trig_opposite_side -- "사용" --> m1_geo_sine_ratio_formula
+  m1_geo_trig_hypotenuse -- "사용" --> m1_geo_sine_ratio_formula
+  m1_geo_trig_reference_angle -- "사용" --> m1_geo_cosine_ratio_formula
+  m1_geo_trig_adjacent_side -- "사용" --> m1_geo_cosine_ratio_formula
+  m1_geo_trig_hypotenuse -- "사용" --> m1_geo_cosine_ratio_formula
+  m1_geo_trig_reference_angle -- "사용" --> m1_geo_tangent_ratio_formula
+  m1_geo_trig_opposite_side -- "사용" --> m1_geo_tangent_ratio_formula
+  m1_geo_trig_adjacent_side -- "사용" --> m1_geo_tangent_ratio_formula
+  m1_geo_sine_ratio_formula -- "사용" --> m1_geo_right_triangle_trig_value
+  m1_geo_cosine_ratio_formula -- "사용" --> m1_geo_right_triangle_trig_value
+  m1_geo_tangent_ratio_formula -- "사용" --> m1_geo_right_triangle_trig_value
+  m1_geo_trig_value_table -- "사용" --> m1_geo_special_angle_value_lookup
+  m1_geo_special_angle_value_lookup -- "사용" --> m1_geo_right_triangle_trig_value
+  m1_geo_trig_select_ratio_for_unknown -- "사용" --> m1_geo_right_triangle_trig_value
+  m1_geo_trig_distance_height_modeling -- "사용" --> m1_geo_trig_distance_height
+  m1_geo_trig_select_ratio_for_unknown -- "사용" --> m1_geo_trig_distance_height
   m1_geo_sine -- "대조" --> m1_geo_cosine
   m1_geo_cosine -- "대조" --> m1_geo_sine
   m1_geo_sine -- "대조" --> m1_geo_tangent_ratio
@@ -1868,6 +1906,7 @@ flowchart LR
   m1_mis_congruence_similarity -- "혼동" --> m1_geo_similarity
   m1_mis_trig_relation_scope -- "혼동" --> m1_geo_trigonometric_ratio
   m1_mis_trig_angle_scope -- "혼동" --> m1_geo_trigonometric_ratio
+  m1_mis_trig_opposite_adjacent_swap -- "혼동" --> m1_geo_trig_select_ratio_for_unknown
   m1_mis_circle_proportion_scope -- "혼동" --> m1_geo_circle_chord_property
   m1_mis_tangent_radius -- "혼동" --> m1_geo_tangent_property
   m1_data_domain -- "표현" --> m1_repr_table
@@ -2365,21 +2404,33 @@ flowchart LR
   m1_geo_similarity_unit -- "포함" --> m1_geo_centroid_from_parallel_ratio
   m1_geo_similarity_unit -- "포함" --> m1_mis_congruence_similarity
   m1_geo_pythagorean_unit -- "포함" --> m1_geo_right_triangle
-  m1_geo_trig_unit -- "포함" --> m1_geo_right_triangle
   m1_geo_pythagorean_unit -- "포함" --> m1_geo_pythagorean_theorem
   m1_geo_pythagorean_unit -- "포함" --> m1_geo_pythagorean_converse
   m1_geo_pythagorean_unit -- "포함" --> m1_geo_right_triangle_judgement
   m1_geo_pythagorean_unit -- "포함" --> m1_geo_pythagorean_justification
   m1_geo_trig_unit -- "포함" --> m1_geo_trigonometric_ratio
+  m1_geo_trigonometric_ratio -- "포함" --> m1_geo_trig_reference_angle
+  m1_geo_trigonometric_ratio -- "포함" --> m1_geo_trig_hypotenuse
+  m1_geo_trigonometric_ratio -- "포함" --> m1_geo_trig_opposite_side
+  m1_geo_trigonometric_ratio -- "포함" --> m1_geo_trig_adjacent_side
+  m1_geo_trig_unit -- "포함" --> m1_geo_trig_angle_range_0_90
   m1_geo_trig_unit -- "포함" --> m1_geo_sine
+  m1_geo_sine -- "포함" --> m1_geo_sine_ratio_formula
   m1_geo_trig_unit -- "포함" --> m1_geo_cosine
+  m1_geo_cosine -- "포함" --> m1_geo_cosine_ratio_formula
   m1_geo_trig_unit -- "포함" --> m1_geo_tangent_ratio
+  m1_geo_tangent_ratio -- "포함" --> m1_geo_tangent_ratio_formula
   m1_geo_trig_unit -- "포함" --> m1_geo_special_angles_30_45_60
+  m1_geo_special_angles_30_45_60 -- "포함" --> m1_geo_trig_value_table
   m1_geo_trig_unit -- "포함" --> m1_geo_right_triangle_trig_value
+  m1_geo_right_triangle_trig_value -- "포함" --> m1_geo_special_angle_value_lookup
+  m1_geo_right_triangle_trig_value -- "포함" --> m1_geo_trig_select_ratio_for_unknown
   m1_geo_trig_unit -- "포함" --> m1_geo_trig_distance_height
+  m1_geo_trig_distance_height -- "포함" --> m1_geo_trig_distance_height_modeling
   m1_geo_trig_unit -- "포함" --> m1_geo_trig_triangle_area
   m1_geo_trig_unit -- "포함" --> m1_mis_trig_relation_scope
   m1_geo_trig_unit -- "포함" --> m1_mis_trig_angle_scope
+  m1_geo_trig_unit -- "포함" --> m1_mis_trig_opposite_adjacent_swap
   m1_geo_plane_properties_unit -- "포함" --> m1_geo_circle
   m1_geo_circle_unit -- "포함" --> m1_geo_circle
   m1_geo_circle_unit -- "포함" --> m1_geo_circle_chord_property
@@ -3023,7 +3074,6 @@ flowchart LR
   m1_geo_triangle_quadrilateral_unit -- "선수" --> m1_geo_similarity_unit
   m1_geo_triangle_quadrilateral_unit -- "선수" --> m1_geo_pythagorean_unit
   m1_geo_similarity_unit -- "선수" --> m1_geo_pythagorean_unit
-  m1_geo_pythagorean_unit -- "선수" --> m1_geo_trig_unit
   m1_geo_triangle_quadrilateral_unit -- "선수" --> m1_geo_circle_unit
   m1_geo_point -- "선수" --> m1_geo_line_segment
   m1_geo_line -- "선수" --> m1_geo_line_segment
@@ -3260,21 +3310,44 @@ flowchart LR
   m1_geo_justification -- "선수" --> m1_geo_pythagorean_justification
   m1_geo_right_triangle -- "선수" --> m1_geo_trigonometric_ratio
   m1_geo_similarity_ratio -- "선수" --> m1_geo_trigonometric_ratio
+  m1_geo_angle -- "선수" --> m1_geo_trig_reference_angle
+  m1_geo_right_triangle -- "선수" --> m1_geo_trig_reference_angle
+  m1_geo_right_triangle -- "선수" --> m1_geo_trig_hypotenuse
+  m1_geo_length -- "선수" --> m1_geo_trig_hypotenuse
+  m1_geo_trig_reference_angle -- "선수" --> m1_geo_trig_opposite_side
+  m1_geo_right_triangle -- "선수" --> m1_geo_trig_opposite_side
+  m1_geo_trig_reference_angle -- "선수" --> m1_geo_trig_adjacent_side
+  m1_geo_right_triangle -- "선수" --> m1_geo_trig_adjacent_side
+  m1_geo_trigonometric_ratio -- "선수" --> m1_geo_trig_angle_range_0_90
   m1_geo_trigonometric_ratio -- "선수" --> m1_geo_sine
+  m1_geo_trig_reference_angle -- "선수" --> m1_geo_sine_ratio_formula
+  m1_geo_trig_opposite_side -- "선수" --> m1_geo_sine_ratio_formula
+  m1_geo_trig_hypotenuse -- "선수" --> m1_geo_sine_ratio_formula
   m1_geo_trigonometric_ratio -- "선수" --> m1_geo_cosine
+  m1_geo_trig_reference_angle -- "선수" --> m1_geo_cosine_ratio_formula
+  m1_geo_trig_adjacent_side -- "선수" --> m1_geo_cosine_ratio_formula
+  m1_geo_trig_hypotenuse -- "선수" --> m1_geo_cosine_ratio_formula
   m1_geo_trigonometric_ratio -- "선수" --> m1_geo_tangent_ratio
+  m1_geo_trig_reference_angle -- "선수" --> m1_geo_tangent_ratio_formula
+  m1_geo_trig_opposite_side -- "선수" --> m1_geo_tangent_ratio_formula
+  m1_geo_trig_adjacent_side -- "선수" --> m1_geo_tangent_ratio_formula
   m1_geo_trigonometric_ratio -- "선수" --> m1_geo_special_angles_30_45_60
   m1_geo_right_triangle -- "선수" --> m1_geo_special_angles_30_45_60
+  m1_geo_special_angles_30_45_60 -- "선수" --> m1_geo_trig_value_table
   m1_geo_trigonometric_ratio -- "선수" --> m1_geo_right_triangle_trig_value
   m1_geo_special_angles_30_45_60 -- "선수" --> m1_geo_right_triangle_trig_value
+  m1_geo_special_angles_30_45_60 -- "선수" --> m1_geo_special_angle_value_lookup
+  m1_geo_trig_value_table -- "선수" --> m1_geo_special_angle_value_lookup
+  m1_geo_sine_ratio_formula -- "선수" --> m1_geo_trig_select_ratio_for_unknown
+  m1_geo_cosine_ratio_formula -- "선수" --> m1_geo_trig_select_ratio_for_unknown
+  m1_geo_tangent_ratio_formula -- "선수" --> m1_geo_trig_select_ratio_for_unknown
   m1_geo_right_triangle_trig_value -- "선수" --> m1_geo_trig_distance_height
   m1_geo_foot_of_perpendicular -- "선수" --> m1_geo_trig_distance_height
+  m1_geo_trig_select_ratio_for_unknown -- "선수" --> m1_geo_trig_distance_height
+  m1_geo_right_triangle -- "선수" --> m1_geo_trig_distance_height_modeling
+  m1_geo_foot_of_perpendicular -- "선수" --> m1_geo_trig_distance_height_modeling
+  m1_geo_trig_reference_angle -- "선수" --> m1_geo_trig_distance_height_modeling
   m1_geo_trigonometric_ratio -- "선수" --> m1_geo_trig_triangle_area
-  m1_geo_triangle_quadrilateral_unit -- "선수" --> m1_geo_trig_triangle_area
-  m1_geo_sine -- "선수" --> m1_mis_trig_relation_scope
-  m1_geo_cosine -- "선수" --> m1_mis_trig_relation_scope
-  m1_geo_tangent_ratio -- "선수" --> m1_mis_trig_relation_scope
-  m1_geo_trigonometric_ratio -- "선수" --> m1_mis_trig_angle_scope
   m1_geo_point -- "선수" --> m1_geo_circle
   m1_geo_plane -- "선수" --> m1_geo_circle
   m1_geo_circle -- "선수" --> m1_geo_circle_chord_property
@@ -3531,7 +3604,10 @@ flowchart LR
   m1_mis_circumcenter_incenter -- "혼동" --> m1_geo_circumcircle
   m1_mis_circumcenter_incenter -- "혼동" --> m1_geo_incircle
   m1_mis_congruence_similarity -- "혼동" --> m1_geo_similarity_ratio
+  m1_mis_trig_angle_scope -- "혼동" --> m1_geo_trig_angle_range_0_90
   m1_mis_trig_angle_scope -- "혼동" --> m1_geo_special_angles_30_45_60
+  m1_mis_trig_opposite_adjacent_swap -- "혼동" --> m1_geo_trig_opposite_side
+  m1_mis_trig_opposite_adjacent_swap -- "혼동" --> m1_geo_trig_adjacent_side
   m1_mis_tangent_radius -- "혼동" --> m1_geo_tangent_line
   m1_mis_tangent_radius -- "혼동" --> m1_geo_tangent_point
   m1_mis_mean_only_representative -- "혼동" --> m1_data_median
@@ -4091,15 +4167,28 @@ flowchart LR
   class m1_geo_right_triangle_judgement procedure;
   class m1_geo_pythagorean_justification procedure;
   class m1_geo_trigonometric_ratio core;
+  class m1_geo_trig_reference_angle default;
+  class m1_geo_trig_hypotenuse default;
+  class m1_geo_trig_opposite_side default;
+  class m1_geo_trig_adjacent_side default;
+  class m1_geo_trig_angle_range_0_90 default;
   class m1_geo_sine default;
+  class m1_geo_sine_ratio_formula representation;
   class m1_geo_cosine default;
+  class m1_geo_cosine_ratio_formula representation;
   class m1_geo_tangent_ratio default;
+  class m1_geo_tangent_ratio_formula representation;
   class m1_geo_special_angles_30_45_60 default;
+  class m1_geo_trig_value_table representation;
   class m1_geo_right_triangle_trig_value procedure;
+  class m1_geo_special_angle_value_lookup procedure;
+  class m1_geo_trig_select_ratio_for_unknown procedure;
   class m1_geo_trig_distance_height procedure;
+  class m1_geo_trig_distance_height_modeling procedure;
   class m1_geo_trig_triangle_area procedure;
   class m1_mis_trig_relation_scope risk;
   class m1_mis_trig_angle_scope risk;
+  class m1_mis_trig_opposite_adjacent_swap risk;
   class m1_geo_circle core;
   class m1_geo_circle_chord_property default;
   class m1_geo_tangent_line default;

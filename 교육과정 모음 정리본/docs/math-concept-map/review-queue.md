@@ -2,7 +2,7 @@
 
 이 문서는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 출처 보강 때 먼저 확인할 대상을 정리한다.
 
-- 검토 대상 concept: 96개
+- 검토 대상 concept: 97개
 
 ## 영역별 검토 대상
 
@@ -10,14 +10,14 @@
 |---|---:|
 | 수와 연산 | 14 |
 | 변화와 관계 | 50 |
-| 도형과 측정 | 19 |
+| 도형과 측정 | 20 |
 | 자료와 가능성 | 13 |
 
 ## 유형별 검토 대상
 
 | concept_type | concept 수 |
 |---|---:|
-| misconception_risk | 74 |
+| misconception_risk | 75 |
 | procedure | 2 |
 | property | 6 |
 | representation | 2 |
@@ -98,8 +98,9 @@
 | m1_geo_line_segment | 도형과 측정 | 기본 도형 | term | source_detail_needed | 선분 | 공식 용어표의 직접 열거가 아니라 중점, 수직이등분선, 두 점 사이의 거리 설명에서 필요한 하위 용어로 분리했다. 교과서 본문 근거가 필요하다. |
 | m1_geo_ray | 도형과 측정 | 기본 도형 | term | source_detail_needed | 반직선 | 각의 정의에 필요한 하위 용어지만 공식 용어표 직접 근거는 아직 확인되지 않아 낮은 신뢰도로 둔다. |
 | m1_mis_congruence_similarity | 도형과 측정 | 도형의 닮음 | misconception_risk | textbook_evidence_needed | 합동과 닮음을 같은 관계로 보는 오류 |  |
-| m1_mis_trig_angle_scope | 도형과 측정 | 삼각비 | misconception_risk | textbook_evidence_needed | 삼각비 각의 범위를 0도~90도 밖으로 확장하는 오류 | 교육과정 유의사항에 근거한 범위 관리 노드다. |
-| m1_mis_trig_relation_scope | 도형과 측정 | 삼각비 | misconception_risk | textbook_evidence_needed | 삼각비 사이의 관계를 교육과정 범위로 오해하는 오류 | 교육과정 유의사항은 삼각비 사이의 관계는 다루지 않는다고 명시한다. |
+| m1_mis_trig_angle_scope | 도형과 측정 | 삼각비 | misconception_risk | textbook_evidence_needed | 삼각비 각의 범위를 0도~90도 밖으로 확장하는 오류 | 교육과정 유의사항에 근거한 범위 관리 노드다. 교과서 오답 근거 확인 전 낮은 신뢰도로 둔다. |
+| m1_mis_trig_opposite_adjacent_swap | 도형과 측정 | 삼각비 | misconception_risk | textbook_evidence_needed | 기준각에 따라 대변과 이웃변을 바꾸는 오류 | 삼각비 정의와 값 구하기 절차에서 추론한 오개념 위험이다. 교과서 예제나 오답 근거 확인 전 낮은 신뢰도로 둔다. |
+| m1_mis_trig_relation_scope | 도형과 측정 | 삼각비 | misconception_risk | textbook_evidence_needed | 삼각비 사이의 관계를 교육과정 범위로 오해하는 오류 | 교육과정 유의사항은 삼각비 사이의 관계는 다루지 않는다고 명시한다. 교과서 오답 근거 확인 전 낮은 신뢰도로 둔다. |
 | m1_mis_circumcenter_incenter | 도형과 측정 | 삼각형과 사각형의 성질 | misconception_risk | textbook_evidence_needed | 외심과 내심을 혼동하는 오류 |  |
 | m1_mis_proof_observation | 도형과 측정 | 삼각형과 사각형의 성질 | misconception_risk | textbook_evidence_needed | 관찰 결과와 증명을 같은 수준의 근거로 보는 오류 |  |
 | m1_mis_circle_proportion_scope | 도형과 측정 | 원의 성질 | misconception_risk | textbook_evidence_needed | 원과 비례에 관한 성질을 범위에 포함하는 오류 | 교육과정 유의사항에 근거한 범위 관리 노드다. |

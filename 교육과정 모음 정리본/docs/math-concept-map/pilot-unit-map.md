@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 좌표평면과 그래프
 - priority tier: highest
-- workplan score: 483
+- workplan score: 484
 - concepts: 43
-- edges touching unit: 240
-- cross-unit edges: 78
+- edges touching unit: 241
+- cross-unit edges: 79
 - low confidence concepts: 9
 - low confidence edges: 75
 
@@ -36,7 +36,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contrasts_with | 11 |
 | often_confused_with | 25 |
 | prerequisite_for | 80 |
-| related_to | 22 |
+| related_to | 23 |
 | represented_by | 20 |
 | used_in | 31 |
 

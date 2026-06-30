@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 기본 도형
 - priority tier: highest
 - priority score: 54
-- edges in packet: 214
-- cross-unit edges: 53
+- edges in packet: 216
+- cross-unit edges: 55
 - low confidence edges: 29
 
 ## Relationship Evidence Slots
@@ -196,11 +196,13 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_geo_angle__prerequisite_for__m1_geo_right_triangle | cross_unit | 각 | prerequisite_for | 직각삼각형 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_angle__prerequisite_for__m1_geo_triangle | cross_unit | 각 | prerequisite_for | 삼각형 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 9 |
 | m1_geo_angle__prerequisite_for__m1_geo_triangle_construction | cross_unit | 각 | prerequisite_for | 삼각형의 작도 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_geo_angle__prerequisite_for__m1_geo_trig_reference_angle | cross_unit | 각 | prerequisite_for | 삼각비의 기준각 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_basic_unit__prerequisite_for__m1_geo_construction_congruence_unit | cross_unit | 기본 도형 | prerequisite_for | 작도와 합동 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_geo_basic_unit__prerequisite_for__m1_geo_justification | cross_unit | 기본 도형 | prerequisite_for | 정당화 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_basic_unit__prerequisite_for__m1_geo_plane_properties_unit | cross_unit | 기본 도형 | prerequisite_for | 평면도형의 성질 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_geo_distance_between_two_points__prerequisite_for__m1_geo_triangle_construction | cross_unit | 두 점 사이의 거리 | prerequisite_for | 삼각형의 작도 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_foot_of_perpendicular__prerequisite_for__m1_geo_trig_distance_height | cross_unit | 수선의 발 | prerequisite_for | 삼각비로 거리와 높이 구하기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_geo_foot_of_perpendicular__prerequisite_for__m1_geo_trig_distance_height_modeling | cross_unit | 수선의 발 | prerequisite_for | 거리와 높이 문제를 직각삼각형으로 나타내기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_line__prerequisite_for__m1_geo_axis_of_rotation | cross_unit | 직선 | prerequisite_for | 회전축 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_line__prerequisite_for__m1_geo_construction | cross_unit | 직선 | prerequisite_for | 작도 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_line__prerequisite_for__m1_geo_polygon | cross_unit | 직선 | prerequisite_for | 다각형 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |

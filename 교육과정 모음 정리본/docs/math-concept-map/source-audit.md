@@ -98,16 +98,16 @@
 ## Concept Evidence Depth
 
 - `concept-evidence-depth.md`와 `concept-evidence-depth.csv`를 추가해 concept별 공식/교과서 근거 깊이를 추적한다.
-- 현재 585개 concept 중 `official_dual_source`는 489개, `official_single_source`는 96개이다.
-- 현재 `textbook_supported` concept은 0개이며, 585개 concept 모두 교과서 본문·정리·예제·문제 근거 보강이 필요하다.
+- 현재 663개 concept 중 `official_dual_source`는 564개, `official_single_source`는 99개이다.
+- 현재 `textbook_supported` concept은 0개이며, 663개 concept 모두 교과서 본문·정리·예제·문제 근거 보강이 필요하다.
 - 교과서 PDF가 추가되면 이 산출물에서 `needs_textbook_evidence`를 줄이는 방식으로 보강 진행률을 추적한다.
 
 ## Edge Evidence Depth
 
 - `edge-evidence-depth.md`와 `edge-evidence-depth.csv`를 추가해 edge별 공식/교과서 근거 깊이를 추적한다.
-- 현재 2551개 edge 중 `official_dual_source`는 2165개, `official_single_source`는 386개이다.
-- 현재 `textbook_supported` edge는 0개이며, 2551개 edge 모두 교과서 본문·예제·문제 근거 보강이 필요하다.
-- 현재 edge scope 분포는 `same_unit` 2061개, `cross_unit_same_domain` 210개, `cross_domain_same_grade` 51개, `cross_grade_same_domain` 200개, `cross_grade_cross_domain` 29개이다.
+- 현재 2956개 edge 중 `official_dual_source`는 2566개, `official_single_source`는 390개이다.
+- 현재 `textbook_supported` edge는 0개이며, 2956개 edge 모두 교과서 본문·예제·문제 근거 보강이 필요하다.
+- 현재 edge scope 분포는 `same_unit` 2392개, `cross_unit_same_domain` 250개, `cross_domain_same_grade` 62개, `cross_grade_same_domain` 220개, `cross_grade_cross_domain` 32개이다.
 - 교과서 PDF가 추가되면 이 산출물에서 `needs_textbook_evidence`를 줄이는 방식으로 관계 근거 보강 진행률을 추적한다.
 
 ## Textbook Extraction Queue

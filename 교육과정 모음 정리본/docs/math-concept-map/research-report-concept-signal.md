@@ -5,7 +5,7 @@ Rows are candidate signals only; inspect the local page context before changing 
 
 ## Summary
 
-- matched concepts: 255
+- matched concepts: 256
 
 ## Confidence
 
@@ -13,14 +13,14 @@ Rows are candidate signals only; inspect the local page context before changing 
 |---|---:|
 | high | 212 |
 | low | 5 |
-| medium | 38 |
+| medium | 39 |
 
 ## Recommended Actions
 
 | action | matched concepts |
 |---|---:|
 | inspect_research_report_context_before_confidence_change | 5 |
-| inspect_research_report_context_before_source_ref_upgrade | 38 |
+| inspect_research_report_context_before_source_ref_upgrade | 39 |
 | use_as_supplemental_trace_only | 212 |
 
 ## Highest Priority Signals
@@ -56,6 +56,7 @@ Rows are candidate signals only; inspect the local page context before changing 
 | m1_geo_diagonal | 대각선 | 평면도형의 성질 | medium | 14 | 78; 213; 222; 231; 235; 236; 237; 238 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_data_or_cases | 사건 A 또는 사건 B가 일어나는 경우의 수 | 경우의 수와 확률 | medium | 12 | 228; 240; 266; 267; 268 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_data_and_cases | 사건 A와 사건 B가 동시에 일어나는 경우의 수 | 경우의 수와 확률 | medium | 11 | 228; 240; 266; 267; 268 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
+| m1_geo_trig_hypotenuse | 삼각비에서의 빗변 | 삼각비 | medium | 8 | 62; 242; 269; 270 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_data_event_cases_count | 사건이 일어나는 경우의 수 | 경우의 수와 확률 | medium | 7 | 228; 241; 260; 266 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_quad_eq_quadratic_term | 이차항 | 이차방정식 | medium | 6 | 58; 59; 220; 234; 235 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_eq_both_sides | 양변 | 일차방정식 | medium | 4 | 98; 217 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
@@ -106,4 +107,3 @@ Rows are candidate signals only; inspect the local page context before changing 
 | m1_geo_domain | 도형과 측정 | 도형과 측정 | high | 57 | 9; 12; 23; 26; 45; 46; 76; 77; 78; 84; 85; 103; 108; 109; 110; 112; 115; 118; 130; 138; 139; 142; 147; 154 | research_report_signal | use_as_supplemental_trace_only |
 | m1_coord_coordinate | 좌표 | 좌표평면과 그래프 | high | 57 | 54; 57; 58; 59; 90; 215; 219; 232; 233; 234; 235; 253; 254; 258; 259 | research_report_signal | use_as_supplemental_trace_only |
 | m1_geo_congruence | 합동 | 작도와 합동 | high | 55 | 77; 78; 97; 173; 181; 182; 221; 235; 236; 237; 238 | research_report_signal | use_as_supplemental_trace_only |
-| m1_calc_exponent | 지수 | 식의 계산 | high | 54 | 54; 57; 58; 59; 97; 148; 149; 150; 152; 157; 159; 160; 163; 166; 168; 179; 216; 217; 219; 232; 233; 234; 235 | research_report_signal | use_as_supplemental_trace_only |

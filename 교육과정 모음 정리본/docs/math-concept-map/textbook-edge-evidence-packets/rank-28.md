@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 작도와 합동
 - priority tier: medium
 - priority score: 8
-- edges in packet: 44
-- cross-unit edges: 23
+- edges in packet: 45
+- cross-unit edges: 24
 - low confidence edges: 2
 
 ## Relationship Evidence Slots
@@ -62,6 +62,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_geo_triangle_congruence_judgement__used_in__m1_geo_justification | cross_unit | 삼각형의 합동 판별 | used_in | 정당화 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
 | m1_geo_congruence__contrasts_with__m1_geo_similarity | cross_unit | 합동 | contrasts_with | 닮음 | high | contrast_ref;textbook_page_refs | Find textbook wording or examples that distinguish the two concepts. | 3 |
 | m1_geo_similarity__contrasts_with__m1_geo_congruence | cross_unit | 닮음 | contrasts_with | 합동 | high | contrast_ref;textbook_page_refs | Find textbook wording or examples that distinguish the two concepts. | 3 |
+| m1_geo_trig_opposite_side__related_to__m1_geo_opposite_side | cross_unit | 기준각의 대변 | related_to | 대변 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 3 |
 
 ## Textbook Edge Evidence Fields
 

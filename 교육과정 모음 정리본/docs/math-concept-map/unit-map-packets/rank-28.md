@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 도형과 측정
 - unit: 작도와 합동
 - priority tier: medium
-- workplan score: 39
+- workplan score: 40
 - concepts: 8
-- edges touching unit: 44
-- cross-unit edges: 23
+- edges touching unit: 45
+- cross-unit edges: 24
 - low confidence concepts: 0
 - low confidence edges: 2
 
@@ -33,6 +33,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contrasts_with | 3 |
 | often_confused_with | 1 |
 | prerequisite_for | 21 |
+| related_to | 1 |
 | used_in | 11 |
 
 ## Low Confidence Concepts
@@ -68,3 +69,4 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_geo_triangle_congruence_judgement__used_in__m1_geo_justification | 삼각형의 합동 판별 | used_in | 정당화 | medium | official_dual_source |
 | m1_geo_congruence__contrasts_with__m1_geo_similarity | 합동 | contrasts_with | 닮음 | high | official_dual_source |
 | m1_geo_similarity__contrasts_with__m1_geo_congruence | 닮음 | contrasts_with | 합동 | high | official_dual_source |
+| m1_geo_trig_opposite_side__related_to__m1_geo_opposite_side | 기준각의 대변 | related_to | 대변 | medium | official_dual_source |

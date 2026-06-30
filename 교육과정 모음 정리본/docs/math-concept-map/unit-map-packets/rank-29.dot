@@ -23,6 +23,7 @@ digraph pilot_unit_map {
   "m1_geo_net_surface_area_strategy" [label="전개도로 겉넓이 구하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_sector_area_calculation" [label="부채꼴의 넓이 구하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_sector_arc_length_calculation" [label="부채꼴의 호의 길이 구하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_trig_hypotenuse" [label="삼각비에서의 빗변\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_line" [label="직선\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_point" [label="점\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_sector_arc_length_area" [label="부채꼴의 호의 길이와 넓이 구하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -54,6 +55,7 @@ digraph pilot_unit_map {
   "m1_geo_area" -> "m1_geo_net_surface_area_strategy" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_area" -> "m1_geo_sector_area_calculation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_length" -> "m1_geo_sector_arc_length_calculation" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_geo_length" -> "m1_geo_trig_hypotenuse" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_line" -> "m1_geo_triangle" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_point" -> "m1_geo_triangle" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_area" -> "m1_geo_sector_arc_length_area" [label="used_in", style="dashed", color="#6b7280"];

@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 도형과 측정
 - unit: 삼각형과 사각형의 성질
 - priority tier: high
-- workplan score: 116
+- workplan score: 115
 - concepts: 16
-- edges touching unit: 82
-- cross-unit edges: 36
+- edges touching unit: 81
+- cross-unit edges: 35
 - low confidence concepts: 2
 - low confidence edges: 14
 
@@ -33,7 +33,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 18 |
 | contrasts_with | 3 |
 | often_confused_with | 7 |
-| prerequisite_for | 36 |
+| prerequisite_for | 35 |
 | related_to | 2 |
 | used_in | 16 |
 
@@ -74,7 +74,6 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_geo_triangle_quadrilateral_unit__prerequisite_for__m1_geo_pythagorean_unit | 삼각형과 사각형의 성질 | prerequisite_for | 피타고라스 정리 | high | official_dual_source |
 | m1_geo_triangle_quadrilateral_unit__prerequisite_for__m1_geo_right_triangle | 삼각형과 사각형의 성질 | prerequisite_for | 직각삼각형 | high | official_dual_source |
 | m1_geo_triangle_quadrilateral_unit__prerequisite_for__m1_geo_similarity_unit | 삼각형과 사각형의 성질 | prerequisite_for | 도형의 닮음 | high | official_dual_source |
-| m1_geo_triangle_quadrilateral_unit__prerequisite_for__m1_geo_trig_triangle_area | 삼각형과 사각형의 성질 | prerequisite_for | 삼각비를 이용한 삼각형의 넓이 | medium | official_single_source |
 | m1_geo_centroid__used_in__m1_geo_centroid_from_parallel_ratio | 무게중심 | used_in | 평행선과 선분의 비로 무게중심 찾기 | high | official_dual_source |
 | m1_geo_diagonal__used_in__m1_geo_quadrilateral_diagonal_properties | 대각선 | used_in | 사각형의 대각선에 관한 성질 | high | official_dual_source |
 | m1_geo_justification__used_in__m1_geo_circle_justification | 정당화 | used_in | 원의 성질 정당화 | medium | official_dual_source |

@@ -26,6 +26,7 @@ digraph pilot_unit_map {
   "m1_geo_proof" [label="증명\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_triangle" [label="삼각형\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_justification" [label="정당화\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_trig_opposite_side" [label="기준각의 대변\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_congruence" -> "m1_mis_congruence_similarity" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_mis_congruence_similarity" -> "m1_geo_congruence" [label="often_confused_with", style="dashed", color="#b91c1c"];
   "m1_geo_construction_congruence_unit" -> "m1_geo_congruence" [label="contains", style="solid", color="#6b7280"];
@@ -70,4 +71,5 @@ digraph pilot_unit_map {
   "m1_geo_triangle_congruence_judgement" -> "m1_geo_justification" [label="used_in", style="dashed", color="#6b7280"];
   "m1_geo_congruence" -> "m1_geo_similarity" [label="contrasts_with", style="dashed", color="#6b7280"];
   "m1_geo_similarity" -> "m1_geo_congruence" [label="contrasts_with", style="dashed", color="#6b7280"];
+  "m1_geo_trig_opposite_side" -> "m1_geo_opposite_side" [label="related_to", style="dashed", color="#6b7280"];
 }

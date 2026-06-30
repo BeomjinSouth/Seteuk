@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-06-30T23:17:04",
+    "generated_at": "2026-06-30T23:39:52",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
-    "concept_count": 650,
-    "edge_count": 2893
+    "concept_count": 663,
+    "edge_count": 2956
   },
   "sources": [
     {
@@ -17811,7 +17811,9 @@
       "parent_ids": [
         "m1_geo_domain"
       ],
-      "related_ids": [],
+      "related_ids": [
+        "m1_geo_trig_unit"
+      ],
       "notes": "",
       "confidence": "high"
     },
@@ -17852,13 +17854,12 @@
           "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_geo_pythagorean_unit"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_geo_domain"
       ],
       "related_ids": [
+        "m1_geo_pythagorean_unit",
         "m1_geo_triangle_quadrilateral_unit"
       ],
       "notes": "",
@@ -23029,8 +23030,7 @@
         "m1_geo_triangle_quadrilateral_unit"
       ],
       "parent_ids": [
-        "m1_geo_pythagorean_unit",
-        "m1_geo_trig_unit"
+        "m1_geo_pythagorean_unit"
       ],
       "related_ids": [],
       "notes": "",
@@ -23247,6 +23247,194 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_trig_reference_angle",
+      "label_ko": "삼각비의 기준각",
+      "aliases": [
+        "기준각",
+        "reference angle"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "삼각비",
+      "concept_type": "term",
+      "short_definition": "직각삼각형에서 삼각비를 정할 때 기준으로 삼는 한 예각.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_angle",
+        "m1_geo_right_triangle"
+      ],
+      "parent_ids": [
+        "m1_geo_trigonometric_ratio"
+      ],
+      "related_ids": [],
+      "notes": "공식 성취기준의 삼각비의 뜻에서 추론한 정의 구성 요소다. 교과서 정의 박스의 표현 확인이 필요하다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_hypotenuse",
+      "label_ko": "삼각비에서의 빗변",
+      "aliases": [
+        "빗변",
+        "hypotenuse"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "삼각비",
+      "concept_type": "term",
+      "short_definition": "직각삼각형에서 직각과 마주 보는 변으로, 사인과 코사인의 분모로 쓰이는 변.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_right_triangle",
+        "m1_geo_length"
+      ],
+      "parent_ids": [
+        "m1_geo_trigonometric_ratio"
+      ],
+      "related_ids": [],
+      "notes": "삼각비 정의의 변 식별 요소로 분리했다. 교과서의 빗변 용어 설명 근거가 필요하다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_opposite_side",
+      "label_ko": "기준각의 대변",
+      "aliases": [
+        "기준각의 맞은편 변",
+        "opposite side to the reference angle"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "삼각비",
+      "concept_type": "term",
+      "short_definition": "삼각비의 기준각과 마주 보는 직각삼각형의 변.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_trig_reference_angle",
+        "m1_geo_right_triangle"
+      ],
+      "parent_ids": [
+        "m1_geo_trigonometric_ratio"
+      ],
+      "related_ids": [
+        "m1_geo_opposite_side"
+      ],
+      "notes": "기존 대변 노드와 연결하되 삼각비에서는 기준각에 따라 달라지는 변으로 따로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_adjacent_side",
+      "label_ko": "기준각의 이웃변",
+      "aliases": [
+        "기준각에 이웃한 변",
+        "adjacent side"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "삼각비",
+      "concept_type": "term",
+      "short_definition": "직각삼각형에서 기준각을 이루는 두 변 중 빗변이 아닌 변.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_trig_reference_angle",
+        "m1_geo_right_triangle"
+      ],
+      "parent_ids": [
+        "m1_geo_trigonometric_ratio"
+      ],
+      "related_ids": [],
+      "notes": "교과서의 용어와 그림 표기 확인 전 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_angle_range_0_90",
+      "label_ko": "삼각비 값의 각도 범위",
+      "aliases": [
+        "0도부터 90도까지의 삼각비",
+        "삼각비 각도 범위"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "삼각비",
+      "concept_type": "property",
+      "short_definition": "중학교 삼각비 값은 0도에서 90도까지의 각도 범위에서 다룬다는 범위 성질.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_trigonometric_ratio"
+      ],
+      "parent_ids": [
+        "m1_geo_trig_unit"
+      ],
+      "related_ids": [
+        "m1_geo_special_angles_30_45_60"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
       "id": "m1_geo_sine",
       "label_ko": "사인",
       "aliases": [
@@ -23286,10 +23474,55 @@
       ],
       "related_ids": [
         "m1_geo_cosine",
-        "m1_geo_tangent_ratio"
+        "m1_geo_tangent_ratio",
+        "m1_geo_sine_ratio_formula"
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_sine_ratio_formula",
+      "label_ko": "사인의 비 표현",
+      "aliases": [
+        "sin A = 대변/빗변",
+        "사인 공식"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "삼각비",
+      "concept_type": "representation",
+      "short_definition": "사인을 기준각의 대변의 길이를 빗변의 길이로 나눈 비로 나타낸 표현.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_trig_reference_angle",
+        "m1_geo_trig_opposite_side",
+        "m1_geo_trig_hypotenuse"
+      ],
+      "parent_ids": [
+        "m1_geo_sine"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_cosine",
@@ -23331,10 +23564,55 @@
       ],
       "related_ids": [
         "m1_geo_sine",
-        "m1_geo_tangent_ratio"
+        "m1_geo_tangent_ratio",
+        "m1_geo_cosine_ratio_formula"
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_cosine_ratio_formula",
+      "label_ko": "코사인의 비 표현",
+      "aliases": [
+        "cos A = 이웃변/빗변",
+        "코사인 공식"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "삼각비",
+      "concept_type": "representation",
+      "short_definition": "코사인을 기준각의 이웃변의 길이를 빗변의 길이로 나눈 비로 나타낸 표현.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_trig_reference_angle",
+        "m1_geo_trig_adjacent_side",
+        "m1_geo_trig_hypotenuse"
+      ],
+      "parent_ids": [
+        "m1_geo_cosine"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_tangent_ratio",
@@ -23377,10 +23655,55 @@
       "related_ids": [
         "m1_geo_sine",
         "m1_geo_cosine",
+        "m1_geo_tangent_ratio_formula",
         "m1_geo_tangent_line"
       ],
       "notes": "원의 접선(tangent line)과 영어 표기가 겹치므로 id에는 ratio를 붙였다.",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_tangent_ratio_formula",
+      "label_ko": "탄젠트의 비 표현",
+      "aliases": [
+        "tan A = 대변/이웃변",
+        "탄젠트 공식"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "삼각비",
+      "concept_type": "representation",
+      "short_definition": "탄젠트를 기준각의 대변의 길이를 이웃변의 길이로 나눈 비로 나타낸 표현.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_trig_reference_angle",
+        "m1_geo_trig_opposite_side",
+        "m1_geo_trig_adjacent_side"
+      ],
+      "parent_ids": [
+        "m1_geo_tangent_ratio"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_special_angles_30_45_60",
@@ -23415,10 +23738,50 @@
         "m1_geo_trig_unit"
       ],
       "related_ids": [
+        "m1_geo_trig_value_table",
         "m1_geo_right_triangle_trig_value"
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_trig_value_table",
+      "label_ko": "삼각비의 값 표",
+      "aliases": [
+        "특수각 삼각비 표",
+        "삼각비 표"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "삼각비",
+      "concept_type": "representation",
+      "short_definition": "30도, 45도, 60도 등 간단한 각에서 사인, 코사인, 탄젠트 값을 정리한 표.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_special_angles_30_45_60"
+      ],
+      "parent_ids": [
+        "m1_geo_special_angles_30_45_60"
+      ],
+      "related_ids": [
+        "m1_repr_table",
+        "m1_geo_special_angle_value_lookup"
+      ],
+      "notes": "성취기준은 간단한 삼각비 값을 요구하지만 표 형식은 교과서 확인 전 중간 신뢰도로 둔다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_right_triangle_trig_value",
@@ -23453,10 +23816,89 @@
         "m1_geo_trig_unit"
       ],
       "related_ids": [
+        "m1_geo_special_angle_value_lookup",
+        "m1_geo_trig_select_ratio_for_unknown",
         "m1_geo_trig_distance_height"
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_special_angle_value_lookup",
+      "label_ko": "특수각 삼각비 값 찾기",
+      "aliases": [
+        "30도 45도 60도 삼각비 값 찾기",
+        "삼각비 표에서 값 찾기"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "삼각비",
+      "concept_type": "procedure",
+      "short_definition": "특수각 삼각비의 값 표나 대표 직각삼각형을 이용하여 필요한 삼각비 값을 찾는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_special_angles_30_45_60",
+        "m1_geo_trig_value_table"
+      ],
+      "parent_ids": [
+        "m1_geo_right_triangle_trig_value"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_select_ratio_for_unknown",
+      "label_ko": "구하려는 길이에 맞는 삼각비 선택하기",
+      "aliases": [
+        "삼각비 선택하기",
+        "사인 코사인 탄젠트 선택"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "삼각비",
+      "concept_type": "procedure",
+      "short_definition": "알고 있는 변과 구하려는 변의 위치에 맞추어 사인, 코사인, 탄젠트 중 하나를 선택하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-17]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비를 활용하여 여러 가지 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_sine_ratio_formula",
+        "m1_geo_cosine_ratio_formula",
+        "m1_geo_tangent_ratio_formula"
+      ],
+      "parent_ids": [
+        "m1_geo_right_triangle_trig_value"
+      ],
+      "related_ids": [
+        "m1_geo_trig_distance_height"
+      ],
+      "notes": "활용 문제의 풀이 과정에서 추론한 선택 절차다. 교과서 예제 근거가 필요하다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_trig_distance_height",
@@ -23485,16 +23927,56 @@
       ],
       "prerequisite_ids": [
         "m1_geo_right_triangle_trig_value",
-        "m1_geo_foot_of_perpendicular"
+        "m1_geo_foot_of_perpendicular",
+        "m1_geo_trig_select_ratio_for_unknown"
       ],
       "parent_ids": [
         "m1_geo_trig_unit"
       ],
       "related_ids": [
+        "m1_geo_trig_distance_height_modeling",
         "m1_geo_trig_triangle_area"
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_trig_distance_height_modeling",
+      "label_ko": "거리와 높이 문제를 직각삼각형으로 나타내기",
+      "aliases": [
+        "거리 높이 직각삼각형 모델링",
+        "측정 상황 모델링"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "삼각비",
+      "concept_type": "procedure",
+      "short_definition": "거리나 높이 상황에서 수선과 기준각을 정해 직각삼각형 구조로 나타내는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-17]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비를 활용하여 여러 가지 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_right_triangle",
+        "m1_geo_foot_of_perpendicular",
+        "m1_geo_trig_reference_angle"
+      ],
+      "parent_ids": [
+        "m1_geo_trig_distance_height"
+      ],
+      "related_ids": [],
+      "notes": "성취기준의 활용 맥락에서 추론한 모델링 절차다. 교과서 그림·예제 근거가 필요하다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_trig_triangle_area",
@@ -23516,8 +23998,7 @@
         }
       ],
       "prerequisite_ids": [
-        "m1_geo_trigonometric_ratio",
-        "m1_geo_triangle_quadrilateral_unit"
+        "m1_geo_trigonometric_ratio"
       ],
       "parent_ids": [
         "m1_geo_trig_unit"
@@ -23547,18 +24028,14 @@
           "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
         }
       ],
-      "prerequisite_ids": [
-        "m1_geo_sine",
-        "m1_geo_cosine",
-        "m1_geo_tangent_ratio"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_geo_trig_unit"
       ],
       "related_ids": [
         "m1_geo_trigonometric_ratio"
       ],
-      "notes": "교육과정 유의사항은 삼각비 사이의 관계는 다루지 않는다고 명시한다.",
+      "notes": "교육과정 유의사항은 삼각비 사이의 관계는 다루지 않는다고 명시한다. 교과서 오답 근거 확인 전 낮은 신뢰도로 둔다.",
       "confidence": "low"
     },
     {
@@ -23580,16 +24057,53 @@
           "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
         }
       ],
-      "prerequisite_ids": [
-        "m1_geo_trigonometric_ratio"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_geo_trig_unit"
       ],
       "related_ids": [
+        "m1_geo_trig_angle_range_0_90",
         "m1_geo_special_angles_30_45_60"
       ],
-      "notes": "교육과정 유의사항에 근거한 범위 관리 노드다.",
+      "notes": "교육과정 유의사항에 근거한 범위 관리 노드다. 교과서 오답 근거 확인 전 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_trig_opposite_adjacent_swap",
+      "label_ko": "기준각에 따라 대변과 이웃변을 바꾸는 오류",
+      "aliases": [
+        "대변 이웃변 혼동",
+        "사인 코사인 변 위치 혼동"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "삼각비",
+      "concept_type": "misconception_risk",
+      "short_definition": "기준각이 달라질 때 대변과 이웃변의 위치가 바뀌는 점을 놓쳐 삼각비를 잘못 선택하는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_geo_trig_unit"
+      ],
+      "related_ids": [
+        "m1_geo_trig_opposite_side",
+        "m1_geo_trig_adjacent_side",
+        "m1_geo_trig_select_ratio_for_unknown"
+      ],
+      "notes": "삼각비 정의와 값 구하기 절차에서 추론한 오개념 위험이다. 교과서 예제나 오답 근거 확인 전 낮은 신뢰도로 둔다.",
       "confidence": "low"
     },
     {
@@ -51985,6 +52499,40 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_geo_pythagorean_unit__related_to__m1_geo_trig_unit",
+      "source_id": "m1_geo_pythagorean_unit",
+      "target_id": "m1_geo_trig_unit",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "삼각비는 직각삼각형 맥락에서 피타고라스 정리 단원과 이어지지만, 단원 전체를 직접 선수 관계로 확정하지 않고 관련 단원으로 둔다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_triangle__used_in__m1_geo_triangle_construction",
       "source_id": "m1_geo_triangle",
       "target_id": "m1_geo_triangle_construction",
@@ -57077,6 +57625,570 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_trig_opposite_side__related_to__m1_geo_opposite_side",
+      "source_id": "m1_geo_trig_opposite_side",
+      "target_id": "m1_geo_opposite_side",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "작도와 합동 단원의 대변 용어와 연결하되, 삼각비에서는 기준각에 따른 변 역할로 분리한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_sine__represented_by__m1_geo_sine_ratio_formula",
+      "source_id": "m1_geo_sine",
+      "target_id": "m1_geo_sine_ratio_formula",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_cosine__represented_by__m1_geo_cosine_ratio_formula",
+      "source_id": "m1_geo_cosine",
+      "target_id": "m1_geo_cosine_ratio_formula",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_tangent_ratio__represented_by__m1_geo_tangent_ratio_formula",
+      "source_id": "m1_geo_tangent_ratio",
+      "target_id": "m1_geo_tangent_ratio_formula",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_angle_range_0_90__related_to__m1_geo_special_angles_30_45_60",
+      "source_id": "m1_geo_trig_angle_range_0_90",
+      "target_id": "m1_geo_special_angles_30_45_60",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "30도, 45도, 60도의 삼각비 값은 중학교에서 다루는 0도부터 90도까지의 삼각비 값 범위 안의 대표 사례다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_special_angles_30_45_60__represented_by__m1_geo_trig_value_table",
+      "source_id": "m1_geo_special_angles_30_45_60",
+      "target_id": "m1_geo_trig_value_table",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "30도, 45도, 60도의 삼각비 값은 교과서에서 표로 정리되는 경우가 많다. 교과서 확인 전 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_value_table__related_to__m1_repr_table",
+      "source_id": "m1_geo_trig_value_table",
+      "target_id": "m1_repr_table",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "삼각비의 값 표는 일반적인 표 표현을 사용하는 특수한 representation이다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_reference_angle__used_in__m1_geo_sine_ratio_formula",
+      "source_id": "m1_geo_trig_reference_angle",
+      "target_id": "m1_geo_sine_ratio_formula",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_opposite_side__used_in__m1_geo_sine_ratio_formula",
+      "source_id": "m1_geo_trig_opposite_side",
+      "target_id": "m1_geo_sine_ratio_formula",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_hypotenuse__used_in__m1_geo_sine_ratio_formula",
+      "source_id": "m1_geo_trig_hypotenuse",
+      "target_id": "m1_geo_sine_ratio_formula",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_reference_angle__used_in__m1_geo_cosine_ratio_formula",
+      "source_id": "m1_geo_trig_reference_angle",
+      "target_id": "m1_geo_cosine_ratio_formula",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_adjacent_side__used_in__m1_geo_cosine_ratio_formula",
+      "source_id": "m1_geo_trig_adjacent_side",
+      "target_id": "m1_geo_cosine_ratio_formula",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_hypotenuse__used_in__m1_geo_cosine_ratio_formula",
+      "source_id": "m1_geo_trig_hypotenuse",
+      "target_id": "m1_geo_cosine_ratio_formula",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_reference_angle__used_in__m1_geo_tangent_ratio_formula",
+      "source_id": "m1_geo_trig_reference_angle",
+      "target_id": "m1_geo_tangent_ratio_formula",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_opposite_side__used_in__m1_geo_tangent_ratio_formula",
+      "source_id": "m1_geo_trig_opposite_side",
+      "target_id": "m1_geo_tangent_ratio_formula",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_adjacent_side__used_in__m1_geo_tangent_ratio_formula",
+      "source_id": "m1_geo_trig_adjacent_side",
+      "target_id": "m1_geo_tangent_ratio_formula",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_sine_ratio_formula__used_in__m1_geo_right_triangle_trig_value",
+      "source_id": "m1_geo_sine_ratio_formula",
+      "target_id": "m1_geo_right_triangle_trig_value",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_cosine_ratio_formula__used_in__m1_geo_right_triangle_trig_value",
+      "source_id": "m1_geo_cosine_ratio_formula",
+      "target_id": "m1_geo_right_triangle_trig_value",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_tangent_ratio_formula__used_in__m1_geo_right_triangle_trig_value",
+      "source_id": "m1_geo_tangent_ratio_formula",
+      "target_id": "m1_geo_right_triangle_trig_value",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_value_table__used_in__m1_geo_special_angle_value_lookup",
+      "source_id": "m1_geo_trig_value_table",
+      "target_id": "m1_geo_special_angle_value_lookup",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_special_angle_value_lookup__used_in__m1_geo_right_triangle_trig_value",
+      "source_id": "m1_geo_special_angle_value_lookup",
+      "target_id": "m1_geo_right_triangle_trig_value",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_select_ratio_for_unknown__used_in__m1_geo_right_triangle_trig_value",
+      "source_id": "m1_geo_trig_select_ratio_for_unknown",
+      "target_id": "m1_geo_right_triangle_trig_value",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-17]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비를 활용하여 여러 가지 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_distance_height_modeling__used_in__m1_geo_trig_distance_height",
+      "source_id": "m1_geo_trig_distance_height_modeling",
+      "target_id": "m1_geo_trig_distance_height",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-17]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비를 활용하여 여러 가지 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_select_ratio_for_unknown__used_in__m1_geo_trig_distance_height",
+      "source_id": "m1_geo_trig_select_ratio_for_unknown",
+      "target_id": "m1_geo_trig_distance_height",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-17]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비를 활용하여 여러 가지 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_sine__contrasts_with__m1_geo_cosine",
       "source_id": "m1_geo_sine",
       "target_id": "m1_geo_cosine",
@@ -58227,6 +59339,28 @@
           "locator": "printed p. 39; achievement-standard considerations",
           "evidence_kind": "teaching_note",
           "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_trig_opposite_adjacent_swap__often_confused_with__m1_geo_trig_select_ratio_for_unknown",
+      "source_id": "m1_mis_trig_opposite_adjacent_swap",
+      "target_id": "m1_geo_trig_select_ratio_for_unknown",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
         }
       ],
       "notes": "",
@@ -70901,34 +72035,6 @@
       "confidence": "high"
     },
     {
-      "id": "m1_geo_trig_unit__contains__m1_geo_right_triangle",
-      "source_id": "m1_geo_trig_unit",
-      "target_id": "m1_geo_right_triangle",
-      "relationship_type": "contains",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 38; [9수03-15]",
-          "evidence_kind": "achievement_standard",
-          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "high"
-    },
-    {
       "id": "m1_geo_pythagorean_unit__contains__m1_geo_pythagorean_theorem",
       "source_id": "m1_geo_pythagorean_unit",
       "target_id": "m1_geo_pythagorean_theorem",
@@ -71057,6 +72163,116 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_trigonometric_ratio__contains__m1_geo_trig_reference_angle",
+      "source_id": "m1_geo_trigonometric_ratio",
+      "target_id": "m1_geo_trig_reference_angle",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trigonometric_ratio__contains__m1_geo_trig_hypotenuse",
+      "source_id": "m1_geo_trigonometric_ratio",
+      "target_id": "m1_geo_trig_hypotenuse",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trigonometric_ratio__contains__m1_geo_trig_opposite_side",
+      "source_id": "m1_geo_trigonometric_ratio",
+      "target_id": "m1_geo_trig_opposite_side",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trigonometric_ratio__contains__m1_geo_trig_adjacent_side",
+      "source_id": "m1_geo_trigonometric_ratio",
+      "target_id": "m1_geo_trig_adjacent_side",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_unit__contains__m1_geo_trig_angle_range_0_90",
+      "source_id": "m1_geo_trig_unit",
+      "target_id": "m1_geo_trig_angle_range_0_90",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
       "id": "m1_geo_trig_unit__contains__m1_geo_sine",
       "source_id": "m1_geo_trig_unit",
       "target_id": "m1_geo_sine",
@@ -71083,6 +72299,34 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_sine__contains__m1_geo_sine_ratio_formula",
+      "source_id": "m1_geo_sine",
+      "target_id": "m1_geo_sine_ratio_formula",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_trig_unit__contains__m1_geo_cosine",
@@ -71113,6 +72357,34 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_cosine__contains__m1_geo_cosine_ratio_formula",
+      "source_id": "m1_geo_cosine",
+      "target_id": "m1_geo_cosine_ratio_formula",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_trig_unit__contains__m1_geo_tangent_ratio",
       "source_id": "m1_geo_trig_unit",
       "target_id": "m1_geo_tangent_ratio",
@@ -71141,6 +72413,34 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_tangent_ratio__contains__m1_geo_tangent_ratio_formula",
+      "source_id": "m1_geo_tangent_ratio",
+      "target_id": "m1_geo_tangent_ratio_formula",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_trig_unit__contains__m1_geo_special_angles_30_45_60",
       "source_id": "m1_geo_trig_unit",
       "target_id": "m1_geo_special_angles_30_45_60",
@@ -71161,6 +72461,28 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_special_angles_30_45_60__contains__m1_geo_trig_value_table",
+      "source_id": "m1_geo_special_angles_30_45_60",
+      "target_id": "m1_geo_trig_value_table",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_trig_unit__contains__m1_geo_right_triangle_trig_value",
@@ -71185,6 +72507,50 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_right_triangle_trig_value__contains__m1_geo_special_angle_value_lookup",
+      "source_id": "m1_geo_right_triangle_trig_value",
+      "target_id": "m1_geo_special_angle_value_lookup",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_right_triangle_trig_value__contains__m1_geo_trig_select_ratio_for_unknown",
+      "source_id": "m1_geo_right_triangle_trig_value",
+      "target_id": "m1_geo_trig_select_ratio_for_unknown",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-17]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비를 활용하여 여러 가지 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_trig_unit__contains__m1_geo_trig_distance_height",
       "source_id": "m1_geo_trig_unit",
       "target_id": "m1_geo_trig_distance_height",
@@ -71205,6 +72571,28 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_trig_distance_height__contains__m1_geo_trig_distance_height_modeling",
+      "source_id": "m1_geo_trig_distance_height",
+      "target_id": "m1_geo_trig_distance_height_modeling",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-17]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비를 활용하여 여러 가지 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_trig_unit__contains__m1_geo_trig_triangle_area",
@@ -71249,6 +72637,28 @@
           "locator": "printed p. 39; achievement-standard considerations",
           "evidence_kind": "teaching_note",
           "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_trig_unit__contains__m1_mis_trig_opposite_adjacent_swap",
+      "source_id": "m1_geo_trig_unit",
+      "target_id": "m1_mis_trig_opposite_adjacent_swap",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
         }
       ],
       "notes": "",
@@ -88689,40 +90099,6 @@
       "confidence": "high"
     },
     {
-      "id": "m1_geo_pythagorean_unit__prerequisite_for__m1_geo_trig_unit",
-      "source_id": "m1_geo_pythagorean_unit",
-      "target_id": "m1_geo_trig_unit",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 38; [9수03-16]",
-          "evidence_kind": "achievement_standard",
-          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
-        },
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 38; [9수03-17]",
-          "evidence_kind": "achievement_standard",
-          "summary": "삼각비를 활용하여 여러 가지 문제를 해결하는 성취기준"
-        },
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 39; achievement-standard considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "high"
-    },
-    {
       "id": "m1_geo_triangle_quadrilateral_unit__prerequisite_for__m1_geo_circle_unit",
       "source_id": "m1_geo_triangle_quadrilateral_unit",
       "target_id": "m1_geo_circle_unit",
@@ -94827,6 +96203,204 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_angle__prerequisite_for__m1_geo_trig_reference_angle",
+      "source_id": "m1_geo_angle",
+      "target_id": "m1_geo_trig_reference_angle",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_right_triangle__prerequisite_for__m1_geo_trig_reference_angle",
+      "source_id": "m1_geo_right_triangle",
+      "target_id": "m1_geo_trig_reference_angle",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_right_triangle__prerequisite_for__m1_geo_trig_hypotenuse",
+      "source_id": "m1_geo_right_triangle",
+      "target_id": "m1_geo_trig_hypotenuse",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_length__prerequisite_for__m1_geo_trig_hypotenuse",
+      "source_id": "m1_geo_length",
+      "target_id": "m1_geo_trig_hypotenuse",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_reference_angle__prerequisite_for__m1_geo_trig_opposite_side",
+      "source_id": "m1_geo_trig_reference_angle",
+      "target_id": "m1_geo_trig_opposite_side",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_right_triangle__prerequisite_for__m1_geo_trig_opposite_side",
+      "source_id": "m1_geo_right_triangle",
+      "target_id": "m1_geo_trig_opposite_side",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_reference_angle__prerequisite_for__m1_geo_trig_adjacent_side",
+      "source_id": "m1_geo_trig_reference_angle",
+      "target_id": "m1_geo_trig_adjacent_side",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_right_triangle__prerequisite_for__m1_geo_trig_adjacent_side",
+      "source_id": "m1_geo_right_triangle",
+      "target_id": "m1_geo_trig_adjacent_side",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trigonometric_ratio__prerequisite_for__m1_geo_trig_angle_range_0_90",
+      "source_id": "m1_geo_trigonometric_ratio",
+      "target_id": "m1_geo_trig_angle_range_0_90",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
       "id": "m1_geo_trigonometric_ratio__prerequisite_for__m1_geo_sine",
       "source_id": "m1_geo_trigonometric_ratio",
       "target_id": "m1_geo_sine",
@@ -94853,6 +96427,90 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_trig_reference_angle__prerequisite_for__m1_geo_sine_ratio_formula",
+      "source_id": "m1_geo_trig_reference_angle",
+      "target_id": "m1_geo_sine_ratio_formula",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_opposite_side__prerequisite_for__m1_geo_sine_ratio_formula",
+      "source_id": "m1_geo_trig_opposite_side",
+      "target_id": "m1_geo_sine_ratio_formula",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_hypotenuse__prerequisite_for__m1_geo_sine_ratio_formula",
+      "source_id": "m1_geo_trig_hypotenuse",
+      "target_id": "m1_geo_sine_ratio_formula",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_trigonometric_ratio__prerequisite_for__m1_geo_cosine",
@@ -94883,6 +96541,90 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_trig_reference_angle__prerequisite_for__m1_geo_cosine_ratio_formula",
+      "source_id": "m1_geo_trig_reference_angle",
+      "target_id": "m1_geo_cosine_ratio_formula",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_adjacent_side__prerequisite_for__m1_geo_cosine_ratio_formula",
+      "source_id": "m1_geo_trig_adjacent_side",
+      "target_id": "m1_geo_cosine_ratio_formula",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_hypotenuse__prerequisite_for__m1_geo_cosine_ratio_formula",
+      "source_id": "m1_geo_trig_hypotenuse",
+      "target_id": "m1_geo_cosine_ratio_formula",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_trigonometric_ratio__prerequisite_for__m1_geo_tangent_ratio",
       "source_id": "m1_geo_trigonometric_ratio",
       "target_id": "m1_geo_tangent_ratio",
@@ -94909,6 +96651,90 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_trig_reference_angle__prerequisite_for__m1_geo_tangent_ratio_formula",
+      "source_id": "m1_geo_trig_reference_angle",
+      "target_id": "m1_geo_tangent_ratio_formula",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_opposite_side__prerequisite_for__m1_geo_tangent_ratio_formula",
+      "source_id": "m1_geo_trig_opposite_side",
+      "target_id": "m1_geo_tangent_ratio_formula",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_adjacent_side__prerequisite_for__m1_geo_tangent_ratio_formula",
+      "source_id": "m1_geo_trig_adjacent_side",
+      "target_id": "m1_geo_tangent_ratio_formula",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_trigonometric_ratio__prerequisite_for__m1_geo_special_angles_30_45_60",
@@ -94955,6 +96781,28 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_special_angles_30_45_60__prerequisite_for__m1_geo_trig_value_table",
+      "source_id": "m1_geo_special_angles_30_45_60",
+      "target_id": "m1_geo_trig_value_table",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_trigonometric_ratio__prerequisite_for__m1_geo_right_triangle_trig_value",
       "source_id": "m1_geo_trigonometric_ratio",
       "target_id": "m1_geo_right_triangle_trig_value",
@@ -94997,6 +96845,116 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_special_angles_30_45_60__prerequisite_for__m1_geo_special_angle_value_lookup",
+      "source_id": "m1_geo_special_angles_30_45_60",
+      "target_id": "m1_geo_special_angle_value_lookup",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_value_table__prerequisite_for__m1_geo_special_angle_value_lookup",
+      "source_id": "m1_geo_trig_value_table",
+      "target_id": "m1_geo_special_angle_value_lookup",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_sine_ratio_formula__prerequisite_for__m1_geo_trig_select_ratio_for_unknown",
+      "source_id": "m1_geo_sine_ratio_formula",
+      "target_id": "m1_geo_trig_select_ratio_for_unknown",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-17]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비를 활용하여 여러 가지 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_cosine_ratio_formula__prerequisite_for__m1_geo_trig_select_ratio_for_unknown",
+      "source_id": "m1_geo_cosine_ratio_formula",
+      "target_id": "m1_geo_trig_select_ratio_for_unknown",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-17]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비를 활용하여 여러 가지 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_tangent_ratio_formula__prerequisite_for__m1_geo_trig_select_ratio_for_unknown",
+      "source_id": "m1_geo_tangent_ratio_formula",
+      "target_id": "m1_geo_trig_select_ratio_for_unknown",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-17]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비를 활용하여 여러 가지 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_right_triangle_trig_value__prerequisite_for__m1_geo_trig_distance_height",
@@ -95043,6 +97001,94 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_trig_select_ratio_for_unknown__prerequisite_for__m1_geo_trig_distance_height",
+      "source_id": "m1_geo_trig_select_ratio_for_unknown",
+      "target_id": "m1_geo_trig_distance_height",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-17]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비를 활용하여 여러 가지 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_right_triangle__prerequisite_for__m1_geo_trig_distance_height_modeling",
+      "source_id": "m1_geo_right_triangle",
+      "target_id": "m1_geo_trig_distance_height_modeling",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-17]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비를 활용하여 여러 가지 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_foot_of_perpendicular__prerequisite_for__m1_geo_trig_distance_height_modeling",
+      "source_id": "m1_geo_foot_of_perpendicular",
+      "target_id": "m1_geo_trig_distance_height_modeling",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-17]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비를 활용하여 여러 가지 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_trig_reference_angle__prerequisite_for__m1_geo_trig_distance_height_modeling",
+      "source_id": "m1_geo_trig_reference_angle",
+      "target_id": "m1_geo_trig_distance_height_modeling",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-17]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비를 활용하여 여러 가지 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_trigonometric_ratio__prerequisite_for__m1_geo_trig_triangle_area",
       "source_id": "m1_geo_trigonometric_ratio",
       "target_id": "m1_geo_trig_triangle_area",
@@ -95057,86 +97103,6 @@
       ],
       "notes": "",
       "confidence": "medium"
-    },
-    {
-      "id": "m1_geo_triangle_quadrilateral_unit__prerequisite_for__m1_geo_trig_triangle_area",
-      "source_id": "m1_geo_triangle_quadrilateral_unit",
-      "target_id": "m1_geo_trig_triangle_area",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "medium"
-    },
-    {
-      "id": "m1_geo_sine__prerequisite_for__m1_mis_trig_relation_scope",
-      "source_id": "m1_geo_sine",
-      "target_id": "m1_mis_trig_relation_scope",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 39; achievement-standard considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_geo_cosine__prerequisite_for__m1_mis_trig_relation_scope",
-      "source_id": "m1_geo_cosine",
-      "target_id": "m1_mis_trig_relation_scope",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 39; achievement-standard considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_geo_tangent_ratio__prerequisite_for__m1_mis_trig_relation_scope",
-      "source_id": "m1_geo_tangent_ratio",
-      "target_id": "m1_mis_trig_relation_scope",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 39; achievement-standard considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_geo_trigonometric_ratio__prerequisite_for__m1_mis_trig_angle_scope",
-      "source_id": "m1_geo_trigonometric_ratio",
-      "target_id": "m1_mis_trig_angle_scope",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 39; achievement-standard considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
     },
     {
       "id": "m1_geo_point__prerequisite_for__m1_geo_circle",
@@ -102097,6 +104063,22 @@
       "confidence": "low"
     },
     {
+      "id": "m1_mis_trig_angle_scope__often_confused_with__m1_geo_trig_angle_range_0_90",
+      "source_id": "m1_mis_trig_angle_scope",
+      "target_id": "m1_geo_trig_angle_range_0_90",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
       "id": "m1_mis_trig_angle_scope__often_confused_with__m1_geo_special_angles_30_45_60",
       "source_id": "m1_mis_trig_angle_scope",
       "target_id": "m1_geo_special_angles_30_45_60",
@@ -102107,6 +104089,50 @@
           "locator": "printed p. 39; achievement-standard considerations",
           "evidence_kind": "teaching_note",
           "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_trig_opposite_adjacent_swap__often_confused_with__m1_geo_trig_opposite_side",
+      "source_id": "m1_mis_trig_opposite_adjacent_swap",
+      "target_id": "m1_geo_trig_opposite_side",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_trig_opposite_adjacent_swap__often_confused_with__m1_geo_trig_adjacent_side",
+      "source_id": "m1_mis_trig_opposite_adjacent_swap",
+      "target_id": "m1_geo_trig_adjacent_side",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
         }
       ],
       "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",

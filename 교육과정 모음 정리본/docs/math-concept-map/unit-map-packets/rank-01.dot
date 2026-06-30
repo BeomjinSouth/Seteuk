@@ -95,6 +95,7 @@ digraph pilot_unit_map {
   "m1_eq_equation" [label="방정식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_func_eq_relation_unit" [label="일차함수와 일차방정식의 관계\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_expr_usefulness" [label="문자를 사용한 식의 유용성\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_trig_value_table" [label="삼각비의 값 표\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_number_line" [label="수직선\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_system_two_variable_linear_equation" [label="미지수가 2개인 일차방정식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_system_unit" [label="연립일차방정식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -335,6 +336,7 @@ digraph pilot_unit_map {
   "m1_coord_graph_unit" -> "m1_func_eq_relation_unit" [label="related_to", style="dashed", color="#6b7280"];
   "m1_expr_unit" -> "m1_coord_graph_unit" [label="related_to", style="dashed", color="#6b7280"];
   "m1_expr_usefulness" -> "m1_term_variable" [label="related_to", style="dashed", color="#6b7280"];
+  "m1_geo_trig_value_table" -> "m1_repr_table" [label="related_to", style="dashed", color="#6b7280"];
   "m1_num_number_line" -> "m1_coord_number_line" [label="related_to", style="dashed", color="#6b7280"];
   "m1_system_two_variable_linear_equation" -> "m1_coord_graph_unit" [label="related_to", style="dashed", color="#6b7280"];
   "m1_system_unit" -> "m1_coord_graph_unit" [label="related_to", style="dashed", color="#6b7280"];

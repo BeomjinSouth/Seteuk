@@ -39,7 +39,6 @@ digraph pilot_unit_map {
   "m1_geo_circle_unit" [label="원의 성질\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_pythagorean_unit" [label="피타고라스 정리\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_right_triangle" [label="직각삼각형\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
-  "m1_geo_trig_triangle_area" [label="삼각비를 이용한 삼각형의 넓이\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_triangle_congruence_judgement" [label="삼각형의 합동 판별\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_trig_unit" [label="삼각비\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_triangle_quadrilateral_unit" -> "m1_mis_circumcenter_incenter" [label="contains", style="solid", color="#b91c1c"];
@@ -114,7 +113,6 @@ digraph pilot_unit_map {
   "m1_geo_triangle_quadrilateral_unit" -> "m1_geo_pythagorean_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_triangle_quadrilateral_unit" -> "m1_geo_right_triangle" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_triangle_quadrilateral_unit" -> "m1_geo_similarity_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
-  "m1_geo_triangle_quadrilateral_unit" -> "m1_geo_trig_triangle_area" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_centroid" -> "m1_geo_centroid_from_parallel_ratio" [label="used_in", style="dashed", color="#6b7280"];
   "m1_geo_diagonal" -> "m1_geo_quadrilateral_diagonal_properties" [label="used_in", style="dashed", color="#6b7280"];
   "m1_geo_justification" -> "m1_geo_circle_justification" [label="used_in", style="dashed", color="#6b7280"];

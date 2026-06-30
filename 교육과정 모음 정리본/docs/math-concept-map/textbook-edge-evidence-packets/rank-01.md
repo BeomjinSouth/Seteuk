@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 좌표평면과 그래프
 - priority tier: highest
 - priority score: 105
-- edges in packet: 240
-- cross-unit edges: 78
+- edges in packet: 241
+- cross-unit edges: 79
 - low confidence edges: 75
 
 ## Relationship Evidence Slots
@@ -255,6 +255,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_coord_graph_unit__related_to__m1_func_eq_relation_unit | cross_unit | 좌표평면과 그래프 | related_to | 일차함수와 일차방정식의 관계 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 8 |
 | m1_expr_unit__related_to__m1_coord_graph_unit | cross_unit | 문자의 사용과 식 | related_to | 좌표평면과 그래프 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 8 |
 | m1_expr_usefulness__related_to__m1_term_variable | cross_unit | 문자를 사용한 식의 유용성 | related_to | 변수 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 4 |
+| m1_geo_trig_value_table__related_to__m1_repr_table | cross_unit | 삼각비의 값 표 | related_to | 표 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 2 |
 | m1_num_number_line__related_to__m1_coord_number_line | cross_unit | 수직선 | related_to | 수직선 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 5 |
 | m1_system_two_variable_linear_equation__related_to__m1_coord_graph_unit | cross_unit | 미지수가 2개인 일차방정식 | related_to | 좌표평면과 그래프 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 7 |
 | m1_system_unit__related_to__m1_coord_graph_unit | cross_unit | 연립일차방정식 | related_to | 좌표평면과 그래프 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 3 |

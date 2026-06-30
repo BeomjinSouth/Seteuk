@@ -540,15 +540,28 @@ m1_geo_pythagorean_converse,피타고라스 정리의 역,중2(교육과정 학�
 m1_geo_right_triangle_judgement,세 변의 길이로 직각삼각형 판별,중2(교육과정 학년군: 중1-3),도형과 측정,피타고라스 정리,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; teaching_note,yes,yes,no,official_dual_source,yes
 m1_geo_pythagorean_justification,피타고라스 정리의 정당화,중2(교육과정 학년군: 중1-3),도형과 측정,피타고라스 정리,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; teaching_note,yes,yes,no,official_dual_source,yes
 m1_geo_trigonometric_ratio,삼각비,중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes
+m1_geo_trig_reference_angle,삼각비의 기준각,중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,medium,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
+m1_geo_trig_hypotenuse,삼각비에서의 빗변,중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,medium,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
+m1_geo_trig_opposite_side,기준각의 대변,중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,medium,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
+m1_geo_trig_adjacent_side,기준각의 이웃변,중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,medium,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
+m1_geo_trig_angle_range_0_90,삼각비 값의 각도 범위,중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; teaching_note,yes,yes,no,official_dual_source,yes
 m1_geo_sine,사인,중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes
+m1_geo_sine_ratio_formula,사인의 비 표현,중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,medium,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes
 m1_geo_cosine,코사인,중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes
+m1_geo_cosine_ratio_formula,코사인의 비 표현,중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,medium,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes
 m1_geo_tangent_ratio,탄젠트,중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes
+m1_geo_tangent_ratio_formula,탄젠트의 비 표현,중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,medium,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes
 m1_geo_special_angles_30_45_60,"30도, 45도, 60도의 삼각비",중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
+m1_geo_trig_value_table,삼각비의 값 표,중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,medium,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
 m1_geo_right_triangle_trig_value,직각삼각형에서 삼각비 값 구하기,중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
+m1_geo_special_angle_value_lookup,특수각 삼각비 값 찾기,중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,medium,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
+m1_geo_trig_select_ratio_for_unknown,구하려는 길이에 맞는 삼각비 선택하기,중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,medium,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
 m1_geo_trig_distance_height,삼각비로 거리와 높이 구하기,중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
+m1_geo_trig_distance_height_modeling,거리와 높이 문제를 직각삼각형으로 나타내기,중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,medium,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
 m1_geo_trig_triangle_area,삼각비를 이용한 삼각형의 넓이,중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,medium,1,1,1,achievement_math_2022,achievement_level,no,yes,no,official_single_source,yes
 m1_mis_trig_relation_scope,삼각비 사이의 관계를 교육과정 범위로 오해하는 오류,중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,low,1,1,1,curriculum_math_2022,teaching_note,yes,no,no,official_single_source,yes
 m1_mis_trig_angle_scope,삼각비 각의 범위를 0도~90도 밖으로 확장하는 오류,중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,low,1,1,1,curriculum_math_2022,teaching_note,yes,no,no,official_single_source,yes
+m1_mis_trig_opposite_adjacent_swap,기준각에 따라 대변과 이웃변을 바꾸는 오류,중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,low,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
 m1_geo_circle,원,중3(교육과정 학년군: 중1-3),도형과 측정,원의 성질,high,5,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
 m1_geo_circle_chord_property,원의 현에 관한 성질,중3(교육과정 학년군: 중1-3),도형과 측정,원의 성질,high,2,2,2,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard,yes,yes,no,official_dual_source,yes
 m1_geo_tangent_line,접선,중3(교육과정 학년군: 중1-3),도형과 측정,원의 성질,high,3,2,3,achievement_math_2022; curriculum_math_2022,achievement_level; achievement_standard; term_list,yes,yes,no,official_dual_source,yes

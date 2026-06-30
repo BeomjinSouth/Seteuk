@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 도형과 측정
 - priority tier: low
 - priority score: 7
-- edges in packet: 36
-- cross-unit edges: 32
+- edges in packet: 37
+- cross-unit edges: 33
 - low confidence edges: 2
 
 ## Relationship Evidence Slots
@@ -37,6 +37,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_geo_area__prerequisite_for__m1_geo_net_surface_area_strategy | cross_unit | 넓이 | prerequisite_for | 전개도로 겉넓이 구하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_area__prerequisite_for__m1_geo_sector_area_calculation | cross_unit | 넓이 | prerequisite_for | 부채꼴의 넓이 구하기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_length__prerequisite_for__m1_geo_sector_arc_length_calculation | cross_unit | 길이 | prerequisite_for | 부채꼴의 호의 길이 구하기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_geo_length__prerequisite_for__m1_geo_trig_hypotenuse | cross_unit | 길이 | prerequisite_for | 삼각비에서의 빗변 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_line__prerequisite_for__m1_geo_triangle | cross_unit | 직선 | prerequisite_for | 삼각형 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 9 |
 | m1_geo_point__prerequisite_for__m1_geo_triangle | cross_unit | 점 | prerequisite_for | 삼각형 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 9 |
 | m1_geo_area__used_in__m1_geo_sector_arc_length_area | cross_unit | 넓이 | used_in | 부채꼴의 호의 길이와 넓이 구하기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |

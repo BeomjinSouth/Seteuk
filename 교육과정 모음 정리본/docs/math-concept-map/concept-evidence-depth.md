@@ -4,15 +4,15 @@ This generated audit summarizes source evidence depth for each concept node.
 
 ## Summary
 
-- concepts: 650
-- needs textbook evidence: 650
-- low confidence concepts: 96
+- concepts: 663
+- needs textbook evidence: 663
+- low confidence concepts: 97
 
 ## Evidence Depth Counts
 
 | evidence_depth | concept count |
 |---|---:|
-| official_dual_source | 551 |
+| official_dual_source | 564 |
 | official_single_source | 99 |
 
 ## Priority Rows
@@ -26,6 +26,7 @@ This generated audit summarizes source evidence depth for each concept node.
 | m1_mis_skew_parallel_lines | 꼬인 위치와 평행을 같은 관계로 보는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_congruence_similarity | 합동과 닮음을 같은 관계로 보는 오류 | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_trig_angle_scope | 삼각비 각의 범위를 0도~90도 밖으로 확장하는 오류 | low | official_single_source | 1 | curriculum_math_2022 |
+| m1_mis_trig_opposite_adjacent_swap | 기준각에 따라 대변과 이웃변을 바꾸는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_trig_relation_scope | 삼각비 사이의 관계를 교육과정 범위로 오해하는 오류 | low | official_single_source | 1 | curriculum_math_2022 |
 | m1_mis_circumcenter_incenter | 외심과 내심을 혼동하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_proof_observation | 관찰 결과와 증명을 같은 수준의 근거로 보는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
@@ -58,4 +59,3 @@ This generated audit summarizes source evidence depth for each concept node.
 | m1_mis_quadratic_factorization_solution | 인수분해한 식에서 해 조건을 빠뜨리는 오류 | low | official_single_source | 2 | achievement_math_2022 |
 | m1_mis_root_coefficient_relation_scope | 근과 계수와의 관계를 중학교 범위로 오인하는 오류 | low | official_single_source | 1 | curriculum_math_2022 |
 | m1_quad_eq_root_formula_substitution | 근의 공식에 계수 대입하기 | low | official_single_source | 2 | curriculum_math_2022 |
-| m1_quad_eq_zero_product_condition | 각 인수가 0이 되는 조건 | low | official_single_source | 2 | achievement_math_2022 |

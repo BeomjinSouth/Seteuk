@@ -5,16 +5,16 @@ This generated workplan combines concept evidence packets and relationship edge 
 ## Summary
 
 - unit groups: 34
-- concept evidence rows: 650
-- edge evidence rows: 3449
-- pending textbook evidence rows: 4099
-- low confidence concept/edge rows: 619
+- concept evidence rows: 663
+- edge evidence rows: 3520
+- pending textbook evidence rows: 4183
+- low confidence concept/edge rows: 621
 
 ## Unit Workplan
 
 | rank | grade | domain | unit | tier | workplan score | concepts pending/low | edges pending/low/cross | next action | packets |
 |---:|---|---|---|---|---:|---:|---:|---|---|
-| 1 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 좌표평면과 그래프 | highest | 483 | 43/9 | 240/75/78 | fill_low_confidence_concept_and_edge_evidence | rank-01.md; rank-01.md |
+| 1 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 좌표평면과 그래프 | highest | 484 | 43/9 | 241/75/79 | fill_low_confidence_concept_and_edge_evidence | rank-01.md; rank-01.md |
 | 2 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 그 그래프 | highest | 343 | 33/11 | 165/52/42 | fill_low_confidence_concept_and_edge_evidence | rank-02.md; rank-02.md |
 | 3 | 중2(교육과정 학년군: 중1-3) | 자료와 가능성 | 경우의 수와 확률 | highest | 178 | 26/6 | 112/24/10 | fill_low_confidence_concept_and_edge_evidence | rank-03.md; rank-03.md |
 | 4 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 이차함수와 그 그래프 | highest | 137 | 30/3 | 143/11/25 | fill_low_confidence_concept_and_edge_evidence | rank-04.md; rank-04.md |
@@ -22,7 +22,7 @@ This generated workplan combines concept evidence packets and relationship edge 
 | 6 | 중1(교육과정 학년군: 중1-3) | 자료와 가능성 | 도수분포표와 상대도수 | highest | 177 | 33/4 | 180/18/48 | fill_low_confidence_concept_and_edge_evidence | rank-06.md; rank-06.md |
 | 7 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 이차방정식 | highest | 170 | 22/5 | 103/21/30 | fill_low_confidence_concept_and_edge_evidence | rank-07.md; rank-07.md |
 | 8 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 다항식의 곱셈과 인수분해 | highest | 221 | 30/5 | 169/29/51 | fill_low_confidence_concept_and_edge_evidence | rank-08.md; rank-08.md |
-| 9 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 기본 도형 | highest | 223 | 34/5 | 214/29/53 | fill_low_confidence_concept_and_edge_evidence | rank-09.md; rank-09.md |
+| 9 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 기본 도형 | highest | 225 | 34/5 | 216/29/55 | fill_low_confidence_concept_and_edge_evidence | rank-09.md; rank-09.md |
 | 10 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 입체도형의 성질 | highest | 128 | 29/4 | 123/14/19 | fill_low_confidence_concept_and_edge_evidence | rank-10.md; rank-10.md |
 | 11 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차방정식 | highest | 164 | 31/3 | 164/14/55 | fill_low_confidence_concept_and_edge_evidence | rank-11.md; rank-11.md |
 | 12 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 소인수분해 | highest | 127 | 32/4 | 137/16/11 | fill_low_confidence_concept_and_edge_evidence | rank-12.md; rank-12.md |
@@ -31,8 +31,8 @@ This generated workplan combines concept evidence packets and relationship edge 
 | 15 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 평면도형의 성질 | highest | 143 | 29/3 | 176/11/52 | fill_low_confidence_concept_and_edge_evidence | rank-15.md; rank-15.md |
 | 16 | 중3(교육과정 학년군: 중1-3) | 수와 연산 | 제곱근과 실수 | highest | 134 | 25/3 | 121/15/29 | fill_low_confidence_concept_and_edge_evidence | rank-16.md; rank-16.md |
 | 17 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 연립일차방정식 | highest | 165 | 27/4 | 141/20/42 | fill_low_confidence_concept_and_edge_evidence | rank-17.md; rank-17.md |
-| 18 | 중3(교육과정 학년군: 중1-3) | 도형과 측정 | 삼각비 | high | 81 | 11/2 | 47/11/12 | fill_low_confidence_concept_and_edge_evidence | rank-18.md; rank-18.md |
-| 19 | 중2(교육과정 학년군: 중1-3) | 도형과 측정 | 삼각형과 사각형의 성질 | high | 116 | 16/2 | 82/14/36 | fill_low_confidence_concept_and_edge_evidence | rank-19.md; rank-19.md |
+| 18 | 중3(교육과정 학년군: 중1-3) | 도형과 측정 | 삼각비 | highest | 110 | 24/3 | 110/12/20 | fill_low_confidence_concept_and_edge_evidence | rank-18.md; rank-18.md |
+| 19 | 중2(교육과정 학년군: 중1-3) | 도형과 측정 | 삼각형과 사각형의 성질 | high | 115 | 16/2 | 81/14/35 | fill_low_confidence_concept_and_edge_evidence | rank-19.md; rank-19.md |
 | 20 | 중3(교육과정 학년군: 중1-3) | 도형과 측정 | 원의 성질 | high | 90 | 13/2 | 74/9/31 | fill_low_confidence_concept_and_edge_evidence | rank-20.md; rank-20.md |
 | 21 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차부등식 | high | 70 | 11/2 | 49/8/17 | fill_low_confidence_concept_and_edge_evidence | rank-21.md; rank-21.md |
 | 22 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 일차방정식의 관계 | medium | 64 | 9/1 | 43/7/17 | fill_low_confidence_concept_and_edge_evidence | rank-22.md; rank-22.md |
@@ -41,9 +41,9 @@ This generated workplan combines concept evidence packets and relationship edge 
 | 25 | 중3(교육과정 학년군: 중1-3) | 자료와 가능성 | 상자그림과 산점도 | medium | 47 | 11/1 | 48/4/16 | fill_low_confidence_concept_and_edge_evidence | rank-25.md; rank-25.md |
 | 26 | 중3(교육과정 학년군: 중1-3) | 자료와 가능성 | 산포도 | medium | 54 | 8/1 | 46/6/18 | fill_low_confidence_concept_and_edge_evidence | rank-26.md; rank-26.md |
 | 27 | 중1(교육과정 학년군: 중1-3) | 자료와 가능성 | 대푯값 | medium | 56 | 7/1 | 42/7/17 | fill_low_confidence_concept_and_edge_evidence | rank-27.md; rank-27.md |
-| 28 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 작도와 합동 | medium | 39 | 8/0 | 44/2/23 | fill_low_confidence_edge_evidence | rank-28.md; rank-28.md |
-| 29 | 중학교(교육과정 학년군: 중1-3) | 도형과 측정 | 도형과 측정 | low | 47 | 5/0 | 36/2/32 | fill_low_confidence_edge_evidence | rank-29.md; rank-29.md |
-| 30 | 중2(교육과정 학년군: 중1-3) | 도형과 측정 | 피타고라스 정리 | low | 20 | 6/0 | 29/0/14 | confirm_cross_unit_edge_evidence | rank-30.md; rank-30.md |
+| 28 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 작도와 합동 | medium | 40 | 8/0 | 45/2/24 | fill_low_confidence_edge_evidence | rank-28.md; rank-28.md |
+| 29 | 중학교(교육과정 학년군: 중1-3) | 도형과 측정 | 도형과 측정 | low | 48 | 5/0 | 37/2/33 | fill_low_confidence_edge_evidence | rank-29.md; rank-29.md |
+| 30 | 중2(교육과정 학년군: 중1-3) | 도형과 측정 | 피타고라스 정리 | low | 24 | 6/0 | 33/0/18 | confirm_cross_unit_edge_evidence | rank-30.md; rank-30.md |
 | 31 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 공통 선수개념 | low | 63 | 1/1 | 14/11/14 | fill_low_confidence_concept_and_edge_evidence | rank-31.md; rank-31.md |
 | 32 | 중학교(교육과정 학년군: 중1-3) | 수와 연산 | 수와 연산 | low | 28 | 1/0 | 9/4/9 | fill_low_confidence_edge_evidence | rank-32.md; rank-32.md |
 | 33 | 중학교(교육과정 학년군: 중1-3) | 자료와 가능성 | 자료와 가능성 | low | 18 | 1/0 | 11/1/11 | fill_low_confidence_edge_evidence | rank-33.md; rank-33.md |

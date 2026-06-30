@@ -1,9 +1,9 @@
 ﻿relationship_type,edge_count,high_confidence_count,medium_confidence_count,low_confidence_count,source_concept_count,target_concept_count
-contains,681,402,180,99,125,636
-prerequisite_for,1024,634,303,87,330,526
-represented_by,92,45,46,1,55,60
-used_in,637,293,320,24,364,282
+contains,693,402,191,100,132,649
+prerequisite_for,1046,635,328,83,335,535
+represented_by,96,45,50,1,59,64
+used_in,654,293,337,24,375,286
 contrasts_with,123,34,79,10,107,105
-often_confused_with,229,0,0,229,76,200
+often_confused_with,233,0,0,233,77,204
 equivalent_to,3,0,3,0,3,2
-related_to,104,3,82,19,77,87
+related_to,108,3,86,19,81,89
