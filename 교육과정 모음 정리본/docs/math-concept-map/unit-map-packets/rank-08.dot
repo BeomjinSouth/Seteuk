@@ -64,6 +64,8 @@ digraph pilot_unit_map {
   "m1_geo_solid_edge" [label="입체도형의 모서리\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_median" [label="중선\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_triangle_midpoint_theorem" [label="삼각형의 중점연결정리\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_polygon_angle_sum_generalization" [label="다각형의 각의 성질 일반화하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_polygon_interior_angle_sum" [label="다각형의 내각의 합\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_frustum_pyramid" [label="각뿔대\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_parallel_segment_ratio" [label="평행선 사이의 선분의 길이의 비\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_circumcenter" [label="외심\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -268,6 +270,8 @@ digraph pilot_unit_map {
   "m1_geo_midpoint" -> "m1_geo_median" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_midpoint" -> "m1_geo_triangle_midpoint_theorem" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_parallel_angle_properties" -> "m1_geo_polygon_angle_sum" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_geo_parallel_angle_properties" -> "m1_geo_polygon_angle_sum_generalization" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_geo_parallel_angle_properties" -> "m1_geo_polygon_interior_angle_sum" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_parallel_lines" -> "m1_geo_frustum_pyramid" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_parallel_lines" -> "m1_geo_parallel_segment_ratio" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_perpendicular_bisector" -> "m1_geo_circumcenter" [label="prerequisite_for", style="dashed", color="#6b7280"];

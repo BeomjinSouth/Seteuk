@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 도형과 측정
 - unit: 도형과 측정
 - priority tier: low
-- workplan score: 45
+- workplan score: 47
 - concepts: 5
-- edges touching unit: 34
-- cross-unit edges: 30
+- edges touching unit: 36
+- cross-unit edges: 32
 - low confidence concepts: 0
 - low confidence edges: 2
 
@@ -28,7 +28,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | relationship_type | count |
 |---|---:|
 | contains | 13 |
-| prerequisite_for | 4 |
+| prerequisite_for | 6 |
 | related_to | 2 |
 | used_in | 15 |
 
@@ -55,6 +55,8 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_geo_domain__contains__m1_geo_trig_unit | 도형과 측정 | contains | 삼각비 | high | official_dual_source |
 | m1_geo_angle__prerequisite_for__m1_geo_triangle | 각 | prerequisite_for | 삼각형 | medium | official_dual_source |
 | m1_geo_area__prerequisite_for__m1_geo_net_surface_area_strategy | 넓이 | prerequisite_for | 전개도로 겉넓이 구하기 | medium | official_dual_source |
+| m1_geo_area__prerequisite_for__m1_geo_sector_area_calculation | 넓이 | prerequisite_for | 부채꼴의 넓이 구하기 | high | official_dual_source |
+| m1_geo_length__prerequisite_for__m1_geo_sector_arc_length_calculation | 길이 | prerequisite_for | 부채꼴의 호의 길이 구하기 | high | official_dual_source |
 | m1_geo_line__prerequisite_for__m1_geo_triangle | 직선 | prerequisite_for | 삼각형 | medium | official_dual_source |
 | m1_geo_point__prerequisite_for__m1_geo_triangle | 점 | prerequisite_for | 삼각형 | medium | official_dual_source |
 | m1_geo_area__used_in__m1_geo_sector_arc_length_area | 넓이 | used_in | 부채꼴의 호의 길이와 넓이 구하기 | medium | official_dual_source |

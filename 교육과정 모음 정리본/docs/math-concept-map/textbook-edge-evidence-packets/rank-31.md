@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 공통 선수개념
 - priority tier: low
 - priority score: 5
-- edges in packet: 13
-- cross-unit edges: 13
+- edges in packet: 14
+- cross-unit edges: 14
 - low confidence edges: 11
 
 ## Relationship Evidence Slots
@@ -31,6 +31,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_num_ratio__used_in__m1_prop_inverse_proportion | cross_unit | 비 | used_in | 반비례 | low | procedure_ref;textbook_page_refs;extraction_notes | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_num_ratio__prerequisite_for__m1_data_probability_by_case_ratio | cross_unit | 비 | prerequisite_for | 경우의 수의 비율로 확률 구하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_num_ratio__prerequisite_for__m1_data_relative_frequency_calculation | cross_unit | 비 | prerequisite_for | 상대도수 구하기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_num_ratio__prerequisite_for__m1_geo_sector_proportional_reasoning | cross_unit | 비 | prerequisite_for | 중심각에 따른 부채꼴 비례 추론 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 
 ## Textbook Edge Evidence Fields
 

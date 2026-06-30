@@ -5,86 +5,89 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 ## Target Unit
 
 - rank: 16
-- grade: 중1(교육과정 학년군: 중1-3)
-- domain: 도형과 측정
-- unit: 평면도형의 성질
-- priority tier: high
-- workplan score: 105
-- concepts: 16
-- edges touching unit: 103
-- cross-unit edges: 47
-- low confidence concepts: 1
-- low confidence edges: 8
+- grade: 중3(교육과정 학년군: 중1-3)
+- domain: 변화와 관계
+- unit: 다항식의 곱셈과 인수분해
+- priority tier: highest
+- workplan score: 163
+- concepts: 20
+- edges touching unit: 117
+- cross-unit edges: 39
+- low confidence concepts: 4
+- low confidence edges: 21
 
 ## Concept Type Distribution
 
 | concept_type | count |
 |---|---:|
-| core_concept | 3 |
-| misconception_risk | 1 |
-| procedure | 1 |
-| property | 3 |
-| term | 8 |
+| core_concept | 1 |
+| misconception_risk | 4 |
+| procedure | 3 |
+| property | 8 |
+| sub_concept | 1 |
+| term | 3 |
 
 ## Relationship Distribution
 
 | relationship_type | count |
 |---|---:|
-| contains | 18 |
-| contrasts_with | 8 |
-| often_confused_with | 4 |
-| prerequisite_for | 46 |
-| related_to | 6 |
+| contains | 19 |
+| contrasts_with | 9 |
+| often_confused_with | 15 |
+| prerequisite_for | 38 |
+| related_to | 1 |
 | represented_by | 4 |
-| used_in | 17 |
+| used_in | 31 |
 
 ## Low Confidence Concepts
 
 | concept_id | label_ko | type | evidence_depth | notes |
 |---|---|---|---|---|
-| m1_mis_arc_chord | 호와 현을 같은 대상으로 보는 오류 | misconception_risk | official_dual_source |  |
+| m1_mis_expansion_factorization_direction | 전개와 인수분해 방향을 혼동하는 오류 | misconception_risk | official_dual_source |  |
+| m1_mis_factor_common_factor_missing | 공통인수를 빠뜨리는 오류 | misconception_risk | official_dual_source | 공식 문서의 공식 범위에서 추론한 오개념 위험이다. 교과서 예제와 문항 근거 확인이 필요하다. |
+| m1_mis_factor_formula_pattern | 곱셈·인수분해 공식을 기계적으로 끼워 맞추는 오류 | misconception_risk | official_dual_source | 공식 문서의 공식 범위와 성취수준의 과정 설명 요구에서 추론한 오개념 위험이다. |
+| m1_mis_perfect_square_sign | 완전제곱식의 가운데 항 부호를 혼동하는 오류 | misconception_risk | official_dual_source |  |
 
 ## Cross-Unit Edges
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
-| m1_geo_parallel_angle_property_explanation__related_to__m1_geo_polygon_angle_sum | 평행선에서 동위각과 엇각의 성질 설명하기 | related_to | 다각형의 내각과 외각의 크기 | low | official_dual_source |
-| m1_geo_circle_unit__contains__m1_geo_chord | 원의 성질 | contains | 현 | high | official_dual_source |
-| m1_geo_domain__contains__m1_geo_plane_properties_unit | 도형과 측정 | contains | 평면도형의 성질 | high | official_dual_source |
-| m1_geo_plane_properties_unit__contains__m1_geo_circle | 평면도형의 성질 | contains | 원 | high | official_dual_source |
-| m1_geo_angle__prerequisite_for__m1_geo_central_angle | 각 | prerequisite_for | 중심각 | high | official_dual_source |
-| m1_geo_angle__prerequisite_for__m1_geo_exterior_angle | 각 | prerequisite_for | 외각 | high | official_dual_source |
-| m1_geo_angle__prerequisite_for__m1_geo_interior_angle | 각 | prerequisite_for | 내각 | high | official_dual_source |
-| m1_geo_angle__prerequisite_for__m1_geo_polygon | 각 | prerequisite_for | 다각형 | high | official_dual_source |
-| m1_geo_arc__prerequisite_for__m1_geo_inscribed_angle | 호 | prerequisite_for | 원주각 | high | official_dual_source |
-| m1_geo_arc__prerequisite_for__m1_geo_inscribed_angle_property | 호 | prerequisite_for | 원주각의 성질 | high | official_dual_source |
-| m1_geo_basic_unit__prerequisite_for__m1_geo_plane_properties_unit | 기본 도형 | prerequisite_for | 평면도형의 성질 | high | official_dual_source |
-| m1_geo_chord__prerequisite_for__m1_geo_circle_chord_property | 현 | prerequisite_for | 원의 현에 관한 성질 | high | official_dual_source |
-| m1_geo_circle__prerequisite_for__m1_geo_arc | 원 | prerequisite_for | 호 | high | official_dual_source |
-| m1_geo_circle__prerequisite_for__m1_geo_central_angle | 원 | prerequisite_for | 중심각 | high | official_dual_source |
-| m1_geo_circle__prerequisite_for__m1_geo_chord | 원 | prerequisite_for | 현 | high | official_dual_source |
-| m1_geo_circle__prerequisite_for__m1_geo_secant | 원 | prerequisite_for | 할선 | high | official_single_source |
-| m1_geo_circle__prerequisite_for__m1_geo_sector | 원 | prerequisite_for | 부채꼴 | high | official_dual_source |
-| m1_geo_diagonal__prerequisite_for__m1_geo_quadrilateral_diagonal_properties | 대각선 | prerequisite_for | 사각형의 대각선에 관한 성질 | high | official_dual_source |
-| m1_geo_line__prerequisite_for__m1_geo_polygon | 직선 | prerequisite_for | 다각형 | high | official_dual_source |
-| m1_geo_line__prerequisite_for__m1_geo_secant | 직선 | prerequisite_for | 할선 | high | official_single_source |
-| m1_geo_parallel_angle_properties__prerequisite_for__m1_geo_polygon_angle_sum | 평행선에서 동위각과 엇각의 성질 | prerequisite_for | 다각형의 내각과 외각의 크기 | high | official_dual_source |
-| m1_geo_plane_properties_unit__prerequisite_for__m1_geo_rotation_generation | 평면도형의 성질 | prerequisite_for | 평면도형을 회전시켜 회전체 만들기 | high | official_dual_source |
-| m1_geo_plane_properties_unit__prerequisite_for__m1_geo_solid_face | 평면도형의 성질 | prerequisite_for | 입체도형의 면 | medium | official_dual_source |
-| m1_geo_plane_properties_unit__prerequisite_for__m1_geo_solid_net | 평면도형의 성질 | prerequisite_for | 전개도 | medium | official_dual_source |
-| m1_geo_plane_properties_unit__prerequisite_for__m1_geo_solid_of_revolution | 평면도형의 성질 | prerequisite_for | 회전체 | high | official_dual_source |
-| m1_geo_plane_properties_unit__prerequisite_for__m1_geo_solid_unit | 평면도형의 성질 | prerequisite_for | 입체도형의 성질 | high | official_dual_source |
-| m1_geo_plane_properties_unit__prerequisite_for__m1_geo_surface_area | 평면도형의 성질 | prerequisite_for | 겉넓이 | high | official_dual_source |
-| m1_geo_point__prerequisite_for__m1_geo_chord | 점 | prerequisite_for | 현 | high | official_dual_source |
-| m1_geo_point__prerequisite_for__m1_geo_polygon | 점 | prerequisite_for | 다각형 | high | official_dual_source |
-| m1_geo_polygon__prerequisite_for__m1_geo_polyhedron | 다각형 | prerequisite_for | 다면체 | high | official_dual_source |
-| m1_geo_polygon__prerequisite_for__m1_geo_quadrilateral | 다각형 | prerequisite_for | 사각형 | high | official_dual_source |
-| m1_geo_polygon__prerequisite_for__m1_geo_regular_polyhedron | 다각형 | prerequisite_for | 정다면체 | high | official_dual_source |
-| m1_geo_circle__represented_by__m1_geo_arc | 원 | represented_by | 호 | high | official_dual_source |
-| m1_geo_circle__represented_by__m1_geo_chord | 원 | represented_by | 현 | high | official_dual_source |
-| m1_geo_arc__used_in__m1_geo_inscribed_angle_property | 호 | used_in | 원주각의 성질 | high | official_dual_source |
-| m1_geo_area__used_in__m1_geo_sector_arc_length_area | 넓이 | used_in | 부채꼴의 호의 길이와 넓이 구하기 | medium | official_dual_source |
-| m1_geo_chord__used_in__m1_geo_circle_chord_property | 현 | used_in | 원의 현에 관한 성질 | high | official_dual_source |
-| m1_geo_circle__used_in__m1_geo_sector_arc_length_area | 원 | used_in | 부채꼴의 호의 길이와 넓이 구하기 | medium | official_dual_source |
-| m1_geo_diagonal__used_in__m1_geo_quadrilateral_diagonal_properties | 대각선 | used_in | 사각형의 대각선에 관한 성질 | high | official_dual_source |
-| m1_geo_diagonal__used_in__m1_num_unit_square_diagonal | 대각선 | used_in | 한 변의 길이가 1인 정사각형의 대각선 | medium | official_dual_source |
+| m1_factor_factorization__prerequisite_for__m1_quad_eq_zero_product_condition | 인수분해 | prerequisite_for | 각 인수가 0이 되는 조건 | low | official_single_source |
+| m1_mis_expansion_factorization_direction__often_confused_with__m1_calc_expansion | 전개와 인수분해 방향을 혼동하는 오류 | often_confused_with | 전개 | low | official_dual_source |
+| m1_mis_quadratic_expression_equation__often_confused_with__m1_factor_quadratic_expression | 이차식과 이차방정식을 혼동하는 오류 | often_confused_with | 이차식 | low | official_dual_source |
+| m1_mis_quadratic_factorization_solution__often_confused_with__m1_factor_factorization | 인수분해한 식에서 해 조건을 빠뜨리는 오류 | often_confused_with | 인수분해 | low | official_single_source |
+| m1_quad_eq_leading_coefficient_one_case__related_to__m1_factor_binomial_product_xab | 이차항의 계수가 1인 이차방정식 | related_to | (x+a)(x+b) 공식 | low | official_dual_source |
+| m1_calc_expansion__prerequisite_for__m1_factor_expansion_factorization_inverse | 전개 | prerequisite_for | 전개와 인수분해의 역관계 | high | official_dual_source |
+| m1_calc_expansion__prerequisite_for__m1_factor_factorization | 전개 | prerequisite_for | 인수분해 | high | official_dual_source |
+| m1_calc_expansion__prerequisite_for__m1_factor_polynomial_multiplication | 전개 | prerequisite_for | 다항식의 곱셈 | high | official_single_source |
+| m1_calc_monomial_polynomial_mul_div__prerequisite_for__m1_factor_polynomial_multiplication | 단항식과 다항식의 곱셈과 나눗셈 | prerequisite_for | 다항식의 곱셈 | high | official_dual_source |
+| m1_calc_power__prerequisite_for__m1_factor_perfect_square_expression | 거듭제곱 | prerequisite_for | 완전제곱식 | high | official_dual_source |
+| m1_calc_unit__prerequisite_for__m1_factor_unit | 식의 계산 | prerequisite_for | 다항식의 곱셈과 인수분해 | high | official_single_source |
+| m1_expr_coefficient__prerequisite_for__m1_factor_binomial_product_xab | 계수 | prerequisite_for | (x+a)(x+b) 공식 | high | official_dual_source |
+| m1_expr_coefficient__prerequisite_for__m1_factor_linear_product_axb_cxd | 계수 | prerequisite_for | (ax+b)(cx+d) 공식 | high | official_dual_source |
+| m1_expr_degree__prerequisite_for__m1_factor_quadratic_expression | 차수 | prerequisite_for | 이차식 | medium | official_dual_source |
+| m1_expr_like_terms__prerequisite_for__m1_factor_common_factor | 동류항 | prerequisite_for | 공통인수 | medium | official_dual_source |
+| m1_expr_polynomial__prerequisite_for__m1_factor_quadratic_expression | 다항식 | prerequisite_for | 이차식 | medium | official_dual_source |
+| m1_expr_polynomial__prerequisite_for__m1_factor_unit | 다항식 | prerequisite_for | 다항식의 곱셈과 인수분해 | high | official_dual_source |
+| m1_factor_factorization__prerequisite_for__m1_quad_eq_factorization_solving | 인수분해 | prerequisite_for | 인수분해를 이용한 이차방정식 풀이 | medium | official_single_source |
+| m1_factor_factorization__prerequisite_for__m1_quad_eq_solving | 인수분해 | prerequisite_for | 이차방정식 풀기 | high | official_dual_source |
+| m1_factor_quadratic_expression__prerequisite_for__m1_quad_eq_quadratic_equation | 이차식 | prerequisite_for | 이차방정식 | high | official_dual_source |
+| m1_factor_quadratic_expression__prerequisite_for__m1_quad_func_formula | 이차식 | prerequisite_for | 이차함수의 식 | high | official_dual_source |
+| m1_factor_quadratic_expression__prerequisite_for__m1_quad_func_general_form | 이차식 | prerequisite_for | y=ax^2+bx+c 꼴 | medium | official_single_source |
+| m1_factor_quadratic_expression__prerequisite_for__m1_quad_func_quadratic_function | 이차식 | prerequisite_for | 이차함수 | high | official_dual_source |
+| m1_factor_quadratic_expression__prerequisite_for__m1_quad_func_situation_to_formula | 이차식 | prerequisite_for | 상황을 이차함수 식으로 나타내기 | high | official_dual_source |
+| m1_factor_quadratic_factorization__prerequisite_for__m1_quad_eq_factorized_form | 이차식 인수분해 | prerequisite_for | 이차방정식의 인수분해된 식 표현 | medium | official_single_source |
+| m1_factor_unit__prerequisite_for__m1_quad_eq_unit | 다항식의 곱셈과 인수분해 | prerequisite_for | 이차방정식 | medium | official_dual_source |
+| m1_num_distributive_law__prerequisite_for__m1_factor_common_factor_formula | 분배법칙 | prerequisite_for | m(a+b) 공식 | high | official_single_source |
+| m1_factor_binomial_product_xab__used_in__m1_quad_eq_factorization_solving | (x+a)(x+b) 공식 | used_in | 인수분해를 이용한 이차방정식 풀이 | medium | official_dual_source |
+| m1_factor_factorization__used_in__m1_quad_eq_unit | 인수분해 | used_in | 이차방정식 | medium | official_dual_source |
+| m1_factor_linear_product_axb_cxd__used_in__m1_quad_eq_factorization_solving | (ax+b)(cx+d) 공식 | used_in | 인수분해를 이용한 이차방정식 풀이 | medium | official_dual_source |
+| m1_factor_quadratic_expression__used_in__m1_quad_eq_quadratic_equation | 이차식 | used_in | 이차방정식 | medium | official_dual_source |
+| m1_factor_quadratic_expression__used_in__m1_quad_func_formula | 이차식 | used_in | 이차함수의 식 | medium | official_dual_source |
+| m1_factor_quadratic_factorization__used_in__m1_quad_eq_factorization_solving | 이차식 인수분해 | used_in | 인수분해를 이용한 이차방정식 풀이 | medium | official_single_source |
+| m1_num_distributive_law__used_in__m1_factor_common_factor_formula | 분배법칙 | used_in | m(a+b) 공식 | medium | official_single_source |
+| m1_num_distributive_law__used_in__m1_factor_polynomial_multiplication | 분배법칙 | used_in | 다항식의 곱셈 | medium | official_dual_source |
+| m1_factor_factor__contrasts_with__m1_expr_term | 인수 | contrasts_with | 항 | medium | official_dual_source |
+| m1_factor_quadratic_expression__contrasts_with__m1_quad_eq_quadratic_equation | 이차식 | contrasts_with | 이차방정식 | medium | official_dual_source |
+| m1_factor_quadratic_expression__contrasts_with__m1_quad_eq_quadratic_term | 이차식 | contrasts_with | 이차항 | medium | official_dual_source |
+| m1_num_prime_factor__contrasts_with__m1_factor_factor | 소인수 | contrasts_with | 인수 | medium | official_dual_source |

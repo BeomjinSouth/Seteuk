@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 기본 도형
 - priority tier: highest
 - priority score: 54
-- edges in packet: 212
-- cross-unit edges: 51
+- edges in packet: 214
+- cross-unit edges: 53
 - low confidence edges: 29
 
 ## Relationship Evidence Slots
@@ -211,6 +211,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_geo_midpoint__prerequisite_for__m1_geo_median | cross_unit | 중점 | prerequisite_for | 중선 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_midpoint__prerequisite_for__m1_geo_triangle_midpoint_theorem | cross_unit | 중점 | prerequisite_for | 삼각형의 중점연결정리 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_parallel_angle_properties__prerequisite_for__m1_geo_polygon_angle_sum | cross_unit | 평행선에서 동위각과 엇각의 성질 | prerequisite_for | 다각형의 내각과 외각의 크기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_geo_parallel_angle_properties__prerequisite_for__m1_geo_polygon_angle_sum_generalization | cross_unit | 평행선에서 동위각과 엇각의 성질 | prerequisite_for | 다각형의 각의 성질 일반화하기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_geo_parallel_angle_properties__prerequisite_for__m1_geo_polygon_interior_angle_sum | cross_unit | 평행선에서 동위각과 엇각의 성질 | prerequisite_for | 다각형의 내각의 합 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_parallel_lines__prerequisite_for__m1_geo_frustum_pyramid | cross_unit | 평행선 | prerequisite_for | 각뿔대 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_parallel_lines__prerequisite_for__m1_geo_parallel_segment_ratio | cross_unit | 평행선 | prerequisite_for | 평행선 사이의 선분의 길이의 비 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_perpendicular_bisector__prerequisite_for__m1_geo_circumcenter | cross_unit | 수직이등분선 | prerequisite_for | 외심 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |

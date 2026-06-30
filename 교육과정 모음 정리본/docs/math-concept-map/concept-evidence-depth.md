@@ -4,15 +4,15 @@ This generated audit summarizes source evidence depth for each concept node.
 
 ## Summary
 
-- concepts: 613
-- needs textbook evidence: 613
-- low confidence concepts: 92
+- concepts: 626
+- needs textbook evidence: 626
+- low confidence concepts: 94
 
 ## Evidence Depth Counts
 
 | evidence_depth | concept count |
 |---|---:|
-| official_dual_source | 514 |
+| official_dual_source | 527 |
 | official_single_source | 99 |
 
 ## Priority Rows
@@ -36,6 +36,8 @@ This generated audit summarizes source evidence depth for each concept node.
 | m1_mis_solid_net_adjacency | 전개도에서 붙는 면의 이웃 관계를 잘못 판단하는 오류 | low | official_single_source | 2 | achievement_research_report_2022 |
 | m1_mis_surface_area_volume | 겉넓이와 부피를 같은 측정량으로 보는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_arc_chord | 호와 현을 같은 대상으로 보는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
+| m1_mis_polygon_interior_exterior_angle | 내각과 외각을 같은 각으로 보는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
+| m1_mis_sector_angle_proportion | 중심각 비례 관계를 호의 길이와 넓이에 적용하지 않는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_expansion_factorization_direction | 전개와 인수분해 방향을 혼동하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_factor_common_factor_missing | 공통인수를 빠뜨리는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_factor_formula_pattern | 곱셈·인수분해 공식을 기계적으로 끼워 맞추는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
@@ -57,5 +59,3 @@ This generated audit summarizes source evidence depth for each concept node.
 | m1_quad_eq_zero_product_condition | 각 인수가 0이 되는 조건 | low | official_single_source | 2 | achievement_math_2022 |
 | m1_mis_axis_vertex | 포물선의 축과 꼭짓점을 혼동하는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_max_min_scope | 최댓값·최솟값의 범위를 임의로 확장하는 오류 | low | official_single_source | 1 | curriculum_math_2022 |
-| m1_mis_quadratic_function_equation | 이차함수와 이차방정식을 혼동하는 오류 | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_expression_equation | 식과 방정식 혼동 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |

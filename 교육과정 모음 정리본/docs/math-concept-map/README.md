@@ -11,8 +11,8 @@
 
 ## 현재 데이터 규모
 
-- 개념 노드: 613개
-- 관계 edge: 2688개
+- 개념 노드: 626개
+- 관계 edge: 2761개
 - `concepts.json` 출처: 5개
 - 로컬 출처 inventory: 5개 그룹
 
@@ -154,6 +154,7 @@ python docs/math-concept-map/tools/test_build_pilot_data_frequency_microconcepts
 python docs/math-concept-map/tools/test_build_pilot_expression_microconcepts.py
 python docs/math-concept-map/tools/test_build_pilot_linear_equation_microconcepts.py
 python docs/math-concept-map/tools/test_build_pilot_calculation_microconcepts.py
+python docs/math-concept-map/tools/test_build_pilot_plane_geometry_microconcepts.py
 python docs/math-concept-map/tools/test_build_textbook_extraction_queue.py
 python docs/math-concept-map/tools/test_build_textbook_evidence_packet.py
 python docs/math-concept-map/tools/test_build_textbook_edge_evidence_packet.py
@@ -174,9 +175,9 @@ python docs/math-concept-map/tools/test_build_unit_coverage.py
 python docs/math-concept-map/tools/test_validate_concept_map.py
 ```
 
-검증기는 필수 필드, id 중복, source/ref 무결성, CSV 행 수, Mermaid 파일, 공식 성취기준 60개(`9수01-01`~`9수04-09`)의 concept 근거 커버리지, `review-queue.csv`와 `low` 신뢰도 concept 수 92개의 일치, 공식 용어·기호 168개 커버리지, concept alias 감사 row 636개와 `equivalent_to` edge 3개, 연구보고서 concept 출현 후보 255개, 연구보고서 context packet 67개 row와 source-review 67개 row, `related-edge-resolution-queue.csv` 0개, `node-edge-consistency-audit.csv` 0개, `prerequisite-map.csv`의 `prerequisite_for` edge 957개, 고립 concept 0개, concept 613개와 edge 2688개의 근거 깊이, 교과서 PDF 부재 상태의 concept evidence row 613개와 edge evidence row 3213개, workplan pending 3826개, 전체 unit-map concept 613개와 단원 접점 edge row 3213개를 재생성 결과와 일치하게 보존하는지 확인한다.
+검증기는 필수 필드, id 중복, source/ref 무결성, CSV 행 수, Mermaid 파일, 공식 성취기준 60개(`9수01-01`~`9수04-09`)의 concept 근거 커버리지, `review-queue.csv`와 `low` 신뢰도 concept 수 94개의 일치, 공식 용어·기호 168개 커버리지, concept alias 감사 row 649개와 `equivalent_to` edge 3개, 연구보고서 concept 출현 후보 255개, 연구보고서 context packet 67개 row와 source-review 67개 row, `related-edge-resolution-queue.csv` 0개, `node-edge-consistency-audit.csv` 0개, `prerequisite-map.csv`의 `prerequisite_for` edge 990개, 고립 concept 0개, concept 626개와 edge 2761개의 근거 깊이, 교과서 PDF 부재 상태의 concept evidence row 626개와 edge evidence row 3291개, workplan pending 3917개, 전체 unit-map concept 626개와 단원 접점 edge row 3291개를 재생성 결과와 일치하게 보존하는지 확인한다.
 
-단원별 고정 테스트는 좌표평면, 일차함수, 도형 기초, 기본 도형, 입체도형, 변화와 관계, 비, 대푯값, 경우의 수와 확률, 정수와 유리수, 소인수분해, 이차함수와 그 그래프, 도수분포표와 상대도수, 문자의 사용과 식, 일차방정식, 식의 계산, 다항식의 곱셈과 인수분해, 이차방정식의 보조 출처와 edge 방향을 함께 확인한다. `test_build_pilot_calculation_microconcepts.py`는 같은 밑의 거듭제곱 계산, 단항식의 계수·문자 부분 분해, 다항식 동류항 모으기, 괄호와 부호 처리, 단항식의 분배, 다항식÷단항식의 항별 나눗셈과 범위 확인, 오개념 prerequisite 제거를 고정한다. `test_build_pilot_solid_geometry_microconcepts.py`는 면·모서리·꼭짓점 찾기, 겨냥도, 전개도 그리기와 판별, 단면 모양 예상, 회전체 생성, 전개도 기반 겉넓이 전략, 볼록한 다면체 범위, 전개도 이웃 관계 오개념과 noisy prerequisite/representation edge 제거를 고정한다. `test_build_pilot_prime_factor_microconcepts.py`는 소인수분해 뜻 설명, 안내된 절차, 소수·합성수 판별, 나눗셈을 이용한 소인수분해, 거듭제곱 정리, 1의 소수/합성수 제외, 공약수·공배수·공통 소인수, 최대공약수/최소공배수 소인수 선택 절차, 서로소 판별, 오개념 노드 confidence 유지와 noisy prerequisite edge 제거를 고정한다. `test_build_pilot_square_root_microconcepts.py`는 제곱수, 제곱근 구하기, 근호 표현, 근호 안의 수, 근호식 계산 세분화와 오개념 prerequisite 제거를 별도로 고정한다. `achievement-coverage.*`는 같은 성취기준 추출 로직을 사용해 사람용/기계용 검토 표로 재생성한다.
+단원별 고정 테스트는 좌표평면, 일차함수, 도형 기초, 기본 도형, 평면도형, 입체도형, 변화와 관계, 비, 대푯값, 경우의 수와 확률, 정수와 유리수, 소인수분해, 이차함수와 그 그래프, 도수분포표와 상대도수, 문자의 사용과 식, 일차방정식, 식의 계산, 다항식의 곱셈과 인수분해, 이차방정식의 보조 출처와 edge 방향을 함께 확인한다. `test_build_pilot_plane_geometry_microconcepts.py`는 다각형의 내각·외각의 합, 각의 성질 일반화, 대각선 개수 구하기, 부채꼴의 중심각과 호의 관계, 호의 길이·넓이 구하기, 부채꼴 비례 추론, 오개념 prerequisite 제거를 고정한다. `test_build_pilot_calculation_microconcepts.py`는 같은 밑의 거듭제곱 계산, 단항식의 계수·문자 부분 분해, 다항식 동류항 모으기, 괄호와 부호 처리, 단항식의 분배, 다항식÷단항식의 항별 나눗셈과 범위 확인, 오개념 prerequisite 제거를 고정한다. `test_build_pilot_solid_geometry_microconcepts.py`는 면·모서리·꼭짓점 찾기, 겨냥도, 전개도 그리기와 판별, 단면 모양 예상, 회전체 생성, 전개도 기반 겉넓이 전략, 볼록한 다면체 범위, 전개도 이웃 관계 오개념과 noisy prerequisite/representation edge 제거를 고정한다. `test_build_pilot_prime_factor_microconcepts.py`는 소인수분해 뜻 설명, 안내된 절차, 소수·합성수 판별, 나눗셈을 이용한 소인수분해, 거듭제곱 정리, 1의 소수/합성수 제외, 공약수·공배수·공통 소인수, 최대공약수/최소공배수 소인수 선택 절차, 서로소 판별, 오개념 노드 confidence 유지와 noisy prerequisite edge 제거를 고정한다. `test_build_pilot_square_root_microconcepts.py`는 제곱수, 제곱근 구하기, 근호 표현, 근호 안의 수, 근호식 계산 세분화와 오개념 prerequisite 제거를 별도로 고정한다. `achievement-coverage.*`는 같은 성취기준 추출 로직을 사용해 사람용/기계용 검토 표로 재생성한다.
 
 `research-report-source-review.*`는 `research-report-context-packet.*`의 후보 중 검토 대상 67개 row를 source ref 후보, 이미 반영한 source ref, 제외 대상으로 다시 분류하고, 모든 row의 `source_ref_upgrade_allowed: no` 상태를 보존하는지 검증한다.
 
