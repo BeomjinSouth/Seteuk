@@ -4,7 +4,7 @@ This generated audit summarizes concept and edge source references by source and
 
 ## Summary
 
-- source refs: 9964
+- source refs: 10354
 - missing locator: 0
 - missing summary: 0
 
@@ -12,21 +12,21 @@ This generated audit summarizes concept and edge source references by source and
 
 | record_kind | source_id | evidence_kind | refs | records | high | medium | low | missing locator | missing summary |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|
-| concept | achievement_math_2022 | achievement_level | 669 | 624 | 372 | 168 | 84 | 0 | 0 |
+| concept | achievement_math_2022 | achievement_level | 691 | 644 | 374 | 182 | 88 | 0 | 0 |
 | concept | achievement_math_2022 | assessment_item | 6 | 6 | 0 | 5 | 1 | 0 | 0 |
 | concept | achievement_research_report_2022 | research_report_achievement_level_context | 166 | 151 | 92 | 57 | 2 | 0 | 0 |
 | concept | achievement_research_report_2022 | research_report_assessment_item_context | 17 | 16 | 0 | 14 | 2 | 0 | 0 |
 | concept | achievement_research_report_2022 | research_report_prerequisite_context | 5 | 3 | 0 | 2 | 1 | 0 | 0 |
-| concept | curriculum_math_2022 | achievement_standard | 601 | 508 | 341 | 115 | 52 | 0 | 0 |
-| concept | curriculum_math_2022 | instructional_term_list | 25 | 25 | 8 | 14 | 3 | 0 | 0 |
-| concept | curriculum_math_2022 | teaching_note | 222 | 217 | 115 | 69 | 33 | 0 | 0 |
-| concept | curriculum_math_2022 | term_list | 212 | 212 | 162 | 31 | 19 | 0 | 0 |
-| edge | achievement_math_2022 | achievement_level | 3069 | 2850 | 1399 | 1040 | 411 | 0 | 0 |
+| concept | curriculum_math_2022 | achievement_standard | 627 | 528 | 343 | 129 | 56 | 0 | 0 |
+| concept | curriculum_math_2022 | instructional_term_list | 26 | 26 | 8 | 15 | 3 | 0 | 0 |
+| concept | curriculum_math_2022 | teaching_note | 226 | 221 | 115 | 72 | 34 | 0 | 0 |
+| concept | curriculum_math_2022 | term_list | 215 | 215 | 163 | 33 | 19 | 0 | 0 |
+| edge | achievement_math_2022 | achievement_level | 3197 | 2966 | 1409 | 1127 | 430 | 0 | 0 |
 | edge | achievement_math_2022 | assessment_item | 28 | 28 | 0 | 23 | 5 | 0 | 0 |
 | edge | achievement_research_report_2022 | research_report_achievement_level_context | 585 | 533 | 268 | 255 | 10 | 0 | 0 |
 | edge | achievement_research_report_2022 | research_report_assessment_item_context | 57 | 57 | 0 | 54 | 3 | 0 | 0 |
 | edge | achievement_research_report_2022 | research_report_prerequisite_context | 4 | 4 | 0 | 4 | 0 | 0 | 0 |
-| edge | curriculum_math_2022 | achievement_standard | 2482 | 2223 | 1264 | 717 | 242 | 0 | 0 |
-| edge | curriculum_math_2022 | instructional_term_list | 99 | 99 | 25 | 61 | 13 | 0 | 0 |
-| edge | curriculum_math_2022 | teaching_note | 911 | 894 | 381 | 378 | 135 | 0 | 0 |
-| edge | curriculum_math_2022 | term_list | 806 | 804 | 481 | 213 | 110 | 0 | 0 |
+| edge | curriculum_math_2022 | achievement_standard | 2634 | 2339 | 1274 | 804 | 261 | 0 | 0 |
+| edge | curriculum_math_2022 | instructional_term_list | 106 | 106 | 25 | 68 | 13 | 0 | 0 |
+| edge | curriculum_math_2022 | teaching_note | 941 | 924 | 381 | 404 | 139 | 0 | 0 |
+| edge | curriculum_math_2022 | term_list | 823 | 821 | 487 | 224 | 110 | 0 | 0 |

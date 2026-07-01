@@ -13,8 +13,8 @@ The generated review still does not permit automatic source_ref or confidence up
 | evidence_candidate_type | rows |
 |---|---:|
 | broad_report_context_only | 38 |
-| candidate_achievement_level_evidence | 15 |
-| candidate_assessment_item_evidence | 8 |
+| candidate_achievement_level_evidence | 14 |
+| candidate_assessment_item_evidence | 9 |
 | candidate_prerequisite_evidence | 3 |
 | weak_occurrence_only | 3 |
 
@@ -22,9 +22,9 @@ The generated review still does not permit automatic source_ref or confidence up
 
 | application_status | rows |
 |---|---:|
-| applied_after_manual_review | 18 |
+| applied_after_manual_review | 16 |
 | not_applicable_from_this_row | 41 |
-| pending_manual_review | 8 |
+| pending_manual_review | 10 |
 
 ## Review Priority
 
@@ -57,15 +57,15 @@ The generated review still does not permit automatic source_ref or confidence up
 | 17 | m1_geo_prism | 기둥 모양 입체도형 | 108 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
 | 18 | m1_geo_line_segment | 선분 | 130 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_low_until_textbook_or_middle_course_evidence |
 | 19 | m1_geo_ray | 반직선 | 130 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_low_until_textbook_or_middle_course_evidence |
-| 20 | m1_geo_line_segment | 선분 | 138 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_low_until_textbook_or_middle_course_evidence |
-| 21 | m1_geo_ray | 반직선 | 138 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_low_until_textbook_or_middle_course_evidence |
-| 22 | m1_geo_orthographic_drawing | 겨냥도 | 173 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_low_until_textbook_or_middle_course_evidence |
-| 23 | m1_geo_solid_net | 전개도 | 173 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
+| 20 | m1_geo_circle_radius | 원의 반지름 | 131 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_current_confidence_until_source_review |
+| 21 | m1_geo_line_segment | 선분 | 138 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_low_until_textbook_or_middle_course_evidence |
+| 22 | m1_geo_ray | 반직선 | 138 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_low_until_textbook_or_middle_course_evidence |
+| 23 | m1_geo_orthographic_drawing | 겨냥도 | 173 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_low_until_textbook_or_middle_course_evidence |
 | 24 | m1_geo_pyramid | 뿔 모양 입체도형 | 174 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
-| 25 | m1_geo_solid_net | 전개도 | 174 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
-| 26 | m1_data_mean | 평균 | 177 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
-| 27 | m1_geo_pyramid | 뿔 모양 입체도형 | 181 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
-| 28 | m1_geo_orthographic_drawing | 겨냥도 | 182 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_low_until_textbook_or_middle_course_evidence |
+| 25 | m1_data_mean | 평균 | 177 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
+| 26 | m1_geo_pyramid | 뿔 모양 입체도형 | 181 | candidate_achievement_level_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
+| 27 | m1_geo_orthographic_drawing | 겨냥도 | 182 | candidate_achievement_level_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_low_until_textbook_or_middle_course_evidence |
+| 28 | m1_geo_circle_radius | 원의 반지름 | 61 | candidate_assessment_item_evidence | medium | candidate_add_after_manual_review | pending_manual_review | keep_current_confidence_until_source_review |
 | 29 | m1_num_ratio | 비 | 61 | candidate_assessment_item_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_low_until_textbook_or_middle_course_evidence |
 | 30 | m1_geo_area | 넓이 | 62 | candidate_assessment_item_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |
 | 31 | m1_geo_length | 길이 | 62 | candidate_assessment_item_evidence | medium | applied_to_concepts_json | applied_after_manual_review | keep_current_confidence_until_source_review |

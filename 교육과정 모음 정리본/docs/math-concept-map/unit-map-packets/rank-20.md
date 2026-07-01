@@ -7,76 +7,67 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - rank: 20
 - grade: 중3(교육과정 학년군: 중1-3)
 - domain: 도형과 측정
-- unit: 원의 성질
-- priority tier: high
-- workplan score: 90
-- concepts: 13
-- edges touching unit: 74
-- cross-unit edges: 31
-- low confidence concepts: 2
-- low confidence edges: 9
+- unit: 삼각비
+- priority tier: highest
+- workplan score: 110
+- concepts: 24
+- edges touching unit: 110
+- cross-unit edges: 20
+- low confidence concepts: 3
+- low confidence edges: 12
 
 ## Concept Type Distribution
 
 | concept_type | count |
 |---|---:|
 | core_concept | 2 |
-| misconception_risk | 2 |
-| procedure | 1 |
-| property | 4 |
-| term | 4 |
+| misconception_risk | 3 |
+| procedure | 6 |
+| property | 2 |
+| representation | 4 |
+| term | 7 |
 
 ## Relationship Distribution
 
 | relationship_type | count |
 |---|---:|
-| contains | 15 |
-| contrasts_with | 3 |
-| often_confused_with | 4 |
-| prerequisite_for | 33 |
-| related_to | 1 |
-| represented_by | 4 |
-| used_in | 14 |
+| contains | 24 |
+| contrasts_with | 5 |
+| often_confused_with | 7 |
+| prerequisite_for | 40 |
+| related_to | 6 |
+| represented_by | 7 |
+| used_in | 21 |
 
 ## Low Confidence Concepts
 
 | concept_id | label_ko | type | evidence_depth | notes |
 |---|---|---|---|---|
-| m1_mis_circle_proportion_scope | 원과 비례에 관한 성질을 범위에 포함하는 오류 | misconception_risk | official_single_source | 교육과정 유의사항에 근거한 범위 관리 노드다. |
-| m1_mis_tangent_radius | 접선과 반지름의 수직 관계를 놓치는 오류 | misconception_risk | official_dual_source |  |
+| m1_mis_trig_angle_scope | 삼각비 각의 범위를 0도~90도 밖으로 확장하는 오류 | misconception_risk | official_single_source | 교육과정 유의사항에 근거한 범위 관리 노드다. 교과서 오답 근거 확인 전 낮은 신뢰도로 둔다. |
+| m1_mis_trig_opposite_adjacent_swap | 기준각에 따라 대변과 이웃변을 바꾸는 오류 | misconception_risk | official_dual_source | 삼각비 정의와 값 구하기 절차에서 추론한 오개념 위험이다. 교과서 예제나 오답 근거 확인 전 낮은 신뢰도로 둔다. |
+| m1_mis_trig_relation_scope | 삼각비 사이의 관계를 교육과정 범위로 오해하는 오류 | misconception_risk | official_single_source | 교육과정 유의사항은 삼각비 사이의 관계는 다루지 않는다고 명시한다. 교과서 오답 근거 확인 전 낮은 신뢰도로 둔다. |
 
 ## Cross-Unit Edges
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
-| m1_geo_similarity_ratio__prerequisite_for__m1_mis_circle_proportion_scope | 닮음비 | prerequisite_for | 원과 비례에 관한 성질을 범위에 포함하는 오류 | low | official_single_source |
+| m1_num_ratio__used_in__m1_geo_trigonometric_ratio | 비 | used_in | 삼각비 | low | official_dual_source |
 | m1_geo_tangent_ratio__contrasts_with__m1_geo_tangent_line | 탄젠트 | contrasts_with | 접선 | low | official_single_source |
-| m1_geo_circle_unit__contains__m1_geo_chord | 원의 성질 | contains | 현 | high | official_dual_source |
-| m1_geo_domain__contains__m1_geo_circle_unit | 도형과 측정 | contains | 원의 성질 | high | official_dual_source |
-| m1_geo_plane_properties_unit__contains__m1_geo_circle | 평면도형의 성질 | contains | 원 | high | official_dual_source |
-| m1_geo_angle__prerequisite_for__m1_geo_inscribed_angle | 각 | prerequisite_for | 원주각 | high | official_dual_source |
-| m1_geo_arc__prerequisite_for__m1_geo_inscribed_angle | 호 | prerequisite_for | 원주각 | high | official_dual_source |
-| m1_geo_arc__prerequisite_for__m1_geo_inscribed_angle_property | 호 | prerequisite_for | 원주각의 성질 | high | official_dual_source |
-| m1_geo_chord__prerequisite_for__m1_geo_circle_chord_property | 현 | prerequisite_for | 원의 현에 관한 성질 | high | official_dual_source |
-| m1_geo_circle__prerequisite_for__m1_geo_arc | 원 | prerequisite_for | 호 | high | official_dual_source |
-| m1_geo_circle__prerequisite_for__m1_geo_central_angle | 원 | prerequisite_for | 중심각 | high | official_dual_source |
-| m1_geo_circle__prerequisite_for__m1_geo_chord | 원 | prerequisite_for | 현 | high | official_dual_source |
-| m1_geo_circle__prerequisite_for__m1_geo_circumcircle | 원 | prerequisite_for | 외접원 | high | official_dual_source |
-| m1_geo_circle__prerequisite_for__m1_geo_incircle | 원 | prerequisite_for | 내접원 | high | official_dual_source |
-| m1_geo_circle__prerequisite_for__m1_geo_secant | 원 | prerequisite_for | 할선 | high | official_single_source |
-| m1_geo_circle__prerequisite_for__m1_geo_sector | 원 | prerequisite_for | 부채꼴 | high | official_dual_source |
-| m1_geo_line__prerequisite_for__m1_geo_tangent_line | 직선 | prerequisite_for | 접선 | high | official_dual_source |
-| m1_geo_plane__prerequisite_for__m1_geo_circle | 평면 | prerequisite_for | 원 | high | official_dual_source |
-| m1_geo_point__prerequisite_for__m1_geo_circle | 점 | prerequisite_for | 원 | high | official_dual_source |
-| m1_geo_proof__prerequisite_for__m1_geo_circle_justification | 증명 | prerequisite_for | 원의 성질 정당화 | high | official_dual_source |
-| m1_geo_tangent_line__prerequisite_for__m1_geo_incircle | 접선 | prerequisite_for | 내접원 | high | official_dual_source |
-| m1_geo_triangle_quadrilateral_unit__prerequisite_for__m1_geo_circle_unit | 삼각형과 사각형의 성질 | prerequisite_for | 원의 성질 | high | official_dual_source |
-| m1_geo_circle__represented_by__m1_geo_arc | 원 | represented_by | 호 | high | official_dual_source |
-| m1_geo_circle__represented_by__m1_geo_chord | 원 | represented_by | 현 | high | official_dual_source |
-| m1_geo_arc__used_in__m1_geo_inscribed_angle_property | 호 | used_in | 원주각의 성질 | high | official_dual_source |
-| m1_geo_chord__used_in__m1_geo_circle_chord_property | 현 | used_in | 원의 현에 관한 성질 | high | official_dual_source |
-| m1_geo_circle__used_in__m1_geo_sector_arc_length_area | 원 | used_in | 부채꼴의 호의 길이와 넓이 구하기 | medium | official_dual_source |
-| m1_geo_justification__used_in__m1_geo_circle_justification | 정당화 | used_in | 원의 성질 정당화 | medium | official_dual_source |
-| m1_geo_secant__contrasts_with__m1_geo_tangent_line | 할선 | contrasts_with | 접선 | medium | official_dual_source |
-| m1_geo_tangent_line__contrasts_with__m1_geo_secant | 접선 | contrasts_with | 할선 | medium | official_dual_source |
-| m1_geo_plane_properties_unit__related_to__m1_geo_circle_unit | 평면도형의 성질 | related_to | 원의 성질 | medium | official_dual_source |
+| m1_geo_domain__contains__m1_geo_trig_unit | 도형과 측정 | contains | 삼각비 | high | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_trig_reference_angle | 각 | prerequisite_for | 삼각비의 기준각 | medium | official_dual_source |
+| m1_geo_foot_of_perpendicular__prerequisite_for__m1_geo_trig_distance_height | 수선의 발 | prerequisite_for | 삼각비로 거리와 높이 구하기 | high | official_dual_source |
+| m1_geo_foot_of_perpendicular__prerequisite_for__m1_geo_trig_distance_height_modeling | 수선의 발 | prerequisite_for | 거리와 높이 문제를 직각삼각형으로 나타내기 | medium | official_dual_source |
+| m1_geo_length__prerequisite_for__m1_geo_trig_hypotenuse | 길이 | prerequisite_for | 삼각비에서의 빗변 | medium | official_dual_source |
+| m1_geo_right_triangle__prerequisite_for__m1_geo_special_angles_30_45_60 | 직각삼각형 | prerequisite_for | 30도, 45도, 60도의 삼각비 | high | official_dual_source |
+| m1_geo_right_triangle__prerequisite_for__m1_geo_trig_adjacent_side | 직각삼각형 | prerequisite_for | 기준각의 이웃변 | medium | official_dual_source |
+| m1_geo_right_triangle__prerequisite_for__m1_geo_trig_distance_height_modeling | 직각삼각형 | prerequisite_for | 거리와 높이 문제를 직각삼각형으로 나타내기 | medium | official_dual_source |
+| m1_geo_right_triangle__prerequisite_for__m1_geo_trig_hypotenuse | 직각삼각형 | prerequisite_for | 삼각비에서의 빗변 | medium | official_dual_source |
+| m1_geo_right_triangle__prerequisite_for__m1_geo_trig_opposite_side | 직각삼각형 | prerequisite_for | 기준각의 대변 | medium | official_dual_source |
+| m1_geo_right_triangle__prerequisite_for__m1_geo_trig_reference_angle | 직각삼각형 | prerequisite_for | 삼각비의 기준각 | medium | official_dual_source |
+| m1_geo_right_triangle__prerequisite_for__m1_geo_trigonometric_ratio | 직각삼각형 | prerequisite_for | 삼각비 | high | official_dual_source |
+| m1_geo_similarity_ratio__prerequisite_for__m1_geo_trigonometric_ratio | 닮음비 | prerequisite_for | 삼각비 | high | official_dual_source |
+| m1_geo_area__used_in__m1_geo_trig_triangle_area | 넓이 | used_in | 삼각비를 이용한 삼각형의 넓이 | medium | official_single_source |
+| m1_geo_pythagorean_unit__related_to__m1_geo_trig_unit | 피타고라스 정리 | related_to | 삼각비 | medium | official_dual_source |
+| m1_geo_triangle_quadrilateral_unit__related_to__m1_geo_trig_unit | 삼각형과 사각형의 성질 | related_to | 삼각비 | medium | official_dual_source |
+| m1_geo_trig_opposite_side__related_to__m1_geo_opposite_side | 기준각의 대변 | related_to | 대변 | medium | official_dual_source |
+| m1_geo_trig_value_table__related_to__m1_repr_table | 삼각비의 값 표 | related_to | 표 | medium | official_dual_source |

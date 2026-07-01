@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 도형과 측정
 - unit: 도형과 측정
 - priority tier: low
-- workplan score: 51
+- workplan score: 53
 - concepts: 5
-- edges touching unit: 40
-- cross-unit edges: 36
+- edges touching unit: 42
+- cross-unit edges: 38
 - low confidence concepts: 0
 - low confidence edges: 2
 
@@ -28,7 +28,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | relationship_type | count |
 |---|---:|
 | contains | 13 |
-| prerequisite_for | 10 |
+| prerequisite_for | 12 |
 | related_to | 2 |
 | used_in | 15 |
 
@@ -56,6 +56,8 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_geo_angle__prerequisite_for__m1_geo_triangle | 각 | prerequisite_for | 삼각형 | medium | official_dual_source |
 | m1_geo_area__prerequisite_for__m1_geo_net_surface_area_strategy | 넓이 | prerequisite_for | 전개도로 겉넓이 구하기 | medium | official_dual_source |
 | m1_geo_area__prerequisite_for__m1_geo_sector_area_calculation | 넓이 | prerequisite_for | 부채꼴의 넓이 구하기 | high | official_dual_source |
+| m1_geo_length__prerequisite_for__m1_geo_circle_radius | 길이 | prerequisite_for | 원의 반지름 | medium | official_dual_source |
+| m1_geo_length__prerequisite_for__m1_geo_equal_tangent_lengths_from_point | 길이 | prerequisite_for | 한 점에서 그은 두 접선의 길이가 같음 | medium | official_dual_source |
 | m1_geo_length__prerequisite_for__m1_geo_isosceles_equal_sides | 길이 | prerequisite_for | 이등변삼각형의 두 같은 변 | medium | official_dual_source |
 | m1_geo_length__prerequisite_for__m1_geo_rectangle_diagonals_equal | 길이 | prerequisite_for | 직사각형의 대각선의 길이가 같음 | high | official_dual_source |
 | m1_geo_length__prerequisite_for__m1_geo_rhombus | 길이 | prerequisite_for | 마름모 | high | official_dual_source |

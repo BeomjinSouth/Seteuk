@@ -4,15 +4,15 @@ This generated audit summarizes source evidence depth for each concept node.
 
 ## Summary
 
-- concepts: 694
-- needs textbook evidence: 694
-- low confidence concepts: 99
+- concepts: 714
+- needs textbook evidence: 714
+- low confidence concepts: 103
 
 ## Evidence Depth Counts
 
 | evidence_depth | concept count |
 |---|---:|
-| official_dual_source | 595 |
+| official_dual_source | 615 |
 | official_single_source | 99 |
 
 ## Priority Rows
@@ -32,7 +32,11 @@ This generated audit summarizes source evidence depth for each concept node.
 | m1_mis_isosceles_base_vertex_angle_confusion | 이등변삼각형의 밑각과 꼭지각을 혼동하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_proof_observation | 관찰 결과와 증명을 같은 수준의 근거로 보는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_quadrilateral_inclusion_relation | 사각형 포함 관계를 반대로 이해하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
+| m1_geo_circle_auxiliary_radius_center | 원의 중심과 반지름 보조선 활용 | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |
+| m1_geo_semicircle_arc | 반원 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_circle_proportion_scope | 원과 비례에 관한 성질을 범위에 포함하는 오류 | low | official_single_source | 1 | curriculum_math_2022 |
+| m1_mis_inscribed_central_angle_equal | 원주각과 중심각을 같은 크기로 보는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
+| m1_mis_same_chord_arc_scope | 같은 현과 같은 호의 조건을 넓게 적용하는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_tangent_radius | 접선과 반지름의 수직 관계를 놓치는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_geo_orthographic_drawing | 겨냥도 | low | official_single_source | 1 | achievement_research_report_2022 |
 | m1_mis_complex_area_volume_scope | 지나치게 복잡한 넓이·부피 변형 문제 범위 혼동 | low | official_single_source | 1 | curriculum_math_2022 |
@@ -55,7 +59,3 @@ This generated audit summarizes source evidence depth for each concept node.
 | m1_mis_polynomial_subtraction_sign | 다항식 뺄셈에서 괄호 앞 음수를 분배하지 않는 오류 | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_system_elimination_sign | 가감법에서 부호와 계수 처리를 잘못하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_system_one_equation_only | 연립방정식의 해를 한 방정식만 만족해도 된다고 보는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_system_ordered_pair_swap | 해의 순서쌍에서 두 미지수 값을 바꾸는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_system_substitution | 대입법에서 식 전체를 대입하지 않는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_quadratic_expression_equation | 이차식과 이차방정식을 혼동하는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_quadratic_factorization_solution | 인수분해한 식에서 해 조건을 빠뜨리는 오류 | low | official_single_source | 2 | achievement_math_2022 |

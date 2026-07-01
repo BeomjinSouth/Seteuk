@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-07-01T00:00:22",
+    "generated_at": "2026-07-01T11:51:24",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
-    "concept_count": 694,
-    "edge_count": 3090
+    "concept_count": 714,
+    "edge_count": 3204
   },
   "sources": [
     {
@@ -25381,6 +25381,58 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_circle_radius",
+      "label_ko": "원의 반지름",
+      "aliases": [
+        "반지름",
+        "radius"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "원의 성질",
+      "concept_type": "term",
+      "short_definition": "원의 중심과 원 위의 한 점을 잇는 선분 또는 그 길이.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부채꼴의 중심각과 호의 관계를 이해하고 호의 길이와 넓이를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "평면도형의 성질 section; [9수03-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부채꼴, 중심각, 호의 관계를 이해하고 부채꼴의 호의 길이와 넓이를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_circle",
+        "m1_geo_length"
+      ],
+      "parent_ids": [
+        "m1_geo_circle_unit"
+      ],
+      "related_ids": [
+        "m1_geo_circumradius",
+        "m1_geo_inradius"
+      ],
+      "notes": "공식 성취기준의 원·부채꼴·접선 성질 맥락에서 필요한 기초 용어다. 교과서 본문에서 정의 표현과 기호를 보강한다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_circle_chord_property",
       "label_ko": "원의 현에 관한 성질",
       "aliases": [
@@ -25417,6 +25469,214 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_chord_center_distance",
+      "label_ko": "원 중심에서 현까지의 거리",
+      "aliases": [
+        "현까지의 거리",
+        "중심에서 현까지의 거리"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "원의 성질",
+      "concept_type": "sub_concept",
+      "short_definition": "원의 중심에서 현에 내린 수선의 길이로 나타내는 거리.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_circle",
+        "m1_geo_chord",
+        "m1_geo_perpendicular",
+        "m1_geo_distance_between_two_points"
+      ],
+      "parent_ids": [
+        "m1_geo_circle_chord_property"
+      ],
+      "related_ids": [],
+      "notes": "현의 길이와 중심에서 현까지의 거리 관계를 다루기 위한 미시 concept이다. 교과서의 표현 차이는 alias와 source ref로 보강한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_chord_center_perpendicular_bisects",
+      "label_ko": "원의 중심에서 현에 내린 수선은 현을 이등분",
+      "aliases": [
+        "중심에서 현에 내린 수선",
+        "현을 이등분하는 수선"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "원의 성질",
+      "concept_type": "property",
+      "short_definition": "원의 중심에서 현에 내린 수선이 그 현의 중점을 지나 두 부분의 길이를 같게 한다는 성질.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_circle",
+        "m1_geo_chord",
+        "m1_geo_perpendicular",
+        "m1_geo_midpoint"
+      ],
+      "parent_ids": [
+        "m1_geo_circle_chord_property"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_chord_midpoint_center_perpendicular",
+      "label_ko": "원 중심과 현의 중점을 이은 직선은 현에 수직",
+      "aliases": [
+        "현의 중점과 중심을 이은 직선"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "원의 성질",
+      "concept_type": "property",
+      "short_definition": "원의 중심과 현의 중점을 이은 직선이 그 현과 수직으로 만난다는 성질.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_circle",
+        "m1_geo_chord",
+        "m1_geo_midpoint",
+        "m1_geo_perpendicular"
+      ],
+      "parent_ids": [
+        "m1_geo_circle_chord_property"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_equal_chords_equal_center_distance",
+      "label_ko": "같은 원에서 길이가 같은 현은 중심에서 같은 거리에 있음",
+      "aliases": [
+        "같은 현과 중심거리"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "원의 성질",
+      "concept_type": "property",
+      "short_definition": "같은 원에서 길이가 같은 두 현은 원의 중심에서 떨어진 거리가 같다는 성질.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_circle",
+        "m1_geo_chord",
+        "m1_geo_chord_center_distance"
+      ],
+      "parent_ids": [
+        "m1_geo_circle_chord_property"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_equal_center_distance_equal_chords",
+      "label_ko": "같은 원에서 중심거리가 같은 현의 길이가 같음",
+      "aliases": [
+        "중심거리가 같은 현"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "원의 성질",
+      "concept_type": "property",
+      "short_definition": "같은 원에서 원의 중심으로부터 같은 거리에 있는 두 현의 길이가 같다는 성질.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_circle",
+        "m1_geo_chord",
+        "m1_geo_chord_center_distance"
+      ],
+      "parent_ids": [
+        "m1_geo_circle_chord_property"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_tangent_line",
@@ -25590,6 +25850,53 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_tangent_radius_perpendicular",
+      "label_ko": "접점에서의 접선과 반지름의 수직 관계",
+      "aliases": [
+        "접선과 반지름",
+        "접점의 반지름과 접선"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "원의 성질",
+      "concept_type": "property",
+      "short_definition": "접점에서 그은 원의 반지름이 그 접선과 수직으로 만난다는 성질.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_tangent_line",
+        "m1_geo_tangent_point",
+        "m1_geo_circle_radius",
+        "m1_geo_perpendicular"
+      ],
+      "parent_ids": [
+        "m1_geo_tangent_property"
+      ],
+      "related_ids": [
+        "m1_mis_tangent_radius"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
       "id": "m1_geo_tangent_length",
       "label_ko": "접선의 길이",
       "aliases": [
@@ -25624,6 +25931,51 @@
         "m1_geo_tangent_line"
       ],
       "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_equal_tangent_lengths_from_point",
+      "label_ko": "한 점에서 그은 두 접선의 길이가 같음",
+      "aliases": [
+        "두 접선의 길이",
+        "접선의 길이 같음"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "원의 성질",
+      "concept_type": "property",
+      "short_definition": "원 밖의 한 점에서 그은 두 접선의 길이가 같다는 성질.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_tangent_line",
+        "m1_geo_tangent_point",
+        "m1_geo_length",
+        "m1_geo_tangent_length"
+      ],
+      "parent_ids": [
+        "m1_geo_tangent_length"
+      ],
+      "related_ids": [],
+      "notes": "교육과정의 교수·학습 용어와 성취수준에 근거한 세부 성질이다. 교과서 본문에서 '원 밖의 한 점' 표현과 도형 표시를 보강한다.",
       "confidence": "medium"
     },
     {
@@ -25672,6 +26024,121 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_inscribed_angle_subtended_arc",
+      "label_ko": "원주각이 보는 호",
+      "aliases": [
+        "원주각에 대한 호",
+        "원주각의 호"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "원의 성질",
+      "concept_type": "sub_concept",
+      "short_definition": "원주각의 두 변이 원과 만나는 두 점 사이의 호.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_inscribed_angle",
+        "m1_geo_arc"
+      ],
+      "parent_ids": [
+        "m1_geo_inscribed_angle_property"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_same_arc",
+      "label_ko": "같은 호",
+      "aliases": [
+        "동일한 호"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "원의 성질",
+      "concept_type": "sub_concept",
+      "short_definition": "같은 원에서 동일한 두 끝점을 가지거나 같은 부분으로 보는 호.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_circle",
+        "m1_geo_arc"
+      ],
+      "parent_ids": [
+        "m1_geo_inscribed_angle_property"
+      ],
+      "related_ids": [],
+      "notes": "같은 호라는 표현은 원주각 성질을 설명하기 위한 미시 concept이다. 교과서 본문에서 표현을 확인한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_same_chord",
+      "label_ko": "같은 현",
+      "aliases": [
+        "동일한 현"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "원의 성질",
+      "concept_type": "sub_concept",
+      "short_definition": "같은 원에서 동일한 두 끝점을 가지거나 길이가 같은 것으로 비교하는 현.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_circle",
+        "m1_geo_chord"
+      ],
+      "parent_ids": [
+        "m1_geo_circle_chord_property"
+      ],
+      "related_ids": [],
+      "notes": "같은 현 표현은 현과 호의 대응 관계를 다루기 위한 미시 concept이다. 교과서 본문 확인 전까지 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_inscribed_angle_property",
       "label_ko": "원주각의 성질",
       "aliases": [
@@ -25708,6 +26175,214 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_same_arc_inscribed_angles_equal",
+      "label_ko": "같은 호에 대한 원주각의 크기가 같음",
+      "aliases": [
+        "같은 호의 원주각",
+        "같은 호에 대한 원주각"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "원의 성질",
+      "concept_type": "property",
+      "short_definition": "같은 원에서 같은 호를 보는 원주각들의 크기가 같다는 성질.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_inscribed_angle",
+        "m1_geo_same_arc",
+        "m1_geo_inscribed_angle_subtended_arc"
+      ],
+      "parent_ids": [
+        "m1_geo_inscribed_angle_property"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_same_arc_same_chord_relation",
+      "label_ko": "같은 호와 같은 현의 대응 관계",
+      "aliases": [
+        "호와 현의 대응"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "원의 성질",
+      "concept_type": "property",
+      "short_definition": "같은 원에서 호와 현이 서로 대응하여 원주각이나 현의 성질을 해석할 때 함께 쓰인다는 관계.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_arc",
+        "m1_geo_chord",
+        "m1_geo_same_arc",
+        "m1_geo_same_chord"
+      ],
+      "parent_ids": [
+        "m1_geo_circle_chord_property",
+        "m1_geo_inscribed_angle_property"
+      ],
+      "related_ids": [],
+      "notes": "호와 현을 같은 대상으로 보는 것이 아니라 서로 대응하는 대상으로 구별해 다루기 위한 관계 노드다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_central_inscribed_angle_relation",
+      "label_ko": "중심각과 원주각의 관계",
+      "aliases": [
+        "중심각과 원주각"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "원의 성질",
+      "concept_type": "property",
+      "short_definition": "같은 호에 대한 중심각과 원주각의 크기 사이의 관계.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부채꼴의 중심각과 호의 관계를 이해하고 호의 길이와 넓이를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "평면도형의 성질 section; [9수03-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부채꼴, 중심각, 호의 관계를 이해하고 부채꼴의 호의 길이와 넓이를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_central_angle",
+        "m1_geo_inscribed_angle",
+        "m1_geo_arc"
+      ],
+      "parent_ids": [
+        "m1_geo_inscribed_angle_property"
+      ],
+      "related_ids": [
+        "m1_geo_sector_central_angle_arc_relation"
+      ],
+      "notes": "중심각은 평면도형 단원에서 먼저 다루지만, 원주각의 성질을 정당화할 때 다시 사용된다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_semicircle_arc",
+      "label_ko": "반원",
+      "aliases": [
+        "semicircle"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "원의 성질",
+      "concept_type": "term",
+      "short_definition": "원의 지름을 끝점으로 하는 호 또는 원의 절반.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_circle",
+        "m1_geo_arc",
+        "m1_geo_chord"
+      ],
+      "parent_ids": [
+        "m1_geo_inscribed_angle_property"
+      ],
+      "related_ids": [],
+      "notes": "반원 표현은 원주각 성질의 대표 적용 맥락으로 추출한 잠정 용어다. 교과서 본문 확인 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_semicircle_inscribed_angle_right",
+      "label_ko": "반원에 대한 원주각은 직각",
+      "aliases": [
+        "반원의 원주각"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "원의 성질",
+      "concept_type": "property",
+      "short_definition": "반원을 보는 원주각의 크기가 직각이 된다는 원주각 성질의 적용.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_semicircle_arc",
+        "m1_geo_inscribed_angle",
+        "m1_geo_central_inscribed_angle_relation"
+      ],
+      "parent_ids": [
+        "m1_geo_inscribed_angle_property"
+      ],
+      "related_ids": [],
+      "notes": "교과서 예제에서 자주 나타나는 적용 성질로 추출했으며, 본문 쪽수 근거가 확보되면 신뢰도를 조정한다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_circle_justification",
@@ -25762,6 +26437,106 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_circle_property_evidence_selection",
+      "label_ko": "원의 성질 정당화에서 근거 선택하기",
+      "aliases": [
+        "원 성질 근거 선택"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "원의 성질",
+      "concept_type": "procedure",
+      "short_definition": "현, 접선, 원주각 중 문제 상황에 맞는 원의 성질을 골라 정당화에 사용하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_circle_chord_property",
+        "m1_geo_tangent_property",
+        "m1_geo_inscribed_angle_property",
+        "m1_geo_proof"
+      ],
+      "parent_ids": [
+        "m1_geo_circle_justification"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_circle_auxiliary_radius_center",
+      "label_ko": "원의 중심과 반지름 보조선 활용",
+      "aliases": [
+        "원 보조선",
+        "반지름 보조선"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "원의 성질",
+      "concept_type": "procedure",
+      "short_definition": "원의 중심이나 반지름을 연결해 현, 접선, 원주각의 성질을 정당화하는 보조선 활용 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_circle",
+        "m1_geo_circle_radius",
+        "m1_geo_central_angle"
+      ],
+      "parent_ids": [
+        "m1_geo_circle_justification"
+      ],
+      "related_ids": [],
+      "notes": "보조선 활용은 공식 문서의 정당화 요구에서 추론한 절차다. 교과서 증명 맥락 확인 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
       "id": "m1_mis_circle_proportion_scope",
       "label_ko": "원과 비례에 관한 성질을 범위에 포함하는 오류",
       "aliases": [
@@ -25780,17 +26555,14 @@
           "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
         }
       ],
-      "prerequisite_ids": [
-        "m1_geo_circle",
-        "m1_geo_similarity_ratio"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_geo_circle_unit"
       ],
       "related_ids": [
         "m1_geo_circle_chord_property"
       ],
-      "notes": "교육과정 유의사항에 근거한 범위 관리 노드다.",
+      "notes": "교육과정 유의사항에 근거한 범위 관리 노드다. 교과서 또는 학생 오답 근거 확인 전까지 선수 관계 없이 오개념 위험으로만 둔다.",
       "confidence": "low"
     },
     {
@@ -25824,9 +26596,90 @@
       ],
       "related_ids": [
         "m1_geo_tangent_line",
-        "m1_geo_tangent_point"
+        "m1_geo_tangent_point",
+        "m1_geo_tangent_radius_perpendicular"
       ],
-      "notes": "",
+      "notes": "교과서 예제나 오답 근거 확인 전까지 선수 관계 없이 오개념 위험으로만 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_inscribed_central_angle_equal",
+      "label_ko": "원주각과 중심각을 같은 크기로 보는 오류",
+      "aliases": [
+        "원주각-중심각 혼동"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "원의 성질",
+      "concept_type": "misconception_risk",
+      "short_definition": "같은 호에 대한 원주각과 중심각의 크기 관계를 구별하지 못하고 두 각을 같은 크기로 보는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_geo_circle_unit"
+      ],
+      "related_ids": [
+        "m1_geo_central_inscribed_angle_relation",
+        "m1_geo_inscribed_angle",
+        "m1_geo_central_angle"
+      ],
+      "notes": "원주각 성질에서 추론한 오개념 위험이다. 교과서 예제나 문항 근거 확인 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_same_chord_arc_scope",
+      "label_ko": "같은 현과 같은 호의 조건을 넓게 적용하는 오류",
+      "aliases": [
+        "같은 현 같은 호 조건 혼동"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "원의 성질",
+      "concept_type": "misconception_risk",
+      "short_definition": "같은 원이라는 조건이나 호·현의 대응 관계를 확인하지 않고 같은 현, 같은 호, 같은 원주각 관계를 적용하는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_geo_circle_unit"
+      ],
+      "related_ids": [
+        "m1_geo_same_chord",
+        "m1_geo_same_arc_same_chord_relation",
+        "m1_geo_same_arc_inscribed_angles_equal"
+      ],
+      "notes": "공식 성취수준의 성질 적용 맥락에서 추론한 위험이다. 교과서 예제와 오답 근거로 보강한다.",
       "confidence": "low"
     },
     {
@@ -60333,6 +61186,40 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_circle__represented_by__m1_geo_circle_radius",
+      "source_id": "m1_geo_circle",
+      "target_id": "m1_geo_circle_radius",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부채꼴의 중심각과 호의 관계를 이해하고 호의 길이와 넓이를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "평면도형의 성질 section; [9수03-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부채꼴, 중심각, 호의 관계를 이해하고 부채꼴의 호의 길이와 넓이를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_circle__represented_by__m1_geo_chord",
       "source_id": "m1_geo_circle",
       "target_id": "m1_geo_chord",
@@ -60417,6 +61304,86 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_circle_radius__related_to__m1_geo_circumradius",
+      "source_id": "m1_geo_circle_radius",
+      "target_id": "m1_geo_circumradius",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-10]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 외심과 내심의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각형과 사각형의 성질 section; [9수03-09]~[9수03-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이등변삼각형, 삼각형의 외심과 내심, 사각형의 성질과 여러 사각형 사이의 관계를 이해하고 정당화하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "Circle radius language is related to circumradius, but the latter is tied to a triangle circumcircle context.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_circle_radius__related_to__m1_geo_inradius",
+      "source_id": "m1_geo_circle_radius",
+      "target_id": "m1_geo_inradius",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-10]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 외심과 내심의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각형과 사각형의 성질 section; [9수03-09]~[9수03-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "이등변삼각형, 삼각형의 외심과 내심, 사각형의 성질과 여러 사각형 사이의 관계를 이해하고 정당화하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "Circle radius language is related to inradius, but the latter is tied to a triangle incircle context.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_chord__used_in__m1_geo_circle_chord_property",
       "source_id": "m1_geo_chord",
       "target_id": "m1_geo_circle_chord_property",
@@ -60437,6 +61404,240 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_chord_center_perpendicular_bisects__used_in__m1_geo_chord_center_distance",
+      "source_id": "m1_geo_chord_center_perpendicular_bisects",
+      "target_id": "m1_geo_chord_center_distance",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_chord_center_perpendicular_bisects__used_in__m1_geo_equal_chords_equal_center_distance",
+      "source_id": "m1_geo_chord_center_perpendicular_bisects",
+      "target_id": "m1_geo_equal_chords_equal_center_distance",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_chord_midpoint_center_perpendicular__used_in__m1_geo_equal_center_distance_equal_chords",
+      "source_id": "m1_geo_chord_midpoint_center_perpendicular",
+      "target_id": "m1_geo_equal_center_distance_equal_chords",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_equal_chords_equal_center_distance__related_to__m1_geo_equal_center_distance_equal_chords",
+      "source_id": "m1_geo_equal_chords_equal_center_distance",
+      "target_id": "m1_geo_equal_center_distance_equal_chords",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "These are inverse directions of the same chord-center-distance relation in a circle.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_chord_center_distance__used_in__m1_geo_circle_justification",
+      "source_id": "m1_geo_chord_center_distance",
+      "target_id": "m1_geo_circle_justification",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_chord_center_perpendicular_bisects__used_in__m1_geo_circle_justification",
+      "source_id": "m1_geo_chord_center_perpendicular_bisects",
+      "target_id": "m1_geo_circle_justification",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_chord_midpoint_center_perpendicular__used_in__m1_geo_circle_justification",
+      "source_id": "m1_geo_chord_midpoint_center_perpendicular",
+      "target_id": "m1_geo_circle_justification",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_equal_chords_equal_center_distance__used_in__m1_geo_circle_justification",
+      "source_id": "m1_geo_equal_chords_equal_center_distance",
+      "target_id": "m1_geo_circle_justification",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_equal_center_distance_equal_chords__used_in__m1_geo_circle_justification",
+      "source_id": "m1_geo_equal_center_distance_equal_chords",
+      "target_id": "m1_geo_circle_justification",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_tangent_line__used_in__m1_geo_tangent_point",
@@ -60595,6 +61796,118 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_geo_circle_radius__used_in__m1_geo_tangent_radius_perpendicular",
+      "source_id": "m1_geo_circle_radius",
+      "target_id": "m1_geo_tangent_radius_perpendicular",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_tangent_radius_perpendicular__used_in__m1_geo_tangent_length",
+      "source_id": "m1_geo_tangent_radius_perpendicular",
+      "target_id": "m1_geo_tangent_length",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_tangent_radius_perpendicular__used_in__m1_geo_equal_tangent_lengths_from_point",
+      "source_id": "m1_geo_tangent_radius_perpendicular",
+      "target_id": "m1_geo_equal_tangent_lengths_from_point",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_equal_tangent_lengths_from_point__used_in__m1_geo_circle_justification",
+      "source_id": "m1_geo_equal_tangent_lengths_from_point",
+      "target_id": "m1_geo_circle_justification",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_tangent_line__contrasts_with__m1_geo_secant",
       "source_id": "m1_geo_tangent_line",
       "target_id": "m1_geo_secant",
@@ -60681,6 +61994,398 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_inscribed_angle__used_in__m1_geo_inscribed_angle_subtended_arc",
+      "source_id": "m1_geo_inscribed_angle",
+      "target_id": "m1_geo_inscribed_angle_subtended_arc",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_inscribed_angle_subtended_arc__used_in__m1_geo_same_arc_inscribed_angles_equal",
+      "source_id": "m1_geo_inscribed_angle_subtended_arc",
+      "target_id": "m1_geo_same_arc_inscribed_angles_equal",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_same_arc__used_in__m1_geo_same_arc_inscribed_angles_equal",
+      "source_id": "m1_geo_same_arc",
+      "target_id": "m1_geo_same_arc_inscribed_angles_equal",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_same_arc_same_chord_relation__used_in__m1_geo_same_arc_inscribed_angles_equal",
+      "source_id": "m1_geo_same_arc_same_chord_relation",
+      "target_id": "m1_geo_same_arc_inscribed_angles_equal",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_central_angle__used_in__m1_geo_central_inscribed_angle_relation",
+      "source_id": "m1_geo_central_angle",
+      "target_id": "m1_geo_central_inscribed_angle_relation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부채꼴의 중심각과 호의 관계를 이해하고 호의 길이와 넓이를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "평면도형의 성질 section; [9수03-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부채꼴, 중심각, 호의 관계를 이해하고 부채꼴의 호의 길이와 넓이를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_central_inscribed_angle_relation__used_in__m1_geo_same_arc_inscribed_angles_equal",
+      "source_id": "m1_geo_central_inscribed_angle_relation",
+      "target_id": "m1_geo_same_arc_inscribed_angles_equal",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_central_inscribed_angle_relation__used_in__m1_geo_semicircle_inscribed_angle_right",
+      "source_id": "m1_geo_central_inscribed_angle_relation",
+      "target_id": "m1_geo_semicircle_inscribed_angle_right",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_central_inscribed_angle_relation__related_to__m1_geo_sector_central_angle_arc_relation",
+      "source_id": "m1_geo_central_inscribed_angle_relation",
+      "target_id": "m1_geo_sector_central_angle_arc_relation",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부채꼴의 중심각과 호의 관계를 이해하고 호의 길이와 넓이를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "평면도형의 성질 section; [9수03-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부채꼴, 중심각, 호의 관계를 이해하고 부채꼴의 호의 길이와 넓이를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "Both relations connect an angle at the circle center with an arc, but they belong to different unit contexts.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_semicircle_arc__used_in__m1_geo_semicircle_inscribed_angle_right",
+      "source_id": "m1_geo_semicircle_arc",
+      "target_id": "m1_geo_semicircle_inscribed_angle_right",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_same_arc_inscribed_angles_equal__used_in__m1_geo_circle_justification",
+      "source_id": "m1_geo_same_arc_inscribed_angles_equal",
+      "target_id": "m1_geo_circle_justification",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_same_arc_same_chord_relation__used_in__m1_geo_circle_justification",
+      "source_id": "m1_geo_same_arc_same_chord_relation",
+      "target_id": "m1_geo_circle_justification",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_semicircle_inscribed_angle_right__used_in__m1_geo_circle_justification",
+      "source_id": "m1_geo_semicircle_inscribed_angle_right",
+      "target_id": "m1_geo_circle_justification",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_circle_property_evidence_selection__used_in__m1_geo_circle_justification",
+      "source_id": "m1_geo_circle_property_evidence_selection",
+      "target_id": "m1_geo_circle_justification",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_circle_auxiliary_radius_center__used_in__m1_geo_circle_justification",
+      "source_id": "m1_geo_circle_auxiliary_radius_center",
+      "target_id": "m1_geo_circle_justification",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
     },
     {
       "id": "m1_geo_arc__used_in__m1_geo_inscribed_angle_property",
@@ -61333,6 +63038,112 @@
           "locator": "printed p. 38; [9수03-18]",
           "evidence_kind": "achievement_standard",
           "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_tangent_radius__often_confused_with__m1_geo_tangent_radius_perpendicular",
+      "source_id": "m1_mis_tangent_radius",
+      "target_id": "m1_geo_tangent_radius_perpendicular",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_inscribed_central_angle_equal__often_confused_with__m1_geo_central_inscribed_angle_relation",
+      "source_id": "m1_mis_inscribed_central_angle_equal",
+      "target_id": "m1_geo_central_inscribed_angle_relation",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_same_chord_arc_scope__often_confused_with__m1_geo_same_arc_same_chord_relation",
+      "source_id": "m1_mis_same_chord_arc_scope",
+      "target_id": "m1_geo_same_arc_same_chord_relation",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_proof_observation__often_confused_with__m1_geo_circle_justification",
+      "source_id": "m1_mis_proof_observation",
+      "target_id": "m1_geo_circle_justification",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
         },
         {
           "source_id": "achievement_math_2022",
@@ -75549,6 +77360,40 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_circle_unit__contains__m1_geo_circle_radius",
+      "source_id": "m1_geo_circle_unit",
+      "target_id": "m1_geo_circle_radius",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부채꼴의 중심각과 호의 관계를 이해하고 호의 길이와 넓이를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "평면도형의 성질 section; [9수03-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부채꼴, 중심각, 호의 관계를 이해하고 부채꼴의 호의 길이와 넓이를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_circle_unit__contains__m1_geo_circle_chord_property",
       "source_id": "m1_geo_circle_unit",
       "target_id": "m1_geo_circle_chord_property",
@@ -75569,6 +77414,134 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_circle_chord_property__contains__m1_geo_chord_center_distance",
+      "source_id": "m1_geo_circle_chord_property",
+      "target_id": "m1_geo_chord_center_distance",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_circle_chord_property__contains__m1_geo_chord_center_perpendicular_bisects",
+      "source_id": "m1_geo_circle_chord_property",
+      "target_id": "m1_geo_chord_center_perpendicular_bisects",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_circle_chord_property__contains__m1_geo_chord_midpoint_center_perpendicular",
+      "source_id": "m1_geo_circle_chord_property",
+      "target_id": "m1_geo_chord_midpoint_center_perpendicular",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_circle_chord_property__contains__m1_geo_equal_chords_equal_center_distance",
+      "source_id": "m1_geo_circle_chord_property",
+      "target_id": "m1_geo_equal_chords_equal_center_distance",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_circle_chord_property__contains__m1_geo_equal_center_distance_equal_chords",
+      "source_id": "m1_geo_circle_chord_property",
+      "target_id": "m1_geo_equal_center_distance_equal_chords",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_circle_unit__contains__m1_geo_tangent_line",
@@ -75677,11 +77650,67 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_tangent_property__contains__m1_geo_tangent_radius_perpendicular",
+      "source_id": "m1_geo_tangent_property",
+      "target_id": "m1_geo_tangent_radius_perpendicular",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
       "id": "m1_geo_circle_unit__contains__m1_geo_tangent_length",
       "source_id": "m1_geo_circle_unit",
       "target_id": "m1_geo_tangent_length",
       "relationship_type": "contains",
       "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_tangent_length__contains__m1_geo_equal_tangent_lengths_from_point",
+      "source_id": "m1_geo_tangent_length",
+      "target_id": "m1_geo_equal_tangent_lengths_from_point",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
         {
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 39; terms usable in teaching and learning situations",
@@ -75727,6 +77756,78 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_inscribed_angle_property__contains__m1_geo_inscribed_angle_subtended_arc",
+      "source_id": "m1_geo_inscribed_angle_property",
+      "target_id": "m1_geo_inscribed_angle_subtended_arc",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_inscribed_angle_property__contains__m1_geo_same_arc",
+      "source_id": "m1_geo_inscribed_angle_property",
+      "target_id": "m1_geo_same_arc",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_circle_chord_property__contains__m1_geo_same_chord",
+      "source_id": "m1_geo_circle_chord_property",
+      "target_id": "m1_geo_same_chord",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_circle_unit__contains__m1_geo_inscribed_angle_property",
       "source_id": "m1_geo_circle_unit",
       "target_id": "m1_geo_inscribed_angle_property",
@@ -75747,6 +77848,162 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_inscribed_angle_property__contains__m1_geo_same_arc_inscribed_angles_equal",
+      "source_id": "m1_geo_inscribed_angle_property",
+      "target_id": "m1_geo_same_arc_inscribed_angles_equal",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_circle_chord_property__contains__m1_geo_same_arc_same_chord_relation",
+      "source_id": "m1_geo_circle_chord_property",
+      "target_id": "m1_geo_same_arc_same_chord_relation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_inscribed_angle_property__contains__m1_geo_same_arc_same_chord_relation",
+      "source_id": "m1_geo_inscribed_angle_property",
+      "target_id": "m1_geo_same_arc_same_chord_relation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_inscribed_angle_property__contains__m1_geo_central_inscribed_angle_relation",
+      "source_id": "m1_geo_inscribed_angle_property",
+      "target_id": "m1_geo_central_inscribed_angle_relation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부채꼴의 중심각과 호의 관계를 이해하고 호의 길이와 넓이를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "평면도형의 성질 section; [9수03-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부채꼴, 중심각, 호의 관계를 이해하고 부채꼴의 호의 길이와 넓이를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_inscribed_angle_property__contains__m1_geo_semicircle_arc",
+      "source_id": "m1_geo_inscribed_angle_property",
+      "target_id": "m1_geo_semicircle_arc",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_inscribed_angle_property__contains__m1_geo_semicircle_inscribed_angle_right",
+      "source_id": "m1_geo_inscribed_angle_property",
+      "target_id": "m1_geo_semicircle_inscribed_angle_right",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_circle_unit__contains__m1_geo_circle_justification",
@@ -75783,6 +78040,74 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_circle_justification__contains__m1_geo_circle_property_evidence_selection",
+      "source_id": "m1_geo_circle_justification",
+      "target_id": "m1_geo_circle_property_evidence_selection",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_circle_justification__contains__m1_geo_circle_auxiliary_radius_center",
+      "source_id": "m1_geo_circle_justification",
+      "target_id": "m1_geo_circle_auxiliary_radius_center",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_geo_circle_unit__contains__m1_mis_circle_proportion_scope",
       "source_id": "m1_geo_circle_unit",
       "target_id": "m1_mis_circle_proportion_scope",
@@ -75809,6 +78134,56 @@
           "locator": "printed p. 38; [9수03-18]",
           "evidence_kind": "achievement_standard",
           "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_circle_unit__contains__m1_mis_inscribed_central_angle_equal",
+      "source_id": "m1_geo_circle_unit",
+      "target_id": "m1_mis_inscribed_central_angle_equal",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_circle_unit__contains__m1_mis_same_chord_arc_scope",
+      "source_id": "m1_geo_circle_unit",
+      "target_id": "m1_mis_same_chord_arc_scope",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",
@@ -101509,6 +103884,74 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_circle__prerequisite_for__m1_geo_circle_radius",
+      "source_id": "m1_geo_circle",
+      "target_id": "m1_geo_circle_radius",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부채꼴의 중심각과 호의 관계를 이해하고 호의 길이와 넓이를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "평면도형의 성질 section; [9수03-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부채꼴, 중심각, 호의 관계를 이해하고 부채꼴의 호의 길이와 넓이를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_length__prerequisite_for__m1_geo_circle_radius",
+      "source_id": "m1_geo_length",
+      "target_id": "m1_geo_circle_radius",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부채꼴의 중심각과 호의 관계를 이해하고 호의 길이와 넓이를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "평면도형의 성질 section; [9수03-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부채꼴, 중심각, 호의 관계를 이해하고 부채꼴의 호의 길이와 넓이를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_circle__prerequisite_for__m1_geo_circle_chord_property",
       "source_id": "m1_geo_circle",
       "target_id": "m1_geo_circle_chord_property",
@@ -101551,6 +103994,474 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_circle__prerequisite_for__m1_geo_chord_center_distance",
+      "source_id": "m1_geo_circle",
+      "target_id": "m1_geo_chord_center_distance",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_chord__prerequisite_for__m1_geo_chord_center_distance",
+      "source_id": "m1_geo_chord",
+      "target_id": "m1_geo_chord_center_distance",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_perpendicular__prerequisite_for__m1_geo_chord_center_distance",
+      "source_id": "m1_geo_perpendicular",
+      "target_id": "m1_geo_chord_center_distance",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_distance_between_two_points__prerequisite_for__m1_geo_chord_center_distance",
+      "source_id": "m1_geo_distance_between_two_points",
+      "target_id": "m1_geo_chord_center_distance",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_circle__prerequisite_for__m1_geo_chord_center_perpendicular_bisects",
+      "source_id": "m1_geo_circle",
+      "target_id": "m1_geo_chord_center_perpendicular_bisects",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_chord__prerequisite_for__m1_geo_chord_center_perpendicular_bisects",
+      "source_id": "m1_geo_chord",
+      "target_id": "m1_geo_chord_center_perpendicular_bisects",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_perpendicular__prerequisite_for__m1_geo_chord_center_perpendicular_bisects",
+      "source_id": "m1_geo_perpendicular",
+      "target_id": "m1_geo_chord_center_perpendicular_bisects",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_midpoint__prerequisite_for__m1_geo_chord_center_perpendicular_bisects",
+      "source_id": "m1_geo_midpoint",
+      "target_id": "m1_geo_chord_center_perpendicular_bisects",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_circle__prerequisite_for__m1_geo_chord_midpoint_center_perpendicular",
+      "source_id": "m1_geo_circle",
+      "target_id": "m1_geo_chord_midpoint_center_perpendicular",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_chord__prerequisite_for__m1_geo_chord_midpoint_center_perpendicular",
+      "source_id": "m1_geo_chord",
+      "target_id": "m1_geo_chord_midpoint_center_perpendicular",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_midpoint__prerequisite_for__m1_geo_chord_midpoint_center_perpendicular",
+      "source_id": "m1_geo_midpoint",
+      "target_id": "m1_geo_chord_midpoint_center_perpendicular",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_perpendicular__prerequisite_for__m1_geo_chord_midpoint_center_perpendicular",
+      "source_id": "m1_geo_perpendicular",
+      "target_id": "m1_geo_chord_midpoint_center_perpendicular",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_circle__prerequisite_for__m1_geo_equal_chords_equal_center_distance",
+      "source_id": "m1_geo_circle",
+      "target_id": "m1_geo_equal_chords_equal_center_distance",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_chord__prerequisite_for__m1_geo_equal_chords_equal_center_distance",
+      "source_id": "m1_geo_chord",
+      "target_id": "m1_geo_equal_chords_equal_center_distance",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_chord_center_distance__prerequisite_for__m1_geo_equal_chords_equal_center_distance",
+      "source_id": "m1_geo_chord_center_distance",
+      "target_id": "m1_geo_equal_chords_equal_center_distance",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_circle__prerequisite_for__m1_geo_equal_center_distance_equal_chords",
+      "source_id": "m1_geo_circle",
+      "target_id": "m1_geo_equal_center_distance_equal_chords",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_chord__prerequisite_for__m1_geo_equal_center_distance_equal_chords",
+      "source_id": "m1_geo_chord",
+      "target_id": "m1_geo_equal_center_distance_equal_chords",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_chord_center_distance__prerequisite_for__m1_geo_equal_center_distance_equal_chords",
+      "source_id": "m1_geo_chord_center_distance",
+      "target_id": "m1_geo_equal_center_distance_equal_chords",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_circle__prerequisite_for__m1_geo_tangent_line",
@@ -101765,11 +104676,235 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_tangent_line__prerequisite_for__m1_geo_tangent_radius_perpendicular",
+      "source_id": "m1_geo_tangent_line",
+      "target_id": "m1_geo_tangent_radius_perpendicular",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_tangent_point__prerequisite_for__m1_geo_tangent_radius_perpendicular",
+      "source_id": "m1_geo_tangent_point",
+      "target_id": "m1_geo_tangent_radius_perpendicular",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_circle_radius__prerequisite_for__m1_geo_tangent_radius_perpendicular",
+      "source_id": "m1_geo_circle_radius",
+      "target_id": "m1_geo_tangent_radius_perpendicular",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_perpendicular__prerequisite_for__m1_geo_tangent_radius_perpendicular",
+      "source_id": "m1_geo_perpendicular",
+      "target_id": "m1_geo_tangent_radius_perpendicular",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
       "id": "m1_geo_tangent_property__prerequisite_for__m1_geo_tangent_length",
       "source_id": "m1_geo_tangent_property",
       "target_id": "m1_geo_tangent_length",
       "relationship_type": "prerequisite_for",
       "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_tangent_line__prerequisite_for__m1_geo_equal_tangent_lengths_from_point",
+      "source_id": "m1_geo_tangent_line",
+      "target_id": "m1_geo_equal_tangent_lengths_from_point",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_tangent_point__prerequisite_for__m1_geo_equal_tangent_lengths_from_point",
+      "source_id": "m1_geo_tangent_point",
+      "target_id": "m1_geo_equal_tangent_lengths_from_point",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_length__prerequisite_for__m1_geo_equal_tangent_lengths_from_point",
+      "source_id": "m1_geo_length",
+      "target_id": "m1_geo_equal_tangent_lengths_from_point",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_tangent_length__prerequisite_for__m1_geo_equal_tangent_lengths_from_point",
+      "source_id": "m1_geo_tangent_length",
+      "target_id": "m1_geo_equal_tangent_lengths_from_point",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
         {
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 39; terms usable in teaching and learning situations",
@@ -101871,6 +105006,150 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_inscribed_angle__prerequisite_for__m1_geo_inscribed_angle_subtended_arc",
+      "source_id": "m1_geo_inscribed_angle",
+      "target_id": "m1_geo_inscribed_angle_subtended_arc",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_arc__prerequisite_for__m1_geo_inscribed_angle_subtended_arc",
+      "source_id": "m1_geo_arc",
+      "target_id": "m1_geo_inscribed_angle_subtended_arc",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_circle__prerequisite_for__m1_geo_same_arc",
+      "source_id": "m1_geo_circle",
+      "target_id": "m1_geo_same_arc",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_arc__prerequisite_for__m1_geo_same_arc",
+      "source_id": "m1_geo_arc",
+      "target_id": "m1_geo_same_arc",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_circle__prerequisite_for__m1_geo_same_chord",
+      "source_id": "m1_geo_circle",
+      "target_id": "m1_geo_same_chord",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_chord__prerequisite_for__m1_geo_same_chord",
+      "source_id": "m1_geo_chord",
+      "target_id": "m1_geo_same_chord",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_inscribed_angle__prerequisite_for__m1_geo_inscribed_angle_property",
       "source_id": "m1_geo_inscribed_angle",
       "target_id": "m1_geo_inscribed_angle_property",
@@ -101913,6 +105192,418 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_inscribed_angle__prerequisite_for__m1_geo_same_arc_inscribed_angles_equal",
+      "source_id": "m1_geo_inscribed_angle",
+      "target_id": "m1_geo_same_arc_inscribed_angles_equal",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_same_arc__prerequisite_for__m1_geo_same_arc_inscribed_angles_equal",
+      "source_id": "m1_geo_same_arc",
+      "target_id": "m1_geo_same_arc_inscribed_angles_equal",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_inscribed_angle_subtended_arc__prerequisite_for__m1_geo_same_arc_inscribed_angles_equal",
+      "source_id": "m1_geo_inscribed_angle_subtended_arc",
+      "target_id": "m1_geo_same_arc_inscribed_angles_equal",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_arc__prerequisite_for__m1_geo_same_arc_same_chord_relation",
+      "source_id": "m1_geo_arc",
+      "target_id": "m1_geo_same_arc_same_chord_relation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_chord__prerequisite_for__m1_geo_same_arc_same_chord_relation",
+      "source_id": "m1_geo_chord",
+      "target_id": "m1_geo_same_arc_same_chord_relation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_same_arc__prerequisite_for__m1_geo_same_arc_same_chord_relation",
+      "source_id": "m1_geo_same_arc",
+      "target_id": "m1_geo_same_arc_same_chord_relation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_same_chord__prerequisite_for__m1_geo_same_arc_same_chord_relation",
+      "source_id": "m1_geo_same_chord",
+      "target_id": "m1_geo_same_arc_same_chord_relation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_central_angle__prerequisite_for__m1_geo_central_inscribed_angle_relation",
+      "source_id": "m1_geo_central_angle",
+      "target_id": "m1_geo_central_inscribed_angle_relation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부채꼴의 중심각과 호의 관계를 이해하고 호의 길이와 넓이를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "평면도형의 성질 section; [9수03-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부채꼴, 중심각, 호의 관계를 이해하고 부채꼴의 호의 길이와 넓이를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_inscribed_angle__prerequisite_for__m1_geo_central_inscribed_angle_relation",
+      "source_id": "m1_geo_inscribed_angle",
+      "target_id": "m1_geo_central_inscribed_angle_relation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부채꼴의 중심각과 호의 관계를 이해하고 호의 길이와 넓이를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "평면도형의 성질 section; [9수03-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부채꼴, 중심각, 호의 관계를 이해하고 부채꼴의 호의 길이와 넓이를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_arc__prerequisite_for__m1_geo_central_inscribed_angle_relation",
+      "source_id": "m1_geo_arc",
+      "target_id": "m1_geo_central_inscribed_angle_relation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-06]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부채꼴의 중심각과 호의 관계를 이해하고 호의 길이와 넓이를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "평면도형의 성질 section; [9수03-06] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부채꼴, 중심각, 호의 관계를 이해하고 부채꼴의 호의 길이와 넓이를 구하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_circle__prerequisite_for__m1_geo_semicircle_arc",
+      "source_id": "m1_geo_circle",
+      "target_id": "m1_geo_semicircle_arc",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_arc__prerequisite_for__m1_geo_semicircle_arc",
+      "source_id": "m1_geo_arc",
+      "target_id": "m1_geo_semicircle_arc",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_chord__prerequisite_for__m1_geo_semicircle_arc",
+      "source_id": "m1_geo_chord",
+      "target_id": "m1_geo_semicircle_arc",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_semicircle_arc__prerequisite_for__m1_geo_semicircle_inscribed_angle_right",
+      "source_id": "m1_geo_semicircle_arc",
+      "target_id": "m1_geo_semicircle_inscribed_angle_right",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_inscribed_angle__prerequisite_for__m1_geo_semicircle_inscribed_angle_right",
+      "source_id": "m1_geo_inscribed_angle",
+      "target_id": "m1_geo_semicircle_inscribed_angle_right",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_central_inscribed_angle_relation__prerequisite_for__m1_geo_semicircle_inscribed_angle_right",
+      "source_id": "m1_geo_central_inscribed_angle_relation",
+      "target_id": "m1_geo_semicircle_inscribed_angle_right",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_circle_chord_property__prerequisite_for__m1_geo_circle_justification",
@@ -102051,32 +105742,238 @@
       "confidence": "high"
     },
     {
-      "id": "m1_geo_circle__prerequisite_for__m1_mis_circle_proportion_scope",
-      "source_id": "m1_geo_circle",
-      "target_id": "m1_mis_circle_proportion_scope",
+      "id": "m1_geo_circle_chord_property__prerequisite_for__m1_geo_circle_property_evidence_selection",
+      "source_id": "m1_geo_circle_chord_property",
+      "target_id": "m1_geo_circle_property_evidence_selection",
       "relationship_type": "prerequisite_for",
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
-          "locator": "printed p. 39; achievement-standard considerations",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
           "evidence_kind": "teaching_note",
-          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_tangent_property__prerequisite_for__m1_geo_circle_property_evidence_selection",
+      "source_id": "m1_geo_tangent_property",
+      "target_id": "m1_geo_circle_property_evidence_selection",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_inscribed_angle_property__prerequisite_for__m1_geo_circle_property_evidence_selection",
+      "source_id": "m1_geo_inscribed_angle_property",
+      "target_id": "m1_geo_circle_property_evidence_selection",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_proof__prerequisite_for__m1_geo_circle_property_evidence_selection",
+      "source_id": "m1_geo_proof",
+      "target_id": "m1_geo_circle_property_evidence_selection",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_circle__prerequisite_for__m1_geo_circle_auxiliary_radius_center",
+      "source_id": "m1_geo_circle",
+      "target_id": "m1_geo_circle_auxiliary_radius_center",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
         }
       ],
       "notes": "",
       "confidence": "low"
     },
     {
-      "id": "m1_geo_similarity_ratio__prerequisite_for__m1_mis_circle_proportion_scope",
-      "source_id": "m1_geo_similarity_ratio",
-      "target_id": "m1_mis_circle_proportion_scope",
+      "id": "m1_geo_circle_radius__prerequisite_for__m1_geo_circle_auxiliary_radius_center",
+      "source_id": "m1_geo_circle_radius",
+      "target_id": "m1_geo_circle_auxiliary_radius_center",
       "relationship_type": "prerequisite_for",
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
-          "locator": "printed p. 39; achievement-standard considerations",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
           "evidence_kind": "teaching_note",
-          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_central_angle__prerequisite_for__m1_geo_circle_auxiliary_radius_center",
+      "source_id": "m1_geo_central_angle",
+      "target_id": "m1_geo_circle_auxiliary_radius_center",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
         }
       ],
       "notes": "",
@@ -108627,6 +112524,106 @@
           "locator": "printed p. 38; [9수03-18]",
           "evidence_kind": "achievement_standard",
           "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_inscribed_central_angle_equal__often_confused_with__m1_geo_inscribed_angle",
+      "source_id": "m1_mis_inscribed_central_angle_equal",
+      "target_id": "m1_geo_inscribed_angle",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_inscribed_central_angle_equal__often_confused_with__m1_geo_central_angle",
+      "source_id": "m1_mis_inscribed_central_angle_equal",
+      "target_id": "m1_geo_central_angle",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_same_chord_arc_scope__often_confused_with__m1_geo_same_chord",
+      "source_id": "m1_mis_same_chord_arc_scope",
+      "target_id": "m1_geo_same_chord",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "원의 성질 section; [9수03-18]~[9수03-19] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "원의 현과 접선에 관한 성질, 원주각의 성질을 이해하고 정당화하는 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_same_chord_arc_scope__often_confused_with__m1_geo_same_arc_inscribed_angles_equal",
+      "source_id": "m1_mis_same_chord_arc_scope",
+      "target_id": "m1_geo_same_arc_inscribed_angles_equal",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-18]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원의 현과 접선에 관한 성질을 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-19]",
+          "evidence_kind": "achievement_standard",
+          "summary": "원주각의 성질을 이해하고 정당화하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",

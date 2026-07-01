@@ -19,11 +19,11 @@ Rows are manual-review candidates only; `source_ref_upgrade_allowed` stays `no` 
 | signal | rows |
 |---|---:|
 | achievement_level_context | 63 |
-| assessment_context | 24 |
+| assessment_context | 25 |
 | curriculum_context | 54 |
-| example_assessment_tool_context | 16 |
+| example_assessment_tool_context | 17 |
 | general_report_context | 1 |
-| teaching_learning_context | 24 |
+| teaching_learning_context | 25 |
 
 ## Review Rows
 
@@ -84,15 +84,15 @@ Rows are manual-review candidates only; `source_ref_upgrade_allowed` stays `no` 
 | 53 | m1_num_multiple | 배수 | 26 | 배수 | medium | achievement_level_context; teaching_learning_context; curriculum_context | no |
 | 54 | m1_num_divisor | 약수 | 13 | 약수 | medium | achievement_level_context; assessment_context; teaching_learning_context; curriculum_context | no |
 | 55 | m1_num_divisor | 약수 | 26 | 약수 | medium | achievement_level_context; teaching_learning_context; curriculum_context | no |
-| 56 | m1_quad_eq_coefficients_in_standard_form | 이차방정식의 계수 | 35 | a, b, c | medium | achievement_level_context; assessment_context; teaching_learning_context; curriculum_context | no |
-| 57 | m1_quad_eq_coefficients_in_standard_form | 이차방정식의 계수 | 37 | a, b, c | medium | achievement_level_context; curriculum_context | no |
-| 58 | m1_geo_correspondence | 도형의 대응 | 5 | 대응 | medium | achievement_level_context; example_assessment_tool_context; assessment_context; teaching_learning_context; curriculum_context | no |
-| 59 | m1_geo_correspondence | 도형의 대응 | 12 | 대응 | medium | achievement_level_context; assessment_context; teaching_learning_context; curriculum_context | no |
-| 60 | m1_data_mean | 평균 | 91 | 평균 | medium | achievement_level_context; example_assessment_tool_context; assessment_context; teaching_learning_context; curriculum_context | no |
-| 61 | m1_data_mean | 평균 | 177 | 평균 | medium | achievement_level_context; curriculum_context | no |
-| 62 | m1_calc_expansion | 전개 | 173 | 전개 | medium | achievement_level_context; curriculum_context | no |
-| 63 | m1_calc_expansion | 전개 | 174 | 전개 | medium | achievement_level_context; curriculum_context | no |
-| 64 | m1_num_common_multiple | 공배수 | 13 | 공배수 | medium | achievement_level_context; assessment_context; teaching_learning_context; curriculum_context | no |
-| 65 | m1_num_common_multiple | 공배수 | 26 | 공배수 | medium | achievement_level_context; teaching_learning_context; curriculum_context | no |
-| 66 | m1_geo_solid_net | 전개도 | 173 | 전개도 | medium | achievement_level_context; curriculum_context | no |
-| 67 | m1_geo_solid_net | 전개도 | 174 | 전개도 | medium | achievement_level_context; curriculum_context | no |
+| 56 | m1_geo_circle_radius | 원의 반지름 | 61 | 반지름 | medium | achievement_level_context; example_assessment_tool_context; assessment_context; teaching_learning_context; curriculum_context | no |
+| 57 | m1_geo_circle_radius | 원의 반지름 | 131 | 반지름 | medium | achievement_level_context; curriculum_context | no |
+| 58 | m1_quad_eq_coefficients_in_standard_form | 이차방정식의 계수 | 35 | a, b, c | medium | achievement_level_context; assessment_context; teaching_learning_context; curriculum_context | no |
+| 59 | m1_quad_eq_coefficients_in_standard_form | 이차방정식의 계수 | 37 | a, b, c | medium | achievement_level_context; curriculum_context | no |
+| 60 | m1_geo_correspondence | 도형의 대응 | 5 | 대응 | medium | achievement_level_context; example_assessment_tool_context; assessment_context; teaching_learning_context; curriculum_context | no |
+| 61 | m1_geo_correspondence | 도형의 대응 | 12 | 대응 | medium | achievement_level_context; assessment_context; teaching_learning_context; curriculum_context | no |
+| 62 | m1_data_mean | 평균 | 91 | 평균 | medium | achievement_level_context; example_assessment_tool_context; assessment_context; teaching_learning_context; curriculum_context | no |
+| 63 | m1_data_mean | 평균 | 177 | 평균 | medium | achievement_level_context; curriculum_context | no |
+| 64 | m1_calc_expansion | 전개 | 173 | 전개 | medium | achievement_level_context; curriculum_context | no |
+| 65 | m1_calc_expansion | 전개 | 174 | 전개 | medium | achievement_level_context; curriculum_context | no |
+| 66 | m1_num_common_multiple | 공배수 | 13 | 공배수 | medium | achievement_level_context; assessment_context; teaching_learning_context; curriculum_context | no |
+| 67 | m1_num_common_multiple | 공배수 | 26 | 공배수 | medium | achievement_level_context; teaching_learning_context; curriculum_context | no |

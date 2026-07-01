@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 도형과 측정
 - priority tier: low
 - priority score: 7
-- edges in packet: 40
-- cross-unit edges: 36
+- edges in packet: 42
+- cross-unit edges: 38
 - low confidence edges: 2
 
 ## Relationship Evidence Slots
@@ -36,6 +36,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_geo_angle__prerequisite_for__m1_geo_triangle | cross_unit | 각 | prerequisite_for | 삼각형 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 9 |
 | m1_geo_area__prerequisite_for__m1_geo_net_surface_area_strategy | cross_unit | 넓이 | prerequisite_for | 전개도로 겉넓이 구하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_area__prerequisite_for__m1_geo_sector_area_calculation | cross_unit | 넓이 | prerequisite_for | 부채꼴의 넓이 구하기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_geo_length__prerequisite_for__m1_geo_circle_radius | cross_unit | 길이 | prerequisite_for | 원의 반지름 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_geo_length__prerequisite_for__m1_geo_equal_tangent_lengths_from_point | cross_unit | 길이 | prerequisite_for | 한 점에서 그은 두 접선의 길이가 같음 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_length__prerequisite_for__m1_geo_isosceles_equal_sides | cross_unit | 길이 | prerequisite_for | 이등변삼각형의 두 같은 변 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_length__prerequisite_for__m1_geo_rectangle_diagonals_equal | cross_unit | 길이 | prerequisite_for | 직사각형의 대각선의 길이가 같음 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_length__prerequisite_for__m1_geo_rhombus | cross_unit | 길이 | prerequisite_for | 마름모 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |

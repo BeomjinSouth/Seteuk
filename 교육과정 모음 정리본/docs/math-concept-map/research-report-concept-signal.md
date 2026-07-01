@@ -5,7 +5,7 @@ Rows are candidate signals only; inspect the local page context before changing 
 
 ## Summary
 
-- matched concepts: 263
+- matched concepts: 264
 
 ## Confidence
 
@@ -13,14 +13,14 @@ Rows are candidate signals only; inspect the local page context before changing 
 |---|---:|
 | high | 216 |
 | low | 5 |
-| medium | 42 |
+| medium | 43 |
 
 ## Recommended Actions
 
 | action | matched concepts |
 |---|---:|
 | inspect_research_report_context_before_confidence_change | 5 |
-| inspect_research_report_context_before_source_ref_upgrade | 42 |
+| inspect_research_report_context_before_source_ref_upgrade | 43 |
 | use_as_supplemental_trace_only | 216 |
 
 ## Highest Priority Signals
@@ -46,6 +46,7 @@ Rows are candidate signals only; inspect the local page context before changing 
 | m1_func_intersection_point | 교점 | 일차함수와 일차방정식의 관계 | medium | 36 | 57; 58; 219; 232; 233; 234; 254 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_num_multiple | 배수 | 소인수분해 | medium | 35 | 13; 26; 169; 179; 180; 211; 230; 231 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_num_divisor | 약수 | 소인수분해 | medium | 34 | 13; 26; 169; 179; 180; 211; 230; 231 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
+| m1_geo_circle_radius | 원의 반지름 | 원의 성질 | medium | 26 | 61; 131; 141; 159; 160; 161; 265; 269; 270 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_quad_eq_coefficients_in_standard_form | 이차방정식의 계수 | 이차방정식 | medium | 26 | 35; 37; 39; 64; 65; 84; 87 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_geo_correspondence | 도형의 대응 | 도형의 닮음 | medium | 25 | 5; 12; 22; 24; 54; 75; 76; 84; 171; 173; 180; 181 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_data_mean | 평균 | 대푯값 | medium | 24 | 91; 177; 183; 186; 187 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
@@ -106,4 +107,3 @@ Rows are candidate signals only; inspect the local page context before changing 
 | m1_eq_linear_equation | 일차방정식 | 일차방정식 | high | 62 | 54; 55; 56; 57; 58; 59; 214; 217; 219; 232; 233; 234; 235 | research_report_signal | use_as_supplemental_trace_only |
 | m1_func_two_quantity_relation | 두 양 사이의 관계 | 일차함수와 그 그래프 | high | 62 | 62; 129; 137; 218; 242; 243; 245 | research_report_signal | use_as_supplemental_trace_only |
 | m1_data_counting_cases | 경우의 수 | 경우의 수와 확률 | high | 62 | 62; 77; 78; 79; 80; 228; 239; 240; 241; 242; 260; 262; 266; 267; 268 | research_report_signal | use_as_supplemental_trace_only |
-| m1_geo_model_tool_solid | 모형과 공학 도구로 입체도형 탐구 | 입체도형의 성질 | high | 61 | 13; 21; 22; 23; 24; 59; 60; 61; 62; 77; 79; 87; 88; 141; 142; 222; 228; 229; 235; 236; 239; 240; 241; 242 | research_report_signal | use_as_supplemental_trace_only |

@@ -9,12 +9,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 도형과 측정
 - unit: 도형의 닮음
 - priority tier: medium
-- workplan score: 82
+- workplan score: 77
 - concepts: 11
-- edges touching unit: 59
-- cross-unit edges: 27
+- edges touching unit: 58
+- cross-unit edges: 26
 - low confidence concepts: 1
-- low confidence edges: 10
+- low confidence edges: 9
 
 ## Concept Type Distribution
 
@@ -33,7 +33,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 13 |
 | contrasts_with | 3 |
 | often_confused_with | 3 |
-| prerequisite_for | 23 |
+| prerequisite_for | 22 |
 | related_to | 1 |
 | represented_by | 3 |
 | used_in | 13 |
@@ -49,7 +49,6 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
 | m1_geo_congruence__prerequisite_for__m1_mis_congruence_similarity | 합동 | prerequisite_for | 합동과 닮음을 같은 관계로 보는 오류 | low | official_dual_source |
-| m1_geo_similarity_ratio__prerequisite_for__m1_mis_circle_proportion_scope | 닮음비 | prerequisite_for | 원과 비례에 관한 성질을 범위에 포함하는 오류 | low | official_single_source |
 | m1_num_ratio__used_in__m1_geo_parallel_segment_ratio | 비 | used_in | 평행선 사이의 선분의 길이의 비 | low | official_dual_source |
 | m1_num_ratio__used_in__m1_geo_similarity_ratio | 비 | used_in | 닮음비 | low | official_dual_source |
 | m1_mis_congruence_similarity__often_confused_with__m1_geo_congruence | 합동과 닮음을 같은 관계로 보는 오류 | often_confused_with | 합동 | low | official_dual_source |

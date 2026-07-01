@@ -4,16 +4,16 @@ This generated audit summarizes source evidence depth for each relationship edge
 
 ## Summary
 
-- edges: 3090
-- needs textbook evidence: 3090
-- low confidence edges: 474
+- edges: 3204
+- needs textbook evidence: 3204
+- low confidence edges: 491
 
 ## Evidence Depth Counts
 
 | evidence_depth | edge count |
 |---|---:|
-| official_dual_source | 2700 |
-| official_single_source | 390 |
+| official_dual_source | 2816 |
+| official_single_source | 388 |
 
 ## Edge Scope Counts
 
@@ -21,9 +21,9 @@ This generated audit summarizes source evidence depth for each relationship edge
 |---|---:|
 | cross_domain_same_grade | 62 |
 | cross_grade_cross_domain | 32 |
-| cross_grade_same_domain | 245 |
+| cross_grade_same_domain | 275 |
 | cross_unit_same_domain | 251 |
-| same_unit | 2500 |
+| same_unit | 2584 |
 
 ## Priority Rows
 
@@ -57,15 +57,15 @@ This generated audit summarizes source evidence depth for each relationship edge
 | m1_num_domain__contains__m1_num_ratio | contains | cross_grade_same_domain | low | official_single_source | 6 | curriculum_math_2022 |
 | m1_mis_congruence_similarity__often_confused_with__m1_geo_congruence | often_confused_with | cross_grade_same_domain | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_expansion_factorization_direction__often_confused_with__m1_calc_expansion | often_confused_with | cross_grade_same_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
+| m1_mis_inscribed_central_angle_equal__often_confused_with__m1_geo_central_angle | often_confused_with | cross_grade_same_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_irrational_decimal__often_confused_with__m1_num_infinite_decimal | often_confused_with | cross_grade_same_domain | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_irrational_decimal__often_confused_with__m1_num_rational_repeating_relation | often_confused_with | cross_grade_same_domain | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_irrational_decimal__often_confused_with__m1_num_repeating_decimal | often_confused_with | cross_grade_same_domain | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |
+| m1_mis_proof_observation__often_confused_with__m1_geo_circle_justification | often_confused_with | cross_grade_same_domain | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |
+| m1_geo_arc__prerequisite_for__m1_geo_semicircle_arc | prerequisite_for | cross_grade_same_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
+| m1_geo_central_angle__prerequisite_for__m1_geo_circle_auxiliary_radius_center | prerequisite_for | cross_grade_same_domain | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |
+| m1_geo_chord__prerequisite_for__m1_geo_semicircle_arc | prerequisite_for | cross_grade_same_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_geo_congruence__prerequisite_for__m1_mis_congruence_similarity | prerequisite_for | cross_grade_same_domain | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |
-| m1_geo_similarity_ratio__prerequisite_for__m1_mis_circle_proportion_scope | prerequisite_for | cross_grade_same_domain | low | official_single_source | 1 | curriculum_math_2022 |
 | m1_geo_tangent_ratio__contrasts_with__m1_geo_tangent_line | contrasts_with | cross_unit_same_domain | low | official_single_source | 1 | curriculum_math_2022 |
 | m1_mis_expression_equation__often_confused_with__m1_repr_expression | often_confused_with | cross_unit_same_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_function_value_input_output__often_confused_with__m1_expr_substitution | often_confused_with | cross_unit_same_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_ineq_solution_single_value__often_confused_with__m1_eq_solution | often_confused_with | cross_unit_same_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_intersection_solution__often_confused_with__m1_system_solution | often_confused_with | cross_unit_same_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_letter_as_label_only__often_confused_with__m1_term_variable | often_confused_with | cross_unit_same_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_polynomial_like_terms__often_confused_with__m1_expr_like_terms | often_confused_with | cross_unit_same_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |

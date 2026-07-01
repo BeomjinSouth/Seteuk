@@ -9,12 +9,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 도형과 측정
 - unit: 삼각형과 사각형의 성질
 - priority tier: highest
-- workplan score: 196
+- workplan score: 204
 - concepts: 47
-- edges touching unit: 215
-- cross-unit edges: 61
+- edges touching unit: 219
+- cross-unit edges: 65
 - low confidence concepts: 4
-- low confidence edges: 18
+- low confidence edges: 19
 
 ## Concept Type Distribution
 
@@ -33,9 +33,9 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 |---|---:|
 | contains | 56 |
 | contrasts_with | 9 |
-| often_confused_with | 13 |
-| prerequisite_for | 97 |
-| related_to | 2 |
+| often_confused_with | 14 |
+| prerequisite_for | 98 |
+| related_to | 4 |
 | represented_by | 2 |
 | used_in | 36 |
 
@@ -52,6 +52,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
+| m1_mis_proof_observation__often_confused_with__m1_geo_circle_justification | 관찰 결과와 증명을 같은 수준의 근거로 보는 오류 | often_confused_with | 원의 성질 정당화 | low | official_dual_source |
 | m1_geo_triangle_midpoint_theorem__related_to__m1_geo_centroid | 삼각형의 중점연결정리 | related_to | 무게중심 | low | official_dual_source |
 | m1_geo_domain__contains__m1_geo_triangle_quadrilateral_unit | 도형과 측정 | contains | 삼각형과 사각형의 성질 | high | official_dual_source |
 | m1_geo_similarity_unit__contains__m1_geo_centroid | 도형의 닮음 | contains | 무게중심 | high | official_dual_source |
@@ -91,4 +92,3 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_geo_perpendicular_bisector__prerequisite_for__m1_geo_isosceles_vertex_angle_bisector_property | 수직이등분선 | prerequisite_for | 이등변삼각형의 꼭지각 이등분선 성질 | medium | official_dual_source |
 | m1_geo_polygon__prerequisite_for__m1_geo_quadrilateral | 다각형 | prerequisite_for | 사각형 | high | official_dual_source |
 | m1_geo_proof__prerequisite_for__m1_geo_circle_justification | 증명 | prerequisite_for | 원의 성질 정당화 | high | official_dual_source |
-| m1_geo_right_triangle__prerequisite_for__m1_geo_right_triangle_congruence_conditions | 직각삼각형 | prerequisite_for | 직각삼각형의 합동 조건 | medium | official_dual_source |

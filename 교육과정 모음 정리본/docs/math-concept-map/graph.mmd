@@ -600,17 +600,37 @@ flowchart LR
   m1_mis_trig_angle_scope["삼각비 각의 범위를 0도~90도 밖으로 확장하는 오류"]
   m1_mis_trig_opposite_adjacent_swap["기준각에 따라 대변과 이웃변을 바꾸는 오류"]
   m1_geo_circle["원"]
+  m1_geo_circle_radius["원의 반지름"]
   m1_geo_circle_chord_property["원의 현에 관한 성질"]
+  m1_geo_chord_center_distance["원 중심에서 현까지의 거리"]
+  m1_geo_chord_center_perpendicular_bisects["원의 중심에서 현에 내린 수선은 현을 이등분"]
+  m1_geo_chord_midpoint_center_perpendicular["원 중심과 현의 중점을 이은 직선은 현에 수직"]
+  m1_geo_equal_chords_equal_center_distance["같은 원에서 길이가 같은 현은 중심에서 같은 거리에 있음"]
+  m1_geo_equal_center_distance_equal_chords["같은 원에서 중심거리가 같은 현의 길이가 같음"]
   m1_geo_tangent_line["접선"]
   m1_geo_tangent_point["접점"]
   m1_geo_tangent_relation["접한다"]
   m1_geo_tangent_property["원의 접선에 관한 성질"]
+  m1_geo_tangent_radius_perpendicular["접점에서의 접선과 반지름의 수직 관계"]
   m1_geo_tangent_length["접선의 길이"]
+  m1_geo_equal_tangent_lengths_from_point["한 점에서 그은 두 접선의 길이가 같음"]
   m1_geo_inscribed_angle["원주각"]
+  m1_geo_inscribed_angle_subtended_arc["원주각이 보는 호"]
+  m1_geo_same_arc["같은 호"]
+  m1_geo_same_chord["같은 현"]
   m1_geo_inscribed_angle_property["원주각의 성질"]
+  m1_geo_same_arc_inscribed_angles_equal["같은 호에 대한 원주각의 크기가 같음"]
+  m1_geo_same_arc_same_chord_relation["같은 호와 같은 현의 대응 관계"]
+  m1_geo_central_inscribed_angle_relation["중심각과 원주각의 관계"]
+  m1_geo_semicircle_arc["반원"]
+  m1_geo_semicircle_inscribed_angle_right["반원에 대한 원주각은 직각"]
   m1_geo_circle_justification["원의 성질 정당화"]
+  m1_geo_circle_property_evidence_selection["원의 성질 정당화에서 근거 선택하기"]
+  m1_geo_circle_auxiliary_radius_center["원의 중심과 반지름 보조선 활용"]
   m1_mis_circle_proportion_scope["원과 비례에 관한 성질을 범위에 포함하는 오류"]
   m1_mis_tangent_radius["접선과 반지름의 수직 관계를 놓치는 오류"]
+  m1_mis_inscribed_central_angle_equal["원주각과 중심각을 같은 크기로 보는 오류"]
+  m1_mis_same_chord_arc_scope["같은 현과 같은 호의 조건을 넓게 적용하는 오류"]
   m1_data_domain["자료와 가능성"]
   m1_data_representative_unit["대푯값"]
   m1_data_frequency_unit["도수분포표와 상대도수"]
@@ -1927,20 +1947,50 @@ flowchart LR
   m1_geo_right_triangle_trig_value -- "사용" --> m1_geo_trig_distance_height
   m1_geo_trig_distance_height -- "연관" --> m1_geo_trig_triangle_area
   m1_geo_circle -- "표현" --> m1_geo_arc
+  m1_geo_circle -- "표현" --> m1_geo_circle_radius
   m1_geo_circle -- "표현" --> m1_geo_chord
   m1_geo_circle -- "표현" --> m1_geo_tangent_line
   m1_geo_circle -- "표현" --> m1_geo_inscribed_angle
+  m1_geo_circle_radius -- "연관" --> m1_geo_circumradius
+  m1_geo_circle_radius -- "연관" --> m1_geo_inradius
   m1_geo_chord -- "사용" --> m1_geo_circle_chord_property
+  m1_geo_chord_center_perpendicular_bisects -- "사용" --> m1_geo_chord_center_distance
+  m1_geo_chord_center_perpendicular_bisects -- "사용" --> m1_geo_equal_chords_equal_center_distance
+  m1_geo_chord_midpoint_center_perpendicular -- "사용" --> m1_geo_equal_center_distance_equal_chords
+  m1_geo_equal_chords_equal_center_distance -- "연관" --> m1_geo_equal_center_distance_equal_chords
+  m1_geo_chord_center_distance -- "사용" --> m1_geo_circle_justification
+  m1_geo_chord_center_perpendicular_bisects -- "사용" --> m1_geo_circle_justification
+  m1_geo_chord_midpoint_center_perpendicular -- "사용" --> m1_geo_circle_justification
+  m1_geo_equal_chords_equal_center_distance -- "사용" --> m1_geo_circle_justification
+  m1_geo_equal_center_distance_equal_chords -- "사용" --> m1_geo_circle_justification
   m1_geo_tangent_line -- "사용" --> m1_geo_tangent_point
   m1_geo_tangent_line -- "사용" --> m1_geo_tangent_relation
   m1_geo_tangent_line -- "사용" --> m1_geo_tangent_property
   m1_geo_tangent_line -- "사용" --> m1_geo_tangent_length
   m1_geo_tangent_relation -- "사용" --> m1_geo_tangent_property
   m1_geo_tangent_property -- "사용" --> m1_geo_tangent_length
+  m1_geo_circle_radius -- "사용" --> m1_geo_tangent_radius_perpendicular
+  m1_geo_tangent_radius_perpendicular -- "사용" --> m1_geo_tangent_length
+  m1_geo_tangent_radius_perpendicular -- "사용" --> m1_geo_equal_tangent_lengths_from_point
+  m1_geo_equal_tangent_lengths_from_point -- "사용" --> m1_geo_circle_justification
   m1_geo_tangent_line -- "대조" --> m1_geo_secant
   m1_geo_secant -- "대조" --> m1_geo_tangent_line
   m1_geo_secant -- "대조" --> m1_geo_chord
   m1_geo_inscribed_angle -- "사용" --> m1_geo_inscribed_angle_property
+  m1_geo_inscribed_angle -- "사용" --> m1_geo_inscribed_angle_subtended_arc
+  m1_geo_inscribed_angle_subtended_arc -- "사용" --> m1_geo_same_arc_inscribed_angles_equal
+  m1_geo_same_arc -- "사용" --> m1_geo_same_arc_inscribed_angles_equal
+  m1_geo_same_arc_same_chord_relation -- "사용" --> m1_geo_same_arc_inscribed_angles_equal
+  m1_geo_central_angle -- "사용" --> m1_geo_central_inscribed_angle_relation
+  m1_geo_central_inscribed_angle_relation -- "사용" --> m1_geo_same_arc_inscribed_angles_equal
+  m1_geo_central_inscribed_angle_relation -- "사용" --> m1_geo_semicircle_inscribed_angle_right
+  m1_geo_central_inscribed_angle_relation -- "연관" --> m1_geo_sector_central_angle_arc_relation
+  m1_geo_semicircle_arc -- "사용" --> m1_geo_semicircle_inscribed_angle_right
+  m1_geo_same_arc_inscribed_angles_equal -- "사용" --> m1_geo_circle_justification
+  m1_geo_same_arc_same_chord_relation -- "사용" --> m1_geo_circle_justification
+  m1_geo_semicircle_inscribed_angle_right -- "사용" --> m1_geo_circle_justification
+  m1_geo_circle_property_evidence_selection -- "사용" --> m1_geo_circle_justification
+  m1_geo_circle_auxiliary_radius_center -- "사용" --> m1_geo_circle_justification
   m1_geo_arc -- "사용" --> m1_geo_inscribed_angle_property
   m1_geo_circle_chord_property -- "사용" --> m1_geo_circle_justification
   m1_geo_tangent_property -- "사용" --> m1_geo_circle_justification
@@ -1970,6 +2020,10 @@ flowchart LR
   m1_mis_trig_opposite_adjacent_swap -- "혼동" --> m1_geo_trig_select_ratio_for_unknown
   m1_mis_circle_proportion_scope -- "혼동" --> m1_geo_circle_chord_property
   m1_mis_tangent_radius -- "혼동" --> m1_geo_tangent_property
+  m1_mis_tangent_radius -- "혼동" --> m1_geo_tangent_radius_perpendicular
+  m1_mis_inscribed_central_angle_equal -- "혼동" --> m1_geo_central_inscribed_angle_relation
+  m1_mis_same_chord_arc_scope -- "혼동" --> m1_geo_same_arc_same_chord_relation
+  m1_mis_proof_observation -- "혼동" --> m1_geo_circle_justification
   m1_data_domain -- "표현" --> m1_repr_table
   m1_data_domain -- "표현" --> m1_graph_graph
   m1_data_domain -- "연관" --> m1_num_domain
@@ -2530,17 +2584,38 @@ flowchart LR
   m1_geo_trig_unit -- "포함" --> m1_mis_trig_opposite_adjacent_swap
   m1_geo_plane_properties_unit -- "포함" --> m1_geo_circle
   m1_geo_circle_unit -- "포함" --> m1_geo_circle
+  m1_geo_circle_unit -- "포함" --> m1_geo_circle_radius
   m1_geo_circle_unit -- "포함" --> m1_geo_circle_chord_property
+  m1_geo_circle_chord_property -- "포함" --> m1_geo_chord_center_distance
+  m1_geo_circle_chord_property -- "포함" --> m1_geo_chord_center_perpendicular_bisects
+  m1_geo_circle_chord_property -- "포함" --> m1_geo_chord_midpoint_center_perpendicular
+  m1_geo_circle_chord_property -- "포함" --> m1_geo_equal_chords_equal_center_distance
+  m1_geo_circle_chord_property -- "포함" --> m1_geo_equal_center_distance_equal_chords
   m1_geo_circle_unit -- "포함" --> m1_geo_tangent_line
   m1_geo_circle_unit -- "포함" --> m1_geo_tangent_point
   m1_geo_circle_unit -- "포함" --> m1_geo_tangent_relation
   m1_geo_circle_unit -- "포함" --> m1_geo_tangent_property
+  m1_geo_tangent_property -- "포함" --> m1_geo_tangent_radius_perpendicular
   m1_geo_circle_unit -- "포함" --> m1_geo_tangent_length
+  m1_geo_tangent_length -- "포함" --> m1_geo_equal_tangent_lengths_from_point
   m1_geo_circle_unit -- "포함" --> m1_geo_inscribed_angle
+  m1_geo_inscribed_angle_property -- "포함" --> m1_geo_inscribed_angle_subtended_arc
+  m1_geo_inscribed_angle_property -- "포함" --> m1_geo_same_arc
+  m1_geo_circle_chord_property -- "포함" --> m1_geo_same_chord
   m1_geo_circle_unit -- "포함" --> m1_geo_inscribed_angle_property
+  m1_geo_inscribed_angle_property -- "포함" --> m1_geo_same_arc_inscribed_angles_equal
+  m1_geo_circle_chord_property -- "포함" --> m1_geo_same_arc_same_chord_relation
+  m1_geo_inscribed_angle_property -- "포함" --> m1_geo_same_arc_same_chord_relation
+  m1_geo_inscribed_angle_property -- "포함" --> m1_geo_central_inscribed_angle_relation
+  m1_geo_inscribed_angle_property -- "포함" --> m1_geo_semicircle_arc
+  m1_geo_inscribed_angle_property -- "포함" --> m1_geo_semicircle_inscribed_angle_right
   m1_geo_circle_unit -- "포함" --> m1_geo_circle_justification
+  m1_geo_circle_justification -- "포함" --> m1_geo_circle_property_evidence_selection
+  m1_geo_circle_justification -- "포함" --> m1_geo_circle_auxiliary_radius_center
   m1_geo_circle_unit -- "포함" --> m1_mis_circle_proportion_scope
   m1_geo_circle_unit -- "포함" --> m1_mis_tangent_radius
+  m1_geo_circle_unit -- "포함" --> m1_mis_inscribed_central_angle_equal
+  m1_geo_circle_unit -- "포함" --> m1_mis_same_chord_arc_scope
   m1_data_domain -- "포함" --> m1_data_representative_unit
   m1_data_domain -- "포함" --> m1_data_frequency_unit
   m1_data_domain -- "포함" --> m1_data_statistical_inquiry_unit
@@ -3509,8 +3584,28 @@ flowchart LR
   m1_geo_trigonometric_ratio -- "선수" --> m1_geo_trig_triangle_area
   m1_geo_point -- "선수" --> m1_geo_circle
   m1_geo_plane -- "선수" --> m1_geo_circle
+  m1_geo_circle -- "선수" --> m1_geo_circle_radius
+  m1_geo_length -- "선수" --> m1_geo_circle_radius
   m1_geo_circle -- "선수" --> m1_geo_circle_chord_property
   m1_geo_chord -- "선수" --> m1_geo_circle_chord_property
+  m1_geo_circle -- "선수" --> m1_geo_chord_center_distance
+  m1_geo_chord -- "선수" --> m1_geo_chord_center_distance
+  m1_geo_perpendicular -- "선수" --> m1_geo_chord_center_distance
+  m1_geo_distance_between_two_points -- "선수" --> m1_geo_chord_center_distance
+  m1_geo_circle -- "선수" --> m1_geo_chord_center_perpendicular_bisects
+  m1_geo_chord -- "선수" --> m1_geo_chord_center_perpendicular_bisects
+  m1_geo_perpendicular -- "선수" --> m1_geo_chord_center_perpendicular_bisects
+  m1_geo_midpoint -- "선수" --> m1_geo_chord_center_perpendicular_bisects
+  m1_geo_circle -- "선수" --> m1_geo_chord_midpoint_center_perpendicular
+  m1_geo_chord -- "선수" --> m1_geo_chord_midpoint_center_perpendicular
+  m1_geo_midpoint -- "선수" --> m1_geo_chord_midpoint_center_perpendicular
+  m1_geo_perpendicular -- "선수" --> m1_geo_chord_midpoint_center_perpendicular
+  m1_geo_circle -- "선수" --> m1_geo_equal_chords_equal_center_distance
+  m1_geo_chord -- "선수" --> m1_geo_equal_chords_equal_center_distance
+  m1_geo_chord_center_distance -- "선수" --> m1_geo_equal_chords_equal_center_distance
+  m1_geo_circle -- "선수" --> m1_geo_equal_center_distance_equal_chords
+  m1_geo_chord -- "선수" --> m1_geo_equal_center_distance_equal_chords
+  m1_geo_chord_center_distance -- "선수" --> m1_geo_equal_center_distance_equal_chords
   m1_geo_circle -- "선수" --> m1_geo_tangent_line
   m1_geo_line -- "선수" --> m1_geo_tangent_line
   m1_geo_tangent_line -- "선수" --> m1_geo_tangent_point
@@ -3519,18 +3614,53 @@ flowchart LR
   m1_geo_tangent_point -- "선수" --> m1_geo_tangent_relation
   m1_geo_tangent_line -- "선수" --> m1_geo_tangent_property
   m1_geo_tangent_point -- "선수" --> m1_geo_tangent_property
+  m1_geo_tangent_line -- "선수" --> m1_geo_tangent_radius_perpendicular
+  m1_geo_tangent_point -- "선수" --> m1_geo_tangent_radius_perpendicular
+  m1_geo_circle_radius -- "선수" --> m1_geo_tangent_radius_perpendicular
+  m1_geo_perpendicular -- "선수" --> m1_geo_tangent_radius_perpendicular
   m1_geo_tangent_property -- "선수" --> m1_geo_tangent_length
+  m1_geo_tangent_line -- "선수" --> m1_geo_equal_tangent_lengths_from_point
+  m1_geo_tangent_point -- "선수" --> m1_geo_equal_tangent_lengths_from_point
+  m1_geo_length -- "선수" --> m1_geo_equal_tangent_lengths_from_point
+  m1_geo_tangent_length -- "선수" --> m1_geo_equal_tangent_lengths_from_point
   m1_geo_circle -- "선수" --> m1_geo_inscribed_angle
   m1_geo_angle -- "선수" --> m1_geo_inscribed_angle
   m1_geo_arc -- "선수" --> m1_geo_inscribed_angle
+  m1_geo_inscribed_angle -- "선수" --> m1_geo_inscribed_angle_subtended_arc
+  m1_geo_arc -- "선수" --> m1_geo_inscribed_angle_subtended_arc
+  m1_geo_circle -- "선수" --> m1_geo_same_arc
+  m1_geo_arc -- "선수" --> m1_geo_same_arc
+  m1_geo_circle -- "선수" --> m1_geo_same_chord
+  m1_geo_chord -- "선수" --> m1_geo_same_chord
   m1_geo_inscribed_angle -- "선수" --> m1_geo_inscribed_angle_property
   m1_geo_arc -- "선수" --> m1_geo_inscribed_angle_property
+  m1_geo_inscribed_angle -- "선수" --> m1_geo_same_arc_inscribed_angles_equal
+  m1_geo_same_arc -- "선수" --> m1_geo_same_arc_inscribed_angles_equal
+  m1_geo_inscribed_angle_subtended_arc -- "선수" --> m1_geo_same_arc_inscribed_angles_equal
+  m1_geo_arc -- "선수" --> m1_geo_same_arc_same_chord_relation
+  m1_geo_chord -- "선수" --> m1_geo_same_arc_same_chord_relation
+  m1_geo_same_arc -- "선수" --> m1_geo_same_arc_same_chord_relation
+  m1_geo_same_chord -- "선수" --> m1_geo_same_arc_same_chord_relation
+  m1_geo_central_angle -- "선수" --> m1_geo_central_inscribed_angle_relation
+  m1_geo_inscribed_angle -- "선수" --> m1_geo_central_inscribed_angle_relation
+  m1_geo_arc -- "선수" --> m1_geo_central_inscribed_angle_relation
+  m1_geo_circle -- "선수" --> m1_geo_semicircle_arc
+  m1_geo_arc -- "선수" --> m1_geo_semicircle_arc
+  m1_geo_chord -- "선수" --> m1_geo_semicircle_arc
+  m1_geo_semicircle_arc -- "선수" --> m1_geo_semicircle_inscribed_angle_right
+  m1_geo_inscribed_angle -- "선수" --> m1_geo_semicircle_inscribed_angle_right
+  m1_geo_central_inscribed_angle_relation -- "선수" --> m1_geo_semicircle_inscribed_angle_right
   m1_geo_circle_chord_property -- "선수" --> m1_geo_circle_justification
   m1_geo_tangent_property -- "선수" --> m1_geo_circle_justification
   m1_geo_inscribed_angle_property -- "선수" --> m1_geo_circle_justification
   m1_geo_proof -- "선수" --> m1_geo_circle_justification
-  m1_geo_circle -- "선수" --> m1_mis_circle_proportion_scope
-  m1_geo_similarity_ratio -- "선수" --> m1_mis_circle_proportion_scope
+  m1_geo_circle_chord_property -- "선수" --> m1_geo_circle_property_evidence_selection
+  m1_geo_tangent_property -- "선수" --> m1_geo_circle_property_evidence_selection
+  m1_geo_inscribed_angle_property -- "선수" --> m1_geo_circle_property_evidence_selection
+  m1_geo_proof -- "선수" --> m1_geo_circle_property_evidence_selection
+  m1_geo_circle -- "선수" --> m1_geo_circle_auxiliary_radius_center
+  m1_geo_circle_radius -- "선수" --> m1_geo_circle_auxiliary_radius_center
+  m1_geo_central_angle -- "선수" --> m1_geo_circle_auxiliary_radius_center
   m1_data_representative_unit -- "선수" --> m1_data_frequency_unit
   m1_repr_table -- "선수" --> m1_data_frequency_unit
   m1_graph_graph -- "선수" --> m1_data_frequency_unit
@@ -3775,6 +3905,10 @@ flowchart LR
   m1_mis_trig_opposite_adjacent_swap -- "혼동" --> m1_geo_trig_adjacent_side
   m1_mis_tangent_radius -- "혼동" --> m1_geo_tangent_line
   m1_mis_tangent_radius -- "혼동" --> m1_geo_tangent_point
+  m1_mis_inscribed_central_angle_equal -- "혼동" --> m1_geo_inscribed_angle
+  m1_mis_inscribed_central_angle_equal -- "혼동" --> m1_geo_central_angle
+  m1_mis_same_chord_arc_scope -- "혼동" --> m1_geo_same_chord
+  m1_mis_same_chord_arc_scope -- "혼동" --> m1_geo_same_arc_inscribed_angles_equal
   m1_mis_mean_only_representative -- "혼동" --> m1_data_median
   m1_mis_mean_only_representative -- "혼동" --> m1_data_mode
   m1_mis_relative_frequency_frequency -- "혼동" --> m1_data_relative_frequency_sum
@@ -4386,17 +4520,37 @@ flowchart LR
   class m1_mis_trig_angle_scope risk;
   class m1_mis_trig_opposite_adjacent_swap risk;
   class m1_geo_circle core;
+  class m1_geo_circle_radius default;
   class m1_geo_circle_chord_property default;
+  class m1_geo_chord_center_distance default;
+  class m1_geo_chord_center_perpendicular_bisects default;
+  class m1_geo_chord_midpoint_center_perpendicular default;
+  class m1_geo_equal_chords_equal_center_distance default;
+  class m1_geo_equal_center_distance_equal_chords default;
   class m1_geo_tangent_line default;
   class m1_geo_tangent_point default;
   class m1_geo_tangent_relation default;
   class m1_geo_tangent_property default;
+  class m1_geo_tangent_radius_perpendicular default;
   class m1_geo_tangent_length default;
+  class m1_geo_equal_tangent_lengths_from_point default;
   class m1_geo_inscribed_angle default;
+  class m1_geo_inscribed_angle_subtended_arc default;
+  class m1_geo_same_arc default;
+  class m1_geo_same_chord default;
   class m1_geo_inscribed_angle_property default;
+  class m1_geo_same_arc_inscribed_angles_equal default;
+  class m1_geo_same_arc_same_chord_relation default;
+  class m1_geo_central_inscribed_angle_relation default;
+  class m1_geo_semicircle_arc default;
+  class m1_geo_semicircle_inscribed_angle_right default;
   class m1_geo_circle_justification procedure;
+  class m1_geo_circle_property_evidence_selection procedure;
+  class m1_geo_circle_auxiliary_radius_center procedure;
   class m1_mis_circle_proportion_scope risk;
   class m1_mis_tangent_radius risk;
+  class m1_mis_inscribed_central_angle_equal risk;
+  class m1_mis_same_chord_arc_scope risk;
   class m1_data_domain core;
   class m1_data_representative_unit core;
   class m1_data_frequency_unit core;

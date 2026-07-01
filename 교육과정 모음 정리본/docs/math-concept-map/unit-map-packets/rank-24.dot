@@ -15,7 +15,6 @@ digraph pilot_unit_map {
   "m1_geo_correspondence" [label="도형의 대응\\nterm", fillcolor="#f7fbff"];
   "m1_geo_similarity_ratio" [label="닮음비\\nterm", fillcolor="#f7fbff"];
   "m1_geo_congruence" [label="합동\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
-  "m1_mis_circle_proportion_scope" [label="원과 비례에 관한 성질을 범위에 포함하는 오류\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_ratio" [label="비\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_centroid" [label="무게중심\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_domain" [label="도형과 측정\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -36,7 +35,6 @@ digraph pilot_unit_map {
   "m1_mis_congruence_similarity" -> "m1_geo_similarity" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_congruence_similarity" -> "m1_geo_similarity_ratio" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_geo_congruence" -> "m1_mis_congruence_similarity" [label="prerequisite_for", style="dashed", color="#b91c1c"];
-  "m1_geo_similarity_ratio" -> "m1_mis_circle_proportion_scope" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_num_ratio" -> "m1_geo_parallel_segment_ratio" [label="used_in", style="dashed", color="#b91c1c"];
   "m1_num_ratio" -> "m1_geo_similarity_ratio" [label="used_in", style="dashed", color="#b91c1c"];
   "m1_mis_congruence_similarity" -> "m1_geo_congruence" [label="often_confused_with", style="dashed", color="#b91c1c"];

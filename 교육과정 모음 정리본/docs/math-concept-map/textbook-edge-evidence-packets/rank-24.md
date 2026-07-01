@@ -10,9 +10,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 도형의 닮음
 - priority tier: medium
 - priority score: 15
-- edges in packet: 59
-- cross-unit edges: 27
-- low confidence edges: 10
+- edges in packet: 58
+- cross-unit edges: 26
+- low confidence edges: 9
 
 ## Relationship Evidence Slots
 
@@ -23,7 +23,6 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_mis_congruence_similarity__often_confused_with__m1_geo_similarity | intra_unit | 합동과 닮음을 같은 관계로 보는 오류 | often_confused_with | 닮음 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 3 |
 | m1_mis_congruence_similarity__often_confused_with__m1_geo_similarity_ratio | intra_unit | 합동과 닮음을 같은 관계로 보는 오류 | often_confused_with | 닮음비 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 4 |
 | m1_geo_congruence__prerequisite_for__m1_mis_congruence_similarity | cross_unit | 합동 | prerequisite_for | 합동과 닮음을 같은 관계로 보는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
-| m1_geo_similarity_ratio__prerequisite_for__m1_mis_circle_proportion_scope | cross_unit | 닮음비 | prerequisite_for | 원과 비례에 관한 성질을 범위에 포함하는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
 | m1_num_ratio__used_in__m1_geo_parallel_segment_ratio | cross_unit | 비 | used_in | 평행선 사이의 선분의 길이의 비 | low | procedure_ref;textbook_page_refs;extraction_notes | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_num_ratio__used_in__m1_geo_similarity_ratio | cross_unit | 비 | used_in | 닮음비 | low | procedure_ref;textbook_page_refs;extraction_notes | Find a worked example, procedure, or application where this source concept is used. | 3 |
 | m1_mis_congruence_similarity__often_confused_with__m1_geo_congruence | cross_unit | 합동과 닮음을 같은 관계로 보는 오류 | often_confused_with | 합동 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 3 |

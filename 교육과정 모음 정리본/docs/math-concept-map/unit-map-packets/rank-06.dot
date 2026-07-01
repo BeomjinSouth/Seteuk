@@ -50,6 +50,7 @@ digraph pilot_unit_map {
   "m1_geo_isosceles_base_angles" [label="이등변삼각형의 두 밑각\\nterm", fillcolor="#f7fbff"];
   "m1_geo_isosceles_vertex_angle" [label="이등변삼각형의 꼭지각\\nterm", fillcolor="#f7fbff"];
   "m1_geo_median" [label="중선\\nterm", fillcolor="#f7fbff"];
+  "m1_geo_circle_justification" [label="원의 성질 정당화\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_triangle_midpoint_theorem" [label="삼각형의 중점연결정리\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_domain" [label="도형과 측정\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_similarity_unit" [label="도형의 닮음\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -72,13 +73,14 @@ digraph pilot_unit_map {
   "m1_geo_perpendicular" [label="직교\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_perpendicular_bisector" [label="수직이등분선\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_polygon" [label="다각형\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
-  "m1_geo_circle_justification" [label="원의 성질 정당화\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_circle_property_evidence_selection" [label="원의 성질 정당화에서 근거 선택하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_right_triangle" [label="직각삼각형\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_tangent_line" [label="접선\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_triangle_congruence_conditions" [label="삼각형의 합동 조건\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_circle_unit" [label="원의 성질\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_pythagorean_unit" [label="피타고라스 정리\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_triangle_congruence_judgement" [label="삼각형의 합동 판별\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_circle_radius" [label="원의 반지름\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_trig_unit" [label="삼각비\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_triangle_quadrilateral_unit" -> "m1_mis_circumcenter_incenter" [label="contains", style="solid", color="#b91c1c"];
   "m1_geo_triangle_quadrilateral_unit" -> "m1_mis_isosceles_base_vertex_angle_confusion" [label="contains", style="solid", color="#b91c1c"];
@@ -97,6 +99,7 @@ digraph pilot_unit_map {
   "m1_mis_proof_observation" -> "m1_geo_proof" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_quadrilateral_inclusion_relation" -> "m1_geo_quadrilateral_classification" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_quadrilateral_inclusion_relation" -> "m1_geo_square_rectangle_rhombus_relation" [label="often_confused_with", style="solid", color="#b91c1c"];
+  "m1_mis_proof_observation" -> "m1_geo_circle_justification" [label="often_confused_with", style="dashed", color="#b91c1c"];
   "m1_geo_triangle_midpoint_theorem" -> "m1_geo_centroid" [label="related_to", style="dashed", color="#b91c1c"];
   "m1_geo_circumcenter" -> "m1_geo_circumcenter_equal_vertex_distance" [label="contains", style="solid", color="#6b7280"];
   "m1_geo_circumcenter" -> "m1_geo_circumcenter_perpendicular_bisectors" [label="contains", style="solid", color="#6b7280"];
@@ -273,6 +276,7 @@ digraph pilot_unit_map {
   "m1_geo_perpendicular_bisector" -> "m1_geo_isosceles_vertex_angle_bisector_property" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_polygon" -> "m1_geo_quadrilateral" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_proof" -> "m1_geo_circle_justification" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_geo_proof" -> "m1_geo_circle_property_evidence_selection" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_right_triangle" -> "m1_geo_right_triangle_congruence_conditions" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_tangent_line" -> "m1_geo_incircle" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_triangle_congruence_conditions" -> "m1_geo_incenter" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -294,5 +298,7 @@ digraph pilot_unit_map {
   "m1_geo_proof" -> "m1_geo_pythagorean_justification" [label="used_in", style="dashed", color="#6b7280"];
   "m1_geo_triangle_congruence_conditions" -> "m1_geo_proof" [label="used_in", style="dashed", color="#6b7280"];
   "m1_geo_triangle_congruence_judgement" -> "m1_geo_justification" [label="used_in", style="dashed", color="#6b7280"];
+  "m1_geo_circle_radius" -> "m1_geo_circumradius" [label="related_to", style="dashed", color="#6b7280"];
+  "m1_geo_circle_radius" -> "m1_geo_inradius" [label="related_to", style="dashed", color="#6b7280"];
   "m1_geo_triangle_quadrilateral_unit" -> "m1_geo_trig_unit" [label="related_to", style="dashed", color="#6b7280"];
 }

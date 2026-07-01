@@ -10,9 +10,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 삼각형과 사각형의 성질
 - priority tier: highest
 - priority score: 63
-- edges in packet: 215
-- cross-unit edges: 61
-- low confidence edges: 18
+- edges in packet: 219
+- cross-unit edges: 65
+- low confidence edges: 19
 
 ## Relationship Evidence Slots
 
@@ -35,6 +35,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_mis_proof_observation__often_confused_with__m1_geo_proof | intra_unit | 관찰 결과와 증명을 같은 수준의 근거로 보는 오류 | often_confused_with | 증명 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_quadrilateral_inclusion_relation__often_confused_with__m1_geo_quadrilateral_classification | intra_unit | 사각형 포함 관계를 반대로 이해하는 오류 | often_confused_with | 사각형 분류하기 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_quadrilateral_inclusion_relation__often_confused_with__m1_geo_square_rectangle_rhombus_relation | intra_unit | 사각형 포함 관계를 반대로 이해하는 오류 | often_confused_with | 정사각형과 직사각형·마름모의 관계 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
+| m1_mis_proof_observation__often_confused_with__m1_geo_circle_justification | cross_unit | 관찰 결과와 증명을 같은 수준의 근거로 보는 오류 | often_confused_with | 원의 성질 정당화 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 4 |
 | m1_geo_triangle_midpoint_theorem__related_to__m1_geo_centroid | cross_unit | 삼각형의 중점연결정리 | related_to | 무게중심 | low | related_ref;textbook_page_refs;extraction_notes | Find textbook wording or examples that justify keeping these concepts linked. | 5 |
 | m1_geo_circumcenter__contains__m1_geo_circumcenter_equal_vertex_distance | intra_unit | 외심 | contains | 외심에서 세 꼭짓점까지의 거리 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
 | m1_geo_circumcenter__contains__m1_geo_circumcenter_perpendicular_bisectors | intra_unit | 외심 | contains | 외심과 세 변의 수직이등분선 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
@@ -211,6 +212,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_geo_perpendicular_bisector__prerequisite_for__m1_geo_isosceles_vertex_angle_bisector_property | cross_unit | 수직이등분선 | prerequisite_for | 이등변삼각형의 꼭지각 이등분선 성질 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_polygon__prerequisite_for__m1_geo_quadrilateral | cross_unit | 다각형 | prerequisite_for | 사각형 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_proof__prerequisite_for__m1_geo_circle_justification | cross_unit | 증명 | prerequisite_for | 원의 성질 정당화 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_geo_proof__prerequisite_for__m1_geo_circle_property_evidence_selection | cross_unit | 증명 | prerequisite_for | 원의 성질 정당화에서 근거 선택하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_geo_right_triangle__prerequisite_for__m1_geo_right_triangle_congruence_conditions | cross_unit | 직각삼각형 | prerequisite_for | 직각삼각형의 합동 조건 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_tangent_line__prerequisite_for__m1_geo_incircle | cross_unit | 접선 | prerequisite_for | 내접원 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_incenter | cross_unit | 삼각형의 합동 조건 | prerequisite_for | 내심 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
@@ -232,6 +234,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_geo_proof__used_in__m1_geo_pythagorean_justification | cross_unit | 증명 | used_in | 피타고라스 정리의 정당화 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
 | m1_geo_triangle_congruence_conditions__used_in__m1_geo_proof | cross_unit | 삼각형의 합동 조건 | used_in | 증명 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
 | m1_geo_triangle_congruence_judgement__used_in__m1_geo_justification | cross_unit | 삼각형의 합동 판별 | used_in | 정당화 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
+| m1_geo_circle_radius__related_to__m1_geo_circumradius | cross_unit | 원의 반지름 | related_to | 외접원의 반지름 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 5 |
+| m1_geo_circle_radius__related_to__m1_geo_inradius | cross_unit | 원의 반지름 | related_to | 내접원의 반지름 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 5 |
 | m1_geo_triangle_quadrilateral_unit__related_to__m1_geo_trig_unit | cross_unit | 삼각형과 사각형의 성질 | related_to | 삼각비 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 7 |
 
 ## Textbook Edge Evidence Fields
