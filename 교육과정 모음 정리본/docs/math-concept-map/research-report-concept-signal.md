@@ -5,23 +5,23 @@ Rows are candidate signals only; inspect the local page context before changing 
 
 ## Summary
 
-- matched concepts: 256
+- matched concepts: 263
 
 ## Confidence
 
 | confidence | matched concepts |
 |---|---:|
-| high | 212 |
+| high | 216 |
 | low | 5 |
-| medium | 39 |
+| medium | 42 |
 
 ## Recommended Actions
 
 | action | matched concepts |
 |---|---:|
 | inspect_research_report_context_before_confidence_change | 5 |
-| inspect_research_report_context_before_source_ref_upgrade | 39 |
-| use_as_supplemental_trace_only | 212 |
+| inspect_research_report_context_before_source_ref_upgrade | 42 |
+| use_as_supplemental_trace_only | 216 |
 
 ## Highest Priority Signals
 
@@ -54,6 +54,7 @@ Rows are candidate signals only; inspect the local page context before changing 
 | m1_geo_solid_net | 전개도 | 입체도형의 성질 | medium | 19 | 173; 174; 181; 182 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_num_common_divisor | 공약수 | 소인수분해 | medium | 19 | 13; 26; 169; 211; 230; 231 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_geo_diagonal | 대각선 | 평면도형의 성질 | medium | 14 | 78; 213; 222; 231; 235; 236; 237; 238 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
+| m1_geo_trapezoid | 사다리꼴 | 삼각형과 사각형의 성질 | medium | 13 | 60; 132; 141; 142; 175; 176 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_data_or_cases | 사건 A 또는 사건 B가 일어나는 경우의 수 | 경우의 수와 확률 | medium | 12 | 228; 240; 266; 267; 268 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_data_and_cases | 사건 A와 사건 B가 동시에 일어나는 경우의 수 | 경우의 수와 확률 | medium | 11 | 228; 240; 266; 267; 268 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_geo_trig_hypotenuse | 삼각비에서의 빗변 | 삼각비 | medium | 8 | 62; 242; 269; 270 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
@@ -64,6 +65,8 @@ Rows are candidate signals only; inspect the local page context before changing 
 | m1_data_total_cases | 전체 경우의 수 | 경우의 수와 확률 | medium | 4 | 260; 262 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_geo_quadrilateral_relationship | 여러 가지 사각형 사이의 관계 | 삼각형과 사각형의 성질 | medium | 3 | 235; 236; 237 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_num_unit_square_diagonal | 한 변의 길이가 1인 정사각형의 대각선 | 제곱근과 실수 | medium | 3 | 213; 231 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
+| m1_geo_circumradius | 외접원의 반지름 | 삼각형과 사각형의 성질 | medium | 2 | 269; 270 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
+| m1_geo_isosceles_base | 이등변삼각형의 밑변 | 삼각형과 사각형의 성질 | medium | 2 | 244 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_geo_pythagorean_converse | 피타고라스 정리의 역 | 피타고라스 정리 | medium | 2 | 269 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_num_radicand | 근호 안의 수 | 제곱근과 실수 | medium | 2 | 213; 232 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_num_square_number | 제곱수 | 제곱근과 실수 | medium | 2 | 213; 232 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
@@ -104,6 +107,3 @@ Rows are candidate signals only; inspect the local page context before changing 
 | m1_func_two_quantity_relation | 두 양 사이의 관계 | 일차함수와 그 그래프 | high | 62 | 62; 129; 137; 218; 242; 243; 245 | research_report_signal | use_as_supplemental_trace_only |
 | m1_data_counting_cases | 경우의 수 | 경우의 수와 확률 | high | 62 | 62; 77; 78; 79; 80; 228; 239; 240; 241; 242; 260; 262; 266; 267; 268 | research_report_signal | use_as_supplemental_trace_only |
 | m1_geo_model_tool_solid | 모형과 공학 도구로 입체도형 탐구 | 입체도형의 성질 | high | 61 | 13; 21; 22; 23; 24; 59; 60; 61; 62; 77; 79; 87; 88; 141; 142; 222; 228; 229; 235; 236; 239; 240; 241; 242 | research_report_signal | use_as_supplemental_trace_only |
-| m1_geo_domain | 도형과 측정 | 도형과 측정 | high | 57 | 9; 12; 23; 26; 45; 46; 76; 77; 78; 84; 85; 103; 108; 109; 110; 112; 115; 118; 130; 138; 139; 142; 147; 154 | research_report_signal | use_as_supplemental_trace_only |
-| m1_coord_coordinate | 좌표 | 좌표평면과 그래프 | high | 57 | 54; 57; 58; 59; 90; 215; 219; 232; 233; 234; 235; 253; 254; 258; 259 | research_report_signal | use_as_supplemental_trace_only |
-| m1_geo_congruence | 합동 | 작도와 합동 | high | 55 | 77; 78; 97; 173; 181; 182; 221; 235; 236; 237; 238 | research_report_signal | use_as_supplemental_trace_only |

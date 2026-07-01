@@ -4,15 +4,15 @@ This generated audit summarizes source evidence depth for each concept node.
 
 ## Summary
 
-- concepts: 663
-- needs textbook evidence: 663
-- low confidence concepts: 97
+- concepts: 694
+- needs textbook evidence: 694
+- low confidence concepts: 99
 
 ## Evidence Depth Counts
 
 | evidence_depth | concept count |
 |---|---:|
-| official_dual_source | 564 |
+| official_dual_source | 595 |
 | official_single_source | 99 |
 
 ## Priority Rows
@@ -29,7 +29,9 @@ This generated audit summarizes source evidence depth for each concept node.
 | m1_mis_trig_opposite_adjacent_swap | 기준각에 따라 대변과 이웃변을 바꾸는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_trig_relation_scope | 삼각비 사이의 관계를 교육과정 범위로 오해하는 오류 | low | official_single_source | 1 | curriculum_math_2022 |
 | m1_mis_circumcenter_incenter | 외심과 내심을 혼동하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
+| m1_mis_isosceles_base_vertex_angle_confusion | 이등변삼각형의 밑각과 꼭지각을 혼동하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_proof_observation | 관찰 결과와 증명을 같은 수준의 근거로 보는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
+| m1_mis_quadrilateral_inclusion_relation | 사각형 포함 관계를 반대로 이해하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_circle_proportion_scope | 원과 비례에 관한 성질을 범위에 포함하는 오류 | low | official_single_source | 1 | curriculum_math_2022 |
 | m1_mis_tangent_radius | 접선과 반지름의 수직 관계를 놓치는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_geo_orthographic_drawing | 겨냥도 | low | official_single_source | 1 | achievement_research_report_2022 |
@@ -57,5 +59,3 @@ This generated audit summarizes source evidence depth for each concept node.
 | m1_mis_system_substitution | 대입법에서 식 전체를 대입하지 않는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_quadratic_expression_equation | 이차식과 이차방정식을 혼동하는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_quadratic_factorization_solution | 인수분해한 식에서 해 조건을 빠뜨리는 오류 | low | official_single_source | 2 | achievement_math_2022 |
-| m1_mis_root_coefficient_relation_scope | 근과 계수와의 관계를 중학교 범위로 오인하는 오류 | low | official_single_source | 1 | curriculum_math_2022 |
-| m1_quad_eq_root_formula_substitution | 근의 공식에 계수 대입하기 | low | official_single_source | 2 | curriculum_math_2022 |

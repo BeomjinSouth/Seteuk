@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 작도와 합동
 - priority tier: medium
 - priority score: 8
-- edges in packet: 45
-- cross-unit edges: 24
+- edges in packet: 49
+- cross-unit edges: 28
 - low confidence edges: 2
 
 ## Relationship Evidence Slots
@@ -51,11 +51,15 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_geo_construction_congruence_unit__prerequisite_for__m1_geo_triangle_quadrilateral_unit | cross_unit | 작도와 합동 | prerequisite_for | 삼각형과 사각형의 성질 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 5 |
 | m1_geo_distance_between_two_points__prerequisite_for__m1_geo_triangle_construction | cross_unit | 두 점 사이의 거리 | prerequisite_for | 삼각형의 작도 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_line__prerequisite_for__m1_geo_construction | cross_unit | 직선 | prerequisite_for | 작도 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_geo_opposite_angle__prerequisite_for__m1_geo_parallelogram_opposite_sides_angles | cross_unit | 대각 | prerequisite_for | 평행사변형의 마주 보는 변과 각 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_geo_opposite_side__prerequisite_for__m1_geo_parallelogram_opposite_sides_angles | cross_unit | 대변 | prerequisite_for | 평행사변형의 마주 보는 변과 각 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_point__prerequisite_for__m1_geo_construction | cross_unit | 점 | prerequisite_for | 작도 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_incenter | cross_unit | 삼각형의 합동 조건 | prerequisite_for | 내심 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_isosceles_properties | cross_unit | 삼각형의 합동 조건 | prerequisite_for | 이등변삼각형의 성질 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_isosceles_property_proof | cross_unit | 삼각형의 합동 조건 | prerequisite_for | 이등변삼각형 성질 정당화하기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_isosceles_triangle | cross_unit | 삼각형의 합동 조건 | prerequisite_for | 이등변삼각형 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_proof | cross_unit | 삼각형의 합동 조건 | prerequisite_for | 증명 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_right_triangle_congruence_conditions | cross_unit | 삼각형의 합동 조건 | prerequisite_for | 직각삼각형의 합동 조건 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_triangle__used_in__m1_geo_triangle_congruence_conditions | cross_unit | 삼각형 | used_in | 삼각형의 합동 조건 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_geo_triangle__used_in__m1_geo_triangle_construction | cross_unit | 삼각형 | used_in | 삼각형의 작도 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_geo_triangle_congruence_conditions__used_in__m1_geo_proof | cross_unit | 삼각형의 합동 조건 | used_in | 증명 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |

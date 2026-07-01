@@ -519,17 +519,48 @@ flowchart LR
   m1_geo_proof["증명"]
   m1_geo_isosceles_triangle["이등변삼각형"]
   m1_geo_isosceles_properties["이등변삼각형의 성질"]
+  m1_geo_isosceles_equal_sides["이등변삼각형의 두 같은 변"]
+  m1_geo_isosceles_base["이등변삼각형의 밑변"]
+  m1_geo_isosceles_vertex_angle["이등변삼각형의 꼭지각"]
+  m1_geo_isosceles_base_angles["이등변삼각형의 두 밑각"]
+  m1_geo_isosceles_base_angles_equal["이등변삼각형의 두 밑각의 크기가 같음"]
+  m1_geo_isosceles_vertex_angle_bisector_property["이등변삼각형의 꼭지각 이등분선 성질"]
+  m1_geo_isosceles_property_proof["이등변삼각형 성질 정당화하기"]
+  m1_geo_right_triangle_congruence_conditions["직각삼각형의 합동 조건"]
+  m1_geo_right_triangle_congruence_judgement["직각삼각형 합동 판별하기"]
   m1_geo_circumcenter["외심"]
+  m1_geo_circumcenter_perpendicular_bisectors["외심과 세 변의 수직이등분선"]
+  m1_geo_circumcenter_equal_vertex_distance["외심에서 세 꼭짓점까지의 거리"]
   m1_geo_circumcircle["외접원"]
+  m1_geo_circumradius["외접원의 반지름"]
+  m1_geo_construct_circumcenter["외심 찾기"]
+  m1_geo_angle_bisector["각의 이등분선"]
   m1_geo_incenter["내심"]
+  m1_geo_incenter_angle_bisectors["내심과 세 내각의 이등분선"]
+  m1_geo_incenter_equal_side_distance["내심에서 세 변까지의 거리"]
   m1_geo_incircle["내접원"]
+  m1_geo_inradius["내접원의 반지름"]
+  m1_geo_construct_incenter["내심 찾기"]
   m1_geo_median["중선"]
   m1_geo_centroid["무게중심"]
   m1_geo_quadrilateral["사각형"]
+  m1_geo_parallelogram["평행사변형"]
+  m1_geo_rectangle["직사각형"]
+  m1_geo_rhombus["마름모"]
+  m1_geo_square["정사각형"]
+  m1_geo_trapezoid["사다리꼴"]
   m1_geo_quadrilateral_diagonal_properties["사각형의 대각선에 관한 성질"]
+  m1_geo_parallelogram_opposite_sides_angles["평행사변형의 마주 보는 변과 각"]
+  m1_geo_parallelogram_diagonals_bisect["평행사변형의 대각선이 서로를 이등분"]
+  m1_geo_rectangle_diagonals_equal["직사각형의 대각선의 길이가 같음"]
+  m1_geo_rhombus_diagonals_perpendicular["마름모의 대각선이 서로 수직"]
+  m1_geo_square_rectangle_rhombus_relation["정사각형과 직사각형·마름모의 관계"]
+  m1_geo_quadrilateral_classification["사각형 분류하기"]
   m1_geo_quadrilateral_relationship["여러 가지 사각형 사이의 관계"]
   m1_mis_proof_observation["관찰 결과와 증명을 같은 수준의 근거로 보는 오류"]
   m1_mis_circumcenter_incenter["외심과 내심을 혼동하는 오류"]
+  m1_mis_isosceles_base_vertex_angle_confusion["이등변삼각형의 밑각과 꼭지각을 혼동하는 오류"]
+  m1_mis_quadrilateral_inclusion_relation["사각형 포함 관계를 반대로 이해하는 오류"]
   m1_geo_similarity["닮음"]
   m1_geo_similar_figures["닮은 도형"]
   m1_geo_correspondence["도형의 대응"]
@@ -1799,17 +1830,47 @@ flowchart LR
   m1_geo_triangle_congruence_judgement -- "사용" --> m1_geo_justification
   m1_geo_isosceles_triangle -- "사용" --> m1_geo_isosceles_properties
   m1_geo_proof -- "사용" --> m1_geo_isosceles_properties
+  m1_geo_isosceles_base_angles -- "사용" --> m1_geo_isosceles_base_angles_equal
+  m1_geo_isosceles_base_angles_equal -- "사용" --> m1_geo_isosceles_property_proof
+  m1_geo_isosceles_vertex_angle_bisector_property -- "사용" --> m1_geo_isosceles_property_proof
+  m1_geo_right_triangle_congruence_conditions -- "사용" --> m1_geo_right_triangle_congruence_judgement
   m1_geo_perpendicular_bisector -- "사용" --> m1_geo_circumcenter
+  m1_geo_circumcenter -- "표현" --> m1_geo_circumcenter_perpendicular_bisectors
+  m1_geo_circumcenter -- "포함" --> m1_geo_circumcenter_equal_vertex_distance
+  m1_geo_perpendicular_bisector -- "사용" --> m1_geo_construct_circumcenter
+  m1_geo_circumcenter_perpendicular_bisectors -- "사용" --> m1_geo_construct_circumcenter
+  m1_geo_construct_circumcenter -- "사용" --> m1_geo_circumcenter
+  m1_geo_circumcenter_equal_vertex_distance -- "사용" --> m1_geo_circumradius
   m1_geo_circumcenter -- "사용" --> m1_geo_circumcircle
+  m1_geo_angle_bisector -- "사용" --> m1_geo_incenter
+  m1_geo_incenter -- "표현" --> m1_geo_incenter_angle_bisectors
+  m1_geo_incenter -- "포함" --> m1_geo_incenter_equal_side_distance
+  m1_geo_angle_bisector -- "사용" --> m1_geo_construct_incenter
+  m1_geo_incenter_angle_bisectors -- "사용" --> m1_geo_construct_incenter
+  m1_geo_construct_incenter -- "사용" --> m1_geo_incenter
+  m1_geo_incenter_equal_side_distance -- "사용" --> m1_geo_inradius
   m1_geo_incenter -- "사용" --> m1_geo_incircle
   m1_geo_circumcenter -- "대조" --> m1_geo_incenter
   m1_geo_incenter -- "대조" --> m1_geo_circumcenter
   m1_geo_circumcircle -- "대조" --> m1_geo_incircle
+  m1_geo_circumcenter_equal_vertex_distance -- "대조" --> m1_geo_incenter_equal_side_distance
+  m1_geo_incenter_equal_side_distance -- "대조" --> m1_geo_circumcenter_equal_vertex_distance
+  m1_geo_circumradius -- "대조" --> m1_geo_inradius
+  m1_geo_inradius -- "대조" --> m1_geo_circumradius
   m1_geo_median -- "사용" --> m1_geo_centroid
   m1_geo_median -- "사용" --> m1_geo_centroid_from_parallel_ratio
   m1_geo_triangle_midpoint_theorem -- "연관" --> m1_geo_centroid
   m1_geo_diagonal -- "사용" --> m1_geo_quadrilateral_diagonal_properties
+  m1_geo_parallelogram -- "사용" --> m1_geo_parallelogram_opposite_sides_angles
+  m1_geo_parallelogram_opposite_sides_angles -- "사용" --> m1_geo_quadrilateral_classification
+  m1_geo_parallelogram_diagonals_bisect -- "사용" --> m1_geo_quadrilateral_classification
+  m1_geo_rectangle_diagonals_equal -- "사용" --> m1_geo_quadrilateral_classification
+  m1_geo_rhombus_diagonals_perpendicular -- "사용" --> m1_geo_quadrilateral_classification
+  m1_geo_square_rectangle_rhombus_relation -- "사용" --> m1_geo_quadrilateral_classification
+  m1_geo_square_rectangle_rhombus_relation -- "사용" --> m1_geo_quadrilateral_relationship
   m1_geo_quadrilateral_diagonal_properties -- "사용" --> m1_geo_quadrilateral_relationship
+  m1_geo_rectangle_diagonals_equal -- "대조" --> m1_geo_rhombus_diagonals_perpendicular
+  m1_geo_rhombus_diagonals_perpendicular -- "대조" --> m1_geo_rectangle_diagonals_equal
   m1_geo_quadrilateral_relationship -- "사용" --> m1_geo_proof
   m1_geo_similarity -- "대조" --> m1_geo_congruence
   m1_geo_congruence -- "대조" --> m1_geo_similarity
@@ -2380,19 +2441,55 @@ flowchart LR
   m1_geo_triangle_quadrilateral_unit -- "포함" --> m1_geo_proof
   m1_geo_triangle_quadrilateral_unit -- "포함" --> m1_geo_isosceles_triangle
   m1_geo_triangle_quadrilateral_unit -- "포함" --> m1_geo_isosceles_properties
+  m1_geo_isosceles_properties -- "포함" --> m1_geo_isosceles_equal_sides
+  m1_geo_isosceles_properties -- "포함" --> m1_geo_isosceles_base
+  m1_geo_isosceles_properties -- "포함" --> m1_geo_isosceles_vertex_angle
+  m1_geo_isosceles_properties -- "포함" --> m1_geo_isosceles_base_angles
+  m1_geo_isosceles_properties -- "포함" --> m1_geo_isosceles_base_angles_equal
+  m1_geo_isosceles_properties -- "포함" --> m1_geo_isosceles_vertex_angle_bisector_property
+  m1_geo_isosceles_properties -- "포함" --> m1_geo_isosceles_property_proof
+  m1_geo_triangle_quadrilateral_unit -- "포함" --> m1_geo_right_triangle_congruence_conditions
+  m1_geo_triangle_quadrilateral_unit -- "포함" --> m1_geo_right_triangle_congruence_judgement
   m1_geo_triangle_quadrilateral_unit -- "포함" --> m1_geo_circumcenter
+  m1_geo_circumcenter -- "포함" --> m1_geo_circumcenter_perpendicular_bisectors
   m1_geo_triangle_quadrilateral_unit -- "포함" --> m1_geo_circumcircle
+  m1_geo_circumcenter -- "포함" --> m1_geo_circumradius
+  m1_geo_circumcenter -- "포함" --> m1_geo_construct_circumcenter
+  m1_geo_triangle_quadrilateral_unit -- "포함" --> m1_geo_angle_bisector
   m1_geo_triangle_quadrilateral_unit -- "포함" --> m1_geo_incenter
+  m1_geo_incenter -- "포함" --> m1_geo_incenter_angle_bisectors
   m1_geo_triangle_quadrilateral_unit -- "포함" --> m1_geo_incircle
+  m1_geo_incenter -- "포함" --> m1_geo_inradius
+  m1_geo_incenter -- "포함" --> m1_geo_construct_incenter
   m1_geo_triangle_quadrilateral_unit -- "포함" --> m1_geo_median
   m1_geo_similarity_unit -- "포함" --> m1_geo_median
   m1_geo_triangle_quadrilateral_unit -- "포함" --> m1_geo_centroid
   m1_geo_similarity_unit -- "포함" --> m1_geo_centroid
   m1_geo_triangle_quadrilateral_unit -- "포함" --> m1_geo_quadrilateral
+  m1_geo_quadrilateral -- "포함" --> m1_geo_parallelogram
+  m1_geo_quadrilateral -- "포함" --> m1_geo_rectangle
+  m1_geo_parallelogram -- "포함" --> m1_geo_rectangle
+  m1_geo_quadrilateral -- "포함" --> m1_geo_rhombus
+  m1_geo_parallelogram -- "포함" --> m1_geo_rhombus
+  m1_geo_quadrilateral -- "포함" --> m1_geo_square
+  m1_geo_rectangle -- "포함" --> m1_geo_square
+  m1_geo_rhombus -- "포함" --> m1_geo_square
+  m1_geo_quadrilateral -- "포함" --> m1_geo_trapezoid
   m1_geo_triangle_quadrilateral_unit -- "포함" --> m1_geo_quadrilateral_diagonal_properties
+  m1_geo_parallelogram -- "포함" --> m1_geo_parallelogram_opposite_sides_angles
+  m1_geo_parallelogram -- "포함" --> m1_geo_parallelogram_diagonals_bisect
+  m1_geo_quadrilateral_diagonal_properties -- "포함" --> m1_geo_parallelogram_diagonals_bisect
+  m1_geo_rectangle -- "포함" --> m1_geo_rectangle_diagonals_equal
+  m1_geo_quadrilateral_diagonal_properties -- "포함" --> m1_geo_rectangle_diagonals_equal
+  m1_geo_rhombus -- "포함" --> m1_geo_rhombus_diagonals_perpendicular
+  m1_geo_quadrilateral_diagonal_properties -- "포함" --> m1_geo_rhombus_diagonals_perpendicular
+  m1_geo_quadrilateral_relationship -- "포함" --> m1_geo_square_rectangle_rhombus_relation
+  m1_geo_quadrilateral_relationship -- "포함" --> m1_geo_quadrilateral_classification
   m1_geo_triangle_quadrilateral_unit -- "포함" --> m1_geo_quadrilateral_relationship
   m1_geo_triangle_quadrilateral_unit -- "포함" --> m1_mis_proof_observation
   m1_geo_triangle_quadrilateral_unit -- "포함" --> m1_mis_circumcenter_incenter
+  m1_geo_triangle_quadrilateral_unit -- "포함" --> m1_mis_isosceles_base_vertex_angle_confusion
+  m1_geo_triangle_quadrilateral_unit -- "포함" --> m1_mis_quadrilateral_inclusion_relation
   m1_geo_similarity_unit -- "포함" --> m1_geo_similarity
   m1_geo_similarity_unit -- "포함" --> m1_geo_similar_figures
   m1_geo_similarity_unit -- "포함" --> m1_geo_correspondence
@@ -3261,27 +3358,89 @@ flowchart LR
   m1_geo_triangle_congruence_conditions -- "선수" --> m1_geo_isosceles_triangle
   m1_geo_isosceles_triangle -- "선수" --> m1_geo_isosceles_properties
   m1_geo_triangle_congruence_conditions -- "선수" --> m1_geo_isosceles_properties
+  m1_geo_isosceles_triangle -- "선수" --> m1_geo_isosceles_equal_sides
+  m1_geo_length -- "선수" --> m1_geo_isosceles_equal_sides
+  m1_geo_isosceles_triangle -- "선수" --> m1_geo_isosceles_base
+  m1_geo_isosceles_equal_sides -- "선수" --> m1_geo_isosceles_base
+  m1_geo_isosceles_triangle -- "선수" --> m1_geo_isosceles_vertex_angle
+  m1_geo_angle -- "선수" --> m1_geo_isosceles_vertex_angle
+  m1_geo_isosceles_base -- "선수" --> m1_geo_isosceles_base_angles
+  m1_geo_angle -- "선수" --> m1_geo_isosceles_base_angles
+  m1_geo_isosceles_triangle -- "선수" --> m1_geo_isosceles_base_angles_equal
+  m1_geo_isosceles_base_angles -- "선수" --> m1_geo_isosceles_base_angles_equal
+  m1_geo_isosceles_vertex_angle -- "선수" --> m1_geo_isosceles_vertex_angle_bisector_property
+  m1_geo_angle_bisector -- "선수" --> m1_geo_isosceles_vertex_angle_bisector_property
+  m1_geo_perpendicular_bisector -- "선수" --> m1_geo_isosceles_vertex_angle_bisector_property
+  m1_geo_isosceles_properties -- "선수" --> m1_geo_isosceles_property_proof
+  m1_geo_triangle_congruence_conditions -- "선수" --> m1_geo_isosceles_property_proof
+  m1_geo_proof -- "선수" --> m1_geo_isosceles_property_proof
+  m1_geo_right_triangle -- "선수" --> m1_geo_right_triangle_congruence_conditions
+  m1_geo_triangle_congruence_conditions -- "선수" --> m1_geo_right_triangle_congruence_conditions
+  m1_geo_right_triangle_congruence_conditions -- "선수" --> m1_geo_right_triangle_congruence_judgement
   m1_geo_perpendicular_bisector -- "선수" --> m1_geo_circumcenter
+  m1_geo_perpendicular_bisector -- "선수" --> m1_geo_circumcenter_perpendicular_bisectors
+  m1_geo_circumcenter -- "선수" --> m1_geo_circumcenter_equal_vertex_distance
+  m1_geo_distance_between_two_points -- "선수" --> m1_geo_circumcenter_equal_vertex_distance
   m1_geo_circumcenter -- "선수" --> m1_geo_circumcircle
   m1_geo_circle -- "선수" --> m1_geo_circumcircle
-  m1_geo_angle -- "선수" --> m1_geo_incenter
+  m1_geo_circumcircle -- "선수" --> m1_geo_circumradius
+  m1_geo_circumcenter_equal_vertex_distance -- "선수" --> m1_geo_circumradius
+  m1_geo_perpendicular_bisector -- "선수" --> m1_geo_construct_circumcenter
+  m1_geo_circumcenter_perpendicular_bisectors -- "선수" --> m1_geo_construct_circumcenter
+  m1_geo_angle -- "선수" --> m1_geo_angle_bisector
+  m1_geo_angle_measure -- "선수" --> m1_geo_angle_bisector
+  m1_geo_angle_bisector -- "선수" --> m1_geo_incenter
   m1_geo_triangle_congruence_conditions -- "선수" --> m1_geo_incenter
+  m1_geo_angle_bisector -- "선수" --> m1_geo_incenter_angle_bisectors
+  m1_geo_incenter -- "선수" --> m1_geo_incenter_equal_side_distance
+  m1_geo_foot_of_perpendicular -- "선수" --> m1_geo_incenter_equal_side_distance
+  m1_geo_distance_between_two_points -- "선수" --> m1_geo_incenter_equal_side_distance
   m1_geo_incenter -- "선수" --> m1_geo_incircle
   m1_geo_circle -- "선수" --> m1_geo_incircle
   m1_geo_tangent_line -- "선수" --> m1_geo_incircle
+  m1_geo_incircle -- "선수" --> m1_geo_inradius
+  m1_geo_incenter_equal_side_distance -- "선수" --> m1_geo_inradius
+  m1_geo_angle_bisector -- "선수" --> m1_geo_construct_incenter
+  m1_geo_incenter_angle_bisectors -- "선수" --> m1_geo_construct_incenter
   m1_geo_midpoint -- "선수" --> m1_geo_median
   m1_geo_triangle_quadrilateral_unit -- "선수" --> m1_geo_median
   m1_geo_median -- "선수" --> m1_geo_centroid
   m1_geo_parallel_segment_ratio -- "선수" --> m1_geo_centroid
   m1_geo_polygon -- "선수" --> m1_geo_quadrilateral
+  m1_geo_quadrilateral -- "선수" --> m1_geo_parallelogram
+  m1_geo_parallel_lines -- "선수" --> m1_geo_parallelogram
+  m1_geo_parallelogram -- "선수" --> m1_geo_rectangle
+  m1_geo_perpendicular -- "선수" --> m1_geo_rectangle
+  m1_geo_parallelogram -- "선수" --> m1_geo_rhombus
+  m1_geo_length -- "선수" --> m1_geo_rhombus
+  m1_geo_rectangle -- "선수" --> m1_geo_square
+  m1_geo_rhombus -- "선수" --> m1_geo_square
+  m1_geo_quadrilateral -- "선수" --> m1_geo_trapezoid
+  m1_geo_parallel_lines -- "선수" --> m1_geo_trapezoid
   m1_geo_quadrilateral -- "선수" --> m1_geo_quadrilateral_diagonal_properties
   m1_geo_diagonal -- "선수" --> m1_geo_quadrilateral_diagonal_properties
+  m1_geo_parallelogram -- "선수" --> m1_geo_parallelogram_opposite_sides_angles
+  m1_geo_opposite_side -- "선수" --> m1_geo_parallelogram_opposite_sides_angles
+  m1_geo_opposite_angle -- "선수" --> m1_geo_parallelogram_opposite_sides_angles
+  m1_geo_parallelogram -- "선수" --> m1_geo_parallelogram_diagonals_bisect
+  m1_geo_diagonal -- "선수" --> m1_geo_parallelogram_diagonals_bisect
+  m1_geo_midpoint -- "선수" --> m1_geo_parallelogram_diagonals_bisect
+  m1_geo_rectangle -- "선수" --> m1_geo_rectangle_diagonals_equal
+  m1_geo_diagonal -- "선수" --> m1_geo_rectangle_diagonals_equal
+  m1_geo_length -- "선수" --> m1_geo_rectangle_diagonals_equal
+  m1_geo_rhombus -- "선수" --> m1_geo_rhombus_diagonals_perpendicular
+  m1_geo_diagonal -- "선수" --> m1_geo_rhombus_diagonals_perpendicular
+  m1_geo_perpendicular -- "선수" --> m1_geo_rhombus_diagonals_perpendicular
+  m1_geo_square -- "선수" --> m1_geo_square_rectangle_rhombus_relation
+  m1_geo_rectangle -- "선수" --> m1_geo_square_rectangle_rhombus_relation
+  m1_geo_rhombus -- "선수" --> m1_geo_square_rectangle_rhombus_relation
+  m1_geo_quadrilateral_relationship -- "선수" --> m1_geo_quadrilateral_classification
+  m1_geo_parallelogram_opposite_sides_angles -- "선수" --> m1_geo_quadrilateral_classification
+  m1_geo_parallelogram_diagonals_bisect -- "선수" --> m1_geo_quadrilateral_classification
+  m1_geo_rectangle_diagonals_equal -- "선수" --> m1_geo_quadrilateral_classification
+  m1_geo_rhombus_diagonals_perpendicular -- "선수" --> m1_geo_quadrilateral_classification
   m1_geo_quadrilateral -- "선수" --> m1_geo_quadrilateral_relationship
   m1_geo_quadrilateral_diagonal_properties -- "선수" --> m1_geo_quadrilateral_relationship
-  m1_geo_justification -- "선수" --> m1_mis_proof_observation
-  m1_geo_proof -- "선수" --> m1_mis_proof_observation
-  m1_geo_circumcenter -- "선수" --> m1_mis_circumcenter_incenter
-  m1_geo_incenter -- "선수" --> m1_mis_circumcenter_incenter
   m1_geo_congruence -- "선수" --> m1_geo_similarity
   m1_geo_correspondence -- "선수" --> m1_geo_similarity
   m1_geo_similarity -- "선수" --> m1_geo_similar_figures
@@ -3600,6 +3759,12 @@ flowchart LR
   m1_mis_arc_chord -- "혼동" --> m1_geo_sector
   m1_mis_arc_chord -- "혼동" --> m1_geo_circular_segment
   m1_mis_solid_net_adjacency -- "혼동" --> m1_geo_solid_net
+  m1_mis_isosceles_base_vertex_angle_confusion -- "혼동" --> m1_geo_isosceles_vertex_angle
+  m1_mis_isosceles_base_vertex_angle_confusion -- "혼동" --> m1_geo_isosceles_base_angles
+  m1_mis_circumcenter_incenter -- "혼동" --> m1_geo_circumcenter_equal_vertex_distance
+  m1_mis_circumcenter_incenter -- "혼동" --> m1_geo_incenter_equal_side_distance
+  m1_mis_quadrilateral_inclusion_relation -- "혼동" --> m1_geo_square_rectangle_rhombus_relation
+  m1_mis_quadrilateral_inclusion_relation -- "혼동" --> m1_geo_quadrilateral_classification
   m1_mis_proof_observation -- "혼동" --> m1_geo_isosceles_properties
   m1_mis_circumcenter_incenter -- "혼동" --> m1_geo_circumcircle
   m1_mis_circumcenter_incenter -- "혼동" --> m1_geo_incircle
@@ -4140,17 +4305,48 @@ flowchart LR
   class m1_geo_proof procedure;
   class m1_geo_isosceles_triangle core;
   class m1_geo_isosceles_properties default;
+  class m1_geo_isosceles_equal_sides default;
+  class m1_geo_isosceles_base default;
+  class m1_geo_isosceles_vertex_angle default;
+  class m1_geo_isosceles_base_angles default;
+  class m1_geo_isosceles_base_angles_equal default;
+  class m1_geo_isosceles_vertex_angle_bisector_property default;
+  class m1_geo_isosceles_property_proof procedure;
+  class m1_geo_right_triangle_congruence_conditions default;
+  class m1_geo_right_triangle_congruence_judgement procedure;
   class m1_geo_circumcenter core;
+  class m1_geo_circumcenter_perpendicular_bisectors default;
+  class m1_geo_circumcenter_equal_vertex_distance default;
   class m1_geo_circumcircle default;
+  class m1_geo_circumradius default;
+  class m1_geo_construct_circumcenter procedure;
+  class m1_geo_angle_bisector default;
   class m1_geo_incenter core;
+  class m1_geo_incenter_angle_bisectors default;
+  class m1_geo_incenter_equal_side_distance default;
   class m1_geo_incircle default;
+  class m1_geo_inradius default;
+  class m1_geo_construct_incenter procedure;
   class m1_geo_median default;
   class m1_geo_centroid core;
   class m1_geo_quadrilateral core;
+  class m1_geo_parallelogram core;
+  class m1_geo_rectangle core;
+  class m1_geo_rhombus core;
+  class m1_geo_square core;
+  class m1_geo_trapezoid core;
   class m1_geo_quadrilateral_diagonal_properties default;
+  class m1_geo_parallelogram_opposite_sides_angles default;
+  class m1_geo_parallelogram_diagonals_bisect default;
+  class m1_geo_rectangle_diagonals_equal default;
+  class m1_geo_rhombus_diagonals_perpendicular default;
+  class m1_geo_square_rectangle_rhombus_relation default;
+  class m1_geo_quadrilateral_classification procedure;
   class m1_geo_quadrilateral_relationship default;
   class m1_mis_proof_observation risk;
   class m1_mis_circumcenter_incenter risk;
+  class m1_mis_isosceles_base_vertex_angle_confusion risk;
+  class m1_mis_quadrilateral_inclusion_relation risk;
   class m1_geo_similarity core;
   class m1_geo_similar_figures core;
   class m1_geo_correspondence default;

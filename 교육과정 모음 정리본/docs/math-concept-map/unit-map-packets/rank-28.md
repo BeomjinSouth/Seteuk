@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 도형과 측정
 - unit: 작도와 합동
 - priority tier: medium
-- workplan score: 40
+- workplan score: 44
 - concepts: 8
-- edges touching unit: 45
-- cross-unit edges: 24
+- edges touching unit: 49
+- cross-unit edges: 28
 - low confidence concepts: 0
 - low confidence edges: 2
 
@@ -32,7 +32,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 8 |
 | contrasts_with | 3 |
 | often_confused_with | 1 |
-| prerequisite_for | 21 |
+| prerequisite_for | 25 |
 | related_to | 1 |
 | used_in | 11 |
 
@@ -58,11 +58,15 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_geo_construction_congruence_unit__prerequisite_for__m1_geo_triangle_quadrilateral_unit | 작도와 합동 | prerequisite_for | 삼각형과 사각형의 성질 | high | official_dual_source |
 | m1_geo_distance_between_two_points__prerequisite_for__m1_geo_triangle_construction | 두 점 사이의 거리 | prerequisite_for | 삼각형의 작도 | high | official_dual_source |
 | m1_geo_line__prerequisite_for__m1_geo_construction | 직선 | prerequisite_for | 작도 | high | official_dual_source |
+| m1_geo_opposite_angle__prerequisite_for__m1_geo_parallelogram_opposite_sides_angles | 대각 | prerequisite_for | 평행사변형의 마주 보는 변과 각 | high | official_dual_source |
+| m1_geo_opposite_side__prerequisite_for__m1_geo_parallelogram_opposite_sides_angles | 대변 | prerequisite_for | 평행사변형의 마주 보는 변과 각 | high | official_dual_source |
 | m1_geo_point__prerequisite_for__m1_geo_construction | 점 | prerequisite_for | 작도 | high | official_dual_source |
 | m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_incenter | 삼각형의 합동 조건 | prerequisite_for | 내심 | high | official_dual_source |
 | m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_isosceles_properties | 삼각형의 합동 조건 | prerequisite_for | 이등변삼각형의 성질 | high | official_dual_source |
+| m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_isosceles_property_proof | 삼각형의 합동 조건 | prerequisite_for | 이등변삼각형 성질 정당화하기 | high | official_dual_source |
 | m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_isosceles_triangle | 삼각형의 합동 조건 | prerequisite_for | 이등변삼각형 | high | official_dual_source |
 | m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_proof | 삼각형의 합동 조건 | prerequisite_for | 증명 | high | official_dual_source |
+| m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_right_triangle_congruence_conditions | 삼각형의 합동 조건 | prerequisite_for | 직각삼각형의 합동 조건 | medium | official_dual_source |
 | m1_geo_triangle__used_in__m1_geo_triangle_congruence_conditions | 삼각형 | used_in | 삼각형의 합동 조건 | medium | official_dual_source |
 | m1_geo_triangle__used_in__m1_geo_triangle_construction | 삼각형 | used_in | 삼각형의 작도 | medium | official_dual_source |
 | m1_geo_triangle_congruence_conditions__used_in__m1_geo_proof | 삼각형의 합동 조건 | used_in | 증명 | high | official_dual_source |

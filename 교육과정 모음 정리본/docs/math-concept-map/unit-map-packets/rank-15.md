@@ -6,15 +6,15 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 
 - rank: 15
 - grade: 중1(교육과정 학년군: 중1-3)
-- domain: 도형과 측정
-- unit: 평면도형의 성질
+- domain: 변화와 관계
+- unit: 문자의 사용과 식
 - priority tier: highest
-- workplan score: 143
-- concepts: 29
-- edges touching unit: 176
-- cross-unit edges: 52
+- workplan score: 213
+- concepts: 24
+- edges touching unit: 179
+- cross-unit edges: 105
 - low confidence concepts: 3
-- low confidence edges: 11
+- low confidence edges: 15
 
 ## Concept Type Distribution
 
@@ -22,72 +22,73 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 |---|---:|
 | core_concept | 3 |
 | misconception_risk | 3 |
-| procedure | 8 |
-| property | 6 |
-| sub_concept | 1 |
-| term | 8 |
+| procedure | 6 |
+| property | 2 |
+| representation | 1 |
+| sub_concept | 2 |
+| term | 7 |
 
 ## Relationship Distribution
 
 | relationship_type | count |
 |---|---:|
-| contains | 31 |
-| contrasts_with | 8 |
-| often_confused_with | 7 |
-| prerequisite_for | 79 |
-| related_to | 7 |
-| represented_by | 4 |
-| used_in | 40 |
+| contains | 27 |
+| contrasts_with | 6 |
+| often_confused_with | 11 |
+| prerequisite_for | 95 |
+| related_to | 5 |
+| represented_by | 2 |
+| used_in | 33 |
 
 ## Low Confidence Concepts
 
 | concept_id | label_ko | type | evidence_depth | notes |
 |---|---|---|---|---|
-| m1_mis_arc_chord | 호와 현을 같은 대상으로 보는 오류 | misconception_risk | official_dual_source | 공식 용어 분리와 호 관계 성취수준에서 추론한 위험이다. 실제 오개념 근거는 교과서 예제와 문항으로 보강한다. |
-| m1_mis_polygon_interior_exterior_angle | 내각과 외각을 같은 각으로 보는 오류 | misconception_risk | official_dual_source | 내각과 외각을 구별해 다루는 공식 용어와 성취기준에서 추론했다. 실제 오개념 근거는 교과서 예제와 문항으로 보강한다. |
-| m1_mis_sector_angle_proportion | 중심각 비례 관계를 호의 길이와 넓이에 적용하지 않는 오류 | misconception_risk | official_dual_source | 부채꼴의 중심각과 호 관계 성취기준에서 추론한 위험이다. 실제 오개념 근거는 교과서 예제와 문항으로 보강한다. |
+| m1_mis_coefficient_constant_degree | 계수·상수항·차수 혼동 | misconception_risk | official_dual_source | 용어 목록과 일차식 계산 성취수준을 바탕으로 둔 잠정 오개념 노드이다. |
+| m1_mis_letter_as_label_only | 문자를 이름표로만 해석하는 오류 | misconception_risk | official_dual_source | 공식 문서의 문자와 일상 언어 비교 지도 유의점에서 추론한 위험이다. 교과서 도입 활동으로 보강 필요. |
+| m1_mis_like_terms | 동류항이 아닌 항을 합치는 오류 | misconception_risk | official_dual_source | 성취수준의 일차식 계산 수행에서 발생할 수 있는 위험으로 추론했다. 교과서 예제와 오답 분석으로 보강 필요. |
 
 ## Cross-Unit Edges
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
-| m1_geo_parallel_angle_property_explanation__related_to__m1_geo_polygon_angle_sum | 평행선에서 동위각과 엇각의 성질 설명하기 | related_to | 다각형의 내각과 외각의 크기 | low | official_dual_source |
-| m1_geo_circle_unit__contains__m1_geo_chord | 원의 성질 | contains | 현 | high | official_dual_source |
-| m1_geo_domain__contains__m1_geo_plane_properties_unit | 도형과 측정 | contains | 평면도형의 성질 | high | official_dual_source |
-| m1_geo_plane_properties_unit__contains__m1_geo_circle | 평면도형의 성질 | contains | 원 | high | official_dual_source |
-| m1_geo_angle__prerequisite_for__m1_geo_central_angle | 각 | prerequisite_for | 중심각 | high | official_dual_source |
-| m1_geo_angle__prerequisite_for__m1_geo_exterior_angle | 각 | prerequisite_for | 외각 | high | official_dual_source |
-| m1_geo_angle__prerequisite_for__m1_geo_interior_angle | 각 | prerequisite_for | 내각 | high | official_dual_source |
-| m1_geo_angle__prerequisite_for__m1_geo_polygon | 각 | prerequisite_for | 다각형 | high | official_dual_source |
-| m1_geo_arc__prerequisite_for__m1_geo_inscribed_angle | 호 | prerequisite_for | 원주각 | high | official_dual_source |
-| m1_geo_arc__prerequisite_for__m1_geo_inscribed_angle_property | 호 | prerequisite_for | 원주각의 성질 | high | official_dual_source |
-| m1_geo_area__prerequisite_for__m1_geo_sector_area_calculation | 넓이 | prerequisite_for | 부채꼴의 넓이 구하기 | high | official_dual_source |
-| m1_geo_basic_unit__prerequisite_for__m1_geo_plane_properties_unit | 기본 도형 | prerequisite_for | 평면도형의 성질 | high | official_dual_source |
-| m1_geo_chord__prerequisite_for__m1_geo_circle_chord_property | 현 | prerequisite_for | 원의 현에 관한 성질 | high | official_dual_source |
-| m1_geo_circle__prerequisite_for__m1_geo_arc | 원 | prerequisite_for | 호 | high | official_dual_source |
-| m1_geo_circle__prerequisite_for__m1_geo_central_angle | 원 | prerequisite_for | 중심각 | high | official_dual_source |
-| m1_geo_circle__prerequisite_for__m1_geo_chord | 원 | prerequisite_for | 현 | high | official_dual_source |
-| m1_geo_circle__prerequisite_for__m1_geo_secant | 원 | prerequisite_for | 할선 | high | official_single_source |
-| m1_geo_circle__prerequisite_for__m1_geo_sector | 원 | prerequisite_for | 부채꼴 | high | official_dual_source |
-| m1_geo_diagonal__prerequisite_for__m1_geo_quadrilateral_diagonal_properties | 대각선 | prerequisite_for | 사각형의 대각선에 관한 성질 | high | official_dual_source |
-| m1_geo_length__prerequisite_for__m1_geo_sector_arc_length_calculation | 길이 | prerequisite_for | 부채꼴의 호의 길이 구하기 | high | official_dual_source |
-| m1_geo_line__prerequisite_for__m1_geo_polygon | 직선 | prerequisite_for | 다각형 | high | official_dual_source |
-| m1_geo_line__prerequisite_for__m1_geo_secant | 직선 | prerequisite_for | 할선 | high | official_single_source |
-| m1_geo_parallel_angle_properties__prerequisite_for__m1_geo_polygon_angle_sum | 평행선에서 동위각과 엇각의 성질 | prerequisite_for | 다각형의 내각과 외각의 크기 | high | official_dual_source |
-| m1_geo_parallel_angle_properties__prerequisite_for__m1_geo_polygon_angle_sum_generalization | 평행선에서 동위각과 엇각의 성질 | prerequisite_for | 다각형의 각의 성질 일반화하기 | high | official_dual_source |
-| m1_geo_parallel_angle_properties__prerequisite_for__m1_geo_polygon_interior_angle_sum | 평행선에서 동위각과 엇각의 성질 | prerequisite_for | 다각형의 내각의 합 | high | official_dual_source |
-| m1_geo_plane_properties_unit__prerequisite_for__m1_geo_rotation_generation | 평면도형의 성질 | prerequisite_for | 평면도형을 회전시켜 회전체 만들기 | high | official_dual_source |
-| m1_geo_plane_properties_unit__prerequisite_for__m1_geo_solid_face | 평면도형의 성질 | prerequisite_for | 입체도형의 면 | medium | official_dual_source |
-| m1_geo_plane_properties_unit__prerequisite_for__m1_geo_solid_net | 평면도형의 성질 | prerequisite_for | 전개도 | medium | official_dual_source |
-| m1_geo_plane_properties_unit__prerequisite_for__m1_geo_solid_of_revolution | 평면도형의 성질 | prerequisite_for | 회전체 | high | official_dual_source |
-| m1_geo_plane_properties_unit__prerequisite_for__m1_geo_solid_unit | 평면도형의 성질 | prerequisite_for | 입체도형의 성질 | high | official_dual_source |
-| m1_geo_plane_properties_unit__prerequisite_for__m1_geo_surface_area | 평면도형의 성질 | prerequisite_for | 겉넓이 | high | official_dual_source |
-| m1_geo_point__prerequisite_for__m1_geo_chord | 점 | prerequisite_for | 현 | high | official_dual_source |
-| m1_geo_point__prerequisite_for__m1_geo_polygon | 점 | prerequisite_for | 다각형 | high | official_dual_source |
-| m1_geo_polygon__prerequisite_for__m1_geo_polyhedron | 다각형 | prerequisite_for | 다면체 | high | official_dual_source |
-| m1_geo_polygon__prerequisite_for__m1_geo_quadrilateral | 다각형 | prerequisite_for | 사각형 | high | official_dual_source |
-| m1_geo_polygon__prerequisite_for__m1_geo_regular_polyhedron | 다각형 | prerequisite_for | 정다면체 | high | official_dual_source |
-| m1_num_ratio__prerequisite_for__m1_geo_sector_proportional_reasoning | 비 | prerequisite_for | 중심각에 따른 부채꼴 비례 추론 | medium | official_dual_source |
-| m1_geo_circle__represented_by__m1_geo_arc | 원 | represented_by | 호 | high | official_dual_source |
-| m1_geo_circle__represented_by__m1_geo_chord | 원 | represented_by | 현 | high | official_dual_source |
-| m1_geo_arc__used_in__m1_geo_inscribed_angle_property | 호 | used_in | 원주각의 성질 | high | official_dual_source |
+| m1_mis_function_value_input_output__often_confused_with__m1_expr_substitution | 함숫값과 입력값 혼동 | often_confused_with | 대입 | low | official_dual_source |
+| m1_mis_letter_as_label_only__often_confused_with__m1_term_variable | 문자를 이름표로만 해석하는 오류 | often_confused_with | 변수 | low | official_dual_source |
+| m1_mis_polynomial_like_terms__often_confused_with__m1_expr_like_terms | 다항식에서 동류항 처리를 누락하는 오류 | often_confused_with | 동류항 | low | official_dual_source |
+| m1_mis_radical_like_terms__often_confused_with__m1_expr_like_terms | 근호 안의 수가 다른 제곱근을 동류항처럼 더하는 오류 | often_confused_with | 동류항 | low | official_single_source |
+| m1_mis_system_substitution__often_confused_with__m1_expr_substitution | 대입법에서 식 전체를 대입하지 않는 오류 | often_confused_with | 대입 | low | official_dual_source |
+| m1_num_domain__related_to__m1_expr_unit | 수와 연산 | related_to | 문자의 사용과 식 | low | official_dual_source |
+| m1_expr_unit__contains__m1_repr_everyday_language | 문자의 사용과 식 | contains | 일상 언어 | high | official_single_source |
+| m1_expr_unit__contains__m1_repr_expression | 문자의 사용과 식 | contains | 식 | high | official_dual_source |
+| m1_expr_unit__contains__m1_term_variable | 문자의 사용과 식 | contains | 변수 | high | official_dual_source |
+| m1_expr_add_sub_linear_expression__prerequisite_for__m1_ineq_solving_linear_inequality | 일차식의 덧셈과 뺄셈 | prerequisite_for | 일차부등식 풀기 | high | official_dual_source |
+| m1_expr_add_sub_linear_expression__prerequisite_for__m1_system_elimination_coefficient_matching | 일차식의 덧셈과 뺄셈 | prerequisite_for | 소거할 미지수의 계수 맞추기 | medium | official_dual_source |
+| m1_expr_coefficient__prerequisite_for__m1_calc_collect_like_terms_polynomial | 계수 | prerequisite_for | 다항식에서 동류항 모으기 | high | official_dual_source |
+| m1_expr_coefficient__prerequisite_for__m1_calc_monomial_coefficient_calculation | 계수 | prerequisite_for | 단항식 계산에서 계수끼리 계산하기 | medium | official_dual_source |
+| m1_expr_coefficient__prerequisite_for__m1_calc_polynomial_term_structure_check | 계수 | prerequisite_for | 다항식의 항·계수·차수 확인하기 | medium | official_dual_source |
+| m1_expr_coefficient__prerequisite_for__m1_factor_binomial_product_xab | 계수 | prerequisite_for | (x+a)(x+b) 공식 | high | official_dual_source |
+| m1_expr_coefficient__prerequisite_for__m1_factor_cross_term_coefficient_check | 계수 | prerequisite_for | 교차항 계수 확인하기 | medium | official_dual_source |
+| m1_expr_coefficient__prerequisite_for__m1_factor_linear_product_axb_cxd | 계수 | prerequisite_for | (ax+b)(cx+d) 공식 | high | official_dual_source |
+| m1_expr_coefficient__prerequisite_for__m1_factor_perfect_square_middle_term_check | 계수 | prerequisite_for | 완전제곱식의 가운데 항 확인하기 | medium | official_dual_source |
+| m1_expr_coefficient__prerequisite_for__m1_factor_sum_product_pair_search | 계수 | prerequisite_for | 합과 곱이 맞는 수 찾기 | medium | official_dual_source |
+| m1_expr_coefficient__prerequisite_for__m1_quad_eq_coefficients_in_standard_form | 계수 | prerequisite_for | 이차방정식의 계수 | medium | official_dual_source |
+| m1_expr_coefficient__prerequisite_for__m1_quad_eq_leading_coefficient_one_case | 계수 | prerequisite_for | 이차항의 계수가 1인 이차방정식 | high | official_dual_source |
+| m1_expr_constant_term__prerequisite_for__m1_eq_collect_constant_terms | 상수항 | prerequisite_for | 상수항 모으기 | medium | official_dual_source |
+| m1_expr_degree__prerequisite_for__m1_calc_polynomial_term_structure_check | 차수 | prerequisite_for | 다항식의 항·계수·차수 확인하기 | medium | official_dual_source |
+| m1_expr_degree__prerequisite_for__m1_factor_quadratic_expression | 차수 | prerequisite_for | 이차식 | medium | official_dual_source |
+| m1_expr_degree__prerequisite_for__m1_quad_eq_quadratic_term | 차수 | prerequisite_for | 이차항 | medium | official_single_source |
+| m1_expr_letter__prerequisite_for__m1_eq_unknown | 문자 | prerequisite_for | 미지수 | high | official_dual_source |
+| m1_expr_letter_quantity__prerequisite_for__m1_eq_choose_unknown_from_context | 문자가 나타내는 수량 정하기 | prerequisite_for | 문제 상황에서 미지수 정하기 | medium | official_dual_source |
+| m1_expr_like_terms__prerequisite_for__m1_calc_collect_like_terms_polynomial | 동류항 | prerequisite_for | 다항식에서 동류항 모으기 | high | official_dual_source |
+| m1_expr_like_terms__prerequisite_for__m1_calc_polynomial_add_sub | 동류항 | prerequisite_for | 다항식의 덧셈과 뺄셈 | high | official_dual_source |
+| m1_expr_like_terms__prerequisite_for__m1_calc_polynomial_add_sub_principle | 동류항 | prerequisite_for | 다항식의 덧셈과 뺄셈 원리 | high | official_dual_source |
+| m1_expr_like_terms__prerequisite_for__m1_calc_simplify_expression | 동류항 | prerequisite_for | 식을 간단히 하기 | high | official_dual_source |
+| m1_expr_linear_expression__prerequisite_for__m1_eq_linear_equation | 일차식 | prerequisite_for | 일차방정식 | high | official_dual_source |
+| m1_expr_linear_expression__prerequisite_for__m1_eq_unit | 일차식 | prerequisite_for | 일차방정식 | high | official_single_source |
+| m1_expr_linear_expression__prerequisite_for__m1_func_linear_function | 일차식 | prerequisite_for | 일차함수 | high | official_dual_source |
+| m1_expr_linear_expression__prerequisite_for__m1_ineq_linear_inequality | 일차식 | prerequisite_for | 일차부등식 | high | official_dual_source |
+| m1_expr_literal_expression__prerequisite_for__m1_eq_modeling_linear_equation | 문자를 사용한 식 | prerequisite_for | 일차방정식 세우기 | high | official_dual_source |
+| m1_expr_literal_expression__prerequisite_for__m1_ineq_modeling_linear_inequality | 문자를 사용한 식 | prerequisite_for | 일차부등식 세우기 | high | official_dual_source |
+| m1_expr_literal_expression__prerequisite_for__m1_system_modeling | 문자를 사용한 식 | prerequisite_for | 연립일차방정식 세우기 | high | official_dual_source |
+| m1_expr_literal_expression__prerequisite_for__m1_system_modeling_variable_assignment | 문자를 사용한 식 | prerequisite_for | 두 미지수 정하기 | medium | official_dual_source |
+| m1_expr_literal_expression__prerequisite_for__m1_system_substitution_isolate_variable | 문자를 사용한 식 | prerequisite_for | 한 미지수를 다른 미지수의 식으로 나타내기 | medium | official_dual_source |

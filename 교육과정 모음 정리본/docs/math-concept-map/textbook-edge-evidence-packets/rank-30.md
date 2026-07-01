@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 피타고라스 정리
 - priority tier: low
 - priority score: 6
-- edges in packet: 33
-- cross-unit edges: 18
+- edges in packet: 34
+- cross-unit edges: 19
 - low confidence edges: 0
 
 ## Relationship Evidence Slots
@@ -36,6 +36,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_geo_domain__contains__m1_geo_pythagorean_unit | cross_unit | 도형과 측정 | contains | 피타고라스 정리 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
 | m1_geo_angle__prerequisite_for__m1_geo_right_triangle | cross_unit | 각 | prerequisite_for | 직각삼각형 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_justification__prerequisite_for__m1_geo_pythagorean_justification | cross_unit | 정당화 | prerequisite_for | 피타고라스 정리의 정당화 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_geo_right_triangle__prerequisite_for__m1_geo_right_triangle_congruence_conditions | cross_unit | 직각삼각형 | prerequisite_for | 직각삼각형의 합동 조건 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_right_triangle__prerequisite_for__m1_geo_special_angles_30_45_60 | cross_unit | 직각삼각형 | prerequisite_for | 30도, 45도, 60도의 삼각비 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_right_triangle__prerequisite_for__m1_geo_trig_adjacent_side | cross_unit | 직각삼각형 | prerequisite_for | 기준각의 이웃변 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_right_triangle__prerequisite_for__m1_geo_trig_distance_height_modeling | cross_unit | 직각삼각형 | prerequisite_for | 거리와 높이 문제를 직각삼각형으로 나타내기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |

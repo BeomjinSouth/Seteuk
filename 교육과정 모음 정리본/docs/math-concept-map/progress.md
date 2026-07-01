@@ -1507,10 +1507,29 @@
 - 전체 파생 산출물 파이프라인을 재실행했고 `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
 - PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
 
+## 2026-06-30 삼각형과 사각형의 성질 미시 concept 병렬 보강
+
+- AGENTS.md를 다시 확인했고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` concept map 보강, 파생 산출물 정비, 검증 보강으로 제한했다.
+- 멀티에이전트 explorer 3개를 읽기 전용으로 사용해 `삼각형과 사각형의 성질`의 이등변삼각형·직각삼각형 합동, 외심·내심, 사각형 분류와 포함 관계 후보를 병렬 감사했다.
+- `이등변삼각형의 두 같은 변`, `이등변삼각형의 밑변`, `이등변삼각형의 꼭지각`, `이등변삼각형의 두 밑각`, `이등변삼각형의 두 밑각의 크기가 같음`, `이등변삼각형의 꼭지각 이등분선 성질`, `이등변삼각형 성질 정당화하기`, `직각삼각형의 합동 조건`, `직각삼각형 합동 판별하기`, `외심과 세 변의 수직이등분선`, `외심에서 세 꼭짓점까지의 거리`, `외접원의 반지름`, `외심 찾기`, `각의 이등분선`, `내심과 세 내각의 이등분선`, `내심에서 세 변까지의 거리`, `내접원의 반지름`, `내심 찾기`, `평행사변형`, `직사각형`, `마름모`, `정사각형`, `사다리꼴`, 사각형 성질과 분류 절차, 새 오개념 위험 노드를 추가했다.
+- 이번 보강의 source ref는 `CURR_GEO_09`, `CURR_GEO_10`, `CURR_GEO_11`, `CURR_GEO_TERMS`, `CURR_GEO_PROOF_NOTE`, `ACH_GEO_TRI_QUAD`를 중심으로 제한했다. 교과서 PDF가 없으므로 새 오개념 risk는 `confidence: low`를 유지했고, `관찰 결과와 증명 혼동`, `외심과 내심 혼동`의 noisy prerequisite도 제거했다.
+- 외심·내심은 수직이등분선/각의 이등분선, 꼭짓점까지의 거리/변까지의 거리, 외접원/내접원 반지름을 분리해 `represented_by`, `contains`, `used_in`, `contrasts_with` edge로 연결했다. 사각형은 평행사변형-직사각형-마름모-정사각형의 포함 관계와 대각선 성질을 분리해 broad relation을 줄였다.
+- 전체 파생 산출물을 재생성한 결과 concept은 694개, edge는 3090개가 되었다. source ref 총계는 concept 1923개, edge 8041개, 총 9964개이며 source catalogue는 5개이다.
+- `review-queue.*`는 99개 low-confidence concept, `concept-evidence-depth.*`는 concept 694개, `edge-evidence-depth.*`는 edge 3090개, `prerequisite-map.*`는 1108개 선수 관계 edge로 갱신되었다.
+- `textbook-evidence-workplan.*`는 34개 단원 그룹, concept evidence row 694개, edge evidence row 3680개, pending textbook evidence row 4374개, low-confidence concept/edge row 627개를 기록한다. 이번 보강 대상 `삼각형과 사각형의 성질`은 rank 6이며 47개 concept과 215개 edge row, 총 262개 row가 모두 `pending_textbook_pdf` 상태이고 low-confidence concept/edge row는 22개이다.
+- `test_build_pilot_triangle_quadrilateral_microconcepts.py`를 추가해 새 이등변삼각형·직각삼각형·외심·내심·사각형 미시 concept, 성질/절차 edge, 사각형 포함 관계, 오개념 confidence 유지, noisy prerequisite 제거를 고정했다.
+- 좁은 테스트: `python -m unittest test_build_pilot_triangle_quadrilateral_microconcepts.py` 5개 통과.
+- edge/queue 테스트: `python -m unittest test_build_pilot_edge_sync.py test_build_related_edge_resolution_queue.py test_build_node_edge_consistency_audit.py` 28개 통과.
+- 전체 단위 테스트: `python -m unittest discover -s . -p "test_*.py"`를 `docs/math-concept-map/tools`에서 실행해 281개 통과.
+- 전체 validator: `python docs/math-concept-map/tools/validate_concept_map.py`: 694개 concept, 3090개 edge, 5개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map`: 종료 코드 0, CRLF 변환 경고만 확인.
+- 전체 파생 산출물 파이프라인을 재실행했고 `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
-- 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 `not_applicable_from_this_row` 40개가 broad context, 용어 충돌, 도구·자료 입력, 또는 약한 출현으로 유지되는지 주기적으로 감사한다. 현재 `pending_manual_review`는 7개이며, 주로 `선분`·`반직선` 후보이므로 교과서 본문 또는 중학교 기본 도형 직접 근거 확인 후 source ref 반영 여부를 판단한다.
+- 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 `not_applicable_from_this_row` 41개가 broad context, 용어 충돌, 도구·자료 입력, 또는 약한 출현으로 유지되는지 주기적으로 감사한다. 현재 `pending_manual_review`는 8개이며, 주로 `선분`·`반직선` 후보이므로 교과서 본문 또는 중학교 기본 도형 직접 근거 확인 후 source ref 반영 여부를 판단한다.
 - 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.
-- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 241개, 총 284개 row로 유지하되, rank 2 `일차함수와 그 그래프`, rank 3 `경우의 수와 확률`, rank 4 `이차함수와 그 그래프`, rank 5 `정수와 유리수`, rank 6 `도수분포표와 상대도수`, rank 7 `이차방정식`, rank 8 `다항식의 곱셈과 인수분해`, rank 9 `기본 도형`, rank 10 `입체도형의 성질`, rank 11 `일차방정식`, rank 12 `소인수분해`, rank 13 `식의 계산`, rank 14 `문자의 사용과 식`, rank 15 `평면도형의 성질`, rank 16 `제곱근과 실수`, rank 17 `연립일차방정식`, rank 18 `삼각비`, rank 19 `삼각형과 사각형의 성질`, rank 20 `원의 성질`도 같은 방식으로 교과서 근거를 보강한다. 교과서 PDF 없이 공식·보조 문서 기반 미시 concept 보강을 계속한다면 다음 반복 후보는 workplan 상위권에서 이미 보강한 단원을 제외하고 rank 19 `삼각형과 사각형의 성질` 또는 rank 20 `원의 성질`처럼 미시 concept이 덜 분해된 단원을 우선 검토한다.
+- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 241개, 총 284개 row로 유지하되, rank 2 `일차함수와 그 그래프`, rank 3 `경우의 수와 확률`, rank 4 `이차함수와 그 그래프`, rank 5 `정수와 유리수`, rank 6 `삼각형과 사각형의 성질`, rank 7 `도수분포표와 상대도수`, rank 8 `이차방정식`, rank 9 `다항식의 곱셈과 인수분해`, rank 10 `기본 도형`, rank 11 `입체도형의 성질`, rank 12 `일차방정식`, rank 13 `소인수분해`, rank 14 `식의 계산`, rank 15 `문자의 사용과 식`, rank 16 `평면도형의 성질`, rank 17 `제곱근과 실수`, rank 18 `연립일차방정식`, rank 19 `삼각비`, rank 20 `원의 성질`도 같은 방식으로 교과서 근거를 보강한다. 교과서 PDF 없이 공식·보조 문서 기반 미시 concept 보강을 계속한다면 다음 반복 후보는 workplan 상위권에서 이미 보강한 단원을 제외하고 rank 20 `원의 성질` 또는 rank 21 `일차부등식`처럼 미시 concept이 덜 분해된 단원을 우선 검토한다.
 - 새 concept, alias, `related_ids`, 또는 `equivalent_to` 후보가 추가되면 `equivalence-alias-audit.*`, `related-edge-resolution-queue.*`, `textbook-edge-evidence-packets/*`, `edge-evidence-depth.*`를 함께 재생성한다.

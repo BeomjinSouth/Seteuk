@@ -12,6 +12,7 @@ digraph pilot_unit_map {
   "m1_geo_domain" [label="도형과 측정\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_angle" [label="각\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_justification" [label="정당화\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_right_triangle_congruence_conditions" [label="직각삼각형의 합동 조건\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_special_angles_30_45_60" [label="30도, 45도, 60도의 삼각비\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_trig_adjacent_side" [label="기준각의 이웃변\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_trig_distance_height_modeling" [label="거리와 높이 문제를 직각삼각형으로 나타내기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -44,6 +45,7 @@ digraph pilot_unit_map {
   "m1_geo_domain" -> "m1_geo_pythagorean_unit" [label="contains", style="dashed", color="#6b7280"];
   "m1_geo_angle" -> "m1_geo_right_triangle" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_justification" -> "m1_geo_pythagorean_justification" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_geo_right_triangle" -> "m1_geo_right_triangle_congruence_conditions" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_right_triangle" -> "m1_geo_special_angles_30_45_60" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_right_triangle" -> "m1_geo_trig_adjacent_side" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_right_triangle" -> "m1_geo_trig_distance_height_modeling" [label="prerequisite_for", style="dashed", color="#6b7280"];

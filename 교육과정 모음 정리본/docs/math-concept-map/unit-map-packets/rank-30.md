@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 도형과 측정
 - unit: 피타고라스 정리
 - priority tier: low
-- workplan score: 24
+- workplan score: 25
 - concepts: 6
-- edges touching unit: 33
-- cross-unit edges: 18
+- edges touching unit: 34
+- cross-unit edges: 19
 - low confidence concepts: 0
 - low confidence edges: 0
 
@@ -30,7 +30,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 |---|---:|
 | contains | 6 |
 | contrasts_with | 2 |
-| prerequisite_for | 17 |
+| prerequisite_for | 18 |
 | related_to | 1 |
 | used_in | 7 |
 
@@ -47,6 +47,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_geo_domain__contains__m1_geo_pythagorean_unit | 도형과 측정 | contains | 피타고라스 정리 | high | official_dual_source |
 | m1_geo_angle__prerequisite_for__m1_geo_right_triangle | 각 | prerequisite_for | 직각삼각형 | high | official_dual_source |
 | m1_geo_justification__prerequisite_for__m1_geo_pythagorean_justification | 정당화 | prerequisite_for | 피타고라스 정리의 정당화 | high | official_dual_source |
+| m1_geo_right_triangle__prerequisite_for__m1_geo_right_triangle_congruence_conditions | 직각삼각형 | prerequisite_for | 직각삼각형의 합동 조건 | medium | official_dual_source |
 | m1_geo_right_triangle__prerequisite_for__m1_geo_special_angles_30_45_60 | 직각삼각형 | prerequisite_for | 30도, 45도, 60도의 삼각비 | high | official_dual_source |
 | m1_geo_right_triangle__prerequisite_for__m1_geo_trig_adjacent_side | 직각삼각형 | prerequisite_for | 기준각의 이웃변 | medium | official_dual_source |
 | m1_geo_right_triangle__prerequisite_for__m1_geo_trig_distance_height_modeling | 직각삼각형 | prerequisite_for | 거리와 높이 문제를 직각삼각형으로 나타내기 | medium | official_dual_source |
