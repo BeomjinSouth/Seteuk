@@ -9,12 +9,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 수와 연산
 - unit: 정수와 유리수
 - priority tier: highest
-- workplan score: 279
+- workplan score: 314
 - concepts: 41
-- edges touching unit: 214
-- cross-unit edges: 62
+- edges touching unit: 229
+- cross-unit edges: 77
 - low confidence concepts: 5
-- low confidence edges: 38
+- low confidence edges: 43
 
 ## Concept Type Distribution
 
@@ -35,10 +35,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contrasts_with | 11 |
 | equivalent_to | 1 |
 | often_confused_with | 17 |
-| prerequisite_for | 93 |
+| prerequisite_for | 106 |
 | related_to | 10 |
 | represented_by | 7 |
-| used_in | 31 |
+| used_in | 33 |
 
 ## Low Confidence Concepts
 
@@ -55,16 +55,22 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
 | m1_num_negative_number__prerequisite_for__m1_coord_quadrant_signs | 음수 | prerequisite_for | 사분면별 좌표 부호 | low | official_dual_source |
+| m1_num_number_line__prerequisite_for__m1_ineq_number_line_solution_representation | 수직선 | prerequisite_for | 부등식 해의 수직선 표현 | low | official_dual_source |
+| m1_num_number_line_position_order__prerequisite_for__m1_ineq_number_line_solution_representation | 수직선에서 오른쪽에 있는 수가 더 큼 | prerequisite_for | 부등식 해의 수직선 표현 | low | official_dual_source |
+| m1_num_order_relation__prerequisite_for__m1_ineq_boundary_value | 정수와 유리수의 대소 관계 | prerequisite_for | 부등식 해의 경계값 | low | official_dual_source |
 | m1_num_positive_number__prerequisite_for__m1_coord_quadrant_signs | 양수 | prerequisite_for | 사분면별 좌표 부호 | low | official_dual_source |
 | m1_num_rational_number__prerequisite_for__m1_data_probability_value | 유리수 | prerequisite_for | 확률값 | low | official_dual_source |
 | m1_num_rational_number__prerequisite_for__m1_num_ratio | 유리수 | prerequisite_for | 비 | low | official_single_source |
 | m1_num_mixed_calculation__used_in__m1_calc_simplify_expression | 정수와 유리수의 혼합계산 | used_in | 식을 간단히 하기 | low | official_dual_source |
+| m1_num_number_line__used_in__m1_ineq_number_line_solution_representation | 수직선 | used_in | 부등식 해의 수직선 표현 | low | official_dual_source |
+| m1_num_number_line_position_order__used_in__m1_ineq_number_line_solution_representation | 수직선에서 오른쪽에 있는 수가 더 큼 | used_in | 부등식 해의 수직선 표현 | low | official_dual_source |
 | m1_mis_polynomial_subtraction_sign__often_confused_with__m1_mis_sign_operation | 다항식 뺄셈에서 괄호 앞 음수를 분배하지 않는 오류 | often_confused_with | 부호와 연산 기호를 혼동하는 오류 | low | official_dual_source |
 | m1_mis_sign_operation__often_confused_with__m1_calc_polynomial_subtraction_sign_distribution | 부호와 연산 기호를 혼동하는 오류 | often_confused_with | 다항식의 뺄셈에서 부호 바꾸기 | low | official_dual_source |
 | m1_num_absolute_value__related_to__m1_geo_distance_between_two_points | 절댓값 | related_to | 두 점 사이의 거리 | low | official_dual_source |
 | m1_num_domain__contains__m1_num_integer_rational_unit | 수와 연산 | contains | 정수와 유리수 | high | official_single_source |
 | m1_num_real_number__contains__m1_num_rational_number | 실수 | contains | 유리수 | high | official_dual_source |
 | m1_num_addition__prerequisite_for__m1_eq_equal_add_subtract_property | 덧셈 | prerequisite_for | 양변에 같은 수를 더하거나 빼기 | medium | official_dual_source |
+| m1_num_addition__prerequisite_for__m1_ineq_add_sub_same_number_property | 덧셈 | prerequisite_for | 부등식 양변에 같은 수 더하기·빼기 | medium | official_dual_source |
 | m1_num_addition__prerequisite_for__m1_system_add_or_subtract_equations | 덧셈 | prerequisite_for | 두 방정식 더하거나 빼기 | medium | official_dual_source |
 | m1_num_distributive_law__prerequisite_for__m1_calc_expansion | 분배법칙 | prerequisite_for | 전개 | medium | official_single_source |
 | m1_num_distributive_law__prerequisite_for__m1_calc_monomial_times_polynomial_distribution | 분배법칙 | prerequisite_for | 단항식을 다항식에 분배하기 | medium | official_dual_source |
@@ -72,25 +78,19 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_distributive_law__prerequisite_for__m1_factor_common_factor_extraction | 분배법칙 | prerequisite_for | 공통인수로 묶기 | medium | official_dual_source |
 | m1_num_distributive_law__prerequisite_for__m1_factor_common_factor_formula | 분배법칙 | prerequisite_for | m(a+b) 공식 | high | official_single_source |
 | m1_num_division__prerequisite_for__m1_eq_equal_multiply_divide_property | 나눗셈 | prerequisite_for | 양변에 같은 수를 곱하거나 나누기 | medium | official_dual_source |
+| m1_num_division__prerequisite_for__m1_ineq_multiply_divide_negative_reverses_sign | 나눗셈 | prerequisite_for | 부등식 양변에 음수를 곱하거나 나눌 때 부등호 방향 바꾸기 | medium | official_dual_source |
+| m1_num_division__prerequisite_for__m1_ineq_multiply_divide_positive_property | 나눗셈 | prerequisite_for | 부등식 양변에 양수를 곱하거나 나누기 | medium | official_dual_source |
 | m1_num_four_operations__prerequisite_for__m1_calc_monomial_coefficient_calculation | 정수와 유리수의 사칙계산 | prerequisite_for | 단항식 계산에서 계수끼리 계산하기 | medium | official_dual_source |
 | m1_num_four_operations__prerequisite_for__m1_calc_unit | 정수와 유리수의 사칙계산 | prerequisite_for | 식의 계산 | medium | official_single_source |
 | m1_num_four_operations__prerequisite_for__m1_expr_evaluate_expression_value | 정수와 유리수의 사칙계산 | prerequisite_for | 식의 값 구하기 | high | official_dual_source |
 | m1_num_integer_rational_unit__prerequisite_for__m1_num_repeating_decimal_unit | 정수와 유리수 | prerequisite_for | 유리수와 순환소수 | high | official_dual_source |
 | m1_num_minus_sign__prerequisite_for__m1_calc_polynomial_subtraction_sign_distribution | 음의 부호 | prerequisite_for | 다항식의 뺄셈에서 부호 바꾸기 | medium | official_dual_source |
 | m1_num_multiplication__prerequisite_for__m1_eq_equal_multiply_divide_property | 곱셈 | prerequisite_for | 양변에 같은 수를 곱하거나 나누기 | medium | official_dual_source |
+| m1_num_multiplication__prerequisite_for__m1_ineq_multiply_divide_negative_reverses_sign | 곱셈 | prerequisite_for | 부등식 양변에 음수를 곱하거나 나눌 때 부등호 방향 바꾸기 | medium | official_dual_source |
+| m1_num_multiplication__prerequisite_for__m1_ineq_multiply_divide_positive_property | 곱셈 | prerequisite_for | 부등식 양변에 양수를 곱하거나 나누기 | medium | official_dual_source |
+| m1_num_negative_number__prerequisite_for__m1_ineq_multiply_divide_negative_reverses_sign | 음수 | prerequisite_for | 부등식 양변에 음수를 곱하거나 나눌 때 부등호 방향 바꾸기 | medium | official_dual_source |
 | m1_num_order_relation__prerequisite_for__m1_data_class | 정수와 유리수의 대소 관계 | prerequisite_for | 계급 | high | official_dual_source |
 | m1_num_order_relation__prerequisite_for__m1_data_median | 정수와 유리수의 대소 관계 | prerequisite_for | 중앙값 | high | official_dual_source |
 | m1_num_order_relation__prerequisite_for__m1_data_quartile | 정수와 유리수의 대소 관계 | prerequisite_for | 사분위수 | high | official_dual_source |
 | m1_num_order_relation__prerequisite_for__m1_data_stem_leaf_plot | 정수와 유리수의 대소 관계 | prerequisite_for | 줄기와 잎 그림 | high | official_dual_source |
-| m1_num_order_relation__prerequisite_for__m1_num_real_order | 정수와 유리수의 대소 관계 | prerequisite_for | 실수의 대소 관계 | high | official_dual_source |
-| m1_num_rational_number__prerequisite_for__m1_data_mean | 유리수 | prerequisite_for | 평균 | medium | official_dual_source |
-| m1_num_rational_number__prerequisite_for__m1_data_probability | 유리수 | prerequisite_for | 확률 | high | official_dual_source |
-| m1_num_rational_number__prerequisite_for__m1_data_probability_unit | 유리수 | prerequisite_for | 경우의 수와 확률 | high | official_dual_source |
-| m1_num_rational_number__prerequisite_for__m1_data_relative_frequency | 유리수 | prerequisite_for | 상대도수 | high | official_dual_source |
-| m1_num_rational_number__prerequisite_for__m1_num_finite_decimal | 유리수 | prerequisite_for | 유한소수 | high | official_dual_source |
-| m1_num_rational_number__prerequisite_for__m1_num_fraction_decimal_classification | 유리수 | prerequisite_for | 분수가 유한소수 또는 순환소수로 나타나는지 구분하기 | medium | official_single_source |
-| m1_num_rational_number__prerequisite_for__m1_num_infinite_decimal | 유리수 | prerequisite_for | 무한소수 | high | official_dual_source |
-| m1_num_rational_number__prerequisite_for__m1_num_irrational_number | 유리수 | prerequisite_for | 무리수 | high | official_dual_source |
-| m1_num_rational_number__prerequisite_for__m1_num_rational_irrational_classification | 유리수 | prerequisite_for | 유리수와 무리수의 구분 | high | official_dual_source |
-| m1_num_rational_number__prerequisite_for__m1_num_rational_repeating_relation | 유리수 | prerequisite_for | 유리수와 순환소수의 관계 | high | official_dual_source |
-| m1_num_rational_number__prerequisite_for__m1_num_real_number | 유리수 | prerequisite_for | 실수 | high | official_dual_source |
+| m1_num_order_relation__prerequisite_for__m1_ineq_inequality_sign_direction | 정수와 유리수의 대소 관계 | prerequisite_for | 부등호의 방향 | medium | official_dual_source |

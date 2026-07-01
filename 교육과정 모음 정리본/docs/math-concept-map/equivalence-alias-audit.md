@@ -4,14 +4,14 @@ This generated audit separates aliases, explicit equivalent edges, repeated labe
 
 ## Summary
 
-- audit rows: 738
+- audit rows: 758
 
 ## Record Types
 
 | record_type | count |
 |---|---:|
-| concept_alias | 714 |
-| duplicate_label | 12 |
+| concept_alias | 733 |
+| duplicate_label | 13 |
 | equivalent_edge | 3 |
 | official_term_multi_match | 9 |
 
@@ -20,9 +20,9 @@ This generated audit separates aliases, explicit equivalent edges, repeated labe
 | recommended_action | count |
 |---|---:|
 | keep_edge_and_confirm_textbook_usage | 3 |
-| preserve_alias_and_check_textbook_wording | 714 |
+| preserve_alias_and_check_textbook_wording | 733 |
 | review_term_scope_and_preserve_alias_or_split_reason | 9 |
-| review_unit_vs_micro_concept_split_before_equivalent_edge | 12 |
+| review_unit_vs_micro_concept_split_before_equivalent_edge | 13 |
 
 ## Review Rows
 
@@ -30,6 +30,7 @@ This generated audit separates aliases, explicit equivalent edges, repeated labe
 |---|---|---|---|---|---|---:|
 | duplicate_label | 교점 |  | same_label_multiple_nodes | review_unit_vs_micro_concept_split_before_equivalent_edge | medium | 5 |
 | duplicate_label | 대푯값 |  | same_label_multiple_nodes | review_unit_vs_micro_concept_split_before_equivalent_edge | medium | 7 |
+| duplicate_label | 문제 상황에서 미지수 정하기 |  | same_label_multiple_nodes | review_unit_vs_micro_concept_split_before_equivalent_edge | medium | 7 |
 | duplicate_label | 산포도 |  | same_label_multiple_nodes | review_unit_vs_micro_concept_split_before_equivalent_edge | medium | 5 |
 | duplicate_label | 삼각비 |  | same_label_multiple_nodes | review_unit_vs_micro_concept_split_before_equivalent_edge | medium | 7 |
 | duplicate_label | 소인수분해 |  | same_label_multiple_nodes | review_unit_vs_micro_concept_split_before_equivalent_edge | medium | 8 |

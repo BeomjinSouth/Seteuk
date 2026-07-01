@@ -1543,10 +1543,27 @@
 - 전체 산출물 파이프라인을 재실행했고 `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
 - PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
 
+## 2026-07-01 일차부등식 미시 concept 병렬 보강
+
+- AGENTS.md를 다시 확인했고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` concept map 보강, 파생 산출물 재생성, 검증 보강으로 제한했다.
+- 멀티에이전트 explorer 3개를 읽기 전용으로 사용해 `일차부등식`의 용어·기호, 풀이 절차, 수직선 표현·오개념 후보를 병렬 감사했다. 각 agent의 결과를 통합하면서 공식 문서 직접 근거가 약한 항목은 `confidence: low`와 notes에 추론 근거를 남겼다.
+- `부등호`, `부등호의 방향`, `부등식 해의 범위`, `부등식 해의 수직선 표현`, `부등식 해의 경계값`, `부등식 해의 끝점 포함 표시`, `부등식 양변에 같은 수 더하기·빼기`, `부등식 양변에 양수를 곱하거나 나누기`, `부등식 양변에 음수를 곱하거나 나눌 때 부등호 방향 바꾸기`, `부등식의 동치 변형`, `미지수를 한쪽으로 모으기`, `일차부등식의 해를 범위로 나타내기`, `문제 상황에서 미지수 정하기`, `문제 조건을 부등식으로 옮기기`, `부등식의 해를 문제 상황에 맞게 해석하기`, `부등식의 해인지 판단하기`, `일차부등식 활용 문제 해결`, `부등식 해의 끝점 포함 여부를 잘못 표시하는 오류`, `부등호 방향을 항상 바꾸는 오류`를 추가했다.
+- 이번 보강의 source ref는 `CURR_11`, `CURR_12`, `CURR_INEQ_NOTE`, `ACH_INEQ`, `ACH_LINEAR_INEQ`, 필요한 경우 `CURR_INSTRUCTIONAL_TERMS`와 수직선 관련 수와 연산 근거로 제한했다. `부등호`, 수직선 끝점 표시, 경계값 같은 교과서 관례 기반 항목은 교과서 PDF 확인 전까지 낮은 신뢰도를 유지했다.
+- `수직선`, `수직선에서의 위치와 대소`, `부등호 방향`, `양변`, `대입`, `미지수 정하기`, `해 확인`을 일차부등식 절차와 연결했다. 오개념 위험 노드는 선수 관계 없이 `often_confused_with` edge로만 연결하고, `일차방정식의 해`, `그래프`, `좌표 단원의 수직선`, `식의 계산 단원`에서 뻗는 noisy prerequisite edge는 만들지 않았다.
+- 전체 파생 산출물을 재생성한 결과 concept은 733개, edge는 3313개가 되었다. source ref audit은 10659개 ref를 기록하고, source catalogue는 5개를 유지한다.
+- `review-queue.*`는 109개 low-confidence concept, `concept-evidence-depth.*`는 concept 733개, `edge-evidence-depth.*`는 edge 3313개, `prerequisite-map.*`은 1208개 선수 관계 edge로 갱신했다.
+- `textbook-evidence-workplan.*`은 34개 단원 그룹, concept evidence row 733개, edge evidence row 3960개, pending textbook evidence row 4693개, low-confidence concept/edge row 692개를 기록한다. 재생성 후 `일차부등식`은 rank 6이며 concept 30개, edge 158개, 총 188개 evidence row가 모두 `pending_textbook_pdf` 상태다.
+- `test_build_pilot_inequality_microconcepts.py`를 추가해 새 일차부등식 미시 concept, `[9수02-11]`·`[9수02-12]` source locator, 수직선 표현 edge, 부등식 성질과 풀이 절차 edge, 활용 문제 해결 흐름, 오개념 confidence 유지, noisy prerequisite edge 부재를 고정했다.
+- 좁은 테스트: `python -m unittest test_build_pilot_inequality_microconcepts.py` 4개 통과.
+- 전체 단위 테스트: `python -m unittest discover -s . -p "test_*.py"`를 `docs/math-concept-map/tools`에서 실행해 290개 통과.
+- 전체 validator: `python docs/math-concept-map/tools/validate_concept_map.py`: 733개 concept, 3313개 edge, 5개 source, 60개 공식 성취기준 검증 통과.
+- 전체 산출물 파이프라인을 재실행했고 `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
 - 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 `not_applicable_from_this_row` 41개가 broad context, 용어 충돌, 도구·자료 입력, 또는 약한 출현으로 유지되는지 주기적으로 감사한다. 현재 `pending_manual_review`는 8개이며, 주로 `선분`·`반직선` 후보이므로 교과서 본문 또는 중학교 기본 도형 직접 근거 확인 후 source ref 반영 여부를 판단한다.
 - 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.
-- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 241개, 총 284개 row로 유지한다. 공식·보조 문서 기반 미시 concept 보강을 계속한다면 이미 보강한 상위 단원을 제외하고 rank 21 `일차부등식` 또는 rank 22 `일차함수와 일차방정식의 관계`처럼 미시 concept이 덜 분해된 단원을 우선 검토한다.
+- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 241개, 총 284개 row로 유지한다. 공식·보조 문서 기반 미시 concept 보강을 계속한다면 이미 보강한 상위 단원을 제외하고 `일차함수와 일차방정식의 관계`, `유리수와 순환소수`, `도형의 닮음`처럼 미시 concept이 덜 분해된 단원을 우선 검토한다.
 - 새 concept, alias, `related_ids`, 또는 `equivalent_to` 후보가 추가되면 `equivalence-alias-audit.*`, `related-edge-resolution-queue.*`, `textbook-edge-evidence-packets/*`, `edge-evidence-depth.*`를 함께 재생성한다.

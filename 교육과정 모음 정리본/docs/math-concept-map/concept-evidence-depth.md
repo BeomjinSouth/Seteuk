@@ -4,15 +4,15 @@ This generated audit summarizes source evidence depth for each concept node.
 
 ## Summary
 
-- concepts: 714
-- needs textbook evidence: 714
-- low confidence concepts: 103
+- concepts: 733
+- needs textbook evidence: 733
+- low confidence concepts: 109
 
 ## Evidence Depth Counts
 
 | evidence_depth | concept count |
 |---|---:|
-| official_dual_source | 615 |
+| official_dual_source | 634 |
 | official_single_source | 99 |
 
 ## Priority Rows

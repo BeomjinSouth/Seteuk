@@ -5,64 +5,69 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 ## Target Unit
 
 - rank: 21
-- grade: 중1(교육과정 학년군: 중1-3)
-- domain: 변화와 관계
-- unit: 일차부등식
-- priority tier: high
-- workplan score: 70
-- concepts: 11
-- edges touching unit: 49
-- cross-unit edges: 17
-- low confidence concepts: 2
-- low confidence edges: 8
+- grade: 중3(교육과정 학년군: 중1-3)
+- domain: 도형과 측정
+- unit: 삼각비
+- priority tier: highest
+- workplan score: 110
+- concepts: 24
+- edges touching unit: 110
+- cross-unit edges: 20
+- low confidence concepts: 3
+- low confidence edges: 12
 
 ## Concept Type Distribution
 
 | concept_type | count |
 |---|---:|
-| core_concept | 3 |
-| misconception_risk | 2 |
-| procedure | 4 |
-| property | 1 |
-| term | 1 |
+| core_concept | 2 |
+| misconception_risk | 3 |
+| procedure | 6 |
+| property | 2 |
+| representation | 4 |
+| term | 7 |
 
 ## Relationship Distribution
 
 | relationship_type | count |
 |---|---:|
-| contains | 12 |
-| contrasts_with | 3 |
-| often_confused_with | 6 |
-| prerequisite_for | 17 |
-| related_to | 2 |
-| represented_by | 1 |
-| used_in | 8 |
+| contains | 24 |
+| contrasts_with | 5 |
+| often_confused_with | 7 |
+| prerequisite_for | 40 |
+| related_to | 6 |
+| represented_by | 7 |
+| used_in | 21 |
 
 ## Low Confidence Concepts
 
 | concept_id | label_ko | type | evidence_depth | notes |
 |---|---|---|---|---|
-| m1_mis_ineq_negative | 음수를 곱하거나 나눌 때 부등호 방향을 바꾸지 않는 오류 | misconception_risk | official_dual_source | 공식 성취수준은 낮은 수준에서 양수 곱나눔을 언급한다. 음수 처리 오류는 교과서 본문과 예제로 보강해야 한다. |
-| m1_mis_ineq_solution_single_value | 부등식의 해를 한 값으로만 이해하는 오류 | misconception_risk | official_dual_source | 부등식의 해와 방정식의 해를 대조해야 하는 수행에서 추론했다. |
+| m1_mis_trig_angle_scope | 삼각비 각의 범위를 0도~90도 밖으로 확장하는 오류 | misconception_risk | official_single_source | 교육과정 유의사항에 근거한 범위 관리 노드다. 교과서 오답 근거 확인 전 낮은 신뢰도로 둔다. |
+| m1_mis_trig_opposite_adjacent_swap | 기준각에 따라 대변과 이웃변을 바꾸는 오류 | misconception_risk | official_dual_source | 삼각비 정의와 값 구하기 절차에서 추론한 오개념 위험이다. 교과서 예제나 오답 근거 확인 전 낮은 신뢰도로 둔다. |
+| m1_mis_trig_relation_scope | 삼각비 사이의 관계를 교육과정 범위로 오해하는 오류 | misconception_risk | official_single_source | 교육과정 유의사항은 삼각비 사이의 관계는 다루지 않는다고 명시한다. 교과서 오답 근거 확인 전 낮은 신뢰도로 둔다. |
 
 ## Cross-Unit Edges
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
-| m1_mis_ineq_solution_single_value__often_confused_with__m1_eq_solution | 부등식의 해를 한 값으로만 이해하는 오류 | often_confused_with | 해 | low | official_dual_source |
-| m1_eq_equality_properties__prerequisite_for__m1_ineq_compare_equality_properties | 등식의 성질 | prerequisite_for | 등식의 성질과 부등식의 성질 비교 | high | official_dual_source |
-| m1_eq_equality_properties__prerequisite_for__m1_ineq_properties | 등식의 성질 | prerequisite_for | 부등식의 성질 | high | official_dual_source |
-| m1_eq_unit__prerequisite_for__m1_ineq_unit | 일차방정식 | prerequisite_for | 일차부등식 | high | official_dual_source |
-| m1_expr_add_sub_linear_expression__prerequisite_for__m1_ineq_solving_linear_inequality | 일차식의 덧셈과 뺄셈 | prerequisite_for | 일차부등식 풀기 | high | official_dual_source |
-| m1_expr_linear_expression__prerequisite_for__m1_ineq_linear_inequality | 일차식 | prerequisite_for | 일차부등식 | high | official_dual_source |
-| m1_expr_literal_expression__prerequisite_for__m1_ineq_modeling_linear_inequality | 문자를 사용한 식 | prerequisite_for | 일차부등식 세우기 | high | official_dual_source |
-| m1_expr_substitution__prerequisite_for__m1_ineq_solution | 대입 | prerequisite_for | 부등식의 해 | high | official_dual_source |
-| m1_expr_substitution__prerequisite_for__m1_ineq_solution_check | 대입 | prerequisite_for | 부등식 해의 확인 | high | official_dual_source |
-| m1_repr_expression__prerequisite_for__m1_ineq_inequality | 식 | prerequisite_for | 부등식 | high | official_dual_source |
-| m1_eq_equality_properties__used_in__m1_ineq_compare_equality_properties | 등식의 성질 | used_in | 등식의 성질과 부등식의 성질 비교 | high | official_dual_source |
-| m1_expr_add_sub_linear_expression__used_in__m1_ineq_solving_linear_inequality | 일차식의 덧셈과 뺄셈 | used_in | 일차부등식 풀기 | medium | official_dual_source |
-| m1_ineq_inequality__contrasts_with__m1_eq_equality | 부등식 | contrasts_with | 등식 | medium | official_dual_source |
-| m1_ineq_inequality__contrasts_with__m1_eq_equation | 부등식 | contrasts_with | 방정식 | high | official_dual_source |
-| m1_ineq_solution__contrasts_with__m1_eq_solution | 부등식의 해 | contrasts_with | 해 | medium | official_dual_source |
-| m1_calc_unit__related_to__m1_ineq_unit | 식의 계산 | related_to | 일차부등식 | medium | official_dual_source |
-| m1_ineq_unit__related_to__m1_system_unit | 일차부등식 | related_to | 연립일차방정식 | medium | official_dual_source |
+| m1_num_ratio__used_in__m1_geo_trigonometric_ratio | 비 | used_in | 삼각비 | low | official_dual_source |
+| m1_geo_tangent_ratio__contrasts_with__m1_geo_tangent_line | 탄젠트 | contrasts_with | 접선 | low | official_single_source |
+| m1_geo_domain__contains__m1_geo_trig_unit | 도형과 측정 | contains | 삼각비 | high | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_trig_reference_angle | 각 | prerequisite_for | 삼각비의 기준각 | medium | official_dual_source |
+| m1_geo_foot_of_perpendicular__prerequisite_for__m1_geo_trig_distance_height | 수선의 발 | prerequisite_for | 삼각비로 거리와 높이 구하기 | high | official_dual_source |
+| m1_geo_foot_of_perpendicular__prerequisite_for__m1_geo_trig_distance_height_modeling | 수선의 발 | prerequisite_for | 거리와 높이 문제를 직각삼각형으로 나타내기 | medium | official_dual_source |
+| m1_geo_length__prerequisite_for__m1_geo_trig_hypotenuse | 길이 | prerequisite_for | 삼각비에서의 빗변 | medium | official_dual_source |
+| m1_geo_right_triangle__prerequisite_for__m1_geo_special_angles_30_45_60 | 직각삼각형 | prerequisite_for | 30도, 45도, 60도의 삼각비 | high | official_dual_source |
+| m1_geo_right_triangle__prerequisite_for__m1_geo_trig_adjacent_side | 직각삼각형 | prerequisite_for | 기준각의 이웃변 | medium | official_dual_source |
+| m1_geo_right_triangle__prerequisite_for__m1_geo_trig_distance_height_modeling | 직각삼각형 | prerequisite_for | 거리와 높이 문제를 직각삼각형으로 나타내기 | medium | official_dual_source |
+| m1_geo_right_triangle__prerequisite_for__m1_geo_trig_hypotenuse | 직각삼각형 | prerequisite_for | 삼각비에서의 빗변 | medium | official_dual_source |
+| m1_geo_right_triangle__prerequisite_for__m1_geo_trig_opposite_side | 직각삼각형 | prerequisite_for | 기준각의 대변 | medium | official_dual_source |
+| m1_geo_right_triangle__prerequisite_for__m1_geo_trig_reference_angle | 직각삼각형 | prerequisite_for | 삼각비의 기준각 | medium | official_dual_source |
+| m1_geo_right_triangle__prerequisite_for__m1_geo_trigonometric_ratio | 직각삼각형 | prerequisite_for | 삼각비 | high | official_dual_source |
+| m1_geo_similarity_ratio__prerequisite_for__m1_geo_trigonometric_ratio | 닮음비 | prerequisite_for | 삼각비 | high | official_dual_source |
+| m1_geo_area__used_in__m1_geo_trig_triangle_area | 넓이 | used_in | 삼각비를 이용한 삼각형의 넓이 | medium | official_single_source |
+| m1_geo_pythagorean_unit__related_to__m1_geo_trig_unit | 피타고라스 정리 | related_to | 삼각비 | medium | official_dual_source |
+| m1_geo_triangle_quadrilateral_unit__related_to__m1_geo_trig_unit | 삼각형과 사각형의 성질 | related_to | 삼각비 | medium | official_dual_source |
+| m1_geo_trig_opposite_side__related_to__m1_geo_opposite_side | 기준각의 대변 | related_to | 대변 | medium | official_dual_source |
+| m1_geo_trig_value_table__related_to__m1_repr_table | 삼각비의 값 표 | related_to | 표 | medium | official_dual_source |
