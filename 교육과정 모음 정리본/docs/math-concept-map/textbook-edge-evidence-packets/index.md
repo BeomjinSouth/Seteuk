@@ -5,15 +5,15 @@ This generated index tracks the prepared unit-level textbook edge evidence packe
 ## Summary
 
 - packets: 34
-- edges in packets: 3960
-- cross-unit edges in packets: 1294
+- edges in packets: 4010
+- cross-unit edges in packets: 1318
 
 ## Packets
 
 | rank | grade | domain | unit | edges | intra-unit | cross-unit | low | tier | score | packet |
 |---:|---|---|---|---:|---:|---:|---:|---|---:|---|
-| 1 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 좌표평면과 그래프 | 241 | 162 | 79 | 75 | highest | 105 | rank-01.md |
-| 2 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 그 그래프 | 165 | 123 | 42 | 52 | highest | 93 | rank-02.md |
+| 1 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 좌표평면과 그래프 | 245 | 162 | 83 | 75 | highest | 105 | rank-01.md |
+| 2 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 그 그래프 | 166 | 123 | 43 | 52 | highest | 93 | rank-02.md |
 | 3 | 중2(교육과정 학년군: 중1-3) | 자료와 가능성 | 경우의 수와 확률 | 112 | 102 | 10 | 24 | highest | 72 | rank-03.md |
 | 4 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 이차함수와 그 그래프 | 143 | 118 | 25 | 11 | highest | 68 | rank-04.md |
 | 5 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 정수와 유리수 | 229 | 152 | 77 | 43 | highest | 65 | rank-05.md |
@@ -31,9 +31,9 @@ This generated index tracks the prepared unit-level textbook edge evidence packe
 | 17 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 문자의 사용과 식 | 184 | 74 | 110 | 15 | highest | 48 | rank-17.md |
 | 18 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 평면도형의 성질 | 197 | 124 | 73 | 15 | highest | 47 | rank-18.md |
 | 19 | 중3(교육과정 학년군: 중1-3) | 수와 연산 | 제곱근과 실수 | 121 | 92 | 29 | 15 | highest | 45 | rank-19.md |
-| 20 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 연립일차방정식 | 141 | 99 | 42 | 20 | highest | 43 | rank-20.md |
+| 20 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 연립일차방정식 | 148 | 99 | 49 | 21 | highest | 43 | rank-20.md |
 | 21 | 중3(교육과정 학년군: 중1-3) | 도형과 측정 | 삼각비 | 110 | 90 | 20 | 12 | highest | 42 | rank-21.md |
-| 22 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 일차방정식의 관계 | 43 | 26 | 17 | 7 | medium | 19 | rank-22.md |
+| 22 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 일차방정식의 관계 | 81 | 52 | 29 | 11 | high | 34 | rank-22.md |
 | 23 | 중2(교육과정 학년군: 중1-3) | 수와 연산 | 유리수와 순환소수 | 47 | 30 | 17 | 8 | medium | 18 | rank-23.md |
 | 24 | 중2(교육과정 학년군: 중1-3) | 도형과 측정 | 도형의 닮음 | 58 | 32 | 26 | 9 | medium | 15 | rank-24.md |
 | 25 | 중3(교육과정 학년군: 중1-3) | 자료와 가능성 | 상자그림과 산점도 | 48 | 32 | 16 | 4 | medium | 15 | rank-25.md |

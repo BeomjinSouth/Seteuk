@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 좌표평면과 그래프
 - priority tier: highest
-- workplan score: 484
+- workplan score: 488
 - concepts: 43
-- edges touching unit: 241
-- cross-unit edges: 79
+- edges touching unit: 245
+- cross-unit edges: 83
 - low confidence concepts: 9
 - low confidence edges: 75
 
@@ -35,9 +35,9 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 51 |
 | contrasts_with | 11 |
 | often_confused_with | 25 |
-| prerequisite_for | 80 |
+| prerequisite_for | 83 |
 | related_to | 23 |
-| represented_by | 20 |
+| represented_by | 21 |
 | used_in | 31 |
 
 ## Low Confidence Concepts
@@ -76,14 +76,17 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_expr_unit__contains__m1_repr_expression | 문자의 사용과 식 | contains | 식 | high | official_dual_source |
 | m1_expr_unit__contains__m1_term_variable | 문자의 사용과 식 | contains | 변수 | high | official_dual_source |
 | m1_coord_coordinate__prerequisite_for__m1_func_intersection_point | 좌표 | prerequisite_for | 교점 | medium | official_single_source |
+| m1_coord_coordinate__prerequisite_for__m1_func_intersection_point_coordinate | 좌표 | prerequisite_for | 교점의 좌표 | medium | official_dual_source |
 | m1_coord_coordinate__prerequisite_for__m1_quad_func_vertex_coordinates | 좌표 | prerequisite_for | 꼭짓점 좌표 | medium | official_dual_source |
 | m1_coord_coordinate_plane__prerequisite_for__m1_data_scatter_plot | 좌표평면 | prerequisite_for | 산점도 | high | official_dual_source |
 | m1_coord_coordinate_plane__prerequisite_for__m1_func_graph_drawing | 좌표평면 | prerequisite_for | 일차함수 그래프 그리기 | high | official_dual_source |
 | m1_coord_coordinate_plane__prerequisite_for__m1_func_linear_graph | 좌표평면 | prerequisite_for | 일차함수의 그래프 | high | official_dual_source |
+| m1_coord_coordinate_plane__prerequisite_for__m1_func_two_variable_linear_equation_graph | 좌표평면 | prerequisite_for | 미지수가 2개인 일차방정식의 그래프 | high | official_dual_source |
 | m1_coord_coordinate_plane__prerequisite_for__m1_quad_func_graph | 좌표평면 | prerequisite_for | 이차함수의 그래프 | high | official_dual_source |
 | m1_coord_coordinate_plane__prerequisite_for__m1_quad_func_graph_drawing | 좌표평면 | prerequisite_for | 이차함수 그래프 그리기 | high | official_dual_source |
 | m1_coord_graph_unit__prerequisite_for__m1_func_unit | 좌표평면과 그래프 | prerequisite_for | 일차함수와 그 그래프 | high | official_dual_source |
 | m1_coord_graph_unit__prerequisite_for__m1_quad_func_unit | 좌표평면과 그래프 | prerequisite_for | 이차함수와 그 그래프 | high | official_dual_source |
+| m1_coord_ordered_pair__prerequisite_for__m1_func_two_variable_equation_solution_pair | 순서쌍 | prerequisite_for | 미지수가 2개인 일차방정식 해의 순서쌍 | medium | official_dual_source |
 | m1_coord_ordered_pair__prerequisite_for__m1_system_solution_ordered_pair | 순서쌍 | prerequisite_for | 해의 순서쌍 표현 | medium | official_dual_source |
 | m1_coord_x_axis__prerequisite_for__m1_func_x_intercept | x축 | prerequisite_for | x절편 | high | official_dual_source |
 | m1_coord_y_axis__prerequisite_for__m1_func_y_intercept | y축 | prerequisite_for | y절편 | high | official_dual_source |
@@ -95,6 +98,3 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_graph_graph__prerequisite_for__m1_data_relative_frequency_table_graph | 그래프 | prerequisite_for | 상대도수의 분포를 표나 그래프로 나타내기 | high | official_dual_source |
 | m1_graph_graph__prerequisite_for__m1_data_scatter_plot | 그래프 | prerequisite_for | 산점도 | high | official_dual_source |
 | m1_graph_graph__prerequisite_for__m1_func_linear_graph | 그래프 | prerequisite_for | 일차함수의 그래프 | high | official_dual_source |
-| m1_graph_graph__prerequisite_for__m1_quad_func_graph | 그래프 | prerequisite_for | 이차함수의 그래프 | medium | official_dual_source |
-| m1_prop_direct_proportion__prerequisite_for__m1_func_y_ax_graph | 정비례 | prerequisite_for | 일차함수 y=ax의 그래프 | medium | official_single_source |
-| m1_repr_everyday_language__prerequisite_for__m1_expr_situation_to_literal_expression | 일상 언어 | prerequisite_for | 상황을 문자를 사용한 식으로 나타내기 | high | official_dual_source |

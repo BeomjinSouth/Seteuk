@@ -52,6 +52,7 @@ digraph pilot_unit_map {
   "m1_quad_func_situation_to_formula" [label="상황을 이차함수 식으로 나타내기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_func_two_linear_graphs" [label="두 일차함수의 그래프\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_func_two_variable_equation_as_graph" [label="미지수가 2개인 일차방정식의 해를 그래프로 나타내기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_func_two_variable_linear_equation_graph" [label="미지수가 2개인 일차방정식의 그래프\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_quad_func_shifted_square_form" [label="y=a(x-p)^2 꼴\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_quad_func_vertex_form" [label="y=a(x-p)^2+q 꼴\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_quad_func_vertical_shift_form" [label="y=ax^2+q 꼴\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -210,6 +211,7 @@ digraph pilot_unit_map {
   "m1_func_function" -> "m1_quad_func_situation_to_formula" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_func_linear_graph" -> "m1_func_two_linear_graphs" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_func_linear_graph" -> "m1_func_two_variable_equation_as_graph" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_func_linear_graph" -> "m1_func_two_variable_linear_equation_graph" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_func_parallel_translation" -> "m1_quad_func_shifted_square_form" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_func_parallel_translation" -> "m1_quad_func_vertex_form" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_func_parallel_translation" -> "m1_quad_func_vertical_shift_form" [label="prerequisite_for", style="dashed", color="#6b7280"];

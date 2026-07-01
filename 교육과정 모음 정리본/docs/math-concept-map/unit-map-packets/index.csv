@@ -1,6 +1,6 @@
 ﻿rank,grade,domain,unit,priority_tier,workplan_score,concept_count,edge_count,intra_unit_edge_count,cross_unit_edge_count,low_confidence_concept_count,low_confidence_edge_count,total_pending_evidence_count,next_action,node_csv,edge_csv,map_md,map_dot
-1,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,highest,484,43,241,162,79,9,75,284,fill_low_confidence_concept_and_edge_evidence,rank-01-nodes.csv,rank-01-edges.csv,rank-01.md,rank-01.dot
-2,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,highest,343,33,165,123,42,11,52,198,fill_low_confidence_concept_and_edge_evidence,rank-02-nodes.csv,rank-02-edges.csv,rank-02.md,rank-02.dot
+1,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,highest,488,43,245,162,83,9,75,288,fill_low_confidence_concept_and_edge_evidence,rank-01-nodes.csv,rank-01-edges.csv,rank-01.md,rank-01.dot
+2,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,highest,344,33,166,123,43,11,52,199,fill_low_confidence_concept_and_edge_evidence,rank-02-nodes.csv,rank-02-edges.csv,rank-02.md,rank-02.dot
 3,중2(교육과정 학년군: 중1-3),자료와 가능성,경우의 수와 확률,highest,178,26,112,102,10,6,24,138,fill_low_confidence_concept_and_edge_evidence,rank-03-nodes.csv,rank-03-edges.csv,rank-03.md,rank-03.dot
 4,중3(교육과정 학년군: 중1-3),변화와 관계,이차함수와 그 그래프,highest,137,30,143,118,25,3,11,173,fill_low_confidence_concept_and_edge_evidence,rank-04-nodes.csv,rank-04-edges.csv,rank-04.md,rank-04.dot
 5,중1(교육과정 학년군: 중1-3),수와 연산,정수와 유리수,highest,314,41,229,152,77,5,43,270,fill_low_confidence_concept_and_edge_evidence,rank-05-nodes.csv,rank-05-edges.csv,rank-05.md,rank-05.dot
@@ -18,9 +18,9 @@
 17,중1(교육과정 학년군: 중1-3),변화와 관계,문자의 사용과 식,highest,218,24,184,74,110,3,15,208,fill_low_confidence_concept_and_edge_evidence,rank-17-nodes.csv,rank-17-edges.csv,rank-17.md,rank-17.dot
 18,중1(교육과정 학년군: 중1-3),도형과 측정,평면도형의 성질,highest,180,29,197,124,73,3,15,226,fill_low_confidence_concept_and_edge_evidence,rank-18-nodes.csv,rank-18-edges.csv,rank-18.md,rank-18.dot
 19,중3(교육과정 학년군: 중1-3),수와 연산,제곱근과 실수,highest,134,25,121,92,29,3,15,146,fill_low_confidence_concept_and_edge_evidence,rank-19-nodes.csv,rank-19-edges.csv,rank-19.md,rank-19.dot
-20,중1(교육과정 학년군: 중1-3),변화와 관계,연립일차방정식,highest,165,27,141,99,42,4,20,168,fill_low_confidence_concept_and_edge_evidence,rank-20-nodes.csv,rank-20-edges.csv,rank-20.md,rank-20.dot
+20,중1(교육과정 학년군: 중1-3),변화와 관계,연립일차방정식,highest,176,27,148,99,49,4,21,175,fill_low_confidence_concept_and_edge_evidence,rank-20-nodes.csv,rank-20-edges.csv,rank-20.md,rank-20.dot
 21,중3(교육과정 학년군: 중1-3),도형과 측정,삼각비,highest,110,24,110,90,20,3,12,134,fill_low_confidence_concept_and_edge_evidence,rank-21-nodes.csv,rank-21-edges.csv,rank-21.md,rank-21.dot
-22,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 일차방정식의 관계,medium,64,9,43,26,17,1,7,52,fill_low_confidence_concept_and_edge_evidence,rank-22-nodes.csv,rank-22-edges.csv,rank-22.md,rank-22.dot
+22,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 일차방정식의 관계,high,107,16,81,52,29,3,11,97,fill_low_confidence_concept_and_edge_evidence,rank-22-nodes.csv,rank-22-edges.csv,rank-22.md,rank-22.dot
 23,중2(교육과정 학년군: 중1-3),수와 연산,유리수와 순환소수,medium,67,10,47,30,17,1,8,57,fill_low_confidence_concept_and_edge_evidence,rank-23-nodes.csv,rank-23-edges.csv,rank-23.md,rank-23.dot
 24,중2(교육과정 학년군: 중1-3),도형과 측정,도형의 닮음,medium,77,11,58,32,26,1,9,69,fill_low_confidence_concept_and_edge_evidence,rank-24-nodes.csv,rank-24-edges.csv,rank-24.md,rank-24.dot
 25,중3(교육과정 학년군: 중1-3),자료와 가능성,상자그림과 산점도,medium,47,11,48,32,16,1,4,59,fill_low_confidence_concept_and_edge_evidence,rank-25-nodes.csv,rank-25-edges.csv,rank-25.md,rank-25.dot

@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 좌표평면과 그래프
 - priority tier: highest
 - priority score: 105
-- edges in packet: 241
-- cross-unit edges: 79
+- edges in packet: 245
+- cross-unit edges: 83
 - low confidence edges: 75
 
 ## Relationship Evidence Slots
@@ -198,14 +198,17 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_expr_unit__contains__m1_repr_expression | cross_unit | 문자의 사용과 식 | contains | 식 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
 | m1_expr_unit__contains__m1_term_variable | cross_unit | 문자의 사용과 식 | contains | 변수 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 5 |
 | m1_coord_coordinate__prerequisite_for__m1_func_intersection_point | cross_unit | 좌표 | prerequisite_for | 교점 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_coord_coordinate__prerequisite_for__m1_func_intersection_point_coordinate | cross_unit | 좌표 | prerequisite_for | 교점의 좌표 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 5 |
 | m1_coord_coordinate__prerequisite_for__m1_quad_func_vertex_coordinates | cross_unit | 좌표 | prerequisite_for | 꼭짓점 좌표 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_coord_coordinate_plane__prerequisite_for__m1_data_scatter_plot | cross_unit | 좌표평면 | prerequisite_for | 산점도 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_coord_coordinate_plane__prerequisite_for__m1_func_graph_drawing | cross_unit | 좌표평면 | prerequisite_for | 일차함수 그래프 그리기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_coord_coordinate_plane__prerequisite_for__m1_func_linear_graph | cross_unit | 좌표평면 | prerequisite_for | 일차함수의 그래프 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_coord_coordinate_plane__prerequisite_for__m1_func_two_variable_linear_equation_graph | cross_unit | 좌표평면 | prerequisite_for | 미지수가 2개인 일차방정식의 그래프 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_coord_coordinate_plane__prerequisite_for__m1_quad_func_graph | cross_unit | 좌표평면 | prerequisite_for | 이차함수의 그래프 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_coord_coordinate_plane__prerequisite_for__m1_quad_func_graph_drawing | cross_unit | 좌표평면 | prerequisite_for | 이차함수 그래프 그리기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_coord_graph_unit__prerequisite_for__m1_func_unit | cross_unit | 좌표평면과 그래프 | prerequisite_for | 일차함수와 그 그래프 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 6 |
 | m1_coord_graph_unit__prerequisite_for__m1_quad_func_unit | cross_unit | 좌표평면과 그래프 | prerequisite_for | 이차함수와 그 그래프 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_coord_ordered_pair__prerequisite_for__m1_func_two_variable_equation_solution_pair | cross_unit | 순서쌍 | prerequisite_for | 미지수가 2개인 일차방정식 해의 순서쌍 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_coord_ordered_pair__prerequisite_for__m1_system_solution_ordered_pair | cross_unit | 순서쌍 | prerequisite_for | 해의 순서쌍 표현 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_coord_x_axis__prerequisite_for__m1_func_x_intercept | cross_unit | x축 | prerequisite_for | x절편 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_coord_y_axis__prerequisite_for__m1_func_y_intercept | cross_unit | y축 | prerequisite_for | y절편 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
@@ -234,6 +237,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_data_domain__represented_by__m1_graph_graph | cross_unit | 자료와 가능성 | represented_by | 그래프 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 4 |
 | m1_data_domain__represented_by__m1_repr_table | cross_unit | 자료와 가능성 | represented_by | 표 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 6 |
 | m1_expr_literal_expression__represented_by__m1_repr_expression | cross_unit | 문자를 사용한 식 | represented_by | 식 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
+| m1_func_two_variable_equation_solution_pair__represented_by__m1_coord_ordered_pair | cross_unit | 미지수가 2개인 일차방정식 해의 순서쌍 | represented_by | 순서쌍 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 4 |
 | m1_graph_graph__represented_by__m1_data_scatter_plot | cross_unit | 그래프 | represented_by | 산점도 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
 | m1_repr_everyday_language__represented_by__m1_expr_literal_expression | cross_unit | 일상 언어 | represented_by | 문자를 사용한 식 | high | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 3 |
 | m1_system_solution__represented_by__m1_coord_ordered_pair | cross_unit | 연립일차방정식의 해 | represented_by | 순서쌍 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |

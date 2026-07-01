@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 일차함수와 그 그래프
 - priority tier: highest
 - priority score: 93
-- edges in packet: 165
-- cross-unit edges: 42
+- edges in packet: 166
+- cross-unit edges: 43
 - low confidence edges: 52
 
 ## Relationship Evidence Slots
@@ -159,6 +159,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_func_function__prerequisite_for__m1_quad_func_situation_to_formula | cross_unit | 함수 | prerequisite_for | 상황을 이차함수 식으로 나타내기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_func_linear_graph__prerequisite_for__m1_func_two_linear_graphs | cross_unit | 일차함수의 그래프 | prerequisite_for | 두 일차함수의 그래프 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_func_linear_graph__prerequisite_for__m1_func_two_variable_equation_as_graph | cross_unit | 일차함수의 그래프 | prerequisite_for | 미지수가 2개인 일차방정식의 해를 그래프로 나타내기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_func_linear_graph__prerequisite_for__m1_func_two_variable_linear_equation_graph | cross_unit | 일차함수의 그래프 | prerequisite_for | 미지수가 2개인 일차방정식의 그래프 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_func_parallel_translation__prerequisite_for__m1_quad_func_shifted_square_form | cross_unit | 평행이동 | prerequisite_for | y=a(x-p)^2 꼴 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_func_parallel_translation__prerequisite_for__m1_quad_func_vertex_form | cross_unit | 평행이동 | prerequisite_for | y=a(x-p)^2+q 꼴 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_func_parallel_translation__prerequisite_for__m1_quad_func_vertical_shift_form | cross_unit | 평행이동 | prerequisite_for | y=ax^2+q 꼴 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |

@@ -5,16 +5,16 @@ This generated index tracks compact concept hierarchy maps for every textbook ev
 ## Summary
 
 - unit maps: 34
-- concept rows: 733
-- edge rows touching units: 3960
-- cross-unit edge rows: 1294
+- concept rows: 740
+- edge rows touching units: 4010
+- cross-unit edge rows: 1318
 
 ## Packets
 
 | rank | grade | domain | unit | concepts | edges | cross | low concepts | low edges | map | dot |
 |---:|---|---|---|---:|---:|---:|---:|---:|---|---|
-| 1 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 좌표평면과 그래프 | 43 | 241 | 79 | 9 | 75 | rank-01.md | rank-01.dot |
-| 2 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 그 그래프 | 33 | 165 | 42 | 11 | 52 | rank-02.md | rank-02.dot |
+| 1 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 좌표평면과 그래프 | 43 | 245 | 83 | 9 | 75 | rank-01.md | rank-01.dot |
+| 2 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 그 그래프 | 33 | 166 | 43 | 11 | 52 | rank-02.md | rank-02.dot |
 | 3 | 중2(교육과정 학년군: 중1-3) | 자료와 가능성 | 경우의 수와 확률 | 26 | 112 | 10 | 6 | 24 | rank-03.md | rank-03.dot |
 | 4 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 이차함수와 그 그래프 | 30 | 143 | 25 | 3 | 11 | rank-04.md | rank-04.dot |
 | 5 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 정수와 유리수 | 41 | 229 | 77 | 5 | 43 | rank-05.md | rank-05.dot |
@@ -32,9 +32,9 @@ This generated index tracks compact concept hierarchy maps for every textbook ev
 | 17 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 문자의 사용과 식 | 24 | 184 | 110 | 3 | 15 | rank-17.md | rank-17.dot |
 | 18 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 평면도형의 성질 | 29 | 197 | 73 | 3 | 15 | rank-18.md | rank-18.dot |
 | 19 | 중3(교육과정 학년군: 중1-3) | 수와 연산 | 제곱근과 실수 | 25 | 121 | 29 | 3 | 15 | rank-19.md | rank-19.dot |
-| 20 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 연립일차방정식 | 27 | 141 | 42 | 4 | 20 | rank-20.md | rank-20.dot |
+| 20 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 연립일차방정식 | 27 | 148 | 49 | 4 | 21 | rank-20.md | rank-20.dot |
 | 21 | 중3(교육과정 학년군: 중1-3) | 도형과 측정 | 삼각비 | 24 | 110 | 20 | 3 | 12 | rank-21.md | rank-21.dot |
-| 22 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 일차방정식의 관계 | 9 | 43 | 17 | 1 | 7 | rank-22.md | rank-22.dot |
+| 22 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 일차방정식의 관계 | 16 | 81 | 29 | 3 | 11 | rank-22.md | rank-22.dot |
 | 23 | 중2(교육과정 학년군: 중1-3) | 수와 연산 | 유리수와 순환소수 | 10 | 47 | 17 | 1 | 8 | rank-23.md | rank-23.dot |
 | 24 | 중2(교육과정 학년군: 중1-3) | 도형과 측정 | 도형의 닮음 | 11 | 58 | 26 | 1 | 9 | rank-24.md | rank-24.dot |
 | 25 | 중3(교육과정 학년군: 중1-3) | 자료와 가능성 | 상자그림과 산점도 | 11 | 48 | 16 | 1 | 4 | rank-25.md | rank-25.dot |

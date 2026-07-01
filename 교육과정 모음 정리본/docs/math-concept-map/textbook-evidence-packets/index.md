@@ -5,8 +5,8 @@ This generated index tracks the prepared unit-level textbook evidence packets.
 ## Summary
 
 - packets: 34
-- concepts in packets: 733
-- pending textbook evidence rows: 733
+- concepts in packets: 740
+- pending textbook evidence rows: 740
 
 ## Packets
 
@@ -33,7 +33,7 @@ This generated index tracks the prepared unit-level textbook evidence packets.
 | 19 | 중3(교육과정 학년군: 중1-3) | 수와 연산 | 제곱근과 실수 | 25 | 25 | 3 | highest | 45 | rank-19.md |
 | 20 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 연립일차방정식 | 27 | 27 | 4 | highest | 43 | rank-20.md |
 | 21 | 중3(교육과정 학년군: 중1-3) | 도형과 측정 | 삼각비 | 24 | 24 | 3 | highest | 42 | rank-21.md |
-| 22 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 일차방정식의 관계 | 9 | 9 | 1 | medium | 19 | rank-22.md |
+| 22 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 일차방정식의 관계 | 16 | 16 | 3 | high | 34 | rank-22.md |
 | 23 | 중2(교육과정 학년군: 중1-3) | 수와 연산 | 유리수와 순환소수 | 10 | 10 | 1 | medium | 18 | rank-23.md |
 | 24 | 중2(교육과정 학년군: 중1-3) | 도형과 측정 | 도형의 닮음 | 11 | 11 | 1 | medium | 15 | rank-24.md |
 | 25 | 중3(교육과정 학년군: 중1-3) | 자료와 가능성 | 상자그림과 산점도 | 11 | 11 | 1 | medium | 15 | rank-25.md |

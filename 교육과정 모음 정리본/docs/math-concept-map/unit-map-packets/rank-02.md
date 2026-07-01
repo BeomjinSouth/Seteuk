@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 일차함수와 그 그래프
 - priority tier: highest
-- workplan score: 343
+- workplan score: 344
 - concepts: 33
-- edges touching unit: 165
-- cross-unit edges: 42
+- edges touching unit: 166
+- cross-unit edges: 43
 - low confidence concepts: 11
 - low confidence edges: 52
 
@@ -35,7 +35,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 34 |
 | contrasts_with | 5 |
 | often_confused_with | 16 |
-| prerequisite_for | 70 |
+| prerequisite_for | 71 |
 | related_to | 5 |
 | represented_by | 6 |
 | used_in | 29 |
@@ -78,6 +78,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_func_function__prerequisite_for__m1_quad_func_situation_to_formula | 함수 | prerequisite_for | 상황을 이차함수 식으로 나타내기 | high | official_dual_source |
 | m1_func_linear_graph__prerequisite_for__m1_func_two_linear_graphs | 일차함수의 그래프 | prerequisite_for | 두 일차함수의 그래프 | high | official_dual_source |
 | m1_func_linear_graph__prerequisite_for__m1_func_two_variable_equation_as_graph | 일차함수의 그래프 | prerequisite_for | 미지수가 2개인 일차방정식의 해를 그래프로 나타내기 | high | official_dual_source |
+| m1_func_linear_graph__prerequisite_for__m1_func_two_variable_linear_equation_graph | 일차함수의 그래프 | prerequisite_for | 미지수가 2개인 일차방정식의 그래프 | high | official_dual_source |
 | m1_func_parallel_translation__prerequisite_for__m1_quad_func_shifted_square_form | 평행이동 | prerequisite_for | y=a(x-p)^2 꼴 | medium | official_single_source |
 | m1_func_parallel_translation__prerequisite_for__m1_quad_func_vertex_form | 평행이동 | prerequisite_for | y=a(x-p)^2+q 꼴 | medium | official_single_source |
 | m1_func_parallel_translation__prerequisite_for__m1_quad_func_vertical_shift_form | 평행이동 | prerequisite_for | y=ax^2+q 꼴 | medium | official_single_source |
@@ -99,4 +100,3 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_func_tech_tool_graph__used_in__m1_quad_func_tech_tool_graph | 공학 도구로 함수 그래프 탐구하기 | used_in | 공학 도구로 이차함수 그래프 탐구하기 | medium | official_dual_source |
 | m1_func_x_intercept__used_in__m1_coord_x_axis | x절편 | used_in | x축 | high | official_dual_source |
 | m1_func_y_intercept__used_in__m1_coord_y_axis | y절편 | used_in | y축 | high | official_dual_source |
-| m1_graph_increase_decrease__used_in__m1_func_slope_sign | 증가와 감소 | used_in | 기울기의 부호 | medium | official_single_source |
