@@ -4,26 +4,26 @@ This generated audit summarizes source evidence depth for each relationship edge
 
 ## Summary
 
-- edges: 3435
-- needs textbook evidence: 3435
-- low confidence edges: 531
+- edges: 3502
+- needs textbook evidence: 3502
+- low confidence edges: 541
 
 ## Evidence Depth Counts
 
 | evidence_depth | edge count |
 |---|---:|
-| official_dual_source | 3047 |
-| official_single_source | 388 |
+| official_dual_source | 3108 |
+| official_single_source | 394 |
 
 ## Edge Scope Counts
 
 | edge_scope | edge count |
 |---|---:|
 | cross_domain_same_grade | 77 |
-| cross_grade_cross_domain | 32 |
-| cross_grade_same_domain | 280 |
+| cross_grade_cross_domain | 34 |
+| cross_grade_same_domain | 286 |
 | cross_unit_same_domain | 279 |
-| same_unit | 2767 |
+| same_unit | 2826 |
 
 ## Priority Rows
 
@@ -64,8 +64,8 @@ This generated audit summarizes source evidence depth for each relationship edge
 | m1_mis_expansion_factorization_direction__often_confused_with__m1_calc_expansion | often_confused_with | cross_grade_same_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_inscribed_central_angle_equal__often_confused_with__m1_geo_central_angle | often_confused_with | cross_grade_same_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_irrational_decimal__often_confused_with__m1_num_infinite_decimal | often_confused_with | cross_grade_same_domain | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_irrational_decimal__often_confused_with__m1_num_rational_repeating_relation | often_confused_with | cross_grade_same_domain | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_irrational_decimal__often_confused_with__m1_num_repeating_decimal | often_confused_with | cross_grade_same_domain | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_proof_observation__often_confused_with__m1_geo_circle_justification | often_confused_with | cross_grade_same_domain | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |
 | m1_geo_arc__prerequisite_for__m1_geo_semicircle_arc | prerequisite_for | cross_grade_same_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_geo_central_angle__prerequisite_for__m1_geo_circle_auxiliary_radius_center | prerequisite_for | cross_grade_same_domain | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |
+| m1_geo_chord__prerequisite_for__m1_geo_semicircle_arc | prerequisite_for | cross_grade_same_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |

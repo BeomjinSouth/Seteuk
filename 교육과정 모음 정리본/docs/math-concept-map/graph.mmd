@@ -81,15 +81,30 @@ flowchart LR
   m1_mis_absolute_value_positive["절댓값을 항상 양수로만 말하는 오류"]
   m1_mis_negative_order["음수의 대소를 절댓값 크기로 판단하는 오류"]
   m1_num_repeating_decimal_unit["유리수와 순환소수"]
+  m1_num_irreducible_fraction["기약분수"]
+  m1_num_reduce_fraction_lowest_terms["분수를 기약분수로 고치기"]
   m1_num_finite_decimal["유한소수"]
+  m1_num_fraction_to_decimal_division["분수를 소수로 나타내기"]
+  m1_num_decimal_remainder_repetition["분수 나눗셈에서 나머지 반복"]
+  m1_num_terminating_decimal_denominator_condition["유한소수가 되는 분모 조건"]
+  m1_num_repeating_decimal_denominator_condition["순환소수가 되는 분모 조건"]
+  m1_num_denominator_power_of_ten_conversion["분모를 10의 거듭제곱으로 만들기"]
+  m1_num_finite_decimal_to_fraction["유한소수를 분수로 나타내기"]
   m1_num_infinite_decimal["무한소수"]
   m1_num_repeating_decimal["순환소수"]
   m1_num_repetend["순환마디"]
+  m1_num_repetend_identification["순환마디 찾기"]
   m1_num_repeating_decimal_notation["순환소수 표현"]
+  m1_num_repeating_decimal_dot_notation["순환마디 위 점 표기"]
   m1_num_rational_repeating_relation["유리수와 순환소수의 관계"]
   m1_num_repeating_decimal_to_fraction["순환소수를 분수로 나타내기"]
+  m1_num_repeating_decimal_equation_conversion["식을 세워 순환소수를 분수로 나타내기"]
   m1_num_fraction_decimal_classification["분수가 유한소수 또는 순환소수로 나타나는지 구분하기"]
   m1_mis_finite_to_repeating_scope["유한소수를 순환소수로 나타내는 활동을 범위로 오인하는 오류"]
+  m1_mis_fraction_decimal_denominator_not_reduced["기약분수로 고치지 않고 분모 조건을 판단하는 오류"]
+  m1_mis_denominator_condition_2_5["분모의 소인수 2와 5 조건을 반대로 적용하는 오류"]
+  m1_mis_repetend_dot_notation_scope["순환마디 점 표시 범위를 잘못 잡는 오류"]
+  m1_mis_repeating_decimal_shift_digits["순환마디 자리수를 맞추지 않고 식을 빼는 오류"]
   m1_num_square_root_real_unit["제곱근과 실수"]
   m1_num_square_root["제곱근"]
   m1_num_square_number["제곱수"]
@@ -893,7 +908,7 @@ flowchart LR
   m1_num_minus_sign -- "사용" --> m1_num_integer_rational_add_sub
   m1_num_rational_number -- "표현" --> m1_num_rational_fraction_form
   m1_num_rational_fraction_form -- "연관" --> m1_num_reciprocal
-  m1_num_rational_fraction_form -- "연관" --> m1_num_rational_repeating_relation
+  m1_num_rational_fraction_form -- "사용" --> m1_num_rational_repeating_relation
   m1_num_four_operations -- "포함" --> m1_num_addition
   m1_num_four_operations -- "포함" --> m1_num_subtraction
   m1_num_four_operations -- "포함" --> m1_num_multiplication
@@ -942,15 +957,36 @@ flowchart LR
   m1_num_infinite_decimal -- "포함" --> m1_num_repeating_decimal
   m1_num_repeating_decimal -- "포함" --> m1_num_repetend
   m1_num_repeating_decimal -- "표현" --> m1_num_repeating_decimal_notation
-  m1_num_rational_number -- "사용" --> m1_num_rational_repeating_relation
-  m1_num_repeating_decimal -- "사용" --> m1_num_rational_repeating_relation
-  m1_num_rational_repeating_relation -- "사용" --> m1_num_repeating_decimal_to_fraction
-  m1_num_repeating_decimal_to_fraction -- "표현" --> m1_num_rational_number
-  m1_num_fraction_decimal_classification -- "사용" --> m1_num_finite_decimal
-  m1_num_fraction_decimal_classification -- "사용" --> m1_num_repeating_decimal
+  m1_num_finite_decimal -- "대조" --> m1_num_repeating_decimal
+  m1_num_repeating_decimal_to_fraction -- "사용" --> m1_num_rational_repeating_relation
+  m1_num_repeating_decimal -- "표현" --> m1_num_rational_fraction_form
+  m1_num_reduce_fraction_lowest_terms -- "사용" --> m1_num_irreducible_fraction
+  m1_num_reduce_fraction_lowest_terms -- "사용" --> m1_num_fraction_decimal_classification
+  m1_num_fraction_to_decimal_division -- "사용" --> m1_num_fraction_decimal_classification
+  m1_num_fraction_to_decimal_division -- "사용" --> m1_num_decimal_remainder_repetition
+  m1_num_decimal_remainder_repetition -- "사용" --> m1_num_repeating_decimal
+  m1_num_decimal_remainder_repetition -- "사용" --> m1_num_rational_repeating_relation
+  m1_num_decimal_remainder_repetition -- "연관" --> m1_num_repetend
+  m1_num_terminating_decimal_denominator_condition -- "사용" --> m1_num_fraction_decimal_classification
+  m1_num_repeating_decimal_denominator_condition -- "사용" --> m1_num_fraction_decimal_classification
+  m1_num_terminating_decimal_denominator_condition -- "대조" --> m1_num_repeating_decimal_denominator_condition
+  m1_num_repeating_decimal_denominator_condition -- "대조" --> m1_num_terminating_decimal_denominator_condition
+  m1_num_terminating_decimal_denominator_condition -- "사용" --> m1_num_denominator_power_of_ten_conversion
+  m1_num_denominator_power_of_ten_conversion -- "사용" --> m1_num_finite_decimal
+  m1_num_finite_decimal_to_fraction -- "표현" --> m1_num_rational_fraction_form
+  m1_num_finite_decimal_to_fraction -- "사용" --> m1_num_rational_repeating_relation
+  m1_num_repetend_identification -- "사용" --> m1_num_repeating_decimal_notation
+  m1_num_repetend_identification -- "사용" --> m1_num_repeating_decimal_dot_notation
+  m1_num_repetend -- "표현" --> m1_num_repeating_decimal_dot_notation
+  m1_num_repeating_decimal_notation -- "표현" --> m1_num_repeating_decimal_dot_notation
+  m1_num_repetend_identification -- "사용" --> m1_num_repeating_decimal_equation_conversion
+  m1_num_repeating_decimal_dot_notation -- "사용" --> m1_num_repeating_decimal_equation_conversion
+  m1_num_repeating_decimal_equation_conversion -- "사용" --> m1_num_repeating_decimal_to_fraction
+  m1_num_repeating_decimal_equation_conversion -- "사용" --> m1_num_rational_repeating_relation
+  m1_num_irreducible_fraction -- "연관" --> m1_num_coprime
   m1_num_rational_repeating_relation -- "사용" --> m1_num_fraction_decimal_classification
   m1_mis_finite_to_repeating_scope -- "혼동" --> m1_num_rational_repeating_relation
-  m1_num_repeating_decimal_unit -- "선수" --> m1_num_square_root_real_unit
+  m1_num_repeating_decimal_unit -- "연관" --> m1_num_square_root_real_unit
   m1_num_integer_rational_unit -- "연관" --> m1_num_square_root_real_unit
   m1_num_square_root_real_unit -- "포함" --> m1_num_square_root
   m1_num_square_root_real_unit -- "포함" --> m1_num_square_root_property
@@ -987,7 +1023,6 @@ flowchart LR
   m1_num_rational_number -- "대조" --> m1_num_irrational_number
   m1_num_irrational_number -- "대조" --> m1_num_rational_number
   m1_num_repeating_decimal -- "대조" --> m1_num_irrational_number
-  m1_num_irrational_number -- "대조" --> m1_num_repeating_decimal
   m1_num_real_number -- "포함" --> m1_num_rational_number
   m1_num_real_number -- "포함" --> m1_num_irrational_number
   m1_num_real_number -- "포함" --> m1_num_real_number_system
@@ -2343,8 +2378,23 @@ flowchart LR
   m1_num_integer_rational_unit -- "포함" --> m1_mis_sign_operation
   m1_num_integer_rational_unit -- "포함" --> m1_mis_absolute_value_positive
   m1_num_integer_rational_unit -- "포함" --> m1_mis_negative_order
+  m1_num_repeating_decimal_unit -- "포함" --> m1_num_irreducible_fraction
+  m1_num_repeating_decimal_unit -- "포함" --> m1_num_reduce_fraction_lowest_terms
+  m1_num_repeating_decimal_unit -- "포함" --> m1_num_fraction_to_decimal_division
+  m1_num_repeating_decimal_unit -- "포함" --> m1_num_decimal_remainder_repetition
+  m1_num_repeating_decimal_unit -- "포함" --> m1_num_terminating_decimal_denominator_condition
+  m1_num_repeating_decimal_unit -- "포함" --> m1_num_repeating_decimal_denominator_condition
+  m1_num_repeating_decimal_unit -- "포함" --> m1_num_denominator_power_of_ten_conversion
+  m1_num_repeating_decimal_unit -- "포함" --> m1_num_finite_decimal_to_fraction
+  m1_num_repeating_decimal_unit -- "포함" --> m1_num_repetend_identification
+  m1_num_repeating_decimal_notation -- "포함" --> m1_num_repeating_decimal_dot_notation
+  m1_num_repeating_decimal_to_fraction -- "포함" --> m1_num_repeating_decimal_equation_conversion
   m1_num_repeating_decimal_unit -- "포함" --> m1_num_fraction_decimal_classification
   m1_num_repeating_decimal_unit -- "포함" --> m1_mis_finite_to_repeating_scope
+  m1_num_repeating_decimal_unit -- "포함" --> m1_mis_fraction_decimal_denominator_not_reduced
+  m1_num_repeating_decimal_unit -- "포함" --> m1_mis_denominator_condition_2_5
+  m1_num_repeating_decimal_unit -- "포함" --> m1_mis_repetend_dot_notation_scope
+  m1_num_repeating_decimal_unit -- "포함" --> m1_mis_repeating_decimal_shift_digits
   m1_num_square_root_real_unit -- "포함" --> m1_num_rational_irrational_classification
   m1_num_square_root_real_unit -- "포함" --> m1_num_radical_expression
   m1_num_square_root_real_unit -- "포함" --> m1_num_rationalize_denominator
@@ -2980,19 +3030,44 @@ flowchart LR
   m1_num_four_operations -- "선수" --> m1_num_operation_order_mixed
   m1_num_operation_laws -- "선수" --> m1_num_operation_order_mixed
   m1_num_rational_number -- "선수" --> m1_num_repeating_decimal_unit
-  m1_num_rational_number -- "선수" --> m1_num_finite_decimal
-  m1_num_rational_number -- "선수" --> m1_num_infinite_decimal
+  m1_num_rational_fraction_form -- "선수" --> m1_num_irreducible_fraction
+  m1_num_gcd -- "선수" --> m1_num_irreducible_fraction
+  m1_num_rational_fraction_form -- "선수" --> m1_num_reduce_fraction_lowest_terms
+  m1_num_gcd -- "선수" --> m1_num_reduce_fraction_lowest_terms
+  m1_num_rational_fraction_form -- "선수" --> m1_num_fraction_to_decimal_division
+  m1_num_division -- "선수" --> m1_num_fraction_to_decimal_division
+  m1_num_fraction_to_decimal_division -- "선수" --> m1_num_decimal_remainder_repetition
+  m1_num_repeating_decimal -- "선수" --> m1_num_decimal_remainder_repetition
+  m1_num_irreducible_fraction -- "선수" --> m1_num_terminating_decimal_denominator_condition
+  m1_num_prime_factorization -- "선수" --> m1_num_terminating_decimal_denominator_condition
+  m1_num_finite_decimal -- "선수" --> m1_num_terminating_decimal_denominator_condition
+  m1_num_irreducible_fraction -- "선수" --> m1_num_repeating_decimal_denominator_condition
+  m1_num_prime_factorization -- "선수" --> m1_num_repeating_decimal_denominator_condition
+  m1_num_repeating_decimal -- "선수" --> m1_num_repeating_decimal_denominator_condition
+  m1_num_terminating_decimal_denominator_condition -- "선수" --> m1_num_denominator_power_of_ten_conversion
+  m1_calc_power -- "선수" --> m1_num_denominator_power_of_ten_conversion
+  m1_num_finite_decimal -- "선수" --> m1_num_finite_decimal_to_fraction
+  m1_num_rational_fraction_form -- "선수" --> m1_num_finite_decimal_to_fraction
   m1_num_infinite_decimal -- "선수" --> m1_num_repeating_decimal
   m1_num_repeating_decimal -- "선수" --> m1_num_repetend
+  m1_num_repeating_decimal -- "선수" --> m1_num_repetend_identification
+  m1_num_repetend -- "선수" --> m1_num_repetend_identification
   m1_num_repetend -- "선수" --> m1_num_repeating_decimal_notation
+  m1_num_repetend_identification -- "선수" --> m1_num_repeating_decimal_dot_notation
   m1_num_rational_number -- "선수" --> m1_num_rational_repeating_relation
   m1_num_repeating_decimal -- "선수" --> m1_num_rational_repeating_relation
   m1_num_repeating_decimal -- "선수" --> m1_num_repeating_decimal_to_fraction
   m1_num_repetend -- "선수" --> m1_num_repeating_decimal_to_fraction
+  m1_num_repeating_decimal -- "선수" --> m1_num_repeating_decimal_equation_conversion
+  m1_num_repetend_identification -- "선수" --> m1_num_repeating_decimal_equation_conversion
+  m1_num_repeating_decimal_dot_notation -- "선수" --> m1_num_repeating_decimal_equation_conversion
+  m1_calc_power -- "선수" --> m1_num_repeating_decimal_equation_conversion
   m1_num_finite_decimal -- "선수" --> m1_num_fraction_decimal_classification
   m1_num_repeating_decimal -- "선수" --> m1_num_fraction_decimal_classification
   m1_num_rational_number -- "선수" --> m1_num_fraction_decimal_classification
-  m1_num_rational_repeating_relation -- "선수" --> m1_mis_finite_to_repeating_scope
+  m1_num_irreducible_fraction -- "선수" --> m1_num_fraction_decimal_classification
+  m1_num_terminating_decimal_denominator_condition -- "선수" --> m1_num_fraction_decimal_classification
+  m1_num_repeating_decimal_denominator_condition -- "선수" --> m1_num_fraction_decimal_classification
   m1_num_rational_number -- "선수" --> m1_num_square_root_real_unit
   m1_calc_power -- "선수" --> m1_num_square_number
   m1_num_square_root -- "선수" --> m1_num_find_square_root
@@ -4097,9 +4172,16 @@ flowchart LR
   m1_mis_negative_order -- "혼동" --> m1_num_absolute_value
   m1_mis_finite_to_repeating_scope -- "혼동" --> m1_num_finite_decimal
   m1_mis_finite_to_repeating_scope -- "혼동" --> m1_num_repeating_decimal
+  m1_mis_fraction_decimal_denominator_not_reduced -- "혼동" --> m1_num_reduce_fraction_lowest_terms
+  m1_mis_fraction_decimal_denominator_not_reduced -- "혼동" --> m1_num_fraction_decimal_classification
+  m1_mis_denominator_condition_2_5 -- "혼동" --> m1_num_terminating_decimal_denominator_condition
+  m1_mis_denominator_condition_2_5 -- "혼동" --> m1_num_repeating_decimal_denominator_condition
+  m1_mis_repetend_dot_notation_scope -- "혼동" --> m1_num_repetend_identification
+  m1_mis_repetend_dot_notation_scope -- "혼동" --> m1_num_repeating_decimal_dot_notation
+  m1_mis_repeating_decimal_shift_digits -- "혼동" --> m1_num_repeating_decimal_equation_conversion
+  m1_mis_repeating_decimal_shift_digits -- "혼동" --> m1_num_repetend_identification
   m1_mis_radical_principal_root -- "혼동" --> m1_num_square_root_property
   m1_mis_irrational_decimal -- "혼동" --> m1_num_repeating_decimal
-  m1_mis_irrational_decimal -- "혼동" --> m1_num_rational_repeating_relation
   m1_mis_radical_like_terms -- "혼동" --> m1_num_radical_expression
   m1_mis_letter_as_label_only -- "혼동" --> m1_term_variable
   m1_mis_expression_equation -- "혼동" --> m1_eq_equation_identity_distinction
@@ -4279,15 +4361,30 @@ flowchart LR
   class m1_mis_absolute_value_positive risk;
   class m1_mis_negative_order risk;
   class m1_num_repeating_decimal_unit core;
+  class m1_num_irreducible_fraction default;
+  class m1_num_reduce_fraction_lowest_terms procedure;
   class m1_num_finite_decimal default;
+  class m1_num_fraction_to_decimal_division procedure;
+  class m1_num_decimal_remainder_repetition default;
+  class m1_num_terminating_decimal_denominator_condition default;
+  class m1_num_repeating_decimal_denominator_condition default;
+  class m1_num_denominator_power_of_ten_conversion procedure;
+  class m1_num_finite_decimal_to_fraction procedure;
   class m1_num_infinite_decimal default;
   class m1_num_repeating_decimal default;
   class m1_num_repetend default;
+  class m1_num_repetend_identification procedure;
   class m1_num_repeating_decimal_notation representation;
+  class m1_num_repeating_decimal_dot_notation representation;
   class m1_num_rational_repeating_relation default;
   class m1_num_repeating_decimal_to_fraction procedure;
+  class m1_num_repeating_decimal_equation_conversion procedure;
   class m1_num_fraction_decimal_classification procedure;
   class m1_mis_finite_to_repeating_scope risk;
+  class m1_mis_fraction_decimal_denominator_not_reduced risk;
+  class m1_mis_denominator_condition_2_5 risk;
+  class m1_mis_repetend_dot_notation_scope risk;
+  class m1_mis_repeating_decimal_shift_digits risk;
   class m1_num_square_root_real_unit core;
   class m1_num_square_root core;
   class m1_num_square_number default;

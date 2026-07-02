@@ -1599,10 +1599,31 @@
 - 전체 산출물 파이프라인을 재실행했고 `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
 - PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
 
+## 2026-07-02 유리수와 순환소수 미시 concept 병렬 보강
+
+- AGENTS.md를 다시 확인하고, 이번 작업은 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 생성 로직과 파생 산출물 정비로 진행했다.
+- 멀티에이전트 explorer 3개를 읽기 전용으로 사용해 `유리수와 순환소수`를 병렬 감사했다. Parfit은 분수-소수 변환과 분모 조건 후보, Raman은 오개념 risk와 low-confidence 경계, Russell은 edge 방향과 noisy prerequisite 제거 대상을 점검했다.
+- `기약분수`, `기약분수로 고치기`, `분수를 소수로 나타내기`, `나머지의 반복`, `유한소수가 되는 분모 조건`, `순환소수가 되는 분모 조건`, `분모를 10의 거듭제곱으로 고치기`, `유한소수를 분수로 나타내기`를 추가해 분수-소수 판별 흐름을 미시 concept으로 분해했다.
+- `순환마디 찾기`, `순환소수의 점 표기`, `식을 세워 순환소수를 분수로 나타내기`를 추가해 순환소수 표기와 분수 변환 절차를 별도 노드로 분리했다.
+- `기약분수로 나타내지 않고 분모 조건을 판단하는 오류`, `분모의 소인수가 2 또는 5이면 순환소수라고 판단하는 오류`, `순환소수 점 표기의 범위를 잘못 읽는 오류`, `순환소수를 분수로 나타낼 때 자리 이동 수를 잘못 맞추는 오류`를 오개념 risk로 추가했다. 기존 `유한소수를 순환소수로 나타내기 범위 오해`는 선수 관계 없이 오개념 관계만 유지했다.
+- Russell의 감사 결과에 따라 `유리수 -> 유한소수/무한소수` broad prerequisite, `유리수와 순환소수의 관계 -> 유한소수를 순환소수로 나타내기 범위 오해` prerequisite, `분수와 소수의 분류 -> 유한소수/순환소수` reverse `used_in`, `유리수와 순환소수의 관계 -> 순환소수를 분수로 나타내기` 방향 edge를 정리했다.
+- `순환소수를 분수로 나타내기 -> 유리수` represented_by edge는 `순환소수 -> 유리수의 분수 표현` represented_by로 바꾸고, `순환소수를 분수로 나타내기 -> 유리수와 순환소수의 관계`는 `used_in`으로 연결했다. `유리수와 순환소수` 단원에서 `제곱근과 실수`로 이어지던 prerequisite는 `related_to`로 낮췄다.
+- 전체 산출물을 재생성한 결과 concept은 776개, edge는 3502개가 되었다. source ref 총계는 concept 2134개, edge 9126개, 총 11260개이며 source catalogue는 5개이다.
+- `review-queue.*`는 118개 low-confidence concept, `concept-evidence-depth.*`는 concept 776개, `edge-evidence-depth.*`는 edge 3502개, `prerequisite-map.*`은 1274개 선수 관계 edge로 갱신했다.
+- `textbook-evidence-workplan.*`은 34개 단원 그룹, concept evidence row 776개, edge evidence row 4178개, pending textbook evidence row 4954개, low-confidence concept/edge row 722개를 기록한다. 재생성 후 `유리수와 순환소수`는 rank 13이며 concept 25개, edge 114개, 총 139개 evidence row가 모두 `pending_textbook_pdf` 상태다.
+- `unit-coverage.*` 기준 `유리수와 순환소수`는 concept 25개, 내부 edge 89개, incoming edge 19개, outgoing edge 6개이며, concept confidence 분포는 high 8개, medium 12개, low 5개이다.
+- `test_build_pilot_repeating_decimal_microconcepts.py`를 추가해 분수-소수 분류 미시 concept, 순환마디·점 표기·분수 변환 절차, edge 방향, 오개념 confidence 유지, noisy edge 부재를 고정했다.
+- 좁은 테스트: `python -m unittest test_build_pilot_repeating_decimal_microconcepts.py` 5개 통과.
+- 전체 단위 테스트: `python -m unittest discover -s . -p "test_*.py"`를 `docs/math-concept-map/tools`에서 실행해 304개 통과.
+- 전체 validator: `python docs/math-concept-map/tools/validate_concept_map.py`: 776개 concept, 3502개 edge, 5개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map`: 종료 코드 0, CRLF 변환 경고만 확인.
+- 전체 산출물 파이프라인을 재실행했고 `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
 - 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 `not_applicable_from_this_row` 41개가 broad context, 용어 충돌, 도구·자료 입력, 또는 약한 출현으로 유지되는지 주기적으로 감사한다. 현재 `pending_manual_review`는 8개이며, 주로 `선분`·`반직선` 후보이므로 교과서 본문 또는 중학교 기본 도형 직접 근거 확인 후 source ref 반영 여부를 판단한다.
 - 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.
-- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 245개, 총 288개 row로 유지한다. 공식·보조 문서 기반 미시 concept 보강을 계속한다면 이미 보강한 상위 단원을 제외하고 `유리수와 순환소수`, `상자그림과 산점도`, `산포도`, `대푯값`처럼 미시 concept이 덜 분해된 단원을 우선 검토한다.
+- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 245개, 총 288개 row로 유지한다. 공식·보조 문서 기반 미시 concept 보강을 계속한다면 이미 보강한 상위 단원을 제외하고 `상자그림과 산점도`, `산포도`, `대푯값`, `작도와 합동`처럼 미시 concept이 덜 분해된 단원을 우선 검토한다.
 - 새 concept, alias, `related_ids`, 또는 `equivalent_to` 후보가 추가되면 `equivalence-alias-audit.*`, `related-edge-resolution-queue.*`, `textbook-edge-evidence-packets/*`, `edge-evidence-depth.*`를 함께 재생성한다.

@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 수와 연산
 - unit: 정수와 유리수
 - priority tier: highest
-- workplan score: 314
+- workplan score: 317
 - concepts: 41
-- edges touching unit: 229
-- cross-unit edges: 77
+- edges touching unit: 232
+- cross-unit edges: 80
 - low confidence concepts: 5
 - low confidence edges: 43
 
@@ -35,9 +35,9 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contrasts_with | 11 |
 | equivalent_to | 1 |
 | often_confused_with | 17 |
-| prerequisite_for | 106 |
-| related_to | 10 |
-| represented_by | 7 |
+| prerequisite_for | 109 |
+| related_to | 9 |
+| represented_by | 8 |
 | used_in | 33 |
 
 ## Low Confidence Concepts
@@ -80,6 +80,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_division__prerequisite_for__m1_eq_equal_multiply_divide_property | 나눗셈 | prerequisite_for | 양변에 같은 수를 곱하거나 나누기 | medium | official_dual_source |
 | m1_num_division__prerequisite_for__m1_ineq_multiply_divide_negative_reverses_sign | 나눗셈 | prerequisite_for | 부등식 양변에 음수를 곱하거나 나눌 때 부등호 방향 바꾸기 | medium | official_dual_source |
 | m1_num_division__prerequisite_for__m1_ineq_multiply_divide_positive_property | 나눗셈 | prerequisite_for | 부등식 양변에 양수를 곱하거나 나누기 | medium | official_dual_source |
+| m1_num_division__prerequisite_for__m1_num_fraction_to_decimal_division | 나눗셈 | prerequisite_for | 분수를 소수로 나타내기 | medium | official_dual_source |
 | m1_num_four_operations__prerequisite_for__m1_calc_monomial_coefficient_calculation | 정수와 유리수의 사칙계산 | prerequisite_for | 단항식 계산에서 계수끼리 계산하기 | medium | official_dual_source |
 | m1_num_four_operations__prerequisite_for__m1_calc_unit | 정수와 유리수의 사칙계산 | prerequisite_for | 식의 계산 | medium | official_single_source |
 | m1_num_four_operations__prerequisite_for__m1_expr_evaluate_expression_value | 정수와 유리수의 사칙계산 | prerequisite_for | 식의 값 구하기 | high | official_dual_source |
@@ -93,4 +94,3 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_order_relation__prerequisite_for__m1_data_median | 정수와 유리수의 대소 관계 | prerequisite_for | 중앙값 | high | official_dual_source |
 | m1_num_order_relation__prerequisite_for__m1_data_quartile | 정수와 유리수의 대소 관계 | prerequisite_for | 사분위수 | high | official_dual_source |
 | m1_num_order_relation__prerequisite_for__m1_data_stem_leaf_plot | 정수와 유리수의 대소 관계 | prerequisite_for | 줄기와 잎 그림 | high | official_dual_source |
-| m1_num_order_relation__prerequisite_for__m1_ineq_inequality_sign_direction | 정수와 유리수의 대소 관계 | prerequisite_for | 부등호의 방향 | medium | official_dual_source |

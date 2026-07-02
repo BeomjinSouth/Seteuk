@@ -2,13 +2,13 @@
 
 이 문서는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 출처 보강 때 먼저 확인할 대상을 정리한다.
 
-- 검토 대상 concept: 114개
+- 검토 대상 concept: 118개
 
 ## 영역별 검토 대상
 
 | 영역 | concept 수 |
 |---|---:|
-| 수와 연산 | 14 |
+| 수와 연산 | 18 |
 | 변화와 관계 | 58 |
 | 도형과 측정 | 29 |
 | 자료와 가능성 | 13 |
@@ -17,7 +17,7 @@
 
 | concept_type | concept 수 |
 |---|---:|
-| misconception_risk | 85 |
+| misconception_risk | 89 |
 | procedure | 3 |
 | property | 6 |
 | representation | 4 |
@@ -33,7 +33,11 @@
 | m1_mis_gcd_lcm_scope | 수와 연산 | 소인수분해 | misconception_risk | textbook_evidence_needed | 최대공약수·최소공배수 활용 문제를 범위로 오인하는 오류 | 공식 문서의 제외 범위를 학습 범위 관리용 오개념 위험으로 기록했다. |
 | m1_mis_prime_one | 수와 연산 | 소인수분해 | misconception_risk | textbook_evidence_needed | 1을 소수나 합성수로 보는 오류 |  |
 | m1_num_prime_factorization_uniqueness | 수와 연산 | 소인수분해 | property | source_detail_needed | 소인수분해의 유일성 | 중학교 소인수분해 학습에서 자연스럽게 쓰이는 성질이나 공식 문서 직접 용어 근거는 약하므로 교과서 본문 확인 전까지 low로 둔다. |
+| m1_mis_denominator_condition_2_5 | 수와 연산 | 유리수와 순환소수 | misconception_risk | textbook_evidence_needed | 분모의 소인수 2와 5 조건을 반대로 적용하는 오류 | 분모 조건의 대조 관계에서 추론한 오개념 위험이다. 교과서 예제·오답 근거 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_mis_finite_to_repeating_scope | 수와 연산 | 유리수와 순환소수 | misconception_risk | textbook_evidence_needed | 유한소수를 순환소수로 나타내는 활동을 범위로 오인하는 오류 | 공식 문서의 제외 범위를 학습 범위 관리용 오개념 위험으로 기록했다. |
+| m1_mis_fraction_decimal_denominator_not_reduced | 수와 연산 | 유리수와 순환소수 | misconception_risk | textbook_evidence_needed | 기약분수로 고치지 않고 분모 조건을 판단하는 오류 | 성취수준의 분수 특징 판별에서 추론한 오개념 위험이다. 교과서 예제·오답 근거 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_mis_repeating_decimal_shift_digits | 수와 연산 | 유리수와 순환소수 | misconception_risk | textbook_evidence_needed | 순환마디 자리수를 맞추지 않고 식을 빼는 오류 | 순환소수를 분수로 고치는 절차에서 추론한 오개념 위험이다. 교과서 예제·오답 근거 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_mis_repetend_dot_notation_scope | 수와 연산 | 유리수와 순환소수 | misconception_risk | textbook_evidence_needed | 순환마디 점 표시 범위를 잘못 잡는 오류 | 순환마디와 점 표기에서 추론한 오개념 위험이다. 교과서 예제·오답 근거 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_mis_absolute_value_positive | 수와 연산 | 정수와 유리수 | misconception_risk | textbook_evidence_needed | 절댓값을 항상 양수로만 말하는 오류 |  |
 | m1_mis_negative_order | 수와 연산 | 정수와 유리수 | misconception_risk | textbook_evidence_needed | 음수의 대소를 절댓값 크기로 판단하는 오류 |  |
 | m1_mis_sign_operation | 수와 연산 | 정수와 유리수 | misconception_risk | textbook_evidence_needed | 부호와 연산 기호를 혼동하는 오류 |  |
