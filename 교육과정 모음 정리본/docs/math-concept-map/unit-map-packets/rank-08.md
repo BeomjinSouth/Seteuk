@@ -5,92 +5,90 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 ## Target Unit
 
 - rank: 8
-- grade: 중3(교육과정 학년군: 중1-3)
+- grade: 중2(교육과정 학년군: 중1-3)
 - domain: 도형과 측정
-- unit: 원의 성질
+- unit: 삼각형과 사각형의 성질
 - priority tier: highest
-- workplan score: 224
-- concepts: 33
-- edges touching unit: 188
-- cross-unit edges: 61
-- low confidence concepts: 6
-- low confidence edges: 26
+- workplan score: 208
+- concepts: 47
+- edges touching unit: 223
+- cross-unit edges: 69
+- low confidence concepts: 4
+- low confidence edges: 19
 
 ## Concept Type Distribution
 
 | concept_type | count |
 |---|---:|
-| core_concept | 2 |
+| core_concept | 11 |
 | misconception_risk | 4 |
-| procedure | 3 |
-| property | 14 |
-| sub_concept | 4 |
-| term | 6 |
+| procedure | 7 |
+| property | 15 |
+| sub_concept | 1 |
+| term | 9 |
 
 ## Relationship Distribution
 
 | relationship_type | count |
 |---|---:|
-| contains | 36 |
-| contrasts_with | 3 |
-| often_confused_with | 12 |
-| prerequisite_for | 88 |
-| related_to | 5 |
-| represented_by | 5 |
-| used_in | 39 |
+| contains | 58 |
+| contrasts_with | 9 |
+| often_confused_with | 14 |
+| prerequisite_for | 99 |
+| related_to | 4 |
+| represented_by | 2 |
+| used_in | 37 |
 
 ## Low Confidence Concepts
 
 | concept_id | label_ko | type | evidence_depth | notes |
 |---|---|---|---|---|
-| m1_geo_circle_auxiliary_radius_center | 원의 중심과 반지름 보조선 활용 | procedure | official_dual_source | 보조선 활용은 공식 문서의 정당화 요구에서 추론한 절차다. 교과서 증명 맥락 확인 전까지 낮은 신뢰도로 둔다. |
-| m1_geo_semicircle_arc | 반원 | term | official_dual_source | 반원 표현은 원주각 성질의 대표 적용 맥락으로 추출한 잠정 용어다. 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
-| m1_mis_circle_proportion_scope | 원과 비례에 관한 성질을 범위에 포함하는 오류 | misconception_risk | official_single_source | 교육과정 유의사항에 근거한 범위 관리 노드다. 교과서 또는 학생 오답 근거 확인 전까지 선수 관계 없이 오개념 위험으로만 둔다. |
-| m1_mis_inscribed_central_angle_equal | 원주각과 중심각을 같은 크기로 보는 오류 | misconception_risk | official_dual_source | 원주각 성질에서 추론한 오개념 위험이다. 교과서 예제나 문항 근거 확인 전까지 낮은 신뢰도로 둔다. |
-| m1_mis_same_chord_arc_scope | 같은 현과 같은 호의 조건을 넓게 적용하는 오류 | misconception_risk | official_dual_source | 공식 성취수준의 성질 적용 맥락에서 추론한 위험이다. 교과서 예제와 오답 근거로 보강한다. |
-| m1_mis_tangent_radius | 접선과 반지름의 수직 관계를 놓치는 오류 | misconception_risk | official_dual_source | 교과서 예제나 오답 근거 확인 전까지 선수 관계 없이 오개념 위험으로만 둔다. |
+| m1_mis_circumcenter_incenter | 외심과 내심을 혼동하는 오류 | misconception_risk | official_dual_source | 공식 문서의 외심·내심 대비에서 설정한 오개념 위험 노드다. 교과서 문제나 학생 답안 근거로 보강해야 한다. |
+| m1_mis_isosceles_base_vertex_angle_confusion | 이등변삼각형의 밑각과 꼭지각을 혼동하는 오류 | misconception_risk | official_dual_source | 교과서 그림, 예제, 학생 답안 근거가 들어오기 전까지 낮은 신뢰도로 둔다. |
+| m1_mis_proof_observation | 관찰 결과와 증명을 같은 수준의 근거로 보는 오류 | misconception_risk | official_dual_source | 교과서 예제, 학생 답안, 문제 해설에서 반복되는 오류 근거가 들어오면 세부 유형으로 나눈다. |
+| m1_mis_quadrilateral_inclusion_relation | 사각형 포함 관계를 반대로 이해하는 오류 | misconception_risk | official_dual_source | 교과서 분류 문제와 학생 답안 근거가 들어오기 전까지 낮은 신뢰도로 둔다. |
 
 ## Cross-Unit Edges
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
-| m1_geo_arc__prerequisite_for__m1_geo_semicircle_arc | 호 | prerequisite_for | 반원 | low | official_dual_source |
-| m1_geo_central_angle__prerequisite_for__m1_geo_circle_auxiliary_radius_center | 중심각 | prerequisite_for | 원의 중심과 반지름 보조선 활용 | low | official_dual_source |
-| m1_geo_chord__prerequisite_for__m1_geo_semicircle_arc | 현 | prerequisite_for | 반원 | low | official_dual_source |
-| m1_geo_tangent_ratio__contrasts_with__m1_geo_tangent_line | 탄젠트 | contrasts_with | 접선 | low | official_single_source |
-| m1_mis_inscribed_central_angle_equal__often_confused_with__m1_geo_central_angle | 원주각과 중심각을 같은 크기로 보는 오류 | often_confused_with | 중심각 | low | official_dual_source |
 | m1_mis_proof_observation__often_confused_with__m1_geo_circle_justification | 관찰 결과와 증명을 같은 수준의 근거로 보는 오류 | often_confused_with | 원의 성질 정당화 | low | official_dual_source |
-| m1_geo_circle_unit__contains__m1_geo_chord | 원의 성질 | contains | 현 | high | official_dual_source |
-| m1_geo_domain__contains__m1_geo_circle_unit | 도형과 측정 | contains | 원의 성질 | high | official_dual_source |
-| m1_geo_plane_properties_unit__contains__m1_geo_circle | 평면도형의 성질 | contains | 원 | high | official_dual_source |
-| m1_geo_angle__prerequisite_for__m1_geo_inscribed_angle | 각 | prerequisite_for | 원주각 | high | official_dual_source |
-| m1_geo_arc__prerequisite_for__m1_geo_central_inscribed_angle_relation | 호 | prerequisite_for | 중심각과 원주각의 관계 | medium | official_dual_source |
-| m1_geo_arc__prerequisite_for__m1_geo_inscribed_angle | 호 | prerequisite_for | 원주각 | high | official_dual_source |
-| m1_geo_arc__prerequisite_for__m1_geo_inscribed_angle_property | 호 | prerequisite_for | 원주각의 성질 | high | official_dual_source |
-| m1_geo_arc__prerequisite_for__m1_geo_inscribed_angle_subtended_arc | 호 | prerequisite_for | 원주각이 보는 호 | medium | official_dual_source |
-| m1_geo_arc__prerequisite_for__m1_geo_same_arc | 호 | prerequisite_for | 같은 호 | medium | official_dual_source |
-| m1_geo_arc__prerequisite_for__m1_geo_same_arc_same_chord_relation | 호 | prerequisite_for | 같은 호와 같은 현의 대응 관계 | medium | official_dual_source |
-| m1_geo_central_angle__prerequisite_for__m1_geo_central_inscribed_angle_relation | 중심각 | prerequisite_for | 중심각과 원주각의 관계 | medium | official_dual_source |
-| m1_geo_chord__prerequisite_for__m1_geo_chord_center_distance | 현 | prerequisite_for | 원 중심에서 현까지의 거리 | medium | official_dual_source |
-| m1_geo_chord__prerequisite_for__m1_geo_chord_center_perpendicular_bisects | 현 | prerequisite_for | 원의 중심에서 현에 내린 수선은 현을 이등분 | medium | official_dual_source |
-| m1_geo_chord__prerequisite_for__m1_geo_chord_midpoint_center_perpendicular | 현 | prerequisite_for | 원 중심과 현의 중점을 이은 직선은 현에 수직 | medium | official_dual_source |
-| m1_geo_chord__prerequisite_for__m1_geo_circle_chord_property | 현 | prerequisite_for | 원의 현에 관한 성질 | high | official_dual_source |
-| m1_geo_chord__prerequisite_for__m1_geo_equal_center_distance_equal_chords | 현 | prerequisite_for | 같은 원에서 중심거리가 같은 현의 길이가 같음 | medium | official_dual_source |
-| m1_geo_chord__prerequisite_for__m1_geo_equal_chords_equal_center_distance | 현 | prerequisite_for | 같은 원에서 길이가 같은 현은 중심에서 같은 거리에 있음 | medium | official_dual_source |
-| m1_geo_chord__prerequisite_for__m1_geo_same_arc_same_chord_relation | 현 | prerequisite_for | 같은 호와 같은 현의 대응 관계 | medium | official_dual_source |
-| m1_geo_chord__prerequisite_for__m1_geo_same_chord | 현 | prerequisite_for | 같은 현 | medium | official_dual_source |
-| m1_geo_circle__prerequisite_for__m1_geo_arc | 원 | prerequisite_for | 호 | high | official_dual_source |
-| m1_geo_circle__prerequisite_for__m1_geo_central_angle | 원 | prerequisite_for | 중심각 | high | official_dual_source |
-| m1_geo_circle__prerequisite_for__m1_geo_chord | 원 | prerequisite_for | 현 | high | official_dual_source |
+| m1_geo_triangle_midpoint_theorem__related_to__m1_geo_centroid | 삼각형의 중점연결정리 | related_to | 무게중심 | low | official_dual_source |
+| m1_geo_centroid__contains__m1_geo_centroid_median_concurrency | 무게중심 | contains | 세 중선은 한 점에서 만남 | medium | official_dual_source |
+| m1_geo_centroid__contains__m1_geo_centroid_two_to_one_ratio | 무게중심 | contains | 무게중심은 중선을 2:1로 나눔 | medium | official_dual_source |
+| m1_geo_domain__contains__m1_geo_triangle_quadrilateral_unit | 도형과 측정 | contains | 삼각형과 사각형의 성질 | high | official_dual_source |
+| m1_geo_similarity_unit__contains__m1_geo_centroid | 도형의 닮음 | contains | 무게중심 | high | official_dual_source |
+| m1_geo_similarity_unit__contains__m1_geo_median | 도형의 닮음 | contains | 중선 | high | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_angle_bisector | 각 | prerequisite_for | 각의 이등분선 | medium | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_isosceles_base_angles | 각 | prerequisite_for | 이등변삼각형의 두 밑각 | medium | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_isosceles_vertex_angle | 각 | prerequisite_for | 이등변삼각형의 꼭지각 | medium | official_dual_source |
+| m1_geo_angle_measure__prerequisite_for__m1_geo_angle_bisector | 각의 크기 | prerequisite_for | 각의 이등분선 | medium | official_dual_source |
+| m1_geo_basic_unit__prerequisite_for__m1_geo_justification | 기본 도형 | prerequisite_for | 정당화 | high | official_dual_source |
+| m1_geo_centroid__prerequisite_for__m1_geo_centroid_from_parallel_ratio | 무게중심 | prerequisite_for | 평행선과 선분의 비로 무게중심 찾기 | high | official_dual_source |
 | m1_geo_circle__prerequisite_for__m1_geo_circumcircle | 원 | prerequisite_for | 외접원 | high | official_dual_source |
 | m1_geo_circle__prerequisite_for__m1_geo_incircle | 원 | prerequisite_for | 내접원 | high | official_dual_source |
-| m1_geo_circle__prerequisite_for__m1_geo_secant | 원 | prerequisite_for | 할선 | high | official_single_source |
-| m1_geo_circle__prerequisite_for__m1_geo_sector | 원 | prerequisite_for | 부채꼴 | high | official_dual_source |
-| m1_geo_distance_between_two_points__prerequisite_for__m1_geo_chord_center_distance | 두 점 사이의 거리 | prerequisite_for | 원 중심에서 현까지의 거리 | medium | official_dual_source |
-| m1_geo_length__prerequisite_for__m1_geo_circle_radius | 길이 | prerequisite_for | 원의 반지름 | medium | official_dual_source |
-| m1_geo_length__prerequisite_for__m1_geo_equal_tangent_lengths_from_point | 길이 | prerequisite_for | 한 점에서 그은 두 접선의 길이가 같음 | medium | official_dual_source |
-| m1_geo_line__prerequisite_for__m1_geo_tangent_line | 직선 | prerequisite_for | 접선 | high | official_dual_source |
-| m1_geo_midpoint__prerequisite_for__m1_geo_chord_center_perpendicular_bisects | 중점 | prerequisite_for | 원의 중심에서 현에 내린 수선은 현을 이등분 | medium | official_dual_source |
-| m1_geo_midpoint__prerequisite_for__m1_geo_chord_midpoint_center_perpendicular | 중점 | prerequisite_for | 원 중심과 현의 중점을 이은 직선은 현에 수직 | medium | official_dual_source |
-| m1_geo_perpendicular__prerequisite_for__m1_geo_chord_center_distance | 직교 | prerequisite_for | 원 중심에서 현까지의 거리 | medium | official_dual_source |
-| m1_geo_perpendicular__prerequisite_for__m1_geo_chord_center_perpendicular_bisects | 직교 | prerequisite_for | 원의 중심에서 현에 내린 수선은 현을 이등분 | medium | official_dual_source |
+| m1_geo_construction_congruence_unit__prerequisite_for__m1_geo_triangle_quadrilateral_unit | 작도와 합동 | prerequisite_for | 삼각형과 사각형의 성질 | high | official_dual_source |
+| m1_geo_diagonal__prerequisite_for__m1_geo_parallelogram_diagonals_bisect | 대각선 | prerequisite_for | 평행사변형의 대각선이 서로를 이등분 | high | official_dual_source |
+| m1_geo_diagonal__prerequisite_for__m1_geo_quadrilateral_diagonal_properties | 대각선 | prerequisite_for | 사각형의 대각선에 관한 성질 | high | official_dual_source |
+| m1_geo_diagonal__prerequisite_for__m1_geo_rectangle_diagonals_equal | 대각선 | prerequisite_for | 직사각형의 대각선의 길이가 같음 | high | official_dual_source |
+| m1_geo_diagonal__prerequisite_for__m1_geo_rhombus_diagonals_perpendicular | 대각선 | prerequisite_for | 마름모의 대각선이 서로 수직 | high | official_dual_source |
+| m1_geo_distance_between_two_points__prerequisite_for__m1_geo_circumcenter_equal_vertex_distance | 두 점 사이의 거리 | prerequisite_for | 외심에서 세 꼭짓점까지의 거리 | high | official_dual_source |
+| m1_geo_distance_between_two_points__prerequisite_for__m1_geo_incenter_equal_side_distance | 두 점 사이의 거리 | prerequisite_for | 내심에서 세 변까지의 거리 | high | official_dual_source |
+| m1_geo_foot_of_perpendicular__prerequisite_for__m1_geo_incenter_equal_side_distance | 수선의 발 | prerequisite_for | 내심에서 세 변까지의 거리 | high | official_dual_source |
+| m1_geo_justification__prerequisite_for__m1_geo_pythagorean_justification | 정당화 | prerequisite_for | 피타고라스 정리의 정당화 | high | official_dual_source |
+| m1_geo_length__prerequisite_for__m1_geo_isosceles_equal_sides | 길이 | prerequisite_for | 이등변삼각형의 두 같은 변 | medium | official_dual_source |
+| m1_geo_length__prerequisite_for__m1_geo_rectangle_diagonals_equal | 길이 | prerequisite_for | 직사각형의 대각선의 길이가 같음 | high | official_dual_source |
+| m1_geo_length__prerequisite_for__m1_geo_rhombus | 길이 | prerequisite_for | 마름모 | high | official_dual_source |
+| m1_geo_median__prerequisite_for__m1_geo_centroid_location_by_median_ratio | 중선 | prerequisite_for | 중선 위 2:1 비로 무게중심 위치 찾기 | medium | official_dual_source |
+| m1_geo_median__prerequisite_for__m1_geo_centroid_median_concurrency | 중선 | prerequisite_for | 세 중선은 한 점에서 만남 | medium | official_dual_source |
+| m1_geo_midpoint__prerequisite_for__m1_geo_median | 중점 | prerequisite_for | 중선 | high | official_dual_source |
+| m1_geo_midpoint__prerequisite_for__m1_geo_parallelogram_diagonals_bisect | 중점 | prerequisite_for | 평행사변형의 대각선이 서로를 이등분 | high | official_dual_source |
+| m1_geo_opposite_angle__prerequisite_for__m1_geo_parallelogram_opposite_sides_angles | 대각 | prerequisite_for | 평행사변형의 마주 보는 변과 각 | high | official_dual_source |
+| m1_geo_opposite_side__prerequisite_for__m1_geo_parallelogram_opposite_sides_angles | 대변 | prerequisite_for | 평행사변형의 마주 보는 변과 각 | high | official_dual_source |
+| m1_geo_parallel_lines__prerequisite_for__m1_geo_parallelogram | 평행선 | prerequisite_for | 평행사변형 | high | official_dual_source |
+| m1_geo_parallel_lines__prerequisite_for__m1_geo_trapezoid | 평행선 | prerequisite_for | 사다리꼴 | medium | official_dual_source |
+| m1_geo_perpendicular__prerequisite_for__m1_geo_rectangle | 직교 | prerequisite_for | 직사각형 | high | official_dual_source |
+| m1_geo_perpendicular__prerequisite_for__m1_geo_rhombus_diagonals_perpendicular | 직교 | prerequisite_for | 마름모의 대각선이 서로 수직 | high | official_dual_source |
+| m1_geo_perpendicular_bisector__prerequisite_for__m1_geo_circumcenter | 수직이등분선 | prerequisite_for | 외심 | high | official_dual_source |
+| m1_geo_perpendicular_bisector__prerequisite_for__m1_geo_circumcenter_perpendicular_bisectors | 수직이등분선 | prerequisite_for | 외심과 세 변의 수직이등분선 | high | official_dual_source |
+| m1_geo_perpendicular_bisector__prerequisite_for__m1_geo_construct_circumcenter | 수직이등분선 | prerequisite_for | 외심 찾기 | high | official_dual_source |

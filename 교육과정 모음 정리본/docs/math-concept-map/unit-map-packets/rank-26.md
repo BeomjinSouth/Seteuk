@@ -31,8 +31,8 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 |---|---:|
 | contains | 8 |
 | often_confused_with | 3 |
-| prerequisite_for | 18 |
-| related_to | 6 |
+| prerequisite_for | 17 |
+| related_to | 7 |
 | used_in | 11 |
 
 ## Low Confidence Concepts
@@ -53,7 +53,6 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_data_mean__prerequisite_for__m1_data_deviation | 평균 | prerequisite_for | 편차 | high | official_dual_source |
 | m1_data_representative_value__prerequisite_for__m1_data_variability | 대푯값 | prerequisite_for | 산포도 | high | official_dual_source |
 | m1_data_representative_value__prerequisite_for__m1_data_variability_unit | 대푯값 | prerequisite_for | 산포도 | high | official_dual_source |
-| m1_data_variability_unit__prerequisite_for__m1_data_box_scatter_unit | 산포도 | prerequisite_for | 상자그림과 산점도 | high | official_dual_source |
 | m1_data_variable__prerequisite_for__m1_data_deviation | 변량 | prerequisite_for | 편차 | high | official_dual_source |
 | m1_num_square_root__prerequisite_for__m1_data_standard_deviation | 제곱근 | prerequisite_for | 표준편차 | high | official_dual_source |
 | m1_data_distribution__used_in__m1_data_variability | 자료의 분포 | used_in | 산포도 | high | official_dual_source |
@@ -63,3 +62,4 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_data_compare_distributions_variability__related_to__m1_data_box_plot_compare | 산포도로 두 집단의 분포 비교 | related_to | 상자그림으로 두 집단의 분포 비교 | medium | official_dual_source |
 | m1_data_frequency_unit__related_to__m1_data_variability_unit | 도수분포표와 상대도수 | related_to | 산포도 | medium | official_dual_source |
 | m1_data_representative_unit__related_to__m1_data_variability_unit | 대푯값 | related_to | 산포도 | medium | official_dual_source |
+| m1_data_variability_unit__related_to__m1_data_box_scatter_unit | 산포도 | related_to | 상자그림과 산점도 | medium | official_dual_source |

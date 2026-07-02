@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 자료와 가능성
 - unit: 대푯값
 - priority tier: medium
-- workplan score: 56
+- workplan score: 60
 - concepts: 7
-- edges touching unit: 42
-- cross-unit edges: 17
+- edges touching unit: 46
+- cross-unit edges: 21
 - low confidence concepts: 1
 - low confidence edges: 7
 
@@ -31,10 +31,11 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 |---|---:|
 | contains | 10 |
 | contrasts_with | 3 |
+| equivalent_to | 1 |
 | often_confused_with | 4 |
-| prerequisite_for | 17 |
+| prerequisite_for | 19 |
 | related_to | 1 |
-| used_in | 7 |
+| used_in | 8 |
 
 ## Low Confidence Concepts
 
@@ -54,6 +55,8 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_data_frequency__prerequisite_for__m1_data_mode | 도수 | prerequisite_for | 최빈값 | high | official_dual_source |
 | m1_data_mean__prerequisite_for__m1_data_deviation | 평균 | prerequisite_for | 편차 | high | official_dual_source |
 | m1_data_median__prerequisite_for__m1_data_quartile | 중앙값 | prerequisite_for | 사분위수 | high | official_dual_source |
+| m1_data_median__prerequisite_for__m1_data_quartile_calculation | 중앙값 | prerequisite_for | 사분위수 구하기 | medium | official_dual_source |
+| m1_data_median__prerequisite_for__m1_data_second_quartile | 중앙값 | prerequisite_for | 제2사분위수 | medium | official_dual_source |
 | m1_data_representative_unit__prerequisite_for__m1_data_frequency_unit | 대푯값 | prerequisite_for | 도수분포표와 상대도수 | high | official_dual_source |
 | m1_data_representative_value__prerequisite_for__m1_data_variability | 대푯값 | prerequisite_for | 산포도 | high | official_dual_source |
 | m1_data_representative_value__prerequisite_for__m1_data_variability_unit | 대푯값 | prerequisite_for | 산포도 | high | official_dual_source |
@@ -61,5 +64,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_rational_number__prerequisite_for__m1_data_mean | 유리수 | prerequisite_for | 평균 | medium | official_dual_source |
 | m1_data_distribution__used_in__m1_data_choose_representative_value | 자료의 분포 | used_in | 자료의 특성에 맞는 대푯값 선택 | high | official_dual_source |
 | m1_data_mean__used_in__m1_data_deviation | 평균 | used_in | 편차 | medium | official_dual_source |
+| m1_data_median__used_in__m1_data_quartile_calculation | 중앙값 | used_in | 사분위수 구하기 | medium | official_dual_source |
 | m1_data_representative_value__used_in__m1_data_variability | 대푯값 | used_in | 산포도 | medium | official_dual_source |
+| m1_data_second_quartile__equivalent_to__m1_data_median | 제2사분위수 | equivalent_to | 중앙값 | medium | official_dual_source |
 | m1_data_representative_unit__related_to__m1_data_variability_unit | 대푯값 | related_to | 산포도 | medium | official_dual_source |

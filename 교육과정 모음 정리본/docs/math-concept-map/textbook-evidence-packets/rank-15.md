@@ -6,49 +6,47 @@ This generated packet is the unit-level worksheet for adding textbook-grounded e
 
 - rank: 15
 - grade: 중1(교육과정 학년군: 중1-3)
-- domain: 변화와 관계
-- unit: 일차방정식
+- domain: 도형과 측정
+- unit: 입체도형의 성질
 - priority tier: highest
 - priority score: 53
-- concepts in packet: 31
-- pending textbook evidence: 31
-- low confidence concepts: 3
+- concepts in packet: 29
+- pending textbook evidence: 29
+- low confidence concepts: 4
 
 ## Concept Evidence Slots
 
 | concept_id | label_ko | type | confidence | evidence_depth | status | required evidence | focus | source refs |
 |---|---|---|---|---|---|---|---|---:|
-| m1_mis_expression_equation | 식과 방정식 혼동 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
-| m1_mis_solution_check | 구한 해의 상황 적합성 확인 누락 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
-| m1_mis_transposition_sign | 이항할 때 부호를 잘못 바꾸는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 3 |
-| m1_eq_both_sides | 양변 | term | medium | official_single_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 1 |
-| m1_eq_left_side | 좌변 | term | medium | official_single_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 1 |
-| m1_eq_right_side | 우변 | term | medium | official_single_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 1 |
-| m1_eq_transposition | 이항 | procedure | high | official_single_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 2 |
-| m1_eq_unit | 일차방정식 | core_concept | high | official_single_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 4 |
-| m1_eq_apply_equality_properties | 등식의 성질을 이용해 방정식 변형하기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 6 |
-| m1_eq_choose_unknown_from_context | 문제 상황에서 미지수 정하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
-| m1_eq_collect_constant_terms | 상수항 모으기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
-| m1_eq_collect_unknown_terms | 미지수항 모으기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
-| m1_eq_equal_add_subtract_property | 양변에 같은 수를 더하거나 빼기 | property | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 2 |
-| m1_eq_equal_multiply_divide_property | 양변에 같은 수를 곱하거나 나누기 | property | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 2 |
-| m1_eq_equality | 등식 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 4 |
-| m1_eq_equality_properties | 등식의 성질 | property | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 3 |
-| m1_eq_equation | 방정식 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 4 |
-| m1_eq_equation_identity_distinction | 방정식과 항등식 구별하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_eq_identity | 항등식 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
-| m1_eq_interpret_solution_context | 해를 문제 상황에 맞게 해석하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_eq_judge_solution | 해인지 판단하기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_eq_linear_equation | 일차방정식 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 4 |
-| m1_eq_linear_equation_problem_solving | 일차방정식 활용 문제 해결 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
-| m1_eq_modeling_linear_equation | 일차방정식 세우기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_eq_multiple_solving_methods | 방정식의 여러 풀이 방법 | sub_concept | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 3 |
-| m1_eq_root | 근 | term | medium | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 2 |
-| m1_eq_solution | 해 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 4 |
-| m1_eq_solution_check | 해의 확인 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 5 |
-| m1_eq_solving_linear_equation | 일차방정식 풀기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
-| m1_eq_truth_value_by_substitution | 대입값에 따른 등식의 참거짓 | sub_concept | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 3 |
-| m1_eq_unknown | 미지수 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 2 |
+| m1_geo_orthographic_drawing | 겨냥도 | representation | low | official_single_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs;extraction_notes | Find textbook diagram, table, graph, expression, or worked example. | 1 |
+| m1_mis_complex_area_volume_scope | 지나치게 복잡한 넓이·부피 변형 문제 범위 혼동 | misconception_risk | low | official_single_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 1 |
+| m1_mis_solid_net_adjacency | 전개도에서 붙는 면의 이웃 관계를 잘못 판단하는 오류 | misconception_risk | low | official_single_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
+| m1_mis_surface_area_volume | 겉넓이와 부피를 같은 측정량으로 보는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
+| m1_geo_convex_polyhedron_scope | 볼록한 다면체 범위 | property | high | official_single_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 1 |
+| m1_geo_axis_of_rotation | 회전축 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
+| m1_geo_frustum_cone | 원뿔대 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
+| m1_geo_frustum_pyramid | 각뿔대 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
+| m1_geo_model_tool_solid | 모형과 공학 도구로 입체도형 탐구 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_geo_net_surface_area_strategy | 전개도로 겉넓이 구하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_geo_polyhedron | 다면체 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 3 |
+| m1_geo_prism | 기둥 모양 입체도형 | sub_concept | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 4 |
+| m1_geo_pyramid | 뿔 모양 입체도형 | sub_concept | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 4 |
+| m1_geo_regular_polyhedron | 정다면체 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
+| m1_geo_rotation_generation | 평면도형을 회전시켜 회전체 만들기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_geo_solid_component_identification | 면·모서리·꼭짓점 찾기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
+| m1_geo_solid_cross_section | 입체도형의 단면 | representation | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 3 |
+| m1_geo_solid_cross_section_prediction | 단면 모양 예상하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_geo_solid_edge | 입체도형의 모서리 | term | medium | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 4 |
+| m1_geo_solid_face | 입체도형의 면 | term | medium | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 4 |
+| m1_geo_solid_net | 전개도 | representation | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 5 |
+| m1_geo_solid_net_drawing | 전개도 그리기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
+| m1_geo_solid_net_validity_judgement | 전개도가 될 수 있는지 판단하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
+| m1_geo_solid_of_revolution | 회전체 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 3 |
+| m1_geo_solid_unit | 입체도형의 성질 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 4 |
+| m1_geo_solid_vertex | 입체도형의 꼭짓점 | term | medium | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 4 |
+| m1_geo_sphere | 구 | sub_concept | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 2 |
+| m1_geo_surface_area | 겉넓이 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 2 |
+| m1_geo_volume | 부피 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 2 |
 
 ## Textbook Evidence Fields
 

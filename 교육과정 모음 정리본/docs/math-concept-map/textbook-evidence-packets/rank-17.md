@@ -6,48 +6,50 @@ This generated packet is the unit-level worksheet for adding textbook-grounded e
 
 - rank: 17
 - grade: 중1(교육과정 학년군: 중1-3)
-- domain: 변화와 관계
-- unit: 식의 계산
+- domain: 수와 연산
+- unit: 소인수분해
 - priority tier: highest
-- priority score: 50
-- concepts in packet: 30
-- pending textbook evidence: 30
+- priority score: 52
+- concepts in packet: 32
+- pending textbook evidence: 32
 - low confidence concepts: 4
 
 ## Concept Evidence Slots
 
 | concept_id | label_ko | type | confidence | evidence_depth | status | required evidence | focus | source refs |
 |---|---|---|---|---|---|---|---|---:|
-| m1_mis_exponent_base | 밑이 다른 거듭제곱에 지수법칙을 잘못 적용하는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 3 |
-| m1_mis_polynomial_division_scope | 다항식을 단항식으로 나누는 범위 혼동 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 3 |
-| m1_mis_polynomial_like_terms | 다항식에서 동류항 처리를 누락하는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
-| m1_mis_polynomial_subtraction_sign | 다항식 뺄셈에서 괄호 앞 음수를 분배하지 않는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 4 |
-| m1_calc_arithmetic_to_polynomial_extension | 수의 사칙연산에서 다항식 계산으로의 확장 | property | medium | official_single_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 1 |
-| m1_calc_unit | 식의 계산 | core_concept | high | official_single_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 3 |
-| m1_calc_apply_exponent_laws_to_monomials | 지수법칙을 단항식 계산에 적용하기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_calc_base | 밑 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 2 |
-| m1_calc_collect_like_terms_polynomial | 다항식에서 동류항 모으기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_calc_expansion | 전개 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_calc_exponent | 지수 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
-| m1_calc_exponent_law_same_base_condition | 지수법칙 적용 조건: 밑이 같음 | property | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 3 |
-| m1_calc_exponent_laws | 지수법칙 | property | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 3 |
-| m1_calc_monomial_coefficient_calculation | 단항식 계산에서 계수끼리 계산하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
-| m1_calc_monomial_literal_part_calculation | 단항식 계산에서 문자 부분 계산하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
-| m1_calc_monomial_mul_div | 단항식의 곱셈과 나눗셈 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_calc_monomial_polynomial_mul_div | 단항식과 다항식의 곱셈과 나눗셈 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_calc_monomial_times_polynomial_distribution | 단항식을 다항식에 분배하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
-| m1_calc_polynomial_add_sub | 다항식의 덧셈과 뺄셈 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 2 |
-| m1_calc_polynomial_add_sub_principle | 다항식의 덧셈과 뺄셈 원리 | property | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 2 |
-| m1_calc_polynomial_divided_by_monomial_termwise | 다항식의 각 항을 단항식으로 나누기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_calc_polynomial_division_quotient_scope_check | 몫이 다항식인지 확인하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_calc_polynomial_parentheses_removal | 다항식의 괄호 풀기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 2 |
-| m1_calc_polynomial_subtraction_sign_distribution | 다항식의 뺄셈에서 부호 바꾸기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
-| m1_calc_polynomial_term_structure_check | 다항식의 항·계수·차수 확인하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_calc_power | 거듭제곱 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
-| m1_calc_power_of_power | 거듭제곱의 거듭제곱 | property | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 3 |
-| m1_calc_same_base_power_division | 같은 밑의 거듭제곱의 나눗셈 | property | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 3 |
-| m1_calc_same_base_power_multiplication | 같은 밑의 거듭제곱의 곱셈 | property | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 3 |
-| m1_calc_simplify_expression | 식을 간단히 하기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 2 |
+| m1_mis_gcd_lcm_scope | 최대공약수·최소공배수 활용 문제를 범위로 오인하는 오류 | misconception_risk | low | official_single_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 1 |
+| m1_mis_gcd_lcm_common_all_prime_factor | 최대공약수와 최소공배수에서 공통 소인수와 모든 소인수를 뒤바꾸는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 3 |
+| m1_mis_prime_one | 1을 소수나 합성수로 보는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
+| m1_num_prime_factorization_uniqueness | 소인수분해의 유일성 | property | low | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs;extraction_notes | Find textbook statement of the property and any summary box. | 2 |
+| m1_num_coprime | 서로소 | term | medium | official_single_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 2 |
+| m1_num_common_divisor | 공약수 | term | medium | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
+| m1_num_common_multiple | 공배수 | term | medium | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
+| m1_num_common_prime_factor | 공통 소인수 | sub_concept | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 3 |
+| m1_num_composite_number | 합성수 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
+| m1_num_coprime_judgement_prime_factorization | 소인수분해로 서로소 판별하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
+| m1_num_divisor | 약수 | term | medium | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
+| m1_num_find_gcd_lcm_prime_factorization | 소인수분해로 최대공약수와 최소공배수 구하기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_num_gcd | 최대공약수 | sub_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 3 |
+| m1_num_gcd_lcm_principle_explanation | 최대공약수와 최소공배수의 원리 설명하기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_num_gcd_prime_factor_product | 최대공약수를 공통 소인수의 곱으로 나타내기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_num_lcm | 최소공배수 | sub_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 3 |
+| m1_num_lcm_prime_factor_product | 최소공배수를 필요한 모든 소인수의 곱으로 나타내기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_num_multiple | 배수 | term | medium | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
+| m1_num_natural_number | 자연수 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
+| m1_num_one_not_prime_or_composite | 1은 소수도 합성수도 아님 | property | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 3 |
+| m1_num_prime_composite_classification | 소수와 합성수 판별하기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_num_prime_factor | 소인수 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
+| m1_num_prime_factor_product | 소인수의 곱으로 표현하기 | representation | high | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 2 |
+| m1_num_prime_factor_unit | 소인수분해 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 5 |
+| m1_num_prime_factorization | 소인수분해 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_num_prime_factorization_division_method | 나눗셈을 이용한 소인수분해 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 2 |
+| m1_num_prime_factorization_exponent_notation | 소인수분해 결과를 거듭제곱으로 정리하기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_num_prime_factorization_guided_procedure | 안내된 절차에 따라 소인수분해하기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 2 |
+| m1_num_prime_factorization_meaning_explanation | 소인수분해의 뜻 설명하기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_num_prime_number | 소수 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
+| m1_num_select_all_prime_factors | 필요한 모든 소인수 선택하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_num_select_common_prime_factors | 공통 소인수 선택하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
 
 ## Textbook Evidence Fields
 

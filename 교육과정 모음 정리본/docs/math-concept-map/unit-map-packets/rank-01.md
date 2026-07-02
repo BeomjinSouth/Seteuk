@@ -9,12 +9,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 좌표평면과 그래프
 - priority tier: highest
-- workplan score: 488
+- workplan score: 500
 - concepts: 43
-- edges touching unit: 245
-- cross-unit edges: 83
+- edges touching unit: 253
+- cross-unit edges: 91
 - low confidence concepts: 9
-- low confidence edges: 75
+- low confidence edges: 76
 
 ## Concept Type Distribution
 
@@ -34,11 +34,11 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 |---|---:|
 | contains | 51 |
 | contrasts_with | 11 |
-| often_confused_with | 25 |
-| prerequisite_for | 83 |
-| related_to | 23 |
-| represented_by | 21 |
-| used_in | 31 |
+| often_confused_with | 26 |
+| prerequisite_for | 87 |
+| related_to | 24 |
+| represented_by | 20 |
+| used_in | 34 |
 
 ## Low Confidence Concepts
 
@@ -68,6 +68,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_mis_graph_scale_distortion__often_confused_with__m1_graph_graph_interpretation | 눈금 왜곡 그래프를 그대로 해석하는 오류 | often_confused_with | 그래프 해석 | low | official_single_source |
 | m1_mis_letter_as_label_only__often_confused_with__m1_term_variable | 문자를 이름표로만 해석하는 오류 | often_confused_with | 변수 | low | official_dual_source |
 | m1_mis_representation_conversion__often_confused_with__m1_data_critical_graph_reading | 표·식·그래프 변환 오류 | often_confused_with | 표와 그래프의 오류 비판적으로 읽기 | low | official_dual_source |
+| m1_mis_scatter_axis_swap__often_confused_with__m1_coord_ordered_pair | 산점도의 두 변량을 축에 바꾸어 나타내는 오류 | often_confused_with | 순서쌍 | low | official_dual_source |
 | m1_mis_slope_sign__often_confused_with__m1_graph_increase_decrease | 기울기 부호와 그래프 방향 혼동 | often_confused_with | 증가와 감소 | low | official_single_source |
 | m1_mis_system_ordered_pair_swap__often_confused_with__m1_coord_ordered_pair | 해의 순서쌍에서 두 미지수 값을 바꾸는 오류 | often_confused_with | 순서쌍 | low | official_dual_source |
 | m1_geo_domain__related_to__m1_coord_graph_unit | 도형과 측정 | related_to | 좌표평면과 그래프 | low | official_dual_source |
@@ -79,6 +80,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_coord_coordinate__prerequisite_for__m1_func_intersection_point_coordinate | 좌표 | prerequisite_for | 교점의 좌표 | medium | official_dual_source |
 | m1_coord_coordinate__prerequisite_for__m1_quad_func_vertex_coordinates | 좌표 | prerequisite_for | 꼭짓점 좌표 | medium | official_dual_source |
 | m1_coord_coordinate_plane__prerequisite_for__m1_data_scatter_plot | 좌표평면 | prerequisite_for | 산점도 | high | official_dual_source |
+| m1_coord_coordinate_plane__prerequisite_for__m1_data_scatter_plot_drawing | 좌표평면 | prerequisite_for | 산점도로 나타내기 | high | official_dual_source |
 | m1_coord_coordinate_plane__prerequisite_for__m1_func_graph_drawing | 좌표평면 | prerequisite_for | 일차함수 그래프 그리기 | high | official_dual_source |
 | m1_coord_coordinate_plane__prerequisite_for__m1_func_linear_graph | 좌표평면 | prerequisite_for | 일차함수의 그래프 | high | official_dual_source |
 | m1_coord_coordinate_plane__prerequisite_for__m1_func_two_variable_linear_equation_graph | 좌표평면 | prerequisite_for | 미지수가 2개인 일차방정식의 그래프 | high | official_dual_source |
@@ -86,15 +88,13 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_coord_coordinate_plane__prerequisite_for__m1_quad_func_graph_drawing | 좌표평면 | prerequisite_for | 이차함수 그래프 그리기 | high | official_dual_source |
 | m1_coord_graph_unit__prerequisite_for__m1_func_unit | 좌표평면과 그래프 | prerequisite_for | 일차함수와 그 그래프 | high | official_dual_source |
 | m1_coord_graph_unit__prerequisite_for__m1_quad_func_unit | 좌표평면과 그래프 | prerequisite_for | 이차함수와 그 그래프 | high | official_dual_source |
+| m1_coord_ordered_pair__prerequisite_for__m1_data_scatter_plot_point | 순서쌍 | prerequisite_for | 산점도의 점 | medium | official_dual_source |
 | m1_coord_ordered_pair__prerequisite_for__m1_func_two_variable_equation_solution_pair | 순서쌍 | prerequisite_for | 미지수가 2개인 일차방정식 해의 순서쌍 | medium | official_dual_source |
 | m1_coord_ordered_pair__prerequisite_for__m1_system_solution_ordered_pair | 순서쌍 | prerequisite_for | 해의 순서쌍 표현 | medium | official_dual_source |
+| m1_coord_x_axis__prerequisite_for__m1_data_scatter_plot_axes_variables | x축 | prerequisite_for | 산점도의 두 축과 변량 | medium | official_dual_source |
 | m1_coord_x_axis__prerequisite_for__m1_func_x_intercept | x축 | prerequisite_for | x절편 | high | official_dual_source |
+| m1_coord_y_axis__prerequisite_for__m1_data_scatter_plot_axes_variables | y축 | prerequisite_for | 산점도의 두 축과 변량 | medium | official_dual_source |
 | m1_coord_y_axis__prerequisite_for__m1_func_y_intercept | y축 | prerequisite_for | y절편 | high | official_dual_source |
 | m1_eq_unit__prerequisite_for__m1_coord_graph_unit | 일차방정식 | prerequisite_for | 좌표평면과 그래프 | medium | official_single_source |
 | m1_graph_graph__prerequisite_for__m1_data_critical_graph_reading | 그래프 | prerequisite_for | 표와 그래프의 오류 비판적으로 읽기 | medium | official_single_source |
 | m1_graph_graph__prerequisite_for__m1_data_frequency_unit | 그래프 | prerequisite_for | 도수분포표와 상대도수 | high | official_dual_source |
-| m1_graph_graph__prerequisite_for__m1_data_histogram | 그래프 | prerequisite_for | 히스토그램 | high | official_dual_source |
-| m1_graph_graph__prerequisite_for__m1_data_histogram_drawing | 그래프 | prerequisite_for | 히스토그램으로 나타내기 | high | official_dual_source |
-| m1_graph_graph__prerequisite_for__m1_data_relative_frequency_table_graph | 그래프 | prerequisite_for | 상대도수의 분포를 표나 그래프로 나타내기 | high | official_dual_source |
-| m1_graph_graph__prerequisite_for__m1_data_scatter_plot | 그래프 | prerequisite_for | 산점도 | high | official_dual_source |
-| m1_graph_graph__prerequisite_for__m1_func_linear_graph | 그래프 | prerequisite_for | 일차함수의 그래프 | high | official_dual_source |

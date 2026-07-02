@@ -5,52 +5,52 @@ This generated packet is the unit-level worksheet for adding textbook-grounded e
 ## Target Unit
 
 - rank: 9
-- grade: 중1(교육과정 학년군: 중1-3)
-- domain: 자료와 가능성
-- unit: 도수분포표와 상대도수
+- grade: 중3(교육과정 학년군: 중1-3)
+- domain: 도형과 측정
+- unit: 원의 성질
 - priority tier: highest
-- priority score: 57
+- priority score: 59
 - concepts in packet: 33
 - pending textbook evidence: 33
-- low confidence concepts: 4
+- low confidence concepts: 6
 
 ## Concept Evidence Slots
 
 | concept_id | label_ko | type | confidence | evidence_depth | status | required evidence | focus | source refs |
 |---|---|---|---|---|---|---|---|---:|
-| m1_data_relative_frequency_sum | 상대도수의 합 | property | low | official_single_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs;extraction_notes | Find textbook statement of the property and any summary box. | 2 |
-| m1_mis_graph_scale_distortion | 눈금 왜곡 그래프를 그대로 해석하는 오류 | misconception_risk | low | official_single_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 1 |
-| m1_mis_histogram_bar_graph | 히스토그램과 막대그래프를 같은 표현으로 보는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
-| m1_mis_relative_frequency_frequency | 도수와 상대도수를 혼동하는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 3 |
-| m1_data_class_mark | 계급값 | term | medium | official_single_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 2 |
-| m1_data_critical_graph_reading | 표와 그래프의 오류 비판적으로 읽기 | procedure | medium | official_single_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 1 |
-| m1_data_class | 계급 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
-| m1_data_class_width | 계급의 크기 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
-| m1_data_compare_groups_by_relative_frequency | 상대도수로 두 집단의 분포 비교하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
-| m1_data_data_analysis | 자료 분석 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
-| m1_data_data_collection | 자료 수집 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
-| m1_data_distribution | 자료의 분포 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 6 |
-| m1_data_distribution_interpretation | 자료의 분포 특징 해석 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_data_frequency | 도수 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 4 |
-| m1_data_frequency_polygon | 도수분포다각형 | representation | high | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 4 |
-| m1_data_frequency_polygon_drawing | 도수분포다각형으로 나타내기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_data_frequency_table | 도수분포표 | representation | high | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 4 |
-| m1_data_frequency_table_construction | 도수분포표로 나타내기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_data_frequency_unit | 도수분포표와 상대도수 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 5 |
-| m1_data_histogram | 히스토그램 | representation | high | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 4 |
-| m1_data_histogram_drawing | 히스토그램으로 나타내기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_data_inquiry_plan | 자료 수집 계획 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
-| m1_data_relative_frequency | 상대도수 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 5 |
-| m1_data_relative_frequency_calculation | 상대도수 구하기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
-| m1_data_relative_frequency_distribution | 상대도수의 분포 | representation | high | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 4 |
-| m1_data_relative_frequency_table_graph | 상대도수의 분포를 표나 그래프로 나타내기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
-| m1_data_result_interpretation | 분석 결과 해석 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
-| m1_data_statistical_evidence_discussion | 통계적 근거로 토론하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 2 |
-| m1_data_statistical_inquiry_problem | 통계적 탐구 문제 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 4 |
-| m1_data_statistical_inquiry_unit | 통계적 탐구 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 4 |
-| m1_data_stem_leaf_plot | 줄기와 잎 그림 | representation | high | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 4 |
-| m1_data_technology_tool_stats | 공학 도구로 자료 수집·분석하기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 6 |
-| m1_data_total_frequency | 총도수 | term | medium | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 4 |
+| m1_mis_circle_proportion_scope | 원과 비례에 관한 성질을 범위에 포함하는 오류 | misconception_risk | low | official_single_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 1 |
+| m1_geo_circle_auxiliary_radius_center | 원의 중심과 반지름 보조선 활용 | procedure | low | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs;extraction_notes | Find worked example or summary that shows the procedure. | 4 |
+| m1_geo_semicircle_arc | 반원 | term | low | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs;extraction_notes | Find textbook term explanation or definition. | 2 |
+| m1_mis_inscribed_central_angle_equal | 원주각과 중심각을 같은 크기로 보는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
+| m1_mis_same_chord_arc_scope | 같은 현과 같은 호의 조건을 넓게 적용하는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 3 |
+| m1_mis_tangent_radius | 접선과 반지름의 수직 관계를 놓치는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
+| m1_geo_central_inscribed_angle_relation | 중심각과 원주각의 관계 | property | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 4 |
+| m1_geo_chord_center_distance | 원 중심에서 현까지의 거리 | sub_concept | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 3 |
+| m1_geo_chord_center_perpendicular_bisects | 원의 중심에서 현에 내린 수선은 현을 이등분 | property | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 3 |
+| m1_geo_chord_midpoint_center_perpendicular | 원 중심과 현의 중점을 이은 직선은 현에 수직 | property | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 3 |
+| m1_geo_circle | 원 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 5 |
+| m1_geo_circle_chord_property | 원의 현에 관한 성질 | property | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 2 |
+| m1_geo_circle_justification | 원의 성질 정당화 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
+| m1_geo_circle_property_evidence_selection | 원의 성질 정당화에서 근거 선택하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
+| m1_geo_circle_radius | 원의 반지름 | term | medium | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 4 |
+| m1_geo_circle_unit | 원의 성질 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 4 |
+| m1_geo_equal_center_distance_equal_chords | 같은 원에서 중심거리가 같은 현의 길이가 같음 | property | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 2 |
+| m1_geo_equal_chords_equal_center_distance | 같은 원에서 길이가 같은 현은 중심에서 같은 거리에 있음 | property | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 2 |
+| m1_geo_equal_tangent_lengths_from_point | 한 점에서 그은 두 접선의 길이가 같음 | property | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 3 |
+| m1_geo_inscribed_angle | 원주각 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
+| m1_geo_inscribed_angle_property | 원주각의 성질 | property | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 2 |
+| m1_geo_inscribed_angle_subtended_arc | 원주각이 보는 호 | sub_concept | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 3 |
+| m1_geo_same_arc | 같은 호 | sub_concept | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 2 |
+| m1_geo_same_arc_inscribed_angles_equal | 같은 호에 대한 원주각의 크기가 같음 | property | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 2 |
+| m1_geo_same_arc_same_chord_relation | 같은 호와 같은 현의 대응 관계 | property | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 3 |
+| m1_geo_same_chord | 같은 현 | sub_concept | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 2 |
+| m1_geo_semicircle_inscribed_angle_right | 반원에 대한 원주각은 직각 | property | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 2 |
+| m1_geo_tangent_length | 접선의 길이 | property | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 2 |
+| m1_geo_tangent_line | 접선 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
+| m1_geo_tangent_point | 접점 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
+| m1_geo_tangent_property | 원의 접선에 관한 성질 | property | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 2 |
+| m1_geo_tangent_radius_perpendicular | 접점에서의 접선과 반지름의 수직 관계 | property | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 3 |
+| m1_geo_tangent_relation | 접한다 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
 
 ## Textbook Evidence Fields
 

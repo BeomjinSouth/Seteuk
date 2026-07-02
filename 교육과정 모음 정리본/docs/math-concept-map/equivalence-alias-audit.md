@@ -4,25 +4,25 @@ This generated audit separates aliases, explicit equivalent edges, repeated labe
 
 ## Summary
 
-- audit rows: 801
+- audit rows: 825
 
 ## Record Types
 
 | record_type | count |
 |---|---:|
-| concept_alias | 776 |
-| duplicate_label | 13 |
-| equivalent_edge | 3 |
+| concept_alias | 797 |
+| duplicate_label | 15 |
+| equivalent_edge | 4 |
 | official_term_multi_match | 9 |
 
 ## Recommended Actions
 
 | recommended_action | count |
 |---|---:|
-| keep_edge_and_confirm_textbook_usage | 3 |
-| preserve_alias_and_check_textbook_wording | 776 |
+| keep_edge_and_confirm_textbook_usage | 4 |
+| preserve_alias_and_check_textbook_wording | 797 |
 | review_term_scope_and_preserve_alias_or_split_reason | 9 |
-| review_unit_vs_micro_concept_split_before_equivalent_edge | 13 |
+| review_unit_vs_micro_concept_split_before_equivalent_edge | 15 |
 
 ## Review Rows
 
@@ -39,10 +39,13 @@ This generated audit separates aliases, explicit equivalent edges, repeated labe
 | duplicate_label | 이차방정식 |  | same_label_multiple_nodes | review_unit_vs_micro_concept_split_before_equivalent_edge | medium | 8 |
 | duplicate_label | 일차방정식 |  | same_label_multiple_nodes | review_unit_vs_micro_concept_split_before_equivalent_edge | medium | 8 |
 | duplicate_label | 일차부등식 |  | same_label_multiple_nodes | review_unit_vs_micro_concept_split_before_equivalent_edge | medium | 5 |
+| duplicate_label | 최댓값 |  | same_label_multiple_nodes | review_unit_vs_micro_concept_split_before_equivalent_edge | medium | 5 |
+| duplicate_label | 최솟값 |  | same_label_multiple_nodes | review_unit_vs_micro_concept_split_before_equivalent_edge | medium | 5 |
 | duplicate_label | 피타고라스 정리 |  | same_label_multiple_nodes | review_unit_vs_micro_concept_split_before_equivalent_edge | medium | 5 |
 | duplicate_label | 해를 문제 상황에 맞게 해석하기 |  | same_label_multiple_nodes | review_unit_vs_micro_concept_split_before_equivalent_edge | medium | 5 |
 | equivalent_edge | 양의 정수 = 자연수 |  | explicit_equivalent_to_edge | keep_edge_and_confirm_textbook_usage | medium | 5 |
 | equivalent_edge | 이차방정식의 해 = 근 |  | explicit_equivalent_to_edge | keep_edge_and_confirm_textbook_usage | medium | 2 |
+| equivalent_edge | 제2사분위수 = 중앙값 |  | explicit_equivalent_to_edge | keep_edge_and_confirm_textbook_usage | medium | 3 |
 | equivalent_edge | 해 = 근 |  | explicit_equivalent_to_edge | keep_edge_and_confirm_textbook_usage | medium | 2 |
 | official_term_multi_match | 교점 | 교점 | official_term_maps_to_multiple_concepts | review_term_scope_and_preserve_alias_or_split_reason | medium | 0 |
 | official_term_multi_match | 대푯값 | 대푯값 | official_term_maps_to_multiple_concepts | review_term_scope_and_preserve_alias_or_split_reason | medium | 0 |

@@ -54,7 +54,6 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_data_mean__prerequisite_for__m1_data_deviation | cross_unit | 평균 | prerequisite_for | 편차 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_data_representative_value__prerequisite_for__m1_data_variability | cross_unit | 대푯값 | prerequisite_for | 산포도 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_data_representative_value__prerequisite_for__m1_data_variability_unit | cross_unit | 대푯값 | prerequisite_for | 산포도 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
-| m1_data_variability_unit__prerequisite_for__m1_data_box_scatter_unit | cross_unit | 산포도 | prerequisite_for | 상자그림과 산점도 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_data_variable__prerequisite_for__m1_data_deviation | cross_unit | 변량 | prerequisite_for | 편차 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_square_root__prerequisite_for__m1_data_standard_deviation | cross_unit | 제곱근 | prerequisite_for | 표준편차 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_data_distribution__used_in__m1_data_variability | cross_unit | 자료의 분포 | used_in | 산포도 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
@@ -64,6 +63,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_data_compare_distributions_variability__related_to__m1_data_box_plot_compare | cross_unit | 산포도로 두 집단의 분포 비교 | related_to | 상자그림으로 두 집단의 분포 비교 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 4 |
 | m1_data_frequency_unit__related_to__m1_data_variability_unit | cross_unit | 도수분포표와 상대도수 | related_to | 산포도 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 5 |
 | m1_data_representative_unit__related_to__m1_data_variability_unit | cross_unit | 대푯값 | related_to | 산포도 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 4 |
+| m1_data_variability_unit__related_to__m1_data_box_scatter_unit | cross_unit | 산포도 | related_to | 상자그림과 산점도 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 4 |
 
 ## Textbook Edge Evidence Fields
 

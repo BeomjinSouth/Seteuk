@@ -16,6 +16,8 @@ digraph pilot_unit_map {
   "m1_data_frequency" [label="도수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_deviation" [label="편차\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_quartile" [label="사분위수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_data_quartile_calculation" [label="사분위수 구하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_data_second_quartile" [label="제2사분위수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_frequency_unit" [label="도수분포표와 상대도수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_variability" [label="산포도\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_variability_unit" [label="산포도\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -54,6 +56,8 @@ digraph pilot_unit_map {
   "m1_data_frequency" -> "m1_data_mode" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_data_mean" -> "m1_data_deviation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_data_median" -> "m1_data_quartile" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_data_median" -> "m1_data_quartile_calculation" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_data_median" -> "m1_data_second_quartile" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_data_representative_unit" -> "m1_data_frequency_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_data_representative_value" -> "m1_data_variability" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_data_representative_value" -> "m1_data_variability_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -61,6 +65,8 @@ digraph pilot_unit_map {
   "m1_num_rational_number" -> "m1_data_mean" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_data_distribution" -> "m1_data_choose_representative_value" [label="used_in", style="dashed", color="#6b7280"];
   "m1_data_mean" -> "m1_data_deviation" [label="used_in", style="dashed", color="#6b7280"];
+  "m1_data_median" -> "m1_data_quartile_calculation" [label="used_in", style="dashed", color="#6b7280"];
   "m1_data_representative_value" -> "m1_data_variability" [label="used_in", style="dashed", color="#6b7280"];
+  "m1_data_second_quartile" -> "m1_data_median" [label="equivalent_to", style="dashed", color="#6b7280"];
   "m1_data_representative_unit" -> "m1_data_variability_unit" [label="related_to", style="dashed", color="#6b7280"];
 }

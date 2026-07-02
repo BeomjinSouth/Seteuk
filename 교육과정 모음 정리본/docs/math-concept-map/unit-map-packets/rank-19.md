@@ -5,16 +5,16 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 ## Target Unit
 
 - rank: 19
-- grade: 중1(교육과정 학년군: 중1-3)
-- domain: 변화와 관계
-- unit: 문자의 사용과 식
+- grade: 중2(교육과정 학년군: 중1-3)
+- domain: 도형과 측정
+- unit: 도형의 닮음
 - priority tier: highest
-- workplan score: 218
-- concepts: 24
-- edges touching unit: 184
-- cross-unit edges: 110
-- low confidence concepts: 3
-- low confidence edges: 15
+- workplan score: 147
+- concepts: 32
+- edges touching unit: 142
+- cross-unit edges: 35
+- low confidence concepts: 4
+- low confidence edges: 16
 
 ## Concept Type Distribution
 
@@ -22,73 +22,68 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 |---|---:|
 | core_concept | 3 |
 | misconception_risk | 3 |
-| procedure | 6 |
-| property | 2 |
-| representation | 1 |
-| sub_concept | 2 |
-| term | 7 |
+| procedure | 7 |
+| property | 13 |
+| sub_concept | 1 |
+| term | 5 |
 
 ## Relationship Distribution
 
 | relationship_type | count |
 |---|---:|
-| contains | 27 |
-| contrasts_with | 6 |
-| often_confused_with | 11 |
-| prerequisite_for | 99 |
-| related_to | 5 |
-| represented_by | 2 |
-| used_in | 34 |
+| contains | 34 |
+| contrasts_with | 3 |
+| often_confused_with | 6 |
+| prerequisite_for | 53 |
+| related_to | 3 |
+| represented_by | 7 |
+| used_in | 36 |
 
 ## Low Confidence Concepts
 
 | concept_id | label_ko | type | evidence_depth | notes |
 |---|---|---|---|---|
-| m1_mis_coefficient_constant_degree | 계수·상수항·차수 혼동 | misconception_risk | official_dual_source | 용어 목록과 일차식 계산 성취수준을 바탕으로 둔 잠정 오개념 노드이다. |
-| m1_mis_letter_as_label_only | 문자를 이름표로만 해석하는 오류 | misconception_risk | official_dual_source | 공식 문서의 문자와 일상 언어 비교 지도 유의점에서 추론한 위험이다. 교과서 도입 활동으로 보강 필요. |
-| m1_mis_like_terms | 동류항이 아닌 항을 합치는 오류 | misconception_risk | official_dual_source | 성취수준의 일차식 계산 수행에서 발생할 수 있는 위험으로 추론했다. 교과서 예제와 오답 분석으로 보강 필요. |
+| m1_geo_similarity_ratio_order | 닮음비의 순서 | sub_concept | official_dual_source | 공식 성취기준의 닮음비 구하기에서 추론한 세부 주의점이다. 교과서 예제 근거 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_mis_congruence_similarity | 합동과 닮음을 같은 관계로 보는 오류 | misconception_risk | official_dual_source |  |
+| m1_mis_similarity_ratio_noncorresponding_sides | 대응하지 않는 변끼리 닮음비를 세우는 오류 | misconception_risk | official_dual_source | 도형의 대응과 닮음비 계산에서 추론한 오개념 위험이다. 교과서 예제·문항 근거 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_mis_similarity_ratio_reversal | 닮음비의 순서를 거꾸로 놓는 오류 | misconception_risk | official_dual_source | 교과서의 반복 문제 또는 학생 답안 근거가 들어오기 전까지 낮은 신뢰도로 둔다. |
 
 ## Cross-Unit Edges
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
-| m1_mis_function_value_input_output__often_confused_with__m1_expr_substitution | 함숫값과 입력값 혼동 | often_confused_with | 대입 | low | official_dual_source |
-| m1_mis_letter_as_label_only__often_confused_with__m1_term_variable | 문자를 이름표로만 해석하는 오류 | often_confused_with | 변수 | low | official_dual_source |
-| m1_mis_polynomial_like_terms__often_confused_with__m1_expr_like_terms | 다항식에서 동류항 처리를 누락하는 오류 | often_confused_with | 동류항 | low | official_dual_source |
-| m1_mis_radical_like_terms__often_confused_with__m1_expr_like_terms | 근호 안의 수가 다른 제곱근을 동류항처럼 더하는 오류 | often_confused_with | 동류항 | low | official_single_source |
-| m1_mis_system_substitution__often_confused_with__m1_expr_substitution | 대입법에서 식 전체를 대입하지 않는 오류 | often_confused_with | 대입 | low | official_dual_source |
-| m1_num_domain__related_to__m1_expr_unit | 수와 연산 | related_to | 문자의 사용과 식 | low | official_dual_source |
-| m1_expr_unit__contains__m1_repr_everyday_language | 문자의 사용과 식 | contains | 일상 언어 | high | official_single_source |
-| m1_expr_unit__contains__m1_repr_expression | 문자의 사용과 식 | contains | 식 | high | official_dual_source |
-| m1_expr_unit__contains__m1_term_variable | 문자의 사용과 식 | contains | 변수 | high | official_dual_source |
-| m1_expr_add_sub_linear_expression__prerequisite_for__m1_ineq_isolate_unknown | 일차식의 덧셈과 뺄셈 | prerequisite_for | 미지수를 한쪽으로 모으기 | medium | official_dual_source |
-| m1_expr_add_sub_linear_expression__prerequisite_for__m1_ineq_solving_linear_inequality | 일차식의 덧셈과 뺄셈 | prerequisite_for | 일차부등식 풀기 | high | official_dual_source |
-| m1_expr_add_sub_linear_expression__prerequisite_for__m1_system_elimination_coefficient_matching | 일차식의 덧셈과 뺄셈 | prerequisite_for | 소거할 미지수의 계수 맞추기 | medium | official_dual_source |
-| m1_expr_coefficient__prerequisite_for__m1_calc_collect_like_terms_polynomial | 계수 | prerequisite_for | 다항식에서 동류항 모으기 | high | official_dual_source |
-| m1_expr_coefficient__prerequisite_for__m1_calc_monomial_coefficient_calculation | 계수 | prerequisite_for | 단항식 계산에서 계수끼리 계산하기 | medium | official_dual_source |
-| m1_expr_coefficient__prerequisite_for__m1_calc_polynomial_term_structure_check | 계수 | prerequisite_for | 다항식의 항·계수·차수 확인하기 | medium | official_dual_source |
-| m1_expr_coefficient__prerequisite_for__m1_factor_binomial_product_xab | 계수 | prerequisite_for | (x+a)(x+b) 공식 | high | official_dual_source |
-| m1_expr_coefficient__prerequisite_for__m1_factor_cross_term_coefficient_check | 계수 | prerequisite_for | 교차항 계수 확인하기 | medium | official_dual_source |
-| m1_expr_coefficient__prerequisite_for__m1_factor_linear_product_axb_cxd | 계수 | prerequisite_for | (ax+b)(cx+d) 공식 | high | official_dual_source |
-| m1_expr_coefficient__prerequisite_for__m1_factor_perfect_square_middle_term_check | 계수 | prerequisite_for | 완전제곱식의 가운데 항 확인하기 | medium | official_dual_source |
-| m1_expr_coefficient__prerequisite_for__m1_factor_sum_product_pair_search | 계수 | prerequisite_for | 합과 곱이 맞는 수 찾기 | medium | official_dual_source |
-| m1_expr_coefficient__prerequisite_for__m1_quad_eq_coefficients_in_standard_form | 계수 | prerequisite_for | 이차방정식의 계수 | medium | official_dual_source |
-| m1_expr_coefficient__prerequisite_for__m1_quad_eq_leading_coefficient_one_case | 계수 | prerequisite_for | 이차항의 계수가 1인 이차방정식 | high | official_dual_source |
-| m1_expr_constant_term__prerequisite_for__m1_eq_collect_constant_terms | 상수항 | prerequisite_for | 상수항 모으기 | medium | official_dual_source |
-| m1_expr_degree__prerequisite_for__m1_calc_polynomial_term_structure_check | 차수 | prerequisite_for | 다항식의 항·계수·차수 확인하기 | medium | official_dual_source |
-| m1_expr_degree__prerequisite_for__m1_factor_quadratic_expression | 차수 | prerequisite_for | 이차식 | medium | official_dual_source |
-| m1_expr_degree__prerequisite_for__m1_quad_eq_quadratic_term | 차수 | prerequisite_for | 이차항 | medium | official_single_source |
-| m1_expr_letter__prerequisite_for__m1_eq_unknown | 문자 | prerequisite_for | 미지수 | high | official_dual_source |
-| m1_expr_letter_quantity__prerequisite_for__m1_eq_choose_unknown_from_context | 문자가 나타내는 수량 정하기 | prerequisite_for | 문제 상황에서 미지수 정하기 | medium | official_dual_source |
-| m1_expr_letter_quantity__prerequisite_for__m1_ineq_choose_unknown_from_context | 문자가 나타내는 수량 정하기 | prerequisite_for | 문제 상황에서 미지수 정하기 | medium | official_dual_source |
-| m1_expr_like_terms__prerequisite_for__m1_calc_collect_like_terms_polynomial | 동류항 | prerequisite_for | 다항식에서 동류항 모으기 | high | official_dual_source |
-| m1_expr_like_terms__prerequisite_for__m1_calc_polynomial_add_sub | 동류항 | prerequisite_for | 다항식의 덧셈과 뺄셈 | high | official_dual_source |
-| m1_expr_like_terms__prerequisite_for__m1_calc_polynomial_add_sub_principle | 동류항 | prerequisite_for | 다항식의 덧셈과 뺄셈 원리 | high | official_dual_source |
-| m1_expr_like_terms__prerequisite_for__m1_calc_simplify_expression | 동류항 | prerequisite_for | 식을 간단히 하기 | high | official_dual_source |
-| m1_expr_linear_expression__prerequisite_for__m1_eq_linear_equation | 일차식 | prerequisite_for | 일차방정식 | high | official_dual_source |
-| m1_expr_linear_expression__prerequisite_for__m1_eq_unit | 일차식 | prerequisite_for | 일차방정식 | high | official_single_source |
-| m1_expr_linear_expression__prerequisite_for__m1_func_linear_function | 일차식 | prerequisite_for | 일차함수 | high | official_dual_source |
-| m1_expr_linear_expression__prerequisite_for__m1_ineq_linear_inequality | 일차식 | prerequisite_for | 일차부등식 | high | official_dual_source |
-| m1_expr_literal_expression__prerequisite_for__m1_eq_modeling_linear_equation | 문자를 사용한 식 | prerequisite_for | 일차방정식 세우기 | high | official_dual_source |
-| m1_expr_literal_expression__prerequisite_for__m1_ineq_modeling_linear_inequality | 문자를 사용한 식 | prerequisite_for | 일차부등식 세우기 | high | official_dual_source |
-| m1_expr_literal_expression__prerequisite_for__m1_ineq_translate_condition | 문자를 사용한 식 | prerequisite_for | 문제 조건을 부등식으로 옮기기 | medium | official_dual_source |
+| m1_num_ratio__used_in__m1_geo_parallel_segment_ratio | 비 | used_in | 평행선 사이의 선분의 길이의 비 | low | official_dual_source |
+| m1_num_ratio__used_in__m1_geo_similarity_ratio | 비 | used_in | 닮음비 | low | official_dual_source |
+| m1_mis_congruence_similarity__often_confused_with__m1_geo_congruence | 합동과 닮음을 같은 관계로 보는 오류 | often_confused_with | 합동 | low | official_dual_source |
+| m1_geo_similarity_ratio__related_to__m1_geo_trigonometric_ratio | 닮음비 | related_to | 삼각비 | low | official_dual_source |
+| m1_geo_triangle_midpoint_theorem__related_to__m1_geo_centroid | 삼각형의 중점연결정리 | related_to | 무게중심 | low | official_dual_source |
+| m1_geo_centroid__contains__m1_geo_centroid_median_concurrency | 무게중심 | contains | 세 중선은 한 점에서 만남 | medium | official_dual_source |
+| m1_geo_centroid__contains__m1_geo_centroid_two_to_one_ratio | 무게중심 | contains | 무게중심은 중선을 2:1로 나눔 | medium | official_dual_source |
+| m1_geo_domain__contains__m1_geo_similarity_unit | 도형과 측정 | contains | 도형의 닮음 | high | official_dual_source |
+| m1_geo_similarity_unit__contains__m1_geo_centroid | 도형의 닮음 | contains | 무게중심 | high | official_dual_source |
+| m1_geo_similarity_unit__contains__m1_geo_median | 도형의 닮음 | contains | 중선 | high | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_correspondence | 각 | prerequisite_for | 도형의 대응 | medium | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_corresponding_angles_in_similarity | 각 | prerequisite_for | 대응하는 각 | medium | official_dual_source |
+| m1_geo_centroid__prerequisite_for__m1_geo_centroid_from_parallel_ratio | 무게중심 | prerequisite_for | 평행선과 선분의 비로 무게중심 찾기 | high | official_dual_source |
+| m1_geo_congruence__prerequisite_for__m1_geo_similarity | 합동 | prerequisite_for | 닮음 | high | official_dual_source |
+| m1_geo_line_segment__prerequisite_for__m1_geo_corresponding_sides_in_similarity | 선분 | prerequisite_for | 대응하는 변 | medium | official_dual_source |
+| m1_geo_median__prerequisite_for__m1_geo_centroid_location_by_median_ratio | 중선 | prerequisite_for | 중선 위 2:1 비로 무게중심 위치 찾기 | medium | official_dual_source |
+| m1_geo_median__prerequisite_for__m1_geo_centroid_median_concurrency | 중선 | prerequisite_for | 세 중선은 한 점에서 만남 | medium | official_dual_source |
+| m1_geo_midpoint__prerequisite_for__m1_geo_triangle_midpoint_theorem | 중점 | prerequisite_for | 삼각형의 중점연결정리 | medium | official_dual_source |
+| m1_geo_parallel_lines__prerequisite_for__m1_geo_parallel_segment_ratio | 평행선 | prerequisite_for | 평행선 사이의 선분의 길이의 비 | high | official_dual_source |
+| m1_geo_parallel_lines__prerequisite_for__m1_geo_three_parallel_lines_segment_ratio | 평행선 | prerequisite_for | 여러 평행선이 두 직선에서 만드는 선분의 비 | medium | official_dual_source |
+| m1_geo_parallel_lines__prerequisite_for__m1_geo_triangle_parallel_segment_ratio | 평행선 | prerequisite_for | 삼각형에서 한 변에 평행한 직선이 만드는 선분의 비 | medium | official_dual_source |
+| m1_geo_point__prerequisite_for__m1_geo_correspondence | 점 | prerequisite_for | 도형의 대응 | medium | official_dual_source |
+| m1_geo_point__prerequisite_for__m1_geo_corresponding_vertices | 점 | prerequisite_for | 대응하는 꼭짓점 | medium | official_dual_source |
+| m1_geo_triangle__prerequisite_for__m1_geo_triangle_parallel_segment_ratio | 삼각형 | prerequisite_for | 삼각형에서 한 변에 평행한 직선이 만드는 선분의 비 | medium | official_dual_source |
+| m1_geo_triangle_quadrilateral_unit__prerequisite_for__m1_geo_similarity_unit | 삼각형과 사각형의 성질 | prerequisite_for | 도형의 닮음 | high | official_dual_source |
+| m1_geo_centroid__used_in__m1_geo_centroid_from_parallel_ratio | 무게중심 | used_in | 평행선과 선분의 비로 무게중심 찾기 | high | official_dual_source |
+| m1_geo_figure__used_in__m1_geo_similarity_unit | 도형 | used_in | 도형의 닮음 | medium | official_dual_source |
+| m1_geo_length__used_in__m1_geo_parallel_segment_ratio | 길이 | used_in | 평행선 사이의 선분의 길이의 비 | medium | official_dual_source |
+| m1_geo_median__used_in__m1_geo_centroid_from_parallel_ratio | 중선 | used_in | 평행선과 선분의 비로 무게중심 찾기 | medium | official_dual_source |
+| m1_geo_median__used_in__m1_geo_centroid_median_concurrency | 중선 | used_in | 세 중선은 한 점에서 만남 | medium | official_dual_source |
+| m1_geo_triangle__used_in__m1_geo_triangle_similarity_conditions | 삼각형 | used_in | 삼각형의 닮음 조건 | medium | official_dual_source |
+| m1_geo_congruence__contrasts_with__m1_geo_similarity | 합동 | contrasts_with | 닮음 | high | official_dual_source |
+| m1_geo_parallel_angle_properties__contrasts_with__m1_geo_parallel_segment_ratio | 평행선에서 동위각과 엇각의 성질 | contrasts_with | 평행선 사이의 선분의 길이의 비 | medium | official_dual_source |
+| m1_geo_similarity__contrasts_with__m1_geo_congruence | 닮음 | contrasts_with | 합동 | high | official_dual_source |
+| m1_geo_similarity_unit__related_to__m1_geo_pythagorean_unit | 도형의 닮음 | related_to | 피타고라스 정리 | medium | official_dual_source |

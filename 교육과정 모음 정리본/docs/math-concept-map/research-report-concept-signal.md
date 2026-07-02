@@ -5,7 +5,7 @@ Rows are candidate signals only; inspect the local page context before changing 
 
 ## Summary
 
-- matched concepts: 267
+- matched concepts: 268
 
 ## Confidence
 
@@ -13,14 +13,14 @@ Rows are candidate signals only; inspect the local page context before changing 
 |---|---:|
 | high | 218 |
 | low | 5 |
-| medium | 44 |
+| medium | 45 |
 
 ## Recommended Actions
 
 | action | matched concepts |
 |---|---:|
 | inspect_research_report_context_before_confidence_change | 5 |
-| inspect_research_report_context_before_source_ref_upgrade | 44 |
+| inspect_research_report_context_before_source_ref_upgrade | 45 |
 | use_as_supplemental_trace_only | 218 |
 
 ## Highest Priority Signals
@@ -76,6 +76,7 @@ Rows are candidate signals only; inspect the local page context before changing 
 | m1_func_intersection_count | 교점의 개수 | 일차함수와 일차방정식의 관계 | medium | 1 | 219 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_func_intersection_point_coordinate | 교점의 좌표 | 일차함수와 일차방정식의 관계 | medium | 1 | 219 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_data_or_probability | 사건 A 또는 사건 B가 일어날 확률 | 경우의 수와 확률 | medium | 1 | 228 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
+| m1_data_second_quartile | 제2사분위수 | 상자그림과 산점도 | medium | 1 | 146 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_graph_graph | 그래프 | 좌표평면과 그래프 | high | 563 | 12; 22; 45; 54; 57; 58; 59; 61; 62; 77; 79; 87; 88; 89; 90; 106; 110; 135; 140; 177; 183; 184; 186; 190 | research_report_signal | use_as_supplemental_trace_only |
 | m1_data_dataset | 자료 | 자료와 가능성 | high | 390 | 2; 6; 9; 12; 13; 14; 21; 22; 23; 24; 26; 45; 46; 60; 61; 62; 76; 77; 78; 79; 80; 81; 83; 88 | research_report_signal | use_as_supplemental_trace_only |
 | m1_func_function | 함수 | 일차함수와 그 그래프 | high | 357 | 54; 57; 58; 59; 62; 87; 88; 89; 90; 218; 219; 220; 232; 233; 234; 235; 242; 243; 244; 245; 246; 252; 253; 254 | research_report_signal | use_as_supplemental_trace_only |
@@ -106,4 +107,3 @@ Rows are candidate signals only; inspect the local page context before changing 
 | m1_expr_letter | 문자 | 문자의 사용과 식 | high | 62 | 45; 54; 55; 56; 57; 58; 59; 154; 214; 232; 233; 234; 235; 272 | research_report_signal | use_as_supplemental_trace_only |
 | m1_eq_unit | 일차방정식 | 일차방정식 | high | 62 | 54; 55; 56; 57; 58; 59; 214; 217; 219; 232; 233; 234; 235 | research_report_signal | use_as_supplemental_trace_only |
 | m1_eq_linear_equation | 일차방정식 | 일차방정식 | high | 62 | 54; 55; 56; 57; 58; 59; 214; 217; 219; 232; 233; 234; 235 | research_report_signal | use_as_supplemental_trace_only |
-| m1_func_two_quantity_relation | 두 양 사이의 관계 | 일차함수와 그 그래프 | high | 62 | 62; 129; 137; 218; 242; 243; 245 | research_report_signal | use_as_supplemental_trace_only |

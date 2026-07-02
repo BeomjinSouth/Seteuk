@@ -1620,10 +1620,32 @@
 - 전체 산출물 파이프라인을 재실행했고 `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
 - PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
 
+## 2026-07-02 상자그림과 산점도 미시 concept 병렬 보강
+
+- AGENTS.md를 다시 확인하고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 생성 로직과 파생 산출물 정비로 제한했다.
+- 멀티에이전트 explorer 3개를 읽기 전용으로 사용해 `상자그림과 산점도`를 병렬 감사했다. Hilbert는 기존 노드·edge와 누락 후보, Sagan은 상자그림·산점도 표현/절차/오개념과 noisy edge, McClintock은 테스트 구조와 insertion point를 점검했다.
+- `사분위수를 구하기 위한 자료 정렬`, `사분위수 구하기`, `제1사분위수`, `제2사분위수`, `제3사분위수`, `최솟값`, `최댓값`, `상자그림의 다섯 값`, `사분위범위`, `상자그림의 상자`, `상자그림의 수염`, `공학 도구로 상자그림 나타내기`, `상자그림에서 중심과 퍼짐 읽기`를 추가해 상자그림의 구성 요소와 읽기 절차를 분해했다.
+- `두 변량의 대응값`, `산점도의 두 축과 변량`, `산점도의 점`, `산점도로 나타내기`, `산점도의 경향`을 추가해 산점도 표현과 상관관계 판단 전 단계를 분리했다.
+- `자료를 정렬하지 않고 사분위수를 구하는 오류`, `상자그림 구간의 길이를 자료 수로 해석하는 오류`, `산점도의 두 변량을 축에 바꾸어 나타내는 오류`를 오개념 risk로 추가했다. 기존 `상관관계를 원인과 결과로 단정하는 오류`는 선수 관계를 제거하고 `often_confused_with` 관계만 유지했다.
+- `산포도 -> 상자그림과 산점도`, `공학 도구 -> 상자그림과 산점도`, `공학 도구 -> 상자그림`, `그래프 -> 산점도`처럼 너무 넓은 prerequisite edge를 제거하거나 `related_to`/`used_in`으로 낮췄다. `좌표평면 represented_by 산점도`는 방향이 어색해 `좌표평면 used_in 산점도/산점도로 나타내기`로 바꿨다.
+- `사분위범위`, `최솟값`, `최댓값`, `상자그림의 상자`, `상자그림의 수염`은 공식 문서에서 직접 용어로 열거되지 않은 미시 개념이므로 `confidence: low`와 notes로 교과서 본문 확인 필요를 남겼다. `이상치`, `상관계수`, `추세선`, `회귀`, `1.5 IQR 규칙`은 현재 공식 근거로는 추가하지 않았다.
+- 전체 산출물을 재생성한 결과 concept은 797개, base edge는 3622개가 되었다. source ref audit은 총 11572개 ref를 기록하고 source catalogue는 5개를 유지한다.
+- `review-queue.*`는 126개 low-confidence concept, `concept-evidence-depth.*`는 concept 797개, `edge-evidence-depth.*`는 edge 3622개, `prerequisite-map.*`은 1319개 선수 관계 edge로 갱신했다.
+- `textbook-evidence-workplan.*`은 34개 단원 그룹, concept evidence row 797개, edge evidence row 4321개, pending textbook evidence row 5118개, low-confidence concept/edge row 775개를 기록한다.
+- 재생성 후 `상자그림과 산점도`는 rank 4, priority tier `highest`이며 concept 32개, edge 168개, 총 200개 evidence row가 모두 `pending_textbook_pdf` 상태다. 이 단원의 low-confidence concept은 9개, low-confidence edge는 43개이다.
+- `unit-coverage.*` 기준 `상자그림과 산점도`는 concept 32개, 내부 edge 129개, incoming edge 35개, outgoing edge 4개이며, confidence 분포는 high 12개, medium 11개, low 9개이다. concept type 분포는 core 2개, sub_concept 7개, representation 5개, procedure 7개, term 7개, misconception_risk 4개이다.
+- `test_build_pilot_data_box_scatter_microconcepts.py`를 추가해 상자그림 구성 요소, 산점도 표현 절차, edge 방향, 오개념 confidence 유지, broad/noisy prerequisite edge 부재를 고정했다.
+- 좁은 테스트: `python -m unittest test_build_pilot_data_box_scatter_microconcepts.py` 5개 통과.
+- edge/queue 테스트: `python -m unittest test_build_pilot_data_box_scatter_microconcepts.py test_build_pilot_edge_sync.py test_build_related_edge_resolution_queue.py test_build_node_edge_consistency_audit.py` 33개 통과.
+- 전체 단위 테스트: `python -m unittest discover -s . -p "test_*.py"`를 `docs/math-concept-map/tools`에서 실행해 309개 통과.
+- 전체 validator: `python docs/math-concept-map/tools/validate_concept_map.py`: 797개 concept, 3622개 edge, 5개 source, 60개 공식 성취기준 검증 통과.
+- 전체 직접 파생 산출물과 research-report/legacy 보조 산출물을 재생성했고 `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
 - 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 `not_applicable_from_this_row` 41개가 broad context, 용어 충돌, 도구·자료 입력, 또는 약한 출현으로 유지되는지 주기적으로 감사한다. 현재 `pending_manual_review`는 8개이며, 주로 `선분`·`반직선` 후보이므로 교과서 본문 또는 중학교 기본 도형 직접 근거 확인 후 source ref 반영 여부를 판단한다.
 - 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.
-- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 245개, 총 288개 row로 유지한다. 공식·보조 문서 기반 미시 concept 보강을 계속한다면 이미 보강한 상위 단원을 제외하고 `상자그림과 산점도`, `산포도`, `대푯값`, `작도와 합동`처럼 미시 concept이 덜 분해된 단원을 우선 검토한다.
+- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 253개, 총 296개 row로 유지한다. 공식·보조 문서 기반 미시 concept 보강을 계속한다면 이미 보강한 상위 단원을 제외하고 `산포도`, `대푯값`, `작도와 합동`처럼 미시 concept이 덜 분해된 단원을 우선 검토한다.
 - 새 concept, alias, `related_ids`, 또는 `equivalent_to` 후보가 추가되면 `equivalence-alias-audit.*`, `related-edge-resolution-queue.*`, `textbook-edge-evidence-packets/*`, `edge-evidence-depth.*`를 함께 재생성한다.

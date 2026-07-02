@@ -2,7 +2,7 @@
 
 이 문서는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 출처 보강 때 먼저 확인할 대상을 정리한다.
 
-- 검토 대상 concept: 118개
+- 검토 대상 concept: 126개
 
 ## 영역별 검토 대상
 
@@ -11,18 +11,18 @@
 | 수와 연산 | 18 |
 | 변화와 관계 | 58 |
 | 도형과 측정 | 29 |
-| 자료와 가능성 | 13 |
+| 자료와 가능성 | 21 |
 
 ## 유형별 검토 대상
 
 | concept_type | concept 수 |
 |---|---:|
-| misconception_risk | 89 |
+| misconception_risk | 92 |
 | procedure | 3 |
 | property | 6 |
-| representation | 4 |
+| representation | 6 |
 | sub_concept | 8 |
-| term | 8 |
+| term | 11 |
 
 ## 검토 항목
 
@@ -145,4 +145,12 @@
 | m1_mis_relative_frequency_frequency | 자료와 가능성 | 도수분포표와 상대도수 | misconception_risk | textbook_evidence_needed | 도수와 상대도수를 혼동하는 오류 |  |
 | m1_data_relative_frequency_sum | 자료와 가능성 | 도수분포표와 상대도수 | property | source_detail_needed | 상대도수의 합 | 공식 문서의 상대도수 구하기와 도수의 총합 표현에서 추론한 성질이다. 교과서 본문이나 정리 근거 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_mis_variance_standard_deviation | 자료와 가능성 | 산포도 | misconception_risk | textbook_evidence_needed | 분산과 표준편차를 같은 값으로 보는 오류 |  |
+| m1_mis_box_plot_length_frequency | 자료와 가능성 | 상자그림과 산점도 | misconception_risk | textbook_evidence_needed | 상자그림 구간의 길이를 자료 수로 해석하는 오류 | 상자그림 분포 비교 맥락에서 추론한 오개념 위험이다. 교과서 문항 근거 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_mis_correlation_causation | 자료와 가능성 | 상자그림과 산점도 | misconception_risk | textbook_evidence_needed | 상관관계를 원인과 결과로 단정하는 오류 | 공식 문서는 상관관계를 말하는 수준을 다룬다. 인과 판단 오류는 교과서 본문이나 문항 근거 보강 전까지 잠정 노드로 둔다. |
+| m1_mis_quartile_without_ordering | 자료와 가능성 | 상자그림과 산점도 | misconception_risk | textbook_evidence_needed | 자료를 정렬하지 않고 사분위수를 구하는 오류 | 사분위수 계산 절차에서 추론한 오개념 위험이다. 교과서 예제·오답 근거로 보강한다. |
+| m1_mis_scatter_axis_swap | 자료와 가능성 | 상자그림과 산점도 | misconception_risk | textbook_evidence_needed | 산점도의 두 변량을 축에 바꾸어 나타내는 오류 | 산점도 표현 절차에서 추론한 오개념 위험이다. 교과서 예제와 오답 근거로 보강한다. |
+| m1_data_box_plot_box | 자료와 가능성 | 상자그림과 산점도 | representation | source_detail_needed | 상자그림의 상자 | 상자그림 구성 부분으로 추론한 미시 표현 노드다. 교과서 그림 설명 근거로 보강한다. |
+| m1_data_box_plot_whisker | 자료와 가능성 | 상자그림과 산점도 | representation | source_detail_needed | 상자그림의 수염 | 상자그림 구성 부분으로 추론한 미시 표현 노드다. 교과서 그림 설명 근거로 보강한다. |
+| m1_data_interquartile_range | 자료와 가능성 | 상자그림과 산점도 | term | source_detail_needed | 사분위범위 | 상자그림으로 분포를 비교할 때 사용하는 세부 해석 값으로 추론했다. 공식 용어 목록에는 없으므로 교과서 근거 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_data_maximum_value | 자료와 가능성 | 상자그림과 산점도 | term | source_detail_needed | 최댓값 | 상자그림의 끝값으로 필요한 개념이지만 공식 용어 목록에는 별도 열거되지 않았다. 교과서 본문 근거로 보강한다. |
+| m1_data_minimum_value | 자료와 가능성 | 상자그림과 산점도 | term | source_detail_needed | 최솟값 | 상자그림의 끝값으로 필요한 개념이지만 공식 용어 목록에는 별도 열거되지 않았다. 교과서 본문 근거로 보강한다. |

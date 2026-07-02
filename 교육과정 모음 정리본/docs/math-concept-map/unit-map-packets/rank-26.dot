@@ -17,13 +17,13 @@ digraph pilot_unit_map {
   "m1_data_distribution_interpretation" [label="자료의 분포 특징 해석\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_mean" [label="평균\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_representative_value" [label="대푯값\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
-  "m1_data_box_scatter_unit" [label="상자그림과 산점도\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_variable" [label="변량\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_square_root" [label="제곱근\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_technology_tool_stats" [label="공학 도구로 자료 수집·분석하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_box_plot_compare" [label="상자그림으로 두 집단의 분포 비교\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_frequency_unit" [label="도수분포표와 상대도수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_representative_unit" [label="대푯값\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_data_box_scatter_unit" [label="상자그림과 산점도\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_variability_unit" -> "m1_mis_variance_standard_deviation" [label="contains", style="solid", color="#b91c1c"];
   "m1_data_standard_deviation" -> "m1_mis_variance_standard_deviation" [label="prerequisite_for", style="solid", color="#b91c1c"];
   "m1_data_variance" -> "m1_mis_variance_standard_deviation" [label="prerequisite_for", style="solid", color="#b91c1c"];
@@ -60,7 +60,6 @@ digraph pilot_unit_map {
   "m1_data_mean" -> "m1_data_deviation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_data_representative_value" -> "m1_data_variability" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_data_representative_value" -> "m1_data_variability_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
-  "m1_data_variability_unit" -> "m1_data_box_scatter_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_data_variable" -> "m1_data_deviation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_square_root" -> "m1_data_standard_deviation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_data_distribution" -> "m1_data_variability" [label="used_in", style="dashed", color="#6b7280"];
@@ -70,4 +69,5 @@ digraph pilot_unit_map {
   "m1_data_compare_distributions_variability" -> "m1_data_box_plot_compare" [label="related_to", style="dashed", color="#6b7280"];
   "m1_data_frequency_unit" -> "m1_data_variability_unit" [label="related_to", style="dashed", color="#6b7280"];
   "m1_data_representative_unit" -> "m1_data_variability_unit" [label="related_to", style="dashed", color="#6b7280"];
+  "m1_data_variability_unit" -> "m1_data_box_scatter_unit" [label="related_to", style="dashed", color="#6b7280"];
 }
