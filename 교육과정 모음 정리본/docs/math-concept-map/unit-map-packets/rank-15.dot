@@ -56,6 +56,7 @@ digraph pilot_unit_map {
   "m1_geo_opposite_angle" [label="대각\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_opposite_side" [label="대변\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_polygon" [label="다각형\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_pythagorean_right_angle" [label="직각삼각형의 직각\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_right_triangle" [label="직각삼각형\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_triangle" [label="삼각형\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_triangle_construction" [label="삼각형의 작도\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -285,6 +286,7 @@ digraph pilot_unit_map {
   "m1_geo_angle" -> "m1_geo_opposite_angle" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_angle" -> "m1_geo_opposite_side" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_angle" -> "m1_geo_polygon" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_geo_angle" -> "m1_geo_pythagorean_right_angle" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_angle" -> "m1_geo_right_triangle" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_angle" -> "m1_geo_triangle" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_angle" -> "m1_geo_triangle_construction" [label="prerequisite_for", style="dashed", color="#6b7280"];

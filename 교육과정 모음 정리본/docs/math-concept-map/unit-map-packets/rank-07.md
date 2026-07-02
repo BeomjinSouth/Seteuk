@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 수와 연산
 - unit: 정수와 유리수
 - priority tier: highest
-- workplan score: 344
+- workplan score: 345
 - concepts: 41
-- edges touching unit: 247
-- cross-unit edges: 95
+- edges touching unit: 248
+- cross-unit edges: 96
 - low confidence concepts: 5
 - low confidence edges: 46
 
@@ -35,7 +35,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contrasts_with | 11 |
 | equivalent_to | 1 |
 | often_confused_with | 17 |
-| prerequisite_for | 123 |
+| prerequisite_for | 124 |
 | related_to | 9 |
 | represented_by | 8 |
 | used_in | 34 |

@@ -5,7 +5,7 @@ Rows are candidate signals only; inspect the local page context before changing 
 
 ## Summary
 
-- matched concepts: 272
+- matched concepts: 274
 
 ## Confidence
 
@@ -13,14 +13,14 @@ Rows are candidate signals only; inspect the local page context before changing 
 |---|---:|
 | high | 219 |
 | low | 5 |
-| medium | 48 |
+| medium | 50 |
 
 ## Recommended Actions
 
 | action | matched concepts |
 |---|---:|
 | inspect_research_report_context_before_confidence_change | 5 |
-| inspect_research_report_context_before_source_ref_upgrade | 48 |
+| inspect_research_report_context_before_source_ref_upgrade | 50 |
 | use_as_supplemental_trace_only | 219 |
 
 ## Highest Priority Signals
@@ -41,6 +41,7 @@ Rows are candidate signals only; inspect the local page context before changing 
 | m1_geo_area | 넓이 | 도형과 측정 | medium | 129 | 62; 77; 78; 79; 80; 104; 108; 109; 175; 176; 181; 182; 222; 224; 225; 235; 236; 237; 238; 242; 244; 247; 263; 269 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_num_division | 나눗셈 | 정수와 유리수 | medium | 81 | 26; 57; 58; 59; 126; 127; 136; 137; 168; 170; 171; 179; 180; 212; 213; 216; 232; 233; 234 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_prop_inverse_proportion | 반비례 | 좌표평면과 그래프 | medium | 54 | 57; 58; 59; 215; 232; 233; 234 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
+| m1_geo_pythagorean_right_angle | 직각삼각형의 직각 | 피타고라스 정리 | medium | 52 | 62; 130; 131; 138; 139; 225; 235; 236; 237; 238; 242; 247; 249; 265; 269; 270 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_geo_pyramid | 뿔 모양 입체도형 | 입체도형의 성질 | medium | 51 | 174; 181; 182; 263; 264; 265 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_geo_prism | 기둥 모양 입체도형 | 입체도형의 성질 | medium | 47 | 103; 108; 109; 174; 181; 182; 263; 264 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_func_intersection_point | 교점 | 일차함수와 일차방정식의 관계 | medium | 36 | 57; 58; 219; 232; 233; 234; 254 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
@@ -59,6 +60,7 @@ Rows are candidate signals only; inspect the local page context before changing 
 | m1_data_or_cases | 사건 A 또는 사건 B가 일어나는 경우의 수 | 경우의 수와 확률 | medium | 12 | 228; 240; 266; 267; 268 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_data_and_cases | 사건 A와 사건 B가 동시에 일어나는 경우의 수 | 경우의 수와 확률 | medium | 11 | 228; 240; 266; 267; 268 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_geo_trig_hypotenuse | 삼각비에서의 빗변 | 삼각비 | medium | 8 | 62; 242; 269; 270 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
+| m1_geo_pythagorean_hypotenuse | 피타고라스 정리에서의 빗변 | 피타고라스 정리 | medium | 8 | 62; 242; 269; 270 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_data_number_of_values | 자료의 개수 | 대푯값 | medium | 8 | 61; 77; 184; 190; 198; 201 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_data_event_cases_count | 사건이 일어나는 경우의 수 | 경우의 수와 확률 | medium | 7 | 228; 241; 260; 266 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_quad_eq_quadratic_term | 이차항 | 이차방정식 | medium | 6 | 58; 59; 220; 234; 235 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
@@ -105,5 +107,3 @@ Rows are candidate signals only; inspect the local page context before changing 
 | m1_geo_polygon | 다각형 | 평면도형의 성질 | high | 76 | 61; 78; 79; 132; 138; 139; 141; 156; 157; 158; 175; 222; 227; 235; 236; 237; 238; 239; 240; 241 | research_report_signal | use_as_supplemental_trace_only |
 | m1_num_rational_number | 유리수 | 정수와 유리수 | high | 73 | 26; 27; 45; 48; 211; 212; 213; 230; 231; 232 | research_report_signal | use_as_supplemental_trace_only |
 | m1_ineq_inequality | 부등식 | 일차부등식 | high | 71 | 45; 54; 57; 58; 59; 217; 232; 233; 234; 235 | research_report_signal | use_as_supplemental_trace_only |
-| m1_data_frequency | 도수 | 도수분포표와 상대도수 | high | 70 | 77; 79; 227; 228; 231; 235; 239; 240; 241 | research_report_signal | use_as_supplemental_trace_only |
-| m1_geo_justification | 정당화 | 삼각형과 사각형의 성질 | high | 64 | 21; 22; 43; 45; 62; 77; 78; 79; 80; 223; 225; 226; 235; 236; 237; 242; 269 | research_report_signal | use_as_supplemental_trace_only |

@@ -86,6 +86,7 @@ digraph pilot_unit_map {
   "m1_data_ordered_data_for_quartiles" [label="사분위수를 구하기 위한 자료 정렬\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_quartile" [label="사분위수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_stem_leaf_plot" [label="줄기와 잎 그림\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_pythagorean_converse_side_ordering" [label="가장 긴 변을 빗변 후보로 정하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_ineq_inequality_sign_direction" [label="부등호의 방향\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_ineq_solution_range" [label="부등식 해의 범위\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_real_order" [label="실수의 대소 관계\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -310,6 +311,7 @@ digraph pilot_unit_map {
   "m1_num_order_relation" -> "m1_data_ordered_data_for_quartiles" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_order_relation" -> "m1_data_quartile" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_order_relation" -> "m1_data_stem_leaf_plot" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_num_order_relation" -> "m1_geo_pythagorean_converse_side_ordering" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_order_relation" -> "m1_ineq_inequality_sign_direction" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_order_relation" -> "m1_ineq_solution_range" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_order_relation" -> "m1_num_real_order" [label="prerequisite_for", style="dashed", color="#6b7280"];

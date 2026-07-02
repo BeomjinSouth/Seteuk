@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 도형과 측정
 - unit: 기본 도형
 - priority tier: highest
-- workplan score: 258
+- workplan score: 259
 - concepts: 34
-- edges touching unit: 249
-- cross-unit edges: 88
+- edges touching unit: 250
+- cross-unit edges: 89
 - low confidence concepts: 5
 - low confidence edges: 29
 
@@ -35,7 +35,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 36 |
 | contrasts_with | 11 |
 | often_confused_with | 8 |
-| prerequisite_for | 137 |
+| prerequisite_for | 138 |
 | related_to | 5 |
 | represented_by | 2 |
 | used_in | 50 |
@@ -73,6 +73,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_geo_angle__prerequisite_for__m1_geo_opposite_angle | 각 | prerequisite_for | 대각 | high | official_dual_source |
 | m1_geo_angle__prerequisite_for__m1_geo_opposite_side | 각 | prerequisite_for | 대변 | high | official_dual_source |
 | m1_geo_angle__prerequisite_for__m1_geo_polygon | 각 | prerequisite_for | 다각형 | high | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_pythagorean_right_angle | 각 | prerequisite_for | 직각삼각형의 직각 | medium | official_dual_source |
 | m1_geo_angle__prerequisite_for__m1_geo_right_triangle | 각 | prerequisite_for | 직각삼각형 | high | official_dual_source |
 | m1_geo_angle__prerequisite_for__m1_geo_triangle | 각 | prerequisite_for | 삼각형 | medium | official_dual_source |
 | m1_geo_angle__prerequisite_for__m1_geo_triangle_construction | 각 | prerequisite_for | 삼각형의 작도 | high | official_dual_source |
@@ -93,4 +94,3 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_geo_line__prerequisite_for__m1_geo_construction | 직선 | prerequisite_for | 작도 | high | official_dual_source |
 | m1_geo_line__prerequisite_for__m1_geo_polygon | 직선 | prerequisite_for | 다각형 | high | official_dual_source |
 | m1_geo_line__prerequisite_for__m1_geo_secant | 직선 | prerequisite_for | 할선 | high | official_single_source |
-| m1_geo_line__prerequisite_for__m1_geo_tangent_line | 직선 | prerequisite_for | 접선 | high | official_dual_source |

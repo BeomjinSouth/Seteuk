@@ -4,24 +4,24 @@ This generated audit separates aliases, explicit equivalent edges, repeated labe
 
 ## Summary
 
-- audit rows: 884
+- audit rows: 903
 
 ## Record Types
 
 | record_type | count |
 |---|---:|
-| concept_alias | 856 |
+| concept_alias | 873 |
 | duplicate_label | 15 |
 | equivalent_edge | 4 |
-| official_term_multi_match | 9 |
+| official_term_multi_match | 11 |
 
 ## Recommended Actions
 
 | recommended_action | count |
 |---|---:|
 | keep_edge_and_confirm_textbook_usage | 4 |
-| preserve_alias_and_check_textbook_wording | 856 |
-| review_term_scope_and_preserve_alias_or_split_reason | 9 |
+| preserve_alias_and_check_textbook_wording | 873 |
+| review_term_scope_and_preserve_alias_or_split_reason | 11 |
 | review_unit_vs_micro_concept_split_before_equivalent_edge | 15 |
 
 ## Review Rows
@@ -55,4 +55,6 @@ This generated audit separates aliases, explicit equivalent edges, repeated labe
 | official_term_multi_match | 수직선 | 수직선 | official_term_maps_to_multiple_concepts | review_term_scope_and_preserve_alias_or_split_reason | medium | 0 |
 | official_term_multi_match | 이차방정식 | 이차방정식 | official_term_maps_to_multiple_concepts | review_term_scope_and_preserve_alias_or_split_reason | medium | 0 |
 | official_term_multi_match | 일차방정식 | 일차방정식 | official_term_maps_to_multiple_concepts | review_term_scope_and_preserve_alias_or_split_reason | medium | 0 |
+| official_term_multi_match | 최댓값 | 최댓값 | official_term_maps_to_multiple_concepts | review_term_scope_and_preserve_alias_or_split_reason | medium | 0 |
+| official_term_multi_match | 최솟값 | 최솟값 | official_term_maps_to_multiple_concepts | review_term_scope_and_preserve_alias_or_split_reason | medium | 0 |
 | official_term_multi_match | 피타고라스 정리 | 피타고라스 정리 | official_term_maps_to_multiple_concepts | review_term_scope_and_preserve_alias_or_split_reason | medium | 0 |

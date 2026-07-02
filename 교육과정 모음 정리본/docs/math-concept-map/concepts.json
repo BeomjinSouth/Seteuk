@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-07-02T10:50:20",
+    "generated_at": "2026-07-02T11:43:19",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
-    "concept_count": 856,
-    "edge_count": 3906
+    "concept_count": 873,
+    "edge_count": 3998
   },
   "sources": [
     {
@@ -27571,6 +27571,142 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_pythagorean_right_angle",
+      "label_ko": "직각삼각형의 직각",
+      "aliases": [
+        "right angle in a right triangle",
+        "직각"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "피타고라스 정리",
+      "concept_type": "term",
+      "short_definition": "직각삼각형을 정하는 90도의 각.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_angle"
+      ],
+      "parent_ids": [
+        "m1_geo_right_triangle"
+      ],
+      "related_ids": [
+        "m1_geo_pythagorean_hypotenuse",
+        "m1_geo_pythagorean_legs"
+      ],
+      "notes": "공식 성취기준과 성취수준에서 추론한 피타고라스 정리 단원의 구성 요소다. 교과서 그림·정의 근거 확인 전까지 medium으로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_hypotenuse",
+      "label_ko": "피타고라스 정리에서의 빗변",
+      "aliases": [
+        "빗변",
+        "hypotenuse"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "피타고라스 정리",
+      "concept_type": "term",
+      "short_definition": "직각삼각형에서 직각과 마주 보는 변이며 피타고라스 정리의 식에서 제곱합과 대응되는 가장 긴 변.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "피타고라스 정리를 이용하여 직각삼각형의 빗변의 길이를 구하는 중학교 도형 평가 과제 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_right_triangle",
+        "m1_geo_length"
+      ],
+      "parent_ids": [
+        "m1_geo_right_triangle",
+        "m1_geo_pythagorean_theorem"
+      ],
+      "related_ids": [
+        "m1_geo_pythagorean_legs",
+        "m1_geo_pythagorean_unknown_side_selection",
+        "m1_geo_pythagorean_hypotenuse_length",
+        "m1_mis_pythagorean_hypotenuse_misidentification"
+      ],
+      "notes": "연구보고서 p. 62는 피타고라스 정리를 이용해 빗변 길이를 구하는 평가 맥락을 제공한다. 빗변의 정의 표현은 교과서 본문 확인 전까지 medium으로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_legs",
+      "label_ko": "직각삼각형의 두 직각변",
+      "aliases": [
+        "직각변",
+        "legs of a right triangle"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "피타고라스 정리",
+      "concept_type": "term",
+      "short_definition": "직각삼각형에서 직각을 끼고 있는 두 변.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_right_triangle",
+        "m1_geo_length"
+      ],
+      "parent_ids": [
+        "m1_geo_right_triangle",
+        "m1_geo_pythagorean_theorem"
+      ],
+      "related_ids": [
+        "m1_geo_pythagorean_hypotenuse",
+        "m1_geo_pythagorean_unknown_side_selection",
+        "m1_geo_pythagorean_leg_length"
+      ],
+      "notes": "공식 성취기준과 성취수준에서 추론한 교과서형 미시 개념이다. 교과서 본문·그림 근거 확인 전까지 medium으로 둔다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_pythagorean_theorem",
       "label_ko": "피타고라스 정리",
       "aliases": [
@@ -27611,10 +27747,293 @@
       ],
       "related_ids": [
         "m1_geo_pythagorean_converse",
-        "m1_geo_pythagorean_justification"
+        "m1_geo_pythagorean_formula",
+        "m1_geo_pythagorean_square_area_relation",
+        "m1_geo_pythagorean_hypotenuse_length",
+        "m1_geo_pythagorean_leg_length",
+        "m1_geo_pythagorean_justification",
+        "m1_mis_pythagorean_non_right_triangle"
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_pythagorean_formula",
+      "label_ko": "피타고라스 정리의 식 표현",
+      "aliases": [
+        "a^2+b^2=c^2",
+        "피타고라스 공식"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "피타고라스 정리",
+      "concept_type": "representation",
+      "short_definition": "두 직각변의 길이를 a, b, 빗변의 길이를 c로 둘 때 a^2+b^2=c^2로 나타내는 식 표현.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_pythagorean_hypotenuse",
+        "m1_geo_pythagorean_legs",
+        "m1_calc_power"
+      ],
+      "parent_ids": [
+        "m1_geo_pythagorean_theorem"
+      ],
+      "related_ids": [
+        "m1_geo_pythagorean_hypotenuse_length",
+        "m1_geo_pythagorean_leg_length",
+        "m1_mis_pythagorean_leg_subtraction"
+      ],
+      "notes": "공식 성취기준의 정리 진술에서 식 표현을 분리한 미시 개념이다. 교과서 본문·정리 상자의 기호 표현 확인 전까지 medium으로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_square_on_side",
+      "label_ko": "변 위의 정사각형",
+      "aliases": [
+        "각 변 위의 정사각형",
+        "square on a side"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "피타고라스 정리",
+      "concept_type": "representation",
+      "short_definition": "직각삼각형의 각 변을 한 변으로 하는 정사각형 그림 표현.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_square",
+        "m1_geo_length",
+        "m1_geo_area"
+      ],
+      "parent_ids": [
+        "m1_geo_pythagorean_justification"
+      ],
+      "related_ids": [
+        "m1_geo_pythagorean_square_area_relation"
+      ],
+      "notes": "피타고라스 정리의 활동·정당화에서 자주 쓰이는 교과서형 표현으로 분리했다. 공식 문서의 정당화 요구에서 추론했으므로 교과서 그림 근거 확인 전까지 medium으로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_square_area_relation",
+      "label_ko": "세 변 위 정사각형 넓이 관계",
+      "aliases": [
+        "정사각형 넓이 관계",
+        "area relation of squares on sides"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "피타고라스 정리",
+      "concept_type": "property",
+      "short_definition": "직각삼각형의 빗변 위 정사각형 넓이가 두 직각변 위 정사각형 넓이의 합과 같다는 관계.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_pythagorean_square_on_side",
+        "m1_geo_area"
+      ],
+      "parent_ids": [
+        "m1_geo_pythagorean_theorem",
+        "m1_geo_pythagorean_justification"
+      ],
+      "related_ids": [
+        "m1_geo_pythagorean_formula"
+      ],
+      "notes": "정리의 식 표현과 넓이 모델을 연결하는 성질이다. 교과서 활동·정리 근거 확인 전까지 medium으로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_unknown_side_selection",
+      "label_ko": "구하려는 변이 빗변인지 직각변인지 판단하기",
+      "aliases": [
+        "구하는 변 식별",
+        "unknown side selection"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "피타고라스 정리",
+      "concept_type": "procedure",
+      "short_definition": "피타고라스 정리를 적용하기 전에 구하려는 변이 빗변인지 두 직각변 중 하나인지 구별하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "피타고라스 정리를 이용하여 직각삼각형의 빗변의 길이를 구하는 중학교 도형 평가 과제 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_pythagorean_hypotenuse",
+        "m1_geo_pythagorean_legs"
+      ],
+      "parent_ids": [
+        "m1_geo_pythagorean_theorem"
+      ],
+      "related_ids": [
+        "m1_geo_pythagorean_hypotenuse_length",
+        "m1_geo_pythagorean_leg_length",
+        "m1_mis_pythagorean_hypotenuse_misidentification"
+      ],
+      "notes": "공식 성취기준과 성취수준에서 추론한 교과서형 적용 절차다. 연구보고서 p. 62의 빗변 길이 과제는 이 판단의 한 사례를 뒷받침한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_hypotenuse_length",
+      "label_ko": "피타고라스 정리로 빗변의 길이 구하기",
+      "aliases": [
+        "빗변 길이 구하기",
+        "finding hypotenuse length"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "피타고라스 정리",
+      "concept_type": "procedure",
+      "short_definition": "두 직각변의 길이에서 제곱의 합을 만들고 제곱근을 이용해 빗변의 길이를 구하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "피타고라스 정리를 이용하여 직각삼각형의 빗변의 길이를 구하는 중학교 도형 평가 과제 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_pythagorean_formula",
+        "m1_geo_pythagorean_unknown_side_selection",
+        "m1_geo_pythagorean_hypotenuse",
+        "m1_geo_pythagorean_legs",
+        "m1_num_square_root"
+      ],
+      "parent_ids": [
+        "m1_geo_pythagorean_theorem"
+      ],
+      "related_ids": [
+        "m1_geo_pythagorean_theorem"
+      ],
+      "notes": "연구보고서 p. 62의 평가 과제 맥락이 직접 뒷받침하는 피타고라스 정리 적용 절차다.",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_pythagorean_leg_length",
+      "label_ko": "피타고라스 정리로 한 직각변의 길이 구하기",
+      "aliases": [
+        "직각변 길이 구하기",
+        "finding a leg length"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "피타고라스 정리",
+      "concept_type": "procedure",
+      "short_definition": "빗변과 다른 한 직각변의 길이에서 제곱의 차를 만들고 제곱근을 이용해 남은 직각변의 길이를 구하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_pythagorean_formula",
+        "m1_geo_pythagorean_unknown_side_selection",
+        "m1_geo_pythagorean_hypotenuse",
+        "m1_geo_pythagorean_legs",
+        "m1_num_square_root"
+      ],
+      "parent_ids": [
+        "m1_geo_pythagorean_theorem"
+      ],
+      "related_ids": [
+        "m1_geo_pythagorean_theorem",
+        "m1_mis_pythagorean_leg_subtraction"
+      ],
+      "notes": "공식 성취기준과 성취수준에서 추론한 교과서형 적용 절차다. 교과서 예제 근거 확인 전까지 medium으로 둔다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_pythagorean_converse",
@@ -27630,9 +28049,9 @@
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
-          "locator": "printed p. 39; achievement-standard considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",
@@ -27654,6 +28073,127 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_geo_pythagorean_triple_check",
+      "label_ko": "세 수가 피타고라스 관계를 만족하는지 확인하기",
+      "aliases": [
+        "피타고라스 관계 확인",
+        "Pythagorean relation check"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "피타고라스 정리",
+      "concept_type": "procedure",
+      "short_definition": "세 변의 길이 후보가 있을 때 두 작은 수의 제곱의 합과 가장 큰 수의 제곱을 비교하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_pythagorean_formula",
+        "m1_geo_length",
+        "m1_calc_power"
+      ],
+      "parent_ids": [
+        "m1_geo_pythagorean_converse"
+      ],
+      "related_ids": [
+        "m1_geo_pythagorean_converse_judgement"
+      ],
+      "notes": "성취수준의 피타고라스 정리와 그 역, 직각삼각형 판별 맥락에서 추론한 세부 절차다. 교과서 예제 근거 확인 전까지 medium으로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_converse_side_ordering",
+      "label_ko": "가장 긴 변을 빗변 후보로 정하기",
+      "aliases": [
+        "빗변 후보 정하기",
+        "longest-side selection"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "피타고라스 정리",
+      "concept_type": "procedure",
+      "short_definition": "피타고라스 정리의 역을 적용할 때 세 변 중 가장 긴 변을 빗변 후보로 정하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_length",
+        "m1_num_order_relation"
+      ],
+      "parent_ids": [
+        "m1_geo_pythagorean_converse"
+      ],
+      "related_ids": [
+        "m1_geo_pythagorean_converse_judgement",
+        "m1_mis_pythagorean_converse_unsorted_sides"
+      ],
+      "notes": "성취수준의 직각삼각형 판별 맥락에서 추론한 세부 절차다. 교과서 예제 근거 확인 전까지 medium으로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_converse_judgement",
+      "label_ko": "피타고라스 정리의 역으로 직각삼각형 판별하기",
+      "aliases": [
+        "피타고라스 역으로 판별",
+        "judging a right triangle by the converse"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "피타고라스 정리",
+      "concept_type": "procedure",
+      "short_definition": "가장 긴 변을 빗변 후보로 두고 세 변의 제곱 관계를 확인하여 직각삼각형인지 판단하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_pythagorean_converse",
+        "m1_geo_pythagorean_converse_side_ordering",
+        "m1_geo_pythagorean_triple_check"
+      ],
+      "parent_ids": [
+        "m1_geo_pythagorean_converse",
+        "m1_geo_right_triangle_judgement"
+      ],
+      "related_ids": [
+        "m1_geo_right_triangle_judgement"
+      ],
+      "notes": "성취수준에서 피타고라스 정리의 역과 직각삼각형 판별을 함께 다루는 데 근거한다.",
+      "confidence": "high"
+    },
+    {
       "id": "m1_geo_right_triangle_judgement",
       "label_ko": "세 변의 길이로 직각삼각형 판별",
       "aliases": [
@@ -27667,9 +28207,9 @@
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
-          "locator": "printed p. 39; achievement-standard considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",
@@ -27685,10 +28225,58 @@
         "m1_geo_pythagorean_unit"
       ],
       "related_ids": [
-        "m1_geo_right_triangle"
+        "m1_geo_right_triangle",
+        "m1_geo_pythagorean_converse_judgement"
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_pythagorean_area_dissection_justification",
+      "label_ko": "넓이 분해로 피타고라스 정리 정당화하기",
+      "aliases": [
+        "넓이 분해 정당화",
+        "area dissection justification"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "피타고라스 정리",
+      "concept_type": "procedure",
+      "short_definition": "직각삼각형과 각 변 위의 정사각형 넓이를 분해·재배열하여 피타고라스 정리를 정당화하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_pythagorean_square_on_side",
+        "m1_geo_pythagorean_square_area_relation",
+        "m1_geo_area",
+        "m1_geo_justification"
+      ],
+      "parent_ids": [
+        "m1_geo_pythagorean_justification"
+      ],
+      "related_ids": [
+        "m1_geo_pythagorean_square_area_relation"
+      ],
+      "notes": "피타고라스 정리를 이해하고 정당화한다는 성취기준에서 추론한 대표 교과서 활동이다. 교과서 활동 근거 확인 전까지 medium으로 둔다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_pythagorean_justification",
@@ -27729,10 +28317,158 @@
         "m1_geo_pythagorean_unit"
       ],
       "related_ids": [
-        "m1_geo_proof"
+        "m1_geo_proof",
+        "m1_geo_pythagorean_square_on_side",
+        "m1_geo_pythagorean_square_area_relation",
+        "m1_geo_pythagorean_area_dissection_justification"
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_mis_pythagorean_non_right_triangle",
+      "label_ko": "직각삼각형이 아닌 삼각형에 피타고라스 정리를 적용하는 오류",
+      "aliases": [
+        "비직각삼각형 적용 오류"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "피타고라스 정리",
+      "concept_type": "misconception_risk",
+      "short_definition": "직각삼각형 조건을 확인하지 않고 임의의 삼각형에 피타고라스 정리를 적용하는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_geo_pythagorean_unit"
+      ],
+      "related_ids": [
+        "m1_geo_pythagorean_theorem",
+        "m1_geo_right_triangle"
+      ],
+      "notes": "공식 문서는 해당 오개념을 직접 제시하지 않는다. 피타고라스 정리 적용 과정에서 발생 가능한 지도상 위험으로만 연결하고, 교과서 오답·평가 문항 근거 확인 전까지 low로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_pythagorean_hypotenuse_misidentification",
+      "label_ko": "빗변을 가장 길지 않은 변으로 잘못 정하는 오류",
+      "aliases": [
+        "빗변 식별 오류"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "피타고라스 정리",
+      "concept_type": "misconception_risk",
+      "short_definition": "직각과 마주 보는 변 또는 가장 긴 변을 확인하지 않고 빗변을 잘못 정하는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_geo_pythagorean_unit"
+      ],
+      "related_ids": [
+        "m1_geo_pythagorean_hypotenuse",
+        "m1_geo_pythagorean_unknown_side_selection"
+      ],
+      "notes": "공식 문서는 해당 오개념을 직접 제시하지 않는다. 피타고라스 정리 적용 과정에서 발생 가능한 지도상 위험으로만 연결하고, 교과서 오답·평가 문항 근거 확인 전까지 low로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_pythagorean_leg_subtraction",
+      "label_ko": "한 직각변을 구할 때 제곱의 차를 쓰지 않는 오류",
+      "aliases": [
+        "직각변 계산 오류",
+        "제곱 차 누락"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "피타고라스 정리",
+      "concept_type": "misconception_risk",
+      "short_definition": "빗변과 한 직각변이 주어진 상황에서 두 제곱의 차를 이용해야 한다는 점을 놓치는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_geo_pythagorean_unit"
+      ],
+      "related_ids": [
+        "m1_geo_pythagorean_leg_length",
+        "m1_geo_pythagorean_formula"
+      ],
+      "notes": "공식 문서는 해당 오개념을 직접 제시하지 않는다. 피타고라스 정리 적용 과정에서 발생 가능한 지도상 위험으로만 연결하고, 교과서 오답·평가 문항 근거 확인 전까지 low로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_pythagorean_converse_unsorted_sides",
+      "label_ko": "가장 긴 변을 확인하지 않고 역을 적용하는 오류",
+      "aliases": [
+        "피타고라스 역 변 순서 오류"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "피타고라스 정리",
+      "concept_type": "misconception_risk",
+      "short_definition": "피타고라스 정리의 역을 적용할 때 가장 긴 변을 빗변 후보로 두지 않고 세 변의 관계를 판단하는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_geo_pythagorean_unit"
+      ],
+      "related_ids": [
+        "m1_geo_pythagorean_converse_side_ordering",
+        "m1_geo_pythagorean_converse_judgement"
+      ],
+      "notes": "공식 문서는 해당 오개념을 직접 제시하지 않는다. 피타고라스 정리의 역과 직각삼각형 판별 과정에서 발생 가능한 지도상 위험으로만 연결하고, 교과서 오답·평가 문항 근거 확인 전까지 low로 둔다.",
+      "confidence": "low"
     },
     {
       "id": "m1_geo_trigonometric_ratio",
@@ -69537,6 +70273,596 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_geo_pythagorean_right_angle__contrasts_with__m1_geo_pythagorean_hypotenuse",
+      "source_id": "m1_geo_pythagorean_right_angle",
+      "target_id": "m1_geo_pythagorean_hypotenuse",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "직각은 각이고 빗변은 직각과 마주 보는 변이므로 직각삼각형의 서로 다른 구성 요소로 구별한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_right_angle__contrasts_with__m1_geo_pythagorean_legs",
+      "source_id": "m1_geo_pythagorean_right_angle",
+      "target_id": "m1_geo_pythagorean_legs",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "직각은 각이고 직각변은 그 각을 끼는 변이므로 직각삼각형의 서로 다른 구성 요소로 구별한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_hypotenuse__contrasts_with__m1_geo_pythagorean_legs",
+      "source_id": "m1_geo_pythagorean_hypotenuse",
+      "target_id": "m1_geo_pythagorean_legs",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "빗변과 두 직각변은 피타고라스 정리의 식에서 서로 다른 역할을 한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_legs__contrasts_with__m1_geo_pythagorean_hypotenuse",
+      "source_id": "m1_geo_pythagorean_legs",
+      "target_id": "m1_geo_pythagorean_hypotenuse",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "두 직각변과 빗변은 피타고라스 정리의 식에서 서로 다른 역할을 한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_hypotenuse__used_in__m1_geo_pythagorean_unknown_side_selection",
+      "source_id": "m1_geo_pythagorean_hypotenuse",
+      "target_id": "m1_geo_pythagorean_unknown_side_selection",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "피타고라스 정리를 이용하여 직각삼각형의 빗변의 길이를 구하는 중학교 도형 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_legs__used_in__m1_geo_pythagorean_unknown_side_selection",
+      "source_id": "m1_geo_pythagorean_legs",
+      "target_id": "m1_geo_pythagorean_unknown_side_selection",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_hypotenuse__used_in__m1_geo_pythagorean_hypotenuse_length",
+      "source_id": "m1_geo_pythagorean_hypotenuse",
+      "target_id": "m1_geo_pythagorean_hypotenuse_length",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "피타고라스 정리를 이용하여 직각삼각형의 빗변의 길이를 구하는 중학교 도형 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_legs__used_in__m1_geo_pythagorean_hypotenuse_length",
+      "source_id": "m1_geo_pythagorean_legs",
+      "target_id": "m1_geo_pythagorean_hypotenuse_length",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "피타고라스 정리를 이용하여 직각삼각형의 빗변의 길이를 구하는 중학교 도형 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_legs__used_in__m1_geo_pythagorean_leg_length",
+      "source_id": "m1_geo_pythagorean_legs",
+      "target_id": "m1_geo_pythagorean_leg_length",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_theorem__represented_by__m1_geo_pythagorean_formula",
+      "source_id": "m1_geo_pythagorean_theorem",
+      "target_id": "m1_geo_pythagorean_formula",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_theorem__represented_by__m1_geo_pythagorean_square_area_relation",
+      "source_id": "m1_geo_pythagorean_theorem",
+      "target_id": "m1_geo_pythagorean_square_area_relation",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "넓이 모델은 피타고라스 정리 정당화 활동에서 쓰이는 대표 표현으로 보수적으로 연결한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_formula__used_in__m1_geo_pythagorean_hypotenuse_length",
+      "source_id": "m1_geo_pythagorean_formula",
+      "target_id": "m1_geo_pythagorean_hypotenuse_length",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "피타고라스 정리를 이용하여 직각삼각형의 빗변의 길이를 구하는 중학교 도형 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_formula__used_in__m1_geo_pythagorean_leg_length",
+      "source_id": "m1_geo_pythagorean_formula",
+      "target_id": "m1_geo_pythagorean_leg_length",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_unknown_side_selection__used_in__m1_geo_pythagorean_hypotenuse_length",
+      "source_id": "m1_geo_pythagorean_unknown_side_selection",
+      "target_id": "m1_geo_pythagorean_hypotenuse_length",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "피타고라스 정리를 이용하여 직각삼각형의 빗변의 길이를 구하는 중학교 도형 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_unknown_side_selection__used_in__m1_geo_pythagorean_leg_length",
+      "source_id": "m1_geo_pythagorean_unknown_side_selection",
+      "target_id": "m1_geo_pythagorean_leg_length",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_hypotenuse_length__used_in__m1_geo_pythagorean_theorem",
+      "source_id": "m1_geo_pythagorean_hypotenuse_length",
+      "target_id": "m1_geo_pythagorean_theorem",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "피타고라스 정리를 이용하여 직각삼각형의 빗변의 길이를 구하는 중학교 도형 평가 과제 맥락"
+        }
+      ],
+      "notes": "빗변 길이 구하기는 피타고라스 정리의 적용 사례로 정리 이해를 강화한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_leg_length__used_in__m1_geo_pythagorean_theorem",
+      "source_id": "m1_geo_pythagorean_leg_length",
+      "target_id": "m1_geo_pythagorean_theorem",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "직각변 길이 구하기는 피타고라스 정리의 적용 사례로 정리 이해를 강화한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_square_on_side__used_in__m1_geo_pythagorean_square_area_relation",
+      "source_id": "m1_geo_pythagorean_square_on_side",
+      "target_id": "m1_geo_pythagorean_square_area_relation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_square_on_side__used_in__m1_geo_pythagorean_justification",
+      "source_id": "m1_geo_pythagorean_square_on_side",
+      "target_id": "m1_geo_pythagorean_justification",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_square_area_relation__related_to__m1_geo_pythagorean_formula",
+      "source_id": "m1_geo_pythagorean_square_area_relation",
+      "target_id": "m1_geo_pythagorean_formula",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "세 변 위 정사각형의 넓이 관계와 a^2+b^2=c^2 식 표현은 같은 정리의 그림 표현과 기호 표현이다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_square_area_relation__used_in__m1_geo_pythagorean_area_dissection_justification",
+      "source_id": "m1_geo_pythagorean_square_area_relation",
+      "target_id": "m1_geo_pythagorean_area_dissection_justification",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_square_area_relation__used_in__m1_geo_pythagorean_justification",
+      "source_id": "m1_geo_pythagorean_square_area_relation",
+      "target_id": "m1_geo_pythagorean_justification",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_area_dissection_justification__used_in__m1_geo_pythagorean_justification",
+      "source_id": "m1_geo_pythagorean_area_dissection_justification",
+      "target_id": "m1_geo_pythagorean_justification",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_pythagorean_theorem__contrasts_with__m1_geo_pythagorean_converse",
       "source_id": "m1_geo_pythagorean_theorem",
       "target_id": "m1_geo_pythagorean_converse",
@@ -69544,9 +70870,9 @@
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
-          "locator": "printed p. 39; achievement-standard considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",
@@ -69566,9 +70892,9 @@
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
-          "locator": "printed p. 39; achievement-standard considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",
@@ -69581,6 +70907,72 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_geo_pythagorean_converse_side_ordering__used_in__m1_geo_pythagorean_converse_judgement",
+      "source_id": "m1_geo_pythagorean_converse_side_ordering",
+      "target_id": "m1_geo_pythagorean_converse_judgement",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_triple_check__used_in__m1_geo_pythagorean_converse_judgement",
+      "source_id": "m1_geo_pythagorean_triple_check",
+      "target_id": "m1_geo_pythagorean_converse_judgement",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_converse_judgement__used_in__m1_geo_right_triangle_judgement",
+      "source_id": "m1_geo_pythagorean_converse_judgement",
+      "target_id": "m1_geo_right_triangle_judgement",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
       "id": "m1_geo_pythagorean_theorem__used_in__m1_geo_right_triangle_judgement",
       "source_id": "m1_geo_pythagorean_theorem",
       "target_id": "m1_geo_right_triangle_judgement",
@@ -69588,9 +70980,9 @@
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
-          "locator": "printed p. 39; achievement-standard considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",
@@ -69610,9 +71002,9 @@
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
-          "locator": "printed p. 39; achievement-standard considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",
@@ -69632,9 +71024,9 @@
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
-          "locator": "printed p. 39; achievement-standard considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",
@@ -69695,6 +71087,94 @@
       ],
       "notes": "Justifying the Pythagorean theorem uses proof or proof-like reasoning appropriate to the curriculum level.",
       "confidence": "medium"
+    },
+    {
+      "id": "m1_mis_pythagorean_non_right_triangle__often_confused_with__m1_geo_pythagorean_theorem",
+      "source_id": "m1_mis_pythagorean_non_right_triangle",
+      "target_id": "m1_geo_pythagorean_theorem",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_pythagorean_hypotenuse_misidentification__often_confused_with__m1_geo_pythagorean_hypotenuse",
+      "source_id": "m1_mis_pythagorean_hypotenuse_misidentification",
+      "target_id": "m1_geo_pythagorean_hypotenuse",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_pythagorean_leg_subtraction__often_confused_with__m1_geo_pythagorean_leg_length",
+      "source_id": "m1_mis_pythagorean_leg_subtraction",
+      "target_id": "m1_geo_pythagorean_leg_length",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_pythagorean_converse_unsorted_sides__often_confused_with__m1_geo_pythagorean_converse_side_ordering",
+      "source_id": "m1_mis_pythagorean_converse_unsorted_sides",
+      "target_id": "m1_geo_pythagorean_converse_side_ordering",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
     },
     {
       "id": "m1_geo_trigonometric_ratio__represented_by__m1_geo_sine",
@@ -90319,6 +91799,140 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_right_triangle__contains__m1_geo_pythagorean_right_angle",
+      "source_id": "m1_geo_right_triangle",
+      "target_id": "m1_geo_pythagorean_right_angle",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_right_triangle__contains__m1_geo_pythagorean_hypotenuse",
+      "source_id": "m1_geo_right_triangle",
+      "target_id": "m1_geo_pythagorean_hypotenuse",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "피타고라스 정리를 이용하여 직각삼각형의 빗변의 길이를 구하는 중학교 도형 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_theorem__contains__m1_geo_pythagorean_hypotenuse",
+      "source_id": "m1_geo_pythagorean_theorem",
+      "target_id": "m1_geo_pythagorean_hypotenuse",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "피타고라스 정리를 이용하여 직각삼각형의 빗변의 길이를 구하는 중학교 도형 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_right_triangle__contains__m1_geo_pythagorean_legs",
+      "source_id": "m1_geo_right_triangle",
+      "target_id": "m1_geo_pythagorean_legs",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_theorem__contains__m1_geo_pythagorean_legs",
+      "source_id": "m1_geo_pythagorean_theorem",
+      "target_id": "m1_geo_pythagorean_legs",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_pythagorean_unit__contains__m1_geo_pythagorean_theorem",
       "source_id": "m1_geo_pythagorean_unit",
       "target_id": "m1_geo_pythagorean_theorem",
@@ -90347,16 +91961,22 @@
       "confidence": "high"
     },
     {
-      "id": "m1_geo_pythagorean_unit__contains__m1_geo_pythagorean_converse",
-      "source_id": "m1_geo_pythagorean_unit",
-      "target_id": "m1_geo_pythagorean_converse",
+      "id": "m1_geo_pythagorean_theorem__contains__m1_geo_pythagorean_formula",
+      "source_id": "m1_geo_pythagorean_theorem",
+      "target_id": "m1_geo_pythagorean_formula",
       "relationship_type": "contains",
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
-          "locator": "printed p. 39; achievement-standard considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",
@@ -90369,16 +91989,244 @@
       "confidence": "medium"
     },
     {
-      "id": "m1_geo_pythagorean_unit__contains__m1_geo_right_triangle_judgement",
-      "source_id": "m1_geo_pythagorean_unit",
-      "target_id": "m1_geo_right_triangle_judgement",
+      "id": "m1_geo_pythagorean_justification__contains__m1_geo_pythagorean_square_on_side",
+      "source_id": "m1_geo_pythagorean_justification",
+      "target_id": "m1_geo_pythagorean_square_on_side",
       "relationship_type": "contains",
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
-          "locator": "printed p. 39; achievement-standard considerations",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
           "evidence_kind": "teaching_note",
-          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_theorem__contains__m1_geo_pythagorean_square_area_relation",
+      "source_id": "m1_geo_pythagorean_theorem",
+      "target_id": "m1_geo_pythagorean_square_area_relation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_justification__contains__m1_geo_pythagorean_square_area_relation",
+      "source_id": "m1_geo_pythagorean_justification",
+      "target_id": "m1_geo_pythagorean_square_area_relation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_theorem__contains__m1_geo_pythagorean_unknown_side_selection",
+      "source_id": "m1_geo_pythagorean_theorem",
+      "target_id": "m1_geo_pythagorean_unknown_side_selection",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "피타고라스 정리를 이용하여 직각삼각형의 빗변의 길이를 구하는 중학교 도형 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_theorem__contains__m1_geo_pythagorean_hypotenuse_length",
+      "source_id": "m1_geo_pythagorean_theorem",
+      "target_id": "m1_geo_pythagorean_hypotenuse_length",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "피타고라스 정리를 이용하여 직각삼각형의 빗변의 길이를 구하는 중학교 도형 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_pythagorean_theorem__contains__m1_geo_pythagorean_leg_length",
+      "source_id": "m1_geo_pythagorean_theorem",
+      "target_id": "m1_geo_pythagorean_leg_length",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_unit__contains__m1_geo_pythagorean_converse",
+      "source_id": "m1_geo_pythagorean_unit",
+      "target_id": "m1_geo_pythagorean_converse",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_converse__contains__m1_geo_pythagorean_triple_check",
+      "source_id": "m1_geo_pythagorean_converse",
+      "target_id": "m1_geo_pythagorean_triple_check",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_converse__contains__m1_geo_pythagorean_converse_side_ordering",
+      "source_id": "m1_geo_pythagorean_converse",
+      "target_id": "m1_geo_pythagorean_converse_side_ordering",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_converse__contains__m1_geo_pythagorean_converse_judgement",
+      "source_id": "m1_geo_pythagorean_converse",
+      "target_id": "m1_geo_pythagorean_converse_judgement",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",
@@ -90389,6 +92237,78 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_right_triangle_judgement__contains__m1_geo_pythagorean_converse_judgement",
+      "source_id": "m1_geo_right_triangle_judgement",
+      "target_id": "m1_geo_pythagorean_converse_judgement",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_pythagorean_unit__contains__m1_geo_right_triangle_judgement",
+      "source_id": "m1_geo_pythagorean_unit",
+      "target_id": "m1_geo_right_triangle_judgement",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_pythagorean_justification__contains__m1_geo_pythagorean_area_dissection_justification",
+      "source_id": "m1_geo_pythagorean_justification",
+      "target_id": "m1_geo_pythagorean_area_dissection_justification",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_pythagorean_unit__contains__m1_geo_pythagorean_justification",
@@ -90417,6 +92337,94 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_pythagorean_unit__contains__m1_mis_pythagorean_non_right_triangle",
+      "source_id": "m1_geo_pythagorean_unit",
+      "target_id": "m1_mis_pythagorean_non_right_triangle",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_pythagorean_unit__contains__m1_mis_pythagorean_hypotenuse_misidentification",
+      "source_id": "m1_geo_pythagorean_unit",
+      "target_id": "m1_mis_pythagorean_hypotenuse_misidentification",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_pythagorean_unit__contains__m1_mis_pythagorean_leg_subtraction",
+      "source_id": "m1_geo_pythagorean_unit",
+      "target_id": "m1_mis_pythagorean_leg_subtraction",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_pythagorean_unit__contains__m1_mis_pythagorean_converse_unsorted_sides",
+      "source_id": "m1_geo_pythagorean_unit",
+      "target_id": "m1_mis_pythagorean_converse_unsorted_sides",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
     },
     {
       "id": "m1_geo_trig_unit__contains__m1_geo_trigonometric_ratio",
@@ -121641,6 +123649,140 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_angle__prerequisite_for__m1_geo_pythagorean_right_angle",
+      "source_id": "m1_geo_angle",
+      "target_id": "m1_geo_pythagorean_right_angle",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_right_triangle__prerequisite_for__m1_geo_pythagorean_hypotenuse",
+      "source_id": "m1_geo_right_triangle",
+      "target_id": "m1_geo_pythagorean_hypotenuse",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "피타고라스 정리를 이용하여 직각삼각형의 빗변의 길이를 구하는 중학교 도형 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_length__prerequisite_for__m1_geo_pythagorean_hypotenuse",
+      "source_id": "m1_geo_length",
+      "target_id": "m1_geo_pythagorean_hypotenuse",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "피타고라스 정리를 이용하여 직각삼각형의 빗변의 길이를 구하는 중학교 도형 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_right_triangle__prerequisite_for__m1_geo_pythagorean_legs",
+      "source_id": "m1_geo_right_triangle",
+      "target_id": "m1_geo_pythagorean_legs",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_length__prerequisite_for__m1_geo_pythagorean_legs",
+      "source_id": "m1_geo_length",
+      "target_id": "m1_geo_pythagorean_legs",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_right_triangle__prerequisite_for__m1_geo_pythagorean_theorem",
       "source_id": "m1_geo_right_triangle",
       "target_id": "m1_geo_pythagorean_theorem",
@@ -121697,16 +123839,22 @@
       "confidence": "high"
     },
     {
-      "id": "m1_geo_pythagorean_theorem__prerequisite_for__m1_geo_pythagorean_converse",
-      "source_id": "m1_geo_pythagorean_theorem",
-      "target_id": "m1_geo_pythagorean_converse",
+      "id": "m1_geo_pythagorean_hypotenuse__prerequisite_for__m1_geo_pythagorean_formula",
+      "source_id": "m1_geo_pythagorean_hypotenuse",
+      "target_id": "m1_geo_pythagorean_formula",
       "relationship_type": "prerequisite_for",
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
-          "locator": "printed p. 39; achievement-standard considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",
@@ -121719,16 +123867,650 @@
       "confidence": "medium"
     },
     {
-      "id": "m1_geo_pythagorean_converse__prerequisite_for__m1_geo_right_triangle_judgement",
-      "source_id": "m1_geo_pythagorean_converse",
-      "target_id": "m1_geo_right_triangle_judgement",
+      "id": "m1_geo_pythagorean_legs__prerequisite_for__m1_geo_pythagorean_formula",
+      "source_id": "m1_geo_pythagorean_legs",
+      "target_id": "m1_geo_pythagorean_formula",
       "relationship_type": "prerequisite_for",
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
-          "locator": "printed p. 39; achievement-standard considerations",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_calc_power__prerequisite_for__m1_geo_pythagorean_formula",
+      "source_id": "m1_calc_power",
+      "target_id": "m1_geo_pythagorean_formula",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_square__prerequisite_for__m1_geo_pythagorean_square_on_side",
+      "source_id": "m1_geo_square",
+      "target_id": "m1_geo_pythagorean_square_on_side",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
           "evidence_kind": "teaching_note",
-          "summary": "삼각비 사이의 관계는 다루지 않고, 삼각비 값은 0도에서 90도까지의 각도만 다루며, 원과 비례에 관한 성질과 지나치게 복잡한 넓이·둘레·겉넓이·부피 문제는 다루지 않음"
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_length__prerequisite_for__m1_geo_pythagorean_square_on_side",
+      "source_id": "m1_geo_length",
+      "target_id": "m1_geo_pythagorean_square_on_side",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_area__prerequisite_for__m1_geo_pythagorean_square_on_side",
+      "source_id": "m1_geo_area",
+      "target_id": "m1_geo_pythagorean_square_on_side",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_square_on_side__prerequisite_for__m1_geo_pythagorean_square_area_relation",
+      "source_id": "m1_geo_pythagorean_square_on_side",
+      "target_id": "m1_geo_pythagorean_square_area_relation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_area__prerequisite_for__m1_geo_pythagorean_square_area_relation",
+      "source_id": "m1_geo_area",
+      "target_id": "m1_geo_pythagorean_square_area_relation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_hypotenuse__prerequisite_for__m1_geo_pythagorean_unknown_side_selection",
+      "source_id": "m1_geo_pythagorean_hypotenuse",
+      "target_id": "m1_geo_pythagorean_unknown_side_selection",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "피타고라스 정리를 이용하여 직각삼각형의 빗변의 길이를 구하는 중학교 도형 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_legs__prerequisite_for__m1_geo_pythagorean_unknown_side_selection",
+      "source_id": "m1_geo_pythagorean_legs",
+      "target_id": "m1_geo_pythagorean_unknown_side_selection",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "피타고라스 정리를 이용하여 직각삼각형의 빗변의 길이를 구하는 중학교 도형 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_formula__prerequisite_for__m1_geo_pythagorean_hypotenuse_length",
+      "source_id": "m1_geo_pythagorean_formula",
+      "target_id": "m1_geo_pythagorean_hypotenuse_length",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "피타고라스 정리를 이용하여 직각삼각형의 빗변의 길이를 구하는 중학교 도형 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_pythagorean_unknown_side_selection__prerequisite_for__m1_geo_pythagorean_hypotenuse_length",
+      "source_id": "m1_geo_pythagorean_unknown_side_selection",
+      "target_id": "m1_geo_pythagorean_hypotenuse_length",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "피타고라스 정리를 이용하여 직각삼각형의 빗변의 길이를 구하는 중학교 도형 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_pythagorean_hypotenuse__prerequisite_for__m1_geo_pythagorean_hypotenuse_length",
+      "source_id": "m1_geo_pythagorean_hypotenuse",
+      "target_id": "m1_geo_pythagorean_hypotenuse_length",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "피타고라스 정리를 이용하여 직각삼각형의 빗변의 길이를 구하는 중학교 도형 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_pythagorean_legs__prerequisite_for__m1_geo_pythagorean_hypotenuse_length",
+      "source_id": "m1_geo_pythagorean_legs",
+      "target_id": "m1_geo_pythagorean_hypotenuse_length",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "피타고라스 정리를 이용하여 직각삼각형의 빗변의 길이를 구하는 중학교 도형 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_num_square_root__prerequisite_for__m1_geo_pythagorean_hypotenuse_length",
+      "source_id": "m1_num_square_root",
+      "target_id": "m1_geo_pythagorean_hypotenuse_length",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 62; 도형과 측정 융합 세트 평가 과제",
+          "evidence_kind": "research_report_assessment_item_context",
+          "summary": "피타고라스 정리를 이용하여 직각삼각형의 빗변의 길이를 구하는 중학교 도형 평가 과제 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_pythagorean_formula__prerequisite_for__m1_geo_pythagorean_leg_length",
+      "source_id": "m1_geo_pythagorean_formula",
+      "target_id": "m1_geo_pythagorean_leg_length",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_unknown_side_selection__prerequisite_for__m1_geo_pythagorean_leg_length",
+      "source_id": "m1_geo_pythagorean_unknown_side_selection",
+      "target_id": "m1_geo_pythagorean_leg_length",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_hypotenuse__prerequisite_for__m1_geo_pythagorean_leg_length",
+      "source_id": "m1_geo_pythagorean_hypotenuse",
+      "target_id": "m1_geo_pythagorean_leg_length",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_legs__prerequisite_for__m1_geo_pythagorean_leg_length",
+      "source_id": "m1_geo_pythagorean_legs",
+      "target_id": "m1_geo_pythagorean_leg_length",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_square_root__prerequisite_for__m1_geo_pythagorean_leg_length",
+      "source_id": "m1_num_square_root",
+      "target_id": "m1_geo_pythagorean_leg_length",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_theorem__prerequisite_for__m1_geo_pythagorean_converse",
+      "source_id": "m1_geo_pythagorean_theorem",
+      "target_id": "m1_geo_pythagorean_converse",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_formula__prerequisite_for__m1_geo_pythagorean_triple_check",
+      "source_id": "m1_geo_pythagorean_formula",
+      "target_id": "m1_geo_pythagorean_triple_check",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_length__prerequisite_for__m1_geo_pythagorean_triple_check",
+      "source_id": "m1_geo_length",
+      "target_id": "m1_geo_pythagorean_triple_check",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_calc_power__prerequisite_for__m1_geo_pythagorean_triple_check",
+      "source_id": "m1_calc_power",
+      "target_id": "m1_geo_pythagorean_triple_check",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_length__prerequisite_for__m1_geo_pythagorean_converse_side_ordering",
+      "source_id": "m1_geo_length",
+      "target_id": "m1_geo_pythagorean_converse_side_ordering",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_order_relation__prerequisite_for__m1_geo_pythagorean_converse_side_ordering",
+      "source_id": "m1_num_order_relation",
+      "target_id": "m1_geo_pythagorean_converse_side_ordering",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_converse__prerequisite_for__m1_geo_pythagorean_converse_judgement",
+      "source_id": "m1_geo_pythagorean_converse",
+      "target_id": "m1_geo_pythagorean_converse_judgement",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",
@@ -121739,6 +124521,184 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_pythagorean_converse_side_ordering__prerequisite_for__m1_geo_pythagorean_converse_judgement",
+      "source_id": "m1_geo_pythagorean_converse_side_ordering",
+      "target_id": "m1_geo_pythagorean_converse_judgement",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_pythagorean_triple_check__prerequisite_for__m1_geo_pythagorean_converse_judgement",
+      "source_id": "m1_geo_pythagorean_triple_check",
+      "target_id": "m1_geo_pythagorean_converse_judgement",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_pythagorean_converse__prerequisite_for__m1_geo_right_triangle_judgement",
+      "source_id": "m1_geo_pythagorean_converse",
+      "target_id": "m1_geo_right_triangle_judgement",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_pythagorean_square_on_side__prerequisite_for__m1_geo_pythagorean_area_dissection_justification",
+      "source_id": "m1_geo_pythagorean_square_on_side",
+      "target_id": "m1_geo_pythagorean_area_dissection_justification",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_pythagorean_square_area_relation__prerequisite_for__m1_geo_pythagorean_area_dissection_justification",
+      "source_id": "m1_geo_pythagorean_square_area_relation",
+      "target_id": "m1_geo_pythagorean_area_dissection_justification",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_area__prerequisite_for__m1_geo_pythagorean_area_dissection_justification",
+      "source_id": "m1_geo_area",
+      "target_id": "m1_geo_pythagorean_area_dissection_justification",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_justification__prerequisite_for__m1_geo_pythagorean_area_dissection_justification",
+      "source_id": "m1_geo_justification",
+      "target_id": "m1_geo_pythagorean_area_dissection_justification",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; [9수03-09], [9수03-11] explanation and considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "도형 성질의 정당화 방법으로 관찰, 실험, 근거 제시, 유사성에 근거한 추론, 증명을 학생 수준에 맞게 활용하되 증명에서 가정과 결론 용어는 다루지 않음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_pythagorean_theorem__prerequisite_for__m1_geo_pythagorean_justification",
@@ -134677,6 +137637,94 @@
           "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_pythagorean_leg_subtraction__often_confused_with__m1_geo_pythagorean_formula",
+      "source_id": "m1_mis_pythagorean_leg_subtraction",
+      "target_id": "m1_geo_pythagorean_formula",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_pythagorean_hypotenuse_misidentification__often_confused_with__m1_geo_pythagorean_unknown_side_selection",
+      "source_id": "m1_mis_pythagorean_hypotenuse_misidentification",
+      "target_id": "m1_geo_pythagorean_unknown_side_selection",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_pythagorean_non_right_triangle__often_confused_with__m1_geo_right_triangle",
+      "source_id": "m1_mis_pythagorean_non_right_triangle",
+      "target_id": "m1_geo_right_triangle",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_pythagorean_converse_unsorted_sides__often_confused_with__m1_geo_pythagorean_converse_judgement",
+      "source_id": "m1_mis_pythagorean_converse_unsorted_sides",
+      "target_id": "m1_geo_pythagorean_converse_judgement",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
         }
       ],
       "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",

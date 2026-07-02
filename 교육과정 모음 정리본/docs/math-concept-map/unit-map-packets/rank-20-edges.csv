@@ -113,6 +113,8 @@
 20,식의 계산,m1_calc_monomial_polynomial_mul_div__prerequisite_for__m1_factor_polynomial_multiplication,m1_calc_monomial_polynomial_mul_div,단항식과 다항식의 곱셈과 나눗셈,식의 계산,m1_factor_polynomial_multiplication,다항식의 곱셈,다항식의 곱셈과 인수분해,prerequisite_for,cross_unit,high,official_dual_source,yes,4,
 20,식의 계산,m1_calc_power__prerequisite_for__m1_data_squared_deviation,m1_calc_power,거듭제곱,식의 계산,m1_data_squared_deviation,편차의 제곱,산포도,prerequisite_for,cross_unit,medium,official_dual_source,yes,2,
 20,식의 계산,m1_calc_power__prerequisite_for__m1_factor_perfect_square_expression,m1_calc_power,거듭제곱,식의 계산,m1_factor_perfect_square_expression,완전제곱식,다항식의 곱셈과 인수분해,prerequisite_for,cross_unit,high,official_dual_source,yes,3,
+20,식의 계산,m1_calc_power__prerequisite_for__m1_geo_pythagorean_formula,m1_calc_power,거듭제곱,식의 계산,m1_geo_pythagorean_formula,피타고라스 정리의 식 표현,피타고라스 정리,prerequisite_for,cross_unit,medium,official_dual_source,yes,3,
+20,식의 계산,m1_calc_power__prerequisite_for__m1_geo_pythagorean_triple_check,m1_calc_power,거듭제곱,식의 계산,m1_geo_pythagorean_triple_check,세 수가 피타고라스 관계를 만족하는지 확인하기,피타고라스 정리,prerequisite_for,cross_unit,medium,official_dual_source,yes,2,
 20,식의 계산,m1_calc_power__prerequisite_for__m1_num_denominator_power_of_ten_conversion,m1_calc_power,거듭제곱,식의 계산,m1_num_denominator_power_of_ten_conversion,분모를 10의 거듭제곱으로 만들기,유리수와 순환소수,prerequisite_for,cross_unit,medium,official_dual_source,yes,4,
 20,식의 계산,m1_calc_power__prerequisite_for__m1_num_prime_factor_product,m1_calc_power,거듭제곱,식의 계산,m1_num_prime_factor_product,소인수의 곱으로 표현하기,소인수분해,prerequisite_for,cross_unit,high,official_dual_source,yes,2,
 20,식의 계산,m1_calc_power__prerequisite_for__m1_num_prime_factorization,m1_calc_power,거듭제곱,식의 계산,m1_num_prime_factorization,소인수분해,소인수분해,prerequisite_for,cross_unit,high,official_dual_source,yes,3,

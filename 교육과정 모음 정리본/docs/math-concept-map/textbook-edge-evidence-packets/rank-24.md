@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 제곱근과 실수
 - priority tier: highest
 - priority score: 45
-- edges in packet: 122
-- cross-unit edges: 30
+- edges in packet: 124
+- cross-unit edges: 32
 - low confidence edges: 14
 
 ## Relationship Evidence Slots
@@ -127,6 +127,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_num_square_root__prerequisite_for__m1_data_standard_deviation | cross_unit | 제곱근 | prerequisite_for | 표준편차 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_square_root__prerequisite_for__m1_data_standard_deviation_calculation | cross_unit | 제곱근 | prerequisite_for | 표준편차 구하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_square_root__prerequisite_for__m1_data_standard_deviation_formula | cross_unit | 제곱근 | prerequisite_for | 표준편차 계산식 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_num_square_root__prerequisite_for__m1_geo_pythagorean_hypotenuse_length | cross_unit | 제곱근 | prerequisite_for | 피타고라스 정리로 빗변의 길이 구하기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_num_square_root__prerequisite_for__m1_geo_pythagorean_leg_length | cross_unit | 제곱근 | prerequisite_for | 피타고라스 정리로 한 직각변의 길이 구하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_square_root__prerequisite_for__m1_geo_pythagorean_theorem | cross_unit | 제곱근 | prerequisite_for | 피타고라스 정리 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_real_number__represented_by__m1_num_number_line | cross_unit | 실수 | represented_by | 수직선 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
 | m1_calc_power__used_in__m1_num_square_number | cross_unit | 거듭제곱 | used_in | 제곱수 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 1 |

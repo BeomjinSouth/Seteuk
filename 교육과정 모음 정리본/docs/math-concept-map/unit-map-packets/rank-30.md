@@ -5,34 +5,32 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 ## Target Unit
 
 - rank: 30
-- grade: 중2(교육과정 학년군: 중1-3)
+- grade: 중학교(교육과정 학년군: 중1-3)
 - domain: 도형과 측정
-- unit: 피타고라스 정리
+- unit: 도형과 측정
 - priority tier: low
-- workplan score: 25
-- concepts: 6
-- edges touching unit: 34
-- cross-unit edges: 19
+- workplan score: 65
+- concepts: 5
+- edges touching unit: 54
+- cross-unit edges: 50
 - low confidence concepts: 0
-- low confidence edges: 0
+- low confidence edges: 2
 
 ## Concept Type Distribution
 
 | concept_type | count |
 |---|---:|
-| core_concept | 2 |
-| procedure | 2 |
-| property | 2 |
+| core_concept | 3 |
+| term | 2 |
 
 ## Relationship Distribution
 
 | relationship_type | count |
 |---|---:|
-| contains | 6 |
-| contrasts_with | 2 |
-| prerequisite_for | 17 |
+| contains | 13 |
+| prerequisite_for | 24 |
 | related_to | 2 |
-| used_in | 7 |
+| used_in | 15 |
 
 ## Low Confidence Concepts
 
@@ -44,22 +42,43 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
+| m1_geo_domain__related_to__m1_coord_graph_unit | 도형과 측정 | related_to | 좌표평면과 그래프 | low | official_dual_source |
+| m1_geo_domain__related_to__m1_num_domain | 도형과 측정 | related_to | 수와 연산 | low | official_dual_source |
+| m1_geo_domain__contains__m1_geo_basic_unit | 도형과 측정 | contains | 기본 도형 | high | official_dual_source |
+| m1_geo_domain__contains__m1_geo_circle_unit | 도형과 측정 | contains | 원의 성질 | high | official_dual_source |
+| m1_geo_domain__contains__m1_geo_construction_congruence_unit | 도형과 측정 | contains | 작도와 합동 | high | official_dual_source |
+| m1_geo_domain__contains__m1_geo_plane_properties_unit | 도형과 측정 | contains | 평면도형의 성질 | high | official_dual_source |
 | m1_geo_domain__contains__m1_geo_pythagorean_unit | 도형과 측정 | contains | 피타고라스 정리 | high | official_dual_source |
-| m1_geo_angle__prerequisite_for__m1_geo_right_triangle | 각 | prerequisite_for | 직각삼각형 | high | official_dual_source |
-| m1_geo_justification__prerequisite_for__m1_geo_pythagorean_justification | 정당화 | prerequisite_for | 피타고라스 정리의 정당화 | high | official_dual_source |
-| m1_geo_right_triangle__prerequisite_for__m1_geo_right_triangle_congruence_conditions | 직각삼각형 | prerequisite_for | 직각삼각형의 합동 조건 | medium | official_dual_source |
-| m1_geo_right_triangle__prerequisite_for__m1_geo_special_angles_30_45_60 | 직각삼각형 | prerequisite_for | 30도, 45도, 60도의 삼각비 | high | official_dual_source |
-| m1_geo_right_triangle__prerequisite_for__m1_geo_trig_adjacent_side | 직각삼각형 | prerequisite_for | 기준각의 이웃변 | medium | official_dual_source |
-| m1_geo_right_triangle__prerequisite_for__m1_geo_trig_distance_height_modeling | 직각삼각형 | prerequisite_for | 거리와 높이 문제를 직각삼각형으로 나타내기 | medium | official_dual_source |
-| m1_geo_right_triangle__prerequisite_for__m1_geo_trig_hypotenuse | 직각삼각형 | prerequisite_for | 삼각비에서의 빗변 | medium | official_dual_source |
-| m1_geo_right_triangle__prerequisite_for__m1_geo_trig_opposite_side | 직각삼각형 | prerequisite_for | 기준각의 대변 | medium | official_dual_source |
-| m1_geo_right_triangle__prerequisite_for__m1_geo_trig_reference_angle | 직각삼각형 | prerequisite_for | 삼각비의 기준각 | medium | official_dual_source |
-| m1_geo_right_triangle__prerequisite_for__m1_geo_trigonometric_ratio | 직각삼각형 | prerequisite_for | 삼각비 | high | official_dual_source |
-| m1_geo_triangle_quadrilateral_unit__prerequisite_for__m1_geo_pythagorean_unit | 삼각형과 사각형의 성질 | prerequisite_for | 피타고라스 정리 | high | official_dual_source |
-| m1_geo_triangle_quadrilateral_unit__prerequisite_for__m1_geo_right_triangle | 삼각형과 사각형의 성질 | prerequisite_for | 직각삼각형 | high | official_dual_source |
-| m1_num_square_root__prerequisite_for__m1_geo_pythagorean_theorem | 제곱근 | prerequisite_for | 피타고라스 정리 | high | official_dual_source |
-| m1_geo_length__used_in__m1_geo_right_triangle_judgement | 길이 | used_in | 세 변의 길이로 직각삼각형 판별 | medium | official_dual_source |
-| m1_geo_proof__used_in__m1_geo_pythagorean_justification | 증명 | used_in | 피타고라스 정리의 정당화 | medium | official_dual_source |
-| m1_geo_triangle__used_in__m1_geo_right_triangle | 삼각형 | used_in | 직각삼각형 | medium | official_dual_source |
-| m1_geo_pythagorean_unit__related_to__m1_geo_trig_unit | 피타고라스 정리 | related_to | 삼각비 | medium | official_dual_source |
-| m1_geo_similarity_unit__related_to__m1_geo_pythagorean_unit | 도형의 닮음 | related_to | 피타고라스 정리 | medium | official_dual_source |
+| m1_geo_domain__contains__m1_geo_similarity_unit | 도형과 측정 | contains | 도형의 닮음 | high | official_dual_source |
+| m1_geo_domain__contains__m1_geo_solid_unit | 도형과 측정 | contains | 입체도형의 성질 | high | official_dual_source |
+| m1_geo_domain__contains__m1_geo_triangle_quadrilateral_unit | 도형과 측정 | contains | 삼각형과 사각형의 성질 | high | official_dual_source |
+| m1_geo_domain__contains__m1_geo_trig_unit | 도형과 측정 | contains | 삼각비 | high | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_triangle | 각 | prerequisite_for | 삼각형 | medium | official_dual_source |
+| m1_geo_area__prerequisite_for__m1_geo_net_surface_area_strategy | 넓이 | prerequisite_for | 전개도로 겉넓이 구하기 | medium | official_dual_source |
+| m1_geo_area__prerequisite_for__m1_geo_pythagorean_area_dissection_justification | 넓이 | prerequisite_for | 넓이 분해로 피타고라스 정리 정당화하기 | medium | official_dual_source |
+| m1_geo_area__prerequisite_for__m1_geo_pythagorean_square_area_relation | 넓이 | prerequisite_for | 세 변 위 정사각형 넓이 관계 | medium | official_dual_source |
+| m1_geo_area__prerequisite_for__m1_geo_pythagorean_square_on_side | 넓이 | prerequisite_for | 변 위의 정사각형 | medium | official_dual_source |
+| m1_geo_area__prerequisite_for__m1_geo_sector_area_calculation | 넓이 | prerequisite_for | 부채꼴의 넓이 구하기 | high | official_dual_source |
+| m1_geo_length__prerequisite_for__m1_geo_circle_radius | 길이 | prerequisite_for | 원의 반지름 | medium | official_dual_source |
+| m1_geo_length__prerequisite_for__m1_geo_equal_tangent_lengths_from_point | 길이 | prerequisite_for | 한 점에서 그은 두 접선의 길이가 같음 | medium | official_dual_source |
+| m1_geo_length__prerequisite_for__m1_geo_isosceles_equal_sides | 길이 | prerequisite_for | 이등변삼각형의 두 같은 변 | medium | official_dual_source |
+| m1_geo_length__prerequisite_for__m1_geo_pythagorean_converse_side_ordering | 길이 | prerequisite_for | 가장 긴 변을 빗변 후보로 정하기 | medium | official_dual_source |
+| m1_geo_length__prerequisite_for__m1_geo_pythagorean_hypotenuse | 길이 | prerequisite_for | 피타고라스 정리에서의 빗변 | medium | official_dual_source |
+| m1_geo_length__prerequisite_for__m1_geo_pythagorean_legs | 길이 | prerequisite_for | 직각삼각형의 두 직각변 | medium | official_dual_source |
+| m1_geo_length__prerequisite_for__m1_geo_pythagorean_square_on_side | 길이 | prerequisite_for | 변 위의 정사각형 | medium | official_dual_source |
+| m1_geo_length__prerequisite_for__m1_geo_pythagorean_triple_check | 길이 | prerequisite_for | 세 수가 피타고라스 관계를 만족하는지 확인하기 | medium | official_dual_source |
+| m1_geo_length__prerequisite_for__m1_geo_rectangle_diagonals_equal | 길이 | prerequisite_for | 직사각형의 대각선의 길이가 같음 | high | official_dual_source |
+| m1_geo_length__prerequisite_for__m1_geo_rhombus | 길이 | prerequisite_for | 마름모 | high | official_dual_source |
+| m1_geo_length__prerequisite_for__m1_geo_sector_arc_length_calculation | 길이 | prerequisite_for | 부채꼴의 호의 길이 구하기 | high | official_dual_source |
+| m1_geo_length__prerequisite_for__m1_geo_trig_hypotenuse | 길이 | prerequisite_for | 삼각비에서의 빗변 | medium | official_dual_source |
+| m1_geo_line__prerequisite_for__m1_geo_triangle | 직선 | prerequisite_for | 삼각형 | medium | official_dual_source |
+| m1_geo_point__prerequisite_for__m1_geo_triangle | 점 | prerequisite_for | 삼각형 | medium | official_dual_source |
+| m1_geo_triangle__prerequisite_for__m1_geo_triangle_construction_asa | 삼각형 | prerequisite_for | 한 변과 그 양 끝각이 주어진 삼각형 작도 | medium | official_dual_source |
+| m1_geo_triangle__prerequisite_for__m1_geo_triangle_construction_sas | 삼각형 | prerequisite_for | 두 변과 그 끼인각이 주어진 삼각형 작도 | medium | official_dual_source |
+| m1_geo_triangle__prerequisite_for__m1_geo_triangle_construction_sss | 삼각형 | prerequisite_for | 세 변이 주어진 삼각형 작도 | medium | official_dual_source |
+| m1_geo_triangle__prerequisite_for__m1_geo_triangle_parallel_segment_ratio | 삼각형 | prerequisite_for | 삼각형에서 한 변에 평행한 직선이 만드는 선분의 비 | medium | official_dual_source |
+| m1_geo_area__used_in__m1_geo_sector_arc_length_area | 넓이 | used_in | 부채꼴의 호의 길이와 넓이 구하기 | medium | official_dual_source |
+| m1_geo_area__used_in__m1_geo_surface_area | 넓이 | used_in | 겉넓이 | medium | official_dual_source |
+| m1_geo_area__used_in__m1_geo_trig_triangle_area | 넓이 | used_in | 삼각비를 이용한 삼각형의 넓이 | medium | official_single_source |
+| m1_geo_figure__used_in__m1_geo_basic_unit | 도형 | used_in | 기본 도형 | medium | official_dual_source |
+| m1_geo_figure__used_in__m1_geo_plane_properties_unit | 도형 | used_in | 평면도형의 성질 | medium | official_dual_source |

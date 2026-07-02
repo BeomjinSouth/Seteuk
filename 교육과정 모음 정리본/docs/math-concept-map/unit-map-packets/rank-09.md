@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 도형과 측정
 - unit: 삼각형과 사각형의 성질
 - priority tier: highest
-- workplan score: 208
+- workplan score: 210
 - concepts: 47
-- edges touching unit: 223
-- cross-unit edges: 69
+- edges touching unit: 225
+- cross-unit edges: 71
 - low confidence concepts: 4
 - low confidence edges: 19
 
@@ -34,7 +34,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 58 |
 | contrasts_with | 9 |
 | often_confused_with | 14 |
-| prerequisite_for | 99 |
+| prerequisite_for | 101 |
 | related_to | 4 |
 | represented_by | 2 |
 | used_in | 37 |
@@ -75,6 +75,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_geo_distance_between_two_points__prerequisite_for__m1_geo_circumcenter_equal_vertex_distance | 두 점 사이의 거리 | prerequisite_for | 외심에서 세 꼭짓점까지의 거리 | high | official_dual_source |
 | m1_geo_distance_between_two_points__prerequisite_for__m1_geo_incenter_equal_side_distance | 두 점 사이의 거리 | prerequisite_for | 내심에서 세 변까지의 거리 | high | official_dual_source |
 | m1_geo_foot_of_perpendicular__prerequisite_for__m1_geo_incenter_equal_side_distance | 수선의 발 | prerequisite_for | 내심에서 세 변까지의 거리 | high | official_dual_source |
+| m1_geo_justification__prerequisite_for__m1_geo_pythagorean_area_dissection_justification | 정당화 | prerequisite_for | 넓이 분해로 피타고라스 정리 정당화하기 | medium | official_dual_source |
 | m1_geo_justification__prerequisite_for__m1_geo_pythagorean_justification | 정당화 | prerequisite_for | 피타고라스 정리의 정당화 | high | official_dual_source |
 | m1_geo_length__prerequisite_for__m1_geo_isosceles_equal_sides | 길이 | prerequisite_for | 이등변삼각형의 두 같은 변 | medium | official_dual_source |
 | m1_geo_length__prerequisite_for__m1_geo_rectangle_diagonals_equal | 길이 | prerequisite_for | 직사각형의 대각선의 길이가 같음 | high | official_dual_source |
@@ -91,4 +92,3 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_geo_perpendicular__prerequisite_for__m1_geo_rhombus_diagonals_perpendicular | 직교 | prerequisite_for | 마름모의 대각선이 서로 수직 | high | official_dual_source |
 | m1_geo_perpendicular_bisector__prerequisite_for__m1_geo_circumcenter | 수직이등분선 | prerequisite_for | 외심 | high | official_dual_source |
 | m1_geo_perpendicular_bisector__prerequisite_for__m1_geo_circumcenter_perpendicular_bisectors | 수직이등분선 | prerequisite_for | 외심과 세 변의 수직이등분선 | high | official_dual_source |
-| m1_geo_perpendicular_bisector__prerequisite_for__m1_geo_construct_circumcenter | 수직이등분선 | prerequisite_for | 외심 찾기 | high | official_dual_source |

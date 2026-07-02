@@ -5,8 +5,8 @@ This generated index tracks the prepared unit-level textbook evidence packets.
 ## Summary
 
 - packets: 34
-- concepts in packets: 856
-- pending textbook evidence rows: 856
+- concepts in packets: 873
+- pending textbook evidence rows: 873
 
 ## Packets
 
@@ -39,9 +39,9 @@ This generated index tracks the prepared unit-level textbook evidence packets.
 | 25 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 연립일차방정식 | 27 | 27 | 4 | highest | 43 | rank-25.md |
 | 26 | 중3(교육과정 학년군: 중1-3) | 도형과 측정 | 삼각비 | 24 | 24 | 3 | highest | 42 | rank-26.md |
 | 27 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 작도와 합동 | 29 | 29 | 3 | highest | 41 | rank-27.md |
-| 28 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 일차방정식의 관계 | 16 | 16 | 3 | high | 34 | rank-28.md |
-| 29 | 중학교(교육과정 학년군: 중1-3) | 도형과 측정 | 도형과 측정 | 5 | 5 | 0 | low | 7 | rank-29.md |
-| 30 | 중2(교육과정 학년군: 중1-3) | 도형과 측정 | 피타고라스 정리 | 6 | 6 | 0 | low | 6 | rank-30.md |
+| 28 | 중2(교육과정 학년군: 중1-3) | 도형과 측정 | 피타고라스 정리 | 23 | 23 | 4 | high | 39 | rank-28.md |
+| 29 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 일차방정식의 관계 | 16 | 16 | 3 | high | 34 | rank-29.md |
+| 30 | 중학교(교육과정 학년군: 중1-3) | 도형과 측정 | 도형과 측정 | 5 | 5 | 0 | low | 7 | rank-30.md |
 | 31 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 공통 선수개념 | 1 | 1 | 1 | low | 5 | rank-31.md |
 | 32 | 중학교(교육과정 학년군: 중1-3) | 수와 연산 | 수와 연산 | 1 | 1 | 0 | low | 3 | rank-32.md |
 | 33 | 중학교(교육과정 학년군: 중1-3) | 자료와 가능성 | 자료와 가능성 | 1 | 1 | 0 | low | 3 | rank-33.md |

@@ -39,6 +39,8 @@ digraph pilot_unit_map {
   "m1_data_standard_deviation" [label="표준편차\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_standard_deviation_calculation" [label="표준편차 구하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_standard_deviation_formula" [label="표준편차 계산식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_pythagorean_hypotenuse_length" [label="피타고라스 정리로 빗변의 길이 구하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_pythagorean_leg_length" [label="피타고라스 정리로 한 직각변의 길이 구하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_pythagorean_theorem" [label="피타고라스 정리\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_number_line" [label="수직선\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_diagonal" [label="대각선\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -154,6 +156,8 @@ digraph pilot_unit_map {
   "m1_num_square_root" -> "m1_data_standard_deviation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_square_root" -> "m1_data_standard_deviation_calculation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_square_root" -> "m1_data_standard_deviation_formula" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_num_square_root" -> "m1_geo_pythagorean_hypotenuse_length" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_num_square_root" -> "m1_geo_pythagorean_leg_length" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_square_root" -> "m1_geo_pythagorean_theorem" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_real_number" -> "m1_num_number_line" [label="represented_by", style="dashed", color="#6b7280"];
   "m1_calc_power" -> "m1_num_square_number" [label="used_in", style="dashed", color="#6b7280"];

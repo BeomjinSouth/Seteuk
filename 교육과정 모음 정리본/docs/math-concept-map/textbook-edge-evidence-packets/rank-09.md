@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 삼각형과 사각형의 성질
 - priority tier: highest
 - priority score: 63
-- edges in packet: 223
-- cross-unit edges: 69
+- edges in packet: 225
+- cross-unit edges: 71
 - low confidence edges: 19
 
 ## Relationship Evidence Slots
@@ -195,6 +195,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_geo_distance_between_two_points__prerequisite_for__m1_geo_circumcenter_equal_vertex_distance | cross_unit | 두 점 사이의 거리 | prerequisite_for | 외심에서 세 꼭짓점까지의 거리 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_distance_between_two_points__prerequisite_for__m1_geo_incenter_equal_side_distance | cross_unit | 두 점 사이의 거리 | prerequisite_for | 내심에서 세 변까지의 거리 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_foot_of_perpendicular__prerequisite_for__m1_geo_incenter_equal_side_distance | cross_unit | 수선의 발 | prerequisite_for | 내심에서 세 변까지의 거리 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_geo_justification__prerequisite_for__m1_geo_pythagorean_area_dissection_justification | cross_unit | 정당화 | prerequisite_for | 넓이 분해로 피타고라스 정리 정당화하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_justification__prerequisite_for__m1_geo_pythagorean_justification | cross_unit | 정당화 | prerequisite_for | 피타고라스 정리의 정당화 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_length__prerequisite_for__m1_geo_isosceles_equal_sides | cross_unit | 길이 | prerequisite_for | 이등변삼각형의 두 같은 변 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_length__prerequisite_for__m1_geo_rectangle_diagonals_equal | cross_unit | 길이 | prerequisite_for | 직사각형의 대각선의 길이가 같음 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
@@ -217,6 +218,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_geo_proof__prerequisite_for__m1_geo_circle_justification | cross_unit | 증명 | prerequisite_for | 원의 성질 정당화 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_geo_proof__prerequisite_for__m1_geo_circle_property_evidence_selection | cross_unit | 증명 | prerequisite_for | 원의 성질 정당화에서 근거 선택하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_geo_right_triangle__prerequisite_for__m1_geo_right_triangle_congruence_conditions | cross_unit | 직각삼각형 | prerequisite_for | 직각삼각형의 합동 조건 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_geo_square__prerequisite_for__m1_geo_pythagorean_square_on_side | cross_unit | 정사각형 | prerequisite_for | 변 위의 정사각형 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_tangent_line__prerequisite_for__m1_geo_incircle | cross_unit | 접선 | prerequisite_for | 내접원 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_incenter | cross_unit | 삼각형의 합동 조건 | prerequisite_for | 내심 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_isosceles_properties | cross_unit | 삼각형의 합동 조건 | prerequisite_for | 이등변삼각형의 성질 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |

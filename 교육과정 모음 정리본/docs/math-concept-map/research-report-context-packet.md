@@ -21,9 +21,9 @@ Rows are manual-review candidates only; `source_ref_upgrade_allowed` stays `no` 
 | achievement_level_context | 63 |
 | assessment_context | 25 |
 | curriculum_context | 54 |
-| example_assessment_tool_context | 17 |
+| example_assessment_tool_context | 18 |
 | general_report_context | 1 |
-| teaching_learning_context | 25 |
+| teaching_learning_context | 23 |
 
 ## Review Rows
 
@@ -74,25 +74,25 @@ Rows are manual-review candidates only; `source_ref_upgrade_allowed` stays `no` 
 | 43 | m1_num_division | 나눗셈 | 57 | 나눗셈 | medium | achievement_level_context | no |
 | 44 | m1_prop_inverse_proportion | 반비례 | 57 | 반비례 관계 | medium | achievement_level_context | no |
 | 45 | m1_prop_inverse_proportion | 반비례 | 58 | 반비례 관계 | medium | achievement_level_context; curriculum_context | no |
-| 46 | m1_geo_pyramid | 뿔 모양 입체도형 | 174 | 각뿔 | medium | achievement_level_context; curriculum_context | no |
-| 47 | m1_geo_pyramid | 뿔 모양 입체도형 | 181 | 원뿔 | medium | achievement_level_context; teaching_learning_context | no |
-| 48 | m1_geo_prism | 기둥 모양 입체도형 | 103 | 원기둥 | medium | achievement_level_context; curriculum_context | no |
-| 49 | m1_geo_prism | 기둥 모양 입체도형 | 108 | 원기둥 | medium | achievement_level_context; curriculum_context | no |
-| 50 | m1_func_intersection_point | 교점 | 57 | 그래프의 교점 | medium | achievement_level_context | no |
-| 51 | m1_func_intersection_point | 교점 | 58 | 그래프의 교점 | medium | achievement_level_context; curriculum_context | no |
-| 52 | m1_num_multiple | 배수 | 13 | 배수 | medium | achievement_level_context; assessment_context; teaching_learning_context; curriculum_context | no |
-| 53 | m1_num_multiple | 배수 | 26 | 배수 | medium | achievement_level_context; teaching_learning_context; curriculum_context | no |
-| 54 | m1_num_divisor | 약수 | 13 | 약수 | medium | achievement_level_context; assessment_context; teaching_learning_context; curriculum_context | no |
-| 55 | m1_num_divisor | 약수 | 26 | 약수 | medium | achievement_level_context; teaching_learning_context; curriculum_context | no |
-| 56 | m1_geo_circle_radius | 원의 반지름 | 61 | 반지름 | medium | achievement_level_context; example_assessment_tool_context; assessment_context; teaching_learning_context; curriculum_context | no |
-| 57 | m1_geo_circle_radius | 원의 반지름 | 131 | 반지름 | medium | achievement_level_context; curriculum_context | no |
-| 58 | m1_quad_eq_coefficients_in_standard_form | 이차방정식의 계수 | 35 | a, b, c | medium | achievement_level_context; assessment_context; teaching_learning_context; curriculum_context | no |
-| 59 | m1_quad_eq_coefficients_in_standard_form | 이차방정식의 계수 | 37 | a, b, c | medium | achievement_level_context; curriculum_context | no |
-| 60 | m1_geo_correspondence | 도형의 대응 | 5 | 대응 | medium | achievement_level_context; example_assessment_tool_context; assessment_context; teaching_learning_context; curriculum_context | no |
-| 61 | m1_geo_correspondence | 도형의 대응 | 12 | 대응 | medium | achievement_level_context; assessment_context; teaching_learning_context; curriculum_context | no |
-| 62 | m1_data_mean | 평균 | 91 | 평균 | medium | achievement_level_context; example_assessment_tool_context; assessment_context; teaching_learning_context; curriculum_context | no |
-| 63 | m1_data_mean | 평균 | 177 | 평균 | medium | achievement_level_context; curriculum_context | no |
-| 64 | m1_calc_expansion | 전개 | 173 | 전개 | medium | achievement_level_context; curriculum_context | no |
-| 65 | m1_calc_expansion | 전개 | 174 | 전개 | medium | achievement_level_context; curriculum_context | no |
-| 66 | m1_num_common_multiple | 공배수 | 13 | 공배수 | medium | achievement_level_context; assessment_context; teaching_learning_context; curriculum_context | no |
-| 67 | m1_num_common_multiple | 공배수 | 26 | 공배수 | medium | achievement_level_context; teaching_learning_context; curriculum_context | no |
+| 46 | m1_geo_pythagorean_right_angle | 직각삼각형의 직각 | 62 | 직각 | medium | achievement_level_context; example_assessment_tool_context; assessment_context; curriculum_context | no |
+| 47 | m1_geo_pythagorean_right_angle | 직각삼각형의 직각 | 130 | 직각 | medium | achievement_level_context; curriculum_context | no |
+| 48 | m1_geo_pyramid | 뿔 모양 입체도형 | 174 | 각뿔 | medium | achievement_level_context; curriculum_context | no |
+| 49 | m1_geo_pyramid | 뿔 모양 입체도형 | 181 | 원뿔 | medium | achievement_level_context; teaching_learning_context | no |
+| 50 | m1_geo_prism | 기둥 모양 입체도형 | 103 | 원기둥 | medium | achievement_level_context; curriculum_context | no |
+| 51 | m1_geo_prism | 기둥 모양 입체도형 | 108 | 원기둥 | medium | achievement_level_context; curriculum_context | no |
+| 52 | m1_func_intersection_point | 교점 | 57 | 그래프의 교점 | medium | achievement_level_context | no |
+| 53 | m1_func_intersection_point | 교점 | 58 | 그래프의 교점 | medium | achievement_level_context; curriculum_context | no |
+| 54 | m1_num_multiple | 배수 | 13 | 배수 | medium | achievement_level_context; assessment_context; teaching_learning_context; curriculum_context | no |
+| 55 | m1_num_multiple | 배수 | 26 | 배수 | medium | achievement_level_context; teaching_learning_context; curriculum_context | no |
+| 56 | m1_num_divisor | 약수 | 13 | 약수 | medium | achievement_level_context; assessment_context; teaching_learning_context; curriculum_context | no |
+| 57 | m1_num_divisor | 약수 | 26 | 약수 | medium | achievement_level_context; teaching_learning_context; curriculum_context | no |
+| 58 | m1_geo_circle_radius | 원의 반지름 | 61 | 반지름 | medium | achievement_level_context; example_assessment_tool_context; assessment_context; teaching_learning_context; curriculum_context | no |
+| 59 | m1_geo_circle_radius | 원의 반지름 | 131 | 반지름 | medium | achievement_level_context; curriculum_context | no |
+| 60 | m1_quad_eq_coefficients_in_standard_form | 이차방정식의 계수 | 35 | a, b, c | medium | achievement_level_context; assessment_context; teaching_learning_context; curriculum_context | no |
+| 61 | m1_quad_eq_coefficients_in_standard_form | 이차방정식의 계수 | 37 | a, b, c | medium | achievement_level_context; curriculum_context | no |
+| 62 | m1_geo_correspondence | 도형의 대응 | 5 | 대응 | medium | achievement_level_context; example_assessment_tool_context; assessment_context; teaching_learning_context; curriculum_context | no |
+| 63 | m1_geo_correspondence | 도형의 대응 | 12 | 대응 | medium | achievement_level_context; assessment_context; teaching_learning_context; curriculum_context | no |
+| 64 | m1_data_mean | 평균 | 91 | 평균 | medium | achievement_level_context; example_assessment_tool_context; assessment_context; teaching_learning_context; curriculum_context | no |
+| 65 | m1_data_mean | 평균 | 177 | 평균 | medium | achievement_level_context; curriculum_context | no |
+| 66 | m1_calc_expansion | 전개 | 173 | 전개 | medium | achievement_level_context; curriculum_context | no |
+| 67 | m1_calc_expansion | 전개 | 174 | 전개 | medium | achievement_level_context; curriculum_context | no |

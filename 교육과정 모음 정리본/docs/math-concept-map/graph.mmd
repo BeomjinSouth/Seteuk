@@ -655,10 +655,27 @@ flowchart LR
   m1_geo_centroid_from_parallel_ratio["평행선과 선분의 비로 무게중심 찾기"]
   m1_mis_congruence_similarity["합동과 닮음을 같은 관계로 보는 오류"]
   m1_geo_right_triangle["직각삼각형"]
+  m1_geo_pythagorean_right_angle["직각삼각형의 직각"]
+  m1_geo_pythagorean_hypotenuse["피타고라스 정리에서의 빗변"]
+  m1_geo_pythagorean_legs["직각삼각형의 두 직각변"]
   m1_geo_pythagorean_theorem["피타고라스 정리"]
+  m1_geo_pythagorean_formula["피타고라스 정리의 식 표현"]
+  m1_geo_pythagorean_square_on_side["변 위의 정사각형"]
+  m1_geo_pythagorean_square_area_relation["세 변 위 정사각형 넓이 관계"]
+  m1_geo_pythagorean_unknown_side_selection["구하려는 변이 빗변인지 직각변인지 판단하기"]
+  m1_geo_pythagorean_hypotenuse_length["피타고라스 정리로 빗변의 길이 구하기"]
+  m1_geo_pythagorean_leg_length["피타고라스 정리로 한 직각변의 길이 구하기"]
   m1_geo_pythagorean_converse["피타고라스 정리의 역"]
+  m1_geo_pythagorean_triple_check["세 수가 피타고라스 관계를 만족하는지 확인하기"]
+  m1_geo_pythagorean_converse_side_ordering["가장 긴 변을 빗변 후보로 정하기"]
+  m1_geo_pythagorean_converse_judgement["피타고라스 정리의 역으로 직각삼각형 판별하기"]
   m1_geo_right_triangle_judgement["세 변의 길이로 직각삼각형 판별"]
+  m1_geo_pythagorean_area_dissection_justification["넓이 분해로 피타고라스 정리 정당화하기"]
   m1_geo_pythagorean_justification["피타고라스 정리의 정당화"]
+  m1_mis_pythagorean_non_right_triangle["직각삼각형이 아닌 삼각형에 피타고라스 정리를 적용하는 오류"]
+  m1_mis_pythagorean_hypotenuse_misidentification["빗변을 가장 길지 않은 변으로 잘못 정하는 오류"]
+  m1_mis_pythagorean_leg_subtraction["한 직각변을 구할 때 제곱의 차를 쓰지 않는 오류"]
+  m1_mis_pythagorean_converse_unsorted_sides["가장 긴 변을 확인하지 않고 역을 적용하는 오류"]
   m1_geo_trigonometric_ratio["삼각비"]
   m1_geo_trig_reference_angle["삼각비의 기준각"]
   m1_geo_trig_hypotenuse["삼각비에서의 빗변"]
@@ -2187,13 +2204,43 @@ flowchart LR
   m1_geo_centroid_two_to_one_ratio -- "사용" --> m1_geo_centroid_location_by_median_ratio
   m1_geo_centroid_two_to_one_ratio -- "사용" --> m1_geo_centroid_from_parallel_ratio
   m1_geo_centroid_location_by_median_ratio -- "사용" --> m1_geo_centroid_from_parallel_ratio
+  m1_geo_pythagorean_right_angle -- "대조" --> m1_geo_pythagorean_hypotenuse
+  m1_geo_pythagorean_right_angle -- "대조" --> m1_geo_pythagorean_legs
+  m1_geo_pythagorean_hypotenuse -- "대조" --> m1_geo_pythagorean_legs
+  m1_geo_pythagorean_legs -- "대조" --> m1_geo_pythagorean_hypotenuse
+  m1_geo_pythagorean_hypotenuse -- "사용" --> m1_geo_pythagorean_unknown_side_selection
+  m1_geo_pythagorean_legs -- "사용" --> m1_geo_pythagorean_unknown_side_selection
+  m1_geo_pythagorean_hypotenuse -- "사용" --> m1_geo_pythagorean_hypotenuse_length
+  m1_geo_pythagorean_legs -- "사용" --> m1_geo_pythagorean_hypotenuse_length
+  m1_geo_pythagorean_legs -- "사용" --> m1_geo_pythagorean_leg_length
+  m1_geo_pythagorean_theorem -- "표현" --> m1_geo_pythagorean_formula
+  m1_geo_pythagorean_theorem -- "표현" --> m1_geo_pythagorean_square_area_relation
+  m1_geo_pythagorean_formula -- "사용" --> m1_geo_pythagorean_hypotenuse_length
+  m1_geo_pythagorean_formula -- "사용" --> m1_geo_pythagorean_leg_length
+  m1_geo_pythagorean_unknown_side_selection -- "사용" --> m1_geo_pythagorean_hypotenuse_length
+  m1_geo_pythagorean_unknown_side_selection -- "사용" --> m1_geo_pythagorean_leg_length
+  m1_geo_pythagorean_hypotenuse_length -- "사용" --> m1_geo_pythagorean_theorem
+  m1_geo_pythagorean_leg_length -- "사용" --> m1_geo_pythagorean_theorem
+  m1_geo_pythagorean_square_on_side -- "사용" --> m1_geo_pythagorean_square_area_relation
+  m1_geo_pythagorean_square_on_side -- "사용" --> m1_geo_pythagorean_justification
+  m1_geo_pythagorean_square_area_relation -- "연관" --> m1_geo_pythagorean_formula
+  m1_geo_pythagorean_square_area_relation -- "사용" --> m1_geo_pythagorean_area_dissection_justification
+  m1_geo_pythagorean_square_area_relation -- "사용" --> m1_geo_pythagorean_justification
+  m1_geo_pythagorean_area_dissection_justification -- "사용" --> m1_geo_pythagorean_justification
   m1_geo_pythagorean_theorem -- "대조" --> m1_geo_pythagorean_converse
   m1_geo_pythagorean_converse -- "대조" --> m1_geo_pythagorean_theorem
+  m1_geo_pythagorean_converse_side_ordering -- "사용" --> m1_geo_pythagorean_converse_judgement
+  m1_geo_pythagorean_triple_check -- "사용" --> m1_geo_pythagorean_converse_judgement
+  m1_geo_pythagorean_converse_judgement -- "사용" --> m1_geo_right_triangle_judgement
   m1_geo_pythagorean_theorem -- "사용" --> m1_geo_right_triangle_judgement
   m1_geo_pythagorean_converse -- "사용" --> m1_geo_right_triangle_judgement
   m1_geo_right_triangle -- "사용" --> m1_geo_right_triangle_judgement
   m1_geo_pythagorean_theorem -- "사용" --> m1_geo_pythagorean_justification
   m1_geo_proof -- "사용" --> m1_geo_pythagorean_justification
+  m1_mis_pythagorean_non_right_triangle -- "혼동" --> m1_geo_pythagorean_theorem
+  m1_mis_pythagorean_hypotenuse_misidentification -- "혼동" --> m1_geo_pythagorean_hypotenuse
+  m1_mis_pythagorean_leg_subtraction -- "혼동" --> m1_geo_pythagorean_leg_length
+  m1_mis_pythagorean_converse_unsorted_sides -- "혼동" --> m1_geo_pythagorean_converse_side_ordering
   m1_geo_trigonometric_ratio -- "표현" --> m1_geo_sine
   m1_geo_trigonometric_ratio -- "표현" --> m1_geo_cosine
   m1_geo_trigonometric_ratio -- "표현" --> m1_geo_tangent_ratio
@@ -3019,10 +3066,31 @@ flowchart LR
   m1_geo_similarity_unit -- "포함" --> m1_geo_centroid_from_parallel_ratio
   m1_geo_similarity_unit -- "포함" --> m1_mis_congruence_similarity
   m1_geo_pythagorean_unit -- "포함" --> m1_geo_right_triangle
+  m1_geo_right_triangle -- "포함" --> m1_geo_pythagorean_right_angle
+  m1_geo_right_triangle -- "포함" --> m1_geo_pythagorean_hypotenuse
+  m1_geo_pythagorean_theorem -- "포함" --> m1_geo_pythagorean_hypotenuse
+  m1_geo_right_triangle -- "포함" --> m1_geo_pythagorean_legs
+  m1_geo_pythagorean_theorem -- "포함" --> m1_geo_pythagorean_legs
   m1_geo_pythagorean_unit -- "포함" --> m1_geo_pythagorean_theorem
+  m1_geo_pythagorean_theorem -- "포함" --> m1_geo_pythagorean_formula
+  m1_geo_pythagorean_justification -- "포함" --> m1_geo_pythagorean_square_on_side
+  m1_geo_pythagorean_theorem -- "포함" --> m1_geo_pythagorean_square_area_relation
+  m1_geo_pythagorean_justification -- "포함" --> m1_geo_pythagorean_square_area_relation
+  m1_geo_pythagorean_theorem -- "포함" --> m1_geo_pythagorean_unknown_side_selection
+  m1_geo_pythagorean_theorem -- "포함" --> m1_geo_pythagorean_hypotenuse_length
+  m1_geo_pythagorean_theorem -- "포함" --> m1_geo_pythagorean_leg_length
   m1_geo_pythagorean_unit -- "포함" --> m1_geo_pythagorean_converse
+  m1_geo_pythagorean_converse -- "포함" --> m1_geo_pythagorean_triple_check
+  m1_geo_pythagorean_converse -- "포함" --> m1_geo_pythagorean_converse_side_ordering
+  m1_geo_pythagorean_converse -- "포함" --> m1_geo_pythagorean_converse_judgement
+  m1_geo_right_triangle_judgement -- "포함" --> m1_geo_pythagorean_converse_judgement
   m1_geo_pythagorean_unit -- "포함" --> m1_geo_right_triangle_judgement
+  m1_geo_pythagorean_justification -- "포함" --> m1_geo_pythagorean_area_dissection_justification
   m1_geo_pythagorean_unit -- "포함" --> m1_geo_pythagorean_justification
+  m1_geo_pythagorean_unit -- "포함" --> m1_mis_pythagorean_non_right_triangle
+  m1_geo_pythagorean_unit -- "포함" --> m1_mis_pythagorean_hypotenuse_misidentification
+  m1_geo_pythagorean_unit -- "포함" --> m1_mis_pythagorean_leg_subtraction
+  m1_geo_pythagorean_unit -- "포함" --> m1_mis_pythagorean_converse_unsorted_sides
   m1_geo_trig_unit -- "포함" --> m1_geo_trigonometric_ratio
   m1_geo_trigonometric_ratio -- "포함" --> m1_geo_trig_reference_angle
   m1_geo_trigonometric_ratio -- "포함" --> m1_geo_trig_hypotenuse
@@ -4215,10 +4283,47 @@ flowchart LR
   m1_geo_centroid_two_to_one_ratio -- "선수" --> m1_geo_centroid_from_parallel_ratio
   m1_geo_angle -- "선수" --> m1_geo_right_triangle
   m1_geo_triangle_quadrilateral_unit -- "선수" --> m1_geo_right_triangle
+  m1_geo_angle -- "선수" --> m1_geo_pythagorean_right_angle
+  m1_geo_right_triangle -- "선수" --> m1_geo_pythagorean_hypotenuse
+  m1_geo_length -- "선수" --> m1_geo_pythagorean_hypotenuse
+  m1_geo_right_triangle -- "선수" --> m1_geo_pythagorean_legs
+  m1_geo_length -- "선수" --> m1_geo_pythagorean_legs
   m1_geo_right_triangle -- "선수" --> m1_geo_pythagorean_theorem
   m1_num_square_root -- "선수" --> m1_geo_pythagorean_theorem
+  m1_geo_pythagorean_hypotenuse -- "선수" --> m1_geo_pythagorean_formula
+  m1_geo_pythagorean_legs -- "선수" --> m1_geo_pythagorean_formula
+  m1_calc_power -- "선수" --> m1_geo_pythagorean_formula
+  m1_geo_square -- "선수" --> m1_geo_pythagorean_square_on_side
+  m1_geo_length -- "선수" --> m1_geo_pythagorean_square_on_side
+  m1_geo_area -- "선수" --> m1_geo_pythagorean_square_on_side
+  m1_geo_pythagorean_square_on_side -- "선수" --> m1_geo_pythagorean_square_area_relation
+  m1_geo_area -- "선수" --> m1_geo_pythagorean_square_area_relation
+  m1_geo_pythagorean_hypotenuse -- "선수" --> m1_geo_pythagorean_unknown_side_selection
+  m1_geo_pythagorean_legs -- "선수" --> m1_geo_pythagorean_unknown_side_selection
+  m1_geo_pythagorean_formula -- "선수" --> m1_geo_pythagorean_hypotenuse_length
+  m1_geo_pythagorean_unknown_side_selection -- "선수" --> m1_geo_pythagorean_hypotenuse_length
+  m1_geo_pythagorean_hypotenuse -- "선수" --> m1_geo_pythagorean_hypotenuse_length
+  m1_geo_pythagorean_legs -- "선수" --> m1_geo_pythagorean_hypotenuse_length
+  m1_num_square_root -- "선수" --> m1_geo_pythagorean_hypotenuse_length
+  m1_geo_pythagorean_formula -- "선수" --> m1_geo_pythagorean_leg_length
+  m1_geo_pythagorean_unknown_side_selection -- "선수" --> m1_geo_pythagorean_leg_length
+  m1_geo_pythagorean_hypotenuse -- "선수" --> m1_geo_pythagorean_leg_length
+  m1_geo_pythagorean_legs -- "선수" --> m1_geo_pythagorean_leg_length
+  m1_num_square_root -- "선수" --> m1_geo_pythagorean_leg_length
   m1_geo_pythagorean_theorem -- "선수" --> m1_geo_pythagorean_converse
+  m1_geo_pythagorean_formula -- "선수" --> m1_geo_pythagorean_triple_check
+  m1_geo_length -- "선수" --> m1_geo_pythagorean_triple_check
+  m1_calc_power -- "선수" --> m1_geo_pythagorean_triple_check
+  m1_geo_length -- "선수" --> m1_geo_pythagorean_converse_side_ordering
+  m1_num_order_relation -- "선수" --> m1_geo_pythagorean_converse_side_ordering
+  m1_geo_pythagorean_converse -- "선수" --> m1_geo_pythagorean_converse_judgement
+  m1_geo_pythagorean_converse_side_ordering -- "선수" --> m1_geo_pythagorean_converse_judgement
+  m1_geo_pythagorean_triple_check -- "선수" --> m1_geo_pythagorean_converse_judgement
   m1_geo_pythagorean_converse -- "선수" --> m1_geo_right_triangle_judgement
+  m1_geo_pythagorean_square_on_side -- "선수" --> m1_geo_pythagorean_area_dissection_justification
+  m1_geo_pythagorean_square_area_relation -- "선수" --> m1_geo_pythagorean_area_dissection_justification
+  m1_geo_area -- "선수" --> m1_geo_pythagorean_area_dissection_justification
+  m1_geo_justification -- "선수" --> m1_geo_pythagorean_area_dissection_justification
   m1_geo_pythagorean_theorem -- "선수" --> m1_geo_pythagorean_justification
   m1_geo_justification -- "선수" --> m1_geo_pythagorean_justification
   m1_geo_right_triangle -- "선수" --> m1_geo_trigonometric_ratio
@@ -4717,6 +4822,10 @@ flowchart LR
   m1_mis_similarity_ratio_reversal -- "혼동" --> m1_geo_similarity_ratio
   m1_mis_similarity_ratio_noncorresponding_sides -- "혼동" --> m1_geo_corresponding_sides_in_similarity
   m1_mis_similarity_ratio_noncorresponding_sides -- "혼동" --> m1_geo_similarity_ratio
+  m1_mis_pythagorean_leg_subtraction -- "혼동" --> m1_geo_pythagorean_formula
+  m1_mis_pythagorean_hypotenuse_misidentification -- "혼동" --> m1_geo_pythagorean_unknown_side_selection
+  m1_mis_pythagorean_non_right_triangle -- "혼동" --> m1_geo_right_triangle
+  m1_mis_pythagorean_converse_unsorted_sides -- "혼동" --> m1_geo_pythagorean_converse_judgement
   m1_mis_trig_angle_scope -- "혼동" --> m1_geo_trig_angle_range_0_90
   m1_mis_trig_angle_scope -- "혼동" --> m1_geo_special_angles_30_45_60
   m1_mis_trig_opposite_adjacent_swap -- "혼동" --> m1_geo_trig_opposite_side
@@ -5419,10 +5528,27 @@ flowchart LR
   class m1_geo_centroid_from_parallel_ratio procedure;
   class m1_mis_congruence_similarity risk;
   class m1_geo_right_triangle core;
+  class m1_geo_pythagorean_right_angle default;
+  class m1_geo_pythagorean_hypotenuse default;
+  class m1_geo_pythagorean_legs default;
   class m1_geo_pythagorean_theorem default;
+  class m1_geo_pythagorean_formula representation;
+  class m1_geo_pythagorean_square_on_side representation;
+  class m1_geo_pythagorean_square_area_relation default;
+  class m1_geo_pythagorean_unknown_side_selection procedure;
+  class m1_geo_pythagorean_hypotenuse_length procedure;
+  class m1_geo_pythagorean_leg_length procedure;
   class m1_geo_pythagorean_converse default;
+  class m1_geo_pythagorean_triple_check procedure;
+  class m1_geo_pythagorean_converse_side_ordering procedure;
+  class m1_geo_pythagorean_converse_judgement procedure;
   class m1_geo_right_triangle_judgement procedure;
+  class m1_geo_pythagorean_area_dissection_justification procedure;
   class m1_geo_pythagorean_justification procedure;
+  class m1_mis_pythagorean_non_right_triangle risk;
+  class m1_mis_pythagorean_hypotenuse_misidentification risk;
+  class m1_mis_pythagorean_leg_subtraction risk;
+  class m1_mis_pythagorean_converse_unsorted_sides risk;
   class m1_geo_trigonometric_ratio core;
   class m1_geo_trig_reference_angle default;
   class m1_geo_trig_hypotenuse default;

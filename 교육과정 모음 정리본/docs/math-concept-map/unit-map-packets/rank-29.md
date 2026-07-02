@@ -5,80 +5,78 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 ## Target Unit
 
 - rank: 29
-- grade: 중학교(교육과정 학년군: 중1-3)
-- domain: 도형과 측정
-- unit: 도형과 측정
-- priority tier: low
-- workplan score: 57
-- concepts: 5
-- edges touching unit: 46
-- cross-unit edges: 42
-- low confidence concepts: 0
-- low confidence edges: 2
+- grade: 중1(교육과정 학년군: 중1-3)
+- domain: 변화와 관계
+- unit: 일차함수와 일차방정식의 관계
+- priority tier: high
+- workplan score: 107
+- concepts: 16
+- edges touching unit: 81
+- cross-unit edges: 29
+- low confidence concepts: 3
+- low confidence edges: 11
 
 ## Concept Type Distribution
 
 | concept_type | count |
 |---|---:|
-| core_concept | 3 |
-| term | 2 |
+| core_concept | 1 |
+| misconception_risk | 3 |
+| procedure | 2 |
+| property | 4 |
+| representation | 5 |
+| term | 1 |
 
 ## Relationship Distribution
 
 | relationship_type | count |
 |---|---:|
-| contains | 13 |
-| prerequisite_for | 16 |
-| related_to | 2 |
-| used_in | 15 |
+| contains | 17 |
+| contrasts_with | 3 |
+| often_confused_with | 8 |
+| prerequisite_for | 26 |
+| related_to | 4 |
+| represented_by | 7 |
+| used_in | 16 |
 
 ## Low Confidence Concepts
 
 | concept_id | label_ko | type | evidence_depth | notes |
 |---|---|---|---|---|
-|  |  |  |  |  |
+| m1_mis_intersection_count_solution_count | 교점의 개수와 해의 개수를 따로 보는 오류 | misconception_risk | official_dual_source | 성취수준의 교점과 해의 관계 설명에서 추론한 오개념 위험이다. 세부 사례별 오류는 교과서 예제 확인 후 분리한다. |
+| m1_mis_intersection_solution | 그래프의 교점과 연립방정식의 해를 분리해서 보는 오류 | misconception_risk | official_dual_source |  |
+| m1_mis_single_equation_graph_as_system_solution | 한 일차방정식의 그래프를 연립일차방정식의 해로 보는 오류 | misconception_risk | official_dual_source | 한 식의 해 전체와 연립된 두 식의 공통 해를 구별해야 하는 관계 단원에서 추론한 오개념 위험이다. |
 
 ## Cross-Unit Edges
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
-| m1_geo_domain__related_to__m1_coord_graph_unit | 도형과 측정 | related_to | 좌표평면과 그래프 | low | official_dual_source |
-| m1_geo_domain__related_to__m1_num_domain | 도형과 측정 | related_to | 수와 연산 | low | official_dual_source |
-| m1_geo_domain__contains__m1_geo_basic_unit | 도형과 측정 | contains | 기본 도형 | high | official_dual_source |
-| m1_geo_domain__contains__m1_geo_circle_unit | 도형과 측정 | contains | 원의 성질 | high | official_dual_source |
-| m1_geo_domain__contains__m1_geo_construction_congruence_unit | 도형과 측정 | contains | 작도와 합동 | high | official_dual_source |
-| m1_geo_domain__contains__m1_geo_plane_properties_unit | 도형과 측정 | contains | 평면도형의 성질 | high | official_dual_source |
-| m1_geo_domain__contains__m1_geo_pythagorean_unit | 도형과 측정 | contains | 피타고라스 정리 | high | official_dual_source |
-| m1_geo_domain__contains__m1_geo_similarity_unit | 도형과 측정 | contains | 도형의 닮음 | high | official_dual_source |
-| m1_geo_domain__contains__m1_geo_solid_unit | 도형과 측정 | contains | 입체도형의 성질 | high | official_dual_source |
-| m1_geo_domain__contains__m1_geo_triangle_quadrilateral_unit | 도형과 측정 | contains | 삼각형과 사각형의 성질 | high | official_dual_source |
-| m1_geo_domain__contains__m1_geo_trig_unit | 도형과 측정 | contains | 삼각비 | high | official_dual_source |
-| m1_geo_angle__prerequisite_for__m1_geo_triangle | 각 | prerequisite_for | 삼각형 | medium | official_dual_source |
-| m1_geo_area__prerequisite_for__m1_geo_net_surface_area_strategy | 넓이 | prerequisite_for | 전개도로 겉넓이 구하기 | medium | official_dual_source |
-| m1_geo_area__prerequisite_for__m1_geo_sector_area_calculation | 넓이 | prerequisite_for | 부채꼴의 넓이 구하기 | high | official_dual_source |
-| m1_geo_length__prerequisite_for__m1_geo_circle_radius | 길이 | prerequisite_for | 원의 반지름 | medium | official_dual_source |
-| m1_geo_length__prerequisite_for__m1_geo_equal_tangent_lengths_from_point | 길이 | prerequisite_for | 한 점에서 그은 두 접선의 길이가 같음 | medium | official_dual_source |
-| m1_geo_length__prerequisite_for__m1_geo_isosceles_equal_sides | 길이 | prerequisite_for | 이등변삼각형의 두 같은 변 | medium | official_dual_source |
-| m1_geo_length__prerequisite_for__m1_geo_rectangle_diagonals_equal | 길이 | prerequisite_for | 직사각형의 대각선의 길이가 같음 | high | official_dual_source |
-| m1_geo_length__prerequisite_for__m1_geo_rhombus | 길이 | prerequisite_for | 마름모 | high | official_dual_source |
-| m1_geo_length__prerequisite_for__m1_geo_sector_arc_length_calculation | 길이 | prerequisite_for | 부채꼴의 호의 길이 구하기 | high | official_dual_source |
-| m1_geo_length__prerequisite_for__m1_geo_trig_hypotenuse | 길이 | prerequisite_for | 삼각비에서의 빗변 | medium | official_dual_source |
-| m1_geo_line__prerequisite_for__m1_geo_triangle | 직선 | prerequisite_for | 삼각형 | medium | official_dual_source |
-| m1_geo_point__prerequisite_for__m1_geo_triangle | 점 | prerequisite_for | 삼각형 | medium | official_dual_source |
-| m1_geo_triangle__prerequisite_for__m1_geo_triangle_construction_asa | 삼각형 | prerequisite_for | 한 변과 그 양 끝각이 주어진 삼각형 작도 | medium | official_dual_source |
-| m1_geo_triangle__prerequisite_for__m1_geo_triangle_construction_sas | 삼각형 | prerequisite_for | 두 변과 그 끼인각이 주어진 삼각형 작도 | medium | official_dual_source |
-| m1_geo_triangle__prerequisite_for__m1_geo_triangle_construction_sss | 삼각형 | prerequisite_for | 세 변이 주어진 삼각형 작도 | medium | official_dual_source |
-| m1_geo_triangle__prerequisite_for__m1_geo_triangle_parallel_segment_ratio | 삼각형 | prerequisite_for | 삼각형에서 한 변에 평행한 직선이 만드는 선분의 비 | medium | official_dual_source |
-| m1_geo_area__used_in__m1_geo_sector_arc_length_area | 넓이 | used_in | 부채꼴의 호의 길이와 넓이 구하기 | medium | official_dual_source |
-| m1_geo_area__used_in__m1_geo_surface_area | 넓이 | used_in | 겉넓이 | medium | official_dual_source |
-| m1_geo_area__used_in__m1_geo_trig_triangle_area | 넓이 | used_in | 삼각비를 이용한 삼각형의 넓이 | medium | official_single_source |
-| m1_geo_figure__used_in__m1_geo_basic_unit | 도형 | used_in | 기본 도형 | medium | official_dual_source |
-| m1_geo_figure__used_in__m1_geo_plane_properties_unit | 도형 | used_in | 평면도형의 성질 | medium | official_dual_source |
-| m1_geo_figure__used_in__m1_geo_similarity_unit | 도형 | used_in | 도형의 닮음 | medium | official_dual_source |
-| m1_geo_figure__used_in__m1_geo_solid_unit | 도형 | used_in | 입체도형의 성질 | medium | official_dual_source |
-| m1_geo_length__used_in__m1_geo_distance_between_two_points | 길이 | used_in | 두 점 사이의 거리 | medium | official_dual_source |
-| m1_geo_length__used_in__m1_geo_parallel_segment_ratio | 길이 | used_in | 평행선 사이의 선분의 길이의 비 | medium | official_dual_source |
-| m1_geo_length__used_in__m1_geo_right_triangle_judgement | 길이 | used_in | 세 변의 길이로 직각삼각형 판별 | medium | official_dual_source |
-| m1_geo_length__used_in__m1_geo_sector_arc_length_area | 길이 | used_in | 부채꼴의 호의 길이와 넓이 구하기 | medium | official_dual_source |
-| m1_geo_triangle__used_in__m1_geo_right_triangle | 삼각형 | used_in | 직각삼각형 | medium | official_dual_source |
-| m1_geo_triangle__used_in__m1_geo_triangle_congruence_conditions | 삼각형 | used_in | 삼각형의 합동 조건 | medium | official_dual_source |
+| m1_mis_intersection_solution__often_confused_with__m1_system_solution | 그래프의 교점과 연립방정식의 해를 분리해서 보는 오류 | often_confused_with | 연립일차방정식의 해 | low | official_dual_source |
+| m1_mis_single_equation_graph_as_system_solution__often_confused_with__m1_system_solution | 한 일차방정식의 그래프를 연립일차방정식의 해로 보는 오류 | often_confused_with | 연립일차방정식의 해 | low | official_dual_source |
+| m1_coord_coordinate__prerequisite_for__m1_func_intersection_point | 좌표 | prerequisite_for | 교점 | medium | official_single_source |
+| m1_coord_coordinate__prerequisite_for__m1_func_intersection_point_coordinate | 좌표 | prerequisite_for | 교점의 좌표 | medium | official_dual_source |
+| m1_coord_coordinate_plane__prerequisite_for__m1_func_two_variable_linear_equation_graph | 좌표평면 | prerequisite_for | 미지수가 2개인 일차방정식의 그래프 | high | official_dual_source |
+| m1_coord_ordered_pair__prerequisite_for__m1_func_two_variable_equation_solution_pair | 순서쌍 | prerequisite_for | 미지수가 2개인 일차방정식 해의 순서쌍 | medium | official_dual_source |
+| m1_eq_unit__prerequisite_for__m1_func_eq_relation_unit | 일차방정식 | prerequisite_for | 일차함수와 일차방정식의 관계 | high | official_dual_source |
+| m1_func_linear_graph__prerequisite_for__m1_func_two_linear_graphs | 일차함수의 그래프 | prerequisite_for | 두 일차함수의 그래프 | high | official_dual_source |
+| m1_func_linear_graph__prerequisite_for__m1_func_two_variable_equation_as_graph | 일차함수의 그래프 | prerequisite_for | 미지수가 2개인 일차방정식의 해를 그래프로 나타내기 | high | official_dual_source |
+| m1_func_linear_graph__prerequisite_for__m1_func_two_variable_linear_equation_graph | 일차함수의 그래프 | prerequisite_for | 미지수가 2개인 일차방정식의 그래프 | high | official_dual_source |
+| m1_func_unit__prerequisite_for__m1_func_eq_relation_unit | 일차함수와 그 그래프 | prerequisite_for | 일차함수와 일차방정식의 관계 | high | official_dual_source |
+| m1_system_simultaneous_linear_equations__prerequisite_for__m1_func_system_graph_relation | 연립일차방정식 | prerequisite_for | 두 일차함수의 그래프와 연립일차방정식의 관계 | high | official_dual_source |
+| m1_system_solution__prerequisite_for__m1_func_intersection_solution_count_relation | 연립일차방정식의 해 | prerequisite_for | 교점의 개수와 연립일차방정식 해의 개수의 관계 | medium | official_dual_source |
+| m1_system_solution__prerequisite_for__m1_func_system_solution_from_intersection | 연립일차방정식의 해 | prerequisite_for | 교점으로 연립일차방정식의 해 말하기 | high | official_dual_source |
+| m1_system_two_variable_linear_equation__prerequisite_for__m1_func_two_variable_equation_as_graph | 미지수가 2개인 일차방정식 | prerequisite_for | 미지수가 2개인 일차방정식의 해를 그래프로 나타내기 | high | official_dual_source |
+| m1_system_two_variable_linear_equation__prerequisite_for__m1_func_two_variable_equation_solution_pair | 미지수가 2개인 일차방정식 | prerequisite_for | 미지수가 2개인 일차방정식 해의 순서쌍 | medium | official_dual_source |
+| m1_system_two_variable_linear_equation__prerequisite_for__m1_func_two_variable_linear_equation_graph | 미지수가 2개인 일차방정식 | prerequisite_for | 미지수가 2개인 일차방정식의 그래프 | high | official_dual_source |
+| m1_func_two_variable_equation_solution_pair__represented_by__m1_coord_ordered_pair | 미지수가 2개인 일차방정식 해의 순서쌍 | represented_by | 순서쌍 | medium | official_dual_source |
+| m1_system_simultaneous_linear_equations__represented_by__m1_func_two_linear_graphs | 연립일차방정식 | represented_by | 두 일차함수의 그래프 | high | official_dual_source |
+| m1_system_solution__represented_by__m1_func_intersection_point | 연립일차방정식의 해 | represented_by | 교점 | high | official_dual_source |
+| m1_system_solution__represented_by__m1_func_intersection_point_coordinate | 연립일차방정식의 해 | represented_by | 교점의 좌표 | high | official_dual_source |
+| m1_system_two_variable_linear_equation__represented_by__m1_func_two_variable_linear_equation_graph | 미지수가 2개인 일차방정식 | represented_by | 미지수가 2개인 일차방정식의 그래프 | high | official_dual_source |
+| m1_func_linear_graph__used_in__m1_func_equation_relation | 일차함수의 그래프 | used_in | 일차함수와 미지수가 2개인 일차방정식의 관계 | high | official_dual_source |
+| m1_system_two_variable_linear_equation__used_in__m1_func_equation_relation | 미지수가 2개인 일차방정식 | used_in | 일차함수와 미지수가 2개인 일차방정식의 관계 | medium | official_dual_source |
+| m1_system_two_variable_linear_equation__used_in__m1_func_two_variable_equation_as_graph | 미지수가 2개인 일차방정식 | used_in | 미지수가 2개인 일차방정식의 해를 그래프로 나타내기 | high | official_dual_source |
+| m1_geo_intersection_point__contrasts_with__m1_func_intersection_point | 교점 | contrasts_with | 교점 | medium | official_dual_source |
+| m1_coord_graph_unit__related_to__m1_func_eq_relation_unit | 좌표평면과 그래프 | related_to | 일차함수와 일차방정식의 관계 | medium | official_dual_source |
+| m1_func_two_variable_equation_solution_pair__related_to__m1_system_solution_ordered_pair | 미지수가 2개인 일차방정식 해의 순서쌍 | related_to | 해의 순서쌍 표현 | medium | official_dual_source |
+| m1_system_unit__related_to__m1_func_eq_relation_unit | 연립일차방정식 | related_to | 일차함수와 일차방정식의 관계 | medium | official_dual_source |

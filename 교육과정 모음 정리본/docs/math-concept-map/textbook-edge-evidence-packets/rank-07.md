@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 정수와 유리수
 - priority tier: highest
 - priority score: 65
-- edges in packet: 247
-- cross-unit edges: 95
+- edges in packet: 248
+- cross-unit edges: 96
 - low confidence edges: 46
 
 ## Relationship Evidence Slots
@@ -222,6 +222,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_num_order_relation__prerequisite_for__m1_data_ordered_data_for_quartiles | cross_unit | 정수와 유리수의 대소 관계 | prerequisite_for | 사분위수를 구하기 위한 자료 정렬 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_order_relation__prerequisite_for__m1_data_quartile | cross_unit | 정수와 유리수의 대소 관계 | prerequisite_for | 사분위수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_order_relation__prerequisite_for__m1_data_stem_leaf_plot | cross_unit | 정수와 유리수의 대소 관계 | prerequisite_for | 줄기와 잎 그림 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_num_order_relation__prerequisite_for__m1_geo_pythagorean_converse_side_ordering | cross_unit | 정수와 유리수의 대소 관계 | prerequisite_for | 가장 긴 변을 빗변 후보로 정하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_order_relation__prerequisite_for__m1_ineq_inequality_sign_direction | cross_unit | 정수와 유리수의 대소 관계 | prerequisite_for | 부등호의 방향 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_order_relation__prerequisite_for__m1_ineq_solution_range | cross_unit | 정수와 유리수의 대소 관계 | prerequisite_for | 부등식 해의 범위 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_order_relation__prerequisite_for__m1_num_real_order | cross_unit | 정수와 유리수의 대소 관계 | prerequisite_for | 실수의 대소 관계 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |

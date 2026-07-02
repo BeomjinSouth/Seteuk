@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 수와 연산
 - unit: 제곱근과 실수
 - priority tier: highest
-- workplan score: 131
+- workplan score: 133
 - concepts: 25
-- edges touching unit: 122
-- cross-unit edges: 30
+- edges touching unit: 124
+- cross-unit edges: 32
 - low confidence concepts: 3
 - low confidence edges: 14
 
@@ -34,7 +34,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 28 |
 | contrasts_with | 3 |
 | often_confused_with | 10 |
-| prerequisite_for | 40 |
+| prerequisite_for | 42 |
 | related_to | 3 |
 | represented_by | 4 |
 | used_in | 34 |
@@ -68,6 +68,8 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_square_root__prerequisite_for__m1_data_standard_deviation | 제곱근 | prerequisite_for | 표준편차 | high | official_dual_source |
 | m1_num_square_root__prerequisite_for__m1_data_standard_deviation_calculation | 제곱근 | prerequisite_for | 표준편차 구하기 | medium | official_dual_source |
 | m1_num_square_root__prerequisite_for__m1_data_standard_deviation_formula | 제곱근 | prerequisite_for | 표준편차 계산식 | medium | official_dual_source |
+| m1_num_square_root__prerequisite_for__m1_geo_pythagorean_hypotenuse_length | 제곱근 | prerequisite_for | 피타고라스 정리로 빗변의 길이 구하기 | high | official_dual_source |
+| m1_num_square_root__prerequisite_for__m1_geo_pythagorean_leg_length | 제곱근 | prerequisite_for | 피타고라스 정리로 한 직각변의 길이 구하기 | medium | official_dual_source |
 | m1_num_square_root__prerequisite_for__m1_geo_pythagorean_theorem | 제곱근 | prerequisite_for | 피타고라스 정리 | high | official_dual_source |
 | m1_num_real_number__represented_by__m1_num_number_line | 실수 | represented_by | 수직선 | medium | official_dual_source |
 | m1_calc_power__used_in__m1_num_square_number | 거듭제곱 | used_in | 제곱수 | medium | official_single_source |

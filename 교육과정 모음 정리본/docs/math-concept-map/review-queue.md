@@ -2,7 +2,7 @@
 
 이 문서는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 출처 보강 때 먼저 확인할 대상을 정리한다.
 
-- 검토 대상 concept: 145개
+- 검토 대상 concept: 149개
 
 ## 영역별 검토 대상
 
@@ -10,14 +10,14 @@
 |---|---:|
 | 수와 연산 | 18 |
 | 변화와 관계 | 58 |
-| 도형과 측정 | 32 |
+| 도형과 측정 | 36 |
 | 자료와 가능성 | 37 |
 
 ## 유형별 검토 대상
 
 | concept_type | concept 수 |
 |---|---:|
-| misconception_risk | 102 |
+| misconception_risk | 106 |
 | procedure | 4 |
 | property | 11 |
 | representation | 7 |
@@ -136,6 +136,10 @@
 | m1_mis_arc_chord | 도형과 측정 | 평면도형의 성질 | misconception_risk | textbook_evidence_needed | 호와 현을 같은 대상으로 보는 오류 | 공식 용어 분리와 호 관계 성취수준에서 추론한 위험이다. 실제 오개념 근거는 교과서 예제와 문항으로 보강한다. |
 | m1_mis_polygon_interior_exterior_angle | 도형과 측정 | 평면도형의 성질 | misconception_risk | textbook_evidence_needed | 내각과 외각을 같은 각으로 보는 오류 | 내각과 외각을 구별해 다루는 공식 용어와 성취기준에서 추론했다. 실제 오개념 근거는 교과서 예제와 문항으로 보강한다. |
 | m1_mis_sector_angle_proportion | 도형과 측정 | 평면도형의 성질 | misconception_risk | textbook_evidence_needed | 중심각 비례 관계를 호의 길이와 넓이에 적용하지 않는 오류 | 부채꼴의 중심각과 호 관계 성취기준에서 추론한 위험이다. 실제 오개념 근거는 교과서 예제와 문항으로 보강한다. |
+| m1_mis_pythagorean_converse_unsorted_sides | 도형과 측정 | 피타고라스 정리 | misconception_risk | textbook_evidence_needed | 가장 긴 변을 확인하지 않고 역을 적용하는 오류 | 공식 문서는 해당 오개념을 직접 제시하지 않는다. 피타고라스 정리의 역과 직각삼각형 판별 과정에서 발생 가능한 지도상 위험으로만 연결하고, 교과서 오답·평가 문항 근거 확인 전까지 low로 둔다. |
+| m1_mis_pythagorean_hypotenuse_misidentification | 도형과 측정 | 피타고라스 정리 | misconception_risk | textbook_evidence_needed | 빗변을 가장 길지 않은 변으로 잘못 정하는 오류 | 공식 문서는 해당 오개념을 직접 제시하지 않는다. 피타고라스 정리 적용 과정에서 발생 가능한 지도상 위험으로만 연결하고, 교과서 오답·평가 문항 근거 확인 전까지 low로 둔다. |
+| m1_mis_pythagorean_leg_subtraction | 도형과 측정 | 피타고라스 정리 | misconception_risk | textbook_evidence_needed | 한 직각변을 구할 때 제곱의 차를 쓰지 않는 오류 | 공식 문서는 해당 오개념을 직접 제시하지 않는다. 피타고라스 정리 적용 과정에서 발생 가능한 지도상 위험으로만 연결하고, 교과서 오답·평가 문항 근거 확인 전까지 low로 둔다. |
+| m1_mis_pythagorean_non_right_triangle | 도형과 측정 | 피타고라스 정리 | misconception_risk | textbook_evidence_needed | 직각삼각형이 아닌 삼각형에 피타고라스 정리를 적용하는 오류 | 공식 문서는 해당 오개념을 직접 제시하지 않는다. 피타고라스 정리 적용 과정에서 발생 가능한 지도상 위험으로만 연결하고, 교과서 오답·평가 문항 근거 확인 전까지 low로 둔다. |
 | m1_mis_or_and_counting_confusion | 자료와 가능성 | 경우의 수와 확률 | misconception_risk | textbook_evidence_needed | 또는과 동시에의 경우의 수를 혼동하는 오류 |  |
 | m1_mis_permutation_combination_scope | 자료와 가능성 | 경우의 수와 확률 | misconception_risk | textbook_evidence_needed | 복잡한 순열·조합 문항을 중학교 경우의 수 범위에 포함하는 범위 오판 | 교육과정 유의사항에 근거한 범위 관리 노드다. |
 | m1_mis_probability_no_equal_likely | 자료와 가능성 | 경우의 수와 확률 | misconception_risk | textbook_evidence_needed | 동등 가능성 가정 없이 경우의 수 비율을 적용하는 오류 |  |

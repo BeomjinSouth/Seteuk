@@ -1710,10 +1710,36 @@
 - 전체 직접 파생 산출물과 research-report/legacy 보조 산출물을 재생성했고 `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
 - PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
 
+## 2026-07-02 피타고라스 정리 미시 concept 병렬 보강
+
+- AGENTS.md를 다시 확인하고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 생성 로직과 파생 산출물 정비로 제한했다.
+- 멀티에이전트 explorer 3개를 읽기 전용으로 사용해 `피타고라스 정리`를 병렬 감사했다. Faraday는 기존 6개 노드와 후보 concept·noisy edge를, Gibbs는 `CURR_GEO_15`, `CURR_GEO_PROOF_NOTE`, `CURR_GEO_TERMS`, `ACH_GEO_PYTHAGOREAN`, `ACH_RESEARCH_LENGTH_ITEM_62`의 source boundary를, Einstein은 테스트 구조와 edge 방향·부재 조건을 점검했다.
+- `직각삼각형의 직각`, `피타고라스 정리에서의 빗변`, `직각삼각형의 두 직각변`을 추가해 직각삼각형의 구성 요소를 피타고라스 정리 단원 내부에서 분리했다. 삼각비 단원의 `삼각비에서의 빗변`과는 동일시하지 않고, 단원별 표현 차이는 별도 노드로 유지했다.
+- `피타고라스 정리의 식 표현`, `변 위의 정사각형`, `세 변 위 정사각형 넓이 관계`를 추가해 정리의 기호 표현과 넓이 모델 표현을 분리했다.
+- `구하려는 변이 빗변인지 직각변인지 판단하기`, `피타고라스 정리로 빗변의 길이 구하기`, `피타고라스 정리로 한 직각변의 길이 구하기`를 추가해 정리 적용 절차를 미시 concept으로 나누었다. 연구보고서 p. 62는 `빗변의 길이 구하기`에만 직접 보조 근거로 사용했다.
+- `세 수가 피타고라스 관계를 만족하는지 확인하기`, `가장 긴 변을 빗변 후보로 정하기`, `피타고라스 정리의 역으로 직각삼각형 판별하기`를 추가해 역과 직각삼각형 판별 흐름을 세분화했다.
+- `넓이 분해로 피타고라스 정리 정당화하기`를 추가해 `[9수03-15]`의 “이해하고 정당화” 요구와 `CURR_GEO_PROOF_NOTE`를 연결했다. 넓이 분해·정사각형 모델은 교과서 본문·활동 근거 확인 전까지 `confidence: medium`과 notes로 경계를 남겼다.
+- `직각삼각형이 아닌 삼각형에 피타고라스 정리를 적용하는 오류`, `빗변을 가장 길지 않은 변으로 잘못 정하는 오류`, `한 직각변을 구할 때 제곱의 차를 쓰지 않는 오류`, `가장 긴 변을 확인하지 않고 역을 적용하는 오류`를 오개념 risk로 추가했다. 오개념 노드는 모두 `confidence: low`, 선수 관계 없음, `often_confused_with` 중심으로만 연결했다.
+- Gibbs의 감사 결과에 따라 `CURR_GEO_SCOPE_NOTE`는 피타고라스 positive evidence로 쓰지 않았다. 해당 ref는 삼각비 범위, 원·비례식 범위, 복잡한 측정 문제 제한에 가까우므로 피타고라스 정리 내부 concept·edge는 `CURR_GEO_15`, `CURR_GEO_TERMS`, `CURR_GEO_PROOF_NOTE`, `ACH_GEO_PYTHAGOREAN`, `ACH_RESEARCH_LENGTH_ITEM_62`로 제한했다.
+- noisy edge 방지 조건을 고정했다. `피타고라스 정리 단원 -> 삼각비 단원`, `도형의 닮음 단원 -> 피타고라스 정리 단원`은 직접 prerequisite가 아니라 기존 `related_to`로 유지했고, 오개념으로 향하는 prerequisite, 식 표현의 reverse represented_by, 빗변 길이 구하기와 직각변 길이 구하기 사이의 직접 prerequisite는 만들지 않았다.
+- 전체 산출물을 재생성한 결과 concept은 873개, edge는 3998개가 되었다. source ref audit은 12649개 ref를 기록하고 source catalogue는 5개를 유지한다.
+- `review-queue.*`는 149개 low-confidence concept, `concept-evidence-depth.*`는 concept 873개, `edge-evidence-depth.*`는 edge 3998개, `prerequisite-map.*`은 1453개 선수 관계 edge로 갱신했다.
+- `unit-coverage.*` 기준 `피타고라스 정리`는 concept 23개, 내부 edge 91개, incoming edge 26개, outgoing edge 9개이며, confidence 분포는 high 7개, medium 12개, low 4개이다. concept type 분포는 core 2개, representation 2개, procedure 9개, property 3개, term 3개, misconception_risk 4개이다.
+- `textbook-evidence-workplan.*`에서 `피타고라스 정리`는 rank 28, priority tier `high`이며 concept 23개, edge 126개, 총 149개 evidence row가 모두 `pending_textbook_pdf` 상태다. 이 단원의 low-confidence concept은 4개, low-confidence edge는 12개이다.
+- `test_build_pilot_pythagorean_microconcepts.py`를 추가해 직각삼각형 구성 요소, 식·넓이 표현, 길이 구하기와 역 판별 절차, 오개념 risk, noisy edge 부재를 고정했다.
+- 좁은 테스트: `python -m unittest test_build_pilot_pythagorean_microconcepts.py` 5개 통과.
+- edge/queue·주변 회귀 테스트: `python -m unittest test_build_pilot_pythagorean_microconcepts.py test_build_pilot_edge_sync.py test_build_related_edge_resolution_queue.py test_build_node_edge_consistency_audit.py test_build_pilot_geometry_foundations.py test_build_pilot_similarity_microconcepts.py test_build_pilot_trig_microconcepts.py` 47개 통과.
+- 전체 단위 테스트: `python -m unittest discover -s . -p "test_*.py"`를 `docs/math-concept-map/tools`에서 실행해 329개 통과.
+- 전체 validator: `python docs/math-concept-map/tools/validate_concept_map.py`: 873개 concept, 3998개 edge, 5개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map`: 종료 코드 0, CRLF 변환 경고만 확인.
+- 전체 직접 파생 산출물과 research-report/legacy 보조 산출물을 재생성했다. 교과서 evidence packet을 만든 뒤 `textbook-evidence-workplan.*`을 다시 생성해 rank/count가 최신 packet index를 보도록 했다.
+- `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
 - 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 `not_applicable_from_this_row` 41개가 broad context, 용어 충돌, 도구·자료 입력, 또는 약한 출현으로 유지되는지 주기적으로 감사한다. 현재 `pending_manual_review`는 8개이며, 주로 `선분`·`반직선` 후보이므로 교과서 본문 또는 중학교 기본 도형 직접 근거 확인 후 source ref 반영 여부를 판단한다.
 - 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.
-- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 253개, 총 296개 row로 유지한다. 공식·보조 문서 기반 미시 concept 보강을 계속한다면 이미 보강한 상위 단원을 제외하고 `피타고라스 정리`, `일차함수와 일차방정식의 관계`, `삼각비`처럼 미시 concept이 덜 분해된 단원을 우선 검토한다.
+- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 253개, 총 296개 row로 유지한다. 공식·보조 문서 기반 미시 concept 보강을 계속한다면 이미 보강한 상위 단원을 제외하고 `일차함수와 일차방정식의 관계`, `삼각비`, `경우의 수와 확률`처럼 미시 concept과 edge 근거가 더 필요한 단원을 우선 검토한다.
 - 새 concept, alias, `related_ids`, 또는 `equivalent_to` 후보가 추가되면 `equivalence-alias-audit.*`, `related-edge-resolution-queue.*`, `textbook-edge-evidence-packets/*`, `edge-evidence-depth.*`를 함께 재생성한다.

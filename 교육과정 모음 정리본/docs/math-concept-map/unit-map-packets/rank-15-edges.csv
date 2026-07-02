@@ -179,6 +179,7 @@
 15,기본 도형,m1_geo_angle__prerequisite_for__m1_geo_opposite_angle,m1_geo_angle,각,기본 도형,m1_geo_opposite_angle,대각,작도와 합동,prerequisite_for,cross_unit,high,official_dual_source,yes,3,
 15,기본 도형,m1_geo_angle__prerequisite_for__m1_geo_opposite_side,m1_geo_angle,각,기본 도형,m1_geo_opposite_side,대변,작도와 합동,prerequisite_for,cross_unit,high,official_dual_source,yes,3,
 15,기본 도형,m1_geo_angle__prerequisite_for__m1_geo_polygon,m1_geo_angle,각,기본 도형,m1_geo_polygon,다각형,평면도형의 성질,prerequisite_for,cross_unit,high,official_dual_source,yes,2,
+15,기본 도형,m1_geo_angle__prerequisite_for__m1_geo_pythagorean_right_angle,m1_geo_angle,각,기본 도형,m1_geo_pythagorean_right_angle,직각삼각형의 직각,피타고라스 정리,prerequisite_for,cross_unit,medium,official_dual_source,yes,2,
 15,기본 도형,m1_geo_angle__prerequisite_for__m1_geo_right_triangle,m1_geo_angle,각,기본 도형,m1_geo_right_triangle,직각삼각형,피타고라스 정리,prerequisite_for,cross_unit,high,official_dual_source,yes,3,
 15,기본 도형,m1_geo_angle__prerequisite_for__m1_geo_triangle,m1_geo_angle,각,기본 도형,m1_geo_triangle,삼각형,도형과 측정,prerequisite_for,cross_unit,medium,official_dual_source,yes,9,
 15,기본 도형,m1_geo_angle__prerequisite_for__m1_geo_triangle_construction,m1_geo_angle,각,기본 도형,m1_geo_triangle_construction,삼각형의 작도,작도와 합동,prerequisite_for,cross_unit,high,official_dual_source,yes,2,

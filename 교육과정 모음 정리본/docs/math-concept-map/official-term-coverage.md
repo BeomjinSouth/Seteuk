@@ -120,8 +120,8 @@
 | 포물선 | 변화와 관계 | covered | m1_quad_func_parabola | 포물선 |  |
 | 축 | 변화와 관계 | covered | m1_quad_func_axis | 축 |  |
 | 꼭짓점 | 변화와 관계 | covered | m1_quad_func_vertex | 꼭짓점 |  |
-| 최댓값 | 변화와 관계 | covered | m1_quad_func_maximum | 최댓값 |  |
-| 최솟값 | 변화와 관계 | covered | m1_quad_func_minimum | 최솟값 |  |
+| 최댓값 | 변화와 관계 | covered | m1_data_maximum_value; m1_quad_func_maximum | 최댓값; 최댓값 |  |
+| 최솟값 | 변화와 관계 | covered | m1_data_minimum_value; m1_quad_func_minimum | 최솟값; 최솟값 |  |
 | 교점 | 도형과 측정 | covered | m1_func_intersection_point; m1_geo_intersection_point | 교점; 교점 |  |
 | 교선 | 도형과 측정 | covered | m1_geo_intersection_line | 교선 |  |
 | 두 점 사이의 거리 | 도형과 측정 | covered | m1_geo_distance_between_two_points | 두 점 사이의 거리 |  |

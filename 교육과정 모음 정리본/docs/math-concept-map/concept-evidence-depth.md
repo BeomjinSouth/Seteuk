@@ -4,15 +4,15 @@ This generated audit summarizes source evidence depth for each concept node.
 
 ## Summary
 
-- concepts: 856
-- needs textbook evidence: 856
-- low confidence concepts: 145
+- concepts: 873
+- needs textbook evidence: 873
+- low confidence concepts: 149
 
 ## Evidence Depth Counts
 
 | evidence_depth | concept count |
 |---|---:|
-| official_dual_source | 755 |
+| official_dual_source | 772 |
 | official_single_source | 101 |
 
 ## Priority Rows
@@ -51,11 +51,11 @@ This generated audit summarizes source evidence depth for each concept node.
 | m1_mis_arc_chord | 호와 현을 같은 대상으로 보는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_polygon_interior_exterior_angle | 내각과 외각을 같은 각으로 보는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_sector_angle_proportion | 중심각 비례 관계를 호의 길이와 넓이에 적용하지 않는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
+| m1_mis_pythagorean_converse_unsorted_sides | 가장 긴 변을 확인하지 않고 역을 적용하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
+| m1_mis_pythagorean_hypotenuse_misidentification | 빗변을 가장 길지 않은 변으로 잘못 정하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
+| m1_mis_pythagorean_leg_subtraction | 한 직각변을 구할 때 제곱의 차를 쓰지 않는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
+| m1_mis_pythagorean_non_right_triangle | 직각삼각형이 아닌 삼각형에 피타고라스 정리를 적용하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_expansion_factorization_direction | 전개와 인수분해 방향을 혼동하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_factor_common_factor_missing | 공통인수를 빠뜨리는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_factor_formula_pattern | 곱셈·인수분해 공식을 기계적으로 끼워 맞추는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_factorization_unchecked_result | 인수분해 결과를 확인하지 않는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_perfect_square_sign | 완전제곱식의 가운데 항 부호를 혼동하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_coefficient_constant_degree | 계수·상수항·차수 혼동 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_letter_as_label_only | 문자를 이름표로만 해석하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_like_terms | 동류항이 아닌 항을 합치는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |

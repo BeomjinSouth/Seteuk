@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 식의 계산
 - priority tier: highest
-- workplan score: 194
+- workplan score: 196
 - concepts: 30
-- edges touching unit: 174
-- cross-unit edges: 76
+- edges touching unit: 176
+- cross-unit edges: 78
 - low confidence concepts: 4
 - low confidence edges: 17
 
@@ -33,7 +33,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 29 |
 | contrasts_with | 4 |
 | often_confused_with | 12 |
-| prerequisite_for | 76 |
+| prerequisite_for | 78 |
 | related_to | 9 |
 | used_in | 44 |
 
@@ -66,6 +66,8 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_calc_monomial_polynomial_mul_div__prerequisite_for__m1_factor_polynomial_multiplication | 단항식과 다항식의 곱셈과 나눗셈 | prerequisite_for | 다항식의 곱셈 | high | official_dual_source |
 | m1_calc_power__prerequisite_for__m1_data_squared_deviation | 거듭제곱 | prerequisite_for | 편차의 제곱 | medium | official_dual_source |
 | m1_calc_power__prerequisite_for__m1_factor_perfect_square_expression | 거듭제곱 | prerequisite_for | 완전제곱식 | high | official_dual_source |
+| m1_calc_power__prerequisite_for__m1_geo_pythagorean_formula | 거듭제곱 | prerequisite_for | 피타고라스 정리의 식 표현 | medium | official_dual_source |
+| m1_calc_power__prerequisite_for__m1_geo_pythagorean_triple_check | 거듭제곱 | prerequisite_for | 세 수가 피타고라스 관계를 만족하는지 확인하기 | medium | official_dual_source |
 | m1_calc_power__prerequisite_for__m1_num_denominator_power_of_ten_conversion | 거듭제곱 | prerequisite_for | 분모를 10의 거듭제곱으로 만들기 | medium | official_dual_source |
 | m1_calc_power__prerequisite_for__m1_num_prime_factor_product | 거듭제곱 | prerequisite_for | 소인수의 곱으로 표현하기 | high | official_dual_source |
 | m1_calc_power__prerequisite_for__m1_num_prime_factorization | 거듭제곱 | prerequisite_for | 소인수분해 | high | official_dual_source |
@@ -88,5 +90,3 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_expr_monomial__prerequisite_for__m1_calc_monomial_mul_div | 단항식 | prerequisite_for | 단항식의 곱셈과 나눗셈 | high | official_dual_source |
 | m1_expr_monomial__prerequisite_for__m1_calc_monomial_polynomial_mul_div | 단항식 | prerequisite_for | 단항식과 다항식의 곱셈과 나눗셈 | high | official_dual_source |
 | m1_expr_monomial__prerequisite_for__m1_calc_monomial_times_polynomial_distribution | 단항식 | prerequisite_for | 단항식을 다항식에 분배하기 | medium | official_dual_source |
-| m1_expr_monomial__prerequisite_for__m1_calc_unit | 단항식 | prerequisite_for | 식의 계산 | high | official_single_source |
-| m1_expr_polynomial__prerequisite_for__m1_calc_arithmetic_to_polynomial_extension | 다항식 | prerequisite_for | 수의 사칙연산에서 다항식 계산으로의 확장 | medium | official_single_source |

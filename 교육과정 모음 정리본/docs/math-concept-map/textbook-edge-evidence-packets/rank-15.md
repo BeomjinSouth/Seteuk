@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 기본 도형
 - priority tier: highest
 - priority score: 54
-- edges in packet: 249
-- cross-unit edges: 88
+- edges in packet: 250
+- cross-unit edges: 89
 - low confidence edges: 29
 
 ## Relationship Evidence Slots
@@ -198,6 +198,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_geo_angle__prerequisite_for__m1_geo_opposite_angle | cross_unit | 각 | prerequisite_for | 대각 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_angle__prerequisite_for__m1_geo_opposite_side | cross_unit | 각 | prerequisite_for | 대변 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_angle__prerequisite_for__m1_geo_polygon | cross_unit | 각 | prerequisite_for | 다각형 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_geo_angle__prerequisite_for__m1_geo_pythagorean_right_angle | cross_unit | 각 | prerequisite_for | 직각삼각형의 직각 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_angle__prerequisite_for__m1_geo_right_triangle | cross_unit | 각 | prerequisite_for | 직각삼각형 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_angle__prerequisite_for__m1_geo_triangle | cross_unit | 각 | prerequisite_for | 삼각형 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 9 |
 | m1_geo_angle__prerequisite_for__m1_geo_triangle_construction | cross_unit | 각 | prerequisite_for | 삼각형의 작도 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |

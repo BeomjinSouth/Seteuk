@@ -65,6 +65,7 @@ digraph pilot_unit_map {
   "m1_geo_diagonal" [label="대각선\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_distance_between_two_points" [label="두 점 사이의 거리\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_foot_of_perpendicular" [label="수선의 발\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_pythagorean_area_dissection_justification" [label="넓이 분해로 피타고라스 정리 정당화하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_pythagorean_justification" [label="피타고라스 정리의 정당화\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_length" [label="길이\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_centroid_location_by_median_ratio" [label="중선 위 2:1 비로 무게중심 위치 찾기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -77,6 +78,7 @@ digraph pilot_unit_map {
   "m1_geo_polygon" [label="다각형\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_circle_property_evidence_selection" [label="원의 성질 정당화에서 근거 선택하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_right_triangle" [label="직각삼각형\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_pythagorean_square_on_side" [label="변 위의 정사각형\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_tangent_line" [label="접선\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_triangle_congruence_conditions" [label="삼각형의 합동 조건\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_circle_unit" [label="원의 성질\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -261,6 +263,7 @@ digraph pilot_unit_map {
   "m1_geo_distance_between_two_points" -> "m1_geo_circumcenter_equal_vertex_distance" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_distance_between_two_points" -> "m1_geo_incenter_equal_side_distance" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_foot_of_perpendicular" -> "m1_geo_incenter_equal_side_distance" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_geo_justification" -> "m1_geo_pythagorean_area_dissection_justification" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_justification" -> "m1_geo_pythagorean_justification" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_length" -> "m1_geo_isosceles_equal_sides" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_length" -> "m1_geo_rectangle_diagonals_equal" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -283,6 +286,7 @@ digraph pilot_unit_map {
   "m1_geo_proof" -> "m1_geo_circle_justification" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_proof" -> "m1_geo_circle_property_evidence_selection" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_right_triangle" -> "m1_geo_right_triangle_congruence_conditions" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_geo_square" -> "m1_geo_pythagorean_square_on_side" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_tangent_line" -> "m1_geo_incircle" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_triangle_congruence_conditions" -> "m1_geo_incenter" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_triangle_congruence_conditions" -> "m1_geo_isosceles_properties" [label="prerequisite_for", style="dashed", color="#6b7280"];

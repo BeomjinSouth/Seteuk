@@ -46,6 +46,8 @@ digraph pilot_unit_map {
   "m1_factor_polynomial_product_expansion" [label="다항식의 곱 전개하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_squared_deviation" [label="편차의 제곱\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_factor_perfect_square_expression" [label="완전제곱식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_pythagorean_formula" [label="피타고라스 정리의 식 표현\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_pythagorean_triple_check" [label="세 수가 피타고라스 관계를 만족하는지 확인하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_denominator_power_of_ten_conversion" [label="분모를 10의 거듭제곱으로 만들기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_prime_factor_product" [label="소인수의 곱으로 표현하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_prime_factorization" [label="소인수분해\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -183,6 +185,8 @@ digraph pilot_unit_map {
   "m1_calc_monomial_polynomial_mul_div" -> "m1_factor_polynomial_multiplication" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_calc_power" -> "m1_data_squared_deviation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_calc_power" -> "m1_factor_perfect_square_expression" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_calc_power" -> "m1_geo_pythagorean_formula" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_calc_power" -> "m1_geo_pythagorean_triple_check" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_calc_power" -> "m1_num_denominator_power_of_ten_conversion" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_calc_power" -> "m1_num_prime_factor_product" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_calc_power" -> "m1_num_prime_factorization" [label="prerequisite_for", style="dashed", color="#6b7280"];

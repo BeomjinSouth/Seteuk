@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 식의 계산
 - priority tier: highest
 - priority score: 50
-- edges in packet: 174
-- cross-unit edges: 76
+- edges in packet: 176
+- cross-unit edges: 78
 - low confidence edges: 17
 
 ## Relationship Evidence Slots
@@ -132,6 +132,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_calc_monomial_polynomial_mul_div__prerequisite_for__m1_factor_polynomial_multiplication | cross_unit | 단항식과 다항식의 곱셈과 나눗셈 | prerequisite_for | 다항식의 곱셈 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_calc_power__prerequisite_for__m1_data_squared_deviation | cross_unit | 거듭제곱 | prerequisite_for | 편차의 제곱 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_calc_power__prerequisite_for__m1_factor_perfect_square_expression | cross_unit | 거듭제곱 | prerequisite_for | 완전제곱식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_calc_power__prerequisite_for__m1_geo_pythagorean_formula | cross_unit | 거듭제곱 | prerequisite_for | 피타고라스 정리의 식 표현 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_calc_power__prerequisite_for__m1_geo_pythagorean_triple_check | cross_unit | 거듭제곱 | prerequisite_for | 세 수가 피타고라스 관계를 만족하는지 확인하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_calc_power__prerequisite_for__m1_num_denominator_power_of_ten_conversion | cross_unit | 거듭제곱 | prerequisite_for | 분모를 10의 거듭제곱으로 만들기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_calc_power__prerequisite_for__m1_num_prime_factor_product | cross_unit | 거듭제곱 | prerequisite_for | 소인수의 곱으로 표현하기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_calc_power__prerequisite_for__m1_num_prime_factorization | cross_unit | 거듭제곱 | prerequisite_for | 소인수분해 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
