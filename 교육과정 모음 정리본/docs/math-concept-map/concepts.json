@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-07-02T09:50:06",
+    "generated_at": "2026-07-02T10:08:35",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
-    "concept_count": 797,
-    "edge_count": 3622
+    "concept_count": 814,
+    "edge_count": 3708
   },
   "sources": [
     {
@@ -32548,6 +32548,195 @@
       "confidence": "high"
     },
     {
+      "id": "m1_data_deviation_calculation",
+      "label_ko": "편차 구하기",
+      "aliases": [
+        "변량에서 평균 빼기"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "산포도",
+      "concept_type": "procedure",
+      "short_definition": "각 변량에서 평균을 빼서 편차를 구하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_variable",
+        "m1_data_mean"
+      ],
+      "parent_ids": [
+        "m1_data_variability_unit"
+      ],
+      "related_ids": [
+        "m1_data_deviation",
+        "m1_mis_deviation_as_absolute_distance"
+      ],
+      "notes": "편차의 뜻을 실제 계산 절차로 분해한 노드다. 교과서 본문 확인 전까지 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_deviation_formula",
+      "label_ko": "편차 계산식",
+      "aliases": [
+        "편차 = 변량 - 평균"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "산포도",
+      "concept_type": "representation",
+      "short_definition": "편차를 변량에서 평균을 뺀 식으로 나타낸 표현.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_deviation_calculation"
+      ],
+      "parent_ids": [
+        "m1_data_variability_unit"
+      ],
+      "related_ids": [
+        "m1_data_deviation"
+      ],
+      "notes": "공식 문서는 편차의 뜻과 계산을 요구하지만 식 표현은 교과서 본문 확인 전까지 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_deviation_sum_zero",
+      "label_ko": "편차의 합은 0",
+      "aliases": [
+        "편차의 합"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "산포도",
+      "concept_type": "property",
+      "short_definition": "같은 평균을 기준으로 한 모든 편차의 합이 0이 되는 성질.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_deviation_calculation"
+      ],
+      "parent_ids": [
+        "m1_data_variability_unit"
+      ],
+      "related_ids": [
+        "m1_data_squared_deviation"
+      ],
+      "notes": "편차의 정의에서 파생되는 교과서 정리 성격의 성질이다. 공식 문서의 직접 용어는 아니므로 교과서 본문 확인 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_squared_deviation",
+      "label_ko": "편차의 제곱",
+      "aliases": [
+        "squared deviation"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "산포도",
+      "concept_type": "sub_concept",
+      "short_definition": "편차를 제곱하여 음수와 양수가 상쇄되지 않도록 만든 값.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_deviation",
+        "m1_calc_power"
+      ],
+      "parent_ids": [
+        "m1_data_variability_unit"
+      ],
+      "related_ids": [
+        "m1_mis_deviation_as_absolute_distance"
+      ],
+      "notes": "분산 계산에 필요한 중간량으로 추론했다. 교과서 계산 표 근거 확인 전까지 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_sum_squared_deviation",
+      "label_ko": "편차의 제곱의 합",
+      "aliases": [
+        "sum of squared deviations"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "산포도",
+      "concept_type": "sub_concept",
+      "short_definition": "각 편차의 제곱을 모두 더한 값.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_squared_deviation",
+        "m1_num_addition"
+      ],
+      "parent_ids": [
+        "m1_data_variability_unit"
+      ],
+      "related_ids": [
+        "m1_data_variance_calculation"
+      ],
+      "notes": "분산을 구하는 과정의 중간량으로 추론했다. 교과서 본문 확인 전까지 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_data_variance",
       "label_ko": "분산",
       "aliases": [
@@ -32579,8 +32768,9 @@
         }
       ],
       "prerequisite_ids": [
-        "m1_data_deviation",
-        "m1_calc_power"
+        "m1_data_deviation_calculation",
+        "m1_data_squared_deviation",
+        "m1_data_variance_calculation"
       ],
       "parent_ids": [
         "m1_data_variability_unit"
@@ -32591,6 +32781,83 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_data_variance_calculation",
+      "label_ko": "분산 구하기",
+      "aliases": [
+        "분산 계산"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "산포도",
+      "concept_type": "procedure",
+      "short_definition": "편차의 제곱의 합을 자료의 개수로 나누어 분산을 구하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_sum_squared_deviation",
+        "m1_num_division"
+      ],
+      "parent_ids": [
+        "m1_data_variability_unit"
+      ],
+      "related_ids": [
+        "m1_data_variance",
+        "m1_data_variability_calculation_table"
+      ],
+      "notes": "분산 공식의 계산 절차를 분리했다. 교과서 본문 확인 전까지 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_variance_formula",
+      "label_ko": "분산 계산식",
+      "aliases": [
+        "분산 공식"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "산포도",
+      "concept_type": "representation",
+      "short_definition": "분산을 편차의 제곱의 합을 자료의 개수로 나눈 식으로 나타낸 표현.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_sum_squared_deviation",
+        "m1_num_division"
+      ],
+      "parent_ids": [
+        "m1_data_variability_unit"
+      ],
+      "related_ids": [
+        "m1_data_variance"
+      ],
+      "notes": "공식 문서는 분산 계산을 요구하지만 식 표현은 교과서 본문 확인 전까지 중간 신뢰도로 둔다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_data_standard_deviation",
@@ -32625,6 +32892,7 @@
       ],
       "prerequisite_ids": [
         "m1_data_variance",
+        "m1_data_standard_deviation_calculation",
         "m1_num_square_root"
       ],
       "parent_ids": [
@@ -32632,10 +32900,166 @@
       ],
       "related_ids": [
         "m1_data_calculate_variance_sd",
-        "m1_data_compare_distributions_variability"
+        "m1_data_compare_distributions_variability",
+        "m1_data_standard_deviation_unit"
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_data_standard_deviation_calculation",
+      "label_ko": "표준편차 구하기",
+      "aliases": [
+        "표준편차 계산"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "산포도",
+      "concept_type": "procedure",
+      "short_definition": "분산의 양의 제곱근을 구하여 표준편차를 계산하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_variance",
+        "m1_data_variance_calculation",
+        "m1_num_square_root"
+      ],
+      "parent_ids": [
+        "m1_data_variability_unit"
+      ],
+      "related_ids": [
+        "m1_data_standard_deviation",
+        "m1_mis_sd_without_square_root"
+      ],
+      "notes": "표준편차 계산을 분산 계산과 분리해 드러낸 노드다. 교과서 본문 확인 전까지 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_standard_deviation_formula",
+      "label_ko": "표준편차 계산식",
+      "aliases": [
+        "표준편차 공식"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "산포도",
+      "concept_type": "representation",
+      "short_definition": "표준편차를 분산의 제곱근으로 나타낸 식 표현.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_variance",
+        "m1_num_square_root"
+      ],
+      "parent_ids": [
+        "m1_data_variability_unit"
+      ],
+      "related_ids": [
+        "m1_data_standard_deviation"
+      ],
+      "notes": "공식 문서는 표준편차 계산을 요구하지만 식 표현은 교과서 본문 확인 전까지 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_variability_calculation_table",
+      "label_ko": "산포도 계산 표",
+      "aliases": [
+        "편차 계산 표",
+        "분산 계산 표"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "산포도",
+      "concept_type": "representation",
+      "short_definition": "변량, 편차, 편차의 제곱 등을 열로 정리하여 분산과 표준편차 계산을 돕는 표.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_deviation_calculation",
+        "m1_data_squared_deviation"
+      ],
+      "parent_ids": [
+        "m1_data_variability_unit"
+      ],
+      "related_ids": [
+        "m1_data_calculate_variance_sd"
+      ],
+      "notes": "교과서 예제에서 자주 쓰이는 계산 표 형식으로 추론했다. 공식 문서의 직접 표현은 아니므로 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_standard_deviation_unit",
+      "label_ko": "표준편차의 단위",
+      "aliases": [
+        "표준편차와 원자료 단위"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "산포도",
+      "concept_type": "property",
+      "short_definition": "표준편차는 분산과 달리 원자료와 같은 단위로 해석할 수 있다는 성질.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_standard_deviation",
+        "m1_data_variance"
+      ],
+      "parent_ids": [
+        "m1_data_variability_unit"
+      ],
+      "related_ids": [
+        "m1_mis_variance_standard_deviation"
+      ],
+      "notes": "표준편차를 분산의 제곱근으로 정의한 데서 파생되는 해석 성질이다. 공식 문서의 직접 용어는 아니므로 교과서 본문 확인 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
     },
     {
       "id": "m1_data_calculate_variance_sd",
@@ -32669,18 +33093,136 @@
         }
       ],
       "prerequisite_ids": [
-        "m1_data_deviation",
-        "m1_data_variance",
-        "m1_data_standard_deviation"
+        "m1_data_deviation_calculation",
+        "m1_data_variance_calculation",
+        "m1_data_standard_deviation_calculation"
       ],
       "parent_ids": [
         "m1_data_variability_unit"
       ],
       "related_ids": [
-        "m1_data_technology_tool_stats"
+        "m1_data_technology_tool_stats",
+        "m1_data_variability_calculation_table"
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_data_variability_magnitude_interpretation",
+      "label_ko": "산포도 값의 크기 해석",
+      "aliases": [
+        "흩어진 정도 해석"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "산포도",
+      "concept_type": "procedure",
+      "short_definition": "분산이나 표준편차가 클수록 자료가 평균 주변에서 더 흩어져 있음을 설명하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_variance",
+        "m1_data_standard_deviation",
+        "m1_data_distribution"
+      ],
+      "parent_ids": [
+        "m1_data_variability_unit"
+      ],
+      "related_ids": [
+        "m1_data_compare_distributions_variability"
+      ],
+      "notes": "성취기준의 '자료의 분포를 설명'하는 행동을 산포도 값 해석 절차로 분해했다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_explain_distribution_with_variability",
+      "label_ko": "산포도로 자료의 분포 설명하기",
+      "aliases": [
+        "분산과 표준편차로 분포 설명하기"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "산포도",
+      "concept_type": "procedure",
+      "short_definition": "분산과 표준편차를 구한 뒤 자료의 분포와 흩어진 정도를 말로 설명하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_calculate_variance_sd",
+        "m1_data_variability_magnitude_interpretation"
+      ],
+      "parent_ids": [
+        "m1_data_variability_unit"
+      ],
+      "related_ids": [
+        "m1_data_distribution",
+        "m1_data_compare_distributions_variability"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_data_same_mean_different_spread",
+      "label_ko": "평균이 같은 두 분포의 흩어진 정도 비교",
+      "aliases": [
+        "같은 평균 다른 산포도"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "산포도",
+      "concept_type": "sub_concept",
+      "short_definition": "두 자료의 평균이 같아도 편차, 분산, 표준편차에 따라 분포의 흩어진 정도가 다를 수 있다는 비교 맥락.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_mean",
+        "m1_data_variability_magnitude_interpretation"
+      ],
+      "parent_ids": [
+        "m1_data_variability_unit"
+      ],
+      "related_ids": [
+        "m1_data_compare_distributions_variability",
+        "m1_mis_same_mean_same_distribution"
+      ],
+      "notes": "두 집단 분포 비교 성취수준에서 필요한 대표적인 비교 맥락으로 추론했다. 공식 문서의 직접 표현은 아니므로 교과서 예제 근거 확인 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
     },
     {
       "id": "m1_data_compare_distributions_variability",
@@ -32709,7 +33251,8 @@
       ],
       "prerequisite_ids": [
         "m1_data_standard_deviation",
-        "m1_data_distribution_interpretation"
+        "m1_data_distribution_interpretation",
+        "m1_data_variability_magnitude_interpretation"
       ],
       "parent_ids": [
         "m1_data_variability_unit"
@@ -32745,17 +33288,123 @@
           "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_data_variance",
-        "m1_data_standard_deviation"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_data_variability_unit"
       ],
       "related_ids": [
-        "m1_data_calculate_variance_sd"
+        "m1_data_calculate_variance_sd",
+        "m1_data_standard_deviation_unit"
       ],
       "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_deviation_as_absolute_distance",
+      "label_ko": "편차를 항상 양수 거리로 보는 오류",
+      "aliases": [
+        "편차 부호 무시"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "산포도",
+      "concept_type": "misconception_risk",
+      "short_definition": "편차에는 평균보다 작은 값에서 생기는 음수 방향이 있을 수 있는데 이를 절댓값 거리처럼만 보는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_data_variability_unit"
+      ],
+      "related_ids": [
+        "m1_data_deviation",
+        "m1_data_squared_deviation"
+      ],
+      "notes": "학생 반응에서 예상되는 오개념으로 추론했다. 교과서 문항 근거 확인 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_sd_without_square_root",
+      "label_ko": "표준편차에서 제곱근을 빠뜨리는 오류",
+      "aliases": [
+        "표준편차를 분산으로 끝내는 오류"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "산포도",
+      "concept_type": "misconception_risk",
+      "short_definition": "분산을 구한 뒤 제곱근을 취하지 않아 표준편차와 분산을 혼동하는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_data_variability_unit"
+      ],
+      "related_ids": [
+        "m1_data_standard_deviation_calculation",
+        "m1_data_variance"
+      ],
+      "notes": "표준편차 계산 절차에서 예상되는 오개념으로 추론했다. 교과서 문항 근거 확인 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_same_mean_same_distribution",
+      "label_ko": "평균이 같으면 분포도 같다고 보는 오류",
+      "aliases": [
+        "같은 평균 같은 분포 오해"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "산포도",
+      "concept_type": "misconception_risk",
+      "short_definition": "두 자료의 평균이 같다는 이유만으로 흩어진 정도와 분포까지 같다고 판단하는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_data_variability_unit"
+      ],
+      "related_ids": [
+        "m1_data_same_mean_different_spread",
+        "m1_data_compare_distributions_variability"
+      ],
+      "notes": "두 집단 분포 비교에서 예상되는 오개념으로 추론했다. 교과서 예제·문항 근거 확인 전까지 낮은 신뢰도로 둔다.",
       "confidence": "low"
     },
     {
@@ -72136,6 +72785,314 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_data_mean__used_in__m1_data_deviation_calculation",
+      "source_id": "m1_data_mean",
+      "target_id": "m1_data_deviation_calculation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_variable__used_in__m1_data_deviation_calculation",
+      "source_id": "m1_data_variable",
+      "target_id": "m1_data_deviation_calculation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_deviation_calculation__used_in__m1_data_deviation",
+      "source_id": "m1_data_deviation_calculation",
+      "target_id": "m1_data_deviation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_deviation__represented_by__m1_data_deviation_formula",
+      "source_id": "m1_data_deviation",
+      "target_id": "m1_data_deviation_formula",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "편차의 뜻을 식으로 나타낸 표현이다. 교과서 정의 확인 전까지 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_deviation__used_in__m1_data_deviation_sum_zero",
+      "source_id": "m1_data_deviation",
+      "target_id": "m1_data_deviation_sum_zero",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "편차의 합 성질은 편차 정의에서 파생되며 교과서 본문 확인 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_deviation__used_in__m1_data_squared_deviation",
+      "source_id": "m1_data_deviation",
+      "target_id": "m1_data_squared_deviation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_deviation_sum_zero__related_to__m1_data_squared_deviation",
+      "source_id": "m1_data_deviation_sum_zero",
+      "target_id": "m1_data_squared_deviation",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "편차의 합이 0이 되는 성질은 편차를 제곱해 흩어진 정도를 재는 이유와 관련된다. 교과서 본문 확인 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_calc_power__used_in__m1_data_squared_deviation",
+      "source_id": "m1_calc_power",
+      "target_id": "m1_data_squared_deviation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_squared_deviation__used_in__m1_data_sum_squared_deviation",
+      "source_id": "m1_data_squared_deviation",
+      "target_id": "m1_data_sum_squared_deviation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_sum_squared_deviation__used_in__m1_data_variance_calculation",
+      "source_id": "m1_data_sum_squared_deviation",
+      "target_id": "m1_data_variance_calculation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_division__used_in__m1_data_variance_calculation",
+      "source_id": "m1_num_division",
+      "target_id": "m1_data_variance_calculation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_variance_calculation__represented_by__m1_data_variability_calculation_table",
+      "source_id": "m1_data_variance_calculation",
+      "target_id": "m1_data_variability_calculation_table",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "분산 계산 절차를 변량-편차-편차제곱 표로 나타내는 표현으로 추론했다. 교과서 본문 확인 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_variance_calculation__used_in__m1_data_variance",
+      "source_id": "m1_data_variance_calculation",
+      "target_id": "m1_data_variance",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_variance__represented_by__m1_data_variance_formula",
+      "source_id": "m1_data_variance",
+      "target_id": "m1_data_variance_formula",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "분산 계산식을 구체 표현으로 분리했다. 교과서 정의 확인 전까지 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_data_deviation__used_in__m1_data_variance",
       "source_id": "m1_data_deviation",
       "target_id": "m1_data_variance",
@@ -72190,6 +73147,116 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_data_variance__used_in__m1_data_standard_deviation_calculation",
+      "source_id": "m1_data_variance",
+      "target_id": "m1_data_standard_deviation_calculation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_square_root__used_in__m1_data_standard_deviation_calculation",
+      "source_id": "m1_num_square_root",
+      "target_id": "m1_data_standard_deviation_calculation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_standard_deviation_calculation__used_in__m1_data_standard_deviation",
+      "source_id": "m1_data_standard_deviation_calculation",
+      "target_id": "m1_data_standard_deviation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_standard_deviation__represented_by__m1_data_standard_deviation_formula",
+      "source_id": "m1_data_standard_deviation",
+      "target_id": "m1_data_standard_deviation_formula",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "표준편차 계산식을 구체 표현으로 분리했다. 교과서 정의 확인 전까지 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_standard_deviation__used_in__m1_data_standard_deviation_unit",
+      "source_id": "m1_data_standard_deviation",
+      "target_id": "m1_data_standard_deviation_unit",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "표준편차의 단위 해석은 제곱근 정의에서 파생된다. 공식 문서 직접 용어는 아니므로 낮은 신뢰도로 둔다.",
+      "confidence": "low"
     },
     {
       "id": "m1_data_deviation__used_in__m1_data_standard_deviation",
@@ -72286,6 +73353,270 @@
       "confidence": "high"
     },
     {
+      "id": "m1_data_deviation_calculation__used_in__m1_data_calculate_variance_sd",
+      "source_id": "m1_data_deviation_calculation",
+      "target_id": "m1_data_calculate_variance_sd",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_variance_calculation__used_in__m1_data_calculate_variance_sd",
+      "source_id": "m1_data_variance_calculation",
+      "target_id": "m1_data_calculate_variance_sd",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_standard_deviation_calculation__used_in__m1_data_calculate_variance_sd",
+      "source_id": "m1_data_standard_deviation_calculation",
+      "target_id": "m1_data_calculate_variance_sd",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_variability_calculation_table__used_in__m1_data_calculate_variance_sd",
+      "source_id": "m1_data_variability_calculation_table",
+      "target_id": "m1_data_calculate_variance_sd",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "교과서 예제에서 자주 쓰이는 계산 표 형식으로 추론했다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_standard_deviation__used_in__m1_data_variability_magnitude_interpretation",
+      "source_id": "m1_data_standard_deviation",
+      "target_id": "m1_data_variability_magnitude_interpretation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_variance__used_in__m1_data_variability_magnitude_interpretation",
+      "source_id": "m1_data_variance",
+      "target_id": "m1_data_variability_magnitude_interpretation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_distribution__used_in__m1_data_explain_distribution_with_variability",
+      "source_id": "m1_data_distribution",
+      "target_id": "m1_data_explain_distribution_with_variability",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_data_variability_magnitude_interpretation__used_in__m1_data_explain_distribution_with_variability",
+      "source_id": "m1_data_variability_magnitude_interpretation",
+      "target_id": "m1_data_explain_distribution_with_variability",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_data_calculate_variance_sd__used_in__m1_data_explain_distribution_with_variability",
+      "source_id": "m1_data_calculate_variance_sd",
+      "target_id": "m1_data_explain_distribution_with_variability",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_data_explain_distribution_with_variability__used_in__m1_data_compare_distributions_variability",
+      "source_id": "m1_data_explain_distribution_with_variability",
+      "target_id": "m1_data_compare_distributions_variability",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_variability_magnitude_interpretation__used_in__m1_data_compare_distributions_variability",
+      "source_id": "m1_data_variability_magnitude_interpretation",
+      "target_id": "m1_data_compare_distributions_variability",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_same_mean_different_spread__used_in__m1_data_compare_distributions_variability",
+      "source_id": "m1_data_same_mean_different_spread",
+      "target_id": "m1_data_compare_distributions_variability",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "같은 평균의 두 분포 비교는 교과서 예제 확인 전까지 낮은 신뢰도 맥락으로 둔다.",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_standard_deviation__used_in__m1_data_compare_distributions_variability",
       "source_id": "m1_data_standard_deviation",
       "target_id": "m1_data_compare_distributions_variability",
@@ -72306,6 +73637,28 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_data_variance__used_in__m1_data_compare_distributions_variability",
+      "source_id": "m1_data_variance",
+      "target_id": "m1_data_compare_distributions_variability",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_data_variability_unit__related_to__m1_data_box_scatter_unit",
@@ -89090,6 +90443,116 @@
       "confidence": "high"
     },
     {
+      "id": "m1_data_variability_unit__contains__m1_data_deviation_calculation",
+      "source_id": "m1_data_variability_unit",
+      "target_id": "m1_data_deviation_calculation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_variability_unit__contains__m1_data_deviation_formula",
+      "source_id": "m1_data_variability_unit",
+      "target_id": "m1_data_deviation_formula",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_variability_unit__contains__m1_data_deviation_sum_zero",
+      "source_id": "m1_data_variability_unit",
+      "target_id": "m1_data_deviation_sum_zero",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_variability_unit__contains__m1_data_squared_deviation",
+      "source_id": "m1_data_variability_unit",
+      "target_id": "m1_data_squared_deviation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_variability_unit__contains__m1_data_sum_squared_deviation",
+      "source_id": "m1_data_variability_unit",
+      "target_id": "m1_data_sum_squared_deviation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_data_variability_unit__contains__m1_data_variance",
       "source_id": "m1_data_variability_unit",
       "target_id": "m1_data_variance",
@@ -89116,6 +90579,50 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_data_variability_unit__contains__m1_data_variance_calculation",
+      "source_id": "m1_data_variability_unit",
+      "target_id": "m1_data_variance_calculation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_variability_unit__contains__m1_data_variance_formula",
+      "source_id": "m1_data_variability_unit",
+      "target_id": "m1_data_variance_formula",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_data_variability_unit__contains__m1_data_standard_deviation",
@@ -89146,6 +90653,94 @@
       "confidence": "high"
     },
     {
+      "id": "m1_data_variability_unit__contains__m1_data_standard_deviation_calculation",
+      "source_id": "m1_data_variability_unit",
+      "target_id": "m1_data_standard_deviation_calculation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_variability_unit__contains__m1_data_standard_deviation_formula",
+      "source_id": "m1_data_variability_unit",
+      "target_id": "m1_data_standard_deviation_formula",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_variability_unit__contains__m1_data_variability_calculation_table",
+      "source_id": "m1_data_variability_unit",
+      "target_id": "m1_data_variability_calculation_table",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_variability_unit__contains__m1_data_standard_deviation_unit",
+      "source_id": "m1_data_variability_unit",
+      "target_id": "m1_data_standard_deviation_unit",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_variability_unit__contains__m1_data_calculate_variance_sd",
       "source_id": "m1_data_variability_unit",
       "target_id": "m1_data_calculate_variance_sd",
@@ -89174,6 +90769,72 @@
       "confidence": "high"
     },
     {
+      "id": "m1_data_variability_unit__contains__m1_data_variability_magnitude_interpretation",
+      "source_id": "m1_data_variability_unit",
+      "target_id": "m1_data_variability_magnitude_interpretation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_variability_unit__contains__m1_data_explain_distribution_with_variability",
+      "source_id": "m1_data_variability_unit",
+      "target_id": "m1_data_explain_distribution_with_variability",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_data_variability_unit__contains__m1_data_same_mean_different_spread",
+      "source_id": "m1_data_variability_unit",
+      "target_id": "m1_data_same_mean_different_spread",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_variability_unit__contains__m1_data_compare_distributions_variability",
       "source_id": "m1_data_variability_unit",
       "target_id": "m1_data_compare_distributions_variability",
@@ -89199,6 +90860,72 @@
       "id": "m1_data_variability_unit__contains__m1_mis_variance_standard_deviation",
       "source_id": "m1_data_variability_unit",
       "target_id": "m1_mis_variance_standard_deviation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_variability_unit__contains__m1_mis_deviation_as_absolute_distance",
+      "source_id": "m1_data_variability_unit",
+      "target_id": "m1_mis_deviation_as_absolute_distance",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_variability_unit__contains__m1_mis_sd_without_square_root",
+      "source_id": "m1_data_variability_unit",
+      "target_id": "m1_mis_sd_without_square_root",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_variability_unit__contains__m1_mis_same_mean_same_distribution",
+      "source_id": "m1_data_variability_unit",
+      "target_id": "m1_mis_same_mean_same_distribution",
       "relationship_type": "contains",
       "source_refs": [
         {
@@ -121676,8 +123403,184 @@
       "confidence": "high"
     },
     {
-      "id": "m1_data_deviation__prerequisite_for__m1_data_variance",
+      "id": "m1_data_variable__prerequisite_for__m1_data_deviation_calculation",
+      "source_id": "m1_data_variable",
+      "target_id": "m1_data_deviation_calculation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_mean__prerequisite_for__m1_data_deviation_calculation",
+      "source_id": "m1_data_mean",
+      "target_id": "m1_data_deviation_calculation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_deviation_calculation__prerequisite_for__m1_data_deviation_formula",
+      "source_id": "m1_data_deviation_calculation",
+      "target_id": "m1_data_deviation_formula",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_deviation_calculation__prerequisite_for__m1_data_deviation_sum_zero",
+      "source_id": "m1_data_deviation_calculation",
+      "target_id": "m1_data_deviation_sum_zero",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_deviation__prerequisite_for__m1_data_squared_deviation",
       "source_id": "m1_data_deviation",
+      "target_id": "m1_data_squared_deviation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_calc_power__prerequisite_for__m1_data_squared_deviation",
+      "source_id": "m1_calc_power",
+      "target_id": "m1_data_squared_deviation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_squared_deviation__prerequisite_for__m1_data_sum_squared_deviation",
+      "source_id": "m1_data_squared_deviation",
+      "target_id": "m1_data_sum_squared_deviation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_addition__prerequisite_for__m1_data_sum_squared_deviation",
+      "source_id": "m1_num_addition",
+      "target_id": "m1_data_sum_squared_deviation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_deviation_calculation__prerequisite_for__m1_data_variance",
+      "source_id": "m1_data_deviation_calculation",
       "target_id": "m1_data_variance",
       "relationship_type": "prerequisite_for",
       "source_refs": [
@@ -121704,8 +123607,8 @@
       "confidence": "high"
     },
     {
-      "id": "m1_calc_power__prerequisite_for__m1_data_variance",
-      "source_id": "m1_calc_power",
+      "id": "m1_data_squared_deviation__prerequisite_for__m1_data_variance",
+      "source_id": "m1_data_squared_deviation",
       "target_id": "m1_data_variance",
       "relationship_type": "prerequisite_for",
       "source_refs": [
@@ -121730,10 +123633,154 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_data_variance_calculation__prerequisite_for__m1_data_variance",
+      "source_id": "m1_data_variance_calculation",
+      "target_id": "m1_data_variance",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_data_sum_squared_deviation__prerequisite_for__m1_data_variance_calculation",
+      "source_id": "m1_data_sum_squared_deviation",
+      "target_id": "m1_data_variance_calculation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_division__prerequisite_for__m1_data_variance_calculation",
+      "source_id": "m1_num_division",
+      "target_id": "m1_data_variance_calculation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_sum_squared_deviation__prerequisite_for__m1_data_variance_formula",
+      "source_id": "m1_data_sum_squared_deviation",
+      "target_id": "m1_data_variance_formula",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_division__prerequisite_for__m1_data_variance_formula",
+      "source_id": "m1_num_division",
+      "target_id": "m1_data_variance_formula",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_data_variance__prerequisite_for__m1_data_standard_deviation",
       "source_id": "m1_data_variance",
+      "target_id": "m1_data_standard_deviation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_data_standard_deviation_calculation__prerequisite_for__m1_data_standard_deviation",
+      "source_id": "m1_data_standard_deviation_calculation",
       "target_id": "m1_data_standard_deviation",
       "relationship_type": "prerequisite_for",
       "source_refs": [
@@ -121788,36 +123835,206 @@
       "confidence": "high"
     },
     {
-      "id": "m1_data_deviation__prerequisite_for__m1_data_calculate_variance_sd",
-      "source_id": "m1_data_deviation",
-      "target_id": "m1_data_calculate_variance_sd",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 41; [9수04-07]",
-          "evidence_kind": "achievement_standard",
-          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
-        },
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 42; achievement-standard considerations",
-          "evidence_kind": "teaching_note",
-          "summary": "눈금 등을 부적절하게 사용해 자료를 부정확하게 나타낸 표나 그래프의 오류를 찾고, 자료 정리·표현·대푯값·산포도 계산에 공학 도구를 활용하게 함"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "high"
-    },
-    {
-      "id": "m1_data_variance__prerequisite_for__m1_data_calculate_variance_sd",
+      "id": "m1_data_variance__prerequisite_for__m1_data_standard_deviation_calculation",
       "source_id": "m1_data_variance",
+      "target_id": "m1_data_standard_deviation_calculation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_variance_calculation__prerequisite_for__m1_data_standard_deviation_calculation",
+      "source_id": "m1_data_variance_calculation",
+      "target_id": "m1_data_standard_deviation_calculation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_square_root__prerequisite_for__m1_data_standard_deviation_calculation",
+      "source_id": "m1_num_square_root",
+      "target_id": "m1_data_standard_deviation_calculation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_variance__prerequisite_for__m1_data_standard_deviation_formula",
+      "source_id": "m1_data_variance",
+      "target_id": "m1_data_standard_deviation_formula",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_square_root__prerequisite_for__m1_data_standard_deviation_formula",
+      "source_id": "m1_num_square_root",
+      "target_id": "m1_data_standard_deviation_formula",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_deviation_calculation__prerequisite_for__m1_data_variability_calculation_table",
+      "source_id": "m1_data_deviation_calculation",
+      "target_id": "m1_data_variability_calculation_table",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_squared_deviation__prerequisite_for__m1_data_variability_calculation_table",
+      "source_id": "m1_data_squared_deviation",
+      "target_id": "m1_data_variability_calculation_table",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_standard_deviation__prerequisite_for__m1_data_standard_deviation_unit",
+      "source_id": "m1_data_standard_deviation",
+      "target_id": "m1_data_standard_deviation_unit",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_variance__prerequisite_for__m1_data_standard_deviation_unit",
+      "source_id": "m1_data_variance",
+      "target_id": "m1_data_standard_deviation_unit",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_deviation_calculation__prerequisite_for__m1_data_calculate_variance_sd",
+      "source_id": "m1_data_deviation_calculation",
       "target_id": "m1_data_calculate_variance_sd",
       "relationship_type": "prerequisite_for",
       "source_refs": [
@@ -121844,8 +124061,8 @@
       "confidence": "high"
     },
     {
-      "id": "m1_data_standard_deviation__prerequisite_for__m1_data_calculate_variance_sd",
-      "source_id": "m1_data_standard_deviation",
+      "id": "m1_data_variance_calculation__prerequisite_for__m1_data_calculate_variance_sd",
+      "source_id": "m1_data_variance_calculation",
       "target_id": "m1_data_calculate_variance_sd",
       "relationship_type": "prerequisite_for",
       "source_refs": [
@@ -121870,6 +124087,188 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_data_standard_deviation_calculation__prerequisite_for__m1_data_calculate_variance_sd",
+      "source_id": "m1_data_standard_deviation_calculation",
+      "target_id": "m1_data_calculate_variance_sd",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "눈금 등을 부적절하게 사용해 자료를 부정확하게 나타낸 표나 그래프의 오류를 찾고, 자료 정리·표현·대푯값·산포도 계산에 공학 도구를 활용하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_data_variance__prerequisite_for__m1_data_variability_magnitude_interpretation",
+      "source_id": "m1_data_variance",
+      "target_id": "m1_data_variability_magnitude_interpretation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_standard_deviation__prerequisite_for__m1_data_variability_magnitude_interpretation",
+      "source_id": "m1_data_standard_deviation",
+      "target_id": "m1_data_variability_magnitude_interpretation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_distribution__prerequisite_for__m1_data_variability_magnitude_interpretation",
+      "source_id": "m1_data_distribution",
+      "target_id": "m1_data_variability_magnitude_interpretation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_calculate_variance_sd__prerequisite_for__m1_data_explain_distribution_with_variability",
+      "source_id": "m1_data_calculate_variance_sd",
+      "target_id": "m1_data_explain_distribution_with_variability",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_data_variability_magnitude_interpretation__prerequisite_for__m1_data_explain_distribution_with_variability",
+      "source_id": "m1_data_variability_magnitude_interpretation",
+      "target_id": "m1_data_explain_distribution_with_variability",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_data_mean__prerequisite_for__m1_data_same_mean_different_spread",
+      "source_id": "m1_data_mean",
+      "target_id": "m1_data_same_mean_different_spread",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_variability_magnitude_interpretation__prerequisite_for__m1_data_same_mean_different_spread",
+      "source_id": "m1_data_variability_magnitude_interpretation",
+      "target_id": "m1_data_same_mean_different_spread",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
     },
     {
       "id": "m1_data_standard_deviation__prerequisite_for__m1_data_compare_distributions_variability",
@@ -121916,9 +124315,9 @@
       "confidence": "high"
     },
     {
-      "id": "m1_data_variance__prerequisite_for__m1_mis_variance_standard_deviation",
-      "source_id": "m1_data_variance",
-      "target_id": "m1_mis_variance_standard_deviation",
+      "id": "m1_data_variability_magnitude_interpretation__prerequisite_for__m1_data_compare_distributions_variability",
+      "source_id": "m1_data_variability_magnitude_interpretation",
+      "target_id": "m1_data_compare_distributions_variability",
       "relationship_type": "prerequisite_for",
       "source_refs": [
         {
@@ -121935,29 +124334,7 @@
         }
       ],
       "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_data_standard_deviation__prerequisite_for__m1_mis_variance_standard_deviation",
-      "source_id": "m1_data_standard_deviation",
-      "target_id": "m1_mis_variance_standard_deviation",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 41; [9수04-07]",
-          "evidence_kind": "achievement_standard",
-          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
+      "confidence": "high"
     },
     {
       "id": "m1_data_dataset__prerequisite_for__m1_data_ordered_data_for_quartiles",
@@ -126394,9 +128771,185 @@
       "confidence": "low"
     },
     {
+      "id": "m1_mis_deviation_as_absolute_distance__often_confused_with__m1_data_deviation_calculation",
+      "source_id": "m1_mis_deviation_as_absolute_distance",
+      "target_id": "m1_data_deviation_calculation",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_deviation_as_absolute_distance__often_confused_with__m1_data_squared_deviation",
+      "source_id": "m1_mis_deviation_as_absolute_distance",
+      "target_id": "m1_data_squared_deviation",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_sd_without_square_root__often_confused_with__m1_data_standard_deviation_calculation",
+      "source_id": "m1_mis_sd_without_square_root",
+      "target_id": "m1_data_standard_deviation_calculation",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_variance_standard_deviation__often_confused_with__m1_data_standard_deviation_unit",
+      "source_id": "m1_mis_variance_standard_deviation",
+      "target_id": "m1_data_standard_deviation_unit",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_same_mean_same_distribution__often_confused_with__m1_data_same_mean_different_spread",
+      "source_id": "m1_mis_same_mean_same_distribution",
+      "target_id": "m1_data_same_mean_different_spread",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
       "id": "m1_mis_variance_standard_deviation__often_confused_with__m1_data_calculate_variance_sd",
       "source_id": "m1_mis_variance_standard_deviation",
       "target_id": "m1_data_calculate_variance_sd",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_deviation_as_absolute_distance__often_confused_with__m1_data_deviation",
+      "source_id": "m1_mis_deviation_as_absolute_distance",
+      "target_id": "m1_data_deviation",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_sd_without_square_root__often_confused_with__m1_data_variance",
+      "source_id": "m1_mis_sd_without_square_root",
+      "target_id": "m1_data_variance",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-07]",
+          "evidence_kind": "achievement_standard",
+          "summary": "분산과 표준편차를 구하고 자료의 분포를 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-07] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "산포도, 편차, 분산, 표준편차의 뜻, 분산과 표준편차 계산, 두 집단 분포 비교 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_same_mean_same_distribution__often_confused_with__m1_data_compare_distributions_variability",
+      "source_id": "m1_mis_same_mean_same_distribution",
+      "target_id": "m1_data_compare_distributions_variability",
       "relationship_type": "often_confused_with",
       "source_refs": [
         {

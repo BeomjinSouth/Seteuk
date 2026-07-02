@@ -2,7 +2,7 @@
 
 이 문서는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 출처 보강 때 먼저 확인할 대상을 정리한다.
 
-- 검토 대상 concept: 126개
+- 검토 대상 concept: 133개
 
 ## 영역별 검토 대상
 
@@ -11,17 +11,17 @@
 | 수와 연산 | 18 |
 | 변화와 관계 | 58 |
 | 도형과 측정 | 29 |
-| 자료와 가능성 | 21 |
+| 자료와 가능성 | 28 |
 
 ## 유형별 검토 대상
 
 | concept_type | concept 수 |
 |---|---:|
-| misconception_risk | 92 |
+| misconception_risk | 95 |
 | procedure | 3 |
-| property | 6 |
-| representation | 6 |
-| sub_concept | 8 |
+| property | 8 |
+| representation | 7 |
+| sub_concept | 9 |
 | term | 11 |
 
 ## 검토 항목
@@ -144,7 +144,14 @@
 | m1_mis_histogram_bar_graph | 자료와 가능성 | 도수분포표와 상대도수 | misconception_risk | textbook_evidence_needed | 히스토그램과 막대그래프를 같은 표현으로 보는 오류 | 공식 문서의 히스토그램 표현 요구에서 추론한 오개념 위험이다. 교과서 예제와 문항 근거 보강 필요. |
 | m1_mis_relative_frequency_frequency | 자료와 가능성 | 도수분포표와 상대도수 | misconception_risk | textbook_evidence_needed | 도수와 상대도수를 혼동하는 오류 |  |
 | m1_data_relative_frequency_sum | 자료와 가능성 | 도수분포표와 상대도수 | property | source_detail_needed | 상대도수의 합 | 공식 문서의 상대도수 구하기와 도수의 총합 표현에서 추론한 성질이다. 교과서 본문이나 정리 근거 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_mis_deviation_as_absolute_distance | 자료와 가능성 | 산포도 | misconception_risk | textbook_evidence_needed | 편차를 항상 양수 거리로 보는 오류 | 학생 반응에서 예상되는 오개념으로 추론했다. 교과서 문항 근거 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_mis_same_mean_same_distribution | 자료와 가능성 | 산포도 | misconception_risk | textbook_evidence_needed | 평균이 같으면 분포도 같다고 보는 오류 | 두 집단 분포 비교에서 예상되는 오개념으로 추론했다. 교과서 예제·문항 근거 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_mis_sd_without_square_root | 자료와 가능성 | 산포도 | misconception_risk | textbook_evidence_needed | 표준편차에서 제곱근을 빠뜨리는 오류 | 표준편차 계산 절차에서 예상되는 오개념으로 추론했다. 교과서 문항 근거 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_mis_variance_standard_deviation | 자료와 가능성 | 산포도 | misconception_risk | textbook_evidence_needed | 분산과 표준편차를 같은 값으로 보는 오류 |  |
+| m1_data_deviation_sum_zero | 자료와 가능성 | 산포도 | property | source_detail_needed | 편차의 합은 0 | 편차의 정의에서 파생되는 교과서 정리 성격의 성질이다. 공식 문서의 직접 용어는 아니므로 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_data_standard_deviation_unit | 자료와 가능성 | 산포도 | property | source_detail_needed | 표준편차의 단위 | 표준편차를 분산의 제곱근으로 정의한 데서 파생되는 해석 성질이다. 공식 문서의 직접 용어는 아니므로 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_data_variability_calculation_table | 자료와 가능성 | 산포도 | representation | source_detail_needed | 산포도 계산 표 | 교과서 예제에서 자주 쓰이는 계산 표 형식으로 추론했다. 공식 문서의 직접 표현은 아니므로 낮은 신뢰도로 둔다. |
+| m1_data_same_mean_different_spread | 자료와 가능성 | 산포도 | sub_concept | source_detail_needed | 평균이 같은 두 분포의 흩어진 정도 비교 | 두 집단 분포 비교 성취수준에서 필요한 대표적인 비교 맥락으로 추론했다. 공식 문서의 직접 표현은 아니므로 교과서 예제 근거 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_mis_box_plot_length_frequency | 자료와 가능성 | 상자그림과 산점도 | misconception_risk | textbook_evidence_needed | 상자그림 구간의 길이를 자료 수로 해석하는 오류 | 상자그림 분포 비교 맥락에서 추론한 오개념 위험이다. 교과서 문항 근거 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_mis_correlation_causation | 자료와 가능성 | 상자그림과 산점도 | misconception_risk | textbook_evidence_needed | 상관관계를 원인과 결과로 단정하는 오류 | 공식 문서는 상관관계를 말하는 수준을 다룬다. 인과 판단 오류는 교과서 본문이나 문항 근거 보강 전까지 잠정 노드로 둔다. |
 | m1_mis_quartile_without_ordering | 자료와 가능성 | 상자그림과 산점도 | misconception_risk | textbook_evidence_needed | 자료를 정렬하지 않고 사분위수를 구하는 오류 | 사분위수 계산 절차에서 추론한 오개념 위험이다. 교과서 예제·오답 근거로 보강한다. |

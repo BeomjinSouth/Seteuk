@@ -1642,10 +1642,32 @@
 - 전체 직접 파생 산출물과 research-report/legacy 보조 산출물을 재생성했고 `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
 - PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
 
+## 2026-07-02 산포도 미시 concept 병렬 보강
+
+- AGENTS.md를 다시 확인하고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 생성 로직과 파생 산출물 정비로 제한했다.
+- 멀티에이전트 explorer 3개를 읽기 전용으로 사용해 `산포도`를 병렬 감사했다. Herschel은 기존 8개 노드와 누락 후보, Wegener는 `[9수04-07]`의 공식 근거 경계와 low-confidence 유지 항목, Schrodinger는 테스트 구조와 noisy edge 부재 조건을 점검했다.
+- `편차 구하기`, `편차 계산식`, `편차의 합은 0`, `편차의 제곱`, `편차의 제곱의 합`, `분산 구하기`, `분산 계산식`, `표준편차 구하기`, `표준편차 계산식`, `산포도 계산 표`, `표준편차의 단위`, `산포도 값의 크기 해석`, `산포도로 자료의 분포 설명하기`, `평균이 같은 두 분포의 흩어진 정도 비교`를 추가해 `편차 -> 편차의 제곱 -> 분산 -> 표준편차 -> 분포 설명/비교` 흐름을 미시 concept으로 분해했다.
+- `편차를 항상 양수 거리로 보는 오류`, `표준편차에서 제곱근을 빠뜨리는 오류`, `평균이 같으면 분포도 같다고 보는 오류`를 오개념 risk로 추가했다. 기존 `분산과 표준편차를 같은 값으로 보는 오류`는 선수 관계를 제거하고 `often_confused_with` 관계만 유지했다.
+- 이번 보강의 source ref는 `CURR_DATA_07`, `CURR_DATA_TERMS`, `ACH_DATA_VARIABILITY`로 제한했다. 공식 문서에 직접 등장하는 `산포도`, `편차`, `분산`, `표준편차`, `분산과 표준편차 구하기`, `자료의 분포 설명하기`는 high 또는 medium으로 두고, `편차의 합은 0`, `산포도 계산 표`, `표준편차의 단위`, 같은 평균의 두 분포 비교 맥락, 오개념 risk는 교과서 본문·예제·문항 근거 확인 전까지 `confidence: low`와 notes를 남겼다.
+- `범위`, `사분위범위`, `최솟값/최댓값`, `다섯 수 요약`, `이상치`, `1.5 IQR 규칙`, `표본분산(n-1)`, 평균절대편차, 변동계수, 표준점수, 정규분포, 공분산, 상관계수, 회귀·추세선은 현재 산포도 공식 근거 경계를 벗어나므로 추가하지 않았다.
+- `분산 구하기 -> 산포도 계산 표` represented_by, `자료의 분포 -> 산포도로 자료의 분포 설명하기` used_in, `편차의 합은 0 -> 편차의 제곱` related_to edge를 추가해 `related_ids`와 semantic edge의 정합성을 맞췄다. 최종 재생성 후 `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
+- 전체 산출물을 재생성한 결과 concept은 814개, edge는 3708개가 되었다. source ref audit은 총 11780개 ref를 기록하고 source catalogue는 5개를 유지한다.
+- `review-queue.*`는 133개 low-confidence concept, `concept-evidence-depth.*`는 concept 814개, `edge-evidence-depth.*`는 edge 3708개, `prerequisite-map.*`은 1348개 선수 관계 edge로 갱신했다.
+- `textbook-evidence-workplan.*`은 34개 단원 그룹, concept evidence row 814개, edge evidence row 4422개, pending textbook evidence row 5236개, low-confidence concept/edge row 809개를 기록한다.
+- 재생성 후 `산포도`는 rank 10, priority tier `highest`이며 concept 25개, edge 132개, 총 157개 evidence row가 모두 `pending_textbook_pdf` 상태다. 이 단원의 low-confidence concept은 8개, low-confidence edge는 32개이다.
+- `unit-coverage.*` 기준 `산포도`는 concept 25개, 내부 edge 99개, incoming edge 31개, outgoing edge 2개이며, confidence 분포는 high 8개, medium 9개, low 8개이다. concept type 분포는 core 2개, sub_concept 3개, representation 4개, procedure 7개, property 2개, term 3개, misconception_risk 4개이다.
+- `test_build_pilot_data_variability_microconcepts.py`를 추가해 산포도 계산 미시 concept, `[9수04-07]` source locator, 계산 흐름 edge, 공식 근거가 약한 항목의 confidence 경계, 오개념 risk의 선수 관계 부재, broad/noisy prerequisite edge 부재를 고정했다.
+- 좁은 테스트: `python -m unittest test_build_pilot_data_variability_microconcepts.py` 4개 통과.
+- edge/queue 테스트: `python -m unittest test_build_pilot_data_variability_microconcepts.py test_build_pilot_edge_sync.py test_build_related_edge_resolution_queue.py test_build_node_edge_consistency_audit.py` 32개 통과.
+- 전체 단위 테스트: `python -m unittest discover -s . -p "test_*.py"`를 `docs/math-concept-map/tools`에서 실행해 313개 통과.
+- 전체 validator: `python docs/math-concept-map/tools/validate_concept_map.py`: 814개 concept, 3708개 edge, 5개 source, 60개 공식 성취기준 검증 통과.
+- 전체 직접 파생 산출물과 research-report/legacy 보조 산출물을 재생성했다. 교과서 evidence packet을 만든 뒤 `textbook-evidence-workplan.*`을 다시 생성해 rank/count가 최신 packet index를 보도록 했다.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
 - 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 `not_applicable_from_this_row` 41개가 broad context, 용어 충돌, 도구·자료 입력, 또는 약한 출현으로 유지되는지 주기적으로 감사한다. 현재 `pending_manual_review`는 8개이며, 주로 `선분`·`반직선` 후보이므로 교과서 본문 또는 중학교 기본 도형 직접 근거 확인 후 source ref 반영 여부를 판단한다.
 - 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.
-- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 253개, 총 296개 row로 유지한다. 공식·보조 문서 기반 미시 concept 보강을 계속한다면 이미 보강한 상위 단원을 제외하고 `산포도`, `대푯값`, `작도와 합동`처럼 미시 concept이 덜 분해된 단원을 우선 검토한다.
+- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 253개, 총 296개 row로 유지한다. 공식·보조 문서 기반 미시 concept 보강을 계속한다면 이미 보강한 상위 단원을 제외하고 `대푯값`, `작도와 합동`, `피타고라스 정리`처럼 미시 concept이 덜 분해된 단원을 우선 검토한다.
 - 새 concept, alias, `related_ids`, 또는 `equivalent_to` 후보가 추가되면 `equivalence-alias-audit.*`, `related-edge-resolution-queue.*`, `textbook-edge-evidence-packets/*`, `edge-evidence-depth.*`를 함께 재생성한다.

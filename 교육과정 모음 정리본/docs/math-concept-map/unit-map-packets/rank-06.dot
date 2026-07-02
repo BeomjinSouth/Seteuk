@@ -58,6 +58,7 @@ digraph pilot_unit_map {
   "m1_geo_distance_between_two_points" [label="두 점 사이의 거리\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_domain" [label="수와 연산\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_real_number" [label="실수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_data_sum_squared_deviation" [label="편차의 제곱의 합\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_eq_equal_add_subtract_property" [label="양변에 같은 수를 더하거나 빼기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_ineq_add_sub_same_number_property" [label="부등식 양변에 같은 수 더하기·빼기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_system_add_or_subtract_equations" [label="두 방정식 더하거나 빼기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -66,6 +67,8 @@ digraph pilot_unit_map {
   "m1_calc_polynomial_parentheses_removal" [label="다항식의 괄호 풀기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_factor_common_factor_extraction" [label="공통인수로 묶기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_factor_common_factor_formula" [label="m(a+b) 공식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_data_variance_calculation" [label="분산 구하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_data_variance_formula" [label="분산 계산식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_eq_equal_multiply_divide_property" [label="양변에 같은 수를 곱하거나 나누기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_ineq_multiply_divide_negative_reverses_sign" [label="부등식 양변에 음수를 곱하거나 나눌 때 부등호 방향 바꾸기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_ineq_multiply_divide_positive_property" [label="부등식 양변에 양수를 곱하거나 나누기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -269,6 +272,7 @@ digraph pilot_unit_map {
   "m1_num_zero" -> "m1_num_absolute_value" [label="related_to", style="solid", color="#6b7280"];
   "m1_num_domain" -> "m1_num_integer_rational_unit" [label="contains", style="dashed", color="#6b7280"];
   "m1_num_real_number" -> "m1_num_rational_number" [label="contains", style="dashed", color="#6b7280"];
+  "m1_num_addition" -> "m1_data_sum_squared_deviation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_addition" -> "m1_eq_equal_add_subtract_property" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_addition" -> "m1_ineq_add_sub_same_number_property" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_addition" -> "m1_system_add_or_subtract_equations" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -277,6 +281,8 @@ digraph pilot_unit_map {
   "m1_num_distributive_law" -> "m1_calc_polynomial_parentheses_removal" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_distributive_law" -> "m1_factor_common_factor_extraction" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_distributive_law" -> "m1_factor_common_factor_formula" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_num_division" -> "m1_data_variance_calculation" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_num_division" -> "m1_data_variance_formula" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_division" -> "m1_eq_equal_multiply_divide_property" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_division" -> "m1_ineq_multiply_divide_negative_reverses_sign" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_division" -> "m1_ineq_multiply_divide_positive_property" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -326,6 +332,7 @@ digraph pilot_unit_map {
   "m1_num_distributive_law" -> "m1_factor_common_factor_extraction" [label="used_in", style="dashed", color="#6b7280"];
   "m1_num_distributive_law" -> "m1_factor_common_factor_formula" [label="used_in", style="dashed", color="#6b7280"];
   "m1_num_distributive_law" -> "m1_factor_polynomial_multiplication" [label="used_in", style="dashed", color="#6b7280"];
+  "m1_num_division" -> "m1_data_variance_calculation" [label="used_in", style="dashed", color="#6b7280"];
   "m1_num_four_operations" -> "m1_expr_evaluate_expression_value" [label="used_in", style="dashed", color="#6b7280"];
   "m1_num_number_line" -> "m1_num_real_order" [label="used_in", style="dashed", color="#6b7280"];
   "m1_num_rational_fraction_form" -> "m1_num_rational_repeating_relation" [label="used_in", style="dashed", color="#6b7280"];

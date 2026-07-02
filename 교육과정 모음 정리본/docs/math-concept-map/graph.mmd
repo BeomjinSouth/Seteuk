@@ -766,11 +766,28 @@ flowchart LR
   m1_mis_permutation_combination_scope["복잡한 순열·조합 문항을 중학교 경우의 수 범위에 포함하는 범위 오판"]
   m1_data_variability["산포도"]
   m1_data_deviation["편차"]
+  m1_data_deviation_calculation["편차 구하기"]
+  m1_data_deviation_formula["편차 계산식"]
+  m1_data_deviation_sum_zero["편차의 합은 0"]
+  m1_data_squared_deviation["편차의 제곱"]
+  m1_data_sum_squared_deviation["편차의 제곱의 합"]
   m1_data_variance["분산"]
+  m1_data_variance_calculation["분산 구하기"]
+  m1_data_variance_formula["분산 계산식"]
   m1_data_standard_deviation["표준편차"]
+  m1_data_standard_deviation_calculation["표준편차 구하기"]
+  m1_data_standard_deviation_formula["표준편차 계산식"]
+  m1_data_variability_calculation_table["산포도 계산 표"]
+  m1_data_standard_deviation_unit["표준편차의 단위"]
   m1_data_calculate_variance_sd["분산과 표준편차 구하기"]
+  m1_data_variability_magnitude_interpretation["산포도 값의 크기 해석"]
+  m1_data_explain_distribution_with_variability["산포도로 자료의 분포 설명하기"]
+  m1_data_same_mean_different_spread["평균이 같은 두 분포의 흩어진 정도 비교"]
   m1_data_compare_distributions_variability["산포도로 두 집단의 분포 비교"]
   m1_mis_variance_standard_deviation["분산과 표준편차를 같은 값으로 보는 오류"]
+  m1_mis_deviation_as_absolute_distance["편차를 항상 양수 거리로 보는 오류"]
+  m1_mis_sd_without_square_root["표준편차에서 제곱근을 빠뜨리는 오류"]
+  m1_mis_same_mean_same_distribution["평균이 같으면 분포도 같다고 보는 오류"]
   m1_data_ordered_data_for_quartiles["사분위수를 구하기 위한 자료 정렬"]
   m1_data_quartile["사분위수"]
   m1_data_quartile_calculation["사분위수 구하기"]
@@ -2325,13 +2342,45 @@ flowchart LR
   m1_data_representative_value -- "사용" --> m1_data_variability
   m1_data_distribution -- "사용" --> m1_data_variability
   m1_data_mean -- "사용" --> m1_data_deviation
+  m1_data_mean -- "사용" --> m1_data_deviation_calculation
+  m1_data_variable -- "사용" --> m1_data_deviation_calculation
+  m1_data_deviation_calculation -- "사용" --> m1_data_deviation
+  m1_data_deviation -- "표현" --> m1_data_deviation_formula
+  m1_data_deviation -- "사용" --> m1_data_deviation_sum_zero
+  m1_data_deviation -- "사용" --> m1_data_squared_deviation
+  m1_data_deviation_sum_zero -- "연관" --> m1_data_squared_deviation
+  m1_calc_power -- "사용" --> m1_data_squared_deviation
+  m1_data_squared_deviation -- "사용" --> m1_data_sum_squared_deviation
+  m1_data_sum_squared_deviation -- "사용" --> m1_data_variance_calculation
+  m1_num_division -- "사용" --> m1_data_variance_calculation
+  m1_data_variance_calculation -- "표현" --> m1_data_variability_calculation_table
+  m1_data_variance_calculation -- "사용" --> m1_data_variance
+  m1_data_variance -- "표현" --> m1_data_variance_formula
   m1_data_deviation -- "사용" --> m1_data_variance
   m1_data_variance -- "사용" --> m1_data_standard_deviation
+  m1_data_variance -- "사용" --> m1_data_standard_deviation_calculation
+  m1_num_square_root -- "사용" --> m1_data_standard_deviation_calculation
+  m1_data_standard_deviation_calculation -- "사용" --> m1_data_standard_deviation
+  m1_data_standard_deviation -- "표현" --> m1_data_standard_deviation_formula
+  m1_data_standard_deviation -- "사용" --> m1_data_standard_deviation_unit
   m1_data_deviation -- "사용" --> m1_data_standard_deviation
   m1_data_deviation -- "사용" --> m1_data_calculate_variance_sd
   m1_data_variance -- "사용" --> m1_data_calculate_variance_sd
   m1_data_standard_deviation -- "사용" --> m1_data_calculate_variance_sd
+  m1_data_deviation_calculation -- "사용" --> m1_data_calculate_variance_sd
+  m1_data_variance_calculation -- "사용" --> m1_data_calculate_variance_sd
+  m1_data_standard_deviation_calculation -- "사용" --> m1_data_calculate_variance_sd
+  m1_data_variability_calculation_table -- "사용" --> m1_data_calculate_variance_sd
+  m1_data_standard_deviation -- "사용" --> m1_data_variability_magnitude_interpretation
+  m1_data_variance -- "사용" --> m1_data_variability_magnitude_interpretation
+  m1_data_distribution -- "사용" --> m1_data_explain_distribution_with_variability
+  m1_data_variability_magnitude_interpretation -- "사용" --> m1_data_explain_distribution_with_variability
+  m1_data_calculate_variance_sd -- "사용" --> m1_data_explain_distribution_with_variability
+  m1_data_explain_distribution_with_variability -- "사용" --> m1_data_compare_distributions_variability
+  m1_data_variability_magnitude_interpretation -- "사용" --> m1_data_compare_distributions_variability
+  m1_data_same_mean_different_spread -- "사용" --> m1_data_compare_distributions_variability
   m1_data_standard_deviation -- "사용" --> m1_data_compare_distributions_variability
+  m1_data_variance -- "사용" --> m1_data_compare_distributions_variability
   m1_data_variability_unit -- "연관" --> m1_data_box_scatter_unit
   m1_data_technology_tool_stats -- "사용" --> m1_data_box_scatter_unit
   m1_data_ordered_data_for_quartiles -- "사용" --> m1_data_quartile
@@ -2986,11 +3035,28 @@ flowchart LR
   m1_data_probability_unit -- "포함" --> m1_mis_permutation_combination_scope
   m1_data_variability_unit -- "포함" --> m1_data_variability
   m1_data_variability_unit -- "포함" --> m1_data_deviation
+  m1_data_variability_unit -- "포함" --> m1_data_deviation_calculation
+  m1_data_variability_unit -- "포함" --> m1_data_deviation_formula
+  m1_data_variability_unit -- "포함" --> m1_data_deviation_sum_zero
+  m1_data_variability_unit -- "포함" --> m1_data_squared_deviation
+  m1_data_variability_unit -- "포함" --> m1_data_sum_squared_deviation
   m1_data_variability_unit -- "포함" --> m1_data_variance
+  m1_data_variability_unit -- "포함" --> m1_data_variance_calculation
+  m1_data_variability_unit -- "포함" --> m1_data_variance_formula
   m1_data_variability_unit -- "포함" --> m1_data_standard_deviation
+  m1_data_variability_unit -- "포함" --> m1_data_standard_deviation_calculation
+  m1_data_variability_unit -- "포함" --> m1_data_standard_deviation_formula
+  m1_data_variability_unit -- "포함" --> m1_data_variability_calculation_table
+  m1_data_variability_unit -- "포함" --> m1_data_standard_deviation_unit
   m1_data_variability_unit -- "포함" --> m1_data_calculate_variance_sd
+  m1_data_variability_unit -- "포함" --> m1_data_variability_magnitude_interpretation
+  m1_data_variability_unit -- "포함" --> m1_data_explain_distribution_with_variability
+  m1_data_variability_unit -- "포함" --> m1_data_same_mean_different_spread
   m1_data_variability_unit -- "포함" --> m1_data_compare_distributions_variability
   m1_data_variability_unit -- "포함" --> m1_mis_variance_standard_deviation
+  m1_data_variability_unit -- "포함" --> m1_mis_deviation_as_absolute_distance
+  m1_data_variability_unit -- "포함" --> m1_mis_sd_without_square_root
+  m1_data_variability_unit -- "포함" --> m1_mis_same_mean_same_distribution
   m1_data_box_scatter_unit -- "포함" --> m1_data_ordered_data_for_quartiles
   m1_data_box_scatter_unit -- "포함" --> m1_data_quartile
   m1_data_box_scatter_unit -- "포함" --> m1_data_quartile_calculation
@@ -4213,17 +4279,46 @@ flowchart LR
   m1_data_representative_value -- "선수" --> m1_data_variability
   m1_data_variable -- "선수" --> m1_data_deviation
   m1_data_mean -- "선수" --> m1_data_deviation
-  m1_data_deviation -- "선수" --> m1_data_variance
-  m1_calc_power -- "선수" --> m1_data_variance
+  m1_data_variable -- "선수" --> m1_data_deviation_calculation
+  m1_data_mean -- "선수" --> m1_data_deviation_calculation
+  m1_data_deviation_calculation -- "선수" --> m1_data_deviation_formula
+  m1_data_deviation_calculation -- "선수" --> m1_data_deviation_sum_zero
+  m1_data_deviation -- "선수" --> m1_data_squared_deviation
+  m1_calc_power -- "선수" --> m1_data_squared_deviation
+  m1_data_squared_deviation -- "선수" --> m1_data_sum_squared_deviation
+  m1_num_addition -- "선수" --> m1_data_sum_squared_deviation
+  m1_data_deviation_calculation -- "선수" --> m1_data_variance
+  m1_data_squared_deviation -- "선수" --> m1_data_variance
+  m1_data_variance_calculation -- "선수" --> m1_data_variance
+  m1_data_sum_squared_deviation -- "선수" --> m1_data_variance_calculation
+  m1_num_division -- "선수" --> m1_data_variance_calculation
+  m1_data_sum_squared_deviation -- "선수" --> m1_data_variance_formula
+  m1_num_division -- "선수" --> m1_data_variance_formula
   m1_data_variance -- "선수" --> m1_data_standard_deviation
+  m1_data_standard_deviation_calculation -- "선수" --> m1_data_standard_deviation
   m1_num_square_root -- "선수" --> m1_data_standard_deviation
-  m1_data_deviation -- "선수" --> m1_data_calculate_variance_sd
-  m1_data_variance -- "선수" --> m1_data_calculate_variance_sd
-  m1_data_standard_deviation -- "선수" --> m1_data_calculate_variance_sd
+  m1_data_variance -- "선수" --> m1_data_standard_deviation_calculation
+  m1_data_variance_calculation -- "선수" --> m1_data_standard_deviation_calculation
+  m1_num_square_root -- "선수" --> m1_data_standard_deviation_calculation
+  m1_data_variance -- "선수" --> m1_data_standard_deviation_formula
+  m1_num_square_root -- "선수" --> m1_data_standard_deviation_formula
+  m1_data_deviation_calculation -- "선수" --> m1_data_variability_calculation_table
+  m1_data_squared_deviation -- "선수" --> m1_data_variability_calculation_table
+  m1_data_standard_deviation -- "선수" --> m1_data_standard_deviation_unit
+  m1_data_variance -- "선수" --> m1_data_standard_deviation_unit
+  m1_data_deviation_calculation -- "선수" --> m1_data_calculate_variance_sd
+  m1_data_variance_calculation -- "선수" --> m1_data_calculate_variance_sd
+  m1_data_standard_deviation_calculation -- "선수" --> m1_data_calculate_variance_sd
+  m1_data_variance -- "선수" --> m1_data_variability_magnitude_interpretation
+  m1_data_standard_deviation -- "선수" --> m1_data_variability_magnitude_interpretation
+  m1_data_distribution -- "선수" --> m1_data_variability_magnitude_interpretation
+  m1_data_calculate_variance_sd -- "선수" --> m1_data_explain_distribution_with_variability
+  m1_data_variability_magnitude_interpretation -- "선수" --> m1_data_explain_distribution_with_variability
+  m1_data_mean -- "선수" --> m1_data_same_mean_different_spread
+  m1_data_variability_magnitude_interpretation -- "선수" --> m1_data_same_mean_different_spread
   m1_data_standard_deviation -- "선수" --> m1_data_compare_distributions_variability
   m1_data_distribution_interpretation -- "선수" --> m1_data_compare_distributions_variability
-  m1_data_variance -- "선수" --> m1_mis_variance_standard_deviation
-  m1_data_standard_deviation -- "선수" --> m1_mis_variance_standard_deviation
+  m1_data_variability_magnitude_interpretation -- "선수" --> m1_data_compare_distributions_variability
   m1_data_dataset -- "선수" --> m1_data_ordered_data_for_quartiles
   m1_num_order_relation -- "선수" --> m1_data_ordered_data_for_quartiles
   m1_data_median -- "선수" --> m1_data_quartile
@@ -4416,7 +4511,15 @@ flowchart LR
   m1_mis_probability_no_equal_likely -- "혼동" --> m1_data_probability_by_case_ratio
   m1_mis_permutation_combination_scope -- "혼동" --> m1_data_addition_counting
   m1_mis_permutation_combination_scope -- "혼동" --> m1_data_multiplication_counting
+  m1_mis_deviation_as_absolute_distance -- "혼동" --> m1_data_deviation_calculation
+  m1_mis_deviation_as_absolute_distance -- "혼동" --> m1_data_squared_deviation
+  m1_mis_sd_without_square_root -- "혼동" --> m1_data_standard_deviation_calculation
+  m1_mis_variance_standard_deviation -- "혼동" --> m1_data_standard_deviation_unit
+  m1_mis_same_mean_same_distribution -- "혼동" --> m1_data_same_mean_different_spread
   m1_mis_variance_standard_deviation -- "혼동" --> m1_data_calculate_variance_sd
+  m1_mis_deviation_as_absolute_distance -- "혼동" --> m1_data_deviation
+  m1_mis_sd_without_square_root -- "혼동" --> m1_data_variance
+  m1_mis_same_mean_same_distribution -- "혼동" --> m1_data_compare_distributions_variability
   m1_mis_quartile_without_ordering -- "혼동" --> m1_data_ordered_data_for_quartiles
   m1_mis_box_plot_length_frequency -- "혼동" --> m1_data_box_plot_box
   m1_mis_box_plot_length_frequency -- "혼동" --> m1_data_box_plot_whisker
@@ -5187,11 +5290,28 @@ flowchart LR
   class m1_mis_permutation_combination_scope risk;
   class m1_data_variability core;
   class m1_data_deviation default;
+  class m1_data_deviation_calculation procedure;
+  class m1_data_deviation_formula representation;
+  class m1_data_deviation_sum_zero default;
+  class m1_data_squared_deviation default;
+  class m1_data_sum_squared_deviation default;
   class m1_data_variance default;
+  class m1_data_variance_calculation procedure;
+  class m1_data_variance_formula representation;
   class m1_data_standard_deviation default;
+  class m1_data_standard_deviation_calculation procedure;
+  class m1_data_standard_deviation_formula representation;
+  class m1_data_variability_calculation_table representation;
+  class m1_data_standard_deviation_unit default;
   class m1_data_calculate_variance_sd procedure;
+  class m1_data_variability_magnitude_interpretation procedure;
+  class m1_data_explain_distribution_with_variability procedure;
+  class m1_data_same_mean_different_spread default;
   class m1_data_compare_distributions_variability procedure;
   class m1_mis_variance_standard_deviation risk;
+  class m1_mis_deviation_as_absolute_distance risk;
+  class m1_mis_sd_without_square_root risk;
+  class m1_mis_same_mean_same_distribution risk;
   class m1_data_ordered_data_for_quartiles procedure;
   class m1_data_quartile default;
   class m1_data_quartile_calculation procedure;

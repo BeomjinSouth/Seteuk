@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 자료와 가능성
 - unit: 자료와 가능성
 - priority tier: low
-- workplan score: 33
+- workplan score: 35
 - concepts: 2
-- edges touching unit: 24
-- cross-unit edges: 23
+- edges touching unit: 26
+- cross-unit edges: 25
 - low confidence concepts: 0
 - low confidence edges: 2
 
@@ -28,10 +28,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | relationship_type | count |
 |---|---:|
 | contains | 2 |
-| prerequisite_for | 17 |
+| prerequisite_for | 18 |
 | related_to | 1 |
 | represented_by | 2 |
-| used_in | 2 |
+| used_in | 3 |
 
 ## Low Confidence Concepts
 
@@ -59,10 +59,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_data_dataset__prerequisite_for__m1_data_stem_leaf_plot | 자료 | prerequisite_for | 줄기와 잎 그림 | high | official_dual_source |
 | m1_data_variable__prerequisite_for__m1_data_bivariate_pair | 변량 | prerequisite_for | 두 변량의 대응값 | medium | official_dual_source |
 | m1_data_variable__prerequisite_for__m1_data_deviation | 변량 | prerequisite_for | 편차 | high | official_dual_source |
+| m1_data_variable__prerequisite_for__m1_data_deviation_calculation | 변량 | prerequisite_for | 편차 구하기 | medium | official_dual_source |
 | m1_data_variable__prerequisite_for__m1_data_scatter_plot | 변량 | prerequisite_for | 산점도 | high | official_dual_source |
 | m1_data_variable__prerequisite_for__m1_data_scatter_plot_axes_variables | 변량 | prerequisite_for | 산점도의 두 축과 변량 | medium | official_dual_source |
 | m1_data_dataset__represented_by__m1_data_frequency_table | 자료 | represented_by | 도수분포표 | high | official_dual_source |
 | m1_data_dataset__represented_by__m1_data_stem_leaf_plot | 자료 | represented_by | 줄기와 잎 그림 | high | official_dual_source |
 | m1_data_variable__used_in__m1_data_bivariate_pair | 변량 | used_in | 두 변량의 대응값 | medium | official_dual_source |
+| m1_data_variable__used_in__m1_data_deviation_calculation | 변량 | used_in | 편차 구하기 | medium | official_dual_source |
 | m1_data_variable__used_in__m1_data_scatter_plot | 변량 | used_in | 산점도 | high | official_dual_source |
 | m1_data_dataset__related_to__m1_data_data_collection | 자료 | related_to | 자료 수집 | medium | official_dual_source |

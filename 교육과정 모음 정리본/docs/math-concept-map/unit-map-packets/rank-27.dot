@@ -10,11 +10,13 @@ digraph pilot_unit_map {
   "m1_data_mean" [label="평균\\nterm", fillcolor="#f7fbff"];
   "m1_data_median" [label="중앙값\\nterm", fillcolor="#f7fbff"];
   "m1_data_mode" [label="최빈값\\nterm", fillcolor="#f7fbff"];
+  "m1_data_same_mean_different_spread" [label="평균이 같은 두 분포의 흩어진 정도 비교\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_domain" [label="자료와 가능성\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_dataset" [label="자료\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_distribution" [label="자료의 분포\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_frequency" [label="도수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_deviation" [label="편차\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_data_deviation_calculation" [label="편차 구하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_quartile" [label="사분위수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_quartile_calculation" [label="사분위수 구하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_second_quartile" [label="제2사분위수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -30,6 +32,7 @@ digraph pilot_unit_map {
   "m1_mis_mean_only_representative" -> "m1_data_mean" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_mean_only_representative" -> "m1_data_median" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_mean_only_representative" -> "m1_data_mode" [label="often_confused_with", style="solid", color="#b91c1c"];
+  "m1_data_mean" -> "m1_data_same_mean_different_spread" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_data_representative_unit" -> "m1_data_choose_representative_value" [label="contains", style="solid", color="#6b7280"];
   "m1_data_representative_unit" -> "m1_data_mean" [label="contains", style="solid", color="#6b7280"];
   "m1_data_representative_unit" -> "m1_data_median" [label="contains", style="solid", color="#6b7280"];
@@ -55,6 +58,7 @@ digraph pilot_unit_map {
   "m1_data_distribution" -> "m1_data_choose_representative_value" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_data_frequency" -> "m1_data_mode" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_data_mean" -> "m1_data_deviation" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_data_mean" -> "m1_data_deviation_calculation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_data_median" -> "m1_data_quartile" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_data_median" -> "m1_data_quartile_calculation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_data_median" -> "m1_data_second_quartile" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -65,6 +69,7 @@ digraph pilot_unit_map {
   "m1_num_rational_number" -> "m1_data_mean" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_data_distribution" -> "m1_data_choose_representative_value" [label="used_in", style="dashed", color="#6b7280"];
   "m1_data_mean" -> "m1_data_deviation" [label="used_in", style="dashed", color="#6b7280"];
+  "m1_data_mean" -> "m1_data_deviation_calculation" [label="used_in", style="dashed", color="#6b7280"];
   "m1_data_median" -> "m1_data_quartile_calculation" [label="used_in", style="dashed", color="#6b7280"];
   "m1_data_representative_value" -> "m1_data_variability" [label="used_in", style="dashed", color="#6b7280"];
   "m1_data_second_quartile" -> "m1_data_median" [label="equivalent_to", style="dashed", color="#6b7280"];

@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 수와 연산
 - unit: 정수와 유리수
 - priority tier: highest
-- workplan score: 333
+- workplan score: 337
 - concepts: 41
-- edges touching unit: 236
-- cross-unit edges: 84
+- edges touching unit: 240
+- cross-unit edges: 88
 - low confidence concepts: 5
 - low confidence edges: 46
 
@@ -35,10 +35,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contrasts_with | 11 |
 | equivalent_to | 1 |
 | often_confused_with | 17 |
-| prerequisite_for | 113 |
+| prerequisite_for | 116 |
 | related_to | 9 |
 | represented_by | 8 |
-| used_in | 33 |
+| used_in | 34 |
 
 ## Low Confidence Concepts
 
@@ -72,6 +72,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_absolute_value__related_to__m1_geo_distance_between_two_points | 절댓값 | related_to | 두 점 사이의 거리 | low | official_dual_source |
 | m1_num_domain__contains__m1_num_integer_rational_unit | 수와 연산 | contains | 정수와 유리수 | high | official_single_source |
 | m1_num_real_number__contains__m1_num_rational_number | 실수 | contains | 유리수 | high | official_dual_source |
+| m1_num_addition__prerequisite_for__m1_data_sum_squared_deviation | 덧셈 | prerequisite_for | 편차의 제곱의 합 | medium | official_dual_source |
 | m1_num_addition__prerequisite_for__m1_eq_equal_add_subtract_property | 덧셈 | prerequisite_for | 양변에 같은 수를 더하거나 빼기 | medium | official_dual_source |
 | m1_num_addition__prerequisite_for__m1_ineq_add_sub_same_number_property | 덧셈 | prerequisite_for | 부등식 양변에 같은 수 더하기·빼기 | medium | official_dual_source |
 | m1_num_addition__prerequisite_for__m1_system_add_or_subtract_equations | 덧셈 | prerequisite_for | 두 방정식 더하거나 빼기 | medium | official_dual_source |
@@ -80,6 +81,8 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_distributive_law__prerequisite_for__m1_calc_polynomial_parentheses_removal | 분배법칙 | prerequisite_for | 다항식의 괄호 풀기 | medium | official_dual_source |
 | m1_num_distributive_law__prerequisite_for__m1_factor_common_factor_extraction | 분배법칙 | prerequisite_for | 공통인수로 묶기 | medium | official_dual_source |
 | m1_num_distributive_law__prerequisite_for__m1_factor_common_factor_formula | 분배법칙 | prerequisite_for | m(a+b) 공식 | high | official_single_source |
+| m1_num_division__prerequisite_for__m1_data_variance_calculation | 나눗셈 | prerequisite_for | 분산 구하기 | medium | official_dual_source |
+| m1_num_division__prerequisite_for__m1_data_variance_formula | 나눗셈 | prerequisite_for | 분산 계산식 | medium | official_dual_source |
 | m1_num_division__prerequisite_for__m1_eq_equal_multiply_divide_property | 나눗셈 | prerequisite_for | 양변에 같은 수를 곱하거나 나누기 | medium | official_dual_source |
 | m1_num_division__prerequisite_for__m1_ineq_multiply_divide_negative_reverses_sign | 나눗셈 | prerequisite_for | 부등식 양변에 음수를 곱하거나 나눌 때 부등호 방향 바꾸기 | medium | official_dual_source |
 | m1_num_division__prerequisite_for__m1_ineq_multiply_divide_positive_property | 나눗셈 | prerequisite_for | 부등식 양변에 양수를 곱하거나 나누기 | medium | official_dual_source |
@@ -91,6 +94,3 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_minus_sign__prerequisite_for__m1_calc_polynomial_subtraction_sign_distribution | 음의 부호 | prerequisite_for | 다항식의 뺄셈에서 부호 바꾸기 | medium | official_dual_source |
 | m1_num_multiplication__prerequisite_for__m1_eq_equal_multiply_divide_property | 곱셈 | prerequisite_for | 양변에 같은 수를 곱하거나 나누기 | medium | official_dual_source |
 | m1_num_multiplication__prerequisite_for__m1_ineq_multiply_divide_negative_reverses_sign | 곱셈 | prerequisite_for | 부등식 양변에 음수를 곱하거나 나눌 때 부등호 방향 바꾸기 | medium | official_dual_source |
-| m1_num_multiplication__prerequisite_for__m1_ineq_multiply_divide_positive_property | 곱셈 | prerequisite_for | 부등식 양변에 양수를 곱하거나 나누기 | medium | official_dual_source |
-| m1_num_negative_number__prerequisite_for__m1_ineq_multiply_divide_negative_reverses_sign | 음수 | prerequisite_for | 부등식 양변에 음수를 곱하거나 나눌 때 부등호 방향 바꾸기 | medium | official_dual_source |
-| m1_num_order_relation__prerequisite_for__m1_data_class | 정수와 유리수의 대소 관계 | prerequisite_for | 계급 | high | official_dual_source |

@@ -5,7 +5,7 @@ Rows are candidate signals only; inspect the local page context before changing 
 
 ## Summary
 
-- matched concepts: 268
+- matched concepts: 270
 
 ## Confidence
 
@@ -13,14 +13,14 @@ Rows are candidate signals only; inspect the local page context before changing 
 |---|---:|
 | high | 218 |
 | low | 5 |
-| medium | 45 |
+| medium | 47 |
 
 ## Recommended Actions
 
 | action | matched concepts |
 |---|---:|
 | inspect_research_report_context_before_confidence_change | 5 |
-| inspect_research_report_context_before_source_ref_upgrade | 45 |
+| inspect_research_report_context_before_source_ref_upgrade | 47 |
 | use_as_supplemental_trace_only | 218 |
 
 ## Highest Priority Signals
@@ -61,6 +61,8 @@ Rows are candidate signals only; inspect the local page context before changing 
 | m1_geo_trig_hypotenuse | 삼각비에서의 빗변 | 삼각비 | medium | 8 | 62; 242; 269; 270 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_data_event_cases_count | 사건이 일어나는 경우의 수 | 경우의 수와 확률 | medium | 7 | 228; 241; 260; 266 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_quad_eq_quadratic_term | 이차항 | 이차방정식 | medium | 6 | 58; 59; 220; 234; 235 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
+| m1_data_deviation_calculation | 편차 구하기 | 산포도 | medium | 5 | 79; 239; 240 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
+| m1_data_standard_deviation_calculation | 표준편차 구하기 | 산포도 | medium | 5 | 79; 239; 240 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_eq_both_sides | 양변 | 일차방정식 | medium | 4 | 98; 217 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_data_and_probability | 사건 A와 사건 B가 동시에 일어날 확률 | 경우의 수와 확률 | medium | 4 | 228; 260 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
 | m1_data_total_cases | 전체 경우의 수 | 경우의 수와 확률 | medium | 4 | 260; 262 | research_report_signal | inspect_research_report_context_before_source_ref_upgrade |
@@ -105,5 +107,3 @@ Rows are candidate signals only; inspect the local page context before changing 
 | m1_data_frequency | 도수 | 도수분포표와 상대도수 | high | 70 | 77; 79; 227; 228; 231; 235; 239; 240; 241 | research_report_signal | use_as_supplemental_trace_only |
 | m1_geo_justification | 정당화 | 삼각형과 사각형의 성질 | high | 64 | 21; 22; 43; 45; 62; 77; 78; 79; 80; 223; 225; 226; 235; 236; 237; 242; 269 | research_report_signal | use_as_supplemental_trace_only |
 | m1_expr_letter | 문자 | 문자의 사용과 식 | high | 62 | 45; 54; 55; 56; 57; 58; 59; 154; 214; 232; 233; 234; 235; 272 | research_report_signal | use_as_supplemental_trace_only |
-| m1_eq_unit | 일차방정식 | 일차방정식 | high | 62 | 54; 55; 56; 57; 58; 59; 214; 217; 219; 232; 233; 234; 235 | research_report_signal | use_as_supplemental_trace_only |
-| m1_eq_linear_equation | 일차방정식 | 일차방정식 | high | 62 | 54; 55; 56; 57; 58; 59; 214; 217; 219; 232; 233; 234; 235 | research_report_signal | use_as_supplemental_trace_only |

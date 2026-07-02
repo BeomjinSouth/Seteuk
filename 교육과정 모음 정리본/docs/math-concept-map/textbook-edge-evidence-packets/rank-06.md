@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 정수와 유리수
 - priority tier: highest
 - priority score: 65
-- edges in packet: 236
-- cross-unit edges: 84
+- edges in packet: 240
+- cross-unit edges: 88
 - low confidence edges: 46
 
 ## Relationship Evidence Slots
@@ -188,6 +188,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_num_zero__related_to__m1_num_absolute_value | intra_unit | 0 | related_to | 절댓값 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 4 |
 | m1_num_domain__contains__m1_num_integer_rational_unit | cross_unit | 수와 연산 | contains | 정수와 유리수 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
 | m1_num_real_number__contains__m1_num_rational_number | cross_unit | 실수 | contains | 유리수 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
+| m1_num_addition__prerequisite_for__m1_data_sum_squared_deviation | cross_unit | 덧셈 | prerequisite_for | 편차의 제곱의 합 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_addition__prerequisite_for__m1_eq_equal_add_subtract_property | cross_unit | 덧셈 | prerequisite_for | 양변에 같은 수를 더하거나 빼기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_addition__prerequisite_for__m1_ineq_add_sub_same_number_property | cross_unit | 덧셈 | prerequisite_for | 부등식 양변에 같은 수 더하기·빼기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_addition__prerequisite_for__m1_system_add_or_subtract_equations | cross_unit | 덧셈 | prerequisite_for | 두 방정식 더하거나 빼기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
@@ -196,6 +197,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_num_distributive_law__prerequisite_for__m1_calc_polynomial_parentheses_removal | cross_unit | 분배법칙 | prerequisite_for | 다항식의 괄호 풀기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_distributive_law__prerequisite_for__m1_factor_common_factor_extraction | cross_unit | 분배법칙 | prerequisite_for | 공통인수로 묶기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_distributive_law__prerequisite_for__m1_factor_common_factor_formula | cross_unit | 분배법칙 | prerequisite_for | m(a+b) 공식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
+| m1_num_division__prerequisite_for__m1_data_variance_calculation | cross_unit | 나눗셈 | prerequisite_for | 분산 구하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_num_division__prerequisite_for__m1_data_variance_formula | cross_unit | 나눗셈 | prerequisite_for | 분산 계산식 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_division__prerequisite_for__m1_eq_equal_multiply_divide_property | cross_unit | 나눗셈 | prerequisite_for | 양변에 같은 수를 곱하거나 나누기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_division__prerequisite_for__m1_ineq_multiply_divide_negative_reverses_sign | cross_unit | 나눗셈 | prerequisite_for | 부등식 양변에 음수를 곱하거나 나눌 때 부등호 방향 바꾸기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_division__prerequisite_for__m1_ineq_multiply_divide_positive_property | cross_unit | 나눗셈 | prerequisite_for | 부등식 양변에 양수를 곱하거나 나누기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
@@ -245,6 +248,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_num_distributive_law__used_in__m1_factor_common_factor_extraction | cross_unit | 분배법칙 | used_in | 공통인수로 묶기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_num_distributive_law__used_in__m1_factor_common_factor_formula | cross_unit | 분배법칙 | used_in | m(a+b) 공식 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 1 |
 | m1_num_distributive_law__used_in__m1_factor_polynomial_multiplication | cross_unit | 분배법칙 | used_in | 다항식의 곱셈 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 7 |
+| m1_num_division__used_in__m1_data_variance_calculation | cross_unit | 나눗셈 | used_in | 분산 구하기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_num_four_operations__used_in__m1_expr_evaluate_expression_value | cross_unit | 정수와 유리수의 사칙계산 | used_in | 식의 값 구하기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
 | m1_num_number_line__used_in__m1_num_real_order | cross_unit | 수직선 | used_in | 실수의 대소 관계 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_num_rational_fraction_form__used_in__m1_num_rational_repeating_relation | cross_unit | 유리수의 분수 꼴 표현 | used_in | 유리수와 순환소수의 관계 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 4 |

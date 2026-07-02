@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 자료와 가능성
 - priority tier: low
 - priority score: 2
-- edges in packet: 24
-- cross-unit edges: 23
+- edges in packet: 26
+- cross-unit edges: 25
 - low confidence edges: 2
 
 ## Relationship Evidence Slots
@@ -35,11 +35,13 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_data_dataset__prerequisite_for__m1_data_stem_leaf_plot | cross_unit | 자료 | prerequisite_for | 줄기와 잎 그림 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_data_variable__prerequisite_for__m1_data_bivariate_pair | cross_unit | 변량 | prerequisite_for | 두 변량의 대응값 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_data_variable__prerequisite_for__m1_data_deviation | cross_unit | 변량 | prerequisite_for | 편차 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_data_variable__prerequisite_for__m1_data_deviation_calculation | cross_unit | 변량 | prerequisite_for | 편차 구하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_data_variable__prerequisite_for__m1_data_scatter_plot | cross_unit | 변량 | prerequisite_for | 산점도 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_data_variable__prerequisite_for__m1_data_scatter_plot_axes_variables | cross_unit | 변량 | prerequisite_for | 산점도의 두 축과 변량 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_data_dataset__represented_by__m1_data_frequency_table | cross_unit | 자료 | represented_by | 도수분포표 | high | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 3 |
 | m1_data_dataset__represented_by__m1_data_stem_leaf_plot | cross_unit | 자료 | represented_by | 줄기와 잎 그림 | high | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 3 |
 | m1_data_variable__used_in__m1_data_bivariate_pair | cross_unit | 변량 | used_in | 두 변량의 대응값 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
+| m1_data_variable__used_in__m1_data_deviation_calculation | cross_unit | 변량 | used_in | 편차 구하기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_data_variable__used_in__m1_data_scatter_plot | cross_unit | 변량 | used_in | 산점도 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
 | m1_data_dataset__related_to__m1_data_data_collection | cross_unit | 자료 | related_to | 자료 수집 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 4 |
 

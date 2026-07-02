@@ -9,12 +9,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 자료와 가능성
 - unit: 대푯값
 - priority tier: medium
-- workplan score: 60
+- workplan score: 67
 - concepts: 7
-- edges touching unit: 46
-- cross-unit edges: 21
+- edges touching unit: 49
+- cross-unit edges: 24
 - low confidence concepts: 1
-- low confidence edges: 7
+- low confidence edges: 8
 
 ## Concept Type Distribution
 
@@ -33,9 +33,9 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contrasts_with | 3 |
 | equivalent_to | 1 |
 | often_confused_with | 4 |
-| prerequisite_for | 19 |
+| prerequisite_for | 21 |
 | related_to | 1 |
-| used_in | 8 |
+| used_in | 9 |
 
 ## Low Confidence Concepts
 
@@ -47,6 +47,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
+| m1_data_mean__prerequisite_for__m1_data_same_mean_different_spread | 평균 | prerequisite_for | 평균이 같은 두 분포의 흩어진 정도 비교 | low | official_dual_source |
 | m1_data_domain__contains__m1_data_representative_unit | 자료와 가능성 | contains | 대푯값 | high | official_dual_source |
 | m1_data_dataset__prerequisite_for__m1_data_median | 자료 | prerequisite_for | 중앙값 | high | official_dual_source |
 | m1_data_dataset__prerequisite_for__m1_data_mode | 자료 | prerequisite_for | 최빈값 | high | official_dual_source |
@@ -54,6 +55,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_data_distribution__prerequisite_for__m1_data_choose_representative_value | 자료의 분포 | prerequisite_for | 자료의 특성에 맞는 대푯값 선택 | high | official_dual_source |
 | m1_data_frequency__prerequisite_for__m1_data_mode | 도수 | prerequisite_for | 최빈값 | high | official_dual_source |
 | m1_data_mean__prerequisite_for__m1_data_deviation | 평균 | prerequisite_for | 편차 | high | official_dual_source |
+| m1_data_mean__prerequisite_for__m1_data_deviation_calculation | 평균 | prerequisite_for | 편차 구하기 | medium | official_dual_source |
 | m1_data_median__prerequisite_for__m1_data_quartile | 중앙값 | prerequisite_for | 사분위수 | high | official_dual_source |
 | m1_data_median__prerequisite_for__m1_data_quartile_calculation | 중앙값 | prerequisite_for | 사분위수 구하기 | medium | official_dual_source |
 | m1_data_median__prerequisite_for__m1_data_second_quartile | 중앙값 | prerequisite_for | 제2사분위수 | medium | official_dual_source |
@@ -64,6 +66,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_rational_number__prerequisite_for__m1_data_mean | 유리수 | prerequisite_for | 평균 | medium | official_dual_source |
 | m1_data_distribution__used_in__m1_data_choose_representative_value | 자료의 분포 | used_in | 자료의 특성에 맞는 대푯값 선택 | high | official_dual_source |
 | m1_data_mean__used_in__m1_data_deviation | 평균 | used_in | 편차 | medium | official_dual_source |
+| m1_data_mean__used_in__m1_data_deviation_calculation | 평균 | used_in | 편차 구하기 | medium | official_dual_source |
 | m1_data_median__used_in__m1_data_quartile_calculation | 중앙값 | used_in | 사분위수 구하기 | medium | official_dual_source |
 | m1_data_representative_value__used_in__m1_data_variability | 대푯값 | used_in | 산포도 | medium | official_dual_source |
 | m1_data_second_quartile__equivalent_to__m1_data_median | 제2사분위수 | equivalent_to | 중앙값 | medium | official_dual_source |
