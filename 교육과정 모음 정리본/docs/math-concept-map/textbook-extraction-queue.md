@@ -5,8 +5,8 @@ This generated queue ranks units for the next textbook-grounded concept extracti
 ## Summary
 
 - unit groups: 34
-- concepts needing textbook evidence: 814
-- low confidence concepts in queue: 133
+- concepts needing textbook evidence: 835
+- low confidence concepts in queue: 136
 
 ## Queue
 
@@ -37,9 +37,9 @@ This generated queue ranks units for the next textbook-grounded concept extracti
 | 23 | 중3(교육과정 학년군: 중1-3) | 수와 연산 | 제곱근과 실수 | highest | 45 | 25 | 3 | 4 | textbook_evidence_for_low_confidence |
 | 24 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 연립일차방정식 | highest | 43 | 27 | 4 | 0 | textbook_evidence_for_low_confidence |
 | 25 | 중3(교육과정 학년군: 중1-3) | 도형과 측정 | 삼각비 | highest | 42 | 24 | 3 | 3 | textbook_evidence_for_low_confidence |
-| 26 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 일차방정식의 관계 | high | 34 | 16 | 3 | 3 | textbook_evidence_for_low_confidence |
-| 27 | 중1(교육과정 학년군: 중1-3) | 자료와 가능성 | 대푯값 | medium | 11 | 7 | 1 | 0 | textbook_evidence_for_low_confidence |
-| 28 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 작도와 합동 | medium | 8 | 8 | 0 | 0 | add_textbook_page_refs |
+| 26 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 작도와 합동 | highest | 41 | 29 | 3 | 0 | textbook_evidence_for_low_confidence |
+| 27 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 일차방정식의 관계 | high | 34 | 16 | 3 | 3 | textbook_evidence_for_low_confidence |
+| 28 | 중1(교육과정 학년군: 중1-3) | 자료와 가능성 | 대푯값 | medium | 11 | 7 | 1 | 0 | textbook_evidence_for_low_confidence |
 | 29 | 중학교(교육과정 학년군: 중1-3) | 도형과 측정 | 도형과 측정 | low | 7 | 5 | 0 | 1 | confirm_official_single_source_concepts |
 | 30 | 중2(교육과정 학년군: 중1-3) | 도형과 측정 | 피타고라스 정리 | low | 6 | 6 | 0 | 0 | add_textbook_page_refs |
 | 31 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 공통 선수개념 | low | 5 | 1 | 1 | 0 | textbook_evidence_for_low_confidence |

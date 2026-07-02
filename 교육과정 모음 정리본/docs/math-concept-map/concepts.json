@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-07-02T10:08:35",
+    "generated_at": "2026-07-02T10:32:26",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
-    "concept_count": 814,
-    "edge_count": 3708
+    "concept_count": 835,
+    "edge_count": 3800
   },
   "sources": [
     {
@@ -21021,6 +21021,120 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_straightedge_compass_tools",
+      "label_ko": "눈금 없는 자와 컴퍼스",
+      "aliases": [
+        "작도 도구",
+        "straightedge and compass"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "작도와 합동",
+      "concept_type": "term",
+      "short_definition": "작도에서 길이나 각을 직접 재는 눈금 없이 도형을 그릴 때 사용하는 기본 도구.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_geo_construction_congruence_unit"
+      ],
+      "related_ids": [
+        "m1_geo_construction",
+        "m1_mis_construction_measurement_tools"
+      ],
+      "notes": "공식 문서의 '작도'를 수업 단위로 분해한 도구 노드다. 교과서 도구 설명 확인 전까지 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_copy_segment_construction",
+      "label_ko": "주어진 선분과 길이가 같은 선분 작도",
+      "aliases": [
+        "선분 옮기기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "작도와 합동",
+      "concept_type": "procedure",
+      "short_definition": "컴퍼스를 이용해 주어진 선분의 길이를 옮겨 같은 길이의 선분을 그리는 작도 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_line_segment",
+        "m1_geo_distance_between_two_points"
+      ],
+      "parent_ids": [
+        "m1_geo_triangle_construction"
+      ],
+      "related_ids": [
+        "m1_geo_triangle_construction_sss",
+        "m1_geo_triangle_construction_sas"
+      ],
+      "notes": "삼각형 작도에 쓰이는 교과서형 하위 절차로 추론했다. 교과서 본문 확인 전까지 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_copy_angle_construction",
+      "label_ko": "주어진 각과 크기가 같은 각 작도",
+      "aliases": [
+        "각 옮기기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "작도와 합동",
+      "concept_type": "procedure",
+      "short_definition": "주어진 각의 크기를 보존해 다른 위치에 같은 크기의 각을 그리는 작도 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_angle"
+      ],
+      "parent_ids": [
+        "m1_geo_triangle_construction"
+      ],
+      "related_ids": [
+        "m1_geo_triangle_construction_sas",
+        "m1_geo_triangle_construction_asa"
+      ],
+      "notes": "삼각형 작도에 쓰이는 교과서형 하위 절차로 추론했다. 교과서 본문 확인 전까지 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_triangle_construction",
       "label_ko": "삼각형의 작도",
       "aliases": [
@@ -21054,7 +21168,203 @@
         "m1_geo_construction_congruence_unit"
       ],
       "related_ids": [
+        "m1_geo_triangle_congruence_conditions",
+        "m1_geo_triangle_construction_sss",
+        "m1_geo_triangle_construction_sas",
+        "m1_geo_triangle_construction_asa",
+        "m1_geo_construction_process_explanation"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_triangle_construction_sss",
+      "label_ko": "세 변이 주어진 삼각형 작도",
+      "aliases": [
+        "SSS 삼각형 작도"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "작도와 합동",
+      "concept_type": "procedure",
+      "short_definition": "세 변의 길이가 주어진 조건에서 삼각형을 작도하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_triangle",
+        "m1_geo_copy_segment_construction"
+      ],
+      "parent_ids": [
+        "m1_geo_triangle_construction"
+      ],
+      "related_ids": [
+        "m1_geo_triangle_congruence_sss_condition"
+      ],
+      "notes": "공식 문서의 삼각형 작도를 수업 단위로 분해한 하위 concept이다. 개별 작도 유형은 교과서 본문 확인 전까지 medium으로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_construction_sas",
+      "label_ko": "두 변과 그 끼인각이 주어진 삼각형 작도",
+      "aliases": [
+        "SAS 삼각형 작도"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "작도와 합동",
+      "concept_type": "procedure",
+      "short_definition": "두 변의 길이와 그 사이에 끼인각의 크기가 주어진 조건에서 삼각형을 작도하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_triangle",
+        "m1_geo_copy_segment_construction",
+        "m1_geo_copy_angle_construction"
+      ],
+      "parent_ids": [
+        "m1_geo_triangle_construction"
+      ],
+      "related_ids": [
+        "m1_geo_triangle_congruence_sas_condition",
+        "m1_mis_sas_nonincluded_angle"
+      ],
+      "notes": "공식 문서의 삼각형 작도를 수업 단위로 분해한 하위 concept이다. 개별 작도 유형은 교과서 본문 확인 전까지 medium으로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_construction_asa",
+      "label_ko": "한 변과 그 양 끝각이 주어진 삼각형 작도",
+      "aliases": [
+        "ASA 삼각형 작도"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "작도와 합동",
+      "concept_type": "procedure",
+      "short_definition": "한 변의 길이와 그 양 끝에 놓인 두 각의 크기가 주어진 조건에서 삼각형을 작도하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_triangle",
+        "m1_geo_copy_segment_construction",
+        "m1_geo_copy_angle_construction"
+      ],
+      "parent_ids": [
+        "m1_geo_triangle_construction"
+      ],
+      "related_ids": [
+        "m1_geo_triangle_congruence_asa_condition"
+      ],
+      "notes": "공식 문서의 삼각형 작도를 수업 단위로 분해한 하위 concept이다. 개별 작도 유형은 교과서 본문 확인 전까지 medium으로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_congruent_triangle_construction",
+      "label_ko": "주어진 삼각형과 합동인 삼각형 작도",
+      "aliases": [
+        "합동인 삼각형 작도"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "작도와 합동",
+      "concept_type": "procedure",
+      "short_definition": "주어진 삼각형의 변과 각 조건을 이용해 그와 합동인 삼각형을 작도하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_triangle_construction",
+        "m1_geo_congruence"
+      ],
+      "parent_ids": [
+        "m1_geo_triangle_construction"
+      ],
+      "related_ids": [
         "m1_geo_triangle_congruence_conditions"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_construction_process_explanation",
+      "label_ko": "작도 과정 설명하기",
+      "aliases": [
+        "작도 순서 설명"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "작도와 합동",
+      "concept_type": "procedure",
+      "short_definition": "작도에 사용한 도구, 순서, 근거를 말이나 글로 설명하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_triangle_construction"
+      ],
+      "parent_ids": [
+        "m1_geo_triangle_construction"
+      ],
+      "related_ids": [
+        "m1_geo_congruent_triangle_construction"
       ],
       "notes": "",
       "confidence": "high"
@@ -21084,18 +21394,243 @@
           "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_geo_triangle_construction"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_geo_construction_congruence_unit"
       ],
       "related_ids": [
         "m1_geo_similarity",
+        "m1_geo_correspondence_in_congruence",
         "m1_mis_congruence_similarity"
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_correspondence_in_congruence",
+      "label_ko": "합동에서의 대응 관계",
+      "aliases": [
+        "합동의 대응"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "작도와 합동",
+      "concept_type": "sub_concept",
+      "short_definition": "두 합동인 도형에서 서로 포개지는 꼭짓점, 변, 각을 짝짓는 관계.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_geo_construction_congruence_unit"
+      ],
+      "related_ids": [
+        "m1_geo_corresponding_vertices_in_congruence",
+        "m1_geo_corresponding_sides_in_congruence",
+        "m1_geo_corresponding_angles_in_congruence",
+        "m1_mis_congruence_correspondence_order"
+      ],
+      "notes": "합동 판별에서 필요한 대응 관계를 별도 노드로 분리했다. 대응 세부 용어는 교과서 본문 확인 전까지 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_corresponding_vertices_in_congruence",
+      "label_ko": "합동에서의 대응하는 꼭짓점",
+      "aliases": [
+        "합동 대응 꼭짓점"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "작도와 합동",
+      "concept_type": "term",
+      "short_definition": "합동인 두 도형에서 서로 포개지는 꼭짓점.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_point"
+      ],
+      "parent_ids": [
+        "m1_geo_correspondence_in_congruence"
+      ],
+      "related_ids": [
+        "m1_geo_corresponding_sides_in_congruence",
+        "m1_geo_corresponding_angles_in_congruence"
+      ],
+      "notes": "합동 판별에서 쓰이는 교과서형 대응 용어로 추론했다. 교과서 본문 확인 전까지 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_corresponding_sides_in_congruence",
+      "label_ko": "합동에서의 대응하는 변",
+      "aliases": [
+        "합동 대응변"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "작도와 합동",
+      "concept_type": "term",
+      "short_definition": "합동인 두 도형에서 서로 포개지는 변.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_line_segment"
+      ],
+      "parent_ids": [
+        "m1_geo_correspondence_in_congruence"
+      ],
+      "related_ids": [
+        "m1_geo_congruent_corresponding_sides_equal"
+      ],
+      "notes": "합동 판별에서 쓰이는 교과서형 대응 용어로 추론했다. 교과서 본문 확인 전까지 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_corresponding_angles_in_congruence",
+      "label_ko": "합동에서의 대응하는 각",
+      "aliases": [
+        "합동 대응각"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "작도와 합동",
+      "concept_type": "term",
+      "short_definition": "합동인 두 도형에서 서로 포개지는 각.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_angle"
+      ],
+      "parent_ids": [
+        "m1_geo_correspondence_in_congruence"
+      ],
+      "related_ids": [
+        "m1_geo_congruent_corresponding_angles_equal"
+      ],
+      "notes": "합동 판별에서 쓰이는 교과서형 대응 용어로 추론했다. 교과서 본문 확인 전까지 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_congruent_corresponding_sides_equal",
+      "label_ko": "합동인 도형의 대응변의 길이가 같음",
+      "aliases": [
+        "합동 대응변 길이 같음"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "작도와 합동",
+      "concept_type": "property",
+      "short_definition": "합동인 두 도형에서 대응하는 변의 길이가 각각 같다는 성질.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_congruence",
+        "m1_geo_corresponding_sides_in_congruence"
+      ],
+      "parent_ids": [
+        "m1_geo_construction_congruence_unit"
+      ],
+      "related_ids": [
+        "m1_geo_triangle_congruence_conditions"
+      ],
+      "notes": "삼각형의 합동 조건을 이해하는 데 필요한 하위 성질로 추론했다. 교과서 본문 확인 전까지 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_congruent_corresponding_angles_equal",
+      "label_ko": "합동인 도형의 대응각의 크기가 같음",
+      "aliases": [
+        "합동 대응각 크기 같음"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "작도와 합동",
+      "concept_type": "property",
+      "short_definition": "합동인 두 도형에서 대응하는 각의 크기가 각각 같다는 성질.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_congruence",
+        "m1_geo_corresponding_angles_in_congruence"
+      ],
+      "parent_ids": [
+        "m1_geo_construction_congruence_unit"
+      ],
+      "related_ids": [
+        "m1_geo_triangle_congruence_conditions"
+      ],
+      "notes": "삼각형의 합동 조건을 이해하는 데 필요한 하위 성질로 추론했다. 교과서 본문 확인 전까지 중간 신뢰도로 둔다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_triangle_congruence_conditions",
@@ -21131,17 +21666,173 @@
       "prerequisite_ids": [
         "m1_geo_congruence",
         "m1_geo_opposite_side",
-        "m1_geo_opposite_angle"
+        "m1_geo_opposite_angle",
+        "m1_geo_correspondence_in_congruence"
       ],
       "parent_ids": [
         "m1_geo_construction_congruence_unit"
       ],
       "related_ids": [
         "m1_geo_triangle_congruence_judgement",
+        "m1_geo_triangle_congruence_sss_condition",
+        "m1_geo_triangle_congruence_sas_condition",
+        "m1_geo_triangle_congruence_asa_condition",
         "m1_geo_proof"
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_triangle_congruence_sss_condition",
+      "label_ko": "세 쌍의 대응변의 길이가 각각 같은 삼각형 합동 조건",
+      "aliases": [
+        "SSS 합동 조건"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "작도와 합동",
+      "concept_type": "property",
+      "short_definition": "두 삼각형에서 세 쌍의 대응변의 길이가 각각 같으면 합동이라고 판별하는 조건.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_corresponding_sides_in_congruence"
+      ],
+      "parent_ids": [
+        "m1_geo_triangle_congruence_conditions"
+      ],
+      "related_ids": [
+        "m1_geo_triangle_construction_sss"
+      ],
+      "notes": "공식 문서의 '삼각형의 합동 조건'을 수업 단위로 분해한 하위 concept이다. 개별 조건명은 교과서 본문 확인 전까지 medium으로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_congruence_sas_condition",
+      "label_ko": "두 쌍의 대응변의 길이와 그 끼인각의 크기가 각각 같은 삼각형 합동 조건",
+      "aliases": [
+        "SAS 합동 조건"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "작도와 합동",
+      "concept_type": "property",
+      "short_definition": "두 삼각형에서 두 쌍의 대응변의 길이와 그 사이에 끼인각의 크기가 각각 같으면 합동이라고 판별하는 조건.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_corresponding_sides_in_congruence",
+        "m1_geo_corresponding_angles_in_congruence"
+      ],
+      "parent_ids": [
+        "m1_geo_triangle_congruence_conditions"
+      ],
+      "related_ids": [
+        "m1_geo_triangle_construction_sas",
+        "m1_mis_sas_nonincluded_angle"
+      ],
+      "notes": "공식 문서의 '삼각형의 합동 조건'을 수업 단위로 분해한 하위 concept이다. 개별 조건명은 교과서 본문 확인 전까지 medium으로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_congruence_asa_condition",
+      "label_ko": "한 쌍의 대응변의 길이와 그 양 끝각의 크기가 각각 같은 삼각형 합동 조건",
+      "aliases": [
+        "ASA 합동 조건"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "작도와 합동",
+      "concept_type": "property",
+      "short_definition": "두 삼각형에서 한 쌍의 대응변의 길이와 그 양 끝각의 크기가 각각 같으면 합동이라고 판별하는 조건.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_corresponding_sides_in_congruence",
+        "m1_geo_corresponding_angles_in_congruence"
+      ],
+      "parent_ids": [
+        "m1_geo_triangle_congruence_conditions"
+      ],
+      "related_ids": [
+        "m1_geo_triangle_construction_asa"
+      ],
+      "notes": "공식 문서의 '삼각형의 합동 조건'을 수업 단위로 분해한 하위 concept이다. 개별 조건명은 교과서 본문 확인 전까지 medium으로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_congruence_condition_selection",
+      "label_ko": "삼각형 합동 조건 선택하기",
+      "aliases": [
+        "합동 조건 고르기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "작도와 합동",
+      "concept_type": "procedure",
+      "short_definition": "주어진 변과 각 정보를 보고 SSS, SAS, ASA 중 적용할 합동 조건을 선택하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_triangle_congruence_conditions"
+      ],
+      "parent_ids": [
+        "m1_geo_construction_congruence_unit"
+      ],
+      "related_ids": [
+        "m1_geo_triangle_congruence_judgement",
+        "m1_mis_sas_nonincluded_angle"
+      ],
+      "notes": "합동 조건 이해와 판별 사이의 절차로 추출했다. 교과서 예제 근거 확인 전까지 중간 신뢰도로 둔다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_triangle_congruence_judgement",
@@ -21169,13 +21860,15 @@
         }
       ],
       "prerequisite_ids": [
-        "m1_geo_triangle_congruence_conditions"
+        "m1_geo_triangle_congruence_conditions",
+        "m1_geo_congruence_condition_selection"
       ],
       "parent_ids": [
         "m1_geo_construction_congruence_unit"
       ],
       "related_ids": [
-        "m1_geo_justification"
+        "m1_geo_justification",
+        "m1_mis_congruence_correspondence_order"
       ],
       "notes": "",
       "confidence": "high"
@@ -21265,6 +21958,114 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_mis_construction_measurement_tools",
+      "label_ko": "눈금자나 각도기로 재서 작도하는 오류",
+      "aliases": [
+        "작도 도구 오해"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "작도와 합동",
+      "concept_type": "misconception_risk",
+      "short_definition": "작도에서 허용된 도구의 역할을 놓치고 길이나 각을 직접 재는 방식으로 해결하려는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_geo_construction_congruence_unit"
+      ],
+      "related_ids": [
+        "m1_geo_straightedge_compass_tools",
+        "m1_geo_construction"
+      ],
+      "notes": "공식 성취기준에서 직접 명명되지 않은 교과서형 오개념 위험이다. 교과서 예제·문항 근거 확인 전까지 low로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_sas_nonincluded_angle",
+      "label_ko": "끼인각이 아닌 각을 SAS 조건에 쓰는 오류",
+      "aliases": [
+        "SAS 끼인각 오해"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "작도와 합동",
+      "concept_type": "misconception_risk",
+      "short_definition": "두 변과 한 각이 주어졌다는 이유만으로 그 각이 두 변 사이의 끼인각인지 확인하지 않고 SAS 합동 조건을 적용하는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_geo_construction_congruence_unit"
+      ],
+      "related_ids": [
+        "m1_geo_triangle_congruence_sas_condition",
+        "m1_geo_triangle_congruence_asa_condition"
+      ],
+      "notes": "공식 성취기준에서 직접 명명되지 않은 합동 조건 판별 오개념이다. 교과서 문항 근거 확인 전까지 low로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_congruence_correspondence_order",
+      "label_ko": "합동 판별에서 대응 순서를 무시하는 오류",
+      "aliases": [
+        "대응 순서 혼동"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "작도와 합동",
+      "concept_type": "misconception_risk",
+      "short_definition": "두 삼각형의 대응하는 꼭짓점, 변, 각의 순서를 맞추지 않고 합동 여부를 판단하는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_geo_construction_congruence_unit"
+      ],
+      "related_ids": [
+        "m1_geo_correspondence_in_congruence",
+        "m1_geo_triangle_congruence_judgement"
+      ],
+      "notes": "공식 성취기준에서 직접 명명되지 않은 합동 판별 오개념이다. 교과서 문항 근거 확인 전까지 low로 둔다.",
+      "confidence": "low"
     },
     {
       "id": "m1_geo_polygon",
@@ -62439,9 +63240,351 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_straightedge_compass_tools__used_in__m1_geo_construction",
+      "source_id": "m1_geo_straightedge_compass_tools",
+      "target_id": "m1_geo_construction",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "자와 컴퍼스는 작도를 실행하는 도구이므로 표현(represented_by)이 아니라 used_in으로 둔다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_construction__used_in__m1_geo_triangle_construction",
       "source_id": "m1_geo_construction",
       "target_id": "m1_geo_triangle_construction",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_copy_segment_construction__used_in__m1_geo_triangle_construction",
+      "source_id": "m1_geo_copy_segment_construction",
+      "target_id": "m1_geo_triangle_construction",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_copy_angle_construction__used_in__m1_geo_triangle_construction",
+      "source_id": "m1_geo_copy_angle_construction",
+      "target_id": "m1_geo_triangle_construction",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_copy_segment_construction__used_in__m1_geo_triangle_construction_sss",
+      "source_id": "m1_geo_copy_segment_construction",
+      "target_id": "m1_geo_triangle_construction_sss",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_copy_segment_construction__used_in__m1_geo_triangle_construction_sas",
+      "source_id": "m1_geo_copy_segment_construction",
+      "target_id": "m1_geo_triangle_construction_sas",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_copy_angle_construction__used_in__m1_geo_triangle_construction_sas",
+      "source_id": "m1_geo_copy_angle_construction",
+      "target_id": "m1_geo_triangle_construction_sas",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_copy_segment_construction__used_in__m1_geo_triangle_construction_asa",
+      "source_id": "m1_geo_copy_segment_construction",
+      "target_id": "m1_geo_triangle_construction_asa",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_copy_angle_construction__used_in__m1_geo_triangle_construction_asa",
+      "source_id": "m1_geo_copy_angle_construction",
+      "target_id": "m1_geo_triangle_construction_asa",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_construction_sss__used_in__m1_geo_triangle_construction",
+      "source_id": "m1_geo_triangle_construction_sss",
+      "target_id": "m1_geo_triangle_construction",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_construction_sas__used_in__m1_geo_triangle_construction",
+      "source_id": "m1_geo_triangle_construction_sas",
+      "target_id": "m1_geo_triangle_construction",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_construction_asa__used_in__m1_geo_triangle_construction",
+      "source_id": "m1_geo_triangle_construction_asa",
+      "target_id": "m1_geo_triangle_construction",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_construction_process_explanation__used_in__m1_geo_triangle_construction",
+      "source_id": "m1_geo_construction_process_explanation",
+      "target_id": "m1_geo_triangle_construction",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_construction_process_explanation__used_in__m1_geo_congruent_triangle_construction",
+      "source_id": "m1_geo_construction_process_explanation",
+      "target_id": "m1_geo_congruent_triangle_construction",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_triangle_congruence_conditions__used_in__m1_geo_congruent_triangle_construction",
+      "source_id": "m1_geo_triangle_congruence_conditions",
+      "target_id": "m1_geo_congruent_triangle_construction",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_congruent_triangle_construction__used_in__m1_geo_congruence",
+      "source_id": "m1_geo_congruent_triangle_construction",
+      "target_id": "m1_geo_congruence",
       "relationship_type": "used_in",
       "source_refs": [
         {
@@ -62529,6 +63672,328 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_geo_triangle_construction_sss__related_to__m1_geo_triangle_congruence_sss_condition",
+      "source_id": "m1_geo_triangle_construction_sss",
+      "target_id": "m1_geo_triangle_congruence_sss_condition",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "세 변이 주어진 작도 유형은 SSS 합동 조건과 대응하지만, 작도 절차와 판별 조건은 구별한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_construction_sas__related_to__m1_geo_triangle_congruence_sas_condition",
+      "source_id": "m1_geo_triangle_construction_sas",
+      "target_id": "m1_geo_triangle_congruence_sas_condition",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "두 변과 끼인각 작도 유형은 SAS 합동 조건과 대응하지만, 작도 절차와 판별 조건은 구별한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_construction_asa__related_to__m1_geo_triangle_congruence_asa_condition",
+      "source_id": "m1_geo_triangle_construction_asa",
+      "target_id": "m1_geo_triangle_congruence_asa_condition",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "한 변과 양 끝각 작도 유형은 ASA 합동 조건과 대응하지만, 작도 절차와 판별 조건은 구별한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_congruence__represented_by__m1_geo_correspondence_in_congruence",
+      "source_id": "m1_geo_congruence",
+      "target_id": "m1_geo_correspondence_in_congruence",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_correspondence_in_congruence__represented_by__m1_geo_corresponding_vertices_in_congruence",
+      "source_id": "m1_geo_correspondence_in_congruence",
+      "target_id": "m1_geo_corresponding_vertices_in_congruence",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_correspondence_in_congruence__represented_by__m1_geo_corresponding_sides_in_congruence",
+      "source_id": "m1_geo_correspondence_in_congruence",
+      "target_id": "m1_geo_corresponding_sides_in_congruence",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_correspondence_in_congruence__represented_by__m1_geo_corresponding_angles_in_congruence",
+      "source_id": "m1_geo_correspondence_in_congruence",
+      "target_id": "m1_geo_corresponding_angles_in_congruence",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_corresponding_vertices_in_congruence__related_to__m1_geo_corresponding_sides_in_congruence",
+      "source_id": "m1_geo_corresponding_vertices_in_congruence",
+      "target_id": "m1_geo_corresponding_sides_in_congruence",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_corresponding_vertices_in_congruence__related_to__m1_geo_corresponding_angles_in_congruence",
+      "source_id": "m1_geo_corresponding_vertices_in_congruence",
+      "target_id": "m1_geo_corresponding_angles_in_congruence",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_corresponding_sides_in_congruence__used_in__m1_geo_congruent_corresponding_sides_equal",
+      "source_id": "m1_geo_corresponding_sides_in_congruence",
+      "target_id": "m1_geo_congruent_corresponding_sides_equal",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_corresponding_angles_in_congruence__used_in__m1_geo_congruent_corresponding_angles_equal",
+      "source_id": "m1_geo_corresponding_angles_in_congruence",
+      "target_id": "m1_geo_congruent_corresponding_angles_equal",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_congruent_corresponding_sides_equal__used_in__m1_geo_triangle_congruence_conditions",
+      "source_id": "m1_geo_congruent_corresponding_sides_equal",
+      "target_id": "m1_geo_triangle_congruence_conditions",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_congruent_corresponding_angles_equal__used_in__m1_geo_triangle_congruence_conditions",
+      "source_id": "m1_geo_congruent_corresponding_angles_equal",
+      "target_id": "m1_geo_triangle_congruence_conditions",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_congruence__used_in__m1_geo_triangle_congruence_conditions",
       "source_id": "m1_geo_congruence",
       "target_id": "m1_geo_triangle_congruence_conditions",
@@ -62549,6 +64014,160 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_triangle_congruence_sss_condition__used_in__m1_geo_triangle_congruence_conditions",
+      "source_id": "m1_geo_triangle_congruence_sss_condition",
+      "target_id": "m1_geo_triangle_congruence_conditions",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_congruence_sas_condition__used_in__m1_geo_triangle_congruence_conditions",
+      "source_id": "m1_geo_triangle_congruence_sas_condition",
+      "target_id": "m1_geo_triangle_congruence_conditions",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_congruence_asa_condition__used_in__m1_geo_triangle_congruence_conditions",
+      "source_id": "m1_geo_triangle_congruence_asa_condition",
+      "target_id": "m1_geo_triangle_congruence_conditions",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_congruence_sss_condition__used_in__m1_geo_triangle_congruence_judgement",
+      "source_id": "m1_geo_triangle_congruence_sss_condition",
+      "target_id": "m1_geo_triangle_congruence_judgement",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_congruence_sas_condition__used_in__m1_geo_triangle_congruence_judgement",
+      "source_id": "m1_geo_triangle_congruence_sas_condition",
+      "target_id": "m1_geo_triangle_congruence_judgement",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_congruence_asa_condition__used_in__m1_geo_triangle_congruence_judgement",
+      "source_id": "m1_geo_triangle_congruence_asa_condition",
+      "target_id": "m1_geo_triangle_congruence_judgement",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_congruence_condition_selection__used_in__m1_geo_triangle_congruence_judgement",
+      "source_id": "m1_geo_congruence_condition_selection",
+      "target_id": "m1_geo_triangle_congruence_judgement",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_triangle_congruence_conditions__used_in__m1_geo_triangle_congruence_judgement",
@@ -82969,9 +84588,185 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_construction_congruence_unit__contains__m1_geo_straightedge_compass_tools",
+      "source_id": "m1_geo_construction_congruence_unit",
+      "target_id": "m1_geo_straightedge_compass_tools",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_construction__contains__m1_geo_copy_segment_construction",
+      "source_id": "m1_geo_triangle_construction",
+      "target_id": "m1_geo_copy_segment_construction",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_construction__contains__m1_geo_copy_angle_construction",
+      "source_id": "m1_geo_triangle_construction",
+      "target_id": "m1_geo_copy_angle_construction",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_construction_congruence_unit__contains__m1_geo_triangle_construction",
       "source_id": "m1_geo_construction_congruence_unit",
       "target_id": "m1_geo_triangle_construction",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_triangle_construction__contains__m1_geo_triangle_construction_sss",
+      "source_id": "m1_geo_triangle_construction",
+      "target_id": "m1_geo_triangle_construction_sss",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_construction__contains__m1_geo_triangle_construction_sas",
+      "source_id": "m1_geo_triangle_construction",
+      "target_id": "m1_geo_triangle_construction_sas",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_construction__contains__m1_geo_triangle_construction_asa",
+      "source_id": "m1_geo_triangle_construction",
+      "target_id": "m1_geo_triangle_construction_asa",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_construction__contains__m1_geo_congruent_triangle_construction",
+      "source_id": "m1_geo_triangle_construction",
+      "target_id": "m1_geo_congruent_triangle_construction",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_triangle_construction__contains__m1_geo_construction_process_explanation",
+      "source_id": "m1_geo_triangle_construction",
+      "target_id": "m1_geo_construction_process_explanation",
       "relationship_type": "contains",
       "source_refs": [
         {
@@ -83013,6 +84808,138 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_construction_congruence_unit__contains__m1_geo_correspondence_in_congruence",
+      "source_id": "m1_geo_construction_congruence_unit",
+      "target_id": "m1_geo_correspondence_in_congruence",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_correspondence_in_congruence__contains__m1_geo_corresponding_vertices_in_congruence",
+      "source_id": "m1_geo_correspondence_in_congruence",
+      "target_id": "m1_geo_corresponding_vertices_in_congruence",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_correspondence_in_congruence__contains__m1_geo_corresponding_sides_in_congruence",
+      "source_id": "m1_geo_correspondence_in_congruence",
+      "target_id": "m1_geo_corresponding_sides_in_congruence",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_correspondence_in_congruence__contains__m1_geo_corresponding_angles_in_congruence",
+      "source_id": "m1_geo_correspondence_in_congruence",
+      "target_id": "m1_geo_corresponding_angles_in_congruence",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_construction_congruence_unit__contains__m1_geo_congruent_corresponding_sides_equal",
+      "source_id": "m1_geo_construction_congruence_unit",
+      "target_id": "m1_geo_congruent_corresponding_sides_equal",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_construction_congruence_unit__contains__m1_geo_congruent_corresponding_angles_equal",
+      "source_id": "m1_geo_construction_congruence_unit",
+      "target_id": "m1_geo_congruent_corresponding_angles_equal",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_construction_congruence_unit__contains__m1_geo_triangle_congruence_conditions",
       "source_id": "m1_geo_construction_congruence_unit",
       "target_id": "m1_geo_triangle_congruence_conditions",
@@ -83039,6 +84966,94 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_triangle_congruence_conditions__contains__m1_geo_triangle_congruence_sss_condition",
+      "source_id": "m1_geo_triangle_congruence_conditions",
+      "target_id": "m1_geo_triangle_congruence_sss_condition",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_congruence_conditions__contains__m1_geo_triangle_congruence_sas_condition",
+      "source_id": "m1_geo_triangle_congruence_conditions",
+      "target_id": "m1_geo_triangle_congruence_sas_condition",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_congruence_conditions__contains__m1_geo_triangle_congruence_asa_condition",
+      "source_id": "m1_geo_triangle_congruence_conditions",
+      "target_id": "m1_geo_triangle_congruence_asa_condition",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_construction_congruence_unit__contains__m1_geo_congruence_condition_selection",
+      "source_id": "m1_geo_construction_congruence_unit",
+      "target_id": "m1_geo_congruence_condition_selection",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_construction_congruence_unit__contains__m1_geo_triangle_congruence_judgement",
@@ -83117,6 +85132,72 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_construction_congruence_unit__contains__m1_mis_construction_measurement_tools",
+      "source_id": "m1_geo_construction_congruence_unit",
+      "target_id": "m1_mis_construction_measurement_tools",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_construction_congruence_unit__contains__m1_mis_sas_nonincluded_angle",
+      "source_id": "m1_geo_construction_congruence_unit",
+      "target_id": "m1_mis_sas_nonincluded_angle",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_construction_congruence_unit__contains__m1_mis_congruence_correspondence_order",
+      "source_id": "m1_geo_construction_congruence_unit",
+      "target_id": "m1_mis_congruence_correspondence_order",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
     },
     {
       "id": "m1_geo_plane_properties_unit__contains__m1_geo_polygon",
@@ -109875,6 +111956,72 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_line_segment__prerequisite_for__m1_geo_copy_segment_construction",
+      "source_id": "m1_geo_line_segment",
+      "target_id": "m1_geo_copy_segment_construction",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_distance_between_two_points__prerequisite_for__m1_geo_copy_segment_construction",
+      "source_id": "m1_geo_distance_between_two_points",
+      "target_id": "m1_geo_copy_segment_construction",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_angle__prerequisite_for__m1_geo_copy_angle_construction",
+      "source_id": "m1_geo_angle",
+      "target_id": "m1_geo_copy_angle_construction",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_construction__prerequisite_for__m1_geo_triangle_construction",
       "source_id": "m1_geo_construction",
       "target_id": "m1_geo_triangle_construction",
@@ -109941,9 +112088,251 @@
       "confidence": "high"
     },
     {
-      "id": "m1_geo_triangle_construction__prerequisite_for__m1_geo_congruence",
+      "id": "m1_geo_triangle__prerequisite_for__m1_geo_triangle_construction_sss",
+      "source_id": "m1_geo_triangle",
+      "target_id": "m1_geo_triangle_construction_sss",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_copy_segment_construction__prerequisite_for__m1_geo_triangle_construction_sss",
+      "source_id": "m1_geo_copy_segment_construction",
+      "target_id": "m1_geo_triangle_construction_sss",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle__prerequisite_for__m1_geo_triangle_construction_sas",
+      "source_id": "m1_geo_triangle",
+      "target_id": "m1_geo_triangle_construction_sas",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_copy_segment_construction__prerequisite_for__m1_geo_triangle_construction_sas",
+      "source_id": "m1_geo_copy_segment_construction",
+      "target_id": "m1_geo_triangle_construction_sas",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_copy_angle_construction__prerequisite_for__m1_geo_triangle_construction_sas",
+      "source_id": "m1_geo_copy_angle_construction",
+      "target_id": "m1_geo_triangle_construction_sas",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle__prerequisite_for__m1_geo_triangle_construction_asa",
+      "source_id": "m1_geo_triangle",
+      "target_id": "m1_geo_triangle_construction_asa",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_copy_segment_construction__prerequisite_for__m1_geo_triangle_construction_asa",
+      "source_id": "m1_geo_copy_segment_construction",
+      "target_id": "m1_geo_triangle_construction_asa",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_copy_angle_construction__prerequisite_for__m1_geo_triangle_construction_asa",
+      "source_id": "m1_geo_copy_angle_construction",
+      "target_id": "m1_geo_triangle_construction_asa",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_construction__prerequisite_for__m1_geo_congruent_triangle_construction",
       "source_id": "m1_geo_triangle_construction",
-      "target_id": "m1_geo_congruence",
+      "target_id": "m1_geo_congruent_triangle_construction",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_congruence__prerequisite_for__m1_geo_congruent_triangle_construction",
+      "source_id": "m1_geo_congruence",
+      "target_id": "m1_geo_congruent_triangle_construction",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_triangle_construction__prerequisite_for__m1_geo_construction_process_explanation",
+      "source_id": "m1_geo_triangle_construction",
+      "target_id": "m1_geo_construction_process_explanation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_point__prerequisite_for__m1_geo_corresponding_vertices_in_congruence",
+      "source_id": "m1_geo_point",
+      "target_id": "m1_geo_corresponding_vertices_in_congruence",
       "relationship_type": "prerequisite_for",
       "source_refs": [
         {
@@ -109960,7 +112349,139 @@
         }
       ],
       "notes": "",
-      "confidence": "high"
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_line_segment__prerequisite_for__m1_geo_corresponding_sides_in_congruence",
+      "source_id": "m1_geo_line_segment",
+      "target_id": "m1_geo_corresponding_sides_in_congruence",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_angle__prerequisite_for__m1_geo_corresponding_angles_in_congruence",
+      "source_id": "m1_geo_angle",
+      "target_id": "m1_geo_corresponding_angles_in_congruence",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_congruence__prerequisite_for__m1_geo_congruent_corresponding_sides_equal",
+      "source_id": "m1_geo_congruence",
+      "target_id": "m1_geo_congruent_corresponding_sides_equal",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_corresponding_sides_in_congruence__prerequisite_for__m1_geo_congruent_corresponding_sides_equal",
+      "source_id": "m1_geo_corresponding_sides_in_congruence",
+      "target_id": "m1_geo_congruent_corresponding_sides_equal",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_congruence__prerequisite_for__m1_geo_congruent_corresponding_angles_equal",
+      "source_id": "m1_geo_congruence",
+      "target_id": "m1_geo_congruent_corresponding_angles_equal",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_corresponding_angles_in_congruence__prerequisite_for__m1_geo_congruent_corresponding_angles_equal",
+      "source_id": "m1_geo_corresponding_angles_in_congruence",
+      "target_id": "m1_geo_congruent_corresponding_angles_equal",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_congruence__prerequisite_for__m1_geo_triangle_congruence_conditions",
@@ -110047,8 +112568,190 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_correspondence_in_congruence__prerequisite_for__m1_geo_triangle_congruence_conditions",
+      "source_id": "m1_geo_correspondence_in_congruence",
+      "target_id": "m1_geo_triangle_congruence_conditions",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_corresponding_sides_in_congruence__prerequisite_for__m1_geo_triangle_congruence_sss_condition",
+      "source_id": "m1_geo_corresponding_sides_in_congruence",
+      "target_id": "m1_geo_triangle_congruence_sss_condition",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_corresponding_sides_in_congruence__prerequisite_for__m1_geo_triangle_congruence_sas_condition",
+      "source_id": "m1_geo_corresponding_sides_in_congruence",
+      "target_id": "m1_geo_triangle_congruence_sas_condition",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_corresponding_angles_in_congruence__prerequisite_for__m1_geo_triangle_congruence_sas_condition",
+      "source_id": "m1_geo_corresponding_angles_in_congruence",
+      "target_id": "m1_geo_triangle_congruence_sas_condition",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_corresponding_sides_in_congruence__prerequisite_for__m1_geo_triangle_congruence_asa_condition",
+      "source_id": "m1_geo_corresponding_sides_in_congruence",
+      "target_id": "m1_geo_triangle_congruence_asa_condition",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_corresponding_angles_in_congruence__prerequisite_for__m1_geo_triangle_congruence_asa_condition",
+      "source_id": "m1_geo_corresponding_angles_in_congruence",
+      "target_id": "m1_geo_triangle_congruence_asa_condition",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_congruence_condition_selection",
+      "source_id": "m1_geo_triangle_congruence_conditions",
+      "target_id": "m1_geo_congruence_condition_selection",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_triangle_congruence_judgement",
       "source_id": "m1_geo_triangle_congruence_conditions",
+      "target_id": "m1_geo_triangle_congruence_judgement",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_congruence_condition_selection__prerequisite_for__m1_geo_triangle_congruence_judgement",
+      "source_id": "m1_geo_congruence_condition_selection",
       "target_id": "m1_geo_triangle_congruence_judgement",
       "relationship_type": "prerequisite_for",
       "source_refs": [
@@ -127879,6 +130582,182 @@
           "locator": "기본 도형 section; [9수03-01] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "점, 선, 면, 각 관련 용어와 기호를 이해하고 점, 직선, 평면의 위치 관계를 설명하는 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_construction_measurement_tools__often_confused_with__m1_geo_straightedge_compass_tools",
+      "source_id": "m1_mis_construction_measurement_tools",
+      "target_id": "m1_geo_straightedge_compass_tools",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_sas_nonincluded_angle__often_confused_with__m1_geo_triangle_construction_sas",
+      "source_id": "m1_mis_sas_nonincluded_angle",
+      "target_id": "m1_geo_triangle_construction_sas",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_congruence_correspondence_order__often_confused_with__m1_geo_correspondence_in_congruence",
+      "source_id": "m1_mis_congruence_correspondence_order",
+      "target_id": "m1_geo_correspondence_in_congruence",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_sas_nonincluded_angle__often_confused_with__m1_geo_triangle_congruence_sas_condition",
+      "source_id": "m1_mis_sas_nonincluded_angle",
+      "target_id": "m1_geo_triangle_congruence_sas_condition",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_sas_nonincluded_angle__often_confused_with__m1_geo_congruence_condition_selection",
+      "source_id": "m1_mis_sas_nonincluded_angle",
+      "target_id": "m1_geo_congruence_condition_selection",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_congruence_correspondence_order__often_confused_with__m1_geo_triangle_congruence_judgement",
+      "source_id": "m1_mis_congruence_correspondence_order",
+      "target_id": "m1_geo_triangle_congruence_judgement",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_construction_measurement_tools__often_confused_with__m1_geo_construction",
+      "source_id": "m1_mis_construction_measurement_tools",
+      "target_id": "m1_geo_construction",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형을 작도하고 그 과정을 설명하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-03] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형 작도와 주어진 삼각형과 합동인 삼각형 작도, 작도 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_sas_nonincluded_angle__often_confused_with__m1_geo_triangle_congruence_asa_condition",
+      "source_id": "m1_mis_sas_nonincluded_angle",
+      "target_id": "m1_geo_triangle_congruence_asa_condition",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 37; [9수03-04]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
         }
       ],
       "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",

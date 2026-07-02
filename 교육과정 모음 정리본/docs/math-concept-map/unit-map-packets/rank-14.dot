@@ -44,7 +44,9 @@ digraph pilot_unit_map {
   "m1_geo_angle_bisector" [label="각의 이등분선\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_central_angle" [label="중심각\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_construction" [label="작도\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_copy_angle_construction" [label="주어진 각과 크기가 같은 각 작도\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_correspondence" [label="도형의 대응\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_corresponding_angles_in_congruence" [label="합동에서의 대응하는 각\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_corresponding_angles_in_similarity" [label="대응하는 각\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_exterior_angle" [label="외각\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_inscribed_angle" [label="원주각\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -63,12 +65,14 @@ digraph pilot_unit_map {
   "m1_geo_plane_properties_unit" [label="평면도형의 성질\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_chord_center_distance" [label="원 중심에서 현까지의 거리\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_circumcenter_equal_vertex_distance" [label="외심에서 세 꼭짓점까지의 거리\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_copy_segment_construction" [label="주어진 선분과 길이가 같은 선분 작도\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_incenter_equal_side_distance" [label="내심에서 세 변까지의 거리\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_trig_distance_height" [label="삼각비로 거리와 높이 구하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_trig_distance_height_modeling" [label="거리와 높이 문제를 직각삼각형으로 나타내기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_axis_of_rotation" [label="회전축\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_secant" [label="할선\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_tangent_line" [label="접선\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_corresponding_sides_in_congruence" [label="합동에서의 대응하는 변\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_corresponding_sides_in_similarity" [label="대응하는 변\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_solid_edge" [label="입체도형의 모서리\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_chord_center_perpendicular_bisects" [label="원의 중심에서 현에 내린 수선은 현을 이등분\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -96,6 +100,7 @@ digraph pilot_unit_map {
   "m1_geo_solid_cross_section_prediction" [label="단면 모양 예상하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_chord" [label="현\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_corresponding_vertices" [label="대응하는 꼭짓점\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_corresponding_vertices_in_congruence" [label="합동에서의 대응하는 꼭짓점\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_solid_vertex" [label="입체도형의 꼭짓점\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_figure" [label="도형\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_length" [label="길이\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -268,7 +273,9 @@ digraph pilot_unit_map {
   "m1_geo_angle" -> "m1_geo_angle_bisector" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_angle" -> "m1_geo_central_angle" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_angle" -> "m1_geo_construction" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_geo_angle" -> "m1_geo_copy_angle_construction" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_angle" -> "m1_geo_correspondence" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_geo_angle" -> "m1_geo_corresponding_angles_in_congruence" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_angle" -> "m1_geo_corresponding_angles_in_similarity" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_angle" -> "m1_geo_exterior_angle" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_angle" -> "m1_geo_inscribed_angle" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -288,6 +295,7 @@ digraph pilot_unit_map {
   "m1_geo_basic_unit" -> "m1_geo_plane_properties_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_distance_between_two_points" -> "m1_geo_chord_center_distance" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_distance_between_two_points" -> "m1_geo_circumcenter_equal_vertex_distance" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_geo_distance_between_two_points" -> "m1_geo_copy_segment_construction" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_distance_between_two_points" -> "m1_geo_incenter_equal_side_distance" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_distance_between_two_points" -> "m1_geo_triangle_construction" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_foot_of_perpendicular" -> "m1_geo_incenter_equal_side_distance" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -299,6 +307,8 @@ digraph pilot_unit_map {
   "m1_geo_line" -> "m1_geo_secant" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_line" -> "m1_geo_tangent_line" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_line" -> "m1_geo_triangle" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_geo_line_segment" -> "m1_geo_copy_segment_construction" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_geo_line_segment" -> "m1_geo_corresponding_sides_in_congruence" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_line_segment" -> "m1_geo_corresponding_sides_in_similarity" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_line_segment" -> "m1_geo_solid_edge" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_midpoint" -> "m1_geo_chord_center_perpendicular_bisects" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -333,6 +343,7 @@ digraph pilot_unit_map {
   "m1_geo_point" -> "m1_geo_construction" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_point" -> "m1_geo_correspondence" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_point" -> "m1_geo_corresponding_vertices" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_geo_point" -> "m1_geo_corresponding_vertices_in_congruence" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_point" -> "m1_geo_polygon" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_point" -> "m1_geo_solid_vertex" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_point" -> "m1_geo_triangle" [label="prerequisite_for", style="dashed", color="#6b7280"];

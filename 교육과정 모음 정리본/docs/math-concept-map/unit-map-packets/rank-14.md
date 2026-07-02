@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 도형과 측정
 - unit: 기본 도형
 - priority tier: highest
-- workplan score: 252
+- workplan score: 258
 - concepts: 34
-- edges touching unit: 243
-- cross-unit edges: 82
+- edges touching unit: 249
+- cross-unit edges: 88
 - low confidence concepts: 5
 - low confidence edges: 29
 
@@ -35,7 +35,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 36 |
 | contrasts_with | 11 |
 | often_confused_with | 8 |
-| prerequisite_for | 131 |
+| prerequisite_for | 137 |
 | related_to | 5 |
 | represented_by | 2 |
 | used_in | 50 |
@@ -61,7 +61,9 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_geo_angle__prerequisite_for__m1_geo_angle_bisector | 각 | prerequisite_for | 각의 이등분선 | medium | official_dual_source |
 | m1_geo_angle__prerequisite_for__m1_geo_central_angle | 각 | prerequisite_for | 중심각 | high | official_dual_source |
 | m1_geo_angle__prerequisite_for__m1_geo_construction | 각 | prerequisite_for | 작도 | high | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_copy_angle_construction | 각 | prerequisite_for | 주어진 각과 크기가 같은 각 작도 | medium | official_dual_source |
 | m1_geo_angle__prerequisite_for__m1_geo_correspondence | 각 | prerequisite_for | 도형의 대응 | medium | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_corresponding_angles_in_congruence | 각 | prerequisite_for | 합동에서의 대응하는 각 | medium | official_dual_source |
 | m1_geo_angle__prerequisite_for__m1_geo_corresponding_angles_in_similarity | 각 | prerequisite_for | 대응하는 각 | medium | official_dual_source |
 | m1_geo_angle__prerequisite_for__m1_geo_exterior_angle | 각 | prerequisite_for | 외각 | high | official_dual_source |
 | m1_geo_angle__prerequisite_for__m1_geo_inscribed_angle | 각 | prerequisite_for | 원주각 | high | official_dual_source |
@@ -81,6 +83,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_geo_basic_unit__prerequisite_for__m1_geo_plane_properties_unit | 기본 도형 | prerequisite_for | 평면도형의 성질 | high | official_dual_source |
 | m1_geo_distance_between_two_points__prerequisite_for__m1_geo_chord_center_distance | 두 점 사이의 거리 | prerequisite_for | 원 중심에서 현까지의 거리 | medium | official_dual_source |
 | m1_geo_distance_between_two_points__prerequisite_for__m1_geo_circumcenter_equal_vertex_distance | 두 점 사이의 거리 | prerequisite_for | 외심에서 세 꼭짓점까지의 거리 | high | official_dual_source |
+| m1_geo_distance_between_two_points__prerequisite_for__m1_geo_copy_segment_construction | 두 점 사이의 거리 | prerequisite_for | 주어진 선분과 길이가 같은 선분 작도 | medium | official_dual_source |
 | m1_geo_distance_between_two_points__prerequisite_for__m1_geo_incenter_equal_side_distance | 두 점 사이의 거리 | prerequisite_for | 내심에서 세 변까지의 거리 | high | official_dual_source |
 | m1_geo_distance_between_two_points__prerequisite_for__m1_geo_triangle_construction | 두 점 사이의 거리 | prerequisite_for | 삼각형의 작도 | high | official_dual_source |
 | m1_geo_foot_of_perpendicular__prerequisite_for__m1_geo_incenter_equal_side_distance | 수선의 발 | prerequisite_for | 내심에서 세 변까지의 거리 | high | official_dual_source |
@@ -91,6 +94,3 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_geo_line__prerequisite_for__m1_geo_polygon | 직선 | prerequisite_for | 다각형 | high | official_dual_source |
 | m1_geo_line__prerequisite_for__m1_geo_secant | 직선 | prerequisite_for | 할선 | high | official_single_source |
 | m1_geo_line__prerequisite_for__m1_geo_tangent_line | 직선 | prerequisite_for | 접선 | high | official_dual_source |
-| m1_geo_line__prerequisite_for__m1_geo_triangle | 직선 | prerequisite_for | 삼각형 | medium | official_dual_source |
-| m1_geo_line_segment__prerequisite_for__m1_geo_corresponding_sides_in_similarity | 선분 | prerequisite_for | 대응하는 변 | medium | official_dual_source |
-| m1_geo_line_segment__prerequisite_for__m1_geo_solid_edge | 선분 | prerequisite_for | 입체도형의 모서리 | medium | official_dual_source |

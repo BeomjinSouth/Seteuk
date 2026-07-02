@@ -494,12 +494,33 @@ flowchart LR
   m1_mis_corresponding_alternate_angles["동위각과 엇각의 위치를 혼동하는 오류"]
   m1_mis_skew_parallel_lines["꼬인 위치와 평행을 같은 관계로 보는 오류"]
   m1_geo_construction["작도"]
+  m1_geo_straightedge_compass_tools["눈금 없는 자와 컴퍼스"]
+  m1_geo_copy_segment_construction["주어진 선분과 길이가 같은 선분 작도"]
+  m1_geo_copy_angle_construction["주어진 각과 크기가 같은 각 작도"]
   m1_geo_triangle_construction["삼각형의 작도"]
+  m1_geo_triangle_construction_sss["세 변이 주어진 삼각형 작도"]
+  m1_geo_triangle_construction_sas["두 변과 그 끼인각이 주어진 삼각형 작도"]
+  m1_geo_triangle_construction_asa["한 변과 그 양 끝각이 주어진 삼각형 작도"]
+  m1_geo_congruent_triangle_construction["주어진 삼각형과 합동인 삼각형 작도"]
+  m1_geo_construction_process_explanation["작도 과정 설명하기"]
   m1_geo_congruence["합동"]
+  m1_geo_correspondence_in_congruence["합동에서의 대응 관계"]
+  m1_geo_corresponding_vertices_in_congruence["합동에서의 대응하는 꼭짓점"]
+  m1_geo_corresponding_sides_in_congruence["합동에서의 대응하는 변"]
+  m1_geo_corresponding_angles_in_congruence["합동에서의 대응하는 각"]
+  m1_geo_congruent_corresponding_sides_equal["합동인 도형의 대응변의 길이가 같음"]
+  m1_geo_congruent_corresponding_angles_equal["합동인 도형의 대응각의 크기가 같음"]
   m1_geo_triangle_congruence_conditions["삼각형의 합동 조건"]
+  m1_geo_triangle_congruence_sss_condition["세 쌍의 대응변의 길이가 각각 같은 삼각형 합동 조건"]
+  m1_geo_triangle_congruence_sas_condition["두 쌍의 대응변의 길이와 그 끼인각의 크기가 각각 같은 삼각형 합동 조건"]
+  m1_geo_triangle_congruence_asa_condition["한 쌍의 대응변의 길이와 그 양 끝각의 크기가 각각 같은 삼각형 합동 조건"]
+  m1_geo_congruence_condition_selection["삼각형 합동 조건 선택하기"]
   m1_geo_triangle_congruence_judgement["삼각형의 합동 판별"]
   m1_geo_opposite_side["대변"]
   m1_geo_opposite_angle["대각"]
+  m1_mis_construction_measurement_tools["눈금자나 각도기로 재서 작도하는 오류"]
+  m1_mis_sas_nonincluded_angle["끼인각이 아닌 각을 SAS 조건에 쓰는 오류"]
+  m1_mis_congruence_correspondence_order["합동 판별에서 대응 순서를 무시하는 오류"]
   m1_geo_polygon["다각형"]
   m1_geo_convex_polygon_scope["볼록다각형 범위"]
   m1_geo_interior_angle["내각"]
@@ -1926,10 +1947,45 @@ flowchart LR
   m1_geo_alternate_interior_angles -- "대조" --> m1_geo_corresponding_angles
   m1_geo_skew_lines -- "대조" --> m1_geo_parallel_lines
   m1_geo_parallel_lines -- "대조" --> m1_geo_skew_lines
+  m1_geo_straightedge_compass_tools -- "사용" --> m1_geo_construction
   m1_geo_construction -- "사용" --> m1_geo_triangle_construction
+  m1_geo_copy_segment_construction -- "사용" --> m1_geo_triangle_construction
+  m1_geo_copy_angle_construction -- "사용" --> m1_geo_triangle_construction
+  m1_geo_copy_segment_construction -- "사용" --> m1_geo_triangle_construction_sss
+  m1_geo_copy_segment_construction -- "사용" --> m1_geo_triangle_construction_sas
+  m1_geo_copy_angle_construction -- "사용" --> m1_geo_triangle_construction_sas
+  m1_geo_copy_segment_construction -- "사용" --> m1_geo_triangle_construction_asa
+  m1_geo_copy_angle_construction -- "사용" --> m1_geo_triangle_construction_asa
+  m1_geo_triangle_construction_sss -- "사용" --> m1_geo_triangle_construction
+  m1_geo_triangle_construction_sas -- "사용" --> m1_geo_triangle_construction
+  m1_geo_triangle_construction_asa -- "사용" --> m1_geo_triangle_construction
+  m1_geo_construction_process_explanation -- "사용" --> m1_geo_triangle_construction
+  m1_geo_construction_process_explanation -- "사용" --> m1_geo_congruent_triangle_construction
+  m1_geo_triangle_congruence_conditions -- "사용" --> m1_geo_congruent_triangle_construction
+  m1_geo_congruent_triangle_construction -- "사용" --> m1_geo_congruence
   m1_geo_triangle_construction -- "사용" --> m1_geo_congruence
   m1_geo_triangle_construction -- "사용" --> m1_geo_triangle_congruence_conditions
+  m1_geo_triangle_construction_sss -- "연관" --> m1_geo_triangle_congruence_sss_condition
+  m1_geo_triangle_construction_sas -- "연관" --> m1_geo_triangle_congruence_sas_condition
+  m1_geo_triangle_construction_asa -- "연관" --> m1_geo_triangle_congruence_asa_condition
+  m1_geo_congruence -- "표현" --> m1_geo_correspondence_in_congruence
+  m1_geo_correspondence_in_congruence -- "표현" --> m1_geo_corresponding_vertices_in_congruence
+  m1_geo_correspondence_in_congruence -- "표현" --> m1_geo_corresponding_sides_in_congruence
+  m1_geo_correspondence_in_congruence -- "표현" --> m1_geo_corresponding_angles_in_congruence
+  m1_geo_corresponding_vertices_in_congruence -- "연관" --> m1_geo_corresponding_sides_in_congruence
+  m1_geo_corresponding_vertices_in_congruence -- "연관" --> m1_geo_corresponding_angles_in_congruence
+  m1_geo_corresponding_sides_in_congruence -- "사용" --> m1_geo_congruent_corresponding_sides_equal
+  m1_geo_corresponding_angles_in_congruence -- "사용" --> m1_geo_congruent_corresponding_angles_equal
+  m1_geo_congruent_corresponding_sides_equal -- "사용" --> m1_geo_triangle_congruence_conditions
+  m1_geo_congruent_corresponding_angles_equal -- "사용" --> m1_geo_triangle_congruence_conditions
   m1_geo_congruence -- "사용" --> m1_geo_triangle_congruence_conditions
+  m1_geo_triangle_congruence_sss_condition -- "사용" --> m1_geo_triangle_congruence_conditions
+  m1_geo_triangle_congruence_sas_condition -- "사용" --> m1_geo_triangle_congruence_conditions
+  m1_geo_triangle_congruence_asa_condition -- "사용" --> m1_geo_triangle_congruence_conditions
+  m1_geo_triangle_congruence_sss_condition -- "사용" --> m1_geo_triangle_congruence_judgement
+  m1_geo_triangle_congruence_sas_condition -- "사용" --> m1_geo_triangle_congruence_judgement
+  m1_geo_triangle_congruence_asa_condition -- "사용" --> m1_geo_triangle_congruence_judgement
+  m1_geo_congruence_condition_selection -- "사용" --> m1_geo_triangle_congruence_judgement
   m1_geo_triangle_congruence_conditions -- "사용" --> m1_geo_triangle_congruence_judgement
   m1_geo_opposite_side -- "사용" --> m1_geo_triangle_congruence_conditions
   m1_geo_opposite_angle -- "사용" --> m1_geo_triangle_congruence_conditions
@@ -2752,12 +2808,33 @@ flowchart LR
   m1_geo_basic_unit -- "포함" --> m1_mis_corresponding_alternate_angles
   m1_geo_basic_unit -- "포함" --> m1_mis_skew_parallel_lines
   m1_geo_construction_congruence_unit -- "포함" --> m1_geo_construction
+  m1_geo_construction_congruence_unit -- "포함" --> m1_geo_straightedge_compass_tools
+  m1_geo_triangle_construction -- "포함" --> m1_geo_copy_segment_construction
+  m1_geo_triangle_construction -- "포함" --> m1_geo_copy_angle_construction
   m1_geo_construction_congruence_unit -- "포함" --> m1_geo_triangle_construction
+  m1_geo_triangle_construction -- "포함" --> m1_geo_triangle_construction_sss
+  m1_geo_triangle_construction -- "포함" --> m1_geo_triangle_construction_sas
+  m1_geo_triangle_construction -- "포함" --> m1_geo_triangle_construction_asa
+  m1_geo_triangle_construction -- "포함" --> m1_geo_congruent_triangle_construction
+  m1_geo_triangle_construction -- "포함" --> m1_geo_construction_process_explanation
   m1_geo_construction_congruence_unit -- "포함" --> m1_geo_congruence
+  m1_geo_construction_congruence_unit -- "포함" --> m1_geo_correspondence_in_congruence
+  m1_geo_correspondence_in_congruence -- "포함" --> m1_geo_corresponding_vertices_in_congruence
+  m1_geo_correspondence_in_congruence -- "포함" --> m1_geo_corresponding_sides_in_congruence
+  m1_geo_correspondence_in_congruence -- "포함" --> m1_geo_corresponding_angles_in_congruence
+  m1_geo_construction_congruence_unit -- "포함" --> m1_geo_congruent_corresponding_sides_equal
+  m1_geo_construction_congruence_unit -- "포함" --> m1_geo_congruent_corresponding_angles_equal
   m1_geo_construction_congruence_unit -- "포함" --> m1_geo_triangle_congruence_conditions
+  m1_geo_triangle_congruence_conditions -- "포함" --> m1_geo_triangle_congruence_sss_condition
+  m1_geo_triangle_congruence_conditions -- "포함" --> m1_geo_triangle_congruence_sas_condition
+  m1_geo_triangle_congruence_conditions -- "포함" --> m1_geo_triangle_congruence_asa_condition
+  m1_geo_construction_congruence_unit -- "포함" --> m1_geo_congruence_condition_selection
   m1_geo_construction_congruence_unit -- "포함" --> m1_geo_triangle_congruence_judgement
   m1_geo_construction_congruence_unit -- "포함" --> m1_geo_opposite_side
   m1_geo_construction_congruence_unit -- "포함" --> m1_geo_opposite_angle
+  m1_geo_construction_congruence_unit -- "포함" --> m1_mis_construction_measurement_tools
+  m1_geo_construction_congruence_unit -- "포함" --> m1_mis_sas_nonincluded_angle
+  m1_geo_construction_congruence_unit -- "포함" --> m1_mis_congruence_correspondence_order
   m1_geo_plane_properties_unit -- "포함" --> m1_geo_polygon
   m1_geo_plane_properties_unit -- "포함" --> m1_geo_convex_polygon_scope
   m1_geo_plane_properties_unit -- "포함" --> m1_geo_interior_angle
@@ -3774,14 +3851,42 @@ flowchart LR
   m1_geo_point -- "선수" --> m1_geo_construction
   m1_geo_line -- "선수" --> m1_geo_construction
   m1_geo_angle -- "선수" --> m1_geo_construction
+  m1_geo_line_segment -- "선수" --> m1_geo_copy_segment_construction
+  m1_geo_distance_between_two_points -- "선수" --> m1_geo_copy_segment_construction
+  m1_geo_angle -- "선수" --> m1_geo_copy_angle_construction
   m1_geo_construction -- "선수" --> m1_geo_triangle_construction
   m1_geo_angle -- "선수" --> m1_geo_triangle_construction
   m1_geo_distance_between_two_points -- "선수" --> m1_geo_triangle_construction
-  m1_geo_triangle_construction -- "선수" --> m1_geo_congruence
+  m1_geo_triangle -- "선수" --> m1_geo_triangle_construction_sss
+  m1_geo_copy_segment_construction -- "선수" --> m1_geo_triangle_construction_sss
+  m1_geo_triangle -- "선수" --> m1_geo_triangle_construction_sas
+  m1_geo_copy_segment_construction -- "선수" --> m1_geo_triangle_construction_sas
+  m1_geo_copy_angle_construction -- "선수" --> m1_geo_triangle_construction_sas
+  m1_geo_triangle -- "선수" --> m1_geo_triangle_construction_asa
+  m1_geo_copy_segment_construction -- "선수" --> m1_geo_triangle_construction_asa
+  m1_geo_copy_angle_construction -- "선수" --> m1_geo_triangle_construction_asa
+  m1_geo_triangle_construction -- "선수" --> m1_geo_congruent_triangle_construction
+  m1_geo_congruence -- "선수" --> m1_geo_congruent_triangle_construction
+  m1_geo_triangle_construction -- "선수" --> m1_geo_construction_process_explanation
+  m1_geo_point -- "선수" --> m1_geo_corresponding_vertices_in_congruence
+  m1_geo_line_segment -- "선수" --> m1_geo_corresponding_sides_in_congruence
+  m1_geo_angle -- "선수" --> m1_geo_corresponding_angles_in_congruence
+  m1_geo_congruence -- "선수" --> m1_geo_congruent_corresponding_sides_equal
+  m1_geo_corresponding_sides_in_congruence -- "선수" --> m1_geo_congruent_corresponding_sides_equal
+  m1_geo_congruence -- "선수" --> m1_geo_congruent_corresponding_angles_equal
+  m1_geo_corresponding_angles_in_congruence -- "선수" --> m1_geo_congruent_corresponding_angles_equal
   m1_geo_congruence -- "선수" --> m1_geo_triangle_congruence_conditions
   m1_geo_opposite_side -- "선수" --> m1_geo_triangle_congruence_conditions
   m1_geo_opposite_angle -- "선수" --> m1_geo_triangle_congruence_conditions
+  m1_geo_correspondence_in_congruence -- "선수" --> m1_geo_triangle_congruence_conditions
+  m1_geo_corresponding_sides_in_congruence -- "선수" --> m1_geo_triangle_congruence_sss_condition
+  m1_geo_corresponding_sides_in_congruence -- "선수" --> m1_geo_triangle_congruence_sas_condition
+  m1_geo_corresponding_angles_in_congruence -- "선수" --> m1_geo_triangle_congruence_sas_condition
+  m1_geo_corresponding_sides_in_congruence -- "선수" --> m1_geo_triangle_congruence_asa_condition
+  m1_geo_corresponding_angles_in_congruence -- "선수" --> m1_geo_triangle_congruence_asa_condition
+  m1_geo_triangle_congruence_conditions -- "선수" --> m1_geo_congruence_condition_selection
   m1_geo_triangle_congruence_conditions -- "선수" --> m1_geo_triangle_congruence_judgement
+  m1_geo_congruence_condition_selection -- "선수" --> m1_geo_triangle_congruence_judgement
   m1_geo_angle -- "선수" --> m1_geo_opposite_side
   m1_geo_angle -- "선수" --> m1_geo_opposite_angle
   m1_geo_point -- "선수" --> m1_geo_polygon
@@ -4471,6 +4576,14 @@ flowchart LR
   m1_mis_corresponding_alternate_angles -- "혼동" --> m1_geo_identify_corresponding_alternate_angles
   m1_mis_corresponding_alternate_angles -- "혼동" --> m1_geo_parallel_angle_properties
   m1_mis_skew_parallel_lines -- "혼동" --> m1_geo_position_relation
+  m1_mis_construction_measurement_tools -- "혼동" --> m1_geo_straightedge_compass_tools
+  m1_mis_sas_nonincluded_angle -- "혼동" --> m1_geo_triangle_construction_sas
+  m1_mis_congruence_correspondence_order -- "혼동" --> m1_geo_correspondence_in_congruence
+  m1_mis_sas_nonincluded_angle -- "혼동" --> m1_geo_triangle_congruence_sas_condition
+  m1_mis_sas_nonincluded_angle -- "혼동" --> m1_geo_congruence_condition_selection
+  m1_mis_congruence_correspondence_order -- "혼동" --> m1_geo_triangle_congruence_judgement
+  m1_mis_construction_measurement_tools -- "혼동" --> m1_geo_construction
+  m1_mis_sas_nonincluded_angle -- "혼동" --> m1_geo_triangle_congruence_asa_condition
   m1_mis_arc_chord -- "혼동" --> m1_geo_sector
   m1_mis_arc_chord -- "혼동" --> m1_geo_circular_segment
   m1_mis_solid_net_adjacency -- "혼동" --> m1_geo_solid_net
@@ -5018,12 +5131,33 @@ flowchart LR
   class m1_mis_corresponding_alternate_angles risk;
   class m1_mis_skew_parallel_lines risk;
   class m1_geo_construction procedure;
+  class m1_geo_straightedge_compass_tools default;
+  class m1_geo_copy_segment_construction procedure;
+  class m1_geo_copy_angle_construction procedure;
   class m1_geo_triangle_construction procedure;
+  class m1_geo_triangle_construction_sss procedure;
+  class m1_geo_triangle_construction_sas procedure;
+  class m1_geo_triangle_construction_asa procedure;
+  class m1_geo_congruent_triangle_construction procedure;
+  class m1_geo_construction_process_explanation procedure;
   class m1_geo_congruence core;
+  class m1_geo_correspondence_in_congruence default;
+  class m1_geo_corresponding_vertices_in_congruence default;
+  class m1_geo_corresponding_sides_in_congruence default;
+  class m1_geo_corresponding_angles_in_congruence default;
+  class m1_geo_congruent_corresponding_sides_equal default;
+  class m1_geo_congruent_corresponding_angles_equal default;
   class m1_geo_triangle_congruence_conditions default;
+  class m1_geo_triangle_congruence_sss_condition default;
+  class m1_geo_triangle_congruence_sas_condition default;
+  class m1_geo_triangle_congruence_asa_condition default;
+  class m1_geo_congruence_condition_selection procedure;
   class m1_geo_triangle_congruence_judgement procedure;
   class m1_geo_opposite_side default;
   class m1_geo_opposite_angle default;
+  class m1_mis_construction_measurement_tools risk;
+  class m1_mis_sas_nonincluded_angle risk;
+  class m1_mis_congruence_correspondence_order risk;
   class m1_geo_polygon core;
   class m1_geo_convex_polygon_scope default;
   class m1_geo_interior_angle default;

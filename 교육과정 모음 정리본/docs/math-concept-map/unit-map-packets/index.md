@@ -5,9 +5,9 @@ This generated index tracks compact concept hierarchy maps for every textbook ev
 ## Summary
 
 - unit maps: 34
-- concept rows: 814
-- edge rows touching units: 4422
-- cross-unit edge rows: 1428
+- concept rows: 835
+- edge rows touching units: 4523
+- cross-unit edge rows: 1446
 
 ## Packets
 
@@ -26,7 +26,7 @@ This generated index tracks compact concept hierarchy maps for every textbook ev
 | 11 | 중1(교육과정 학년군: 중1-3) | 자료와 가능성 | 도수분포표와 상대도수 | 33 | 182 | 50 | 4 | 18 | rank-11.md | rank-11.dot |
 | 12 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 이차방정식 | 22 | 103 | 30 | 5 | 21 | rank-12.md | rank-12.dot |
 | 13 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 다항식의 곱셈과 인수분해 | 30 | 169 | 51 | 5 | 29 | rank-13.md | rank-13.dot |
-| 14 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 기본 도형 | 34 | 243 | 82 | 5 | 29 | rank-14.md | rank-14.dot |
+| 14 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 기본 도형 | 34 | 249 | 88 | 5 | 29 | rank-14.md | rank-14.dot |
 | 15 | 중2(교육과정 학년군: 중1-3) | 수와 연산 | 유리수와 순환소수 | 25 | 114 | 25 | 5 | 18 | rank-15.md | rank-15.dot |
 | 16 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 입체도형의 성질 | 29 | 123 | 19 | 4 | 14 | rank-16.md | rank-16.dot |
 | 17 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차방정식 | 31 | 171 | 62 | 3 | 14 | rank-17.md | rank-17.dot |
@@ -38,10 +38,10 @@ This generated index tracks compact concept hierarchy maps for every textbook ev
 | 23 | 중3(교육과정 학년군: 중1-3) | 수와 연산 | 제곱근과 실수 | 25 | 122 | 30 | 3 | 14 | rank-23.md | rank-23.dot |
 | 24 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 연립일차방정식 | 27 | 148 | 49 | 4 | 21 | rank-24.md | rank-24.dot |
 | 25 | 중3(교육과정 학년군: 중1-3) | 도형과 측정 | 삼각비 | 24 | 110 | 20 | 3 | 13 | rank-25.md | rank-25.dot |
-| 26 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 일차방정식의 관계 | 16 | 81 | 29 | 3 | 11 | rank-26.md | rank-26.dot |
-| 27 | 중1(교육과정 학년군: 중1-3) | 자료와 가능성 | 대푯값 | 7 | 49 | 24 | 1 | 8 | rank-27.md | rank-27.dot |
-| 28 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 작도와 합동 | 8 | 48 | 27 | 0 | 1 | rank-28.md | rank-28.dot |
-| 29 | 중학교(교육과정 학년군: 중1-3) | 도형과 측정 | 도형과 측정 | 5 | 43 | 39 | 0 | 2 | rank-29.md | rank-29.dot |
+| 26 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 작도와 합동 | 29 | 140 | 36 | 3 | 12 | rank-26.md | rank-26.dot |
+| 27 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 일차방정식의 관계 | 16 | 81 | 29 | 3 | 11 | rank-27.md | rank-27.dot |
+| 28 | 중1(교육과정 학년군: 중1-3) | 자료와 가능성 | 대푯값 | 7 | 49 | 24 | 1 | 8 | rank-28.md | rank-28.dot |
+| 29 | 중학교(교육과정 학년군: 중1-3) | 도형과 측정 | 도형과 측정 | 5 | 46 | 42 | 0 | 2 | rank-29.md | rank-29.dot |
 | 30 | 중2(교육과정 학년군: 중1-3) | 도형과 측정 | 피타고라스 정리 | 6 | 34 | 19 | 0 | 0 | rank-30.md | rank-30.dot |
 | 31 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 공통 선수개념 | 1 | 14 | 14 | 1 | 11 | rank-31.md | rank-31.dot |
 | 32 | 중학교(교육과정 학년군: 중1-3) | 수와 연산 | 수와 연산 | 1 | 9 | 9 | 0 | 4 | rank-32.md | rank-32.dot |

@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 도형과 측정
 - unit: 도형과 측정
 - priority tier: low
-- workplan score: 54
+- workplan score: 57
 - concepts: 5
-- edges touching unit: 43
-- cross-unit edges: 39
+- edges touching unit: 46
+- cross-unit edges: 42
 - low confidence concepts: 0
 - low confidence edges: 2
 
@@ -28,7 +28,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | relationship_type | count |
 |---|---:|
 | contains | 13 |
-| prerequisite_for | 13 |
+| prerequisite_for | 16 |
 | related_to | 2 |
 | used_in | 15 |
 
@@ -65,6 +65,9 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_geo_length__prerequisite_for__m1_geo_trig_hypotenuse | 길이 | prerequisite_for | 삼각비에서의 빗변 | medium | official_dual_source |
 | m1_geo_line__prerequisite_for__m1_geo_triangle | 직선 | prerequisite_for | 삼각형 | medium | official_dual_source |
 | m1_geo_point__prerequisite_for__m1_geo_triangle | 점 | prerequisite_for | 삼각형 | medium | official_dual_source |
+| m1_geo_triangle__prerequisite_for__m1_geo_triangle_construction_asa | 삼각형 | prerequisite_for | 한 변과 그 양 끝각이 주어진 삼각형 작도 | medium | official_dual_source |
+| m1_geo_triangle__prerequisite_for__m1_geo_triangle_construction_sas | 삼각형 | prerequisite_for | 두 변과 그 끼인각이 주어진 삼각형 작도 | medium | official_dual_source |
+| m1_geo_triangle__prerequisite_for__m1_geo_triangle_construction_sss | 삼각형 | prerequisite_for | 세 변이 주어진 삼각형 작도 | medium | official_dual_source |
 | m1_geo_triangle__prerequisite_for__m1_geo_triangle_parallel_segment_ratio | 삼각형 | prerequisite_for | 삼각형에서 한 변에 평행한 직선이 만드는 선분의 비 | medium | official_dual_source |
 | m1_geo_area__used_in__m1_geo_sector_arc_length_area | 넓이 | used_in | 부채꼴의 호의 길이와 넓이 구하기 | medium | official_dual_source |
 | m1_geo_area__used_in__m1_geo_surface_area | 넓이 | used_in | 겉넓이 | medium | official_dual_source |
@@ -79,5 +82,3 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_geo_length__used_in__m1_geo_sector_arc_length_area | 길이 | used_in | 부채꼴의 호의 길이와 넓이 구하기 | medium | official_dual_source |
 | m1_geo_triangle__used_in__m1_geo_right_triangle | 삼각형 | used_in | 직각삼각형 | medium | official_dual_source |
 | m1_geo_triangle__used_in__m1_geo_triangle_congruence_conditions | 삼각형 | used_in | 삼각형의 합동 조건 | medium | official_dual_source |
-| m1_geo_triangle__used_in__m1_geo_triangle_construction | 삼각형 | used_in | 삼각형의 작도 | medium | official_dual_source |
-| m1_geo_triangle__used_in__m1_geo_triangle_similarity_conditions | 삼각형 | used_in | 삼각형의 닮음 조건 | medium | official_dual_source |

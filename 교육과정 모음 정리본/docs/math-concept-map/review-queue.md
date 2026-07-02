@@ -2,7 +2,7 @@
 
 이 문서는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 출처 보강 때 먼저 확인할 대상을 정리한다.
 
-- 검토 대상 concept: 133개
+- 검토 대상 concept: 136개
 
 ## 영역별 검토 대상
 
@@ -10,14 +10,14 @@
 |---|---:|
 | 수와 연산 | 18 |
 | 변화와 관계 | 58 |
-| 도형과 측정 | 29 |
+| 도형과 측정 | 32 |
 | 자료와 가능성 | 28 |
 
 ## 유형별 검토 대상
 
 | concept_type | concept 수 |
 |---|---:|
-| misconception_risk | 95 |
+| misconception_risk | 98 |
 | procedure | 3 |
 | property | 8 |
 | representation | 7 |
@@ -130,6 +130,9 @@
 | m1_mis_solid_net_adjacency | 도형과 측정 | 입체도형의 성질 | misconception_risk | textbook_evidence_needed | 전개도에서 붙는 면의 이웃 관계를 잘못 판단하는 오류 | 전개도 가능/불가능 구별 맥락에서 추론한 오개념 위험이다. 교과서 예제·문제·오답 근거 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_mis_surface_area_volume | 도형과 측정 | 입체도형의 성질 | misconception_risk | textbook_evidence_needed | 겉넓이와 부피를 같은 측정량으로 보는 오류 |  |
 | m1_geo_orthographic_drawing | 도형과 측정 | 입체도형의 성질 | representation | source_detail_needed | 겨냥도 | 현재는 연구보고서 p.173의 보조 성취수준 맥락만 확인된다. 중학교 교과서 본문 근거 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_mis_congruence_correspondence_order | 도형과 측정 | 작도와 합동 | misconception_risk | textbook_evidence_needed | 합동 판별에서 대응 순서를 무시하는 오류 | 공식 성취기준에서 직접 명명되지 않은 합동 판별 오개념이다. 교과서 문항 근거 확인 전까지 low로 둔다. |
+| m1_mis_construction_measurement_tools | 도형과 측정 | 작도와 합동 | misconception_risk | textbook_evidence_needed | 눈금자나 각도기로 재서 작도하는 오류 | 공식 성취기준에서 직접 명명되지 않은 교과서형 오개념 위험이다. 교과서 예제·문항 근거 확인 전까지 low로 둔다. |
+| m1_mis_sas_nonincluded_angle | 도형과 측정 | 작도와 합동 | misconception_risk | textbook_evidence_needed | 끼인각이 아닌 각을 SAS 조건에 쓰는 오류 | 공식 성취기준에서 직접 명명되지 않은 합동 조건 판별 오개념이다. 교과서 문항 근거 확인 전까지 low로 둔다. |
 | m1_mis_arc_chord | 도형과 측정 | 평면도형의 성질 | misconception_risk | textbook_evidence_needed | 호와 현을 같은 대상으로 보는 오류 | 공식 용어 분리와 호 관계 성취수준에서 추론한 위험이다. 실제 오개념 근거는 교과서 예제와 문항으로 보강한다. |
 | m1_mis_polygon_interior_exterior_angle | 도형과 측정 | 평면도형의 성질 | misconception_risk | textbook_evidence_needed | 내각과 외각을 같은 각으로 보는 오류 | 내각과 외각을 구별해 다루는 공식 용어와 성취기준에서 추론했다. 실제 오개념 근거는 교과서 예제와 문항으로 보강한다. |
 | m1_mis_sector_angle_proportion | 도형과 측정 | 평면도형의 성질 | misconception_risk | textbook_evidence_needed | 중심각 비례 관계를 호의 길이와 넓이에 적용하지 않는 오류 | 부채꼴의 중심각과 호 관계 성취기준에서 추론한 위험이다. 실제 오개념 근거는 교과서 예제와 문항으로 보강한다. |

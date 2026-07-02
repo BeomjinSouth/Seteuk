@@ -6,70 +6,68 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 
 - rank: 28
 - grade: 중1(교육과정 학년군: 중1-3)
-- domain: 도형과 측정
-- unit: 작도와 합동
+- domain: 자료와 가능성
+- unit: 대푯값
 - priority tier: medium
-- workplan score: 39
-- concepts: 8
-- edges touching unit: 48
-- cross-unit edges: 27
-- low confidence concepts: 0
-- low confidence edges: 1
+- workplan score: 67
+- concepts: 7
+- edges touching unit: 49
+- cross-unit edges: 24
+- low confidence concepts: 1
+- low confidence edges: 8
 
 ## Concept Type Distribution
 
 | concept_type | count |
 |---|---:|
 | core_concept | 2 |
-| procedure | 3 |
-| property | 1 |
-| term | 2 |
+| misconception_risk | 1 |
+| procedure | 1 |
+| term | 3 |
 
 ## Relationship Distribution
 
 | relationship_type | count |
 |---|---:|
-| contains | 8 |
+| contains | 10 |
 | contrasts_with | 3 |
-| often_confused_with | 1 |
-| prerequisite_for | 24 |
+| equivalent_to | 1 |
+| often_confused_with | 4 |
+| prerequisite_for | 21 |
 | related_to | 1 |
-| used_in | 11 |
+| used_in | 9 |
 
 ## Low Confidence Concepts
 
 | concept_id | label_ko | type | evidence_depth | notes |
 |---|---|---|---|---|
-|  |  |  |  |  |
+| m1_mis_mean_only_representative | 대푯값을 평균으로만 보는 오류 | misconception_risk | official_dual_source |  |
 
 ## Cross-Unit Edges
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
-| m1_mis_congruence_similarity__often_confused_with__m1_geo_congruence | 합동과 닮음을 같은 관계로 보는 오류 | often_confused_with | 합동 | low | official_dual_source |
-| m1_geo_domain__contains__m1_geo_construction_congruence_unit | 도형과 측정 | contains | 작도와 합동 | high | official_dual_source |
-| m1_geo_angle__prerequisite_for__m1_geo_construction | 각 | prerequisite_for | 작도 | high | official_dual_source |
-| m1_geo_angle__prerequisite_for__m1_geo_opposite_angle | 각 | prerequisite_for | 대각 | high | official_dual_source |
-| m1_geo_angle__prerequisite_for__m1_geo_opposite_side | 각 | prerequisite_for | 대변 | high | official_dual_source |
-| m1_geo_angle__prerequisite_for__m1_geo_triangle_construction | 각 | prerequisite_for | 삼각형의 작도 | high | official_dual_source |
-| m1_geo_basic_unit__prerequisite_for__m1_geo_construction_congruence_unit | 기본 도형 | prerequisite_for | 작도와 합동 | high | official_dual_source |
-| m1_geo_congruence__prerequisite_for__m1_geo_similarity | 합동 | prerequisite_for | 닮음 | high | official_dual_source |
-| m1_geo_construction_congruence_unit__prerequisite_for__m1_geo_triangle_quadrilateral_unit | 작도와 합동 | prerequisite_for | 삼각형과 사각형의 성질 | high | official_dual_source |
-| m1_geo_distance_between_two_points__prerequisite_for__m1_geo_triangle_construction | 두 점 사이의 거리 | prerequisite_for | 삼각형의 작도 | high | official_dual_source |
-| m1_geo_line__prerequisite_for__m1_geo_construction | 직선 | prerequisite_for | 작도 | high | official_dual_source |
-| m1_geo_opposite_angle__prerequisite_for__m1_geo_parallelogram_opposite_sides_angles | 대각 | prerequisite_for | 평행사변형의 마주 보는 변과 각 | high | official_dual_source |
-| m1_geo_opposite_side__prerequisite_for__m1_geo_parallelogram_opposite_sides_angles | 대변 | prerequisite_for | 평행사변형의 마주 보는 변과 각 | high | official_dual_source |
-| m1_geo_point__prerequisite_for__m1_geo_construction | 점 | prerequisite_for | 작도 | high | official_dual_source |
-| m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_incenter | 삼각형의 합동 조건 | prerequisite_for | 내심 | high | official_dual_source |
-| m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_isosceles_properties | 삼각형의 합동 조건 | prerequisite_for | 이등변삼각형의 성질 | high | official_dual_source |
-| m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_isosceles_property_proof | 삼각형의 합동 조건 | prerequisite_for | 이등변삼각형 성질 정당화하기 | high | official_dual_source |
-| m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_isosceles_triangle | 삼각형의 합동 조건 | prerequisite_for | 이등변삼각형 | high | official_dual_source |
-| m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_proof | 삼각형의 합동 조건 | prerequisite_for | 증명 | high | official_dual_source |
-| m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_right_triangle_congruence_conditions | 삼각형의 합동 조건 | prerequisite_for | 직각삼각형의 합동 조건 | medium | official_dual_source |
-| m1_geo_triangle__used_in__m1_geo_triangle_congruence_conditions | 삼각형 | used_in | 삼각형의 합동 조건 | medium | official_dual_source |
-| m1_geo_triangle__used_in__m1_geo_triangle_construction | 삼각형 | used_in | 삼각형의 작도 | medium | official_dual_source |
-| m1_geo_triangle_congruence_conditions__used_in__m1_geo_proof | 삼각형의 합동 조건 | used_in | 증명 | high | official_dual_source |
-| m1_geo_triangle_congruence_judgement__used_in__m1_geo_justification | 삼각형의 합동 판별 | used_in | 정당화 | medium | official_dual_source |
-| m1_geo_congruence__contrasts_with__m1_geo_similarity | 합동 | contrasts_with | 닮음 | high | official_dual_source |
-| m1_geo_similarity__contrasts_with__m1_geo_congruence | 닮음 | contrasts_with | 합동 | high | official_dual_source |
-| m1_geo_trig_opposite_side__related_to__m1_geo_opposite_side | 기준각의 대변 | related_to | 대변 | medium | official_dual_source |
+| m1_data_mean__prerequisite_for__m1_data_same_mean_different_spread | 평균 | prerequisite_for | 평균이 같은 두 분포의 흩어진 정도 비교 | low | official_dual_source |
+| m1_data_domain__contains__m1_data_representative_unit | 자료와 가능성 | contains | 대푯값 | high | official_dual_source |
+| m1_data_dataset__prerequisite_for__m1_data_median | 자료 | prerequisite_for | 중앙값 | high | official_dual_source |
+| m1_data_dataset__prerequisite_for__m1_data_mode | 자료 | prerequisite_for | 최빈값 | high | official_dual_source |
+| m1_data_dataset__prerequisite_for__m1_data_representative_value | 자료 | prerequisite_for | 대푯값 | high | official_dual_source |
+| m1_data_distribution__prerequisite_for__m1_data_choose_representative_value | 자료의 분포 | prerequisite_for | 자료의 특성에 맞는 대푯값 선택 | high | official_dual_source |
+| m1_data_frequency__prerequisite_for__m1_data_mode | 도수 | prerequisite_for | 최빈값 | high | official_dual_source |
+| m1_data_mean__prerequisite_for__m1_data_deviation | 평균 | prerequisite_for | 편차 | high | official_dual_source |
+| m1_data_mean__prerequisite_for__m1_data_deviation_calculation | 평균 | prerequisite_for | 편차 구하기 | medium | official_dual_source |
+| m1_data_median__prerequisite_for__m1_data_quartile | 중앙값 | prerequisite_for | 사분위수 | high | official_dual_source |
+| m1_data_median__prerequisite_for__m1_data_quartile_calculation | 중앙값 | prerequisite_for | 사분위수 구하기 | medium | official_dual_source |
+| m1_data_median__prerequisite_for__m1_data_second_quartile | 중앙값 | prerequisite_for | 제2사분위수 | medium | official_dual_source |
+| m1_data_representative_unit__prerequisite_for__m1_data_frequency_unit | 대푯값 | prerequisite_for | 도수분포표와 상대도수 | high | official_dual_source |
+| m1_data_representative_value__prerequisite_for__m1_data_variability | 대푯값 | prerequisite_for | 산포도 | high | official_dual_source |
+| m1_data_representative_value__prerequisite_for__m1_data_variability_unit | 대푯값 | prerequisite_for | 산포도 | high | official_dual_source |
+| m1_num_order_relation__prerequisite_for__m1_data_median | 정수와 유리수의 대소 관계 | prerequisite_for | 중앙값 | high | official_dual_source |
+| m1_num_rational_number__prerequisite_for__m1_data_mean | 유리수 | prerequisite_for | 평균 | medium | official_dual_source |
+| m1_data_distribution__used_in__m1_data_choose_representative_value | 자료의 분포 | used_in | 자료의 특성에 맞는 대푯값 선택 | high | official_dual_source |
+| m1_data_mean__used_in__m1_data_deviation | 평균 | used_in | 편차 | medium | official_dual_source |
+| m1_data_mean__used_in__m1_data_deviation_calculation | 평균 | used_in | 편차 구하기 | medium | official_dual_source |
+| m1_data_median__used_in__m1_data_quartile_calculation | 중앙값 | used_in | 사분위수 구하기 | medium | official_dual_source |
+| m1_data_representative_value__used_in__m1_data_variability | 대푯값 | used_in | 산포도 | medium | official_dual_source |
+| m1_data_second_quartile__equivalent_to__m1_data_median | 제2사분위수 | equivalent_to | 중앙값 | medium | official_dual_source |
+| m1_data_representative_unit__related_to__m1_data_variability_unit | 대푯값 | related_to | 산포도 | medium | official_dual_source |

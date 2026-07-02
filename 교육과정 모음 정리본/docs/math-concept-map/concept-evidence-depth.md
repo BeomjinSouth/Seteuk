@@ -4,15 +4,15 @@ This generated audit summarizes source evidence depth for each concept node.
 
 ## Summary
 
-- concepts: 814
-- needs textbook evidence: 814
-- low confidence concepts: 133
+- concepts: 835
+- needs textbook evidence: 835
+- low confidence concepts: 136
 
 ## Evidence Depth Counts
 
 | evidence_depth | concept count |
 |---|---:|
-| official_dual_source | 713 |
+| official_dual_source | 734 |
 | official_single_source | 101 |
 
 ## Priority Rows
@@ -45,6 +45,9 @@ This generated audit summarizes source evidence depth for each concept node.
 | m1_mis_complex_area_volume_scope | 지나치게 복잡한 넓이·부피 변형 문제 범위 혼동 | low | official_single_source | 1 | curriculum_math_2022 |
 | m1_mis_solid_net_adjacency | 전개도에서 붙는 면의 이웃 관계를 잘못 판단하는 오류 | low | official_single_source | 2 | achievement_research_report_2022 |
 | m1_mis_surface_area_volume | 겉넓이와 부피를 같은 측정량으로 보는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
+| m1_mis_congruence_correspondence_order | 합동 판별에서 대응 순서를 무시하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
+| m1_mis_construction_measurement_tools | 눈금자나 각도기로 재서 작도하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
+| m1_mis_sas_nonincluded_angle | 끼인각이 아닌 각을 SAS 조건에 쓰는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_arc_chord | 호와 현을 같은 대상으로 보는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_polygon_interior_exterior_angle | 내각과 외각을 같은 각으로 보는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_sector_angle_proportion | 중심각 비례 관계를 호의 길이와 넓이에 적용하지 않는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
@@ -56,6 +59,3 @@ This generated audit summarizes source evidence depth for each concept node.
 | m1_mis_coefficient_constant_degree | 계수·상수항·차수 혼동 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_letter_as_label_only | 문자를 이름표로만 해석하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_like_terms | 동류항이 아닌 항을 합치는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_exponent_base | 밑이 다른 거듭제곱에 지수법칙을 잘못 적용하는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_polynomial_division_scope | 다항식을 단항식으로 나누는 범위 혼동 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_polynomial_like_terms | 다항식에서 동류항 처리를 누락하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |

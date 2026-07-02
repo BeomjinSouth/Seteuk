@@ -31,6 +31,9 @@ digraph pilot_unit_map {
   "m1_geo_trig_hypotenuse" [label="삼각비에서의 빗변\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_line" [label="직선\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_point" [label="점\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_triangle_construction_asa" [label="한 변과 그 양 끝각이 주어진 삼각형 작도\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_triangle_construction_sas" [label="두 변과 그 끼인각이 주어진 삼각형 작도\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_triangle_construction_sss" [label="세 변이 주어진 삼각형 작도\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_triangle_parallel_segment_ratio" [label="삼각형에서 한 변에 평행한 직선이 만드는 선분의 비\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_sector_arc_length_area" [label="부채꼴의 호의 길이와 넓이 구하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_surface_area" [label="겉넓이\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -69,6 +72,9 @@ digraph pilot_unit_map {
   "m1_geo_length" -> "m1_geo_trig_hypotenuse" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_line" -> "m1_geo_triangle" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_point" -> "m1_geo_triangle" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_geo_triangle" -> "m1_geo_triangle_construction_asa" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_geo_triangle" -> "m1_geo_triangle_construction_sas" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_geo_triangle" -> "m1_geo_triangle_construction_sss" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_triangle" -> "m1_geo_triangle_parallel_segment_ratio" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_area" -> "m1_geo_sector_arc_length_area" [label="used_in", style="dashed", color="#6b7280"];
   "m1_geo_area" -> "m1_geo_surface_area" [label="used_in", style="dashed", color="#6b7280"];
