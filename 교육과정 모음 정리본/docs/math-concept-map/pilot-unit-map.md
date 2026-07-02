@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 좌표평면과 그래프
 - priority tier: highest
-- workplan score: 488
+- workplan score: 513
 - concepts: 43
-- edges touching unit: 253
-- cross-unit edges: 91
+- edges touching unit: 266
+- cross-unit edges: 104
 - low confidence concepts: 9
 - low confidence edges: 76
 
@@ -35,7 +35,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 51 |
 | contrasts_with | 11 |
 | often_confused_with | 26 |
-| prerequisite_for | 87 |
+| prerequisite_for | 100 |
 | related_to | 24 |
 | represented_by | 20 |
 | used_in | 34 |
@@ -76,25 +76,25 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_expr_unit__contains__m1_repr_everyday_language | 문자의 사용과 식 | contains | 일상 언어 | high | official_single_source |
 | m1_expr_unit__contains__m1_repr_expression | 문자의 사용과 식 | contains | 식 | high | official_dual_source |
 | m1_expr_unit__contains__m1_term_variable | 문자의 사용과 식 | contains | 변수 | high | official_dual_source |
+| m1_coord_coordinate__prerequisite_for__m1_func_equation_x_axis_intersection | 좌표 | prerequisite_for | 일차방정식 그래프의 x축과의 교점 | medium | official_dual_source |
+| m1_coord_coordinate__prerequisite_for__m1_func_equation_y_axis_intersection | 좌표 | prerequisite_for | 일차방정식 그래프의 y축과의 교점 | medium | official_dual_source |
 | m1_coord_coordinate__prerequisite_for__m1_func_intersection_point | 좌표 | prerequisite_for | 교점 | medium | official_single_source |
 | m1_coord_coordinate__prerequisite_for__m1_func_intersection_point_coordinate | 좌표 | prerequisite_for | 교점의 좌표 | medium | official_dual_source |
 | m1_coord_coordinate__prerequisite_for__m1_quad_func_vertex_coordinates | 좌표 | prerequisite_for | 꼭짓점 좌표 | medium | official_dual_source |
 | m1_coord_coordinate_plane__prerequisite_for__m1_data_scatter_plot | 좌표평면 | prerequisite_for | 산점도 | high | official_dual_source |
 | m1_coord_coordinate_plane__prerequisite_for__m1_data_scatter_plot_drawing | 좌표평면 | prerequisite_for | 산점도로 나타내기 | high | official_dual_source |
+| m1_coord_coordinate_plane__prerequisite_for__m1_func_equation_graph_from_two_solution_pairs | 좌표평면 | prerequisite_for | 두 해의 순서쌍으로 일차방정식 그래프 그리기 | medium | official_dual_source |
+| m1_coord_coordinate_plane__prerequisite_for__m1_func_equation_two_intercepts_graph_drawing | 좌표평면 | prerequisite_for | 두 축과의 교점으로 일차방정식 그래프 그리기 | medium | official_dual_source |
 | m1_coord_coordinate_plane__prerequisite_for__m1_func_graph_drawing | 좌표평면 | prerequisite_for | 일차함수 그래프 그리기 | high | official_dual_source |
 | m1_coord_coordinate_plane__prerequisite_for__m1_func_linear_graph | 좌표평면 | prerequisite_for | 일차함수의 그래프 | high | official_dual_source |
+| m1_coord_coordinate_plane__prerequisite_for__m1_func_system_graph_same_plane | 좌표평면 | prerequisite_for | 두 일차함수 그래프를 한 좌표평면에 나타내기 | medium | official_dual_source |
 | m1_coord_coordinate_plane__prerequisite_for__m1_func_two_variable_linear_equation_graph | 좌표평면 | prerequisite_for | 미지수가 2개인 일차방정식의 그래프 | high | official_dual_source |
 | m1_coord_coordinate_plane__prerequisite_for__m1_quad_func_graph | 좌표평면 | prerequisite_for | 이차함수의 그래프 | high | official_dual_source |
 | m1_coord_coordinate_plane__prerequisite_for__m1_quad_func_graph_drawing | 좌표평면 | prerequisite_for | 이차함수 그래프 그리기 | high | official_dual_source |
 | m1_coord_graph_unit__prerequisite_for__m1_func_unit | 좌표평면과 그래프 | prerequisite_for | 일차함수와 그 그래프 | high | official_dual_source |
 | m1_coord_graph_unit__prerequisite_for__m1_quad_func_unit | 좌표평면과 그래프 | prerequisite_for | 이차함수와 그 그래프 | high | official_dual_source |
 | m1_coord_ordered_pair__prerequisite_for__m1_data_scatter_plot_point | 순서쌍 | prerequisite_for | 산점도의 점 | medium | official_dual_source |
+| m1_coord_ordered_pair__prerequisite_for__m1_func_read_solution_pair_from_equation_graph | 순서쌍 | prerequisite_for | 그래프에서 미지수가 2개인 일차방정식의 해 읽기 | medium | official_dual_source |
 | m1_coord_ordered_pair__prerequisite_for__m1_func_two_variable_equation_solution_pair | 순서쌍 | prerequisite_for | 미지수가 2개인 일차방정식 해의 순서쌍 | medium | official_dual_source |
 | m1_coord_ordered_pair__prerequisite_for__m1_system_solution_ordered_pair | 순서쌍 | prerequisite_for | 해의 순서쌍 표현 | medium | official_dual_source |
 | m1_coord_x_axis__prerequisite_for__m1_data_scatter_plot_axes_variables | x축 | prerequisite_for | 산점도의 두 축과 변량 | medium | official_dual_source |
-| m1_coord_x_axis__prerequisite_for__m1_func_x_intercept | x축 | prerequisite_for | x절편 | high | official_dual_source |
-| m1_coord_y_axis__prerequisite_for__m1_data_scatter_plot_axes_variables | y축 | prerequisite_for | 산점도의 두 축과 변량 | medium | official_dual_source |
-| m1_coord_y_axis__prerequisite_for__m1_func_y_intercept | y축 | prerequisite_for | y절편 | high | official_dual_source |
-| m1_eq_unit__prerequisite_for__m1_coord_graph_unit | 일차방정식 | prerequisite_for | 좌표평면과 그래프 | medium | official_single_source |
-| m1_graph_graph__prerequisite_for__m1_data_critical_graph_reading | 그래프 | prerequisite_for | 표와 그래프의 오류 비판적으로 읽기 | medium | official_single_source |
-| m1_graph_graph__prerequisite_for__m1_data_frequency_unit | 그래프 | prerequisite_for | 도수분포표와 상대도수 | high | official_dual_source |

@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 일차함수와 그 그래프
 - priority tier: highest
 - priority score: 93
-- edges in packet: 166
-- cross-unit edges: 43
+- edges in packet: 169
+- cross-unit edges: 46
 - low confidence edges: 52
 
 ## Relationship Evidence Slots
@@ -157,6 +157,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_expr_unit__prerequisite_for__m1_func_unit | cross_unit | 문자의 사용과 식 | prerequisite_for | 일차함수와 그 그래프 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 5 |
 | m1_func_function__prerequisite_for__m1_quad_func_quadratic_function | cross_unit | 함수 | prerequisite_for | 이차함수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_func_function__prerequisite_for__m1_quad_func_situation_to_formula | cross_unit | 함수 | prerequisite_for | 상황을 이차함수 식으로 나타내기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_func_linear_formula__prerequisite_for__m1_func_equation_function_form_conversion | cross_unit | 일차함수의 식 | prerequisite_for | 미지수가 2개인 일차방정식을 y=ax+b 꼴로 나타내기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_func_linear_graph__prerequisite_for__m1_func_two_linear_graphs | cross_unit | 일차함수의 그래프 | prerequisite_for | 두 일차함수의 그래프 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_func_linear_graph__prerequisite_for__m1_func_two_variable_equation_as_graph | cross_unit | 일차함수의 그래프 | prerequisite_for | 미지수가 2개인 일차방정식의 해를 그래프로 나타내기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_func_linear_graph__prerequisite_for__m1_func_two_variable_linear_equation_graph | cross_unit | 일차함수의 그래프 | prerequisite_for | 미지수가 2개인 일차방정식의 그래프 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
@@ -183,6 +184,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_func_y_intercept__used_in__m1_coord_y_axis | cross_unit | y절편 | used_in | y축 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_graph_increase_decrease__used_in__m1_func_slope_sign | cross_unit | 증가와 감소 | used_in | 기울기의 부호 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 1 |
 | m1_func_value__contrasts_with__m1_expr_value | cross_unit | 함숫값 | contrasts_with | 식의 값 | medium | contrast_ref;textbook_page_refs | Find textbook wording or examples that distinguish the two concepts. | 5 |
+| m1_func_equation_x_axis_intersection__related_to__m1_func_x_intercept | cross_unit | 일차방정식 그래프의 x축과의 교점 | related_to | x절편 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 4 |
+| m1_func_equation_y_axis_intersection__related_to__m1_func_y_intercept | cross_unit | 일차방정식 그래프의 y축과의 교점 | related_to | y절편 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 4 |
 | m1_system_unit__related_to__m1_func_unit | cross_unit | 연립일차방정식 | related_to | 일차함수와 그 그래프 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 8 |
 
 ## Textbook Edge Evidence Fields

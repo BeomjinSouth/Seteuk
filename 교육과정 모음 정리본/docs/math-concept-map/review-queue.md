@@ -2,14 +2,14 @@
 
 이 문서는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 출처 보강 때 먼저 확인할 대상을 정리한다.
 
-- 검토 대상 concept: 149개
+- 검토 대상 concept: 156개
 
 ## 영역별 검토 대상
 
 | 영역 | concept 수 |
 |---|---:|
 | 수와 연산 | 18 |
-| 변화와 관계 | 58 |
+| 변화와 관계 | 65 |
 | 도형과 측정 | 36 |
 | 자료와 가능성 | 37 |
 
@@ -17,9 +17,9 @@
 
 | concept_type | concept 수 |
 |---|---:|
-| misconception_risk | 106 |
+| misconception_risk | 109 |
 | procedure | 4 |
-| property | 11 |
+| property | 15 |
 | representation | 7 |
 | sub_concept | 9 |
 | term | 12 |
@@ -92,9 +92,16 @@
 | m1_func_input_value | 변화와 관계 | 일차함수와 그 그래프 | term | source_detail_needed | 입력값 | 공식 문서에는 함숫값을 구하는 수행이 확인되지만 '입력값' 용어 자체는 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_func_x_increment | 변화와 관계 | 일차함수와 그 그래프 | term | source_detail_needed | x의 증가량 | 성취수준 문서에는 기울기 부호와 그래프의 식 구하기가 확인된다. x의 증가량이라는 세부 계산 용어는 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_func_y_increment | 변화와 관계 | 일차함수와 그 그래프 | term | source_detail_needed | y의 증가량 | 성취수준 문서에는 기울기 부호와 그래프의 식 구하기가 확인된다. y의 증가량이라는 세부 계산 용어는 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_mis_coincident_graph_single_solution | 변화와 관계 | 일차함수와 일차방정식의 관계 | misconception_risk | textbook_evidence_needed | 일치하는 두 그래프의 해를 하나로 보는 오류 | 공식 문서가 직접 제시한 오류는 아니며, 그래프와 해의 관계에서 추론한 오개념 위험이다. 교과서 오답 근거 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_mis_equation_intercepts_substitution_swap | 변화와 관계 | 일차함수와 일차방정식의 관계 | misconception_risk | textbook_evidence_needed | x=0과 y=0 대입으로 구하는 축 교점을 바꾸어 생각하는 오류 | 공식 문서가 직접 제시한 오류는 아니며, 축과의 교점 구하기 절차를 세분하면서 추론한 오개념 위험이다. |
 | m1_mis_intersection_count_solution_count | 변화와 관계 | 일차함수와 일차방정식의 관계 | misconception_risk | textbook_evidence_needed | 교점의 개수와 해의 개수를 따로 보는 오류 | 성취수준의 교점과 해의 관계 설명에서 추론한 오개념 위험이다. 세부 사례별 오류는 교과서 예제 확인 후 분리한다. |
 | m1_mis_intersection_solution | 변화와 관계 | 일차함수와 일차방정식의 관계 | misconception_risk | textbook_evidence_needed | 그래프의 교점과 연립방정식의 해를 분리해서 보는 오류 |  |
+| m1_mis_parallel_graphs_have_solution | 변화와 관계 | 일차함수와 일차방정식의 관계 | misconception_risk | textbook_evidence_needed | 평행한 두 그래프에도 해가 있다고 보는 오류 | 공식 문서가 직접 제시한 오류는 아니며, 그래프와 해의 관계에서 추론한 오개념 위험이다. 교과서 오답 근거 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_mis_single_equation_graph_as_system_solution | 변화와 관계 | 일차함수와 일차방정식의 관계 | misconception_risk | textbook_evidence_needed | 한 일차방정식의 그래프를 연립일차방정식의 해로 보는 오류 | 한 식의 해 전체와 연립된 두 식의 공통 해를 구별해야 하는 관계 단원에서 추론한 오개념 위험이다. |
+| m1_func_coincident_graph_case | 변화와 관계 | 일차함수와 일차방정식의 관계 | property | source_detail_needed | 두 그래프가 일치하는 경우 | 공식 성취기준은 그래프와 해의 관계를 요구하지만 현재 근거 요약은 일치 사례를 직접 열거하지 않는다. 교과서 예제 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_func_parallel_graph_case | 변화와 관계 | 일차함수와 일차방정식의 관계 | property | source_detail_needed | 두 그래프가 평행한 경우 | 공식 성취기준은 그래프와 해의 관계를 요구하지만 현재 근거 요약은 평행 사례를 직접 열거하지 않는다. 교과서 예제 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_func_system_infinitely_many_solutions_graph_case | 변화와 관계 | 일차함수와 일차방정식의 관계 | property | source_detail_needed | 일치하는 두 그래프와 해가 무수히 많은 경우 | 공식 성취기준의 그래프와 해의 관계에서 추론한 사례다. 현재 출처 요약은 일치 사례를 직접 열거하지 않으므로 낮은 신뢰도로 둔다. |
+| m1_func_system_no_solution_graph_case | 변화와 관계 | 일차함수와 일차방정식의 관계 | property | source_detail_needed | 평행한 두 그래프와 해가 없는 경우 | 공식 성취기준의 그래프와 해의 관계에서 추론한 사례다. 현재 출처 요약은 평행 사례를 직접 열거하지 않으므로 낮은 신뢰도로 둔다. |
 | m1_mis_axis_quadrant | 변화와 관계 | 좌표평면과 그래프 | misconception_risk | textbook_evidence_needed | 축 위의 점을 사분면에 포함하는 오류 | 공식 문서에서 좌표축과 사분면 용어는 확인되지만, 오류 자체는 교과서·문항 근거 확인 전 잠정 노드이다. |
 | m1_mis_direct_inverse_generalization | 변화와 관계 | 좌표평면과 그래프 | misconception_risk | textbook_evidence_needed | 증가·감소만으로 정비례·반비례 판단 | 공식 문서의 정비례·반비례 관계 판단 요구와 변화 상태 해석 요구를 함께 본 추론이다. |
 | m1_mis_graph_picture | 변화와 관계 | 좌표평면과 그래프 | misconception_risk | textbook_evidence_needed | 그래프를 상황 그림으로만 보는 오류 | 그래프가 나타내는 상황을 설명하게 한다는 공식 문서 근거에서 추론한 오개념 위험이다. |

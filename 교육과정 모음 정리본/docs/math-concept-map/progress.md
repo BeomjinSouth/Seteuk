@@ -1736,10 +1736,34 @@
 - `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
 - PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
 
+## 2026-07-02 일차함수와 일차방정식의 관계 미시 concept 병렬 보강
+
+- AGENTS.md를 다시 확인하고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 생성 로직과 파생 산출물 정비로 제한했다.
+- 멀티에이전트 explorer 3개를 읽기 전용으로 사용해 `일차함수와 일차방정식의 관계`를 병렬 감사했다. Goodall은 기존 노드·edge와 누락 후보, Averroes는 `[9수02-17]`·`[9수02-18]` 및 연구보고서 p. 58의 source boundary, Fermat는 테스트 구조와 noisy edge 부재 조건을 점검했다.
+- `순서쌍을 대입하여 방정식의 해인지 확인하기`, `그래프 위의 점과 방정식의 해의 대응`, `그래프에서 미지수가 2개인 일차방정식의 해 읽기`, `미지수가 2개인 일차방정식을 y=ax+b 꼴로 나타내기`, `미지수가 2개인 일차방정식 해의 대응표`, `두 해의 순서쌍으로 일차방정식 그래프 그리기`를 추가해 한 방정식의 해 전체가 그래프가 되는 흐름을 미시 concept으로 분해했다.
+- `x=0을 대입해 y축과의 교점 구하기`, `y=0을 대입해 x축과의 교점 구하기`, `일차방정식 그래프의 x축과의 교점`, `일차방정식 그래프의 y축과의 교점`, `두 축과의 교점으로 일차방정식 그래프 그리기`를 추가해 축과의 교점을 활용한 그래프 그리기 절차를 별도 노드로 분리했다.
+- `두 일차함수 그래프를 한 좌표평면에 나타내기`, `교점 좌표 읽기`, `교점은 두 방정식의 공통해`, `교점의 좌표를 연립일차방정식의 해로 쓰기`, `한 방정식의 해 전체와 두 방정식의 공통해 구별하기`를 추가해 두 그래프의 교점과 연립일차방정식의 해를 연결했다.
+- `두 그래프가 한 점에서 만나는 경우`, `두 그래프가 평행한 경우`, `두 그래프가 일치하는 경우`, `한 점에서 만나는 그래프와 하나의 해`, `평행한 두 그래프와 해가 없는 경우`, `일치하는 두 그래프와 해가 무수히 많은 경우`를 추가해 교점 개수와 해 개수 관계를 사례별로 분리했다. 연구보고서 p. 58은 한 교점 사례에만 직접 근거로 사용했고, 평행·일치 사례는 공식 성취기준의 관계 설명에서 추론한 항목이므로 `confidence: low`와 notes를 유지했다.
+- `x=0과 y=0 대입으로 구하는 축 교점을 바꾸어 생각하는 오류`, `평행한 두 그래프에도 해가 있다고 보는 오류`, `일치하는 두 그래프의 해를 하나로 보는 오류`를 오개념 risk로 추가했다. 오개념 노드는 모두 선수 관계 없이 `often_confused_with` edge 중심으로 연결했다.
+- 이번 보강의 source ref는 `CURR_17`, `ACH_LINEAR_EQ_REL`, `CURR_18`, `ACH_SYSTEM_GRAPH_REL`, 좌표 표현 보조 근거 `CURR_05`, `ACH_COORD`, 연립방정식 보조 근거 `CURR_13`, `ACH_SYSTEM`, 한 교점 사례 `ACH_RESEARCH_INTERSECTION_58`로 제한했다. 직접 근거가 약한 교과서식 절차와 비-한교점 사례는 교과서 본문·예제 근거 확인 전까지 medium/low 신뢰도를 유지한다.
+- noisy edge 방지 조건을 고정했다. `기울기`, `x절편`, `y절편`을 미지수가 2개인 일차방정식 그래프의 선수 개념으로 두지 않았고, `x=0` 대입은 y축 교점으로, `y=0` 대입은 x축 교점으로만 연결했다. 평행/일치 그래프 경우는 해 개수 사례의 prerequisite가 아니라 `used_in` 관계로 연결했고, 오개념 risk로 향하는 prerequisite도 만들지 않았다.
+- 전체 산출물을 재생성한 결과 concept은 898개, edge는 4117개가 되었다. source ref audit은 13177개 ref를 기록하고 source catalogue는 5개를 유지한다.
+- `review-queue.*`는 156개 low-confidence concept, `concept-evidence-depth.*`는 concept 898개, `edge-evidence-depth.*`는 edge 4117개, `prerequisite-map.*`은 1494개 선수 관계 edge로 갱신했다.
+- `unit-coverage.*` 기준 `일차함수와 일차방정식의 관계`는 concept 41개, 내부 edge 139개, incoming edge 51개, outgoing edge 10개이며, confidence 분포는 high 9개, medium 22개, low 10개이다. concept type 분포는 core 1개, representation 8개, procedure 12개, property 13개, term 1개, misconception_risk 6개이다.
+- `textbook-evidence-workplan.*`에서 `일차함수와 일차방정식의 관계`는 rank 3, priority tier `highest`이며 concept 41개, edge 200개, 총 241개 evidence row가 모두 `pending_textbook_pdf` 상태다. 이 단원의 low-confidence concept은 10개, low-confidence edge는 29개이다.
+- `test_build_pilot_function_equation_relation_microconcepts.py`를 확장해 방정식 그래프 그리기 절차, 축 교점 절차, 한 좌표평면의 두 그래프, 교점 좌표 읽기, 교점/해 개수 사례, 오개념 risk, noisy edge 부재를 고정했다.
+- 좁은 테스트: `python -m unittest test_build_pilot_function_equation_relation_microconcepts.py` 6개 통과.
+- 전체 단위 테스트: `python -m unittest discover -s . -p "test_*.py"`를 `docs/math-concept-map/tools`에서 실행해 331개 통과.
+- 전체 validator: `python docs/math-concept-map/tools/validate_concept_map.py`: 898개 concept, 4117개 edge, 5개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map`: 종료 코드 0, CRLF 변환 경고만 확인.
+- 전체 직접 파생 산출물과 research-report/legacy 보조 산출물을 재생성했다. 교과서 evidence packet과 edge packet을 만든 뒤 `textbook-evidence-workplan.*`, 루트 `pilot-unit-map.*`, 전체 `unit-map-packets/*`를 다시 생성해 rank/count가 최신 packet index와 일치하도록 했다.
+- `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
 - 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 `not_applicable_from_this_row` 41개가 broad context, 용어 충돌, 도구·자료 입력, 또는 약한 출현으로 유지되는지 주기적으로 감사한다. 현재 `pending_manual_review`는 8개이며, 주로 `선분`·`반직선` 후보이므로 교과서 본문 또는 중학교 기본 도형 직접 근거 확인 후 source ref 반영 여부를 판단한다.
 - 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.
-- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 253개, 총 296개 row로 유지한다. 공식·보조 문서 기반 미시 concept 보강을 계속한다면 이미 보강한 상위 단원을 제외하고 `일차함수와 일차방정식의 관계`, `삼각비`, `경우의 수와 확률`처럼 미시 concept과 edge 근거가 더 필요한 단원을 우선 검토한다.
+- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 266개, 총 309개 row로 유지한다. 공식·보조 문서 기반 미시 concept 보강을 계속한다면 이미 보강한 상위 단원을 제외하고 `삼각비`, `경우의 수와 확률`처럼 미시 concept과 edge 근거가 더 필요한 단원을 우선 검토한다.
 - 새 concept, alias, `related_ids`, 또는 `equivalent_to` 후보가 추가되면 `equivalence-alias-audit.*`, `related-edge-resolution-queue.*`, `textbook-edge-evidence-packets/*`, `edge-evidence-depth.*`를 함께 재생성한다.

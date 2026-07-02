@@ -303,12 +303,34 @@ flowchart LR
   m1_func_two_variable_equation_solution_pair["미지수가 2개인 일차방정식 해의 순서쌍"]
   m1_func_two_variable_linear_equation_graph["미지수가 2개인 일차방정식의 그래프"]
   m1_func_two_variable_equation_solution_set_graph["미지수가 2개인 일차방정식 해 전체의 그래프"]
+  m1_func_solution_pair_check_by_substitution["순서쌍을 대입하여 방정식의 해인지 확인하기"]
+  m1_func_graph_point_solution_correspondence["그래프 위의 점과 방정식의 해의 대응"]
+  m1_func_read_solution_pair_from_equation_graph["그래프에서 미지수가 2개인 일차방정식의 해 읽기"]
+  m1_func_equation_function_form_conversion["미지수가 2개인 일차방정식을 y=ax+b 꼴로 나타내기"]
+  m1_func_equation_solution_table["미지수가 2개인 일차방정식 해의 대응표"]
+  m1_func_equation_graph_from_two_solution_pairs["두 해의 순서쌍으로 일차방정식 그래프 그리기"]
+  m1_func_equation_x_zero_substitution["x=0을 대입해 y축과의 교점 구하기"]
+  m1_func_equation_y_zero_substitution["y=0을 대입해 x축과의 교점 구하기"]
+  m1_func_equation_x_axis_intersection["일차방정식 그래프의 x축과의 교점"]
+  m1_func_equation_y_axis_intersection["일차방정식 그래프의 y축과의 교점"]
+  m1_func_equation_two_intercepts_graph_drawing["두 축과의 교점으로 일차방정식 그래프 그리기"]
   m1_func_equation_relation["일차함수와 미지수가 2개인 일차방정식의 관계"]
   m1_func_two_linear_graphs["두 일차함수의 그래프"]
   m1_func_intersection_point["교점"]
   m1_func_intersection_point_coordinate["교점의 좌표"]
   m1_func_intersection_count["교점의 개수"]
   m1_func_intersection_solution_count_relation["교점의 개수와 연립일차방정식 해의 개수의 관계"]
+  m1_func_system_graph_same_plane["두 일차함수 그래프를 한 좌표평면에 나타내기"]
+  m1_func_intersection_coordinate_reading["교점 좌표 읽기"]
+  m1_func_intersection_as_common_solution["교점은 두 방정식의 공통해"]
+  m1_func_intersection_coordinate_to_system_solution_pair["교점의 좌표를 연립일차방정식의 해로 쓰기"]
+  m1_func_single_solution_set_vs_common_solution["한 방정식의 해 전체와 두 방정식의 공통해 구별하기"]
+  m1_func_one_intersection_case["두 그래프가 한 점에서 만나는 경우"]
+  m1_func_parallel_graph_case["두 그래프가 평행한 경우"]
+  m1_func_coincident_graph_case["두 그래프가 일치하는 경우"]
+  m1_func_system_unique_solution_graph_case["한 점에서 만나는 그래프와 하나의 해"]
+  m1_func_system_no_solution_graph_case["평행한 두 그래프와 해가 없는 경우"]
+  m1_func_system_infinitely_many_solutions_graph_case["일치하는 두 그래프와 해가 무수히 많은 경우"]
   m1_func_system_graph_relation["두 일차함수의 그래프와 연립일차방정식의 관계"]
   m1_func_system_solution_from_intersection["교점으로 연립일차방정식의 해 말하기"]
   m1_mis_all_relations_are_functions["모든 두 양의 관계를 함수로 보는 오류"]
@@ -321,6 +343,9 @@ flowchart LR
   m1_mis_intersection_solution["그래프의 교점과 연립방정식의 해를 분리해서 보는 오류"]
   m1_mis_intersection_count_solution_count["교점의 개수와 해의 개수를 따로 보는 오류"]
   m1_mis_single_equation_graph_as_system_solution["한 일차방정식의 그래프를 연립일차방정식의 해로 보는 오류"]
+  m1_mis_equation_intercepts_substitution_swap["x=0과 y=0 대입으로 구하는 축 교점을 바꾸어 생각하는 오류"]
+  m1_mis_parallel_graphs_have_solution["평행한 두 그래프에도 해가 있다고 보는 오류"]
+  m1_mis_coincident_graph_single_solution["일치하는 두 그래프의 해를 하나로 보는 오류"]
   m1_factor_unit["다항식의 곱셈과 인수분해"]
   m1_factor_polynomial_multiplication["다항식의 곱셈"]
   m1_factor_expanded_form["전개식"]
@@ -1556,6 +1581,28 @@ flowchart LR
   m1_func_two_variable_equation_solution_set_graph -- "표현" --> m1_func_two_variable_linear_equation_graph
   m1_func_two_variable_equation_solution_set_graph -- "사용" --> m1_func_equation_relation
   m1_func_two_variable_equation_solution_set_graph -- "사용" --> m1_func_two_variable_equation_as_graph
+  m1_func_two_variable_equation_solution_pair -- "사용" --> m1_func_solution_pair_check_by_substitution
+  m1_func_solution_pair_check_by_substitution -- "사용" --> m1_func_graph_point_solution_correspondence
+  m1_func_graph_point_solution_correspondence -- "사용" --> m1_func_two_variable_equation_solution_set_graph
+  m1_func_graph_point_solution_correspondence -- "사용" --> m1_func_equation_relation
+  m1_func_graph_point_solution_correspondence -- "사용" --> m1_func_read_solution_pair_from_equation_graph
+  m1_func_two_variable_linear_equation_graph -- "사용" --> m1_func_read_solution_pair_from_equation_graph
+  m1_func_read_solution_pair_from_equation_graph -- "사용" --> m1_func_equation_relation
+  m1_func_equation_function_form_conversion -- "사용" --> m1_func_two_variable_equation_as_graph
+  m1_func_equation_function_form_conversion -- "사용" --> m1_func_two_variable_linear_equation_graph
+  m1_func_equation_function_form_conversion -- "사용" --> m1_func_equation_relation
+  m1_func_two_variable_equation_solution_pair -- "사용" --> m1_func_equation_solution_table
+  m1_func_equation_solution_table -- "사용" --> m1_func_equation_graph_from_two_solution_pairs
+  m1_func_equation_graph_from_two_solution_pairs -- "사용" --> m1_func_two_variable_equation_as_graph
+  m1_func_equation_graph_from_two_solution_pairs -- "사용" --> m1_func_two_variable_linear_equation_graph
+  m1_func_equation_x_zero_substitution -- "사용" --> m1_func_equation_y_axis_intersection
+  m1_func_equation_y_zero_substitution -- "사용" --> m1_func_equation_x_axis_intersection
+  m1_func_equation_x_axis_intersection -- "사용" --> m1_func_equation_two_intercepts_graph_drawing
+  m1_func_equation_y_axis_intersection -- "사용" --> m1_func_equation_two_intercepts_graph_drawing
+  m1_func_equation_two_intercepts_graph_drawing -- "사용" --> m1_func_two_variable_equation_as_graph
+  m1_func_equation_two_intercepts_graph_drawing -- "사용" --> m1_func_two_variable_linear_equation_graph
+  m1_func_equation_x_axis_intersection -- "연관" --> m1_func_x_intercept
+  m1_func_equation_y_axis_intersection -- "연관" --> m1_func_y_intercept
   m1_func_two_variable_equation_as_graph -- "사용" --> m1_func_equation_relation
   m1_func_two_variable_equation_as_graph -- "사용" --> m1_func_system_graph_relation
   m1_func_two_variable_equation_as_graph -- "대조" --> m1_func_two_linear_graphs
@@ -1569,6 +1616,30 @@ flowchart LR
   m1_func_intersection_count -- "사용" --> m1_func_system_graph_relation
   m1_func_intersection_count -- "사용" --> m1_func_intersection_solution_count_relation
   m1_system_simultaneous_linear_equations -- "표현" --> m1_func_two_linear_graphs
+  m1_func_two_linear_graphs -- "사용" --> m1_func_system_graph_same_plane
+  m1_func_system_graph_same_plane -- "사용" --> m1_func_intersection_coordinate_reading
+  m1_func_intersection_coordinate_reading -- "사용" --> m1_func_system_solution_from_intersection
+  m1_func_intersection_coordinate_reading -- "사용" --> m1_system_solution
+  m1_func_intersection_point_coordinate -- "사용" --> m1_func_intersection_as_common_solution
+  m1_func_intersection_as_common_solution -- "사용" --> m1_func_system_graph_relation
+  m1_func_intersection_as_common_solution -- "사용" --> m1_func_system_solution_from_intersection
+  m1_func_intersection_as_common_solution -- "연관" --> m1_system_solution
+  m1_func_intersection_point_coordinate -- "사용" --> m1_func_intersection_coordinate_to_system_solution_pair
+  m1_system_solution_ordered_pair -- "사용" --> m1_func_intersection_coordinate_to_system_solution_pair
+  m1_func_intersection_coordinate_to_system_solution_pair -- "사용" --> m1_func_system_solution_from_intersection
+  m1_func_intersection_coordinate_to_system_solution_pair -- "사용" --> m1_system_solution
+  m1_func_two_variable_equation_solution_set_graph -- "대조" --> m1_func_single_solution_set_vs_common_solution
+  m1_system_solution -- "대조" --> m1_func_single_solution_set_vs_common_solution
+  m1_func_single_solution_set_vs_common_solution -- "대조" --> m1_func_two_variable_equation_as_graph
+  m1_func_single_solution_set_vs_common_solution -- "사용" --> m1_func_system_graph_relation
+  m1_func_one_intersection_case -- "사용" --> m1_func_system_unique_solution_graph_case
+  m1_func_parallel_graph_case -- "사용" --> m1_func_system_no_solution_graph_case
+  m1_func_coincident_graph_case -- "사용" --> m1_func_system_infinitely_many_solutions_graph_case
+  m1_func_system_unique_solution_graph_case -- "사용" --> m1_func_intersection_solution_count_relation
+  m1_func_system_no_solution_graph_case -- "사용" --> m1_func_intersection_solution_count_relation
+  m1_func_system_infinitely_many_solutions_graph_case -- "사용" --> m1_func_intersection_solution_count_relation
+  m1_func_one_intersection_case -- "사용" --> m1_func_system_graph_relation
+  m1_func_system_unique_solution_graph_case -- "연관" --> m1_system_solution
   m1_func_intersection_solution_count_relation -- "사용" --> m1_func_system_graph_relation
   m1_func_system_graph_relation -- "사용" --> m1_func_system_solution_from_intersection
   m1_func_system_solution_from_intersection -- "사용" --> m1_func_system_graph_relation
@@ -2771,10 +2842,32 @@ flowchart LR
   m1_func_eq_relation_unit -- "포함" --> m1_func_two_variable_equation_solution_pair
   m1_func_eq_relation_unit -- "포함" --> m1_func_two_variable_linear_equation_graph
   m1_func_two_variable_linear_equation_graph -- "포함" --> m1_func_two_variable_equation_solution_set_graph
+  m1_func_two_variable_equation_as_graph -- "포함" --> m1_func_solution_pair_check_by_substitution
+  m1_func_two_variable_equation_solution_set_graph -- "포함" --> m1_func_graph_point_solution_correspondence
+  m1_func_two_variable_equation_as_graph -- "포함" --> m1_func_read_solution_pair_from_equation_graph
+  m1_func_two_variable_equation_as_graph -- "포함" --> m1_func_equation_function_form_conversion
+  m1_func_two_variable_equation_as_graph -- "포함" --> m1_func_equation_solution_table
+  m1_func_two_variable_equation_as_graph -- "포함" --> m1_func_equation_graph_from_two_solution_pairs
+  m1_func_two_variable_equation_as_graph -- "포함" --> m1_func_equation_x_zero_substitution
+  m1_func_two_variable_equation_as_graph -- "포함" --> m1_func_equation_y_zero_substitution
+  m1_func_two_variable_linear_equation_graph -- "포함" --> m1_func_equation_x_axis_intersection
+  m1_func_two_variable_linear_equation_graph -- "포함" --> m1_func_equation_y_axis_intersection
+  m1_func_two_variable_equation_as_graph -- "포함" --> m1_func_equation_two_intercepts_graph_drawing
   m1_func_eq_relation_unit -- "포함" --> m1_func_intersection_point
   m1_func_intersection_point -- "포함" --> m1_func_intersection_point_coordinate
   m1_func_eq_relation_unit -- "포함" --> m1_func_intersection_count
   m1_func_eq_relation_unit -- "포함" --> m1_func_intersection_solution_count_relation
+  m1_func_system_graph_relation -- "포함" --> m1_func_system_graph_same_plane
+  m1_func_system_solution_from_intersection -- "포함" --> m1_func_intersection_coordinate_reading
+  m1_func_system_graph_relation -- "포함" --> m1_func_intersection_as_common_solution
+  m1_func_system_solution_from_intersection -- "포함" --> m1_func_intersection_coordinate_to_system_solution_pair
+  m1_func_eq_relation_unit -- "포함" --> m1_func_single_solution_set_vs_common_solution
+  m1_func_intersection_count -- "포함" --> m1_func_one_intersection_case
+  m1_func_intersection_count -- "포함" --> m1_func_parallel_graph_case
+  m1_func_intersection_count -- "포함" --> m1_func_coincident_graph_case
+  m1_func_intersection_solution_count_relation -- "포함" --> m1_func_system_unique_solution_graph_case
+  m1_func_intersection_solution_count_relation -- "포함" --> m1_func_system_no_solution_graph_case
+  m1_func_intersection_solution_count_relation -- "포함" --> m1_func_system_infinitely_many_solutions_graph_case
   m1_func_eq_relation_unit -- "포함" --> m1_func_system_solution_from_intersection
   m1_func_unit -- "포함" --> m1_mis_all_relations_are_functions
   m1_func_unit -- "포함" --> m1_mis_function_value_input_output
@@ -2785,6 +2878,9 @@ flowchart LR
   m1_func_eq_relation_unit -- "포함" --> m1_mis_intersection_solution
   m1_func_eq_relation_unit -- "포함" --> m1_mis_intersection_count_solution_count
   m1_func_eq_relation_unit -- "포함" --> m1_mis_single_equation_graph_as_system_solution
+  m1_func_eq_relation_unit -- "포함" --> m1_mis_equation_intercepts_substitution_swap
+  m1_func_eq_relation_unit -- "포함" --> m1_mis_parallel_graphs_have_solution
+  m1_func_eq_relation_unit -- "포함" --> m1_mis_coincident_graph_single_solution
   m1_factor_polynomial_multiplication -- "포함" --> m1_factor_expanded_form
   m1_factor_polynomial_multiplication -- "포함" --> m1_factor_polynomial_product_expansion
   m1_factor_formula_scope -- "포함" --> m1_factor_formula_selection
@@ -3748,6 +3844,36 @@ flowchart LR
   m1_coord_coordinate_plane -- "선수" --> m1_func_two_variable_linear_equation_graph
   m1_func_two_variable_equation_solution_pair -- "선수" --> m1_func_two_variable_equation_solution_set_graph
   m1_func_two_variable_linear_equation_graph -- "선수" --> m1_func_two_variable_equation_solution_set_graph
+  m1_func_two_variable_equation_solution_pair -- "선수" --> m1_func_solution_pair_check_by_substitution
+  m1_expr_substitution -- "선수" --> m1_func_solution_pair_check_by_substitution
+  m1_func_two_variable_equation_solution_pair -- "선수" --> m1_func_graph_point_solution_correspondence
+  m1_func_two_variable_linear_equation_graph -- "선수" --> m1_func_graph_point_solution_correspondence
+  m1_func_two_variable_linear_equation_graph -- "선수" --> m1_func_read_solution_pair_from_equation_graph
+  m1_coord_ordered_pair -- "선수" --> m1_func_read_solution_pair_from_equation_graph
+  m1_func_graph_point_solution_correspondence -- "선수" --> m1_func_read_solution_pair_from_equation_graph
+  m1_system_two_variable_linear_equation -- "선수" --> m1_func_equation_function_form_conversion
+  m1_eq_equality_properties -- "선수" --> m1_func_equation_function_form_conversion
+  m1_func_linear_formula -- "선수" --> m1_func_equation_function_form_conversion
+  m1_func_two_variable_equation_solution_pair -- "선수" --> m1_func_equation_solution_table
+  m1_repr_table -- "선수" --> m1_func_equation_solution_table
+  m1_func_equation_solution_table -- "선수" --> m1_func_equation_graph_from_two_solution_pairs
+  m1_func_two_variable_equation_solution_pair -- "선수" --> m1_func_equation_graph_from_two_solution_pairs
+  m1_coord_coordinate_plane -- "선수" --> m1_func_equation_graph_from_two_solution_pairs
+  m1_expr_substitution -- "선수" --> m1_func_equation_x_zero_substitution
+  m1_num_zero -- "선수" --> m1_func_equation_x_zero_substitution
+  m1_coord_y_axis -- "선수" --> m1_func_equation_x_zero_substitution
+  m1_expr_substitution -- "선수" --> m1_func_equation_y_zero_substitution
+  m1_num_zero -- "선수" --> m1_func_equation_y_zero_substitution
+  m1_coord_x_axis -- "선수" --> m1_func_equation_y_zero_substitution
+  m1_func_equation_y_zero_substitution -- "선수" --> m1_func_equation_x_axis_intersection
+  m1_coord_x_axis -- "선수" --> m1_func_equation_x_axis_intersection
+  m1_coord_coordinate -- "선수" --> m1_func_equation_x_axis_intersection
+  m1_func_equation_x_zero_substitution -- "선수" --> m1_func_equation_y_axis_intersection
+  m1_coord_y_axis -- "선수" --> m1_func_equation_y_axis_intersection
+  m1_coord_coordinate -- "선수" --> m1_func_equation_y_axis_intersection
+  m1_func_equation_x_axis_intersection -- "선수" --> m1_func_equation_two_intercepts_graph_drawing
+  m1_func_equation_y_axis_intersection -- "선수" --> m1_func_equation_two_intercepts_graph_drawing
+  m1_coord_coordinate_plane -- "선수" --> m1_func_equation_two_intercepts_graph_drawing
   m1_func_two_variable_equation_as_graph -- "선수" --> m1_func_equation_relation
   m1_func_two_variable_equation_solution_set_graph -- "선수" --> m1_func_equation_relation
   m1_func_linear_graph -- "선수" --> m1_func_two_linear_graphs
@@ -3758,6 +3884,17 @@ flowchart LR
   m1_func_two_linear_graphs -- "선수" --> m1_func_intersection_count
   m1_func_intersection_count -- "선수" --> m1_func_intersection_solution_count_relation
   m1_system_solution -- "선수" --> m1_func_intersection_solution_count_relation
+  m1_func_two_linear_graphs -- "선수" --> m1_func_system_graph_same_plane
+  m1_coord_coordinate_plane -- "선수" --> m1_func_system_graph_same_plane
+  m1_func_intersection_point_coordinate -- "선수" --> m1_func_intersection_coordinate_reading
+  m1_coord_x_coordinate -- "선수" --> m1_func_intersection_coordinate_reading
+  m1_coord_y_coordinate -- "선수" --> m1_func_intersection_coordinate_reading
+  m1_func_intersection_point_coordinate -- "선수" --> m1_func_intersection_as_common_solution
+  m1_system_common_solution_condition -- "선수" --> m1_func_intersection_as_common_solution
+  m1_func_intersection_point_coordinate -- "선수" --> m1_func_intersection_coordinate_to_system_solution_pair
+  m1_system_solution_ordered_pair -- "선수" --> m1_func_intersection_coordinate_to_system_solution_pair
+  m1_func_two_variable_equation_solution_set_graph -- "선수" --> m1_func_single_solution_set_vs_common_solution
+  m1_system_solution -- "선수" --> m1_func_single_solution_set_vs_common_solution
   m1_func_two_linear_graphs -- "선수" --> m1_func_system_graph_relation
   m1_system_simultaneous_linear_equations -- "선수" --> m1_func_system_graph_relation
   m1_func_intersection_point_coordinate -- "선수" --> m1_func_system_solution_from_intersection
@@ -4763,9 +4900,16 @@ flowchart LR
   m1_mis_system_substitution -- "혼동" --> m1_expr_substitution
   m1_mis_system_ordered_pair_swap -- "혼동" --> m1_coord_ordered_pair
   m1_mis_all_relations_are_functions -- "혼동" --> m1_func_function
+  m1_mis_equation_intercepts_substitution_swap -- "혼동" --> m1_func_equation_x_zero_substitution
+  m1_mis_equation_intercepts_substitution_swap -- "혼동" --> m1_func_equation_y_zero_substitution
   m1_mis_intersection_solution -- "혼동" --> m1_func_intersection_point
   m1_mis_intersection_solution -- "혼동" --> m1_func_intersection_point_coordinate
   m1_mis_intersection_count_solution_count -- "혼동" --> m1_func_intersection_count
+  m1_mis_single_equation_graph_as_system_solution -- "혼동" --> m1_func_single_solution_set_vs_common_solution
+  m1_mis_parallel_graphs_have_solution -- "혼동" --> m1_func_parallel_graph_case
+  m1_mis_coincident_graph_single_solution -- "혼동" --> m1_func_coincident_graph_case
+  m1_mis_parallel_graphs_have_solution -- "혼동" --> m1_func_system_no_solution_graph_case
+  m1_mis_coincident_graph_single_solution -- "혼동" --> m1_func_system_infinitely_many_solutions_graph_case
   m1_mis_all_relations_are_functions -- "혼동" --> m1_func_correspondence
   m1_mis_function_value_input_output -- "혼동" --> m1_expr_substitution
   m1_mis_slope_sign -- "혼동" --> m1_graph_increase_decrease
@@ -5176,12 +5320,34 @@ flowchart LR
   class m1_func_two_variable_equation_solution_pair representation;
   class m1_func_two_variable_linear_equation_graph representation;
   class m1_func_two_variable_equation_solution_set_graph representation;
+  class m1_func_solution_pair_check_by_substitution procedure;
+  class m1_func_graph_point_solution_correspondence default;
+  class m1_func_read_solution_pair_from_equation_graph procedure;
+  class m1_func_equation_function_form_conversion procedure;
+  class m1_func_equation_solution_table representation;
+  class m1_func_equation_graph_from_two_solution_pairs procedure;
+  class m1_func_equation_x_zero_substitution procedure;
+  class m1_func_equation_y_zero_substitution procedure;
+  class m1_func_equation_x_axis_intersection representation;
+  class m1_func_equation_y_axis_intersection representation;
+  class m1_func_equation_two_intercepts_graph_drawing procedure;
   class m1_func_equation_relation default;
   class m1_func_two_linear_graphs representation;
   class m1_func_intersection_point default;
   class m1_func_intersection_point_coordinate representation;
   class m1_func_intersection_count default;
   class m1_func_intersection_solution_count_relation default;
+  class m1_func_system_graph_same_plane procedure;
+  class m1_func_intersection_coordinate_reading procedure;
+  class m1_func_intersection_as_common_solution default;
+  class m1_func_intersection_coordinate_to_system_solution_pair procedure;
+  class m1_func_single_solution_set_vs_common_solution default;
+  class m1_func_one_intersection_case default;
+  class m1_func_parallel_graph_case default;
+  class m1_func_coincident_graph_case default;
+  class m1_func_system_unique_solution_graph_case default;
+  class m1_func_system_no_solution_graph_case default;
+  class m1_func_system_infinitely_many_solutions_graph_case default;
   class m1_func_system_graph_relation default;
   class m1_func_system_solution_from_intersection procedure;
   class m1_mis_all_relations_are_functions risk;
@@ -5194,6 +5360,9 @@ flowchart LR
   class m1_mis_intersection_solution risk;
   class m1_mis_intersection_count_solution_count risk;
   class m1_mis_single_equation_graph_as_system_solution risk;
+  class m1_mis_equation_intercepts_substitution_swap risk;
+  class m1_mis_parallel_graphs_have_solution risk;
+  class m1_mis_coincident_graph_single_solution risk;
   class m1_factor_unit core;
   class m1_factor_polynomial_multiplication procedure;
   class m1_factor_expanded_form representation;

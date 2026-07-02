@@ -4,13 +4,13 @@ This generated audit separates aliases, explicit equivalent edges, repeated labe
 
 ## Summary
 
-- audit rows: 903
+- audit rows: 928
 
 ## Record Types
 
 | record_type | count |
 |---|---:|
-| concept_alias | 873 |
+| concept_alias | 898 |
 | duplicate_label | 15 |
 | equivalent_edge | 4 |
 | official_term_multi_match | 11 |
@@ -20,7 +20,7 @@ This generated audit separates aliases, explicit equivalent edges, repeated labe
 | recommended_action | count |
 |---|---:|
 | keep_edge_and_confirm_textbook_usage | 4 |
-| preserve_alias_and_check_textbook_wording | 873 |
+| preserve_alias_and_check_textbook_wording | 898 |
 | review_term_scope_and_preserve_alias_or_split_reason | 11 |
 | review_unit_vs_micro_concept_split_before_equivalent_edge | 15 |
 

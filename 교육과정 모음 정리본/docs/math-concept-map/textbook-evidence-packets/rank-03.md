@@ -5,45 +5,60 @@ This generated packet is the unit-level worksheet for adding textbook-grounded e
 ## Target Unit
 
 - rank: 3
-- grade: 중2(교육과정 학년군: 중1-3)
-- domain: 자료와 가능성
-- unit: 경우의 수와 확률
+- grade: 중1(교육과정 학년군: 중1-3)
+- domain: 변화와 관계
+- unit: 일차함수와 일차방정식의 관계
 - priority tier: highest
-- priority score: 72
-- concepts in packet: 26
-- pending textbook evidence: 26
-- low confidence concepts: 6
+- priority score: 87
+- concepts in packet: 41
+- pending textbook evidence: 41
+- low confidence concepts: 10
 
 ## Concept Evidence Slots
 
 | concept_id | label_ko | type | confidence | evidence_depth | status | required evidence | focus | source refs |
 |---|---|---|---|---|---|---|---|---:|
-| m1_mis_or_and_counting_confusion | 또는과 동시에의 경우의 수를 혼동하는 오류 | misconception_risk | low | official_single_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 3 |
-| m1_mis_permutation_combination_scope | 복잡한 순열·조합 문항을 중학교 경우의 수 범위에 포함하는 범위 오판 | misconception_risk | low | official_single_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 1 |
-| m1_mis_probability_no_equal_likely | 동등 가능성 가정 없이 경우의 수 비율을 적용하는 오류 | misconception_risk | low | official_single_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 1 |
-| m1_data_one_probability_event | 확률이 1인 사건 | sub_concept | low | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs;extraction_notes | Find textbook definition or example that names the sub-concept. | 2 |
-| m1_data_probability_value | 확률값 | sub_concept | low | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs;extraction_notes | Find textbook definition or example that names the sub-concept. | 2 |
-| m1_data_zero_probability_event | 확률이 0인 사건 | sub_concept | low | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs;extraction_notes | Find textbook definition or example that names the sub-concept. | 2 |
-| m1_data_and_cases | 사건 A와 사건 B가 동시에 일어나는 경우의 수 | sub_concept | medium | official_single_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 5 |
-| m1_data_and_probability | 사건 A와 사건 B가 동시에 일어날 확률 | sub_concept | medium | official_single_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 3 |
-| m1_data_equally_likely_assumption | 각 경우가 발생할 가능성이 동등하다는 가정 | property | medium | official_single_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 1 |
-| m1_data_experimental_probability | 상대도수로서의 확률 | core_concept | medium | official_single_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 1 |
-| m1_data_or_cases | 사건 A 또는 사건 B가 일어나는 경우의 수 | sub_concept | medium | official_single_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 5 |
-| m1_data_or_probability | 사건 A 또는 사건 B가 일어날 확률 | sub_concept | medium | official_single_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 3 |
-| m1_data_relative_frequency_case_ratio_link | 상대도수와 경우의 수의 비율 연결 | sub_concept | medium | official_single_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 1 |
-| m1_data_route_counting_context | 이동 경로의 경우의 수 맥락 | sub_concept | medium | official_single_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 2 |
-| m1_data_addition_counting | 두 경우의 수를 합하는 상황 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_data_counting_cases | 경우의 수 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
-| m1_data_event | 사건 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
-| m1_data_event_cases_count | 사건이 일어나는 경우의 수 | sub_concept | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 3 |
-| m1_data_multiplication_counting | 두 경우의 수를 곱하는 상황 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_data_probability | 확률 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 4 |
-| m1_data_probability_basic_properties | 확률의 기본 성질 | property | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 2 |
-| m1_data_probability_by_case_ratio | 경우의 수의 비율로 확률 구하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
-| m1_data_probability_range_0_1 | 확률의 범위 | property | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 2 |
-| m1_data_probability_unit | 경우의 수와 확률 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 5 |
-| m1_data_theoretical_probability | 경우의 수의 비율로서의 확률 | core_concept | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 4 |
-| m1_data_total_cases | 전체 경우의 수 | sub_concept | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 3 |
+| m1_func_coincident_graph_case | 두 그래프가 일치하는 경우 | property | low | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs;extraction_notes | Find textbook statement of the property and any summary box. | 2 |
+| m1_func_parallel_graph_case | 두 그래프가 평행한 경우 | property | low | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs;extraction_notes | Find textbook statement of the property and any summary box. | 2 |
+| m1_func_system_infinitely_many_solutions_graph_case | 일치하는 두 그래프와 해가 무수히 많은 경우 | property | low | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs;extraction_notes | Find textbook statement of the property and any summary box. | 2 |
+| m1_func_system_no_solution_graph_case | 평행한 두 그래프와 해가 없는 경우 | property | low | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs;extraction_notes | Find textbook statement of the property and any summary box. | 2 |
+| m1_mis_coincident_graph_single_solution | 일치하는 두 그래프의 해를 하나로 보는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
+| m1_mis_equation_intercepts_substitution_swap | x=0과 y=0 대입으로 구하는 축 교점을 바꾸어 생각하는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 4 |
+| m1_mis_intersection_count_solution_count | 교점의 개수와 해의 개수를 따로 보는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
+| m1_mis_intersection_solution | 그래프의 교점과 연립방정식의 해를 분리해서 보는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
+| m1_mis_parallel_graphs_have_solution | 평행한 두 그래프에도 해가 있다고 보는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
+| m1_mis_single_equation_graph_as_system_solution | 한 일차방정식의 그래프를 연립일차방정식의 해로 보는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 4 |
+| m1_func_eq_relation_unit | 일차함수와 일차방정식의 관계 | core_concept | high | official_single_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 2 |
+| m1_func_intersection_count | 교점의 개수 | property | medium | official_single_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 1 |
+| m1_func_intersection_point | 교점 | term | medium | official_single_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 2 |
+| m1_func_equation_function_form_conversion | 미지수가 2개인 일차방정식을 y=ax+b 꼴로 나타내기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 2 |
+| m1_func_equation_graph_from_two_solution_pairs | 두 해의 순서쌍으로 일차방정식 그래프 그리기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
+| m1_func_equation_relation | 일차함수와 미지수가 2개인 일차방정식의 관계 | property | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 2 |
+| m1_func_equation_solution_table | 미지수가 2개인 일차방정식 해의 대응표 | representation | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 4 |
+| m1_func_equation_two_intercepts_graph_drawing | 두 축과의 교점으로 일차방정식 그래프 그리기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
+| m1_func_equation_x_axis_intersection | 일차방정식 그래프의 x축과의 교점 | representation | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 4 |
+| m1_func_equation_x_zero_substitution | x=0을 대입해 y축과의 교점 구하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
+| m1_func_equation_y_axis_intersection | 일차방정식 그래프의 y축과의 교점 | representation | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 4 |
+| m1_func_equation_y_zero_substitution | y=0을 대입해 x축과의 교점 구하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
+| m1_func_graph_point_solution_correspondence | 그래프 위의 점과 방정식의 해의 대응 | property | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 4 |
+| m1_func_intersection_as_common_solution | 교점은 두 방정식의 공통해 | property | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 4 |
+| m1_func_intersection_coordinate_reading | 교점 좌표 읽기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
+| m1_func_intersection_coordinate_to_system_solution_pair | 교점의 좌표를 연립일차방정식의 해로 쓰기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 6 |
+| m1_func_intersection_point_coordinate | 교점의 좌표 | representation | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 5 |
+| m1_func_intersection_solution_count_relation | 교점의 개수와 연립일차방정식 해의 개수의 관계 | property | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 2 |
+| m1_func_one_intersection_case | 두 그래프가 한 점에서 만나는 경우 | property | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 3 |
+| m1_func_read_solution_pair_from_equation_graph | 그래프에서 미지수가 2개인 일차방정식의 해 읽기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
+| m1_func_single_solution_set_vs_common_solution | 한 방정식의 해 전체와 두 방정식의 공통해 구별하기 | property | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 4 |
+| m1_func_solution_pair_check_by_substitution | 순서쌍을 대입하여 방정식의 해인지 확인하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
+| m1_func_system_graph_relation | 두 일차함수의 그래프와 연립일차방정식의 관계 | property | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 2 |
+| m1_func_system_graph_same_plane | 두 일차함수 그래프를 한 좌표평면에 나타내기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
+| m1_func_system_solution_from_intersection | 교점으로 연립일차방정식의 해 말하기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 2 |
+| m1_func_system_unique_solution_graph_case | 한 점에서 만나는 그래프와 하나의 해 | property | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 3 |
+| m1_func_two_linear_graphs | 두 일차함수의 그래프 | representation | high | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 2 |
+| m1_func_two_variable_equation_as_graph | 미지수가 2개인 일차방정식의 해를 그래프로 나타내기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 2 |
+| m1_func_two_variable_equation_solution_pair | 미지수가 2개인 일차방정식 해의 순서쌍 | representation | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 4 |
+| m1_func_two_variable_equation_solution_set_graph | 미지수가 2개인 일차방정식 해 전체의 그래프 | representation | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 2 |
+| m1_func_two_variable_linear_equation_graph | 미지수가 2개인 일차방정식의 그래프 | representation | high | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 2 |
 
 ## Textbook Evidence Fields
 

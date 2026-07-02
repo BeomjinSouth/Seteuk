@@ -5,76 +5,92 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 ## Target Unit
 
 - rank: 16
-- grade: 중2(교육과정 학년군: 중1-3)
-- domain: 수와 연산
-- unit: 유리수와 순환소수
+- grade: 중1(교육과정 학년군: 중1-3)
+- domain: 도형과 측정
+- unit: 기본 도형
 - priority tier: highest
-- workplan score: 150
-- concepts: 25
-- edges touching unit: 114
-- cross-unit edges: 25
+- workplan score: 259
+- concepts: 34
+- edges touching unit: 250
+- cross-unit edges: 89
 - low confidence concepts: 5
-- low confidence edges: 18
+- low confidence edges: 29
 
 ## Concept Type Distribution
 
 | concept_type | count |
 |---|---:|
-| core_concept | 1 |
-| misconception_risk | 5 |
-| procedure | 8 |
+| core_concept | 2 |
+| misconception_risk | 2 |
+| procedure | 4 |
 | property | 4 |
-| representation | 2 |
-| term | 5 |
+| representation | 1 |
+| sub_concept | 1 |
+| term | 20 |
 
 ## Relationship Distribution
 
 | relationship_type | count |
 |---|---:|
-| contains | 27 |
-| contrasts_with | 5 |
-| often_confused_with | 13 |
-| prerequisite_for | 40 |
-| related_to | 3 |
-| represented_by | 5 |
-| used_in | 21 |
+| contains | 36 |
+| contrasts_with | 11 |
+| often_confused_with | 8 |
+| prerequisite_for | 138 |
+| related_to | 5 |
+| represented_by | 2 |
+| used_in | 50 |
 
 ## Low Confidence Concepts
 
 | concept_id | label_ko | type | evidence_depth | notes |
 |---|---|---|---|---|
-| m1_mis_denominator_condition_2_5 | 분모의 소인수 2와 5 조건을 반대로 적용하는 오류 | misconception_risk | official_single_source | 분모 조건의 대조 관계에서 추론한 오개념 위험이다. 교과서 예제·오답 근거 확인 전까지 낮은 신뢰도로 둔다. |
-| m1_mis_finite_to_repeating_scope | 유한소수를 순환소수로 나타내는 활동을 범위로 오인하는 오류 | misconception_risk | official_single_source | 공식 문서의 제외 범위를 학습 범위 관리용 오개념 위험으로 기록했다. |
-| m1_mis_fraction_decimal_denominator_not_reduced | 기약분수로 고치지 않고 분모 조건을 판단하는 오류 | misconception_risk | official_single_source | 성취수준의 분수 특징 판별에서 추론한 오개념 위험이다. 교과서 예제·오답 근거 확인 전까지 낮은 신뢰도로 둔다. |
-| m1_mis_repeating_decimal_shift_digits | 순환마디 자리수를 맞추지 않고 식을 빼는 오류 | misconception_risk | official_dual_source | 순환소수를 분수로 고치는 절차에서 추론한 오개념 위험이다. 교과서 예제·오답 근거 확인 전까지 낮은 신뢰도로 둔다. |
-| m1_mis_repetend_dot_notation_scope | 순환마디 점 표시 범위를 잘못 잡는 오류 | misconception_risk | official_dual_source | 순환마디와 점 표기에서 추론한 오개념 위험이다. 교과서 예제·오답 근거 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_geo_coplanar_condition | 한 평면 위에 있음 | property | official_dual_source | 평행선과 꼬인 위치의 구별에 쓰이는 조건이지만 공식 독립 용어로 확인되지는 않아 낮은 신뢰도로 둔다. |
+| m1_geo_line_segment | 선분 | term | official_dual_source | 공식 용어표의 직접 열거가 아니라 중점, 수직이등분선, 두 점 사이의 거리 설명에서 필요한 하위 용어로 분리했다. 교과서 본문 근거가 필요하다. |
+| m1_geo_ray | 반직선 | term | official_dual_source | 각의 정의에 필요한 하위 용어지만 공식 용어표 직접 근거는 아직 확인되지 않아 낮은 신뢰도로 둔다. |
+| m1_mis_corresponding_alternate_angles | 동위각과 엇각의 위치를 혼동하는 오류 | misconception_risk | official_dual_source | 성취수준의 각 찾기와 크기 구하기 수행에서 추론한 위험이다. 교과서 오개념 코너 확인 필요. |
+| m1_mis_skew_parallel_lines | 꼬인 위치와 평행을 같은 관계로 보는 오류 | misconception_risk | official_dual_source |  |
 
 ## Cross-Unit Edges
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
-| m1_mis_irrational_decimal__often_confused_with__m1_num_infinite_decimal | 무한소수와 무리수를 같은 말로 보는 오류 | often_confused_with | 무한소수 | low | official_dual_source |
-| m1_mis_irrational_decimal__often_confused_with__m1_num_repeating_decimal | 무한소수와 무리수를 같은 말로 보는 오류 | often_confused_with | 순환소수 | low | official_dual_source |
-| m1_num_domain__contains__m1_num_repeating_decimal_unit | 수와 연산 | contains | 유리수와 순환소수 | high | official_single_source |
-| m1_calc_power__prerequisite_for__m1_num_denominator_power_of_ten_conversion | 거듭제곱 | prerequisite_for | 분모를 10의 거듭제곱으로 만들기 | medium | official_dual_source |
-| m1_calc_power__prerequisite_for__m1_num_repeating_decimal_equation_conversion | 거듭제곱 | prerequisite_for | 식을 세워 순환소수를 분수로 나타내기 | medium | official_dual_source |
-| m1_num_division__prerequisite_for__m1_num_fraction_to_decimal_division | 나눗셈 | prerequisite_for | 분수를 소수로 나타내기 | medium | official_dual_source |
-| m1_num_gcd__prerequisite_for__m1_num_irreducible_fraction | 최대공약수 | prerequisite_for | 기약분수 | medium | official_dual_source |
-| m1_num_gcd__prerequisite_for__m1_num_reduce_fraction_lowest_terms | 최대공약수 | prerequisite_for | 분수를 기약분수로 고치기 | medium | official_dual_source |
-| m1_num_integer_rational_unit__prerequisite_for__m1_num_repeating_decimal_unit | 정수와 유리수 | prerequisite_for | 유리수와 순환소수 | high | official_dual_source |
-| m1_num_prime_factorization__prerequisite_for__m1_num_repeating_decimal_denominator_condition | 소인수분해 | prerequisite_for | 순환소수가 되는 분모 조건 | medium | official_dual_source |
-| m1_num_prime_factorization__prerequisite_for__m1_num_terminating_decimal_denominator_condition | 소인수분해 | prerequisite_for | 유한소수가 되는 분모 조건 | medium | official_dual_source |
-| m1_num_rational_fraction_form__prerequisite_for__m1_num_finite_decimal_to_fraction | 유리수의 분수 꼴 표현 | prerequisite_for | 유한소수를 분수로 나타내기 | medium | official_dual_source |
-| m1_num_rational_fraction_form__prerequisite_for__m1_num_fraction_to_decimal_division | 유리수의 분수 꼴 표현 | prerequisite_for | 분수를 소수로 나타내기 | medium | official_dual_source |
-| m1_num_rational_fraction_form__prerequisite_for__m1_num_irreducible_fraction | 유리수의 분수 꼴 표현 | prerequisite_for | 기약분수 | medium | official_dual_source |
-| m1_num_rational_fraction_form__prerequisite_for__m1_num_reduce_fraction_lowest_terms | 유리수의 분수 꼴 표현 | prerequisite_for | 분수를 기약분수로 고치기 | medium | official_dual_source |
-| m1_num_rational_number__prerequisite_for__m1_num_fraction_decimal_classification | 유리수 | prerequisite_for | 분수가 유한소수 또는 순환소수로 나타나는지 구분하기 | medium | official_single_source |
-| m1_num_rational_number__prerequisite_for__m1_num_rational_repeating_relation | 유리수 | prerequisite_for | 유리수와 순환소수의 관계 | high | official_dual_source |
-| m1_num_rational_number__prerequisite_for__m1_num_repeating_decimal_unit | 유리수 | prerequisite_for | 유리수와 순환소수 | high | official_dual_source |
-| m1_num_finite_decimal_to_fraction__represented_by__m1_num_rational_fraction_form | 유한소수를 분수로 나타내기 | represented_by | 유리수의 분수 꼴 표현 | medium | official_dual_source |
-| m1_num_repeating_decimal__represented_by__m1_num_rational_fraction_form | 순환소수 | represented_by | 유리수의 분수 꼴 표현 | medium | official_dual_source |
-| m1_num_rational_fraction_form__used_in__m1_num_rational_repeating_relation | 유리수의 분수 꼴 표현 | used_in | 유리수와 순환소수의 관계 | medium | official_dual_source |
-| m1_num_rational_repeating_relation__used_in__m1_num_rational_irrational_classification | 유리수와 순환소수의 관계 | used_in | 유리수와 무리수의 구분 | medium | official_dual_source |
-| m1_num_repeating_decimal__contrasts_with__m1_num_irrational_number | 순환소수 | contrasts_with | 무리수 | medium | official_dual_source |
-| m1_num_irreducible_fraction__related_to__m1_num_coprime | 기약분수 | related_to | 서로소 | medium | official_dual_source |
-| m1_num_repeating_decimal_unit__related_to__m1_num_square_root_real_unit | 유리수와 순환소수 | related_to | 제곱근과 실수 | medium | official_dual_source |
+| m1_geo_parallel_angle_property_explanation__related_to__m1_geo_polygon_angle_sum | 평행선에서 동위각과 엇각의 성질 설명하기 | related_to | 다각형의 내각과 외각의 크기 | low | official_dual_source |
+| m1_geo_point__related_to__m1_coord_point_location | 점 | related_to | 점의 위치 | low | official_dual_source |
+| m1_num_absolute_value__related_to__m1_geo_distance_between_two_points | 절댓값 | related_to | 두 점 사이의 거리 | low | official_dual_source |
+| m1_geo_domain__contains__m1_geo_basic_unit | 도형과 측정 | contains | 기본 도형 | high | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_angle_bisector | 각 | prerequisite_for | 각의 이등분선 | medium | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_central_angle | 각 | prerequisite_for | 중심각 | high | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_construction | 각 | prerequisite_for | 작도 | high | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_copy_angle_construction | 각 | prerequisite_for | 주어진 각과 크기가 같은 각 작도 | medium | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_correspondence | 각 | prerequisite_for | 도형의 대응 | medium | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_corresponding_angles_in_congruence | 각 | prerequisite_for | 합동에서의 대응하는 각 | medium | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_corresponding_angles_in_similarity | 각 | prerequisite_for | 대응하는 각 | medium | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_exterior_angle | 각 | prerequisite_for | 외각 | high | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_inscribed_angle | 각 | prerequisite_for | 원주각 | high | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_interior_angle | 각 | prerequisite_for | 내각 | high | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_isosceles_base_angles | 각 | prerequisite_for | 이등변삼각형의 두 밑각 | medium | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_isosceles_vertex_angle | 각 | prerequisite_for | 이등변삼각형의 꼭지각 | medium | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_opposite_angle | 각 | prerequisite_for | 대각 | high | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_opposite_side | 각 | prerequisite_for | 대변 | high | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_polygon | 각 | prerequisite_for | 다각형 | high | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_pythagorean_right_angle | 각 | prerequisite_for | 직각삼각형의 직각 | medium | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_right_triangle | 각 | prerequisite_for | 직각삼각형 | high | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_triangle | 각 | prerequisite_for | 삼각형 | medium | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_triangle_construction | 각 | prerequisite_for | 삼각형의 작도 | high | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_trig_reference_angle | 각 | prerequisite_for | 삼각비의 기준각 | medium | official_dual_source |
+| m1_geo_angle_measure__prerequisite_for__m1_geo_angle_bisector | 각의 크기 | prerequisite_for | 각의 이등분선 | medium | official_dual_source |
+| m1_geo_basic_unit__prerequisite_for__m1_geo_construction_congruence_unit | 기본 도형 | prerequisite_for | 작도와 합동 | high | official_dual_source |
+| m1_geo_basic_unit__prerequisite_for__m1_geo_justification | 기본 도형 | prerequisite_for | 정당화 | high | official_dual_source |
+| m1_geo_basic_unit__prerequisite_for__m1_geo_plane_properties_unit | 기본 도형 | prerequisite_for | 평면도형의 성질 | high | official_dual_source |
+| m1_geo_distance_between_two_points__prerequisite_for__m1_geo_chord_center_distance | 두 점 사이의 거리 | prerequisite_for | 원 중심에서 현까지의 거리 | medium | official_dual_source |
+| m1_geo_distance_between_two_points__prerequisite_for__m1_geo_circumcenter_equal_vertex_distance | 두 점 사이의 거리 | prerequisite_for | 외심에서 세 꼭짓점까지의 거리 | high | official_dual_source |
+| m1_geo_distance_between_two_points__prerequisite_for__m1_geo_copy_segment_construction | 두 점 사이의 거리 | prerequisite_for | 주어진 선분과 길이가 같은 선분 작도 | medium | official_dual_source |
+| m1_geo_distance_between_two_points__prerequisite_for__m1_geo_incenter_equal_side_distance | 두 점 사이의 거리 | prerequisite_for | 내심에서 세 변까지의 거리 | high | official_dual_source |
+| m1_geo_distance_between_two_points__prerequisite_for__m1_geo_triangle_construction | 두 점 사이의 거리 | prerequisite_for | 삼각형의 작도 | high | official_dual_source |
+| m1_geo_foot_of_perpendicular__prerequisite_for__m1_geo_incenter_equal_side_distance | 수선의 발 | prerequisite_for | 내심에서 세 변까지의 거리 | high | official_dual_source |
+| m1_geo_foot_of_perpendicular__prerequisite_for__m1_geo_trig_distance_height | 수선의 발 | prerequisite_for | 삼각비로 거리와 높이 구하기 | high | official_dual_source |
+| m1_geo_foot_of_perpendicular__prerequisite_for__m1_geo_trig_distance_height_modeling | 수선의 발 | prerequisite_for | 거리와 높이 문제를 직각삼각형으로 나타내기 | medium | official_dual_source |
+| m1_geo_line__prerequisite_for__m1_geo_axis_of_rotation | 직선 | prerequisite_for | 회전축 | high | official_dual_source |
+| m1_geo_line__prerequisite_for__m1_geo_construction | 직선 | prerequisite_for | 작도 | high | official_dual_source |
+| m1_geo_line__prerequisite_for__m1_geo_polygon | 직선 | prerequisite_for | 다각형 | high | official_dual_source |
+| m1_geo_line__prerequisite_for__m1_geo_secant | 직선 | prerequisite_for | 할선 | high | official_single_source |

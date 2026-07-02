@@ -5,89 +5,87 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 ## Target Unit
 
 - rank: 12
-- grade: 중1(교육과정 학년군: 중1-3)
+- grade: 중3(교육과정 학년군: 중1-3)
 - domain: 자료와 가능성
-- unit: 도수분포표와 상대도수
+- unit: 산포도
 - priority tier: highest
-- workplan score: 182
-- concepts: 33
-- edges touching unit: 185
-- cross-unit edges: 53
-- low confidence concepts: 4
-- low confidence edges: 18
+- workplan score: 218
+- concepts: 25
+- edges touching unit: 132
+- cross-unit edges: 33
+- low confidence concepts: 8
+- low confidence edges: 32
 
 ## Concept Type Distribution
 
 | concept_type | count |
 |---|---:|
-| core_concept | 4 |
-| misconception_risk | 3 |
-| procedure | 14 |
-| property | 1 |
-| representation | 5 |
-| term | 6 |
+| core_concept | 2 |
+| misconception_risk | 4 |
+| procedure | 7 |
+| property | 2 |
+| representation | 4 |
+| sub_concept | 3 |
+| term | 3 |
 
 ## Relationship Distribution
 
 | relationship_type | count |
 |---|---:|
-| contains | 33 |
-| often_confused_with | 10 |
-| prerequisite_for | 74 |
-| related_to | 2 |
-| represented_by | 9 |
-| used_in | 57 |
+| contains | 25 |
+| often_confused_with | 11 |
+| prerequisite_for | 46 |
+| related_to | 8 |
+| represented_by | 4 |
+| used_in | 38 |
 
 ## Low Confidence Concepts
 
 | concept_id | label_ko | type | evidence_depth | notes |
 |---|---|---|---|---|
-| m1_data_relative_frequency_sum | 상대도수의 합 | property | official_single_source | 공식 문서의 상대도수 구하기와 도수의 총합 표현에서 추론한 성질이다. 교과서 본문이나 정리 근거 확인 전까지 낮은 신뢰도로 둔다. |
-| m1_mis_graph_scale_distortion | 눈금 왜곡 그래프를 그대로 해석하는 오류 | misconception_risk | official_single_source | 교육과정의 '부적절한 눈금으로 자료를 부정확하게 나타낸 표나 그래프 오류 찾기'에 근거한 노드다. |
-| m1_mis_histogram_bar_graph | 히스토그램과 막대그래프를 같은 표현으로 보는 오류 | misconception_risk | official_dual_source | 공식 문서의 히스토그램 표현 요구에서 추론한 오개념 위험이다. 교과서 예제와 문항 근거 보강 필요. |
-| m1_mis_relative_frequency_frequency | 도수와 상대도수를 혼동하는 오류 | misconception_risk | official_dual_source |  |
+| m1_data_same_mean_different_spread | 평균이 같은 두 분포의 흩어진 정도 비교 | sub_concept | official_dual_source | 두 집단 분포 비교 성취수준에서 필요한 대표적인 비교 맥락으로 추론했다. 공식 문서의 직접 표현은 아니므로 교과서 예제 근거 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_data_variability_calculation_table | 산포도 계산 표 | representation | official_dual_source | 교과서 예제에서 자주 쓰이는 계산 표 형식으로 추론했다. 공식 문서의 직접 표현은 아니므로 낮은 신뢰도로 둔다. |
+| m1_data_deviation_sum_zero | 편차의 합은 0 | property | official_dual_source | 편차의 정의에서 파생되는 교과서 정리 성격의 성질이다. 공식 문서의 직접 용어는 아니므로 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_data_standard_deviation_unit | 표준편차의 단위 | property | official_dual_source | 표준편차를 분산의 제곱근으로 정의한 데서 파생되는 해석 성질이다. 공식 문서의 직접 용어는 아니므로 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_mis_deviation_as_absolute_distance | 편차를 항상 양수 거리로 보는 오류 | misconception_risk | official_dual_source | 학생 반응에서 예상되는 오개념으로 추론했다. 교과서 문항 근거 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_mis_same_mean_same_distribution | 평균이 같으면 분포도 같다고 보는 오류 | misconception_risk | official_dual_source | 두 집단 분포 비교에서 예상되는 오개념으로 추론했다. 교과서 예제·문항 근거 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_mis_sd_without_square_root | 표준편차에서 제곱근을 빠뜨리는 오류 | misconception_risk | official_dual_source | 표준편차 계산 절차에서 예상되는 오개념으로 추론했다. 교과서 문항 근거 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_mis_variance_standard_deviation | 분산과 표준편차를 같은 값으로 보는 오류 | misconception_risk | official_dual_source |  |
 
 ## Cross-Unit Edges
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
-| m1_num_ratio__used_in__m1_data_relative_frequency | 비 | used_in | 상대도수 | low | official_dual_source |
-| m1_num_ratio__used_in__m1_data_relative_frequency_calculation | 비 | used_in | 상대도수 구하기 | low | official_single_source |
-| m1_mis_graph_scale_distortion__often_confused_with__m1_graph_graph_interpretation | 눈금 왜곡 그래프를 그대로 해석하는 오류 | often_confused_with | 그래프 해석 | low | official_single_source |
-| m1_mis_representation_conversion__often_confused_with__m1_data_critical_graph_reading | 표·식·그래프 변환 오류 | often_confused_with | 표와 그래프의 오류 비판적으로 읽기 | low | official_dual_source |
-| m1_data_domain__contains__m1_data_frequency_unit | 자료와 가능성 | contains | 도수분포표와 상대도수 | high | official_dual_source |
-| m1_data_domain__contains__m1_data_statistical_inquiry_unit | 자료와 가능성 | contains | 통계적 탐구 | high | official_dual_source |
-| m1_data_dataset__prerequisite_for__m1_data_class | 자료 | prerequisite_for | 계급 | high | official_dual_source |
-| m1_data_dataset__prerequisite_for__m1_data_distribution | 자료 | prerequisite_for | 자료의 분포 | high | official_dual_source |
-| m1_data_dataset__prerequisite_for__m1_data_frequency | 자료 | prerequisite_for | 도수 | high | official_dual_source |
-| m1_data_dataset__prerequisite_for__m1_data_statistical_inquiry_problem | 자료 | prerequisite_for | 통계적 탐구 문제 | high | official_dual_source |
-| m1_data_dataset__prerequisite_for__m1_data_stem_leaf_plot | 자료 | prerequisite_for | 줄기와 잎 그림 | high | official_dual_source |
-| m1_data_distribution__prerequisite_for__m1_data_choose_representative_value | 자료의 분포 | prerequisite_for | 자료의 특성에 맞는 대푯값 선택 | high | official_dual_source |
-| m1_data_distribution__prerequisite_for__m1_data_representative_value_context | 자료의 분포 | prerequisite_for | 자료의 특성 살펴보기 | high | official_dual_source |
+| m1_data_mean__prerequisite_for__m1_data_same_mean_different_spread | 평균 | prerequisite_for | 평균이 같은 두 분포의 흩어진 정도 비교 | low | official_dual_source |
+| m1_data_domain__contains__m1_data_variability_unit | 자료와 가능성 | contains | 산포도 | high | official_dual_source |
+| m1_calc_power__prerequisite_for__m1_data_squared_deviation | 거듭제곱 | prerequisite_for | 편차의 제곱 | medium | official_dual_source |
 | m1_data_distribution__prerequisite_for__m1_data_variability | 자료의 분포 | prerequisite_for | 산포도 | high | official_dual_source |
 | m1_data_distribution__prerequisite_for__m1_data_variability_magnitude_interpretation | 자료의 분포 | prerequisite_for | 산포도 값의 크기 해석 | medium | official_dual_source |
 | m1_data_distribution__prerequisite_for__m1_data_variability_unit | 자료의 분포 | prerequisite_for | 산포도 | high | official_dual_source |
-| m1_data_distribution_interpretation__prerequisite_for__m1_data_box_plot_compare | 자료의 분포 특징 해석 | prerequisite_for | 상자그림으로 두 집단의 분포 비교 | high | official_dual_source |
 | m1_data_distribution_interpretation__prerequisite_for__m1_data_compare_distributions_variability | 자료의 분포 특징 해석 | prerequisite_for | 산포도로 두 집단의 분포 비교 | high | official_dual_source |
-| m1_data_frequency__prerequisite_for__m1_data_mode | 도수 | prerequisite_for | 최빈값 | high | official_dual_source |
-| m1_data_frequency__prerequisite_for__m1_data_mode_selection | 도수 | prerequisite_for | 최빈값 찾기 | high | official_dual_source |
-| m1_data_frequency__prerequisite_for__m1_data_value_frequency_count | 도수 | prerequisite_for | 자료값의 도수 세기 | medium | official_dual_source |
-| m1_data_relative_frequency__prerequisite_for__m1_data_experimental_probability | 상대도수 | prerequisite_for | 상대도수로서의 확률 | medium | official_single_source |
-| m1_data_relative_frequency__prerequisite_for__m1_data_probability_unit | 상대도수 | prerequisite_for | 경우의 수와 확률 | high | official_dual_source |
-| m1_data_relative_frequency__prerequisite_for__m1_data_relative_frequency_case_ratio_link | 상대도수 | prerequisite_for | 상대도수와 경우의 수의 비율 연결 | medium | official_single_source |
-| m1_data_representative_unit__prerequisite_for__m1_data_frequency_unit | 대푯값 | prerequisite_for | 도수분포표와 상대도수 | high | official_dual_source |
-| m1_data_technology_tool_stats__prerequisite_for__m1_data_box_plot_construction_tool | 공학 도구로 자료 수집·분석하기 | prerequisite_for | 공학 도구로 상자그림 나타내기 | high | official_dual_source |
-| m1_graph_graph__prerequisite_for__m1_data_critical_graph_reading | 그래프 | prerequisite_for | 표와 그래프의 오류 비판적으로 읽기 | medium | official_single_source |
-| m1_graph_graph__prerequisite_for__m1_data_frequency_unit | 그래프 | prerequisite_for | 도수분포표와 상대도수 | high | official_dual_source |
-| m1_graph_graph__prerequisite_for__m1_data_histogram | 그래프 | prerequisite_for | 히스토그램 | high | official_dual_source |
-| m1_graph_graph__prerequisite_for__m1_data_histogram_drawing | 그래프 | prerequisite_for | 히스토그램으로 나타내기 | high | official_dual_source |
-| m1_graph_graph__prerequisite_for__m1_data_relative_frequency_table_graph | 그래프 | prerequisite_for | 상대도수의 분포를 표나 그래프로 나타내기 | high | official_dual_source |
-| m1_num_order_relation__prerequisite_for__m1_data_class | 정수와 유리수의 대소 관계 | prerequisite_for | 계급 | high | official_dual_source |
-| m1_num_order_relation__prerequisite_for__m1_data_stem_leaf_plot | 정수와 유리수의 대소 관계 | prerequisite_for | 줄기와 잎 그림 | high | official_dual_source |
-| m1_num_ratio__prerequisite_for__m1_data_relative_frequency_calculation | 비 | prerequisite_for | 상대도수 구하기 | high | official_dual_source |
-| m1_num_rational_number__prerequisite_for__m1_data_relative_frequency | 유리수 | prerequisite_for | 상대도수 | high | official_dual_source |
-| m1_repr_table__prerequisite_for__m1_data_critical_graph_reading | 표 | prerequisite_for | 표와 그래프의 오류 비판적으로 읽기 | medium | official_single_source |
-| m1_repr_table__prerequisite_for__m1_data_frequency_table | 표 | prerequisite_for | 도수분포표 | high | official_dual_source |
-| m1_repr_table__prerequisite_for__m1_data_frequency_table_construction | 표 | prerequisite_for | 도수분포표로 나타내기 | high | official_dual_source |
-| m1_repr_table__prerequisite_for__m1_data_frequency_unit | 표 | prerequisite_for | 도수분포표와 상대도수 | high | official_dual_source |
-| m1_repr_table__prerequisite_for__m1_data_relative_frequency_table_graph | 표 | prerequisite_for | 상대도수의 분포를 표나 그래프로 나타내기 | high | official_dual_source |
+| m1_data_mean__prerequisite_for__m1_data_deviation | 평균 | prerequisite_for | 편차 | high | official_dual_source |
+| m1_data_mean__prerequisite_for__m1_data_deviation_calculation | 평균 | prerequisite_for | 편차 구하기 | medium | official_dual_source |
+| m1_data_representative_value__prerequisite_for__m1_data_variability | 대푯값 | prerequisite_for | 산포도 | high | official_dual_source |
+| m1_data_representative_value__prerequisite_for__m1_data_variability_unit | 대푯값 | prerequisite_for | 산포도 | high | official_dual_source |
+| m1_data_variable__prerequisite_for__m1_data_deviation | 변량 | prerequisite_for | 편차 | high | official_dual_source |
+| m1_data_variable__prerequisite_for__m1_data_deviation_calculation | 변량 | prerequisite_for | 편차 구하기 | medium | official_dual_source |
+| m1_num_addition__prerequisite_for__m1_data_sum_squared_deviation | 덧셈 | prerequisite_for | 편차의 제곱의 합 | medium | official_dual_source |
+| m1_num_division__prerequisite_for__m1_data_variance_calculation | 나눗셈 | prerequisite_for | 분산 구하기 | medium | official_dual_source |
+| m1_num_division__prerequisite_for__m1_data_variance_formula | 나눗셈 | prerequisite_for | 분산 계산식 | medium | official_dual_source |
+| m1_num_square_root__prerequisite_for__m1_data_standard_deviation | 제곱근 | prerequisite_for | 표준편차 | high | official_dual_source |
+| m1_num_square_root__prerequisite_for__m1_data_standard_deviation_calculation | 제곱근 | prerequisite_for | 표준편차 구하기 | medium | official_dual_source |
+| m1_num_square_root__prerequisite_for__m1_data_standard_deviation_formula | 제곱근 | prerequisite_for | 표준편차 계산식 | medium | official_dual_source |
+| m1_calc_power__used_in__m1_data_squared_deviation | 거듭제곱 | used_in | 편차의 제곱 | medium | official_dual_source |
+| m1_data_distribution__used_in__m1_data_explain_distribution_with_variability | 자료의 분포 | used_in | 산포도로 자료의 분포 설명하기 | high | official_dual_source |
+| m1_data_distribution__used_in__m1_data_variability | 자료의 분포 | used_in | 산포도 | high | official_dual_source |
+| m1_data_mean__used_in__m1_data_deviation | 평균 | used_in | 편차 | medium | official_dual_source |
+| m1_data_mean__used_in__m1_data_deviation_calculation | 평균 | used_in | 편차 구하기 | medium | official_dual_source |
+| m1_data_representative_value__used_in__m1_data_variability | 대푯값 | used_in | 산포도 | medium | official_dual_source |
+| m1_data_technology_tool_stats__used_in__m1_data_calculate_variance_sd | 공학 도구로 자료 수집·분석하기 | used_in | 분산과 표준편차 구하기 | medium | official_dual_source |
+| m1_data_variable__used_in__m1_data_deviation_calculation | 변량 | used_in | 편차 구하기 | medium | official_dual_source |
+| m1_num_division__used_in__m1_data_variance_calculation | 나눗셈 | used_in | 분산 구하기 | medium | official_dual_source |
+| m1_num_square_root__used_in__m1_data_standard_deviation_calculation | 제곱근 | used_in | 표준편차 구하기 | medium | official_dual_source |
+| m1_data_compare_distributions_variability__related_to__m1_data_box_plot_compare | 산포도로 두 집단의 분포 비교 | related_to | 상자그림으로 두 집단의 분포 비교 | medium | official_dual_source |
+| m1_data_frequency_unit__related_to__m1_data_variability_unit | 도수분포표와 상대도수 | related_to | 산포도 | medium | official_dual_source |
+| m1_data_representative_unit__related_to__m1_data_variability_unit | 대푯값 | related_to | 산포도 | medium | official_dual_source |
+| m1_data_variability_unit__related_to__m1_data_box_scatter_unit | 산포도 | related_to | 상자그림과 산점도 | medium | official_dual_source |

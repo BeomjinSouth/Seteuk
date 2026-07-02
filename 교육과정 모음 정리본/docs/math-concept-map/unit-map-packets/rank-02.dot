@@ -50,6 +50,7 @@ digraph pilot_unit_map {
   "m1_expr_unit" [label="문자의 사용과 식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_quad_func_quadratic_function" [label="이차함수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_quad_func_situation_to_formula" [label="상황을 이차함수 식으로 나타내기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_func_equation_function_form_conversion" [label="미지수가 2개인 일차방정식을 y=ax+b 꼴로 나타내기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_func_two_linear_graphs" [label="두 일차함수의 그래프\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_func_two_variable_equation_as_graph" [label="미지수가 2개인 일차방정식의 해를 그래프로 나타내기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_func_two_variable_linear_equation_graph" [label="미지수가 2개인 일차방정식의 그래프\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -69,6 +70,8 @@ digraph pilot_unit_map {
   "m1_func_equation_relation" [label="일차함수와 미지수가 2개인 일차방정식의 관계\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_quad_func_tech_tool_graph" [label="공학 도구로 이차함수 그래프 탐구하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_expr_value" [label="식의 값\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_func_equation_x_axis_intersection" [label="일차방정식 그래프의 x축과의 교점\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_func_equation_y_axis_intersection" [label="일차방정식 그래프의 y축과의 교점\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_system_unit" [label="연립일차방정식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_func_function" -> "m1_func_input_value" [label="contains", style="solid", color="#b91c1c"];
   "m1_func_slope" -> "m1_func_slope_ratio_formula" [label="contains", style="solid", color="#b91c1c"];
@@ -209,6 +212,7 @@ digraph pilot_unit_map {
   "m1_expr_unit" -> "m1_func_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_func_function" -> "m1_quad_func_quadratic_function" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_func_function" -> "m1_quad_func_situation_to_formula" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_func_linear_formula" -> "m1_func_equation_function_form_conversion" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_func_linear_graph" -> "m1_func_two_linear_graphs" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_func_linear_graph" -> "m1_func_two_variable_equation_as_graph" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_func_linear_graph" -> "m1_func_two_variable_linear_equation_graph" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -235,5 +239,7 @@ digraph pilot_unit_map {
   "m1_func_y_intercept" -> "m1_coord_y_axis" [label="used_in", style="dashed", color="#6b7280"];
   "m1_graph_increase_decrease" -> "m1_func_slope_sign" [label="used_in", style="dashed", color="#6b7280"];
   "m1_func_value" -> "m1_expr_value" [label="contrasts_with", style="dashed", color="#6b7280"];
+  "m1_func_equation_x_axis_intersection" -> "m1_func_x_intercept" [label="related_to", style="dashed", color="#6b7280"];
+  "m1_func_equation_y_axis_intersection" -> "m1_func_y_intercept" [label="related_to", style="dashed", color="#6b7280"];
   "m1_system_unit" -> "m1_func_unit" [label="related_to", style="dashed", color="#6b7280"];
 }
