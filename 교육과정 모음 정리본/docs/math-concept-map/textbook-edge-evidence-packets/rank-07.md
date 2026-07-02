@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 삼각형과 사각형의 성질
 - priority tier: highest
 - priority score: 63
-- edges in packet: 219
-- cross-unit edges: 65
+- edges in packet: 223
+- cross-unit edges: 69
 - low confidence edges: 19
 
 ## Relationship Evidence Slots
@@ -174,6 +174,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_geo_inradius__contrasts_with__m1_geo_circumradius | intra_unit | 내접원의 반지름 | contrasts_with | 외접원의 반지름 | medium | contrast_ref;textbook_page_refs | Find textbook wording or examples that distinguish the two concepts. | 3 |
 | m1_geo_rectangle_diagonals_equal__contrasts_with__m1_geo_rhombus_diagonals_perpendicular | intra_unit | 직사각형의 대각선의 길이가 같음 | contrasts_with | 마름모의 대각선이 서로 수직 | medium | contrast_ref;textbook_page_refs | Find textbook wording or examples that distinguish the two concepts. | 2 |
 | m1_geo_rhombus_diagonals_perpendicular__contrasts_with__m1_geo_rectangle_diagonals_equal | intra_unit | 마름모의 대각선이 서로 수직 | contrasts_with | 직사각형의 대각선의 길이가 같음 | medium | contrast_ref;textbook_page_refs | Find textbook wording or examples that distinguish the two concepts. | 2 |
+| m1_geo_centroid__contains__m1_geo_centroid_median_concurrency | cross_unit | 무게중심 | contains | 세 중선은 한 점에서 만남 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
+| m1_geo_centroid__contains__m1_geo_centroid_two_to_one_ratio | cross_unit | 무게중심 | contains | 무게중심은 중선을 2:1로 나눔 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
 | m1_geo_domain__contains__m1_geo_triangle_quadrilateral_unit | cross_unit | 도형과 측정 | contains | 삼각형과 사각형의 성질 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 5 |
 | m1_geo_similarity_unit__contains__m1_geo_centroid | cross_unit | 도형의 닮음 | contains | 무게중심 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
 | m1_geo_similarity_unit__contains__m1_geo_median | cross_unit | 도형의 닮음 | contains | 중선 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
@@ -197,13 +199,14 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_geo_length__prerequisite_for__m1_geo_isosceles_equal_sides | cross_unit | 길이 | prerequisite_for | 이등변삼각형의 두 같은 변 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_length__prerequisite_for__m1_geo_rectangle_diagonals_equal | cross_unit | 길이 | prerequisite_for | 직사각형의 대각선의 길이가 같음 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_length__prerequisite_for__m1_geo_rhombus | cross_unit | 길이 | prerequisite_for | 마름모 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_geo_median__prerequisite_for__m1_geo_centroid_location_by_median_ratio | cross_unit | 중선 | prerequisite_for | 중선 위 2:1 비로 무게중심 위치 찾기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_geo_median__prerequisite_for__m1_geo_centroid_median_concurrency | cross_unit | 중선 | prerequisite_for | 세 중선은 한 점에서 만남 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_midpoint__prerequisite_for__m1_geo_median | cross_unit | 중점 | prerequisite_for | 중선 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_midpoint__prerequisite_for__m1_geo_parallelogram_diagonals_bisect | cross_unit | 중점 | prerequisite_for | 평행사변형의 대각선이 서로를 이등분 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_opposite_angle__prerequisite_for__m1_geo_parallelogram_opposite_sides_angles | cross_unit | 대각 | prerequisite_for | 평행사변형의 마주 보는 변과 각 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_opposite_side__prerequisite_for__m1_geo_parallelogram_opposite_sides_angles | cross_unit | 대변 | prerequisite_for | 평행사변형의 마주 보는 변과 각 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_parallel_lines__prerequisite_for__m1_geo_parallelogram | cross_unit | 평행선 | prerequisite_for | 평행사변형 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_parallel_lines__prerequisite_for__m1_geo_trapezoid | cross_unit | 평행선 | prerequisite_for | 사다리꼴 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
-| m1_geo_parallel_segment_ratio__prerequisite_for__m1_geo_centroid | cross_unit | 평행선 사이의 선분의 길이의 비 | prerequisite_for | 무게중심 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_geo_perpendicular__prerequisite_for__m1_geo_rectangle | cross_unit | 직교 | prerequisite_for | 직사각형 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_perpendicular__prerequisite_for__m1_geo_rhombus_diagonals_perpendicular | cross_unit | 직교 | prerequisite_for | 마름모의 대각선이 서로 수직 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_perpendicular_bisector__prerequisite_for__m1_geo_circumcenter | cross_unit | 수직이등분선 | prerequisite_for | 외심 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
@@ -229,6 +232,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_geo_diagonal__used_in__m1_geo_quadrilateral_diagonal_properties | cross_unit | 대각선 | used_in | 사각형의 대각선에 관한 성질 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_geo_justification__used_in__m1_geo_circle_justification | cross_unit | 정당화 | used_in | 원의 성질 정당화 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 4 |
 | m1_geo_median__used_in__m1_geo_centroid_from_parallel_ratio | cross_unit | 중선 | used_in | 평행선과 선분의 비로 무게중심 찾기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
+| m1_geo_median__used_in__m1_geo_centroid_median_concurrency | cross_unit | 중선 | used_in | 세 중선은 한 점에서 만남 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
 | m1_geo_perpendicular_bisector__used_in__m1_geo_circumcenter | cross_unit | 수직이등분선 | used_in | 외심 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_geo_perpendicular_bisector__used_in__m1_geo_construct_circumcenter | cross_unit | 수직이등분선 | used_in | 외심 찾기 | high | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
 | m1_geo_proof__used_in__m1_geo_pythagorean_justification | cross_unit | 증명 | used_in | 피타고라스 정리의 정당화 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |

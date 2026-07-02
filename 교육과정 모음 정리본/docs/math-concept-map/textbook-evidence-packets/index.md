@@ -5,8 +5,8 @@ This generated index tracks the prepared unit-level textbook evidence packets.
 ## Summary
 
 - packets: 34
-- concepts in packets: 740
-- pending textbook evidence rows: 740
+- concepts in packets: 761
+- pending textbook evidence rows: 761
 
 ## Packets
 
@@ -28,14 +28,14 @@ This generated index tracks the prepared unit-level textbook evidence packets.
 | 14 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차방정식 | 31 | 31 | 3 | highest | 53 | rank-14.md |
 | 15 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 소인수분해 | 32 | 32 | 4 | highest | 52 | rank-15.md |
 | 16 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 식의 계산 | 30 | 30 | 4 | highest | 50 | rank-16.md |
-| 17 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 문자의 사용과 식 | 24 | 24 | 3 | highest | 48 | rank-17.md |
-| 18 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 평면도형의 성질 | 29 | 29 | 3 | highest | 47 | rank-18.md |
-| 19 | 중3(교육과정 학년군: 중1-3) | 수와 연산 | 제곱근과 실수 | 25 | 25 | 3 | highest | 45 | rank-19.md |
-| 20 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 연립일차방정식 | 27 | 27 | 4 | highest | 43 | rank-20.md |
-| 21 | 중3(교육과정 학년군: 중1-3) | 도형과 측정 | 삼각비 | 24 | 24 | 3 | highest | 42 | rank-21.md |
-| 22 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 일차방정식의 관계 | 16 | 16 | 3 | high | 34 | rank-22.md |
-| 23 | 중2(교육과정 학년군: 중1-3) | 수와 연산 | 유리수와 순환소수 | 10 | 10 | 1 | medium | 18 | rank-23.md |
-| 24 | 중2(교육과정 학년군: 중1-3) | 도형과 측정 | 도형의 닮음 | 11 | 11 | 1 | medium | 15 | rank-24.md |
+| 17 | 중2(교육과정 학년군: 중1-3) | 도형과 측정 | 도형의 닮음 | 32 | 32 | 4 | highest | 48 | rank-17.md |
+| 18 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 문자의 사용과 식 | 24 | 24 | 3 | highest | 48 | rank-18.md |
+| 19 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 평면도형의 성질 | 29 | 29 | 3 | highest | 47 | rank-19.md |
+| 20 | 중3(교육과정 학년군: 중1-3) | 수와 연산 | 제곱근과 실수 | 25 | 25 | 3 | highest | 45 | rank-20.md |
+| 21 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 연립일차방정식 | 27 | 27 | 4 | highest | 43 | rank-21.md |
+| 22 | 중3(교육과정 학년군: 중1-3) | 도형과 측정 | 삼각비 | 24 | 24 | 3 | highest | 42 | rank-22.md |
+| 23 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 일차방정식의 관계 | 16 | 16 | 3 | high | 34 | rank-23.md |
+| 24 | 중2(교육과정 학년군: 중1-3) | 수와 연산 | 유리수와 순환소수 | 10 | 10 | 1 | medium | 18 | rank-24.md |
 | 25 | 중3(교육과정 학년군: 중1-3) | 자료와 가능성 | 상자그림과 산점도 | 11 | 11 | 1 | medium | 15 | rank-25.md |
 | 26 | 중3(교육과정 학년군: 중1-3) | 자료와 가능성 | 산포도 | 8 | 8 | 1 | medium | 12 | rank-26.md |
 | 27 | 중1(교육과정 학년군: 중1-3) | 자료와 가능성 | 대푯값 | 7 | 7 | 1 | medium | 11 | rank-27.md |

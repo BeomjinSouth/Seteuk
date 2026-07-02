@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 도형과 측정
 - unit: 기본 도형
 - priority tier: highest
-- workplan score: 247
+- workplan score: 252
 - concepts: 34
-- edges touching unit: 238
-- cross-unit edges: 77
+- edges touching unit: 243
+- cross-unit edges: 82
 - low confidence concepts: 5
 - low confidence edges: 29
 
@@ -35,7 +35,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 36 |
 | contrasts_with | 11 |
 | often_confused_with | 8 |
-| prerequisite_for | 126 |
+| prerequisite_for | 131 |
 | related_to | 5 |
 | represented_by | 2 |
 | used_in | 50 |
@@ -62,6 +62,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_geo_angle__prerequisite_for__m1_geo_central_angle | 각 | prerequisite_for | 중심각 | high | official_dual_source |
 | m1_geo_angle__prerequisite_for__m1_geo_construction | 각 | prerequisite_for | 작도 | high | official_dual_source |
 | m1_geo_angle__prerequisite_for__m1_geo_correspondence | 각 | prerequisite_for | 도형의 대응 | medium | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_corresponding_angles_in_similarity | 각 | prerequisite_for | 대응하는 각 | medium | official_dual_source |
 | m1_geo_angle__prerequisite_for__m1_geo_exterior_angle | 각 | prerequisite_for | 외각 | high | official_dual_source |
 | m1_geo_angle__prerequisite_for__m1_geo_inscribed_angle | 각 | prerequisite_for | 원주각 | high | official_dual_source |
 | m1_geo_angle__prerequisite_for__m1_geo_interior_angle | 각 | prerequisite_for | 내각 | high | official_dual_source |
@@ -91,6 +92,5 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_geo_line__prerequisite_for__m1_geo_secant | 직선 | prerequisite_for | 할선 | high | official_single_source |
 | m1_geo_line__prerequisite_for__m1_geo_tangent_line | 직선 | prerequisite_for | 접선 | high | official_dual_source |
 | m1_geo_line__prerequisite_for__m1_geo_triangle | 직선 | prerequisite_for | 삼각형 | medium | official_dual_source |
+| m1_geo_line_segment__prerequisite_for__m1_geo_corresponding_sides_in_similarity | 선분 | prerequisite_for | 대응하는 변 | medium | official_dual_source |
 | m1_geo_line_segment__prerequisite_for__m1_geo_solid_edge | 선분 | prerequisite_for | 입체도형의 모서리 | medium | official_dual_source |
-| m1_geo_midpoint__prerequisite_for__m1_geo_chord_center_perpendicular_bisects | 중점 | prerequisite_for | 원의 중심에서 현에 내린 수선은 현을 이등분 | medium | official_dual_source |
-| m1_geo_midpoint__prerequisite_for__m1_geo_chord_midpoint_center_perpendicular | 중점 | prerequisite_for | 원 중심과 현의 중점을 이은 직선은 현에 수직 | medium | official_dual_source |

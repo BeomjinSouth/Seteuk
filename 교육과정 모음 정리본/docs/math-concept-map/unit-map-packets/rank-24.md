@@ -6,71 +6,63 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 
 - rank: 24
 - grade: 중2(교육과정 학년군: 중1-3)
-- domain: 도형과 측정
-- unit: 도형의 닮음
+- domain: 수와 연산
+- unit: 유리수와 순환소수
 - priority tier: medium
-- workplan score: 77
-- concepts: 11
-- edges touching unit: 58
-- cross-unit edges: 26
+- workplan score: 67
+- concepts: 10
+- edges touching unit: 47
+- cross-unit edges: 17
 - low confidence concepts: 1
-- low confidence edges: 9
+- low confidence edges: 8
 
 ## Concept Type Distribution
 
 | concept_type | count |
 |---|---:|
-| core_concept | 3 |
+| core_concept | 1 |
 | misconception_risk | 1 |
 | procedure | 2 |
-| property | 3 |
-| term | 2 |
+| property | 1 |
+| representation | 1 |
+| term | 4 |
 
 ## Relationship Distribution
 
 | relationship_type | count |
 |---|---:|
-| contains | 13 |
+| contains | 12 |
 | contrasts_with | 3 |
-| often_confused_with | 3 |
-| prerequisite_for | 22 |
+| often_confused_with | 6 |
+| prerequisite_for | 16 |
 | related_to | 1 |
-| represented_by | 3 |
-| used_in | 13 |
+| represented_by | 2 |
+| used_in | 7 |
 
 ## Low Confidence Concepts
 
 | concept_id | label_ko | type | evidence_depth | notes |
 |---|---|---|---|---|
-| m1_mis_congruence_similarity | 합동과 닮음을 같은 관계로 보는 오류 | misconception_risk | official_dual_source |  |
+| m1_mis_finite_to_repeating_scope | 유한소수를 순환소수로 나타내는 활동을 범위로 오인하는 오류 | misconception_risk | official_single_source | 공식 문서의 제외 범위를 학습 범위 관리용 오개념 위험으로 기록했다. |
 
 ## Cross-Unit Edges
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
-| m1_geo_congruence__prerequisite_for__m1_mis_congruence_similarity | 합동 | prerequisite_for | 합동과 닮음을 같은 관계로 보는 오류 | low | official_dual_source |
-| m1_num_ratio__used_in__m1_geo_parallel_segment_ratio | 비 | used_in | 평행선 사이의 선분의 길이의 비 | low | official_dual_source |
-| m1_num_ratio__used_in__m1_geo_similarity_ratio | 비 | used_in | 닮음비 | low | official_dual_source |
-| m1_mis_congruence_similarity__often_confused_with__m1_geo_congruence | 합동과 닮음을 같은 관계로 보는 오류 | often_confused_with | 합동 | low | official_dual_source |
-| m1_geo_triangle_midpoint_theorem__related_to__m1_geo_centroid | 삼각형의 중점연결정리 | related_to | 무게중심 | low | official_dual_source |
-| m1_geo_domain__contains__m1_geo_similarity_unit | 도형과 측정 | contains | 도형의 닮음 | high | official_dual_source |
-| m1_geo_similarity_unit__contains__m1_geo_centroid | 도형의 닮음 | contains | 무게중심 | high | official_dual_source |
-| m1_geo_similarity_unit__contains__m1_geo_median | 도형의 닮음 | contains | 중선 | high | official_dual_source |
-| m1_geo_angle__prerequisite_for__m1_geo_correspondence | 각 | prerequisite_for | 도형의 대응 | medium | official_dual_source |
-| m1_geo_centroid__prerequisite_for__m1_geo_centroid_from_parallel_ratio | 무게중심 | prerequisite_for | 평행선과 선분의 비로 무게중심 찾기 | high | official_dual_source |
-| m1_geo_congruence__prerequisite_for__m1_geo_similarity | 합동 | prerequisite_for | 닮음 | high | official_dual_source |
-| m1_geo_midpoint__prerequisite_for__m1_geo_triangle_midpoint_theorem | 중점 | prerequisite_for | 삼각형의 중점연결정리 | medium | official_dual_source |
-| m1_geo_parallel_lines__prerequisite_for__m1_geo_parallel_segment_ratio | 평행선 | prerequisite_for | 평행선 사이의 선분의 길이의 비 | high | official_dual_source |
-| m1_geo_parallel_segment_ratio__prerequisite_for__m1_geo_centroid | 평행선 사이의 선분의 길이의 비 | prerequisite_for | 무게중심 | high | official_dual_source |
-| m1_geo_point__prerequisite_for__m1_geo_correspondence | 점 | prerequisite_for | 도형의 대응 | medium | official_dual_source |
-| m1_geo_similarity_ratio__prerequisite_for__m1_geo_trigonometric_ratio | 닮음비 | prerequisite_for | 삼각비 | high | official_dual_source |
-| m1_geo_similarity_unit__prerequisite_for__m1_geo_pythagorean_unit | 도형의 닮음 | prerequisite_for | 피타고라스 정리 | high | official_dual_source |
-| m1_geo_triangle_quadrilateral_unit__prerequisite_for__m1_geo_similarity_unit | 삼각형과 사각형의 성질 | prerequisite_for | 도형의 닮음 | high | official_dual_source |
-| m1_geo_centroid__used_in__m1_geo_centroid_from_parallel_ratio | 무게중심 | used_in | 평행선과 선분의 비로 무게중심 찾기 | high | official_dual_source |
-| m1_geo_figure__used_in__m1_geo_similarity_unit | 도형 | used_in | 도형의 닮음 | medium | official_dual_source |
-| m1_geo_length__used_in__m1_geo_parallel_segment_ratio | 길이 | used_in | 평행선 사이의 선분의 길이의 비 | medium | official_dual_source |
-| m1_geo_median__used_in__m1_geo_centroid_from_parallel_ratio | 중선 | used_in | 평행선과 선분의 비로 무게중심 찾기 | medium | official_dual_source |
-| m1_geo_triangle__used_in__m1_geo_triangle_similarity_conditions | 삼각형 | used_in | 삼각형의 닮음 조건 | medium | official_dual_source |
-| m1_geo_congruence__contrasts_with__m1_geo_similarity | 합동 | contrasts_with | 닮음 | high | official_dual_source |
-| m1_geo_parallel_angle_properties__contrasts_with__m1_geo_parallel_segment_ratio | 평행선에서 동위각과 엇각의 성질 | contrasts_with | 평행선 사이의 선분의 길이의 비 | medium | official_dual_source |
-| m1_geo_similarity__contrasts_with__m1_geo_congruence | 닮음 | contrasts_with | 합동 | high | official_dual_source |
+| m1_mis_irrational_decimal__often_confused_with__m1_num_infinite_decimal | 무한소수와 무리수를 같은 말로 보는 오류 | often_confused_with | 무한소수 | low | official_dual_source |
+| m1_mis_irrational_decimal__often_confused_with__m1_num_rational_repeating_relation | 무한소수와 무리수를 같은 말로 보는 오류 | often_confused_with | 유리수와 순환소수의 관계 | low | official_dual_source |
+| m1_mis_irrational_decimal__often_confused_with__m1_num_repeating_decimal | 무한소수와 무리수를 같은 말로 보는 오류 | often_confused_with | 순환소수 | low | official_dual_source |
+| m1_num_domain__contains__m1_num_repeating_decimal_unit | 수와 연산 | contains | 유리수와 순환소수 | high | official_single_source |
+| m1_num_integer_rational_unit__prerequisite_for__m1_num_repeating_decimal_unit | 정수와 유리수 | prerequisite_for | 유리수와 순환소수 | high | official_dual_source |
+| m1_num_rational_number__prerequisite_for__m1_num_finite_decimal | 유리수 | prerequisite_for | 유한소수 | high | official_dual_source |
+| m1_num_rational_number__prerequisite_for__m1_num_fraction_decimal_classification | 유리수 | prerequisite_for | 분수가 유한소수 또는 순환소수로 나타나는지 구분하기 | medium | official_single_source |
+| m1_num_rational_number__prerequisite_for__m1_num_infinite_decimal | 유리수 | prerequisite_for | 무한소수 | high | official_dual_source |
+| m1_num_rational_number__prerequisite_for__m1_num_rational_repeating_relation | 유리수 | prerequisite_for | 유리수와 순환소수의 관계 | high | official_dual_source |
+| m1_num_rational_number__prerequisite_for__m1_num_repeating_decimal_unit | 유리수 | prerequisite_for | 유리수와 순환소수 | high | official_dual_source |
+| m1_num_repeating_decimal_unit__prerequisite_for__m1_num_square_root_real_unit | 유리수와 순환소수 | prerequisite_for | 제곱근과 실수 | medium | official_dual_source |
+| m1_num_repeating_decimal_to_fraction__represented_by__m1_num_rational_number | 순환소수를 분수로 나타내기 | represented_by | 유리수 | high | official_dual_source |
+| m1_num_rational_number__used_in__m1_num_rational_repeating_relation | 유리수 | used_in | 유리수와 순환소수의 관계 | high | official_dual_source |
+| m1_num_rational_repeating_relation__used_in__m1_num_rational_irrational_classification | 유리수와 순환소수의 관계 | used_in | 유리수와 무리수의 구분 | medium | official_dual_source |
+| m1_num_irrational_number__contrasts_with__m1_num_repeating_decimal | 무리수 | contrasts_with | 순환소수 | medium | official_dual_source |
+| m1_num_repeating_decimal__contrasts_with__m1_num_irrational_number | 순환소수 | contrasts_with | 무리수 | medium | official_dual_source |
+| m1_num_rational_fraction_form__related_to__m1_num_rational_repeating_relation | 유리수의 분수 꼴 표현 | related_to | 유리수와 순환소수의 관계 | medium | official_dual_source |

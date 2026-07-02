@@ -4,15 +4,15 @@ This generated audit summarizes source evidence depth for each concept node.
 
 ## Summary
 
-- concepts: 740
-- needs textbook evidence: 740
-- low confidence concepts: 111
+- concepts: 761
+- needs textbook evidence: 761
+- low confidence concepts: 114
 
 ## Evidence Depth Counts
 
 | evidence_depth | concept count |
 |---|---:|
-| official_dual_source | 641 |
+| official_dual_source | 662 |
 | official_single_source | 99 |
 
 ## Priority Rows
@@ -24,7 +24,10 @@ This generated audit summarizes source evidence depth for each concept node.
 | m1_geo_ray | 반직선 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_corresponding_alternate_angles | 동위각과 엇각의 위치를 혼동하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_skew_parallel_lines | 꼬인 위치와 평행을 같은 관계로 보는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
+| m1_geo_similarity_ratio_order | 닮음비의 순서 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_congruence_similarity | 합동과 닮음을 같은 관계로 보는 오류 | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |
+| m1_mis_similarity_ratio_noncorresponding_sides | 대응하지 않는 변끼리 닮음비를 세우는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
+| m1_mis_similarity_ratio_reversal | 닮음비의 순서를 거꾸로 놓는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_trig_angle_scope | 삼각비 각의 범위를 0도~90도 밖으로 확장하는 오류 | low | official_single_source | 1 | curriculum_math_2022 |
 | m1_mis_trig_opposite_adjacent_swap | 기준각에 따라 대변과 이웃변을 바꾸는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_trig_relation_scope | 삼각비 사이의 관계를 교육과정 범위로 오해하는 오류 | low | official_single_source | 1 | curriculum_math_2022 |
@@ -56,6 +59,3 @@ This generated audit summarizes source evidence depth for each concept node.
 | m1_mis_exponent_base | 밑이 다른 거듭제곱에 지수법칙을 잘못 적용하는 오류 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_polynomial_division_scope | 다항식을 단항식으로 나누는 범위 혼동 | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_polynomial_like_terms | 다항식에서 동류항 처리를 누락하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_polynomial_subtraction_sign | 다항식 뺄셈에서 괄호 앞 음수를 분배하지 않는 오류 | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_system_elimination_sign | 가감법에서 부호와 계수 처리를 잘못하는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_system_one_equation_only | 연립방정식의 해를 한 방정식만 만족해도 된다고 보는 오류 | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |

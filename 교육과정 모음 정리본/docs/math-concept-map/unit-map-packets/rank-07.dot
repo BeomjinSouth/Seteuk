@@ -52,6 +52,8 @@ digraph pilot_unit_map {
   "m1_geo_median" [label="중선\\nterm", fillcolor="#f7fbff"];
   "m1_geo_circle_justification" [label="원의 성질 정당화\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_triangle_midpoint_theorem" [label="삼각형의 중점연결정리\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_centroid_median_concurrency" [label="세 중선은 한 점에서 만남\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_centroid_two_to_one_ratio" [label="무게중심은 중선을 2:1로 나눔\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_domain" [label="도형과 측정\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_similarity_unit" [label="도형의 닮음\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_angle" [label="각\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -65,11 +67,11 @@ digraph pilot_unit_map {
   "m1_geo_foot_of_perpendicular" [label="수선의 발\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_pythagorean_justification" [label="피타고라스 정리의 정당화\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_length" [label="길이\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_centroid_location_by_median_ratio" [label="중선 위 2:1 비로 무게중심 위치 찾기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_midpoint" [label="중점\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_opposite_angle" [label="대각\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_opposite_side" [label="대변\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_parallel_lines" [label="평행선\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
-  "m1_geo_parallel_segment_ratio" [label="평행선 사이의 선분의 길이의 비\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_perpendicular" [label="직교\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_perpendicular_bisector" [label="수직이등분선\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_geo_polygon" [label="다각형\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -238,6 +240,8 @@ digraph pilot_unit_map {
   "m1_geo_inradius" -> "m1_geo_circumradius" [label="contrasts_with", style="solid", color="#6b7280"];
   "m1_geo_rectangle_diagonals_equal" -> "m1_geo_rhombus_diagonals_perpendicular" [label="contrasts_with", style="solid", color="#6b7280"];
   "m1_geo_rhombus_diagonals_perpendicular" -> "m1_geo_rectangle_diagonals_equal" [label="contrasts_with", style="solid", color="#6b7280"];
+  "m1_geo_centroid" -> "m1_geo_centroid_median_concurrency" [label="contains", style="dashed", color="#6b7280"];
+  "m1_geo_centroid" -> "m1_geo_centroid_two_to_one_ratio" [label="contains", style="dashed", color="#6b7280"];
   "m1_geo_domain" -> "m1_geo_triangle_quadrilateral_unit" [label="contains", style="dashed", color="#6b7280"];
   "m1_geo_similarity_unit" -> "m1_geo_centroid" [label="contains", style="dashed", color="#6b7280"];
   "m1_geo_similarity_unit" -> "m1_geo_median" [label="contains", style="dashed", color="#6b7280"];
@@ -261,13 +265,14 @@ digraph pilot_unit_map {
   "m1_geo_length" -> "m1_geo_isosceles_equal_sides" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_length" -> "m1_geo_rectangle_diagonals_equal" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_length" -> "m1_geo_rhombus" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_geo_median" -> "m1_geo_centroid_location_by_median_ratio" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_geo_median" -> "m1_geo_centroid_median_concurrency" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_midpoint" -> "m1_geo_median" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_midpoint" -> "m1_geo_parallelogram_diagonals_bisect" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_opposite_angle" -> "m1_geo_parallelogram_opposite_sides_angles" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_opposite_side" -> "m1_geo_parallelogram_opposite_sides_angles" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_parallel_lines" -> "m1_geo_parallelogram" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_parallel_lines" -> "m1_geo_trapezoid" [label="prerequisite_for", style="dashed", color="#6b7280"];
-  "m1_geo_parallel_segment_ratio" -> "m1_geo_centroid" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_perpendicular" -> "m1_geo_rectangle" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_perpendicular" -> "m1_geo_rhombus_diagonals_perpendicular" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_geo_perpendicular_bisector" -> "m1_geo_circumcenter" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -293,6 +298,7 @@ digraph pilot_unit_map {
   "m1_geo_diagonal" -> "m1_geo_quadrilateral_diagonal_properties" [label="used_in", style="dashed", color="#6b7280"];
   "m1_geo_justification" -> "m1_geo_circle_justification" [label="used_in", style="dashed", color="#6b7280"];
   "m1_geo_median" -> "m1_geo_centroid_from_parallel_ratio" [label="used_in", style="dashed", color="#6b7280"];
+  "m1_geo_median" -> "m1_geo_centroid_median_concurrency" [label="used_in", style="dashed", color="#6b7280"];
   "m1_geo_perpendicular_bisector" -> "m1_geo_circumcenter" [label="used_in", style="dashed", color="#6b7280"];
   "m1_geo_perpendicular_bisector" -> "m1_geo_construct_circumcenter" [label="used_in", style="dashed", color="#6b7280"];
   "m1_geo_proof" -> "m1_geo_pythagorean_justification" [label="used_in", style="dashed", color="#6b7280"];

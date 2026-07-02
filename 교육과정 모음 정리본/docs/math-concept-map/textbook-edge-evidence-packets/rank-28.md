@@ -10,15 +10,14 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 작도와 합동
 - priority tier: medium
 - priority score: 8
-- edges in packet: 49
-- cross-unit edges: 28
-- low confidence edges: 2
+- edges in packet: 48
+- cross-unit edges: 27
+- low confidence edges: 1
 
 ## Relationship Evidence Slots
 
 | edge_id | scope | source | relationship | target | confidence | required evidence | focus | source refs |
 |---|---|---|---|---|---|---|---|---:|
-| m1_geo_congruence__prerequisite_for__m1_mis_congruence_similarity | cross_unit | 합동 | prerequisite_for | 합동과 닮음을 같은 관계로 보는 오류 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_mis_congruence_similarity__often_confused_with__m1_geo_congruence | cross_unit | 합동과 닮음을 같은 관계로 보는 오류 | often_confused_with | 합동 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 3 |
 | m1_geo_construction_congruence_unit__contains__m1_geo_congruence | intra_unit | 작도와 합동 | contains | 합동 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 2 |
 | m1_geo_construction_congruence_unit__contains__m1_geo_construction | intra_unit | 작도와 합동 | contains | 작도 | high | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |

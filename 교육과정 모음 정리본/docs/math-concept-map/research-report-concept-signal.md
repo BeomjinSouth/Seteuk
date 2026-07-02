@@ -5,13 +5,13 @@ Rows are candidate signals only; inspect the local page context before changing 
 
 ## Summary
 
-- matched concepts: 265
+- matched concepts: 267
 
 ## Confidence
 
 | confidence | matched concepts |
 |---|---:|
-| high | 216 |
+| high | 218 |
 | low | 5 |
 | medium | 44 |
 
@@ -21,7 +21,7 @@ Rows are candidate signals only; inspect the local page context before changing 
 |---|---:|
 | inspect_research_report_context_before_confidence_change | 5 |
 | inspect_research_report_context_before_source_ref_upgrade | 44 |
-| use_as_supplemental_trace_only | 216 |
+| use_as_supplemental_trace_only | 218 |
 
 ## Highest Priority Signals
 

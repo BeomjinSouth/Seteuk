@@ -1577,10 +1577,32 @@
 - 전체 산출물 파이프라인을 재실행했고 `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
 - PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
 
+## 2026-07-02 도형의 닮음 미시 concept 병렬 보강
+
+- AGENTS.md를 다시 확인했고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` concept map 보강, 파생 산출물 재생성, 검증 보강으로 제한했다.
+- 멀티에이전트 explorer 3개를 읽기 전용으로 사용해 `도형의 닮음`을 병렬 감사했다. Pauli는 닮은 도형·대응·닮음비, Halley는 삼각형 닮음 조건·평행선 선분비·무게중심, Lovelace는 오개념 risk와 noisy prerequisite edge를 점검했다.
+- `닮은 도형의 성질`, `대응하는 꼭짓점`, `대응하는 변`, `대응하는 각`, `닮은 도형의 대응각의 크기가 같음`, `닮은 도형의 대응변의 길이의 비가 일정함`, `닮음비의 순서`, `닮음비 구하기`, `닮음비로 대응변 길이 구하기`, `닮음비의 순서를 거꾸로 놓는 오류`, `대응하지 않는 변끼리 닮음비를 세우는 오류`를 추가했다.
+- `두 쌍의 대응각이 같은 삼각형 닮음 조건`, `두 쌍의 대응변의 길이의 비와 그 끼인각이 같은 삼각형 닮음 조건`, `세 쌍의 대응변의 길이의 비가 같은 삼각형 닮음 조건`, `삼각형 닮음 조건 선택하기`를 추가해 `삼각형의 닮음 조건`을 세 조건과 판별 절차로 분해했다.
+- `삼각형에서 한 변에 평행한 직선이 만드는 선분의 비`, `여러 평행선이 두 직선에서 만드는 선분의 비`, `평행선 선분비 식 세우기`, `세 중선은 한 점에서 만남`, `무게중심은 중선을 2:1로 나눔`, `중선 위 2:1 비로 무게중심 위치 찾기`를 추가했다.
+- 이번 보강의 source ref는 `CURR_GEO_12`, `CURR_GEO_13`, `CURR_GEO_14`, `CURR_GEO_TERMS`, `CURR_GEO_INSTRUCTIONAL_TERMS`, `ACH_GEO_SIMILARITY`와 필요한 경우 기존 합동·피타고라스·삼각비 근거에 제한했다. 교과서 본문이나 문항 근거가 아직 없는 세부 절차·오개념 risk는 `confidence: medium` 또는 `low`와 notes로 한계를 남겼다.
+- 기존 `m1_geo_corresponding_angles`는 평행선의 동위각 맥락이므로 닮음 단원의 `대응하는 각`은 `m1_geo_corresponding_angles_in_similarity`로 분리했다.
+- `합동/닮음 -> 합동과 닮음을 같은 관계로 보는 오류`, `도형의 닮음 -> 피타고라스 정리`, `닮음비 -> 삼각비`, `평행선 사이의 선분의 길이의 비 -> 무게중심`처럼 너무 강했던 broad prerequisite edge를 제거하거나 `related_to`/`used_in`으로 낮췄다. 오개념 risk 노드는 선수 관계 없이 `often_confused_with` edge로만 연결했다.
+- 전체 산출물을 재생성한 결과 concept은 761개, edge는 3435개가 되었다. source ref 총계는 concept 2095개, edge 8949개, 총 11044개이며 source catalogue는 5개이다.
+- `review-queue.*`는 114개 low-confidence concept, `concept-evidence-depth.*`는 concept 761개, `edge-evidence-depth.*`는 edge 3435개, `prerequisite-map.*`은 1250개 선수 관계 edge로 갱신했다.
+- `textbook-evidence-workplan.*`은 34개 단원 그룹, concept evidence row 761개, edge evidence row 4103개, pending textbook evidence row 4864개, low-confidence concept/edge row 709개를 기록한다. 재생성 후 `도형의 닮음`은 rank 17이며 concept 32개, edge 142개, 총 174개 evidence row가 모두 `pending_textbook_pdf` 상태다.
+- `unit-coverage.*` 기준 `도형의 닮음`은 concept 32개, 내부 edge 107개, incoming edge 28개, outgoing edge 7개이며, concept confidence 분포는 high 10개, medium 18개, low 4개이다.
+- `test_build_pilot_similarity_microconcepts.py`를 추가해 닮은 도형·대응·닮음비, 삼각형 닮음 조건, 평행선 선분비, 무게중심 미시 concept과 edge 방향, 오개념 confidence 유지, noisy prerequisite edge 부재를 고정했다.
+- 좁은 테스트: `python -m unittest test_build_pilot_similarity_microconcepts.py` 5개 통과.
+- 전체 단위 테스트: `python -m unittest discover -s . -p "test_*.py"`를 `docs/math-concept-map/tools`에서 실행해 299개 통과.
+- 전체 validator: `python docs/math-concept-map/tools/validate_concept_map.py`: 761개 concept, 3435개 edge, 5개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map`: 종료 코드 0, CRLF 변환 경고만 확인.
+- 전체 산출물 파이프라인을 재실행했고 `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
 - 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 `not_applicable_from_this_row` 41개가 broad context, 용어 충돌, 도구·자료 입력, 또는 약한 출현으로 유지되는지 주기적으로 감사한다. 현재 `pending_manual_review`는 8개이며, 주로 `선분`·`반직선` 후보이므로 교과서 본문 또는 중학교 기본 도형 직접 근거 확인 후 source ref 반영 여부를 판단한다.
 - 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.
-- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 241개, 총 284개 row로 유지한다. 공식·보조 문서 기반 미시 concept 보강을 계속한다면 이미 보강한 상위 단원을 제외하고 `유리수와 순환소수`, `도형의 닮음`, `상자그림과 산점도`처럼 미시 concept이 덜 분해된 단원을 우선 검토한다.
+- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 245개, 총 288개 row로 유지한다. 공식·보조 문서 기반 미시 concept 보강을 계속한다면 이미 보강한 상위 단원을 제외하고 `유리수와 순환소수`, `상자그림과 산점도`, `산포도`, `대푯값`처럼 미시 concept이 덜 분해된 단원을 우선 검토한다.
 - 새 concept, alias, `related_ids`, 또는 `equivalent_to` 후보가 추가되면 `equivalence-alias-audit.*`, `related-edge-resolution-queue.*`, `textbook-edge-evidence-packets/*`, `edge-evidence-depth.*`를 함께 재생성한다.

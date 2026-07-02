@@ -44,7 +44,6 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_geo_right_triangle__prerequisite_for__m1_geo_trig_opposite_side | cross_unit | 직각삼각형 | prerequisite_for | 기준각의 대변 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_right_triangle__prerequisite_for__m1_geo_trig_reference_angle | cross_unit | 직각삼각형 | prerequisite_for | 삼각비의 기준각 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_right_triangle__prerequisite_for__m1_geo_trigonometric_ratio | cross_unit | 직각삼각형 | prerequisite_for | 삼각비 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
-| m1_geo_similarity_unit__prerequisite_for__m1_geo_pythagorean_unit | cross_unit | 도형의 닮음 | prerequisite_for | 피타고라스 정리 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_triangle_quadrilateral_unit__prerequisite_for__m1_geo_pythagorean_unit | cross_unit | 삼각형과 사각형의 성질 | prerequisite_for | 피타고라스 정리 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_triangle_quadrilateral_unit__prerequisite_for__m1_geo_right_triangle | cross_unit | 삼각형과 사각형의 성질 | prerequisite_for | 직각삼각형 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_square_root__prerequisite_for__m1_geo_pythagorean_theorem | cross_unit | 제곱근 | prerequisite_for | 피타고라스 정리 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
@@ -52,6 +51,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_geo_proof__used_in__m1_geo_pythagorean_justification | cross_unit | 증명 | used_in | 피타고라스 정리의 정당화 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 3 |
 | m1_geo_triangle__used_in__m1_geo_right_triangle | cross_unit | 삼각형 | used_in | 직각삼각형 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 4 |
 | m1_geo_pythagorean_unit__related_to__m1_geo_trig_unit | cross_unit | 피타고라스 정리 | related_to | 삼각비 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 4 |
+| m1_geo_similarity_unit__related_to__m1_geo_pythagorean_unit | cross_unit | 도형의 닮음 | related_to | 피타고라스 정리 | medium | related_ref;textbook_page_refs | Find textbook wording or examples that justify keeping these concepts linked. | 4 |
 
 ## Textbook Edge Evidence Fields
 

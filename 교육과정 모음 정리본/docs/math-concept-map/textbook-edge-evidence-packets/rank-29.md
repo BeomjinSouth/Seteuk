@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 도형과 측정
 - priority tier: low
 - priority score: 7
-- edges in packet: 42
-- cross-unit edges: 38
+- edges in packet: 43
+- cross-unit edges: 39
 - low confidence edges: 2
 
 ## Relationship Evidence Slots
@@ -45,6 +45,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_geo_length__prerequisite_for__m1_geo_trig_hypotenuse | cross_unit | 길이 | prerequisite_for | 삼각비에서의 빗변 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_line__prerequisite_for__m1_geo_triangle | cross_unit | 직선 | prerequisite_for | 삼각형 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 9 |
 | m1_geo_point__prerequisite_for__m1_geo_triangle | cross_unit | 점 | prerequisite_for | 삼각형 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 9 |
+| m1_geo_triangle__prerequisite_for__m1_geo_triangle_parallel_segment_ratio | cross_unit | 삼각형 | prerequisite_for | 삼각형에서 한 변에 평행한 직선이 만드는 선분의 비 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_geo_area__used_in__m1_geo_sector_arc_length_area | cross_unit | 넓이 | used_in | 부채꼴의 호의 길이와 넓이 구하기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_geo_area__used_in__m1_geo_surface_area | cross_unit | 넓이 | used_in | 겉넓이 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |
 | m1_geo_area__used_in__m1_geo_trig_triangle_area | cross_unit | 넓이 | used_in | 삼각비를 이용한 삼각형의 넓이 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 1 |

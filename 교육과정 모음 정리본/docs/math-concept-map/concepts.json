@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-07-01T13:12:51",
+    "generated_at": "2026-07-02T09:11:26",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
-    "concept_count": 740,
-    "edge_count": 3351
+    "concept_count": 761,
+    "edge_count": 3435
   },
   "sources": [
     {
@@ -18861,7 +18861,9 @@
       "parent_ids": [
         "m1_geo_domain"
       ],
-      "related_ids": [],
+      "related_ids": [
+        "m1_geo_pythagorean_unit"
+      ],
       "notes": "",
       "confidence": "high"
     },
@@ -18892,8 +18894,7 @@
         }
       ],
       "prerequisite_ids": [
-        "m1_geo_triangle_quadrilateral_unit",
-        "m1_geo_similarity_unit"
+        "m1_geo_triangle_quadrilateral_unit"
       ],
       "parent_ids": [
         "m1_geo_domain"
@@ -24191,8 +24192,7 @@
         }
       ],
       "prerequisite_ids": [
-        "m1_geo_median",
-        "m1_geo_parallel_segment_ratio"
+        "m1_geo_median"
       ],
       "parent_ids": [
         "m1_geo_triangle_quadrilateral_unit",
@@ -25050,6 +25050,435 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_similar_figure_properties",
+      "label_ko": "닮은 도형의 성질",
+      "aliases": [
+        "properties of similar figures"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "도형의 닮음",
+      "concept_type": "property",
+      "short_definition": "닮은 도형에서 대응하는 각의 크기가 같고 대응하는 변의 길이의 비가 일정하다는 성질.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_similar_figures"
+      ],
+      "parent_ids": [
+        "m1_geo_similarity_unit"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_corresponding_vertices",
+      "label_ko": "대응하는 꼭짓점",
+      "aliases": [
+        "corresponding vertices"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "도형의 닮음",
+      "concept_type": "term",
+      "short_definition": "닮은 두 도형에서 서로 짝지어지는 꼭짓점.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_point"
+      ],
+      "parent_ids": [
+        "m1_geo_correspondence"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_corresponding_sides_in_similarity",
+      "label_ko": "대응하는 변",
+      "aliases": [
+        "corresponding sides"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "도형의 닮음",
+      "concept_type": "term",
+      "short_definition": "닮은 두 도형에서 서로 짝지어지는 변.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_line_segment",
+        "m1_geo_correspondence"
+      ],
+      "parent_ids": [
+        "m1_geo_correspondence"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_corresponding_angles_in_similarity",
+      "label_ko": "대응하는 각",
+      "aliases": [
+        "corresponding angles in similar figures"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "도형의 닮음",
+      "concept_type": "term",
+      "short_definition": "닮은 두 도형에서 서로 짝지어지는 각.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_angle",
+        "m1_geo_correspondence"
+      ],
+      "parent_ids": [
+        "m1_geo_correspondence"
+      ],
+      "related_ids": [],
+      "notes": "기존 `m1_geo_corresponding_angles`는 평행선의 동위각이므로 닮음 맥락의 대응각은 별도 노드로 분리했다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_similar_corresponding_angles_equal",
+      "label_ko": "닮은 도형의 대응각의 크기가 같음",
+      "aliases": [
+        "corresponding angles are equal in similar figures"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "도형의 닮음",
+      "concept_type": "property",
+      "short_definition": "닮은 도형에서 대응하는 각의 크기가 서로 같다는 성질.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_similar_figures",
+        "m1_geo_corresponding_angles_in_similarity"
+      ],
+      "parent_ids": [
+        "m1_geo_similar_figure_properties"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_similar_corresponding_sides_proportional",
+      "label_ko": "닮은 도형의 대응변의 길이의 비가 일정함",
+      "aliases": [
+        "corresponding sides are proportional in similar figures"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "도형의 닮음",
+      "concept_type": "property",
+      "short_definition": "닮은 도형에서 대응하는 변의 길이의 비가 모두 같다는 성질.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_similar_figures",
+        "m1_geo_corresponding_sides_in_similarity"
+      ],
+      "parent_ids": [
+        "m1_geo_similar_figure_properties"
+      ],
+      "related_ids": [
+        "m1_geo_similarity_ratio"
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_similarity_ratio_order",
+      "label_ko": "닮음비의 순서",
+      "aliases": [
+        "similarity ratio order"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "도형의 닮음",
+      "concept_type": "sub_concept",
+      "short_definition": "두 닮은 도형 중 어느 도형의 변 길이를 먼저 놓는지에 따라 달라지는 닮음비의 방향.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_correspondence"
+      ],
+      "parent_ids": [
+        "m1_geo_similarity_ratio"
+      ],
+      "related_ids": [
+        "m1_mis_similarity_ratio_reversal"
+      ],
+      "notes": "공식 성취기준의 닮음비 구하기에서 추론한 세부 주의점이다. 교과서 예제 근거 확인 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_similarity_ratio_calculation",
+      "label_ko": "닮음비 구하기",
+      "aliases": [
+        "calculate similarity ratio"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "도형의 닮음",
+      "concept_type": "procedure",
+      "short_definition": "닮은 두 도형의 대응변 길이를 비교하여 닮음비를 구하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_similarity_ratio",
+        "m1_geo_corresponding_sides_in_similarity"
+      ],
+      "parent_ids": [
+        "m1_geo_similarity_unit"
+      ],
+      "related_ids": [
+        "m1_geo_similarity_ratio_order"
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_unknown_corresponding_side_from_similarity_ratio",
+      "label_ko": "닮음비로 대응변 길이 구하기",
+      "aliases": [
+        "find corresponding side length from similarity ratio"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "도형의 닮음",
+      "concept_type": "procedure",
+      "short_definition": "닮음비와 한 도형의 변 길이를 이용하여 다른 도형의 대응변 길이를 구하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_similarity_ratio_calculation",
+        "m1_geo_similar_corresponding_sides_proportional"
+      ],
+      "parent_ids": [
+        "m1_geo_similarity_unit"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_mis_similarity_ratio_reversal",
+      "label_ko": "닮음비의 순서를 거꾸로 놓는 오류",
+      "aliases": [
+        "닮음비 순서 오류"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "도형의 닮음",
+      "concept_type": "misconception_risk",
+      "short_definition": "어느 도형을 기준으로 한 비인지 확인하지 않고 닮음비의 순서를 뒤집어 쓰는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_geo_similarity_unit"
+      ],
+      "related_ids": [
+        "m1_geo_similarity_ratio_order",
+        "m1_geo_similarity_ratio"
+      ],
+      "notes": "교과서의 반복 문제 또는 학생 답안 근거가 들어오기 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_similarity_ratio_noncorresponding_sides",
+      "label_ko": "대응하지 않는 변끼리 닮음비를 세우는 오류",
+      "aliases": [
+        "대응변 선택 오류"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "도형의 닮음",
+      "concept_type": "misconception_risk",
+      "short_definition": "닮음비를 구할 때 서로 대응하지 않는 변의 길이를 짝지어 비를 세우는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_geo_similarity_unit"
+      ],
+      "related_ids": [
+        "m1_geo_corresponding_sides_in_similarity",
+        "m1_geo_similarity_ratio"
+      ],
+      "notes": "도형의 대응과 닮음비 계산에서 추론한 오개념 위험이다. 교과서 예제·문항 근거 확인 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
       "id": "m1_geo_triangle_similarity_conditions",
       "label_ko": "삼각형의 닮음 조건",
       "aliases": [
@@ -25094,6 +25523,170 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_triangle_similarity_aa_condition",
+      "label_ko": "두 쌍의 대응각이 같은 삼각형 닮음 조건",
+      "aliases": [
+        "AA 닮음 조건",
+        "AA similarity condition"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "도형의 닮음",
+      "concept_type": "property",
+      "short_definition": "두 삼각형에서 두 쌍의 대응각의 크기가 각각 같으면 두 삼각형이 닮음이라는 조건.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 닮음 조건을 이해하고 닮음인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_corresponding_angles_in_similarity"
+      ],
+      "parent_ids": [
+        "m1_geo_triangle_similarity_conditions"
+      ],
+      "related_ids": [],
+      "notes": "공식 용어표의 삼각형의 닮음 조건을 교과서에서 흔히 분해하는 세 조건 중 하나로 세분화했다. 교과서 문구 확인 전까지 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_similarity_sas_condition",
+      "label_ko": "두 쌍의 대응변의 길이의 비와 그 끼인각이 같은 삼각형 닮음 조건",
+      "aliases": [
+        "SAS 닮음 조건",
+        "SAS similarity condition"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "도형의 닮음",
+      "concept_type": "property",
+      "short_definition": "두 삼각형에서 두 쌍의 대응변의 길이의 비가 같고 그 끼인각의 크기가 같으면 닮음이라는 조건.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 닮음 조건을 이해하고 닮음인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_corresponding_sides_in_similarity",
+        "m1_geo_corresponding_angles_in_similarity",
+        "m1_geo_similarity_ratio"
+      ],
+      "parent_ids": [
+        "m1_geo_triangle_similarity_conditions"
+      ],
+      "related_ids": [],
+      "notes": "공식 용어표의 삼각형의 닮음 조건을 교과서에서 흔히 분해하는 세 조건 중 하나로 세분화했다. 교과서 문구 확인 전까지 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_similarity_sss_condition",
+      "label_ko": "세 쌍의 대응변의 길이의 비가 같은 삼각형 닮음 조건",
+      "aliases": [
+        "SSS 닮음 조건",
+        "SSS similarity condition"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "도형의 닮음",
+      "concept_type": "property",
+      "short_definition": "두 삼각형에서 세 쌍의 대응변의 길이의 비가 모두 같으면 닮음이라는 조건.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 닮음 조건을 이해하고 닮음인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_corresponding_sides_in_similarity",
+        "m1_geo_similarity_ratio"
+      ],
+      "parent_ids": [
+        "m1_geo_triangle_similarity_conditions"
+      ],
+      "related_ids": [],
+      "notes": "공식 용어표의 삼각형의 닮음 조건을 교과서에서 흔히 분해하는 세 조건 중 하나로 세분화했다. 교과서 문구 확인 전까지 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_similarity_condition_selection",
+      "label_ko": "삼각형 닮음 조건 선택하기",
+      "aliases": [
+        "닮음 조건 선택"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "도형의 닮음",
+      "concept_type": "procedure",
+      "short_definition": "주어진 각과 변의 정보에 맞추어 AA, SAS, SSS 닮음 조건 중 알맞은 조건을 선택하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 닮음 조건을 이해하고 닮음인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_triangle_similarity_conditions"
+      ],
+      "parent_ids": [
+        "m1_geo_similarity_unit"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_similarity_judgement",
       "label_ko": "삼각형의 닮음 판별",
       "aliases": [
@@ -25119,7 +25712,8 @@
         }
       ],
       "prerequisite_ids": [
-        "m1_geo_triangle_similarity_conditions"
+        "m1_geo_triangle_similarity_conditions",
+        "m1_geo_similarity_condition_selection"
       ],
       "parent_ids": [
         "m1_geo_similarity_unit"
@@ -25170,6 +25764,115 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_triangle_parallel_segment_ratio",
+      "label_ko": "삼각형에서 한 변에 평행한 직선이 만드는 선분의 비",
+      "aliases": [
+        "삼각형의 평행선 선분비"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "도형의 닮음",
+      "concept_type": "property",
+      "short_definition": "삼각형에서 한 변에 평행한 직선이 나머지 두 변 또는 그 연장선 위에 만드는 선분들의 길이 비 관계.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_parallel_lines",
+        "m1_geo_triangle",
+        "m1_geo_parallel_segment_ratio"
+      ],
+      "parent_ids": [
+        "m1_geo_parallel_segment_ratio"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_three_parallel_lines_segment_ratio",
+      "label_ko": "여러 평행선이 두 직선에서 만드는 선분의 비",
+      "aliases": [
+        "세 평행선의 선분비"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "도형의 닮음",
+      "concept_type": "property",
+      "short_definition": "여러 평행선이 두 직선을 만날 때 대응되는 선분들의 길이 비가 같아지는 관계.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_parallel_lines",
+        "m1_geo_parallel_segment_ratio"
+      ],
+      "parent_ids": [
+        "m1_geo_parallel_segment_ratio"
+      ],
+      "related_ids": [],
+      "notes": "공식 성취기준의 평행선 사이 선분 길이의 비를 대표적인 교과서 유형으로 세분화했다. 교과서 본문 확인 전까지 중간 신뢰도로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_parallel_segment_ratio_equation_setup",
+      "label_ko": "평행선 선분비 식 세우기",
+      "aliases": [
+        "선분비 비례식 세우기"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "도형의 닮음",
+      "concept_type": "procedure",
+      "short_definition": "평행선 사이의 대응 선분 길이를 찾아 비례식을 세우는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_parallel_segment_ratio",
+        "m1_geo_similarity_ratio"
+      ],
+      "parent_ids": [
+        "m1_geo_similarity_unit"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_triangle_midpoint_theorem",
       "label_ko": "삼각형의 중점연결정리",
       "aliases": [
@@ -25208,6 +25911,119 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_geo_centroid_median_concurrency",
+      "label_ko": "세 중선은 한 점에서 만남",
+      "aliases": [
+        "중선의 한 점 교차"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "도형의 닮음",
+      "concept_type": "property",
+      "short_definition": "삼각형의 세 중선이 한 점에서 만나며 그 점이 무게중심이 된다는 성질.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_median"
+      ],
+      "parent_ids": [
+        "m1_geo_centroid"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_centroid_two_to_one_ratio",
+      "label_ko": "무게중심은 중선을 2:1로 나눔",
+      "aliases": [
+        "무게중심의 2:1 성질"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "도형의 닮음",
+      "concept_type": "property",
+      "short_definition": "삼각형의 무게중심이 각 중선을 꼭짓점 쪽에서부터 2:1의 비로 나눈다는 성질.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_centroid_median_concurrency",
+        "m1_geo_parallel_segment_ratio"
+      ],
+      "parent_ids": [
+        "m1_geo_centroid"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_centroid_location_by_median_ratio",
+      "label_ko": "중선 위 2:1 비로 무게중심 위치 찾기",
+      "aliases": [
+        "무게중심 위치 찾기"
+      ],
+      "grade": "중2(교육과정 학년군: 중1-3)",
+      "domain": "도형과 측정",
+      "unit": "도형의 닮음",
+      "concept_type": "procedure",
+      "short_definition": "중선 위에서 꼭짓점 쪽과 변 쪽의 길이 비가 2:1이 되도록 무게중심의 위치를 찾는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_geo_median",
+        "m1_geo_centroid_two_to_one_ratio"
+      ],
+      "parent_ids": [
+        "m1_geo_centroid_from_parallel_ratio"
+      ],
+      "related_ids": [],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_centroid_from_parallel_ratio",
       "label_ko": "평행선과 선분의 비로 무게중심 찾기",
       "aliases": [
@@ -25234,7 +26050,8 @@
       ],
       "prerequisite_ids": [
         "m1_geo_parallel_segment_ratio",
-        "m1_geo_centroid"
+        "m1_geo_centroid",
+        "m1_geo_centroid_two_to_one_ratio"
       ],
       "parent_ids": [
         "m1_geo_similarity_unit"
@@ -25282,15 +26099,13 @@
           "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
         }
       ],
-      "prerequisite_ids": [
-        "m1_geo_congruence",
-        "m1_geo_similarity"
-      ],
+      "prerequisite_ids": [],
       "parent_ids": [
         "m1_geo_similarity_unit"
       ],
       "related_ids": [
-        "m1_geo_similarity_ratio"
+        "m1_geo_congruence",
+        "m1_geo_similarity"
       ],
       "notes": "",
       "confidence": "low"
@@ -25533,8 +26348,7 @@
         }
       ],
       "prerequisite_ids": [
-        "m1_geo_right_triangle",
-        "m1_geo_similarity_ratio"
+        "m1_geo_right_triangle"
       ],
       "parent_ids": [
         "m1_geo_trig_unit"
@@ -25542,7 +26356,8 @@
       "related_ids": [
         "m1_geo_sine",
         "m1_geo_cosine",
-        "m1_geo_tangent_ratio"
+        "m1_geo_tangent_ratio",
+        "m1_geo_similarity_ratio"
       ],
       "notes": "",
       "confidence": "high"
@@ -57181,6 +57996,40 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_geo_similarity_unit__related_to__m1_geo_pythagorean_unit",
+      "source_id": "m1_geo_similarity_unit",
+      "target_id": "m1_geo_pythagorean_unit",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-15]",
+          "evidence_kind": "achievement_standard",
+          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
+        }
+      ],
+      "notes": "도형의 닮음은 피타고라스 정리의 정당화 맥락에서 연결될 수 있으나, 단원 전체를 직접 선수 관계로 확정하지 않는다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_triangle__used_in__m1_geo_triangle_construction",
       "source_id": "m1_geo_triangle",
       "target_id": "m1_geo_triangle_construction",
@@ -62617,6 +63466,278 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_similar_figures__used_in__m1_geo_similar_figure_properties",
+      "source_id": "m1_geo_similar_figures",
+      "target_id": "m1_geo_similar_figure_properties",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_correspondence__represented_by__m1_geo_corresponding_vertices",
+      "source_id": "m1_geo_correspondence",
+      "target_id": "m1_geo_corresponding_vertices",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_correspondence__represented_by__m1_geo_corresponding_sides_in_similarity",
+      "source_id": "m1_geo_correspondence",
+      "target_id": "m1_geo_corresponding_sides_in_similarity",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_correspondence__represented_by__m1_geo_corresponding_angles_in_similarity",
+      "source_id": "m1_geo_correspondence",
+      "target_id": "m1_geo_corresponding_angles_in_similarity",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_corresponding_sides_in_similarity__used_in__m1_geo_similarity_ratio",
+      "source_id": "m1_geo_corresponding_sides_in_similarity",
+      "target_id": "m1_geo_similarity_ratio",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_corresponding_angles_in_similarity__used_in__m1_geo_similar_corresponding_angles_equal",
+      "source_id": "m1_geo_corresponding_angles_in_similarity",
+      "target_id": "m1_geo_similar_corresponding_angles_equal",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_corresponding_sides_in_similarity__used_in__m1_geo_similar_corresponding_sides_proportional",
+      "source_id": "m1_geo_corresponding_sides_in_similarity",
+      "target_id": "m1_geo_similar_corresponding_sides_proportional",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_similar_corresponding_sides_proportional__represented_by__m1_geo_similarity_ratio",
+      "source_id": "m1_geo_similar_corresponding_sides_proportional",
+      "target_id": "m1_geo_similarity_ratio",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_similarity_ratio_order__used_in__m1_geo_similarity_ratio_calculation",
+      "source_id": "m1_geo_similarity_ratio_order",
+      "target_id": "m1_geo_similarity_ratio_calculation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "The order of a similarity ratio is checked while calculating the ratio from corresponding sides.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_similarity_ratio_calculation__used_in__m1_geo_unknown_corresponding_side_from_similarity_ratio",
+      "source_id": "m1_geo_similarity_ratio_calculation",
+      "target_id": "m1_geo_unknown_corresponding_side_from_similarity_ratio",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_similar_corresponding_sides_proportional__used_in__m1_geo_unknown_corresponding_side_from_similarity_ratio",
+      "source_id": "m1_geo_similar_corresponding_sides_proportional",
+      "target_id": "m1_geo_unknown_corresponding_side_from_similarity_ratio",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_triangle_similarity_conditions__used_in__m1_geo_similarity_judgement",
       "source_id": "m1_geo_triangle_similarity_conditions",
       "target_id": "m1_geo_similarity_judgement",
@@ -62639,6 +63760,178 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_triangle_similarity_aa_condition__used_in__m1_geo_similarity_judgement",
+      "source_id": "m1_geo_triangle_similarity_aa_condition",
+      "target_id": "m1_geo_similarity_judgement",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 닮음 조건을 이해하고 닮음인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_similarity_sas_condition__used_in__m1_geo_similarity_judgement",
+      "source_id": "m1_geo_triangle_similarity_sas_condition",
+      "target_id": "m1_geo_similarity_judgement",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 닮음 조건을 이해하고 닮음인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_similarity_sss_condition__used_in__m1_geo_similarity_judgement",
+      "source_id": "m1_geo_triangle_similarity_sss_condition",
+      "target_id": "m1_geo_similarity_judgement",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 닮음 조건을 이해하고 닮음인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_similarity_aa_condition__used_in__m1_geo_similarity_condition_selection",
+      "source_id": "m1_geo_triangle_similarity_aa_condition",
+      "target_id": "m1_geo_similarity_condition_selection",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 닮음 조건을 이해하고 닮음인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_similarity_sas_condition__used_in__m1_geo_similarity_condition_selection",
+      "source_id": "m1_geo_triangle_similarity_sas_condition",
+      "target_id": "m1_geo_similarity_condition_selection",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 닮음 조건을 이해하고 닮음인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_similarity_sss_condition__used_in__m1_geo_similarity_condition_selection",
+      "source_id": "m1_geo_triangle_similarity_sss_condition",
+      "target_id": "m1_geo_similarity_condition_selection",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 닮음 조건을 이해하고 닮음인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_similarity_condition_selection__used_in__m1_geo_similarity_judgement",
+      "source_id": "m1_geo_similarity_condition_selection",
+      "target_id": "m1_geo_similarity_judgement",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 닮음 조건을 이해하고 닮음인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_similarity_ratio__used_in__m1_geo_parallel_segment_ratio",
       "source_id": "m1_geo_similarity_ratio",
       "target_id": "m1_geo_parallel_segment_ratio",
@@ -62659,6 +63952,40 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_similarity_ratio__related_to__m1_geo_trigonometric_ratio",
+      "source_id": "m1_geo_similarity_ratio",
+      "target_id": "m1_geo_trigonometric_ratio",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-16]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
+        }
+      ],
+      "notes": "Similarity ratio can support explaining why trigonometric ratios are stable in similar right triangles, but it is not treated as a direct prerequisite for the trigonometric-ratio concept here.",
+      "confidence": "low"
     },
     {
       "id": "m1_geo_parallel_segment_ratio__used_in__m1_geo_similarity_judgement",
@@ -62699,6 +64026,100 @@
           "locator": "printed p. 39; terms usable in teaching and learning situations",
           "evidence_kind": "instructional_term_list",
           "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_parallel_segment_ratio__used_in__m1_geo_triangle_midpoint_theorem",
+      "source_id": "m1_geo_triangle_parallel_segment_ratio",
+      "target_id": "m1_geo_triangle_midpoint_theorem",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_three_parallel_lines_segment_ratio__used_in__m1_geo_parallel_segment_ratio_equation_setup",
+      "source_id": "m1_geo_three_parallel_lines_segment_ratio",
+      "target_id": "m1_geo_parallel_segment_ratio_equation_setup",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_parallel_segment_ratio__used_in__m1_geo_parallel_segment_ratio_equation_setup",
+      "source_id": "m1_geo_triangle_parallel_segment_ratio",
+      "target_id": "m1_geo_parallel_segment_ratio_equation_setup",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_parallel_segment_ratio_equation_setup__used_in__m1_geo_centroid_from_parallel_ratio",
+      "source_id": "m1_geo_parallel_segment_ratio_equation_setup",
+      "target_id": "m1_geo_centroid_from_parallel_ratio",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",
@@ -62753,6 +64174,122 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_median__used_in__m1_geo_centroid_median_concurrency",
+      "source_id": "m1_geo_median",
+      "target_id": "m1_geo_centroid_median_concurrency",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_centroid_median_concurrency__used_in__m1_geo_centroid_two_to_one_ratio",
+      "source_id": "m1_geo_centroid_median_concurrency",
+      "target_id": "m1_geo_centroid_two_to_one_ratio",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_centroid_two_to_one_ratio__used_in__m1_geo_centroid_location_by_median_ratio",
+      "source_id": "m1_geo_centroid_two_to_one_ratio",
+      "target_id": "m1_geo_centroid_location_by_median_ratio",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_centroid_two_to_one_ratio__used_in__m1_geo_centroid_from_parallel_ratio",
+      "source_id": "m1_geo_centroid_two_to_one_ratio",
+      "target_id": "m1_geo_centroid_from_parallel_ratio",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_centroid_location_by_median_ratio__used_in__m1_geo_centroid_from_parallel_ratio",
+      "source_id": "m1_geo_centroid_location_by_median_ratio",
+      "target_id": "m1_geo_centroid_from_parallel_ratio",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_pythagorean_theorem__contrasts_with__m1_geo_pythagorean_converse",
@@ -79681,6 +81218,278 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_similarity_unit__contains__m1_geo_similar_figure_properties",
+      "source_id": "m1_geo_similarity_unit",
+      "target_id": "m1_geo_similar_figure_properties",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_correspondence__contains__m1_geo_corresponding_vertices",
+      "source_id": "m1_geo_correspondence",
+      "target_id": "m1_geo_corresponding_vertices",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_correspondence__contains__m1_geo_corresponding_sides_in_similarity",
+      "source_id": "m1_geo_correspondence",
+      "target_id": "m1_geo_corresponding_sides_in_similarity",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_correspondence__contains__m1_geo_corresponding_angles_in_similarity",
+      "source_id": "m1_geo_correspondence",
+      "target_id": "m1_geo_corresponding_angles_in_similarity",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_similar_figure_properties__contains__m1_geo_similar_corresponding_angles_equal",
+      "source_id": "m1_geo_similar_figure_properties",
+      "target_id": "m1_geo_similar_corresponding_angles_equal",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_similar_figure_properties__contains__m1_geo_similar_corresponding_sides_proportional",
+      "source_id": "m1_geo_similar_figure_properties",
+      "target_id": "m1_geo_similar_corresponding_sides_proportional",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_similarity_ratio__contains__m1_geo_similarity_ratio_order",
+      "source_id": "m1_geo_similarity_ratio",
+      "target_id": "m1_geo_similarity_ratio_order",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_similarity_unit__contains__m1_geo_similarity_ratio_calculation",
+      "source_id": "m1_geo_similarity_unit",
+      "target_id": "m1_geo_similarity_ratio_calculation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_similarity_unit__contains__m1_geo_unknown_corresponding_side_from_similarity_ratio",
+      "source_id": "m1_geo_similarity_unit",
+      "target_id": "m1_geo_unknown_corresponding_side_from_similarity_ratio",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_similarity_unit__contains__m1_mis_similarity_ratio_reversal",
+      "source_id": "m1_geo_similarity_unit",
+      "target_id": "m1_mis_similarity_ratio_reversal",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_similarity_unit__contains__m1_mis_similarity_ratio_noncorresponding_sides",
+      "source_id": "m1_geo_similarity_unit",
+      "target_id": "m1_mis_similarity_ratio_noncorresponding_sides",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_geo_similarity_unit__contains__m1_geo_triangle_similarity_conditions",
       "source_id": "m1_geo_similarity_unit",
       "target_id": "m1_geo_triangle_similarity_conditions",
@@ -79707,6 +81516,112 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_geo_triangle_similarity_conditions__contains__m1_geo_triangle_similarity_aa_condition",
+      "source_id": "m1_geo_triangle_similarity_conditions",
+      "target_id": "m1_geo_triangle_similarity_aa_condition",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 닮음 조건을 이해하고 닮음인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_similarity_conditions__contains__m1_geo_triangle_similarity_sas_condition",
+      "source_id": "m1_geo_triangle_similarity_conditions",
+      "target_id": "m1_geo_triangle_similarity_sas_condition",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 닮음 조건을 이해하고 닮음인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_similarity_conditions__contains__m1_geo_triangle_similarity_sss_condition",
+      "source_id": "m1_geo_triangle_similarity_conditions",
+      "target_id": "m1_geo_triangle_similarity_sss_condition",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 닮음 조건을 이해하고 닮음인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_similarity_unit__contains__m1_geo_similarity_condition_selection",
+      "source_id": "m1_geo_similarity_unit",
+      "target_id": "m1_geo_similarity_condition_selection",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 닮음 조건을 이해하고 닮음인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
     },
     {
       "id": "m1_geo_similarity_unit__contains__m1_geo_similarity_judgement",
@@ -79753,6 +81668,72 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_parallel_segment_ratio__contains__m1_geo_triangle_parallel_segment_ratio",
+      "source_id": "m1_geo_parallel_segment_ratio",
+      "target_id": "m1_geo_triangle_parallel_segment_ratio",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_parallel_segment_ratio__contains__m1_geo_three_parallel_lines_segment_ratio",
+      "source_id": "m1_geo_parallel_segment_ratio",
+      "target_id": "m1_geo_three_parallel_lines_segment_ratio",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_similarity_unit__contains__m1_geo_parallel_segment_ratio_equation_setup",
+      "source_id": "m1_geo_similarity_unit",
+      "target_id": "m1_geo_parallel_segment_ratio_equation_setup",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_similarity_unit__contains__m1_geo_triangle_midpoint_theorem",
       "source_id": "m1_geo_similarity_unit",
       "target_id": "m1_geo_triangle_midpoint_theorem",
@@ -79763,6 +81744,78 @@
           "locator": "printed p. 39; terms usable in teaching and learning situations",
           "evidence_kind": "instructional_term_list",
           "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_centroid__contains__m1_geo_centroid_median_concurrency",
+      "source_id": "m1_geo_centroid",
+      "target_id": "m1_geo_centroid_median_concurrency",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_centroid__contains__m1_geo_centroid_two_to_one_ratio",
+      "source_id": "m1_geo_centroid",
+      "target_id": "m1_geo_centroid_two_to_one_ratio",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_centroid_from_parallel_ratio__contains__m1_geo_centroid_location_by_median_ratio",
+      "source_id": "m1_geo_centroid_from_parallel_ratio",
+      "target_id": "m1_geo_centroid_location_by_median_ratio",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",
@@ -99863,28 +101916,6 @@
       "confidence": "high"
     },
     {
-      "id": "m1_geo_similarity_unit__prerequisite_for__m1_geo_pythagorean_unit",
-      "source_id": "m1_geo_similarity_unit",
-      "target_id": "m1_geo_pythagorean_unit",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 38; [9수03-15]",
-          "evidence_kind": "achievement_standard",
-          "summary": "피타고라스 정리를 이해하고 정당화하는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "피타고라스 정리 section; [9수03-15] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "피타고라스 정리와 그 역을 이해하고 직각삼각형 판별에 활용하는 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "high"
-    },
-    {
       "id": "m1_geo_triangle_quadrilateral_unit__prerequisite_for__m1_geo_circle_unit",
       "source_id": "m1_geo_triangle_quadrilateral_unit",
       "target_id": "m1_geo_circle_unit",
@@ -105945,34 +107976,6 @@
       "confidence": "high"
     },
     {
-      "id": "m1_geo_parallel_segment_ratio__prerequisite_for__m1_geo_centroid",
-      "source_id": "m1_geo_parallel_segment_ratio",
-      "target_id": "m1_geo_centroid",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
-          "evidence_kind": "term_list",
-          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
-        },
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 38; [9수03-14]",
-          "evidence_kind": "achievement_standard",
-          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "high"
-    },
-    {
       "id": "m1_geo_polygon__prerequisite_for__m1_geo_quadrilateral",
       "source_id": "m1_geo_polygon",
       "target_id": "m1_geo_quadrilateral",
@@ -106963,6 +108966,390 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_similar_figures__prerequisite_for__m1_geo_similar_figure_properties",
+      "source_id": "m1_geo_similar_figures",
+      "target_id": "m1_geo_similar_figure_properties",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_point__prerequisite_for__m1_geo_corresponding_vertices",
+      "source_id": "m1_geo_point",
+      "target_id": "m1_geo_corresponding_vertices",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_line_segment__prerequisite_for__m1_geo_corresponding_sides_in_similarity",
+      "source_id": "m1_geo_line_segment",
+      "target_id": "m1_geo_corresponding_sides_in_similarity",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_correspondence__prerequisite_for__m1_geo_corresponding_sides_in_similarity",
+      "source_id": "m1_geo_correspondence",
+      "target_id": "m1_geo_corresponding_sides_in_similarity",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_angle__prerequisite_for__m1_geo_corresponding_angles_in_similarity",
+      "source_id": "m1_geo_angle",
+      "target_id": "m1_geo_corresponding_angles_in_similarity",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_correspondence__prerequisite_for__m1_geo_corresponding_angles_in_similarity",
+      "source_id": "m1_geo_correspondence",
+      "target_id": "m1_geo_corresponding_angles_in_similarity",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 39; terms usable in teaching and learning situations",
+          "evidence_kind": "instructional_term_list",
+          "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_similar_figures__prerequisite_for__m1_geo_similar_corresponding_angles_equal",
+      "source_id": "m1_geo_similar_figures",
+      "target_id": "m1_geo_similar_corresponding_angles_equal",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_corresponding_angles_in_similarity__prerequisite_for__m1_geo_similar_corresponding_angles_equal",
+      "source_id": "m1_geo_corresponding_angles_in_similarity",
+      "target_id": "m1_geo_similar_corresponding_angles_equal",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_similar_figures__prerequisite_for__m1_geo_similar_corresponding_sides_proportional",
+      "source_id": "m1_geo_similar_figures",
+      "target_id": "m1_geo_similar_corresponding_sides_proportional",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_corresponding_sides_in_similarity__prerequisite_for__m1_geo_similar_corresponding_sides_proportional",
+      "source_id": "m1_geo_corresponding_sides_in_similarity",
+      "target_id": "m1_geo_similar_corresponding_sides_proportional",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_correspondence__prerequisite_for__m1_geo_similarity_ratio_order",
+      "source_id": "m1_geo_correspondence",
+      "target_id": "m1_geo_similarity_ratio_order",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_geo_similarity_ratio__prerequisite_for__m1_geo_similarity_ratio_calculation",
+      "source_id": "m1_geo_similarity_ratio",
+      "target_id": "m1_geo_similarity_ratio_calculation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_corresponding_sides_in_similarity__prerequisite_for__m1_geo_similarity_ratio_calculation",
+      "source_id": "m1_geo_corresponding_sides_in_similarity",
+      "target_id": "m1_geo_similarity_ratio_calculation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_similarity_ratio_calculation__prerequisite_for__m1_geo_unknown_corresponding_side_from_similarity_ratio",
+      "source_id": "m1_geo_similarity_ratio_calculation",
+      "target_id": "m1_geo_unknown_corresponding_side_from_similarity_ratio",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_similar_corresponding_sides_proportional__prerequisite_for__m1_geo_unknown_corresponding_side_from_similarity_ratio",
+      "source_id": "m1_geo_similar_corresponding_sides_proportional",
+      "target_id": "m1_geo_unknown_corresponding_side_from_similarity_ratio",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_similarity__prerequisite_for__m1_geo_triangle_similarity_conditions",
       "source_id": "m1_geo_similarity",
       "target_id": "m1_geo_triangle_similarity_conditions",
@@ -107019,8 +109406,220 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_corresponding_angles_in_similarity__prerequisite_for__m1_geo_triangle_similarity_aa_condition",
+      "source_id": "m1_geo_corresponding_angles_in_similarity",
+      "target_id": "m1_geo_triangle_similarity_aa_condition",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 닮음 조건을 이해하고 닮음인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_corresponding_sides_in_similarity__prerequisite_for__m1_geo_triangle_similarity_sas_condition",
+      "source_id": "m1_geo_corresponding_sides_in_similarity",
+      "target_id": "m1_geo_triangle_similarity_sas_condition",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 닮음 조건을 이해하고 닮음인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_corresponding_angles_in_similarity__prerequisite_for__m1_geo_triangle_similarity_sas_condition",
+      "source_id": "m1_geo_corresponding_angles_in_similarity",
+      "target_id": "m1_geo_triangle_similarity_sas_condition",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 닮음 조건을 이해하고 닮음인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_similarity_ratio__prerequisite_for__m1_geo_triangle_similarity_sas_condition",
+      "source_id": "m1_geo_similarity_ratio",
+      "target_id": "m1_geo_triangle_similarity_sas_condition",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 닮음 조건을 이해하고 닮음인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_corresponding_sides_in_similarity__prerequisite_for__m1_geo_triangle_similarity_sss_condition",
+      "source_id": "m1_geo_corresponding_sides_in_similarity",
+      "target_id": "m1_geo_triangle_similarity_sss_condition",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 닮음 조건을 이해하고 닮음인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_similarity_ratio__prerequisite_for__m1_geo_triangle_similarity_sss_condition",
+      "source_id": "m1_geo_similarity_ratio",
+      "target_id": "m1_geo_triangle_similarity_sss_condition",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 닮음 조건을 이해하고 닮음인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle_similarity_conditions__prerequisite_for__m1_geo_similarity_condition_selection",
+      "source_id": "m1_geo_triangle_similarity_conditions",
+      "target_id": "m1_geo_similarity_condition_selection",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 닮음 조건을 이해하고 닮음인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_triangle_similarity_conditions__prerequisite_for__m1_geo_similarity_judgement",
       "source_id": "m1_geo_triangle_similarity_conditions",
+      "target_id": "m1_geo_similarity_judgement",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-13]",
+          "evidence_kind": "achievement_standard",
+          "summary": "삼각형의 닮음 조건을 이해하고 닮음인지 판별하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_geo_similarity_condition_selection__prerequisite_for__m1_geo_similarity_judgement",
+      "source_id": "m1_geo_similarity_condition_selection",
       "target_id": "m1_geo_similarity_judgement",
       "relationship_type": "prerequisite_for",
       "source_refs": [
@@ -107085,6 +109684,160 @@
       "confidence": "high"
     },
     {
+      "id": "m1_geo_parallel_lines__prerequisite_for__m1_geo_triangle_parallel_segment_ratio",
+      "source_id": "m1_geo_parallel_lines",
+      "target_id": "m1_geo_triangle_parallel_segment_ratio",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_triangle__prerequisite_for__m1_geo_triangle_parallel_segment_ratio",
+      "source_id": "m1_geo_triangle",
+      "target_id": "m1_geo_triangle_parallel_segment_ratio",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_parallel_segment_ratio__prerequisite_for__m1_geo_triangle_parallel_segment_ratio",
+      "source_id": "m1_geo_parallel_segment_ratio",
+      "target_id": "m1_geo_triangle_parallel_segment_ratio",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_parallel_lines__prerequisite_for__m1_geo_three_parallel_lines_segment_ratio",
+      "source_id": "m1_geo_parallel_lines",
+      "target_id": "m1_geo_three_parallel_lines_segment_ratio",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_parallel_segment_ratio__prerequisite_for__m1_geo_three_parallel_lines_segment_ratio",
+      "source_id": "m1_geo_parallel_segment_ratio",
+      "target_id": "m1_geo_three_parallel_lines_segment_ratio",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_parallel_segment_ratio__prerequisite_for__m1_geo_parallel_segment_ratio_equation_setup",
+      "source_id": "m1_geo_parallel_segment_ratio",
+      "target_id": "m1_geo_parallel_segment_ratio_equation_setup",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_similarity_ratio__prerequisite_for__m1_geo_parallel_segment_ratio_equation_setup",
+      "source_id": "m1_geo_similarity_ratio",
+      "target_id": "m1_geo_parallel_segment_ratio_equation_setup",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_geo_midpoint__prerequisite_for__m1_geo_triangle_midpoint_theorem",
       "source_id": "m1_geo_midpoint",
       "target_id": "m1_geo_triangle_midpoint_theorem",
@@ -107117,6 +109870,122 @@
           "locator": "printed p. 39; terms usable in teaching and learning situations",
           "evidence_kind": "instructional_term_list",
           "summary": "(도형의) 대응, 삼각형의 중점연결정리, 접선의 길이는 교수·학습 상황에서 사용할 수 있음"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_median__prerequisite_for__m1_geo_centroid_median_concurrency",
+      "source_id": "m1_geo_median",
+      "target_id": "m1_geo_centroid_median_concurrency",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
+          "evidence_kind": "term_list",
+          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_centroid_median_concurrency__prerequisite_for__m1_geo_centroid_two_to_one_ratio",
+      "source_id": "m1_geo_centroid_median_concurrency",
+      "target_id": "m1_geo_centroid_two_to_one_ratio",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_parallel_segment_ratio__prerequisite_for__m1_geo_centroid_two_to_one_ratio",
+      "source_id": "m1_geo_parallel_segment_ratio",
+      "target_id": "m1_geo_centroid_two_to_one_ratio",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_median__prerequisite_for__m1_geo_centroid_location_by_median_ratio",
+      "source_id": "m1_geo_median",
+      "target_id": "m1_geo_centroid_location_by_median_ratio",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_geo_centroid_two_to_one_ratio__prerequisite_for__m1_geo_centroid_location_by_median_ratio",
+      "source_id": "m1_geo_centroid_two_to_one_ratio",
+      "target_id": "m1_geo_centroid_location_by_median_ratio",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-14]",
+          "evidence_kind": "achievement_standard",
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",
@@ -107173,28 +110042,16 @@
       "confidence": "high"
     },
     {
-      "id": "m1_geo_congruence__prerequisite_for__m1_mis_congruence_similarity",
-      "source_id": "m1_geo_congruence",
-      "target_id": "m1_mis_congruence_similarity",
+      "id": "m1_geo_centroid_two_to_one_ratio__prerequisite_for__m1_geo_centroid_from_parallel_ratio",
+      "source_id": "m1_geo_centroid_two_to_one_ratio",
+      "target_id": "m1_geo_centroid_from_parallel_ratio",
       "relationship_type": "prerequisite_for",
       "source_refs": [
         {
           "source_id": "curriculum_math_2022",
-          "locator": "printed p. 37; [9수03-04]",
+          "locator": "printed p. 38; [9수03-14]",
           "evidence_kind": "achievement_standard",
-          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
-        },
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 38; [9수03-12]",
-          "evidence_kind": "achievement_standard",
-          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "작도와 합동 section; [9수03-04] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+          "summary": "평행선 사이의 선분의 길이의 비를 구하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",
@@ -107204,41 +110061,7 @@
         }
       ],
       "notes": "",
-      "confidence": "low"
-    },
-    {
-      "id": "m1_geo_similarity__prerequisite_for__m1_mis_congruence_similarity",
-      "source_id": "m1_geo_similarity",
-      "target_id": "m1_mis_congruence_similarity",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 37; [9수03-04]",
-          "evidence_kind": "achievement_standard",
-          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
-        },
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 38; [9수03-12]",
-          "evidence_kind": "achievement_standard",
-          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "작도와 합동 section; [9수03-04] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "low"
+      "confidence": "high"
     },
     {
       "id": "m1_geo_angle__prerequisite_for__m1_geo_right_triangle",
@@ -107455,34 +110278,6 @@
     {
       "id": "m1_geo_right_triangle__prerequisite_for__m1_geo_trigonometric_ratio",
       "source_id": "m1_geo_right_triangle",
-      "target_id": "m1_geo_trigonometric_ratio",
-      "relationship_type": "prerequisite_for",
-      "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed pp. 38-39; terms and symbols for 도형과 측정",
-          "evidence_kind": "term_list",
-          "summary": "교점, 교선, 두 점 사이의 거리, 중점, 수직이등분선, 꼬인 위치, 교각, 맞꼭지각, 엇각, 동위각, 평각, 직교, 수선의 발, 작도, 대변, 대각, 삼각형의 합동 조건, 내각, 외각, 부채꼴, 중심각, 호, 현, 활꼴, 할선, 다면체, 각뿔대, 정다면체, 회전체, 회전축, 원뿔대, 증명, 접선, 접점, 접한다, 외심, 외접, 외접원, 내심, 내접, 내접원, 중선, 무게중심, 닮음, 닮음비, 삼각형의 닮음 조건, 피타고라스 정리, 삼각비, 사인, 코사인, 탄젠트, 원주각 등을 다룸"
-        },
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 38; [9수03-16]",
-          "evidence_kind": "achievement_standard",
-          "summary": "삼각비의 뜻을 알고 간단한 삼각비의 값을 구하는 성취기준"
-        },
-        {
-          "source_id": "achievement_math_2022",
-          "locator": "삼각비 section; [9수03-16]~[9수03-17] achievement levels",
-          "evidence_kind": "achievement_level",
-          "summary": "삼각비의 뜻, 30도·45도·60도 삼각비의 값, 직각삼각형의 삼각비 값, 거리와 높이 및 삼각형 넓이 활용 수준을 구분"
-        }
-      ],
-      "notes": "",
-      "confidence": "high"
-    },
-    {
-      "id": "m1_geo_similarity_ratio__prerequisite_for__m1_geo_trigonometric_ratio",
-      "source_id": "m1_geo_similarity_ratio",
       "target_id": "m1_geo_trigonometric_ratio",
       "relationship_type": "prerequisite_for",
       "source_refs": [
@@ -117189,17 +119984,11 @@
       "confidence": "low"
     },
     {
-      "id": "m1_mis_congruence_similarity__often_confused_with__m1_geo_similarity_ratio",
-      "source_id": "m1_mis_congruence_similarity",
-      "target_id": "m1_geo_similarity_ratio",
+      "id": "m1_mis_similarity_ratio_reversal__often_confused_with__m1_geo_similarity_ratio_order",
+      "source_id": "m1_mis_similarity_ratio_reversal",
+      "target_id": "m1_geo_similarity_ratio_order",
       "relationship_type": "often_confused_with",
       "source_refs": [
-        {
-          "source_id": "curriculum_math_2022",
-          "locator": "printed p. 37; [9수03-04]",
-          "evidence_kind": "achievement_standard",
-          "summary": "삼각형의 합동 조건을 이해하고 합동인지 판별하는 성취기준"
-        },
         {
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 38; [9수03-12]",
@@ -117208,9 +119997,69 @@
         },
         {
           "source_id": "achievement_math_2022",
-          "locator": "작도와 합동 section; [9수03-04] achievement levels",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
           "evidence_kind": "achievement_level",
-          "summary": "삼각형의 합동 조건을 이해하고 두 삼각형의 합동 여부를 판별하는 수준을 구분"
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_similarity_ratio_reversal__often_confused_with__m1_geo_similarity_ratio",
+      "source_id": "m1_mis_similarity_ratio_reversal",
+      "target_id": "m1_geo_similarity_ratio",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_similarity_ratio_noncorresponding_sides__often_confused_with__m1_geo_corresponding_sides_in_similarity",
+      "source_id": "m1_mis_similarity_ratio_noncorresponding_sides",
+      "target_id": "m1_geo_corresponding_sides_in_similarity",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "도형의 닮음 section; [9수03-12]~[9수03-14] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "도형의 닮음, 닮은 도형의 성질, 닮음비, 삼각형의 닮음 조건, 평행선 사이의 선분의 길이의 비와 무게중심 성질을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_similarity_ratio_noncorresponding_sides__often_confused_with__m1_geo_similarity_ratio",
+      "source_id": "m1_mis_similarity_ratio_noncorresponding_sides",
+      "target_id": "m1_geo_similarity_ratio",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 38; [9수03-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "도형의 닮음과 닮은 도형의 성질을 이해하고 닮음비를 구하는 성취기준"
         },
         {
           "source_id": "achievement_math_2022",

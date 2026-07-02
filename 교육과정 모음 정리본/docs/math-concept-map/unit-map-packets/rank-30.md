@@ -30,8 +30,8 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 |---|---:|
 | contains | 6 |
 | contrasts_with | 2 |
-| prerequisite_for | 18 |
-| related_to | 1 |
+| prerequisite_for | 17 |
+| related_to | 2 |
 | used_in | 7 |
 
 ## Low Confidence Concepts
@@ -55,7 +55,6 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_geo_right_triangle__prerequisite_for__m1_geo_trig_opposite_side | 직각삼각형 | prerequisite_for | 기준각의 대변 | medium | official_dual_source |
 | m1_geo_right_triangle__prerequisite_for__m1_geo_trig_reference_angle | 직각삼각형 | prerequisite_for | 삼각비의 기준각 | medium | official_dual_source |
 | m1_geo_right_triangle__prerequisite_for__m1_geo_trigonometric_ratio | 직각삼각형 | prerequisite_for | 삼각비 | high | official_dual_source |
-| m1_geo_similarity_unit__prerequisite_for__m1_geo_pythagorean_unit | 도형의 닮음 | prerequisite_for | 피타고라스 정리 | high | official_dual_source |
 | m1_geo_triangle_quadrilateral_unit__prerequisite_for__m1_geo_pythagorean_unit | 삼각형과 사각형의 성질 | prerequisite_for | 피타고라스 정리 | high | official_dual_source |
 | m1_geo_triangle_quadrilateral_unit__prerequisite_for__m1_geo_right_triangle | 삼각형과 사각형의 성질 | prerequisite_for | 직각삼각형 | high | official_dual_source |
 | m1_num_square_root__prerequisite_for__m1_geo_pythagorean_theorem | 제곱근 | prerequisite_for | 피타고라스 정리 | high | official_dual_source |
@@ -63,3 +62,4 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_geo_proof__used_in__m1_geo_pythagorean_justification | 증명 | used_in | 피타고라스 정리의 정당화 | medium | official_dual_source |
 | m1_geo_triangle__used_in__m1_geo_right_triangle | 삼각형 | used_in | 직각삼각형 | medium | official_dual_source |
 | m1_geo_pythagorean_unit__related_to__m1_geo_trig_unit | 피타고라스 정리 | related_to | 삼각비 | medium | official_dual_source |
+| m1_geo_similarity_unit__related_to__m1_geo_pythagorean_unit | 도형의 닮음 | related_to | 피타고라스 정리 | medium | official_dual_source |

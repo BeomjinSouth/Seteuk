@@ -1,5 +1,4 @@
 ﻿rank,unit,edge_id,source_id,source_label_ko,source_unit,target_id,target_label_ko,target_unit,relationship_type,edge_scope,confidence,evidence_depth,needs_textbook_evidence,source_ref_count,notes
-28,작도와 합동,m1_geo_congruence__prerequisite_for__m1_mis_congruence_similarity,m1_geo_congruence,합동,작도와 합동,m1_mis_congruence_similarity,합동과 닮음을 같은 관계로 보는 오류,도형의 닮음,prerequisite_for,cross_unit,low,official_dual_source,yes,4,
 28,작도와 합동,m1_mis_congruence_similarity__often_confused_with__m1_geo_congruence,m1_mis_congruence_similarity,합동과 닮음을 같은 관계로 보는 오류,도형의 닮음,m1_geo_congruence,합동,작도와 합동,often_confused_with,cross_unit,low,official_dual_source,yes,3,
 28,작도와 합동,m1_geo_construction_congruence_unit__contains__m1_geo_congruence,m1_geo_construction_congruence_unit,작도와 합동,작도와 합동,m1_geo_congruence,합동,작도와 합동,contains,intra_unit,high,official_dual_source,yes,2,
 28,작도와 합동,m1_geo_construction_congruence_unit__contains__m1_geo_construction,m1_geo_construction_congruence_unit,작도와 합동,작도와 합동,m1_geo_construction,작도,작도와 합동,contains,intra_unit,high,official_dual_source,yes,3,

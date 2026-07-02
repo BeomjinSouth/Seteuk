@@ -9,12 +9,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 도형과 측정
 - unit: 작도와 합동
 - priority tier: medium
-- workplan score: 44
+- workplan score: 39
 - concepts: 8
-- edges touching unit: 49
-- cross-unit edges: 28
+- edges touching unit: 48
+- cross-unit edges: 27
 - low confidence concepts: 0
-- low confidence edges: 2
+- low confidence edges: 1
 
 ## Concept Type Distribution
 
@@ -32,7 +32,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 8 |
 | contrasts_with | 3 |
 | often_confused_with | 1 |
-| prerequisite_for | 25 |
+| prerequisite_for | 24 |
 | related_to | 1 |
 | used_in | 11 |
 
@@ -46,7 +46,6 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
-| m1_geo_congruence__prerequisite_for__m1_mis_congruence_similarity | 합동 | prerequisite_for | 합동과 닮음을 같은 관계로 보는 오류 | low | official_dual_source |
 | m1_mis_congruence_similarity__often_confused_with__m1_geo_congruence | 합동과 닮음을 같은 관계로 보는 오류 | often_confused_with | 합동 | low | official_dual_source |
 | m1_geo_domain__contains__m1_geo_construction_congruence_unit | 도형과 측정 | contains | 작도와 합동 | high | official_dual_source |
 | m1_geo_angle__prerequisite_for__m1_geo_construction | 각 | prerequisite_for | 작도 | high | official_dual_source |

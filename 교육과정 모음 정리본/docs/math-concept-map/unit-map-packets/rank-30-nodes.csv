@@ -1,5 +1,5 @@
 ﻿rank,grade,domain,unit,concept_id,label_ko,concept_type,confidence,evidence_depth,needs_textbook_evidence,source_ref_count,parent_ids,prerequisite_ids,related_ids,short_definition,notes
-30,중2(교육과정 학년군: 중1-3),도형과 측정,피타고라스 정리,m1_geo_pythagorean_unit,피타고라스 정리,core_concept,high,official_dual_source,yes,2,m1_geo_domain,m1_geo_triangle_quadrilateral_unit; m1_geo_similarity_unit,m1_geo_trig_unit,직각삼각형의 세 변 사이의 관계와 그 역을 이해하고 정당화하는 단원.,
+30,중2(교육과정 학년군: 중1-3),도형과 측정,피타고라스 정리,m1_geo_pythagorean_unit,피타고라스 정리,core_concept,high,official_dual_source,yes,2,m1_geo_domain,m1_geo_triangle_quadrilateral_unit,m1_geo_trig_unit,직각삼각형의 세 변 사이의 관계와 그 역을 이해하고 정당화하는 단원.,
 30,중2(교육과정 학년군: 중1-3),도형과 측정,피타고라스 정리,m1_geo_right_triangle,직각삼각형,core_concept,high,official_dual_source,yes,3,m1_geo_pythagorean_unit,m1_geo_angle; m1_geo_triangle_quadrilateral_unit,,한 각이 직각인 삼각형.,
 30,중2(교육과정 학년군: 중1-3),도형과 측정,피타고라스 정리,m1_geo_pythagorean_justification,피타고라스 정리의 정당화,procedure,high,official_dual_source,yes,3,m1_geo_pythagorean_unit,m1_geo_pythagorean_theorem; m1_geo_justification,m1_geo_proof,다양한 활동이나 도형 분해를 통해 피타고라스 정리를 추측하고 정당화하는 절차.,
 30,중2(교육과정 학년군: 중1-3),도형과 측정,피타고라스 정리,m1_geo_right_triangle_judgement,세 변의 길이로 직각삼각형 판별,procedure,high,official_dual_source,yes,2,m1_geo_pythagorean_unit,m1_geo_pythagorean_converse,m1_geo_right_triangle,세 변의 길이가 주어졌을 때 피타고라스 정리의 역을 이용해 직각삼각형인지 판단하는 절차.,

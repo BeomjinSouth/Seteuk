@@ -591,10 +591,31 @@ flowchart LR
   m1_geo_similar_figures["닮은 도형"]
   m1_geo_correspondence["도형의 대응"]
   m1_geo_similarity_ratio["닮음비"]
+  m1_geo_similar_figure_properties["닮은 도형의 성질"]
+  m1_geo_corresponding_vertices["대응하는 꼭짓점"]
+  m1_geo_corresponding_sides_in_similarity["대응하는 변"]
+  m1_geo_corresponding_angles_in_similarity["대응하는 각"]
+  m1_geo_similar_corresponding_angles_equal["닮은 도형의 대응각의 크기가 같음"]
+  m1_geo_similar_corresponding_sides_proportional["닮은 도형의 대응변의 길이의 비가 일정함"]
+  m1_geo_similarity_ratio_order["닮음비의 순서"]
+  m1_geo_similarity_ratio_calculation["닮음비 구하기"]
+  m1_geo_unknown_corresponding_side_from_similarity_ratio["닮음비로 대응변 길이 구하기"]
+  m1_mis_similarity_ratio_reversal["닮음비의 순서를 거꾸로 놓는 오류"]
+  m1_mis_similarity_ratio_noncorresponding_sides["대응하지 않는 변끼리 닮음비를 세우는 오류"]
   m1_geo_triangle_similarity_conditions["삼각형의 닮음 조건"]
+  m1_geo_triangle_similarity_aa_condition["두 쌍의 대응각이 같은 삼각형 닮음 조건"]
+  m1_geo_triangle_similarity_sas_condition["두 쌍의 대응변의 길이의 비와 그 끼인각이 같은 삼각형 닮음 조건"]
+  m1_geo_triangle_similarity_sss_condition["세 쌍의 대응변의 길이의 비가 같은 삼각형 닮음 조건"]
+  m1_geo_similarity_condition_selection["삼각형 닮음 조건 선택하기"]
   m1_geo_similarity_judgement["삼각형의 닮음 판별"]
   m1_geo_parallel_segment_ratio["평행선 사이의 선분의 길이의 비"]
+  m1_geo_triangle_parallel_segment_ratio["삼각형에서 한 변에 평행한 직선이 만드는 선분의 비"]
+  m1_geo_three_parallel_lines_segment_ratio["여러 평행선이 두 직선에서 만드는 선분의 비"]
+  m1_geo_parallel_segment_ratio_equation_setup["평행선 선분비 식 세우기"]
   m1_geo_triangle_midpoint_theorem["삼각형의 중점연결정리"]
+  m1_geo_centroid_median_concurrency["세 중선은 한 점에서 만남"]
+  m1_geo_centroid_two_to_one_ratio["무게중심은 중선을 2:1로 나눔"]
+  m1_geo_centroid_location_by_median_ratio["중선 위 2:1 비로 무게중심 위치 찾기"]
   m1_geo_centroid_from_parallel_ratio["평행선과 선분의 비로 무게중심 찾기"]
   m1_mis_congruence_similarity["합동과 닮음을 같은 관계로 보는 오류"]
   m1_geo_right_triangle["직각삼각형"]
@@ -1759,6 +1780,7 @@ flowchart LR
   m1_geo_plane_properties_unit -- "연관" --> m1_geo_circle_unit
   m1_geo_triangle_quadrilateral_unit -- "연관" --> m1_geo_trig_unit
   m1_geo_pythagorean_unit -- "연관" --> m1_geo_trig_unit
+  m1_geo_similarity_unit -- "연관" --> m1_geo_pythagorean_unit
   m1_geo_triangle -- "사용" --> m1_geo_triangle_construction
   m1_geo_triangle -- "사용" --> m1_geo_triangle_congruence_conditions
   m1_geo_triangle -- "사용" --> m1_geo_triangle_similarity_conditions
@@ -1981,12 +2003,40 @@ flowchart LR
   m1_geo_similarity -- "표현" --> m1_geo_similarity_ratio
   m1_geo_similar_figures -- "표현" --> m1_geo_correspondence
   m1_geo_similar_figures -- "사용" --> m1_geo_similarity_ratio
+  m1_geo_similar_figures -- "사용" --> m1_geo_similar_figure_properties
+  m1_geo_correspondence -- "표현" --> m1_geo_corresponding_vertices
+  m1_geo_correspondence -- "표현" --> m1_geo_corresponding_sides_in_similarity
+  m1_geo_correspondence -- "표현" --> m1_geo_corresponding_angles_in_similarity
+  m1_geo_corresponding_sides_in_similarity -- "사용" --> m1_geo_similarity_ratio
+  m1_geo_corresponding_angles_in_similarity -- "사용" --> m1_geo_similar_corresponding_angles_equal
+  m1_geo_corresponding_sides_in_similarity -- "사용" --> m1_geo_similar_corresponding_sides_proportional
+  m1_geo_similar_corresponding_sides_proportional -- "표현" --> m1_geo_similarity_ratio
+  m1_geo_similarity_ratio_order -- "사용" --> m1_geo_similarity_ratio_calculation
+  m1_geo_similarity_ratio_calculation -- "사용" --> m1_geo_unknown_corresponding_side_from_similarity_ratio
+  m1_geo_similar_corresponding_sides_proportional -- "사용" --> m1_geo_unknown_corresponding_side_from_similarity_ratio
   m1_geo_triangle_similarity_conditions -- "사용" --> m1_geo_similarity_judgement
+  m1_geo_triangle_similarity_aa_condition -- "사용" --> m1_geo_similarity_judgement
+  m1_geo_triangle_similarity_sas_condition -- "사용" --> m1_geo_similarity_judgement
+  m1_geo_triangle_similarity_sss_condition -- "사용" --> m1_geo_similarity_judgement
+  m1_geo_triangle_similarity_aa_condition -- "사용" --> m1_geo_similarity_condition_selection
+  m1_geo_triangle_similarity_sas_condition -- "사용" --> m1_geo_similarity_condition_selection
+  m1_geo_triangle_similarity_sss_condition -- "사용" --> m1_geo_similarity_condition_selection
+  m1_geo_similarity_condition_selection -- "사용" --> m1_geo_similarity_judgement
   m1_geo_similarity_ratio -- "사용" --> m1_geo_parallel_segment_ratio
+  m1_geo_similarity_ratio -- "연관" --> m1_geo_trigonometric_ratio
   m1_geo_parallel_segment_ratio -- "사용" --> m1_geo_similarity_judgement
   m1_geo_parallel_segment_ratio -- "사용" --> m1_geo_triangle_midpoint_theorem
+  m1_geo_triangle_parallel_segment_ratio -- "사용" --> m1_geo_triangle_midpoint_theorem
+  m1_geo_three_parallel_lines_segment_ratio -- "사용" --> m1_geo_parallel_segment_ratio_equation_setup
+  m1_geo_triangle_parallel_segment_ratio -- "사용" --> m1_geo_parallel_segment_ratio_equation_setup
+  m1_geo_parallel_segment_ratio_equation_setup -- "사용" --> m1_geo_centroid_from_parallel_ratio
   m1_geo_parallel_segment_ratio -- "사용" --> m1_geo_centroid_from_parallel_ratio
   m1_geo_centroid -- "사용" --> m1_geo_centroid_from_parallel_ratio
+  m1_geo_median -- "사용" --> m1_geo_centroid_median_concurrency
+  m1_geo_centroid_median_concurrency -- "사용" --> m1_geo_centroid_two_to_one_ratio
+  m1_geo_centroid_two_to_one_ratio -- "사용" --> m1_geo_centroid_location_by_median_ratio
+  m1_geo_centroid_two_to_one_ratio -- "사용" --> m1_geo_centroid_from_parallel_ratio
+  m1_geo_centroid_location_by_median_ratio -- "사용" --> m1_geo_centroid_from_parallel_ratio
   m1_geo_pythagorean_theorem -- "대조" --> m1_geo_pythagorean_converse
   m1_geo_pythagorean_converse -- "대조" --> m1_geo_pythagorean_theorem
   m1_geo_pythagorean_theorem -- "사용" --> m1_geo_right_triangle_judgement
@@ -2656,10 +2706,31 @@ flowchart LR
   m1_geo_similarity_unit -- "포함" --> m1_geo_similar_figures
   m1_geo_similarity_unit -- "포함" --> m1_geo_correspondence
   m1_geo_similarity_unit -- "포함" --> m1_geo_similarity_ratio
+  m1_geo_similarity_unit -- "포함" --> m1_geo_similar_figure_properties
+  m1_geo_correspondence -- "포함" --> m1_geo_corresponding_vertices
+  m1_geo_correspondence -- "포함" --> m1_geo_corresponding_sides_in_similarity
+  m1_geo_correspondence -- "포함" --> m1_geo_corresponding_angles_in_similarity
+  m1_geo_similar_figure_properties -- "포함" --> m1_geo_similar_corresponding_angles_equal
+  m1_geo_similar_figure_properties -- "포함" --> m1_geo_similar_corresponding_sides_proportional
+  m1_geo_similarity_ratio -- "포함" --> m1_geo_similarity_ratio_order
+  m1_geo_similarity_unit -- "포함" --> m1_geo_similarity_ratio_calculation
+  m1_geo_similarity_unit -- "포함" --> m1_geo_unknown_corresponding_side_from_similarity_ratio
+  m1_geo_similarity_unit -- "포함" --> m1_mis_similarity_ratio_reversal
+  m1_geo_similarity_unit -- "포함" --> m1_mis_similarity_ratio_noncorresponding_sides
   m1_geo_similarity_unit -- "포함" --> m1_geo_triangle_similarity_conditions
+  m1_geo_triangle_similarity_conditions -- "포함" --> m1_geo_triangle_similarity_aa_condition
+  m1_geo_triangle_similarity_conditions -- "포함" --> m1_geo_triangle_similarity_sas_condition
+  m1_geo_triangle_similarity_conditions -- "포함" --> m1_geo_triangle_similarity_sss_condition
+  m1_geo_similarity_unit -- "포함" --> m1_geo_similarity_condition_selection
   m1_geo_similarity_unit -- "포함" --> m1_geo_similarity_judgement
   m1_geo_similarity_unit -- "포함" --> m1_geo_parallel_segment_ratio
+  m1_geo_parallel_segment_ratio -- "포함" --> m1_geo_triangle_parallel_segment_ratio
+  m1_geo_parallel_segment_ratio -- "포함" --> m1_geo_three_parallel_lines_segment_ratio
+  m1_geo_similarity_unit -- "포함" --> m1_geo_parallel_segment_ratio_equation_setup
   m1_geo_similarity_unit -- "포함" --> m1_geo_triangle_midpoint_theorem
+  m1_geo_centroid -- "포함" --> m1_geo_centroid_median_concurrency
+  m1_geo_centroid -- "포함" --> m1_geo_centroid_two_to_one_ratio
+  m1_geo_centroid_from_parallel_ratio -- "포함" --> m1_geo_centroid_location_by_median_ratio
   m1_geo_similarity_unit -- "포함" --> m1_geo_centroid_from_parallel_ratio
   m1_geo_similarity_unit -- "포함" --> m1_mis_congruence_similarity
   m1_geo_pythagorean_unit -- "포함" --> m1_geo_right_triangle
@@ -3410,7 +3481,6 @@ flowchart LR
   m1_geo_construction_congruence_unit -- "선수" --> m1_geo_triangle_quadrilateral_unit
   m1_geo_triangle_quadrilateral_unit -- "선수" --> m1_geo_similarity_unit
   m1_geo_triangle_quadrilateral_unit -- "선수" --> m1_geo_pythagorean_unit
-  m1_geo_similarity_unit -- "선수" --> m1_geo_pythagorean_unit
   m1_geo_triangle_quadrilateral_unit -- "선수" --> m1_geo_circle_unit
   m1_geo_point -- "선수" --> m1_geo_line_segment
   m1_geo_line -- "선수" --> m1_geo_line_segment
@@ -3645,7 +3715,6 @@ flowchart LR
   m1_geo_midpoint -- "선수" --> m1_geo_median
   m1_geo_triangle_quadrilateral_unit -- "선수" --> m1_geo_median
   m1_geo_median -- "선수" --> m1_geo_centroid
-  m1_geo_parallel_segment_ratio -- "선수" --> m1_geo_centroid
   m1_geo_polygon -- "선수" --> m1_geo_quadrilateral
   m1_geo_quadrilateral -- "선수" --> m1_geo_parallelogram
   m1_geo_parallel_lines -- "선수" --> m1_geo_parallelogram
@@ -3688,17 +3757,51 @@ flowchart LR
   m1_geo_angle -- "선수" --> m1_geo_correspondence
   m1_geo_similar_figures -- "선수" --> m1_geo_similarity_ratio
   m1_geo_correspondence -- "선수" --> m1_geo_similarity_ratio
+  m1_geo_similar_figures -- "선수" --> m1_geo_similar_figure_properties
+  m1_geo_point -- "선수" --> m1_geo_corresponding_vertices
+  m1_geo_line_segment -- "선수" --> m1_geo_corresponding_sides_in_similarity
+  m1_geo_correspondence -- "선수" --> m1_geo_corresponding_sides_in_similarity
+  m1_geo_angle -- "선수" --> m1_geo_corresponding_angles_in_similarity
+  m1_geo_correspondence -- "선수" --> m1_geo_corresponding_angles_in_similarity
+  m1_geo_similar_figures -- "선수" --> m1_geo_similar_corresponding_angles_equal
+  m1_geo_corresponding_angles_in_similarity -- "선수" --> m1_geo_similar_corresponding_angles_equal
+  m1_geo_similar_figures -- "선수" --> m1_geo_similar_corresponding_sides_proportional
+  m1_geo_corresponding_sides_in_similarity -- "선수" --> m1_geo_similar_corresponding_sides_proportional
+  m1_geo_correspondence -- "선수" --> m1_geo_similarity_ratio_order
+  m1_geo_similarity_ratio -- "선수" --> m1_geo_similarity_ratio_calculation
+  m1_geo_corresponding_sides_in_similarity -- "선수" --> m1_geo_similarity_ratio_calculation
+  m1_geo_similarity_ratio_calculation -- "선수" --> m1_geo_unknown_corresponding_side_from_similarity_ratio
+  m1_geo_similar_corresponding_sides_proportional -- "선수" --> m1_geo_unknown_corresponding_side_from_similarity_ratio
   m1_geo_similarity -- "선수" --> m1_geo_triangle_similarity_conditions
   m1_geo_similarity_ratio -- "선수" --> m1_geo_triangle_similarity_conditions
+  m1_geo_corresponding_angles_in_similarity -- "선수" --> m1_geo_triangle_similarity_aa_condition
+  m1_geo_corresponding_sides_in_similarity -- "선수" --> m1_geo_triangle_similarity_sas_condition
+  m1_geo_corresponding_angles_in_similarity -- "선수" --> m1_geo_triangle_similarity_sas_condition
+  m1_geo_similarity_ratio -- "선수" --> m1_geo_triangle_similarity_sas_condition
+  m1_geo_corresponding_sides_in_similarity -- "선수" --> m1_geo_triangle_similarity_sss_condition
+  m1_geo_similarity_ratio -- "선수" --> m1_geo_triangle_similarity_sss_condition
+  m1_geo_triangle_similarity_conditions -- "선수" --> m1_geo_similarity_condition_selection
   m1_geo_triangle_similarity_conditions -- "선수" --> m1_geo_similarity_judgement
+  m1_geo_similarity_condition_selection -- "선수" --> m1_geo_similarity_judgement
   m1_geo_parallel_lines -- "선수" --> m1_geo_parallel_segment_ratio
   m1_geo_similarity_ratio -- "선수" --> m1_geo_parallel_segment_ratio
+  m1_geo_parallel_lines -- "선수" --> m1_geo_triangle_parallel_segment_ratio
+  m1_geo_triangle -- "선수" --> m1_geo_triangle_parallel_segment_ratio
+  m1_geo_parallel_segment_ratio -- "선수" --> m1_geo_triangle_parallel_segment_ratio
+  m1_geo_parallel_lines -- "선수" --> m1_geo_three_parallel_lines_segment_ratio
+  m1_geo_parallel_segment_ratio -- "선수" --> m1_geo_three_parallel_lines_segment_ratio
+  m1_geo_parallel_segment_ratio -- "선수" --> m1_geo_parallel_segment_ratio_equation_setup
+  m1_geo_similarity_ratio -- "선수" --> m1_geo_parallel_segment_ratio_equation_setup
   m1_geo_midpoint -- "선수" --> m1_geo_triangle_midpoint_theorem
   m1_geo_parallel_segment_ratio -- "선수" --> m1_geo_triangle_midpoint_theorem
+  m1_geo_median -- "선수" --> m1_geo_centroid_median_concurrency
+  m1_geo_centroid_median_concurrency -- "선수" --> m1_geo_centroid_two_to_one_ratio
+  m1_geo_parallel_segment_ratio -- "선수" --> m1_geo_centroid_two_to_one_ratio
+  m1_geo_median -- "선수" --> m1_geo_centroid_location_by_median_ratio
+  m1_geo_centroid_two_to_one_ratio -- "선수" --> m1_geo_centroid_location_by_median_ratio
   m1_geo_parallel_segment_ratio -- "선수" --> m1_geo_centroid_from_parallel_ratio
   m1_geo_centroid -- "선수" --> m1_geo_centroid_from_parallel_ratio
-  m1_geo_congruence -- "선수" --> m1_mis_congruence_similarity
-  m1_geo_similarity -- "선수" --> m1_mis_congruence_similarity
+  m1_geo_centroid_two_to_one_ratio -- "선수" --> m1_geo_centroid_from_parallel_ratio
   m1_geo_angle -- "선수" --> m1_geo_right_triangle
   m1_geo_triangle_quadrilateral_unit -- "선수" --> m1_geo_right_triangle
   m1_geo_right_triangle -- "선수" --> m1_geo_pythagorean_theorem
@@ -3708,7 +3811,6 @@ flowchart LR
   m1_geo_pythagorean_theorem -- "선수" --> m1_geo_pythagorean_justification
   m1_geo_justification -- "선수" --> m1_geo_pythagorean_justification
   m1_geo_right_triangle -- "선수" --> m1_geo_trigonometric_ratio
-  m1_geo_similarity_ratio -- "선수" --> m1_geo_trigonometric_ratio
   m1_geo_angle -- "선수" --> m1_geo_trig_reference_angle
   m1_geo_right_triangle -- "선수" --> m1_geo_trig_reference_angle
   m1_geo_right_triangle -- "선수" --> m1_geo_trig_hypotenuse
@@ -4071,7 +4173,10 @@ flowchart LR
   m1_mis_proof_observation -- "혼동" --> m1_geo_isosceles_properties
   m1_mis_circumcenter_incenter -- "혼동" --> m1_geo_circumcircle
   m1_mis_circumcenter_incenter -- "혼동" --> m1_geo_incircle
-  m1_mis_congruence_similarity -- "혼동" --> m1_geo_similarity_ratio
+  m1_mis_similarity_ratio_reversal -- "혼동" --> m1_geo_similarity_ratio_order
+  m1_mis_similarity_ratio_reversal -- "혼동" --> m1_geo_similarity_ratio
+  m1_mis_similarity_ratio_noncorresponding_sides -- "혼동" --> m1_geo_corresponding_sides_in_similarity
+  m1_mis_similarity_ratio_noncorresponding_sides -- "혼동" --> m1_geo_similarity_ratio
   m1_mis_trig_angle_scope -- "혼동" --> m1_geo_trig_angle_range_0_90
   m1_mis_trig_angle_scope -- "혼동" --> m1_geo_special_angles_30_45_60
   m1_mis_trig_opposite_adjacent_swap -- "혼동" --> m1_geo_trig_opposite_side
@@ -4684,10 +4789,31 @@ flowchart LR
   class m1_geo_similar_figures core;
   class m1_geo_correspondence default;
   class m1_geo_similarity_ratio default;
+  class m1_geo_similar_figure_properties default;
+  class m1_geo_corresponding_vertices default;
+  class m1_geo_corresponding_sides_in_similarity default;
+  class m1_geo_corresponding_angles_in_similarity default;
+  class m1_geo_similar_corresponding_angles_equal default;
+  class m1_geo_similar_corresponding_sides_proportional default;
+  class m1_geo_similarity_ratio_order default;
+  class m1_geo_similarity_ratio_calculation procedure;
+  class m1_geo_unknown_corresponding_side_from_similarity_ratio procedure;
+  class m1_mis_similarity_ratio_reversal risk;
+  class m1_mis_similarity_ratio_noncorresponding_sides risk;
   class m1_geo_triangle_similarity_conditions default;
+  class m1_geo_triangle_similarity_aa_condition default;
+  class m1_geo_triangle_similarity_sas_condition default;
+  class m1_geo_triangle_similarity_sss_condition default;
+  class m1_geo_similarity_condition_selection procedure;
   class m1_geo_similarity_judgement procedure;
   class m1_geo_parallel_segment_ratio default;
+  class m1_geo_triangle_parallel_segment_ratio default;
+  class m1_geo_three_parallel_lines_segment_ratio default;
+  class m1_geo_parallel_segment_ratio_equation_setup procedure;
   class m1_geo_triangle_midpoint_theorem default;
+  class m1_geo_centroid_median_concurrency default;
+  class m1_geo_centroid_two_to_one_ratio default;
+  class m1_geo_centroid_location_by_median_ratio procedure;
   class m1_geo_centroid_from_parallel_ratio procedure;
   class m1_mis_congruence_similarity risk;
   class m1_geo_right_triangle core;
