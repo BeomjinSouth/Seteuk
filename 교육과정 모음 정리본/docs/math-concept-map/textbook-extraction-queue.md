@@ -5,17 +5,17 @@ This generated queue ranks units for the next textbook-grounded concept extracti
 ## Summary
 
 - unit groups: 34
-- concepts needing textbook evidence: 898
-- low confidence concepts in queue: 156
+- concepts needing textbook evidence: 917
+- low confidence concepts in queue: 164
 
 ## Queue
 
 | rank | grade | domain | unit | tier | score | needs textbook | low | official single | next action |
 |---:|---|---|---|---|---:|---:|---:|---:|---|
-| 1 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 좌표평면과 그래프 | highest | 105 | 43 | 9 | 13 | textbook_evidence_for_low_confidence |
-| 2 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 그 그래프 | highest | 93 | 33 | 11 | 8 | textbook_evidence_for_low_confidence |
-| 3 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 일차방정식의 관계 | highest | 87 | 41 | 10 | 3 | textbook_evidence_for_low_confidence |
-| 4 | 중2(교육과정 학년군: 중1-3) | 자료와 가능성 | 경우의 수와 확률 | highest | 72 | 26 | 6 | 11 | textbook_evidence_for_low_confidence |
+| 1 | 중2(교육과정 학년군: 중1-3) | 자료와 가능성 | 경우의 수와 확률 | highest | 145 | 45 | 14 | 22 | textbook_evidence_for_low_confidence |
+| 2 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 좌표평면과 그래프 | highest | 105 | 43 | 9 | 13 | textbook_evidence_for_low_confidence |
+| 3 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 그 그래프 | highest | 93 | 33 | 11 | 8 | textbook_evidence_for_low_confidence |
+| 4 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 일차방정식의 관계 | highest | 87 | 41 | 10 | 3 | textbook_evidence_for_low_confidence |
 | 5 | 중1(교육과정 학년군: 중1-3) | 자료와 가능성 | 대푯값 | highest | 68 | 28 | 10 | 0 | textbook_evidence_for_low_confidence |
 | 6 | 중3(교육과정 학년군: 중1-3) | 자료와 가능성 | 상자그림과 산점도 | highest | 68 | 32 | 9 | 0 | textbook_evidence_for_low_confidence |
 | 7 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 이차함수와 그 그래프 | highest | 68 | 30 | 3 | 13 | textbook_evidence_for_low_confidence |

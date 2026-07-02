@@ -1,8 +1,8 @@
 ﻿rank,grade,domain,unit,concept_count,needs_textbook_evidence_count,low_confidence_count,official_single_source_count,official_dual_source_count,textbook_supported_count,priority_score,priority_tier,next_action
-1,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,43,43,9,13,30,0,105,highest,textbook_evidence_for_low_confidence
-2,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,33,33,11,8,25,0,93,highest,textbook_evidence_for_low_confidence
-3,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 일차방정식의 관계,41,41,10,3,38,0,87,highest,textbook_evidence_for_low_confidence
-4,중2(교육과정 학년군: 중1-3),자료와 가능성,경우의 수와 확률,26,26,6,11,15,0,72,highest,textbook_evidence_for_low_confidence
+1,중2(교육과정 학년군: 중1-3),자료와 가능성,경우의 수와 확률,45,45,14,22,23,0,145,highest,textbook_evidence_for_low_confidence
+2,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,43,43,9,13,30,0,105,highest,textbook_evidence_for_low_confidence
+3,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,33,33,11,8,25,0,93,highest,textbook_evidence_for_low_confidence
+4,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 일차방정식의 관계,41,41,10,3,38,0,87,highest,textbook_evidence_for_low_confidence
 5,중1(교육과정 학년군: 중1-3),자료와 가능성,대푯값,28,28,10,0,28,0,68,highest,textbook_evidence_for_low_confidence
 6,중3(교육과정 학년군: 중1-3),자료와 가능성,상자그림과 산점도,32,32,9,0,32,0,68,highest,textbook_evidence_for_low_confidence
 7,중3(교육과정 학년군: 중1-3),변화와 관계,이차함수와 그 그래프,30,30,3,13,17,0,68,highest,textbook_evidence_for_low_confidence

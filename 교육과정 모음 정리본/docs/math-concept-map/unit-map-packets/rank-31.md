@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 수와 연산
 - unit: 공통 선수개념
 - priority tier: low
-- workplan score: 63
+- workplan score: 65
 - concepts: 1
-- edges touching unit: 14
-- cross-unit edges: 14
+- edges touching unit: 16
+- cross-unit edges: 16
 - low confidence concepts: 1
 - low confidence edges: 11
 
@@ -27,7 +27,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | relationship_type | count |
 |---|---:|
 | contains | 1 |
-| prerequisite_for | 5 |
+| prerequisite_for | 7 |
 | used_in | 8 |
 
 ## Low Confidence Concepts
@@ -52,5 +52,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_ratio__used_in__m1_prop_direct_proportion | 비 | used_in | 정비례 | low | official_dual_source |
 | m1_num_ratio__used_in__m1_prop_inverse_proportion | 비 | used_in | 반비례 | low | official_dual_source |
 | m1_num_ratio__prerequisite_for__m1_data_probability_by_case_ratio | 비 | prerequisite_for | 경우의 수의 비율로 확률 구하기 | medium | official_dual_source |
+| m1_num_ratio__prerequisite_for__m1_data_probability_formula | 비 | prerequisite_for | 확률의 계산식 | medium | official_dual_source |
+| m1_num_ratio__prerequisite_for__m1_data_probability_fraction_expression | 비 | prerequisite_for | 확률의 분수 표현 | medium | official_single_source |
 | m1_num_ratio__prerequisite_for__m1_data_relative_frequency_calculation | 비 | prerequisite_for | 상대도수 구하기 | high | official_dual_source |
 | m1_num_ratio__prerequisite_for__m1_geo_sector_proportional_reasoning | 비 | prerequisite_for | 중심각에 따른 부채꼴 비례 추론 | medium | official_dual_source |

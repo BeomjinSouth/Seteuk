@@ -351,6 +351,28 @@
 - 전체 산출물 파이프라인을 재실행했고 `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
 - PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
 
+## 2026-07-02 경우의 수와 확률 미시 concept 병렬 보강
+
+- AGENTS.md를 다시 확인하고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 생성 로직과 파생 산출물 정비로 제한했다.
+- 멀티에이전트 explorer 3개를 읽기 전용으로 사용해 `경우의 수와 확률`을 병렬 감사했다. Peirce는 기존 노드·edge와 누락 후보, Copernicus는 `[9수04-05]`·`[9수04-06]`·연구보고서 p. 228, 240, 260, 266-268의 source boundary, Helmholtz는 테스트 구조와 noisy edge 부재 조건을 점검했다.
+- `일어날 수 있는 경우`, `가능한 모든 경우 나열하기`, `빠짐없이 중복 없이 경우 세기`, `경우를 기준에 따라 나누기`, `합하는 상황과 곱하는 상황 구별`, `사건에 해당하는 경우 판별하기`, `동등 가능성 확인`을 추가해 경우의 수 세기와 확률 계산 전 절차를 미시 concept으로 분해했다.
+- `이동 경로`, `같은 지점을 두 번 이상 지나지 않는 조건`, `표/수형도로 경우의 수 나타내기`를 추가해 연구보고서 pp. 266-268의 경로 문항 맥락과 교과서에서 확인해야 할 표현 후보를 별도 노드로 보존했다.
+- `확률의 계산식`, `확률의 분수 표현`, `확률식의 분자와 분모`, `사건이 일어나지 않는 경우의 수`, `사건이 일어나지 않을 확률`, `확률 비교하기`를 추가해 전체 경우의 수와 사건이 일어나는 경우의 수의 비율, 확률값의 범위, 기본 성질에서 파생되는 표현·절차를 분리했다.
+- `전체 경우의 수와 사건이 일어나는 경우의 수를 바꾸는 오류`, `또는의 경우를 중복 세는 오류`, `확률을 0보다 작거나 1보다 크게 쓰는 오류`를 오개념 risk로 추가했다. 오개념 노드는 모두 선수 관계 없이 `often_confused_with` edge 중심으로 연결했다.
+- 이번 보강의 source ref는 `CURR_DATA_05`, `CURR_DATA_06`, `CURR_DATA_PROB_NOTE`, `CURR_DATA_SCOPE_NOTE`, `ACH_DATA_PROBABILITY`, `ACH_DATA_COUNTING_ITEM`, `ACH_RESEARCH_OR_CASES_228`, `ACH_RESEARCH_OR_CASES_240`, `ACH_RESEARCH_PROBABILITY_ITEM_260`, `ACH_RESEARCH_ROUTE_COUNTING_ITEM_266_268`로 제한했다. `CURR_DATA_SCOPE_NOTE`는 복잡한 순열·조합 개념의 positive evidence로 쓰지 않았고, 표/수형도·보수확률·범위 오류 등 교과서 직접 근거가 약한 항목은 `confidence: low`와 notes를 유지했다.
+- noisy edge 방지 조건을 고정했다. 상대도수와 실험적 확률의 `represented_by` 방향을 뒤집지 않았고, 또는/동시에의 대조 edge는 한 방향만 유지했다. 오개념 risk로 향하는 `prerequisite_for`, 확률식에서 경우의 수 비율 절차로 되돌아가는 `used_in`, 이론적 확률에서 계산 절차로 향하는 역방향 edge도 만들지 않았다.
+- 새 `related_ids` 11건은 의미가 명확한 `used_in` edge로 정리해 `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`가 모두 0건이 되도록 했다.
+- 전체 산출물을 재생성한 결과 concept은 917개, edge는 4210개가 되었다. source ref audit은 13449개 ref를 기록하고 source catalogue는 5개를 유지한다.
+- `review-queue.*`는 164개 low-confidence concept, `concept-evidence-depth.*`는 concept 917개, `edge-evidence-depth.*`는 edge 4210개, `prerequisite-map.*`은 1524개 선수 관계 edge로 갱신했다.
+- `unit-coverage.*` 기준 `경우의 수와 확률`은 concept 45개, 내부 edge 193개, incoming edge 11개, outgoing edge 1개이며, confidence 분포는 high 5개, medium 26개, low 14개이다. concept type 분포는 core 4개, sub_concept 15개, representation 3개, procedure 11개, property 5개, term 1개, misconception_risk 6개이다.
+- `textbook-evidence-workplan.*`에서 `경우의 수와 확률`은 rank 1, priority tier `highest`이며 concept 45개, edge 205개, 총 250개 evidence row가 모두 `pending_textbook_pdf` 상태다. 이 단원의 low-confidence concept은 14개, low-confidence edge는 60개이다.
+- `test_build_pilot_data_probability_microconcepts.py`를 확장해 경우 나열·분류·연산 선택·동등 가능성 확인·확률식 표현·보수/범위 관련 낮은 신뢰도 노드·오개념 risk·noisy edge 부재를 고정했다.
+- 좁은 테스트: `python -X utf8 -m unittest -b test_build_pilot_data_probability.py test_build_pilot_data_probability_microconcepts.py` 8개 통과.
+- 전체 단위 테스트: `python -X utf8 -m unittest discover -s docs/math-concept-map/tools -p "test_*.py" -b` 334개 통과.
+- 전체 validator: `python -X utf8 docs/math-concept-map/tools/validate_concept_map.py`: 917개 concept, 4210개 edge, 5개 source, 60개 공식 성취기준 검증 통과.
+- 전체 직접 파생 산출물과 research-report/legacy 보조 산출물을 재생성했다. 교과서 evidence packet과 edge packet을 만든 뒤 `textbook-evidence-workplan.*`, 루트 `pilot-unit-map.*`, 전체 `unit-map-packets/*`를 다시 생성해 rank/count가 최신 packet index와 일치하도록 했다.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
 - 중1~중3 수학 교과서 PDF가 추가되면 목차, 학습 목표, 본문 정의, 정리, 예제, 용어 설명 순서로 모든 영역의 노드를 보강한다.
@@ -1765,5 +1787,5 @@
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
 - 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 `not_applicable_from_this_row` 41개가 broad context, 용어 충돌, 도구·자료 입력, 또는 약한 출현으로 유지되는지 주기적으로 감사한다. 현재 `pending_manual_review`는 8개이며, 주로 `선분`·`반직선` 후보이므로 교과서 본문 또는 중학교 기본 도형 직접 근거 확인 후 source ref 반영 여부를 판단한다.
 - 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.
-- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 266개, 총 309개 row로 유지한다. 공식·보조 문서 기반 미시 concept 보강을 계속한다면 이미 보강한 상위 단원을 제외하고 `삼각비`, `경우의 수와 확률`처럼 미시 concept과 edge 근거가 더 필요한 단원을 우선 검토한다.
+- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 266개, 총 309개 row로 유지한다. 공식·보조 문서 기반 미시 concept 보강을 계속한다면 이미 보강한 상위 단원을 제외하고 `대푯값`, `상자그림과 산점도`, `이차함수와 그 그래프`, `정수와 유리수`, `일차부등식`처럼 미시 concept과 edge 근거가 더 필요한 단원을 우선 검토한다.
 - 새 concept, alias, `related_ids`, 또는 `equivalent_to` 후보가 추가되면 `equivalence-alias-audit.*`, `related-edge-resolution-queue.*`, `textbook-edge-evidence-packets/*`, `edge-evidence-depth.*`를 함께 재생성한다.

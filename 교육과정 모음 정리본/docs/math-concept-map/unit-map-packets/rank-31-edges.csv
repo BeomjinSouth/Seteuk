@@ -11,5 +11,7 @@
 31,공통 선수개념,m1_num_ratio__used_in__m1_prop_direct_proportion,m1_num_ratio,비,공통 선수개념,m1_prop_direct_proportion,정비례,좌표평면과 그래프,used_in,cross_unit,low,official_dual_source,yes,2,
 31,공통 선수개념,m1_num_ratio__used_in__m1_prop_inverse_proportion,m1_num_ratio,비,공통 선수개념,m1_prop_inverse_proportion,반비례,좌표평면과 그래프,used_in,cross_unit,low,official_dual_source,yes,2,
 31,공통 선수개념,m1_num_ratio__prerequisite_for__m1_data_probability_by_case_ratio,m1_num_ratio,비,공통 선수개념,m1_data_probability_by_case_ratio,경우의 수의 비율로 확률 구하기,경우의 수와 확률,prerequisite_for,cross_unit,medium,official_dual_source,yes,4,
+31,공통 선수개념,m1_num_ratio__prerequisite_for__m1_data_probability_formula,m1_num_ratio,비,공통 선수개념,m1_data_probability_formula,확률의 계산식,경우의 수와 확률,prerequisite_for,cross_unit,medium,official_dual_source,yes,4,
+31,공통 선수개념,m1_num_ratio__prerequisite_for__m1_data_probability_fraction_expression,m1_num_ratio,비,공통 선수개념,m1_data_probability_fraction_expression,확률의 분수 표현,경우의 수와 확률,prerequisite_for,cross_unit,medium,official_single_source,yes,3,
 31,공통 선수개념,m1_num_ratio__prerequisite_for__m1_data_relative_frequency_calculation,m1_num_ratio,비,공통 선수개념,m1_data_relative_frequency_calculation,상대도수 구하기,도수분포표와 상대도수,prerequisite_for,cross_unit,high,official_dual_source,yes,4,
 31,공통 선수개념,m1_num_ratio__prerequisite_for__m1_geo_sector_proportional_reasoning,m1_num_ratio,비,공통 선수개념,m1_geo_sector_proportional_reasoning,중심각에 따른 부채꼴 비례 추론,평면도형의 성질,prerequisite_for,cross_unit,medium,official_dual_source,yes,2,

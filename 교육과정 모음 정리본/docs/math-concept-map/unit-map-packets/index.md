@@ -5,18 +5,18 @@ This generated index tracks compact concept hierarchy maps for every textbook ev
 ## Summary
 
 - unit maps: 34
-- concept rows: 898
-- edge rows touching units: 4904
-- cross-unit edge rows: 1574
+- concept rows: 917
+- edge rows touching units: 4999
+- cross-unit edge rows: 1578
 
 ## Packets
 
 | rank | grade | domain | unit | concepts | edges | cross | low concepts | low edges | map | dot |
 |---:|---|---|---|---:|---:|---:|---:|---:|---|---|
-| 1 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 좌표평면과 그래프 | 43 | 266 | 104 | 9 | 76 | rank-01.md | rank-01.dot |
-| 2 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 그 그래프 | 33 | 169 | 46 | 11 | 52 | rank-02.md | rank-02.dot |
-| 3 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 일차방정식의 관계 | 41 | 200 | 61 | 10 | 29 | rank-03.md | rank-03.dot |
-| 4 | 중2(교육과정 학년군: 중1-3) | 자료와 가능성 | 경우의 수와 확률 | 26 | 112 | 10 | 6 | 24 | rank-04.md | rank-04.dot |
+| 1 | 중2(교육과정 학년군: 중1-3) | 자료와 가능성 | 경우의 수와 확률 | 45 | 205 | 12 | 14 | 60 | rank-01.md | rank-01.dot |
+| 2 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 좌표평면과 그래프 | 43 | 266 | 104 | 9 | 76 | rank-02.md | rank-02.dot |
+| 3 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 그 그래프 | 33 | 169 | 46 | 11 | 52 | rank-03.md | rank-03.dot |
+| 4 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 일차방정식의 관계 | 41 | 200 | 61 | 10 | 29 | rank-04.md | rank-04.dot |
 | 5 | 중1(교육과정 학년군: 중1-3) | 자료와 가능성 | 대푯값 | 28 | 155 | 40 | 10 | 43 | rank-05.md | rank-05.dot |
 | 6 | 중3(교육과정 학년군: 중1-3) | 자료와 가능성 | 상자그림과 산점도 | 32 | 168 | 39 | 9 | 43 | rank-06.md | rank-06.dot |
 | 7 | 중3(교육과정 학년군: 중1-3) | 변화와 관계 | 이차함수와 그 그래프 | 30 | 143 | 25 | 3 | 11 | rank-07.md | rank-07.dot |
@@ -43,7 +43,7 @@ This generated index tracks compact concept hierarchy maps for every textbook ev
 | 28 | 중1(교육과정 학년군: 중1-3) | 도형과 측정 | 작도와 합동 | 29 | 140 | 36 | 3 | 12 | rank-28.md | rank-28.dot |
 | 29 | 중2(교육과정 학년군: 중1-3) | 도형과 측정 | 피타고라스 정리 | 23 | 126 | 35 | 4 | 12 | rank-29.md | rank-29.dot |
 | 30 | 중학교(교육과정 학년군: 중1-3) | 도형과 측정 | 도형과 측정 | 5 | 54 | 50 | 0 | 2 | rank-30.md | rank-30.dot |
-| 31 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 공통 선수개념 | 1 | 14 | 14 | 1 | 11 | rank-31.md | rank-31.dot |
+| 31 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 공통 선수개념 | 1 | 16 | 16 | 1 | 11 | rank-31.md | rank-31.dot |
 | 32 | 중학교(교육과정 학년군: 중1-3) | 수와 연산 | 수와 연산 | 1 | 9 | 9 | 0 | 4 | rank-32.md | rank-32.dot |
 | 33 | 중학교(교육과정 학년군: 중1-3) | 자료와 가능성 | 자료와 가능성 | 1 | 11 | 11 | 0 | 1 | rank-33.md | rank-33.dot |
 | 34 | 중1(교육과정 학년군: 중1-3) | 자료와 가능성 | 자료와 가능성 | 2 | 31 | 30 | 0 | 2 | rank-34.md | rank-34.dot |

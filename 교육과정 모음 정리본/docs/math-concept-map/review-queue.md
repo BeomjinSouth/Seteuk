@@ -2,7 +2,7 @@
 
 이 문서는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 출처 보강 때 먼저 확인할 대상을 정리한다.
 
-- 검토 대상 concept: 156개
+- 검토 대상 concept: 164개
 
 ## 영역별 검토 대상
 
@@ -11,17 +11,17 @@
 | 수와 연산 | 18 |
 | 변화와 관계 | 65 |
 | 도형과 측정 | 36 |
-| 자료와 가능성 | 37 |
+| 자료와 가능성 | 45 |
 
 ## 유형별 검토 대상
 
 | concept_type | concept 수 |
 |---|---:|
-| misconception_risk | 109 |
-| procedure | 4 |
-| property | 15 |
-| representation | 7 |
-| sub_concept | 9 |
+| misconception_risk | 112 |
+| procedure | 6 |
+| property | 16 |
+| representation | 8 |
+| sub_concept | 10 |
 | term | 12 |
 
 ## 검토 항목
@@ -148,8 +148,16 @@
 | m1_mis_pythagorean_leg_subtraction | 도형과 측정 | 피타고라스 정리 | misconception_risk | textbook_evidence_needed | 한 직각변을 구할 때 제곱의 차를 쓰지 않는 오류 | 공식 문서는 해당 오개념을 직접 제시하지 않는다. 피타고라스 정리 적용 과정에서 발생 가능한 지도상 위험으로만 연결하고, 교과서 오답·평가 문항 근거 확인 전까지 low로 둔다. |
 | m1_mis_pythagorean_non_right_triangle | 도형과 측정 | 피타고라스 정리 | misconception_risk | textbook_evidence_needed | 직각삼각형이 아닌 삼각형에 피타고라스 정리를 적용하는 오류 | 공식 문서는 해당 오개념을 직접 제시하지 않는다. 피타고라스 정리 적용 과정에서 발생 가능한 지도상 위험으로만 연결하고, 교과서 오답·평가 문항 근거 확인 전까지 low로 둔다. |
 | m1_mis_or_and_counting_confusion | 자료와 가능성 | 경우의 수와 확률 | misconception_risk | textbook_evidence_needed | 또는과 동시에의 경우의 수를 혼동하는 오류 |  |
+| m1_mis_or_overlap_double_counting | 자료와 가능성 | 경우의 수와 확률 | misconception_risk | textbook_evidence_needed | 또는의 경우를 중복 세는 오류 | 공식 문서의 또는/동시에 구분과 경로 문항 맥락에서 추론한 오개념 위험이다. 포함-배제 법칙 노드로 확장하지 않는다. |
 | m1_mis_permutation_combination_scope | 자료와 가능성 | 경우의 수와 확률 | misconception_risk | textbook_evidence_needed | 복잡한 순열·조합 문항을 중학교 경우의 수 범위에 포함하는 범위 오판 | 교육과정 유의사항에 근거한 범위 관리 노드다. |
 | m1_mis_probability_no_equal_likely | 자료와 가능성 | 경우의 수와 확률 | misconception_risk | textbook_evidence_needed | 동등 가능성 가정 없이 경우의 수 비율을 적용하는 오류 |  |
+| m1_mis_probability_out_of_range | 자료와 가능성 | 경우의 수와 확률 | misconception_risk | textbook_evidence_needed | 확률을 0보다 작거나 1보다 크게 쓰는 오류 | 확률의 기본 성질에서 파생한 진단 노드이며, 교과서 문제 오류 사례가 추가되면 source_refs를 보강한다. |
+| m1_mis_total_event_cases_swap | 자료와 가능성 | 경우의 수와 확률 | misconception_risk | textbook_evidence_needed | 전체 경우의 수와 사건이 일어나는 경우의 수를 바꾸는 오류 | 연구보고서 p. 260의 분모·분자 역할 구분에서 파생한 진단 노드로, 확정 개념이 아니라 오개념 위험으로 둔다. |
+| m1_data_counting_without_omission_duplication | 자료와 가능성 | 경우의 수와 확률 | procedure | source_detail_needed | 빠짐없이 중복 없이 경우 세기 | 교육과정 문서에는 직접 용어로 제시되지 않으나, 모든 경우의 수를 구하는 평가 맥락에서 필요한 암묵 절차로 낮은 신뢰도로 둔다. |
+| m1_data_probability_comparison | 자료와 가능성 | 경우의 수와 확률 | procedure | source_detail_needed | 확률 비교하기 | 공식 문서의 확률의 개념과 기본 성질에서 추론한 적용 절차이며, 교과서 예제 근거가 추가될 때까지 낮은 신뢰도로 둔다. |
+| m1_data_complement_probability | 자료와 가능성 | 경우의 수와 확률 | property | source_detail_needed | 사건이 일어나지 않을 확률 | 교육과정의 '확률의 기본 성질'에서 파생한 하위 성질 후보이다. 교과서 본문에서 직접 표현을 확인할 때까지 낮은 신뢰도로 둔다. |
+| m1_data_counting_table_tree_representation | 자료와 가능성 | 경우의 수와 확률 | representation | source_detail_needed | 표/수형도로 경우의 수 나타내기 | 표와 수형도는 교과서 본문에서 자주 분리될 수 있는 표현이므로, 현재 공식 문서 근거만으로는 낮은 신뢰도로 둔다. |
+| m1_data_event_not_occur_cases_count | 자료와 가능성 | 경우의 수와 확률 | sub_concept | source_detail_needed | 사건이 일어나지 않는 경우의 수 | 보수 사건 용어는 현 공식 근거에서 직접 확인되지 않아 낮은 신뢰도로 두고, '사건이 일어나지 않는 경우'라는 해석 노드로 보존한다. |
 | m1_data_one_probability_event | 자료와 가능성 | 경우의 수와 확률 | sub_concept | source_detail_needed | 확률이 1인 사건 | 확률의 기본 성질에서 분리한 끝값 해석 concept이다. 교과서 본문 표현 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_data_probability_value | 자료와 가능성 | 경우의 수와 확률 | sub_concept | source_detail_needed | 확률값 | 공식 문서의 '가능성을 수로 나타낸 값' 맥락에서 분리한 미시 concept이다. 교과서 용어 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_data_zero_probability_event | 자료와 가능성 | 경우의 수와 확률 | sub_concept | source_detail_needed | 확률이 0인 사건 | 확률의 기본 성질에서 분리한 끝값 해석 concept이다. 교과서 본문 표현 확인 전까지 낮은 신뢰도로 둔다. |
