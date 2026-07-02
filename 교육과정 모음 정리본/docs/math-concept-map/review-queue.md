@@ -2,7 +2,7 @@
 
 이 문서는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 출처 보강 때 먼저 확인할 대상을 정리한다.
 
-- 검토 대상 concept: 136개
+- 검토 대상 concept: 145개
 
 ## 영역별 검토 대상
 
@@ -11,18 +11,18 @@
 | 수와 연산 | 18 |
 | 변화와 관계 | 58 |
 | 도형과 측정 | 32 |
-| 자료와 가능성 | 28 |
+| 자료와 가능성 | 37 |
 
 ## 유형별 검토 대상
 
 | concept_type | concept 수 |
 |---|---:|
-| misconception_risk | 98 |
-| procedure | 3 |
-| property | 8 |
+| misconception_risk | 102 |
+| procedure | 4 |
+| property | 11 |
 | representation | 7 |
 | sub_concept | 9 |
-| term | 11 |
+| term | 12 |
 
 ## 검토 항목
 
@@ -142,7 +142,16 @@
 | m1_data_one_probability_event | 자료와 가능성 | 경우의 수와 확률 | sub_concept | source_detail_needed | 확률이 1인 사건 | 확률의 기본 성질에서 분리한 끝값 해석 concept이다. 교과서 본문 표현 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_data_probability_value | 자료와 가능성 | 경우의 수와 확률 | sub_concept | source_detail_needed | 확률값 | 공식 문서의 '가능성을 수로 나타낸 값' 맥락에서 분리한 미시 concept이다. 교과서 용어 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_data_zero_probability_event | 자료와 가능성 | 경우의 수와 확률 | sub_concept | source_detail_needed | 확률이 0인 사건 | 확률의 기본 성질에서 분리한 끝값 해석 concept이다. 교과서 본문 표현 확인 전까지 낮은 신뢰도로 둔다. |
-| m1_mis_mean_only_representative | 자료와 가능성 | 대푯값 | misconception_risk | textbook_evidence_needed | 대푯값을 평균으로만 보는 오류 |  |
+| m1_mis_even_median_no_average | 자료와 가능성 | 대푯값 | misconception_risk | textbook_evidence_needed | 짝수 개 자료에서 두 가운데 값 중 하나만 중앙값으로 보는 오류 | 공식 성취기준에서 직접 명명되지 않은 교과서형 오개념 위험이다. 교과서 예제·문항 근거 확인 전까지 low로 둔다. |
+| m1_mis_extreme_value_mean_choice | 자료와 가능성 | 대푯값 | misconception_risk | textbook_evidence_needed | 극단적인 값이 있는 자료에서 평균만 선택하는 오류 | 공식 문서의 '자료의 특성'을 오개념 위험으로 분해한 추론 노드이다. 교과서 예제·문항 근거 확인 전까지 low로 둔다. |
+| m1_mis_mean_only_representative | 자료와 가능성 | 대푯값 | misconception_risk | textbook_evidence_needed | 대푯값을 평균으로만 보는 오류 | 오개념 위험은 선수 관계로 확정하지 않고, 자료의 특성에 맞는 대푯값 선택과 혼동 관계로만 둔다. |
+| m1_mis_median_without_ordering | 자료와 가능성 | 대푯값 | misconception_risk | textbook_evidence_needed | 자료를 정렬하지 않고 중앙값을 찾는 오류 | 공식 성취기준에서 직접 명명되지 않은 교과서형 오개념 위험이다. 교과서 예제·문항 근거 확인 전까지 low로 둔다. |
+| m1_mis_mode_largest_value | 자료와 가능성 | 대푯값 | misconception_risk | textbook_evidence_needed | 최빈값을 가장 큰 값으로 보는 오류 | 공식 성취기준에서 직접 명명되지 않은 교과서형 오개념 위험이다. 교과서 예제·문항 근거 확인 전까지 low로 둔다. |
+| m1_data_median_extreme_value_context | 자료와 가능성 | 대푯값 | procedure | source_detail_needed | 극단적인 값이 있는 자료에서 중앙값 고려하기 | 공식 문서의 '자료의 특성에 따라 적절한 대푯값 선택'을 교과서형 판단 사례로 분해한 추론 노드이다. 교과서 예제 근거 확인 전까지 low로 둔다. |
+| m1_data_mean_sensitive_to_extreme_value | 자료와 가능성 | 대푯값 | property | source_detail_needed | 평균은 극단적인 값의 영향을 받음 | 공식 문서의 '자료의 특성에 따라 적절한 대푯값 선택'을 평균의 민감성 맥락으로 분해한 추론 노드이다. 교과서 예제 근거 확인 전까지 low로 둔다. |
+| m1_data_multiple_modes | 자료와 가능성 | 대푯값 | property | source_detail_needed | 최빈값이 여러 개인 경우 | 공식 문서에서 직접 명명되지 않은 교과서형 예외 처리이다. 교과서 본문·예제 근거 확인 전까지 low로 둔다. |
+| m1_data_no_mode | 자료와 가능성 | 대푯값 | property | source_detail_needed | 최빈값이 없는 경우 | 공식 문서에서 직접 명명되지 않은 교과서형 예외 처리이다. 교과서 본문·예제 근거 확인 전까지 low로 둔다. |
+| m1_data_extreme_value | 자료와 가능성 | 대푯값 | term | source_detail_needed | 극단적인 값 | 공식 문서의 '자료의 특성'을 교과서 예제 맥락으로 분해한 추론 노드이다. 교과서 본문 확인 전까지 low로 둔다. |
 | m1_mis_graph_scale_distortion | 자료와 가능성 | 도수분포표와 상대도수 | misconception_risk | textbook_evidence_needed | 눈금 왜곡 그래프를 그대로 해석하는 오류 | 교육과정의 '부적절한 눈금으로 자료를 부정확하게 나타낸 표나 그래프 오류 찾기'에 근거한 노드다. |
 | m1_mis_histogram_bar_graph | 자료와 가능성 | 도수분포표와 상대도수 | misconception_risk | textbook_evidence_needed | 히스토그램과 막대그래프를 같은 표현으로 보는 오류 | 공식 문서의 히스토그램 표현 요구에서 추론한 오개념 위험이다. 교과서 예제와 문항 근거 보강 필요. |
 | m1_mis_relative_frequency_frequency | 자료와 가능성 | 도수분포표와 상대도수 | misconception_risk | textbook_evidence_needed | 도수와 상대도수를 혼동하는 오류 |  |

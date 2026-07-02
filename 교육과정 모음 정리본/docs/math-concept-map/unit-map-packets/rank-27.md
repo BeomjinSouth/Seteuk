@@ -6,77 +6,84 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 
 - rank: 27
 - grade: 중1(교육과정 학년군: 중1-3)
-- domain: 변화와 관계
-- unit: 일차함수와 일차방정식의 관계
-- priority tier: high
-- workplan score: 107
-- concepts: 16
-- edges touching unit: 81
-- cross-unit edges: 29
+- domain: 도형과 측정
+- unit: 작도와 합동
+- priority tier: highest
+- workplan score: 125
+- concepts: 29
+- edges touching unit: 140
+- cross-unit edges: 36
 - low confidence concepts: 3
-- low confidence edges: 11
+- low confidence edges: 12
 
 ## Concept Type Distribution
 
 | concept_type | count |
 |---|---:|
-| core_concept | 1 |
+| core_concept | 2 |
 | misconception_risk | 3 |
-| procedure | 2 |
-| property | 4 |
-| representation | 5 |
-| term | 1 |
+| procedure | 11 |
+| property | 6 |
+| sub_concept | 1 |
+| term | 6 |
 
 ## Relationship Distribution
 
 | relationship_type | count |
 |---|---:|
-| contains | 17 |
+| contains | 29 |
 | contrasts_with | 3 |
-| often_confused_with | 8 |
-| prerequisite_for | 26 |
-| related_to | 4 |
-| represented_by | 7 |
-| used_in | 16 |
+| often_confused_with | 9 |
+| prerequisite_for | 52 |
+| related_to | 6 |
+| represented_by | 4 |
+| used_in | 37 |
 
 ## Low Confidence Concepts
 
 | concept_id | label_ko | type | evidence_depth | notes |
 |---|---|---|---|---|
-| m1_mis_intersection_count_solution_count | 교점의 개수와 해의 개수를 따로 보는 오류 | misconception_risk | official_dual_source | 성취수준의 교점과 해의 관계 설명에서 추론한 오개념 위험이다. 세부 사례별 오류는 교과서 예제 확인 후 분리한다. |
-| m1_mis_intersection_solution | 그래프의 교점과 연립방정식의 해를 분리해서 보는 오류 | misconception_risk | official_dual_source |  |
-| m1_mis_single_equation_graph_as_system_solution | 한 일차방정식의 그래프를 연립일차방정식의 해로 보는 오류 | misconception_risk | official_dual_source | 한 식의 해 전체와 연립된 두 식의 공통 해를 구별해야 하는 관계 단원에서 추론한 오개념 위험이다. |
+| m1_mis_congruence_correspondence_order | 합동 판별에서 대응 순서를 무시하는 오류 | misconception_risk | official_dual_source | 공식 성취기준에서 직접 명명되지 않은 합동 판별 오개념이다. 교과서 문항 근거 확인 전까지 low로 둔다. |
+| m1_mis_construction_measurement_tools | 눈금자나 각도기로 재서 작도하는 오류 | misconception_risk | official_dual_source | 공식 성취기준에서 직접 명명되지 않은 교과서형 오개념 위험이다. 교과서 예제·문항 근거 확인 전까지 low로 둔다. |
+| m1_mis_sas_nonincluded_angle | 끼인각이 아닌 각을 SAS 조건에 쓰는 오류 | misconception_risk | official_dual_source | 공식 성취기준에서 직접 명명되지 않은 합동 조건 판별 오개념이다. 교과서 문항 근거 확인 전까지 low로 둔다. |
 
 ## Cross-Unit Edges
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
-| m1_mis_intersection_solution__often_confused_with__m1_system_solution | 그래프의 교점과 연립방정식의 해를 분리해서 보는 오류 | often_confused_with | 연립일차방정식의 해 | low | official_dual_source |
-| m1_mis_single_equation_graph_as_system_solution__often_confused_with__m1_system_solution | 한 일차방정식의 그래프를 연립일차방정식의 해로 보는 오류 | often_confused_with | 연립일차방정식의 해 | low | official_dual_source |
-| m1_coord_coordinate__prerequisite_for__m1_func_intersection_point | 좌표 | prerequisite_for | 교점 | medium | official_single_source |
-| m1_coord_coordinate__prerequisite_for__m1_func_intersection_point_coordinate | 좌표 | prerequisite_for | 교점의 좌표 | medium | official_dual_source |
-| m1_coord_coordinate_plane__prerequisite_for__m1_func_two_variable_linear_equation_graph | 좌표평면 | prerequisite_for | 미지수가 2개인 일차방정식의 그래프 | high | official_dual_source |
-| m1_coord_ordered_pair__prerequisite_for__m1_func_two_variable_equation_solution_pair | 순서쌍 | prerequisite_for | 미지수가 2개인 일차방정식 해의 순서쌍 | medium | official_dual_source |
-| m1_eq_unit__prerequisite_for__m1_func_eq_relation_unit | 일차방정식 | prerequisite_for | 일차함수와 일차방정식의 관계 | high | official_dual_source |
-| m1_func_linear_graph__prerequisite_for__m1_func_two_linear_graphs | 일차함수의 그래프 | prerequisite_for | 두 일차함수의 그래프 | high | official_dual_source |
-| m1_func_linear_graph__prerequisite_for__m1_func_two_variable_equation_as_graph | 일차함수의 그래프 | prerequisite_for | 미지수가 2개인 일차방정식의 해를 그래프로 나타내기 | high | official_dual_source |
-| m1_func_linear_graph__prerequisite_for__m1_func_two_variable_linear_equation_graph | 일차함수의 그래프 | prerequisite_for | 미지수가 2개인 일차방정식의 그래프 | high | official_dual_source |
-| m1_func_unit__prerequisite_for__m1_func_eq_relation_unit | 일차함수와 그 그래프 | prerequisite_for | 일차함수와 일차방정식의 관계 | high | official_dual_source |
-| m1_system_simultaneous_linear_equations__prerequisite_for__m1_func_system_graph_relation | 연립일차방정식 | prerequisite_for | 두 일차함수의 그래프와 연립일차방정식의 관계 | high | official_dual_source |
-| m1_system_solution__prerequisite_for__m1_func_intersection_solution_count_relation | 연립일차방정식의 해 | prerequisite_for | 교점의 개수와 연립일차방정식 해의 개수의 관계 | medium | official_dual_source |
-| m1_system_solution__prerequisite_for__m1_func_system_solution_from_intersection | 연립일차방정식의 해 | prerequisite_for | 교점으로 연립일차방정식의 해 말하기 | high | official_dual_source |
-| m1_system_two_variable_linear_equation__prerequisite_for__m1_func_two_variable_equation_as_graph | 미지수가 2개인 일차방정식 | prerequisite_for | 미지수가 2개인 일차방정식의 해를 그래프로 나타내기 | high | official_dual_source |
-| m1_system_two_variable_linear_equation__prerequisite_for__m1_func_two_variable_equation_solution_pair | 미지수가 2개인 일차방정식 | prerequisite_for | 미지수가 2개인 일차방정식 해의 순서쌍 | medium | official_dual_source |
-| m1_system_two_variable_linear_equation__prerequisite_for__m1_func_two_variable_linear_equation_graph | 미지수가 2개인 일차방정식 | prerequisite_for | 미지수가 2개인 일차방정식의 그래프 | high | official_dual_source |
-| m1_func_two_variable_equation_solution_pair__represented_by__m1_coord_ordered_pair | 미지수가 2개인 일차방정식 해의 순서쌍 | represented_by | 순서쌍 | medium | official_dual_source |
-| m1_system_simultaneous_linear_equations__represented_by__m1_func_two_linear_graphs | 연립일차방정식 | represented_by | 두 일차함수의 그래프 | high | official_dual_source |
-| m1_system_solution__represented_by__m1_func_intersection_point | 연립일차방정식의 해 | represented_by | 교점 | high | official_dual_source |
-| m1_system_solution__represented_by__m1_func_intersection_point_coordinate | 연립일차방정식의 해 | represented_by | 교점의 좌표 | high | official_dual_source |
-| m1_system_two_variable_linear_equation__represented_by__m1_func_two_variable_linear_equation_graph | 미지수가 2개인 일차방정식 | represented_by | 미지수가 2개인 일차방정식의 그래프 | high | official_dual_source |
-| m1_func_linear_graph__used_in__m1_func_equation_relation | 일차함수의 그래프 | used_in | 일차함수와 미지수가 2개인 일차방정식의 관계 | high | official_dual_source |
-| m1_system_two_variable_linear_equation__used_in__m1_func_equation_relation | 미지수가 2개인 일차방정식 | used_in | 일차함수와 미지수가 2개인 일차방정식의 관계 | medium | official_dual_source |
-| m1_system_two_variable_linear_equation__used_in__m1_func_two_variable_equation_as_graph | 미지수가 2개인 일차방정식 | used_in | 미지수가 2개인 일차방정식의 해를 그래프로 나타내기 | high | official_dual_source |
-| m1_geo_intersection_point__contrasts_with__m1_func_intersection_point | 교점 | contrasts_with | 교점 | medium | official_dual_source |
-| m1_coord_graph_unit__related_to__m1_func_eq_relation_unit | 좌표평면과 그래프 | related_to | 일차함수와 일차방정식의 관계 | medium | official_dual_source |
-| m1_func_two_variable_equation_solution_pair__related_to__m1_system_solution_ordered_pair | 미지수가 2개인 일차방정식 해의 순서쌍 | related_to | 해의 순서쌍 표현 | medium | official_dual_source |
-| m1_system_unit__related_to__m1_func_eq_relation_unit | 연립일차방정식 | related_to | 일차함수와 일차방정식의 관계 | medium | official_dual_source |
+| m1_mis_congruence_similarity__often_confused_with__m1_geo_congruence | 합동과 닮음을 같은 관계로 보는 오류 | often_confused_with | 합동 | low | official_dual_source |
+| m1_geo_domain__contains__m1_geo_construction_congruence_unit | 도형과 측정 | contains | 작도와 합동 | high | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_construction | 각 | prerequisite_for | 작도 | high | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_copy_angle_construction | 각 | prerequisite_for | 주어진 각과 크기가 같은 각 작도 | medium | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_corresponding_angles_in_congruence | 각 | prerequisite_for | 합동에서의 대응하는 각 | medium | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_opposite_angle | 각 | prerequisite_for | 대각 | high | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_opposite_side | 각 | prerequisite_for | 대변 | high | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_triangle_construction | 각 | prerequisite_for | 삼각형의 작도 | high | official_dual_source |
+| m1_geo_basic_unit__prerequisite_for__m1_geo_construction_congruence_unit | 기본 도형 | prerequisite_for | 작도와 합동 | high | official_dual_source |
+| m1_geo_congruence__prerequisite_for__m1_geo_similarity | 합동 | prerequisite_for | 닮음 | high | official_dual_source |
+| m1_geo_construction_congruence_unit__prerequisite_for__m1_geo_triangle_quadrilateral_unit | 작도와 합동 | prerequisite_for | 삼각형과 사각형의 성질 | high | official_dual_source |
+| m1_geo_distance_between_two_points__prerequisite_for__m1_geo_copy_segment_construction | 두 점 사이의 거리 | prerequisite_for | 주어진 선분과 길이가 같은 선분 작도 | medium | official_dual_source |
+| m1_geo_distance_between_two_points__prerequisite_for__m1_geo_triangle_construction | 두 점 사이의 거리 | prerequisite_for | 삼각형의 작도 | high | official_dual_source |
+| m1_geo_line__prerequisite_for__m1_geo_construction | 직선 | prerequisite_for | 작도 | high | official_dual_source |
+| m1_geo_line_segment__prerequisite_for__m1_geo_copy_segment_construction | 선분 | prerequisite_for | 주어진 선분과 길이가 같은 선분 작도 | medium | official_dual_source |
+| m1_geo_line_segment__prerequisite_for__m1_geo_corresponding_sides_in_congruence | 선분 | prerequisite_for | 합동에서의 대응하는 변 | medium | official_dual_source |
+| m1_geo_opposite_angle__prerequisite_for__m1_geo_parallelogram_opposite_sides_angles | 대각 | prerequisite_for | 평행사변형의 마주 보는 변과 각 | high | official_dual_source |
+| m1_geo_opposite_side__prerequisite_for__m1_geo_parallelogram_opposite_sides_angles | 대변 | prerequisite_for | 평행사변형의 마주 보는 변과 각 | high | official_dual_source |
+| m1_geo_point__prerequisite_for__m1_geo_construction | 점 | prerequisite_for | 작도 | high | official_dual_source |
+| m1_geo_point__prerequisite_for__m1_geo_corresponding_vertices_in_congruence | 점 | prerequisite_for | 합동에서의 대응하는 꼭짓점 | medium | official_dual_source |
+| m1_geo_triangle__prerequisite_for__m1_geo_triangle_construction_asa | 삼각형 | prerequisite_for | 한 변과 그 양 끝각이 주어진 삼각형 작도 | medium | official_dual_source |
+| m1_geo_triangle__prerequisite_for__m1_geo_triangle_construction_sas | 삼각형 | prerequisite_for | 두 변과 그 끼인각이 주어진 삼각형 작도 | medium | official_dual_source |
+| m1_geo_triangle__prerequisite_for__m1_geo_triangle_construction_sss | 삼각형 | prerequisite_for | 세 변이 주어진 삼각형 작도 | medium | official_dual_source |
+| m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_incenter | 삼각형의 합동 조건 | prerequisite_for | 내심 | high | official_dual_source |
+| m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_isosceles_properties | 삼각형의 합동 조건 | prerequisite_for | 이등변삼각형의 성질 | high | official_dual_source |
+| m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_isosceles_property_proof | 삼각형의 합동 조건 | prerequisite_for | 이등변삼각형 성질 정당화하기 | high | official_dual_source |
+| m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_isosceles_triangle | 삼각형의 합동 조건 | prerequisite_for | 이등변삼각형 | high | official_dual_source |
+| m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_proof | 삼각형의 합동 조건 | prerequisite_for | 증명 | high | official_dual_source |
+| m1_geo_triangle_congruence_conditions__prerequisite_for__m1_geo_right_triangle_congruence_conditions | 삼각형의 합동 조건 | prerequisite_for | 직각삼각형의 합동 조건 | medium | official_dual_source |
+| m1_geo_triangle__used_in__m1_geo_triangle_congruence_conditions | 삼각형 | used_in | 삼각형의 합동 조건 | medium | official_dual_source |
+| m1_geo_triangle__used_in__m1_geo_triangle_construction | 삼각형 | used_in | 삼각형의 작도 | medium | official_dual_source |
+| m1_geo_triangle_congruence_conditions__used_in__m1_geo_proof | 삼각형의 합동 조건 | used_in | 증명 | high | official_dual_source |
+| m1_geo_triangle_congruence_judgement__used_in__m1_geo_justification | 삼각형의 합동 판별 | used_in | 정당화 | medium | official_dual_source |
+| m1_geo_congruence__contrasts_with__m1_geo_similarity | 합동 | contrasts_with | 닮음 | high | official_dual_source |
+| m1_geo_similarity__contrasts_with__m1_geo_congruence | 닮음 | contrasts_with | 합동 | high | official_dual_source |
+| m1_geo_trig_opposite_side__related_to__m1_geo_opposite_side | 기준각의 대변 | related_to | 대변 | medium | official_dual_source |

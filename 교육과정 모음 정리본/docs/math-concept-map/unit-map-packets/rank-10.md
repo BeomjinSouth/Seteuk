@@ -6,15 +6,15 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 
 - rank: 10
 - grade: 중3(교육과정 학년군: 중1-3)
-- domain: 자료와 가능성
-- unit: 산포도
+- domain: 도형과 측정
+- unit: 원의 성질
 - priority tier: highest
-- workplan score: 218
-- concepts: 25
-- edges touching unit: 132
-- cross-unit edges: 33
-- low confidence concepts: 8
-- low confidence edges: 32
+- workplan score: 224
+- concepts: 33
+- edges touching unit: 188
+- cross-unit edges: 61
+- low confidence concepts: 6
+- low confidence edges: 26
 
 ## Concept Type Distribution
 
@@ -22,70 +22,75 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 |---|---:|
 | core_concept | 2 |
 | misconception_risk | 4 |
-| procedure | 7 |
-| property | 2 |
-| representation | 4 |
-| sub_concept | 3 |
-| term | 3 |
+| procedure | 3 |
+| property | 14 |
+| sub_concept | 4 |
+| term | 6 |
 
 ## Relationship Distribution
 
 | relationship_type | count |
 |---|---:|
-| contains | 25 |
-| often_confused_with | 11 |
-| prerequisite_for | 46 |
-| related_to | 8 |
-| represented_by | 4 |
-| used_in | 38 |
+| contains | 36 |
+| contrasts_with | 3 |
+| often_confused_with | 12 |
+| prerequisite_for | 88 |
+| related_to | 5 |
+| represented_by | 5 |
+| used_in | 39 |
 
 ## Low Confidence Concepts
 
 | concept_id | label_ko | type | evidence_depth | notes |
 |---|---|---|---|---|
-| m1_data_same_mean_different_spread | 평균이 같은 두 분포의 흩어진 정도 비교 | sub_concept | official_dual_source | 두 집단 분포 비교 성취수준에서 필요한 대표적인 비교 맥락으로 추론했다. 공식 문서의 직접 표현은 아니므로 교과서 예제 근거 확인 전까지 낮은 신뢰도로 둔다. |
-| m1_data_variability_calculation_table | 산포도 계산 표 | representation | official_dual_source | 교과서 예제에서 자주 쓰이는 계산 표 형식으로 추론했다. 공식 문서의 직접 표현은 아니므로 낮은 신뢰도로 둔다. |
-| m1_data_deviation_sum_zero | 편차의 합은 0 | property | official_dual_source | 편차의 정의에서 파생되는 교과서 정리 성격의 성질이다. 공식 문서의 직접 용어는 아니므로 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
-| m1_data_standard_deviation_unit | 표준편차의 단위 | property | official_dual_source | 표준편차를 분산의 제곱근으로 정의한 데서 파생되는 해석 성질이다. 공식 문서의 직접 용어는 아니므로 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
-| m1_mis_deviation_as_absolute_distance | 편차를 항상 양수 거리로 보는 오류 | misconception_risk | official_dual_source | 학생 반응에서 예상되는 오개념으로 추론했다. 교과서 문항 근거 확인 전까지 낮은 신뢰도로 둔다. |
-| m1_mis_same_mean_same_distribution | 평균이 같으면 분포도 같다고 보는 오류 | misconception_risk | official_dual_source | 두 집단 분포 비교에서 예상되는 오개념으로 추론했다. 교과서 예제·문항 근거 확인 전까지 낮은 신뢰도로 둔다. |
-| m1_mis_sd_without_square_root | 표준편차에서 제곱근을 빠뜨리는 오류 | misconception_risk | official_dual_source | 표준편차 계산 절차에서 예상되는 오개념으로 추론했다. 교과서 문항 근거 확인 전까지 낮은 신뢰도로 둔다. |
-| m1_mis_variance_standard_deviation | 분산과 표준편차를 같은 값으로 보는 오류 | misconception_risk | official_dual_source |  |
+| m1_geo_circle_auxiliary_radius_center | 원의 중심과 반지름 보조선 활용 | procedure | official_dual_source | 보조선 활용은 공식 문서의 정당화 요구에서 추론한 절차다. 교과서 증명 맥락 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_geo_semicircle_arc | 반원 | term | official_dual_source | 반원 표현은 원주각 성질의 대표 적용 맥락으로 추출한 잠정 용어다. 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_mis_circle_proportion_scope | 원과 비례에 관한 성질을 범위에 포함하는 오류 | misconception_risk | official_single_source | 교육과정 유의사항에 근거한 범위 관리 노드다. 교과서 또는 학생 오답 근거 확인 전까지 선수 관계 없이 오개념 위험으로만 둔다. |
+| m1_mis_inscribed_central_angle_equal | 원주각과 중심각을 같은 크기로 보는 오류 | misconception_risk | official_dual_source | 원주각 성질에서 추론한 오개념 위험이다. 교과서 예제나 문항 근거 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_mis_same_chord_arc_scope | 같은 현과 같은 호의 조건을 넓게 적용하는 오류 | misconception_risk | official_dual_source | 공식 성취수준의 성질 적용 맥락에서 추론한 위험이다. 교과서 예제와 오답 근거로 보강한다. |
+| m1_mis_tangent_radius | 접선과 반지름의 수직 관계를 놓치는 오류 | misconception_risk | official_dual_source | 교과서 예제나 오답 근거 확인 전까지 선수 관계 없이 오개념 위험으로만 둔다. |
 
 ## Cross-Unit Edges
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
-| m1_data_mean__prerequisite_for__m1_data_same_mean_different_spread | 평균 | prerequisite_for | 평균이 같은 두 분포의 흩어진 정도 비교 | low | official_dual_source |
-| m1_data_domain__contains__m1_data_variability_unit | 자료와 가능성 | contains | 산포도 | high | official_dual_source |
-| m1_calc_power__prerequisite_for__m1_data_squared_deviation | 거듭제곱 | prerequisite_for | 편차의 제곱 | medium | official_dual_source |
-| m1_data_distribution__prerequisite_for__m1_data_variability | 자료의 분포 | prerequisite_for | 산포도 | high | official_dual_source |
-| m1_data_distribution__prerequisite_for__m1_data_variability_magnitude_interpretation | 자료의 분포 | prerequisite_for | 산포도 값의 크기 해석 | medium | official_dual_source |
-| m1_data_distribution__prerequisite_for__m1_data_variability_unit | 자료의 분포 | prerequisite_for | 산포도 | high | official_dual_source |
-| m1_data_distribution_interpretation__prerequisite_for__m1_data_compare_distributions_variability | 자료의 분포 특징 해석 | prerequisite_for | 산포도로 두 집단의 분포 비교 | high | official_dual_source |
-| m1_data_mean__prerequisite_for__m1_data_deviation | 평균 | prerequisite_for | 편차 | high | official_dual_source |
-| m1_data_mean__prerequisite_for__m1_data_deviation_calculation | 평균 | prerequisite_for | 편차 구하기 | medium | official_dual_source |
-| m1_data_representative_value__prerequisite_for__m1_data_variability | 대푯값 | prerequisite_for | 산포도 | high | official_dual_source |
-| m1_data_representative_value__prerequisite_for__m1_data_variability_unit | 대푯값 | prerequisite_for | 산포도 | high | official_dual_source |
-| m1_data_variable__prerequisite_for__m1_data_deviation | 변량 | prerequisite_for | 편차 | high | official_dual_source |
-| m1_data_variable__prerequisite_for__m1_data_deviation_calculation | 변량 | prerequisite_for | 편차 구하기 | medium | official_dual_source |
-| m1_num_addition__prerequisite_for__m1_data_sum_squared_deviation | 덧셈 | prerequisite_for | 편차의 제곱의 합 | medium | official_dual_source |
-| m1_num_division__prerequisite_for__m1_data_variance_calculation | 나눗셈 | prerequisite_for | 분산 구하기 | medium | official_dual_source |
-| m1_num_division__prerequisite_for__m1_data_variance_formula | 나눗셈 | prerequisite_for | 분산 계산식 | medium | official_dual_source |
-| m1_num_square_root__prerequisite_for__m1_data_standard_deviation | 제곱근 | prerequisite_for | 표준편차 | high | official_dual_source |
-| m1_num_square_root__prerequisite_for__m1_data_standard_deviation_calculation | 제곱근 | prerequisite_for | 표준편차 구하기 | medium | official_dual_source |
-| m1_num_square_root__prerequisite_for__m1_data_standard_deviation_formula | 제곱근 | prerequisite_for | 표준편차 계산식 | medium | official_dual_source |
-| m1_calc_power__used_in__m1_data_squared_deviation | 거듭제곱 | used_in | 편차의 제곱 | medium | official_dual_source |
-| m1_data_distribution__used_in__m1_data_explain_distribution_with_variability | 자료의 분포 | used_in | 산포도로 자료의 분포 설명하기 | high | official_dual_source |
-| m1_data_distribution__used_in__m1_data_variability | 자료의 분포 | used_in | 산포도 | high | official_dual_source |
-| m1_data_mean__used_in__m1_data_deviation | 평균 | used_in | 편차 | medium | official_dual_source |
-| m1_data_mean__used_in__m1_data_deviation_calculation | 평균 | used_in | 편차 구하기 | medium | official_dual_source |
-| m1_data_representative_value__used_in__m1_data_variability | 대푯값 | used_in | 산포도 | medium | official_dual_source |
-| m1_data_technology_tool_stats__used_in__m1_data_calculate_variance_sd | 공학 도구로 자료 수집·분석하기 | used_in | 분산과 표준편차 구하기 | medium | official_dual_source |
-| m1_data_variable__used_in__m1_data_deviation_calculation | 변량 | used_in | 편차 구하기 | medium | official_dual_source |
-| m1_num_division__used_in__m1_data_variance_calculation | 나눗셈 | used_in | 분산 구하기 | medium | official_dual_source |
-| m1_num_square_root__used_in__m1_data_standard_deviation_calculation | 제곱근 | used_in | 표준편차 구하기 | medium | official_dual_source |
-| m1_data_compare_distributions_variability__related_to__m1_data_box_plot_compare | 산포도로 두 집단의 분포 비교 | related_to | 상자그림으로 두 집단의 분포 비교 | medium | official_dual_source |
-| m1_data_frequency_unit__related_to__m1_data_variability_unit | 도수분포표와 상대도수 | related_to | 산포도 | medium | official_dual_source |
-| m1_data_representative_unit__related_to__m1_data_variability_unit | 대푯값 | related_to | 산포도 | medium | official_dual_source |
-| m1_data_variability_unit__related_to__m1_data_box_scatter_unit | 산포도 | related_to | 상자그림과 산점도 | medium | official_dual_source |
+| m1_geo_arc__prerequisite_for__m1_geo_semicircle_arc | 호 | prerequisite_for | 반원 | low | official_dual_source |
+| m1_geo_central_angle__prerequisite_for__m1_geo_circle_auxiliary_radius_center | 중심각 | prerequisite_for | 원의 중심과 반지름 보조선 활용 | low | official_dual_source |
+| m1_geo_chord__prerequisite_for__m1_geo_semicircle_arc | 현 | prerequisite_for | 반원 | low | official_dual_source |
+| m1_geo_tangent_ratio__contrasts_with__m1_geo_tangent_line | 탄젠트 | contrasts_with | 접선 | low | official_single_source |
+| m1_mis_inscribed_central_angle_equal__often_confused_with__m1_geo_central_angle | 원주각과 중심각을 같은 크기로 보는 오류 | often_confused_with | 중심각 | low | official_dual_source |
+| m1_mis_proof_observation__often_confused_with__m1_geo_circle_justification | 관찰 결과와 증명을 같은 수준의 근거로 보는 오류 | often_confused_with | 원의 성질 정당화 | low | official_dual_source |
+| m1_geo_circle_unit__contains__m1_geo_chord | 원의 성질 | contains | 현 | high | official_dual_source |
+| m1_geo_domain__contains__m1_geo_circle_unit | 도형과 측정 | contains | 원의 성질 | high | official_dual_source |
+| m1_geo_plane_properties_unit__contains__m1_geo_circle | 평면도형의 성질 | contains | 원 | high | official_dual_source |
+| m1_geo_angle__prerequisite_for__m1_geo_inscribed_angle | 각 | prerequisite_for | 원주각 | high | official_dual_source |
+| m1_geo_arc__prerequisite_for__m1_geo_central_inscribed_angle_relation | 호 | prerequisite_for | 중심각과 원주각의 관계 | medium | official_dual_source |
+| m1_geo_arc__prerequisite_for__m1_geo_inscribed_angle | 호 | prerequisite_for | 원주각 | high | official_dual_source |
+| m1_geo_arc__prerequisite_for__m1_geo_inscribed_angle_property | 호 | prerequisite_for | 원주각의 성질 | high | official_dual_source |
+| m1_geo_arc__prerequisite_for__m1_geo_inscribed_angle_subtended_arc | 호 | prerequisite_for | 원주각이 보는 호 | medium | official_dual_source |
+| m1_geo_arc__prerequisite_for__m1_geo_same_arc | 호 | prerequisite_for | 같은 호 | medium | official_dual_source |
+| m1_geo_arc__prerequisite_for__m1_geo_same_arc_same_chord_relation | 호 | prerequisite_for | 같은 호와 같은 현의 대응 관계 | medium | official_dual_source |
+| m1_geo_central_angle__prerequisite_for__m1_geo_central_inscribed_angle_relation | 중심각 | prerequisite_for | 중심각과 원주각의 관계 | medium | official_dual_source |
+| m1_geo_chord__prerequisite_for__m1_geo_chord_center_distance | 현 | prerequisite_for | 원 중심에서 현까지의 거리 | medium | official_dual_source |
+| m1_geo_chord__prerequisite_for__m1_geo_chord_center_perpendicular_bisects | 현 | prerequisite_for | 원의 중심에서 현에 내린 수선은 현을 이등분 | medium | official_dual_source |
+| m1_geo_chord__prerequisite_for__m1_geo_chord_midpoint_center_perpendicular | 현 | prerequisite_for | 원 중심과 현의 중점을 이은 직선은 현에 수직 | medium | official_dual_source |
+| m1_geo_chord__prerequisite_for__m1_geo_circle_chord_property | 현 | prerequisite_for | 원의 현에 관한 성질 | high | official_dual_source |
+| m1_geo_chord__prerequisite_for__m1_geo_equal_center_distance_equal_chords | 현 | prerequisite_for | 같은 원에서 중심거리가 같은 현의 길이가 같음 | medium | official_dual_source |
+| m1_geo_chord__prerequisite_for__m1_geo_equal_chords_equal_center_distance | 현 | prerequisite_for | 같은 원에서 길이가 같은 현은 중심에서 같은 거리에 있음 | medium | official_dual_source |
+| m1_geo_chord__prerequisite_for__m1_geo_same_arc_same_chord_relation | 현 | prerequisite_for | 같은 호와 같은 현의 대응 관계 | medium | official_dual_source |
+| m1_geo_chord__prerequisite_for__m1_geo_same_chord | 현 | prerequisite_for | 같은 현 | medium | official_dual_source |
+| m1_geo_circle__prerequisite_for__m1_geo_arc | 원 | prerequisite_for | 호 | high | official_dual_source |
+| m1_geo_circle__prerequisite_for__m1_geo_central_angle | 원 | prerequisite_for | 중심각 | high | official_dual_source |
+| m1_geo_circle__prerequisite_for__m1_geo_chord | 원 | prerequisite_for | 현 | high | official_dual_source |
+| m1_geo_circle__prerequisite_for__m1_geo_circumcircle | 원 | prerequisite_for | 외접원 | high | official_dual_source |
+| m1_geo_circle__prerequisite_for__m1_geo_incircle | 원 | prerequisite_for | 내접원 | high | official_dual_source |
+| m1_geo_circle__prerequisite_for__m1_geo_secant | 원 | prerequisite_for | 할선 | high | official_single_source |
+| m1_geo_circle__prerequisite_for__m1_geo_sector | 원 | prerequisite_for | 부채꼴 | high | official_dual_source |
+| m1_geo_distance_between_two_points__prerequisite_for__m1_geo_chord_center_distance | 두 점 사이의 거리 | prerequisite_for | 원 중심에서 현까지의 거리 | medium | official_dual_source |
+| m1_geo_length__prerequisite_for__m1_geo_circle_radius | 길이 | prerequisite_for | 원의 반지름 | medium | official_dual_source |
+| m1_geo_length__prerequisite_for__m1_geo_equal_tangent_lengths_from_point | 길이 | prerequisite_for | 한 점에서 그은 두 접선의 길이가 같음 | medium | official_dual_source |
+| m1_geo_line__prerequisite_for__m1_geo_tangent_line | 직선 | prerequisite_for | 접선 | high | official_dual_source |
+| m1_geo_midpoint__prerequisite_for__m1_geo_chord_center_perpendicular_bisects | 중점 | prerequisite_for | 원의 중심에서 현에 내린 수선은 현을 이등분 | medium | official_dual_source |
+| m1_geo_midpoint__prerequisite_for__m1_geo_chord_midpoint_center_perpendicular | 중점 | prerequisite_for | 원 중심과 현의 중점을 이은 직선은 현에 수직 | medium | official_dual_source |
+| m1_geo_perpendicular__prerequisite_for__m1_geo_chord_center_distance | 직교 | prerequisite_for | 원 중심에서 현까지의 거리 | medium | official_dual_source |
+| m1_geo_perpendicular__prerequisite_for__m1_geo_chord_center_perpendicular_bisects | 직교 | prerequisite_for | 원의 중심에서 현에 내린 수선은 현을 이등분 | medium | official_dual_source |

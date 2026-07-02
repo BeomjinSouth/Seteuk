@@ -1687,10 +1687,33 @@
 - 전체 직접 파생 산출물과 research-report/legacy 보조 산출물을 재생성했고 `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
 - PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
 
+## 2026-07-02 대푯값 미시 concept 병렬 보강
+
+- AGENTS.md를 다시 확인하고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 생성 로직과 파생 산출물 정비로 제한했다.
+- 멀티에이전트 explorer 3개를 읽기 전용으로 사용해 `대푯값`을 병렬 감사했다. Nash는 기존 7개 노드와 후보 concept, Erdos는 `[9수04-01]`·용어 목록·성취수준·평균 보조 근거의 source boundary, Volta는 새 테스트 구조와 noisy edge 부재 조건을 점검했다.
+- `자료값의 합`, `자료의 개수`, `평균 계산식`, `평균 구하기`를 추가해 평균을 “합 -> 자료 수 -> 계산식 -> 계산 절차”로 분해했다. 평균은 공식 용어 목록의 직접 핵심어가 아니므로 `CURR_DATA_REP_NOTE`, `ACH_DATA_REPRESENTATIVE`, `ACH_RESEARCH_MEAN_177`에 기반한 `confidence: medium`으로 유지했다.
+- `중앙값을 구하기 위한 자료 정렬`, `가운데 위치`, `자료의 개수가 홀수일 때 중앙값`, `자료의 개수가 짝수일 때 중앙값`을 추가해 중앙값 정의와 실제 계산 절차를 분리했다.
+- `자료값의 도수 세기`, `최빈값 찾기`, `최빈값이 없는 경우`, `최빈값이 여러 개인 경우`를 추가해 최빈값의 빈도 세기 절차와 예외 상황을 노드화했다. 예외 상황은 교과서 본문·예제 근거 확인 전까지 `confidence: low`로 둔다.
+- `자료의 특성 살펴보기`, `대푯값의 유용성 토론하기`, `극단적인 값`, `평균은 극단적인 값의 영향을 받음`, `극단적인 값이 있는 자료에서 중앙값 고려하기`를 추가해 “자료의 특성에 따라 적절한 대푯값 선택”을 수업에서 실제로 판단하는 절차로 분해했다.
+- `자료를 정렬하지 않고 중앙값을 찾는 오류`, `최빈값을 가장 큰 값으로 보는 오류`, `짝수 개 자료에서 두 가운데 값 중 하나만 중앙값으로 보는 오류`, `극단적인 값이 있는 자료에서 평균만 선택하는 오류`를 오개념 risk로 추가했다. 기존 `대푯값을 평균으로만 보는 오류`도 선수 관계 없이 `often_confused_with` 관계 중심으로 정리했다.
+- Erdos의 source boundary에 따라 가중평균, 기하평균, 기대값, 표본/모집단 표기, 백분위수 알고리즘, 1.5 IQR 규칙, 왜도·첨도, 사분위수·상자그림·분산·표준편차는 이번 `대푯값` slice에 추가하지 않았다.
+- 전체 산출물을 재생성한 결과 concept은 856개, edge는 3906개가 되었다. source ref audit은 12375개 ref를 기록하고 source catalogue는 5개를 유지한다.
+- `review-queue.*`는 145개 low-confidence concept, `concept-evidence-depth.*`는 concept 856개, `edge-evidence-depth.*`는 edge 3906개, `prerequisite-map.*`은 1416개 선수 관계 edge로 갱신했다.
+- `unit-coverage.*` 기준 `대푯값`은 concept 28개, 내부 edge 115개, incoming edge 26개, outgoing edge 14개이며, confidence 분포는 high 8개, medium 10개, low 10개이다. concept type 분포는 core 2개, representation 1개, procedure 10개, property 3개, term 7개, misconception_risk 5개이다.
+- `textbook-evidence-workplan.*`에서 `대푯값`은 rank 4, priority tier `highest`이며 concept 28개, edge 155개, 총 183개 evidence row가 모두 `pending_textbook_pdf` 상태다. 이 단원의 low-confidence concept은 10개, low-confidence edge는 43개이다.
+- `test_build_pilot_data_representative_microconcepts.py`를 추가해 평균 계산, 중앙값 홀수/짝수 처리, 최빈값 예외, 대푯값 선택 맥락, 오개념 risk의 confidence와 prerequisite 부재, 표현 edge 방향을 고정했다.
+- 좁은 테스트: `python -m unittest test_build_pilot_data_representative_microconcepts.py` 6개 통과.
+- edge/queue 회귀 테스트: `python -m unittest test_build_pilot_data_representative_microconcepts.py test_build_pilot_data_representative_refs.py test_build_pilot_edge_sync.py test_build_related_edge_resolution_queue.py test_build_node_edge_consistency_audit.py test_build_pilot_data_frequency_microconcepts.py test_build_pilot_data_variability_microconcepts.py test_build_pilot_data_box_scatter_microconcepts.py` 48개 통과.
+- 전체 단위 테스트: `python -m unittest discover -s . -p "test_*.py"`를 `docs/math-concept-map/tools`에서 실행해 324개 통과.
+- 전체 validator: `python docs/math-concept-map/tools/validate_concept_map.py`: 856개 concept, 3906개 edge, 5개 source, 60개 공식 성취기준 검증 통과.
+- diff check: `git diff --check -- docs/math-concept-map`: 종료 코드 0, CRLF 변환 경고만 확인.
+- 전체 직접 파생 산출물과 research-report/legacy 보조 산출물을 재생성했고 `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
 - 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 `not_applicable_from_this_row` 41개가 broad context, 용어 충돌, 도구·자료 입력, 또는 약한 출현으로 유지되는지 주기적으로 감사한다. 현재 `pending_manual_review`는 8개이며, 주로 `선분`·`반직선` 후보이므로 교과서 본문 또는 중학교 기본 도형 직접 근거 확인 후 source ref 반영 여부를 판단한다.
 - 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.
-- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 253개, 총 296개 row로 유지한다. 공식·보조 문서 기반 미시 concept 보강을 계속한다면 이미 보강한 상위 단원을 제외하고 `대푯값`, `피타고라스 정리`, `일차함수와 일차방정식의 관계`처럼 미시 concept이 덜 분해된 단원을 우선 검토한다.
+- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 253개, 총 296개 row로 유지한다. 공식·보조 문서 기반 미시 concept 보강을 계속한다면 이미 보강한 상위 단원을 제외하고 `피타고라스 정리`, `일차함수와 일차방정식의 관계`, `삼각비`처럼 미시 concept이 덜 분해된 단원을 우선 검토한다.
 - 새 concept, alias, `related_ids`, 또는 `equivalent_to` 후보가 추가되면 `equivalence-alias-audit.*`, `related-edge-resolution-queue.*`, `textbook-edge-evidence-packets/*`, `edge-evidence-depth.*`를 함께 재생성한다.

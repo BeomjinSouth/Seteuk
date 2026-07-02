@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 자료와 가능성
 - priority tier: low
 - priority score: 2
-- edges in packet: 26
-- cross-unit edges: 25
+- edges in packet: 31
+- cross-unit edges: 30
 - low confidence edges: 2
 
 ## Relationship Evidence Slots
@@ -29,10 +29,15 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_data_dataset__prerequisite_for__m1_data_frequency | cross_unit | 자료 | prerequisite_for | 도수 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_data_dataset__prerequisite_for__m1_data_median | cross_unit | 자료 | prerequisite_for | 중앙값 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_data_dataset__prerequisite_for__m1_data_mode | cross_unit | 자료 | prerequisite_for | 최빈값 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_data_dataset__prerequisite_for__m1_data_number_of_values | cross_unit | 자료 | prerequisite_for | 자료의 개수 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_data_dataset__prerequisite_for__m1_data_ordered_data_for_median | cross_unit | 자료 | prerequisite_for | 중앙값을 구하기 위한 자료 정렬 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_data_dataset__prerequisite_for__m1_data_ordered_data_for_quartiles | cross_unit | 자료 | prerequisite_for | 사분위수를 구하기 위한 자료 정렬 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_data_dataset__prerequisite_for__m1_data_representative_value | cross_unit | 자료 | prerequisite_for | 대푯값 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_data_dataset__prerequisite_for__m1_data_representative_value_context | cross_unit | 자료 | prerequisite_for | 자료의 특성 살펴보기 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_data_dataset__prerequisite_for__m1_data_statistical_inquiry_problem | cross_unit | 자료 | prerequisite_for | 통계적 탐구 문제 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_data_dataset__prerequisite_for__m1_data_stem_leaf_plot | cross_unit | 자료 | prerequisite_for | 줄기와 잎 그림 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_data_dataset__prerequisite_for__m1_data_sum_of_values | cross_unit | 자료 | prerequisite_for | 자료값의 합 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_data_dataset__prerequisite_for__m1_data_value_frequency_count | cross_unit | 자료 | prerequisite_for | 자료값의 도수 세기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_data_variable__prerequisite_for__m1_data_bivariate_pair | cross_unit | 변량 | prerequisite_for | 두 변량의 대응값 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_data_variable__prerequisite_for__m1_data_deviation | cross_unit | 변량 | prerequisite_for | 편차 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_data_variable__prerequisite_for__m1_data_deviation_calculation | cross_unit | 변량 | prerequisite_for | 편차 구하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |

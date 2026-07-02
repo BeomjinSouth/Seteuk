@@ -5,90 +5,95 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 ## Target Unit
 
 - rank: 8
-- grade: 중2(교육과정 학년군: 중1-3)
-- domain: 도형과 측정
-- unit: 삼각형과 사각형의 성질
+- grade: 중1(교육과정 학년군: 중1-3)
+- domain: 변화와 관계
+- unit: 일차부등식
 - priority tier: highest
-- workplan score: 208
-- concepts: 47
-- edges touching unit: 223
-- cross-unit edges: 69
-- low confidence concepts: 4
-- low confidence edges: 19
+- workplan score: 256
+- concepts: 30
+- edges touching unit: 158
+- cross-unit edges: 44
+- low confidence concepts: 8
+- low confidence edges: 37
 
 ## Concept Type Distribution
 
 | concept_type | count |
 |---|---:|
-| core_concept | 11 |
+| core_concept | 3 |
 | misconception_risk | 4 |
-| procedure | 7 |
-| property | 15 |
-| sub_concept | 1 |
-| term | 9 |
+| procedure | 12 |
+| property | 4 |
+| representation | 2 |
+| sub_concept | 3 |
+| term | 2 |
 
 ## Relationship Distribution
 
 | relationship_type | count |
 |---|---:|
-| contains | 58 |
-| contrasts_with | 9 |
-| often_confused_with | 14 |
-| prerequisite_for | 99 |
-| related_to | 4 |
-| represented_by | 2 |
-| used_in | 37 |
+| contains | 31 |
+| contrasts_with | 3 |
+| often_confused_with | 16 |
+| prerequisite_for | 62 |
+| related_to | 3 |
+| represented_by | 4 |
+| used_in | 39 |
 
 ## Low Confidence Concepts
 
 | concept_id | label_ko | type | evidence_depth | notes |
 |---|---|---|---|---|
-| m1_mis_circumcenter_incenter | 외심과 내심을 혼동하는 오류 | misconception_risk | official_dual_source | 공식 문서의 외심·내심 대비에서 설정한 오개념 위험 노드다. 교과서 문제나 학생 답안 근거로 보강해야 한다. |
-| m1_mis_isosceles_base_vertex_angle_confusion | 이등변삼각형의 밑각과 꼭지각을 혼동하는 오류 | misconception_risk | official_dual_source | 교과서 그림, 예제, 학생 답안 근거가 들어오기 전까지 낮은 신뢰도로 둔다. |
-| m1_mis_proof_observation | 관찰 결과와 증명을 같은 수준의 근거로 보는 오류 | misconception_risk | official_dual_source | 교과서 예제, 학생 답안, 문제 해설에서 반복되는 오류 근거가 들어오면 세부 유형으로 나눈다. |
-| m1_mis_quadrilateral_inclusion_relation | 사각형 포함 관계를 반대로 이해하는 오류 | misconception_risk | official_dual_source | 교과서 분류 문제와 학생 답안 근거가 들어오기 전까지 낮은 신뢰도로 둔다. |
+| m1_ineq_boundary_value | 부등식 해의 경계값 | sub_concept | official_dual_source | 교과서에서 해를 수직선에 나타낼 때 반복되는 암묵 개념으로 추출했다. 공식 용어 직접 근거는 약하므로 낮은 신뢰도로 둔다. |
+| m1_ineq_endpoint_inclusion_representation | 부등식 해의 끝점 포함 표시 | representation | official_dual_source | 교과서 수직선 표현 관례에서 추출한 표현 노드다. 교과서 PDF 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_ineq_number_line_solution_representation | 부등식 해의 수직선 표현 | representation | official_dual_source | 공식 문서는 여러 방법으로 풀고 확인하게 한다. 수직선 표시는 교과서 본문 근거가 필요하므로 낮은 신뢰도로 둔다. |
+| m1_ineq_inequality_sign | 부등호 | term | official_dual_source | 부등식 표현에서 추론한 기호 노드다. 교과서 본문·용어 설명 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_mis_ineq_endpoint_inclusion | 부등식 해의 끝점 포함 여부를 잘못 표시하는 오류 | misconception_risk | official_dual_source | 수직선 표현에서 추론한 오개념 위험이다. 교과서 예제와 오답 근거 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_mis_ineq_negative | 음수를 곱하거나 나눌 때 부등호 방향을 바꾸지 않는 오류 | misconception_risk | official_dual_source | 공식 성취수준은 낮은 수준에서 양수 곱나눔을 언급한다. 음수 처리 오류는 교과서 본문과 예제로 보강해야 한다. |
+| m1_mis_ineq_sign_reversal_overgeneralization | 부등호 방향을 항상 바꾸는 오류 | misconception_risk | official_dual_source | 기존 음수 처리 오류의 반대 방향 오개념으로 추론했다. 교과서나 학생 오답 근거 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_mis_ineq_solution_single_value | 부등식의 해를 한 값으로만 이해하는 오류 | misconception_risk | official_dual_source | 부등식의 해와 방정식의 해를 대조해야 하는 수행에서 추론했다. |
 
 ## Cross-Unit Edges
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
-| m1_mis_proof_observation__often_confused_with__m1_geo_circle_justification | 관찰 결과와 증명을 같은 수준의 근거로 보는 오류 | often_confused_with | 원의 성질 정당화 | low | official_dual_source |
-| m1_geo_triangle_midpoint_theorem__related_to__m1_geo_centroid | 삼각형의 중점연결정리 | related_to | 무게중심 | low | official_dual_source |
-| m1_geo_centroid__contains__m1_geo_centroid_median_concurrency | 무게중심 | contains | 세 중선은 한 점에서 만남 | medium | official_dual_source |
-| m1_geo_centroid__contains__m1_geo_centroid_two_to_one_ratio | 무게중심 | contains | 무게중심은 중선을 2:1로 나눔 | medium | official_dual_source |
-| m1_geo_domain__contains__m1_geo_triangle_quadrilateral_unit | 도형과 측정 | contains | 삼각형과 사각형의 성질 | high | official_dual_source |
-| m1_geo_similarity_unit__contains__m1_geo_centroid | 도형의 닮음 | contains | 무게중심 | high | official_dual_source |
-| m1_geo_similarity_unit__contains__m1_geo_median | 도형의 닮음 | contains | 중선 | high | official_dual_source |
-| m1_geo_angle__prerequisite_for__m1_geo_angle_bisector | 각 | prerequisite_for | 각의 이등분선 | medium | official_dual_source |
-| m1_geo_angle__prerequisite_for__m1_geo_isosceles_base_angles | 각 | prerequisite_for | 이등변삼각형의 두 밑각 | medium | official_dual_source |
-| m1_geo_angle__prerequisite_for__m1_geo_isosceles_vertex_angle | 각 | prerequisite_for | 이등변삼각형의 꼭지각 | medium | official_dual_source |
-| m1_geo_angle_measure__prerequisite_for__m1_geo_angle_bisector | 각의 크기 | prerequisite_for | 각의 이등분선 | medium | official_dual_source |
-| m1_geo_basic_unit__prerequisite_for__m1_geo_justification | 기본 도형 | prerequisite_for | 정당화 | high | official_dual_source |
-| m1_geo_centroid__prerequisite_for__m1_geo_centroid_from_parallel_ratio | 무게중심 | prerequisite_for | 평행선과 선분의 비로 무게중심 찾기 | high | official_dual_source |
-| m1_geo_circle__prerequisite_for__m1_geo_circumcircle | 원 | prerequisite_for | 외접원 | high | official_dual_source |
-| m1_geo_circle__prerequisite_for__m1_geo_incircle | 원 | prerequisite_for | 내접원 | high | official_dual_source |
-| m1_geo_construction_congruence_unit__prerequisite_for__m1_geo_triangle_quadrilateral_unit | 작도와 합동 | prerequisite_for | 삼각형과 사각형의 성질 | high | official_dual_source |
-| m1_geo_diagonal__prerequisite_for__m1_geo_parallelogram_diagonals_bisect | 대각선 | prerequisite_for | 평행사변형의 대각선이 서로를 이등분 | high | official_dual_source |
-| m1_geo_diagonal__prerequisite_for__m1_geo_quadrilateral_diagonal_properties | 대각선 | prerequisite_for | 사각형의 대각선에 관한 성질 | high | official_dual_source |
-| m1_geo_diagonal__prerequisite_for__m1_geo_rectangle_diagonals_equal | 대각선 | prerequisite_for | 직사각형의 대각선의 길이가 같음 | high | official_dual_source |
-| m1_geo_diagonal__prerequisite_for__m1_geo_rhombus_diagonals_perpendicular | 대각선 | prerequisite_for | 마름모의 대각선이 서로 수직 | high | official_dual_source |
-| m1_geo_distance_between_two_points__prerequisite_for__m1_geo_circumcenter_equal_vertex_distance | 두 점 사이의 거리 | prerequisite_for | 외심에서 세 꼭짓점까지의 거리 | high | official_dual_source |
-| m1_geo_distance_between_two_points__prerequisite_for__m1_geo_incenter_equal_side_distance | 두 점 사이의 거리 | prerequisite_for | 내심에서 세 변까지의 거리 | high | official_dual_source |
-| m1_geo_foot_of_perpendicular__prerequisite_for__m1_geo_incenter_equal_side_distance | 수선의 발 | prerequisite_for | 내심에서 세 변까지의 거리 | high | official_dual_source |
-| m1_geo_justification__prerequisite_for__m1_geo_pythagorean_justification | 정당화 | prerequisite_for | 피타고라스 정리의 정당화 | high | official_dual_source |
-| m1_geo_length__prerequisite_for__m1_geo_isosceles_equal_sides | 길이 | prerequisite_for | 이등변삼각형의 두 같은 변 | medium | official_dual_source |
-| m1_geo_length__prerequisite_for__m1_geo_rectangle_diagonals_equal | 길이 | prerequisite_for | 직사각형의 대각선의 길이가 같음 | high | official_dual_source |
-| m1_geo_length__prerequisite_for__m1_geo_rhombus | 길이 | prerequisite_for | 마름모 | high | official_dual_source |
-| m1_geo_median__prerequisite_for__m1_geo_centroid_location_by_median_ratio | 중선 | prerequisite_for | 중선 위 2:1 비로 무게중심 위치 찾기 | medium | official_dual_source |
-| m1_geo_median__prerequisite_for__m1_geo_centroid_median_concurrency | 중선 | prerequisite_for | 세 중선은 한 점에서 만남 | medium | official_dual_source |
-| m1_geo_midpoint__prerequisite_for__m1_geo_median | 중점 | prerequisite_for | 중선 | high | official_dual_source |
-| m1_geo_midpoint__prerequisite_for__m1_geo_parallelogram_diagonals_bisect | 중점 | prerequisite_for | 평행사변형의 대각선이 서로를 이등분 | high | official_dual_source |
-| m1_geo_opposite_angle__prerequisite_for__m1_geo_parallelogram_opposite_sides_angles | 대각 | prerequisite_for | 평행사변형의 마주 보는 변과 각 | high | official_dual_source |
-| m1_geo_opposite_side__prerequisite_for__m1_geo_parallelogram_opposite_sides_angles | 대변 | prerequisite_for | 평행사변형의 마주 보는 변과 각 | high | official_dual_source |
-| m1_geo_parallel_lines__prerequisite_for__m1_geo_parallelogram | 평행선 | prerequisite_for | 평행사변형 | high | official_dual_source |
-| m1_geo_parallel_lines__prerequisite_for__m1_geo_trapezoid | 평행선 | prerequisite_for | 사다리꼴 | medium | official_dual_source |
-| m1_geo_perpendicular__prerequisite_for__m1_geo_rectangle | 직교 | prerequisite_for | 직사각형 | high | official_dual_source |
-| m1_geo_perpendicular__prerequisite_for__m1_geo_rhombus_diagonals_perpendicular | 직교 | prerequisite_for | 마름모의 대각선이 서로 수직 | high | official_dual_source |
-| m1_geo_perpendicular_bisector__prerequisite_for__m1_geo_circumcenter | 수직이등분선 | prerequisite_for | 외심 | high | official_dual_source |
-| m1_geo_perpendicular_bisector__prerequisite_for__m1_geo_circumcenter_perpendicular_bisectors | 수직이등분선 | prerequisite_for | 외심과 세 변의 수직이등분선 | high | official_dual_source |
-| m1_geo_perpendicular_bisector__prerequisite_for__m1_geo_construct_circumcenter | 수직이등분선 | prerequisite_for | 외심 찾기 | high | official_dual_source |
+| m1_num_number_line__prerequisite_for__m1_ineq_number_line_solution_representation | 수직선 | prerequisite_for | 부등식 해의 수직선 표현 | low | official_dual_source |
+| m1_num_number_line_position_order__prerequisite_for__m1_ineq_number_line_solution_representation | 수직선에서 오른쪽에 있는 수가 더 큼 | prerequisite_for | 부등식 해의 수직선 표현 | low | official_dual_source |
+| m1_num_order_relation__prerequisite_for__m1_ineq_boundary_value | 정수와 유리수의 대소 관계 | prerequisite_for | 부등식 해의 경계값 | low | official_dual_source |
+| m1_num_number_line__used_in__m1_ineq_number_line_solution_representation | 수직선 | used_in | 부등식 해의 수직선 표현 | low | official_dual_source |
+| m1_num_number_line_position_order__used_in__m1_ineq_number_line_solution_representation | 수직선에서 오른쪽에 있는 수가 더 큼 | used_in | 부등식 해의 수직선 표현 | low | official_dual_source |
+| m1_mis_ineq_solution_single_value__often_confused_with__m1_eq_solution | 부등식의 해를 한 값으로만 이해하는 오류 | often_confused_with | 해 | low | official_dual_source |
+| m1_eq_both_sides__prerequisite_for__m1_ineq_add_sub_same_number_property | 양변 | prerequisite_for | 부등식 양변에 같은 수 더하기·빼기 | medium | official_dual_source |
+| m1_eq_both_sides__prerequisite_for__m1_ineq_multiply_divide_negative_reverses_sign | 양변 | prerequisite_for | 부등식 양변에 음수를 곱하거나 나눌 때 부등호 방향 바꾸기 | medium | official_dual_source |
+| m1_eq_both_sides__prerequisite_for__m1_ineq_multiply_divide_positive_property | 양변 | prerequisite_for | 부등식 양변에 양수를 곱하거나 나누기 | medium | official_dual_source |
+| m1_eq_equality_properties__prerequisite_for__m1_ineq_compare_equality_properties | 등식의 성질 | prerequisite_for | 등식의 성질과 부등식의 성질 비교 | high | official_dual_source |
+| m1_eq_equality_properties__prerequisite_for__m1_ineq_properties | 등식의 성질 | prerequisite_for | 부등식의 성질 | high | official_dual_source |
+| m1_eq_unit__prerequisite_for__m1_ineq_unit | 일차방정식 | prerequisite_for | 일차부등식 | high | official_dual_source |
+| m1_eq_unknown__prerequisite_for__m1_ineq_choose_unknown_from_context | 미지수 | prerequisite_for | 문제 상황에서 미지수 정하기 | medium | official_dual_source |
+| m1_eq_unknown__prerequisite_for__m1_ineq_isolate_unknown | 미지수 | prerequisite_for | 미지수를 한쪽으로 모으기 | medium | official_dual_source |
+| m1_expr_add_sub_linear_expression__prerequisite_for__m1_ineq_isolate_unknown | 일차식의 덧셈과 뺄셈 | prerequisite_for | 미지수를 한쪽으로 모으기 | medium | official_dual_source |
+| m1_expr_add_sub_linear_expression__prerequisite_for__m1_ineq_solving_linear_inequality | 일차식의 덧셈과 뺄셈 | prerequisite_for | 일차부등식 풀기 | high | official_dual_source |
+| m1_expr_letter_quantity__prerequisite_for__m1_ineq_choose_unknown_from_context | 문자가 나타내는 수량 정하기 | prerequisite_for | 문제 상황에서 미지수 정하기 | medium | official_dual_source |
+| m1_expr_linear_expression__prerequisite_for__m1_ineq_linear_inequality | 일차식 | prerequisite_for | 일차부등식 | high | official_dual_source |
+| m1_expr_literal_expression__prerequisite_for__m1_ineq_modeling_linear_inequality | 문자를 사용한 식 | prerequisite_for | 일차부등식 세우기 | high | official_dual_source |
+| m1_expr_literal_expression__prerequisite_for__m1_ineq_translate_condition | 문자를 사용한 식 | prerequisite_for | 문제 조건을 부등식으로 옮기기 | medium | official_dual_source |
+| m1_expr_substitution__prerequisite_for__m1_ineq_judge_solution | 대입 | prerequisite_for | 부등식의 해인지 판단하기 | medium | official_dual_source |
+| m1_expr_substitution__prerequisite_for__m1_ineq_solution | 대입 | prerequisite_for | 부등식의 해 | high | official_dual_source |
+| m1_expr_substitution__prerequisite_for__m1_ineq_solution_check | 대입 | prerequisite_for | 부등식 해의 확인 | high | official_dual_source |
+| m1_num_addition__prerequisite_for__m1_ineq_add_sub_same_number_property | 덧셈 | prerequisite_for | 부등식 양변에 같은 수 더하기·빼기 | medium | official_dual_source |
+| m1_num_division__prerequisite_for__m1_ineq_multiply_divide_negative_reverses_sign | 나눗셈 | prerequisite_for | 부등식 양변에 음수를 곱하거나 나눌 때 부등호 방향 바꾸기 | medium | official_dual_source |
+| m1_num_division__prerequisite_for__m1_ineq_multiply_divide_positive_property | 나눗셈 | prerequisite_for | 부등식 양변에 양수를 곱하거나 나누기 | medium | official_dual_source |
+| m1_num_multiplication__prerequisite_for__m1_ineq_multiply_divide_negative_reverses_sign | 곱셈 | prerequisite_for | 부등식 양변에 음수를 곱하거나 나눌 때 부등호 방향 바꾸기 | medium | official_dual_source |
+| m1_num_multiplication__prerequisite_for__m1_ineq_multiply_divide_positive_property | 곱셈 | prerequisite_for | 부등식 양변에 양수를 곱하거나 나누기 | medium | official_dual_source |
+| m1_num_negative_number__prerequisite_for__m1_ineq_multiply_divide_negative_reverses_sign | 음수 | prerequisite_for | 부등식 양변에 음수를 곱하거나 나눌 때 부등호 방향 바꾸기 | medium | official_dual_source |
+| m1_num_order_relation__prerequisite_for__m1_ineq_inequality_sign_direction | 정수와 유리수의 대소 관계 | prerequisite_for | 부등호의 방향 | medium | official_dual_source |
+| m1_num_order_relation__prerequisite_for__m1_ineq_solution_range | 정수와 유리수의 대소 관계 | prerequisite_for | 부등식 해의 범위 | medium | official_dual_source |
+| m1_num_positive_number__prerequisite_for__m1_ineq_multiply_divide_positive_property | 양수 | prerequisite_for | 부등식 양변에 양수를 곱하거나 나누기 | medium | official_dual_source |
+| m1_num_subtraction__prerequisite_for__m1_ineq_add_sub_same_number_property | 뺄셈 | prerequisite_for | 부등식 양변에 같은 수 더하기·빼기 | medium | official_dual_source |
+| m1_repr_expression__prerequisite_for__m1_ineq_inequality | 식 | prerequisite_for | 부등식 | high | official_dual_source |
+| m1_eq_both_sides__used_in__m1_ineq_properties | 양변 | used_in | 부등식의 성질 | medium | official_dual_source |
+| m1_eq_equality_properties__used_in__m1_ineq_compare_equality_properties | 등식의 성질 | used_in | 등식의 성질과 부등식의 성질 비교 | high | official_dual_source |
+| m1_expr_add_sub_linear_expression__used_in__m1_ineq_solving_linear_inequality | 일차식의 덧셈과 뺄셈 | used_in | 일차부등식 풀기 | medium | official_dual_source |
+| m1_expr_substitution__used_in__m1_ineq_judge_solution | 대입 | used_in | 부등식의 해인지 판단하기 | medium | official_dual_source |
+| m1_ineq_inequality__contrasts_with__m1_eq_equality | 부등식 | contrasts_with | 등식 | medium | official_dual_source |
+| m1_ineq_inequality__contrasts_with__m1_eq_equation | 부등식 | contrasts_with | 방정식 | high | official_dual_source |
