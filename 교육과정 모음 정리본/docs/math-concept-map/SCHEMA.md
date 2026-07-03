@@ -574,7 +574,7 @@
 
 ## Pilot Unit Map Node CSV
 
-`pilot-unit-map-nodes.csv`는 `textbook-evidence-workplan.csv` rank 1 단원을 사람이 검토하기 쉬운 compact map으로 접은 concept node 목록이다. 현재 대상은 `좌표평면과 그래프`이며, 전체 concept map의 원본 노드를 변경하지 않는 파생 산출물이다.
+`pilot-unit-map-nodes.csv`는 `textbook-evidence-workplan.csv` rank 1 단원을 사람이 검토하기 쉬운 compact map으로 접은 concept node 목록이다. 현재 대상은 `경우의 수와 확률`이며, 전체 concept map의 원본 노드를 변경하지 않는 파생 산출물이다.
 
 | 필드 | 설명 |
 | --- | --- |

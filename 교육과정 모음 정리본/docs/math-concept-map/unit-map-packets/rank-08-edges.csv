@@ -180,6 +180,7 @@
 8,정수와 유리수,m1_num_distributive_law__prerequisite_for__m1_calc_polynomial_parentheses_removal,m1_num_distributive_law,분배법칙,정수와 유리수,m1_calc_polynomial_parentheses_removal,다항식의 괄호 풀기,식의 계산,prerequisite_for,cross_unit,medium,official_dual_source,yes,2,
 8,정수와 유리수,m1_num_distributive_law__prerequisite_for__m1_factor_common_factor_extraction,m1_num_distributive_law,분배법칙,정수와 유리수,m1_factor_common_factor_extraction,공통인수로 묶기,다항식의 곱셈과 인수분해,prerequisite_for,cross_unit,medium,official_dual_source,yes,2,
 8,정수와 유리수,m1_num_distributive_law__prerequisite_for__m1_factor_common_factor_formula,m1_num_distributive_law,분배법칙,정수와 유리수,m1_factor_common_factor_formula,m(a+b) 공식,다항식의 곱셈과 인수분해,prerequisite_for,cross_unit,high,official_single_source,yes,1,
+8,정수와 유리수,m1_num_division__prerequisite_for__m1_data_mean_as_fair_share,m1_num_division,나눗셈,정수와 유리수,m1_data_mean_as_fair_share,자료 하나당 평균적인 값,대푯값,prerequisite_for,cross_unit,medium,official_dual_source,yes,3,
 8,정수와 유리수,m1_num_division__prerequisite_for__m1_data_mean_calculation,m1_num_division,나눗셈,정수와 유리수,m1_data_mean_calculation,평균 구하기,대푯값,prerequisite_for,cross_unit,medium,official_dual_source,yes,3,
 8,정수와 유리수,m1_num_division__prerequisite_for__m1_data_mean_formula,m1_num_division,나눗셈,정수와 유리수,m1_data_mean_formula,평균 계산식,대푯값,prerequisite_for,cross_unit,medium,official_dual_source,yes,3,
 8,정수와 유리수,m1_num_division__prerequisite_for__m1_data_variance_calculation,m1_num_division,나눗셈,정수와 유리수,m1_data_variance_calculation,분산 구하기,산포도,prerequisite_for,cross_unit,medium,official_dual_source,yes,2,

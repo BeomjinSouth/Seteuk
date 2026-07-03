@@ -36,6 +36,7 @@ digraph pilot_unit_map {
   "m1_data_frequency" [label="도수\\nterm", fillcolor="#f7fbff"];
   "m1_data_relative_frequency" [label="상대도수\\nterm", fillcolor="#f7fbff"];
   "m1_data_total_frequency" [label="총도수\\nterm", fillcolor="#f7fbff"];
+  "m1_data_mode_frequency_table" [label="최빈값 도수표 표현\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_ratio" [label="비\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_graph_graph_interpretation" [label="그래프 해석\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_mis_representation_conversion" [label="표·식·그래프 변환 오류\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -78,6 +79,7 @@ digraph pilot_unit_map {
   "m1_mis_relative_frequency_frequency" -> "m1_data_relative_frequency" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_relative_frequency_frequency" -> "m1_data_relative_frequency_distribution" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_relative_frequency_frequency" -> "m1_data_relative_frequency_sum" [label="often_confused_with", style="solid", color="#b91c1c"];
+  "m1_data_frequency" -> "m1_data_mode_frequency_table" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_num_ratio" -> "m1_data_relative_frequency" [label="used_in", style="dashed", color="#b91c1c"];
   "m1_num_ratio" -> "m1_data_relative_frequency_calculation" [label="used_in", style="dashed", color="#b91c1c"];
   "m1_mis_graph_scale_distortion" -> "m1_graph_graph_interpretation" [label="often_confused_with", style="dashed", color="#b91c1c"];

@@ -4,26 +4,26 @@ This generated audit summarizes source evidence depth for each relationship edge
 
 ## Summary
 
-- edges: 4210
-- needs textbook evidence: 4210
-- low confidence edges: 718
+- edges: 4277
+- needs textbook evidence: 4277
+- low confidence edges: 769
 
 ## Evidence Depth Counts
 
 | evidence_depth | edge count |
 |---|---:|
-| official_dual_source | 3762 |
+| official_dual_source | 3829 |
 | official_single_source | 448 |
 
 ## Edge Scope Counts
 
 | edge_scope | edge count |
 |---|---:|
-| cross_domain_same_grade | 90 |
+| cross_domain_same_grade | 93 |
 | cross_grade_cross_domain | 58 |
 | cross_grade_same_domain | 316 |
-| cross_unit_same_domain | 325 |
-| same_unit | 3421 |
+| cross_unit_same_domain | 326 |
+| same_unit | 3484 |
 
 ## Priority Rows
 
@@ -33,6 +33,8 @@ This generated audit summarizes source evidence depth for each relationship edge
 | m1_mis_polynomial_subtraction_sign__often_confused_with__m1_mis_sign_operation | often_confused_with | cross_domain_same_grade | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_representation_conversion__often_confused_with__m1_data_critical_graph_reading | often_confused_with | cross_domain_same_grade | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_sign_operation__often_confused_with__m1_calc_polynomial_subtraction_sign_distribution | often_confused_with | cross_domain_same_grade | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
+| m1_num_natural_number__prerequisite_for__m1_data_median_even_position_rule | prerequisite_for | cross_domain_same_grade | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
+| m1_num_natural_number__prerequisite_for__m1_data_median_odd_position_rule | prerequisite_for | cross_domain_same_grade | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
 | m1_num_negative_number__prerequisite_for__m1_coord_quadrant_signs | prerequisite_for | cross_domain_same_grade | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_num_number_line__prerequisite_for__m1_ineq_number_line_solution_representation | prerequisite_for | cross_domain_same_grade | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
 | m1_num_number_line_position_order__prerequisite_for__m1_ineq_number_line_solution_representation | prerequisite_for | cross_domain_same_grade | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
@@ -67,5 +69,3 @@ This generated audit summarizes source evidence depth for each relationship edge
 | m1_mis_congruence_similarity__often_confused_with__m1_geo_congruence | often_confused_with | cross_grade_same_domain | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_expansion_factorization_direction__often_confused_with__m1_calc_expansion | often_confused_with | cross_grade_same_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_mis_inscribed_central_angle_equal__often_confused_with__m1_geo_central_angle | often_confused_with | cross_grade_same_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_irrational_decimal__often_confused_with__m1_num_infinite_decimal | often_confused_with | cross_grade_same_domain | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |
-| m1_mis_irrational_decimal__often_confused_with__m1_num_repeating_decimal | often_confused_with | cross_grade_same_domain | low | official_dual_source | 4 | achievement_math_2022; curriculum_math_2022 |

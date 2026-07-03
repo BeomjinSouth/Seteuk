@@ -35,6 +35,8 @@ digraph pilot_unit_map {
   "m1_num_natural_number" [label="자연수\\nterm", fillcolor="#f7fbff"];
   "m1_num_prime_factor" [label="소인수\\nterm", fillcolor="#f7fbff"];
   "m1_num_prime_number" [label="소수\\nterm", fillcolor="#f7fbff"];
+  "m1_data_median_even_position_rule" [label="짝수 개 자료의 두 가운데 위치 규칙\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_data_median_odd_position_rule" [label="홀수 개 자료의 중앙 위치 규칙\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_domain" [label="수와 연산\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_calc_base" [label="밑\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_calc_exponent" [label="지수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -62,6 +64,8 @@ digraph pilot_unit_map {
   "m1_mis_prime_one" -> "m1_num_one_not_prime_or_composite" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_prime_one" -> "m1_num_prime_composite_classification" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_prime_one" -> "m1_num_prime_number" [label="often_confused_with", style="solid", color="#b91c1c"];
+  "m1_num_natural_number" -> "m1_data_median_even_position_rule" [label="prerequisite_for", style="dashed", color="#b91c1c"];
+  "m1_num_natural_number" -> "m1_data_median_odd_position_rule" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_num_prime_factor_unit" -> "m1_num_common_divisor" [label="contains", style="solid", color="#6b7280"];
   "m1_num_prime_factor_unit" -> "m1_num_common_multiple" [label="contains", style="solid", color="#6b7280"];
   "m1_num_prime_factor_unit" -> "m1_num_common_prime_factor" [label="contains", style="solid", color="#6b7280"];

@@ -1782,10 +1782,31 @@
 - `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
 - PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
 
+## 2026-07-03 대푯값 미시 concept 빠른 추가 보강
+
+- AGENTS.md를 다시 확인하고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 생성 로직과 파생 산출물 정비로 제한했다.
+- 사용자의 속도 피드백을 반영해 멀티에이전트는 읽기 전용 explorer 1개로 제한했다. explorer는 보강 전 `대푯값` 단원의 기존 28개 concept, edge 방향, 누락 후보, 제외할 통계 확장 개념을 감사했고, 본 작업은 그 결과 중 중앙값 위치 규칙·평균 해석·최빈값 표 표현·대푯값 선택 기준만 좁게 반영했다.
+- `자료 하나당 평균적인 값`, `평균의 단위 해석`을 추가해 평균 계산 결과를 상황과 단위로 해석하는 미시 흐름을 분리했다. 평균 해석은 공식 문서와 연구보고서 근거를 쓰되, 교과서 예제 확인 전까지 일부 절차를 `confidence: low`로 유지했다.
+- `홀수 개 자료의 중앙 위치 규칙`, `짝수 개 자료의 두 가운데 위치 규칙`, `두 가운데 값`을 추가해 중앙값의 홀수/짝수 처리에서 학생이 실제로 판단해야 하는 위치 규칙을 별도 노드화했다.
+- `최빈값 도수표 표현`을 추가해 각 자료값의 도수를 표로 확인해 최빈값을 찾는 표현 방식을 분리했다.
+- `상황에 맞게 대푯값 해석하기`, `평균이 적절한 경우`, `중앙값이 적절한 경우`, `최빈값이 적절한 경우`를 추가해 “적절한 대푯값 선택”을 선택 기준과 상황 해석 절차로 더 잘게 나누었다.
+- 가중평균, 기대값, 표본/모집단 표기, 백분위수, 사분위수·상자그림·분산·표준편차, 왜도·첨도는 `대푯값` 이번 slice에 섞지 않았다.
+- 전체 산출물을 재생성한 결과 concept은 927개, edge는 4277개가 되었다. source ref audit은 13665개 ref를 기록하고 source catalogue는 5개를 유지한다.
+- `review-queue.*`는 172개 low-confidence concept, `concept-evidence-depth.*`는 concept 927개, `edge-evidence-depth.*`는 edge 4277개, `prerequisite-map.*`은 1555개 선수 관계 edge로 갱신했다.
+- `unit-coverage.*` 기준 `대푯값`은 concept 38개, 내부 edge 178개, incoming edge 30개, outgoing edge 14개이며, confidence 분포는 high 8개, medium 12개, low 18개이다. concept type 분포는 core 2개, sub_concept 2개, representation 2개, procedure 12개, property 8개, term 7개, misconception_risk 5개이다.
+- `textbook-evidence-workplan.*`에서 `대푯값`은 rank 2, priority tier `highest`이며 concept 38개, edge 222개, 총 260개 evidence row가 모두 `pending_textbook_pdf` 상태다. 이 단원의 low-confidence concept은 18개, low-confidence edge는 94개이다.
+- `test_build_pilot_data_representative_microconcepts.py`를 확장해 평균의 fair-share 해석, 중앙값 위치 규칙, 두 가운데 값, 최빈값 도수표 표현, 대푯값 상황 해석과 선택 기준, noisy edge 부재를 고정했다.
+- 좁은 테스트: `python -m unittest test_build_pilot_data_representative_microconcepts`를 `docs/math-concept-map/tools`에서 실행해 6개 통과.
+- 전체 validator: `python -X utf8 docs/math-concept-map/tools/validate_concept_map.py`: 927개 concept, 4277개 edge, 5개 source, 60개 공식 성취기준 검증 통과.
+- 전체 단위 테스트: `python -X utf8 -m unittest discover -s docs/math-concept-map/tools -p "test_*.py" -b`: 334개 통과.
+- 전체 직접 파생 산출물과 research-report/legacy 보조 산출물을 README 갱신 순서대로 재생성했다. 교과서 evidence packet과 edge packet을 만든 뒤 `textbook-evidence-workplan.*`, 루트 `pilot-unit-map.*`, 전체 `unit-map-packets/*`를 다시 생성해 rank/count가 최신 packet index와 일치하도록 했다.
+- `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
 - 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 `not_applicable_from_this_row` 41개가 broad context, 용어 충돌, 도구·자료 입력, 또는 약한 출현으로 유지되는지 주기적으로 감사한다. 현재 `pending_manual_review`는 8개이며, 주로 `선분`·`반직선` 후보이므로 교과서 본문 또는 중학교 기본 도형 직접 근거 확인 후 source ref 반영 여부를 판단한다.
 - 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.
-- 현재 교과서 원본 PDF가 없으므로, 추출 시작 단원은 `좌표평면과 그래프`의 concept 43개와 edge packet row 266개, 총 309개 row로 유지한다. 공식·보조 문서 기반 미시 concept 보강을 계속한다면 이미 보강한 상위 단원을 제외하고 `대푯값`, `상자그림과 산점도`, `이차함수와 그 그래프`, `정수와 유리수`, `일차부등식`처럼 미시 concept과 edge 근거가 더 필요한 단원을 우선 검토한다.
+- 현재 교과서 원본 PDF가 없으므로, 교과서 추출 시작 단원은 최신 workplan rank 1 `경우의 수와 확률`의 concept 45개와 edge packet row 205개, 총 250개 row로 유지한다. 공식·보조 문서 기반 미시 concept 보강을 계속한다면 이미 보강한 상위 단원을 제외하고 `상자그림과 산점도`, `이차함수와 그 그래프`, `정수와 유리수`, `일차부등식`, `도수분포표와 상대도수`처럼 미시 concept과 edge 근거가 더 필요한 단원을 우선 검토한다.
 - 새 concept, alias, `related_ids`, 또는 `equivalent_to` 후보가 추가되면 `equivalence-alias-audit.*`, `related-edge-resolution-queue.*`, `textbook-edge-evidence-packets/*`, `edge-evidence-depth.*`를 함께 재생성한다.

@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 수와 연산
 - unit: 정수와 유리수
 - priority tier: highest
-- workplan score: 347
+- workplan score: 348
 - concepts: 41
-- edges touching unit: 250
-- cross-unit edges: 98
+- edges touching unit: 251
+- cross-unit edges: 99
 - low confidence concepts: 5
 - low confidence edges: 46
 
@@ -35,7 +35,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contrasts_with | 11 |
 | equivalent_to | 1 |
 | often_confused_with | 17 |
-| prerequisite_for | 126 |
+| prerequisite_for | 127 |
 | related_to | 9 |
 | represented_by | 8 |
 | used_in | 34 |
@@ -83,6 +83,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_distributive_law__prerequisite_for__m1_calc_polynomial_parentheses_removal | 분배법칙 | prerequisite_for | 다항식의 괄호 풀기 | medium | official_dual_source |
 | m1_num_distributive_law__prerequisite_for__m1_factor_common_factor_extraction | 분배법칙 | prerequisite_for | 공통인수로 묶기 | medium | official_dual_source |
 | m1_num_distributive_law__prerequisite_for__m1_factor_common_factor_formula | 분배법칙 | prerequisite_for | m(a+b) 공식 | high | official_single_source |
+| m1_num_division__prerequisite_for__m1_data_mean_as_fair_share | 나눗셈 | prerequisite_for | 자료 하나당 평균적인 값 | medium | official_dual_source |
 | m1_num_division__prerequisite_for__m1_data_mean_calculation | 나눗셈 | prerequisite_for | 평균 구하기 | medium | official_dual_source |
 | m1_num_division__prerequisite_for__m1_data_mean_formula | 나눗셈 | prerequisite_for | 평균 계산식 | medium | official_dual_source |
 | m1_num_division__prerequisite_for__m1_data_variance_calculation | 나눗셈 | prerequisite_for | 분산 구하기 | medium | official_dual_source |
@@ -93,4 +94,3 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_division__prerequisite_for__m1_num_fraction_to_decimal_division | 나눗셈 | prerequisite_for | 분수를 소수로 나타내기 | medium | official_dual_source |
 | m1_num_four_operations__prerequisite_for__m1_calc_monomial_coefficient_calculation | 정수와 유리수의 사칙계산 | prerequisite_for | 단항식 계산에서 계수끼리 계산하기 | medium | official_dual_source |
 | m1_num_four_operations__prerequisite_for__m1_calc_unit | 정수와 유리수의 사칙계산 | prerequisite_for | 식의 계산 | medium | official_single_source |
-| m1_num_four_operations__prerequisite_for__m1_expr_evaluate_expression_value | 정수와 유리수의 사칙계산 | prerequisite_for | 식의 값 구하기 | high | official_dual_source |

@@ -9,12 +9,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 수와 연산
 - unit: 소인수분해
 - priority tier: highest
-- workplan score: 133
+- workplan score: 143
 - concepts: 32
-- edges touching unit: 143
-- cross-unit edges: 17
+- edges touching unit: 145
+- cross-unit edges: 19
 - low confidence concepts: 4
-- low confidence edges: 16
+- low confidence edges: 18
 
 ## Concept Type Distribution
 
@@ -36,7 +36,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contrasts_with | 13 |
 | equivalent_to | 1 |
 | often_confused_with | 10 |
-| prerequisite_for | 53 |
+| prerequisite_for | 55 |
 | related_to | 1 |
 | represented_by | 1 |
 | used_in | 32 |
@@ -54,6 +54,8 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
+| m1_num_natural_number__prerequisite_for__m1_data_median_even_position_rule | 자연수 | prerequisite_for | 짝수 개 자료의 두 가운데 위치 규칙 | low | official_dual_source |
+| m1_num_natural_number__prerequisite_for__m1_data_median_odd_position_rule | 자연수 | prerequisite_for | 홀수 개 자료의 중앙 위치 규칙 | low | official_dual_source |
 | m1_num_domain__contains__m1_num_prime_factor_unit | 수와 연산 | contains | 소인수분해 | high | official_single_source |
 | m1_calc_base__prerequisite_for__m1_num_prime_factorization_exponent_notation | 밑 | prerequisite_for | 소인수분해 결과를 거듭제곱으로 정리하기 | high | official_dual_source |
 | m1_calc_exponent__prerequisite_for__m1_num_prime_factorization_exponent_notation | 지수 | prerequisite_for | 소인수분해 결과를 거듭제곱으로 정리하기 | high | official_dual_source |

@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-07-02T12:39:00",
+    "generated_at": "2026-07-03T12:47:36",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
-    "concept_count": 917,
-    "edge_count": 4210
+    "concept_count": 927,
+    "edge_count": 4277
   },
   "sources": [
     {
@@ -32654,6 +32654,100 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_data_mean_as_fair_share",
+      "label_ko": "자료 하나당 평균적인 값",
+      "aliases": [
+        "평균적인 값",
+        "fair share interpretation of mean"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "대푯값",
+      "concept_type": "sub_concept",
+      "short_definition": "자료값의 합을 자료의 개수만큼 고르게 나누었을 때 한 자료에 돌아가는 값으로 평균을 해석하는 개념.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 177; 평균 성취기준별 성취수준",
+          "evidence_kind": "research_report_prerequisite_context",
+          "summary": "평균의 의미와 유용성을 인식하고 자료를 수집하여 평균을 구하고 해석하는 초등 연계 대푯값 선수 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_sum_of_values",
+        "m1_data_number_of_values",
+        "m1_num_division"
+      ],
+      "parent_ids": [
+        "m1_data_representative_unit",
+        "m1_data_mean"
+      ],
+      "related_ids": [
+        "m1_data_mean_calculation",
+        "m1_data_mean_unit_interpretation"
+      ],
+      "notes": "평균의 초등 연계 의미를 중학교 대푯값 해석 맥락에서 분리했다. 교과서 본문 표현 확인 전까지 medium으로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_mean_unit_interpretation",
+      "label_ko": "평균의 단위 해석",
+      "aliases": [
+        "평균 단위 읽기",
+        "평균값 해석"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "대푯값",
+      "concept_type": "procedure",
+      "short_definition": "평균을 실제 상황의 단위와 함께 읽어 자료를 대표하는 값으로 해석하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 177; 평균 성취기준별 성취수준",
+          "evidence_kind": "research_report_prerequisite_context",
+          "summary": "평균의 의미와 유용성을 인식하고 자료를 수집하여 평균을 구하고 해석하는 초등 연계 대푯값 선수 맥락"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_mean",
+        "m1_data_mean_as_fair_share"
+      ],
+      "parent_ids": [
+        "m1_data_representative_unit",
+        "m1_data_mean"
+      ],
+      "related_ids": [
+        "m1_data_representative_value_situation_interpretation"
+      ],
+      "notes": "공식 문서는 대푯값의 유용성 토론과 적절한 선택을 요구하지만 평균 단위 해석을 직접 명명하지는 않는다. 교과서 예제 확인 전까지 low로 둔다.",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_median",
       "label_ko": "중앙값",
       "aliases": [
@@ -32798,6 +32892,148 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_data_median_odd_position_rule",
+      "label_ko": "홀수 개 자료의 중앙 위치 규칙",
+      "aliases": [
+        "홀수 중앙 위치 규칙",
+        "(n+1)/2번째"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "대푯값",
+      "concept_type": "property",
+      "short_definition": "자료의 개수가 n으로 홀수일 때 크기순으로 배열한 자료의 (n+1)/2번째 값이 가운데 값이 되는 규칙.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_number_of_values",
+        "m1_data_middle_position",
+        "m1_num_natural_number"
+      ],
+      "parent_ids": [
+        "m1_data_representative_unit",
+        "m1_data_median"
+      ],
+      "related_ids": [
+        "m1_data_median_odd_count"
+      ],
+      "notes": "중앙값 정의의 '가운데'를 교과서형 위치 규칙으로 분해한 추론 노드이다. 교과서 본문 확인 전까지 low로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_median_even_position_rule",
+      "label_ko": "짝수 개 자료의 두 가운데 위치 규칙",
+      "aliases": [
+        "짝수 중앙 위치 규칙",
+        "n/2번째와 n/2+1번째"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "대푯값",
+      "concept_type": "property",
+      "short_definition": "자료의 개수가 n으로 짝수일 때 크기순으로 배열한 자료의 n/2번째와 n/2+1번째 값이 두 가운데 값이 되는 규칙.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_number_of_values",
+        "m1_data_middle_position",
+        "m1_num_natural_number"
+      ],
+      "parent_ids": [
+        "m1_data_representative_unit",
+        "m1_data_median"
+      ],
+      "related_ids": [
+        "m1_data_median_even_count",
+        "m1_data_two_middle_values"
+      ],
+      "notes": "짝수 개 자료의 중앙값 처리 절차를 위치 규칙으로 분해한 추론 노드이다. 교과서 본문 확인 전까지 low로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_two_middle_values",
+      "label_ko": "두 가운데 값",
+      "aliases": [
+        "가운데 두 값",
+        "two middle values"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "대푯값",
+      "concept_type": "sub_concept",
+      "short_definition": "자료의 개수가 짝수일 때 크기순으로 배열한 자료에서 중앙 위치를 이루는 두 값.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_ordered_data_for_median",
+        "m1_data_middle_position",
+        "m1_data_median_even_position_rule"
+      ],
+      "parent_ids": [
+        "m1_data_representative_unit",
+        "m1_data_median"
+      ],
+      "related_ids": [
+        "m1_data_median_even_count"
+      ],
+      "notes": "짝수 개 자료의 중앙값을 구할 때 평균을 내는 대상 값을 분리했다. 교과서 본문 확인 전까지 low로 둔다.",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_median_odd_count",
       "label_ko": "자료의 개수가 홀수일 때 중앙값",
       "aliases": [
@@ -32830,7 +33066,8 @@
       ],
       "prerequisite_ids": [
         "m1_data_ordered_data_for_median",
-        "m1_data_middle_position"
+        "m1_data_middle_position",
+        "m1_data_median_odd_position_rule"
       ],
       "parent_ids": [
         "m1_data_representative_unit",
@@ -32878,6 +33115,8 @@
       "prerequisite_ids": [
         "m1_data_ordered_data_for_median",
         "m1_data_middle_position",
+        "m1_data_two_middle_values",
+        "m1_data_median_even_position_rule",
         "m1_data_mean"
       ],
       "parent_ids": [
@@ -33034,6 +33273,52 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_data_mode_frequency_table",
+      "label_ko": "최빈값 도수표 표현",
+      "aliases": [
+        "최빈값 표",
+        "값별 도수표"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "대푯값",
+      "concept_type": "representation",
+      "short_definition": "각 자료값과 그 도수를 표로 정리하여 최빈값을 찾는 표현 방식.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_value_frequency_count",
+        "m1_data_frequency"
+      ],
+      "parent_ids": [
+        "m1_data_representative_unit",
+        "m1_data_mode"
+      ],
+      "related_ids": [
+        "m1_data_mode_selection"
+      ],
+      "notes": "최빈값 정의의 '가장 자주 나타남'을 표로 확인하는 교과서형 표현이다. 교과서 본문 확인 전까지 low로 둔다.",
+      "confidence": "low"
     },
     {
       "id": "m1_data_no_mode",
@@ -33266,6 +33551,182 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_data_representative_value_situation_interpretation",
+      "label_ko": "상황에 맞게 대푯값 해석하기",
+      "aliases": [
+        "대푯값 상황 해석",
+        "대표값 해석"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "대푯값",
+      "concept_type": "procedure",
+      "short_definition": "평균, 중앙값, 최빈값을 실제 자료 상황과 단위에 맞추어 자료를 대표하는 값으로 해석하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_mean",
+        "m1_data_median",
+        "m1_data_mode",
+        "m1_data_representative_value_context"
+      ],
+      "parent_ids": [
+        "m1_data_representative_unit"
+      ],
+      "related_ids": [
+        "m1_data_choose_representative_value",
+        "m1_data_mean_unit_interpretation"
+      ],
+      "notes": "공식 문서의 대푯값 선택과 유용성 토론을 해석 절차로 분리했다. 교과서 예제 표현 확인 전까지 medium으로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_mean_suitable_context",
+      "label_ko": "평균이 적절한 경우",
+      "aliases": [
+        "평균 선택 기준"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "대푯값",
+      "concept_type": "property",
+      "short_definition": "극단적인 값의 영향이 크지 않고 모든 자료값을 반영한 평균적 수준을 대표해야 할 때 평균이 적절한 상황.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_mean",
+        "m1_data_representative_value_context"
+      ],
+      "parent_ids": [
+        "m1_data_representative_unit",
+        "m1_data_mean"
+      ],
+      "related_ids": [
+        "m1_data_choose_representative_value",
+        "m1_data_mean_sensitive_to_extreme_value"
+      ],
+      "notes": "공식 문서의 '자료의 특성에 따라 적절한 대푯값 선택'을 선택 기준으로 분해한 추론 노드이다. 교과서 예제 확인 전까지 low로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_median_suitable_context",
+      "label_ko": "중앙값이 적절한 경우",
+      "aliases": [
+        "중앙값 선택 기준"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "대푯값",
+      "concept_type": "property",
+      "short_definition": "극단적인 값 때문에 평균이 중심을 잘 대표하지 못하거나 자료의 가운데 위치를 대표해야 할 때 중앙값이 적절한 상황.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_median",
+        "m1_data_representative_value_context",
+        "m1_data_extreme_value"
+      ],
+      "parent_ids": [
+        "m1_data_representative_unit",
+        "m1_data_median"
+      ],
+      "related_ids": [
+        "m1_data_choose_representative_value",
+        "m1_data_median_extreme_value_context"
+      ],
+      "notes": "공식 문서의 '자료의 특성에 따라 적절한 대푯값 선택'을 중앙값 선택 기준으로 분해한 추론 노드이다. 교과서 예제 확인 전까지 low로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_mode_suitable_context",
+      "label_ko": "최빈값이 적절한 경우",
+      "aliases": [
+        "최빈값 선택 기준"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "대푯값",
+      "concept_type": "property",
+      "short_definition": "가장 자주 나타나는 값이나 범주가 자료의 대표성을 설명하는 데 중요할 때 최빈값이 적절한 상황.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_mode",
+        "m1_data_value_frequency_count",
+        "m1_data_representative_value_context"
+      ],
+      "parent_ids": [
+        "m1_data_representative_unit",
+        "m1_data_mode"
+      ],
+      "related_ids": [
+        "m1_data_choose_representative_value",
+        "m1_data_mode_selection"
+      ],
+      "notes": "공식 문서의 대푯값 선택 요구를 최빈값 선택 기준으로 분해한 추론 노드이다. 교과서 예제 확인 전까지 low로 둔다.",
+      "confidence": "low"
     },
     {
       "id": "m1_data_extreme_value",
@@ -78035,6 +78496,90 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_data_mean_calculation__used_in__m1_data_mean_as_fair_share",
+      "source_id": "m1_data_mean_calculation",
+      "target_id": "m1_data_mean_as_fair_share",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 177; 평균 성취기준별 성취수준",
+          "evidence_kind": "research_report_prerequisite_context",
+          "summary": "평균의 의미와 유용성을 인식하고 자료를 수집하여 평균을 구하고 해석하는 초등 연계 대푯값 선수 맥락"
+        }
+      ],
+      "notes": "평균 계산 결과를 자료 하나당 평균적인 값으로 해석할 때 사용한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_mean_as_fair_share__used_in__m1_data_mean",
+      "source_id": "m1_data_mean_as_fair_share",
+      "target_id": "m1_data_mean",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 177; 평균 성취기준별 성취수준",
+          "evidence_kind": "research_report_prerequisite_context",
+          "summary": "평균의 의미와 유용성을 인식하고 자료를 수집하여 평균을 구하고 해석하는 초등 연계 대푯값 선수 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_mean_as_fair_share__used_in__m1_data_mean_unit_interpretation",
+      "source_id": "m1_data_mean_as_fair_share",
+      "target_id": "m1_data_mean_unit_interpretation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 177; 평균 성취기준별 성취수준",
+          "evidence_kind": "research_report_prerequisite_context",
+          "summary": "평균의 의미와 유용성을 인식하고 자료를 수집하여 평균을 구하고 해석하는 초등 연계 대푯값 선수 맥락"
+        }
+      ],
+      "notes": "평균을 상황의 단위와 함께 읽을 때 평균적인 값 해석을 사용한다.",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_ordered_data_for_median__used_in__m1_data_median",
       "source_id": "m1_data_ordered_data_for_median",
       "target_id": "m1_data_median",
@@ -78089,6 +78634,118 @@
       ],
       "notes": "",
       "confidence": "medium"
+    },
+    {
+      "id": "m1_data_median_odd_position_rule__used_in__m1_data_median_odd_count",
+      "source_id": "m1_data_median_odd_position_rule",
+      "target_id": "m1_data_median_odd_count",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "홀수 개 자료에서 가운데 값의 위치를 정하는 규칙을 중앙값 구하기 절차에 사용한다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_median_even_position_rule__used_in__m1_data_two_middle_values",
+      "source_id": "m1_data_median_even_position_rule",
+      "target_id": "m1_data_two_middle_values",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "짝수 개 자료에서 두 가운데 값을 찾는 위치 규칙이다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_median_even_position_rule__used_in__m1_data_median_even_count",
+      "source_id": "m1_data_median_even_position_rule",
+      "target_id": "m1_data_median_even_count",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "짝수 개 자료의 두 가운데 위치를 정해 중앙값 처리 절차에 사용한다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_two_middle_values__used_in__m1_data_median_even_count",
+      "source_id": "m1_data_two_middle_values",
+      "target_id": "m1_data_median_even_count",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "짝수 개 자료의 중앙값은 두 가운데 값의 평균으로 정한다.",
+      "confidence": "low"
     },
     {
       "id": "m1_data_median_odd_count__used_in__m1_data_median",
@@ -78201,6 +78858,62 @@
       ],
       "notes": "",
       "confidence": "medium"
+    },
+    {
+      "id": "m1_data_mode_selection__represented_by__m1_data_mode_frequency_table",
+      "source_id": "m1_data_mode_selection",
+      "target_id": "m1_data_mode_frequency_table",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "최빈값을 찾는 절차를 값별 도수표로 나타낸 표현이다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_mode_frequency_table__used_in__m1_data_mode_selection",
+      "source_id": "m1_data_mode_frequency_table",
+      "target_id": "m1_data_mode_selection",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "값별 도수표는 최빈값 찾기 절차에 사용된다.",
+      "confidence": "low"
     },
     {
       "id": "m1_data_mode_selection__used_in__m1_data_mode",
@@ -78369,6 +79082,206 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_data_mean_unit_interpretation__used_in__m1_data_representative_value_situation_interpretation",
+      "source_id": "m1_data_mean_unit_interpretation",
+      "target_id": "m1_data_representative_value_situation_interpretation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 177; 평균 성취기준별 성취수준",
+          "evidence_kind": "research_report_prerequisite_context",
+          "summary": "평균의 의미와 유용성을 인식하고 자료를 수집하여 평균을 구하고 해석하는 초등 연계 대푯값 선수 맥락"
+        }
+      ],
+      "notes": "평균을 상황에 맞게 해석하는 절차는 전체 대푯값 상황 해석의 일부이다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_representative_value_situation_interpretation__used_in__m1_data_choose_representative_value",
+      "source_id": "m1_data_representative_value_situation_interpretation",
+      "target_id": "m1_data_choose_representative_value",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "상황에 맞는 해석은 적절한 대푯값 선택에 사용된다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_mean_suitable_context__used_in__m1_data_choose_representative_value",
+      "source_id": "m1_data_mean_suitable_context",
+      "target_id": "m1_data_choose_representative_value",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "평균이 적절한 상황을 판단해 대푯값 선택에 반영한다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_median_suitable_context__used_in__m1_data_choose_representative_value",
+      "source_id": "m1_data_median_suitable_context",
+      "target_id": "m1_data_choose_representative_value",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "중앙값이 적절한 상황을 판단해 대푯값 선택에 반영한다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_mode_suitable_context__used_in__m1_data_choose_representative_value",
+      "source_id": "m1_data_mode_suitable_context",
+      "target_id": "m1_data_choose_representative_value",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "최빈값이 적절한 상황을 판단해 대푯값 선택에 반영한다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_mean_sensitive_to_extreme_value__used_in__m1_data_mean_suitable_context",
+      "source_id": "m1_data_mean_sensitive_to_extreme_value",
+      "target_id": "m1_data_mean_suitable_context",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "극단적인 값의 영향은 평균 선택 가능성을 판단할 때 고려한다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_median_extreme_value_context__used_in__m1_data_median_suitable_context",
+      "source_id": "m1_data_median_extreme_value_context",
+      "target_id": "m1_data_median_suitable_context",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "극단적인 값이 있는 맥락은 중앙값 선택 기준 판단에 사용된다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_mode_selection__used_in__m1_data_mode_suitable_context",
+      "source_id": "m1_data_mode_selection",
+      "target_id": "m1_data_mode_suitable_context",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "최빈값을 실제로 찾는 절차는 최빈값이 대표값으로 적절한지 판단하는 근거가 된다.",
+      "confidence": "low"
     },
     {
       "id": "m1_data_extreme_value__used_in__m1_data_representative_value_context",
@@ -99429,6 +100342,118 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_data_representative_unit__contains__m1_data_mean_as_fair_share",
+      "source_id": "m1_data_representative_unit",
+      "target_id": "m1_data_mean_as_fair_share",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 177; 평균 성취기준별 성취수준",
+          "evidence_kind": "research_report_prerequisite_context",
+          "summary": "평균의 의미와 유용성을 인식하고 자료를 수집하여 평균을 구하고 해석하는 초등 연계 대푯값 선수 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_mean__contains__m1_data_mean_as_fair_share",
+      "source_id": "m1_data_mean",
+      "target_id": "m1_data_mean_as_fair_share",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 177; 평균 성취기준별 성취수준",
+          "evidence_kind": "research_report_prerequisite_context",
+          "summary": "평균의 의미와 유용성을 인식하고 자료를 수집하여 평균을 구하고 해석하는 초등 연계 대푯값 선수 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_representative_unit__contains__m1_data_mean_unit_interpretation",
+      "source_id": "m1_data_representative_unit",
+      "target_id": "m1_data_mean_unit_interpretation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 177; 평균 성취기준별 성취수준",
+          "evidence_kind": "research_report_prerequisite_context",
+          "summary": "평균의 의미와 유용성을 인식하고 자료를 수집하여 평균을 구하고 해석하는 초등 연계 대푯값 선수 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_mean__contains__m1_data_mean_unit_interpretation",
+      "source_id": "m1_data_mean",
+      "target_id": "m1_data_mean_unit_interpretation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 177; 평균 성취기준별 성취수준",
+          "evidence_kind": "research_report_prerequisite_context",
+          "summary": "평균의 의미와 유용성을 인식하고 자료를 수집하여 평균을 구하고 해석하는 초등 연계 대푯값 선수 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_representative_unit__contains__m1_data_median",
       "source_id": "m1_data_representative_unit",
       "target_id": "m1_data_median",
@@ -99567,6 +100592,174 @@
       ],
       "notes": "",
       "confidence": "medium"
+    },
+    {
+      "id": "m1_data_representative_unit__contains__m1_data_median_odd_position_rule",
+      "source_id": "m1_data_representative_unit",
+      "target_id": "m1_data_median_odd_position_rule",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_median__contains__m1_data_median_odd_position_rule",
+      "source_id": "m1_data_median",
+      "target_id": "m1_data_median_odd_position_rule",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_representative_unit__contains__m1_data_median_even_position_rule",
+      "source_id": "m1_data_representative_unit",
+      "target_id": "m1_data_median_even_position_rule",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_median__contains__m1_data_median_even_position_rule",
+      "source_id": "m1_data_median",
+      "target_id": "m1_data_median_even_position_rule",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_representative_unit__contains__m1_data_two_middle_values",
+      "source_id": "m1_data_representative_unit",
+      "target_id": "m1_data_two_middle_values",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_median__contains__m1_data_two_middle_values",
+      "source_id": "m1_data_median",
+      "target_id": "m1_data_two_middle_values",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
     },
     {
       "id": "m1_data_representative_unit__contains__m1_data_median_odd_count",
@@ -99821,6 +101014,62 @@
       "confidence": "high"
     },
     {
+      "id": "m1_data_representative_unit__contains__m1_data_mode_frequency_table",
+      "source_id": "m1_data_representative_unit",
+      "target_id": "m1_data_mode_frequency_table",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_mode__contains__m1_data_mode_frequency_table",
+      "source_id": "m1_data_mode",
+      "target_id": "m1_data_mode_frequency_table",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_representative_unit__contains__m1_data_no_mode",
       "source_id": "m1_data_representative_unit",
       "target_id": "m1_data_no_mode",
@@ -100015,6 +101264,178 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_data_representative_unit__contains__m1_data_representative_value_situation_interpretation",
+      "source_id": "m1_data_representative_unit",
+      "target_id": "m1_data_representative_value_situation_interpretation",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_representative_unit__contains__m1_data_mean_suitable_context",
+      "source_id": "m1_data_representative_unit",
+      "target_id": "m1_data_mean_suitable_context",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_mean__contains__m1_data_mean_suitable_context",
+      "source_id": "m1_data_mean",
+      "target_id": "m1_data_mean_suitable_context",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_representative_unit__contains__m1_data_median_suitable_context",
+      "source_id": "m1_data_representative_unit",
+      "target_id": "m1_data_median_suitable_context",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_median__contains__m1_data_median_suitable_context",
+      "source_id": "m1_data_median",
+      "target_id": "m1_data_median_suitable_context",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_representative_unit__contains__m1_data_mode_suitable_context",
+      "source_id": "m1_data_representative_unit",
+      "target_id": "m1_data_mode_suitable_context",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_mode__contains__m1_data_mode_suitable_context",
+      "source_id": "m1_data_mode",
+      "target_id": "m1_data_mode_suitable_context",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
     },
     {
       "id": "m1_data_representative_unit__contains__m1_data_extreme_value",
@@ -135465,6 +136886,146 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_data_sum_of_values__prerequisite_for__m1_data_mean_as_fair_share",
+      "source_id": "m1_data_sum_of_values",
+      "target_id": "m1_data_mean_as_fair_share",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 177; 평균 성취기준별 성취수준",
+          "evidence_kind": "research_report_prerequisite_context",
+          "summary": "평균의 의미와 유용성을 인식하고 자료를 수집하여 평균을 구하고 해석하는 초등 연계 대푯값 선수 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_number_of_values__prerequisite_for__m1_data_mean_as_fair_share",
+      "source_id": "m1_data_number_of_values",
+      "target_id": "m1_data_mean_as_fair_share",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 177; 평균 성취기준별 성취수준",
+          "evidence_kind": "research_report_prerequisite_context",
+          "summary": "평균의 의미와 유용성을 인식하고 자료를 수집하여 평균을 구하고 해석하는 초등 연계 대푯값 선수 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_division__prerequisite_for__m1_data_mean_as_fair_share",
+      "source_id": "m1_num_division",
+      "target_id": "m1_data_mean_as_fair_share",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 177; 평균 성취기준별 성취수준",
+          "evidence_kind": "research_report_prerequisite_context",
+          "summary": "평균의 의미와 유용성을 인식하고 자료를 수집하여 평균을 구하고 해석하는 초등 연계 대푯값 선수 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_mean__prerequisite_for__m1_data_mean_unit_interpretation",
+      "source_id": "m1_data_mean",
+      "target_id": "m1_data_mean_unit_interpretation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 177; 평균 성취기준별 성취수준",
+          "evidence_kind": "research_report_prerequisite_context",
+          "summary": "평균의 의미와 유용성을 인식하고 자료를 수집하여 평균을 구하고 해석하는 초등 연계 대푯값 선수 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_mean_as_fair_share__prerequisite_for__m1_data_mean_unit_interpretation",
+      "source_id": "m1_data_mean_as_fair_share",
+      "target_id": "m1_data_mean_unit_interpretation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        },
+        {
+          "source_id": "achievement_research_report_2022",
+          "locator": "연구보고서 p. 177; 평균 성취기준별 성취수준",
+          "evidence_kind": "research_report_prerequisite_context",
+          "summary": "평균의 의미와 유용성을 인식하고 자료를 수집하여 평균을 구하고 해석하는 초등 연계 대푯값 선수 맥락"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_dataset__prerequisite_for__m1_data_median",
       "source_id": "m1_data_dataset",
       "target_id": "m1_data_median",
@@ -135661,6 +137222,258 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_data_number_of_values__prerequisite_for__m1_data_median_odd_position_rule",
+      "source_id": "m1_data_number_of_values",
+      "target_id": "m1_data_median_odd_position_rule",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_middle_position__prerequisite_for__m1_data_median_odd_position_rule",
+      "source_id": "m1_data_middle_position",
+      "target_id": "m1_data_median_odd_position_rule",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_num_natural_number__prerequisite_for__m1_data_median_odd_position_rule",
+      "source_id": "m1_num_natural_number",
+      "target_id": "m1_data_median_odd_position_rule",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_number_of_values__prerequisite_for__m1_data_median_even_position_rule",
+      "source_id": "m1_data_number_of_values",
+      "target_id": "m1_data_median_even_position_rule",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_middle_position__prerequisite_for__m1_data_median_even_position_rule",
+      "source_id": "m1_data_middle_position",
+      "target_id": "m1_data_median_even_position_rule",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_num_natural_number__prerequisite_for__m1_data_median_even_position_rule",
+      "source_id": "m1_num_natural_number",
+      "target_id": "m1_data_median_even_position_rule",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_ordered_data_for_median__prerequisite_for__m1_data_two_middle_values",
+      "source_id": "m1_data_ordered_data_for_median",
+      "target_id": "m1_data_two_middle_values",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_middle_position__prerequisite_for__m1_data_two_middle_values",
+      "source_id": "m1_data_middle_position",
+      "target_id": "m1_data_two_middle_values",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_median_even_position_rule__prerequisite_for__m1_data_two_middle_values",
+      "source_id": "m1_data_median_even_position_rule",
+      "target_id": "m1_data_two_middle_values",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_ordered_data_for_median__prerequisite_for__m1_data_median_odd_count",
       "source_id": "m1_data_ordered_data_for_median",
       "target_id": "m1_data_median_odd_count",
@@ -135717,6 +137530,34 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_data_median_odd_position_rule__prerequisite_for__m1_data_median_odd_count",
+      "source_id": "m1_data_median_odd_position_rule",
+      "target_id": "m1_data_median_odd_count",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_data_ordered_data_for_median__prerequisite_for__m1_data_median_even_count",
       "source_id": "m1_data_ordered_data_for_median",
       "target_id": "m1_data_median_even_count",
@@ -135747,6 +137588,62 @@
     {
       "id": "m1_data_middle_position__prerequisite_for__m1_data_median_even_count",
       "source_id": "m1_data_middle_position",
+      "target_id": "m1_data_median_even_count",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_two_middle_values__prerequisite_for__m1_data_median_even_count",
+      "source_id": "m1_data_two_middle_values",
+      "target_id": "m1_data_median_even_count",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_median_even_position_rule__prerequisite_for__m1_data_median_even_count",
+      "source_id": "m1_data_median_even_position_rule",
       "target_id": "m1_data_median_even_count",
       "relationship_type": "prerequisite_for",
       "source_refs": [
@@ -135995,6 +137892,62 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_data_value_frequency_count__prerequisite_for__m1_data_mode_frequency_table",
+      "source_id": "m1_data_value_frequency_count",
+      "target_id": "m1_data_mode_frequency_table",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_frequency__prerequisite_for__m1_data_mode_frequency_table",
+      "source_id": "m1_data_frequency",
+      "target_id": "m1_data_mode_frequency_table",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
     },
     {
       "id": "m1_data_mode_selection__prerequisite_for__m1_data_no_mode",
@@ -136359,6 +138312,312 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_data_mean__prerequisite_for__m1_data_representative_value_situation_interpretation",
+      "source_id": "m1_data_mean",
+      "target_id": "m1_data_representative_value_situation_interpretation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_median__prerequisite_for__m1_data_representative_value_situation_interpretation",
+      "source_id": "m1_data_median",
+      "target_id": "m1_data_representative_value_situation_interpretation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_mode__prerequisite_for__m1_data_representative_value_situation_interpretation",
+      "source_id": "m1_data_mode",
+      "target_id": "m1_data_representative_value_situation_interpretation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_representative_value_context__prerequisite_for__m1_data_representative_value_situation_interpretation",
+      "source_id": "m1_data_representative_value_context",
+      "target_id": "m1_data_representative_value_situation_interpretation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_mean__prerequisite_for__m1_data_mean_suitable_context",
+      "source_id": "m1_data_mean",
+      "target_id": "m1_data_mean_suitable_context",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_representative_value_context__prerequisite_for__m1_data_mean_suitable_context",
+      "source_id": "m1_data_representative_value_context",
+      "target_id": "m1_data_mean_suitable_context",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_median__prerequisite_for__m1_data_median_suitable_context",
+      "source_id": "m1_data_median",
+      "target_id": "m1_data_median_suitable_context",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_representative_value_context__prerequisite_for__m1_data_median_suitable_context",
+      "source_id": "m1_data_representative_value_context",
+      "target_id": "m1_data_median_suitable_context",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_extreme_value__prerequisite_for__m1_data_median_suitable_context",
+      "source_id": "m1_data_extreme_value",
+      "target_id": "m1_data_median_suitable_context",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_mode__prerequisite_for__m1_data_mode_suitable_context",
+      "source_id": "m1_data_mode",
+      "target_id": "m1_data_mode_suitable_context",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_value_frequency_count__prerequisite_for__m1_data_mode_suitable_context",
+      "source_id": "m1_data_value_frequency_count",
+      "target_id": "m1_data_mode_suitable_context",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_representative_value_context__prerequisite_for__m1_data_mode_suitable_context",
+      "source_id": "m1_data_representative_value_context",
+      "target_id": "m1_data_mode_suitable_context",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 40; [9수04-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "중앙값, 최빈값의 뜻을 알고 자료의 특성에 따라 적절한 대푯값을 선택하여 구하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-01] explanation",
+          "evidence_kind": "teaching_note",
+          "summary": "대푯값에는 평균 이외에도 중앙값과 최빈값이 있음을 알고, 자료의 특성에 따라 적절한 대푯값을 선택하며 각 대푯값의 유용성을 토론하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-01] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "중앙값과 최빈값의 뜻, 적절한 대푯값 선택, 중앙값과 최빈값이 사용되는 예와 필요성 인식 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
     },
     {
       "id": "m1_data_mean__prerequisite_for__m1_data_mean_sensitive_to_extreme_value",

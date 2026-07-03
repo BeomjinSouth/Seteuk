@@ -9,12 +9,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 자료와 가능성
 - unit: 도수분포표와 상대도수
 - priority tier: highest
-- workplan score: 182
+- workplan score: 187
 - concepts: 33
-- edges touching unit: 185
-- cross-unit edges: 53
+- edges touching unit: 186
+- cross-unit edges: 54
 - low confidence concepts: 4
-- low confidence edges: 18
+- low confidence edges: 19
 
 ## Concept Type Distribution
 
@@ -33,7 +33,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 |---|---:|
 | contains | 33 |
 | often_confused_with | 10 |
-| prerequisite_for | 74 |
+| prerequisite_for | 75 |
 | related_to | 2 |
 | represented_by | 9 |
 | used_in | 57 |
@@ -51,6 +51,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
+| m1_data_frequency__prerequisite_for__m1_data_mode_frequency_table | 도수 | prerequisite_for | 최빈값 도수표 표현 | low | official_dual_source |
 | m1_num_ratio__used_in__m1_data_relative_frequency | 비 | used_in | 상대도수 | low | official_dual_source |
 | m1_num_ratio__used_in__m1_data_relative_frequency_calculation | 비 | used_in | 상대도수 구하기 | low | official_single_source |
 | m1_mis_graph_scale_distortion__often_confused_with__m1_graph_graph_interpretation | 눈금 왜곡 그래프를 그대로 해석하는 오류 | often_confused_with | 그래프 해석 | low | official_single_source |
@@ -90,4 +91,3 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_repr_table__prerequisite_for__m1_data_frequency_table | 표 | prerequisite_for | 도수분포표 | high | official_dual_source |
 | m1_repr_table__prerequisite_for__m1_data_frequency_table_construction | 표 | prerequisite_for | 도수분포표로 나타내기 | high | official_dual_source |
 | m1_repr_table__prerequisite_for__m1_data_frequency_unit | 표 | prerequisite_for | 도수분포표와 상대도수 | high | official_dual_source |
-| m1_repr_table__prerequisite_for__m1_data_relative_frequency_table_graph | 표 | prerequisite_for | 상대도수의 분포를 표나 그래프로 나타내기 | high | official_dual_source |

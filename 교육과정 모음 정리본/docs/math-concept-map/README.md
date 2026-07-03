@@ -11,9 +11,9 @@
 
 ## 현재 데이터 규모
 
-- 개념 노드: 898개
-- 관계 edge: 4117개
-- source ref: 13177개
+- 개념 노드: 927개
+- 관계 edge: 4277개
+- source ref: 13665개
 - `concepts.json` 출처: 5개
 - 로컬 출처 inventory: 5개 그룹
 
@@ -73,7 +73,7 @@
 - `textbook-edge-evidence-packets/rank-01.csv`~`rank-34.csv`: 같은 패킷의 기계 판독용 CSV
 - `textbook-evidence-workplan.md`: concept 근거 패킷과 관계 edge 근거 패킷을 단원별로 합친 교과서 보강 작업 계획
 - `textbook-evidence-workplan.csv`: 같은 작업 계획의 기계 판독용 CSV
-- `pilot-unit-map.md`: 최상위 보강 단원 `좌표평면과 그래프`의 compact concept hierarchy 검토 지도
+- `pilot-unit-map.md`: 최상위 보강 단원 `경우의 수와 확률`의 compact concept hierarchy 검토 지도
 - `pilot-unit-map-nodes.csv`: 같은 파일럿 단원의 concept node 검토 CSV
 - `pilot-unit-map-edges.csv`: 같은 파일럿 단원에 닿는 관계 edge 검토 CSV
 - `pilot-unit-map.dot`: 같은 파일럿 단원의 Graphviz DOT 시각화
@@ -181,7 +181,7 @@ python docs/math-concept-map/tools/test_build_unit_coverage.py
 python docs/math-concept-map/tools/test_validate_concept_map.py
 ```
 
-검증기는 필수 필드, id 중복, source/ref 무결성, CSV 행 수, Mermaid 파일, 공식 성취기준 60개(`9수01-01`~`9수04-09`)의 concept 근거 커버리지, `review-queue.csv`와 `low` 신뢰도 concept 수 156개의 일치, 공식 용어·기호 168개 커버리지, concept alias 감사 row 928개, 연구보고서 concept 출현 후보 274개, 연구보고서 context packet 67개 row와 source-review 67개 row, `related-edge-resolution-queue.csv` 0개, `node-edge-consistency-audit.csv` 0개, `prerequisite-map.csv`의 `prerequisite_for` edge 1494개, 고립 concept 0개, concept 898개와 edge 4117개의 근거 깊이, 교과서 PDF 부재 상태의 concept evidence row 898개와 단원 접점 edge row 4904개, workplan pending 5802개, 전체 unit-map concept 898개와 단원 접점 edge row 4904개를 재생성 결과와 일치하게 보존하는지 확인한다.
+검증기는 필수 필드, id 중복, source/ref 무결성, CSV 행 수, Mermaid 파일, 공식 성취기준 60개(`9수01-01`~`9수04-09`)의 concept 근거 커버리지, `review-queue.csv`와 `low` 신뢰도 concept 수 172개의 일치, 공식 용어·기호 168개 커버리지, concept alias 감사 row 957개, 연구보고서 concept 출현 후보 276개, 연구보고서 context packet 67개 row와 source-review 67개 row, `related-edge-resolution-queue.csv` 0개, `node-edge-consistency-audit.csv` 0개, `prerequisite-map.csv`의 `prerequisite_for` edge 1555개, 고립 concept 0개, concept 927개와 edge 4277개의 근거 깊이, 교과서 PDF 부재 상태의 concept evidence row 927개와 단원 접점 edge row 5070개, workplan pending 5997개, 전체 unit-map concept 927개와 단원 접점 edge row 5070개를 재생성 결과와 일치하게 보존하는지 확인한다.
 
 단원별 고정 테스트는 좌표평면, 일차함수, 도형 기초, 기본 도형, 평면도형, 입체도형, 변화와 관계, 비, 대푯값, 경우의 수와 확률, 정수와 유리수, 소인수분해, 이차함수와 그 그래프, 도수분포표와 상대도수, 문자의 사용과 식, 일차방정식, 연립일차방정식, 삼각비, 삼각형과 사각형의 성질, 식의 계산, 다항식의 곱셈과 인수분해, 이차방정식의 보조 출처와 edge 방향을 함께 확인한다. `test_build_pilot_plane_geometry_microconcepts.py`는 다각형의 내각·외각의 합, 각의 성질 일반화, 대각선 개수 구하기, 부채꼴의 중심각과 호의 관계, 호의 길이·넓이 구하기, 부채꼴 비례 추론, 오개념 prerequisite 제거를 고정한다. `test_build_pilot_calculation_microconcepts.py`는 같은 밑의 거듭제곱 계산, 단항식의 계수·문자 부분 분해, 다항식 동류항 모으기, 괄호와 부호 처리, 단항식의 분배, 다항식÷단항식의 항별 나눗셈과 범위 확인, 오개념 prerequisite 제거를 고정한다. `test_build_pilot_factor_procedure_microconcepts.py`는 전개식, 다항식의 곱 전개하기, 공식 선택, 공통인수로 묶기, 공식을 이용한 인수분해, 합과 곱이 맞는 수 찾기, 교차항 계수 확인, 완전제곱식의 가운데 항 확인, 전개로 인수분해 결과 확인, `formula_scope` 중심 noisy prerequisite 제거를 고정한다. `test_build_pilot_system_microconcepts.py`는 공통 해 조건, 해의 순서쌍 표현, 해 확인, 소거할 미지수의 계수 맞추기, 두 방정식 더하거나 빼기, 되대입, 대입법 세부 절차, 두 미지수 정하기, 두 조건을 두 방정식으로 나타내기, 활용 문제 해결, 풀이 과정 설명, 문제 상황 해석, 오개념 prerequisite 제거, 좌표·그래프 relation edge 재지정을 고정한다. `test_build_pilot_trig_microconcepts.py`는 기준각, 빗변, 기준각의 대변·이웃변, 사인·코사인·탄젠트의 비 표현, 삼각비 값의 각도 범위, 삼각비의 값 표, 특수각 값 찾기, 거리·높이 직각삼각형 모델링, 삼각비 선택 절차, 오개념 prerequisite 제거와 broad 단원 prerequisite 약화를 고정한다. `test_build_pilot_triangle_quadrilateral_microconcepts.py`는 이등변삼각형의 같은 변·밑변·꼭지각·밑각, 밑각 성질과 꼭지각 이등분선 성질, 직각삼각형 합동 조건, 외심·내심의 구성 성질, 외접원·내접원 반지름, 평행사변형·직사각형·마름모·정사각형·사다리꼴의 성질과 포함 관계, 오개념 prerequisite 제거를 고정한다. `test_build_pilot_solid_geometry_microconcepts.py`는 면·모서리·꼭짓점 찾기, 겨냥도, 전개도 그리기와 판별, 단면 모양 예상, 회전체 생성, 전개도 기반 겉넓이 전략, 볼록한 다면체 범위, 전개도 이웃 관계 오개념과 noisy prerequisite/representation edge 제거를 고정한다. `test_build_pilot_prime_factor_microconcepts.py`는 소인수분해 뜻 설명, 안내된 절차, 소수·합성수 판별, 나눗셈을 이용한 소인수분해, 거듭제곱 정리, 1의 소수/합성수 제외, 공약수·공배수·공통 소인수, 최대공약수/최소공배수 소인수 선택 절차, 서로소 판별, 오개념 노드 confidence 유지와 noisy prerequisite edge 제거를 고정한다. `test_build_pilot_square_root_microconcepts.py`는 제곱수, 제곱근 구하기, 근호 표현, 근호 안의 수, 근호식 계산 세분화와 오개념 prerequisite 제거를 별도로 고정한다. `achievement-coverage.*`는 같은 성취기준 추출 로직을 사용해 사람용/기계용 검토 표로 재생성한다.
 
@@ -211,9 +211,9 @@ python docs/math-concept-map/tools/test_validate_concept_map.py
 
 `textbook-edge-evidence-packets/*`는 단원별 concept에 닿는 관계 edge를 교과서 근거 채움용 worksheet로 나눈다. 각 row는 `contains`, `prerequisite_for`, `represented_by`, `used_in`, `contrasts_with`, `often_confused_with`, `related_to` 관계 유형에 맞춰 구조 근거, 선수 순서 근거, 표현 근거, 절차 활용 근거, 대조·오개념 근거, 쪽수 근거 슬롯을 구분한다.
 
-`textbook-evidence-workplan.*`는 concept 근거 패킷과 edge 근거 패킷을 rank별로 합쳐, 단원마다 채워야 할 concept row, edge row, pending row, low-confidence row, cross-unit edge row를 한 번에 보여준다. 현재 최상위 단원 `좌표평면과 그래프`는 concept 43개와 edge row 266개, 총 309개 교과서 근거 row가 모두 `pending_textbook_pdf` 상태이다.
+`textbook-evidence-workplan.*`는 concept 근거 패킷과 edge 근거 패킷을 rank별로 합쳐, 단원마다 채워야 할 concept row, edge row, pending row, low-confidence row, cross-unit edge row를 한 번에 보여준다. 현재 최상위 단원 `경우의 수와 확률`은 concept 45개와 edge row 205개, 총 250개 교과서 근거 row가 모두 `pending_textbook_pdf` 상태이다.
 
-`pilot-unit-map.*`는 현재 최상위 단원 `좌표평면과 그래프`를 사람이 검토하기 쉬운 compact map으로 접은 산출물이다. `pilot-unit-map-nodes.csv`는 43개 concept을, `pilot-unit-map-edges.csv`는 이 단원에 닿는 266개 edge를 담고, `pilot-unit-map.dot`는 내부 edge를 실선, cross-unit edge를 점선으로 나타낸다.
+`pilot-unit-map.*`는 현재 최상위 단원 `경우의 수와 확률`을 사람이 검토하기 쉬운 compact map으로 접은 산출물이다. `pilot-unit-map-nodes.csv`는 45개 concept을, `pilot-unit-map-edges.csv`는 이 단원에 닿는 205개 edge를 담고, `pilot-unit-map.dot`는 내부 edge를 실선, cross-unit edge를 점선으로 나타낸다.
 
 `unit-map-packets/*`는 같은 compact map 형식을 전체 34개 단원으로 확장한 산출물이다. 각 rank별 `*-nodes.csv`, `*-edges.csv`, `.md`, `.dot` 파일은 단원 단위로 미시 concept, 포함/선수/표현/활용/대조/오개념 edge, cross-unit 연결을 함께 검토하도록 만든다.
 

@@ -771,19 +771,29 @@ flowchart LR
   m1_data_number_of_values["자료의 개수"]
   m1_data_mean_formula["평균 계산식"]
   m1_data_mean_calculation["평균 구하기"]
+  m1_data_mean_as_fair_share["자료 하나당 평균적인 값"]
+  m1_data_mean_unit_interpretation["평균의 단위 해석"]
   m1_data_median["중앙값"]
   m1_data_ordered_data_for_median["중앙값을 구하기 위한 자료 정렬"]
   m1_data_middle_position["가운데 위치"]
+  m1_data_median_odd_position_rule["홀수 개 자료의 중앙 위치 규칙"]
+  m1_data_median_even_position_rule["짝수 개 자료의 두 가운데 위치 규칙"]
+  m1_data_two_middle_values["두 가운데 값"]
   m1_data_median_odd_count["자료의 개수가 홀수일 때 중앙값"]
   m1_data_median_even_count["자료의 개수가 짝수일 때 중앙값"]
   m1_data_mode["최빈값"]
   m1_data_value_frequency_count["자료값의 도수 세기"]
   m1_data_mode_selection["최빈값 찾기"]
+  m1_data_mode_frequency_table["최빈값 도수표 표현"]
   m1_data_no_mode["최빈값이 없는 경우"]
   m1_data_multiple_modes["최빈값이 여러 개인 경우"]
   m1_data_choose_representative_value["자료의 특성에 맞는 대푯값 선택"]
   m1_data_representative_value_context["자료의 특성 살펴보기"]
   m1_data_representative_value_usefulness_discussion["대푯값의 유용성 토론하기"]
+  m1_data_representative_value_situation_interpretation["상황에 맞게 대푯값 해석하기"]
+  m1_data_mean_suitable_context["평균이 적절한 경우"]
+  m1_data_median_suitable_context["중앙값이 적절한 경우"]
+  m1_data_mode_suitable_context["최빈값이 적절한 경우"]
   m1_data_extreme_value["극단적인 값"]
   m1_data_mean_sensitive_to_extreme_value["평균은 극단적인 값의 영향을 받음"]
   m1_data_median_extreme_value_context["극단적인 값이 있는 자료에서 중앙값 고려하기"]
@@ -2463,18 +2473,35 @@ flowchart LR
   m1_data_mean -- "표현" --> m1_data_mean_formula
   m1_data_mean_formula -- "사용" --> m1_data_mean_calculation
   m1_data_mean_calculation -- "사용" --> m1_data_mean
+  m1_data_mean_calculation -- "사용" --> m1_data_mean_as_fair_share
+  m1_data_mean_as_fair_share -- "사용" --> m1_data_mean
+  m1_data_mean_as_fair_share -- "사용" --> m1_data_mean_unit_interpretation
   m1_data_ordered_data_for_median -- "사용" --> m1_data_median
   m1_data_middle_position -- "사용" --> m1_data_median
+  m1_data_median_odd_position_rule -- "사용" --> m1_data_median_odd_count
+  m1_data_median_even_position_rule -- "사용" --> m1_data_two_middle_values
+  m1_data_median_even_position_rule -- "사용" --> m1_data_median_even_count
+  m1_data_two_middle_values -- "사용" --> m1_data_median_even_count
   m1_data_median_odd_count -- "사용" --> m1_data_median
   m1_data_median_even_count -- "사용" --> m1_data_median
   m1_data_median_odd_count -- "대조" --> m1_data_median_even_count
   m1_data_value_frequency_count -- "사용" --> m1_data_mode_selection
+  m1_data_mode_selection -- "표현" --> m1_data_mode_frequency_table
+  m1_data_mode_frequency_table -- "사용" --> m1_data_mode_selection
   m1_data_mode_selection -- "사용" --> m1_data_mode
   m1_data_no_mode -- "대조" --> m1_data_mode
   m1_data_multiple_modes -- "연관" --> m1_data_mode
   m1_data_no_mode -- "대조" --> m1_data_multiple_modes
   m1_data_representative_value_context -- "사용" --> m1_data_choose_representative_value
   m1_data_representative_value_usefulness_discussion -- "사용" --> m1_data_choose_representative_value
+  m1_data_mean_unit_interpretation -- "사용" --> m1_data_representative_value_situation_interpretation
+  m1_data_representative_value_situation_interpretation -- "사용" --> m1_data_choose_representative_value
+  m1_data_mean_suitable_context -- "사용" --> m1_data_choose_representative_value
+  m1_data_median_suitable_context -- "사용" --> m1_data_choose_representative_value
+  m1_data_mode_suitable_context -- "사용" --> m1_data_choose_representative_value
+  m1_data_mean_sensitive_to_extreme_value -- "사용" --> m1_data_mean_suitable_context
+  m1_data_median_extreme_value_context -- "사용" --> m1_data_median_suitable_context
+  m1_data_mode_selection -- "사용" --> m1_data_mode_suitable_context
   m1_data_extreme_value -- "사용" --> m1_data_representative_value_context
   m1_data_extreme_value -- "사용" --> m1_data_mean_sensitive_to_extreme_value
   m1_data_mean_sensitive_to_extreme_value -- "사용" --> m1_data_choose_representative_value
@@ -3313,11 +3340,21 @@ flowchart LR
   m1_data_mean -- "포함" --> m1_data_mean_formula
   m1_data_representative_unit -- "포함" --> m1_data_mean_calculation
   m1_data_mean -- "포함" --> m1_data_mean_calculation
+  m1_data_representative_unit -- "포함" --> m1_data_mean_as_fair_share
+  m1_data_mean -- "포함" --> m1_data_mean_as_fair_share
+  m1_data_representative_unit -- "포함" --> m1_data_mean_unit_interpretation
+  m1_data_mean -- "포함" --> m1_data_mean_unit_interpretation
   m1_data_representative_unit -- "포함" --> m1_data_median
   m1_data_representative_unit -- "포함" --> m1_data_ordered_data_for_median
   m1_data_median -- "포함" --> m1_data_ordered_data_for_median
   m1_data_representative_unit -- "포함" --> m1_data_middle_position
   m1_data_median -- "포함" --> m1_data_middle_position
+  m1_data_representative_unit -- "포함" --> m1_data_median_odd_position_rule
+  m1_data_median -- "포함" --> m1_data_median_odd_position_rule
+  m1_data_representative_unit -- "포함" --> m1_data_median_even_position_rule
+  m1_data_median -- "포함" --> m1_data_median_even_position_rule
+  m1_data_representative_unit -- "포함" --> m1_data_two_middle_values
+  m1_data_median -- "포함" --> m1_data_two_middle_values
   m1_data_representative_unit -- "포함" --> m1_data_median_odd_count
   m1_data_median -- "포함" --> m1_data_median_odd_count
   m1_data_representative_unit -- "포함" --> m1_data_median_even_count
@@ -3327,6 +3364,8 @@ flowchart LR
   m1_data_mode -- "포함" --> m1_data_value_frequency_count
   m1_data_representative_unit -- "포함" --> m1_data_mode_selection
   m1_data_mode -- "포함" --> m1_data_mode_selection
+  m1_data_representative_unit -- "포함" --> m1_data_mode_frequency_table
+  m1_data_mode -- "포함" --> m1_data_mode_frequency_table
   m1_data_representative_unit -- "포함" --> m1_data_no_mode
   m1_data_mode -- "포함" --> m1_data_no_mode
   m1_data_representative_unit -- "포함" --> m1_data_multiple_modes
@@ -3334,6 +3373,13 @@ flowchart LR
   m1_data_representative_unit -- "포함" --> m1_data_choose_representative_value
   m1_data_representative_unit -- "포함" --> m1_data_representative_value_context
   m1_data_representative_unit -- "포함" --> m1_data_representative_value_usefulness_discussion
+  m1_data_representative_unit -- "포함" --> m1_data_representative_value_situation_interpretation
+  m1_data_representative_unit -- "포함" --> m1_data_mean_suitable_context
+  m1_data_mean -- "포함" --> m1_data_mean_suitable_context
+  m1_data_representative_unit -- "포함" --> m1_data_median_suitable_context
+  m1_data_median -- "포함" --> m1_data_median_suitable_context
+  m1_data_representative_unit -- "포함" --> m1_data_mode_suitable_context
+  m1_data_mode -- "포함" --> m1_data_mode_suitable_context
   m1_data_representative_unit -- "포함" --> m1_data_extreme_value
   m1_data_representative_unit -- "포함" --> m1_data_mean_sensitive_to_extreme_value
   m1_data_mean -- "포함" --> m1_data_mean_sensitive_to_extreme_value
@@ -4675,6 +4721,11 @@ flowchart LR
   m1_num_rational_number -- "선수" --> m1_data_mean_calculation
   m1_num_addition -- "선수" --> m1_data_mean_calculation
   m1_num_division -- "선수" --> m1_data_mean_calculation
+  m1_data_sum_of_values -- "선수" --> m1_data_mean_as_fair_share
+  m1_data_number_of_values -- "선수" --> m1_data_mean_as_fair_share
+  m1_num_division -- "선수" --> m1_data_mean_as_fair_share
+  m1_data_mean -- "선수" --> m1_data_mean_unit_interpretation
+  m1_data_mean_as_fair_share -- "선수" --> m1_data_mean_unit_interpretation
   m1_data_dataset -- "선수" --> m1_data_median
   m1_num_order_relation -- "선수" --> m1_data_median
   m1_data_ordered_data_for_median -- "선수" --> m1_data_median
@@ -4682,10 +4733,22 @@ flowchart LR
   m1_data_dataset -- "선수" --> m1_data_ordered_data_for_median
   m1_num_order_relation -- "선수" --> m1_data_ordered_data_for_median
   m1_data_ordered_data_for_median -- "선수" --> m1_data_middle_position
+  m1_data_number_of_values -- "선수" --> m1_data_median_odd_position_rule
+  m1_data_middle_position -- "선수" --> m1_data_median_odd_position_rule
+  m1_num_natural_number -- "선수" --> m1_data_median_odd_position_rule
+  m1_data_number_of_values -- "선수" --> m1_data_median_even_position_rule
+  m1_data_middle_position -- "선수" --> m1_data_median_even_position_rule
+  m1_num_natural_number -- "선수" --> m1_data_median_even_position_rule
+  m1_data_ordered_data_for_median -- "선수" --> m1_data_two_middle_values
+  m1_data_middle_position -- "선수" --> m1_data_two_middle_values
+  m1_data_median_even_position_rule -- "선수" --> m1_data_two_middle_values
   m1_data_ordered_data_for_median -- "선수" --> m1_data_median_odd_count
   m1_data_middle_position -- "선수" --> m1_data_median_odd_count
+  m1_data_median_odd_position_rule -- "선수" --> m1_data_median_odd_count
   m1_data_ordered_data_for_median -- "선수" --> m1_data_median_even_count
   m1_data_middle_position -- "선수" --> m1_data_median_even_count
+  m1_data_two_middle_values -- "선수" --> m1_data_median_even_count
+  m1_data_median_even_position_rule -- "선수" --> m1_data_median_even_count
   m1_data_mean -- "선수" --> m1_data_median_even_count
   m1_data_dataset -- "선수" --> m1_data_mode
   m1_data_frequency -- "선수" --> m1_data_mode
@@ -4694,6 +4757,8 @@ flowchart LR
   m1_data_frequency -- "선수" --> m1_data_value_frequency_count
   m1_data_value_frequency_count -- "선수" --> m1_data_mode_selection
   m1_data_frequency -- "선수" --> m1_data_mode_selection
+  m1_data_value_frequency_count -- "선수" --> m1_data_mode_frequency_table
+  m1_data_frequency -- "선수" --> m1_data_mode_frequency_table
   m1_data_mode_selection -- "선수" --> m1_data_no_mode
   m1_data_mode_selection -- "선수" --> m1_data_multiple_modes
   m1_data_mean -- "선수" --> m1_data_choose_representative_value
@@ -4707,6 +4772,18 @@ flowchart LR
   m1_data_median -- "선수" --> m1_data_representative_value_usefulness_discussion
   m1_data_mode -- "선수" --> m1_data_representative_value_usefulness_discussion
   m1_data_choose_representative_value -- "선수" --> m1_data_representative_value_usefulness_discussion
+  m1_data_mean -- "선수" --> m1_data_representative_value_situation_interpretation
+  m1_data_median -- "선수" --> m1_data_representative_value_situation_interpretation
+  m1_data_mode -- "선수" --> m1_data_representative_value_situation_interpretation
+  m1_data_representative_value_context -- "선수" --> m1_data_representative_value_situation_interpretation
+  m1_data_mean -- "선수" --> m1_data_mean_suitable_context
+  m1_data_representative_value_context -- "선수" --> m1_data_mean_suitable_context
+  m1_data_median -- "선수" --> m1_data_median_suitable_context
+  m1_data_representative_value_context -- "선수" --> m1_data_median_suitable_context
+  m1_data_extreme_value -- "선수" --> m1_data_median_suitable_context
+  m1_data_mode -- "선수" --> m1_data_mode_suitable_context
+  m1_data_value_frequency_count -- "선수" --> m1_data_mode_suitable_context
+  m1_data_representative_value_context -- "선수" --> m1_data_mode_suitable_context
   m1_data_mean -- "선수" --> m1_data_mean_sensitive_to_extreme_value
   m1_data_extreme_value -- "선수" --> m1_data_mean_sensitive_to_extreme_value
   m1_data_median -- "선수" --> m1_data_median_extreme_value_context
@@ -5900,19 +5977,29 @@ flowchart LR
   class m1_data_number_of_values default;
   class m1_data_mean_formula representation;
   class m1_data_mean_calculation procedure;
+  class m1_data_mean_as_fair_share default;
+  class m1_data_mean_unit_interpretation procedure;
   class m1_data_median default;
   class m1_data_ordered_data_for_median procedure;
   class m1_data_middle_position default;
+  class m1_data_median_odd_position_rule default;
+  class m1_data_median_even_position_rule default;
+  class m1_data_two_middle_values default;
   class m1_data_median_odd_count procedure;
   class m1_data_median_even_count procedure;
   class m1_data_mode default;
   class m1_data_value_frequency_count procedure;
   class m1_data_mode_selection procedure;
+  class m1_data_mode_frequency_table representation;
   class m1_data_no_mode default;
   class m1_data_multiple_modes default;
   class m1_data_choose_representative_value procedure;
   class m1_data_representative_value_context procedure;
   class m1_data_representative_value_usefulness_discussion procedure;
+  class m1_data_representative_value_situation_interpretation procedure;
+  class m1_data_mean_suitable_context default;
+  class m1_data_median_suitable_context default;
+  class m1_data_mode_suitable_context default;
   class m1_data_extreme_value default;
   class m1_data_mean_sensitive_to_extreme_value default;
   class m1_data_median_extreme_value_context procedure;

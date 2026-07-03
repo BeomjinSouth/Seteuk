@@ -69,6 +69,7 @@ digraph pilot_unit_map {
   "m1_calc_polynomial_parentheses_removal" [label="다항식의 괄호 풀기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_factor_common_factor_extraction" [label="공통인수로 묶기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_factor_common_factor_formula" [label="m(a+b) 공식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_data_mean_as_fair_share" [label="자료 하나당 평균적인 값\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_mean_formula" [label="평균 계산식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_variance_calculation" [label="분산 구하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_variance_formula" [label="분산 계산식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -290,6 +291,7 @@ digraph pilot_unit_map {
   "m1_num_distributive_law" -> "m1_calc_polynomial_parentheses_removal" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_distributive_law" -> "m1_factor_common_factor_extraction" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_distributive_law" -> "m1_factor_common_factor_formula" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_num_division" -> "m1_data_mean_as_fair_share" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_division" -> "m1_data_mean_calculation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_division" -> "m1_data_mean_formula" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_division" -> "m1_data_variance_calculation" [label="prerequisite_for", style="dashed", color="#6b7280"];

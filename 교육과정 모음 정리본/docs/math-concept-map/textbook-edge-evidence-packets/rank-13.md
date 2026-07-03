@@ -10,9 +10,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 도수분포표와 상대도수
 - priority tier: highest
 - priority score: 57
-- edges in packet: 185
-- cross-unit edges: 53
-- low confidence edges: 18
+- edges in packet: 186
+- cross-unit edges: 54
+- low confidence edges: 19
 
 ## Relationship Evidence Slots
 
@@ -32,6 +32,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_mis_relative_frequency_frequency__often_confused_with__m1_data_relative_frequency | intra_unit | 도수와 상대도수를 혼동하는 오류 | often_confused_with | 상대도수 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_relative_frequency_frequency__often_confused_with__m1_data_relative_frequency_distribution | intra_unit | 도수와 상대도수를 혼동하는 오류 | often_confused_with | 상대도수의 분포 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 3 |
 | m1_mis_relative_frequency_frequency__often_confused_with__m1_data_relative_frequency_sum | intra_unit | 도수와 상대도수를 혼동하는 오류 | often_confused_with | 상대도수의 합 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 3 |
+| m1_data_frequency__prerequisite_for__m1_data_mode_frequency_table | cross_unit | 도수 | prerequisite_for | 최빈값 도수표 표현 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_ratio__used_in__m1_data_relative_frequency | cross_unit | 비 | used_in | 상대도수 | low | procedure_ref;textbook_page_refs;extraction_notes | Find a worked example, procedure, or application where this source concept is used. | 3 |
 | m1_num_ratio__used_in__m1_data_relative_frequency_calculation | cross_unit | 비 | used_in | 상대도수 구하기 | low | procedure_ref;textbook_page_refs;extraction_notes | Find a worked example, procedure, or application where this source concept is used. | 3 |
 | m1_mis_graph_scale_distortion__often_confused_with__m1_graph_graph_interpretation | cross_unit | 눈금 왜곡 그래프를 그대로 해석하는 오류 | often_confused_with | 그래프 해석 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 1 |

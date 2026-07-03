@@ -10,9 +10,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 소인수분해
 - priority tier: highest
 - priority score: 52
-- edges in packet: 143
-- cross-unit edges: 17
-- low confidence edges: 16
+- edges in packet: 145
+- cross-unit edges: 19
+- low confidence edges: 18
 
 ## Relationship Evidence Slots
 
@@ -34,6 +34,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_mis_prime_one__often_confused_with__m1_num_one_not_prime_or_composite | intra_unit | 1을 소수나 합성수로 보는 오류 | often_confused_with | 1은 소수도 합성수도 아님 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_prime_one__often_confused_with__m1_num_prime_composite_classification | intra_unit | 1을 소수나 합성수로 보는 오류 | often_confused_with | 소수와 합성수 판별하기 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_prime_one__often_confused_with__m1_num_prime_number | intra_unit | 1을 소수나 합성수로 보는 오류 | often_confused_with | 소수 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
+| m1_num_natural_number__prerequisite_for__m1_data_median_even_position_rule | cross_unit | 자연수 | prerequisite_for | 짝수 개 자료의 두 가운데 위치 규칙 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_num_natural_number__prerequisite_for__m1_data_median_odd_position_rule | cross_unit | 자연수 | prerequisite_for | 홀수 개 자료의 중앙 위치 규칙 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_prime_factor_unit__contains__m1_num_common_divisor | intra_unit | 소인수분해 | contains | 공약수 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
 | m1_num_prime_factor_unit__contains__m1_num_common_multiple | intra_unit | 소인수분해 | contains | 공배수 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
 | m1_num_prime_factor_unit__contains__m1_num_common_prime_factor | intra_unit | 소인수분해 | contains | 공통 소인수 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |

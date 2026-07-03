@@ -2,7 +2,7 @@
 
 이 문서는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 출처 보강 때 먼저 확인할 대상을 정리한다.
 
-- 검토 대상 concept: 164개
+- 검토 대상 concept: 172개
 
 ## 영역별 검토 대상
 
@@ -11,17 +11,17 @@
 | 수와 연산 | 18 |
 | 변화와 관계 | 65 |
 | 도형과 측정 | 36 |
-| 자료와 가능성 | 45 |
+| 자료와 가능성 | 53 |
 
 ## 유형별 검토 대상
 
 | concept_type | concept 수 |
 |---|---:|
 | misconception_risk | 112 |
-| procedure | 6 |
-| property | 16 |
-| representation | 8 |
-| sub_concept | 10 |
+| procedure | 7 |
+| property | 21 |
+| representation | 9 |
+| sub_concept | 11 |
 | term | 12 |
 
 ## 검토 항목
@@ -166,10 +166,18 @@
 | m1_mis_mean_only_representative | 자료와 가능성 | 대푯값 | misconception_risk | textbook_evidence_needed | 대푯값을 평균으로만 보는 오류 | 오개념 위험은 선수 관계로 확정하지 않고, 자료의 특성에 맞는 대푯값 선택과 혼동 관계로만 둔다. |
 | m1_mis_median_without_ordering | 자료와 가능성 | 대푯값 | misconception_risk | textbook_evidence_needed | 자료를 정렬하지 않고 중앙값을 찾는 오류 | 공식 성취기준에서 직접 명명되지 않은 교과서형 오개념 위험이다. 교과서 예제·문항 근거 확인 전까지 low로 둔다. |
 | m1_mis_mode_largest_value | 자료와 가능성 | 대푯값 | misconception_risk | textbook_evidence_needed | 최빈값을 가장 큰 값으로 보는 오류 | 공식 성취기준에서 직접 명명되지 않은 교과서형 오개념 위험이다. 교과서 예제·문항 근거 확인 전까지 low로 둔다. |
+| m1_data_mean_unit_interpretation | 자료와 가능성 | 대푯값 | procedure | source_detail_needed | 평균의 단위 해석 | 공식 문서는 대푯값의 유용성 토론과 적절한 선택을 요구하지만 평균 단위 해석을 직접 명명하지는 않는다. 교과서 예제 확인 전까지 low로 둔다. |
 | m1_data_median_extreme_value_context | 자료와 가능성 | 대푯값 | procedure | source_detail_needed | 극단적인 값이 있는 자료에서 중앙값 고려하기 | 공식 문서의 '자료의 특성에 따라 적절한 대푯값 선택'을 교과서형 판단 사례로 분해한 추론 노드이다. 교과서 예제 근거 확인 전까지 low로 둔다. |
 | m1_data_mean_sensitive_to_extreme_value | 자료와 가능성 | 대푯값 | property | source_detail_needed | 평균은 극단적인 값의 영향을 받음 | 공식 문서의 '자료의 특성에 따라 적절한 대푯값 선택'을 평균의 민감성 맥락으로 분해한 추론 노드이다. 교과서 예제 근거 확인 전까지 low로 둔다. |
+| m1_data_mean_suitable_context | 자료와 가능성 | 대푯값 | property | source_detail_needed | 평균이 적절한 경우 | 공식 문서의 '자료의 특성에 따라 적절한 대푯값 선택'을 선택 기준으로 분해한 추론 노드이다. 교과서 예제 확인 전까지 low로 둔다. |
+| m1_data_median_even_position_rule | 자료와 가능성 | 대푯값 | property | source_detail_needed | 짝수 개 자료의 두 가운데 위치 규칙 | 짝수 개 자료의 중앙값 처리 절차를 위치 규칙으로 분해한 추론 노드이다. 교과서 본문 확인 전까지 low로 둔다. |
+| m1_data_median_odd_position_rule | 자료와 가능성 | 대푯값 | property | source_detail_needed | 홀수 개 자료의 중앙 위치 규칙 | 중앙값 정의의 '가운데'를 교과서형 위치 규칙으로 분해한 추론 노드이다. 교과서 본문 확인 전까지 low로 둔다. |
+| m1_data_median_suitable_context | 자료와 가능성 | 대푯값 | property | source_detail_needed | 중앙값이 적절한 경우 | 공식 문서의 '자료의 특성에 따라 적절한 대푯값 선택'을 중앙값 선택 기준으로 분해한 추론 노드이다. 교과서 예제 확인 전까지 low로 둔다. |
+| m1_data_mode_suitable_context | 자료와 가능성 | 대푯값 | property | source_detail_needed | 최빈값이 적절한 경우 | 공식 문서의 대푯값 선택 요구를 최빈값 선택 기준으로 분해한 추론 노드이다. 교과서 예제 확인 전까지 low로 둔다. |
 | m1_data_multiple_modes | 자료와 가능성 | 대푯값 | property | source_detail_needed | 최빈값이 여러 개인 경우 | 공식 문서에서 직접 명명되지 않은 교과서형 예외 처리이다. 교과서 본문·예제 근거 확인 전까지 low로 둔다. |
 | m1_data_no_mode | 자료와 가능성 | 대푯값 | property | source_detail_needed | 최빈값이 없는 경우 | 공식 문서에서 직접 명명되지 않은 교과서형 예외 처리이다. 교과서 본문·예제 근거 확인 전까지 low로 둔다. |
+| m1_data_mode_frequency_table | 자료와 가능성 | 대푯값 | representation | source_detail_needed | 최빈값 도수표 표현 | 최빈값 정의의 '가장 자주 나타남'을 표로 확인하는 교과서형 표현이다. 교과서 본문 확인 전까지 low로 둔다. |
+| m1_data_two_middle_values | 자료와 가능성 | 대푯값 | sub_concept | source_detail_needed | 두 가운데 값 | 짝수 개 자료의 중앙값을 구할 때 평균을 내는 대상 값을 분리했다. 교과서 본문 확인 전까지 low로 둔다. |
 | m1_data_extreme_value | 자료와 가능성 | 대푯값 | term | source_detail_needed | 극단적인 값 | 공식 문서의 '자료의 특성'을 교과서 예제 맥락으로 분해한 추론 노드이다. 교과서 본문 확인 전까지 low로 둔다. |
 | m1_mis_graph_scale_distortion | 자료와 가능성 | 도수분포표와 상대도수 | misconception_risk | textbook_evidence_needed | 눈금 왜곡 그래프를 그대로 해석하는 오류 | 교육과정의 '부적절한 눈금으로 자료를 부정확하게 나타낸 표나 그래프 오류 찾기'에 근거한 노드다. |
 | m1_mis_histogram_bar_graph | 자료와 가능성 | 도수분포표와 상대도수 | misconception_risk | textbook_evidence_needed | 히스토그램과 막대그래프를 같은 표현으로 보는 오류 | 공식 문서의 히스토그램 표현 요구에서 추론한 오개념 위험이다. 교과서 예제와 문항 근거 보강 필요. |

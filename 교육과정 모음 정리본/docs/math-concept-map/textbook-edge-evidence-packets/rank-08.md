@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 정수와 유리수
 - priority tier: highest
 - priority score: 65
-- edges in packet: 250
-- cross-unit edges: 98
+- edges in packet: 251
+- cross-unit edges: 99
 - low confidence edges: 46
 
 ## Relationship Evidence Slots
@@ -199,6 +199,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_num_distributive_law__prerequisite_for__m1_calc_polynomial_parentheses_removal | cross_unit | 분배법칙 | prerequisite_for | 다항식의 괄호 풀기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_distributive_law__prerequisite_for__m1_factor_common_factor_extraction | cross_unit | 분배법칙 | prerequisite_for | 공통인수로 묶기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_distributive_law__prerequisite_for__m1_factor_common_factor_formula | cross_unit | 분배법칙 | prerequisite_for | m(a+b) 공식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 1 |
+| m1_num_division__prerequisite_for__m1_data_mean_as_fair_share | cross_unit | 나눗셈 | prerequisite_for | 자료 하나당 평균적인 값 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_division__prerequisite_for__m1_data_mean_calculation | cross_unit | 나눗셈 | prerequisite_for | 평균 구하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_division__prerequisite_for__m1_data_mean_formula | cross_unit | 나눗셈 | prerequisite_for | 평균 계산식 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_division__prerequisite_for__m1_data_variance_calculation | cross_unit | 나눗셈 | prerequisite_for | 분산 구하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
