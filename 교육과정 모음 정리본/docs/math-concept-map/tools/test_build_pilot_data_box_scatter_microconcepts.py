@@ -23,6 +23,9 @@ class DataBoxScatterMicroconceptTests(unittest.TestCase):
 
         expected = {
             "m1_data_ordered_data_for_quartiles": ("사분위수를 구하기 위한 자료 정렬", "procedure", "medium"),
+            "m1_data_quartile_three_cut_points": ("자료를 네 부분으로 나누는 세 값", "sub_concept", "medium"),
+            "m1_data_lower_half_for_quartiles": ("아래쪽 절반의 자료", "sub_concept", "low"),
+            "m1_data_upper_half_for_quartiles": ("위쪽 절반의 자료", "sub_concept", "low"),
             "m1_data_quartile_calculation": ("사분위수 구하기", "procedure", "medium"),
             "m1_data_first_quartile": ("제1사분위수", "term", "medium"),
             "m1_data_second_quartile": ("제2사분위수", "term", "medium"),
@@ -32,9 +35,16 @@ class DataBoxScatterMicroconceptTests(unittest.TestCase):
             "m1_data_box_plot_five_value_summary": ("상자그림의 다섯 값", "sub_concept", "medium"),
             "m1_data_interquartile_range": ("사분위범위", "term", "low"),
             "m1_data_box_plot_box": ("상자그림의 상자", "representation", "low"),
+            "m1_data_box_plot_median_line": ("상자그림의 중앙값 선", "representation", "low"),
             "m1_data_box_plot_whisker": ("상자그림의 수염", "representation", "low"),
+            "m1_data_box_plot_quartile_intervals": ("상자그림의 네 구간", "representation", "low"),
+            "m1_data_box_plot_interval_data_ratio": ("상자그림 구간별 자료 비율", "property", "low"),
             "m1_data_box_plot_construction_tool": ("공학 도구로 상자그림 나타내기", "procedure", "high"),
             "m1_data_box_plot_center_spread_reading": ("상자그림에서 중심과 퍼짐 읽기", "procedure", "medium"),
+            "m1_data_box_plot_compare_medians": ("상자그림에서 중앙값 비교하기", "procedure", "medium"),
+            "m1_data_box_plot_compare_iqr": ("상자 길이로 사분위범위 비교하기", "procedure", "low"),
+            "m1_data_box_plot_compare_whiskers": ("수염 길이로 양쪽 퍼짐 비교하기", "procedure", "low"),
+            "m1_data_box_plot_same_scale_comparison": ("같은 눈금에서 두 상자그림 비교하기", "procedure", "low"),
         }
         for concept_id, (label, concept_type, confidence) in expected.items():
             with self.subTest(concept_id=concept_id):
@@ -46,19 +56,33 @@ class DataBoxScatterMicroconceptTests(unittest.TestCase):
                 self.assertIn("[9수04-08]", source_locators(concept))
 
         self.assertIn("m1_data_ordered_data_for_quartiles", concepts["m1_data_quartile"]["prerequisite_ids"])
+        self.assertIn("m1_data_lower_half_for_quartiles", concepts["m1_data_first_quartile"]["prerequisite_ids"])
+        self.assertIn("m1_data_upper_half_for_quartiles", concepts["m1_data_third_quartile"]["prerequisite_ids"])
         self.assertIn("m1_data_quartile_calculation", concepts["m1_data_box_plot_construction_tool"]["prerequisite_ids"])
         self.assertIn("m1_data_box_plot_five_value_summary", concepts["m1_data_box_plot"]["prerequisite_ids"])
+        self.assertIn("m1_data_box_plot_median_line", concepts["m1_data_box_plot_center_spread_reading"]["prerequisite_ids"])
         self.assertIn("m1_data_interquartile_range", concepts["m1_data_box_plot_center_spread_reading"]["prerequisite_ids"])
+        self.assertIn("m1_data_box_plot_compare_medians", concepts["m1_data_box_plot_compare"]["prerequisite_ids"])
+        self.assertIn("m1_data_box_plot_compare_iqr", concepts["m1_data_box_plot_compare"]["prerequisite_ids"])
+        self.assertIn("m1_data_box_plot_same_scale_comparison", concepts["m1_data_box_plot_compare"]["prerequisite_ids"])
 
     def test_scatter_plot_microconcepts_are_explicit(self) -> None:
         concepts = concepts_by_id()
 
         expected = {
             "m1_data_bivariate_pair": ("두 변량의 대응값", "sub_concept", "medium"),
+            "m1_data_bivariate_data_table": ("두 변량의 대응표", "representation", "medium"),
             "m1_data_scatter_plot_axes_variables": ("산점도의 두 축과 변량", "sub_concept", "medium"),
+            "m1_data_scatter_plot_axis_label_reading": ("산점도 축 이름 확인하기", "procedure", "low"),
             "m1_data_scatter_plot_point": ("산점도의 점", "representation", "medium"),
+            "m1_data_scatter_plot_point_meaning": ("산점도 한 점의 의미 해석", "procedure", "medium"),
             "m1_data_scatter_plot_drawing": ("산점도로 나타내기", "procedure", "high"),
             "m1_data_scatter_plot_trend": ("산점도의 경향", "sub_concept", "medium"),
+            "m1_data_scatter_positive_trend_shape": ("오른쪽 위로 향하는 산점도 경향", "representation", "low"),
+            "m1_data_scatter_negative_trend_shape": ("오른쪽 아래로 향하는 산점도 경향", "representation", "low"),
+            "m1_data_scatter_no_clear_trend_shape": ("뚜렷한 경향이 없는 산점도 모양", "representation", "low"),
+            "m1_data_scatter_plot_linear_pattern": ("직선에 가까운 산점도 경향", "representation", "low"),
+            "m1_data_correlation_strength": ("상관관계의 강하고 약한 정도", "sub_concept", "low"),
         }
         for concept_id, (label, concept_type, confidence) in expected.items():
             with self.subTest(concept_id=concept_id):
@@ -70,8 +94,10 @@ class DataBoxScatterMicroconceptTests(unittest.TestCase):
                 self.assertIn("[9수04-09]", source_locators(concept))
 
         self.assertIn("m1_data_bivariate_pair", concepts["m1_data_scatter_plot"]["prerequisite_ids"])
+        self.assertIn("m1_data_scatter_plot_axis_label_reading", concepts["m1_data_scatter_plot_point_meaning"]["prerequisite_ids"])
         self.assertIn("m1_data_scatter_plot_trend", concepts["m1_data_correlation"]["prerequisite_ids"])
         self.assertIn("m1_data_scatter_plot_trend", concepts["m1_data_scatter_plot_interpretation"]["prerequisite_ids"])
+        self.assertIn("m1_data_scatter_plot_point_meaning", concepts["m1_data_scatter_plot_interpretation"]["prerequisite_ids"])
 
     def test_box_scatter_edges_are_directional(self) -> None:
         edges = edges_by_id()
@@ -80,21 +106,46 @@ class DataBoxScatterMicroconceptTests(unittest.TestCase):
             "m1_data_variability_unit__related_to__m1_data_box_scatter_unit",
             "m1_data_technology_tool_stats__used_in__m1_data_box_scatter_unit",
             "m1_data_ordered_data_for_quartiles__used_in__m1_data_quartile_calculation",
+            "m1_data_quartile_three_cut_points__used_in__m1_data_quartile",
+            "m1_data_lower_half_for_quartiles__used_in__m1_data_first_quartile",
+            "m1_data_upper_half_for_quartiles__used_in__m1_data_third_quartile",
             "m1_data_quartile_calculation__used_in__m1_data_box_plot_five_value_summary",
             "m1_data_quartile__contains__m1_data_first_quartile",
             "m1_data_quartile__contains__m1_data_second_quartile",
             "m1_data_quartile__contains__m1_data_third_quartile",
             "m1_data_second_quartile__equivalent_to__m1_data_median",
+            "m1_data_second_quartile__represented_by__m1_data_box_plot_median_line",
             "m1_data_box_plot_five_value_summary__represented_by__m1_data_box_plot",
             "m1_data_box_plot__contains__m1_data_box_plot_box",
+            "m1_data_box_plot__contains__m1_data_box_plot_median_line",
             "m1_data_box_plot__contains__m1_data_box_plot_whisker",
+            "m1_data_box_plot__contains__m1_data_box_plot_quartile_intervals",
             "m1_data_interquartile_range__represented_by__m1_data_box_plot_box",
             "m1_data_box_plot_construction_tool__used_in__m1_data_box_plot",
             "m1_data_box_plot_center_spread_reading__used_in__m1_data_box_plot_compare",
+            "m1_data_box_plot_median_line__used_in__m1_data_box_plot_center_spread_reading",
+            "m1_data_box_plot_quartile_intervals__used_in__m1_data_box_plot_center_spread_reading",
+            "m1_data_box_plot_interval_data_ratio__used_in__m1_data_box_plot_center_spread_reading",
+            "m1_data_box_plot_compare_medians__used_in__m1_data_box_plot_compare",
+            "m1_data_box_plot_compare_iqr__used_in__m1_data_box_plot_compare",
+            "m1_data_box_plot_compare_whiskers__used_in__m1_data_box_plot_compare",
+            "m1_data_box_plot_same_scale_comparison__used_in__m1_data_box_plot_compare",
             "m1_data_bivariate_pair__represented_by__m1_coord_ordered_pair",
+            "m1_data_bivariate_pair__represented_by__m1_data_bivariate_data_table",
             "m1_data_bivariate_pair__represented_by__m1_data_scatter_plot_point",
+            "m1_data_bivariate_data_table__used_in__m1_data_scatter_plot_drawing",
+            "m1_data_scatter_plot_axis_label_reading__used_in__m1_data_scatter_plot_drawing",
+            "m1_data_scatter_plot_axis_label_reading__used_in__m1_data_scatter_plot_point_meaning",
+            "m1_data_scatter_plot_point__used_in__m1_data_scatter_plot_point_meaning",
+            "m1_data_scatter_plot_point_meaning__used_in__m1_data_scatter_plot_interpretation",
             "m1_data_scatter_plot_drawing__used_in__m1_data_scatter_plot",
             "m1_data_scatter_plot_point__used_in__m1_data_scatter_plot_trend",
+            "m1_data_scatter_positive_trend_shape__used_in__m1_data_positive_correlation",
+            "m1_data_scatter_negative_trend_shape__used_in__m1_data_negative_correlation",
+            "m1_data_scatter_no_clear_trend_shape__used_in__m1_data_no_correlation",
+            "m1_data_scatter_plot_linear_pattern__used_in__m1_data_scatter_plot_trend",
+            "m1_data_scatter_plot_linear_pattern__used_in__m1_data_correlation_strength",
+            "m1_data_correlation_strength__used_in__m1_data_scatter_plot_interpretation",
             "m1_data_scatter_plot_trend__used_in__m1_data_correlation",
             "m1_data_scatter_plot_trend__used_in__m1_data_scatter_plot_interpretation",
             "m1_data_positive_correlation__used_in__m1_data_scatter_plot_interpretation",
@@ -112,7 +163,9 @@ class DataBoxScatterMicroconceptTests(unittest.TestCase):
         expected_low = [
             "m1_mis_quartile_without_ordering",
             "m1_mis_box_plot_length_frequency",
+            "m1_mis_box_plot_median_line_always_center",
             "m1_mis_scatter_axis_swap",
+            "m1_mis_scatter_single_point_correlation",
             "m1_mis_correlation_causation",
         ]
         for concept_id in expected_low:
@@ -128,9 +181,13 @@ class DataBoxScatterMicroconceptTests(unittest.TestCase):
             "m1_mis_box_plot_length_frequency__often_confused_with__m1_data_box_plot_box",
             "m1_mis_box_plot_length_frequency__often_confused_with__m1_data_box_plot_whisker",
             "m1_mis_box_plot_length_frequency__often_confused_with__m1_data_box_plot_center_spread_reading",
+            "m1_mis_box_plot_median_line_always_center__often_confused_with__m1_data_box_plot_median_line",
+            "m1_mis_box_plot_median_line_always_center__often_confused_with__m1_data_box_plot_center_spread_reading",
             "m1_mis_scatter_axis_swap__often_confused_with__m1_data_scatter_plot_axes_variables",
             "m1_mis_scatter_axis_swap__often_confused_with__m1_data_bivariate_pair",
             "m1_mis_scatter_axis_swap__often_confused_with__m1_coord_ordered_pair",
+            "m1_mis_scatter_single_point_correlation__often_confused_with__m1_data_scatter_plot_trend",
+            "m1_mis_scatter_single_point_correlation__often_confused_with__m1_data_scatter_plot_interpretation",
             "m1_mis_correlation_causation__often_confused_with__m1_data_scatter_plot_interpretation",
         ]
         for edge_id in confusion_edges:
@@ -148,8 +205,17 @@ class DataBoxScatterMicroconceptTests(unittest.TestCase):
             "m1_coord_coordinate_plane__represented_by__m1_data_scatter_plot",
             "m1_graph_graph__represented_by__m1_data_scatter_plot",
             "m1_data_correlation__prerequisite_for__m1_mis_correlation_causation",
+            "m1_data_box_plot_median_line__represented_by__m1_data_second_quartile",
+            "m1_data_box_plot_interval_data_ratio__prerequisite_for__m1_data_frequency",
+            "m1_data_lower_half_for_quartiles__prerequisite_for__m1_data_third_quartile",
+            "m1_data_upper_half_for_quartiles__prerequisite_for__m1_data_first_quartile",
+            "m1_data_box_plot_compare__used_in__m1_data_box_plot_compare_medians",
+            "m1_data_bivariate_data_table__represented_by__m1_data_bivariate_pair",
             "m1_data_box_plot_compare__used_in__m1_data_box_plot",
             "m1_data_box_plot__used_in__m1_data_quartile",
+            "m1_data_scatter_positive_trend_shape__prerequisite_for__m1_data_negative_correlation",
+            "m1_data_correlation_strength__prerequisite_for__m1_func_slope",
+            "m1_data_scatter_plot_axis_label_reading__prerequisite_for__m1_mis_scatter_axis_swap",
         ]
         for edge_id in noisy_edges:
             with self.subTest(edge_id=edge_id):

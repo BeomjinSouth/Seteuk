@@ -6,95 +6,105 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 
 - rank: 3
 - grade: 중1(교육과정 학년군: 중1-3)
-- domain: 변화와 관계
-- unit: 좌표평면과 그래프
+- domain: 자료와 가능성
+- unit: 대푯값
 - priority tier: highest
-- workplan score: 513
-- concepts: 43
-- edges touching unit: 266
-- cross-unit edges: 104
-- low confidence concepts: 9
-- low confidence edges: 76
+- workplan score: 540
+- concepts: 38
+- edges touching unit: 224
+- cross-unit edges: 46
+- low confidence concepts: 18
+- low confidence edges: 96
 
 ## Concept Type Distribution
 
 | concept_type | count |
 |---|---:|
-| core_concept | 3 |
+| core_concept | 2 |
 | misconception_risk | 5 |
-| procedure | 4 |
-| property | 4 |
-| representation | 6 |
-| sub_concept | 8 |
-| term | 13 |
+| procedure | 12 |
+| property | 8 |
+| representation | 2 |
+| sub_concept | 2 |
+| term | 7 |
 
 ## Relationship Distribution
 
 | relationship_type | count |
 |---|---:|
-| contains | 51 |
-| contrasts_with | 11 |
-| often_confused_with | 26 |
-| prerequisite_for | 100 |
-| related_to | 24 |
-| represented_by | 20 |
-| used_in | 34 |
+| contains | 64 |
+| contrasts_with | 6 |
+| equivalent_to | 1 |
+| often_confused_with | 14 |
+| prerequisite_for | 94 |
+| related_to | 2 |
+| represented_by | 2 |
+| used_in | 41 |
 
 ## Low Confidence Concepts
 
 | concept_id | label_ko | type | evidence_depth | notes |
 |---|---|---|---|---|
-| m1_coord_axis_point | 축 위의 점 | sub_concept | official_dual_source | 공식 문서에는 좌표축과 좌표평면 위의 점이 확인된다. '축 위의 점' 명명과 세부 처리는 교과서 본문 확인이 필요하다. |
-| m1_coord_x_axis_point | x축 위의 점 | sub_concept | official_dual_source | 공식 문서에는 x축, 좌표, 좌표평면 위의 점이 확인된다. y좌표가 0인 점이라는 세부 조건은 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
-| m1_coord_y_axis_point | y축 위의 점 | sub_concept | official_dual_source | 공식 문서에는 y축, 좌표, 좌표평면 위의 점이 확인된다. x좌표가 0인 점이라는 세부 조건은 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
-| m1_coord_quadrant_signs | 사분면별 좌표 부호 | property | official_dual_source | 공식 문서에는 사분면, x좌표, y좌표, 양수, 음수 용어가 확인된다. 각 사분면의 부호 패턴은 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
-| m1_mis_axis_quadrant | 축 위의 점을 사분면에 포함하는 오류 | misconception_risk | official_dual_source | 공식 문서에서 좌표축과 사분면 용어는 확인되지만, 오류 자체는 교과서·문항 근거 확인 전 잠정 노드이다. |
-| m1_mis_direct_inverse_generalization | 증가·감소만으로 정비례·반비례 판단 | misconception_risk | official_dual_source | 공식 문서의 정비례·반비례 관계 판단 요구와 변화 상태 해석 요구를 함께 본 추론이다. |
-| m1_mis_graph_picture | 그래프를 상황 그림으로만 보는 오류 | misconception_risk | official_dual_source | 그래프가 나타내는 상황을 설명하게 한다는 공식 문서 근거에서 추론한 오개념 위험이다. |
-| m1_mis_order_swap | 순서쌍의 순서 혼동 | misconception_risk | official_dual_source | 성취수준 문서의 '주어진 좌표를 점으로 나타내기' 수행에서 드러날 수 있는 위험으로 추론했다. 교과서 오개념 코너 확인 필요. |
-| m1_mis_representation_conversion | 표·식·그래프 변환 오류 | misconception_risk | official_dual_source | 상호 변환 활동과 표·식·그래프 성취수준에서 추론한 위험이다. 교과서 예제와 문항으로 보강 필요. |
+| m1_data_two_middle_values | 두 가운데 값 | sub_concept | official_dual_source | 짝수 개 자료의 중앙값을 구할 때 평균을 내는 대상 값을 분리했다. 교과서 본문 확인 전까지 low로 둔다. |
+| m1_data_mode_frequency_table | 최빈값 도수표 표현 | representation | official_dual_source | 최빈값 정의의 '가장 자주 나타남'을 표로 확인하는 교과서형 표현이다. 교과서 본문 확인 전까지 low로 둔다. |
+| m1_data_mean_unit_interpretation | 평균의 단위 해석 | procedure | official_dual_source | 공식 문서는 대푯값의 유용성 토론과 적절한 선택을 요구하지만 평균 단위 해석을 직접 명명하지는 않는다. 교과서 예제 확인 전까지 low로 둔다. |
+| m1_data_median_extreme_value_context | 극단적인 값이 있는 자료에서 중앙값 고려하기 | procedure | official_dual_source | 공식 문서의 '자료의 특성에 따라 적절한 대푯값 선택'을 교과서형 판단 사례로 분해한 추론 노드이다. 교과서 예제 근거 확인 전까지 low로 둔다. |
+| m1_data_mean_sensitive_to_extreme_value | 평균은 극단적인 값의 영향을 받음 | property | official_dual_source | 공식 문서의 '자료의 특성에 따라 적절한 대푯값 선택'을 평균의 민감성 맥락으로 분해한 추론 노드이다. 교과서 예제 근거 확인 전까지 low로 둔다. |
+| m1_data_mean_suitable_context | 평균이 적절한 경우 | property | official_dual_source | 공식 문서의 '자료의 특성에 따라 적절한 대푯값 선택'을 선택 기준으로 분해한 추론 노드이다. 교과서 예제 확인 전까지 low로 둔다. |
+| m1_data_median_even_position_rule | 짝수 개 자료의 두 가운데 위치 규칙 | property | official_dual_source | 짝수 개 자료의 중앙값 처리 절차를 위치 규칙으로 분해한 추론 노드이다. 교과서 본문 확인 전까지 low로 둔다. |
+| m1_data_median_odd_position_rule | 홀수 개 자료의 중앙 위치 규칙 | property | official_dual_source | 중앙값 정의의 '가운데'를 교과서형 위치 규칙으로 분해한 추론 노드이다. 교과서 본문 확인 전까지 low로 둔다. |
+| m1_data_median_suitable_context | 중앙값이 적절한 경우 | property | official_dual_source | 공식 문서의 '자료의 특성에 따라 적절한 대푯값 선택'을 중앙값 선택 기준으로 분해한 추론 노드이다. 교과서 예제 확인 전까지 low로 둔다. |
+| m1_data_mode_suitable_context | 최빈값이 적절한 경우 | property | official_dual_source | 공식 문서의 대푯값 선택 요구를 최빈값 선택 기준으로 분해한 추론 노드이다. 교과서 예제 확인 전까지 low로 둔다. |
+| m1_data_multiple_modes | 최빈값이 여러 개인 경우 | property | official_dual_source | 공식 문서에서 직접 명명되지 않은 교과서형 예외 처리이다. 교과서 본문·예제 근거 확인 전까지 low로 둔다. |
+| m1_data_no_mode | 최빈값이 없는 경우 | property | official_dual_source | 공식 문서에서 직접 명명되지 않은 교과서형 예외 처리이다. 교과서 본문·예제 근거 확인 전까지 low로 둔다. |
+| m1_data_extreme_value | 극단적인 값 | term | official_dual_source | 공식 문서의 '자료의 특성'을 교과서 예제 맥락으로 분해한 추론 노드이다. 교과서 본문 확인 전까지 low로 둔다. |
+| m1_mis_even_median_no_average | 짝수 개 자료에서 두 가운데 값 중 하나만 중앙값으로 보는 오류 | misconception_risk | official_dual_source | 공식 성취기준에서 직접 명명되지 않은 교과서형 오개념 위험이다. 교과서 예제·문항 근거 확인 전까지 low로 둔다. |
+| m1_mis_extreme_value_mean_choice | 극단적인 값이 있는 자료에서 평균만 선택하는 오류 | misconception_risk | official_dual_source | 공식 문서의 '자료의 특성'을 오개념 위험으로 분해한 추론 노드이다. 교과서 예제·문항 근거 확인 전까지 low로 둔다. |
+| m1_mis_mean_only_representative | 대푯값을 평균으로만 보는 오류 | misconception_risk | official_dual_source | 오개념 위험은 선수 관계로 확정하지 않고, 자료의 특성에 맞는 대푯값 선택과 혼동 관계로만 둔다. |
+| m1_mis_median_without_ordering | 자료를 정렬하지 않고 중앙값을 찾는 오류 | misconception_risk | official_dual_source | 공식 성취기준에서 직접 명명되지 않은 교과서형 오개념 위험이다. 교과서 예제·문항 근거 확인 전까지 low로 둔다. |
+| m1_mis_mode_largest_value | 최빈값을 가장 큰 값으로 보는 오류 | misconception_risk | official_dual_source | 공식 성취기준에서 직접 명명되지 않은 교과서형 오개념 위험이다. 교과서 예제·문항 근거 확인 전까지 low로 둔다. |
 
 ## Cross-Unit Edges
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
-| m1_coord_x_coordinate__prerequisite_for__m1_func_x_increment | x좌표 | prerequisite_for | x의 증가량 | low | official_dual_source |
-| m1_coord_y_coordinate__prerequisite_for__m1_func_y_increment | y좌표 | prerequisite_for | y의 증가량 | low | official_dual_source |
-| m1_num_negative_number__prerequisite_for__m1_coord_quadrant_signs | 음수 | prerequisite_for | 사분면별 좌표 부호 | low | official_dual_source |
-| m1_num_positive_number__prerequisite_for__m1_coord_quadrant_signs | 양수 | prerequisite_for | 사분면별 좌표 부호 | low | official_dual_source |
-| m1_num_ratio__used_in__m1_prop_direct_proportion | 비 | used_in | 정비례 | low | official_dual_source |
-| m1_num_ratio__used_in__m1_prop_inverse_proportion | 비 | used_in | 반비례 | low | official_dual_source |
-| m1_mis_expression_equation__often_confused_with__m1_repr_expression | 식과 방정식 혼동 | often_confused_with | 식 | low | official_dual_source |
-| m1_mis_graph_scale_distortion__often_confused_with__m1_graph_graph_interpretation | 눈금 왜곡 그래프를 그대로 해석하는 오류 | often_confused_with | 그래프 해석 | low | official_single_source |
-| m1_mis_letter_as_label_only__often_confused_with__m1_term_variable | 문자를 이름표로만 해석하는 오류 | often_confused_with | 변수 | low | official_dual_source |
-| m1_mis_representation_conversion__often_confused_with__m1_data_critical_graph_reading | 표·식·그래프 변환 오류 | often_confused_with | 표와 그래프의 오류 비판적으로 읽기 | low | official_dual_source |
-| m1_mis_scatter_axis_swap__often_confused_with__m1_coord_ordered_pair | 산점도의 두 변량을 축에 바꾸어 나타내는 오류 | often_confused_with | 순서쌍 | low | official_dual_source |
-| m1_mis_slope_sign__often_confused_with__m1_graph_increase_decrease | 기울기 부호와 그래프 방향 혼동 | often_confused_with | 증가와 감소 | low | official_single_source |
-| m1_mis_system_ordered_pair_swap__often_confused_with__m1_coord_ordered_pair | 해의 순서쌍에서 두 미지수 값을 바꾸는 오류 | often_confused_with | 순서쌍 | low | official_dual_source |
-| m1_geo_domain__related_to__m1_coord_graph_unit | 도형과 측정 | related_to | 좌표평면과 그래프 | low | official_dual_source |
-| m1_geo_point__related_to__m1_coord_point_location | 점 | related_to | 점의 위치 | low | official_dual_source |
-| m1_expr_unit__contains__m1_repr_everyday_language | 문자의 사용과 식 | contains | 일상 언어 | high | official_single_source |
-| m1_expr_unit__contains__m1_repr_expression | 문자의 사용과 식 | contains | 식 | high | official_dual_source |
-| m1_expr_unit__contains__m1_term_variable | 문자의 사용과 식 | contains | 변수 | high | official_dual_source |
-| m1_coord_coordinate__prerequisite_for__m1_func_equation_x_axis_intersection | 좌표 | prerequisite_for | 일차방정식 그래프의 x축과의 교점 | medium | official_dual_source |
-| m1_coord_coordinate__prerequisite_for__m1_func_equation_y_axis_intersection | 좌표 | prerequisite_for | 일차방정식 그래프의 y축과의 교점 | medium | official_dual_source |
-| m1_coord_coordinate__prerequisite_for__m1_func_intersection_point | 좌표 | prerequisite_for | 교점 | medium | official_single_source |
-| m1_coord_coordinate__prerequisite_for__m1_func_intersection_point_coordinate | 좌표 | prerequisite_for | 교점의 좌표 | medium | official_dual_source |
-| m1_coord_coordinate__prerequisite_for__m1_quad_func_vertex_coordinates | 좌표 | prerequisite_for | 꼭짓점 좌표 | medium | official_dual_source |
-| m1_coord_coordinate_plane__prerequisite_for__m1_data_scatter_plot | 좌표평면 | prerequisite_for | 산점도 | high | official_dual_source |
-| m1_coord_coordinate_plane__prerequisite_for__m1_data_scatter_plot_drawing | 좌표평면 | prerequisite_for | 산점도로 나타내기 | high | official_dual_source |
-| m1_coord_coordinate_plane__prerequisite_for__m1_func_equation_graph_from_two_solution_pairs | 좌표평면 | prerequisite_for | 두 해의 순서쌍으로 일차방정식 그래프 그리기 | medium | official_dual_source |
-| m1_coord_coordinate_plane__prerequisite_for__m1_func_equation_two_intercepts_graph_drawing | 좌표평면 | prerequisite_for | 두 축과의 교점으로 일차방정식 그래프 그리기 | medium | official_dual_source |
-| m1_coord_coordinate_plane__prerequisite_for__m1_func_graph_drawing | 좌표평면 | prerequisite_for | 일차함수 그래프 그리기 | high | official_dual_source |
-| m1_coord_coordinate_plane__prerequisite_for__m1_func_linear_graph | 좌표평면 | prerequisite_for | 일차함수의 그래프 | high | official_dual_source |
-| m1_coord_coordinate_plane__prerequisite_for__m1_func_system_graph_same_plane | 좌표평면 | prerequisite_for | 두 일차함수 그래프를 한 좌표평면에 나타내기 | medium | official_dual_source |
-| m1_coord_coordinate_plane__prerequisite_for__m1_func_two_variable_linear_equation_graph | 좌표평면 | prerequisite_for | 미지수가 2개인 일차방정식의 그래프 | high | official_dual_source |
-| m1_coord_coordinate_plane__prerequisite_for__m1_quad_func_graph | 좌표평면 | prerequisite_for | 이차함수의 그래프 | high | official_dual_source |
-| m1_coord_coordinate_plane__prerequisite_for__m1_quad_func_graph_drawing | 좌표평면 | prerequisite_for | 이차함수 그래프 그리기 | high | official_dual_source |
-| m1_coord_graph_unit__prerequisite_for__m1_func_unit | 좌표평면과 그래프 | prerequisite_for | 일차함수와 그 그래프 | high | official_dual_source |
-| m1_coord_graph_unit__prerequisite_for__m1_quad_func_unit | 좌표평면과 그래프 | prerequisite_for | 이차함수와 그 그래프 | high | official_dual_source |
-| m1_coord_ordered_pair__prerequisite_for__m1_data_scatter_plot_point | 순서쌍 | prerequisite_for | 산점도의 점 | medium | official_dual_source |
-| m1_coord_ordered_pair__prerequisite_for__m1_func_read_solution_pair_from_equation_graph | 순서쌍 | prerequisite_for | 그래프에서 미지수가 2개인 일차방정식의 해 읽기 | medium | official_dual_source |
-| m1_coord_ordered_pair__prerequisite_for__m1_func_two_variable_equation_solution_pair | 순서쌍 | prerequisite_for | 미지수가 2개인 일차방정식 해의 순서쌍 | medium | official_dual_source |
-| m1_coord_ordered_pair__prerequisite_for__m1_system_solution_ordered_pair | 순서쌍 | prerequisite_for | 해의 순서쌍 표현 | medium | official_dual_source |
-| m1_coord_x_axis__prerequisite_for__m1_data_scatter_plot_axes_variables | x축 | prerequisite_for | 산점도의 두 축과 변량 | medium | official_dual_source |
+| m1_data_frequency__prerequisite_for__m1_data_mode_frequency_table | 도수 | prerequisite_for | 최빈값 도수표 표현 | low | official_dual_source |
+| m1_data_mean__prerequisite_for__m1_data_same_mean_different_spread | 평균 | prerequisite_for | 평균이 같은 두 분포의 흩어진 정도 비교 | low | official_dual_source |
+| m1_data_median__prerequisite_for__m1_data_lower_half_for_quartiles | 중앙값 | prerequisite_for | 아래쪽 절반의 자료 | low | official_dual_source |
+| m1_data_median__prerequisite_for__m1_data_upper_half_for_quartiles | 중앙값 | prerequisite_for | 위쪽 절반의 자료 | low | official_dual_source |
+| m1_num_natural_number__prerequisite_for__m1_data_median_even_position_rule | 자연수 | prerequisite_for | 짝수 개 자료의 두 가운데 위치 규칙 | low | official_dual_source |
+| m1_num_natural_number__prerequisite_for__m1_data_median_odd_position_rule | 자연수 | prerequisite_for | 홀수 개 자료의 중앙 위치 규칙 | low | official_dual_source |
+| m1_data_domain__contains__m1_data_representative_unit | 자료와 가능성 | contains | 대푯값 | high | official_dual_source |
+| m1_data_dataset__prerequisite_for__m1_data_median | 자료 | prerequisite_for | 중앙값 | high | official_dual_source |
+| m1_data_dataset__prerequisite_for__m1_data_mode | 자료 | prerequisite_for | 최빈값 | high | official_dual_source |
+| m1_data_dataset__prerequisite_for__m1_data_number_of_values | 자료 | prerequisite_for | 자료의 개수 | medium | official_dual_source |
+| m1_data_dataset__prerequisite_for__m1_data_ordered_data_for_median | 자료 | prerequisite_for | 중앙값을 구하기 위한 자료 정렬 | medium | official_dual_source |
+| m1_data_dataset__prerequisite_for__m1_data_representative_value | 자료 | prerequisite_for | 대푯값 | high | official_dual_source |
+| m1_data_dataset__prerequisite_for__m1_data_representative_value_context | 자료 | prerequisite_for | 자료의 특성 살펴보기 | high | official_dual_source |
+| m1_data_dataset__prerequisite_for__m1_data_sum_of_values | 자료 | prerequisite_for | 자료값의 합 | medium | official_dual_source |
+| m1_data_dataset__prerequisite_for__m1_data_value_frequency_count | 자료 | prerequisite_for | 자료값의 도수 세기 | medium | official_dual_source |
+| m1_data_distribution__prerequisite_for__m1_data_choose_representative_value | 자료의 분포 | prerequisite_for | 자료의 특성에 맞는 대푯값 선택 | high | official_dual_source |
+| m1_data_distribution__prerequisite_for__m1_data_representative_value_context | 자료의 분포 | prerequisite_for | 자료의 특성 살펴보기 | high | official_dual_source |
+| m1_data_frequency__prerequisite_for__m1_data_mode | 도수 | prerequisite_for | 최빈값 | high | official_dual_source |
+| m1_data_frequency__prerequisite_for__m1_data_mode_selection | 도수 | prerequisite_for | 최빈값 찾기 | high | official_dual_source |
+| m1_data_frequency__prerequisite_for__m1_data_value_frequency_count | 도수 | prerequisite_for | 자료값의 도수 세기 | medium | official_dual_source |
+| m1_data_mean__prerequisite_for__m1_data_deviation | 평균 | prerequisite_for | 편차 | high | official_dual_source |
+| m1_data_mean__prerequisite_for__m1_data_deviation_calculation | 평균 | prerequisite_for | 편차 구하기 | medium | official_dual_source |
+| m1_data_median__prerequisite_for__m1_data_quartile | 중앙값 | prerequisite_for | 사분위수 | high | official_dual_source |
+| m1_data_median__prerequisite_for__m1_data_quartile_calculation | 중앙값 | prerequisite_for | 사분위수 구하기 | medium | official_dual_source |
+| m1_data_median__prerequisite_for__m1_data_second_quartile | 중앙값 | prerequisite_for | 제2사분위수 | medium | official_dual_source |
+| m1_data_representative_unit__prerequisite_for__m1_data_frequency_unit | 대푯값 | prerequisite_for | 도수분포표와 상대도수 | high | official_dual_source |
+| m1_data_representative_value__prerequisite_for__m1_data_variability | 대푯값 | prerequisite_for | 산포도 | high | official_dual_source |
+| m1_data_representative_value__prerequisite_for__m1_data_variability_unit | 대푯값 | prerequisite_for | 산포도 | high | official_dual_source |
+| m1_num_addition__prerequisite_for__m1_data_mean_calculation | 덧셈 | prerequisite_for | 평균 구하기 | medium | official_dual_source |
+| m1_num_addition__prerequisite_for__m1_data_sum_of_values | 덧셈 | prerequisite_for | 자료값의 합 | medium | official_dual_source |
+| m1_num_division__prerequisite_for__m1_data_mean_as_fair_share | 나눗셈 | prerequisite_for | 자료 하나당 평균적인 값 | medium | official_dual_source |
+| m1_num_division__prerequisite_for__m1_data_mean_calculation | 나눗셈 | prerequisite_for | 평균 구하기 | medium | official_dual_source |
+| m1_num_division__prerequisite_for__m1_data_mean_formula | 나눗셈 | prerequisite_for | 평균 계산식 | medium | official_dual_source |
+| m1_num_natural_number__prerequisite_for__m1_data_number_of_values | 자연수 | prerequisite_for | 자료의 개수 | medium | official_dual_source |
+| m1_num_order_relation__prerequisite_for__m1_data_median | 정수와 유리수의 대소 관계 | prerequisite_for | 중앙값 | high | official_dual_source |
+| m1_num_order_relation__prerequisite_for__m1_data_ordered_data_for_median | 정수와 유리수의 대소 관계 | prerequisite_for | 중앙값을 구하기 위한 자료 정렬 | medium | official_dual_source |
+| m1_num_rational_number__prerequisite_for__m1_data_mean | 유리수 | prerequisite_for | 평균 | medium | official_dual_source |
+| m1_num_rational_number__prerequisite_for__m1_data_mean_calculation | 유리수 | prerequisite_for | 평균 구하기 | medium | official_dual_source |
+| m1_num_rational_number__prerequisite_for__m1_data_mean_formula | 유리수 | prerequisite_for | 평균 계산식 | medium | official_dual_source |
+| m1_data_distribution__used_in__m1_data_choose_representative_value | 자료의 분포 | used_in | 자료의 특성에 맞는 대푯값 선택 | high | official_dual_source |

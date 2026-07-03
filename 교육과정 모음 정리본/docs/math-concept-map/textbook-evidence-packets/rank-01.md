@@ -5,64 +5,71 @@ This generated packet is the unit-level worksheet for adding textbook-grounded e
 ## Target Unit
 
 - rank: 1
-- grade: 중2(교육과정 학년군: 중1-3)
+- grade: 중3(교육과정 학년군: 중1-3)
 - domain: 자료와 가능성
-- unit: 경우의 수와 확률
+- unit: 상자그림과 산점도
 - priority tier: highest
-- priority score: 145
-- concepts in packet: 45
-- pending textbook evidence: 45
-- low confidence concepts: 14
+- priority score: 152
+- concepts in packet: 52
+- pending textbook evidence: 52
+- low confidence concepts: 25
 
 ## Concept Evidence Slots
 
 | concept_id | label_ko | type | confidence | evidence_depth | status | required evidence | focus | source refs |
 |---|---|---|---|---|---|---|---|---:|
-| m1_data_counting_table_tree_representation | 표/수형도로 경우의 수 나타내기 | representation | low | official_single_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs;extraction_notes | Find textbook diagram, table, graph, expression, or worked example. | 2 |
-| m1_data_counting_without_omission_duplication | 빠짐없이 중복 없이 경우 세기 | procedure | low | official_single_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs;extraction_notes | Find worked example or summary that shows the procedure. | 3 |
-| m1_mis_or_and_counting_confusion | 또는과 동시에의 경우의 수를 혼동하는 오류 | misconception_risk | low | official_single_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 3 |
-| m1_mis_or_overlap_double_counting | 또는의 경우를 중복 세는 오류 | misconception_risk | low | official_single_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 3 |
-| m1_mis_permutation_combination_scope | 복잡한 순열·조합 문항을 중학교 경우의 수 범위에 포함하는 범위 오판 | misconception_risk | low | official_single_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 1 |
-| m1_mis_probability_no_equal_likely | 동등 가능성 가정 없이 경우의 수 비율을 적용하는 오류 | misconception_risk | low | official_single_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 1 |
-| m1_mis_total_event_cases_swap | 전체 경우의 수와 사건이 일어나는 경우의 수를 바꾸는 오류 | misconception_risk | low | official_single_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 1 |
-| m1_data_complement_probability | 사건이 일어나지 않을 확률 | property | low | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs;extraction_notes | Find textbook statement of the property and any summary box. | 2 |
-| m1_data_event_not_occur_cases_count | 사건이 일어나지 않는 경우의 수 | sub_concept | low | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs;extraction_notes | Find textbook definition or example that names the sub-concept. | 2 |
-| m1_data_one_probability_event | 확률이 1인 사건 | sub_concept | low | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs;extraction_notes | Find textbook definition or example that names the sub-concept. | 2 |
-| m1_data_probability_comparison | 확률 비교하기 | procedure | low | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs;extraction_notes | Find worked example or summary that shows the procedure. | 2 |
-| m1_data_probability_value | 확률값 | sub_concept | low | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs;extraction_notes | Find textbook definition or example that names the sub-concept. | 2 |
-| m1_data_zero_probability_event | 확률이 0인 사건 | sub_concept | low | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs;extraction_notes | Find textbook definition or example that names the sub-concept. | 2 |
-| m1_mis_probability_out_of_range | 확률을 0보다 작거나 1보다 크게 쓰는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
-| m1_data_all_outcomes_listing | 가능한 모든 경우 나열하기 | procedure | medium | official_single_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
-| m1_data_and_cases | 사건 A와 사건 B가 동시에 일어나는 경우의 수 | sub_concept | medium | official_single_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 5 |
-| m1_data_and_probability | 사건 A와 사건 B가 동시에 일어날 확률 | sub_concept | medium | official_single_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 3 |
-| m1_data_case_classification | 경우를 기준에 따라 나누기 | procedure | medium | official_single_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_data_equal_likelihood_check | 동등 가능성 확인 | procedure | medium | official_single_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 2 |
-| m1_data_equally_likely_assumption | 각 경우가 발생할 가능성이 동등하다는 가정 | property | medium | official_single_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 1 |
-| m1_data_experimental_probability | 상대도수로서의 확률 | core_concept | medium | official_single_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 1 |
-| m1_data_no_repeated_point_condition | 같은 지점을 두 번 이상 지나지 않는 조건 | property | medium | official_single_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 2 |
-| m1_data_or_cases | 사건 A 또는 사건 B가 일어나는 경우의 수 | sub_concept | medium | official_single_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 5 |
-| m1_data_or_probability | 사건 A 또는 사건 B가 일어날 확률 | sub_concept | medium | official_single_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 3 |
-| m1_data_probability_fraction_expression | 확률의 분수 표현 | representation | medium | official_single_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 3 |
-| m1_data_probability_numerator_denominator | 확률식의 분자와 분모 | sub_concept | medium | official_single_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 2 |
-| m1_data_relative_frequency_case_ratio_link | 상대도수와 경우의 수의 비율 연결 | sub_concept | medium | official_single_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 1 |
-| m1_data_route_counting_context | 이동 경로의 경우의 수 맥락 | sub_concept | medium | official_single_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 2 |
-| m1_data_route_path | 이동 경로 | sub_concept | medium | official_single_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 2 |
-| m1_data_addition_counting | 두 경우의 수를 합하는 상황 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_data_counting_cases | 경우의 수 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
-| m1_data_counting_operation_choice | 합하는 상황과 곱하는 상황 구별 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_data_event | 사건 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
-| m1_data_event_case_selection | 사건에 해당하는 경우 판별하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_data_event_cases_count | 사건이 일어나는 경우의 수 | sub_concept | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 3 |
-| m1_data_multiplication_counting | 두 경우의 수를 곱하는 상황 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
-| m1_data_possible_outcome | 일어날 수 있는 경우 | sub_concept | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 3 |
-| m1_data_probability | 확률 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 4 |
-| m1_data_probability_basic_properties | 확률의 기본 성질 | property | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 2 |
-| m1_data_probability_by_case_ratio | 경우의 수의 비율로 확률 구하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 4 |
-| m1_data_probability_formula | 확률의 계산식 | representation | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 4 |
-| m1_data_probability_range_0_1 | 확률의 범위 | property | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 2 |
-| m1_data_probability_unit | 경우의 수와 확률 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 5 |
-| m1_data_theoretical_probability | 경우의 수의 비율로서의 확률 | core_concept | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 4 |
-| m1_data_total_cases | 전체 경우의 수 | sub_concept | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 3 |
+| m1_data_box_plot_box | 상자그림의 상자 | representation | low | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs;extraction_notes | Find textbook diagram, table, graph, expression, or worked example. | 2 |
+| m1_data_box_plot_compare_iqr | 상자 길이로 사분위범위 비교하기 | procedure | low | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs;extraction_notes | Find worked example or summary that shows the procedure. | 3 |
+| m1_data_box_plot_compare_whiskers | 수염 길이로 양쪽 퍼짐 비교하기 | procedure | low | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs;extraction_notes | Find worked example or summary that shows the procedure. | 3 |
+| m1_data_box_plot_interval_data_ratio | 상자그림 구간별 자료 비율 | property | low | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs;extraction_notes | Find textbook statement of the property and any summary box. | 3 |
+| m1_data_box_plot_median_line | 상자그림의 중앙값 선 | representation | low | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs;extraction_notes | Find textbook diagram, table, graph, expression, or worked example. | 2 |
+| m1_data_box_plot_quartile_intervals | 상자그림의 네 구간 | representation | low | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs;extraction_notes | Find textbook diagram, table, graph, expression, or worked example. | 3 |
+| m1_data_box_plot_same_scale_comparison | 같은 눈금에서 두 상자그림 비교하기 | procedure | low | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs;extraction_notes | Find worked example or summary that shows the procedure. | 3 |
+| m1_data_box_plot_whisker | 상자그림의 수염 | representation | low | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs;extraction_notes | Find textbook diagram, table, graph, expression, or worked example. | 2 |
+| m1_data_correlation_strength | 상관관계의 강하고 약한 정도 | sub_concept | low | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs;extraction_notes | Find textbook definition or example that names the sub-concept. | 2 |
+| m1_data_interquartile_range | 사분위범위 | term | low | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs;extraction_notes | Find textbook term explanation or definition. | 2 |
+| m1_data_lower_half_for_quartiles | 아래쪽 절반의 자료 | sub_concept | low | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs;extraction_notes | Find textbook definition or example that names the sub-concept. | 2 |
+| m1_data_maximum_value | 최댓값 | term | low | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs;extraction_notes | Find textbook term explanation or definition. | 2 |
+| m1_data_minimum_value | 최솟값 | term | low | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs;extraction_notes | Find textbook term explanation or definition. | 2 |
+| m1_data_scatter_negative_trend_shape | 오른쪽 아래로 향하는 산점도 경향 | representation | low | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs;extraction_notes | Find textbook diagram, table, graph, expression, or worked example. | 2 |
+| m1_data_scatter_no_clear_trend_shape | 뚜렷한 경향이 없는 산점도 모양 | representation | low | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs;extraction_notes | Find textbook diagram, table, graph, expression, or worked example. | 2 |
+| m1_data_scatter_plot_axis_label_reading | 산점도 축 이름 확인하기 | procedure | low | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs;extraction_notes | Find worked example or summary that shows the procedure. | 2 |
+| m1_data_scatter_plot_linear_pattern | 직선에 가까운 산점도 경향 | representation | low | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs;extraction_notes | Find textbook diagram, table, graph, expression, or worked example. | 2 |
+| m1_data_scatter_positive_trend_shape | 오른쪽 위로 향하는 산점도 경향 | representation | low | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs;extraction_notes | Find textbook diagram, table, graph, expression, or worked example. | 2 |
+| m1_data_upper_half_for_quartiles | 위쪽 절반의 자료 | sub_concept | low | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs;extraction_notes | Find textbook definition or example that names the sub-concept. | 2 |
+| m1_mis_box_plot_length_frequency | 상자그림 구간의 길이를 자료 수로 해석하는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 3 |
+| m1_mis_box_plot_median_line_always_center | 상자그림의 중앙값 선이 항상 상자의 가운데에 있다고 보는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 3 |
+| m1_mis_correlation_causation | 상관관계를 원인과 결과로 단정하는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 3 |
+| m1_mis_quartile_without_ordering | 자료를 정렬하지 않고 사분위수를 구하는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
+| m1_mis_scatter_axis_swap | 산점도의 두 변량을 축에 바꾸어 나타내는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
+| m1_mis_scatter_single_point_correlation | 한 점만 보고 상관관계를 판단하는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
+| m1_data_bivariate_data_table | 두 변량의 대응표 | representation | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 2 |
+| m1_data_bivariate_pair | 두 변량의 대응값 | sub_concept | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 2 |
+| m1_data_box_plot | 상자그림 | representation | high | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 4 |
+| m1_data_box_plot_center_spread_reading | 상자그림에서 중심과 퍼짐 읽기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_data_box_plot_compare | 상자그림으로 두 집단의 분포 비교 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_data_box_plot_compare_medians | 상자그림에서 중앙값 비교하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_data_box_plot_construction_tool | 공학 도구로 상자그림 나타내기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 2 |
+| m1_data_box_plot_five_value_summary | 상자그림의 다섯 값 | sub_concept | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 2 |
+| m1_data_box_scatter_unit | 상자그림과 산점도 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 4 |
+| m1_data_correlation | 상관관계 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 3 |
+| m1_data_first_quartile | 제1사분위수 | term | medium | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
+| m1_data_negative_correlation | 음의 상관관계 | sub_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 2 |
+| m1_data_no_correlation | 상관관계가 없는 경우 | sub_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 2 |
+| m1_data_ordered_data_for_quartiles | 사분위수를 구하기 위한 자료 정렬 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 2 |
+| m1_data_positive_correlation | 양의 상관관계 | sub_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 2 |
+| m1_data_quartile | 사분위수 | term | high | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
+| m1_data_quartile_calculation | 사분위수 구하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_data_quartile_three_cut_points | 자료를 네 부분으로 나누는 세 값 | sub_concept | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 3 |
+| m1_data_scatter_plot | 산점도 | representation | high | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 3 |
+| m1_data_scatter_plot_axes_variables | 산점도의 두 축과 변량 | sub_concept | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 2 |
+| m1_data_scatter_plot_drawing | 산점도로 나타내기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 2 |
+| m1_data_scatter_plot_interpretation | 산점도로 상관관계 말하기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_data_scatter_plot_point | 산점도의 점 | representation | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 2 |
+| m1_data_scatter_plot_point_meaning | 산점도 한 점의 의미 해석 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 2 |
+| m1_data_scatter_plot_trend | 산점도의 경향 | sub_concept | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook definition or example that names the sub-concept. | 2 |
+| m1_data_second_quartile | 제2사분위수 | term | medium | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
+| m1_data_third_quartile | 제3사분위수 | term | medium | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 3 |
 
 ## Textbook Evidence Fields
 

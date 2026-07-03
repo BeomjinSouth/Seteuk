@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-07-03T12:47:36",
+    "generated_at": "2026-07-03T14:07:17",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
-    "concept_count": 927,
-    "edge_count": 4277
+    "concept_count": 947,
+    "edge_count": 4394
   },
   "sources": [
     {
@@ -38423,6 +38423,128 @@
       "confidence": "high"
     },
     {
+      "id": "m1_data_quartile_three_cut_points",
+      "label_ko": "자료를 네 부분으로 나누는 세 값",
+      "aliases": [
+        "사분위수 세 기준값"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "상자그림과 산점도",
+      "concept_type": "sub_concept",
+      "short_definition": "정렬한 자료를 네 부분으로 나누는 제1사분위수, 제2사분위수, 제3사분위수의 묶음.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_ordered_data_for_quartiles",
+        "m1_data_quartile"
+      ],
+      "parent_ids": [
+        "m1_data_quartile"
+      ],
+      "related_ids": [
+        "m1_data_quartile_calculation"
+      ],
+      "notes": "사분위수의 뜻을 교과서 설명에서 자주 쓰이는 '세 값' 구조로 분해했다. 세부 표현은 교과서 본문 확인 전까지 medium으로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_lower_half_for_quartiles",
+      "label_ko": "아래쪽 절반의 자료",
+      "aliases": [
+        "하위 절반 자료"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "상자그림과 산점도",
+      "concept_type": "sub_concept",
+      "short_definition": "자료를 크기순으로 정렬한 뒤 중앙값을 기준으로 아래쪽에 놓이는 절반의 자료.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_ordered_data_for_quartiles",
+        "m1_data_median"
+      ],
+      "parent_ids": [
+        "m1_data_quartile"
+      ],
+      "related_ids": [
+        "m1_data_first_quartile",
+        "m1_data_upper_half_for_quartiles"
+      ],
+      "notes": "제1사분위수를 구할 때 사용하는 교과서형 부분 자료 개념이다. 공식 문서가 직접 명명하지 않으므로 low로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_upper_half_for_quartiles",
+      "label_ko": "위쪽 절반의 자료",
+      "aliases": [
+        "상위 절반 자료"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "상자그림과 산점도",
+      "concept_type": "sub_concept",
+      "short_definition": "자료를 크기순으로 정렬한 뒤 중앙값을 기준으로 위쪽에 놓이는 절반의 자료.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_ordered_data_for_quartiles",
+        "m1_data_median"
+      ],
+      "parent_ids": [
+        "m1_data_quartile"
+      ],
+      "related_ids": [
+        "m1_data_third_quartile",
+        "m1_data_lower_half_for_quartiles"
+      ],
+      "notes": "제3사분위수를 구할 때 사용하는 교과서형 부분 자료 개념이다. 공식 문서가 직접 명명하지 않으므로 low로 둔다.",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_quartile_calculation",
       "label_ko": "사분위수 구하기",
       "aliases": [
@@ -38456,6 +38578,9 @@
       "prerequisite_ids": [
         "m1_data_ordered_data_for_quartiles",
         "m1_data_quartile",
+        "m1_data_quartile_three_cut_points",
+        "m1_data_lower_half_for_quartiles",
+        "m1_data_upper_half_for_quartiles",
         "m1_data_median"
       ],
       "parent_ids": [
@@ -38500,7 +38625,8 @@
         }
       ],
       "prerequisite_ids": [
-        "m1_data_quartile"
+        "m1_data_quartile",
+        "m1_data_lower_half_for_quartiles"
       ],
       "parent_ids": [
         "m1_data_quartile"
@@ -38591,7 +38717,8 @@
         }
       ],
       "prerequisite_ids": [
-        "m1_data_quartile"
+        "m1_data_quartile",
+        "m1_data_upper_half_for_quartiles"
       ],
       "parent_ids": [
         "m1_data_quartile"
@@ -38893,6 +39020,138 @@
       "confidence": "low"
     },
     {
+      "id": "m1_data_box_plot_median_line",
+      "label_ko": "상자그림의 중앙값 선",
+      "aliases": [
+        "상자 안의 중앙값 표시선"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "상자그림과 산점도",
+      "concept_type": "representation",
+      "short_definition": "상자그림의 상자 안에서 제2사분위수, 즉 중앙값의 위치를 나타내는 선.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_box_plot",
+        "m1_data_second_quartile"
+      ],
+      "parent_ids": [
+        "m1_data_box_plot"
+      ],
+      "related_ids": [
+        "m1_data_box_plot_center_spread_reading",
+        "m1_mis_box_plot_median_line_always_center"
+      ],
+      "notes": "상자그림 구성 부분으로 추론한 미시 표현 노드다. 교과서 그림 설명 근거 확인 전까지 low로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_plot_quartile_intervals",
+      "label_ko": "상자그림의 네 구간",
+      "aliases": [
+        "최솟값-Q1 구간",
+        "Q1-중앙값 구간",
+        "중앙값-Q3 구간",
+        "Q3-최댓값 구간"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "상자그림과 산점도",
+      "concept_type": "representation",
+      "short_definition": "상자그림에서 최솟값부터 제1사분위수, 중앙값, 제3사분위수, 최댓값까지 나뉘는 네 구간.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_box_plot",
+        "m1_data_box_plot_five_value_summary"
+      ],
+      "parent_ids": [
+        "m1_data_box_plot"
+      ],
+      "related_ids": [
+        "m1_data_box_plot_center_spread_reading"
+      ],
+      "notes": "상자그림의 구간별 해석을 위한 미시 표현 노드다. 공식 문서가 직접 명명하지 않으므로 교과서 그림 설명 확인 전까지 low로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_plot_interval_data_ratio",
+      "label_ko": "상자그림 구간별 자료 비율",
+      "aliases": [
+        "상자그림 각 구간의 자료 비율",
+        "사분위 구간의 자료 비율"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "상자그림과 산점도",
+      "concept_type": "property",
+      "short_definition": "사분위수로 나뉜 상자그림의 네 구간이 대체로 자료의 25%씩을 나타낸다는 해석.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_quartile",
+        "m1_data_box_plot_quartile_intervals"
+      ],
+      "parent_ids": [
+        "m1_data_box_scatter_unit"
+      ],
+      "related_ids": [
+        "m1_data_box_plot_center_spread_reading",
+        "m1_mis_box_plot_length_frequency"
+      ],
+      "notes": "상자그림 구간을 자료 수가 아니라 위치 비율로 읽는 해석이다. 동점과 교과서별 사분위수 계산 방식 확인 전까지 low로 둔다.",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_box_plot_construction_tool",
       "label_ko": "공학 도구로 상자그림 나타내기",
       "aliases": [
@@ -38966,6 +39225,7 @@
       "prerequisite_ids": [
         "m1_data_box_plot",
         "m1_data_second_quartile",
+        "m1_data_box_plot_median_line",
         "m1_data_interquartile_range"
       ],
       "parent_ids": [
@@ -38977,6 +39237,186 @@
       ],
       "notes": "",
       "confidence": "medium"
+    },
+    {
+      "id": "m1_data_box_plot_compare_medians",
+      "label_ko": "상자그림에서 중앙값 비교하기",
+      "aliases": [
+        "두 상자그림의 중앙값 비교"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "상자그림과 산점도",
+      "concept_type": "procedure",
+      "short_definition": "두 집단의 상자그림에서 중앙값 선의 위치를 비교해 중심의 차이를 해석하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_box_plot",
+        "m1_data_second_quartile",
+        "m1_data_box_plot_median_line"
+      ],
+      "parent_ids": [
+        "m1_data_box_scatter_unit"
+      ],
+      "related_ids": [
+        "m1_data_box_plot_compare"
+      ],
+      "notes": "상자그림의 두 집단 분포 비교를 중심 비교 절차로 분해했다. 공식 성취기준의 비교 요구에 근거해 medium으로 둔다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_box_plot_compare_iqr",
+      "label_ko": "상자 길이로 사분위범위 비교하기",
+      "aliases": [
+        "상자 길이 비교"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "상자그림과 산점도",
+      "concept_type": "procedure",
+      "short_definition": "두 상자그림의 상자 길이를 비교해 가운데 50% 자료의 퍼진 정도를 해석하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_box_plot",
+        "m1_data_box_plot_box",
+        "m1_data_interquartile_range"
+      ],
+      "parent_ids": [
+        "m1_data_box_scatter_unit"
+      ],
+      "related_ids": [
+        "m1_data_box_plot_compare"
+      ],
+      "notes": "상자 길이와 사분위범위의 연결은 교과서 그림 설명 근거 확인 전까지 low로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_plot_compare_whiskers",
+      "label_ko": "수염 길이로 양쪽 퍼짐 비교하기",
+      "aliases": [
+        "상자그림 수염 길이 비교"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "상자그림과 산점도",
+      "concept_type": "procedure",
+      "short_definition": "두 상자그림의 수염 길이와 방향을 비교해 최솟값·최댓값 쪽의 퍼짐을 해석하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_box_plot",
+        "m1_data_box_plot_whisker",
+        "m1_data_minimum_value",
+        "m1_data_maximum_value"
+      ],
+      "parent_ids": [
+        "m1_data_box_scatter_unit"
+      ],
+      "related_ids": [
+        "m1_data_box_plot_compare"
+      ],
+      "notes": "수염 길이를 해석하는 교과서형 비교 절차다. 공식 문서가 직접 명명하지 않으므로 low로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_plot_same_scale_comparison",
+      "label_ko": "같은 눈금에서 두 상자그림 비교하기",
+      "aliases": [
+        "같은 척도에서 상자그림 비교"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "상자그림과 산점도",
+      "concept_type": "procedure",
+      "short_definition": "두 상자그림을 같은 눈금이나 척도에서 놓고 중심과 퍼짐의 차이를 비교하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_box_plot",
+        "m1_data_box_plot_center_spread_reading"
+      ],
+      "parent_ids": [
+        "m1_data_box_scatter_unit"
+      ],
+      "related_ids": [
+        "m1_data_box_plot_compare"
+      ],
+      "notes": "상자그림 비교에서 눈금이 같아야 길이와 위치를 해석할 수 있다는 교과서형 확인 절차다. 직접 용어가 아니므로 low로 둔다.",
+      "confidence": "low"
     },
     {
       "id": "m1_data_box_plot_compare",
@@ -39012,6 +39452,10 @@
       "prerequisite_ids": [
         "m1_data_box_plot",
         "m1_data_box_plot_center_spread_reading",
+        "m1_data_box_plot_compare_medians",
+        "m1_data_box_plot_compare_iqr",
+        "m1_data_box_plot_compare_whiskers",
+        "m1_data_box_plot_same_scale_comparison",
         "m1_data_distribution_interpretation"
       ],
       "parent_ids": [
@@ -39061,6 +39505,44 @@
         "m1_data_scatter_plot_point"
       ],
       "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_bivariate_data_table",
+      "label_ko": "두 변량의 대응표",
+      "aliases": [
+        "변량쌍 표",
+        "두 변량 대응값 표"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "상자그림과 산점도",
+      "concept_type": "representation",
+      "short_definition": "두 변량의 대응값을 같은 행이나 열에 짝지어 정리한 표.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_bivariate_pair"
+      ],
+      "parent_ids": [
+        "m1_data_box_scatter_unit"
+      ],
+      "related_ids": [
+        "m1_data_scatter_plot_drawing"
+      ],
+      "notes": "산점도로 나타내기 전에 두 변량의 대응값을 표로 정리하는 교과서형 표현이다.",
       "confidence": "medium"
     },
     {
@@ -39141,6 +39623,85 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_data_scatter_plot_axis_label_reading",
+      "label_ko": "산점도 축 이름 확인하기",
+      "aliases": [
+        "산점도 축 의미 확인"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "상자그림과 산점도",
+      "concept_type": "procedure",
+      "short_definition": "산점도에서 가로축과 세로축이 각각 어떤 변량을 나타내는지 확인하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_scatter_plot_axes_variables",
+        "m1_coord_x_axis",
+        "m1_coord_y_axis"
+      ],
+      "parent_ids": [
+        "m1_data_scatter_plot"
+      ],
+      "related_ids": [
+        "m1_data_scatter_plot_point_meaning",
+        "m1_mis_scatter_axis_swap"
+      ],
+      "notes": "산점도 읽기에서 반복되는 교과서형 확인 절차다. 공식 문서가 직접 명명하지 않으므로 low로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_scatter_plot_point_meaning",
+      "label_ko": "산점도 한 점의 의미 해석",
+      "aliases": [
+        "산점도 점 해석"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "상자그림과 산점도",
+      "concept_type": "procedure",
+      "short_definition": "산점도의 한 점이 한 대상의 두 변량 대응값을 나타낸다는 의미를 축과 함께 해석하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_scatter_plot_point",
+        "m1_data_scatter_plot_axis_label_reading",
+        "m1_data_bivariate_pair"
+      ],
+      "parent_ids": [
+        "m1_data_box_scatter_unit"
+      ],
+      "related_ids": [
+        "m1_data_scatter_plot_interpretation"
+      ],
+      "notes": "산점도 해석의 가장 작은 읽기 절차로 분리했다. 산점도로 나타내고 상관관계를 말하는 성취기준에 근거해 medium으로 둔다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_data_scatter_plot_drawing",
       "label_ko": "산점도로 나타내기",
       "aliases": [
@@ -39167,7 +39728,9 @@
       ],
       "prerequisite_ids": [
         "m1_data_bivariate_pair",
+        "m1_data_bivariate_data_table",
         "m1_data_scatter_plot_axes_variables",
+        "m1_data_scatter_plot_axis_label_reading",
         "m1_coord_coordinate_plane"
       ],
       "parent_ids": [
@@ -39219,6 +39782,159 @@
       ],
       "notes": "",
       "confidence": "medium"
+    },
+    {
+      "id": "m1_data_scatter_positive_trend_shape",
+      "label_ko": "오른쪽 위로 향하는 산점도 경향",
+      "aliases": [
+        "오른쪽 위로 올라가는 점들의 모양"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "상자그림과 산점도",
+      "concept_type": "representation",
+      "short_definition": "산점도의 점들이 전체적으로 오른쪽 위 방향으로 놓여 양의 상관관계를 시각적으로 드러내는 모양.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_scatter_plot_trend",
+        "m1_data_scatter_plot_point"
+      ],
+      "parent_ids": [
+        "m1_data_scatter_plot_trend"
+      ],
+      "related_ids": [
+        "m1_data_positive_correlation"
+      ],
+      "notes": "양의 상관관계를 산점도 모양으로 읽는 교과서형 표현이다. 교과서 그림 근거 확인 전까지 low로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_scatter_negative_trend_shape",
+      "label_ko": "오른쪽 아래로 향하는 산점도 경향",
+      "aliases": [
+        "오른쪽 아래로 내려가는 점들의 모양"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "상자그림과 산점도",
+      "concept_type": "representation",
+      "short_definition": "산점도의 점들이 전체적으로 오른쪽 아래 방향으로 놓여 음의 상관관계를 시각적으로 드러내는 모양.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_scatter_plot_trend",
+        "m1_data_scatter_plot_point"
+      ],
+      "parent_ids": [
+        "m1_data_scatter_plot_trend"
+      ],
+      "related_ids": [
+        "m1_data_negative_correlation"
+      ],
+      "notes": "음의 상관관계를 산점도 모양으로 읽는 교과서형 표현이다. 교과서 그림 근거 확인 전까지 low로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_scatter_no_clear_trend_shape",
+      "label_ko": "뚜렷한 경향이 없는 산점도 모양",
+      "aliases": [
+        "흩어진 점들의 모양"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "상자그림과 산점도",
+      "concept_type": "representation",
+      "short_definition": "산점도의 점들이 뚜렷한 증가나 감소 방향 없이 흩어져 상관관계를 말하기 어려운 모양.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_scatter_plot_trend",
+        "m1_data_scatter_plot_point"
+      ],
+      "parent_ids": [
+        "m1_data_scatter_plot_trend"
+      ],
+      "related_ids": [
+        "m1_data_no_correlation"
+      ],
+      "notes": "상관관계가 없는 경우를 산점도 모양으로 읽는 교과서형 표현이다. 교과서 그림 근거 확인 전까지 low로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_scatter_plot_linear_pattern",
+      "label_ko": "직선에 가까운 산점도 경향",
+      "aliases": [
+        "직선형 산점도 경향",
+        "선형에 가까운 점들의 모양"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "상자그림과 산점도",
+      "concept_type": "representation",
+      "short_definition": "산점도의 점들이 전체적으로 직선에 가까운 띠 모양을 이루어 두 변량의 관련 정도를 시각적으로 드러내는 모양.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_scatter_plot_trend",
+        "m1_data_scatter_plot_point"
+      ],
+      "parent_ids": [
+        "m1_data_scatter_plot_trend"
+      ],
+      "related_ids": [
+        "m1_data_correlation_strength"
+      ],
+      "notes": "상관관계의 강약을 산점도 모양으로 읽는 수준까지만 둔다. 상관계수, 회귀직선, 기울기 해석으로 확장하지 않는다.",
+      "confidence": "low"
     },
     {
       "id": "m1_data_scatter_plot",
@@ -39307,6 +40023,46 @@
       "related_ids": [],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_data_correlation_strength",
+      "label_ko": "상관관계의 강하고 약한 정도",
+      "aliases": [
+        "상관관계의 강약",
+        "상관의 강도"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "상자그림과 산점도",
+      "concept_type": "sub_concept",
+      "short_definition": "산점도의 점들이 하나의 경향에 얼마나 뚜렷하게 모여 있는지로 상관관계가 강한지 약한지를 해석하는 정도.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_data_correlation",
+        "m1_data_scatter_plot_trend"
+      ],
+      "parent_ids": [
+        "m1_data_box_scatter_unit"
+      ],
+      "related_ids": [
+        "m1_data_scatter_plot_linear_pattern",
+        "m1_data_scatter_plot_interpretation"
+      ],
+      "notes": "중학교 교육과정에서는 상관계수나 회귀식까지 다루지 않으므로 산점도 모양의 정성적 강약 해석으로 제한한다.",
+      "confidence": "low"
     },
     {
       "id": "m1_data_positive_correlation",
@@ -39459,12 +40215,14 @@
       "prerequisite_ids": [
         "m1_data_scatter_plot",
         "m1_data_scatter_plot_trend",
+        "m1_data_scatter_plot_point_meaning",
         "m1_data_correlation"
       ],
       "parent_ids": [
         "m1_data_box_scatter_unit"
       ],
       "related_ids": [
+        "m1_mis_scatter_single_point_correlation",
         "m1_mis_correlation_causation"
       ],
       "notes": "",
@@ -39584,6 +40342,84 @@
         "m1_coord_ordered_pair"
       ],
       "notes": "산점도 표현 절차에서 추론한 오개념 위험이다. 교과서 예제와 오답 근거로 보강한다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_box_plot_median_line_always_center",
+      "label_ko": "상자그림의 중앙값 선이 항상 상자의 가운데에 있다고 보는 오류",
+      "aliases": [
+        "상자그림 중앙값 선 위치 오해"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "상자그림과 산점도",
+      "concept_type": "misconception_risk",
+      "short_definition": "상자 안의 중앙값 선이 실제 자료의 중앙 위치를 나타내는데도 상자의 기하학적 가운데에 항상 있어야 한다고 보는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_data_box_scatter_unit"
+      ],
+      "related_ids": [
+        "m1_data_box_plot_median_line",
+        "m1_data_box_plot_center_spread_reading"
+      ],
+      "notes": "상자그림 해석 맥락에서 추론한 오개념 위험이다. 교과서 문항 근거 확인 전까지 low로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_scatter_single_point_correlation",
+      "label_ko": "한 점만 보고 상관관계를 판단하는 오류",
+      "aliases": [
+        "산점도 한 점 판단 오류"
+      ],
+      "grade": "중3(교육과정 학년군: 중1-3)",
+      "domain": "자료와 가능성",
+      "unit": "상자그림과 산점도",
+      "concept_type": "misconception_risk",
+      "short_definition": "산점도의 전체적인 점들의 경향을 보지 않고 한두 점만으로 상관관계를 단정하는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_data_box_scatter_unit"
+      ],
+      "related_ids": [
+        "m1_data_scatter_plot_trend",
+        "m1_data_scatter_plot_interpretation"
+      ],
+      "notes": "상관관계 판단 절차에서 추론한 오개념 위험이다. 교과서 예제·문항 근거 확인 전까지 low로 둔다.",
       "confidence": "low"
     },
     {
@@ -83532,6 +84368,166 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_data_quartile_three_cut_points__used_in__m1_data_quartile",
+      "source_id": "m1_data_quartile_three_cut_points",
+      "target_id": "m1_data_quartile",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "사분위수를 세 기준값 구조로 이해하는 데 사용한다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_quartile_three_cut_points__used_in__m1_data_quartile_calculation",
+      "source_id": "m1_data_quartile_three_cut_points",
+      "target_id": "m1_data_quartile_calculation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_lower_half_for_quartiles__used_in__m1_data_first_quartile",
+      "source_id": "m1_data_lower_half_for_quartiles",
+      "target_id": "m1_data_first_quartile",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "아래쪽 절반의 중앙값으로 제1사분위수를 정하는 교과서형 절차다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_upper_half_for_quartiles__used_in__m1_data_third_quartile",
+      "source_id": "m1_data_upper_half_for_quartiles",
+      "target_id": "m1_data_third_quartile",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "위쪽 절반의 중앙값으로 제3사분위수를 정하는 교과서형 절차다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_lower_half_for_quartiles__contrasts_with__m1_data_upper_half_for_quartiles",
+      "source_id": "m1_data_lower_half_for_quartiles",
+      "target_id": "m1_data_upper_half_for_quartiles",
+      "relationship_type": "contrasts_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "제1사분위수와 제3사분위수를 구할 때 사용하는 부분 자료를 구별한다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_lower_half_for_quartiles__used_in__m1_data_quartile_calculation",
+      "source_id": "m1_data_lower_half_for_quartiles",
+      "target_id": "m1_data_quartile_calculation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_upper_half_for_quartiles__used_in__m1_data_quartile_calculation",
+      "source_id": "m1_data_upper_half_for_quartiles",
+      "target_id": "m1_data_quartile_calculation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_median__used_in__m1_data_quartile_calculation",
       "source_id": "m1_data_median",
       "target_id": "m1_data_quartile_calculation",
@@ -83874,6 +84870,28 @@
       "confidence": "low"
     },
     {
+      "id": "m1_data_second_quartile__represented_by__m1_data_box_plot_median_line",
+      "source_id": "m1_data_second_quartile",
+      "target_id": "m1_data_box_plot_median_line",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "상자그림의 중앙값 선은 제2사분위수의 위치를 나타낸다.",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_minimum_value__represented_by__m1_data_box_plot_whisker",
       "source_id": "m1_data_minimum_value",
       "target_id": "m1_data_box_plot_whisker",
@@ -84053,6 +85071,392 @@
         }
       ],
       "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_plot_median_line__used_in__m1_data_box_plot_center_spread_reading",
+      "source_id": "m1_data_box_plot_median_line",
+      "target_id": "m1_data_box_plot_center_spread_reading",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "중앙값 선은 상자그림에서 중심을 읽는 데 쓰인다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_plot_quartile_intervals__used_in__m1_data_box_plot_center_spread_reading",
+      "source_id": "m1_data_box_plot_quartile_intervals",
+      "target_id": "m1_data_box_plot_center_spread_reading",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "상자그림의 네 구간은 중심과 양쪽 퍼짐을 나누어 읽는 데 쓰인다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_plot_interval_data_ratio__used_in__m1_data_box_plot_center_spread_reading",
+      "source_id": "m1_data_box_plot_interval_data_ratio",
+      "target_id": "m1_data_box_plot_center_spread_reading",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "각 사분위 구간이 대체로 자료의 25%씩을 나타낸다는 해석은 상자그림 읽기에 사용된다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_second_quartile__used_in__m1_data_box_plot_compare_medians",
+      "source_id": "m1_data_second_quartile",
+      "target_id": "m1_data_box_plot_compare_medians",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_box_plot_median_line__used_in__m1_data_box_plot_compare_medians",
+      "source_id": "m1_data_box_plot_median_line",
+      "target_id": "m1_data_box_plot_compare_medians",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_box_plot_compare_medians__used_in__m1_data_box_plot_compare",
+      "source_id": "m1_data_box_plot_compare_medians",
+      "target_id": "m1_data_box_plot_compare",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_interquartile_range__used_in__m1_data_box_plot_compare_iqr",
+      "source_id": "m1_data_interquartile_range",
+      "target_id": "m1_data_box_plot_compare_iqr",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_plot_box__used_in__m1_data_box_plot_compare_iqr",
+      "source_id": "m1_data_box_plot_box",
+      "target_id": "m1_data_box_plot_compare_iqr",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_plot_compare_iqr__used_in__m1_data_box_plot_compare",
+      "source_id": "m1_data_box_plot_compare_iqr",
+      "target_id": "m1_data_box_plot_compare",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_plot_whisker__used_in__m1_data_box_plot_compare_whiskers",
+      "source_id": "m1_data_box_plot_whisker",
+      "target_id": "m1_data_box_plot_compare_whiskers",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_minimum_value__used_in__m1_data_box_plot_compare_whiskers",
+      "source_id": "m1_data_minimum_value",
+      "target_id": "m1_data_box_plot_compare_whiskers",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_maximum_value__used_in__m1_data_box_plot_compare_whiskers",
+      "source_id": "m1_data_maximum_value",
+      "target_id": "m1_data_box_plot_compare_whiskers",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_plot_compare_whiskers__used_in__m1_data_box_plot_compare",
+      "source_id": "m1_data_box_plot_compare_whiskers",
+      "target_id": "m1_data_box_plot_compare",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_plot_same_scale_comparison__used_in__m1_data_box_plot_compare",
+      "source_id": "m1_data_box_plot_same_scale_comparison",
+      "target_id": "m1_data_box_plot_compare",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "같은 눈금에서 비교해야 상자와 수염의 길이 차이를 해석할 수 있다.",
       "confidence": "low"
     },
     {
@@ -84240,6 +85644,28 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_data_bivariate_pair__represented_by__m1_data_bivariate_data_table",
+      "source_id": "m1_data_bivariate_pair",
+      "target_id": "m1_data_bivariate_data_table",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "두 변량의 대응값은 산점도로 옮기기 전에 표로 정리될 수 있다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_coord_ordered_pair__used_in__m1_data_scatter_plot_point",
       "source_id": "m1_coord_ordered_pair",
       "target_id": "m1_data_scatter_plot_point",
@@ -84306,6 +85732,28 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_data_bivariate_data_table__used_in__m1_data_scatter_plot_drawing",
+      "source_id": "m1_data_bivariate_data_table",
+      "target_id": "m1_data_scatter_plot_drawing",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "대응표의 각 변량쌍을 좌표평면의 점으로 옮겨 산점도를 만든다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_data_scatter_plot_axes_variables__used_in__m1_data_scatter_plot_drawing",
       "source_id": "m1_data_scatter_plot_axes_variables",
       "target_id": "m1_data_scatter_plot_drawing",
@@ -84326,6 +85774,50 @@
       ],
       "notes": "",
       "confidence": "medium"
+    },
+    {
+      "id": "m1_data_scatter_plot_axis_label_reading__used_in__m1_data_scatter_plot_drawing",
+      "source_id": "m1_data_scatter_plot_axis_label_reading",
+      "target_id": "m1_data_scatter_plot_drawing",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "축 이름 확인은 산점도로 두 변량을 나타내는 절차에 사용된다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_scatter_plot_axis_label_reading__used_in__m1_data_scatter_plot_point_meaning",
+      "source_id": "m1_data_scatter_plot_axis_label_reading",
+      "target_id": "m1_data_scatter_plot_point_meaning",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
     },
     {
       "id": "m1_coord_coordinate_plane__used_in__m1_data_scatter_plot_drawing",
@@ -84394,6 +85886,50 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_data_scatter_plot_point__used_in__m1_data_scatter_plot_point_meaning",
+      "source_id": "m1_data_scatter_plot_point",
+      "target_id": "m1_data_scatter_plot_point_meaning",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_scatter_plot_point_meaning__used_in__m1_data_scatter_plot_interpretation",
+      "source_id": "m1_data_scatter_plot_point_meaning",
+      "target_id": "m1_data_scatter_plot_interpretation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_data_scatter_plot_point__used_in__m1_data_scatter_plot_trend",
       "source_id": "m1_data_scatter_plot_point",
       "target_id": "m1_data_scatter_plot_trend",
@@ -84414,6 +85950,116 @@
       ],
       "notes": "",
       "confidence": "medium"
+    },
+    {
+      "id": "m1_data_scatter_positive_trend_shape__used_in__m1_data_scatter_plot_trend",
+      "source_id": "m1_data_scatter_positive_trend_shape",
+      "target_id": "m1_data_scatter_plot_trend",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_scatter_negative_trend_shape__used_in__m1_data_scatter_plot_trend",
+      "source_id": "m1_data_scatter_negative_trend_shape",
+      "target_id": "m1_data_scatter_plot_trend",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_scatter_no_clear_trend_shape__used_in__m1_data_scatter_plot_trend",
+      "source_id": "m1_data_scatter_no_clear_trend_shape",
+      "target_id": "m1_data_scatter_plot_trend",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_scatter_plot_linear_pattern__used_in__m1_data_scatter_plot_trend",
+      "source_id": "m1_data_scatter_plot_linear_pattern",
+      "target_id": "m1_data_scatter_plot_trend",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "점들이 직선에 가까운 띠를 이루는지는 산점도의 전체 경향을 읽는 세부 표현이다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_scatter_plot_linear_pattern__used_in__m1_data_correlation_strength",
+      "source_id": "m1_data_scatter_plot_linear_pattern",
+      "target_id": "m1_data_correlation_strength",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "직선에 가까운 정도는 상관관계의 강약을 정성적으로 판단하는 데 사용된다.",
+      "confidence": "low"
     },
     {
       "id": "m1_data_scatter_plot_trend__used_in__m1_data_correlation",
@@ -84502,6 +86148,72 @@
       ],
       "notes": "",
       "confidence": "medium"
+    },
+    {
+      "id": "m1_data_scatter_positive_trend_shape__used_in__m1_data_positive_correlation",
+      "source_id": "m1_data_scatter_positive_trend_shape",
+      "target_id": "m1_data_positive_correlation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_scatter_negative_trend_shape__used_in__m1_data_negative_correlation",
+      "source_id": "m1_data_scatter_negative_trend_shape",
+      "target_id": "m1_data_negative_correlation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_scatter_no_clear_trend_shape__used_in__m1_data_no_correlation",
+      "source_id": "m1_data_scatter_no_clear_trend_shape",
+      "target_id": "m1_data_no_correlation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
     },
     {
       "id": "m1_data_variable__used_in__m1_data_scatter_plot",
@@ -84772,6 +86484,28 @@
       ],
       "notes": "",
       "confidence": "medium"
+    },
+    {
+      "id": "m1_data_correlation_strength__used_in__m1_data_scatter_plot_interpretation",
+      "source_id": "m1_data_correlation_strength",
+      "target_id": "m1_data_scatter_plot_interpretation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "상관관계의 강약은 산점도 해석에서 말할 수 있는 정성적 판단으로 제한한다.",
+      "confidence": "low"
     },
     {
       "id": "m1_data_correlation__used_in__m1_data_scatter_plot_interpretation",
@@ -104452,6 +106186,78 @@
       "confidence": "high"
     },
     {
+      "id": "m1_data_quartile__contains__m1_data_quartile_three_cut_points",
+      "source_id": "m1_data_quartile",
+      "target_id": "m1_data_quartile_three_cut_points",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_quartile__contains__m1_data_lower_half_for_quartiles",
+      "source_id": "m1_data_quartile",
+      "target_id": "m1_data_lower_half_for_quartiles",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_quartile__contains__m1_data_upper_half_for_quartiles",
+      "source_id": "m1_data_quartile",
+      "target_id": "m1_data_upper_half_for_quartiles",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_box_scatter_unit__contains__m1_data_quartile_calculation",
       "source_id": "m1_data_box_scatter_unit",
       "target_id": "m1_data_quartile_calculation",
@@ -104730,6 +106536,84 @@
       "confidence": "low"
     },
     {
+      "id": "m1_data_box_plot__contains__m1_data_box_plot_median_line",
+      "source_id": "m1_data_box_plot",
+      "target_id": "m1_data_box_plot_median_line",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_plot__contains__m1_data_box_plot_quartile_intervals",
+      "source_id": "m1_data_box_plot",
+      "target_id": "m1_data_box_plot_quartile_intervals",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_scatter_unit__contains__m1_data_box_plot_interval_data_ratio",
+      "source_id": "m1_data_box_scatter_unit",
+      "target_id": "m1_data_box_plot_interval_data_ratio",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_box_scatter_unit__contains__m1_data_box_plot_construction_tool",
       "source_id": "m1_data_box_scatter_unit",
       "target_id": "m1_data_box_plot_construction_tool",
@@ -104780,6 +106664,118 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_data_box_scatter_unit__contains__m1_data_box_plot_compare_medians",
+      "source_id": "m1_data_box_scatter_unit",
+      "target_id": "m1_data_box_plot_compare_medians",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_box_scatter_unit__contains__m1_data_box_plot_compare_iqr",
+      "source_id": "m1_data_box_scatter_unit",
+      "target_id": "m1_data_box_plot_compare_iqr",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_scatter_unit__contains__m1_data_box_plot_compare_whiskers",
+      "source_id": "m1_data_box_scatter_unit",
+      "target_id": "m1_data_box_plot_compare_whiskers",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_scatter_unit__contains__m1_data_box_plot_same_scale_comparison",
+      "source_id": "m1_data_box_scatter_unit",
+      "target_id": "m1_data_box_plot_same_scale_comparison",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_box_scatter_unit__contains__m1_data_box_plot_compare",
       "source_id": "m1_data_box_scatter_unit",
       "target_id": "m1_data_box_plot_compare",
@@ -104811,6 +106807,28 @@
       "id": "m1_data_box_scatter_unit__contains__m1_data_bivariate_pair",
       "source_id": "m1_data_box_scatter_unit",
       "target_id": "m1_data_bivariate_pair",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_box_scatter_unit__contains__m1_data_bivariate_data_table",
+      "source_id": "m1_data_box_scatter_unit",
+      "target_id": "m1_data_bivariate_data_table",
       "relationship_type": "contains",
       "source_refs": [
         {
@@ -104874,6 +106892,50 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_data_scatter_plot__contains__m1_data_scatter_plot_axis_label_reading",
+      "source_id": "m1_data_scatter_plot",
+      "target_id": "m1_data_scatter_plot_axis_label_reading",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_scatter_unit__contains__m1_data_scatter_plot_point_meaning",
+      "source_id": "m1_data_box_scatter_unit",
+      "target_id": "m1_data_scatter_plot_point_meaning",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_data_box_scatter_unit__contains__m1_data_scatter_plot_drawing",
       "source_id": "m1_data_box_scatter_unit",
       "target_id": "m1_data_scatter_plot_drawing",
@@ -104916,6 +106978,94 @@
       ],
       "notes": "",
       "confidence": "medium"
+    },
+    {
+      "id": "m1_data_scatter_plot_trend__contains__m1_data_scatter_positive_trend_shape",
+      "source_id": "m1_data_scatter_plot_trend",
+      "target_id": "m1_data_scatter_positive_trend_shape",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_scatter_plot_trend__contains__m1_data_scatter_negative_trend_shape",
+      "source_id": "m1_data_scatter_plot_trend",
+      "target_id": "m1_data_scatter_negative_trend_shape",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_scatter_plot_trend__contains__m1_data_scatter_no_clear_trend_shape",
+      "source_id": "m1_data_scatter_plot_trend",
+      "target_id": "m1_data_scatter_no_clear_trend_shape",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_scatter_plot_trend__contains__m1_data_scatter_plot_linear_pattern",
+      "source_id": "m1_data_scatter_plot_trend",
+      "target_id": "m1_data_scatter_plot_linear_pattern",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
     },
     {
       "id": "m1_data_box_scatter_unit__contains__m1_data_scatter_plot",
@@ -104972,6 +107122,28 @@
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_data_box_scatter_unit__contains__m1_data_correlation_strength",
+      "source_id": "m1_data_box_scatter_unit",
+      "target_id": "m1_data_correlation_strength",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
     },
     {
       "id": "m1_data_box_scatter_unit__contains__m1_data_positive_correlation",
@@ -105121,6 +107293,56 @@
       "id": "m1_data_box_scatter_unit__contains__m1_mis_scatter_axis_swap",
       "source_id": "m1_data_box_scatter_unit",
       "target_id": "m1_mis_scatter_axis_swap",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_scatter_unit__contains__m1_mis_box_plot_median_line_always_center",
+      "source_id": "m1_data_box_scatter_unit",
+      "target_id": "m1_mis_box_plot_median_line_always_center",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_scatter_unit__contains__m1_mis_scatter_single_point_correlation",
+      "source_id": "m1_data_box_scatter_unit",
+      "target_id": "m1_mis_scatter_single_point_correlation",
       "relationship_type": "contains",
       "source_refs": [
         {
@@ -143592,6 +145814,150 @@
       "confidence": "high"
     },
     {
+      "id": "m1_data_ordered_data_for_quartiles__prerequisite_for__m1_data_quartile_three_cut_points",
+      "source_id": "m1_data_ordered_data_for_quartiles",
+      "target_id": "m1_data_quartile_three_cut_points",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_quartile__prerequisite_for__m1_data_quartile_three_cut_points",
+      "source_id": "m1_data_quartile",
+      "target_id": "m1_data_quartile_three_cut_points",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_ordered_data_for_quartiles__prerequisite_for__m1_data_lower_half_for_quartiles",
+      "source_id": "m1_data_ordered_data_for_quartiles",
+      "target_id": "m1_data_lower_half_for_quartiles",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_median__prerequisite_for__m1_data_lower_half_for_quartiles",
+      "source_id": "m1_data_median",
+      "target_id": "m1_data_lower_half_for_quartiles",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_ordered_data_for_quartiles__prerequisite_for__m1_data_upper_half_for_quartiles",
+      "source_id": "m1_data_ordered_data_for_quartiles",
+      "target_id": "m1_data_upper_half_for_quartiles",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_median__prerequisite_for__m1_data_upper_half_for_quartiles",
+      "source_id": "m1_data_median",
+      "target_id": "m1_data_upper_half_for_quartiles",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_ordered_data_for_quartiles__prerequisite_for__m1_data_quartile_calculation",
       "source_id": "m1_data_ordered_data_for_quartiles",
       "target_id": "m1_data_quartile_calculation",
@@ -143648,6 +146014,90 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_data_quartile_three_cut_points__prerequisite_for__m1_data_quartile_calculation",
+      "source_id": "m1_data_quartile_three_cut_points",
+      "target_id": "m1_data_quartile_calculation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_lower_half_for_quartiles__prerequisite_for__m1_data_quartile_calculation",
+      "source_id": "m1_data_lower_half_for_quartiles",
+      "target_id": "m1_data_quartile_calculation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_upper_half_for_quartiles__prerequisite_for__m1_data_quartile_calculation",
+      "source_id": "m1_data_upper_half_for_quartiles",
+      "target_id": "m1_data_quartile_calculation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_data_median__prerequisite_for__m1_data_quartile_calculation",
       "source_id": "m1_data_median",
       "target_id": "m1_data_quartile_calculation",
@@ -143678,6 +146128,34 @@
     {
       "id": "m1_data_quartile__prerequisite_for__m1_data_first_quartile",
       "source_id": "m1_data_quartile",
+      "target_id": "m1_data_first_quartile",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_lower_half_for_quartiles__prerequisite_for__m1_data_first_quartile",
+      "source_id": "m1_data_lower_half_for_quartiles",
       "target_id": "m1_data_first_quartile",
       "relationship_type": "prerequisite_for",
       "source_refs": [
@@ -143762,6 +146240,34 @@
     {
       "id": "m1_data_quartile__prerequisite_for__m1_data_third_quartile",
       "source_id": "m1_data_quartile",
+      "target_id": "m1_data_third_quartile",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; terms and symbols for 자료와 가능성",
+          "evidence_kind": "term_list",
+          "summary": "변량, 대푯값, 중앙값, 최빈값, 줄기와 잎 그림, 계급, 계급의 크기, 도수, 도수분포표, 히스토그램, 도수분포다각형, 상대도수, 사건, 확률, 산포도, 편차, 분산, 표준편차, 사분위수, 상자그림, 산점도, 상관관계를 다룸"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_upper_half_for_quartiles__prerequisite_for__m1_data_third_quartile",
+      "source_id": "m1_data_upper_half_for_quartiles",
       "target_id": "m1_data_third_quartile",
       "relationship_type": "prerequisite_for",
       "source_refs": [
@@ -144230,6 +146736,162 @@
       "confidence": "low"
     },
     {
+      "id": "m1_data_box_plot__prerequisite_for__m1_data_box_plot_median_line",
+      "source_id": "m1_data_box_plot",
+      "target_id": "m1_data_box_plot_median_line",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_second_quartile__prerequisite_for__m1_data_box_plot_median_line",
+      "source_id": "m1_data_second_quartile",
+      "target_id": "m1_data_box_plot_median_line",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_plot__prerequisite_for__m1_data_box_plot_quartile_intervals",
+      "source_id": "m1_data_box_plot",
+      "target_id": "m1_data_box_plot_quartile_intervals",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_plot_five_value_summary__prerequisite_for__m1_data_box_plot_quartile_intervals",
+      "source_id": "m1_data_box_plot_five_value_summary",
+      "target_id": "m1_data_box_plot_quartile_intervals",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_quartile__prerequisite_for__m1_data_box_plot_interval_data_ratio",
+      "source_id": "m1_data_quartile",
+      "target_id": "m1_data_box_plot_interval_data_ratio",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_plot_quartile_intervals__prerequisite_for__m1_data_box_plot_interval_data_ratio",
+      "source_id": "m1_data_box_plot_quartile_intervals",
+      "target_id": "m1_data_box_plot_interval_data_ratio",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_quartile_calculation__prerequisite_for__m1_data_box_plot_construction_tool",
       "source_id": "m1_data_quartile_calculation",
       "target_id": "m1_data_box_plot_construction_tool",
@@ -144352,6 +147014,34 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_data_box_plot_median_line__prerequisite_for__m1_data_box_plot_center_spread_reading",
+      "source_id": "m1_data_box_plot_median_line",
+      "target_id": "m1_data_box_plot_center_spread_reading",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_data_interquartile_range__prerequisite_for__m1_data_box_plot_center_spread_reading",
       "source_id": "m1_data_interquartile_range",
       "target_id": "m1_data_box_plot_center_spread_reading",
@@ -144378,6 +147068,342 @@
       ],
       "notes": "",
       "confidence": "medium"
+    },
+    {
+      "id": "m1_data_box_plot__prerequisite_for__m1_data_box_plot_compare_medians",
+      "source_id": "m1_data_box_plot",
+      "target_id": "m1_data_box_plot_compare_medians",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_second_quartile__prerequisite_for__m1_data_box_plot_compare_medians",
+      "source_id": "m1_data_second_quartile",
+      "target_id": "m1_data_box_plot_compare_medians",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_box_plot_median_line__prerequisite_for__m1_data_box_plot_compare_medians",
+      "source_id": "m1_data_box_plot_median_line",
+      "target_id": "m1_data_box_plot_compare_medians",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_box_plot__prerequisite_for__m1_data_box_plot_compare_iqr",
+      "source_id": "m1_data_box_plot",
+      "target_id": "m1_data_box_plot_compare_iqr",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_plot_box__prerequisite_for__m1_data_box_plot_compare_iqr",
+      "source_id": "m1_data_box_plot_box",
+      "target_id": "m1_data_box_plot_compare_iqr",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_interquartile_range__prerequisite_for__m1_data_box_plot_compare_iqr",
+      "source_id": "m1_data_interquartile_range",
+      "target_id": "m1_data_box_plot_compare_iqr",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_plot__prerequisite_for__m1_data_box_plot_compare_whiskers",
+      "source_id": "m1_data_box_plot",
+      "target_id": "m1_data_box_plot_compare_whiskers",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_plot_whisker__prerequisite_for__m1_data_box_plot_compare_whiskers",
+      "source_id": "m1_data_box_plot_whisker",
+      "target_id": "m1_data_box_plot_compare_whiskers",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_minimum_value__prerequisite_for__m1_data_box_plot_compare_whiskers",
+      "source_id": "m1_data_minimum_value",
+      "target_id": "m1_data_box_plot_compare_whiskers",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_maximum_value__prerequisite_for__m1_data_box_plot_compare_whiskers",
+      "source_id": "m1_data_maximum_value",
+      "target_id": "m1_data_box_plot_compare_whiskers",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_plot__prerequisite_for__m1_data_box_plot_same_scale_comparison",
+      "source_id": "m1_data_box_plot",
+      "target_id": "m1_data_box_plot_same_scale_comparison",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_box_plot_center_spread_reading__prerequisite_for__m1_data_box_plot_same_scale_comparison",
+      "source_id": "m1_data_box_plot_center_spread_reading",
+      "target_id": "m1_data_box_plot_same_scale_comparison",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
     },
     {
       "id": "m1_data_box_plot__prerequisite_for__m1_data_box_plot_compare",
@@ -144410,6 +147436,118 @@
     {
       "id": "m1_data_box_plot_center_spread_reading__prerequisite_for__m1_data_box_plot_compare",
       "source_id": "m1_data_box_plot_center_spread_reading",
+      "target_id": "m1_data_box_plot_compare",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_data_box_plot_compare_medians__prerequisite_for__m1_data_box_plot_compare",
+      "source_id": "m1_data_box_plot_compare_medians",
+      "target_id": "m1_data_box_plot_compare",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_data_box_plot_compare_iqr__prerequisite_for__m1_data_box_plot_compare",
+      "source_id": "m1_data_box_plot_compare_iqr",
+      "target_id": "m1_data_box_plot_compare",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_data_box_plot_compare_whiskers__prerequisite_for__m1_data_box_plot_compare",
+      "source_id": "m1_data_box_plot_compare_whiskers",
+      "target_id": "m1_data_box_plot_compare",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_data_box_plot_same_scale_comparison__prerequisite_for__m1_data_box_plot_compare",
+      "source_id": "m1_data_box_plot_same_scale_comparison",
       "target_id": "m1_data_box_plot_compare",
       "relationship_type": "prerequisite_for",
       "source_refs": [
@@ -144489,6 +147627,28 @@
       "id": "m1_data_dataset__prerequisite_for__m1_data_bivariate_pair",
       "source_id": "m1_data_dataset",
       "target_id": "m1_data_bivariate_pair",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_bivariate_pair__prerequisite_for__m1_data_bivariate_data_table",
+      "source_id": "m1_data_bivariate_pair",
+      "target_id": "m1_data_bivariate_data_table",
       "relationship_type": "prerequisite_for",
       "source_refs": [
         {
@@ -144618,6 +147778,138 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_data_scatter_plot_axes_variables__prerequisite_for__m1_data_scatter_plot_axis_label_reading",
+      "source_id": "m1_data_scatter_plot_axes_variables",
+      "target_id": "m1_data_scatter_plot_axis_label_reading",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_coord_x_axis__prerequisite_for__m1_data_scatter_plot_axis_label_reading",
+      "source_id": "m1_coord_x_axis",
+      "target_id": "m1_data_scatter_plot_axis_label_reading",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_coord_y_axis__prerequisite_for__m1_data_scatter_plot_axis_label_reading",
+      "source_id": "m1_coord_y_axis",
+      "target_id": "m1_data_scatter_plot_axis_label_reading",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_scatter_plot_point__prerequisite_for__m1_data_scatter_plot_point_meaning",
+      "source_id": "m1_data_scatter_plot_point",
+      "target_id": "m1_data_scatter_plot_point_meaning",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_scatter_plot_axis_label_reading__prerequisite_for__m1_data_scatter_plot_point_meaning",
+      "source_id": "m1_data_scatter_plot_axis_label_reading",
+      "target_id": "m1_data_scatter_plot_point_meaning",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_data_bivariate_pair__prerequisite_for__m1_data_scatter_plot_point_meaning",
+      "source_id": "m1_data_bivariate_pair",
+      "target_id": "m1_data_scatter_plot_point_meaning",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_data_bivariate_pair__prerequisite_for__m1_data_scatter_plot_drawing",
       "source_id": "m1_data_bivariate_pair",
       "target_id": "m1_data_scatter_plot_drawing",
@@ -144640,8 +147932,52 @@
       "confidence": "high"
     },
     {
+      "id": "m1_data_bivariate_data_table__prerequisite_for__m1_data_scatter_plot_drawing",
+      "source_id": "m1_data_bivariate_data_table",
+      "target_id": "m1_data_scatter_plot_drawing",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
       "id": "m1_data_scatter_plot_axes_variables__prerequisite_for__m1_data_scatter_plot_drawing",
       "source_id": "m1_data_scatter_plot_axes_variables",
+      "target_id": "m1_data_scatter_plot_drawing",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_data_scatter_plot_axis_label_reading__prerequisite_for__m1_data_scatter_plot_drawing",
+      "source_id": "m1_data_scatter_plot_axis_label_reading",
       "target_id": "m1_data_scatter_plot_drawing",
       "relationship_type": "prerequisite_for",
       "source_refs": [
@@ -144726,6 +148062,182 @@
       ],
       "notes": "",
       "confidence": "medium"
+    },
+    {
+      "id": "m1_data_scatter_plot_trend__prerequisite_for__m1_data_scatter_positive_trend_shape",
+      "source_id": "m1_data_scatter_plot_trend",
+      "target_id": "m1_data_scatter_positive_trend_shape",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_scatter_plot_point__prerequisite_for__m1_data_scatter_positive_trend_shape",
+      "source_id": "m1_data_scatter_plot_point",
+      "target_id": "m1_data_scatter_positive_trend_shape",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_scatter_plot_trend__prerequisite_for__m1_data_scatter_negative_trend_shape",
+      "source_id": "m1_data_scatter_plot_trend",
+      "target_id": "m1_data_scatter_negative_trend_shape",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_scatter_plot_point__prerequisite_for__m1_data_scatter_negative_trend_shape",
+      "source_id": "m1_data_scatter_plot_point",
+      "target_id": "m1_data_scatter_negative_trend_shape",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_scatter_plot_trend__prerequisite_for__m1_data_scatter_no_clear_trend_shape",
+      "source_id": "m1_data_scatter_plot_trend",
+      "target_id": "m1_data_scatter_no_clear_trend_shape",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_scatter_plot_point__prerequisite_for__m1_data_scatter_no_clear_trend_shape",
+      "source_id": "m1_data_scatter_plot_point",
+      "target_id": "m1_data_scatter_no_clear_trend_shape",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_scatter_plot_trend__prerequisite_for__m1_data_scatter_plot_linear_pattern",
+      "source_id": "m1_data_scatter_plot_trend",
+      "target_id": "m1_data_scatter_plot_linear_pattern",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_scatter_plot_point__prerequisite_for__m1_data_scatter_plot_linear_pattern",
+      "source_id": "m1_data_scatter_plot_point",
+      "target_id": "m1_data_scatter_plot_linear_pattern",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
     },
     {
       "id": "m1_data_variable__prerequisite_for__m1_data_scatter_plot",
@@ -144868,6 +148380,50 @@
       "confidence": "high"
     },
     {
+      "id": "m1_data_correlation__prerequisite_for__m1_data_correlation_strength",
+      "source_id": "m1_data_correlation",
+      "target_id": "m1_data_correlation_strength",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_data_scatter_plot_trend__prerequisite_for__m1_data_correlation_strength",
+      "source_id": "m1_data_scatter_plot_trend",
+      "target_id": "m1_data_correlation_strength",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_data_correlation__prerequisite_for__m1_data_positive_correlation",
       "source_id": "m1_data_correlation",
       "target_id": "m1_data_positive_correlation",
@@ -144964,6 +148520,34 @@
     {
       "id": "m1_data_scatter_plot_trend__prerequisite_for__m1_data_scatter_plot_interpretation",
       "source_id": "m1_data_scatter_plot_trend",
+      "target_id": "m1_data_scatter_plot_interpretation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "high"
+    },
+    {
+      "id": "m1_data_scatter_plot_point_meaning__prerequisite_for__m1_data_scatter_plot_interpretation",
+      "source_id": "m1_data_scatter_plot_point_meaning",
       "target_id": "m1_data_scatter_plot_interpretation",
       "relationship_type": "prerequisite_for",
       "source_refs": [
@@ -149148,6 +152732,62 @@
       "confidence": "low"
     },
     {
+      "id": "m1_mis_box_plot_median_line_always_center__often_confused_with__m1_data_box_plot_median_line",
+      "source_id": "m1_mis_box_plot_median_line_always_center",
+      "target_id": "m1_data_box_plot_median_line",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_box_plot_length_frequency__often_confused_with__m1_data_box_plot_interval_data_ratio",
+      "source_id": "m1_mis_box_plot_length_frequency",
+      "target_id": "m1_data_box_plot_interval_data_ratio",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
       "id": "m1_mis_box_plot_length_frequency__often_confused_with__m1_data_box_plot_center_spread_reading",
       "source_id": "m1_mis_box_plot_length_frequency",
       "target_id": "m1_data_box_plot_center_spread_reading",
@@ -149179,6 +152819,50 @@
       "id": "m1_mis_scatter_axis_swap__often_confused_with__m1_data_scatter_plot_axes_variables",
       "source_id": "m1_mis_scatter_axis_swap",
       "target_id": "m1_data_scatter_plot_axes_variables",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_scatter_axis_swap__often_confused_with__m1_data_scatter_plot_axis_label_reading",
+      "source_id": "m1_mis_scatter_axis_swap",
+      "target_id": "m1_data_scatter_plot_axis_label_reading",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_scatter_single_point_correlation__often_confused_with__m1_data_scatter_plot_interpretation",
+      "source_id": "m1_mis_scatter_single_point_correlation",
+      "target_id": "m1_data_scatter_plot_interpretation",
       "relationship_type": "often_confused_with",
       "source_refs": [
         {
@@ -149245,6 +152929,56 @@
       "id": "m1_mis_scatter_axis_swap__often_confused_with__m1_coord_ordered_pair",
       "source_id": "m1_mis_scatter_axis_swap",
       "target_id": "m1_coord_ordered_pair",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-09]",
+          "evidence_kind": "achievement_standard",
+          "summary": "자료를 산점도로 나타내고 상관관계를 말하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_box_plot_median_line_always_center__often_confused_with__m1_data_box_plot_center_spread_reading",
+      "source_id": "m1_mis_box_plot_median_line_always_center",
+      "target_id": "m1_data_box_plot_center_spread_reading",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 41; [9수04-08]",
+          "evidence_kind": "achievement_standard",
+          "summary": "공학 도구를 이용하여 자료를 상자그림으로 나타내고 분포를 비교하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed pp. 41-42; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "순열·조합을 이용하면 쉽게 해결되는 복잡한 경우의 수 문제는 다루지 않고, 확률에서 각 경우가 발생할 가능성이 동등하다는 가정을 유의하게 하며, 상자그림은 두 집단 분포 비교에 중점을 둠"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "자료와 가능성 section; [9수04-08]~[9수04-09] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "공학 도구로 사분위수와 상자그림을 구해 두 집단의 분포를 비교하고, 산점도와 상관관계를 말하는 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_scatter_single_point_correlation__often_confused_with__m1_data_scatter_plot_trend",
+      "source_id": "m1_mis_scatter_single_point_correlation",
+      "target_id": "m1_data_scatter_plot_trend",
       "relationship_type": "often_confused_with",
       "source_refs": [
         {

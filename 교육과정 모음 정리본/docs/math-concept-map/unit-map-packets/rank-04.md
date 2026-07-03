@@ -7,96 +7,94 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - rank: 4
 - grade: 중1(교육과정 학년군: 중1-3)
 - domain: 변화와 관계
-- unit: 일차함수와 그 그래프
+- unit: 좌표평면과 그래프
 - priority tier: highest
-- workplan score: 347
-- concepts: 33
-- edges touching unit: 169
-- cross-unit edges: 46
-- low confidence concepts: 11
-- low confidence edges: 52
+- workplan score: 523
+- concepts: 43
+- edges touching unit: 268
+- cross-unit edges: 106
+- low confidence concepts: 9
+- low confidence edges: 78
 
 ## Concept Type Distribution
 
 | concept_type | count |
 |---|---:|
 | core_concept | 3 |
-| misconception_risk | 7 |
-| procedure | 6 |
-| property | 3 |
-| representation | 5 |
-| sub_concept | 2 |
-| term | 7 |
+| misconception_risk | 5 |
+| procedure | 4 |
+| property | 4 |
+| representation | 6 |
+| sub_concept | 8 |
+| term | 13 |
 
 ## Relationship Distribution
 
 | relationship_type | count |
 |---|---:|
-| contains | 34 |
-| contrasts_with | 5 |
-| often_confused_with | 16 |
-| prerequisite_for | 72 |
-| related_to | 7 |
-| represented_by | 6 |
-| used_in | 29 |
+| contains | 51 |
+| contrasts_with | 11 |
+| often_confused_with | 26 |
+| prerequisite_for | 102 |
+| related_to | 24 |
+| represented_by | 20 |
+| used_in | 34 |
 
 ## Low Confidence Concepts
 
 | concept_id | label_ko | type | evidence_depth | notes |
 |---|---|---|---|---|
-| m1_func_slope_ratio_formula | 기울기 계산식 | representation | official_single_source | 성취수준 문서의 기울기 부호 판단과 그래프의 식 구하기 맥락에서 추출한 미시 표현이다. 증가량의 비 표현은 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
-| m1_func_input_value | 입력값 | term | official_dual_source | 공식 문서에는 함숫값을 구하는 수행이 확인되지만 '입력값' 용어 자체는 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
-| m1_func_x_increment | x의 증가량 | term | official_single_source | 성취수준 문서에는 기울기 부호와 그래프의 식 구하기가 확인된다. x의 증가량이라는 세부 계산 용어는 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
-| m1_func_y_increment | y의 증가량 | term | official_single_source | 성취수준 문서에는 기울기 부호와 그래프의 식 구하기가 확인된다. y의 증가량이라는 세부 계산 용어는 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
-| m1_mis_all_relations_are_functions | 모든 두 양의 관계를 함수로 보는 오류 | misconception_risk | official_dual_source |  |
-| m1_mis_function_linear_function | 함수와 일차함수 혼동 | misconception_risk | official_dual_source |  |
-| m1_mis_function_value_input_output | 함숫값과 입력값 혼동 | misconception_risk | official_dual_source |  |
-| m1_mis_multiple_outputs_same_input | 하나의 입력에 여러 출력이 대응하는 경우를 함수로 보는 오류 | misconception_risk | official_dual_source | 공식 문서의 '하나씩 정해지는 대응 관계'와 함수 판단 성취수준에서 추론한 오개념 위험이다. 교과서 예제·문항 근거 확인 전까지 낮은 신뢰도로 둔다. |
-| m1_mis_slope_intercept | 기울기와 절편 혼동 | misconception_risk | official_dual_source |  |
-| m1_mis_slope_sign | 기울기 부호와 그래프 방향 혼동 | misconception_risk | official_single_source |  |
-| m1_mis_x_y_intercept | x절편과 y절편 혼동 | misconception_risk | official_dual_source |  |
+| m1_coord_axis_point | 축 위의 점 | sub_concept | official_dual_source | 공식 문서에는 좌표축과 좌표평면 위의 점이 확인된다. '축 위의 점' 명명과 세부 처리는 교과서 본문 확인이 필요하다. |
+| m1_coord_x_axis_point | x축 위의 점 | sub_concept | official_dual_source | 공식 문서에는 x축, 좌표, 좌표평면 위의 점이 확인된다. y좌표가 0인 점이라는 세부 조건은 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_coord_y_axis_point | y축 위의 점 | sub_concept | official_dual_source | 공식 문서에는 y축, 좌표, 좌표평면 위의 점이 확인된다. x좌표가 0인 점이라는 세부 조건은 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_coord_quadrant_signs | 사분면별 좌표 부호 | property | official_dual_source | 공식 문서에는 사분면, x좌표, y좌표, 양수, 음수 용어가 확인된다. 각 사분면의 부호 패턴은 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_mis_axis_quadrant | 축 위의 점을 사분면에 포함하는 오류 | misconception_risk | official_dual_source | 공식 문서에서 좌표축과 사분면 용어는 확인되지만, 오류 자체는 교과서·문항 근거 확인 전 잠정 노드이다. |
+| m1_mis_direct_inverse_generalization | 증가·감소만으로 정비례·반비례 판단 | misconception_risk | official_dual_source | 공식 문서의 정비례·반비례 관계 판단 요구와 변화 상태 해석 요구를 함께 본 추론이다. |
+| m1_mis_graph_picture | 그래프를 상황 그림으로만 보는 오류 | misconception_risk | official_dual_source | 그래프가 나타내는 상황을 설명하게 한다는 공식 문서 근거에서 추론한 오개념 위험이다. |
+| m1_mis_order_swap | 순서쌍의 순서 혼동 | misconception_risk | official_dual_source | 성취수준 문서의 '주어진 좌표를 점으로 나타내기' 수행에서 드러날 수 있는 위험으로 추론했다. 교과서 오개념 코너 확인 필요. |
+| m1_mis_representation_conversion | 표·식·그래프 변환 오류 | misconception_risk | official_dual_source | 상호 변환 활동과 표·식·그래프 성취수준에서 추론한 위험이다. 교과서 예제와 문항으로 보강 필요. |
 
 ## Cross-Unit Edges
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
+| m1_coord_x_axis__prerequisite_for__m1_data_scatter_plot_axis_label_reading | x축 | prerequisite_for | 산점도 축 이름 확인하기 | low | official_dual_source |
 | m1_coord_x_coordinate__prerequisite_for__m1_func_x_increment | x좌표 | prerequisite_for | x의 증가량 | low | official_dual_source |
+| m1_coord_y_axis__prerequisite_for__m1_data_scatter_plot_axis_label_reading | y축 | prerequisite_for | 산점도 축 이름 확인하기 | low | official_dual_source |
 | m1_coord_y_coordinate__prerequisite_for__m1_func_y_increment | y좌표 | prerequisite_for | y의 증가량 | low | official_dual_source |
-| m1_num_ratio__prerequisite_for__m1_func_slope_ratio_formula | 비 | prerequisite_for | 기울기 계산식 | low | official_single_source |
-| m1_mis_function_value_input_output__often_confused_with__m1_expr_substitution | 함숫값과 입력값 혼동 | often_confused_with | 대입 | low | official_dual_source |
+| m1_num_negative_number__prerequisite_for__m1_coord_quadrant_signs | 음수 | prerequisite_for | 사분면별 좌표 부호 | low | official_dual_source |
+| m1_num_positive_number__prerequisite_for__m1_coord_quadrant_signs | 양수 | prerequisite_for | 사분면별 좌표 부호 | low | official_dual_source |
+| m1_num_ratio__used_in__m1_prop_direct_proportion | 비 | used_in | 정비례 | low | official_dual_source |
+| m1_num_ratio__used_in__m1_prop_inverse_proportion | 비 | used_in | 반비례 | low | official_dual_source |
+| m1_mis_expression_equation__often_confused_with__m1_repr_expression | 식과 방정식 혼동 | often_confused_with | 식 | low | official_dual_source |
+| m1_mis_graph_scale_distortion__often_confused_with__m1_graph_graph_interpretation | 눈금 왜곡 그래프를 그대로 해석하는 오류 | often_confused_with | 그래프 해석 | low | official_single_source |
+| m1_mis_letter_as_label_only__often_confused_with__m1_term_variable | 문자를 이름표로만 해석하는 오류 | often_confused_with | 변수 | low | official_dual_source |
+| m1_mis_representation_conversion__often_confused_with__m1_data_critical_graph_reading | 표·식·그래프 변환 오류 | often_confused_with | 표와 그래프의 오류 비판적으로 읽기 | low | official_dual_source |
+| m1_mis_scatter_axis_swap__often_confused_with__m1_coord_ordered_pair | 산점도의 두 변량을 축에 바꾸어 나타내는 오류 | often_confused_with | 순서쌍 | low | official_dual_source |
 | m1_mis_slope_sign__often_confused_with__m1_graph_increase_decrease | 기울기 부호와 그래프 방향 혼동 | often_confused_with | 증가와 감소 | low | official_single_source |
+| m1_mis_system_ordered_pair_swap__often_confused_with__m1_coord_ordered_pair | 해의 순서쌍에서 두 미지수 값을 바꾸는 오류 | often_confused_with | 순서쌍 | low | official_dual_source |
+| m1_geo_domain__related_to__m1_coord_graph_unit | 도형과 측정 | related_to | 좌표평면과 그래프 | low | official_dual_source |
+| m1_geo_point__related_to__m1_coord_point_location | 점 | related_to | 점의 위치 | low | official_dual_source |
+| m1_expr_unit__contains__m1_repr_everyday_language | 문자의 사용과 식 | contains | 일상 언어 | high | official_single_source |
+| m1_expr_unit__contains__m1_repr_expression | 문자의 사용과 식 | contains | 식 | high | official_dual_source |
+| m1_expr_unit__contains__m1_term_variable | 문자의 사용과 식 | contains | 변수 | high | official_dual_source |
+| m1_coord_coordinate__prerequisite_for__m1_func_equation_x_axis_intersection | 좌표 | prerequisite_for | 일차방정식 그래프의 x축과의 교점 | medium | official_dual_source |
+| m1_coord_coordinate__prerequisite_for__m1_func_equation_y_axis_intersection | 좌표 | prerequisite_for | 일차방정식 그래프의 y축과의 교점 | medium | official_dual_source |
+| m1_coord_coordinate__prerequisite_for__m1_func_intersection_point | 좌표 | prerequisite_for | 교점 | medium | official_single_source |
+| m1_coord_coordinate__prerequisite_for__m1_func_intersection_point_coordinate | 좌표 | prerequisite_for | 교점의 좌표 | medium | official_dual_source |
+| m1_coord_coordinate__prerequisite_for__m1_quad_func_vertex_coordinates | 좌표 | prerequisite_for | 꼭짓점 좌표 | medium | official_dual_source |
+| m1_coord_coordinate_plane__prerequisite_for__m1_data_scatter_plot | 좌표평면 | prerequisite_for | 산점도 | high | official_dual_source |
+| m1_coord_coordinate_plane__prerequisite_for__m1_data_scatter_plot_drawing | 좌표평면 | prerequisite_for | 산점도로 나타내기 | high | official_dual_source |
+| m1_coord_coordinate_plane__prerequisite_for__m1_func_equation_graph_from_two_solution_pairs | 좌표평면 | prerequisite_for | 두 해의 순서쌍으로 일차방정식 그래프 그리기 | medium | official_dual_source |
+| m1_coord_coordinate_plane__prerequisite_for__m1_func_equation_two_intercepts_graph_drawing | 좌표평면 | prerequisite_for | 두 축과의 교점으로 일차방정식 그래프 그리기 | medium | official_dual_source |
 | m1_coord_coordinate_plane__prerequisite_for__m1_func_graph_drawing | 좌표평면 | prerequisite_for | 일차함수 그래프 그리기 | high | official_dual_source |
 | m1_coord_coordinate_plane__prerequisite_for__m1_func_linear_graph | 좌표평면 | prerequisite_for | 일차함수의 그래프 | high | official_dual_source |
+| m1_coord_coordinate_plane__prerequisite_for__m1_func_system_graph_same_plane | 좌표평면 | prerequisite_for | 두 일차함수 그래프를 한 좌표평면에 나타내기 | medium | official_dual_source |
+| m1_coord_coordinate_plane__prerequisite_for__m1_func_two_variable_linear_equation_graph | 좌표평면 | prerequisite_for | 미지수가 2개인 일차방정식의 그래프 | high | official_dual_source |
+| m1_coord_coordinate_plane__prerequisite_for__m1_quad_func_graph | 좌표평면 | prerequisite_for | 이차함수의 그래프 | high | official_dual_source |
+| m1_coord_coordinate_plane__prerequisite_for__m1_quad_func_graph_drawing | 좌표평면 | prerequisite_for | 이차함수 그래프 그리기 | high | official_dual_source |
 | m1_coord_graph_unit__prerequisite_for__m1_func_unit | 좌표평면과 그래프 | prerequisite_for | 일차함수와 그 그래프 | high | official_dual_source |
-| m1_coord_x_axis__prerequisite_for__m1_func_x_intercept | x축 | prerequisite_for | x절편 | high | official_dual_source |
-| m1_coord_y_axis__prerequisite_for__m1_func_y_intercept | y축 | prerequisite_for | y절편 | high | official_dual_source |
-| m1_eq_unit__prerequisite_for__m1_func_unit | 일차방정식 | prerequisite_for | 일차함수와 그 그래프 | high | official_single_source |
-| m1_expr_linear_expression__prerequisite_for__m1_func_linear_function | 일차식 | prerequisite_for | 일차함수 | high | official_dual_source |
-| m1_expr_substitution__prerequisite_for__m1_func_value | 대입 | prerequisite_for | 함숫값 | high | official_dual_source |
-| m1_expr_unit__prerequisite_for__m1_func_unit | 문자의 사용과 식 | prerequisite_for | 일차함수와 그 그래프 | high | official_dual_source |
-| m1_func_function__prerequisite_for__m1_quad_func_quadratic_function | 함수 | prerequisite_for | 이차함수 | high | official_dual_source |
-| m1_func_function__prerequisite_for__m1_quad_func_situation_to_formula | 함수 | prerequisite_for | 상황을 이차함수 식으로 나타내기 | high | official_dual_source |
-| m1_func_linear_formula__prerequisite_for__m1_func_equation_function_form_conversion | 일차함수의 식 | prerequisite_for | 미지수가 2개인 일차방정식을 y=ax+b 꼴로 나타내기 | medium | official_dual_source |
-| m1_func_linear_graph__prerequisite_for__m1_func_two_linear_graphs | 일차함수의 그래프 | prerequisite_for | 두 일차함수의 그래프 | high | official_dual_source |
-| m1_func_linear_graph__prerequisite_for__m1_func_two_variable_equation_as_graph | 일차함수의 그래프 | prerequisite_for | 미지수가 2개인 일차방정식의 해를 그래프로 나타내기 | high | official_dual_source |
-| m1_func_linear_graph__prerequisite_for__m1_func_two_variable_linear_equation_graph | 일차함수의 그래프 | prerequisite_for | 미지수가 2개인 일차방정식의 그래프 | high | official_dual_source |
-| m1_func_parallel_translation__prerequisite_for__m1_quad_func_shifted_square_form | 평행이동 | prerequisite_for | y=a(x-p)^2 꼴 | medium | official_single_source |
-| m1_func_parallel_translation__prerequisite_for__m1_quad_func_vertex_form | 평행이동 | prerequisite_for | y=a(x-p)^2+q 꼴 | medium | official_single_source |
-| m1_func_parallel_translation__prerequisite_for__m1_quad_func_vertical_shift_form | 평행이동 | prerequisite_for | y=ax^2+q 꼴 | medium | official_single_source |
-| m1_func_unit__prerequisite_for__m1_func_eq_relation_unit | 일차함수와 그 그래프 | prerequisite_for | 일차함수와 일차방정식의 관계 | high | official_dual_source |
-| m1_func_unit__prerequisite_for__m1_quad_func_unit | 일차함수와 그 그래프 | prerequisite_for | 이차함수와 그 그래프 | high | official_dual_source |
-| m1_func_value__prerequisite_for__m1_quad_func_maximum | 함숫값 | prerequisite_for | 최댓값 | high | official_dual_source |
-| m1_func_value__prerequisite_for__m1_quad_func_minimum | 함숫값 | prerequisite_for | 최솟값 | high | official_dual_source |
-| m1_func_value__prerequisite_for__m1_quad_func_value_table | 함숫값 | prerequisite_for | 이차함수의 값의 표 | medium | official_single_source |
-| m1_func_value__prerequisite_for__m1_quad_func_y_fx | 함숫값 | prerequisite_for | y=f(x) | high | official_single_source |
-| m1_graph_graph__prerequisite_for__m1_func_linear_graph | 그래프 | prerequisite_for | 일차함수의 그래프 | high | official_dual_source |
-| m1_prop_direct_proportion__prerequisite_for__m1_func_y_ax_graph | 정비례 | prerequisite_for | 일차함수 y=ax의 그래프 | medium | official_single_source |
-| m1_repr_expression__prerequisite_for__m1_func_linear_formula | 식 | prerequisite_for | 일차함수의 식 | high | official_dual_source |
-| m1_repr_expression__prerequisite_for__m1_func_two_quantity_relation | 식 | prerequisite_for | 두 양 사이의 관계 | high | official_dual_source |
-| m1_repr_table__prerequisite_for__m1_func_two_quantity_relation | 표 | prerequisite_for | 두 양 사이의 관계 | high | official_dual_source |
-| m1_coord_coordinate_plane__used_in__m1_func_linear_graph | 좌표평면 | used_in | 일차함수의 그래프 | high | official_dual_source |
-| m1_expr_substitution__used_in__m1_func_value | 대입 | used_in | 함숫값 | high | official_dual_source |
-| m1_func_linear_graph__used_in__m1_func_equation_relation | 일차함수의 그래프 | used_in | 일차함수와 미지수가 2개인 일차방정식의 관계 | high | official_dual_source |
-| m1_func_parallel_translation__used_in__m1_quad_func_vertex_form | 평행이동 | used_in | y=a(x-p)^2+q 꼴 | medium | official_single_source |
-| m1_func_tech_tool_graph__used_in__m1_quad_func_tech_tool_graph | 공학 도구로 함수 그래프 탐구하기 | used_in | 공학 도구로 이차함수 그래프 탐구하기 | medium | official_dual_source |
-| m1_func_x_intercept__used_in__m1_coord_x_axis | x절편 | used_in | x축 | high | official_dual_source |
+| m1_coord_graph_unit__prerequisite_for__m1_quad_func_unit | 좌표평면과 그래프 | prerequisite_for | 이차함수와 그 그래프 | high | official_dual_source |
+| m1_coord_ordered_pair__prerequisite_for__m1_data_scatter_plot_point | 순서쌍 | prerequisite_for | 산점도의 점 | medium | official_dual_source |
+| m1_coord_ordered_pair__prerequisite_for__m1_func_read_solution_pair_from_equation_graph | 순서쌍 | prerequisite_for | 그래프에서 미지수가 2개인 일차방정식의 해 읽기 | medium | official_dual_source |
+| m1_coord_ordered_pair__prerequisite_for__m1_func_two_variable_equation_solution_pair | 순서쌍 | prerequisite_for | 미지수가 2개인 일차방정식 해의 순서쌍 | medium | official_dual_source |

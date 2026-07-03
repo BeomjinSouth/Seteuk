@@ -1,10 +1,10 @@
 ﻿rank,grade,domain,unit,edge_count,intra_unit_edge_count,cross_unit_edge_count,low_confidence_count,priority_tier,priority_score,next_action,packet_csv,packet_md
-1,중2(교육과정 학년군: 중1-3),자료와 가능성,경우의 수와 확률,205,193,12,60,highest,145,textbook_evidence_for_low_confidence,rank-01.csv,rank-01.md
-2,중1(교육과정 학년군: 중1-3),자료와 가능성,대푯값,222,178,44,94,highest,110,textbook_evidence_for_low_confidence,rank-02.csv,rank-02.md
-3,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,266,162,104,76,highest,105,textbook_evidence_for_low_confidence,rank-03.csv,rank-03.md
-4,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,169,123,46,52,highest,93,textbook_evidence_for_low_confidence,rank-04.csv,rank-04.md
-5,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 일차방정식의 관계,200,139,61,29,highest,87,textbook_evidence_for_low_confidence,rank-05.csv,rank-05.md
-6,중3(교육과정 학년군: 중1-3),자료와 가능성,상자그림과 산점도,168,129,39,43,highest,68,textbook_evidence_for_low_confidence,rank-06.csv,rank-06.md
+1,중3(교육과정 학년군: 중1-3),자료와 가능성,상자그림과 산점도,285,242,43,125,highest,152,textbook_evidence_for_low_confidence,rank-01.csv,rank-01.md
+2,중2(교육과정 학년군: 중1-3),자료와 가능성,경우의 수와 확률,205,193,12,60,highest,145,textbook_evidence_for_low_confidence,rank-02.csv,rank-02.md
+3,중1(교육과정 학년군: 중1-3),자료와 가능성,대푯값,224,178,46,96,highest,110,textbook_evidence_for_low_confidence,rank-03.csv,rank-03.md
+4,중1(교육과정 학년군: 중1-3),변화와 관계,좌표평면과 그래프,268,162,106,78,highest,105,textbook_evidence_for_low_confidence,rank-04.csv,rank-04.md
+5,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 그 그래프,169,123,46,52,highest,93,textbook_evidence_for_low_confidence,rank-05.csv,rank-05.md
+6,중1(교육과정 학년군: 중1-3),변화와 관계,일차함수와 일차방정식의 관계,200,139,61,29,highest,87,textbook_evidence_for_low_confidence,rank-06.csv,rank-06.md
 7,중3(교육과정 학년군: 중1-3),변화와 관계,이차함수와 그 그래프,143,118,25,11,highest,68,textbook_evidence_for_low_confidence,rank-07.csv,rank-07.md
 8,중1(교육과정 학년군: 중1-3),수와 연산,정수와 유리수,251,152,99,46,highest,65,textbook_evidence_for_low_confidence,rank-08.csv,rank-08.md
 9,중1(교육과정 학년군: 중1-3),변화와 관계,일차부등식,158,114,44,37,highest,64,textbook_evidence_for_low_confidence,rank-09.csv,rank-09.md
