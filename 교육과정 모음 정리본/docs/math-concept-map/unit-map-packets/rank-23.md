@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 문자의 사용과 식
 - priority tier: highest
-- workplan score: 221
+- workplan score: 222
 - concepts: 24
-- edges touching unit: 187
-- cross-unit edges: 113
+- edges touching unit: 188
+- cross-unit edges: 114
 - low confidence concepts: 3
 - low confidence edges: 15
 
@@ -35,7 +35,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 27 |
 | contrasts_with | 6 |
 | often_confused_with | 11 |
-| prerequisite_for | 102 |
+| prerequisite_for | 103 |
 | related_to | 5 |
 | represented_by | 2 |
 | used_in | 34 |
@@ -74,6 +74,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_expr_coefficient__prerequisite_for__m1_factor_sum_product_pair_search | 계수 | prerequisite_for | 합과 곱이 맞는 수 찾기 | medium | official_dual_source |
 | m1_expr_coefficient__prerequisite_for__m1_quad_eq_coefficients_in_standard_form | 계수 | prerequisite_for | 이차방정식의 계수 | medium | official_dual_source |
 | m1_expr_coefficient__prerequisite_for__m1_quad_eq_leading_coefficient_one_case | 계수 | prerequisite_for | 이차항의 계수가 1인 이차방정식 | high | official_dual_source |
+| m1_expr_coefficient__prerequisite_for__m1_quad_func_coefficient_a | 계수 | prerequisite_for | 이차함수의 계수 a | medium | official_single_source |
 | m1_expr_constant_term__prerequisite_for__m1_eq_collect_constant_terms | 상수항 | prerequisite_for | 상수항 모으기 | medium | official_dual_source |
 | m1_expr_degree__prerequisite_for__m1_calc_polynomial_term_structure_check | 차수 | prerequisite_for | 다항식의 항·계수·차수 확인하기 | medium | official_dual_source |
 | m1_expr_degree__prerequisite_for__m1_factor_quadratic_expression | 차수 | prerequisite_for | 이차식 | medium | official_dual_source |
@@ -91,4 +92,3 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_expr_linear_expression__prerequisite_for__m1_ineq_linear_inequality | 일차식 | prerequisite_for | 일차부등식 | high | official_dual_source |
 | m1_expr_literal_expression__prerequisite_for__m1_eq_modeling_linear_equation | 문자를 사용한 식 | prerequisite_for | 일차방정식 세우기 | high | official_dual_source |
 | m1_expr_literal_expression__prerequisite_for__m1_ineq_modeling_linear_inequality | 문자를 사용한 식 | prerequisite_for | 일차부등식 세우기 | high | official_dual_source |
-| m1_expr_literal_expression__prerequisite_for__m1_ineq_translate_condition | 문자를 사용한 식 | prerequisite_for | 문제 조건을 부등식으로 옮기기 | medium | official_dual_source |

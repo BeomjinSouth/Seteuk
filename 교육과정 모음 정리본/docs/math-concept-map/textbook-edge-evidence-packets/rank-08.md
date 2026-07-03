@@ -10,9 +10,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 정수와 유리수
 - priority tier: highest
 - priority score: 65
-- edges in packet: 251
-- cross-unit edges: 99
-- low confidence edges: 46
+- edges in packet: 255
+- cross-unit edges: 103
+- low confidence edges: 47
 
 ## Relationship Evidence Slots
 
@@ -48,6 +48,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_mis_sign_operation__often_confused_with__m1_num_mul_div_sign_rule | intra_unit | 부호와 연산 기호를 혼동하는 오류 | often_confused_with | 곱셈과 나눗셈의 부호 결정 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_sign_operation__often_confused_with__m1_num_plus_sign | intra_unit | 부호와 연산 기호를 혼동하는 오류 | often_confused_with | 양의 부호 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_sign_operation__often_confused_with__m1_num_subtraction_as_add_opposite | intra_unit | 부호와 연산 기호를 혼동하는 오류 | often_confused_with | 뺄셈을 반대 부호의 덧셈으로 바꾸기 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
+| m1_num_absolute_value__prerequisite_for__m1_quad_func_a_abs_width | cross_unit | 절댓값 | prerequisite_for | a의 절댓값과 그래프의 폭 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_negative_number__prerequisite_for__m1_coord_quadrant_signs | cross_unit | 음수 | prerequisite_for | 사분면별 좌표 부호 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_number_line__prerequisite_for__m1_ineq_number_line_solution_representation | cross_unit | 수직선 | prerequisite_for | 부등식 해의 수직선 표현 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_number_line_position_order__prerequisite_for__m1_ineq_number_line_solution_representation | cross_unit | 수직선에서 오른쪽에 있는 수가 더 큼 | prerequisite_for | 부등식 해의 수직선 표현 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
@@ -217,6 +218,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_num_multiplication__prerequisite_for__m1_ineq_multiply_divide_negative_reverses_sign | cross_unit | 곱셈 | prerequisite_for | 부등식 양변에 음수를 곱하거나 나눌 때 부등호 방향 바꾸기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_multiplication__prerequisite_for__m1_ineq_multiply_divide_positive_property | cross_unit | 곱셈 | prerequisite_for | 부등식 양변에 양수를 곱하거나 나누기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_negative_number__prerequisite_for__m1_ineq_multiply_divide_negative_reverses_sign | cross_unit | 음수 | prerequisite_for | 부등식 양변에 음수를 곱하거나 나눌 때 부등호 방향 바꾸기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_num_negative_number__prerequisite_for__m1_quad_func_a_sign_opening | cross_unit | 음수 | prerequisite_for | a의 부호로 열린 방향 판단하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_order_relation__prerequisite_for__m1_data_class | cross_unit | 정수와 유리수의 대소 관계 | prerequisite_for | 계급 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_order_relation__prerequisite_for__m1_data_median | cross_unit | 정수와 유리수의 대소 관계 | prerequisite_for | 중앙값 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_order_relation__prerequisite_for__m1_data_ordered_data_for_median | cross_unit | 정수와 유리수의 대소 관계 | prerequisite_for | 중앙값을 구하기 위한 자료 정렬 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
@@ -228,6 +230,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_num_order_relation__prerequisite_for__m1_ineq_solution_range | cross_unit | 정수와 유리수의 대소 관계 | prerequisite_for | 부등식 해의 범위 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_order_relation__prerequisite_for__m1_num_real_order | cross_unit | 정수와 유리수의 대소 관계 | prerequisite_for | 실수의 대소 관계 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_num_positive_number__prerequisite_for__m1_ineq_multiply_divide_positive_property | cross_unit | 양수 | prerequisite_for | 부등식 양변에 양수를 곱하거나 나누기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_num_positive_number__prerequisite_for__m1_quad_func_a_sign_opening | cross_unit | 양수 | prerequisite_for | a의 부호로 열린 방향 판단하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_rational_fraction_form__prerequisite_for__m1_num_finite_decimal_to_fraction | cross_unit | 유리수의 분수 꼴 표현 | prerequisite_for | 유한소수를 분수로 나타내기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_rational_fraction_form__prerequisite_for__m1_num_fraction_to_decimal_division | cross_unit | 유리수의 분수 꼴 표현 | prerequisite_for | 분수를 소수로 나타내기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_num_rational_fraction_form__prerequisite_for__m1_num_irreducible_fraction | cross_unit | 유리수의 분수 꼴 표현 | prerequisite_for | 기약분수 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
@@ -252,6 +255,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_num_subtraction_as_add_opposite__prerequisite_for__m1_calc_polynomial_subtraction_sign_distribution | cross_unit | 뺄셈을 반대 부호의 덧셈으로 바꾸기 | prerequisite_for | 다항식의 뺄셈에서 부호 바꾸기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_num_zero__prerequisite_for__m1_func_equation_x_zero_substitution | cross_unit | 0 | prerequisite_for | x=0을 대입해 y축과의 교점 구하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_num_zero__prerequisite_for__m1_func_equation_y_zero_substitution | cross_unit | 0 | prerequisite_for | y=0을 대입해 x축과의 교점 구하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
+| m1_num_zero__prerequisite_for__m1_quad_func_nonzero_a_condition | cross_unit | 0 | prerequisite_for | a≠0 조건 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_finite_decimal_to_fraction__represented_by__m1_num_rational_fraction_form | cross_unit | 유한소수를 분수로 나타내기 | represented_by | 유리수의 분수 꼴 표현 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 3 |
 | m1_num_real_number__represented_by__m1_num_number_line | cross_unit | 실수 | represented_by | 수직선 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |
 | m1_num_repeating_decimal__represented_by__m1_num_rational_fraction_form | cross_unit | 순환소수 | represented_by | 유리수의 분수 꼴 표현 | medium | representation_ref;textbook_page_refs | Find textbook representation evidence such as a table, graph, expression, or diagram. | 2 |

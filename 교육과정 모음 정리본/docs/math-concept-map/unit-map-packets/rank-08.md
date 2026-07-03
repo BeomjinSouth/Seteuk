@@ -9,12 +9,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 수와 연산
 - unit: 정수와 유리수
 - priority tier: highest
-- workplan score: 348
+- workplan score: 356
 - concepts: 41
-- edges touching unit: 251
-- cross-unit edges: 99
+- edges touching unit: 255
+- cross-unit edges: 103
 - low confidence concepts: 5
-- low confidence edges: 46
+- low confidence edges: 47
 
 ## Concept Type Distribution
 
@@ -35,7 +35,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contrasts_with | 11 |
 | equivalent_to | 1 |
 | often_confused_with | 17 |
-| prerequisite_for | 127 |
+| prerequisite_for | 131 |
 | related_to | 9 |
 | represented_by | 8 |
 | used_in | 34 |
@@ -54,6 +54,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
+| m1_num_absolute_value__prerequisite_for__m1_quad_func_a_abs_width | 절댓값 | prerequisite_for | a의 절댓값과 그래프의 폭 | low | official_single_source |
 | m1_num_negative_number__prerequisite_for__m1_coord_quadrant_signs | 음수 | prerequisite_for | 사분면별 좌표 부호 | low | official_dual_source |
 | m1_num_number_line__prerequisite_for__m1_ineq_number_line_solution_representation | 수직선 | prerequisite_for | 부등식 해의 수직선 표현 | low | official_dual_source |
 | m1_num_number_line_position_order__prerequisite_for__m1_ineq_number_line_solution_representation | 수직선에서 오른쪽에 있는 수가 더 큼 | prerequisite_for | 부등식 해의 수직선 표현 | low | official_dual_source |
@@ -93,4 +94,3 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_division__prerequisite_for__m1_ineq_multiply_divide_positive_property | 나눗셈 | prerequisite_for | 부등식 양변에 양수를 곱하거나 나누기 | medium | official_dual_source |
 | m1_num_division__prerequisite_for__m1_num_fraction_to_decimal_division | 나눗셈 | prerequisite_for | 분수를 소수로 나타내기 | medium | official_dual_source |
 | m1_num_four_operations__prerequisite_for__m1_calc_monomial_coefficient_calculation | 정수와 유리수의 사칙계산 | prerequisite_for | 단항식 계산에서 계수끼리 계산하기 | medium | official_dual_source |
-| m1_num_four_operations__prerequisite_for__m1_calc_unit | 정수와 유리수의 사칙계산 | prerequisite_for | 식의 계산 | medium | official_single_source |

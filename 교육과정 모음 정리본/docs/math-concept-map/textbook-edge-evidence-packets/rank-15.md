@@ -10,9 +10,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 다항식의 곱셈과 인수분해
 - priority tier: highest
 - priority score: 54
-- edges in packet: 169
-- cross-unit edges: 51
-- low confidence edges: 29
+- edges in packet: 170
+- cross-unit edges: 52
+- low confidence edges: 30
 
 ## Relationship Evidence Slots
 
@@ -43,6 +43,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_mis_perfect_square_sign__often_confused_with__m1_factor_square_difference_formula | intra_unit | 완전제곱식의 가운데 항 부호를 혼동하는 오류 | often_confused_with | (a-b)^2 공식 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_perfect_square_sign__often_confused_with__m1_factor_square_sum_formula | intra_unit | 완전제곱식의 가운데 항 부호를 혼동하는 오류 | often_confused_with | (a+b)^2 공식 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_factor_factorization__prerequisite_for__m1_quad_eq_zero_product_condition | cross_unit | 인수분해 | prerequisite_for | 각 인수가 0이 되는 조건 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
+| m1_factor_perfect_square_expression__prerequisite_for__m1_quad_func_complete_square_for_vertex | cross_unit | 완전제곱식 | prerequisite_for | 완전제곱식으로 고쳐 꼭짓점 찾기 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_mis_expansion_factorization_direction__often_confused_with__m1_calc_expansion | cross_unit | 전개와 인수분해 방향을 혼동하는 오류 | often_confused_with | 전개 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_quadratic_expression_equation__often_confused_with__m1_factor_quadratic_expression | cross_unit | 이차식과 이차방정식을 혼동하는 오류 | often_confused_with | 이차식 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_mis_quadratic_factorization_solution__often_confused_with__m1_factor_factorization | cross_unit | 인수분해한 식에서 해 조건을 빠뜨리는 오류 | often_confused_with | 인수분해 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |

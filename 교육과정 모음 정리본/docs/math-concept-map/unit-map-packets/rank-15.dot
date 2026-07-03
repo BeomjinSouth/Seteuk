@@ -34,6 +34,7 @@ digraph pilot_unit_map {
   "m1_factor_perfect_square_expression" [label="완전제곱식\\nterm", fillcolor="#f7fbff"];
   "m1_factor_quadratic_expression" [label="이차식\\nterm", fillcolor="#f7fbff"];
   "m1_quad_eq_zero_product_condition" [label="각 인수가 0이 되는 조건\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_quad_func_complete_square_for_vertex" [label="완전제곱식으로 고쳐 꼭짓점 찾기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_calc_expansion" [label="전개\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_mis_quadratic_expression_equation" [label="이차식과 이차방정식을 혼동하는 오류\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_mis_quadratic_factorization_solution" [label="인수분해한 식에서 해 조건을 빠뜨리는 오류\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -83,6 +84,7 @@ digraph pilot_unit_map {
   "m1_mis_perfect_square_sign" -> "m1_factor_square_difference_formula" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_mis_perfect_square_sign" -> "m1_factor_square_sum_formula" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_factor_factorization" -> "m1_quad_eq_zero_product_condition" [label="prerequisite_for", style="dashed", color="#b91c1c"];
+  "m1_factor_perfect_square_expression" -> "m1_quad_func_complete_square_for_vertex" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_mis_expansion_factorization_direction" -> "m1_calc_expansion" [label="often_confused_with", style="dashed", color="#b91c1c"];
   "m1_mis_quadratic_expression_equation" -> "m1_factor_quadratic_expression" [label="often_confused_with", style="dashed", color="#b91c1c"];
   "m1_mis_quadratic_factorization_solution" -> "m1_factor_factorization" [label="often_confused_with", style="dashed", color="#b91c1c"];

@@ -4,26 +4,26 @@ This generated audit summarizes source evidence depth for each relationship edge
 
 ## Summary
 
-- edges: 4394
-- needs textbook evidence: 4394
-- low confidence edges: 851
+- edges: 4505
+- needs textbook evidence: 4505
+- low confidence edges: 897
 
 ## Evidence Depth Counts
 
 | evidence_depth | edge count |
 |---|---:|
-| official_dual_source | 3946 |
-| official_single_source | 448 |
+| official_dual_source | 3971 |
+| official_single_source | 534 |
 
 ## Edge Scope Counts
 
 | edge_scope | edge count |
 |---|---:|
 | cross_domain_same_grade | 93 |
-| cross_grade_cross_domain | 60 |
-| cross_grade_same_domain | 318 |
-| cross_unit_same_domain | 326 |
-| same_unit | 3597 |
+| cross_grade_cross_domain | 64 |
+| cross_grade_same_domain | 325 |
+| cross_unit_same_domain | 327 |
+| same_unit | 3696 |
 
 ## Priority Rows
 
@@ -57,6 +57,7 @@ This generated audit summarizes source evidence depth for each relationship edge
 | m1_mis_scatter_axis_swap__often_confused_with__m1_coord_ordered_pair | often_confused_with | cross_grade_cross_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_coord_x_axis__prerequisite_for__m1_data_scatter_plot_axis_label_reading | prerequisite_for | cross_grade_cross_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_coord_y_axis__prerequisite_for__m1_data_scatter_plot_axis_label_reading | prerequisite_for | cross_grade_cross_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
+| m1_num_absolute_value__prerequisite_for__m1_quad_func_a_abs_width | prerequisite_for | cross_grade_cross_domain | low | official_single_source | 2 | achievement_math_2022; achievement_research_report_2022 |
 | m1_num_order_relation__prerequisite_for__m1_data_maximum_value | prerequisite_for | cross_grade_cross_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_num_order_relation__prerequisite_for__m1_data_minimum_value | prerequisite_for | cross_grade_cross_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
 | m1_num_rational_number__prerequisite_for__m1_data_probability_value | prerequisite_for | cross_grade_cross_domain | low | official_dual_source | 2 | achievement_math_2022; curriculum_math_2022 |
@@ -68,4 +69,3 @@ This generated audit summarizes source evidence depth for each relationship edge
 | m1_num_ratio__used_in__m1_geo_similarity_ratio | used_in | cross_grade_cross_domain | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
 | m1_num_ratio__used_in__m1_geo_trigonometric_ratio | used_in | cross_grade_cross_domain | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |
 | m1_num_domain__contains__m1_num_ratio | contains | cross_grade_same_domain | low | official_single_source | 6 | curriculum_math_2022 |
-| m1_mis_congruence_similarity__often_confused_with__m1_geo_congruence | often_confused_with | cross_grade_same_domain | low | official_dual_source | 3 | achievement_math_2022; curriculum_math_2022 |

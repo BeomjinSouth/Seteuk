@@ -2,14 +2,14 @@
 
 이 문서는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 출처 보강 때 먼저 확인할 대상을 정리한다.
 
-- 검토 대상 concept: 188개
+- 검토 대상 concept: 196개
 
 ## 영역별 검토 대상
 
 | 영역 | concept 수 |
 |---|---:|
 | 수와 연산 | 18 |
-| 변화와 관계 | 65 |
+| 변화와 관계 | 73 |
 | 도형과 측정 | 36 |
 | 자료와 가능성 | 69 |
 
@@ -17,10 +17,10 @@
 
 | concept_type | concept 수 |
 |---|---:|
-| misconception_risk | 114 |
-| procedure | 11 |
-| property | 22 |
-| representation | 15 |
+| misconception_risk | 116 |
+| procedure | 15 |
+| property | 23 |
+| representation | 16 |
 | sub_concept | 14 |
 | term | 12 |
 
@@ -69,7 +69,15 @@
 | m1_quad_eq_zero_product_condition | 변화와 관계 | 이차방정식 | property | source_detail_needed | 각 인수가 0이 되는 조건 | 공식 문서에는 풀이 방법의 세부 문구가 직접 제시되지 않아, 인수분해 풀이와 오개념 위험에서 추론한 미시 조건으로 낮은 신뢰도로 둔다. |
 | m1_mis_axis_vertex | 변화와 관계 | 이차함수와 그 그래프 | misconception_risk | textbook_evidence_needed | 포물선의 축과 꼭짓점을 혼동하는 오류 |  |
 | m1_mis_max_min_scope | 변화와 관계 | 이차함수와 그 그래프 | misconception_risk | textbook_evidence_needed | 최댓값·최솟값의 범위를 임의로 확장하는 오류 |  |
+| m1_mis_quadratic_a_sign_opening_direction | 변화와 관계 | 이차함수와 그 그래프 | misconception_risk | textbook_evidence_needed | a의 부호와 열린 방향을 반대로 해석하는 오류 | 공식 문서는 해당 오개념을 직접 제시하지 않는다. 교과서 예제·오답 근거 확인 전까지 low로 둔다. |
 | m1_mis_quadratic_function_equation | 변화와 관계 | 이차함수와 그 그래프 | misconception_risk | textbook_evidence_needed | 이차함수와 이차방정식을 혼동하는 오류 |  |
+| m1_mis_quadratic_general_form_vertex_reading | 변화와 관계 | 이차함수와 그 그래프 | misconception_risk | textbook_evidence_needed | 일반형에서 꼭짓점을 바로 읽는 오류 | 일반형과 꼭짓점형의 표현 차이에서 예상되는 지도상 위험이다. 교과서 문항 근거 확인 전까지 low로 둔다. |
+| m1_quad_func_choose_symmetric_x_values | 변화와 관계 | 이차함수와 그 그래프 | procedure | source_detail_needed | 축을 기준으로 대칭인 x값 고르기 | 교과서의 표 작성 활동에서 자주 쓰이는 절차로 추론했으므로 직접 본문 근거 확인 전까지 low로 둔다. |
+| m1_quad_func_complete_square_for_vertex | 변화와 관계 | 이차함수와 그 그래프 | procedure | source_detail_needed | 완전제곱식으로 고쳐 꼭짓점 찾기 | 성취수준 A의 일반형 그래프 성질 설명에서 추론한 절차다. 교과서 예제 근거 확인 전까지 low로 둔다. |
+| m1_quad_func_general_to_vertex_form | 변화와 관계 | 이차함수와 그 그래프 | procedure | source_detail_needed | 일반형을 꼭짓점형으로 고치기 | 중학교 공식 문서가 직접 절차명을 제시하지 않으므로 low로 두고, 교과서 예제에서 실제 처리 수준을 확인한다. |
+| m1_quad_func_plot_points_and_connect | 변화와 관계 | 이차함수와 그 그래프 | procedure | source_detail_needed | 점 찍고 포물선으로 연결하기 | 교과서의 실제 그래프 그리기 예제에서 확인이 필요한 미시 절차이므로 low로 둔다. |
+| m1_quad_func_a_abs_width | 변화와 관계 | 이차함수와 그 그래프 | property | source_detail_needed | a의 절댓값과 그래프의 폭 | 교과서 그래프 비교 활동에서 자주 다루는 성질이지만 공식 문서가 직접 명명하지 않으므로 low로 둔다. |
+| m1_quad_func_symmetric_points | 변화와 관계 | 이차함수와 그 그래프 | representation | source_detail_needed | 축을 기준으로 대칭인 두 점 | 값의 표와 좌표평면으로 그래프를 그릴 때 쓰이는 교과서형 표현이다. 직접 용어 근거 확인 전까지 low로 둔다. |
 | m1_mis_expression_equation | 변화와 관계 | 일차방정식 | misconception_risk | textbook_evidence_needed | 식과 방정식 혼동 | 성취수준의 방정식·항등식·다항식 구별 요구에서 추론한 오개념 위험이다. |
 | m1_mis_solution_check | 변화와 관계 | 일차방정식 | misconception_risk | textbook_evidence_needed | 구한 해의 상황 적합성 확인 누락 |  |
 | m1_mis_transposition_sign | 변화와 관계 | 일차방정식 | misconception_risk | textbook_evidence_needed | 이항할 때 부호를 잘못 바꾸는 오류 | 이항 용어와 방정식 풀이 성취수준에서 추론했다. 실제 빈도는 교과서 문제와 학생 오답 자료 확인 필요. |

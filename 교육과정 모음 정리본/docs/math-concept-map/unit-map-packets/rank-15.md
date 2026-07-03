@@ -9,12 +9,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 다항식의 곱셈과 인수분해
 - priority tier: highest
-- workplan score: 221
+- workplan score: 226
 - concepts: 30
-- edges touching unit: 169
-- cross-unit edges: 51
+- edges touching unit: 170
+- cross-unit edges: 52
 - low confidence concepts: 5
-- low confidence edges: 29
+- low confidence edges: 30
 
 ## Concept Type Distribution
 
@@ -35,7 +35,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 29 |
 | contrasts_with | 17 |
 | often_confused_with | 22 |
-| prerequisite_for | 44 |
+| prerequisite_for | 45 |
 | related_to | 2 |
 | represented_by | 6 |
 | used_in | 49 |
@@ -55,6 +55,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | edge_id | source | relationship | target | confidence | evidence_depth |
 |---|---|---|---|---|---|
 | m1_factor_factorization__prerequisite_for__m1_quad_eq_zero_product_condition | 인수분해 | prerequisite_for | 각 인수가 0이 되는 조건 | low | official_single_source |
+| m1_factor_perfect_square_expression__prerequisite_for__m1_quad_func_complete_square_for_vertex | 완전제곱식 | prerequisite_for | 완전제곱식으로 고쳐 꼭짓점 찾기 | low | official_single_source |
 | m1_mis_expansion_factorization_direction__often_confused_with__m1_calc_expansion | 전개와 인수분해 방향을 혼동하는 오류 | often_confused_with | 전개 | low | official_dual_source |
 | m1_mis_quadratic_expression_equation__often_confused_with__m1_factor_quadratic_expression | 이차식과 이차방정식을 혼동하는 오류 | often_confused_with | 이차식 | low | official_dual_source |
 | m1_mis_quadratic_factorization_solution__often_confused_with__m1_factor_factorization | 인수분해한 식에서 해 조건을 빠뜨리는 오류 | often_confused_with | 인수분해 | low | official_single_source |
@@ -93,4 +94,3 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_factor_linear_product_axb_cxd__used_in__m1_quad_eq_factorization_solving | (ax+b)(cx+d) 공식 | used_in | 인수분해를 이용한 이차방정식 풀이 | medium | official_dual_source |
 | m1_factor_quadratic_expression__used_in__m1_quad_eq_quadratic_equation | 이차식 | used_in | 이차방정식 | medium | official_dual_source |
 | m1_factor_quadratic_expression__used_in__m1_quad_func_formula | 이차식 | used_in | 이차함수의 식 | medium | official_dual_source |
-| m1_factor_quadratic_factorization__used_in__m1_quad_eq_factorization_solving | 이차식 인수분해 | used_in | 인수분해를 이용한 이차방정식 풀이 | medium | official_single_source |

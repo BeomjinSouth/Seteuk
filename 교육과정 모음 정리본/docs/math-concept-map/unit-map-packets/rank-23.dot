@@ -48,6 +48,7 @@ digraph pilot_unit_map {
   "m1_factor_sum_product_pair_search" [label="합과 곱이 맞는 수 찾기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_quad_eq_coefficients_in_standard_form" [label="이차방정식의 계수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_quad_eq_leading_coefficient_one_case" [label="이차항의 계수가 1인 이차방정식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_quad_func_coefficient_a" [label="이차함수의 계수 a\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_eq_collect_constant_terms" [label="상수항 모으기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_factor_quadratic_expression" [label="이차식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_quad_eq_quadratic_term" [label="이차항\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -197,6 +198,7 @@ digraph pilot_unit_map {
   "m1_expr_coefficient" -> "m1_factor_sum_product_pair_search" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_coefficient" -> "m1_quad_eq_coefficients_in_standard_form" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_coefficient" -> "m1_quad_eq_leading_coefficient_one_case" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_expr_coefficient" -> "m1_quad_func_coefficient_a" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_constant_term" -> "m1_eq_collect_constant_terms" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_degree" -> "m1_calc_polynomial_term_structure_check" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_degree" -> "m1_factor_quadratic_expression" [label="prerequisite_for", style="dashed", color="#6b7280"];

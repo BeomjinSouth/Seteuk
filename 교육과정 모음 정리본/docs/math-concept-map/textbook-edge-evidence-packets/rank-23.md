@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 문자의 사용과 식
 - priority tier: highest
 - priority score: 48
-- edges in packet: 187
-- cross-unit edges: 113
+- edges in packet: 188
+- cross-unit edges: 114
 - low confidence edges: 15
 
 ## Relationship Evidence Slots
@@ -114,6 +114,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_expr_coefficient__prerequisite_for__m1_factor_sum_product_pair_search | cross_unit | 계수 | prerequisite_for | 합과 곱이 맞는 수 찾기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_expr_coefficient__prerequisite_for__m1_quad_eq_coefficients_in_standard_form | cross_unit | 계수 | prerequisite_for | 이차방정식의 계수 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_expr_coefficient__prerequisite_for__m1_quad_eq_leading_coefficient_one_case | cross_unit | 계수 | prerequisite_for | 이차항의 계수가 1인 이차방정식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_expr_coefficient__prerequisite_for__m1_quad_func_coefficient_a | cross_unit | 계수 | prerequisite_for | 이차함수의 계수 a | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_expr_constant_term__prerequisite_for__m1_eq_collect_constant_terms | cross_unit | 상수항 | prerequisite_for | 상수항 모으기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_expr_degree__prerequisite_for__m1_calc_polynomial_term_structure_check | cross_unit | 차수 | prerequisite_for | 다항식의 항·계수·차수 확인하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_expr_degree__prerequisite_for__m1_factor_quadratic_expression | cross_unit | 차수 | prerequisite_for | 이차식 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |

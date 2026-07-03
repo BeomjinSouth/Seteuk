@@ -1825,10 +1825,32 @@
 - `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
 - PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
 
+## 2026-07-03 이차함수와 그 그래프 미시 concept 빠른 추가 보강
+
+- AGENTS.md를 다시 확인하고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 생성 로직과 파생 산출물 정비로 제한했다.
+- 사용자의 속도 피드백을 반영해 멀티에이전트 explorer 3개를 읽기 전용으로 사용했다. Epicurus는 `[9수02-20]`~`[9수02-22]`, 용어표, 성취수준, 연구보고서 p. 220의 source boundary를 점검했고, Boyle은 생성 후 `이차함수와 그 그래프` rank packet에서 추가 누락 후보를 감사했으며, Linnaeus는 생성 산출물과 builder 사이의 dangling 노드를 찾아 재생성 전 blocker를 알려 주었다.
+- `이차함수의 계수 a`, `a≠0 조건`, `a의 부호로 열린 방향 판단하기`, `a의 절댓값과 그래프의 폭`을 추가해 이차함수 식 판별과 그래프 성질 읽기를 계수 읽기, 0 여부, 부호, 절댓값 크기 판단으로 세분화했다. 폭 해석은 교과서 본문 확인 전까지 `confidence: low`로 유지했다.
+- `y=ax^2의 축과 꼭짓점`, `축에 대한 대칭`, `축을 기준으로 대칭인 두 점`, `축을 기준으로 대칭인 x값 고르기`, `값의 표에서 순서쌍 만들기`, `점 찍고 포물선으로 연결하기`를 추가해 기본 그래프에서 축·꼭짓점을 읽고, 대칭 x값과 값의 표를 거쳐 포물선을 그리는 실제 절차를 분리했다.
+- `p 값과 좌우 평행이동`, `q 값과 상하 평행이동`, `꼭짓점형의 p 부호 읽기`, `완전제곱식으로 고쳐 꼭짓점 찾기`, `일반형을 꼭짓점형으로 고치기`, `꼭짓점의 y좌표와 최댓값·최솟값`, `열린 방향으로 최댓값·최솟값 판단하기`를 추가해 꼭짓점형·일반형 해석과 최대최소 판단을 연결했다.
+- `a의 부호를 반대로 해석하는 오류`, `일반형에서 꼭짓점을 바로 읽는 오류`를 오개념 risk로 추가했다. 오개념 노드는 모두 `confidence: low`, 선수 관계 없음, `often_confused_with` 중심으로만 연결했다.
+- 임의구간 최댓값·최솟값, 근과 계수의 관계, 판별식 중심 이차방정식 이론, 미분·최적화, 이차부등식, 고등학교식 정의역/치역 분석, 회귀/곡선맞춤은 이번 중학교 범위에서 제외했다.
+- 늦게 회수한 explorer 결과를 반영해 `a≠0 조건`, `꼭짓점형의 p 부호 읽기`, `축을 기준으로 대칭인 x값 고르기`, `y=ax^2의 축과 꼭짓점` 4개를 추가하고, 생성 산출물을 다시 재생성해 builder와 `concepts.json`/`edges.csv` 사이 dangling 상태를 해소했다.
+- 전체 산출물을 재생성한 결과 concept은 966개, edge는 4505개가 되었다. source ref audit은 14277개 ref를 기록하고 source catalogue는 5개를 유지한다.
+- `review-queue.*`는 196개 low-confidence concept, `concept-evidence-depth.*`는 concept 966개, `edge-evidence-depth.*`는 edge 4505개, `prerequisite-map.*`은 1652개 선수 관계 edge로 갱신했다.
+- `unit-coverage.*` 기준 `이차함수와 그 그래프`는 concept 49개, 내부 edge 217개, incoming edge 36개, outgoing edge 1개이며, confidence 분포는 high 15개, medium 23개, low 11개이다. concept type 분포는 core 2개, representation 12개, procedure 13개, property 10개, term 7개, misconception_risk 5개이다.
+- `textbook-evidence-workplan.*`에서 `이차함수와 그 그래프`는 rank 2, priority tier `highest`이며 concept 49개, edge 254개, 총 303개 evidence row가 모두 `pending_textbook_pdf` 상태다. 이 단원의 low-confidence concept은 11개, low-confidence edge는 57개이다.
+- `test_build_pilot_quadratic_function_microconcepts.py`를 확장해 이차함수 판별, 식 꼴과 그래프 표현 분리, 계수 a, a≠0, 기본형의 축·꼭짓점, 대칭 x값, 값의 표, 꼭짓점형 p 부호 읽기, 일반형-꼭짓점형 변환, 최대최소 판단, 오개념 risk, noisy edge 부재를 고정했다.
+- 좁은 테스트: `python -X utf8 -m unittest test_build_pilot_quadratic_function_microconcepts -b`를 `docs/math-concept-map/tools`에서 실행해 7개 통과.
+- 전체 validator: `python -X utf8 docs/math-concept-map/tools/validate_concept_map.py`: 966개 concept, 4505개 edge, 5개 source, 60개 공식 성취기준 검증 통과.
+- 전체 단위 테스트: `python -X utf8 -m unittest discover -s docs/math-concept-map/tools -p "test_*.py" -b`: 336개 통과.
+- 전체 직접 파생 산출물과 research-report/legacy 보조 산출물을 재생성했다. 교과서 evidence packet과 edge packet을 만든 뒤 `textbook-evidence-workplan.*`, 루트 `pilot-unit-map.*`, 전체 `unit-map-packets/*`를 다시 생성해 rank/count가 최신 packet index와 일치하도록 했다.
+- `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
 - 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 `not_applicable_from_this_row` 41개가 broad context, 용어 충돌, 도구·자료 입력, 또는 약한 출현으로 유지되는지 주기적으로 감사한다. 현재 `pending_manual_review`는 8개이며, 주로 `선분`·`반직선` 후보이므로 교과서 본문 또는 중학교 기본 도형 직접 근거 확인 후 source ref 반영 여부를 판단한다.
 - 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.
-- 현재 교과서 원본 PDF가 없으므로, 교과서 추출 시작 단원은 최신 workplan rank 1 `상자그림과 산점도`의 concept 52개와 edge packet row 285개, 총 337개 row로 유지한다. 공식·보조 문서 기반 미시 concept 보강을 계속한다면 이미 보강한 상위 단원을 제외하고 `이차함수와 그 그래프`, `정수와 유리수`, `일차부등식`, `도수분포표와 상대도수`처럼 미시 concept과 edge 근거가 더 필요한 단원을 우선 검토한다.
+- 현재 교과서 원본 PDF가 없으므로, 교과서 추출 시작 단원은 최신 workplan rank 1 `상자그림과 산점도`의 concept 52개와 edge packet row 285개, 총 337개 row로 유지한다. 공식·보조 문서 기반 미시 concept 보강을 계속한다면 이미 보강한 상위 단원을 제외하고 `정수와 유리수`, `일차부등식`, `도수분포표와 상대도수`, `대푯값`처럼 미시 concept과 edge 근거가 더 필요한 단원을 우선 검토한다.
 - 새 concept, alias, `related_ids`, 또는 `equivalent_to` 후보가 추가되면 `equivalence-alias-audit.*`, `related-edge-resolution-queue.*`, `textbook-edge-evidence-packets/*`, `edge-evidence-depth.*`를 함께 재생성한다.
