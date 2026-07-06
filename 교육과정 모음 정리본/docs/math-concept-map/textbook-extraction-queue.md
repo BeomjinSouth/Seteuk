@@ -5,8 +5,8 @@ This generated queue ranks units for the next textbook-grounded concept extracti
 ## Summary
 
 - unit groups: 34
-- concepts needing textbook evidence: 966
-- low confidence concepts in queue: 196
+- concepts needing textbook evidence: 977
+- low confidence concepts in queue: 201
 
 ## Queue
 
@@ -17,10 +17,10 @@ This generated queue ranks units for the next textbook-grounded concept extracti
 | 3 | 중2(교육과정 학년군: 중1-3) | 자료와 가능성 | 경우의 수와 확률 | highest | 145 | 45 | 14 | 22 | textbook_evidence_for_low_confidence |
 | 4 | 중1(교육과정 학년군: 중1-3) | 자료와 가능성 | 대푯값 | highest | 110 | 38 | 18 | 0 | textbook_evidence_for_low_confidence |
 | 5 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 좌표평면과 그래프 | highest | 105 | 43 | 9 | 13 | textbook_evidence_for_low_confidence |
-| 6 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 그 그래프 | highest | 93 | 33 | 11 | 8 | textbook_evidence_for_low_confidence |
-| 7 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 일차방정식의 관계 | highest | 87 | 41 | 10 | 3 | textbook_evidence_for_low_confidence |
-| 8 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 정수와 유리수 | highest | 65 | 41 | 5 | 2 | textbook_evidence_for_low_confidence |
-| 9 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차부등식 | highest | 64 | 30 | 8 | 1 | textbook_evidence_for_low_confidence |
+| 6 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차부등식 | highest | 95 | 41 | 13 | 1 | textbook_evidence_for_low_confidence |
+| 7 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 그 그래프 | highest | 93 | 33 | 11 | 8 | textbook_evidence_for_low_confidence |
+| 8 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 일차방정식의 관계 | highest | 87 | 41 | 10 | 3 | textbook_evidence_for_low_confidence |
+| 9 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 정수와 유리수 | highest | 65 | 41 | 5 | 2 | textbook_evidence_for_low_confidence |
 | 10 | 중2(교육과정 학년군: 중1-3) | 도형과 측정 | 삼각형과 사각형의 성질 | highest | 63 | 47 | 4 | 0 | textbook_evidence_for_low_confidence |
 | 11 | 중3(교육과정 학년군: 중1-3) | 도형과 측정 | 원의 성질 | highest | 59 | 33 | 6 | 1 | textbook_evidence_for_low_confidence |
 | 12 | 중3(교육과정 학년군: 중1-3) | 자료와 가능성 | 산포도 | highest | 57 | 25 | 8 | 0 | textbook_evidence_for_low_confidence |

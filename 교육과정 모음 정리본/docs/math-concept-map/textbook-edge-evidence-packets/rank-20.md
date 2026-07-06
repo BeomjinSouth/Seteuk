@@ -10,9 +10,9 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 소인수분해
 - priority tier: highest
 - priority score: 52
-- edges in packet: 145
-- cross-unit edges: 19
-- low confidence edges: 18
+- edges in packet: 147
+- cross-unit edges: 21
+- low confidence edges: 19
 
 ## Relationship Evidence Slots
 
@@ -36,6 +36,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_mis_prime_one__often_confused_with__m1_num_prime_number | intra_unit | 1을 소수나 합성수로 보는 오류 | often_confused_with | 소수 | low | misconception_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Find misconception, caution, example, or problem-pattern evidence for the confusion risk. | 2 |
 | m1_num_natural_number__prerequisite_for__m1_data_median_even_position_rule | cross_unit | 자연수 | prerequisite_for | 짝수 개 자료의 두 가운데 위치 규칙 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_natural_number__prerequisite_for__m1_data_median_odd_position_rule | cross_unit | 자연수 | prerequisite_for | 홀수 개 자료의 중앙 위치 규칙 | low | prerequisite_ref;textbook_page_refs;extraction_notes | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_num_natural_number__used_in__m1_ineq_context_domain_restriction | cross_unit | 자연수 | used_in | 문제 상황에서 가능한 값의 범위 확인하기 | low | procedure_ref;textbook_page_refs;extraction_notes | Find a worked example, procedure, or application where this source concept is used. | 3 |
 | m1_num_prime_factor_unit__contains__m1_num_common_divisor | intra_unit | 소인수분해 | contains | 공약수 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
 | m1_num_prime_factor_unit__contains__m1_num_common_multiple | intra_unit | 소인수분해 | contains | 공배수 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
 | m1_num_prime_factor_unit__contains__m1_num_common_prime_factor | intra_unit | 소인수분해 | contains | 공통 소인수 | medium | structure_ref;textbook_page_refs | Find textbook structure evidence for the containment relation. | 3 |
@@ -155,6 +156,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_num_gcd__prerequisite_for__m1_num_irreducible_fraction | cross_unit | 최대공약수 | prerequisite_for | 기약분수 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_gcd__prerequisite_for__m1_num_reduce_fraction_lowest_terms | cross_unit | 최대공약수 | prerequisite_for | 분수를 기약분수로 고치기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_natural_number__prerequisite_for__m1_data_number_of_values | cross_unit | 자연수 | prerequisite_for | 자료의 개수 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_num_natural_number__prerequisite_for__m1_ineq_context_domain_restriction | cross_unit | 자연수 | prerequisite_for | 문제 상황에서 가능한 값의 범위 확인하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_num_prime_factorization__prerequisite_for__m1_num_repeating_decimal_denominator_condition | cross_unit | 소인수분해 | prerequisite_for | 순환소수가 되는 분모 조건 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_num_prime_factorization__prerequisite_for__m1_num_terminating_decimal_denominator_condition | cross_unit | 소인수분해 | prerequisite_for | 유한소수가 되는 분모 조건 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_calc_base__used_in__m1_num_prime_factor_product | cross_unit | 밑 | used_in | 소인수의 곱으로 표현하기 | medium | procedure_ref;textbook_page_refs | Find a worked example, procedure, or application where this source concept is used. | 2 |

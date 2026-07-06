@@ -61,6 +61,7 @@ digraph pilot_unit_map {
   "m1_quad_eq_unit" [label="이차방정식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_system_unit" [label="연립일차방정식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_ineq_choose_unknown_from_context" [label="문제 상황에서 미지수 정하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_ineq_collect_unknown_terms" [label="부등식에서 미지수항 모으기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_ineq_isolate_unknown" [label="미지수를 한쪽으로 모으기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_system_modeling_variable_assignment" [label="두 미지수 정하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_expr_constant_term" [label="상수항\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -216,6 +217,7 @@ digraph pilot_unit_map {
   "m1_eq_unit" -> "m1_quad_eq_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_eq_unit" -> "m1_system_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_eq_unknown" -> "m1_ineq_choose_unknown_from_context" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_eq_unknown" -> "m1_ineq_collect_unknown_terms" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_eq_unknown" -> "m1_ineq_isolate_unknown" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_eq_unknown" -> "m1_system_modeling_variable_assignment" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_eq_unknown" -> "m1_system_two_variable_linear_equation" [label="prerequisite_for", style="dashed", color="#6b7280"];

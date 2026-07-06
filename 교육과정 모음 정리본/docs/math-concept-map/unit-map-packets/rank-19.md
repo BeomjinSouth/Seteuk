@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 일차방정식
 - priority tier: highest
-- workplan score: 172
+- workplan score: 173
 - concepts: 31
-- edges touching unit: 172
-- cross-unit edges: 63
+- edges touching unit: 173
+- cross-unit edges: 64
 - low confidence concepts: 3
 - low confidence edges: 14
 
@@ -35,7 +35,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contrasts_with | 9 |
 | equivalent_to | 2 |
 | often_confused_with | 11 |
-| prerequisite_for | 77 |
+| prerequisite_for | 78 |
 | related_to | 4 |
 | represented_by | 1 |
 | used_in | 36 |
@@ -79,6 +79,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_eq_unit__prerequisite_for__m1_quad_eq_unit | 일차방정식 | prerequisite_for | 이차방정식 | high | official_dual_source |
 | m1_eq_unit__prerequisite_for__m1_system_unit | 일차방정식 | prerequisite_for | 연립일차방정식 | high | official_dual_source |
 | m1_eq_unknown__prerequisite_for__m1_ineq_choose_unknown_from_context | 미지수 | prerequisite_for | 문제 상황에서 미지수 정하기 | medium | official_dual_source |
+| m1_eq_unknown__prerequisite_for__m1_ineq_collect_unknown_terms | 미지수 | prerequisite_for | 부등식에서 미지수항 모으기 | medium | official_dual_source |
 | m1_eq_unknown__prerequisite_for__m1_ineq_isolate_unknown | 미지수 | prerequisite_for | 미지수를 한쪽으로 모으기 | medium | official_dual_source |
 | m1_eq_unknown__prerequisite_for__m1_system_modeling_variable_assignment | 미지수 | prerequisite_for | 두 미지수 정하기 | medium | official_dual_source |
 | m1_eq_unknown__prerequisite_for__m1_system_two_variable_linear_equation | 미지수 | prerequisite_for | 미지수가 2개인 일차방정식 | high | official_dual_source |
@@ -91,4 +92,3 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_expr_polynomial__prerequisite_for__m1_eq_equation | 다항식 | prerequisite_for | 방정식 | medium | official_dual_source |
 | m1_expr_substitution__prerequisite_for__m1_eq_judge_solution | 대입 | prerequisite_for | 해인지 판단하기 | high | official_dual_source |
 | m1_expr_substitution__prerequisite_for__m1_eq_solution | 대입 | prerequisite_for | 해 | high | official_dual_source |
-| m1_expr_substitution__prerequisite_for__m1_eq_solution_check | 대입 | prerequisite_for | 해의 확인 | high | official_dual_source |

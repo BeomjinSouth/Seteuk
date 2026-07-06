@@ -2,14 +2,14 @@
 
 이 문서는 `concepts.json`에서 `confidence: low`인 concept을 모아 다음 출처 보강 때 먼저 확인할 대상을 정리한다.
 
-- 검토 대상 concept: 196개
+- 검토 대상 concept: 201개
 
 ## 영역별 검토 대상
 
 | 영역 | concept 수 |
 |---|---:|
 | 수와 연산 | 18 |
-| 변화와 관계 | 73 |
+| 변화와 관계 | 78 |
 | 도형과 측정 | 36 |
 | 자료와 가능성 | 69 |
 
@@ -17,11 +17,11 @@
 
 | concept_type | concept 수 |
 |---|---:|
-| misconception_risk | 116 |
+| misconception_risk | 118 |
 | procedure | 15 |
 | property | 23 |
-| representation | 16 |
-| sub_concept | 14 |
+| representation | 18 |
+| sub_concept | 15 |
 | term | 12 |
 
 ## 검토 항목
@@ -81,13 +81,18 @@
 | m1_mis_expression_equation | 변화와 관계 | 일차방정식 | misconception_risk | textbook_evidence_needed | 식과 방정식 혼동 | 성취수준의 방정식·항등식·다항식 구별 요구에서 추론한 오개념 위험이다. |
 | m1_mis_solution_check | 변화와 관계 | 일차방정식 | misconception_risk | textbook_evidence_needed | 구한 해의 상황 적합성 확인 누락 |  |
 | m1_mis_transposition_sign | 변화와 관계 | 일차방정식 | misconception_risk | textbook_evidence_needed | 이항할 때 부호를 잘못 바꾸는 오류 | 이항 용어와 방정식 풀이 성취수준에서 추론했다. 실제 빈도는 교과서 문제와 학생 오답 자료 확인 필요. |
+| m1_mis_ineq_context_domain_ignored | 변화와 관계 | 일차부등식 | misconception_risk | textbook_evidence_needed | 문제 상황의 자연수·정수 조건을 무시하는 오류 | 공식 문서의 해가 문제 상황에 적합한지 확인한다는 요구에서 추론한 오개념 위험이다. |
 | m1_mis_ineq_endpoint_inclusion | 변화와 관계 | 일차부등식 | misconception_risk | textbook_evidence_needed | 부등식 해의 끝점 포함 여부를 잘못 표시하는 오류 | 수직선 표현에서 추론한 오개념 위험이다. 교과서 예제와 오답 근거 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_mis_ineq_negative | 변화와 관계 | 일차부등식 | misconception_risk | textbook_evidence_needed | 음수를 곱하거나 나눌 때 부등호 방향을 바꾸지 않는 오류 | 공식 성취수준은 낮은 수준에서 양수 곱나눔을 언급한다. 음수 처리 오류는 교과서 본문과 예제로 보강해야 한다. |
 | m1_mis_ineq_sign_reversal_overgeneralization | 변화와 관계 | 일차부등식 | misconception_risk | textbook_evidence_needed | 부등호 방향을 항상 바꾸는 오류 | 기존 음수 처리 오류의 반대 방향 오개념으로 추론했다. 교과서나 학생 오답 근거 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_mis_ineq_solution_single_value | 변화와 관계 | 일차부등식 | misconception_risk | textbook_evidence_needed | 부등식의 해를 한 값으로만 이해하는 오류 | 부등식의 해와 방정식의 해를 대조해야 하는 수행에서 추론했다. |
+| m1_mis_ineq_strict_inclusive_language | 변화와 관계 | 일차부등식 | misconception_risk | textbook_evidence_needed | 이상·이하와 초과·미만을 뒤바꾸는 오류 | 문장 조건 번역과 수직선 끝점 표시에서 추론한 오개념 위험이다. 교과서 오답 근거 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_ineq_endpoint_inclusion_representation | 변화와 관계 | 일차부등식 | representation | source_detail_needed | 부등식 해의 끝점 포함 표시 | 교과서 수직선 표현 관례에서 추출한 표현 노드다. 교과서 PDF 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_ineq_number_line_solution_representation | 변화와 관계 | 일차부등식 | representation | source_detail_needed | 부등식 해의 수직선 표현 | 공식 문서는 여러 방법으로 풀고 확인하게 한다. 수직선 표시는 교과서 본문 근거가 필요하므로 낮은 신뢰도로 둔다. |
+| m1_ineq_rewrite_solution_unknown_left | 변화와 관계 | 일차부등식 | representation | source_detail_needed | 미지수를 왼쪽에 두어 해 쓰기 | 부등호 방향을 읽을 때 학생이 자주 혼동하는 표현 관례다. 교과서 예제 근거 확인 전까지 낮은 신뢰도로 둔다. |
+| m1_ineq_verbal_comparison_terms | 변화와 관계 | 일차부등식 | representation | source_detail_needed | 이상·이하·초과·미만 표현 | 공식 문서의 문제 상황 기반 도입과 활용에서 추론한 표현 노드다. 교과서 용어 설명 근거 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_ineq_boundary_value | 변화와 관계 | 일차부등식 | sub_concept | source_detail_needed | 부등식 해의 경계값 | 교과서에서 해를 수직선에 나타낼 때 반복되는 암묵 개념으로 추출했다. 공식 용어 직접 근거는 약하므로 낮은 신뢰도로 둔다. |
+| m1_ineq_strict_inclusive_sign_distinction | 변화와 관계 | 일차부등식 | sub_concept | source_detail_needed | 초과·미만과 이상·이하 구별 | 수직선 끝점 표시와 문장 조건 번역에서 반복되는 미시 concept이다. 교과서 본문 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_ineq_inequality_sign | 변화와 관계 | 일차부등식 | term | source_detail_needed | 부등호 | 부등식 표현에서 추론한 기호 노드다. 교과서 본문·용어 설명 확인 전까지 낮은 신뢰도로 둔다. |
 | m1_mis_all_relations_are_functions | 변화와 관계 | 일차함수와 그 그래프 | misconception_risk | textbook_evidence_needed | 모든 두 양의 관계를 함수로 보는 오류 |  |
 | m1_mis_function_linear_function | 변화와 관계 | 일차함수와 그 그래프 | misconception_risk | textbook_evidence_needed | 함수와 일차함수 혼동 |  |

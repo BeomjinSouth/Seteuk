@@ -9,12 +9,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 수와 연산
 - unit: 소인수분해
 - priority tier: highest
-- workplan score: 143
+- workplan score: 149
 - concepts: 32
-- edges touching unit: 145
-- cross-unit edges: 19
+- edges touching unit: 147
+- cross-unit edges: 21
 - low confidence concepts: 4
-- low confidence edges: 18
+- low confidence edges: 19
 
 ## Concept Type Distribution
 
@@ -36,10 +36,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contrasts_with | 13 |
 | equivalent_to | 1 |
 | often_confused_with | 10 |
-| prerequisite_for | 55 |
+| prerequisite_for | 56 |
 | related_to | 1 |
 | represented_by | 1 |
-| used_in | 32 |
+| used_in | 33 |
 
 ## Low Confidence Concepts
 
@@ -56,6 +56,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 |---|---|---|---|---|---|
 | m1_num_natural_number__prerequisite_for__m1_data_median_even_position_rule | 자연수 | prerequisite_for | 짝수 개 자료의 두 가운데 위치 규칙 | low | official_dual_source |
 | m1_num_natural_number__prerequisite_for__m1_data_median_odd_position_rule | 자연수 | prerequisite_for | 홀수 개 자료의 중앙 위치 규칙 | low | official_dual_source |
+| m1_num_natural_number__used_in__m1_ineq_context_domain_restriction | 자연수 | used_in | 문제 상황에서 가능한 값의 범위 확인하기 | low | official_dual_source |
 | m1_num_domain__contains__m1_num_prime_factor_unit | 수와 연산 | contains | 소인수분해 | high | official_single_source |
 | m1_calc_base__prerequisite_for__m1_num_prime_factorization_exponent_notation | 밑 | prerequisite_for | 소인수분해 결과를 거듭제곱으로 정리하기 | high | official_dual_source |
 | m1_calc_exponent__prerequisite_for__m1_num_prime_factorization_exponent_notation | 지수 | prerequisite_for | 소인수분해 결과를 거듭제곱으로 정리하기 | high | official_dual_source |
@@ -65,6 +66,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_num_gcd__prerequisite_for__m1_num_irreducible_fraction | 최대공약수 | prerequisite_for | 기약분수 | medium | official_dual_source |
 | m1_num_gcd__prerequisite_for__m1_num_reduce_fraction_lowest_terms | 최대공약수 | prerequisite_for | 분수를 기약분수로 고치기 | medium | official_dual_source |
 | m1_num_natural_number__prerequisite_for__m1_data_number_of_values | 자연수 | prerequisite_for | 자료의 개수 | medium | official_dual_source |
+| m1_num_natural_number__prerequisite_for__m1_ineq_context_domain_restriction | 자연수 | prerequisite_for | 문제 상황에서 가능한 값의 범위 확인하기 | medium | official_dual_source |
 | m1_num_prime_factorization__prerequisite_for__m1_num_repeating_decimal_denominator_condition | 소인수분해 | prerequisite_for | 순환소수가 되는 분모 조건 | medium | official_dual_source |
 | m1_num_prime_factorization__prerequisite_for__m1_num_terminating_decimal_denominator_condition | 소인수분해 | prerequisite_for | 유한소수가 되는 분모 조건 | medium | official_dual_source |
 | m1_calc_base__used_in__m1_num_prime_factor_product | 밑 | used_in | 소인수의 곱으로 표현하기 | medium | official_dual_source |

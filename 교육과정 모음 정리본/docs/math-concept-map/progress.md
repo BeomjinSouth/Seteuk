@@ -1847,10 +1847,31 @@
 - `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`는 모두 0건이다.
 - PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
 
+## 2026-07-06 일차부등식 미시 concept 빠른 추가 보강
+
+- AGENTS.md를 다시 확인하고, 이번 작업도 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 생성 로직과 파생 산출물 정비로 제한했다.
+- 사용자의 속도 피드백을 반영해 멀티에이전트 explorer 1개를 읽기 전용으로 사용했다. explorer는 기존 `일차부등식` 노드·edge, 누락 후보, 제외할 고급 부등식 범위, noisy prerequisite 방지 대상을 감사했다.
+- `대입값에 따른 부등식의 참거짓`을 추가해 부등식의 해 판단 전에 필요한 대입과 참거짓 판별을 미시 concept으로 분리했다.
+- `이상·이하·초과·미만 표현`, `초과·미만과 이상·이하 구별`을 추가해 문장 조건을 부등호와 끝점 포함 여부로 바꾸는 언어 표현 흐름을 분리했다.
+- `일차부등식 양변의 일차식 정리하기`, `부등식에서 미지수항 모으기`, `부등식에서 상수항 모으기`, `계수의 부호 확인 후 나누기`, `미지수를 왼쪽에 두어 해 쓰기`를 추가해 풀이 절차를 식 정리, 항 정리, 계수 부호 확인, 해 표현 단계로 세분화했다.
+- `문제 상황에서 가능한 값의 범위 확인하기`를 추가해 자연수·정수 조건 등 상황 제약을 해석하는 절차를 별도 노드화했다.
+- `이상·이하와 초과·미만을 뒤바꾸는 오류`, `문제 상황의 자연수·정수 조건을 무시하는 오류`를 오개념 risk로 추가했다. 오개념 노드는 모두 `confidence: low`, 선수 관계 없음, `often_confused_with` 중심으로만 연결했다.
+- 이차부등식, 연립부등식, 절댓값부등식, 유리부등식, 구간 표기법, 좌표평면 해 영역, 미지수식으로 곱하거나 나누는 변형은 현재 중학교 일차부등식 범위에서 제외했다.
+- 새 `related_ids`는 `used_in`, `represented_by`, `related_to`, `often_confused_with` edge로 정리해 `node-edge-consistency-audit.*`와 `related-edge-resolution-queue.*`를 모두 0건으로 유지했다.
+- 전체 산출물을 재생성한 결과 concept은 977개, edge는 4571개가 되었다. source ref audit은 14509개 ref를 기록하고 source catalogue는 5개를 유지한다.
+- `review-queue.*`는 201개 low-confidence concept, `concept-evidence-depth.*`는 concept 977개, `edge-evidence-depth.*`는 edge 4571개, `prerequisite-map.*`은 1673개 선수 관계 edge로 갱신했다.
+- `unit-coverage.*` 기준 `일차부등식`은 concept 41개이며, `textbook-evidence-workplan.*`에서 rank 6, edge 224개, 총 265개 evidence row가 모두 `pending_textbook_pdf` 상태다. 이 단원의 low-confidence concept/edge row 합계는 76개이다.
+- `test_build_pilot_inequality_microconcepts.py`를 확장해 언어 표현, 참거짓 판단, 양변 일차식 정리, 미지수항·상수항 정리, 계수 부호 확인, 상황 가능한 값 범위, 오개념 risk, noisy edge 부재를 고정했다.
+- 좁은 테스트: `python -X utf8 -m unittest test_build_pilot_inequality_microconcepts -b`를 `docs/math-concept-map/tools`에서 실행해 5개 통과.
+- 전체 validator: `python -X utf8 docs/math-concept-map/tools/validate_concept_map.py`: 977개 concept, 4571개 edge, 5개 source, 60개 공식 성취기준 검증 통과.
+- 전체 단위 테스트: `python -X utf8 -m unittest discover -s docs/math-concept-map/tools -p "test_*.py" -b`: 337개 통과.
+- 전체 직접 파생 산출물과 research-report/legacy 보조 산출물을 재생성했다. 교과서 evidence packet과 edge packet을 만든 뒤 `textbook-evidence-workplan.*`, 루트 `pilot-unit-map.*`, 전체 `unit-map-packets/*`를 다시 생성해 rank/count가 최신 packet index와 일치하도록 했다.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
-- 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 `not_applicable_from_this_row` 41개가 broad context, 용어 충돌, 도구·자료 입력, 또는 약한 출현으로 유지되는지 주기적으로 감사한다. 현재 `pending_manual_review`는 8개이며, 주로 `선분`·`반직선` 후보이므로 교과서 본문 또는 중학교 기본 도형 직접 근거 확인 후 source ref 반영 여부를 판단한다.
+- 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 `not_applicable_from_this_row` 46개가 broad context, 용어 충돌, 도구·자료 입력, 또는 약한 출현으로 유지되는지 주기적으로 감사한다. 현재 `pending_manual_review`는 13개이며, 주로 `선분`·`반직선` 후보와 새 일차부등식 언어 표현 후보이므로 교과서 본문 또는 중학교 직접 근거 확인 후 source ref 반영 여부를 판단한다.
 - 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.
-- 현재 교과서 원본 PDF가 없으므로, 교과서 추출 시작 단원은 최신 workplan rank 1 `상자그림과 산점도`의 concept 52개와 edge packet row 285개, 총 337개 row로 유지한다. 공식·보조 문서 기반 미시 concept 보강을 계속한다면 이미 보강한 상위 단원을 제외하고 `정수와 유리수`, `일차부등식`, `도수분포표와 상대도수`, `대푯값`처럼 미시 concept과 edge 근거가 더 필요한 단원을 우선 검토한다.
+- 현재 교과서 원본 PDF가 없으므로, 교과서 추출 시작 단원은 최신 workplan rank 1 `상자그림과 산점도`의 concept 52개와 edge packet row 285개, 총 337개 row로 유지한다. 공식·보조 문서 기반 미시 concept 보강을 계속한다면 이미 보강한 상위 단원을 제외하고 `정수와 유리수`, `도수분포표와 상대도수`, `경우의 수와 확률`, `원의 성질`처럼 미시 concept과 edge 근거가 더 필요한 단원을 우선 검토한다.
 - 새 concept, alias, `related_ids`, 또는 `equivalent_to` 후보가 추가되면 `equivalence-alias-audit.*`, `related-edge-resolution-queue.*`, `textbook-edge-evidence-packets/*`, `edge-evidence-depth.*`를 함께 재생성한다.

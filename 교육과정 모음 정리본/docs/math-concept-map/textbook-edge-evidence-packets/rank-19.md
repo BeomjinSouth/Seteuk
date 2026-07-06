@@ -10,8 +10,8 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 - unit: 일차방정식
 - priority tier: highest
 - priority score: 53
-- edges in packet: 172
-- cross-unit edges: 63
+- edges in packet: 173
+- cross-unit edges: 64
 - low confidence edges: 14
 
 ## Relationship Evidence Slots
@@ -154,6 +154,7 @@ This generated packet is the unit-level worksheet for adding textbook-grounded r
 | m1_eq_unit__prerequisite_for__m1_quad_eq_unit | cross_unit | 일차방정식 | prerequisite_for | 이차방정식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 4 |
 | m1_eq_unit__prerequisite_for__m1_system_unit | cross_unit | 일차방정식 | prerequisite_for | 연립일차방정식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_eq_unknown__prerequisite_for__m1_ineq_choose_unknown_from_context | cross_unit | 미지수 | prerequisite_for | 문제 상황에서 미지수 정하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
+| m1_eq_unknown__prerequisite_for__m1_ineq_collect_unknown_terms | cross_unit | 미지수 | prerequisite_for | 부등식에서 미지수항 모으기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 3 |
 | m1_eq_unknown__prerequisite_for__m1_ineq_isolate_unknown | cross_unit | 미지수 | prerequisite_for | 미지수를 한쪽으로 모으기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_eq_unknown__prerequisite_for__m1_system_modeling_variable_assignment | cross_unit | 미지수 | prerequisite_for | 두 미지수 정하기 | medium | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |
 | m1_eq_unknown__prerequisite_for__m1_system_two_variable_linear_equation | cross_unit | 미지수 | prerequisite_for | 미지수가 2개인 일차방정식 | high | prerequisite_ref;textbook_page_refs | Find textbook sequencing or prior-knowledge evidence for the prerequisite relation. | 2 |

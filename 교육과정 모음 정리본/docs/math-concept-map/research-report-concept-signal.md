@@ -5,21 +5,21 @@ Rows are candidate signals only; inspect the local page context before changing 
 
 ## Summary
 
-- matched concepts: 276
+- matched concepts: 277
 
 ## Confidence
 
 | confidence | matched concepts |
 |---|---:|
 | high | 219 |
-| low | 5 |
+| low | 6 |
 | medium | 52 |
 
 ## Recommended Actions
 
 | action | matched concepts |
 |---|---:|
-| inspect_research_report_context_before_confidence_change | 5 |
+| inspect_research_report_context_before_confidence_change | 6 |
 | inspect_research_report_context_before_source_ref_upgrade | 52 |
 | use_as_supplemental_trace_only | 219 |
 
@@ -27,6 +27,7 @@ Rows are candidate signals only; inspect the local page context before changing 
 
 | concept_id | label | unit | confidence | matches | pages | status | action |
 |---|---|---|---|---:|---|---|---|
+| m1_ineq_verbal_comparison_terms | 이상·이하·초과·미만 표현 | 일차부등식 | low | 170 | 3; 26; 30; 31; 32; 33; 38; 42; 43; 47; 48; 49; 50; 51; 52; 54; 55; 56; 61; 76; 82; 98; 100; 107 | research_report_signal | inspect_research_report_context_before_confidence_change |
 | m1_num_ratio | 비 | 공통 선수개념 | low | 77 | 61; 91; 172; 177; 180; 181; 183; 184; 185; 187; 188; 192; 194; 195; 208; 209; 260; 262 | research_report_signal | inspect_research_report_context_before_confidence_change |
 | m1_geo_line_segment | 선분 | 기본 도형 | low | 37 | 62; 78; 79; 80; 114; 117; 130; 138; 139; 142; 224; 235; 236; 237; 238; 242; 270; 272 | research_report_signal | inspect_research_report_context_before_confidence_change |
 | m1_func_input_value | 입력값 | 일차함수와 그 그래프 | low | 11 | 193; 196; 253; 254; 259 | research_report_signal | inspect_research_report_context_before_confidence_change |
@@ -106,4 +107,3 @@ Rows are candidate signals only; inspect the local page context before changing 
 | m1_geo_trig_unit | 삼각비 | 삼각비 | high | 79 | 62; 77; 78; 79; 225; 235; 236; 237; 238; 242; 247; 248; 250 | research_report_signal | use_as_supplemental_trace_only |
 | m1_geo_trigonometric_ratio | 삼각비 | 삼각비 | high | 79 | 62; 77; 78; 79; 225; 235; 236; 237; 238; 242; 247; 248; 250 | research_report_signal | use_as_supplemental_trace_only |
 | m1_expr_polynomial | 다항식 | 문자의 사용과 식 | high | 77 | 54; 55; 57; 58; 59; 214; 216; 219; 232; 233; 234; 235 | research_report_signal | use_as_supplemental_trace_only |
-| m1_geo_polygon | 다각형 | 평면도형의 성질 | high | 76 | 61; 78; 79; 132; 138; 139; 141; 156; 157; 158; 175; 222; 227; 235; 236; 237; 238; 239; 240; 241 | research_report_signal | use_as_supplemental_trace_only |

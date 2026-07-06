@@ -36,6 +36,7 @@ digraph pilot_unit_map {
   "m1_repr_everyday_language" [label="일상 언어\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_repr_expression" [label="식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_ineq_isolate_unknown" [label="미지수를 한쪽으로 모으기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_ineq_simplify_both_sides_linear_terms" [label="일차부등식 양변의 일차식 정리하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_ineq_solving_linear_inequality" [label="일차부등식 풀기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_system_elimination_coefficient_matching" [label="소거할 미지수의 계수 맞추기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_calc_collect_like_terms_polynomial" [label="다항식에서 동류항 모으기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -46,10 +47,12 @@ digraph pilot_unit_map {
   "m1_factor_linear_product_axb_cxd" [label="(ax+b)(cx+d) 공식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_factor_perfect_square_middle_term_check" [label="완전제곱식의 가운데 항 확인하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_factor_sum_product_pair_search" [label="합과 곱이 맞는 수 찾기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_ineq_coefficient_sign_before_division" [label="계수의 부호 확인 후 나누기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_quad_eq_coefficients_in_standard_form" [label="이차방정식의 계수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_quad_eq_leading_coefficient_one_case" [label="이차항의 계수가 1인 이차방정식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_quad_func_coefficient_a" [label="이차함수의 계수 a\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_eq_collect_constant_terms" [label="상수항 모으기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_ineq_collect_constant_terms" [label="부등식에서 상수항 모으기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_factor_quadratic_expression" [label="이차식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_quad_eq_quadratic_term" [label="이차항\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_eq_unknown" [label="미지수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -58,6 +61,7 @@ digraph pilot_unit_map {
   "m1_calc_polynomial_add_sub" [label="다항식의 덧셈과 뺄셈\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_calc_polynomial_add_sub_principle" [label="다항식의 덧셈과 뺄셈 원리\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_calc_simplify_expression" [label="식을 간단히 하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_ineq_collect_unknown_terms" [label="부등식에서 미지수항 모으기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_eq_linear_equation" [label="일차방정식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_eq_unit" [label="일차방정식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_func_linear_function" [label="일차함수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -90,6 +94,7 @@ digraph pilot_unit_map {
   "m1_ineq_judge_solution" [label="부등식의 해인지 판단하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_ineq_solution" [label="부등식의 해\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_ineq_solution_check" [label="부등식 해의 확인\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_ineq_truth_value_by_substitution" [label="대입값에 따른 부등식의 참거짓\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_system_back_substitution" [label="한 미지수 값을 대입해 다른 미지수 구하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_system_solution_check" [label="연립일차방정식 해의 확인\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_system_substitution_into_other_equation" [label="다른 방정식에 식 전체 대입하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -186,6 +191,7 @@ digraph pilot_unit_map {
   "m1_expr_unit" -> "m1_repr_expression" [label="contains", style="dashed", color="#6b7280"];
   "m1_expr_unit" -> "m1_term_variable" [label="contains", style="dashed", color="#6b7280"];
   "m1_expr_add_sub_linear_expression" -> "m1_ineq_isolate_unknown" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_expr_add_sub_linear_expression" -> "m1_ineq_simplify_both_sides_linear_terms" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_add_sub_linear_expression" -> "m1_ineq_solving_linear_inequality" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_add_sub_linear_expression" -> "m1_system_elimination_coefficient_matching" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_coefficient" -> "m1_calc_collect_like_terms_polynomial" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -196,10 +202,12 @@ digraph pilot_unit_map {
   "m1_expr_coefficient" -> "m1_factor_linear_product_axb_cxd" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_coefficient" -> "m1_factor_perfect_square_middle_term_check" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_coefficient" -> "m1_factor_sum_product_pair_search" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_expr_coefficient" -> "m1_ineq_coefficient_sign_before_division" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_coefficient" -> "m1_quad_eq_coefficients_in_standard_form" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_coefficient" -> "m1_quad_eq_leading_coefficient_one_case" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_coefficient" -> "m1_quad_func_coefficient_a" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_constant_term" -> "m1_eq_collect_constant_terms" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_expr_constant_term" -> "m1_ineq_collect_constant_terms" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_degree" -> "m1_calc_polynomial_term_structure_check" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_degree" -> "m1_factor_quadratic_expression" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_degree" -> "m1_quad_eq_quadratic_term" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -210,6 +218,7 @@ digraph pilot_unit_map {
   "m1_expr_like_terms" -> "m1_calc_polynomial_add_sub" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_like_terms" -> "m1_calc_polynomial_add_sub_principle" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_like_terms" -> "m1_calc_simplify_expression" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_expr_like_terms" -> "m1_ineq_collect_unknown_terms" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_linear_expression" -> "m1_eq_linear_equation" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_linear_expression" -> "m1_eq_unit" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_linear_expression" -> "m1_func_linear_function" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -251,6 +260,7 @@ digraph pilot_unit_map {
   "m1_expr_substitution" -> "m1_ineq_judge_solution" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_substitution" -> "m1_ineq_solution" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_substitution" -> "m1_ineq_solution_check" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_expr_substitution" -> "m1_ineq_truth_value_by_substitution" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_substitution" -> "m1_system_back_substitution" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_substitution" -> "m1_system_solution_check" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_expr_substitution" -> "m1_system_substitution_into_other_equation" [label="prerequisite_for", style="dashed", color="#6b7280"];
@@ -268,8 +278,10 @@ digraph pilot_unit_map {
   "m1_expr_literal_expression" -> "m1_repr_expression" [label="represented_by", style="dashed", color="#6b7280"];
   "m1_repr_everyday_language" -> "m1_expr_literal_expression" [label="represented_by", style="dashed", color="#6b7280"];
   "m1_expr_add_sub_linear_expression" -> "m1_calc_polynomial_add_sub" [label="used_in", style="dashed", color="#6b7280"];
+  "m1_expr_add_sub_linear_expression" -> "m1_ineq_simplify_both_sides_linear_terms" [label="used_in", style="dashed", color="#6b7280"];
   "m1_expr_add_sub_linear_expression" -> "m1_ineq_solving_linear_inequality" [label="used_in", style="dashed", color="#6b7280"];
   "m1_expr_add_sub_linear_expression" -> "m1_system_addition_subtraction_method" [label="used_in", style="dashed", color="#6b7280"];
+  "m1_expr_coefficient" -> "m1_ineq_coefficient_sign_before_division" [label="used_in", style="dashed", color="#6b7280"];
   "m1_expr_letter" -> "m1_repr_everyday_language" [label="used_in", style="dashed", color="#6b7280"];
   "m1_expr_letter" -> "m1_repr_expression" [label="used_in", style="dashed", color="#6b7280"];
   "m1_expr_letter" -> "m1_term_variable" [label="used_in", style="dashed", color="#6b7280"];
@@ -279,6 +291,7 @@ digraph pilot_unit_map {
   "m1_expr_substitution" -> "m1_eq_solution_check" [label="used_in", style="dashed", color="#6b7280"];
   "m1_expr_substitution" -> "m1_func_value" [label="used_in", style="dashed", color="#6b7280"];
   "m1_expr_substitution" -> "m1_ineq_judge_solution" [label="used_in", style="dashed", color="#6b7280"];
+  "m1_expr_substitution" -> "m1_ineq_truth_value_by_substitution" [label="used_in", style="dashed", color="#6b7280"];
   "m1_expr_substitution" -> "m1_system_solution_check" [label="used_in", style="dashed", color="#6b7280"];
   "m1_num_four_operations" -> "m1_expr_evaluate_expression_value" [label="used_in", style="dashed", color="#6b7280"];
   "m1_repr_everyday_language" -> "m1_expr_situation_to_literal_expression" [label="used_in", style="dashed", color="#6b7280"];

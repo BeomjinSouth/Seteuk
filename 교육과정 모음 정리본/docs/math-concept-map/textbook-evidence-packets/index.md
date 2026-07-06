@@ -5,8 +5,8 @@ This generated index tracks the prepared unit-level textbook evidence packets.
 ## Summary
 
 - packets: 34
-- concepts in packets: 966
-- pending textbook evidence rows: 966
+- concepts in packets: 977
+- pending textbook evidence rows: 977
 
 ## Packets
 
@@ -17,10 +17,10 @@ This generated index tracks the prepared unit-level textbook evidence packets.
 | 3 | 중2(교육과정 학년군: 중1-3) | 자료와 가능성 | 경우의 수와 확률 | 45 | 45 | 14 | highest | 145 | rank-03.md |
 | 4 | 중1(교육과정 학년군: 중1-3) | 자료와 가능성 | 대푯값 | 38 | 38 | 18 | highest | 110 | rank-04.md |
 | 5 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 좌표평면과 그래프 | 43 | 43 | 9 | highest | 105 | rank-05.md |
-| 6 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 그 그래프 | 33 | 33 | 11 | highest | 93 | rank-06.md |
-| 7 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 일차방정식의 관계 | 41 | 41 | 10 | highest | 87 | rank-07.md |
-| 8 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 정수와 유리수 | 41 | 41 | 5 | highest | 65 | rank-08.md |
-| 9 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차부등식 | 30 | 30 | 8 | highest | 64 | rank-09.md |
+| 6 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차부등식 | 41 | 41 | 13 | highest | 95 | rank-06.md |
+| 7 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 그 그래프 | 33 | 33 | 11 | highest | 93 | rank-07.md |
+| 8 | 중1(교육과정 학년군: 중1-3) | 변화와 관계 | 일차함수와 일차방정식의 관계 | 41 | 41 | 10 | highest | 87 | rank-08.md |
+| 9 | 중1(교육과정 학년군: 중1-3) | 수와 연산 | 정수와 유리수 | 41 | 41 | 5 | highest | 65 | rank-09.md |
 | 10 | 중2(교육과정 학년군: 중1-3) | 도형과 측정 | 삼각형과 사각형의 성질 | 47 | 47 | 4 | highest | 63 | rank-10.md |
 | 11 | 중3(교육과정 학년군: 중1-3) | 도형과 측정 | 원의 성질 | 33 | 33 | 6 | highest | 59 | rank-11.md |
 | 12 | 중3(교육과정 학년군: 중1-3) | 자료와 가능성 | 산포도 | 25 | 25 | 8 | highest | 57 | rank-12.md |

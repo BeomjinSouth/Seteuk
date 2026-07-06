@@ -218,8 +218,11 @@ flowchart LR
   m1_ineq_unit["일차부등식"]
   m1_ineq_inequality["부등식"]
   m1_ineq_solution["부등식의 해"]
+  m1_ineq_truth_value_by_substitution["대입값에 따른 부등식의 참거짓"]
   m1_ineq_inequality_sign["부등호"]
   m1_ineq_inequality_sign_direction["부등호의 방향"]
+  m1_ineq_verbal_comparison_terms["이상·이하·초과·미만 표현"]
+  m1_ineq_strict_inclusive_sign_distinction["초과·미만과 이상·이하 구별"]
   m1_ineq_solution_range["부등식 해의 범위"]
   m1_ineq_number_line_solution_representation["부등식 해의 수직선 표현"]
   m1_ineq_boundary_value["부등식 해의 경계값"]
@@ -232,12 +235,18 @@ flowchart LR
   m1_ineq_linear_inequality["일차부등식"]
   m1_ineq_solving_linear_inequality["일차부등식 풀기"]
   m1_ineq_equivalent_transformation["부등식의 동치 변형"]
+  m1_ineq_simplify_both_sides_linear_terms["일차부등식 양변의 일차식 정리하기"]
   m1_ineq_isolate_unknown["미지수를 한쪽으로 모으기"]
+  m1_ineq_collect_unknown_terms["부등식에서 미지수항 모으기"]
+  m1_ineq_collect_constant_terms["부등식에서 상수항 모으기"]
+  m1_ineq_coefficient_sign_before_division["계수의 부호 확인 후 나누기"]
   m1_ineq_write_solution_range["일차부등식의 해를 범위로 나타내기"]
+  m1_ineq_rewrite_solution_unknown_left["미지수를 왼쪽에 두어 해 쓰기"]
   m1_ineq_modeling_linear_inequality["일차부등식 세우기"]
   m1_ineq_choose_unknown_from_context["문제 상황에서 미지수 정하기"]
   m1_ineq_translate_condition["문제 조건을 부등식으로 옮기기"]
   m1_ineq_interpret_solution_context["부등식의 해를 문제 상황에 맞게 해석하기"]
+  m1_ineq_context_domain_restriction["문제 상황에서 가능한 값의 범위 확인하기"]
   m1_ineq_solution_check["부등식 해의 확인"]
   m1_ineq_judge_solution["부등식의 해인지 판단하기"]
   m1_ineq_linear_inequality_problem_solving["일차부등식 활용 문제 해결"]
@@ -245,6 +254,8 @@ flowchart LR
   m1_mis_ineq_negative["음수를 곱하거나 나눌 때 부등호 방향을 바꾸지 않는 오류"]
   m1_mis_ineq_endpoint_inclusion["부등식 해의 끝점 포함 여부를 잘못 표시하는 오류"]
   m1_mis_ineq_sign_reversal_overgeneralization["부등호 방향을 항상 바꾸는 오류"]
+  m1_mis_ineq_strict_inclusive_language["이상·이하와 초과·미만을 뒤바꾸는 오류"]
+  m1_mis_ineq_context_domain_ignored["문제 상황의 자연수·정수 조건을 무시하는 오류"]
   m1_system_unit["연립일차방정식"]
   m1_system_two_variable_linear_equation["미지수가 2개인 일차방정식"]
   m1_system_simultaneous_equations["연립방정식"]
@@ -1364,6 +1375,14 @@ flowchart LR
   m1_ineq_inequality_sign -- "사용" --> m1_ineq_linear_inequality
   m1_ineq_inequality_sign -- "사용" --> m1_ineq_modeling_linear_inequality
   m1_ineq_inequality_sign_direction -- "사용" --> m1_ineq_multiply_divide_negative_reverses_sign
+  m1_expr_substitution -- "사용" --> m1_ineq_truth_value_by_substitution
+  m1_ineq_truth_value_by_substitution -- "사용" --> m1_ineq_judge_solution
+  m1_ineq_truth_value_by_substitution -- "사용" --> m1_ineq_solution
+  m1_ineq_verbal_comparison_terms -- "표현" --> m1_ineq_inequality_sign
+  m1_ineq_verbal_comparison_terms -- "사용" --> m1_ineq_strict_inclusive_sign_distinction
+  m1_ineq_verbal_comparison_terms -- "사용" --> m1_ineq_translate_condition
+  m1_ineq_strict_inclusive_sign_distinction -- "사용" --> m1_ineq_translate_condition
+  m1_ineq_strict_inclusive_sign_distinction -- "사용" --> m1_ineq_endpoint_inclusion_representation
   m1_ineq_solution -- "포함" --> m1_ineq_solution_range
   m1_ineq_solution_range -- "표현" --> m1_ineq_number_line_solution_representation
   m1_num_number_line -- "사용" --> m1_ineq_number_line_solution_representation
@@ -1379,8 +1398,23 @@ flowchart LR
   m1_ineq_multiply_divide_negative_reverses_sign -- "사용" --> m1_ineq_equivalent_transformation
   m1_ineq_equivalent_transformation -- "사용" --> m1_ineq_solving_linear_inequality
   m1_ineq_equivalent_transformation -- "사용" --> m1_ineq_isolate_unknown
+  m1_expr_add_sub_linear_expression -- "사용" --> m1_ineq_simplify_both_sides_linear_terms
+  m1_ineq_simplify_both_sides_linear_terms -- "사용" --> m1_ineq_equivalent_transformation
+  m1_ineq_simplify_both_sides_linear_terms -- "사용" --> m1_ineq_collect_unknown_terms
+  m1_ineq_simplify_both_sides_linear_terms -- "사용" --> m1_ineq_collect_constant_terms
+  m1_ineq_equivalent_transformation -- "사용" --> m1_ineq_collect_unknown_terms
+  m1_ineq_equivalent_transformation -- "사용" --> m1_ineq_collect_constant_terms
+  m1_ineq_collect_unknown_terms -- "연관" --> m1_ineq_collect_constant_terms
+  m1_ineq_collect_unknown_terms -- "사용" --> m1_ineq_isolate_unknown
+  m1_ineq_collect_constant_terms -- "사용" --> m1_ineq_isolate_unknown
+  m1_expr_coefficient -- "사용" --> m1_ineq_coefficient_sign_before_division
+  m1_ineq_multiply_divide_positive_property -- "사용" --> m1_ineq_coefficient_sign_before_division
+  m1_ineq_multiply_divide_negative_reverses_sign -- "사용" --> m1_ineq_coefficient_sign_before_division
+  m1_ineq_coefficient_sign_before_division -- "사용" --> m1_ineq_write_solution_range
   m1_ineq_isolate_unknown -- "사용" --> m1_ineq_solving_linear_inequality
   m1_ineq_solution_range -- "사용" --> m1_ineq_write_solution_range
+  m1_ineq_write_solution_range -- "표현" --> m1_ineq_rewrite_solution_unknown_left
+  m1_ineq_inequality_sign_direction -- "사용" --> m1_ineq_rewrite_solution_unknown_left
   m1_ineq_write_solution_range -- "사용" --> m1_ineq_solving_linear_inequality
   m1_expr_substitution -- "사용" --> m1_ineq_judge_solution
   m1_ineq_judge_solution -- "사용" --> m1_ineq_solution_check
@@ -1389,6 +1423,10 @@ flowchart LR
   m1_ineq_translate_condition -- "표현" --> m1_ineq_linear_inequality
   m1_ineq_interpret_solution_context -- "사용" --> m1_ineq_modeling_linear_inequality
   m1_ineq_solution_check -- "사용" --> m1_ineq_interpret_solution_context
+  m1_ineq_solution_range -- "사용" --> m1_ineq_context_domain_restriction
+  m1_num_natural_number -- "사용" --> m1_ineq_context_domain_restriction
+  m1_num_integer -- "사용" --> m1_ineq_context_domain_restriction
+  m1_ineq_context_domain_restriction -- "사용" --> m1_ineq_interpret_solution_context
   m1_ineq_judge_solution -- "사용" --> m1_ineq_solution
   m1_eq_choose_unknown_from_context -- "연관" --> m1_ineq_choose_unknown_from_context
   m1_ineq_modeling_linear_inequality -- "사용" --> m1_ineq_linear_inequality_problem_solving
@@ -1396,10 +1434,14 @@ flowchart LR
   m1_ineq_solution_check -- "사용" --> m1_ineq_linear_inequality_problem_solving
   m1_ineq_translate_condition -- "사용" --> m1_ineq_linear_inequality_problem_solving
   m1_ineq_interpret_solution_context -- "사용" --> m1_ineq_linear_inequality_problem_solving
+  m1_ineq_context_domain_restriction -- "사용" --> m1_ineq_linear_inequality_problem_solving
   m1_mis_ineq_negative -- "혼동" --> m1_ineq_multiply_divide_negative_reverses_sign
   m1_mis_ineq_solution_single_value -- "혼동" --> m1_ineq_solution_range
   m1_mis_ineq_endpoint_inclusion -- "혼동" --> m1_ineq_endpoint_inclusion_representation
   m1_mis_ineq_sign_reversal_overgeneralization -- "혼동" --> m1_ineq_multiply_divide_positive_property
+  m1_mis_ineq_strict_inclusive_language -- "혼동" --> m1_ineq_verbal_comparison_terms
+  m1_mis_ineq_strict_inclusive_language -- "혼동" --> m1_ineq_endpoint_inclusion_representation
+  m1_mis_ineq_context_domain_ignored -- "혼동" --> m1_ineq_context_domain_restriction
   m1_expr_unit -- "선수" --> m1_calc_unit
   m1_calc_unit -- "포함" --> m1_calc_power
   m1_calc_power -- "포함" --> m1_calc_base
@@ -2988,8 +3030,11 @@ flowchart LR
   m1_calc_unit -- "포함" --> m1_mis_polynomial_like_terms
   m1_calc_unit -- "포함" --> m1_mis_polynomial_division_scope
   m1_calc_unit -- "포함" --> m1_mis_polynomial_subtraction_sign
+  m1_ineq_inequality -- "포함" --> m1_ineq_truth_value_by_substitution
   m1_ineq_inequality -- "포함" --> m1_ineq_inequality_sign
   m1_ineq_inequality_sign -- "포함" --> m1_ineq_inequality_sign_direction
+  m1_ineq_inequality_sign -- "포함" --> m1_ineq_verbal_comparison_terms
+  m1_ineq_inequality_sign -- "포함" --> m1_ineq_strict_inclusive_sign_distinction
   m1_ineq_solution -- "포함" --> m1_ineq_number_line_solution_representation
   m1_ineq_solution -- "포함" --> m1_ineq_boundary_value
   m1_ineq_number_line_solution_representation -- "포함" --> m1_ineq_endpoint_inclusion_representation
@@ -2998,11 +3043,17 @@ flowchart LR
   m1_ineq_properties -- "포함" --> m1_ineq_multiply_divide_negative_reverses_sign
   m1_ineq_unit -- "포함" --> m1_ineq_compare_equality_properties
   m1_ineq_solving_linear_inequality -- "포함" --> m1_ineq_equivalent_transformation
+  m1_ineq_solving_linear_inequality -- "포함" --> m1_ineq_simplify_both_sides_linear_terms
   m1_ineq_solving_linear_inequality -- "포함" --> m1_ineq_isolate_unknown
+  m1_ineq_solving_linear_inequality -- "포함" --> m1_ineq_collect_unknown_terms
+  m1_ineq_solving_linear_inequality -- "포함" --> m1_ineq_collect_constant_terms
+  m1_ineq_solving_linear_inequality -- "포함" --> m1_ineq_coefficient_sign_before_division
   m1_ineq_solving_linear_inequality -- "포함" --> m1_ineq_write_solution_range
+  m1_ineq_write_solution_range -- "포함" --> m1_ineq_rewrite_solution_unknown_left
   m1_ineq_modeling_linear_inequality -- "포함" --> m1_ineq_choose_unknown_from_context
   m1_ineq_modeling_linear_inequality -- "포함" --> m1_ineq_translate_condition
   m1_ineq_modeling_linear_inequality -- "포함" --> m1_ineq_interpret_solution_context
+  m1_ineq_modeling_linear_inequality -- "포함" --> m1_ineq_context_domain_restriction
   m1_ineq_unit -- "포함" --> m1_ineq_solution_check
   m1_ineq_solution_check -- "포함" --> m1_ineq_judge_solution
   m1_ineq_unit -- "포함" --> m1_ineq_linear_inequality_problem_solving
@@ -3010,6 +3061,8 @@ flowchart LR
   m1_ineq_unit -- "포함" --> m1_mis_ineq_negative
   m1_ineq_unit -- "포함" --> m1_mis_ineq_endpoint_inclusion
   m1_ineq_unit -- "포함" --> m1_mis_ineq_sign_reversal_overgeneralization
+  m1_ineq_unit -- "포함" --> m1_mis_ineq_strict_inclusive_language
+  m1_ineq_unit -- "포함" --> m1_mis_ineq_context_domain_ignored
   m1_system_solution -- "포함" --> m1_system_common_solution_condition
   m1_system_solution -- "포함" --> m1_system_solution_ordered_pair
   m1_system_solution -- "포함" --> m1_system_solution_check
@@ -3973,8 +4026,13 @@ flowchart LR
   m1_repr_expression -- "선수" --> m1_ineq_inequality
   m1_ineq_inequality -- "선수" --> m1_ineq_solution
   m1_expr_substitution -- "선수" --> m1_ineq_solution
+  m1_ineq_inequality -- "선수" --> m1_ineq_truth_value_by_substitution
+  m1_expr_substitution -- "선수" --> m1_ineq_truth_value_by_substitution
   m1_ineq_inequality_sign -- "선수" --> m1_ineq_inequality_sign_direction
   m1_num_order_relation -- "선수" --> m1_ineq_inequality_sign_direction
+  m1_num_order_relation -- "선수" --> m1_ineq_verbal_comparison_terms
+  m1_ineq_verbal_comparison_terms -- "선수" --> m1_ineq_strict_inclusive_sign_distinction
+  m1_ineq_inequality_sign -- "선수" --> m1_ineq_strict_inclusive_sign_distinction
   m1_ineq_solution -- "선수" --> m1_ineq_solution_range
   m1_num_order_relation -- "선수" --> m1_ineq_solution_range
   m1_ineq_solution_range -- "선수" --> m1_ineq_number_line_solution_representation
@@ -3984,6 +4042,7 @@ flowchart LR
   m1_num_order_relation -- "선수" --> m1_ineq_boundary_value
   m1_ineq_boundary_value -- "선수" --> m1_ineq_endpoint_inclusion_representation
   m1_ineq_inequality_sign -- "선수" --> m1_ineq_endpoint_inclusion_representation
+  m1_ineq_strict_inclusive_sign_distinction -- "선수" --> m1_ineq_endpoint_inclusion_representation
   m1_ineq_inequality -- "선수" --> m1_ineq_properties
   m1_ineq_inequality -- "선수" --> m1_ineq_add_sub_same_number_property
   m1_eq_both_sides -- "선수" --> m1_ineq_add_sub_same_number_property
@@ -4009,12 +4068,24 @@ flowchart LR
   m1_expr_add_sub_linear_expression -- "선수" --> m1_ineq_solving_linear_inequality
   m1_ineq_properties -- "선수" --> m1_ineq_equivalent_transformation
   m1_ineq_solution -- "선수" --> m1_ineq_equivalent_transformation
+  m1_ineq_linear_inequality -- "선수" --> m1_ineq_simplify_both_sides_linear_terms
+  m1_expr_add_sub_linear_expression -- "선수" --> m1_ineq_simplify_both_sides_linear_terms
   m1_ineq_equivalent_transformation -- "선수" --> m1_ineq_isolate_unknown
   m1_eq_unknown -- "선수" --> m1_ineq_isolate_unknown
   m1_expr_add_sub_linear_expression -- "선수" --> m1_ineq_isolate_unknown
+  m1_ineq_equivalent_transformation -- "선수" --> m1_ineq_collect_unknown_terms
+  m1_expr_like_terms -- "선수" --> m1_ineq_collect_unknown_terms
+  m1_eq_unknown -- "선수" --> m1_ineq_collect_unknown_terms
+  m1_ineq_equivalent_transformation -- "선수" --> m1_ineq_collect_constant_terms
+  m1_expr_constant_term -- "선수" --> m1_ineq_collect_constant_terms
+  m1_expr_coefficient -- "선수" --> m1_ineq_coefficient_sign_before_division
+  m1_ineq_multiply_divide_positive_property -- "선수" --> m1_ineq_coefficient_sign_before_division
+  m1_ineq_multiply_divide_negative_reverses_sign -- "선수" --> m1_ineq_coefficient_sign_before_division
   m1_ineq_solution_range -- "선수" --> m1_ineq_write_solution_range
   m1_ineq_inequality_sign -- "선수" --> m1_ineq_write_solution_range
   m1_ineq_number_line_solution_representation -- "선수" --> m1_ineq_write_solution_range
+  m1_ineq_write_solution_range -- "선수" --> m1_ineq_rewrite_solution_unknown_left
+  m1_ineq_inequality_sign_direction -- "선수" --> m1_ineq_rewrite_solution_unknown_left
   m1_expr_literal_expression -- "선수" --> m1_ineq_modeling_linear_inequality
   m1_ineq_linear_inequality -- "선수" --> m1_ineq_modeling_linear_inequality
   m1_expr_letter_quantity -- "선수" --> m1_ineq_choose_unknown_from_context
@@ -4023,6 +4094,9 @@ flowchart LR
   m1_ineq_inequality_sign -- "선수" --> m1_ineq_translate_condition
   m1_ineq_solution_range -- "선수" --> m1_ineq_interpret_solution_context
   m1_ineq_solution_check -- "선수" --> m1_ineq_interpret_solution_context
+  m1_ineq_solution_range -- "선수" --> m1_ineq_context_domain_restriction
+  m1_num_natural_number -- "선수" --> m1_ineq_context_domain_restriction
+  m1_num_integer -- "선수" --> m1_ineq_context_domain_restriction
   m1_ineq_solution -- "선수" --> m1_ineq_solution_check
   m1_expr_substitution -- "선수" --> m1_ineq_solution_check
   m1_ineq_inequality -- "선수" --> m1_ineq_judge_solution
@@ -5317,12 +5391,15 @@ flowchart LR
   m1_mis_polynomial_subtraction_sign -- "혼동" --> m1_mis_sign_operation
   m1_mis_ineq_solution_single_value -- "혼동" --> m1_ineq_inequality
   m1_mis_ineq_negative -- "혼동" --> m1_ineq_inequality_sign_direction
+  m1_mis_ineq_strict_inclusive_language -- "혼동" --> m1_ineq_strict_inclusive_sign_distinction
   m1_mis_ineq_sign_reversal_overgeneralization -- "혼동" --> m1_ineq_multiply_divide_negative_reverses_sign
+  m1_mis_ineq_negative -- "혼동" --> m1_ineq_coefficient_sign_before_division
   m1_mis_ineq_solution_single_value -- "혼동" --> m1_ineq_solution_check
   m1_mis_ineq_solution_single_value -- "혼동" --> m1_ineq_judge_solution
   m1_mis_ineq_endpoint_inclusion -- "혼동" --> m1_ineq_boundary_value
   m1_mis_ineq_endpoint_inclusion -- "혼동" --> m1_ineq_inequality_sign
   m1_mis_ineq_sign_reversal_overgeneralization -- "혼동" --> m1_ineq_inequality_sign_direction
+  m1_mis_ineq_context_domain_ignored -- "혼동" --> m1_ineq_interpret_solution_context
   m1_mis_system_ordered_pair_swap -- "혼동" --> m1_system_solution
   m1_mis_system_one_equation_only -- "혼동" --> m1_system_solution_check
   m1_mis_system_elimination_sign -- "혼동" --> m1_system_elimination
@@ -5691,8 +5768,11 @@ flowchart LR
   class m1_ineq_unit core;
   class m1_ineq_inequality core;
   class m1_ineq_solution default;
+  class m1_ineq_truth_value_by_substitution default;
   class m1_ineq_inequality_sign default;
   class m1_ineq_inequality_sign_direction default;
+  class m1_ineq_verbal_comparison_terms representation;
+  class m1_ineq_strict_inclusive_sign_distinction default;
   class m1_ineq_solution_range default;
   class m1_ineq_number_line_solution_representation representation;
   class m1_ineq_boundary_value default;
@@ -5705,12 +5785,18 @@ flowchart LR
   class m1_ineq_linear_inequality core;
   class m1_ineq_solving_linear_inequality procedure;
   class m1_ineq_equivalent_transformation procedure;
+  class m1_ineq_simplify_both_sides_linear_terms procedure;
   class m1_ineq_isolate_unknown procedure;
+  class m1_ineq_collect_unknown_terms procedure;
+  class m1_ineq_collect_constant_terms procedure;
+  class m1_ineq_coefficient_sign_before_division procedure;
   class m1_ineq_write_solution_range procedure;
+  class m1_ineq_rewrite_solution_unknown_left representation;
   class m1_ineq_modeling_linear_inequality procedure;
   class m1_ineq_choose_unknown_from_context procedure;
   class m1_ineq_translate_condition procedure;
   class m1_ineq_interpret_solution_context procedure;
+  class m1_ineq_context_domain_restriction procedure;
   class m1_ineq_solution_check procedure;
   class m1_ineq_judge_solution procedure;
   class m1_ineq_linear_inequality_problem_solving procedure;
@@ -5718,6 +5804,8 @@ flowchart LR
   class m1_mis_ineq_negative risk;
   class m1_mis_ineq_endpoint_inclusion risk;
   class m1_mis_ineq_sign_reversal_overgeneralization risk;
+  class m1_mis_ineq_strict_inclusive_language risk;
+  class m1_mis_ineq_context_domain_ignored risk;
   class m1_system_unit core;
   class m1_system_two_variable_linear_equation core;
   class m1_system_simultaneous_equations default;

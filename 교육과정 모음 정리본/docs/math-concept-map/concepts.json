@@ -2,10 +2,10 @@
   "metadata": {
     "title": "수학 개념 위계 Map",
     "schema_version": "0.1.0",
-    "generated_at": "2026-07-03T15:01:56",
+    "generated_at": "2026-07-06T10:36:13",
     "pilot_scope": "중학교 수와 연산 전체(9수01-01~10), 변화와 관계 전체(9수02-01~22), 도형과 측정 전체(9수03-01~19), 자료와 가능성 전체(9수04-01~09)",
-    "concept_count": 966,
-    "edge_count": 4505
+    "concept_count": 977,
+    "edge_count": 4571
   },
   "sources": [
     {
@@ -9446,10 +9446,51 @@
       ],
       "related_ids": [
         "m1_eq_solution",
+        "m1_ineq_truth_value_by_substitution",
         "m1_mis_ineq_solution_single_value"
       ],
       "notes": "",
       "confidence": "high"
+    },
+    {
+      "id": "m1_ineq_truth_value_by_substitution",
+      "label_ko": "대입값에 따른 부등식의 참거짓",
+      "aliases": [
+        "부등식의 참거짓",
+        "대입하여 참거짓 판단하기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차부등식",
+      "concept_type": "sub_concept",
+      "short_definition": "주어진 값을 부등식에 대입했을 때 부등식이 참인지 거짓인지 판단하는 개념.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-11]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_ineq_inequality",
+        "m1_expr_substitution"
+      ],
+      "parent_ids": [
+        "m1_ineq_inequality"
+      ],
+      "related_ids": [
+        "m1_ineq_solution",
+        "m1_ineq_judge_solution"
+      ],
+      "notes": "부등식의 해를 이해하기 위해 대입과 참거짓 판단을 분리한 미시 concept이다.",
+      "confidence": "medium"
     },
     {
       "id": "m1_ineq_inequality_sign",
@@ -9526,6 +9567,108 @@
       ],
       "notes": "음수 곱나눔에서 방향이 바뀌는 성질을 설명하기 위한 미시 concept이다. 교과서 본문 용례 확인 전까지 중간 신뢰도로 둔다.",
       "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_verbal_comparison_terms",
+      "label_ko": "이상·이하·초과·미만 표현",
+      "aliases": [
+        "이상",
+        "이하",
+        "초과",
+        "미만",
+        "크기 비교 말 표현"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차부등식",
+      "concept_type": "representation",
+      "short_definition": "문제 상황의 크기 조건을 부등식으로 옮길 때 사용하는 말 표현.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_num_order_relation"
+      ],
+      "parent_ids": [
+        "m1_ineq_inequality_sign"
+      ],
+      "related_ids": [
+        "m1_ineq_translate_condition",
+        "m1_ineq_strict_inclusive_sign_distinction",
+        "m1_mis_ineq_strict_inclusive_language"
+      ],
+      "notes": "공식 문서의 문제 상황 기반 도입과 활용에서 추론한 표현 노드다. 교과서 용어 설명 근거 확인 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_ineq_strict_inclusive_sign_distinction",
+      "label_ko": "초과·미만과 이상·이하 구별",
+      "aliases": [
+        "포함 조건과 미포함 조건 구별",
+        "strict vs inclusive inequality"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차부등식",
+      "concept_type": "sub_concept",
+      "short_definition": "경계값을 포함하는 이상·이하 조건과 포함하지 않는 초과·미만 조건을 구별하는 개념.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-11]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_ineq_verbal_comparison_terms",
+        "m1_ineq_inequality_sign"
+      ],
+      "parent_ids": [
+        "m1_ineq_inequality_sign"
+      ],
+      "related_ids": [
+        "m1_ineq_endpoint_inclusion_representation",
+        "m1_ineq_translate_condition",
+        "m1_mis_ineq_strict_inclusive_language"
+      ],
+      "notes": "수직선 끝점 표시와 문장 조건 번역에서 반복되는 미시 concept이다. 교과서 본문 확인 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
     },
     {
       "id": "m1_ineq_solution_range",
@@ -9676,13 +9819,15 @@
       ],
       "prerequisite_ids": [
         "m1_ineq_boundary_value",
-        "m1_ineq_inequality_sign"
+        "m1_ineq_inequality_sign",
+        "m1_ineq_strict_inclusive_sign_distinction"
       ],
       "parent_ids": [
         "m1_ineq_number_line_solution_representation"
       ],
       "related_ids": [
-        "m1_mis_ineq_endpoint_inclusion"
+        "m1_mis_ineq_endpoint_inclusion",
+        "m1_mis_ineq_strict_inclusive_language"
       ],
       "notes": "교과서 수직선 표현 관례에서 추출한 표현 노드다. 교과서 PDF 확인 전까지 낮은 신뢰도로 둔다.",
       "confidence": "low"
@@ -10028,6 +10173,59 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_ineq_simplify_both_sides_linear_terms",
+      "label_ko": "일차부등식 양변의 일차식 정리하기",
+      "aliases": [
+        "양변의 일차식 정리",
+        "부등식 양변 정리"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차부등식",
+      "concept_type": "procedure",
+      "short_definition": "일차부등식의 양변에 있는 일차식을 괄호 풀기와 동류항 정리로 간단히 만드는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차식의 덧셈과 뺄셈 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차식의 덧셈과 뺄셈 원리 이해, 계산, 과정 설명 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_ineq_linear_inequality",
+        "m1_expr_add_sub_linear_expression"
+      ],
+      "parent_ids": [
+        "m1_ineq_solving_linear_inequality"
+      ],
+      "related_ids": [
+        "m1_ineq_equivalent_transformation",
+        "m1_ineq_collect_unknown_terms",
+        "m1_ineq_collect_constant_terms"
+      ],
+      "notes": "일차부등식 풀이에서 식 계산이 실제로 쓰이는 지점을 분리한 절차 노드다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_ineq_isolate_unknown",
       "label_ko": "미지수를 한쪽으로 모으기",
       "aliases": [
@@ -10066,6 +10264,152 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_ineq_collect_unknown_terms",
+      "label_ko": "부등식에서 미지수항 모으기",
+      "aliases": [
+        "미지수항 이항",
+        "부등식의 미지수항 정리"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차부등식",
+      "concept_type": "procedure",
+      "short_definition": "일차부등식에서 미지수를 포함한 항을 한쪽으로 모아 계수 비교가 가능하게 하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_ineq_equivalent_transformation",
+        "m1_expr_like_terms",
+        "m1_eq_unknown"
+      ],
+      "parent_ids": [
+        "m1_ineq_solving_linear_inequality"
+      ],
+      "related_ids": [
+        "m1_ineq_isolate_unknown",
+        "m1_ineq_collect_constant_terms"
+      ],
+      "notes": "교과서 풀이 과정에서 흔히 나타나는 절차를 성취기준의 일차부등식 풀이 요구에서 추론했다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_collect_constant_terms",
+      "label_ko": "부등식에서 상수항 모으기",
+      "aliases": [
+        "상수항 이항",
+        "부등식의 상수항 정리"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차부등식",
+      "concept_type": "procedure",
+      "short_definition": "일차부등식에서 수만 있는 항을 미지수항의 반대쪽으로 모으는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_ineq_equivalent_transformation",
+        "m1_expr_constant_term"
+      ],
+      "parent_ids": [
+        "m1_ineq_solving_linear_inequality"
+      ],
+      "related_ids": [
+        "m1_ineq_isolate_unknown",
+        "m1_ineq_collect_unknown_terms"
+      ],
+      "notes": "교과서 풀이 과정에서 흔히 나타나는 절차를 성취기준의 일차부등식 풀이 요구에서 추론했다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_coefficient_sign_before_division",
+      "label_ko": "계수의 부호 확인 후 나누기",
+      "aliases": [
+        "미지수 계수의 부호 확인",
+        "음수 계수로 나눌 때 부등호 확인"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차부등식",
+      "concept_type": "procedure",
+      "short_definition": "미지수의 계수로 양변을 나누기 전에 그 계수가 양수인지 음수인지 확인하여 부등호 방향을 결정하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-11]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_expr_coefficient",
+        "m1_ineq_multiply_divide_positive_property",
+        "m1_ineq_multiply_divide_negative_reverses_sign"
+      ],
+      "parent_ids": [
+        "m1_ineq_solving_linear_inequality"
+      ],
+      "related_ids": [
+        "m1_ineq_write_solution_range",
+        "m1_mis_ineq_negative"
+      ],
+      "notes": "음수 곱나눔 성질을 일차부등식 풀이 마지막 단계에 적용하는 절차로 세분화했다.",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_ineq_write_solution_range",
       "label_ko": "일차부등식의 해를 범위로 나타내기",
       "aliases": [
@@ -10099,9 +10443,48 @@
       "parent_ids": [
         "m1_ineq_solving_linear_inequality"
       ],
-      "related_ids": [],
+      "related_ids": [
+        "m1_ineq_rewrite_solution_unknown_left"
+      ],
       "notes": "",
       "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_rewrite_solution_unknown_left",
+      "label_ko": "미지수를 왼쪽에 두어 해 쓰기",
+      "aliases": [
+        "해를 x < a 꼴로 쓰기",
+        "미지수 기준 해 표현"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차부등식",
+      "concept_type": "representation",
+      "short_definition": "일차부등식의 해를 미지수가 왼쪽에 오도록 정리하여 읽기 쉽게 쓰는 표현 방식.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_ineq_write_solution_range",
+        "m1_ineq_inequality_sign_direction"
+      ],
+      "parent_ids": [
+        "m1_ineq_write_solution_range"
+      ],
+      "related_ids": [],
+      "notes": "부등호 방향을 읽을 때 학생이 자주 혼동하는 표현 관례다. 교과서 예제 근거 확인 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
     },
     {
       "id": "m1_ineq_modeling_linear_inequality",
@@ -10270,6 +10653,54 @@
       ],
       "related_ids": [],
       "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_context_domain_restriction",
+      "label_ko": "문제 상황에서 가능한 값의 범위 확인하기",
+      "aliases": [
+        "자연수 조건 확인",
+        "정수 조건 확인",
+        "상황에 맞는 값 고르기"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차부등식",
+      "concept_type": "procedure",
+      "short_definition": "부등식의 해 범위 중 문제 상황에서 가능한 자연수, 정수, 단위 조건을 만족하는 값을 확인하는 절차.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [
+        "m1_ineq_solution_range",
+        "m1_num_natural_number",
+        "m1_num_integer"
+      ],
+      "parent_ids": [
+        "m1_ineq_modeling_linear_inequality"
+      ],
+      "related_ids": [
+        "m1_ineq_interpret_solution_context",
+        "m1_mis_ineq_context_domain_ignored"
+      ],
+      "notes": "공식 문서의 문제 상황 적합성 확인을 자연수·정수 등 값의 범위 제한으로 세분화했다.",
       "confidence": "medium"
     },
     {
@@ -10551,6 +10982,93 @@
         "m1_ineq_inequality_sign_direction"
       ],
       "notes": "기존 음수 처리 오류의 반대 방향 오개념으로 추론했다. 교과서나 학생 오답 근거 확인 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_ineq_strict_inclusive_language",
+      "label_ko": "이상·이하와 초과·미만을 뒤바꾸는 오류",
+      "aliases": [
+        "포함 조건 언어 혼동",
+        "이상 이하 초과 미만 혼동"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차부등식",
+      "concept_type": "misconception_risk",
+      "short_definition": "경계값을 포함하는 이상·이하와 포함하지 않는 초과·미만을 바꾸어 부등호나 수직선 끝점을 잘못 쓰는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_ineq_unit"
+      ],
+      "related_ids": [
+        "m1_ineq_verbal_comparison_terms",
+        "m1_ineq_strict_inclusive_sign_distinction",
+        "m1_ineq_endpoint_inclusion_representation"
+      ],
+      "notes": "문장 조건 번역과 수직선 끝점 표시에서 추론한 오개념 위험이다. 교과서 오답 근거 확인 전까지 낮은 신뢰도로 둔다.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_ineq_context_domain_ignored",
+      "label_ko": "문제 상황의 자연수·정수 조건을 무시하는 오류",
+      "aliases": [
+        "상황 조건 무시",
+        "정수 조건 누락"
+      ],
+      "grade": "중1(교육과정 학년군: 중1-3)",
+      "domain": "변화와 관계",
+      "unit": "일차부등식",
+      "concept_type": "misconception_risk",
+      "short_definition": "부등식으로 구한 실수 범위를 그대로 답으로 쓰고 문제 상황에서 가능한 자연수나 정수 조건을 확인하지 않는 위험.",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "prerequisite_ids": [],
+      "parent_ids": [
+        "m1_ineq_unit"
+      ],
+      "related_ids": [
+        "m1_ineq_context_domain_restriction",
+        "m1_ineq_interpret_solution_context"
+      ],
+      "notes": "공식 문서의 해가 문제 상황에 적합한지 확인한다는 요구에서 추론한 오개념 위험이다.",
       "confidence": "low"
     },
     {
@@ -51489,6 +52007,212 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_expr_substitution__used_in__m1_ineq_truth_value_by_substitution",
+      "source_id": "m1_expr_substitution",
+      "target_id": "m1_ineq_truth_value_by_substitution",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-11]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_truth_value_by_substitution__used_in__m1_ineq_judge_solution",
+      "source_id": "m1_ineq_truth_value_by_substitution",
+      "target_id": "m1_ineq_judge_solution",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-11]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_truth_value_by_substitution__used_in__m1_ineq_solution",
+      "source_id": "m1_ineq_truth_value_by_substitution",
+      "target_id": "m1_ineq_solution",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-11]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_verbal_comparison_terms__represented_by__m1_ineq_inequality_sign",
+      "source_id": "m1_ineq_verbal_comparison_terms",
+      "target_id": "m1_ineq_inequality_sign",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_ineq_verbal_comparison_terms__used_in__m1_ineq_strict_inclusive_sign_distinction",
+      "source_id": "m1_ineq_verbal_comparison_terms",
+      "target_id": "m1_ineq_strict_inclusive_sign_distinction",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-11]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_ineq_verbal_comparison_terms__used_in__m1_ineq_translate_condition",
+      "source_id": "m1_ineq_verbal_comparison_terms",
+      "target_id": "m1_ineq_translate_condition",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_ineq_strict_inclusive_sign_distinction__used_in__m1_ineq_translate_condition",
+      "source_id": "m1_ineq_strict_inclusive_sign_distinction",
+      "target_id": "m1_ineq_translate_condition",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_ineq_strict_inclusive_sign_distinction__used_in__m1_ineq_endpoint_inclusion_representation",
+      "source_id": "m1_ineq_strict_inclusive_sign_distinction",
+      "target_id": "m1_ineq_endpoint_inclusion_representation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-11]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
       "id": "m1_ineq_solution__contains__m1_ineq_solution_range",
       "source_id": "m1_ineq_solution",
       "target_id": "m1_ineq_solution_range",
@@ -51897,6 +52621,388 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_expr_add_sub_linear_expression__used_in__m1_ineq_simplify_both_sides_linear_terms",
+      "source_id": "m1_expr_add_sub_linear_expression",
+      "target_id": "m1_ineq_simplify_both_sides_linear_terms",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차식의 덧셈과 뺄셈 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차식의 덧셈과 뺄셈 원리 이해, 계산, 과정 설명 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_simplify_both_sides_linear_terms__used_in__m1_ineq_equivalent_transformation",
+      "source_id": "m1_ineq_simplify_both_sides_linear_terms",
+      "target_id": "m1_ineq_equivalent_transformation",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차식의 덧셈과 뺄셈 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차식의 덧셈과 뺄셈 원리 이해, 계산, 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_simplify_both_sides_linear_terms__used_in__m1_ineq_collect_unknown_terms",
+      "source_id": "m1_ineq_simplify_both_sides_linear_terms",
+      "target_id": "m1_ineq_collect_unknown_terms",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차식의 덧셈과 뺄셈 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차식의 덧셈과 뺄셈 원리 이해, 계산, 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_simplify_both_sides_linear_terms__used_in__m1_ineq_collect_constant_terms",
+      "source_id": "m1_ineq_simplify_both_sides_linear_terms",
+      "target_id": "m1_ineq_collect_constant_terms",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차식의 덧셈과 뺄셈 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차식의 덧셈과 뺄셈 원리 이해, 계산, 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_equivalent_transformation__used_in__m1_ineq_collect_unknown_terms",
+      "source_id": "m1_ineq_equivalent_transformation",
+      "target_id": "m1_ineq_collect_unknown_terms",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_equivalent_transformation__used_in__m1_ineq_collect_constant_terms",
+      "source_id": "m1_ineq_equivalent_transformation",
+      "target_id": "m1_ineq_collect_constant_terms",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_collect_unknown_terms__related_to__m1_ineq_collect_constant_terms",
+      "source_id": "m1_ineq_collect_unknown_terms",
+      "target_id": "m1_ineq_collect_constant_terms",
+      "relationship_type": "related_to",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "일차부등식 풀이에서 미지수항 정리와 상수항 정리는 같은 동치 변형 흐름 안의 짝 절차다.",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_collect_unknown_terms__used_in__m1_ineq_isolate_unknown",
+      "source_id": "m1_ineq_collect_unknown_terms",
+      "target_id": "m1_ineq_isolate_unknown",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_collect_constant_terms__used_in__m1_ineq_isolate_unknown",
+      "source_id": "m1_ineq_collect_constant_terms",
+      "target_id": "m1_ineq_isolate_unknown",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_expr_coefficient__used_in__m1_ineq_coefficient_sign_before_division",
+      "source_id": "m1_expr_coefficient",
+      "target_id": "m1_ineq_coefficient_sign_before_division",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-11]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; terms and symbols for 변화와 관계",
+          "evidence_kind": "term_list",
+          "summary": "대입, 다항식, 항, 단항식, 상수항, 계수, 차수, 일차식, 동류항, 등식, 방정식, 미지수, 해, 근, 항등식, 이항, 일차방정식, 변수, 좌표, 그래프, 인수, 인수분해, 완전제곱식, 이차방정식, 중근, 근의 공식, 이차함수, 포물선, 축, 꼭짓점, 최댓값, 최솟값 등을 다룸"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_multiply_divide_positive_property__used_in__m1_ineq_coefficient_sign_before_division",
+      "source_id": "m1_ineq_multiply_divide_positive_property",
+      "target_id": "m1_ineq_coefficient_sign_before_division",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-11]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_multiply_divide_negative_reverses_sign__used_in__m1_ineq_coefficient_sign_before_division",
+      "source_id": "m1_ineq_multiply_divide_negative_reverses_sign",
+      "target_id": "m1_ineq_coefficient_sign_before_division",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-11]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_coefficient_sign_before_division__used_in__m1_ineq_write_solution_range",
+      "source_id": "m1_ineq_coefficient_sign_before_division",
+      "target_id": "m1_ineq_write_solution_range",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-11]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_ineq_isolate_unknown__used_in__m1_ineq_solving_linear_inequality",
       "source_id": "m1_ineq_isolate_unknown",
       "target_id": "m1_ineq_solving_linear_inequality",
@@ -51939,6 +53045,50 @@
       ],
       "notes": "",
       "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_write_solution_range__represented_by__m1_ineq_rewrite_solution_unknown_left",
+      "source_id": "m1_ineq_write_solution_range",
+      "target_id": "m1_ineq_rewrite_solution_unknown_left",
+      "relationship_type": "represented_by",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_ineq_inequality_sign_direction__used_in__m1_ineq_rewrite_solution_unknown_left",
+      "source_id": "m1_ineq_inequality_sign_direction",
+      "target_id": "m1_ineq_rewrite_solution_unknown_left",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
     },
     {
       "id": "m1_ineq_write_solution_range__used_in__m1_ineq_solving_linear_inequality",
@@ -52118,6 +53268,118 @@
       "target_id": "m1_ineq_interpret_solution_context",
       "relationship_type": "used_in",
       "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_solution_range__used_in__m1_ineq_context_domain_restriction",
+      "source_id": "m1_ineq_solution_range",
+      "target_id": "m1_ineq_context_domain_restriction",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_natural_number__used_in__m1_ineq_context_domain_restriction",
+      "source_id": "m1_num_natural_number",
+      "target_id": "m1_ineq_context_domain_restriction",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-01]",
+          "evidence_kind": "achievement_standard",
+          "summary": "소인수분해의 뜻을 알고 자연수를 소인수분해 하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_num_integer__used_in__m1_ineq_context_domain_restriction",
+      "source_id": "m1_num_integer",
+      "target_id": "m1_ineq_context_domain_restriction",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 33; [9수01-03]",
+          "evidence_kind": "achievement_standard",
+          "summary": "음수의 필요성을 인식하고 양수와 음수, 정수와 유리수의 개념을 이해하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_ineq_context_domain_restriction__used_in__m1_ineq_interpret_solution_context",
+      "source_id": "m1_ineq_context_domain_restriction",
+      "target_id": "m1_ineq_interpret_solution_context",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
         {
           "source_id": "curriculum_math_2022",
           "locator": "printed p. 36; achievement-standard considerations",
@@ -52331,6 +53593,34 @@
       "confidence": "high"
     },
     {
+      "id": "m1_ineq_context_domain_restriction__used_in__m1_ineq_linear_inequality_problem_solving",
+      "source_id": "m1_ineq_context_domain_restriction",
+      "target_id": "m1_ineq_linear_inequality_problem_solving",
+      "relationship_type": "used_in",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_mis_ineq_negative__often_confused_with__m1_ineq_multiply_divide_negative_reverses_sign",
       "source_id": "m1_mis_ineq_negative",
       "target_id": "m1_ineq_multiply_divide_negative_reverses_sign",
@@ -52413,6 +53703,90 @@
           "locator": "일차부등식 section; [9수02-11] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_ineq_strict_inclusive_language__often_confused_with__m1_ineq_verbal_comparison_terms",
+      "source_id": "m1_mis_ineq_strict_inclusive_language",
+      "target_id": "m1_ineq_verbal_comparison_terms",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_ineq_strict_inclusive_language__often_confused_with__m1_ineq_endpoint_inclusion_representation",
+      "source_id": "m1_mis_ineq_strict_inclusive_language",
+      "target_id": "m1_ineq_endpoint_inclusion_representation",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_ineq_context_domain_ignored__often_confused_with__m1_ineq_context_domain_restriction",
+      "source_id": "m1_mis_ineq_context_domain_ignored",
+      "target_id": "m1_ineq_context_domain_restriction",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
         }
       ],
       "notes": "",
@@ -91771,6 +93145,28 @@
       "confidence": "low"
     },
     {
+      "id": "m1_ineq_inequality__contains__m1_ineq_truth_value_by_substitution",
+      "source_id": "m1_ineq_inequality",
+      "target_id": "m1_ineq_truth_value_by_substitution",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-11]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_ineq_inequality__contains__m1_ineq_inequality_sign",
       "source_id": "m1_ineq_inequality",
       "target_id": "m1_ineq_inequality_sign",
@@ -91813,6 +93209,68 @@
       ],
       "notes": "",
       "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_inequality_sign__contains__m1_ineq_verbal_comparison_terms",
+      "source_id": "m1_ineq_inequality_sign",
+      "target_id": "m1_ineq_verbal_comparison_terms",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_ineq_inequality_sign__contains__m1_ineq_strict_inclusive_sign_distinction",
+      "source_id": "m1_ineq_inequality_sign",
+      "target_id": "m1_ineq_strict_inclusive_sign_distinction",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-11]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
     },
     {
       "id": "m1_ineq_solution__contains__m1_ineq_number_line_solution_representation",
@@ -92003,6 +93461,40 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_ineq_solving_linear_inequality__contains__m1_ineq_simplify_both_sides_linear_terms",
+      "source_id": "m1_ineq_solving_linear_inequality",
+      "target_id": "m1_ineq_simplify_both_sides_linear_terms",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차식의 덧셈과 뺄셈 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차식의 덧셈과 뺄셈 원리 이해, 계산, 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_ineq_solving_linear_inequality__contains__m1_ineq_isolate_unknown",
       "source_id": "m1_ineq_solving_linear_inequality",
       "target_id": "m1_ineq_isolate_unknown",
@@ -92013,6 +93505,96 @@
           "locator": "printed p. 35; [9수02-12]",
           "evidence_kind": "achievement_standard",
           "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_solving_linear_inequality__contains__m1_ineq_collect_unknown_terms",
+      "source_id": "m1_ineq_solving_linear_inequality",
+      "target_id": "m1_ineq_collect_unknown_terms",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_solving_linear_inequality__contains__m1_ineq_collect_constant_terms",
+      "source_id": "m1_ineq_solving_linear_inequality",
+      "target_id": "m1_ineq_collect_constant_terms",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_solving_linear_inequality__contains__m1_ineq_coefficient_sign_before_division",
+      "source_id": "m1_ineq_solving_linear_inequality",
+      "target_id": "m1_ineq_coefficient_sign_before_division",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-11]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
         },
         {
           "source_id": "achievement_math_2022",
@@ -92045,6 +93627,28 @@
       ],
       "notes": "",
       "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_write_solution_range__contains__m1_ineq_rewrite_solution_unknown_left",
+      "source_id": "m1_ineq_write_solution_range",
+      "target_id": "m1_ineq_rewrite_solution_unknown_left",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
     },
     {
       "id": "m1_ineq_modeling_linear_inequality__contains__m1_ineq_choose_unknown_from_context",
@@ -92106,6 +93710,34 @@
       "id": "m1_ineq_modeling_linear_inequality__contains__m1_ineq_interpret_solution_context",
       "source_id": "m1_ineq_modeling_linear_inequality",
       "target_id": "m1_ineq_interpret_solution_context",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_modeling_linear_inequality__contains__m1_ineq_context_domain_restriction",
+      "source_id": "m1_ineq_modeling_linear_inequality",
+      "target_id": "m1_ineq_context_domain_restriction",
       "relationship_type": "contains",
       "source_refs": [
         {
@@ -92291,6 +93923,62 @@
           "locator": "일차부등식 section; [9수02-11] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_ineq_unit__contains__m1_mis_ineq_strict_inclusive_language",
+      "source_id": "m1_ineq_unit",
+      "target_id": "m1_mis_ineq_strict_inclusive_language",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_ineq_unit__contains__m1_mis_ineq_context_domain_ignored",
+      "source_id": "m1_ineq_unit",
+      "target_id": "m1_mis_ineq_context_domain_ignored",
+      "relationship_type": "contains",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
         }
       ],
       "notes": "",
@@ -117905,6 +119593,50 @@
       "confidence": "high"
     },
     {
+      "id": "m1_ineq_inequality__prerequisite_for__m1_ineq_truth_value_by_substitution",
+      "source_id": "m1_ineq_inequality",
+      "target_id": "m1_ineq_truth_value_by_substitution",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-11]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_expr_substitution__prerequisite_for__m1_ineq_truth_value_by_substitution",
+      "source_id": "m1_expr_substitution",
+      "target_id": "m1_ineq_truth_value_by_substitution",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-11]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_ineq_inequality_sign__prerequisite_for__m1_ineq_inequality_sign_direction",
       "source_id": "m1_ineq_inequality_sign",
       "target_id": "m1_ineq_inequality_sign_direction",
@@ -117947,6 +119679,102 @@
       ],
       "notes": "",
       "confidence": "medium"
+    },
+    {
+      "id": "m1_num_order_relation__prerequisite_for__m1_ineq_verbal_comparison_terms",
+      "source_id": "m1_num_order_relation",
+      "target_id": "m1_ineq_verbal_comparison_terms",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_ineq_verbal_comparison_terms__prerequisite_for__m1_ineq_strict_inclusive_sign_distinction",
+      "source_id": "m1_ineq_verbal_comparison_terms",
+      "target_id": "m1_ineq_strict_inclusive_sign_distinction",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-11]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_ineq_inequality_sign__prerequisite_for__m1_ineq_strict_inclusive_sign_distinction",
+      "source_id": "m1_ineq_inequality_sign",
+      "target_id": "m1_ineq_strict_inclusive_sign_distinction",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-11]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
     },
     {
       "id": "m1_ineq_solution__prerequisite_for__m1_ineq_solution_range",
@@ -118145,6 +119973,28 @@
     {
       "id": "m1_ineq_inequality_sign__prerequisite_for__m1_ineq_endpoint_inclusion_representation",
       "source_id": "m1_ineq_inequality_sign",
+      "target_id": "m1_ineq_endpoint_inclusion_representation",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-11]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_ineq_strict_inclusive_sign_distinction__prerequisite_for__m1_ineq_endpoint_inclusion_representation",
+      "source_id": "m1_ineq_strict_inclusive_sign_distinction",
       "target_id": "m1_ineq_endpoint_inclusion_representation",
       "relationship_type": "prerequisite_for",
       "source_refs": [
@@ -118763,6 +120613,74 @@
       "confidence": "medium"
     },
     {
+      "id": "m1_ineq_linear_inequality__prerequisite_for__m1_ineq_simplify_both_sides_linear_terms",
+      "source_id": "m1_ineq_linear_inequality",
+      "target_id": "m1_ineq_simplify_both_sides_linear_terms",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차식의 덧셈과 뺄셈 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차식의 덧셈과 뺄셈 원리 이해, 계산, 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_expr_add_sub_linear_expression__prerequisite_for__m1_ineq_simplify_both_sides_linear_terms",
+      "source_id": "m1_expr_add_sub_linear_expression",
+      "target_id": "m1_ineq_simplify_both_sides_linear_terms",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 34; [9수02-02]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차식의 덧셈과 뺄셈 원리를 이해하고 계산하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "문자의 사용과 식 section; [9수02-02] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차식의 덧셈과 뺄셈 원리 이해, 계산, 과정 설명 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
       "id": "m1_ineq_equivalent_transformation__prerequisite_for__m1_ineq_isolate_unknown",
       "source_id": "m1_ineq_equivalent_transformation",
       "target_id": "m1_ineq_isolate_unknown",
@@ -118817,6 +120735,248 @@
           "locator": "printed p. 35; [9수02-12]",
           "evidence_kind": "achievement_standard",
           "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_equivalent_transformation__prerequisite_for__m1_ineq_collect_unknown_terms",
+      "source_id": "m1_ineq_equivalent_transformation",
+      "target_id": "m1_ineq_collect_unknown_terms",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_expr_like_terms__prerequisite_for__m1_ineq_collect_unknown_terms",
+      "source_id": "m1_expr_like_terms",
+      "target_id": "m1_ineq_collect_unknown_terms",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_eq_unknown__prerequisite_for__m1_ineq_collect_unknown_terms",
+      "source_id": "m1_eq_unknown",
+      "target_id": "m1_ineq_collect_unknown_terms",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_equivalent_transformation__prerequisite_for__m1_ineq_collect_constant_terms",
+      "source_id": "m1_ineq_equivalent_transformation",
+      "target_id": "m1_ineq_collect_constant_terms",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_expr_constant_term__prerequisite_for__m1_ineq_collect_constant_terms",
+      "source_id": "m1_expr_constant_term",
+      "target_id": "m1_ineq_collect_constant_terms",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_expr_coefficient__prerequisite_for__m1_ineq_coefficient_sign_before_division",
+      "source_id": "m1_expr_coefficient",
+      "target_id": "m1_ineq_coefficient_sign_before_division",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-11]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_multiply_divide_positive_property__prerequisite_for__m1_ineq_coefficient_sign_before_division",
+      "source_id": "m1_ineq_multiply_divide_positive_property",
+      "target_id": "m1_ineq_coefficient_sign_before_division",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-11]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_multiply_divide_negative_reverses_sign__prerequisite_for__m1_ineq_coefficient_sign_before_division",
+      "source_id": "m1_ineq_multiply_divide_negative_reverses_sign",
+      "target_id": "m1_ineq_coefficient_sign_before_division",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-11]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
         },
         {
           "source_id": "achievement_math_2022",
@@ -118893,6 +121053,50 @@
       ],
       "notes": "",
       "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_write_solution_range__prerequisite_for__m1_ineq_rewrite_solution_unknown_left",
+      "source_id": "m1_ineq_write_solution_range",
+      "target_id": "m1_ineq_rewrite_solution_unknown_left",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_ineq_inequality_sign_direction__prerequisite_for__m1_ineq_rewrite_solution_unknown_left",
+      "source_id": "m1_ineq_inequality_sign_direction",
+      "target_id": "m1_ineq_rewrite_solution_unknown_left",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "low"
     },
     {
       "id": "m1_expr_literal_expression__prerequisite_for__m1_ineq_modeling_linear_inequality",
@@ -119082,6 +121286,90 @@
       "id": "m1_ineq_solution_check__prerequisite_for__m1_ineq_interpret_solution_context",
       "source_id": "m1_ineq_solution_check",
       "target_id": "m1_ineq_interpret_solution_context",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_ineq_solution_range__prerequisite_for__m1_ineq_context_domain_restriction",
+      "source_id": "m1_ineq_solution_range",
+      "target_id": "m1_ineq_context_domain_restriction",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_natural_number__prerequisite_for__m1_ineq_context_domain_restriction",
+      "source_id": "m1_num_natural_number",
+      "target_id": "m1_ineq_context_domain_restriction",
+      "relationship_type": "prerequisite_for",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "",
+      "confidence": "medium"
+    },
+    {
+      "id": "m1_num_integer__prerequisite_for__m1_ineq_context_domain_restriction",
+      "source_id": "m1_num_integer",
+      "target_id": "m1_ineq_context_domain_restriction",
       "relationship_type": "prerequisite_for",
       "source_refs": [
         {
@@ -152633,9 +154921,59 @@
       "confidence": "low"
     },
     {
+      "id": "m1_mis_ineq_strict_inclusive_language__often_confused_with__m1_ineq_strict_inclusive_sign_distinction",
+      "source_id": "m1_mis_ineq_strict_inclusive_language",
+      "target_id": "m1_ineq_strict_inclusive_sign_distinction",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
       "id": "m1_mis_ineq_sign_reversal_overgeneralization__often_confused_with__m1_ineq_multiply_divide_negative_reverses_sign",
       "source_id": "m1_mis_ineq_sign_reversal_overgeneralization",
       "target_id": "m1_ineq_multiply_divide_negative_reverses_sign",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-11]",
+          "evidence_kind": "achievement_standard",
+          "summary": "부등식과 그 해의 뜻, 부등식의 성질을 다루는 성취기준"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-11] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_ineq_negative__often_confused_with__m1_ineq_coefficient_sign_before_division",
+      "source_id": "m1_mis_ineq_negative",
+      "target_id": "m1_ineq_coefficient_sign_before_division",
       "relationship_type": "often_confused_with",
       "source_refs": [
         {
@@ -152759,6 +155097,34 @@
           "locator": "일차부등식 section; [9수02-11] achievement levels",
           "evidence_kind": "achievement_level",
           "summary": "부등식과 해의 뜻, 부등식의 성질, 등식의 성질과의 비교 수준을 구분"
+        }
+      ],
+      "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",
+      "confidence": "low"
+    },
+    {
+      "id": "m1_mis_ineq_context_domain_ignored__often_confused_with__m1_ineq_interpret_solution_context",
+      "source_id": "m1_mis_ineq_context_domain_ignored",
+      "target_id": "m1_ineq_interpret_solution_context",
+      "relationship_type": "often_confused_with",
+      "source_refs": [
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 35; [9수02-12]",
+          "evidence_kind": "achievement_standard",
+          "summary": "일차부등식을 풀고 활용하여 문제를 해결하는 성취기준"
+        },
+        {
+          "source_id": "curriculum_math_2022",
+          "locator": "printed p. 36; achievement-standard considerations",
+          "evidence_kind": "teaching_note",
+          "summary": "부등식은 다양한 상황으로 도입하고 여러 방법으로 풀며 해가 문제 상황에 적합한지 확인하게 함"
+        },
+        {
+          "source_id": "achievement_math_2022",
+          "locator": "일차부등식 section; [9수02-12] achievement levels",
+          "evidence_kind": "achievement_level",
+          "summary": "일차부등식을 풀고 활용하거나 문제의 뜻에 맞는 일차부등식을 세우는 수행 수준을 구분"
         }
       ],
       "notes": "related_ids에서 확인된 오개념 위험 연결을 낮은 신뢰도 edge로 보강. 교과서 근거 확인 후 유지 또는 조정.",

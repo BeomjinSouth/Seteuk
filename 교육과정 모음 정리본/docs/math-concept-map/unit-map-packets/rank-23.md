@@ -9,10 +9,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 - domain: 변화와 관계
 - unit: 문자의 사용과 식
 - priority tier: highest
-- workplan score: 222
+- workplan score: 230
 - concepts: 24
-- edges touching unit: 188
-- cross-unit edges: 114
+- edges touching unit: 196
+- cross-unit edges: 122
 - low confidence concepts: 3
 - low confidence edges: 15
 
@@ -35,10 +35,10 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | contains | 27 |
 | contrasts_with | 6 |
 | often_confused_with | 11 |
-| prerequisite_for | 103 |
+| prerequisite_for | 108 |
 | related_to | 5 |
 | represented_by | 2 |
-| used_in | 34 |
+| used_in | 37 |
 
 ## Low Confidence Concepts
 
@@ -62,6 +62,7 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_expr_unit__contains__m1_repr_expression | 문자의 사용과 식 | contains | 식 | high | official_dual_source |
 | m1_expr_unit__contains__m1_term_variable | 문자의 사용과 식 | contains | 변수 | high | official_dual_source |
 | m1_expr_add_sub_linear_expression__prerequisite_for__m1_ineq_isolate_unknown | 일차식의 덧셈과 뺄셈 | prerequisite_for | 미지수를 한쪽으로 모으기 | medium | official_dual_source |
+| m1_expr_add_sub_linear_expression__prerequisite_for__m1_ineq_simplify_both_sides_linear_terms | 일차식의 덧셈과 뺄셈 | prerequisite_for | 일차부등식 양변의 일차식 정리하기 | medium | official_dual_source |
 | m1_expr_add_sub_linear_expression__prerequisite_for__m1_ineq_solving_linear_inequality | 일차식의 덧셈과 뺄셈 | prerequisite_for | 일차부등식 풀기 | high | official_dual_source |
 | m1_expr_add_sub_linear_expression__prerequisite_for__m1_system_elimination_coefficient_matching | 일차식의 덧셈과 뺄셈 | prerequisite_for | 소거할 미지수의 계수 맞추기 | medium | official_dual_source |
 | m1_expr_coefficient__prerequisite_for__m1_calc_collect_like_terms_polynomial | 계수 | prerequisite_for | 다항식에서 동류항 모으기 | high | official_dual_source |
@@ -72,10 +73,12 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_expr_coefficient__prerequisite_for__m1_factor_linear_product_axb_cxd | 계수 | prerequisite_for | (ax+b)(cx+d) 공식 | high | official_dual_source |
 | m1_expr_coefficient__prerequisite_for__m1_factor_perfect_square_middle_term_check | 계수 | prerequisite_for | 완전제곱식의 가운데 항 확인하기 | medium | official_dual_source |
 | m1_expr_coefficient__prerequisite_for__m1_factor_sum_product_pair_search | 계수 | prerequisite_for | 합과 곱이 맞는 수 찾기 | medium | official_dual_source |
+| m1_expr_coefficient__prerequisite_for__m1_ineq_coefficient_sign_before_division | 계수 | prerequisite_for | 계수의 부호 확인 후 나누기 | medium | official_dual_source |
 | m1_expr_coefficient__prerequisite_for__m1_quad_eq_coefficients_in_standard_form | 계수 | prerequisite_for | 이차방정식의 계수 | medium | official_dual_source |
 | m1_expr_coefficient__prerequisite_for__m1_quad_eq_leading_coefficient_one_case | 계수 | prerequisite_for | 이차항의 계수가 1인 이차방정식 | high | official_dual_source |
 | m1_expr_coefficient__prerequisite_for__m1_quad_func_coefficient_a | 계수 | prerequisite_for | 이차함수의 계수 a | medium | official_single_source |
 | m1_expr_constant_term__prerequisite_for__m1_eq_collect_constant_terms | 상수항 | prerequisite_for | 상수항 모으기 | medium | official_dual_source |
+| m1_expr_constant_term__prerequisite_for__m1_ineq_collect_constant_terms | 상수항 | prerequisite_for | 부등식에서 상수항 모으기 | medium | official_dual_source |
 | m1_expr_degree__prerequisite_for__m1_calc_polynomial_term_structure_check | 차수 | prerequisite_for | 다항식의 항·계수·차수 확인하기 | medium | official_dual_source |
 | m1_expr_degree__prerequisite_for__m1_factor_quadratic_expression | 차수 | prerequisite_for | 이차식 | medium | official_dual_source |
 | m1_expr_degree__prerequisite_for__m1_quad_eq_quadratic_term | 차수 | prerequisite_for | 이차항 | medium | official_single_source |
@@ -86,9 +89,6 @@ This generated packet turns the highest-priority textbook evidence unit into a c
 | m1_expr_like_terms__prerequisite_for__m1_calc_polynomial_add_sub | 동류항 | prerequisite_for | 다항식의 덧셈과 뺄셈 | high | official_dual_source |
 | m1_expr_like_terms__prerequisite_for__m1_calc_polynomial_add_sub_principle | 동류항 | prerequisite_for | 다항식의 덧셈과 뺄셈 원리 | high | official_dual_source |
 | m1_expr_like_terms__prerequisite_for__m1_calc_simplify_expression | 동류항 | prerequisite_for | 식을 간단히 하기 | high | official_dual_source |
+| m1_expr_like_terms__prerequisite_for__m1_ineq_collect_unknown_terms | 동류항 | prerequisite_for | 부등식에서 미지수항 모으기 | medium | official_dual_source |
 | m1_expr_linear_expression__prerequisite_for__m1_eq_linear_equation | 일차식 | prerequisite_for | 일차방정식 | high | official_dual_source |
 | m1_expr_linear_expression__prerequisite_for__m1_eq_unit | 일차식 | prerequisite_for | 일차방정식 | high | official_single_source |
-| m1_expr_linear_expression__prerequisite_for__m1_func_linear_function | 일차식 | prerequisite_for | 일차함수 | high | official_dual_source |
-| m1_expr_linear_expression__prerequisite_for__m1_ineq_linear_inequality | 일차식 | prerequisite_for | 일차부등식 | high | official_dual_source |
-| m1_expr_literal_expression__prerequisite_for__m1_eq_modeling_linear_equation | 문자를 사용한 식 | prerequisite_for | 일차방정식 세우기 | high | official_dual_source |
-| m1_expr_literal_expression__prerequisite_for__m1_ineq_modeling_linear_inequality | 문자를 사용한 식 | prerequisite_for | 일차부등식 세우기 | high | official_dual_source |

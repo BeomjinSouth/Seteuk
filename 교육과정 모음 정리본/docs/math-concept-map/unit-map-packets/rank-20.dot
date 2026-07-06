@@ -37,6 +37,7 @@ digraph pilot_unit_map {
   "m1_num_prime_number" [label="소수\\nterm", fillcolor="#f7fbff"];
   "m1_data_median_even_position_rule" [label="짝수 개 자료의 두 가운데 위치 규칙\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_data_median_odd_position_rule" [label="홀수 개 자료의 중앙 위치 규칙\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_ineq_context_domain_restriction" [label="문제 상황에서 가능한 값의 범위 확인하기\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_num_domain" [label="수와 연산\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_calc_base" [label="밑\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
   "m1_calc_exponent" [label="지수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
@@ -66,6 +67,7 @@ digraph pilot_unit_map {
   "m1_mis_prime_one" -> "m1_num_prime_number" [label="often_confused_with", style="solid", color="#b91c1c"];
   "m1_num_natural_number" -> "m1_data_median_even_position_rule" [label="prerequisite_for", style="dashed", color="#b91c1c"];
   "m1_num_natural_number" -> "m1_data_median_odd_position_rule" [label="prerequisite_for", style="dashed", color="#b91c1c"];
+  "m1_num_natural_number" -> "m1_ineq_context_domain_restriction" [label="used_in", style="dashed", color="#b91c1c"];
   "m1_num_prime_factor_unit" -> "m1_num_common_divisor" [label="contains", style="solid", color="#6b7280"];
   "m1_num_prime_factor_unit" -> "m1_num_common_multiple" [label="contains", style="solid", color="#6b7280"];
   "m1_num_prime_factor_unit" -> "m1_num_common_prime_factor" [label="contains", style="solid", color="#6b7280"];
@@ -185,6 +187,7 @@ digraph pilot_unit_map {
   "m1_num_gcd" -> "m1_num_irreducible_fraction" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_gcd" -> "m1_num_reduce_fraction_lowest_terms" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_natural_number" -> "m1_data_number_of_values" [label="prerequisite_for", style="dashed", color="#6b7280"];
+  "m1_num_natural_number" -> "m1_ineq_context_domain_restriction" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_prime_factorization" -> "m1_num_repeating_decimal_denominator_condition" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_num_prime_factorization" -> "m1_num_terminating_decimal_denominator_condition" [label="prerequisite_for", style="dashed", color="#6b7280"];
   "m1_calc_base" -> "m1_num_prime_factor_product" [label="used_in", style="dashed", color="#6b7280"];
