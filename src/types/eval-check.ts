@@ -1,8 +1,5 @@
 import { IssueType, RiskLevel } from './common';
 
-/** Progress checkpoints: 25, 50, 75, 100%. */
-export type ProgressCheckpoint = 25 | 50 | 75 | 100;
-
 /**
  * Status of document analysis.
  */
@@ -13,33 +10,6 @@ export type DocumentAnalysisStatus =
     | 'analyzing'    // 분석 중 (75%)
     | 'completed'    // 완료 (100%)
     | 'error';       // 오류
-
-/**
- * Reference resource (Image, Table, Graph).
- */
-export interface ReferenceResource {
-    /** Unique ID. */
-    id: string;
-    /** Resource type. */
-    type: 'image' | 'table' | 'graph' | 'diagram';
-    /** Page number. */
-    page: number;
-    /** Coordinates on the page. */
-    coordinates?: {
-        x: number;
-        y: number;
-        width: number;
-        height: number;
-    };
-    /** Base64 image data. */
-    imageData?: string;           // base64 이미지 데이터
-    /** AI generated description. */
-    aiDescription?: string;       // AI 생성 설명
-    /** Teacher's override description. */
-    teacherOverride?: string;     // 교사 수정 설명
-    /** Final description to be used (override > ai). */
-    finalDescription?: string;    // 최종 설명 (override 있으면 override, 없으면 aiDescription)
-}
 
 /**
  * Multiple choice item structure.
@@ -54,7 +24,7 @@ export interface ChoiceItem {
 /**
  * Result of conditional logic analysis.
  */
-export interface ConditionalOutcome {
+interface ConditionalOutcome {
     /** Condition label. */
     conditionLabel: string;
     /** Predicted conclusion. */
@@ -70,7 +40,7 @@ export interface ConditionalOutcome {
 /**
  * Solution variant for a question.
  */
-export interface SolutionVariant {
+interface SolutionVariant {
     /** Label for the solution (e.g., 풀이 1). */
     label: string;
     /** Step-by-step solution/explanation. */
@@ -82,7 +52,7 @@ export interface SolutionVariant {
 /**
  * Details of an issue found in a question.
  */
-export interface IssueDetail {
+interface IssueDetail {
     /** Unique ID. */
     id: string;
     /** Issue type. */
@@ -104,7 +74,7 @@ export interface IssueDetail {
 /**
  * Suggested modification detail.
  */
-export interface SuggestionDetail {
+interface SuggestionDetail {
     /** Minimal change suggestion. */
     minimal: string;              // 최소 수정안 (원문 유지)
     /** Improved change suggestion. */
@@ -112,23 +82,9 @@ export interface SuggestionDetail {
 }
 
 /**
- * Simulation of student response for grading considerations.
- */
-export interface StudentResponseSimulation {
-    /** Scenario description. */
-    scenario: string;             // 학생 답안 유형 설명
-    /** Potential response example. */
-    potentialResponse: string;    // 예상되는 학생 답안 예시
-    /** Difficulty in scoring this response. */
-    scoringDifficulty: string;    // 왜 채점이 애매한지
-    /** Guideline for scoring. */
-    scoringGuideline: string;     // 이 경우 어떻게 채점하면 좋은지
-}
-
-/**
  * 출제 의도 분석 결과
  */
-export interface QuestionIntent {
+interface QuestionIntent {
     /** 평가하고자 하는 핵심 역량 목록 */
     targetCompetencies: string[];
     /** 출제 의도 설명 */
@@ -142,7 +98,7 @@ export interface QuestionIntent {
 /**
  * 구체적인 답변 예시
  */
-export interface AnswerExample {
+interface AnswerExample {
     /** 예시 라벨 (예: "모범 답안", "부분 점수 답안", "오답 예시") */
     label: string;
     /** 답변 내용 */
@@ -156,7 +112,7 @@ export interface AnswerExample {
 /**
  * 학생 오해 부분 및 교사 안내
  */
-export interface StudentMisunderstanding {
+interface StudentMisunderstanding {
     /** 오해 가능한 부분 */
     misunderstandingPoint: string;
     /** 왜 오해가 발생하는지 */
@@ -170,7 +126,7 @@ export interface StudentMisunderstanding {
 /**
  * 문항 오류와 수정 연결 정보
  */
-export interface IssueCorrection {
+interface IssueCorrection {
     /** 원본 문제 텍스트 */
     originalText: string;
     /** 수정된 텍스트 */
@@ -184,14 +140,14 @@ export interface IssueCorrection {
 /**
  * Analysis result for a question.
  */
-export interface ReviewScoringBorderline {
+interface ReviewScoringBorderline {
     title: string;
     sampleAnswer: string;
     whyDifficult: string;
     scoringGuide: string;
 }
 
-export interface ReviewAmbiguityPoint {
+interface ReviewAmbiguityPoint {
     location: string;
     originalPhrase: string;
     reason: string;
@@ -199,27 +155,27 @@ export interface ReviewAmbiguityPoint {
     rewriteSuggestion: string;
 }
 
-export interface ReviewDefectFinding {
+interface ReviewDefectFinding {
     title: string;
     evidence: string;
     impact: string;
     fixSuggestion: string;
 }
 
-export interface ReviewDefectCheck {
+interface ReviewDefectCheck {
     hasDefect: boolean;
     severity: 'minor' | 'major' | 'critical';
     findings: ReviewDefectFinding[];
 }
 
-export interface ReviewCurriculumBypassRisk {
+interface ReviewCurriculumBypassRisk {
     method: string;
     whyPossible: string;
     impact: string;
     mitigation: string;
 }
 
-export interface ReviewSections {
+interface ReviewSections {
     scoringBorderlines: ReviewScoringBorderline[];
     ambiguityPoints: ReviewAmbiguityPoint[];
     defectCheck: ReviewDefectCheck;
@@ -296,129 +252,6 @@ export interface QuestionAnalysisResult {
 }
 
 /**
- * Question object from evaluation check.
- */
-export interface EvalCheckQuestion {
-    /** Unique ID (e.g., Q001). */
-    id: string;                   // Q001, Q002 형식
-    /** Display name. */
-    displayName: string;          // 표시용: "1번", "1-1번", "3번(지문A)"
-    /** Original question number. */
-    questionNumber: string;       // 원본 문항 번호
-    /** Page range. */
-    pageRange: string;            // "1" 또는 "1-2"
-    /** ID of the passage group if any. */
-    passageGroupId?: string;      // 지문 묶음 ID (있는 경우)
-    /** Extracted task type (if provided). */
-    taskType?: string;
-
-    // 본문
-    /** Question body text. */
-    bodyText: string;             // 문항 본문 텍스트
-    /** Choices (for multiple choice). */
-    choices?: ChoiceItem[];       // 보기(선지) 구조
-    /** Conditions or constraints. */
-    conditions?: string[];        // 조건/제약 목록
-
-
-    // 참조 리소스
-    /** Whether the question has images. */
-    hasImage: boolean;            // 그림 포함 여부
-    /** Reference resources. */
-    references: ReferenceResource[];
-    /** Resource reference IDs (if provided). */
-    resourceRefs?: string[];
-
-    // 분석 결과
-    /** Analysis result. */
-    analysis?: QuestionAnalysisResult;
-
-    // 고위험 여부
-    /** Is this a high-risk question (has errors). */
-    isHighRisk: boolean;
-    /** Reason for high risk. */
-    highRiskReason?: string;      // 고위험_사유한줄
-}
-
-/**
- * Group of passages shared by multiple questions.
- */
-export interface PassageGroup {
-    /** Unique ID. */
-    id: string;                   // PG001, PG002 형식
-    /** Display name. */
-    displayName: string;          // "지문A", "1~3번 공통 지문"
-    /** Page range. */
-    pageRange: string;
-    /** Full text of the passage. */
-    passageText: string;          // 지문 전체 텍스트
-    /** IDs of questions belonging to this group. */
-    questionIds: string[];        // 소속 문항 ID 목록
-    /** Referenced resources. */
-    references: ReferenceResource[];
-}
-
-/**
- * Uploaded exam document info.
- */
-export interface ExamDocument {
-    /** Unique ID. */
-    id: string;                   // 2026-01-17_중3영어_기말_독해지문포함_DOC_A1B2C3D4
-    /** Upload timestamp. */
-    uploadedAt: string;           // 업로드일시
-    /** Original file name. */
-    originalFileName: string;     // 원본파일명
-    /** SHA-256 hash. */
-    fileHash: string;             // SHA-256 해시
-    /** File description. */
-    fileDescription: string;      // 파일 설명 (한글)
-
-    // Drive 저장 정보
-    /** Google Drive folder ID. */
-    driveFolderId?: string;       // 문서 폴더 ID
-    /** Original file ID on Drive. */
-    driveOriginalFileId?: string; // 원본 파일 ID
-    /** Manifest JSON file ID. */
-    manifestJsonFileId?: string;  // manifest.json 파일 ID
-
-    // 분석 상태
-    /** Analysis status. */
-    status: DocumentAnalysisStatus;
-    /** Progress percentage. */
-    progress: ProgressCheckpoint | 0;
-
-    // 결과 요약
-    /** Total questions found. */
-    totalQuestions: number;
-    /** Count of high risk issues. */
-    highRiskCount: number;
-
-    // 구조화 결과
-    /** List of questions. */
-    questions: EvalCheckQuestion[];
-    /** List of passage groups. */
-    passageGroups: PassageGroup[];
-
-    // 페이지 정보
-    /** Page count. */
-    pageCount: number;
-    /** Extracted text per page. */
-    pageTexts: string[];          // 페이지별 추출 텍스트
-    /** Page images (base64). */
-    pageImages?: string[];        // 페이지별 렌더 이미지 (base64)
-
-    // 메모
-    /** Memo. */
-    memo?: string;
-
-    // 타임스탬프
-    /** Creation timestamp. */
-    createdAt: string;
-    /** Last update timestamp. */
-    updatedAt?: string;
-}
-
-/**
  * User defined rule for checking.
  */
 export interface UserRule {
@@ -482,86 +315,3 @@ export interface EvalCheckSettings {
     lastTestedAt?: string;
 }
 
-/**
- * Work log for evaluation check.
- */
-export interface EvalCheckWorkLog {
-    /** Work ID. */
-    id: string;                   // 작업ID
-    /** Document ID. */
-    documentId: string;           // 문서ID
-    /** Task type. */
-    taskType: 'extract' | 'structure' | 'analyze' | 'reanalyze'; // 작업유형
-    /** Status. */
-    status: 'pending' | 'running' | 'completed' | 'error';
-    /** Progress. */
-    progress: ProgressCheckpoint | 0;
-    /** Start time. */
-    startedAt: string;
-    /** Completion time. */
-    completedAt?: string;
-    /** Checkpoints times. */
-    checkpoints: {                // 체크포인트별 완료 시각
-        25?: string;
-        50?: string;
-        75?: string;
-        100?: string;
-    };
-    /** Memo. */
-    memo?: string;
-    /** Error message. */
-    errorMessage?: string;
-}
-
-/**
- * API Response for progress check.
- */
-export interface EvalCheckProgressResponse {
-    /** Document ID. */
-    documentId: string;
-    /** Status. */
-    status: DocumentAnalysisStatus;
-    /** Progress. */
-    progress: ProgressCheckpoint | 0;
-    /** Current step description. */
-    currentStep: string;          // 현재 작업 설명
-
-    // 중간 결과 (진행 중일 때)
-    /** Partial questions. */
-    partialQuestions?: EvalCheckQuestion[];
-
-    // 에러 정보
-    /** Error message. */
-    error?: string;
-}
-
-/**
- * API Request for document upload.
- */
-export interface EvalCheckUploadRequest {
-    /** The file object. */
-    file: File;
-    /** Description of the file. */
-    fileDescription: string;
-    /** Spreadsheet ID. */
-    spreadsheetId: string;
-    /** Root folder ID. */
-    rootFolderId: string;
-}
-
-/**
- * API Request for re-analysis.
- */
-export interface EvalCheckReanalyzeRequest {
-    /** Document ID. */
-    documentId: string;
-    /** Specific question ID to re-analyze. */
-    questionId?: string;          // 특정 문항만 재분석 (없으면 전체)
-    /** Specific passage group ID to re-analyze. */
-    passageGroupId?: string;      // 지문 묶음 재분석
-    /** Image overrides. */
-    imageOverrides?: {
-        resourceId: string;
-        teacherDescription: string;
-    }[];
-}

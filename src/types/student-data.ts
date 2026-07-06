@@ -2,16 +2,16 @@ import { Semester } from './common';
 
 export type StudentDataKind = 'note' | 'grade' | 'mentor_match';
 
-export interface StudentDataBasePayload {
+interface StudentDataBasePayload {
     [key: string]: string | undefined;
     memo?: string;
 }
 
-export interface StudentNotePayload extends StudentDataBasePayload {
+interface StudentNotePayload extends StudentDataBasePayload {
     memo: string;
 }
 
-export interface StudentGradePayload extends StudentDataBasePayload {
+interface StudentGradePayload extends StudentDataBasePayload {
     examName: string;
     examDate: string;
     score: string;
@@ -19,7 +19,7 @@ export interface StudentGradePayload extends StudentDataBasePayload {
     level?: string;
 }
 
-export interface StudentMentorPayload extends StudentDataBasePayload {
+interface StudentMentorPayload extends StudentDataBasePayload {
     mentorStudentId: string;
     menteeStudentId: string;
 }
@@ -46,7 +46,7 @@ export interface StudentDataEntry {
     updatedAt: string;
 }
 
-export type CookieTransactionType = 'award' | 'redeem' | 'adjust';
+type CookieTransactionType = 'award' | 'redeem' | 'adjust';
 
 export interface CookieTransaction {
     id: string;

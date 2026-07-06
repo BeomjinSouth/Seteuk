@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useCallback } from 'react';
-import { motion, Reorder } from 'framer-motion';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 import {
     User,
     AlertCircle,
@@ -114,7 +114,7 @@ export default function StudentMappingEditor({
         const newItems: StudentMappingItem[] = [];
         let insertedNewSlot = false;
 
-        items.forEach((item, index) => {
+        items.forEach((item) => {
             newItems.push(item);
 
             if (item.slotIndex === afterSlotIndex && !insertedNewSlot) {

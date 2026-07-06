@@ -136,11 +136,6 @@ function hashUnit(value: string, salt: string | number): number {
     return (hashString(`${value}:${salt}`) % 10000) / 10000;
 }
 
-function compactMapLabel(value: string, maxLength = 34): string {
-    const normalized = value.replace(/\s+/g, ' ').trim();
-    if (normalized.length <= maxLength) return normalized;
-    return `${normalized.slice(0, maxLength - 1)}…`;
-}
 
 function extractKeywordLabels(value: string, fallback: string | null, limit: number): string[] {
     const raw = `${value} ${fallback ?? ''}`

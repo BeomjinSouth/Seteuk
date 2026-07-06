@@ -62,20 +62,6 @@ export interface SubjectRecord {
 }
 
 /**
- * Represents a spelling error found in text.
- */
-export interface SpellerError {
-    /** Position offset of the error. */
-    offset: number;
-    /** Length of the error text. */
-    length: number;
-    /** The erroneous word. */
-    word: string;
-    /** List of suggested corrections. */
-    suggestions: string[];
-}
-
-/**
  * Assessment task definition.
  */
 export interface Assessment {

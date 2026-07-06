@@ -39,7 +39,7 @@ export interface CurriculumContextFile {
     }>;
 }
 
-export interface CurriculumGenerationUnit {
+interface CurriculumGenerationUnit {
     id: string;
     unit: string;
     concepts: string[];
@@ -110,7 +110,7 @@ export function buildClassCurriculumSelectionId(classId: string, semester: Curri
     return `class-curriculum-${classId}-${semester}`;
 }
 
-export function buildCurriculumUnitId(input: {
+function buildCurriculumUnitId(input: {
     grade: number;
     semester: CurriculumSemester;
     subject: string;
@@ -128,7 +128,7 @@ export function buildCurriculumUnitId(input: {
     return `curr-${input.grade}-${input.semester}-${hash}`;
 }
 
-export function validateCurriculumContextFile(raw: unknown): CurriculumValidationResult {
+function validateCurriculumContextFile(raw: unknown): CurriculumValidationResult {
     const errors: string[] = [];
 
     if (!isPlainObject(raw)) {
@@ -343,10 +343,6 @@ export function formatCurriculumContextForPrompt(context?: CurriculumGenerationC
     ].join('\n');
 }
 
-export function summarizeCurriculumUnit(unit: CurriculumUnitContext): string {
-    const conceptText = unit.concepts.slice(0, 4).join(', ');
-    return unit.learningFocus ? `${unit.unit} - ${unit.learningFocus}` : `${unit.unit} - ${conceptText}`;
-}
 
 function toGenerationUnit(unit: CurriculumUnitContext): CurriculumGenerationUnit {
     return {

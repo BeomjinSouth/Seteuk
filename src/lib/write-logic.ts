@@ -1,10 +1,5 @@
-import { SpellError } from '@/components/SpellCheckModal';
 import type { RecordReviewResponse } from '@/types/knowledge';
-import {
-    checkForbiddenWordsRequest,
-    ForbiddenIssue,
-    performSpellCheckRequest,
-} from '@/lib/check-utils';
+import type { OCREvaluation, StudentGradingResult } from '@/types/ocr';
 import { readObservationBoardAiContext } from '@/lib/observation-board-ai-context';
 import type { CurriculumGenerationContext } from '@/lib/curriculum-context';
 import { OPENAI_STANDARD_MODEL, normalizeOpenAIModel } from '@/lib/openai-models';
@@ -28,42 +23,46 @@ interface ReviewAndImproveParams {
     subjectName?: string;
 }
 
+export interface OcrEvaluationContext {
+    achievementStandards?: Array<{
+        code: string;
+        description: string;
+        levels?: Array<{ level: string; description: string }>;
+    }>;
+    scoringCriteria?: Array<{
+        element: string;
+        levels?: Array<{ score: number; description: string }>;
+    }>;
+    studentResult?: {
+        achievementLevel?: string;
+        totalScore?: number;
+        maxTotalScore?: number;
+        scores?: Array<{
+            criteriaElement: string;
+            score: number;
+            maxScore: number;
+            feedback: string;
+        }>;
+        overallFeedback?: string;
+    };
+}
+
+interface GenerationContext {
+    teacherKey?: string;
+    classId?: string;
+    gradeLevel?: number;
+    semester?: 1 | 2;
+    curriculumContext?: CurriculumGenerationContext;
+}
+
 interface BatchDraftStudentInput {
     studentId: string;
     studentName: string;
     subjectName: string;
     learningData: Record<string, string>;
     curriculumContent?: string;
-    ocrEvaluationContext?: {
-        achievementStandards?: Array<{
-            code: string;
-            description: string;
-            levels?: Array<{ level: string; description: string }>;
-        }>;
-        scoringCriteria?: Array<{
-            element: string;
-            levels?: Array<{ score: number; description: string }>;
-        }>;
-        studentResult?: {
-            achievementLevel?: string;
-            totalScore?: number;
-            maxTotalScore?: number;
-            scores?: Array<{
-                criteriaElement: string;
-                score: number;
-                maxScore: number;
-                feedback: string;
-            }>;
-            overallFeedback?: string;
-        };
-    };
-    context?: {
-        teacherKey?: string;
-        classId?: string;
-        gradeLevel?: number;
-        semester?: 1 | 2;
-        curriculumContext?: CurriculumGenerationContext;
-    };
+    ocrEvaluationContext?: OcrEvaluationContext;
+    context?: GenerationContext;
 }
 
 interface BatchDraftResult {
@@ -74,8 +73,53 @@ interface BatchDraftResult {
     fallbackMessage?: string;
 }
 
+/**
+ * Picks the OCR evaluation context for a student: an ID match wins over a
+ * unique name match (동명이인 위험), and a standards-only evaluation is used
+ * only when no graded result exists for the student.
+ */
+export function selectOcrEvaluationContext(
+    evaluations: OCREvaluation[],
+    studentId: string,
+    studentName: string,
+): OcrEvaluationContext | undefined {
+    let matchedEvaluation: OCREvaluation | undefined;
+    let matchedStudentResult: StudentGradingResult | undefined;
+    let standardsOnlyEvaluation: OCREvaluation | undefined;
+
+    for (const evaluation of evaluations) {
+        const results = evaluation.batchGradingResult?.results || [];
+        const byId = results.find((result) => result.studentId === studentId);
+        if (byId) {
+            matchedEvaluation = evaluation;
+            matchedStudentResult = byId;
+            break;
+        }
+        if (!matchedStudentResult) {
+            const byName = results.filter((result) => result.studentName === studentName);
+            if (byName.length === 1) {
+                matchedEvaluation = evaluation;
+                matchedStudentResult = byName[0];
+            }
+        }
+        if (!standardsOnlyEvaluation
+            && (evaluation.achievementStandards?.length > 0 || evaluation.scoringCriteria?.length > 0)) {
+            standardsOnlyEvaluation = evaluation;
+        }
+    }
+
+    const contextEvaluation = matchedEvaluation || standardsOnlyEvaluation;
+    if (!contextEvaluation) return undefined;
+
+    return {
+        achievementStandards: contextEvaluation.achievementStandards,
+        scoringCriteria: contextEvaluation.scoringCriteria,
+        studentResult: matchedStudentResult,
+    };
+}
+
 // Get stored settings
-export function getAISettings(): AISettings {
+function getAISettings(): AISettings {
     if (typeof window === 'undefined') {
         return {
             systemPrompt: resolveSeteukSystemPrompt(null),
@@ -128,36 +172,9 @@ export async function generateDraft(
     learningData: Record<string, string>,
     exampleTemplate: string,
     curriculumContent?: string,
-    ocrEvaluationContext?: {
-        achievementStandards?: Array<{
-            code: string;
-            description: string;
-            levels?: Array<{ level: string; description: string }>;
-        }>;
-        scoringCriteria?: Array<{
-            element: string;
-            levels?: Array<{ score: number; description: string }>;
-        }>;
-        studentResult?: {
-            achievementLevel?: string;
-            totalScore?: number;
-            maxTotalScore?: number;
-            scores?: Array<{
-                criteriaElement: string;
-                score: number;
-                maxScore: number;
-                feedback: string;
-            }>;
-            overallFeedback?: string;
-        };
-    },
-    context?: {
-        teacherKey?: string;
-        classId?: string;
-        gradeLevel?: number;
-        curriculumContext?: CurriculumGenerationContext;
-    }
-): Promise<{ content: string; observationCount: number }> {
+    ocrEvaluationContext?: OcrEvaluationContext,
+    context?: GenerationContext
+): Promise<{ content: string; observationCount: number; fallback: boolean; fallbackMessage?: string }> {
     const settings = getAISettings();
     const observationBoardContext = readObservationBoardAiContext({
         studentId,
@@ -165,8 +182,9 @@ export async function generateDraft(
         classId: context?.classId,
     });
 
+    let response: Response;
     try {
-        const response = await fetch('/api/generate', {
+        response = await fetch('/api/generate', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -186,34 +204,26 @@ export async function generateDraft(
                 teacherKey: context?.teacherKey,
                 classId: context?.classId,
                 gradeLevel: context?.gradeLevel,
+                semester: context?.semester,
                 curriculumContext: context?.curriculumContext,
             }),
         });
-
-        if (response.ok) {
-            const data = await response.json();
-            return {
-                content: data.content,
-                observationCount: data.observationCount || 0,
-            };
-        }
     } catch (error) {
-        console.error('API call failed, using fallback:', error);
+        throw new Error('세특 생성 서버에 연결하지 못했습니다.', { cause: error });
     }
 
-    // Fallback for development or API failure
-    await new Promise((resolve) => setTimeout(resolve, 1500 + Math.random() * 1000));
+    const data = await response.json().catch(() => null);
+    if (!response.ok || !data) {
+        throw new Error(data?.error || `세특 생성에 실패했습니다. (HTTP ${response.status})`);
+    }
 
-    // Build content from learning data
-    const dataEntries = Object.values(learningData)
-        .filter((value) => value && value.trim())
-        .join(' ');
-
-    const baseContent = dataEntries || '수업에 성실하게 참여함';
-
+    // The server returns fallback: true when no API key is set or the OpenAI call failed.
+    // Never fabricate content client-side; surface the flag so callers can skip saving.
     return {
-        content: `${studentName} 학생은 ${baseContent}. ${subjectName || '해당 과목'} 수업에서 적극적으로 참여하며 탐구 과정을 주도적으로 수행하였고, 협력 활동에서도 의미 있는 기여를 보였다.`,
-        observationCount: 0,
+        content: data.content || '',
+        observationCount: data.observationCount || 0,
+        fallback: data.fallback === true,
+        fallbackMessage: data.message || data.error,
     };
 }
 
@@ -313,17 +323,4 @@ export async function reviewAndImproveRecord({
     }
 
     return data as RecordReviewResponse;
-}
-
-// Spell check
-export async function performSpellCheck(text: string): Promise<SpellError[]> {
-    return performSpellCheckRequest(text);
-}
-
-// Forbidden word check
-export async function checkForbiddenWords(
-    text: string,
-    customForbiddenWords: string[] = []
-): Promise<ForbiddenIssue[]> {
-    return checkForbiddenWordsRequest(text, customForbiddenWords);
 }

@@ -49,9 +49,6 @@ function normalizeLabels(raw: RawGraphLabelEntry['graphLabels']): KnowledgeGraph
     };
 }
 
-export function clearKnowledgeLabelCache() {
-    labelCache = null;
-}
 
 /**
  * Loads the graph label map keyed by knowledgeUnitId. Returns an empty map

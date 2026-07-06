@@ -1,6 +1,4 @@
 export const SETEUK_DEFAULT_SYSTEM_PROMPT_VERSION = 'cross-curricular-seteuk-v2.4';
-export const SETEUK_SYSTEM_PROMPT_STORAGE_KEY = 'ai_system_prompt';
-export const SETEUK_SYSTEM_PROMPT_VERSION_STORAGE_KEY = 'ai_system_prompt_version';
 
 export const SETEUK_DEFAULT_EXAMPLE_TEMPLATE = `[짧은 입력 예시]
 입력: 중학교 1학년 수학 / 선택 단원: 문자와 식 / 문제 풀이함. 풀이 설명함.
@@ -146,7 +144,7 @@ context를 사용할 때는 "문자와 식의 수량 관계", "설명하는 글�
 
 최종 출력은 세부능력 및 특기사항 문장만 작성한다. 분석, 이유, 수정 설명, 제목, 번호, 불릿, 따옴표는 출력하지 않는다.`;
 
-export function isLegacyDefaultSeteukSystemPrompt(prompt: string | null | undefined): boolean {
+function isLegacyDefaultSeteukSystemPrompt(prompt: string | null | undefined): boolean {
     return !!prompt && LEGACY_DEFAULT_SYSTEM_PROMPTS.has(prompt.trim());
 }
 

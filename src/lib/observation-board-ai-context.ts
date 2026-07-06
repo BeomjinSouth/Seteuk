@@ -7,7 +7,7 @@ export interface ObservationBoardActivitySession {
     topic: string;
 }
 
-export interface ObservationBoardSessionMark {
+interface ObservationBoardSessionMark {
     sessionId: string;
     label: string;
     date?: string;
@@ -40,14 +40,14 @@ export type ObservationBoardMentorAssignmentSnapshotsByClass = Record<
 >;
 export type ObservationBoardActivitySessionsByClass = Record<string, ObservationBoardActivitySession[]>;
 
-export interface ObservationBoardRoleContext {
+interface ObservationBoardRoleContext {
     role: ObservationBoardMentorRole;
     roleLabel: string;
     groupTitle?: string;
     classId?: string;
 }
 
-export interface ObservationBoardDerivedSummary {
+interface ObservationBoardDerivedSummary {
     totalSessions: number;
     markedSessions: number;
     participatedCount: number;

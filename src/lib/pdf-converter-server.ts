@@ -19,7 +19,6 @@ try {
 }
 
 // Extract PDF text using pdf-parse (to avoid pdfjs-dist worker issues)
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const pdfParseModule = require('pdf-parse');
 const pdfParse = pdfParseModule.default || pdfParseModule;
 

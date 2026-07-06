@@ -328,21 +328,6 @@ function scoreTokensAgainstMatch(tokens: string[], prepared: PreparedGroundingMa
     return tokens.reduce((score, token) => score + (prepared.combinedText.includes(token) ? 1 : 0), 0);
 }
 
-function scoreSegmentAgainstMatch(segment: string, match: RetrievedKnowledgeEvidence): number {
-    const tokens = tokenize(segment);
-    return scoreTokensAgainstMatch(tokens, {
-        match,
-        combinedText: normalizeText([
-        match.title,
-        match.question,
-        match.answer,
-        match.ruleSummary || '',
-        match.snippet,
-        match.categories.join(' '),
-        match.policyAnchors.map((anchor) => anchor.rule).join(' '),
-        ].join(' ')),
-    });
-}
 
 function hasGroundedSourceMatch(tokenCount: number, score: number, retrievalScore: number): boolean {
     if (retrievalScore < MIN_GROUNDED_RETRIEVAL_SCORE) return false;

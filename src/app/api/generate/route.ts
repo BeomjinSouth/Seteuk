@@ -125,6 +125,8 @@ export async function POST(request: NextRequest) {
         studentId?: string;  // NEW: For fetching observations
         teacherKey?: string;
         classId?: string;
+        semester?: number;       // Limits observation context to the target semester
+        academicYear?: number;   // Defaults to the current Korean school year
         gradeLevel?: number;
         subjectName?: string;
         learningData?: Record<string, string>;
@@ -177,6 +179,8 @@ export async function POST(request: NextRequest) {
         studentId,
         teacherKey,
         classId,
+        semester,
+        academicYear,
         gradeLevel,
         subjectName,
         learningData,
@@ -203,13 +207,23 @@ export async function POST(request: NextRequest) {
     let observationsText = '';
     let usedObservationIds: string[] = [];
 
+    const normalizedSemester = semester === 1 || semester === 2 ? semester : undefined;
+    const normalizedAcademicYear = typeof academicYear === 'number' && Number.isFinite(academicYear)
+        ? Math.floor(academicYear)
+        : undefined;
     const normalizedGradeLevel = typeof gradeLevel === 'number' && Number.isFinite(gradeLevel)
         ? Math.max(1, Math.min(3, Math.floor(gradeLevel)))
         : undefined;
 
     if (studentId && includeObservations) {
         try {
-            const observations = await getObservationsForContext({ studentId, teacherKey, classId });
+            const observations = await getObservationsForContext({
+                studentId,
+                teacherKey,
+                classId,
+                semester: normalizedSemester,
+                academicYear: normalizedAcademicYear,
+            });
             const assessments = await getAssessments();
 
             if (observations.length > 0) {

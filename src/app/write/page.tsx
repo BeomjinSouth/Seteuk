@@ -11,9 +11,14 @@ import { SimilarityModal, SimilarityResult } from '@/components/SimilarityModal'
 import { getContentHash } from '@/components/KeywordHighlighter';
 import { useAppStore } from '@/lib/store';
 import { SubjectRecord, CompetencySegment } from '@/types';
-import type { OCREvaluation, StudentGradingResult } from '@/types/ocr';
-import { generateDraft, generateDraftBatch, performSpellCheck, checkForbiddenWords, reviewAndImproveRecord } from '@/lib/write-logic';
-import { applyCheckResultToRecord } from '@/lib/check-utils';
+import type { OCREvaluation } from '@/types/ocr';
+import { generateDraft, generateDraftBatch, reviewAndImproveRecord, selectOcrEvaluationContext } from '@/lib/write-logic';
+import {
+    applyCheckResultToRecord,
+    checkForbiddenWordsRequest,
+    ForbiddenIssue,
+    performSpellCheckRequest,
+} from '@/lib/check-utils';
 import { getRecordByStudentSemester } from '@/lib/record-utils';
 import { DEFAULT_CONCURRENCY_LIMIT, mapWithConcurrency } from '@/lib/concurrency';
 import {
@@ -319,6 +324,15 @@ function WritePageContent() {
         let failureCount = 0;
         const failedNames: string[] = [];
 
+        const alertGenerationFailures = () => {
+            if (fallbackCount === 0 && failureCount === 0) return;
+            const lines = [`AI 생성 미완료: ${fallbackCount + failureCount}명 (${failedNames.join(', ')})`];
+            if (fallbackCount > 0) lines.push(`- AI 미연결로 생성하지 못함: ${fallbackCount}명`);
+            if (failureCount > 0) lines.push(`- 생성 중 오류 발생: ${failureCount}명`);
+            lines.push('해당 학생은 세특이 저장되지 않았습니다. 잠시 후 다시 시도해 주세요.');
+            alert(lines.join('\n'));
+        };
+
         if (toGenerate.length > 1) {
             try {
                 const batchTargets = (await Promise.all(toGenerate.map(async (studentId) => {
@@ -338,40 +352,7 @@ function WritePageContent() {
                         selectedUnitIds: getClassCurriculumSelection(teachingClass.id, currentSemester)?.unitIds || [],
                     });
                     const evaluations = await getOcrEvaluations(studentGrade, currentSemester);
-
-                    let matchedEvaluation: OCREvaluation | undefined;
-                    let matchedStudentResult: StudentGradingResult | undefined;
-                    let standardsOnlyEvaluation: OCREvaluation | undefined;
-
-                    for (const evaluation of evaluations) {
-                        const results = evaluation.batchGradingResult?.results || [];
-                        const byId = results.find((result) => result.studentId === studentId);
-                        if (byId) {
-                            matchedEvaluation = evaluation;
-                            matchedStudentResult = byId;
-                            break;
-                        }
-                        if (!matchedStudentResult) {
-                            const byName = results.filter((result) => result.studentName === student.name);
-                            if (byName.length === 1) {
-                                matchedEvaluation = evaluation;
-                                matchedStudentResult = byName[0];
-                            }
-                        }
-                        if (!standardsOnlyEvaluation
-                            && (evaluation.achievementStandards?.length > 0 || evaluation.scoringCriteria?.length > 0)) {
-                            standardsOnlyEvaluation = evaluation;
-                        }
-                    }
-
-                    const contextEvaluation = matchedEvaluation || standardsOnlyEvaluation;
-                    const ocrEvaluationContext = contextEvaluation
-                        ? {
-                            achievementStandards: contextEvaluation.achievementStandards,
-                            scoringCriteria: contextEvaluation.scoringCriteria,
-                            studentResult: matchedStudentResult,
-                        }
-                        : undefined;
+                    const ocrEvaluationContext = selectOcrEvaluationContext(evaluations, studentId, student.name);
 
                     return {
                         student,
@@ -427,14 +408,7 @@ function WritePageContent() {
 
                 setGeneratingIds(new Set());
                 setSelectedStudents(new Set());
-
-                if (fallbackCount > 0 || failureCount > 0) {
-                    const lines = [`AI ?? ???: ${fallbackCount + failureCount}? (${failedNames.join(', ')})`];
-                    if (fallbackCount > 0) lines.push(`- AI ???? ???? ??: ${fallbackCount}?`);
-                    if (failureCount > 0) lines.push(`- ?? ? ?? ??: ${failureCount}?`);
-                    lines.push('?? ??? ??? ???? ?????. ?? ? ?? ??? ???.');
-                    alert(lines.join('\n'));
-                }
+                alertGenerationFailures();
                 return;
             } catch (error) {
                 console.error('Batch generation failed, falling back to single-student generation:', error);
@@ -459,22 +433,7 @@ function WritePageContent() {
                     selectedUnitIds: getClassCurriculumSelection(teachingClass.id, currentSemester)?.unitIds || [],
                 });
                 const evaluations = await getOcrEvaluations(studentGrade, currentSemester);
-                let ocrEvaluationContext = undefined;
-                for (const evaluation of evaluations) {
-                    const studentResult = evaluation.batchGradingResult?.results?.find(
-                        (result: { studentId: string; studentName: string }) =>
-                            result.studentId === studentId || result.studentName === student.name
-                    );
-
-                    if (studentResult || evaluation.achievementStandards?.length > 0 || evaluation.scoringCriteria?.length > 0) {
-                        ocrEvaluationContext = {
-                            achievementStandards: evaluation.achievementStandards,
-                            scoringCriteria: evaluation.scoringCriteria,
-                            studentResult: studentResult || undefined,
-                        };
-                        break;
-                    }
-                }
+                const ocrEvaluationContext = selectOcrEvaluationContext(evaluations, studentId, student.name);
 
                 const result = await generateDraft(
                     studentId,
@@ -488,9 +447,18 @@ function WritePageContent() {
                         teacherKey: teacher?.teacherKey,
                         classId: teachingClass.id,
                         gradeLevel: studentGrade,
+                        semester: currentSemester,
                         curriculumContext,
                     }
                 );
+
+                if (result.fallback) {
+                    // Template content from the server (no API key / OpenAI failure) is not a
+                    // real AI draft — do not save it silently as one.
+                    fallbackCount += 1;
+                    failedNames.push(student.name);
+                    return;
+                }
 
                 updateRecord({
                     id: `r-${teacher?.teacherKey || 'teacher'}-${teachingClass.id}-${studentId}-${currentSemester}`,
@@ -503,6 +471,8 @@ function WritePageContent() {
                     lastUpdated: new Date().toISOString(),
                 }, 'ai');
             } catch (error) {
+                failureCount += 1;
+                failedNames.push(student.name);
                 console.error('Generation failed:', error);
             } finally {
                 setGeneratingIds((prev) => {
@@ -514,6 +484,7 @@ function WritePageContent() {
         });
 
         setSelectedStudents(new Set());
+        alertGenerationFailures();
     };
 
     const handleBulkReviewImprove = async () => {
@@ -568,9 +539,14 @@ function WritePageContent() {
                     teacherKey: teacher?.teacherKey,
                     semester: currentSemester,
                     content: nextContent,
-                    status: review.status === 'pass' && !contentChanged && record.status === 'confirmed'
-                        ? 'confirmed'
-                        : 'checked',
+                    // Changed content invalidates previous spell/forbidden results,
+                    // so it goes back to draft until re-checked.
+                    checkResult: contentChanged ? undefined : record.checkResult,
+                    status: contentChanged
+                        ? 'draft'
+                        : review.status === 'pass' && record.status === 'confirmed'
+                            ? 'confirmed'
+                            : 'checked',
                     lastUpdated: new Date().toISOString(),
                 }, 'improve');
             } catch (error) {
@@ -587,6 +563,10 @@ function WritePageContent() {
             `개선본 반영: ${improvedCount}건`,
             `원문 유지: ${unchangedCount}건`,
         ];
+
+        if (improvedCount > 0) {
+            summaryLines.push('내용이 변경된 기록은 맞춤법·금지어 재검사가 필요합니다.');
+        }
 
         if (cautionOrReviseCount > 0) {
             summaryLines.push(`주의 이상 판정: ${cautionOrReviseCount}건`);
@@ -612,11 +592,22 @@ function WritePageContent() {
         let firstErrors: SpellError[] = [];
         let totalErrorCount = 0;
         let affectedRecordCount = 0;
+        let failedCheckCount = 0;
 
         await mapWithConcurrency(toCheck, DEFAULT_CONCURRENCY_LIMIT, async (studentId) => {
             const record = getStudentRecord(studentId);
             if (!record || !record.content) return;
-            const errors = await performSpellCheck(record.content);
+
+            let errors: SpellError[];
+            try {
+                errors = await performSpellCheckRequest(record.content);
+            } catch (error) {
+                // A failed check must not be recorded as "no issues" — leave the record as-is.
+                failedCheckCount += 1;
+                console.error('Spell check failed:', error);
+                return;
+            }
+
             const updatedRecord = applyCheckResultToRecord(record, { spellerErrors: errors.length });
             updateRecord(updatedRecord);
 
@@ -632,12 +623,16 @@ function WritePageContent() {
 
         setIsBulkChecking(false);
 
+        const failureSuffix = failedCheckCount > 0
+            ? `\n검사 실패: ${failedCheckCount}명 (검사가 완료되지 않아 결과가 저장되지 않았습니다.)`
+            : '';
+
         if (firstRecordWithErrors) {
             setSpellCheckTarget(firstRecordWithErrors);
             setSpellErrors(firstErrors);
-            alert(`Spell check done: ${affectedRecordCount} students, ${totalErrorCount} issues.`);
+            alert(`맞춤법 검사 완료: ${affectedRecordCount}명, ${totalErrorCount}건 발견${failureSuffix}`);
         } else {
-            alert('Spell check done: no issues found.');
+            alert(`맞춤법 검사 완료: 발견된 오류 없음${failureSuffix}`);
         }
     };
 
@@ -652,11 +647,22 @@ function WritePageContent() {
 
         const results = new Map<string, { word: string; suggestion: string; reason: string }[]>();
         let foundCount = 0;
+        let failedCheckCount = 0;
 
         await mapWithConcurrency(toCheck, DEFAULT_CONCURRENCY_LIMIT, async (studentId) => {
             const record = getStudentRecord(studentId);
             if (!record || !record.content) return;
-            const issues = await checkForbiddenWords(record.content, forbiddenWords);
+
+            let issues: ForbiddenIssue[];
+            try {
+                issues = await checkForbiddenWordsRequest(record.content, forbiddenWords);
+            } catch (error) {
+                // A failed check must not be recorded as "no issues" — leave the record as-is.
+                failedCheckCount += 1;
+                console.error('Forbidden check failed:', error);
+                return;
+            }
+
             const updatedRecord = applyCheckResultToRecord(record, { forbiddenWords: issues.length });
             updateRecord(updatedRecord);
             if (issues.length > 0) {
@@ -667,8 +673,13 @@ function WritePageContent() {
 
         setForbiddenResults(results);
         setIsBulkChecking(false);
+
+        if (failedCheckCount > 0) {
+            alert(`금지어 검사 실패: ${failedCheckCount}명 (검사가 완료되지 않아 결과가 저장되지 않았습니다.)`);
+        }
+
         if (foundCount > 0) setIsForbiddenModalOpen(true);
-        else alert('Forbidden-word check done: no issues found.');
+        else if (failedCheckCount === 0) alert('금지어 검사 완료: 발견된 금지어 없음');
     };
 
     const handleDeleteLearningData = () => {

@@ -91,16 +91,22 @@ export default function ReviewPage() {
 
     const handleRunSpellCheck = async (record: SubjectRecord) => {
         setIsChecking(true);
-        const errors = await performSpellCheckRequest(record.content);
-        const updatedRecord = applyCheckResultToRecord(record, { spellerErrors: errors.length });
-        updateRecord(updatedRecord);
-        setSpellErrors(errors);
-        setSpellCheckTarget(updatedRecord);
-        setIsChecking(false);
+        try {
+            const errors = await performSpellCheckRequest(record.content);
+            const updatedRecord = applyCheckResultToRecord(record, { spellerErrors: errors.length });
+            updateRecord(updatedRecord);
+            setSpellErrors(errors);
+            setSpellCheckTarget(updatedRecord);
 
-        if (errors.length === 0) {
-            alert('맞춤법 오류가 없습니다.');
-            setSpellCheckTarget(null);
+            if (errors.length === 0) {
+                alert('맞춤법 오류가 없습니다.');
+                setSpellCheckTarget(null);
+            }
+        } catch (error) {
+            console.error('Spell check failed:', error);
+            alert('맞춤법 검사에 실패했습니다. 결과가 저장되지 않았으니 잠시 후 다시 시도해 주세요.');
+        } finally {
+            setIsChecking(false);
         }
     };
 
@@ -121,6 +127,9 @@ export default function ReviewPage() {
             } else {
                 alert('금지어가 없습니다.');
             }
+        } catch (error) {
+            console.error('Forbidden check failed:', error);
+            alert('금지어 검사에 실패했습니다. 결과가 저장되지 않았으니 잠시 후 다시 시도해 주세요.');
         } finally {
             setIsForbiddenChecking(null);
         }

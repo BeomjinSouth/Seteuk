@@ -73,7 +73,6 @@ export function OCRUserGuideModal({ isOpen, onClose }: OCRUserGuideModalProps) {
                     <div className={styles.body}>
                         <div className={styles.guideList}>
                             {steps.map((step, index) => {
-                                const Icon = step.icon;
                                 return (
                                     <div key={index} className={styles.guideItem}>
                                         <div className={styles.stepNumber}>
