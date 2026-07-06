@@ -4,10 +4,11 @@
 
 ## 현재 범위
 
-- 대상: 2022 개정 중학교 수학 1~3학년
+- 미시 concept map 대상: 2022 개정 중학교 수학 1~3학년
 - 파일럿 단원: 수와 연산 전체, 변화와 관계 전체, 도형과 측정 전체, 자료와 가능성 전체
 - 공식 근거: `9수01-01` ~ `9수01-10`, `9수02-01` ~ `9수02-22`, `9수03-01` ~ `9수03-19`, `9수04-01` ~ `9수04-09`
 - 교과서 근거: `교과서_원본/` 폴더가 현재 비어 있어 아직 반영하지 못함
+- 초1~고3 거시 위계: `k12-spine-*`가 별책8 원문에서 추출한 공통 교육과정 학년군(초1-2, 초3-4, 초5-6, 중1-3) 성취기준 181개와 고등학교 15개 과목 성취기준 254개를 학년군·영역·과목 노드와 선수 관계 edge로 연결한다. 초등·고등 구간의 미시 concept 분해는 아직 하지 않았다.
 
 ## 현재 데이터 규모
 
@@ -26,6 +27,10 @@
 - `concepts.csv`: 개념 노드 CSV
 - `edges.csv`: 관계 edge CSV
 - `graph.mmd`: Mermaid 위계/관계 초안
+- `k12-spine-nodes.csv`: 초1~고3 거시 위계 spine의 학년군·영역·과목·성취기준 노드 CSV
+- `k12-spine-edges.csv`: 같은 spine의 포함·선수·연계 edge CSV
+- `k12-spine.dot`: 학년군·영역 블록·고등 과목 수준의 Graphviz DOT 시각화
+- `k12-spine.md`: spine 데이터 규모, 과목별 성취기준 수, 과목 위계 edge 근거 요약
 - `achievement-coverage.md`: 공식 성취기준별 연결 concept 요약
 - `achievement-coverage.csv`: 공식 성취기준별 연결 concept 기계 판독용 CSV
 - `review-queue.md`: `low` 신뢰도 concept의 교과서/출처 보강 검토 목록
@@ -98,6 +103,7 @@
 
 ```powershell
 python docs/math-concept-map/tools/build_pilot.py
+python docs/math-concept-map/tools/build_k12_spine.py
 python docs/math-concept-map/tools/build_coverage_report.py
 python docs/math-concept-map/tools/build_relationship_audit.py
 python docs/math-concept-map/tools/build_node_edge_consistency_audit.py
@@ -178,6 +184,7 @@ python docs/math-concept-map/tools/test_build_research_report_concept_signal.py
 python docs/math-concept-map/tools/test_build_research_report_context_packet.py
 python docs/math-concept-map/tools/test_build_research_report_source_review.py
 python docs/math-concept-map/tools/test_build_unit_coverage.py
+python docs/math-concept-map/tools/test_build_k12_spine.py
 python docs/math-concept-map/tools/test_validate_concept_map.py
 ```
 
@@ -232,5 +239,7 @@ python docs/math-concept-map/tools/test_validate_concept_map.py
 `legacy-gap-source-review.*`는 현재 공식 근거 확인 queue 대상 후보 0개를 기록한다.
 
 `legacy-gap-evidence-scan.*`는 현재 증거 신호 재검토 대상 후보 0개를 기록한다.
+
+`k12-spine-*`는 별책8 수학과 교육과정 원문에서 초1~고3 전 구간의 성취기준을 추출해 학년군·영역·과목 수준의 거시 위계 그래프로 잇는 산출물이다. 학년군 진행과 편제 구조, 문서의 직접 서술(p.74, p.164, p.178, p.193)에 근거한 edge는 `high`, 내용 체계 기반 추론 edge(공통수학1→2, 기본수학1→2, 대수/미적분Ⅰ→미적분Ⅱ)는 `medium`으로 표시한다. 중1-3 성취기준 노드의 `achievement_code`는 `achievement-coverage.csv`와 같은 코드 체계이므로, spine에서 미시 concept 수준으로 조인해 내려갈 수 있다.
 
 교과서 PDF가 추가되면 단원별로 원문 전체를 전재하지 않고 개념명, 짧은 정의, 쪽수, 출처 파일 해시, 관계 근거만 반영한다.

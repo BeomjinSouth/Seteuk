@@ -1868,8 +1868,26 @@
 - 전체 직접 파생 산출물과 research-report/legacy 보조 산출물을 재생성했다. 교과서 evidence packet과 edge packet을 만든 뒤 `textbook-evidence-workplan.*`, 루트 `pilot-unit-map.*`, 전체 `unit-map-packets/*`를 다시 생성해 rank/count가 최신 packet index와 일치하도록 했다.
 - PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
 
+## 2026-07-06 초1~고3 위계 spine 구축
+
+- AGENTS.md를 다시 확인하고, 이번 작업은 PDF 원본이나 다운로드 manifest를 변경하지 않는 `docs/math-concept-map/` 신규 산출물 추가로 제한했다.
+- 사용자의 목표가 초1~고3 전 구간 위계 그래프이므로, 중학교 미시 concept map과 별도 층으로 초1~고3 거시 위계 spine을 신설했다. 원천은 `2022_개정_중학교_교육과정_PDF/교과/02_[별책8] 수학과 교육과정.pdf`(263쪽, 초·중·고 전체 포함) 하나로 제한했다.
+- `build_k12_spine.py`를 추가해 별책8 원문에서 공통 교육과정 성취기준 181개(`2수` 29, `4수` 47, `6수` 45, `9수` 60)와 고등학교 15개 과목 성취기준 254개(공통수학1·2, 기본수학1·2, 대수, 미적분Ⅰ·Ⅱ, 확률과 통계, 기하, 경제 수학, 인공지능 수학, 직무 수학, 수학과 문화, 실용 통계, 수학과제 탐구)를 진술문·페이지 위치와 함께 추출했다. pypdf 추출에서 남던 글자 간 공백 잡음은 pdfplumber 전환으로 제거해 진술문 잡음 row 0건을 확인했다.
+- 노드는 학년군 4개, 학년군×영역 블록 16개, 고등 과목 15개, 고등 과목×영역 53개, 성취기준 435개로 총 523개다. 영역 제목은 원문 `(n) 제목` 헤더에서 추출해 과목×영역 노드(예: `공통수학1 · 다항식`, `미적분Ⅰ · 함수의 극한과 연속`)에 반영했다.
+- edge는 총 539개다. 포함 edge 외 선수 관계는 학년군 연속 진행(초1-2→초3-4→초5-6→중1-3, 영역별 12개 포함), 중1-3→고등 공통 과목, 공통수학2→선택 과목 11개(p.74의 "<공통수학1, 2> 이후 선택할 수 있는 수학 과목" 직접 서술 근거, `high`)로 제한했다. 내용 체계 기반 추론(공통수학1→2, 기본수학1→2, 대수→미적분Ⅱ, 미적분Ⅰ→미적분Ⅱ)은 `medium`으로 표시하고 notes에 추론 근거를 남겼다.
+- 문서의 직접 연계 서술은 `related_to` edge로 보존했다: 미적분Ⅱ→기하(p.164 음함수 미분법), 미적분Ⅱ→경제 수학(p.178 연속복리), 대수→인공지능 수학(p.193 로그-IDF). 이 밖의 과목 간 선수 관계는 문서가 직접 말하지 않으므로 만들지 않았다.
+- 산출물은 `k12-spine-nodes.csv`, `k12-spine-edges.csv`, `k12-spine.dot`(학년군·영역 블록·과목 수준), `k12-spine.md`(규모·과목표·edge 근거 요약)이다. 중1-3 성취기준 노드의 `achievement_code`는 `achievement-coverage.csv`와 같은 코드 체계라서 spine에서 미시 concept으로 조인해 내려갈 수 있다.
+- 빌더는 학년군별 공식 성취기준 수(29/47/45/60) 불일치, 빈 진술문, node_id 중복, dangling edge, `prerequisite_for` 순환을 모두 빌드 실패로 처리한다.
+- `test_build_k12_spine.py`를 추가해 코드 두 형식(`[2수01-01]`, `[10공수1-01-01]`, 로마숫자 `[12미적Ⅰ-01-01]`) 파싱, 해설 블록 재언급의 첫 출현 보존, 줄바꿈 진술문 결합, 영역 제목 매핑, 학년군·과목 체인 edge 존재, 추론 edge의 `medium` 유지, 직접 서술 `related_to`의 `high` 유지, 생성 CSV의 참조 무결성·비순환·성취기준 수를 고정했다. 15개 테스트 통과.
+- README에 현재 범위, 산출물 목록, 갱신 명령을 추가했고 SCHEMA.md에 `K12 Spine Nodes CSV`/`K12 Spine Edges CSV` 스키마를 추가했다.
+- 전체 단위 테스트: `python -X utf8 -m unittest discover -s docs/math-concept-map/tools -p "test_*.py" -b`: 352개 통과.
+- 전체 validator: `python -X utf8 docs/math-concept-map/tools/validate_concept_map.py`: 977개 concept, 4571개 edge, 5개 source, 60개 공식 성취기준 검증 통과. spine은 `concepts.json`을 변경하지 않는다.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
+- 초1~고3 spine의 다음 단계로 (1) 초등 학년군부터 성취기준을 단원 수준으로 묶고 미시 concept 분해를 시작할지, (2) 고등 공통수학1·2를 먼저 분해할지 우선순위를 정한다. 기존 `수학_개념_위계도/data/math_concept_hierarchy.json`의 초등 커리큘럼 노드 83개는 보조 감사 자료로 재사용할 수 있다.
+- spine의 `related_to`로 남긴 과목 연계(미적분Ⅱ-기하, 미적분Ⅱ-경제 수학, 대수-인공지능 수학)는 성취수준·교과서 근거가 추가되면 관계 유형 승격 여부를 재검토한다.
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
 - 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 `not_applicable_from_this_row` 46개가 broad context, 용어 충돌, 도구·자료 입력, 또는 약한 출현으로 유지되는지 주기적으로 감사한다. 현재 `pending_manual_review`는 13개이며, 주로 `선분`·`반직선` 후보와 새 일차부등식 언어 표현 후보이므로 교과서 본문 또는 중학교 직접 근거 확인 후 source ref 반영 여부를 판단한다.
 - 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.

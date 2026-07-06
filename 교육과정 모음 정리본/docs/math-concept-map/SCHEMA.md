@@ -762,6 +762,40 @@
 | `recommended_action` | evidence signal에 따른 다음 검토 작업 |
 | `notes` | 신호 해석과 보류 사유 |
 
+## K12 Spine Nodes CSV
+
+`k12-spine-nodes.csv`는 별책8 수학과 교육과정 원문에서 추출한 초1~고3 거시 위계 spine의 노드 목록이다. 중학교 미시 concept map(`concepts.json`)과 별도 층으로 유지하며, 중1-3 성취기준 노드의 `achievement_code`로 두 층을 조인한다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `node_id` | `spine_` 접두어를 가진 안정적 식별자 |
+| `node_type` | `school_stage`, `stage_domain`, `hs_subject`, `hs_subject_area`, `achievement_standard` |
+| `label_ko` | 노드 한국어 이름. 성취기준 노드는 대괄호 코드 |
+| `school_level` | `초등학교`, `중학교`, `고등학교` |
+| `grade_band` | `초1-2`, `초3-4`, `초5-6`, `중1-3`, `고1`, `고2-3` |
+| `course_type` | `공통 교육과정`, `공통 과목`, `일반 선택 과목`, `진로 선택 과목`, `융합 선택 과목` |
+| `domain` | 공통 교육과정 영역명 또는 고등학교 과목 영역명 |
+| `subject_label` | 고등학교 과목명. 공통 교육과정 구간은 `수학` |
+| `achievement_code` | 성취기준 노드의 공식 코드. 그 외 노드는 빈 값 |
+| `statement` | 성취기준 진술문. PDF 텍스트 추출 결과 |
+| `source_locator` | 별책8 기준 페이지 위치 |
+| `confidence` | 현재 모두 `high`. 공식 원문 직접 추출 |
+| `notes` | 운영 메모 |
+
+## K12 Spine Edges CSV
+
+`k12-spine-edges.csv`는 spine 노드 사이의 포함·선수·연계 관계 목록이다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `edge_id` | `spine_edge_` 접두어의 순번 식별자 |
+| `source_id` | 출발 노드 id |
+| `target_id` | 도착 노드 id |
+| `relationship_type` | `contains`, `prerequisite_for`, `related_to` |
+| `confidence` | 편제 구조와 직접 서술 기반은 `high`, 내용 체계 기반 추론은 `medium` |
+| `source_locator` | 관계 판단 근거의 별책8 위치 |
+| `notes` | 관계 해석 메모. 추론 edge는 추론 근거를 남긴다 |
+
 ## 신뢰도 기준
 
 - `high`: 공식 교육과정 또는 성취수준 문서에서 직접 확인되는 개념·관계
