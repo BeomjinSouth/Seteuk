@@ -1884,10 +1884,25 @@
 - 전체 validator: `python -X utf8 docs/math-concept-map/tools/validate_concept_map.py`: 977개 concept, 4571개 edge, 5개 source, 60개 공식 성취기준 검증 통과. spine은 `concepts.json`을 변경하지 않는다.
 - PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
 
+## 2026-07-06 범위 확정, 계층형 위계 그래프, 초등 미시 concept 파일럿
+
+- 사용자 결정을 `교육과정 모음 정리본/AGENTS.md`의 "Math Concept Map Scope Rules" 섹션에 기록했다: (1) 고등학교 선택 과목은 당분간 작업(시각화·미시 분해·근거 보강)에서 제외하고 spine 추출 데이터로만 보존, (2) 위계 그래프는 힘-방향 배치가 아니라 학년군 진행이 축으로 드러나는 계층형 레이아웃, (3) 개념·용어는 모델 지식이 아니라 공식 원문 추출 텍스트와 페이지 출처로만 반영. 다른 세션·다른 도구는 작업 시작 시 이 섹션을 먼저 확인한다.
+- `build_k12_spine_viz.py`를 추가해 `k12-spine.html`을 생성했다. 가로축은 학년군 진행(초1-2 → 초3-4 → 초5-6 → 중1-3 → 공통수학1 → 공통수학2), 세로축은 교육과정 영역인 격자 레이아웃이며, 기본수학1·2는 대체 경로로 아래에 점선 표시한다. 블록 34개(학년군×영역 16, 공통 과목 4, 과목×영역 14), 선수 화살표 16개, 성취기준 254개(공통 교육과정 181 + 고1 공통 과목 73)가 블록 클릭 시 원문·페이지와 함께 표시된다. 선택 과목은 스코프 가드로 차단하며 포함 시 빌드가 실패한다.
+- `build_elementary_pilot.py`를 추가해 초등 미시 concept 분해를 시작했다. 파일럿 범위는 초1-2 수와 연산([2수01-01]~[2수01-11], 별책8 인쇄 p.11~12)이며, concept 51개(네 자리 이하의 수 20, 두 자리 수 범위의 덧셈과 뺄셈 20, 한 자리 수의 곱셈 11)와 edge 50개(contains 14, prerequisite_for 10, used_in 17, represented_by 6, related_to 3)를 `elementary-concepts.json/.csv`, `elementary-edges.csv`, `elementary-pilot.md`로 생성했다.
+- 모든 concept은 성취기준 진술, 성취기준 해설, 적용 시 고려 사항, 용어·기호 목록의 원문 문장에 근거하고 `printed p. 11/12` locator를 남겼다. 성취기준 배열 순서나 개념 구조에서 추론한 edge(0~100의 수→자릿값, 두 수 계산→세 수 계산, 덧셈→동수누가, □의 값 구하기 선수 관계)는 `medium`과 추론 메모를 유지했다.
+- 용어·기호 목록의 기호 6칸 중 ×만 텍스트 추출로 확인했고 나머지는 한글 수식 글꼴(HyhwpEQ) 문제로 미추출임을 문자 단위 추출로 확인했다. 미추출 기호는 concept으로 추가하지 않고 관련 노드 notes에 시각 확인 필요를 남겼다. 이 구간 공식 문서에 학생 오류 서술이 없으므로 오개념 노드도 추가하지 않았다.
+- `test_build_k12_spine_viz.py`(5개)와 `test_build_elementary_pilot.py`(9개)를 추가해 선택 과목 제외, 격자 블록 구성, 성취기준 원문 포함, 출처 locator 필수, 배열-edge 동기화, 추론 edge의 medium 유지, 미추출 기호 부재를 고정했다.
+- 전체 단위 테스트: `python -X utf8 -m unittest discover -s docs/math-concept-map/tools -p "test_*.py" -b`: 366개 통과.
+- 전체 validator: `python -X utf8 docs/math-concept-map/tools/validate_concept_map.py`: 977개 concept, 4571개 edge, 5개 source, 60개 공식 성취기준 검증 통과. 중학교 `concepts.json`은 변경하지 않았다.
+- PDF 원본과 `2022_개정_중학교_교육과정_PDF/DOWNLOAD_MANIFEST.md`, `2022_개정_중학교_성취수준_PDF/DOWNLOAD_MANIFEST.md`는 변경하지 않았다.
+
 ## 다음 작업
 
-- 초1~고3 spine의 다음 단계로 (1) 초등 학년군부터 성취기준을 단원 수준으로 묶고 미시 concept 분해를 시작할지, (2) 고등 공통수학1·2를 먼저 분해할지 우선순위를 정한다. 기존 `수학_개념_위계도/data/math_concept_hierarchy.json`의 초등 커리큘럼 노드 83개는 보조 감사 자료로 재사용할 수 있다.
-- spine의 `related_to`로 남긴 과목 연계(미적분Ⅱ-기하, 미적분Ⅱ-경제 수학, 대수-인공지능 수학)는 성취수준·교과서 근거가 추가되면 관계 유형 승격 여부를 재검토한다.
+- Scope Rules(AGENTS.md)에 따라 고등학교 선택 과목은 시각화·미시 분해·근거 보강에서 계속 제외한다.
+- 초등 미시 concept 분해를 같은 방식으로 확장한다: 초1-2 나머지 3개 영역(변화와 관계, 도형과 측정, 자료와 가능성) → 초3-4 → 초5-6 → 고등 공통수학1·2 순서를 기본으로 한다.
+- 초1-2 용어·기호 목록의 미추출 기호(덧셈·뺄셈·등호·부등호 기호)는 원문 시각 확인 또는 초등 교과서 PDF 확보 후 concept 반영 여부를 결정한다.
+- `k12-spine.html`에 초등 미시 concept 층이 쌓이면 블록 드릴다운을 성취기준 목록에서 미시 concept 지도로 확장한다.
+- 기존 `수학_개념_위계도/data/math_concept_hierarchy.json`의 초등 커리큘럼 노드 83개는 보조 감사 자료로 재사용할 수 있다.
 - 교과서 PDF가 추가되면 먼저 `TEXTBOOK_SOURCE_MANIFEST.csv`를 작성하고 `textbook-source-audit.*`가 `ready_for_textbook_extraction`을 기록하는지 확인한다.
 - 교과서 PDF가 추가되기 전에는 `research-report-source-review.*`의 `not_applicable_from_this_row` 46개가 broad context, 용어 충돌, 도구·자료 입력, 또는 약한 출현으로 유지되는지 주기적으로 감사한다. 현재 `pending_manual_review`는 13개이며, 주로 `선분`·`반직선` 후보와 새 일차부등식 언어 표현 후보이므로 교과서 본문 또는 중학교 직접 근거 확인 후 source ref 반영 여부를 판단한다.
 - 그 다음 `textbook-evidence-workplan.*`, `concept-evidence-depth.*`, `edge-evidence-depth.*`를 함께 사용해 concept 근거 보강률과 edge 근거 보강률을 분리해서 추적한다.

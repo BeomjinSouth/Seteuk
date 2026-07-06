@@ -1,0 +1,51 @@
+﻿id,source_id,target_id,relationship_type,source_refs,notes,confidence
+e12_edge_001,e12_num_zero_to_100,e12_num_counting,contains,curriculum_math_2022:printed p. 11; [2수01-01] - 수 개념 이해와 함께 수를 세는 활동이 같은 성취기준에 묶여 있다,,high
+e12_edge_002,e12_num_zero_to_100,e12_num_reading,contains,curriculum_math_2022:printed p. 11; [2수01-01] - 수 개념 이해와 함께 수를 읽는 활동이 같은 성취기준에 묶여 있다,,high
+e12_edge_003,e12_num_zero_to_100,e12_num_writing,contains,curriculum_math_2022:printed p. 11; [2수01-01] - 수 개념 이해와 함께 수를 쓰는 활동이 같은 성취기준에 묶여 있다,,high
+e12_edge_004,e12_num_counting,e12_num_grouped_counting,contains,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 묶어 세기는 수 세기의 한 방법으로 제시된다,,high
+e12_edge_005,e12_num_counting,e12_num_skip_counting,contains,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 뛰어 세기는 수 세기의 한 방법으로 제시된다,,high
+e12_edge_006,e12_num_place_value,e12_num_zero_in_place,contains,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 0이 있는 자릿값은 자릿값 이해를 위한 활용 사례다,,medium
+e12_edge_007,e12_add,e12_addsub_meaning,contains,curriculum_math_2022:printed p. 11; [2수01-05] - 덧셈의 의미는 덧셈 아래의 하위 개념이다,,high
+e12_edge_008,e12_sub,e12_addsub_meaning,contains,curriculum_math_2022:printed p. 11; [2수01-05] - 뺄셈의 의미는 뺄셈 아래의 하위 개념이다,,high
+e12_edge_009,e12_add,e12_addsub_two_digit_principle,contains,curriculum_math_2022:printed p. 11; [2수01-06] - 두 자리 수 덧셈의 계산 원리는 덧셈의 하위 개념이다,,high
+e12_edge_010,e12_sub,e12_addsub_two_digit_principle,contains,curriculum_math_2022:printed p. 11; [2수01-06] - 두 자리 수 뺄셈의 계산 원리는 뺄셈의 하위 개념이다,,high
+e12_edge_011,e12_equal_sign,e12_equal_both_sides,contains,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 등호 양쪽의 양이 같음은 등호에 대한 성질이다,,high
+e12_edge_012,e12_mul,e12_mul_meaning,contains,curriculum_math_2022:printed p. 11; [2수01-10] - 곱셈의 의미는 곱셈 아래의 하위 개념이다,,high
+e12_edge_013,e12_mul,e12_mul_zero_one,contains,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 1의 곱과 0의 곱은 곱셈 아래의 하위 사례다,,high
+e12_edge_014,e12_mul,e12_gugu,contains,curriculum_math_2022:printed p. 11; [2수01-11] - 곱셈구구는 곱셈 아래의 하위 개념이다,,high
+e12_edge_015,e12_num_zero_to_100,e12_num_place_value,prerequisite_for,curriculum_math_2022:printed p. 11; [2수01-01]~[2수01-02] - 100까지의 수 개념에서 네 자리 이하의 수로 범위를 넓히는 성취기준 구성,성취기준 배열 순서에서 추론한 관계다.,medium
+e12_edge_016,e12_num_ten_bundles,e12_num_positional_notation,prerequisite_for,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 10개씩 묶음과 낱개 표현으로 위치적 기수법의 기초 개념을 형성하게 한다,,high
+e12_edge_017,e12_num_place_value,e12_num_four_digit_read_write,prerequisite_for,curriculum_math_2022:printed p. 11; [2수01-02] - 자릿값 이해를 바탕으로 네 자리 이하의 수를 읽고 쓴다,,high
+e12_edge_018,e12_num_positional_notation,e12_num_four_digit_read_write,prerequisite_for,curriculum_math_2022:printed p. 11; [2수01-02] - 위치적 기수법 이해를 바탕으로 네 자리 이하의 수를 읽고 쓴다,,high
+e12_edge_019,e12_num_sequence,e12_num_compare,prerequisite_for,curriculum_math_2022:printed p. 11; [2수01-03] - 수의 계열을 이해하고 수의 크기를 비교한다는 진술 순서,한 성취기준 안의 진술 순서에서 추론한 관계다.,medium
+e12_edge_020,e12_addsub_two_digit_principle,e12_addsub_two_digit_calc,prerequisite_for,curriculum_math_2022:printed p. 11; [2수01-06] - 계산 원리를 이해하고 그 계산을 할 수 있다는 진술 구조,,high
+e12_edge_021,e12_addsub_two_digit_calc,e12_three_number_addsub,prerequisite_for,curriculum_math_2022:printed p. 11; [2수01-06]~[2수01-08] - 두 수의 덧셈과 뺄셈에서 세 수의 덧셈과 뺄셈으로 확장하는 성취기준 구성,성취기준 배열 순서에서 추론한 관계다.,medium
+e12_edge_022,e12_addsub_two_digit_calc,e12_box_value,prerequisite_for,"curriculum_math_2022:printed p. 11; [2수01-06], [2수01-09] - □의 값 구하기는 덧셈과 뺄셈 계산을 전제로 한다",문서가 직접 순서를 말하지 않으므로 medium을 유지한다.,medium
+e12_edge_023,e12_add,e12_mul_repeated_addition,prerequisite_for,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 동수누가는 같은 수를 거듭 더하는 방식이므로 덧셈을 전제로 한다,문서가 직접 순서를 말하지 않으므로 medium을 유지한다.,medium
+e12_edge_024,e12_gugu,e12_single_digit_mul,prerequisite_for,curriculum_math_2022:printed p. 11; [2수01-11] - 곱셈구구를 이해하고 한 자리 수의 곱셈을 할 수 있다는 진술 구조,,high
+e12_edge_025,e12_num_decompose_compose,e12_num_sense,used_in,curriculum_math_2022:printed p. 11; [2수01-04] - 분해와 합성 활동을 통하여 수 감각을 기른다,,high
+e12_edge_026,e12_addsub_everyday_words,e12_addsub_meaning,used_in,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 일상용어를 사용하여 덧셈과 뺄셈의 의미에 친숙하게 한다,,high
+e12_edge_027,e12_one_situation_two_expressions,e12_addsub_relation,used_in,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 한 상황을 두 식으로 나타내는 활동으로 덧셈과 뺄셈의 관계를 이해하게 한다,,high
+e12_edge_028,e12_three_number_addsub,e12_add_assoc,used_in,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 세 수의 덧셈 결과를 비교하는 활동으로 결합법칙을 직관적으로 이해하게 한다,,high
+e12_edge_029,e12_flexible_calc,e12_operation_sense,used_in,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 여러 가지 방법으로 계산하는 활동을 통하여 연산 감각을 기르게 한다,,high
+e12_edge_030,e12_box_expressions,e12_box_value,used_in,curriculum_math_2022:printed p. 11; [2수01-09] - □가 사용된 식을 만들고 그 식에서 □의 값을 구한다,,high
+e12_edge_031,e12_add,e12_addsub_problem_posing,used_in,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 실생활 상황으로 덧셈 문제를 만들고 해결하게 한다,,high
+e12_edge_032,e12_sub,e12_addsub_problem_posing,used_in,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 실생활 상황으로 뺄셈 문제를 만들고 해결하게 한다,,high
+e12_edge_033,e12_mul_bae,e12_mul_meaning,used_in,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 곱셈의 의미는 배의 개념을 통하여 다룬다,,high
+e12_edge_034,e12_mul_repeated_addition,e12_mul_meaning,used_in,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 곱셈의 의미는 동수누가를 통하여 다룬다,,high
+e12_edge_035,e12_mul_table,e12_mul_comm,used_in,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 곱셈표를 이용해 두 수를 바꾸어 곱한 결과를 비교하여 교환법칙을 이해하게 한다,,high
+e12_edge_036,e12_num_need_for_numbers,e12_num_zero_to_100,used_in,curriculum_math_2022:printed p. 11; [2수01-01] - 수의 필요성을 인식하면서 수 개념을 이해한다,,high
+e12_edge_037,e12_equal_sign,e12_add_expression,used_in,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 덧셈식에서 등호 양쪽의 양이 같음을 이해하게 한다,,high
+e12_edge_038,e12_equal_sign,e12_sub_expression,used_in,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 뺄셈식에서 등호 양쪽의 양이 같음을 이해하게 한다,,high
+e12_edge_039,e12_equal_sign,e12_mul_expression,used_in,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 곱셈식에서 등호 양쪽의 양이 같음을 이해하게 한다,,high
+e12_edge_040,e12_num_pairing_even_odd,e12_num_even,used_in,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 둘씩 묶어 보는 활동을 통하여 짝수를 직관적으로 이해하게 한다,,high
+e12_edge_041,e12_num_pairing_even_odd,e12_num_odd,used_in,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 둘씩 묶어 보는 활동을 통하여 홀수를 직관적으로 이해하게 한다,,high
+e12_edge_042,e12_add,e12_add_expression,represented_by,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 덧셈은 덧셈식으로 나타낸다,,high
+e12_edge_043,e12_sub,e12_sub_expression,represented_by,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 뺄셈은 뺄셈식으로 나타낸다,,high
+e12_edge_044,e12_mul,e12_mul_expression,represented_by,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 곱셈은 곱셈식으로 나타낸다,,high
+e12_edge_045,e12_mul,e12_mul_symbol,represented_by,curriculum_math_2022:printed p. 11 용어와 기호 - 곱셈은 기호 ×로 나타낸다,,high
+e12_edge_046,e12_gugu,e12_mul_table,represented_by,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 곱셈표는 곱셈의 결과를 표로 정리한 표현이다,곱셈구구와 곱셈표의 직접 연결 문장은 없으므로 medium을 유지한다.,medium
+e12_edge_047,e12_num_positional_notation,e12_num_ten_bundles,represented_by,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 10개씩 묶음과 낱개 표현이 위치적 기수법의 기초를 나타낸다,,high
+e12_edge_048,e12_num_even,e12_num_odd,related_to,curriculum_math_2022:printed p. 11 용어와 기호 - 짝수와 홀수는 같은 용어 목록에서 함께 다루는 개념 쌍이다,,high
+e12_edge_049,e12_num_number_uses,e12_num_need_for_numbers,related_to,curriculum_math_2022:printed p. 11~12 적용 시 고려 사항 - 자연수의 쓰임을 알고 실생활 사례로 수의 필요성을 인식하게 한다는 같은 고려 사항 문장,,high
+e12_edge_050,e12_add_comm,e12_add_assoc,related_to,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 둘 다 덧셈 연산 법칙의 직관적 이해로 함께 제시된다,,medium

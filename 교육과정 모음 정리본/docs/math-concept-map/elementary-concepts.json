@@ -1,0 +1,2100 @@
+{
+ "metadata": {
+  "title": "초등학교 수학 개념 위계 Map (파일럿)",
+  "schema_version": "0.1.0",
+  "generated_at": "2026-07-06T11:21:39",
+  "pilot_scope": "초등학교 1~2학년군 수와 연산([2수01-01]~[2수01-11])",
+  "scope_rules": "2026-07-06 사용자 결정: 고등학교 선택 과목 제외, 공식 원문 출처만 사용 (AGENTS.md Math Concept Map Scope Rules)",
+  "concept_count": 51,
+  "edge_count": 50
+ },
+ "sources": [
+  {
+   "id": "curriculum_math_2022",
+   "title": "2022 개정 수학과 교육과정 [별책8]",
+   "path": "2022_개정_중학교_교육과정_PDF/교과/02_[별책8] 수학과 교육과정.pdf",
+   "sha256": "ba7c7c63ad31ba0fd32e5eb8148d696dd73288acce111495c593298112f8f840",
+   "source_type": "official_curriculum_pdf"
+  },
+  {
+   "id": "textbook_originals",
+   "title": "교과서 원본 폴더",
+   "path": "교과서_원본/",
+   "source_type": "pending_textbook_sources",
+   "notes": "현재 분석할 초등 교과서, 익힘책, 지도서 PDF 또는 이미지 파일이 없다."
+  }
+ ],
+ "concepts": [
+  {
+   "id": "e12_num_zero_to_100",
+   "label_ko": "0과 100까지의 수",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "네 자리 이하의 수",
+   "concept_type": "core_concept",
+   "short_definition": "수의 필요성을 인식하면서 이해하는 0부터 100까지의 수 개념.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "0과 100까지의 수 개념을 이해하고 수를 세고 읽고 쓰는 성취기준"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_num_need_for_numbers",
+   "label_ko": "수의 필요성 인식하기",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "네 자리 이하의 수",
+   "concept_type": "procedure",
+   "short_definition": "실생활에서 수가 사용되는 사례를 통하여 수의 필요성을 인식하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "수의 필요성을 인식하면서 수 개념을 이해한다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "실생활에서 수가 사용되는 사례로 네 자리 이하의 수의 필요성을 인식하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "e12_num_number_uses"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_num_counting",
+   "label_ko": "수 세기",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "네 자리 이하의 수",
+   "concept_type": "procedure",
+   "short_definition": "구체적 대상을 세어 수를 파악하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "수를 세고 읽고 쓸 수 있다는 진술의 세기 부분"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "e12_num_zero_to_100"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_num_grouped_counting",
+   "label_ko": "묶어 세기",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "네 자리 이하의 수",
+   "concept_type": "procedure",
+   "short_definition": "수 세기가 필요한 장면에서 일정한 개수로 묶어 세는 방법.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "수 세기가 필요한 장면에서 묶어 세기 방법으로 세어 보게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "e12_num_counting"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_num_skip_counting",
+   "label_ko": "뛰어 세기",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "네 자리 이하의 수",
+   "concept_type": "procedure",
+   "short_definition": "수 세기가 필요한 장면에서 일정한 간격으로 뛰어 세는 방법.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "수 세기가 필요한 장면에서 뛰어 세기 방법으로 세어 보게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "e12_num_counting"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_num_reading",
+   "label_ko": "수 읽기",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "네 자리 이하의 수",
+   "concept_type": "procedure",
+   "short_definition": "수를 바르게 읽는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-01], [2수01-02]",
+     "evidence_kind": "achievement_standard",
+     "summary": "수를 읽고 쓸 수 있다는 진술의 읽기 부분"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "e12_num_zero_to_100"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_num_writing",
+   "label_ko": "수 쓰기",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "네 자리 이하의 수",
+   "concept_type": "procedure",
+   "short_definition": "수를 숫자로 바르게 쓰는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-01], [2수01-02]",
+     "evidence_kind": "achievement_standard",
+     "summary": "수를 읽고 쓸 수 있다는 진술의 쓰기 부분"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "e12_num_zero_to_100"
+   ],
+   "related_ids": [],
+   "notes": "저학년 한글 학습 정도를 고려하여 '여덟', '마흔아홉' 등 한글로 쓰게 하는 것은 지양한다(printed p. 12).",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_num_number_uses",
+   "label_ko": "자연수의 쓰임(개수·순서·이름)",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "네 자리 이하의 수",
+   "concept_type": "property",
+   "short_definition": "자연수가 개수, 순서, 이름 등을 나타내는 경우가 있음.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11~12 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "자연수가 개수, 순서, 이름 등을 나타내는 경우가 있음을 알게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "e12_num_need_for_numbers"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_num_place_value",
+   "label_ko": "일·십·백·천의 자릿값",
+   "aliases": [
+    "자릿값"
+   ],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "네 자리 이하의 수",
+   "concept_type": "core_concept",
+   "short_definition": "일, 십, 백, 천 각 자리가 나타내는 값.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-02]",
+     "evidence_kind": "achievement_standard",
+     "summary": "일, 십, 백, 천의 자릿값과 위치적 기수법을 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e12_num_zero_to_100"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_num_zero_in_place",
+   "label_ko": "0이 있는 자릿값",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "네 자리 이하의 수",
+   "concept_type": "sub_concept",
+   "short_definition": "십의 자리 수가 0인 세 자리 수, 백·십의 자리 수가 0인 네 자리 수에서의 자릿값 이해.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "자리 수가 0인 수를 활용하여 자릿값을 이해하게 할 수 있다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "e12_num_place_value"
+   ],
+   "related_ids": [],
+   "notes": "문서가 '활용할 수 있다'로 제시한 선택적 활동이므로 교과서 확인 전 medium을 유지한다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_num_positional_notation",
+   "label_ko": "위치적 기수법",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "네 자리 이하의 수",
+   "concept_type": "core_concept",
+   "short_definition": "숫자의 위치에 따라 값이 정해지는 수 표기 방법.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-02]",
+     "evidence_kind": "achievement_standard",
+     "summary": "위치적 기수법을 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e12_num_ten_bundles"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_num_ten_bundles",
+   "label_ko": "10개씩 묶음과 낱개",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "네 자리 이하의 수",
+   "concept_type": "representation",
+   "short_definition": "두 자리 수를 10개씩 묶음과 낱개로 나타내는 표현.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "두 자리 수를 10개씩 묶음과 낱개로 나타내게 하여 위치적 기수법의 기초 개념을 형성하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_num_four_digit_read_write",
+   "label_ko": "네 자리 이하의 수 읽고 쓰기",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "네 자리 이하의 수",
+   "concept_type": "procedure",
+   "short_definition": "자릿값과 위치적 기수법을 바탕으로 네 자리 이하의 수를 읽고 쓰는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-02]",
+     "evidence_kind": "achievement_standard",
+     "summary": "네 자리 이하의 수를 읽고 쓸 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e12_num_place_value",
+    "e12_num_positional_notation"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_num_sequence",
+   "label_ko": "수의 계열",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "네 자리 이하의 수",
+   "concept_type": "core_concept",
+   "short_definition": "네 자리 이하의 수 범위에서 수가 이어지는 순서 구조.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-03]",
+     "evidence_kind": "achievement_standard",
+     "summary": "수의 계열을 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_num_compare",
+   "label_ko": "수의 크기 비교하기",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "네 자리 이하의 수",
+   "concept_type": "procedure",
+   "short_definition": "네 자리 이하의 수 범위에서 두 수의 크기를 비교하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-03]",
+     "evidence_kind": "achievement_standard",
+     "summary": "수의 크기를 비교할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e12_num_sequence"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "용어·기호 목록(printed p. 11)의 기호 6칸 중 ×만 텍스트 추출로 확인했고 나머지 기호는 한글 수식 글꼴(HyhwpEQ) 문제로 미추출이다. 원문 시각 확인 또는 교과서 확인 전까지 미추출 기호는 concept으로 추가하지 않는다.",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_num_decompose_compose",
+   "label_ko": "수의 분해와 합성",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "네 자리 이하의 수",
+   "concept_type": "core_concept",
+   "short_definition": "하나의 수를 두 수로 분해하고 두 수를 하나의 수로 합성하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-04]",
+     "evidence_kind": "achievement_standard",
+     "summary": "분해와 합성 활동으로 수 감각을 기른다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "수를 분해하고 합성하는 활동은 20 이하의 수의 범위에서 한다(printed p. 12).",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_num_sense",
+   "label_ko": "수 감각",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "네 자리 이하의 수",
+   "concept_type": "sub_concept",
+   "short_definition": "수와 수 사이 관계를 유연하게 다루는 감각.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-04]",
+     "evidence_kind": "achievement_standard",
+     "summary": "분해·합성 활동을 통하여 수 감각을 기른다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_num_even",
+   "label_ko": "짝수",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "네 자리 이하의 수",
+   "concept_type": "term",
+   "short_definition": "둘씩 묶을 때 남는 것이 없는 수를 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "수와 연산 영역 용어 목록의 짝수"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "e12_num_odd"
+   ],
+   "notes": "짝수와 홀수는 20 이하의 수의 범위에서 다룬다(printed p. 12).",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_num_odd",
+   "label_ko": "홀수",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "네 자리 이하의 수",
+   "concept_type": "term",
+   "short_definition": "둘씩 묶을 때 하나가 남는 수를 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "수와 연산 영역 용어 목록의 홀수"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "e12_num_even"
+   ],
+   "notes": "짝수와 홀수는 20 이하의 수의 범위에서 다룬다(printed p. 12).",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_num_pairing_even_odd",
+   "label_ko": "둘씩 묶어 짝수·홀수 판별하기",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "네 자리 이하의 수",
+   "concept_type": "procedure",
+   "short_definition": "실생활 상황에서 둘씩 묶어 보는 활동으로 짝수와 홀수를 직관적으로 이해하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "둘씩 묶어 보는 활동을 통하여 짝수와 홀수를 직관적으로 이해하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_add",
+   "label_ko": "덧셈",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "두 자리 수 범위의 덧셈과 뺄셈",
+   "concept_type": "core_concept",
+   "short_definition": "두 수를 더하는 연산.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "수와 연산 영역 용어 목록의 덧셈"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-05]",
+     "evidence_kind": "achievement_standard",
+     "summary": "실생활 상황과 연결하여 덧셈의 의미를 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_sub",
+   "label_ko": "뺄셈",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "두 자리 수 범위의 덧셈과 뺄셈",
+   "concept_type": "core_concept",
+   "short_definition": "한 수에서 다른 수를 빼는 연산.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "수와 연산 영역 용어 목록의 뺄셈"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-05]",
+     "evidence_kind": "achievement_standard",
+     "summary": "실생활 상황과 연결하여 뺄셈의 의미를 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_addsub_meaning",
+   "label_ko": "덧셈과 뺄셈의 의미",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "두 자리 수 범위의 덧셈과 뺄셈",
+   "concept_type": "sub_concept",
+   "short_definition": "덧셈과 뺄셈이 이루어지는 실생활 상황과 연결하여 이해하는 두 연산의 의미.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-05]",
+     "evidence_kind": "achievement_standard",
+     "summary": "실생활 상황과 연결하여 덧셈과 뺄셈의 의미를 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "e12_add",
+    "e12_sub"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_addsub_everyday_words",
+   "label_ko": "덧셈과 뺄셈의 일상용어",
+   "aliases": [
+    "더한다",
+    "합한다",
+    "뺀다",
+    "덜어 낸다",
+    "합",
+    "차"
+   ],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "두 자리 수 범위의 덧셈과 뺄셈",
+   "concept_type": "term",
+   "short_definition": "덧셈과 뺄셈의 의미에 친숙해지도록 사용하는 일상용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "'더한다', '합한다', '뺀다', '덜어 낸다', '합', '차' 등의 일상용어를 사용하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_addsub_two_digit_principle",
+   "label_ko": "두 자리 수 덧셈과 뺄셈의 계산 원리",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "두 자리 수 범위의 덧셈과 뺄셈",
+   "concept_type": "sub_concept",
+   "short_definition": "두 자리 수 범위 덧셈과 뺄셈에서 계산이 이루어지는 원리.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-06]",
+     "evidence_kind": "achievement_standard",
+     "summary": "계산 원리를 이해하고 계산을 할 수 있다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "덧셈은 두 자리 수 범위에서 다루되 합이 세 자리 수인 경우도 포함한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "e12_add",
+    "e12_sub"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_addsub_two_digit_calc",
+   "label_ko": "두 자리 수 덧셈과 뺄셈 계산하기",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "두 자리 수 범위의 덧셈과 뺄셈",
+   "concept_type": "procedure",
+   "short_definition": "두 자리 수 범위에서 덧셈과 뺄셈을 실제로 계산하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-06]",
+     "evidence_kind": "achievement_standard",
+     "summary": "계산 원리를 이해하고 그 계산을 할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e12_addsub_two_digit_principle"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_flexible_calc",
+   "label_ko": "여러 가지 방법으로 덧셈과 뺄셈하기",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "두 자리 수 범위의 덧셈과 뺄셈",
+   "concept_type": "procedure",
+   "short_definition": "덧셈과 뺄셈을 여러 가지 방법으로 계산해 보는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "여러 가지 방법으로 계산하는 활동으로 연산 감각을 기르게 하되 지나치게 형식화하지 않는다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "지나치게 형식화하여 다루지 않는다(printed p. 12).",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_operation_sense",
+   "label_ko": "연산 감각",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "두 자리 수 범위의 덧셈과 뺄셈",
+   "concept_type": "sub_concept",
+   "short_definition": "연산을 유연하게 선택하고 다루는 감각.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "여러 가지 방법으로 계산하는 활동을 통하여 연산 감각을 기르게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_add_expression",
+   "label_ko": "덧셈식",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "두 자리 수 범위의 덧셈과 뺄셈",
+   "concept_type": "representation",
+   "short_definition": "덧셈을 식으로 나타낸 표현.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "덧셈식, 뺄셈식, 곱셈식에서 등호 양쪽의 양이 서로 같음을 이해하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_sub_expression",
+   "label_ko": "뺄셈식",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "두 자리 수 범위의 덧셈과 뺄셈",
+   "concept_type": "representation",
+   "short_definition": "뺄셈을 식으로 나타낸 표현.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "덧셈식, 뺄셈식, 곱셈식에서 등호 양쪽의 양이 서로 같음을 이해하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_equal_sign",
+   "label_ko": "등호",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "두 자리 수 범위의 덧셈과 뺄셈",
+   "concept_type": "term",
+   "short_definition": "식의 양쪽이 서로 같음을 나타내는 기호의 이름.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "덧셈식, 뺄셈식, 곱셈식에서 등호 양쪽의 양이 서로 같음을 이해하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "용어·기호 목록(printed p. 11)의 기호 6칸 중 ×만 텍스트 추출로 확인했고 나머지 기호는 한글 수식 글꼴(HyhwpEQ) 문제로 미추출이다. 원문 시각 확인 또는 교과서 확인 전까지 미추출 기호는 concept으로 추가하지 않는다.",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_equal_both_sides",
+   "label_ko": "등호 양쪽의 양이 서로 같음",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "두 자리 수 범위의 덧셈과 뺄셈",
+   "concept_type": "property",
+   "short_definition": "등호의 양쪽에 있는 양이 서로 같다는 관계적 이해.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "등호의 양쪽에 있는 양이 서로 같음을 이해하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "e12_equal_sign"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_addsub_relation",
+   "label_ko": "덧셈과 뺄셈의 관계",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "두 자리 수 범위의 덧셈과 뺄셈",
+   "concept_type": "property",
+   "short_definition": "덧셈과 뺄셈이 서로 연결되는 관계.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-07]",
+     "evidence_kind": "achievement_standard",
+     "summary": "덧셈과 뺄셈의 관계를 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_one_situation_two_expressions",
+   "label_ko": "한 상황을 덧셈식과 뺄셈식으로 나타내기",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "두 자리 수 범위의 덧셈과 뺄셈",
+   "concept_type": "procedure",
+   "short_definition": "한 가지 상황을 간단한 덧셈식과 뺄셈식으로 나타내는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "한 가지 상황을 덧셈식과 뺄셈식으로 나타내는 활동으로 덧셈과 뺄셈의 관계를 이해하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_three_number_addsub",
+   "label_ko": "세 수의 덧셈과 뺄셈",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "두 자리 수 범위의 덧셈과 뺄셈",
+   "concept_type": "procedure",
+   "short_definition": "두 자리 수의 범위에서 세 수의 덧셈과 뺄셈을 하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-08]",
+     "evidence_kind": "achievement_standard",
+     "summary": "세 수의 덧셈과 뺄셈을 할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e12_addsub_two_digit_calc"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_add_comm",
+   "label_ko": "덧셈의 교환법칙 직관적 이해",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "두 자리 수 범위의 덧셈과 뺄셈",
+   "concept_type": "property",
+   "short_definition": "두 수를 바꾸어 더해도 결과가 같음을 직관적으로 이해.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "한 자리 수인 두 수를 바꾸어 더해 보고 결과를 비교하는 활동으로 교환법칙을 직관적으로 이해하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "e12_add_assoc"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_add_assoc",
+   "label_ko": "덧셈의 결합법칙 직관적 이해",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "두 자리 수 범위의 덧셈과 뺄셈",
+   "concept_type": "property",
+   "short_definition": "세 수의 덧셈에서 더하는 순서를 바꾸어도 결과가 같음을 직관적으로 이해.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "앞에서부터 더한 결과와 합이 10이 되는 두 수를 먼저 더한 결과를 비교하는 활동으로 결합법칙을 직관적으로 이해하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "e12_add_comm"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_box_expressions",
+   "label_ko": "□가 사용된 덧셈식과 뺄셈식",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "두 자리 수 범위의 덧셈과 뺄셈",
+   "concept_type": "representation",
+   "short_definition": "□가 들어간 덧셈식과 뺄셈식 표현.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-09]",
+     "evidence_kind": "achievement_standard",
+     "summary": "□가 사용된 덧셈식과 뺄셈식을 만든다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "□의 값을 직관적으로 구할 수 있는 수준으로 다룬다(printed p. 12).",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_box_value",
+   "label_ko": "□의 값 구하기",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "두 자리 수 범위의 덧셈과 뺄셈",
+   "concept_type": "procedure",
+   "short_definition": "□가 사용된 덧셈식과 뺄셈식에서 □의 값을 구하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-09]",
+     "evidence_kind": "achievement_standard",
+     "summary": "□의 값을 구할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e12_addsub_two_digit_calc"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_addsub_problem_posing",
+   "label_ko": "덧셈과 뺄셈 문제 만들고 해결하기",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "두 자리 수 범위의 덧셈과 뺄셈",
+   "concept_type": "procedure",
+   "short_definition": "친근한 실생활 상황을 이용하여 덧셈과 뺄셈 문제를 만들고 해결하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "실생활 상황을 이용하여 덧셈과 뺄셈에 관련된 문제를 만들고 해결하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_mul",
+   "label_ko": "곱셈",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "한 자리 수의 곱셈",
+   "concept_type": "core_concept",
+   "short_definition": "같은 수를 여러 번 더하는 상황을 나타내는 연산.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "수와 연산 영역 용어 목록의 곱셈"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-10]",
+     "evidence_kind": "achievement_standard",
+     "summary": "실생활 상황과 연결하여 곱셈의 의미를 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_mul_meaning",
+   "label_ko": "곱셈의 의미",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "한 자리 수의 곱셈",
+   "concept_type": "sub_concept",
+   "short_definition": "곱셈이 이루어지는 실생활 상황과 연결하여 이해하는 곱셈의 의미.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-10]",
+     "evidence_kind": "achievement_standard",
+     "summary": "곱셈의 의미를 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "e12_mul"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_mul_bae",
+   "label_ko": "배의 개념",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "한 자리 수의 곱셈",
+   "concept_type": "sub_concept",
+   "short_definition": "몇 배로 나타내는 곱셈의 기초 개념.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "곱셈의 의미는 배의 개념과 동수누가를 통하여 다룬다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_mul_repeated_addition",
+   "label_ko": "동수누가",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "한 자리 수의 곱셈",
+   "concept_type": "sub_concept",
+   "short_definition": "같은 수를 거듭 더하는 것으로 곱셈의 의미를 다루는 방식.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "곱셈의 의미는 배의 개념과 동수누가를 통하여 다룬다"
+    }
+   ],
+   "prerequisite_ids": [
+    "e12_add"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_mul_zero_one",
+   "label_ko": "1의 곱과 0의 곱",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "한 자리 수의 곱셈",
+   "concept_type": "sub_concept",
+   "short_definition": "1을 곱하는 경우와 0을 곱하는 경우.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "1의 곱과 0의 곱은 실생활과 관련지어 다룬다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "e12_mul"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_gugu",
+   "label_ko": "곱셈구구",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "한 자리 수의 곱셈",
+   "concept_type": "core_concept",
+   "short_definition": "한 자리 수끼리의 곱을 정리한 곱셈의 기본 사실.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-11]",
+     "evidence_kind": "achievement_standard",
+     "summary": "곱셈구구를 이해하고 한 자리 수의 곱셈을 할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "e12_mul"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_single_digit_mul",
+   "label_ko": "한 자리 수의 곱셈하기",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "한 자리 수의 곱셈",
+   "concept_type": "procedure",
+   "short_definition": "곱셈구구를 바탕으로 한 자리 수의 곱셈을 하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-11]",
+     "evidence_kind": "achievement_standard",
+     "summary": "한 자리 수의 곱셈을 할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e12_gugu"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_mul_expression",
+   "label_ko": "곱셈식",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "한 자리 수의 곱셈",
+   "concept_type": "representation",
+   "short_definition": "곱셈을 식으로 나타낸 표현.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "덧셈식, 뺄셈식, 곱셈식에서 등호 양쪽의 양이 서로 같음을 이해하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_mul_symbol",
+   "label_ko": "곱셈 기호 ×",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "한 자리 수의 곱셈",
+   "concept_type": "term",
+   "short_definition": "곱셈을 나타내는 기호 ×.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "수와 연산 영역 기호 목록에서 추출 확인된 ×"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "용어·기호 목록(printed p. 11)의 기호 6칸 중 ×만 텍스트 추출로 확인했고 나머지 기호는 한글 수식 글꼴(HyhwpEQ) 문제로 미추출이다. 원문 시각 확인 또는 교과서 확인 전까지 미추출 기호는 concept으로 추가하지 않는다.",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_mul_table",
+   "label_ko": "곱셈표",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "한 자리 수의 곱셈",
+   "concept_type": "representation",
+   "short_definition": "곱셈의 결과를 표로 정리한 표현.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "곱셈표를 이용해서 두 수를 바꾸어 곱해도 곱이 같음을 비교하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "변화와 관계 영역 고려 사항(printed p. 13)에서도 수 배열표·덧셈표와 함께 규칙 찾기에 활용된다.",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_mul_comm",
+   "label_ko": "곱셈의 교환법칙 직관적 이해",
+   "aliases": [],
+   "grade": "초1-2",
+   "domain": "수와 연산",
+   "unit": "한 자리 수의 곱셈",
+   "concept_type": "property",
+   "short_definition": "두 수를 바꾸어 곱해도 곱이 같음을 직관적으로 이해.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "곱셈표로 두 수를 바꾸어 곱해도 곱이 같음을 비교하는 활동으로 교환법칙을 직관적으로 이해하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  }
+ ],
+ "edges": [
+  {
+   "id": "e12_edge_001",
+   "source_id": "e12_num_zero_to_100",
+   "target_id": "e12_num_counting",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-01]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "수 개념 이해와 함께 수를 세는 활동이 같은 성취기준에 묶여 있다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_002",
+   "source_id": "e12_num_zero_to_100",
+   "target_id": "e12_num_reading",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-01]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "수 개념 이해와 함께 수를 읽는 활동이 같은 성취기준에 묶여 있다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_003",
+   "source_id": "e12_num_zero_to_100",
+   "target_id": "e12_num_writing",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-01]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "수 개념 이해와 함께 수를 쓰는 활동이 같은 성취기준에 묶여 있다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_004",
+   "source_id": "e12_num_counting",
+   "target_id": "e12_num_grouped_counting",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "묶어 세기는 수 세기의 한 방법으로 제시된다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_005",
+   "source_id": "e12_num_counting",
+   "target_id": "e12_num_skip_counting",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "뛰어 세기는 수 세기의 한 방법으로 제시된다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_006",
+   "source_id": "e12_num_place_value",
+   "target_id": "e12_num_zero_in_place",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "0이 있는 자릿값은 자릿값 이해를 위한 활용 사례다"
+    }
+   ],
+   "notes": "",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_007",
+   "source_id": "e12_add",
+   "target_id": "e12_addsub_meaning",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-05]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "덧셈의 의미는 덧셈 아래의 하위 개념이다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_008",
+   "source_id": "e12_sub",
+   "target_id": "e12_addsub_meaning",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-05]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "뺄셈의 의미는 뺄셈 아래의 하위 개념이다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_009",
+   "source_id": "e12_add",
+   "target_id": "e12_addsub_two_digit_principle",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-06]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "두 자리 수 덧셈의 계산 원리는 덧셈의 하위 개념이다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_010",
+   "source_id": "e12_sub",
+   "target_id": "e12_addsub_two_digit_principle",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-06]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "두 자리 수 뺄셈의 계산 원리는 뺄셈의 하위 개념이다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_011",
+   "source_id": "e12_equal_sign",
+   "target_id": "e12_equal_both_sides",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "등호 양쪽의 양이 같음은 등호에 대한 성질이다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_012",
+   "source_id": "e12_mul",
+   "target_id": "e12_mul_meaning",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-10]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "곱셈의 의미는 곱셈 아래의 하위 개념이다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_013",
+   "source_id": "e12_mul",
+   "target_id": "e12_mul_zero_one",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "1의 곱과 0의 곱은 곱셈 아래의 하위 사례다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_014",
+   "source_id": "e12_mul",
+   "target_id": "e12_gugu",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-11]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "곱셈구구는 곱셈 아래의 하위 개념이다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_015",
+   "source_id": "e12_num_zero_to_100",
+   "target_id": "e12_num_place_value",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-01]~[2수01-02]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "100까지의 수 개념에서 네 자리 이하의 수로 범위를 넓히는 성취기준 구성"
+    }
+   ],
+   "notes": "성취기준 배열 순서에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_016",
+   "source_id": "e12_num_ten_bundles",
+   "target_id": "e12_num_positional_notation",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "10개씩 묶음과 낱개 표현으로 위치적 기수법의 기초 개념을 형성하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_017",
+   "source_id": "e12_num_place_value",
+   "target_id": "e12_num_four_digit_read_write",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-02]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "자릿값 이해를 바탕으로 네 자리 이하의 수를 읽고 쓴다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_018",
+   "source_id": "e12_num_positional_notation",
+   "target_id": "e12_num_four_digit_read_write",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-02]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "위치적 기수법 이해를 바탕으로 네 자리 이하의 수를 읽고 쓴다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_019",
+   "source_id": "e12_num_sequence",
+   "target_id": "e12_num_compare",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-03]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "수의 계열을 이해하고 수의 크기를 비교한다는 진술 순서"
+    }
+   ],
+   "notes": "한 성취기준 안의 진술 순서에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_020",
+   "source_id": "e12_addsub_two_digit_principle",
+   "target_id": "e12_addsub_two_digit_calc",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-06]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "계산 원리를 이해하고 그 계산을 할 수 있다는 진술 구조"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_021",
+   "source_id": "e12_addsub_two_digit_calc",
+   "target_id": "e12_three_number_addsub",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-06]~[2수01-08]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "두 수의 덧셈과 뺄셈에서 세 수의 덧셈과 뺄셈으로 확장하는 성취기준 구성"
+    }
+   ],
+   "notes": "성취기준 배열 순서에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_022",
+   "source_id": "e12_addsub_two_digit_calc",
+   "target_id": "e12_box_value",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-06], [2수01-09]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "□의 값 구하기는 덧셈과 뺄셈 계산을 전제로 한다"
+    }
+   ],
+   "notes": "문서가 직접 순서를 말하지 않으므로 medium을 유지한다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_023",
+   "source_id": "e12_add",
+   "target_id": "e12_mul_repeated_addition",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "동수누가는 같은 수를 거듭 더하는 방식이므로 덧셈을 전제로 한다"
+    }
+   ],
+   "notes": "문서가 직접 순서를 말하지 않으므로 medium을 유지한다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_024",
+   "source_id": "e12_gugu",
+   "target_id": "e12_single_digit_mul",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-11]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "곱셈구구를 이해하고 한 자리 수의 곱셈을 할 수 있다는 진술 구조"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_025",
+   "source_id": "e12_num_decompose_compose",
+   "target_id": "e12_num_sense",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-04]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "분해와 합성 활동을 통하여 수 감각을 기른다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_026",
+   "source_id": "e12_addsub_everyday_words",
+   "target_id": "e12_addsub_meaning",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "일상용어를 사용하여 덧셈과 뺄셈의 의미에 친숙하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_027",
+   "source_id": "e12_one_situation_two_expressions",
+   "target_id": "e12_addsub_relation",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "한 상황을 두 식으로 나타내는 활동으로 덧셈과 뺄셈의 관계를 이해하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_028",
+   "source_id": "e12_three_number_addsub",
+   "target_id": "e12_add_assoc",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "세 수의 덧셈 결과를 비교하는 활동으로 결합법칙을 직관적으로 이해하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_029",
+   "source_id": "e12_flexible_calc",
+   "target_id": "e12_operation_sense",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "여러 가지 방법으로 계산하는 활동을 통하여 연산 감각을 기르게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_030",
+   "source_id": "e12_box_expressions",
+   "target_id": "e12_box_value",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-09]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "□가 사용된 식을 만들고 그 식에서 □의 값을 구한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_031",
+   "source_id": "e12_add",
+   "target_id": "e12_addsub_problem_posing",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "실생활 상황으로 덧셈 문제를 만들고 해결하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_032",
+   "source_id": "e12_sub",
+   "target_id": "e12_addsub_problem_posing",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "실생활 상황으로 뺄셈 문제를 만들고 해결하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_033",
+   "source_id": "e12_mul_bae",
+   "target_id": "e12_mul_meaning",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "곱셈의 의미는 배의 개념을 통하여 다룬다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_034",
+   "source_id": "e12_mul_repeated_addition",
+   "target_id": "e12_mul_meaning",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "곱셈의 의미는 동수누가를 통하여 다룬다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_035",
+   "source_id": "e12_mul_table",
+   "target_id": "e12_mul_comm",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "곱셈표를 이용해 두 수를 바꾸어 곱한 결과를 비교하여 교환법칙을 이해하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_036",
+   "source_id": "e12_num_need_for_numbers",
+   "target_id": "e12_num_zero_to_100",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11; [2수01-01]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "수의 필요성을 인식하면서 수 개념을 이해한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_037",
+   "source_id": "e12_equal_sign",
+   "target_id": "e12_add_expression",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "덧셈식에서 등호 양쪽의 양이 같음을 이해하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_038",
+   "source_id": "e12_equal_sign",
+   "target_id": "e12_sub_expression",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "뺄셈식에서 등호 양쪽의 양이 같음을 이해하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_039",
+   "source_id": "e12_equal_sign",
+   "target_id": "e12_mul_expression",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "곱셈식에서 등호 양쪽의 양이 같음을 이해하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_040",
+   "source_id": "e12_num_pairing_even_odd",
+   "target_id": "e12_num_even",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "둘씩 묶어 보는 활동을 통하여 짝수를 직관적으로 이해하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_041",
+   "source_id": "e12_num_pairing_even_odd",
+   "target_id": "e12_num_odd",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "둘씩 묶어 보는 활동을 통하여 홀수를 직관적으로 이해하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_042",
+   "source_id": "e12_add",
+   "target_id": "e12_add_expression",
+   "relationship_type": "represented_by",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "덧셈은 덧셈식으로 나타낸다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_043",
+   "source_id": "e12_sub",
+   "target_id": "e12_sub_expression",
+   "relationship_type": "represented_by",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "뺄셈은 뺄셈식으로 나타낸다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_044",
+   "source_id": "e12_mul",
+   "target_id": "e12_mul_expression",
+   "relationship_type": "represented_by",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "곱셈은 곱셈식으로 나타낸다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_045",
+   "source_id": "e12_mul",
+   "target_id": "e12_mul_symbol",
+   "relationship_type": "represented_by",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11 용어와 기호",
+     "evidence_kind": "relationship_evidence",
+     "summary": "곱셈은 기호 ×로 나타낸다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_046",
+   "source_id": "e12_gugu",
+   "target_id": "e12_mul_table",
+   "relationship_type": "represented_by",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "곱셈표는 곱셈의 결과를 표로 정리한 표현이다"
+    }
+   ],
+   "notes": "곱셈구구와 곱셈표의 직접 연결 문장은 없으므로 medium을 유지한다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_047",
+   "source_id": "e12_num_positional_notation",
+   "target_id": "e12_num_ten_bundles",
+   "relationship_type": "represented_by",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "10개씩 묶음과 낱개 표현이 위치적 기수법의 기초를 나타낸다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_048",
+   "source_id": "e12_num_even",
+   "target_id": "e12_num_odd",
+   "relationship_type": "related_to",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11 용어와 기호",
+     "evidence_kind": "relationship_evidence",
+     "summary": "짝수와 홀수는 같은 용어 목록에서 함께 다루는 개념 쌍이다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_049",
+   "source_id": "e12_num_number_uses",
+   "target_id": "e12_num_need_for_numbers",
+   "relationship_type": "related_to",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11~12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "자연수의 쓰임을 알고 실생활 사례로 수의 필요성을 인식하게 한다는 같은 고려 사항 문장"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_050",
+   "source_id": "e12_add_comm",
+   "target_id": "e12_add_assoc",
+   "relationship_type": "related_to",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 12 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "둘 다 덧셈 연산 법칙의 직관적 이해로 함께 제시된다"
+    }
+   ],
+   "notes": "",
+   "confidence": "medium"
+  }
+ ]
+}
