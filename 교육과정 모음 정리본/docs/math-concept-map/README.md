@@ -10,7 +10,8 @@
 - 교과서 근거: `교과서_원본/` 폴더가 현재 비어 있어 아직 반영하지 못함
 - 초1~고3 거시 위계: `k12-spine-*`가 별책8 원문에서 추출한 공통 교육과정 학년군(초1-2, 초3-4, 초5-6, 중1-3) 성취기준 181개와 고등학교 15개 과목 성취기준 254개를 학년군·영역·과목 노드와 선수 관계 edge로 연결한다.
 - 작업 범위(2026-07-06 사용자 결정, `../../AGENTS.md`의 Math Concept Map Scope Rules): 시각화·미시 분해·근거 보강은 공통 교육과정(초1~중3)과 고등학교 공통 과목(공통수학1·2, 기본수학1·2)까지만 진행한다. 고등학교 선택 과목은 spine 추출 데이터로만 보존한다. 개념·용어는 공식 원문 추출 텍스트와 페이지 출처로만 반영한다.
-- 초등 미시 concept: `elementary-*`가 초1-2 수와 연산([2수01-01]~[2수01-11])의 파일럿 분해를 담는다. 나머지 초등 영역·학년군은 다음 확장 대상이다.
+- 초등 미시 concept: `elementary-*`가 초등 전체 학년군(초1-2, 초3-4, 초5-6)의 4개 영역 성취기준 121개를 분해한 concept 330개·edge 345개를 담는다.
+- 고등 공통 과목 미시 concept: `hs-common-*`가 공통수학1·2 성취기준 39개를 분해한 concept 61개·edge 56개를 담는다. 기본수학1·2는 대체 이수 경로이므로 분해에서 제외했다.
 
 ## 현재 데이터 규모
 
@@ -34,10 +35,14 @@
 - `k12-spine.dot`: 학년군·영역 블록·고등 과목 수준의 Graphviz DOT 시각화
 - `k12-spine.md`: spine 데이터 규모, 과목별 성취기준 수, 과목 위계 edge 근거 요약
 - `k12-spine.html`: 학년군 진행이 가로축, 영역이 세로축인 계층형 위계 그래프. 블록 클릭 시 성취기준 원문 표시. 선택 과목 제외
-- `elementary-concepts.json`: 초등 미시 concept 파일럿의 원본 JSON (초1-2 수와 연산)
-- `elementary-concepts.csv`: 같은 파일럿의 concept 노드 CSV
-- `elementary-edges.csv`: 같은 파일럿의 관계 edge CSV
-- `elementary-pilot.md`: 파일럿 범위, 출처 규칙, 데이터 규모, 추출 한계 요약
+- `elementary-concepts.json`: 초등 전체 학년군 미시 concept의 원본 JSON
+- `elementary-concepts.csv`: 같은 데이터셋의 concept 노드 CSV
+- `elementary-edges.csv`: 같은 데이터셋의 관계 edge CSV
+- `elementary-pilot.md`: 초등 범위, 출처 규칙, 데이터 규모, 추출 한계 요약
+- `hs-common-concepts.json`: 공통수학1·2 미시 concept의 원본 JSON
+- `hs-common-concepts.csv`: 같은 데이터셋의 concept 노드 CSV
+- `hs-common-edges.csv`: 같은 데이터셋의 관계 edge CSV
+- `hs-common-pilot.md`: 공통수학1·2 범위, 출처 규칙, 데이터 규모, 추출 한계 요약
 - `achievement-coverage.md`: 공식 성취기준별 연결 concept 요약
 - `achievement-coverage.csv`: 공식 성취기준별 연결 concept 기계 판독용 CSV
 - `review-queue.md`: `low` 신뢰도 concept의 교과서/출처 보강 검토 목록
@@ -113,6 +118,7 @@ python docs/math-concept-map/tools/build_pilot.py
 python docs/math-concept-map/tools/build_k12_spine.py
 python docs/math-concept-map/tools/build_k12_spine_viz.py
 python docs/math-concept-map/tools/build_elementary_pilot.py
+python docs/math-concept-map/tools/build_hs_common_pilot.py
 python docs/math-concept-map/tools/build_coverage_report.py
 python docs/math-concept-map/tools/build_relationship_audit.py
 python docs/math-concept-map/tools/build_node_edge_consistency_audit.py
@@ -196,6 +202,7 @@ python docs/math-concept-map/tools/test_build_unit_coverage.py
 python docs/math-concept-map/tools/test_build_k12_spine.py
 python docs/math-concept-map/tools/test_build_k12_spine_viz.py
 python docs/math-concept-map/tools/test_build_elementary_pilot.py
+python docs/math-concept-map/tools/test_build_hs_common_pilot.py
 python docs/math-concept-map/tools/test_validate_concept_map.py
 ```
 

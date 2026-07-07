@@ -1,0 +1,57 @@
+﻿id,source_id,target_id,relationship_type,source_refs,notes,confidence
+hs_edge_001,hs1_identity,hs1_undetermined,used_in,curriculum_math_2022:printed p. 60 용어와 기호 - 항등식의 성질을 이용하는 미정계수법을 다룬다,,high
+hs_edge_002,hs1_identity,hs1_remainder_thm,related_to,curriculum_math_2022:printed p. 60; [10공수1-01-02] - 항등식의 성질과 나머지정리를 함께 다룬다,,high
+hs_edge_003,hs1_remainder_thm,hs1_factor_thm,related_to,curriculum_math_2022:printed p. 60 적용 시 고려 사항 - 나머지정리와 인수정리를 함께 다룬다,,high
+hs_edge_004,hs1_poly_ops,hs1_factorization,prerequisite_for,curriculum_math_2022:printed p. 60; [10공수1-01-01]~[10공수1-01-03] - 다항식 연산에서 인수분해로 이어지는 성취기준 구성,성취기준 배열 순서에서 추론한 관계다.,medium
+hs_edge_005,hs1_factor_thm,hs1_factorization,used_in,curriculum_math_2022:printed p. 60 적용 시 고려 사항 - 인수정리가 인수분해와 연결된다,문서가 관계를 직접 서술하지 않으므로 medium을 유지한다.,medium
+hs_edge_006,hs1_synthetic_div,hs1_poly_ops,related_to,curriculum_math_2022:printed p. 60 적용 시 고려 사항 - 조립제법을 다항식 나눗셈 연산과 연계하여 이해하게 한다,,high
+hs_edge_007,hs1_imaginary_unit,hs1_complex,used_in,curriculum_math_2022:printed p. 61 용어와 기호 - 허수단위로 복소수를 도입한다,,high
+hs_edge_008,hs1_complex,hs1_complex_ops,used_in,curriculum_math_2022:printed p. 61; [10공수1-02-01] - 복소수의 사칙연산을 수행한다,,high
+hs_edge_009,hs1_conjugate,hs1_complex_ops,used_in,curriculum_math_2022:printed p. 61 적용 시 고려 사항 - 나눗셈은 켤레복소수를 이용하여 계산하게 한다,,high
+hs_edge_010,hs1_complex,hs1_real_imag_roots,prerequisite_for,curriculum_math_2022:printed p. 61 성취기준 해설 - 이차방정식이 복소수 범위에서 항상 근을 가짐을 이해하게 한다,,high
+hs_edge_011,hs1_discriminant,hs1_real_imag_roots,used_in,curriculum_math_2022:printed p. 61; [10공수1-02-02] - 판별식을 이용하여 이차방정식의 근을 판별한다,,high
+hs_edge_012,hs1_real_imag_roots,hs1_root_coeff,related_to,curriculum_math_2022:printed p. 61; [10공수1-02-02]~[10공수1-02-03] - 근 판별과 근과 계수의 관계가 이어지는 구성,성취기준 배열 순서에서 추론한 관계다.,medium
+hs_edge_013,hs1_quad_eq_func,hs1_graph_line,prerequisite_for,curriculum_math_2022:printed p. 61; [10공수1-02-04]~[10공수1-02-05] - 이차방정식·이차함수 관계를 바탕으로 그래프와 직선의 위치 관계를 판단하는 구성,,high
+hs_edge_014,hs1_quad_eq_func,hs1_quad_ineq,used_in,curriculum_math_2022:printed p. 61; [10공수1-02-11] - 이차부등식과 이차함수를 연결하여 설명하고 푼다,,high
+hs_edge_015,hs1_factorization,hs1_cubic_quartic,used_in,"curriculum_math_2022:printed p. 61 성취기준 해설 - 인수분해 공식이나 인수정리, 조립제법으로 풀 수 있는 경우만 다룬다",,high
+hs_edge_016,hs1_factor_thm,hs1_cubic_quartic,used_in,curriculum_math_2022:printed p. 61 성취기준 해설 - 인수정리를 이용하여 풀 수 있는 경우를 다룬다,,high
+hs_edge_017,hs1_synthetic_div,hs1_cubic_quartic,used_in,curriculum_math_2022:printed p. 61 성취기준 해설 - 조립제법을 이용하여 풀 수 있는 경우를 다룬다,,high
+hs_edge_018,hs1_factorization,hs1_system_quad,used_in,curriculum_math_2022:printed p. 61 성취기준 해설 - 한 이차식이 간단히 인수분해 되는 경우를 다룬다,,high
+hs_edge_019,hs1_system_ineq,hs1_quad_ineq,prerequisite_for,curriculum_math_2022:printed p. 61; [10공수1-02-09]~[10공수1-02-11] - 연립일차부등식에서 이차부등식으로 이어지는 구성,성취기준 배열 순서에서 추론한 관계다.,medium
+hs_edge_020,hs1_graph_line,hs1_quad_maxmin,related_to,curriculum_math_2022:printed p. 61~62; [10공수1-02-05]~[10공수1-02-06] - 이차함수 그래프 탐구 활동으로 함께 제시된다,성취기준 배열 순서에서 추론한 관계다.,medium
+hs_edge_021,hs1_addition_rule,hs1_counting,used_in,curriculum_math_2022:printed p. 62; [10공수1-03-01] - 합의 법칙을 사용하여 경우의 수 문제를 해결한다,,high
+hs_edge_022,hs1_mult_rule,hs1_counting,used_in,curriculum_math_2022:printed p. 62; [10공수1-03-01] - 곱의 법칙을 사용하여 경우의 수 문제를 해결한다,,high
+hs_edge_023,hs1_addition_rule,hs1_mult_rule,contrasts_with,curriculum_math_2022:printed p. 62 적용 시 고려 사항 - 두 법칙이 적용되는 상황의 차이점을 설명하게 한다,,high
+hs_edge_024,hs1_mult_rule,hs1_permutation,prerequisite_for,curriculum_math_2022:printed p. 62; [10공수1-03-01]~[10공수1-03-02] - 경우의 수 법칙에서 순열로 체계화되는 구성,성취기준 배열 순서와 성격의 체계화 서술에서 추론한 관계다.,medium
+hs_edge_025,hs1_factorial,hs1_permutation_count,used_in,curriculum_math_2022:printed p. 62 용어와 기호 - 계승으로 순열의 수를 나타낸다,,high
+hs_edge_026,hs1_permutation,hs1_permutation_count,used_in,curriculum_math_2022:printed p. 62; [10공수1-03-02] - 순열의 수를 구하는 방법을 설명한다,,high
+hs_edge_027,hs1_permutation,hs1_combination,related_to,curriculum_math_2022:printed p. 62; [10공수1-03-02]~[10공수1-03-03] - 순열과 조합을 이어서 다루는 구성,성취기준 배열 순서에서 추론한 관계다.,medium
+hs_edge_028,hs1_combination,hs1_combination_count,used_in,curriculum_math_2022:printed p. 62; [10공수1-03-03] - 조합의 수를 구하는 방법을 설명한다,,high
+hs_edge_029,hs1_matrix,hs1_matrix_elements,contains,"curriculum_math_2022:printed p. 63 용어와 기호 - 행, 열, 성분은 행렬의 구성 요소다",,high
+hs_edge_030,hs1_matrix,hs1_matrix_represent,used_in,curriculum_math_2022:printed p. 63; [10공수1-04-01] - 실생활 상황을 행렬로 표현한다,,high
+hs_edge_031,hs1_matrix,hs1_matrix_ops,prerequisite_for,curriculum_math_2022:printed p. 63; [10공수1-04-01]~[10공수1-04-02] - 행렬의 뜻을 알고 연산을 수행하는 진술 구조,,high
+hs_edge_032,hs2_distance,hs2_division,prerequisite_for,curriculum_math_2022:printed p. 65 성취기준 해설 - 내분 도입 전에 두 점 사이의 거리를 다룬다,,high
+hs_edge_033,hs2_line_condition,hs2_point_line,related_to,curriculum_math_2022:printed p. 65; [10공수2-01-02]~[10공수2-01-03] - 직선의 성질에서 점과 직선 사이의 거리로 이어지는 구성,성취기준 배열 순서에서 추론한 관계다.,medium
+hs_edge_034,hs2_circle_eq,hs2_circle_line,prerequisite_for,curriculum_math_2022:printed p. 65; [10공수2-01-04]~[10공수2-01-05] - 원의 방정식을 구하고 원과 직선의 위치 관계를 판단하는 진술 구조,,high
+hs_edge_035,hs2_point_line,hs2_circle_line,used_in,"curriculum_math_2022:printed p. 65; [10공수2-01-03], [10공수2-01-05] - 점과 직선 사이의 거리가 원과 직선의 위치 관계 판단에 쓰인다",문서가 직접 연결을 말하지 않으므로 medium을 유지한다.,medium
+hs_edge_036,hs2_translation,hs2_reflection,related_to,curriculum_math_2022:printed p. 65; [10공수2-01-06]~[10공수2-01-07] - 도형의 이동으로 평행이동과 대칭이동을 함께 다룬다,,high
+hs_edge_037,hs2_set,hs2_element,contains,curriculum_math_2022:printed p. 66 용어와 기호 - 원소와 공집합은 집합의 기본 구성 개념이다,,high
+hs_edge_038,hs2_set,hs2_subset,prerequisite_for,curriculum_math_2022:printed p. 66; [10공수2-02-01]~[10공수2-02-02] - 집합의 개념을 이해하고 포함관계를 판단하는 진술 구조,,high
+hs_edge_039,hs2_set,hs2_set_ops,prerequisite_for,"curriculum_math_2022:printed p. 66; [10공수2-02-01], [10공수2-02-03] - 집합의 개념을 바탕으로 집합의 연산을 수행하는 구성",,high
+hs_edge_040,hs2_set_ops,hs2_venn,represented_by,curriculum_math_2022:printed p. 66; [10공수2-02-03] - 집합의 연산을 벤 다이어그램으로 나타낸다,,high
+hs_edge_041,hs2_proposition,hs2_truth_set,related_to,curriculum_math_2022:printed p. 66 용어와 기호 - 조건과 진리집합을 함께 다룬다,,high
+hs_edge_042,hs2_set,hs2_truth_set,used_in,curriculum_math_2022:printed p. 66 용어와 기호 - 조건의 진리집합은 집합으로 나타낸다,,high
+hs_edge_043,hs2_proposition,hs2_converse,prerequisite_for,curriculum_math_2022:printed p. 66; [10공수2-02-04]~[10공수2-02-05] - 명제의 뜻을 알고 역과 대우를 이해하는 진술 구조,,high
+hs_edge_044,hs2_proposition,hs2_conditions,prerequisite_for,"curriculum_math_2022:printed p. 66; [10공수2-02-04], [10공수2-02-06] - 명제와 조건을 바탕으로 충분조건과 필요조건을 판단하는 구성",,high
+hs_edge_045,hs2_converse,hs2_proof,used_in,curriculum_math_2022:printed p. 66; [10공수2-02-07] - 대우를 이용한 증명법으로 명제를 증명한다,,high
+hs_edge_046,hs2_proof,hs2_abs_ineq,used_in,curriculum_math_2022:printed p. 66; [10공수2-02-08] - 간단한 절대부등식을 증명한다,,high
+hs_edge_047,hs2_set,hs2_function,prerequisite_for,curriculum_math_2022:printed p. 67 성취기준 해설 - 함수를 두 집합 사이의 대응 관계로 이해하게 한다,,high
+hs_edge_048,hs2_function,hs2_domain,contains,"curriculum_math_2022:printed p. 67 용어와 기호 - 정의역, 공역, 치역은 함수의 구성 요소다",,high
+hs_edge_049,hs2_function,hs2_function_types,contains,curriculum_math_2022:printed p. 67 용어와 기호 - 일대일대응 등은 함수의 종류다,,high
+hs_edge_050,hs2_function,hs2_composition,prerequisite_for,curriculum_math_2022:printed p. 67; [10공수2-03-01]~[10공수2-03-02] - 함수의 개념을 바탕으로 합성함수를 구하는 구성,,high
+hs_edge_051,hs2_function,hs2_inverse,prerequisite_for,"curriculum_math_2022:printed p. 67; [10공수2-03-01], [10공수2-03-03] - 함수의 개념을 바탕으로 역함수를 구하는 구성",,high
+hs_edge_052,hs2_function_types,hs2_inverse,used_in,curriculum_math_2022:printed p. 67 적용 시 고려 사항 - 일대일대응의 이해가 역함수 이해에 쓰인다,문서가 직접 연결을 말하지 않으므로 medium을 유지한다.,medium
+hs_edge_053,hs2_function,hs2_rational_func,contains,curriculum_math_2022:printed p. 67; [10공수2-03-04] - 유리함수는 함수의 한 종류다,,high
+hs_edge_054,hs2_function,hs2_irrational_func,contains,curriculum_math_2022:printed p. 67; [10공수2-03-05] - 무리함수는 함수의 한 종류다,,high
+hs_edge_055,hs2_asymptote,hs2_rational_func,used_in,curriculum_math_2022:printed p. 67 용어와 기호 - 점근선으로 유리함수의 그래프 성질을 다룬다,,high
+hs_edge_056,hs1_quad_eq_func,hs2_circle_line,related_to,"curriculum_math_2022:printed p. 61, 65 - 그래프와 도형의 위치 관계 판단이라는 같은 사고가 이어진다",문서가 직접 연결을 말하지 않으므로 medium을 유지한다.,medium
