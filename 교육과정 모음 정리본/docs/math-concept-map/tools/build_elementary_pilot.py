@@ -6,6 +6,7 @@ from datetime import datetime
 from pathlib import Path
 
 import elementary_data_e12_rest as e12_rest
+import elementary_data_e34 as e34
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -592,8 +593,8 @@ NUMBER_EDGE_DEFS = [
 
 
 # 학년군 데이터 모듈을 병합한 전체 concept/edge 정의.
-CONCEPTS = NUMBER_CONCEPTS + e12_rest.CONCEPTS
-EDGE_DEFS = NUMBER_EDGE_DEFS + e12_rest.EDGE_DEFS
+CONCEPTS = NUMBER_CONCEPTS + e12_rest.CONCEPTS + e34.CONCEPTS
+EDGE_DEFS = NUMBER_EDGE_DEFS + e12_rest.EDGE_DEFS + e34.EDGE_DEFS
 
 
 def build_edges() -> list[dict]:
@@ -663,7 +664,7 @@ def source_ref_summary(source_refs: list[dict]) -> str:
 def render_md(concepts: list[dict], edges: list[dict]) -> str:
     unit_counts: dict[str, int] = {}
     for c in concepts:
-        key = f"{c['domain']} · {c['unit']}"
+        key = f"{c['grade']} · {c['domain']} · {c['unit']}"
         unit_counts[key] = unit_counts.get(key, 0) + 1
     type_counts: dict[str, int] = {}
     for c in concepts:
@@ -673,10 +674,10 @@ def render_md(concepts: list[dict], edges: list[dict]) -> str:
         rel_counts[e["relationship_type"]] = rel_counts.get(e["relationship_type"], 0) + 1
 
     lines = [
-        "# 초등학교 미시 concept: 초1-2 전체 영역",
+        "# 초등학교 미시 concept",
         "",
-        "2022 개정 수학과 교육과정(별책8)의 초등학교 1~2학년 전체 4개 영역",
-        "(성취기준 [2수01-01]~[2수04-03], 인쇄 페이지 p.11~16)을 미시 concept과 관계 edge로 분해한 산출물이다.",
+        "2022 개정 수학과 교육과정(별책8)의 초등학교 성취기준 구간(인쇄 페이지 p.11~24)을",
+        "학년군·영역별 미시 concept과 관계 edge로 분해한 산출물이다.",
         "",
         "## 범위와 출처 규칙 (2026-07-06 사용자 결정)",
         "",
@@ -730,7 +731,7 @@ def main() -> None:
             "title": "초등학교 수학 개념 위계 Map (파일럿)",
             "schema_version": "0.1.0",
             "generated_at": datetime.now().isoformat(timespec="seconds"),
-            "pilot_scope": "초등학교 1~2학년군 전체 영역([2수01-01]~[2수04-03])",
+            "pilot_scope": "초등학교 1~2학년군([2수01-01]~[2수04-03])과 3~4학년군([4수01-01]~[4수04-03]) 전체 영역",
             "scope_rules": "2026-07-06 사용자 결정: 고등학교 선택 과목 제외, 공식 원문 출처만 사용 (AGENTS.md Math Concept Map Scope Rules)",
             "concept_count": len(concepts),
             "edge_count": len(edges),

@@ -23,13 +23,15 @@ class ElementaryPilotDataTests(unittest.TestCase):
             self.assertIn(edge["source_id"], self.by_id)
             self.assertIn(edge["target_id"], self.by_id)
 
-    def test_scope_is_elementary_grade12_all_domains(self) -> None:
+    def test_scope_is_elementary_bands_all_domains(self) -> None:
+        grades = {"초1-2", "초3-4"}
         domains = {"수와 연산", "변화와 관계", "도형과 측정", "자료와 가능성"}
         for c in self.concepts:
-            self.assertEqual(c["grade"], "초1-2")
+            self.assertIn(c["grade"], grades)
             self.assertIn(c["domain"], domains)
-        covered = {c["domain"] for c in self.concepts}
-        self.assertEqual(covered, domains)
+        for grade in grades:
+            covered = {c["domain"] for c in self.concepts if c["grade"] == grade}
+            self.assertEqual(covered, domains, grade)
 
     def test_geometry_terms_and_cross_domain_edges_present(self) -> None:
         labels = {c["label_ko"] for c in self.concepts}

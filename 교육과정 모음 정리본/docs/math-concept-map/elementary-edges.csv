@@ -113,3 +113,132 @@ e12_edge_111,e12_data_to_table,e12_data_table_benefit,used_in,curriculum_math_20
 e12_edge_112,e12_data_to_graph,e12_data_graph_benefit,used_in,curriculum_math_2022:printed p. 15; [2수04-03] - 그래프로 나타내면 편리한 점을 말한다,,high
 e12_edge_113,e12_data_no_miss,e12_data_to_table,used_in,curriculum_math_2022:printed p. 16 적용 시 고려 사항 - 표를 만들 때 중복되거나 빠지지 않도록 세어 보는 방법을 지도한다,,high
 e12_edge_114,e12_data_no_miss,e12_data_to_graph,used_in,curriculum_math_2022:printed p. 16 적용 시 고려 사항 - 그래프를 만들 때 중복되거나 빠지지 않도록 세어 보는 방법을 지도한다,,high
+e12_edge_115,e34_num_big,e34_num_big_place,contains,curriculum_math_2022:printed p. 17; [4수01-01] - 큰 수 이해에 자릿값과 위치적 기수법이 포함된다,,high
+e12_edge_116,e34_num_big_need,e34_num_big,used_in,curriculum_math_2022:printed p. 18 적용 시 고려 사항 - 조사 활동으로 큰 수의 필요성을 인식하게 한다,,high
+e12_edge_117,e34_num_big_place,e34_num_big_compare,prerequisite_for,curriculum_math_2022:printed p. 17; [4수01-01]~[4수01-02] - 자릿값 이해 후 수의 계열과 크기 비교로 이어지는 성취기준 구성,성취기준 배열 순서에서 추론한 관계다.,medium
+e12_edge_118,e12_num_place_value,e34_num_big_place,prerequisite_for,"curriculum_math_2022:printed p. 11, 17 - 네 자리 이하 수의 자릿값에서 다섯 자리 이상으로 확장",학년군 사이 범위 확장에서 추론한 관계다.,medium
+e12_edge_119,e12_num_compare,e34_num_big_compare,prerequisite_for,"curriculum_math_2022:printed p. 11, 17 - 네 자리 이하 수의 크기 비교에서 다섯 자리 이상으로 확장",학년군 사이 범위 확장에서 추론한 관계다.,medium
+e12_edge_120,e12_addsub_two_digit_calc,e34_num_addsub3,prerequisite_for,"curriculum_math_2022:printed p. 11, 17 - 두 자리 수 범위에서 세 자리 수 범위로 확장",학년군 사이 범위 확장에서 추론한 관계다.,medium
+e12_edge_121,e12_single_digit_mul,e34_num_mul_multi,prerequisite_for,"curriculum_math_2022:printed p. 11, 17 - 한 자리 수의 곱셈에서 두·세 자리 수 곱셈으로 확장",학년군 사이 범위 확장에서 추론한 관계다.,medium
+e12_edge_122,e34_num_div,e34_num_quotient,contains,curriculum_math_2022:printed p. 17; [4수01-06] - 나눗셈에서 몫의 의미를 안다,,high
+e12_edge_123,e34_num_div,e34_num_remainder,contains,curriculum_math_2022:printed p. 17; [4수01-06] - 나눗셈에서 나머지의 의미를 안다,,high
+e12_edge_124,e34_num_div,e34_num_div_symbol,represented_by,curriculum_math_2022:printed p. 18 용어와 기호 - 나눗셈은 기호 ÷로 나타낸다,,high
+e12_edge_125,e34_num_mul_multi,e34_num_mul_div_rel,used_in,curriculum_math_2022:printed p. 17; [4수01-05] - 곱셈과 나눗셈의 관계 이해에 곱셈이 쓰인다,,high
+e12_edge_126,e34_num_div,e34_num_mul_div_rel,used_in,curriculum_math_2022:printed p. 17; [4수01-05] - 곱셈과 나눗셈의 관계 이해에 나눗셈이 쓰인다,,high
+e12_edge_127,e34_num_div,e34_num_div1_calc,prerequisite_for,curriculum_math_2022:printed p. 17; [4수01-05]~[4수01-06] - 나눗셈의 의미를 알고 계산으로 이어지는 진술 구조,,high
+e12_edge_128,e34_num_div1_calc,e34_num_div2_calc,prerequisite_for,curriculum_math_2022:printed p. 17; [4수01-06]~[4수01-07] - 나누는 수가 한 자리 수에서 두 자리 수로 확장,성취기준 배열 순서에서 추론한 관계다.,medium
+e12_edge_129,e34_num_mul_div_rel,e34_num_div_check,used_in,curriculum_math_2022:printed p. 18 적용 시 고려 사항 - 나눗셈식을 곱셈식으로 나타내는 검산 활동,,high
+e12_edge_130,e34_num_divisible,e34_num_div1_calc,related_to,curriculum_math_2022:printed p. 18 성취기준 해설 - 나누어떨어지는 경우와 그렇지 않은 경우를 포함해 다룬다,,high
+e12_edge_131,e34_num_estimation,e34_num_problem,related_to,curriculum_math_2022:printed p. 19 적용 시 고려 사항 - 어림셈과 문제 만들기 모두 사칙연산 상황 활동으로 제시된다,,high
+e12_edge_132,e34_num_partition,e34_num_fraction,prerequisite_for,curriculum_math_2022:printed p. 17; [4수01-09] - 양의 등분할을 통하여 분수를 도입한다,,high
+e12_edge_133,e34_num_fraction_need,e34_num_fraction,used_in,curriculum_math_2022:printed p. 18 성취기준 해설 - 1보다 작은 양의 표현으로 분수의 필요성을 인식하게 한다,,high
+e12_edge_134,e34_num_fraction,e34_num_denominator,contains,curriculum_math_2022:printed p. 18 성취기준 해설 - 분수 도입에서 분모를 사용한다,,high
+e12_edge_135,e34_num_fraction,e34_num_numerator,contains,curriculum_math_2022:printed p. 18 성취기준 해설 - 분수 도입에서 분자를 사용한다,,high
+e12_edge_136,e34_num_fraction,e34_num_unit_fraction,contains,curriculum_math_2022:printed p. 17; [4수01-10] - 단위분수는 분수의 한 종류다,,high
+e12_edge_137,e34_num_fraction,e34_num_proper,contains,curriculum_math_2022:printed p. 17; [4수01-10] - 진분수는 분수의 한 종류다,,high
+e12_edge_138,e34_num_fraction,e34_num_improper,contains,curriculum_math_2022:printed p. 17; [4수01-10] - 가분수는 분수의 한 종류다,,high
+e12_edge_139,e34_num_fraction,e34_num_mixed,contains,curriculum_math_2022:printed p. 17; [4수01-10] - 대분수는 분수의 한 종류다,,high
+e12_edge_140,e34_num_unit_fraction,e34_num_fraction_types_rel,used_in,curriculum_math_2022:printed p. 17; [4수01-10] - 분수 종류 사이의 관계 이해에 쓰인다,,high
+e12_edge_141,e34_num_fraction,e34_num_fraction_compare,prerequisite_for,curriculum_math_2022:printed p. 17; [4수01-09]~[4수01-11] - 분수를 이해하고 크기 비교로 이어지는 진술 구조,,high
+e12_edge_142,e34_num_fraction,e34_num_fraction_addsub,prerequisite_for,"curriculum_math_2022:printed p. 17~18; [4수01-09], [4수01-15] - 분수 이해를 바탕으로 분모가 같은 분수의 덧셈과 뺄셈을 다룬다",,high
+e12_edge_143,e12_addsub_two_digit_calc,e34_num_fraction_addsub,related_to,"curriculum_math_2022:printed p. 11, 18 - 자연수 덧셈·뺄셈 경험과 연결되는 분수 연산",문서가 직접 연결을 말하지 않으므로 medium을 유지한다.,medium
+e12_edge_144,e34_num_decimal1,e34_num_decimal,contains,curriculum_math_2022:printed p. 17; [4수01-12] - 소수 한 자리 수는 소수 이해의 시작이다,,high
+e12_edge_145,e34_num_fraction,e34_num_decimal1,prerequisite_for,curriculum_math_2022:printed p. 17; [4수01-12] - 분모가 10인 진분수와 연결하여 소수 한 자리 수를 이해한다,,high
+e12_edge_146,e34_num_decimal,e34_num_decimal_point,represented_by,curriculum_math_2022:printed p. 18 용어와 기호 - 소수는 소수점 기호로 나타낸다,,high
+e12_edge_147,e34_num_decimal1,e34_num_decimal23,prerequisite_for,curriculum_math_2022:printed p. 17~18; [4수01-12]~[4수01-13] - 소수 한 자리 수에서 두·세 자리 수로 확장하는 진술 구조,,high
+e12_edge_148,e12_num_place_value,e34_num_decimal23,used_in,curriculum_math_2022:printed p. 18; [4수01-13] - 자릿값의 원리를 바탕으로 소수 두·세 자리 수를 이해한다,,high
+e12_edge_149,e34_num_decimal,e34_num_decimal_compare,prerequisite_for,curriculum_math_2022:printed p. 18; [4수01-12]~[4수01-14] - 소수를 이해하고 크기 비교로 이어지는 진술 구조,,high
+e12_edge_150,e34_num_decimal_need,e34_num_decimal,used_in,curriculum_math_2022:printed p. 19 적용 시 고려 사항 - 실생활 사례로 소수의 필요성을 인식하게 한다,,high
+e12_edge_151,e34_num_decimal,e34_num_decimal_addsub,prerequisite_for,curriculum_math_2022:printed p. 18; [4수01-16] - 소수 이해를 바탕으로 소수의 덧셈과 뺄셈을 다룬다,,high
+e12_edge_152,e34_num_natural,e34_num_decimal,related_to,curriculum_math_2022:printed p. 18 용어와 기호 - 자연수와 소수가 같은 용어 목록에서 도입된다,,medium
+e12_edge_153,e12_pat_rule,e34_pat_change_rule,prerequisite_for,"curriculum_math_2022:printed p. 13, 19 - 규칙 찾기에서 변화 규칙을 수나 식으로 나타내는 단계로 확장",학년군 사이 범위 확장에서 추론한 관계다.,medium
+e12_edge_154,e34_pat_change_rule,e34_pat_rule_expression,prerequisite_for,curriculum_math_2022:printed p. 19; [4수02-01] - 규칙을 찾아 설명하고 수나 식으로 나타낸다는 진술 구조,,high
+e12_edge_155,e34_pat_calc_array,e34_pat_calc_rule,used_in,curriculum_math_2022:printed p. 19; [4수02-02] - 계산식의 배열에서 규칙을 찾는다,,high
+e12_edge_156,e34_pat_calc_rule,e34_pat_predict,prerequisite_for,curriculum_math_2022:printed p. 19; [4수02-02] - 규칙을 찾고 계산 결과를 추측한다는 진술 구조,,high
+e12_edge_157,e34_pat_predict,e34_pat_verify,prerequisite_for,curriculum_math_2022:printed p. 20 적용 시 고려 사항 - 추측한 규칙을 적용해 옳은지 검토하게 한다,,high
+e12_edge_158,e12_equal_both_sides,e34_pat_equivalence,prerequisite_for,curriculum_math_2022:printed p. 19 성취기준 해설 - 등호의 의미를 토대로 동치 관계를 이해하게 한다,,high
+e12_edge_159,e34_pat_equivalence,e34_pat_equal_expr,used_in,curriculum_math_2022:printed p. 19; [4수02-03] - 크기가 같은 두 양의 관계를 등호를 사용한 식으로 나타낸다,,high
+e12_edge_160,e34_pat_judge,e34_pat_equivalence,used_in,curriculum_math_2022:printed p. 19 성취기준 해설 - 식이 옳은지 판단하는 활동으로 동치 관계를 이해하게 한다,,high
+e12_edge_161,e34_geo_line,e34_geo_line_distinguish,used_in,"curriculum_math_2022:printed p. 20; [4수03-01] - 직선, 선분, 반직선을 구별한다",,high
+e12_edge_162,e34_geo_segment,e34_geo_line_distinguish,used_in,"curriculum_math_2022:printed p. 20; [4수03-01] - 직선, 선분, 반직선을 구별한다",,high
+e12_edge_163,e34_geo_ray,e34_geo_line_distinguish,used_in,"curriculum_math_2022:printed p. 20; [4수03-01] - 직선, 선분, 반직선을 구별한다",,high
+e12_edge_164,e34_geo_angle,e34_geo_angle_vertex,contains,curriculum_math_2022:printed p. 22 용어와 기호 - 각의 꼭짓점은 각의 구성 요소다,,high
+e12_edge_165,e34_geo_angle,e34_geo_angle_side,contains,curriculum_math_2022:printed p. 22 용어와 기호 - 각의 변은 각의 구성 요소다,,high
+e12_edge_166,e34_geo_ray,e34_geo_angle,used_in,curriculum_math_2022:printed p. 20; [4수03-01]~[4수03-02] - 반직선 이해가 각 이해로 이어지는 성취기준 구성,성취기준 배열 순서에서 추론한 관계다.,medium
+e12_edge_167,e34_geo_right_angle,e34_geo_angle_compare,used_in,curriculum_math_2022:printed p. 20; [4수03-02] - 직각과 비교하는 활동으로 예각과 둔각을 구별한다,,high
+e12_edge_168,e34_geo_angle_compare,e34_geo_acute,used_in,curriculum_math_2022:printed p. 20; [4수03-02] - 비교 활동으로 예각을 구별한다,,high
+e12_edge_169,e34_geo_angle_compare,e34_geo_obtuse,used_in,curriculum_math_2022:printed p. 20; [4수03-02] - 비교 활동으로 둔각을 구별한다,,high
+e12_edge_170,e34_geo_perpendicular,e34_geo_perp_parallel_rel,used_in,curriculum_math_2022:printed p. 20; [4수03-03] - 직선의 수직 관계를 이해한다,,high
+e12_edge_171,e34_geo_parallel,e34_geo_perp_parallel_rel,used_in,curriculum_math_2022:printed p. 20; [4수03-03] - 직선의 평행 관계를 이해한다,,high
+e12_edge_172,e34_geo_line,e34_geo_perp_parallel_rel,used_in,curriculum_math_2022:printed p. 20; [4수03-03] - 직선 사이의 수직·평행 관계를 다룬다,,high
+e12_edge_173,e34_geo_slide,e34_geo_move_change,used_in,curriculum_math_2022:printed p. 20; [4수03-04] - 밀기 활동을 통하여 변화를 이해한다,,high
+e12_edge_174,e34_geo_flip,e34_geo_move_change,used_in,curriculum_math_2022:printed p. 20; [4수03-04] - 뒤집기 활동을 통하여 변화를 이해한다,,high
+e12_edge_175,e34_geo_turn,e34_geo_move_change,used_in,curriculum_math_2022:printed p. 20; [4수03-04] - 돌리기 활동을 통하여 변화를 이해한다,,high
+e12_edge_176,e12_geo_position_words,e34_geo_point_move,prerequisite_for,"curriculum_math_2022:printed p. 13, 20 - 위치와 방향으로 말하기에서 점의 이동 설명으로 확장",학년군 사이 범위 확장에서 추론한 관계다.,medium
+e12_edge_177,e12_geo_circle,e34_geo_circle_center,prerequisite_for,"curriculum_math_2022:printed p. 13, 20 - 원의 직관적 이해에서 구성 요소 이해로 확장",학년군 사이 범위 확장에서 추론한 관계다.,medium
+e12_edge_178,e34_geo_circle_center,e34_geo_circle_property,used_in,curriculum_math_2022:printed p. 20; [4수03-06] - 원의 중심의 성질을 안다,,high
+e12_edge_179,e34_geo_radius,e34_geo_circle_property,used_in,curriculum_math_2022:printed p. 20; [4수03-06] - 반지름의 성질을 안다,,high
+e12_edge_180,e34_geo_diameter,e34_geo_circle_property,used_in,curriculum_math_2022:printed p. 20; [4수03-06] - 지름의 성질을 안다,,high
+e12_edge_181,e34_geo_circle_property,e34_geo_compass,used_in,curriculum_math_2022:printed p. 22 성취기준 해설 - 원을 그리는 방법을 원의 성질과 연결하여 이해하게 한다,,high
+e12_edge_182,e34_geo_tri_classify,e34_geo_isosceles,used_in,curriculum_math_2022:printed p. 20; [4수03-08] - 분류 활동을 통하여 이등변삼각형을 이해한다,,high
+e12_edge_183,e34_geo_tri_classify,e34_geo_equilateral,used_in,curriculum_math_2022:printed p. 20; [4수03-08] - 분류 활동을 통하여 정삼각형을 이해한다,,high
+e12_edge_184,e34_geo_tri_classify,e34_geo_right_tri,used_in,curriculum_math_2022:printed p. 20; [4수03-09] - 분류 활동을 통하여 직각삼각형을 이해한다,,high
+e12_edge_185,e34_geo_tri_classify,e34_geo_acute_tri,used_in,curriculum_math_2022:printed p. 20; [4수03-09] - 분류 활동을 통하여 예각삼각형을 이해한다,,high
+e12_edge_186,e34_geo_tri_classify,e34_geo_obtuse_tri,used_in,curriculum_math_2022:printed p. 20; [4수03-09] - 분류 활동을 통하여 둔각삼각형을 이해한다,,high
+e12_edge_187,e12_geo_triangle,e34_geo_tri_classify,prerequisite_for,"curriculum_math_2022:printed p. 13, 20 - 삼각형의 직관적 이해에서 분류 활동으로 확장",학년군 사이 범위 확장에서 추론한 관계다.,medium
+e12_edge_188,e34_geo_isosceles,e34_geo_tri_property,used_in,curriculum_math_2022:printed p. 20; [4수03-08] - 이등변삼각형의 성질을 탐구하고 설명한다,,high
+e12_edge_189,e34_geo_equilateral,e34_geo_tri_property,used_in,curriculum_math_2022:printed p. 20; [4수03-08] - 정삼각형의 성질을 탐구하고 설명한다,,high
+e12_edge_190,e34_geo_right_angle,e34_geo_right_tri,used_in,curriculum_math_2022:printed p. 20; [4수03-09] - 직각을 기준으로 직각삼각형을 이해한다,,high
+e12_edge_191,e34_geo_acute,e34_geo_acute_tri,used_in,curriculum_math_2022:printed p. 20; [4수03-09] - 예각을 기준으로 예각삼각형을 이해한다,,high
+e12_edge_192,e34_geo_obtuse,e34_geo_obtuse_tri,used_in,curriculum_math_2022:printed p. 20; [4수03-09] - 둔각을 기준으로 둔각삼각형을 이해한다,,high
+e12_edge_193,e34_geo_quad_classify,e34_geo_rect,used_in,curriculum_math_2022:printed p. 20; [4수03-10] - 분류 활동을 통하여 직사각형을 이해한다,,high
+e12_edge_194,e34_geo_quad_classify,e34_geo_square,used_in,curriculum_math_2022:printed p. 20; [4수03-10] - 분류 활동을 통하여 정사각형을 이해한다,,high
+e12_edge_195,e34_geo_quad_classify,e34_geo_trapezoid,used_in,curriculum_math_2022:printed p. 20; [4수03-10] - 분류 활동을 통하여 사다리꼴을 이해한다,,high
+e12_edge_196,e34_geo_quad_classify,e34_geo_parallelogram,used_in,curriculum_math_2022:printed p. 20; [4수03-10] - 분류 활동을 통하여 평행사변형을 이해한다,,high
+e12_edge_197,e34_geo_quad_classify,e34_geo_rhombus,used_in,curriculum_math_2022:printed p. 20; [4수03-10] - 분류 활동을 통하여 마름모를 이해한다,,high
+e12_edge_198,e12_geo_quadrilateral,e34_geo_quad_classify,prerequisite_for,"curriculum_math_2022:printed p. 13, 20 - 사각형의 직관적 이해에서 분류 활동으로 확장",학년군 사이 범위 확장에서 추론한 관계다.,medium
+e12_edge_199,e34_geo_parallel,e34_geo_parallelogram,used_in,"curriculum_math_2022:printed p. 20; [4수03-03], [4수03-10] - 평행 관계 이해가 평행사변형·사다리꼴 이해에 쓰인다",문서가 직접 연결을 말하지 않으므로 medium을 유지한다.,medium
+e12_edge_200,e34_geo_rect,e34_geo_quad_property,used_in,curriculum_math_2022:printed p. 20; [4수03-10] - 여러 가지 사각형의 성질을 탐구하고 설명한다,,high
+e12_edge_201,e34_geo_polygon,e34_geo_regular_polygon,contains,curriculum_math_2022:printed p. 21; [4수03-11] - 정다각형은 다각형의 한 종류다,,high
+e12_edge_202,e34_geo_polygon,e34_geo_diagonal,contains,curriculum_math_2022:printed p. 22 용어와 기호 - 대각선은 다각형의 구성 요소다,,high
+e12_edge_203,e12_geo_make_plane,e34_geo_fill_shapes,prerequisite_for,"curriculum_math_2022:printed p. 13, 21 - 평면 모양 만들기에서 모양 만들거나 채우기로 확장",학년군 사이 범위 확장에서 추론한 관계다.,medium
+e12_edge_204,e12_meas_minute_term,e34_meas_min_sec_rel,used_in,curriculum_math_2022:printed p. 21; [4수03-13] - 1분과 1초의 관계를 이해한다,,high
+e12_edge_205,e34_meas_second,e34_meas_min_sec_rel,used_in,curriculum_math_2022:printed p. 21; [4수03-13] - 1분과 1초의 관계를 이해한다,,high
+e12_edge_206,e34_meas_min_sec_rel,e34_meas_read_seconds,prerequisite_for,curriculum_math_2022:printed p. 21; [4수03-13] - 관계를 이해하고 초 단위까지 시각을 읽는다는 진술 구조,,high
+e12_edge_207,e12_meas_read_time,e34_meas_read_seconds,prerequisite_for,"curriculum_math_2022:printed p. 14, 21 - 몇 시 몇 분 읽기에서 초 단위 읽기로 확장",학년군 사이 범위 확장에서 추론한 관계다.,medium
+e12_edge_208,e34_meas_read_seconds,e34_meas_time_addsub,prerequisite_for,curriculum_math_2022:printed p. 21; [4수03-13]~[4수03-14] - 초 단위 시각 읽기에서 시간의 덧셈과 뺄셈으로 확장,성취기준 배열 순서에서 추론한 관계다.,medium
+e12_edge_209,e12_meas_cm,e34_meas_mm,prerequisite_for,"curriculum_math_2022:printed p. 14, 21 - cm·m 단위에서 mm·km 단위로 확장",학년군 사이 범위 확장에서 추론한 관계다.,medium
+e12_edge_210,e12_meas_m,e34_meas_km,prerequisite_for,"curriculum_math_2022:printed p. 14, 21 - cm·m 단위에서 mm·km 단위로 확장",학년군 사이 범위 확장에서 추론한 관계다.,medium
+e12_edge_211,e34_meas_mm,e34_meas_length_measure,used_in,curriculum_math_2022:printed p. 21; [4수03-15] - 1mm를 이용하여 길이를 측정하고 어림한다,,high
+e12_edge_212,e34_meas_km,e34_meas_length_measure,used_in,curriculum_math_2022:printed p. 21; [4수03-15] - 1km를 이용하여 길이를 측정하고 어림한다,,high
+e12_edge_213,e34_meas_mm,e34_meas_length_rel,used_in,curriculum_math_2022:printed p. 21; [4수03-16] - 1cm와 1mm의 관계를 이해하고 표현한다,,high
+e12_edge_214,e34_meas_km,e34_meas_length_rel,used_in,curriculum_math_2022:printed p. 21; [4수03-16] - 1km와 1m의 관계를 이해하고 표현한다,,high
+e12_edge_215,e34_meas_liter,e34_meas_capacity_measure,used_in,curriculum_math_2022:printed p. 21; [4수03-17] - 1L를 이용하여 들이를 측정하고 어림한다,,high
+e12_edge_216,e34_meas_ml,e34_meas_capacity_measure,used_in,curriculum_math_2022:printed p. 21; [4수03-17] - 1mL를 이용하여 들이를 측정하고 어림한다,,high
+e12_edge_217,e34_meas_liter,e34_meas_capacity_rel,used_in,curriculum_math_2022:printed p. 21; [4수03-18] - 1L와 1mL의 관계를 이해하고 표현한다,,high
+e12_edge_218,e34_meas_capacity_rel,e34_meas_capacity_addsub,prerequisite_for,curriculum_math_2022:printed p. 21; [4수03-18]~[4수03-19] - 단위 관계 이해에서 들이의 덧셈과 뺄셈으로 이어지는 구성,성취기준 배열 순서에서 추론한 관계다.,medium
+e12_edge_219,e12_meas_compare_capacity,e34_meas_capacity_measure,prerequisite_for,"curriculum_math_2022:printed p. 14, 21 - 들이의 직접 비교에서 표준 단위 측정으로 확장",학년군 사이 범위 확장에서 추론한 관계다.,medium
+e12_edge_220,e34_meas_gram,e34_meas_weight_measure,used_in,curriculum_math_2022:printed p. 21; [4수03-20] - 1g을 이용하여 무게를 측정하고 어림한다,,high
+e12_edge_221,e34_meas_kg,e34_meas_weight_measure,used_in,curriculum_math_2022:printed p. 21; [4수03-20] - 1kg을 이용하여 무게를 측정하고 어림한다,,high
+e12_edge_222,e34_meas_kg,e34_meas_weight_rel,used_in,curriculum_math_2022:printed p. 21; [4수03-21] - 1kg과 1g의 관계를 이해하고 표현한다,,high
+e12_edge_223,e34_meas_ton,e34_meas_weight_rel,used_in,curriculum_math_2022:printed p. 21; [4수03-22] - 1t과 1kg의 관계를 이해한다,,high
+e12_edge_224,e34_meas_weight_rel,e34_meas_weight_addsub,prerequisite_for,curriculum_math_2022:printed p. 21; [4수03-21]~[4수03-23] - 단위 관계 이해에서 무게의 덧셈과 뺄셈으로 이어지는 구성,성취기준 배열 순서에서 추론한 관계다.,medium
+e12_edge_225,e12_meas_compare_weight,e34_meas_weight_measure,prerequisite_for,"curriculum_math_2022:printed p. 14, 21 - 무게의 직접 비교에서 표준 단위 측정으로 확장",학년군 사이 범위 확장에서 추론한 관계다.,medium
+e12_edge_226,e34_geo_angle,e34_meas_degree,related_to,curriculum_math_2022:printed p. 21; [4수03-24] - 각의 크기의 단위로 1도를 다룬다,,high
+e12_edge_227,e34_meas_degree,e34_meas_protractor,used_in,curriculum_math_2022:printed p. 21; [4수03-24] - 1도를 알고 각도기로 각의 크기를 측정한다,,high
+e12_edge_228,e34_meas_protractor,e34_meas_angle_sum,used_in,curriculum_math_2022:printed p. 21; [4수03-24]~[4수03-25] - 각의 크기 측정이 내각 크기의 합 추론에 쓰인다,성취기준 배열 순서에서 추론한 관계다.,medium
+e12_edge_229,e34_meas_length_measure,e34_meas_sense,used_in,curriculum_math_2022:printed p. 23 적용 시 고려 사항 - 재거나 어림하는 측정 활동으로 양감을 기르게 한다,,high
+e12_edge_230,e12_meas_approx,e34_meas_length_measure,used_in,curriculum_math_2022:printed p. 23 적용 시 고려 사항 - 눈금에 일치하지 않는 측정값을 '약'으로 표현하게 한다,,high
+e12_edge_231,e12_meas_standard_need,e34_meas_capacity_measure,related_to,curriculum_math_2022:printed p. 23 적용 시 고려 사항 - 들이·무게의 표준 단위 도입 전에 표준 단위의 필요성을 알게 한다,,high
+e12_edge_232,e34_data_collect,e34_data_pictograph_draw,prerequisite_for,curriculum_math_2022:printed p. 23; [4수04-01] - 자료를 수집하여 그림그래프로 나타낸다는 진술 구조,,high
+e12_edge_233,e34_data_collect,e34_data_bar_draw,prerequisite_for,curriculum_math_2022:printed p. 23; [4수04-01] - 자료를 수집하여 막대그래프로 나타낸다는 진술 구조,,high
+e12_edge_234,e34_data_collect,e34_data_line_draw,prerequisite_for,curriculum_math_2022:printed p. 23; [4수04-02] - 자료를 수집하여 꺾은선그래프로 나타낸다는 진술 구조,,high
+e12_edge_235,e34_data_pictograph,e34_data_pictograph_draw,used_in,curriculum_math_2022:printed p. 23; [4수04-01] - 그림그래프로 나타내고 해석한다,,high
+e12_edge_236,e34_data_bar,e34_data_bar_draw,used_in,curriculum_math_2022:printed p. 23; [4수04-01] - 막대그래프로 나타내고 해석한다,,high
+e12_edge_237,e34_data_line,e34_data_line_draw,used_in,curriculum_math_2022:printed p. 23; [4수04-02] - 꺾은선그래프로 나타내고 해석한다,,high
+e12_edge_238,e12_data_to_graph,e34_data_pictograph_draw,prerequisite_for,"curriculum_math_2022:printed p. 15, 23 - ○·×·/ 그래프에서 그림그래프·막대그래프로 확장",학년군 사이 범위 확장에서 추론한 관계다.,medium
+e12_edge_239,e34_data_bar_draw,e34_data_choose_graph,used_in,curriculum_math_2022:printed p. 23 성취기준 해설 - 크기 비교에는 막대그래프가 편리함을 알고 선택하게 한다,,high
+e12_edge_240,e34_data_line_draw,e34_data_choose_graph,used_in,curriculum_math_2022:printed p. 23 성취기준 해설 - 변화의 경향에는 꺾은선그래프가 편리함을 알고 선택하게 한다,,high
+e12_edge_241,e34_data_choose_graph,e34_data_inquiry,used_in,curriculum_math_2022:printed p. 23; [4수04-03] - 탐구 과정에서 목적에 맞는 그래프를 선택한다,,high
+e12_edge_242,e34_data_collect,e34_data_inquiry,used_in,"curriculum_math_2022:printed p. 23; [4수04-03] - 탐구 문제 해결을 위해 자료를 수집, 정리한다",,high
+e12_edge_243,e34_data_inquiry,e34_data_critical,related_to,curriculum_math_2022:printed p. 24 적용 시 고려 사항 - 표현의 적절성을 비판적으로 판단하게 한다,,high

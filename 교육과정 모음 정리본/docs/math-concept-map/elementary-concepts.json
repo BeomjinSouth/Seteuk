@@ -2,11 +2,11 @@
  "metadata": {
   "title": "초등학교 수학 개념 위계 Map (파일럿)",
   "schema_version": "0.1.0",
-  "generated_at": "2026-07-07T09:59:02",
-  "pilot_scope": "초등학교 1~2학년군 전체 영역([2수01-01]~[2수04-03])",
+  "generated_at": "2026-07-07T10:06:37",
+  "pilot_scope": "초등학교 1~2학년군([2수01-01]~[2수04-03])과 3~4학년군([4수01-01]~[4수04-03]) 전체 영역",
   "scope_rules": "2026-07-06 사용자 결정: 고등학교 선택 과목 제외, 공식 원문 출처만 사용 (AGENTS.md Math Concept Map Scope Rules)",
-  "concept_count": 119,
-  "edge_count": 114
+  "concept_count": 240,
+  "edge_count": 243
  },
  "sources": [
   {
@@ -689,7 +689,9 @@
     "e12_addsub_two_digit_principle"
    ],
    "parent_ids": [],
-   "related_ids": [],
+   "related_ids": [
+    "e34_num_fraction_addsub"
+   ],
    "notes": "",
    "confidence": "high"
   },
@@ -2532,7 +2534,9 @@
     "e12_meas_informal_units"
    ],
    "parent_ids": [],
-   "related_ids": [],
+   "related_ids": [
+    "e34_meas_capacity_measure"
+   ],
    "notes": "",
    "confidence": "high"
   },
@@ -2987,6 +2991,3338 @@
    "prerequisite_ids": [],
    "parent_ids": [],
    "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_big",
+   "label_ko": "10000 이상의 큰 수",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "다섯 자리 이상의 수",
+   "concept_type": "core_concept",
+   "short_definition": "큰 수의 필요성을 인식하며 이해하는 10000 이상의 수.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "10000 이상의 큰 수에 대한 자릿값과 위치적 기수법을 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_big_place",
+   "label_ko": "큰 수의 자릿값과 위치적 기수법",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "다섯 자리 이상의 수",
+   "concept_type": "sub_concept",
+   "short_definition": "다섯 자리 이상의 수에서의 자릿값과 위치적 기수법.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "자릿값과 위치적 기수법을 이해하고 수를 읽고 쓴다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e12_num_place_value"
+   ],
+   "parent_ids": [
+    "e34_num_big"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_big_need",
+   "label_ko": "큰 수의 필요성 인식과 양감",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "다섯 자리 이상의 수",
+   "concept_type": "procedure",
+   "short_definition": "매체 자료 조사로 실생활에서 큰 수가 쓰이는 경우를 찾고 양감을 기르는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "뉴스, 광고 등 매체를 활용한 조사로 큰 수의 필요성을 인식하고 양감을 기르게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_big_compare",
+   "label_ko": "다섯 자리 이상 수의 계열 이해와 크기 비교",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "다섯 자리 이상의 수",
+   "concept_type": "procedure",
+   "short_definition": "다섯 자리 이상의 수의 범위에서 수의 계열을 이해하고 크기를 비교하며 방법을 설명하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-02]",
+     "evidence_kind": "achievement_standard",
+     "summary": "수의 계열을 이해하고 크기를 비교하며 그 방법을 설명한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e34_num_big_place",
+    "e12_num_compare"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_addsub3",
+   "label_ko": "세 자리 수의 덧셈과 뺄셈",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "세 자리 수의 덧셈과 뺄셈",
+   "concept_type": "procedure",
+   "short_definition": "세 자리 수의 덧셈과 뺄셈의 계산 원리를 이해하고 계산하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-03]",
+     "evidence_kind": "achievement_standard",
+     "summary": "계산 원리를 이해하고 그 계산을 할 수 있다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "덧셈은 세 자리 수의 범위에서 다루되 합이 네 자리 수인 경우도 포함한다"
+    }
+   ],
+   "prerequisite_ids": [
+    "e12_addsub_two_digit_calc"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_mul_multi",
+   "label_ko": "곱하는 수가 한·두 자리 수인 곱셈",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "세 자리 수 범위의 곱셈",
+   "concept_type": "procedure",
+   "short_definition": "곱하는 수가 한 자리 수 또는 두 자리 수인 곱셈의 계산 원리를 이해하고 계산하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-04]",
+     "evidence_kind": "achievement_standard",
+     "summary": "곱셈의 계산 원리를 이해하고 그 계산을 할 수 있다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "(두 자리 수)×(한 자리 수), (세 자리 수)×(한 자리 수), (두 자리 수)×(두 자리 수), (세 자리 수)×(두 자리 수)를 다룬다"
+    }
+   ],
+   "prerequisite_ids": [
+    "e12_single_digit_mul"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_div",
+   "label_ko": "나눗셈",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "세 자리 수 범위의 나눗셈",
+   "concept_type": "core_concept",
+   "short_definition": "실생활 상황과 연결하여 의미를 아는 연산.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 나눗셈"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-05]",
+     "evidence_kind": "achievement_standard",
+     "summary": "나눗셈이 이루어지는 실생활 상황과 연결하여 나눗셈의 의미를 안다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_div_symbol",
+   "label_ko": "나눗셈 기호 ÷",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "세 자리 수 범위의 나눗셈",
+   "concept_type": "term",
+   "short_definition": "나눗셈을 나타내는 기호 ÷.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 ÷"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_mul_div_rel",
+   "label_ko": "곱셈과 나눗셈의 관계",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "세 자리 수 범위의 나눗셈",
+   "concept_type": "property",
+   "short_definition": "곱셈과 나눗셈이 서로 연결되는 관계.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-05]",
+     "evidence_kind": "achievement_standard",
+     "summary": "곱셈과 나눗셈의 관계를 이해한다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "한 가지 상황을 곱셈식과 나눗셈식으로 나타내는 활동으로 관계를 이해하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_quotient",
+   "label_ko": "몫",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "세 자리 수 범위의 나눗셈",
+   "concept_type": "term",
+   "short_definition": "나눗셈의 결과를 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 몫"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-06]",
+     "evidence_kind": "achievement_standard",
+     "summary": "나눗셈에서 몫과 나머지의 의미를 안다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "e34_num_div"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_remainder",
+   "label_ko": "나머지",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "세 자리 수 범위의 나눗셈",
+   "concept_type": "term",
+   "short_definition": "나눗셈에서 남는 수를 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 나머지"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-06]",
+     "evidence_kind": "achievement_standard",
+     "summary": "나눗셈에서 몫과 나머지의 의미를 안다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "e34_num_div"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_divisible",
+   "label_ko": "나누어떨어진다",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "세 자리 수 범위의 나눗셈",
+   "concept_type": "term",
+   "short_definition": "나머지가 없이 나누어지는 경우를 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 나누어떨어진다"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "(두 자리 수)÷(한 자리 수)는 나누어떨어지는 경우와 나누어떨어지지 않는 경우를 포함한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "e34_num_div1_calc"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_div1_calc",
+   "label_ko": "나누는 수가 한 자리 수인 나눗셈",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "세 자리 수 범위의 나눗셈",
+   "concept_type": "procedure",
+   "short_definition": "나누는 수가 한 자리 수인 나눗셈의 계산 원리를 이해하고 계산하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-06]",
+     "evidence_kind": "achievement_standard",
+     "summary": "계산 원리를 이해하고 그 계산을 할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e34_num_div"
+   ],
+   "parent_ids": [],
+   "related_ids": [
+    "e34_num_divisible"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_div2_calc",
+   "label_ko": "나누는 수가 두 자리 수인 나눗셈",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "세 자리 수 범위의 나눗셈",
+   "concept_type": "procedure",
+   "short_definition": "나누는 수가 두 자리 수인 나눗셈의 계산 원리를 이해하고 계산하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-07]",
+     "evidence_kind": "achievement_standard",
+     "summary": "계산 원리를 이해하고 그 계산을 할 수 있다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "(두 자리 수)÷(두 자리 수), (세 자리 수)÷(두 자리 수)를 다룬다"
+    }
+   ],
+   "prerequisite_ids": [
+    "e34_num_div1_calc"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_div_check",
+   "label_ko": "나눗셈 검산하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "세 자리 수 범위의 나눗셈",
+   "concept_type": "procedure",
+   "short_definition": "나눗셈의 결과를 확인하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "검산에서는 검산의 목적과 필요성을 이해하는 데 초점을 둔다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_estimation",
+   "label_ko": "자연수의 어림셈",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "자연수의 어림셈",
+   "concept_type": "procedure",
+   "short_definition": "자연수의 사칙연산과 관련한 여러 가지 상황에서 어림셈을 하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-08]",
+     "evidence_kind": "achievement_standard",
+     "summary": "여러 가지 상황에서 어림셈을 할 수 있다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 19 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "계산 전 결과 어림하기, 어림한 값으로 계산 결과의 타당성 확인하기 등을 다룰 수 있다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "e34_num_problem"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_fraction",
+   "label_ko": "분수",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "분수",
+   "concept_type": "core_concept",
+   "short_definition": "양의 등분할을 통하여 도입하는 수.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 분수"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-09]",
+     "evidence_kind": "achievement_standard",
+     "summary": "분수의 필요성을 인식하고 분수를 이해하고 읽고 쓸 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e34_num_partition"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_partition",
+   "label_ko": "양의 등분할",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "분수",
+   "concept_type": "sub_concept",
+   "short_definition": "전체를 똑같이 나누어 부분과 전체를 파악하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-09]",
+     "evidence_kind": "achievement_standard",
+     "summary": "양의 등분할을 통하여 분수의 필요성을 인식한다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "양의 등분할로 분수를 도입할 때 부분과 전체를 파악하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_fraction_need",
+   "label_ko": "분수의 필요성 인식하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "분수",
+   "concept_type": "procedure",
+   "short_definition": "1보다 작은 양을 나타내는 경우를 통해 분수의 필요성과 표현의 편리함을 인식하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "1보다 작은 양을 나타내는 경우로 분수의 필요성이나 표현의 편리함을 인식하게 할 수 있다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_denominator",
+   "label_ko": "분모",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "분수",
+   "concept_type": "term",
+   "short_definition": "분수 표기에서 아래에 쓰는 수를 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 분모"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "'분모', '분자'를 사용한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "e34_num_fraction"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_numerator",
+   "label_ko": "분자",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "분수",
+   "concept_type": "term",
+   "short_definition": "분수 표기에서 위에 쓰는 수를 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 분자"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "'분모', '분자'를 사용한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "e34_num_fraction"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_unit_fraction",
+   "label_ko": "단위분수",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "분수",
+   "concept_type": "term",
+   "short_definition": "분자가 1인 분수를 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 단위분수"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-10]",
+     "evidence_kind": "achievement_standard",
+     "summary": "단위분수, 진분수, 가분수, 대분수를 알고 관계를 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "e34_num_fraction"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_proper",
+   "label_ko": "진분수",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "분수",
+   "concept_type": "term",
+   "short_definition": "분자가 분모보다 작은 분수를 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 진분수"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-10]",
+     "evidence_kind": "achievement_standard",
+     "summary": "단위분수, 진분수, 가분수, 대분수를 알고 관계를 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "e34_num_fraction"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_improper",
+   "label_ko": "가분수",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "분수",
+   "concept_type": "term",
+   "short_definition": "분자가 분모와 같거나 큰 분수를 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 가분수"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-10]",
+     "evidence_kind": "achievement_standard",
+     "summary": "단위분수, 진분수, 가분수, 대분수를 알고 관계를 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "e34_num_fraction"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_mixed",
+   "label_ko": "대분수",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "분수",
+   "concept_type": "term",
+   "short_definition": "자연수와 진분수로 나타낸 분수를 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 대분수"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-10]",
+     "evidence_kind": "achievement_standard",
+     "summary": "단위분수, 진분수, 가분수, 대분수를 알고 관계를 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "e34_num_fraction"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_fraction_types_rel",
+   "label_ko": "분수 종류 사이의 관계",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "분수",
+   "concept_type": "property",
+   "short_definition": "단위분수, 진분수, 가분수, 대분수 사이의 관계.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-10]",
+     "evidence_kind": "achievement_standard",
+     "summary": "그 관계를 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_fraction_compare",
+   "label_ko": "분모가 같은 분수·단위분수의 크기 비교",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "분수",
+   "concept_type": "procedure",
+   "short_definition": "분모가 같은 분수끼리, 단위분수끼리 크기를 비교하고 방법을 설명하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-11]",
+     "evidence_kind": "achievement_standard",
+     "summary": "크기를 비교하고 그 방법을 설명할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e34_num_fraction"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_natural",
+   "label_ko": "자연수",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "소수",
+   "concept_type": "term",
+   "short_definition": "수 체계를 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 자연수"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "e34_num_decimal"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_decimal",
+   "label_ko": "소수",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "소수",
+   "concept_type": "core_concept",
+   "short_definition": "분모가 10인 진분수와 연결하여 도입하는 수.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 소수"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-12]",
+     "evidence_kind": "achievement_standard",
+     "summary": "분모가 10인 진분수와 연결하여 소수 한 자리 수를 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "e34_num_decimal1"
+   ],
+   "related_ids": [
+    "e34_num_natural"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_decimal_point",
+   "label_ko": "소수점(.)",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "소수",
+   "concept_type": "term",
+   "short_definition": "소수 표기에 쓰는 기호.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 소수점(.)"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_decimal1",
+   "label_ko": "소수 한 자리 수",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "소수",
+   "concept_type": "sub_concept",
+   "short_definition": "분모가 10인 진분수와 연결하여 이해하는 소수.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-12]",
+     "evidence_kind": "achievement_standard",
+     "summary": "소수 한 자리 수를 이해하고 읽고 쓸 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e34_num_fraction"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_decimal23",
+   "label_ko": "소수 두 자리 수와 세 자리 수",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "소수",
+   "concept_type": "sub_concept",
+   "short_definition": "자릿값의 원리를 바탕으로 이해하는 소수.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18; [4수01-13]",
+     "evidence_kind": "achievement_standard",
+     "summary": "자릿값의 원리를 바탕으로 소수 두 자리 수와 세 자리 수를 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e34_num_decimal1"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_decimal_compare",
+   "label_ko": "소수의 크기 비교",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "소수",
+   "concept_type": "procedure",
+   "short_definition": "소수의 크기를 비교하고 방법을 설명하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18; [4수01-14]",
+     "evidence_kind": "achievement_standard",
+     "summary": "소수의 크기를 비교하고 그 방법을 설명할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e34_num_decimal"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_decimal_need",
+   "label_ko": "소수의 필요성 인식하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "소수",
+   "concept_type": "procedure",
+   "short_definition": "실생활에서 소수를 활용한 사례를 통해 소수의 필요성을 인식하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 19 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "실생활에서 소수를 활용한 사례를 통해 소수의 필요성을 인식하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_fraction_addsub",
+   "label_ko": "분모가 같은 분수의 덧셈과 뺄셈",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "분수의 덧셈과 뺄셈",
+   "concept_type": "procedure",
+   "short_definition": "분모가 같은 분수의 덧셈과 뺄셈의 계산 원리를 이해하고 계산하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18; [4수01-15]",
+     "evidence_kind": "achievement_standard",
+     "summary": "계산 원리를 이해하고 그 계산을 할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e34_num_fraction"
+   ],
+   "parent_ids": [],
+   "related_ids": [
+    "e12_addsub_two_digit_calc"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_decimal_addsub",
+   "label_ko": "소수의 덧셈과 뺄셈",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "소수의 덧셈과 뺄셈",
+   "concept_type": "procedure",
+   "short_definition": "소수 두 자리 수의 범위에서 소수의 덧셈과 뺄셈의 계산 원리를 이해하고 계산하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18; [4수01-16]",
+     "evidence_kind": "achievement_standard",
+     "summary": "소수 두 자리 수의 범위에서 계산 원리를 이해하고 계산한다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 19 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "소수의 덧셈과 뺄셈은 계산 원리를 이해할 수 있는 수준에서 간단히 다룬다"
+    }
+   ],
+   "prerequisite_ids": [
+    "e34_num_decimal"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_num_problem",
+   "label_ko": "사칙연산 문제 만들고 해결하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "수와 연산",
+   "unit": "자연수의 어림셈",
+   "concept_type": "procedure",
+   "short_definition": "실생활 상황으로 사칙연산 문제를 만들어 해결하고 유용성을 인식하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 19 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "실생활 상황을 이용해 사칙연산 문제를 만들어 해결하게 하고 유용성을 인식하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "e34_num_estimation"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_pat_change_rule",
+   "label_ko": "다양한 변화 규칙",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "변화와 관계",
+   "unit": "규칙을 수나 식으로 나타내기와 동치 관계",
+   "concept_type": "core_concept",
+   "short_definition": "찾아 설명하고 수나 식으로 나타내는 변화의 규칙.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 19; [4수02-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "다양한 변화 규칙을 찾아 설명한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e12_pat_rule"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_pat_rule_expression",
+   "label_ko": "규칙을 수나 식으로 나타내기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "변화와 관계",
+   "unit": "규칙을 수나 식으로 나타내기와 동치 관계",
+   "concept_type": "procedure",
+   "short_definition": "찾은 변화 규칙을 수나 식으로 나타내는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 19; [4수02-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "그 규칙을 수나 식으로 나타낼 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e34_pat_change_rule"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "혼합 계산식, 일반항을 나타낸 식 등을 이용해야 하는 복잡한 문제는 다루지 않는다(printed p. 19).",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_pat_calc_array",
+   "label_ko": "계산식의 배열",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "변화와 관계",
+   "unit": "규칙을 수나 식으로 나타내기와 동치 관계",
+   "concept_type": "representation",
+   "short_definition": "다양한 규칙과 수의 성질을 탐구할 수 있는 계산식의 배열.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 19; [4수02-02]",
+     "evidence_kind": "achievement_standard",
+     "summary": "계산식의 배열에서 규칙을 찾는다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 19 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "다양한 규칙을 찾을 수 있는 계산식의 배열, 수의 성질을 탐구할 수 있는 배열을 다룬다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_pat_calc_rule",
+   "label_ko": "계산식 배열에서 규칙 찾기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "변화와 관계",
+   "unit": "규칙을 수나 식으로 나타내기와 동치 관계",
+   "concept_type": "procedure",
+   "short_definition": "계산식의 배열에서 계산 결과의 규칙을 찾는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 19; [4수02-02]",
+     "evidence_kind": "achievement_standard",
+     "summary": "계산식의 배열에서 규칙을 찾는다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_pat_predict",
+   "label_ko": "계산 결과 추측하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "변화와 관계",
+   "unit": "규칙을 수나 식으로 나타내기와 동치 관계",
+   "concept_type": "procedure",
+   "short_definition": "찾은 규칙으로 계산 결과를 추측하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 19; [4수02-02]",
+     "evidence_kind": "achievement_standard",
+     "summary": "계산 결과를 추측할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e34_pat_calc_rule"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_pat_verify",
+   "label_ko": "추측한 규칙 검토하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "변화와 관계",
+   "unit": "규칙을 수나 식으로 나타내기와 동치 관계",
+   "concept_type": "procedure",
+   "short_definition": "추측한 규칙을 배열에 적용해 보는 등 다양한 방법으로 규칙이 옳은지 스스로 검토하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "추측한 규칙을 배열에 적용해 보는 등 다양한 방법으로 규칙이 옳은지 검토하게 할 수 있다"
+    }
+   ],
+   "prerequisite_ids": [
+    "e34_pat_predict"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_pat_equivalence",
+   "label_ko": "동치 관계",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "변화와 관계",
+   "unit": "규칙을 수나 식으로 나타내기와 동치 관계",
+   "concept_type": "core_concept",
+   "short_definition": "크기가 같은 두 양의 관계.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 19; [4수02-03]",
+     "evidence_kind": "achievement_standard",
+     "summary": "등호를 사용하여 크기가 같은 두 양의 관계를 식으로 나타낸다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 19 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "등호의 의미를 토대로 동치 관계를 이해하게 한다"
+    }
+   ],
+   "prerequisite_ids": [
+    "e12_equal_both_sides"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "동치 관계는 두 자리 수의 범위에서 다룬다(printed p. 20).",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_pat_equal_expr",
+   "label_ko": "등호로 크기가 같은 두 양 나타내기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "변화와 관계",
+   "unit": "규칙을 수나 식으로 나타내기와 동치 관계",
+   "concept_type": "procedure",
+   "short_definition": "등호를 사용하여 크기가 같은 두 양의 관계를 식으로 나타내는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 19; [4수02-03]",
+     "evidence_kind": "achievement_standard",
+     "summary": "등호를 사용하여 식으로 나타낼 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_pat_judge",
+   "label_ko": "주어진 식이 옳은지 판단하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "변화와 관계",
+   "unit": "규칙을 수나 식으로 나타내기와 동치 관계",
+   "concept_type": "procedure",
+   "short_definition": "구체물, 그림, 수 감각과 연산의 성질을 이용해 등호가 사용된 식이 옳은지 판단하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 19 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "구체물, 그림 등을 사용하여 주어진 식이 옳은지 판단하는 활동으로 동치 관계를 이해하게 한다"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "수 감각이나 직관적으로 이해한 연산의 성질로 두 양이 서로 같은지 비교하게 할 수 있다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_line",
+   "label_ko": "직선",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "도형의 기초",
+   "concept_type": "term",
+   "short_definition": "곧게 뻗은 선을 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 직선"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "직선, 선분, 반직선을 이해하고 구별한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_segment",
+   "label_ko": "선분",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "도형의 기초",
+   "concept_type": "term",
+   "short_definition": "두 점을 곧게 이은 선을 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 선분"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "직선, 선분, 반직선을 이해하고 구별한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_ray",
+   "label_ko": "반직선",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "도형의 기초",
+   "concept_type": "term",
+   "short_definition": "한 점에서 한쪽으로 곧게 뻗은 선을 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 반직선"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "직선, 선분, 반직선을 이해하고 구별한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_line_distinguish",
+   "label_ko": "직선·선분·반직선 구별하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "도형의 기초",
+   "concept_type": "procedure",
+   "short_definition": "직선, 선분, 반직선을 서로 구별하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "직선, 선분, 반직선을 이해하고 구별할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "평가에서는 정확한 정의나 표현보다 서로 구별할 수 있는지에 중점을 둔다(printed p. 22).",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_angle",
+   "label_ko": "각",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "도형의 기초",
+   "concept_type": "core_concept",
+   "short_definition": "한 점에서 그은 두 반직선으로 이루어지는 도형.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 각"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-02]",
+     "evidence_kind": "achievement_standard",
+     "summary": "각과 직각을 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "e34_meas_degree"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_angle_vertex",
+   "label_ko": "각의 꼭짓점",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "도형의 기초",
+   "concept_type": "term",
+   "short_definition": "각의 구성 요소를 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 (각의) 꼭짓점"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "e34_geo_angle"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_angle_side",
+   "label_ko": "각의 변",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "도형의 기초",
+   "concept_type": "term",
+   "short_definition": "각의 구성 요소를 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 (각의) 변"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "e34_geo_angle"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_right_angle",
+   "label_ko": "직각",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "도형의 기초",
+   "concept_type": "term",
+   "short_definition": "예각·둔각 구별의 기준이 되는 각.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 직각"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-02]",
+     "evidence_kind": "achievement_standard",
+     "summary": "각과 직각을 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_acute",
+   "label_ko": "예각",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "도형의 기초",
+   "concept_type": "term",
+   "short_definition": "직각과 비교하여 구별하는 각의 종류.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 예각"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-02]",
+     "evidence_kind": "achievement_standard",
+     "summary": "직각과 비교하는 활동으로 예각과 둔각을 구별한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_obtuse",
+   "label_ko": "둔각",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "도형의 기초",
+   "concept_type": "term",
+   "short_definition": "직각과 비교하여 구별하는 각의 종류.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 둔각"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-02]",
+     "evidence_kind": "achievement_standard",
+     "summary": "직각과 비교하는 활동으로 예각과 둔각을 구별한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_angle_compare",
+   "label_ko": "직각과 비교하여 예각·둔각 구별하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "도형의 기초",
+   "concept_type": "procedure",
+   "short_definition": "직각과 비교하는 활동으로 예각과 둔각을 구별하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-02]",
+     "evidence_kind": "achievement_standard",
+     "summary": "직각과 비교하는 활동을 통하여 예각과 둔각을 구별할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_perpendicular",
+   "label_ko": "수직과 수선",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "도형의 기초",
+   "concept_type": "term",
+   "short_definition": "직선의 수직 관계와 그때의 직선을 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 수직, 수선"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-03]",
+     "evidence_kind": "achievement_standard",
+     "summary": "직선의 수직 관계를 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_parallel",
+   "label_ko": "평행과 평행선",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "도형의 기초",
+   "concept_type": "term",
+   "short_definition": "직선의 평행 관계와 그때의 직선을 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 평행, 평행선"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-03]",
+     "evidence_kind": "achievement_standard",
+     "summary": "직선의 평행 관계를 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_perp_parallel_rel",
+   "label_ko": "직선의 수직 관계와 평행 관계",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "도형의 기초",
+   "concept_type": "property",
+   "short_definition": "두 직선 사이의 수직 관계와 평행 관계.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-03]",
+     "evidence_kind": "achievement_standard",
+     "summary": "직선의 수직 관계와 평행 관계를 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_slide",
+   "label_ko": "밀기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "평면도형의 이동",
+   "concept_type": "sub_concept",
+   "short_definition": "구체물이나 평면도형을 이동하는 방법.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-04]",
+     "evidence_kind": "achievement_standard",
+     "summary": "밀기, 뒤집기, 돌리기 활동을 통하여 변화를 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_flip",
+   "label_ko": "뒤집기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "평면도형의 이동",
+   "concept_type": "sub_concept",
+   "short_definition": "구체물이나 평면도형을 이동하는 방법.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-04]",
+     "evidence_kind": "achievement_standard",
+     "summary": "밀기, 뒤집기, 돌리기 활동을 통하여 변화를 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_turn",
+   "label_ko": "돌리기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "평면도형의 이동",
+   "concept_type": "sub_concept",
+   "short_definition": "구체물이나 평면도형을 이동하는 방법.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-04]",
+     "evidence_kind": "achievement_standard",
+     "summary": "밀기, 뒤집기, 돌리기 활동을 통하여 변화를 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_move_change",
+   "label_ko": "평면도형의 이동에 따른 변화 이해하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "평면도형의 이동",
+   "concept_type": "procedure",
+   "short_definition": "실생활 사례에서 이동에 따른 변화를 추론하고 위치나 방향의 변화를 설명하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-04]",
+     "evidence_kind": "achievement_standard",
+     "summary": "밀기, 뒤집기, 돌리기 활동을 통하여 그 변화를 이해한다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "실생활에서 이동을 활용한 사례를 찾아 변화를 추론하고 설명하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "돌리고 뒤집기, 뒤집고 돌리기 등 복잡한 변화는 지양한다(printed p. 22).",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_point_move",
+   "label_ko": "평면에서 점의 이동 설명하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "평면도형의 이동",
+   "concept_type": "procedure",
+   "short_definition": "격자를 따라 위·아래·오른쪽·왼쪽으로 움직인 점의 이동을 위치와 방향으로 설명하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-05]",
+     "evidence_kind": "achievement_standard",
+     "summary": "점의 이동에 대해 위치와 방향을 이용하여 설명할 수 있다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "격자를 따라 '~칸', '~cm'를 이동하는 수준에서 다룬다"
+    }
+   ],
+   "prerequisite_ids": [
+    "e12_geo_position_words"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "꼭짓점의 이동으로 평면도형의 이동을 설명하는 활동은 다루지 않는다(printed p. 22).",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_circle_center",
+   "label_ko": "원의 중심",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "원의 구성 요소",
+   "concept_type": "term",
+   "short_definition": "원의 구성 요소를 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 원의 중심"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-06]",
+     "evidence_kind": "achievement_standard",
+     "summary": "원의 중심, 반지름, 지름을 이해하고 성질을 안다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e12_geo_circle"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_radius",
+   "label_ko": "반지름",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "원의 구성 요소",
+   "concept_type": "term",
+   "short_definition": "원의 구성 요소를 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 반지름"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-06]",
+     "evidence_kind": "achievement_standard",
+     "summary": "원의 중심, 반지름, 지름을 이해하고 성질을 안다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_diameter",
+   "label_ko": "지름",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "원의 구성 요소",
+   "concept_type": "term",
+   "short_definition": "원의 구성 요소를 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 지름"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-06]",
+     "evidence_kind": "achievement_standard",
+     "summary": "원의 중심, 반지름, 지름을 이해하고 성질을 안다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_circle_property",
+   "label_ko": "원의 구성 요소의 성질",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "원의 구성 요소",
+   "concept_type": "property",
+   "short_definition": "원의 중심, 반지름, 지름이 가지는 성질.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-06]",
+     "evidence_kind": "achievement_standard",
+     "summary": "그 성질을 안다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_compass",
+   "label_ko": "컴퍼스로 원 그리기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "원의 구성 요소",
+   "concept_type": "procedure",
+   "short_definition": "컴퍼스를 이용하여 여러 가지 크기의 원을 그리는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-07]",
+     "evidence_kind": "achievement_standard",
+     "summary": "컴퍼스를 이용하여 여러 가지 크기의 원을 그릴 수 있다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "원을 그리는 방법을 원의 성질과 연결하여 이해하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_isosceles",
+   "label_ko": "이등변삼각형",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "여러 가지 삼각형",
+   "concept_type": "core_concept",
+   "short_definition": "분류 활동을 통하여 이해하는 삼각형.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 이등변삼각형"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-08]",
+     "evidence_kind": "achievement_standard",
+     "summary": "분류 활동을 통하여 이등변삼각형, 정삼각형을 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_equilateral",
+   "label_ko": "정삼각형",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "여러 가지 삼각형",
+   "concept_type": "core_concept",
+   "short_definition": "분류 활동을 통하여 이해하는 삼각형.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 정삼각형"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-08]",
+     "evidence_kind": "achievement_standard",
+     "summary": "분류 활동을 통하여 이등변삼각형, 정삼각형을 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_tri_classify",
+   "label_ko": "여러 가지 삼각형 분류하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "여러 가지 삼각형",
+   "concept_type": "procedure",
+   "short_definition": "여러 가지 모양의 삼각형을 분류하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-08]",
+     "evidence_kind": "achievement_standard",
+     "summary": "여러 가지 모양의 삼각형에 대한 분류 활동이라는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-09]",
+     "evidence_kind": "achievement_standard",
+     "summary": "분류 활동을 통하여 직각삼각형, 예각삼각형, 둔각삼각형을 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e12_geo_triangle"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_tri_property",
+   "label_ko": "이등변삼각형·정삼각형의 성질 탐구하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "여러 가지 삼각형",
+   "concept_type": "procedure",
+   "short_definition": "관찰, 실험, 측정 등 귀납적 추론으로 성질을 탐구하고 설명하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-08]",
+     "evidence_kind": "achievement_standard",
+     "summary": "그 성질을 탐구하고 설명할 수 있다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "구체적인 관찰, 실험, 측정 등 귀납적 추론을 통해 성질을 이해하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_right_tri",
+   "label_ko": "직각삼각형",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "여러 가지 삼각형",
+   "concept_type": "term",
+   "short_definition": "각의 크기에 따라 분류한 삼각형.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 직각삼각형"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-09]",
+     "evidence_kind": "achievement_standard",
+     "summary": "직각삼각형, 예각삼각형, 둔각삼각형을 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_acute_tri",
+   "label_ko": "예각삼각형",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "여러 가지 삼각형",
+   "concept_type": "term",
+   "short_definition": "각의 크기에 따라 분류한 삼각형.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 예각삼각형"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-09]",
+     "evidence_kind": "achievement_standard",
+     "summary": "직각삼각형, 예각삼각형, 둔각삼각형을 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_obtuse_tri",
+   "label_ko": "둔각삼각형",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "여러 가지 삼각형",
+   "concept_type": "term",
+   "short_definition": "각의 크기에 따라 분류한 삼각형.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 둔각삼각형"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-09]",
+     "evidence_kind": "achievement_standard",
+     "summary": "직각삼각형, 예각삼각형, 둔각삼각형을 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_rect",
+   "label_ko": "직사각형",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "여러 가지 사각형",
+   "concept_type": "core_concept",
+   "short_definition": "분류 활동을 통하여 이해하는 사각형.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 직사각형"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-10]",
+     "evidence_kind": "achievement_standard",
+     "summary": "분류 활동을 통하여 여러 가지 사각형을 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_square",
+   "label_ko": "정사각형",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "여러 가지 사각형",
+   "concept_type": "core_concept",
+   "short_definition": "분류 활동을 통하여 이해하는 사각형.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 정사각형"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-10]",
+     "evidence_kind": "achievement_standard",
+     "summary": "분류 활동을 통하여 여러 가지 사각형을 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_trapezoid",
+   "label_ko": "사다리꼴",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "여러 가지 사각형",
+   "concept_type": "core_concept",
+   "short_definition": "분류 활동을 통하여 이해하는 사각형.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 사다리꼴"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-10]",
+     "evidence_kind": "achievement_standard",
+     "summary": "분류 활동을 통하여 여러 가지 사각형을 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_parallelogram",
+   "label_ko": "평행사변형",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "여러 가지 사각형",
+   "concept_type": "core_concept",
+   "short_definition": "분류 활동을 통하여 이해하는 사각형.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 평행사변형"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-10]",
+     "evidence_kind": "achievement_standard",
+     "summary": "분류 활동을 통하여 여러 가지 사각형을 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_rhombus",
+   "label_ko": "마름모",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "여러 가지 사각형",
+   "concept_type": "core_concept",
+   "short_definition": "분류 활동을 통하여 이해하는 사각형.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 마름모"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-10]",
+     "evidence_kind": "achievement_standard",
+     "summary": "분류 활동을 통하여 여러 가지 사각형을 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_quad_classify",
+   "label_ko": "여러 가지 사각형 분류하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "여러 가지 사각형",
+   "concept_type": "procedure",
+   "short_definition": "여러 가지 모양의 사각형을 분류하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-10]",
+     "evidence_kind": "achievement_standard",
+     "summary": "여러 가지 모양의 사각형에 대한 분류 활동이라는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e12_geo_quadrilateral"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_quad_property",
+   "label_ko": "여러 가지 사각형의 성질 탐구하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "여러 가지 사각형",
+   "concept_type": "procedure",
+   "short_definition": "구체적인 조작 활동을 통하여 사각형의 성질을 탐구하고 설명하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-10]",
+     "evidence_kind": "achievement_standard",
+     "summary": "그 성질을 탐구하고 설명할 수 있다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "사각형의 성질은 구체적인 조작 활동으로 간단한 것만 다룬다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "여러 가지 사각형 사이의 관계는 다루지 않는다(printed p. 22).",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_polygon",
+   "label_ko": "다각형",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "다각형",
+   "concept_type": "core_concept",
+   "short_definition": "교구를 이용한 조작 활동을 통하여 이해하는 도형.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 다각형"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-11]",
+     "evidence_kind": "achievement_standard",
+     "summary": "다각형과 정다각형을 이해한다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "도형판, 모양 조각 등의 교구를 이용한 조작 활동을 통해 이해하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_regular_polygon",
+   "label_ko": "정다각형",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "다각형",
+   "concept_type": "core_concept",
+   "short_definition": "교구를 이용한 조작 활동을 통하여 이해하는 도형.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 정다각형"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-11]",
+     "evidence_kind": "achievement_standard",
+     "summary": "다각형과 정다각형을 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "e34_geo_polygon"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_diagonal",
+   "label_ko": "대각선",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "다각형",
+   "concept_type": "term",
+   "short_definition": "다각형의 구성 요소를 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 대각선"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "e34_geo_polygon"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_geo_fill_shapes",
+   "label_ko": "도형으로 모양 만들거나 채우기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "다각형",
+   "concept_type": "procedure",
+   "short_definition": "주어진 도형을 이용하여 여러 가지 모양을 만들거나 채우고 설명하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-12]",
+     "evidence_kind": "achievement_standard",
+     "summary": "주어진 도형을 이용하여 모양을 만들거나 채우고 설명할 수 있다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "다양한 교구와 공학 도구 등을 이용한 구체적인 활동으로 만들거나 채울 수 있다"
+    }
+   ],
+   "prerequisite_ids": [
+    "e12_geo_make_plane"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_meas_second",
+   "label_ko": "초",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "시각과 시간",
+   "concept_type": "term",
+   "short_definition": "시각과 시간의 공식 단위 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 초"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-13]",
+     "evidence_kind": "achievement_standard",
+     "summary": "1분과 1초의 관계를 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_meas_min_sec_rel",
+   "label_ko": "1분과 1초의 관계",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "시각과 시간",
+   "concept_type": "property",
+   "short_definition": "1분과 1초 사이의 관계.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-13]",
+     "evidence_kind": "achievement_standard",
+     "summary": "1분과 1초의 관계를 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_meas_read_seconds",
+   "label_ko": "초 단위까지 시각 읽기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "시각과 시간",
+   "concept_type": "procedure",
+   "short_definition": "초 단위까지 시각을 읽는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-13]",
+     "evidence_kind": "achievement_standard",
+     "summary": "초 단위까지 시각을 읽을 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e34_meas_min_sec_rel",
+    "e12_meas_read_time"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_meas_time_addsub",
+   "label_ko": "시간의 덧셈과 뺄셈",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "시각과 시간",
+   "concept_type": "procedure",
+   "short_definition": "실생활 문제 상황과 연결하여 초 단위까지의 시간의 덧셈과 뺄셈을 하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-14]",
+     "evidence_kind": "achievement_standard",
+     "summary": "초 단위까지의 시간의 덧셈과 뺄셈을 할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e34_meas_read_seconds"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_meas_mm",
+   "label_ko": "길이 단위 1mm",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "길이",
+   "concept_type": "term",
+   "short_definition": "길이의 표준 단위 1mm.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 mm"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-15]",
+     "evidence_kind": "achievement_standard",
+     "summary": "길이 단위 1mm와 1km를 안다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e12_meas_cm"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_meas_km",
+   "label_ko": "길이 단위 1km",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "길이",
+   "concept_type": "term",
+   "short_definition": "길이의 표준 단위 1km.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 km"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-15]",
+     "evidence_kind": "achievement_standard",
+     "summary": "길이 단위 1mm와 1km를 안다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e12_meas_m"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_meas_length_measure",
+   "label_ko": "mm·km로 길이 측정하고 어림하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "길이",
+   "concept_type": "procedure",
+   "short_definition": "1mm와 1km를 이용하여 길이를 측정하고 어림하며 수학의 유용성을 인식하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-15]",
+     "evidence_kind": "achievement_standard",
+     "summary": "이를 이용하여 길이를 측정하고 어림하며 유용성을 인식한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_meas_length_rel",
+   "label_ko": "길이 단위 사이의 관계와 표현",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "길이",
+   "concept_type": "property",
+   "short_definition": "1cm와 1mm, 1km와 1m의 관계를 이해하고 길이를 다양하게 표현.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-16]",
+     "evidence_kind": "achievement_standard",
+     "summary": "단위 관계를 이해하고 '몇 cm 몇 mm', '몇 km 몇 m' 등으로 표현한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "1km와 1cm의 관계 등 지나친 단위 환산은 다루지 않는다(printed p. 23).",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_meas_liter",
+   "label_ko": "들이 단위 1L",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "들이",
+   "concept_type": "term",
+   "short_definition": "들이의 표준 단위 1L.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 L"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-17]",
+     "evidence_kind": "achievement_standard",
+     "summary": "들이 단위 1L와 1mL를 안다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_meas_ml",
+   "label_ko": "들이 단위 1mL",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "들이",
+   "concept_type": "term",
+   "short_definition": "들이의 표준 단위 1mL.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 mL"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-17]",
+     "evidence_kind": "achievement_standard",
+     "summary": "들이 단위 1L와 1mL를 안다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_meas_capacity_measure",
+   "label_ko": "들이 측정하고 어림하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "들이",
+   "concept_type": "procedure",
+   "short_definition": "1L와 1mL를 이용하여 들이를 측정하고 어림하며 수학의 유용성을 인식하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-17]",
+     "evidence_kind": "achievement_standard",
+     "summary": "이를 이용하여 들이를 측정하고 어림한다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "들이, 무게의 표준 단위를 도입하기 전에 표준 단위의 필요성을 알게 한다"
+    }
+   ],
+   "prerequisite_ids": [
+    "e12_meas_compare_capacity"
+   ],
+   "parent_ids": [],
+   "related_ids": [
+    "e12_meas_standard_need"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_meas_capacity_rel",
+   "label_ko": "들이 단위 사이의 관계와 표현",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "들이",
+   "concept_type": "property",
+   "short_definition": "1L와 1mL의 관계를 이해하고 들이를 '몇 L 몇 mL'와 '몇 mL'로 표현.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-18]",
+     "evidence_kind": "achievement_standard",
+     "summary": "1L와 1mL의 관계를 이해하고 표현한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_meas_capacity_addsub",
+   "label_ko": "들이의 덧셈과 뺄셈",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "들이",
+   "concept_type": "procedure",
+   "short_definition": "실생활 문제 상황과 연결하여 들이의 덧셈과 뺄셈을 하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-19]",
+     "evidence_kind": "achievement_standard",
+     "summary": "들이의 덧셈과 뺄셈을 할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e34_meas_capacity_rel"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_meas_gram",
+   "label_ko": "무게 단위 1g",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "무게",
+   "concept_type": "term",
+   "short_definition": "무게를 나타낼 때 사용하는 단위 1g.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 g"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-20]",
+     "evidence_kind": "achievement_standard",
+     "summary": "단위 1g과 1kg을 안다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_meas_kg",
+   "label_ko": "무게 단위 1kg",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "무게",
+   "concept_type": "term",
+   "short_definition": "무게를 나타낼 때 사용하는 단위 1kg.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 kg"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-20]",
+     "evidence_kind": "achievement_standard",
+     "summary": "단위 1g과 1kg을 안다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_meas_ton",
+   "label_ko": "무게 단위 1t",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "무게",
+   "concept_type": "term",
+   "short_definition": "실생활에서 무게를 나타낼 때 사용하는 단위 1t.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 t"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-22]",
+     "evidence_kind": "achievement_standard",
+     "summary": "단위 1t을 알고 1t과 1kg의 관계를 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_meas_weight_measure",
+   "label_ko": "무게 측정하고 어림하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "무게",
+   "concept_type": "procedure",
+   "short_definition": "1g과 1kg을 이용하여 무게를 측정하고 어림하며 수학의 유용성을 인식하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-20]",
+     "evidence_kind": "achievement_standard",
+     "summary": "이를 이용하여 무게를 측정하고 어림한다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "초등학교에서는 무게와 질량의 개념을 엄밀하게 구분하지 않는다"
+    }
+   ],
+   "prerequisite_ids": [
+    "e12_meas_compare_weight"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_meas_weight_rel",
+   "label_ko": "무게 단위 사이의 관계와 표현",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "무게",
+   "concept_type": "property",
+   "short_definition": "1kg과 1g, 1t과 1kg의 관계를 이해하고 무게를 표현.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-21]",
+     "evidence_kind": "achievement_standard",
+     "summary": "1kg과 1g의 관계를 이해하고 표현한다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-22]",
+     "evidence_kind": "achievement_standard",
+     "summary": "1t과 1kg의 관계를 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "1t과 1g의 관계 등 지나친 단위 환산은 다루지 않는다(printed p. 23).",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_meas_weight_addsub",
+   "label_ko": "무게의 덧셈과 뺄셈",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "무게",
+   "concept_type": "procedure",
+   "short_definition": "실생활 문제 상황과 연결하여 무게의 덧셈과 뺄셈을 하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-23]",
+     "evidence_kind": "achievement_standard",
+     "summary": "무게의 덧셈과 뺄셈을 할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e34_meas_weight_rel"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_meas_degree",
+   "label_ko": "각의 크기 단위 1도(°)",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "각도",
+   "concept_type": "term",
+   "short_definition": "각의 크기의 단위 1도.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 도(°)"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-24]",
+     "evidence_kind": "achievement_standard",
+     "summary": "각의 크기의 단위인 1도를 안다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "e34_geo_angle"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_meas_protractor",
+   "label_ko": "각도기로 각의 크기 측정하고 어림하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "각도",
+   "concept_type": "procedure",
+   "short_definition": "각도기를 이용하여 각의 크기를 측정하고 어림하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-24]",
+     "evidence_kind": "achievement_standard",
+     "summary": "각도기를 이용하여 각의 크기를 측정하고 어림할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_meas_angle_sum",
+   "label_ko": "삼각형과 사각형의 내각 크기의 합 추론하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "각도",
+   "concept_type": "procedure",
+   "short_definition": "여러 가지 방법으로 내각의 크기의 합을 추론하고 추론 과정을 설명하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-25]",
+     "evidence_kind": "achievement_standard",
+     "summary": "내각의 크기의 합을 추론하고 자신의 추론 과정을 설명할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_meas_sense",
+   "label_ko": "시간·길이·들이·무게·각도에 대한 양감",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "도형과 측정",
+   "unit": "각도",
+   "concept_type": "sub_concept",
+   "short_definition": "실제로 재거나 어림하는 측정 활동을 통해 기르는 양감.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "실제로 재거나 어림하는 측정 활동을 통하여 양감을 기르게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_data_collect",
+   "label_ko": "자료 수집하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "자료와 가능성",
+   "unit": "자료의 수집과 정리",
+   "concept_type": "procedure",
+   "short_definition": "설문조사, 실험과 관찰, 공공 자료의 활용 등으로 자료를 직접 수집하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23; [4수04-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "자료를 수집하여 그래프로 나타낸다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "간단한 설문조사, 실험과 관찰, 공공 자료의 활용 등을 통해 자료를 직접 수집하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_data_pictograph",
+   "label_ko": "그림그래프",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "자료와 가능성",
+   "unit": "자료의 수집과 정리",
+   "concept_type": "term",
+   "short_definition": "자료를 그림으로 나타내는 공식 그래프 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 그림그래프"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23; [4수04-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "그림그래프나 막대그래프로 나타내고 해석한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_data_bar",
+   "label_ko": "막대그래프",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "자료와 가능성",
+   "unit": "자료의 수집과 정리",
+   "concept_type": "term",
+   "short_definition": "자료를 막대로 나타내는 공식 그래프 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 막대그래프"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23; [4수04-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "그림그래프나 막대그래프로 나타내고 해석한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_data_line",
+   "label_ko": "꺾은선그래프",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "자료와 가능성",
+   "unit": "자료의 수집과 정리",
+   "concept_type": "term",
+   "short_definition": "자료를 꺾은선으로 나타내는 공식 그래프 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 꺾은선그래프"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23; [4수04-02]",
+     "evidence_kind": "achievement_standard",
+     "summary": "꺾은선그래프로 나타내고 해석한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_data_pictograph_draw",
+   "label_ko": "그림그래프로 나타내고 해석하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "자료와 가능성",
+   "unit": "자료의 수집과 정리",
+   "concept_type": "procedure",
+   "short_definition": "자료를 그림그래프로 나타내고 해석하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23; [4수04-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "그림그래프나 막대그래프로 나타내고 해석할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e34_data_collect",
+    "e12_data_to_graph"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "항목의 이름과 수량의 단위를 명확히 인식하고 그림이 나타내는 단위를 적절히 선택하게 한다(printed p. 23).",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_data_bar_draw",
+   "label_ko": "막대그래프로 나타내고 해석하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "자료와 가능성",
+   "unit": "자료의 수집과 정리",
+   "concept_type": "procedure",
+   "short_definition": "자료를 막대그래프로 나타내고 해석하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23; [4수04-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "그림그래프나 막대그래프로 나타내고 해석할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e34_data_collect"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "가로축과 세로축이 무엇을 나타내는지 확인하고 눈금 한 칸의 크기를 적절히 선택하게 한다(printed p. 24).",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_data_line_draw",
+   "label_ko": "꺾은선그래프로 나타내고 해석하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "자료와 가능성",
+   "unit": "자료의 수집과 정리",
+   "concept_type": "procedure",
+   "short_definition": "자료를 꺾은선그래프로 나타내고 해석하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23; [4수04-02]",
+     "evidence_kind": "achievement_standard",
+     "summary": "꺾은선그래프로 나타내고 해석할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "e34_data_collect"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_data_choose_graph",
+   "label_ko": "목적에 맞는 그래프 선택하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "자료와 가능성",
+   "unit": "자료의 수집과 정리",
+   "concept_type": "procedure",
+   "short_definition": "자료의 특성에 따라 목적에 맞는 그래프를 선택하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "크기 비교는 막대그래프, 시간에 따른 변화 경향은 꺾은선그래프가 편리함을 알고 적절한 그래프를 선택하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_data_inquiry",
+   "label_ko": "통계적 탐구 과정 경험하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "자료와 가능성",
+   "unit": "자료의 수집과 정리",
+   "concept_type": "procedure",
+   "short_definition": "탐구 문제 해결을 위해 자료를 수집, 정리하고 그래프로 나타내어 해석하는 일련의 과정.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23; [4수04-03]",
+     "evidence_kind": "achievement_standard",
+     "summary": "탐구 문제를 해결하기 위해 자료를 수집, 정리하여 그래프로 나타내고 해석한다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "자료를 수집, 정리하고 그래프로 나타내어 해석하는 일련의 과정을 직접 경험하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "e34_data_critical"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e34_data_critical",
+   "label_ko": "그래프 표현의 적절성 판단하기",
+   "aliases": [],
+   "grade": "초3-4",
+   "domain": "자료와 가능성",
+   "unit": "자료의 수집과 정리",
+   "concept_type": "procedure",
+   "short_definition": "자료 수집의 목적과 자료의 특성에 맞는 그래프로 표현되었는지 비판적으로 판단하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 24 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "목적과 특성에 맞는 그래프로 적절히 표현되었는지 비판적으로 판단하게 할 수 있다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "e34_data_inquiry"
+   ],
    "notes": "",
    "confidence": "high"
   }
@@ -4811,6 +8147,2070 @@
      "locator": "printed p. 16 적용 시 고려 사항",
      "evidence_kind": "relationship_evidence",
      "summary": "그래프를 만들 때 중복되거나 빠지지 않도록 세어 보는 방법을 지도한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_115",
+   "source_id": "e34_num_big",
+   "target_id": "e34_num_big_place",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-01]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "큰 수 이해에 자릿값과 위치적 기수법이 포함된다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_116",
+   "source_id": "e34_num_big_need",
+   "target_id": "e34_num_big",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "조사 활동으로 큰 수의 필요성을 인식하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_117",
+   "source_id": "e34_num_big_place",
+   "target_id": "e34_num_big_compare",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-01]~[4수01-02]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "자릿값 이해 후 수의 계열과 크기 비교로 이어지는 성취기준 구성"
+    }
+   ],
+   "notes": "성취기준 배열 순서에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_118",
+   "source_id": "e12_num_place_value",
+   "target_id": "e34_num_big_place",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11, 17",
+     "evidence_kind": "relationship_evidence",
+     "summary": "네 자리 이하 수의 자릿값에서 다섯 자리 이상으로 확장"
+    }
+   ],
+   "notes": "학년군 사이 범위 확장에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_119",
+   "source_id": "e12_num_compare",
+   "target_id": "e34_num_big_compare",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11, 17",
+     "evidence_kind": "relationship_evidence",
+     "summary": "네 자리 이하 수의 크기 비교에서 다섯 자리 이상으로 확장"
+    }
+   ],
+   "notes": "학년군 사이 범위 확장에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_120",
+   "source_id": "e12_addsub_two_digit_calc",
+   "target_id": "e34_num_addsub3",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11, 17",
+     "evidence_kind": "relationship_evidence",
+     "summary": "두 자리 수 범위에서 세 자리 수 범위로 확장"
+    }
+   ],
+   "notes": "학년군 사이 범위 확장에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_121",
+   "source_id": "e12_single_digit_mul",
+   "target_id": "e34_num_mul_multi",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11, 17",
+     "evidence_kind": "relationship_evidence",
+     "summary": "한 자리 수의 곱셈에서 두·세 자리 수 곱셈으로 확장"
+    }
+   ],
+   "notes": "학년군 사이 범위 확장에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_122",
+   "source_id": "e34_num_div",
+   "target_id": "e34_num_quotient",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-06]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "나눗셈에서 몫의 의미를 안다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_123",
+   "source_id": "e34_num_div",
+   "target_id": "e34_num_remainder",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-06]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "나눗셈에서 나머지의 의미를 안다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_124",
+   "source_id": "e34_num_div",
+   "target_id": "e34_num_div_symbol",
+   "relationship_type": "represented_by",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 용어와 기호",
+     "evidence_kind": "relationship_evidence",
+     "summary": "나눗셈은 기호 ÷로 나타낸다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_125",
+   "source_id": "e34_num_mul_multi",
+   "target_id": "e34_num_mul_div_rel",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-05]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "곱셈과 나눗셈의 관계 이해에 곱셈이 쓰인다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_126",
+   "source_id": "e34_num_div",
+   "target_id": "e34_num_mul_div_rel",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-05]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "곱셈과 나눗셈의 관계 이해에 나눗셈이 쓰인다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_127",
+   "source_id": "e34_num_div",
+   "target_id": "e34_num_div1_calc",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-05]~[4수01-06]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "나눗셈의 의미를 알고 계산으로 이어지는 진술 구조"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_128",
+   "source_id": "e34_num_div1_calc",
+   "target_id": "e34_num_div2_calc",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-06]~[4수01-07]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "나누는 수가 한 자리 수에서 두 자리 수로 확장"
+    }
+   ],
+   "notes": "성취기준 배열 순서에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_129",
+   "source_id": "e34_num_mul_div_rel",
+   "target_id": "e34_num_div_check",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "나눗셈식을 곱셈식으로 나타내는 검산 활동"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_130",
+   "source_id": "e34_num_divisible",
+   "target_id": "e34_num_div1_calc",
+   "relationship_type": "related_to",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 성취기준 해설",
+     "evidence_kind": "relationship_evidence",
+     "summary": "나누어떨어지는 경우와 그렇지 않은 경우를 포함해 다룬다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_131",
+   "source_id": "e34_num_estimation",
+   "target_id": "e34_num_problem",
+   "relationship_type": "related_to",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 19 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "어림셈과 문제 만들기 모두 사칙연산 상황 활동으로 제시된다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_132",
+   "source_id": "e34_num_partition",
+   "target_id": "e34_num_fraction",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-09]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "양의 등분할을 통하여 분수를 도입한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_133",
+   "source_id": "e34_num_fraction_need",
+   "target_id": "e34_num_fraction",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 성취기준 해설",
+     "evidence_kind": "relationship_evidence",
+     "summary": "1보다 작은 양의 표현으로 분수의 필요성을 인식하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_134",
+   "source_id": "e34_num_fraction",
+   "target_id": "e34_num_denominator",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 성취기준 해설",
+     "evidence_kind": "relationship_evidence",
+     "summary": "분수 도입에서 분모를 사용한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_135",
+   "source_id": "e34_num_fraction",
+   "target_id": "e34_num_numerator",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 성취기준 해설",
+     "evidence_kind": "relationship_evidence",
+     "summary": "분수 도입에서 분자를 사용한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_136",
+   "source_id": "e34_num_fraction",
+   "target_id": "e34_num_unit_fraction",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-10]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "단위분수는 분수의 한 종류다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_137",
+   "source_id": "e34_num_fraction",
+   "target_id": "e34_num_proper",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-10]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "진분수는 분수의 한 종류다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_138",
+   "source_id": "e34_num_fraction",
+   "target_id": "e34_num_improper",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-10]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "가분수는 분수의 한 종류다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_139",
+   "source_id": "e34_num_fraction",
+   "target_id": "e34_num_mixed",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-10]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "대분수는 분수의 한 종류다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_140",
+   "source_id": "e34_num_unit_fraction",
+   "target_id": "e34_num_fraction_types_rel",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-10]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "분수 종류 사이의 관계 이해에 쓰인다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_141",
+   "source_id": "e34_num_fraction",
+   "target_id": "e34_num_fraction_compare",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-09]~[4수01-11]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "분수를 이해하고 크기 비교로 이어지는 진술 구조"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_142",
+   "source_id": "e34_num_fraction",
+   "target_id": "e34_num_fraction_addsub",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17~18; [4수01-09], [4수01-15]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "분수 이해를 바탕으로 분모가 같은 분수의 덧셈과 뺄셈을 다룬다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_143",
+   "source_id": "e12_addsub_two_digit_calc",
+   "target_id": "e34_num_fraction_addsub",
+   "relationship_type": "related_to",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 11, 18",
+     "evidence_kind": "relationship_evidence",
+     "summary": "자연수 덧셈·뺄셈 경험과 연결되는 분수 연산"
+    }
+   ],
+   "notes": "문서가 직접 연결을 말하지 않으므로 medium을 유지한다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_144",
+   "source_id": "e34_num_decimal1",
+   "target_id": "e34_num_decimal",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-12]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "소수 한 자리 수는 소수 이해의 시작이다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_145",
+   "source_id": "e34_num_fraction",
+   "target_id": "e34_num_decimal1",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17; [4수01-12]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "분모가 10인 진분수와 연결하여 소수 한 자리 수를 이해한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_146",
+   "source_id": "e34_num_decimal",
+   "target_id": "e34_num_decimal_point",
+   "relationship_type": "represented_by",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 용어와 기호",
+     "evidence_kind": "relationship_evidence",
+     "summary": "소수는 소수점 기호로 나타낸다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_147",
+   "source_id": "e34_num_decimal1",
+   "target_id": "e34_num_decimal23",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 17~18; [4수01-12]~[4수01-13]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "소수 한 자리 수에서 두·세 자리 수로 확장하는 진술 구조"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_148",
+   "source_id": "e12_num_place_value",
+   "target_id": "e34_num_decimal23",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18; [4수01-13]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "자릿값의 원리를 바탕으로 소수 두·세 자리 수를 이해한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_149",
+   "source_id": "e34_num_decimal",
+   "target_id": "e34_num_decimal_compare",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18; [4수01-12]~[4수01-14]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "소수를 이해하고 크기 비교로 이어지는 진술 구조"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_150",
+   "source_id": "e34_num_decimal_need",
+   "target_id": "e34_num_decimal",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 19 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "실생활 사례로 소수의 필요성을 인식하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_151",
+   "source_id": "e34_num_decimal",
+   "target_id": "e34_num_decimal_addsub",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18; [4수01-16]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "소수 이해를 바탕으로 소수의 덧셈과 뺄셈을 다룬다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_152",
+   "source_id": "e34_num_natural",
+   "target_id": "e34_num_decimal",
+   "relationship_type": "related_to",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 18 용어와 기호",
+     "evidence_kind": "relationship_evidence",
+     "summary": "자연수와 소수가 같은 용어 목록에서 도입된다"
+    }
+   ],
+   "notes": "",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_153",
+   "source_id": "e12_pat_rule",
+   "target_id": "e34_pat_change_rule",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 13, 19",
+     "evidence_kind": "relationship_evidence",
+     "summary": "규칙 찾기에서 변화 규칙을 수나 식으로 나타내는 단계로 확장"
+    }
+   ],
+   "notes": "학년군 사이 범위 확장에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_154",
+   "source_id": "e34_pat_change_rule",
+   "target_id": "e34_pat_rule_expression",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 19; [4수02-01]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "규칙을 찾아 설명하고 수나 식으로 나타낸다는 진술 구조"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_155",
+   "source_id": "e34_pat_calc_array",
+   "target_id": "e34_pat_calc_rule",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 19; [4수02-02]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "계산식의 배열에서 규칙을 찾는다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_156",
+   "source_id": "e34_pat_calc_rule",
+   "target_id": "e34_pat_predict",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 19; [4수02-02]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "규칙을 찾고 계산 결과를 추측한다는 진술 구조"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_157",
+   "source_id": "e34_pat_predict",
+   "target_id": "e34_pat_verify",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "추측한 규칙을 적용해 옳은지 검토하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_158",
+   "source_id": "e12_equal_both_sides",
+   "target_id": "e34_pat_equivalence",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 19 성취기준 해설",
+     "evidence_kind": "relationship_evidence",
+     "summary": "등호의 의미를 토대로 동치 관계를 이해하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_159",
+   "source_id": "e34_pat_equivalence",
+   "target_id": "e34_pat_equal_expr",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 19; [4수02-03]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "크기가 같은 두 양의 관계를 등호를 사용한 식으로 나타낸다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_160",
+   "source_id": "e34_pat_judge",
+   "target_id": "e34_pat_equivalence",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 19 성취기준 해설",
+     "evidence_kind": "relationship_evidence",
+     "summary": "식이 옳은지 판단하는 활동으로 동치 관계를 이해하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_161",
+   "source_id": "e34_geo_line",
+   "target_id": "e34_geo_line_distinguish",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-01]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "직선, 선분, 반직선을 구별한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_162",
+   "source_id": "e34_geo_segment",
+   "target_id": "e34_geo_line_distinguish",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-01]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "직선, 선분, 반직선을 구별한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_163",
+   "source_id": "e34_geo_ray",
+   "target_id": "e34_geo_line_distinguish",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-01]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "직선, 선분, 반직선을 구별한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_164",
+   "source_id": "e34_geo_angle",
+   "target_id": "e34_geo_angle_vertex",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "relationship_evidence",
+     "summary": "각의 꼭짓점은 각의 구성 요소다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_165",
+   "source_id": "e34_geo_angle",
+   "target_id": "e34_geo_angle_side",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "relationship_evidence",
+     "summary": "각의 변은 각의 구성 요소다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_166",
+   "source_id": "e34_geo_ray",
+   "target_id": "e34_geo_angle",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-01]~[4수03-02]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "반직선 이해가 각 이해로 이어지는 성취기준 구성"
+    }
+   ],
+   "notes": "성취기준 배열 순서에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_167",
+   "source_id": "e34_geo_right_angle",
+   "target_id": "e34_geo_angle_compare",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-02]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "직각과 비교하는 활동으로 예각과 둔각을 구별한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_168",
+   "source_id": "e34_geo_angle_compare",
+   "target_id": "e34_geo_acute",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-02]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "비교 활동으로 예각을 구별한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_169",
+   "source_id": "e34_geo_angle_compare",
+   "target_id": "e34_geo_obtuse",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-02]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "비교 활동으로 둔각을 구별한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_170",
+   "source_id": "e34_geo_perpendicular",
+   "target_id": "e34_geo_perp_parallel_rel",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-03]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "직선의 수직 관계를 이해한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_171",
+   "source_id": "e34_geo_parallel",
+   "target_id": "e34_geo_perp_parallel_rel",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-03]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "직선의 평행 관계를 이해한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_172",
+   "source_id": "e34_geo_line",
+   "target_id": "e34_geo_perp_parallel_rel",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-03]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "직선 사이의 수직·평행 관계를 다룬다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_173",
+   "source_id": "e34_geo_slide",
+   "target_id": "e34_geo_move_change",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-04]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "밀기 활동을 통하여 변화를 이해한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_174",
+   "source_id": "e34_geo_flip",
+   "target_id": "e34_geo_move_change",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-04]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "뒤집기 활동을 통하여 변화를 이해한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_175",
+   "source_id": "e34_geo_turn",
+   "target_id": "e34_geo_move_change",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-04]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "돌리기 활동을 통하여 변화를 이해한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_176",
+   "source_id": "e12_geo_position_words",
+   "target_id": "e34_geo_point_move",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 13, 20",
+     "evidence_kind": "relationship_evidence",
+     "summary": "위치와 방향으로 말하기에서 점의 이동 설명으로 확장"
+    }
+   ],
+   "notes": "학년군 사이 범위 확장에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_177",
+   "source_id": "e12_geo_circle",
+   "target_id": "e34_geo_circle_center",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 13, 20",
+     "evidence_kind": "relationship_evidence",
+     "summary": "원의 직관적 이해에서 구성 요소 이해로 확장"
+    }
+   ],
+   "notes": "학년군 사이 범위 확장에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_178",
+   "source_id": "e34_geo_circle_center",
+   "target_id": "e34_geo_circle_property",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-06]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "원의 중심의 성질을 안다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_179",
+   "source_id": "e34_geo_radius",
+   "target_id": "e34_geo_circle_property",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-06]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "반지름의 성질을 안다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_180",
+   "source_id": "e34_geo_diameter",
+   "target_id": "e34_geo_circle_property",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-06]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "지름의 성질을 안다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_181",
+   "source_id": "e34_geo_circle_property",
+   "target_id": "e34_geo_compass",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 성취기준 해설",
+     "evidence_kind": "relationship_evidence",
+     "summary": "원을 그리는 방법을 원의 성질과 연결하여 이해하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_182",
+   "source_id": "e34_geo_tri_classify",
+   "target_id": "e34_geo_isosceles",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-08]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "분류 활동을 통하여 이등변삼각형을 이해한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_183",
+   "source_id": "e34_geo_tri_classify",
+   "target_id": "e34_geo_equilateral",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-08]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "분류 활동을 통하여 정삼각형을 이해한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_184",
+   "source_id": "e34_geo_tri_classify",
+   "target_id": "e34_geo_right_tri",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-09]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "분류 활동을 통하여 직각삼각형을 이해한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_185",
+   "source_id": "e34_geo_tri_classify",
+   "target_id": "e34_geo_acute_tri",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-09]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "분류 활동을 통하여 예각삼각형을 이해한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_186",
+   "source_id": "e34_geo_tri_classify",
+   "target_id": "e34_geo_obtuse_tri",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-09]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "분류 활동을 통하여 둔각삼각형을 이해한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_187",
+   "source_id": "e12_geo_triangle",
+   "target_id": "e34_geo_tri_classify",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 13, 20",
+     "evidence_kind": "relationship_evidence",
+     "summary": "삼각형의 직관적 이해에서 분류 활동으로 확장"
+    }
+   ],
+   "notes": "학년군 사이 범위 확장에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_188",
+   "source_id": "e34_geo_isosceles",
+   "target_id": "e34_geo_tri_property",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-08]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "이등변삼각형의 성질을 탐구하고 설명한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_189",
+   "source_id": "e34_geo_equilateral",
+   "target_id": "e34_geo_tri_property",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-08]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "정삼각형의 성질을 탐구하고 설명한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_190",
+   "source_id": "e34_geo_right_angle",
+   "target_id": "e34_geo_right_tri",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-09]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "직각을 기준으로 직각삼각형을 이해한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_191",
+   "source_id": "e34_geo_acute",
+   "target_id": "e34_geo_acute_tri",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-09]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "예각을 기준으로 예각삼각형을 이해한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_192",
+   "source_id": "e34_geo_obtuse",
+   "target_id": "e34_geo_obtuse_tri",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-09]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "둔각을 기준으로 둔각삼각형을 이해한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_193",
+   "source_id": "e34_geo_quad_classify",
+   "target_id": "e34_geo_rect",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-10]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "분류 활동을 통하여 직사각형을 이해한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_194",
+   "source_id": "e34_geo_quad_classify",
+   "target_id": "e34_geo_square",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-10]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "분류 활동을 통하여 정사각형을 이해한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_195",
+   "source_id": "e34_geo_quad_classify",
+   "target_id": "e34_geo_trapezoid",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-10]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "분류 활동을 통하여 사다리꼴을 이해한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_196",
+   "source_id": "e34_geo_quad_classify",
+   "target_id": "e34_geo_parallelogram",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-10]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "분류 활동을 통하여 평행사변형을 이해한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_197",
+   "source_id": "e34_geo_quad_classify",
+   "target_id": "e34_geo_rhombus",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-10]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "분류 활동을 통하여 마름모를 이해한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_198",
+   "source_id": "e12_geo_quadrilateral",
+   "target_id": "e34_geo_quad_classify",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 13, 20",
+     "evidence_kind": "relationship_evidence",
+     "summary": "사각형의 직관적 이해에서 분류 활동으로 확장"
+    }
+   ],
+   "notes": "학년군 사이 범위 확장에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_199",
+   "source_id": "e34_geo_parallel",
+   "target_id": "e34_geo_parallelogram",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-03], [4수03-10]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "평행 관계 이해가 평행사변형·사다리꼴 이해에 쓰인다"
+    }
+   ],
+   "notes": "문서가 직접 연결을 말하지 않으므로 medium을 유지한다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_200",
+   "source_id": "e34_geo_rect",
+   "target_id": "e34_geo_quad_property",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 20; [4수03-10]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "여러 가지 사각형의 성질을 탐구하고 설명한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_201",
+   "source_id": "e34_geo_polygon",
+   "target_id": "e34_geo_regular_polygon",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-11]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "정다각형은 다각형의 한 종류다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_202",
+   "source_id": "e34_geo_polygon",
+   "target_id": "e34_geo_diagonal",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 22 용어와 기호",
+     "evidence_kind": "relationship_evidence",
+     "summary": "대각선은 다각형의 구성 요소다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_203",
+   "source_id": "e12_geo_make_plane",
+   "target_id": "e34_geo_fill_shapes",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 13, 21",
+     "evidence_kind": "relationship_evidence",
+     "summary": "평면 모양 만들기에서 모양 만들거나 채우기로 확장"
+    }
+   ],
+   "notes": "학년군 사이 범위 확장에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_204",
+   "source_id": "e12_meas_minute_term",
+   "target_id": "e34_meas_min_sec_rel",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-13]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "1분과 1초의 관계를 이해한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_205",
+   "source_id": "e34_meas_second",
+   "target_id": "e34_meas_min_sec_rel",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-13]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "1분과 1초의 관계를 이해한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_206",
+   "source_id": "e34_meas_min_sec_rel",
+   "target_id": "e34_meas_read_seconds",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-13]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "관계를 이해하고 초 단위까지 시각을 읽는다는 진술 구조"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_207",
+   "source_id": "e12_meas_read_time",
+   "target_id": "e34_meas_read_seconds",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 14, 21",
+     "evidence_kind": "relationship_evidence",
+     "summary": "몇 시 몇 분 읽기에서 초 단위 읽기로 확장"
+    }
+   ],
+   "notes": "학년군 사이 범위 확장에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_208",
+   "source_id": "e34_meas_read_seconds",
+   "target_id": "e34_meas_time_addsub",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-13]~[4수03-14]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "초 단위 시각 읽기에서 시간의 덧셈과 뺄셈으로 확장"
+    }
+   ],
+   "notes": "성취기준 배열 순서에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_209",
+   "source_id": "e12_meas_cm",
+   "target_id": "e34_meas_mm",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 14, 21",
+     "evidence_kind": "relationship_evidence",
+     "summary": "cm·m 단위에서 mm·km 단위로 확장"
+    }
+   ],
+   "notes": "학년군 사이 범위 확장에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_210",
+   "source_id": "e12_meas_m",
+   "target_id": "e34_meas_km",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 14, 21",
+     "evidence_kind": "relationship_evidence",
+     "summary": "cm·m 단위에서 mm·km 단위로 확장"
+    }
+   ],
+   "notes": "학년군 사이 범위 확장에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_211",
+   "source_id": "e34_meas_mm",
+   "target_id": "e34_meas_length_measure",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-15]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "1mm를 이용하여 길이를 측정하고 어림한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_212",
+   "source_id": "e34_meas_km",
+   "target_id": "e34_meas_length_measure",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-15]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "1km를 이용하여 길이를 측정하고 어림한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_213",
+   "source_id": "e34_meas_mm",
+   "target_id": "e34_meas_length_rel",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-16]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "1cm와 1mm의 관계를 이해하고 표현한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_214",
+   "source_id": "e34_meas_km",
+   "target_id": "e34_meas_length_rel",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-16]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "1km와 1m의 관계를 이해하고 표현한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_215",
+   "source_id": "e34_meas_liter",
+   "target_id": "e34_meas_capacity_measure",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-17]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "1L를 이용하여 들이를 측정하고 어림한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_216",
+   "source_id": "e34_meas_ml",
+   "target_id": "e34_meas_capacity_measure",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-17]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "1mL를 이용하여 들이를 측정하고 어림한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_217",
+   "source_id": "e34_meas_liter",
+   "target_id": "e34_meas_capacity_rel",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-18]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "1L와 1mL의 관계를 이해하고 표현한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_218",
+   "source_id": "e34_meas_capacity_rel",
+   "target_id": "e34_meas_capacity_addsub",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-18]~[4수03-19]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "단위 관계 이해에서 들이의 덧셈과 뺄셈으로 이어지는 구성"
+    }
+   ],
+   "notes": "성취기준 배열 순서에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_219",
+   "source_id": "e12_meas_compare_capacity",
+   "target_id": "e34_meas_capacity_measure",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 14, 21",
+     "evidence_kind": "relationship_evidence",
+     "summary": "들이의 직접 비교에서 표준 단위 측정으로 확장"
+    }
+   ],
+   "notes": "학년군 사이 범위 확장에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_220",
+   "source_id": "e34_meas_gram",
+   "target_id": "e34_meas_weight_measure",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-20]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "1g을 이용하여 무게를 측정하고 어림한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_221",
+   "source_id": "e34_meas_kg",
+   "target_id": "e34_meas_weight_measure",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-20]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "1kg을 이용하여 무게를 측정하고 어림한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_222",
+   "source_id": "e34_meas_kg",
+   "target_id": "e34_meas_weight_rel",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-21]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "1kg과 1g의 관계를 이해하고 표현한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_223",
+   "source_id": "e34_meas_ton",
+   "target_id": "e34_meas_weight_rel",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-22]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "1t과 1kg의 관계를 이해한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_224",
+   "source_id": "e34_meas_weight_rel",
+   "target_id": "e34_meas_weight_addsub",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-21]~[4수03-23]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "단위 관계 이해에서 무게의 덧셈과 뺄셈으로 이어지는 구성"
+    }
+   ],
+   "notes": "성취기준 배열 순서에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_225",
+   "source_id": "e12_meas_compare_weight",
+   "target_id": "e34_meas_weight_measure",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 14, 21",
+     "evidence_kind": "relationship_evidence",
+     "summary": "무게의 직접 비교에서 표준 단위 측정으로 확장"
+    }
+   ],
+   "notes": "학년군 사이 범위 확장에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_226",
+   "source_id": "e34_geo_angle",
+   "target_id": "e34_meas_degree",
+   "relationship_type": "related_to",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-24]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "각의 크기의 단위로 1도를 다룬다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_227",
+   "source_id": "e34_meas_degree",
+   "target_id": "e34_meas_protractor",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-24]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "1도를 알고 각도기로 각의 크기를 측정한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_228",
+   "source_id": "e34_meas_protractor",
+   "target_id": "e34_meas_angle_sum",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 21; [4수03-24]~[4수03-25]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "각의 크기 측정이 내각 크기의 합 추론에 쓰인다"
+    }
+   ],
+   "notes": "성취기준 배열 순서에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_229",
+   "source_id": "e34_meas_length_measure",
+   "target_id": "e34_meas_sense",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "재거나 어림하는 측정 활동으로 양감을 기르게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_230",
+   "source_id": "e12_meas_approx",
+   "target_id": "e34_meas_length_measure",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "눈금에 일치하지 않는 측정값을 '약'으로 표현하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_231",
+   "source_id": "e12_meas_standard_need",
+   "target_id": "e34_meas_capacity_measure",
+   "relationship_type": "related_to",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "들이·무게의 표준 단위 도입 전에 표준 단위의 필요성을 알게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_232",
+   "source_id": "e34_data_collect",
+   "target_id": "e34_data_pictograph_draw",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23; [4수04-01]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "자료를 수집하여 그림그래프로 나타낸다는 진술 구조"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_233",
+   "source_id": "e34_data_collect",
+   "target_id": "e34_data_bar_draw",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23; [4수04-01]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "자료를 수집하여 막대그래프로 나타낸다는 진술 구조"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_234",
+   "source_id": "e34_data_collect",
+   "target_id": "e34_data_line_draw",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23; [4수04-02]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "자료를 수집하여 꺾은선그래프로 나타낸다는 진술 구조"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_235",
+   "source_id": "e34_data_pictograph",
+   "target_id": "e34_data_pictograph_draw",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23; [4수04-01]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "그림그래프로 나타내고 해석한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_236",
+   "source_id": "e34_data_bar",
+   "target_id": "e34_data_bar_draw",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23; [4수04-01]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "막대그래프로 나타내고 해석한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_237",
+   "source_id": "e34_data_line",
+   "target_id": "e34_data_line_draw",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23; [4수04-02]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "꺾은선그래프로 나타내고 해석한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_238",
+   "source_id": "e12_data_to_graph",
+   "target_id": "e34_data_pictograph_draw",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 15, 23",
+     "evidence_kind": "relationship_evidence",
+     "summary": "○·×·/ 그래프에서 그림그래프·막대그래프로 확장"
+    }
+   ],
+   "notes": "학년군 사이 범위 확장에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "e12_edge_239",
+   "source_id": "e34_data_bar_draw",
+   "target_id": "e34_data_choose_graph",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23 성취기준 해설",
+     "evidence_kind": "relationship_evidence",
+     "summary": "크기 비교에는 막대그래프가 편리함을 알고 선택하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_240",
+   "source_id": "e34_data_line_draw",
+   "target_id": "e34_data_choose_graph",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23 성취기준 해설",
+     "evidence_kind": "relationship_evidence",
+     "summary": "변화의 경향에는 꺾은선그래프가 편리함을 알고 선택하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_241",
+   "source_id": "e34_data_choose_graph",
+   "target_id": "e34_data_inquiry",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23; [4수04-03]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "탐구 과정에서 목적에 맞는 그래프를 선택한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_242",
+   "source_id": "e34_data_collect",
+   "target_id": "e34_data_inquiry",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 23; [4수04-03]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "탐구 문제 해결을 위해 자료를 수집, 정리한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "e12_edge_243",
+   "source_id": "e34_data_inquiry",
+   "target_id": "e34_data_critical",
+   "relationship_type": "related_to",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 24 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "표현의 적절성을 비판적으로 판단하게 한다"
     }
    ],
    "notes": "",
