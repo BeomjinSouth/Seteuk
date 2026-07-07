@@ -34,7 +34,7 @@
 - `k12-spine-edges.csv`: 같은 spine의 포함·선수·연계 edge CSV
 - `k12-spine.dot`: 학년군·영역 블록·고등 과목 수준의 Graphviz DOT 시각화
 - `k12-spine.md`: spine 데이터 규모, 과목별 성취기준 수, 과목 위계 edge 근거 요약
-- `k12-spine.html`: 학년군 진행이 가로축, 영역이 세로축인 계층형 위계 그래프. 블록 클릭 시 성취기준 원문 표시. 선택 과목 제외
+- `k12-spine.html`: 학년군 진행이 가로축, 영역이 세로축인 계층형 위계 그래프. 블록 클릭 시 성취기준 원문과 그 아래로 분해한 미시 개념(단원별, 유형 배지·신뢰도)을 탭으로 표시. 초·중·고 미시 concept 1368개를 드릴다운으로 연결. 선택 과목 제외
 - `elementary-concepts.json`: 초등 전체 학년군 미시 concept의 원본 JSON
 - `elementary-concepts.csv`: 같은 데이터셋의 concept 노드 CSV
 - `elementary-edges.csv`: 같은 데이터셋의 관계 edge CSV

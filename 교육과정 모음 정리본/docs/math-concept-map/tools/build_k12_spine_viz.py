@@ -12,14 +12,40 @@ NODES_CSV = OUT_DIR / "k12-spine-nodes.csv"
 EDGES_CSV = OUT_DIR / "k12-spine-edges.csv"
 VIZ_HTML = OUT_DIR / "k12-spine.html"
 
+# 블록 드릴다운에 붙일 미시 concept 데이터셋.
+ELEMENTARY_JSON = OUT_DIR / "elementary-concepts.json"
+MIDDLE_JSON = OUT_DIR / "concepts.json"
+HS_COMMON_JSON = OUT_DIR / "hs-common-concepts.json"
+
 # 2026-07-06 사용자 결정: 고등학교 선택 과목은 시각화·미시 분해 범위에서 제외한다.
 # AGENTS.md "Math Concept Map Scope Rules" 참조.
 IN_SCOPE_COURSE_TYPES = {"공통 교육과정", "공통 과목"}
 
 BAND_ORDER = ["초1-2", "초3-4", "초5-6", "중1-3"]
+ELEMENTARY_BANDS = {"초1-2", "초3-4", "초5-6"}
 DOMAIN_ORDER = ["수와 연산", "변화와 관계", "도형과 측정", "자료와 가능성"]
 MAIN_SUBJECT_ORDER = ["공통수학1", "공통수학2"]
 ALT_SUBJECT_ORDER = ["기본수학1", "기본수학2"]
+
+# concept_type을 사람이 읽는 배지와 위계 정렬 우선순위로 매핑한다.
+TYPE_BADGES = {
+    "core_concept": "핵심",
+    "sub_concept": "하위",
+    "property": "성질",
+    "representation": "표현",
+    "procedure": "절차",
+    "term": "용어",
+    "misconception_risk": "오개념",
+}
+TYPE_ORDER = {
+    "core_concept": 0,
+    "sub_concept": 1,
+    "property": 2,
+    "representation": 3,
+    "procedure": 4,
+    "term": 5,
+    "misconception_risk": 6,
+}
 
 COL_W = 176
 COL_GAP = 46
@@ -37,8 +63,71 @@ def load_rows(path: Path) -> list[dict]:
         return list(csv.DictReader(f))
 
 
-def build_view_model(nodes: list[dict], edges: list[dict]) -> dict:
+def _load_concepts(path: Path) -> list[dict]:
+    if not path.exists():
+        return []
+    return json.loads(path.read_text(encoding="utf-8")).get("concepts", [])
+
+
+def load_micro_index() -> dict:
+    """세 미시 데이터셋을 블록 매칭용 인덱스로 만든다.
+
+    - elementary: (grade, domain) 키. grade가 초등 학년군과 같다.
+    - middle: domain 키. 모든 중학교 concept은 중1-3 학년군에 속한다.
+    - hs_common: (domain, unit) 키. domain이 공통수학1/2, unit이 영역명이다.
+    """
+    elem: dict[tuple[str, str], list[dict]] = {}
+    for c in _load_concepts(ELEMENTARY_JSON):
+        elem.setdefault((c["grade"], c["domain"]), []).append(c)
+
+    middle: dict[str, list[dict]] = {}
+    for c in _load_concepts(MIDDLE_JSON):
+        middle.setdefault(c["domain"], []).append(c)
+
+    hs: dict[tuple[str, str], list[dict]] = {}
+    for c in _load_concepts(HS_COMMON_JSON):
+        hs.setdefault((c["domain"], c["unit"]), []).append(c)
+
+    return {"elementary": elem, "middle": middle, "hs_common": hs}
+
+
+def group_micro(concepts: list[dict]) -> dict:
+    """concept 목록을 단원별로 묶고 위계 유형 순으로 정렬한다."""
+    units: dict[str, list[dict]] = {}
+    unit_order: list[str] = []
+    for c in concepts:
+        unit = c.get("unit", "")
+        if unit not in units:
+            units[unit] = []
+            unit_order.append(unit)
+        units[unit].append(c)
+
+    grouped = []
+    for unit in unit_order:
+        items = sorted(
+            units[unit],
+            key=lambda c: (TYPE_ORDER.get(c.get("concept_type", ""), 9), c.get("label_ko", "")),
+        )
+        grouped.append(
+            {
+                "unit": unit,
+                "items": [
+                    {
+                        "label": c.get("label_ko", ""),
+                        "type": TYPE_BADGES.get(c.get("concept_type", ""), c.get("concept_type", "")),
+                        "confidence": c.get("confidence", ""),
+                        "definition": c.get("short_definition", ""),
+                    }
+                    for c in items
+                ],
+            }
+        )
+    return {"count": len(concepts), "units": grouped}
+
+
+def build_view_model(nodes: list[dict], edges: list[dict], micro_index: dict | None = None) -> dict:
     """스코프 안의 노드·edge를 격자 배치용 view model로 변환한다."""
+    micro_index = micro_index or {"elementary": {}, "middle": {}, "hs_common": {}}
     in_scope = [n for n in nodes if n["course_type"] in IN_SCOPE_COURSE_TYPES]
     standards = [n for n in in_scope if n["node_type"] == "achievement_standard"]
 
@@ -57,10 +146,16 @@ def build_view_model(nodes: list[dict], edges: list[dict]) -> dict:
                 and n["grade_band"] == band
                 and n["domain"] == domain
             )
+            if band in ELEMENTARY_BANDS:
+                micro_concepts = micro_index["elementary"].get((band, domain), [])
+            else:  # 중1-3
+                micro_concepts = micro_index["middle"].get(domain, [])
+            micro = group_micro(micro_concepts)
+            subtitle = f"성취기준 {len(block_standards)} · 개념 {micro['count']}"
             blocks[node["node_id"]] = {
                 "id": node["node_id"],
                 "title": domain,
-                "subtitle": f"성취기준 {len(block_standards)}개",
+                "subtitle": subtitle,
                 "column": band_i,
                 "kind": "domain",
                 "x": MARGIN_X + band_i * (COL_W + COL_GAP),
@@ -75,6 +170,7 @@ def build_view_model(nodes: list[dict], edges: list[dict]) -> dict:
                     }
                     for s in sorted(block_standards, key=lambda s: s["achievement_code"])
                 ],
+                "micro": micro,
             }
 
     # 고등학교 공통 과목: 과목 열 + 영역 상자
@@ -106,13 +202,24 @@ def build_view_model(nodes: list[dict], edges: list[dict]) -> dict:
             "w": COL_W,
             "h": 40,
             "standards": [],
+            "micro": {"count": 0, "units": []},
         }
         for a_i, area in enumerate(areas):
             area_standards = subject_standards_by_area.get(area["domain"], [])
+            # 기본수학1·2(대체 경로)는 미시 분해 대상이 아니므로 hs_common과 매칭하지 않는다.
+            micro_concepts = (
+                [] if dashed else micro_index["hs_common"].get((subject, area["domain"]), [])
+            )
+            micro = group_micro(micro_concepts)
+            subtitle = (
+                f"성취기준 {len(area_standards)}"
+                if dashed
+                else f"성취기준 {len(area_standards)} · 개념 {micro['count']}"
+            )
             blocks[area["node_id"]] = {
                 "id": area["node_id"],
                 "title": area["domain"],
-                "subtitle": f"성취기준 {len(area_standards)}개",
+                "subtitle": subtitle,
                 "column": col_i,
                 "kind": "area_alt" if dashed else "area",
                 "x": x,
@@ -127,6 +234,7 @@ def build_view_model(nodes: list[dict], edges: list[dict]) -> dict:
                     }
                     for s in sorted(area_standards, key=lambda s: s["achievement_code"])
                 ],
+                "micro": micro,
             }
         return subject_node["node_id"]
 
@@ -235,6 +343,7 @@ def render_html(model: dict) -> str:
             "title": b["title"],
             "subtitle": b["subtitle"],
             "standards": b["standards"],
+            "micro": b.get("micro", {"count": 0, "units": []}),
         }
         for b in blocks.values()
     }
@@ -257,6 +366,19 @@ def render_html(model: dict) -> str:
   .panel li {{ font-size: 12.5px; margin-bottom: 9px; line-height: 1.45; }}
   .panel li code {{ background: #eef2f9; border-radius: 4px; padding: 1px 5px; font-size: 11.5px; }}
   .panel .loc {{ color: #98a; font-size: 11px; }}
+  .panel .tabs {{ display: flex; gap: 6px; margin: 4px 0 12px; }}
+  .panel .tab {{ font-size: 12px; padding: 4px 12px; border: 1px solid #cdd6e6; border-radius: 999px; background: #f4f7fc; cursor: pointer; }}
+  .panel .tab.active {{ background: #2f4f8f; color: #fff; border-color: #2f4f8f; }}
+  .unit-group {{ margin-bottom: 14px; }}
+  .unit-name {{ font-size: 12.5px; font-weight: 700; color: #2a3348; margin: 0 0 6px; padding-bottom: 3px; border-bottom: 1px solid #edf1f7; }}
+  .concept-row {{ font-size: 12.5px; margin-bottom: 6px; line-height: 1.4; }}
+  .badge {{ display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; margin-right: 5px; vertical-align: middle; background: #e7eef9; color: #35507f; }}
+  .badge.term {{ background: #eceef2; color: #6a7180; }}
+  .badge.procedure {{ background: #e9f3ec; color: #35704a; }}
+  .badge.core {{ background: #dfe8fb; color: #21386b; }}
+  .badge.misc {{ background: #fbe7e2; color: #9a3b21; }}
+  .low-dot {{ color: #d99141; font-weight: 700; margin-left: 4px; }}
+  .cdef {{ color: #7a8296; font-size: 11.5px; }}
   .stage-label {{ font-size: 11px; fill: #8a93a6; text-anchor: middle; }}
   .band-label {{ font-size: 14px; font-weight: 700; fill: #2a3348; text-anchor: middle; }}
   .block rect {{ cursor: pointer; }}
@@ -283,12 +405,13 @@ def render_html(model: dict) -> str:
 <body>
 <header>
   <h1>초1~고1 수학 위계 그래프 — 공통 교육과정 + 고등 공통 과목</h1>
-  <p>가로축: 학년군 진행(왼쪽 → 오른쪽) · 세로축: 교육과정 영역. 블록을 클릭하면 해당 구간의 성취기준 원문이 오른쪽에 표시됩니다.</p>
+  <p>가로축: 학년군 진행(왼쪽 → 오른쪽) · 세로축: 교육과정 영역. 블록을 클릭하면 오른쪽에 성취기준 원문과 그 아래로 분해한 미시 개념(단원별)이 표시됩니다.</p>
   <p>출처: 2022 개정 수학과 교육과정(별책8) 원문 추출. 고등학교 선택 과목은 2026-07-06 결정에 따라 이 그래프에서 제외(AGENTS.md Scope Rules 참조).</p>
 </header>
 <div class="legend">
   <span><span class="line-high"></span>선수 관계 (공식 문서 직접 근거)</span>
   <span><span class="line-medium"></span>선수 관계 (편제·구성 기반 추론, medium)</span>
+  <span>개념 배지: <span class="badge core">핵심</span><span class="badge">하위/성질/표현</span><span class="badge procedure">절차</span><span class="badge term">용어</span> · <span class="low-dot">●</span> 교과서 근거 보강 필요(low)</span>
 </div>
 <div class="wrap">
   <div class="canvas">
@@ -303,30 +426,57 @@ def render_html(model: dict) -> str:
   </div>
   <aside class="panel" id="panel">
     <h2>블록을 선택하세요</h2>
-    <div class="meta">학년군×영역 블록 또는 고등 과목 영역을 클릭하면 성취기준 목록이 나타납니다.</div>
+    <div class="meta">학년군×영역 블록 또는 고등 과목 영역을 클릭하면 성취기준과 미시 개념이 나타납니다.</div>
   </aside>
 </div>
 <script>
 const DETAILS = {json.dumps(detail_data, ensure_ascii=False)};
+const BADGE_CLASS = {{ '핵심': 'core', '오개념': 'misc', '절차': 'procedure', '용어': 'term' }};
 const panel = document.getElementById('panel');
 let selected = null;
+let current = null;
+let tab = 'micro';
 document.querySelectorAll('.block').forEach(el => {{
   el.addEventListener('click', () => select(el));
   el.addEventListener('keydown', e => {{ if (e.key === 'Enter' || e.key === ' ') {{ e.preventDefault(); select(el); }} }});
 }});
+function esc(s) {{ return (s || '').replace(/[&<>]/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;'}}[c])); }}
 function select(el) {{
   if (selected) selected.classList.remove('selected');
   selected = el; el.classList.add('selected');
-  const d = DETAILS[el.dataset.block];
-  if (!d) return;
-  let html_ = `<h2>${{d.title}}</h2><div class="meta">${{d.subtitle}}</div>`;
-  if (d.standards.length) {{
-    html_ += '<ol style="padding-left:18px">' + d.standards.map(s =>
-      `<li><code>[${{s.code}}]</code> ${{s.statement}}<br><span class="loc">${{s.locator}}</span></li>`).join('') + '</ol>';
-  }} else {{
-    html_ += '<div class="meta">이 블록에는 직접 연결된 성취기준이 없습니다 (과목 머리글).</div>';
-  }}
+  current = DETAILS[el.dataset.block];
+  if (!current) return;
+  tab = (current.micro && current.micro.count) ? 'micro' : 'std';
+  render();
+}}
+function renderStandards() {{
+  if (!current.standards.length) return '<div class="meta">이 블록에는 직접 연결된 성취기준이 없습니다 (과목 머리글).</div>';
+  return '<ol style="padding-left:18px">' + current.standards.map(s =>
+    `<li><code>[${{esc(s.code)}}]</code> ${{esc(s.statement)}}<br><span class="loc">${{esc(s.locator)}}</span></li>`).join('') + '</ol>';
+}}
+function renderMicro() {{
+  const m = current.micro;
+  if (!m || !m.count) return '<div class="meta">이 블록에는 아직 분해된 미시 개념이 없습니다.</div>';
+  return m.units.map(u => {{
+    const rows = u.items.map(it => {{
+      const cls = BADGE_CLASS[it.type] || '';
+      const low = it.confidence === 'low' ? '<span class="low-dot" title="교과서 근거 보강 필요">●</span>' : '';
+      const def = it.definition ? `<div class="cdef">${{esc(it.definition)}}</div>` : '';
+      return `<div class="concept-row"><span class="badge ${{cls}}">${{esc(it.type)}}</span>${{esc(it.label)}}${{low}}${{def}}</div>`;
+    }}).join('');
+    return `<div class="unit-group"><p class="unit-name">${{esc(u.unit)}} <span class="loc">(${{u.items.length}})</span></p>${{rows}}</div>`;
+  }}).join('');
+}}
+function render() {{
+  const stdN = current.standards.length;
+  const microN = current.micro ? current.micro.count : 0;
+  let html_ = `<h2>${{esc(current.title)}}</h2><div class="meta">${{esc(current.subtitle)}}</div>`;
+  html_ += `<div class="tabs">`
+    + `<span class="tab ${{tab==='micro'?'active':''}}" data-tab="micro">미시 개념 ${{microN}}</span>`
+    + `<span class="tab ${{tab==='std'?'active':''}}" data-tab="std">성취기준 ${{stdN}}</span></div>`;
+  html_ += tab === 'micro' ? renderMicro() : renderStandards();
   panel.innerHTML = html_;
+  panel.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {{ tab = t.dataset.tab; render(); }}));
 }}
 </script>
 </body>
@@ -337,7 +487,8 @@ function select(el) {{
 def main() -> None:
     nodes = load_rows(NODES_CSV)
     edges = load_rows(EDGES_CSV)
-    model = build_view_model(nodes, edges)
+    micro_index = load_micro_index()
+    model = build_view_model(nodes, edges, micro_index)
 
     out_of_scope_labels = {"대수", "미적분Ⅰ", "미적분Ⅱ", "확률과 통계", "기하"}
     titles = {b["title"] for b in model["blocks"].values()}
@@ -345,7 +496,8 @@ def main() -> None:
         raise SystemExit("선택 과목이 시각화 범위에 포함되었습니다. Scope Rules를 확인하세요.")
 
     VIZ_HTML.write_text(render_html(model), encoding="utf-8")
-    print(f"blocks: {len(model['blocks'])}, arrows: {len(model['arrows'])}")
+    total_micro = sum(b.get("micro", {}).get("count", 0) for b in model["blocks"].values())
+    print(f"blocks: {len(model['blocks'])}, arrows: {len(model['arrows'])}, micro concepts: {total_micro}")
     print(f"written: {VIZ_HTML}")
 
 
