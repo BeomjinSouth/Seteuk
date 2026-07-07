@@ -409,7 +409,10 @@ export function buildGraphRagAnswerSpans(
         const best = scored[0]?.match ?? primaryMatch;
         const score = scored[0]?.score ?? 0;
 
-        if (!hasGroundedSourceMatch(tokens.length, score, best.score)) {
+        // Use the scale-stable retrievalScore: after RRF fusion, `best.score` no
+        // longer sits on the raw lexical scale MIN_GROUNDED_RETRIEVAL_SCORE expects.
+        const retrievalScore = best.retrievalScore ?? best.score;
+        if (!hasGroundedSourceMatch(tokens.length, score, retrievalScore)) {
             return {
                 id: `span:${index}`,
                 text: segment,

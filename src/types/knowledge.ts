@@ -112,7 +112,15 @@ export interface RetrievedKnowledgeEvidence {
     policyAnchors: KnowledgeUnitPolicyAnchor[];
     /** Offline graph-rag-labels tags (domain/policy/risk/workflow), when available. */
     graphLabels?: KnowledgeGraphLabels;
+    /** Final ranking score. Raw lexical when hosted search is off, RRF-fused when on. */
     score: number;
+    /**
+     * Scale-stable retrieval strength of the underlying match (raw lexical score,
+     * or scaled hosted score for vector-only hits). Unlike `score`, this does not
+     * change scale when hosted search is enabled, so grounding/confidence gates can
+     * use a fixed threshold regardless of retrieval configuration.
+     */
+    retrievalScore?: number;
     snippet: string;
 }
 

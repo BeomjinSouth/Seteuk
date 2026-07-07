@@ -142,10 +142,14 @@ async function searchHostedSafely(params: HybridSearchParams): Promise<Retrieved
             limit: params.limit ?? DEFAULT_LIMIT,
         });
 
-        return hosted.map((match) => ({
-            ...match,
-            score: Math.round(match.score * HOSTED_SCORE_SCALE),
-        }));
+        return hosted.map((match) => {
+            const scaledScore = Math.round(match.score * HOSTED_SCORE_SCALE);
+            return {
+                ...match,
+                score: scaledScore,
+                retrievalScore: scaledScore,
+            };
+        });
     } catch (error) {
         console.warn('Hosted knowledge search failed, falling back to lexical only:', error);
         return [];
@@ -167,8 +171,12 @@ export function shouldSkipRerankForHighConfidenceLexical(matches: RetrievedKnowl
     const [top, second] = matches;
     if (!top) return false;
     const hasCitationUrl = Boolean(top.sourceUrls[0] || top.sources[0]?.url);
-    const margin = top.score - (second?.score ?? 0);
-    return hasCitationUrl && top.score >= HIGH_CONFIDENCE_TOP_SCORE && margin >= HIGH_CONFIDENCE_MARGIN;
+    // Thresholds are calibrated on the raw lexical scale, so read the scale-stable
+    // retrievalScore rather than the (possibly RRF-fused) ranking score.
+    const topScore = top.retrievalScore ?? top.score;
+    const secondScore = second?.retrievalScore ?? second?.score ?? 0;
+    const margin = topScore - secondScore;
+    return hasCitationUrl && topScore >= HIGH_CONFIDENCE_TOP_SCORE && margin >= HIGH_CONFIDENCE_MARGIN;
 }
 
 function splitRecordSentences(recordText: string): string[] {
