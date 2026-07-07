@@ -1,0 +1,6 @@
+# 교과서 원본 PDF는 저작권 보호와 용량 문제로 저장소에 커밋하지 않는다.
+# 출처·해시·감사 결과(TEXTBOOK_SOURCE_MANIFEST.csv, textbook-source-audit.*)만 버전 관리한다.
+*.pdf
+*.zip
+*.hwp
+*.hwpx
