@@ -9,7 +9,7 @@ import {
 import { isSupabaseConfigured } from '@/lib/supabase/config';
 import { getSupabaseAdminClient } from '@/lib/supabase/server';
 
-export const BOOTSTRAP_ADMIN = {
+const BOOTSTRAP_ADMIN = {
     name: '박범진',
     school: SEONGHO_SCHOOL_NAME,
     subject: SEONGHO_DEFAULT_SUBJECT,
@@ -33,7 +33,7 @@ type AdminRoleRow = {
     granted_at: string | null;
 };
 
-export function getBootstrapAdminTeacherKey(): string {
+function getBootstrapAdminTeacherKey(): string {
     return buildTeacherKey(BOOTSTRAP_ADMIN);
 }
 

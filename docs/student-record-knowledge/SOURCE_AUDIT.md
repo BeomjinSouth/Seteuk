@@ -15,12 +15,8 @@
 ## Current Policy
 
 - chatbot and review use only canonical public knowledge
-- Graph RAG mode uses the same canonical public knowledge only; ontology nodes, graph edges, highlighted answer spans, and source excerpts are generated from retrieved public FAQ/Q&A evidence
-- offline Graph RAG labels are generated only from canonical public knowledge units and public source-document metadata; private posts are not emitted as evidence nodes or Obsidian notes
-- Graph RAG highlights only answer spans that pass both a retrieved-source score threshold and a direct public-source text-overlap threshold; low-signal source/meta wording is filtered before scoring, and answer spans without enough source support are kept unhighlighted so the UI does not imply unsupported precision
 - private posts are retained only for stats and operations
 - conflict resolution defaults to latest answer first
 - deployed web runtime reads a bundled knowledge snapshot from `web/output/star-moe-knowledge-2026.json`
 - local development can fall back to `../student-record-knowledge/output/star-moe-knowledge-2026.json` or `KNOWLEDGE_JSON_PATH`
-- hosted/vector retrieval is an optional supplemental path; when available it is fused with local lexical retrieval by Reciprocal Rank Fusion so raw vector and lexical score scales do not compete directly
-- vector-store files uploaded before the `knowledge_unit_id` attribute existed can only fall back to title matching; resyncing the vector store is required for complete graph-label joins
+- hosted/vector retrieval exists as an optional path, but the default production answer flow is still lexical retrieval plus optional AI reranking

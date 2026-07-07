@@ -5,11 +5,9 @@ import type {
     GroupStudentSkillScore,
     GroupSurveyResponse,
     GroupSurveyStudentProfile,
-    PartnerRecommendation,
     SkillScore,
     SurveyAnswerValue,
 } from '@/types';
-import type { ObservationBoardMentorAssignment } from '@/lib/observation-board-ai-context';
 
 export const GROUP_SURVEY_QUESTIONS = [
     '모둠에서 내가 맡은 일은 끝까지 하려고 한다.',
@@ -34,7 +32,7 @@ export const GROUP_SURVEY_SCALE = [
     '매우 그렇다',
 ] as const;
 
-export function isSurveyAnswerValue(value: unknown): value is SurveyAnswerValue {
+function isSurveyAnswerValue(value: unknown): value is SurveyAnswerValue {
     return Number.isInteger(value) && Number(value) >= 1 && Number(value) <= 5;
 }
 
@@ -143,7 +141,7 @@ function groupPressure(group: GroupRecommendationMember[]): number {
     return skillSum * 1.4 + willSum + highWillCount * 0.8 + highAgencyCount * 0.5 + group.length * 0.2;
 }
 
-export function analyzeGroupMembers(members: GroupRecommendationMember[]): string[] {
+function analyzeGroupMembers(members: GroupRecommendationMember[]): string[] {
     if (members.length === 0) return ['아직 학생이 배치되지 않았습니다.'];
 
     const feedback: string[] = [];
@@ -238,112 +236,3 @@ export function buildGroupRecommendation(
     };
 }
 
-export function recommendPartners(
-    profiles: GroupSurveyStudentProfile[],
-    selectedStudentId?: string
-): PartnerRecommendation[] {
-    if (!selectedStudentId) return [];
-    const selected = profiles.find((profile) => profile.student.id === selectedStudentId);
-    if (!selected || !isReadyProfile(selected)) return [];
-
-    return profiles
-        .filter((profile) => profile.student.id !== selectedStudentId && isReadyProfile(profile))
-        .map((profile) => {
-            const readyProfile = profile as GroupSurveyStudentProfile & {
-                willAvg: number;
-                agencyAvg: number;
-                skillScore: SkillScore;
-            };
-            const reasons: string[] = [];
-            let score = 0;
-
-            if (selected.skillScore === 1 && readyProfile.skillScore >= 2) {
-                score += 3;
-                reasons.push('내용 확인을 함께하기 좋습니다.');
-            } else if (selected.skillScore === 3 && readyProfile.skillScore <= 2) {
-                score += 2;
-                reasons.push('설명 역할과 연습 기회가 균형을 이룹니다.');
-            } else if (Math.abs(selected.skillScore - readyProfile.skillScore) <= 1) {
-                score += 1;
-                reasons.push('학습 준비도 차이가 크지 않습니다.');
-            }
-
-            if (selected.willAvg < 2.5 && readyProfile.willAvg >= 3.5) {
-                score += 3;
-                reasons.push('역할과 시간을 챙기는 흐름을 보완할 수 있습니다.');
-            } else if (selected.willAvg >= 3.5 && readyProfile.willAvg < 3.5) {
-                score += 2;
-                reasons.push('책임감 있는 참여 흐름을 나눌 수 있습니다.');
-            } else {
-                score += 1;
-                reasons.push('활동 지속성의 리듬이 무난합니다.');
-            }
-
-            if (selected.agencyAvg >= 3.5 && readyProfile.agencyAvg >= 3.5) {
-                score -= 1;
-                reasons.push('둘 다 먼저 이끄는 편이라 역할 분담이 필요합니다.');
-            } else if (selected.agencyAvg < 2.5 && readyProfile.agencyAvg >= 2.5) {
-                score += 2;
-                reasons.push('대화 시작을 도와줄 수 있습니다.');
-            } else if (selected.agencyAvg >= 3.5 && readyProfile.agencyAvg < 3.5) {
-                score += 2;
-                reasons.push('말하기와 듣기 균형을 만들기 좋습니다.');
-            } else {
-                score += 1;
-            }
-
-            return {
-                studentId: readyProfile.student.id,
-                name: readyProfile.student.name,
-                number: readyProfile.student.number,
-                score,
-                reasons,
-            };
-        })
-        .sort((a, b) => b.score - a.score || a.number - b.number)
-        .slice(0, 5);
-}
-
-export function analyzeCurrentAssignments(
-    assignments: ObservationBoardMentorAssignment[],
-    profiles: GroupSurveyStudentProfile[]
-): GroupRecommendationGroup[] {
-    const profileByStudentId = new Map(profiles.filter(isReadyProfile).map((profile) => [profile.student.id, profile]));
-
-    return assignments.map((assignment, index) => {
-        const studentIds = Array.isArray(assignment.members) && assignment.members.length > 0
-            ? assignment.members.map((member) => member.studentId)
-            : [assignment.mentorId, assignment.menteeId].filter(Boolean) as string[];
-        const members = studentIds
-            .map((studentId) => {
-                const profile = profileByStudentId.get(studentId);
-                return profile ? toMember(profile) : null;
-            })
-            .filter(Boolean) as GroupRecommendationMember[];
-
-        return {
-            id: assignment.id || `current-group-${index + 1}`,
-            title: assignment.title || `${index + 1}모둠`,
-            members,
-            feedback: members.length > 0
-                ? analyzeGroupMembers(members)
-                : ['설문/Skill 자료가 있는 학생이 아직 없습니다.'],
-        };
-    });
-}
-
-export function recommendationGroupsToMentorAssignments(
-    groups: GroupRecommendationGroup[]
-): ObservationBoardMentorAssignment[] {
-    return groups.map((group, groupIndex) => ({
-        id: `group-${groupIndex + 1}`,
-        title: `${groupIndex + 1}모둠`,
-        mentorId: group.members[0]?.studentId,
-        menteeId: group.members[1]?.studentId,
-        members: group.members.map((member, memberIndex) => ({
-            studentId: member.studentId,
-            role: memberIndex === 0 ? 'mentor' : memberIndex === 1 ? 'mentee' : 'member',
-            order: memberIndex,
-        })),
-    }));
-}

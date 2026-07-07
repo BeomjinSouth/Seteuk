@@ -1,17 +1,12 @@
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { runKnowledgeEval } from '@/lib/knowledge-eval';
 
-export async function GET(request: NextRequest) {
+export async function GET() {
     try {
-        const mode = request.nextUrl.searchParams.get('mode') === 'hybrid' ? 'hybrid' : 'lexical';
-        const requestedLimit = Number(request.nextUrl.searchParams.get('limit') ?? 5);
-        const limit = Number.isFinite(requestedLimit) && requestedLimit > 0
-            ? Math.min(Math.floor(requestedLimit), 30)
-            : 5;
-        const report = await runKnowledgeEval(limit, mode);
+        const report = await runKnowledgeEval();
         return NextResponse.json({
             success: true,
             ...report,

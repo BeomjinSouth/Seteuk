@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 const source = readFileSync('src/lib/prompts/seteuk.ts', 'utf8');
 
 const requiredSnippets = [
-  "SETEUK_DEFAULT_SYSTEM_PROMPT_VERSION = 'cross-curricular-seteuk-v2.7'",
+  "SETEUK_DEFAULT_SYSTEM_PROMPT_VERSION = 'cross-curricular-seteuk-v2.9'",
   '“열심히 함”만 제시된 경우',
   '관찰 가능한 활동이나 과제가 함께 제시되지 않았으면 안전 문장만 출력함',
   '매체명이나 산출물 형식도 입력에 없으면 새로 붙이지 않음',
@@ -17,6 +17,12 @@ const requiredSnippets = [
   '“과제 수행함”은 입력에 과제 수행, 과제 제출, 과제 완료가 직접 제시된 경우에만 사용함',
   '입력이 “질문함”이면 질문 행동만 쓰고, 의견 제시나 의견 말하기로 바꾸지 않음',
   '차시 수나 반복 횟수를 그대로 드러내지 않음',
+  '범교과 대량 생성 품질 점검 원칙',
+  '공백과 문장부호를 제거한 최종 본문이 완전히 같은 학생이 생기지 않도록 함',
+  '한 학생의 세특 안에서 같은 확인 행동이나 같은 활동 참여를 다른 말로 반복하지 않음',
+  '대량 생성 시 다듬어야 할 약한 표현',
+  '"질문이 필요한 부분"처럼 결핍이 드러나는 표현은 "확인이 필요한 부분"',
+  '"교사의 안내에 따라"는 반복될 경우 "제시된 절차를 참고해"',
 ];
 
 const missing = requiredSnippets.filter((snippet) => !source.includes(snippet));

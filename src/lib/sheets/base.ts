@@ -54,7 +54,7 @@ function normalizeGooglePrivateKey(raw?: string): string | undefined {
 }
 
 // Google Sheets API initialization
-export function getAuth() {
+function getAuth() {
     return new google.auth.GoogleAuth({
         credentials: {
             client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL?.trim(),
@@ -64,12 +64,12 @@ export function getAuth() {
     });
 }
 
-export function getSheets() {
+function getSheets() {
     const auth = getAuth();
     return google.sheets({ version: 'v4', auth });
 }
 
-export const SPREADSHEET_ID = process.env.GOOGLE_SPREADSHEET_ID?.trim() || '';
+const SPREADSHEET_ID = process.env.GOOGLE_SPREADSHEET_ID?.trim() || '';
 const LOCAL_SHEET_STORE_PATH = path.join(process.cwd(), '.local-sheet-store.json');
 type LocalSheetStore = Record<string, string[][]>;
 
@@ -105,19 +105,6 @@ async function ensureLocalSheet(sheetName: string): Promise<LocalSheetStore> {
     return store;
 }
 
-async function withLocalFallback<T>(sheetName: string, operation: string, callback: () => Promise<T>): Promise<T> {
-    try {
-        return await callback();
-    } catch (error) {
-        if (!shouldUseLocalSheetFallback()) {
-            throw error;
-        }
-        const message = error instanceof Error ? error.message : String(error);
-        console.warn(`[sheets] ${operation} failed for "${sheetName}", using local fallback instead: ${message}`);
-        throw error;
-    }
-}
-
 // Sheet names
 export const SHEETS = {
     STUDENTS: '\uD559\uC0DD', // students
@@ -145,7 +132,7 @@ export const SHEETS = {
  * @param n - 1-based column number.
  * @returns The column letters.
  */
-export function columnNumberToLetters(n: number): string {
+function columnNumberToLetters(n: number): string {
     let result = '';
     let num = n;
     while (num > 0) {
@@ -352,7 +339,7 @@ export async function deleteRow(sheetName: string, rowIndex: number): Promise<vo
 /**
  * Retrieves the numeric Sheet ID (gid) by sheet name.
  */
-export async function getSheetId(sheetName: string): Promise<number> {
+async function getSheetId(sheetName: string): Promise<number> {
     assertProductionStorageConfigured();
 
     if (isSupabaseConfigured()) {

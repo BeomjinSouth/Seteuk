@@ -11,8 +11,6 @@ type WorkspacePayload = Pick<ReturnType<typeof useAppStore.getState>,
     | 'seteukPromptMode'
     | 'personalSeteukPrompt'
     | 'curriculumContents'
-    | 'curriculumUnitOverrides'
-    | 'classCurriculumSelections'
     | 'adminNotifications'
     | 'forbiddenWords'
     | 'keywords'
@@ -29,8 +27,6 @@ export function WorkspaceSupabaseSync() {
     const seteukPromptMode = useAppStore((state) => state.seteukPromptMode);
     const personalSeteukPrompt = useAppStore((state) => state.personalSeteukPrompt);
     const curriculumContents = useAppStore((state) => state.curriculumContents);
-    const curriculumUnitOverrides = useAppStore((state) => state.curriculumUnitOverrides);
-    const classCurriculumSelections = useAppStore((state) => state.classCurriculumSelections);
     const adminNotifications = useAppStore((state) => state.adminNotifications);
     const forbiddenWords = useAppStore((state) => state.forbiddenWords);
     const keywords = useAppStore((state) => state.keywords);
@@ -46,8 +42,6 @@ export function WorkspaceSupabaseSync() {
         seteukPromptMode,
         personalSeteukPrompt,
         curriculumContents,
-        curriculumUnitOverrides,
-        classCurriculumSelections,
         adminNotifications,
         forbiddenWords,
         keywords,
@@ -59,8 +53,6 @@ export function WorkspaceSupabaseSync() {
         seteukPromptMode,
         personalSeteukPrompt,
         curriculumContents,
-        curriculumUnitOverrides,
-        classCurriculumSelections,
         adminNotifications,
         forbiddenWords,
         keywords,

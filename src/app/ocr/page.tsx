@@ -7,9 +7,7 @@ import {
     Upload,
     Image as ImageIcon,
     FileText,
-    Shapes,
     Sparkles,
-    Copy,
     Check,
     X,
     Loader2,
@@ -21,7 +19,6 @@ import {
     Users,
     Save,
     Trash2,
-    Eye,
     ChevronDown,
     ChevronUp,
     Target,
@@ -39,7 +36,6 @@ import {
 } from 'lucide-react';
 // Custom TextareaAutoHeight component implemented below.
 import { Button } from '@/components/ui/Button';
-import SaveObservationModal from '@/components/SaveObservationModal';
 import StudentMappingEditor from '@/components/StudentMappingEditor';
 import ClassSelectionTabs from '@/components/ClassSelectionTabs';
 import { useAppStore } from '@/lib/store';
@@ -47,19 +43,15 @@ import {
     OCREvaluation,
     EvaluationAchievementStandard,
     EvaluationScoringCriteria,
-    OCRResultEntry,
     AttachedFile,
     Semester,
     ModelAnswer,
     ModelAnswerBundle,
     ModelAnswerPayload,
-    ModelAnswerOption,
     ModelAnswerQuestion,
     StudentMappingItem,
-    Student,
     PreliminaryGradingResult,
     TeacherGradingFeedback,
-    AmbiguousGradingItem,
     BatchGradingResult,
     StudentGradingResult,
     QuestionGradingResult,
@@ -95,13 +87,6 @@ const stripAttachedFileData = (files: AttachedFile[]) =>
     files.map(file => {
         const sanitized = { ...file } as AttachedFile;
         delete sanitized.data;
-        return sanitized;
-    });
-
-const stripOcrResultImageData = (results: OCRResultEntry[]) =>
-    results.map(result => {
-        const sanitized = { ...result } as OCRResultEntry;
-        delete sanitized.imageData;
         return sanitized;
     });
 
@@ -181,15 +166,6 @@ const getRubricBadgeLabel = (point: string) => {
     });
     const label = cleaned.slice(0, cutIndex).trim();
     return label || cleaned;
-};
-
-const getLevelBadgeClass = (value: string) => {
-    if (!value) return styles.levelCustom;
-    const normalized = value.toLowerCase();
-    if (normalized.includes('상') || normalized.includes('high')) return styles.levelHigh;
-    if (normalized.includes('중') || normalized.includes('mid')) return styles.levelMid;
-    if (normalized.includes('하') || normalized.includes('low')) return styles.levelLow;
-    return styles.levelCustom;
 };
 
 const formatQuestionScoreSummary = (questionResults?: QuestionGradingResult[]) => {
@@ -515,12 +491,6 @@ export default function OCRPage() {
         title: '',
     });
 
-    // OCR analysis state (for the OCR tab)
-    const [image, setImage] = useState<string | null>(null);
-    const [imageFile, setImageFile] = useState<File | null>(null);
-    const [isAnalyzing, setIsAnalyzing] = useState(false);
-    const [ocrResult, setOcrResult] = useState<OCRResultEntry | null>(null);
-    const fileInputRef = useRef<HTMLInputElement>(null);
     const pdfInputRef = useRef<HTMLInputElement>(null);
 
     // Rubric extraction state
@@ -590,7 +560,7 @@ export default function OCRPage() {
     // Filtered students for the specific tabs
     const filteredGradeStudents = useMemo(() => {
         if (selectedClass === 'all') return gradeStudents;
-        const [targetGrade, targetClass] = selectedClass.split('-').map(Number);
+        const [, targetClass] = selectedClass.split('-').map(Number);
         const targetClassStr = `${targetClass}`;
         return gradeStudents.filter(s => {
             const cls = classes.find(c => c.id === s.classId);
@@ -622,7 +592,7 @@ export default function OCRPage() {
                 return classA - classB;
             })
             .map(([key, count]) => {
-                const [grade, classNum] = key.split('-');
+                const [, classNum] = key.split('-');
                 return {
                     value: key,
                     label: `${classNum}반`,
@@ -1180,112 +1150,6 @@ export default function OCRPage() {
             }
         } catch (err) {
             console.error('File delete error:', err);
-        }
-    };
-
-    // === OCR Analysis ===
-    const handleFile = useCallback((file: File) => {
-        if (!file.type.startsWith('image/')) {
-            setError('이미지 파일만 업로드 가능합니다.');
-            return;
-        }
-
-        setImageFile(file);
-        setError(null);
-        setOcrResult(null);
-
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            setImage(e.target?.result as string);
-        };
-        reader.readAsDataURL(file);
-    }, []);
-
-    const analyzeImage = async () => {
-        if (!image || !selectedEvaluation) return;
-
-        setIsAnalyzing(true);
-        setError(null);
-
-        try {
-            const base64Data = image.split(',')[1];
-
-            // Build rubric context
-            const achievementStandardText = achievementStandards
-                .filter(s => s.code || s.description)
-                .map(s => `${s.code} ${s.description}`.trim())
-                .join('\n');
-
-            const scoringCriteriaText = scoringCriteria
-                .filter(c => c.element || c.levels.some(l => l.description))
-                .map(c => {
-                    const header = c.element ? `[${c.element}]\n` : '';
-                    const levels = c.levels.map(l => `${l.score}점 ${l.description}`).join('\n');
-                    return header + levels;
-                })
-                .join('\n\n');
-
-            const rubricContext = {
-                achievementStandard: achievementStandardText || undefined,
-                scoringCriteria: scoringCriteriaText || undefined,
-            };
-
-            const response = await fetch('/api/ocr', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    image: base64Data,
-                    rubricContext,
-                }),
-            });
-
-            const data = await response.json();
-
-            if (data.success) {
-                const newResult: OCRResultEntry = {
-                    id: `ocr - ${Date.now()}`,
-                    imageData: image,
-                    extractedText: data.result.extractedText,
-                    drawings: data.result.drawings,
-                    summary: data.result.summary,
-                    evaluation: data.result.evaluation,
-                    analyzedAt: new Date().toISOString(),
-                };
-
-                setOcrResult(newResult);
-
-                // Save to evaluation
-                const updatedResults = [...(selectedEvaluation.ocrResults || []), newResult];
-                const resultsForSave = stripOcrResultImageData(updatedResults);
-                const updateResponse = await fetch('/api/ocr-evaluations', {
-                    method: 'PUT',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        id: selectedEvaluation.id,
-                        ocrResults: resultsForSave,
-                    }),
-                });
-
-                if (updateResponse.ok) {
-                    setSelectedEvaluation(prev => prev ? { ...prev, ocrResults: updatedResults } : null);
-                }
-            } else {
-                setError('분석 중 오류가 발생했습니다.');
-            }
-        } catch (err) {
-            console.error('OCR error:', err);
-            setError('서버 연결에 실패했습니다.');
-        } finally {
-            setIsAnalyzing(false);
-        }
-    };
-
-    const clearImage = () => {
-        setImage(null);
-        setImageFile(null);
-        setOcrResult(null);
-        if (fileInputRef.current) {
-            fileInputRef.current.value = '';
         }
     };
 
@@ -2575,7 +2439,7 @@ export default function OCRPage() {
                                                     if (!student) return false;
                                                     const cls = classes.find(c => c.id === student.classId);
                                                     const classNum = student.classNumber || cls?.classNumber || 0;
-                                                    const [_, targetClass] = selectedClass.split('-').map(Number);
+                                                    const [, targetClass] = selectedClass.split('-').map(Number);
                                                     return classNum === targetClass;
                                                 })
                                                 .map((item) => {
@@ -2608,7 +2472,7 @@ export default function OCRPage() {
                                 {preliminaryGradings.length > 0 && (
                                     <div className={styles.preliminaryResults}>
                                         <h4 style={{ marginBottom: '0.75rem', fontSize: '0.9rem', fontWeight: 600 }}>가채점 결과</h4>
-                                        {preliminaryGradings.map((result, idx) => (
+                                        {preliminaryGradings.map((result) => (
                                             <div key={result.id} className={styles.prelimResultCard}>
                                                 <div className={styles.prelimResultHeader}>
                                                     <span>{result.studentNumber}번 {result.studentName}</span>
@@ -2827,7 +2691,7 @@ export default function OCRPage() {
                                                     if (!student) return false;
                                                     const cls = classes.find(c => c.id === student.classId);
                                                     const classNum = student.classNumber || cls?.classNumber || 0;
-                                                    const [_, targetClass] = selectedClass.split('-').map(Number);
+                                                    const [, targetClass] = selectedClass.split('-').map(Number);
                                                     return classNum === targetClass;
                                                 })
                                                 .map((result, idx) => (

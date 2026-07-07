@@ -1,4 +1,4 @@
-import { readSheet, appendRow, updateRow, deleteRow, SHEETS } from './base';
+import { readSheet, appendRow, updateRow, SHEETS } from './base';
 
 export interface RecordRow {
     id: string;
@@ -74,59 +74,5 @@ export async function saveRecord(record: RecordRow): Promise<void> {
         await updateRow(SHEETS.RECORDS, existingIndex + 1, values);
     } else {
         await appendRow(SHEETS.RECORDS, values);
-    }
-}
-
-// ============ Example Template Operations ============
-
-export interface ExampleRow {
-    id: string;
-    name: string;
-    content: string;
-    createdAt: string;
-    updatedAt?: string;
-}
-
-/**
- * Retrieves all example templates from the "ExampleTemplates" sheet.
- * @returns Array of example templates.
- */
-export async function getExamples(): Promise<ExampleRow[]> {
-    const rows = await readSheet(SHEETS.EXAMPLES);
-    if (rows.length <= 1) return [];
-
-    return rows.slice(1).map(row => ({
-        id: row[0],
-        name: row[1],
-        content: row[2],
-        createdAt: row[3],
-    }));
-}
-
-/**
- * Adds a new example template.
- * @param example - Example template data.
- * @returns The ID of the newly added example.
- */
-export async function addExample(example: Omit<ExampleRow, 'id'>): Promise<string> {
-    const id = `ex-${Date.now()}`;
-    await appendRow(SHEETS.EXAMPLES, [
-        id,
-        example.name,
-        example.content,
-        example.createdAt,
-    ]);
-    return id;
-}
-
-/**
- * Deletes an example template by ID.
- * @param id - The ID of the example to delete.
- */
-export async function deleteExample(id: string): Promise<void> {
-    const rows = await readSheet(SHEETS.EXAMPLES);
-    const rowIndex = rows.findIndex(row => row[0] === id);
-    if (rowIndex > 0) {
-        await deleteRow(SHEETS.EXAMPLES, rowIndex + 1);
     }
 }

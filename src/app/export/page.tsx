@@ -8,7 +8,6 @@ import {
     FileSpreadsheet,
     Copy,
     CheckCircle2,
-    Filter,
     Users,
     DownloadCloud
 } from 'lucide-react';

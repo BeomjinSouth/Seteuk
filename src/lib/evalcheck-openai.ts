@@ -320,7 +320,7 @@ export async function generateImageDescription(
 /**
  * 개별 문항 상세 분석 (Structured Outputs)
  */
-export async function analyzeQuestionDetail(
+async function analyzeQuestionDetail(
     questionText: string,
     context?: string,
     imageUrl?: string,

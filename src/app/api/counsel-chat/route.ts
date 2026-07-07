@@ -8,11 +8,9 @@ import {
     buildCitations,
     buildConflictSummary,
     buildFallbackCounselAnswer,
+    searchKnowledgeBase,
 } from '@/lib/knowledge-base';
-import { formatGraphLabelsForPrompt } from '@/lib/knowledge-labels';
 import { rerankMatchesWithAI } from '@/lib/knowledge-rerank';
-import { isHostedKnowledgeConfigured } from '@/lib/knowledge-hosted';
-import { searchKnowledgeHybrid, shouldSkipRerankForHighConfidenceLexical } from '@/lib/knowledge-search';
 import type { CounselChatResponse } from '@/types/knowledge';
 
 const DEFAULT_MODEL = 'gpt-5.4-mini';
@@ -42,7 +40,7 @@ export async function POST(request: NextRequest) {
     }
 
     try {
-        let matches = await searchKnowledgeHybrid({
+        let matches = await searchKnowledgeBase({
             query: question,
             schoolLevel: body.schoolLevel,
             category: body.category,
@@ -64,8 +62,7 @@ export async function POST(request: NextRequest) {
         }
 
         const client = getClient();
-        const skipRerank = !isHostedKnowledgeConfigured() && shouldSkipRerankForHighConfidenceLexical(matches);
-        if (client && !skipRerank) {
+        if (client) {
             matches = await rerankMatchesWithAI({
                 client,
                 query: question,
@@ -95,7 +92,6 @@ export async function POST(request: NextRequest) {
         const evidenceText = matches
             .map((match, index) => {
                 const anchors = match.policyAnchors.map((anchor) => `- ${anchor.rule}`).join('\n');
-                const labels = formatGraphLabelsForPrompt(match.graphLabels);
                 return [
                     `[Evidence ${index + 1}]`,
                     `제목: ${match.title}`,
@@ -103,7 +99,6 @@ export async function POST(request: NextRequest) {
                     `학교급: ${match.schoolLevels.join(', ')}`,
                     `구분: ${match.categories.join(', ') || '-'}`,
                     `기준연도: ${match.effectiveYear ?? '미상'}`,
-                    labels ? `분류 라벨: ${labels}` : '',
                     `질문: ${match.question}`,
                     `답변: ${match.answer}`,
                     anchors ? `정책 근거:\n${anchors}` : '',

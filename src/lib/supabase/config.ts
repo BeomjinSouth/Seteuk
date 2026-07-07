@@ -4,7 +4,7 @@ function cleanEnv(value?: string): string {
     return (value || '').trim();
 }
 
-export function getSupabaseProjectId(): string {
+function getSupabaseProjectId(): string {
     return cleanEnv(process.env.SUPABASE_PROJECT_ID || process.env.NEXT_PUBLIC_SUPABASE_PROJECT_ID);
 }
 
@@ -34,13 +34,4 @@ export function isProductionRuntime(): boolean {
 
 export function isSupabaseRequiredButMissing(): boolean {
     return isProductionRuntime() && !isSupabaseConfigured();
-}
-
-export function getSupabaseConfigSummary() {
-    return {
-        projectId: getSupabaseProjectId(),
-        urlConfigured: Boolean(getSupabaseUrl()),
-        secretKeyConfigured: Boolean(getSupabaseSecretKey()),
-        enabled: isSupabaseConfigured(),
-    };
 }

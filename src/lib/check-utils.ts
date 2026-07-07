@@ -18,7 +18,7 @@ function normalizeCount(value: number | undefined): number {
     return Math.max(0, Math.floor(value));
 }
 
-export function mergeCheckResult(
+function mergeCheckResult(
     record: SubjectRecord,
     updates: Partial<CheckResultCounts>
 ): CheckResultCounts {

@@ -9,7 +9,6 @@
     z-index: 100;
     backdrop-filter: blur(14px);
     box-shadow: 0 8px 26px rgba(35, 45, 78, 0.04);
-    font-family: var(--font-display);
 }
 
 .gnbInner {

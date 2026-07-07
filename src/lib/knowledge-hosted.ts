@@ -1,6 +1,5 @@
 import OpenAI from 'openai';
-import { buildKnowledgeUnitId, loadKnowledgeDataset } from '@/lib/knowledge-base';
-import { loadKnowledgeGraphLabelMap } from '@/lib/knowledge-labels';
+import { loadKnowledgeDataset } from '@/lib/knowledge-base';
 import type { CanonicalKnowledgeEntry, RetrievedKnowledgeEvidence } from '@/types/knowledge';
 
 type SyncParams = {
@@ -28,11 +27,6 @@ function getClient(): OpenAI {
 
 function getVectorStoreId(override?: string): string | null {
     return override || process.env.OPENAI_VECTOR_STORE_ID || null;
-}
-
-/** True when hosted (vector store) semantic search can be used. */
-export function isHostedKnowledgeConfigured(): boolean {
-    return Boolean(process.env.OPENAI_API_KEY && getVectorStoreId());
 }
 
 function buildHostedMarkdown(entry: CanonicalKnowledgeEntry): string {
@@ -110,8 +104,6 @@ export async function syncKnowledgeToVectorStore({
         await client.vectorStores.files.update(vectorStoreFile.id, {
             vector_store_id: vectorStore.id,
             attributes: {
-                // Stable join key back to the local dataset (titles get truncated).
-                knowledge_unit_id: buildKnowledgeUnitId(entry),
                 title: entry.title.slice(0, 120),
                 source_type: entry.sourceType,
                 school_levels: buildAttributeValue(entry.schoolLevels),
@@ -152,10 +144,6 @@ export async function searchHostedKnowledge({
     }
 
     const dataset = await loadKnowledgeDataset(String(year));
-    const labelMap = await loadKnowledgeGraphLabelMap(String(year));
-    // Primary join: stable knowledge_unit_id attribute. Title join remains as a
-    // fallback for files uploaded before the attribute existed.
-    const unitMap = new Map(dataset.canonicalEntries.map((entry) => [buildKnowledgeUnitId(entry), entry]));
     const titleMap = new Map(dataset.canonicalEntries.map((entry) => [entry.title, entry]));
     const queryParts = [
         query,
@@ -172,14 +160,12 @@ export async function searchHostedKnowledge({
 
     return page.data.map((item) => {
         const title = String(item.attributes?.title || item.filename || 'Untitled');
-        const attributeUnitId = String(item.attributes?.knowledge_unit_id || '').trim();
-        const local = (attributeUnitId ? unitMap.get(attributeUnitId) : undefined) || titleMap.get(title);
-        const knowledgeUnitId = attributeUnitId || (local ? buildKnowledgeUnitId(local) : item.file_id);
+        const local = titleMap.get(title);
         const snippet = item.content.map((content) => content.text).join('\n').slice(0, 320);
 
         return {
-            knowledgeUnitId,
-            title: local?.title || title,
+            knowledgeUnitId: local?.questionKey || item.file_id,
+            title,
             question: local?.question || snippet,
             answer: local?.answer || snippet,
             ruleSummary: local?.resolution || null,
@@ -193,7 +179,6 @@ export async function searchHostedKnowledge({
             sourceUrls: local?.sourceUrls || [String(item.attributes?.primary_url || '').trim()].filter(Boolean),
             sources: local?.sources || [],
             policyAnchors: [],
-            graphLabels: labelMap.get(knowledgeUnitId),
             score: item.score,
             snippet,
         };

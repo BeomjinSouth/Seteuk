@@ -381,19 +381,6 @@ export function KeywordHighlighter({ text, keywords, showBadge = false }: Keywor
     );
 }
 
-// Utility function to count keyword matches
-export function countKeywordMatches(text: string, keywords: string[]): number {
-    if (!text || keywords.length === 0) return 0;
-
-    let count = 0;
-    for (const keyword of keywords) {
-        if (text.includes(keyword)) {
-            count++;
-        }
-    }
-    return count;
-}
-
 // Utility: simple hash for content comparison
 export function getContentHash(text: string): string {
     return simpleHash(text);

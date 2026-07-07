@@ -1,11 +1,11 @@
 import type { TeacherProfile } from '@/types';
 
 export const SEONGHO_SCHOOL_NAME = '성호중학교';
-export const SEONGHO_LOGIN_PASSWORD = '123123';
+const SEONGHO_LOGIN_PASSWORD = '123123';
 export const SEONGHO_DEFAULT_SUBJECT = '담당 교과';
 export const SEONGHO_AUTH_MODE = 'seongho-school';
 
-export function normalizeSchoolName(value: string): string {
+function normalizeSchoolName(value: string): string {
     return value.trim().replace(/\s+/g, '');
 }
 

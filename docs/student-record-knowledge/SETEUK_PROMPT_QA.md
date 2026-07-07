@@ -256,4 +256,11 @@ Final edge-case rerun:
 - `node --experimental-strip-types scripts/check-seteuk-expression-variation.mjs` passed.
 - `node --experimental-strip-types scripts/check-seteuk-input-safety.mjs` passed. Node emitted a `MODULE_TYPELESS_PACKAGE_JSON` warning because the script imports a TypeScript file directly for local verification.
 - `cmd /c npx tsc --noEmit --pretty false` passed.
-- Route smoke passed across local dev servers for empty-input fallback, broken-format revision scrub, meaningful generation safety, and `/write` HTTP 200; the clean main temp clone also passed no-key fallback and `/write` smoke on `http://127.0.0.1:3488`.
+- Route smoke passed for empty-input fallback, broken-format revision scrub, and `/write` HTTP 200 on local dev server `http://127.0.0.1:3485`.
+### Loop 12: Cross-Curricular Batch Quality Guardrails
+
+Prompt version: `cross-curricular-seteuk-v2.9`
+
+- Added prompt-level guidance for same-request exact duplicate avoidance, same-comment semantic repetition checks, length outlier control, and subject-agnostic observation anchors.
+- Added weak-expression cleanup rules for deficit-framed, vague, and unsupported attitude-quality wording that can appear across subjects, not only math.
+- This loop was prompted by the 2026-07-06 workbook audit. Verification passed for TypeScript, prompt guard snippets, expression variation, route variation hook, and input-safety guard scripts; live route smoke was skipped because route request handling was not changed.

@@ -114,16 +114,6 @@ export async function getObservationsForContext(input: {
 }
 
 /**
- * Retrieves observations by assessment ID.
- * @param assessmentId - The ID of the assessment.
- * @returns Array of observations for the assessment.
- */
-export async function getObservationsByAssessment(assessmentId: string): Promise<ObservationRow[]> {
-    const all = await getObservations();
-    return all.filter(obs => obs.assessmentId === assessmentId);
-}
-
-/**
  * Adds a new observation memo.
  * @param observation - Observation data.
  * @returns The ID of the newly added observation.

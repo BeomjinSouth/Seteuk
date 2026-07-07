@@ -1,12 +1,5 @@
 import { readSheet, appendRow, updateRow, deleteRow, deleteRows, SHEETS } from './base';
 
-export interface EvalCheckSettingsRow {
-    key: string;
-    value: string;
-    description: string;
-    updatedAt: string;
-}
-
 export interface EvalCheckDocumentRow {
     documentId: string;
     uploadedAt: string;

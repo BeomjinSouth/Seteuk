@@ -6,7 +6,6 @@ import {
     performSpellCheckRequest,
 } from '@/lib/check-utils';
 import { readObservationBoardAiContext } from '@/lib/observation-board-ai-context';
-import type { CurriculumGenerationContext } from '@/lib/curriculum-context';
 import { OPENAI_STANDARD_MODEL, normalizeOpenAIModel } from '@/lib/openai-models';
 import { resolveSeteukSystemPrompt } from '@/lib/prompts/seteuk';
 import { useAppStore } from '@/lib/store';
@@ -28,8 +27,49 @@ interface ReviewAndImproveParams {
     subjectName?: string;
 }
 
+interface BatchDraftStudentInput {
+    studentId: string;
+    studentName: string;
+    subjectName: string;
+    learningData: Record<string, string>;
+    curriculumContent?: string;
+    ocrEvaluationContext?: {
+        achievementStandards?: Array<{
+            code: string;
+            description: string;
+            levels?: Array<{ level: string; description: string }>;
+        }>;
+        scoringCriteria?: Array<{
+            element: string;
+            levels?: Array<{ score: number; description: string }>;
+        }>;
+        studentResult?: {
+            achievementLevel?: string;
+            totalScore?: number;
+            maxTotalScore?: number;
+            scores?: Array<{
+                criteriaElement: string;
+                score: number;
+                maxScore: number;
+                feedback: string;
+            }>;
+            overallFeedback?: string;
+        };
+    };
+    context?: {
+        teacherKey?: string;
+        classId?: string;
+    };
+}
+
+interface BatchDraftResult {
+    studentId: string;
+    content: string;
+    observationCount: number;
+}
+
 // Get stored settings
-export function getAISettings(): AISettings {
+function getAISettings(): AISettings {
     if (typeof window === 'undefined') {
         return {
             systemPrompt: resolveSeteukSystemPrompt(null),
@@ -108,8 +148,6 @@ export async function generateDraft(
     context?: {
         teacherKey?: string;
         classId?: string;
-        gradeLevel?: number;
-        curriculumContext?: CurriculumGenerationContext;
     }
 ): Promise<{ content: string; observationCount: number }> {
     const settings = getAISettings();
@@ -139,8 +177,6 @@ export async function generateDraft(
                 ocrEvaluationContext,
                 teacherKey: context?.teacherKey,
                 classId: context?.classId,
-                gradeLevel: context?.gradeLevel,
-                curriculumContext: context?.curriculumContext,
             }),
         });
 
@@ -169,6 +205,66 @@ export async function generateDraft(
         content: `${studentName} 학생은 ${baseContent}. ${subjectName || '해당 과목'} 수업에서 적극적으로 참여하며 탐구 과정을 주도적으로 수행하였고, 협력 활동에서도 의미 있는 기여를 보였다.`,
         observationCount: 0,
     };
+}
+
+export async function generateDraftBatch(
+    students: BatchDraftStudentInput[],
+    exampleTemplate: string,
+): Promise<Map<string, BatchDraftResult>> {
+    if (students.length === 0) return new Map();
+
+    const settings = getAISettings();
+    const response = await fetch('/api/generate-batch', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            students: students.map((student) => ({
+                studentId: student.studentId,
+                studentName: student.studentName,
+                subjectName: student.subjectName,
+                learningData: student.learningData,
+                curriculumContent: student.curriculumContent,
+                model: settings.model,
+                systemPrompt: settings.systemPrompt,
+                maxOutputTokens: settings.maxOutputTokens,
+                reasoningEffort: settings.reasoningEffort,
+                includeObservations: true,
+                observationBoardContext: readObservationBoardAiContext({
+                    studentId: student.studentId,
+                    teacherKey: student.context?.teacherKey,
+                    classId: student.context?.classId,
+                }),
+                ocrEvaluationContext: student.ocrEvaluationContext,
+                teacherKey: student.context?.teacherKey,
+                classId: student.context?.classId,
+            })),
+            exampleTemplates: exampleTemplate ? [exampleTemplate] : [],
+            model: settings.model,
+            systemPrompt: settings.systemPrompt,
+            maxOutputTokens: settings.maxOutputTokens,
+            reasoningEffort: settings.reasoningEffort,
+        }),
+    });
+
+    const data = await response.json();
+    if (!response.ok || !data.success || !Array.isArray(data.results)) {
+        throw new Error(data.error || 'Batch generation failed.');
+    }
+
+    return new Map(
+        data.results
+            .filter((result: { studentId?: unknown; content?: unknown }) =>
+                typeof result.studentId === 'string' && typeof result.content === 'string'
+            )
+            .map((result: { studentId: string; content: string; observationCount?: number }) => [
+                result.studentId,
+                {
+                    studentId: result.studentId,
+                    content: result.content,
+                    observationCount: result.observationCount || 0,
+                },
+            ]),
+    );
 }
 
 export async function reviewAndImproveRecord({

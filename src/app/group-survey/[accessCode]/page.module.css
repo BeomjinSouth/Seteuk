@@ -157,7 +157,7 @@
     border-radius: 12px;
     background: #ffffff;
     color: #17325b;
-    font-family: var(--font-body);
+    font: inherit;
     font-size: 1.04rem;
     font-weight: 900;
     outline: 0;

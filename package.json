@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "sync:knowledge-docs": "node scripts/sync-knowledge-docs.mjs",
-    "label:graph-rag": "node scripts/generate-graph-rag-labels.mjs"
+    "sync:knowledge-docs": "node scripts/sync-knowledge-docs.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.104.1",

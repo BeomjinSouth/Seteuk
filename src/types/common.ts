@@ -51,24 +51,3 @@ export const ISSUE_TYPE_LABELS: Record<IssueType, string> = {
     format: '형식 오류',
     other: '기타',
 };
-
-/** Labels for RiskLevel. */
-export const RISK_LEVEL_LABELS: Record<RiskLevel, string> = {
-    low: '저위험',
-    medium: '중위험',
-    high: '고위험',
-};
-
-/** Labels for difficulty levels. */
-export const DIFFICULTY_LABELS: Record<'high' | 'medium' | 'low', string> = {
-    high: '상',
-    medium: '중',
-    low: '하',
-};
-
-/** Labels for frequency levels. */
-export const FREQUENCY_LABELS: Record<'high' | 'medium' | 'low', string> = {
-    high: '높음',
-    medium: '중간',
-    low: '낮음',
-};
