@@ -1,0 +1,277 @@
+{
+  "endpoint": "http://127.0.0.1:3487/api/generate",
+  "generatedAt": "2026-06-26T09:51:51.505Z",
+  "caseCount": 12,
+  "metrics": {
+    "total": 12,
+    "uniqueContentCount": 12,
+    "uniqueOpeningFrameCount": 12,
+    "maxOpeningFrameRepeat": 1,
+    "uniqueVariationProfileCount": 7,
+    "maxVariationProfileRepeat": 3,
+    "repeatedNgrams": [
+      {
+        "phrase": "문제를조사하는과",
+        "count": 4
+      },
+      {
+        "phrase": "제를조사하는과정",
+        "count": 4
+      },
+      {
+        "phrase": "를조사하는과정에",
+        "count": 4
+      },
+      {
+        "phrase": "조사하는과정에서",
+        "count": 4
+      },
+      {
+        "phrase": "함.이를바탕으로",
+        "count": 4
+      }
+    ]
+  },
+  "results": [
+    {
+      "id": "batch-01",
+      "studentName": "테스트학생01",
+      "variationProfileId": "comparison-first",
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "model": "gpt-5.4-mini",
+      "content": "하천 쓰레기 문제를 조사하며 현장 사진을 생활 쓰레기, 배수구 주변 쓰레기, 캠페인 부족으로 나누어 정리하고, 원인별로 비교하며 분류한 뒤 해결 방안으로 분리배출 안내판 설치를 제안함.",
+      "firstSentence": "하천 쓰레기 문제를 조사하며 현장 사진을 생활 쓰레기, 배수구 주변 쓰레기, 캠페인 부족으로 나누어 정리하고, 원인별로 비교하며 분류한 뒤 해결 방안으로 분리배출 안내판 설치를 제안함",
+      "openingFrame": "하천 쓰레기 문제를",
+      "tokenUsage": {
+        "prompt": 5798,
+        "completion": 120,
+        "total": 5918
+      },
+      "rawError": null,
+      "startedAt": "2026-06-26T09:51:26.614Z",
+      "finishedAt": "2026-06-26T09:51:28.469Z"
+    },
+    {
+      "id": "batch-02",
+      "studentName": "테스트학생02",
+      "variationProfileId": "activity-context-first",
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "model": "gpt-5.4-mini",
+      "content": "통학로 안전 문제를 조사하는 과정에서 위험 지점을 지도에 표시하고, 원인을 차량 통행·횡단보도 위치·시야 확보 문제로 구분하여 정리함. 이를 바탕으로 해결 방안으로 안내 표지와 등굣길 캠페인을 제안함.",
+      "firstSentence": "통학로 안전 문제를 조사하는 과정에서 위험 지점을 지도에 표시하고, 원인을 차량 통행·횡단보도 위치·시야 확보 문제로 구분하여 정리함",
+      "openingFrame": "통학로 안전 문제를",
+      "tokenUsage": {
+        "prompt": 5796,
+        "completion": 103,
+        "total": 5899
+      },
+      "rawError": null,
+      "startedAt": "2026-06-26T09:51:28.470Z",
+      "finishedAt": "2026-06-26T09:51:30.000Z"
+    },
+    {
+      "id": "batch-03",
+      "studentName": "테스트학생03",
+      "variationProfileId": "comparison-first",
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "model": "gpt-5.4-mini",
+      "content": "학교 주변 소음 문제를 조사하여 시간대별 소음 발생 장소를 표로 정리하고, 원인을 공사·차량·운동장 사용으로 나누어 비교함. 이를 바탕으로 해결 방안으로 시간 조정 안내와 주의 표지를 제안하며 지역 문제의 원인 분류와 대안 제시를 연결하여 정리함.",
+      "firstSentence": "학교 주변 소음 문제를 조사하여 시간대별 소음 발생 장소를 표로 정리하고, 원인을 공사·차량·운동장 사용으로 나누어 비교함",
+      "openingFrame": "학교 주변 소음",
+      "tokenUsage": {
+        "prompt": 5797,
+        "completion": 145,
+        "total": 5942
+      },
+      "rawError": null,
+      "startedAt": "2026-06-26T09:51:30.000Z",
+      "finishedAt": "2026-06-26T09:51:32.722Z"
+    },
+    {
+      "id": "batch-04",
+      "studentName": "테스트학생04",
+      "variationProfileId": "activity-context-first",
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "model": "gpt-5.4-mini",
+      "content": "급식 잔반 문제를 조사하며 잔반이 많이 남는 메뉴와 배식 과정을 구분해 기록하고, 원인을 선호도 차이·배식량·안내 부족으로 정리함. 이를 바탕으로 선택 배식 안내를 제안하며 지역 문제의 원인을 분류하고 해결 방안을 모색하는 활동에 참여함.",
+      "firstSentence": "급식 잔반 문제를 조사하며 잔반이 많이 남는 메뉴와 배식 과정을 구분해 기록하고, 원인을 선호도 차이·배식량·안내 부족으로 정리함",
+      "openingFrame": "급식 잔반 문제를",
+      "tokenUsage": {
+        "prompt": 5795,
+        "completion": 162,
+        "total": 5957
+      },
+      "rawError": null,
+      "startedAt": "2026-06-26T09:51:32.722Z",
+      "finishedAt": "2026-06-26T09:51:35.355Z"
+    },
+    {
+      "id": "batch-05",
+      "studentName": "테스트학생05",
+      "variationProfileId": "concise-observation-first",
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "model": "gpt-5.4-mini",
+      "content": "마을버스 배차 문제를 조사하며 등하교 시간 대기 사례를 표로 정리하고, 원인을 배차 간격·정류장 혼잡·환승 시간으로 나누어 분석한 뒤 시간표 안내 개선 방안을 제안함.",
+      "firstSentence": "마을버스 배차 문제를 조사하며 등하교 시간 대기 사례를 표로 정리하고, 원인을 배차 간격·정류장 혼잡·환승 시간으로 나누어 분석한 뒤 시간표 안내 개선 방안을 제안함",
+      "openingFrame": "마을버스 배차 문제를",
+      "tokenUsage": {
+        "prompt": 5792,
+        "completion": 91,
+        "total": 5883
+      },
+      "rawError": null,
+      "startedAt": "2026-06-26T09:51:35.355Z",
+      "finishedAt": "2026-06-26T09:51:37.021Z"
+    },
+    {
+      "id": "batch-06",
+      "studentName": "테스트학생06",
+      "variationProfileId": "comparison-first",
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "model": "gpt-5.4-mini",
+      "content": "분리수거 실천 문제를 조사하는 과정에서 교실과 복도 쓰레기통의 사용 모습을 비교하며 잘못 분류된 사례를 정리함. 이를 바탕으로 분류 기준 카드와 점검표를 해결 방안으로 제안함.",
+      "firstSentence": "분리수거 실천 문제를 조사하는 과정에서 교실과 복도 쓰레기통의 사용 모습을 비교하며 잘못 분류된 사례를 정리함",
+      "openingFrame": "분리수거 실천 문제를",
+      "tokenUsage": {
+        "prompt": 5796,
+        "completion": 112,
+        "total": 5908
+      },
+      "rawError": null,
+      "startedAt": "2026-06-26T09:51:37.021Z",
+      "finishedAt": "2026-06-26T09:51:38.715Z"
+    },
+    {
+      "id": "batch-07",
+      "studentName": "테스트학생07",
+      "variationProfileId": "artifact-first",
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "model": "gpt-5.4-mini",
+      "content": "공원 이용 문제 조사 결과를 사진 자료로 모아 이용자 불편 사례를 휴식 공간, 쓰레기, 야간 조명 문제로 구분하여 정리함. 해결 방안으로 이용 안내판 설치와 청결 캠페인을 제안함.",
+      "firstSentence": "공원 이용 문제 조사 결과를 사진 자료로 모아 이용자 불편 사례를 휴식 공간, 쓰레기, 야간 조명 문제로 구분하여 정리함",
+      "openingFrame": "공원 이용 문제",
+      "tokenUsage": {
+        "prompt": 5791,
+        "completion": 200,
+        "total": 5991
+      },
+      "rawError": null,
+      "startedAt": "2026-06-26T09:51:38.715Z",
+      "finishedAt": "2026-06-26T09:51:40.977Z"
+    },
+    {
+      "id": "batch-08",
+      "studentName": "테스트학생08",
+      "variationProfileId": "process-sequence-first",
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "model": "gpt-5.4-mini",
+      "content": "골목길 조명 문제를 조사하며 어두운 구간을 지도에 표시하고 보행 불편 사례를 정리한 뒤, 원인을 가로등 간격·건물 그림자·안내 부족으로 나누어 살펴보고 조명 점검 요청을 제안함.",
+      "firstSentence": "골목길 조명 문제를 조사하며 어두운 구간을 지도에 표시하고 보행 불편 사례를 정리한 뒤, 원인을 가로등 간격·건물 그림자·안내 부족으로 나누어 살펴보고 조명 점검 요청을 제안함",
+      "openingFrame": "골목길 조명 문제를",
+      "tokenUsage": {
+        "prompt": 5796,
+        "completion": 112,
+        "total": 5908
+      },
+      "rawError": null,
+      "startedAt": "2026-06-26T09:51:40.977Z",
+      "finishedAt": "2026-06-26T09:51:42.835Z"
+    },
+    {
+      "id": "batch-09",
+      "studentName": "테스트학생09",
+      "variationProfileId": "process-sequence-first",
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "model": "gpt-5.4-mini",
+      "content": "자전거 보관 문제를 조사하는 과정에서 등교 시간 보관대 이용 모습을 살펴보고 혼잡 구간을 기록함. 이후 원인을 보관 공간 부족, 동선 겹침, 안내 부족으로 분류하고, 이용 구역 표시를 해결 방안으로 제안함.",
+      "firstSentence": "자전거 보관 문제를 조사하는 과정에서 등교 시간 보관대 이용 모습을 살펴보고 혼잡 구간을 기록함",
+      "openingFrame": "자전거 보관 문제를",
+      "tokenUsage": {
+        "prompt": 5794,
+        "completion": 116,
+        "total": 5910
+      },
+      "rawError": null,
+      "startedAt": "2026-06-26T09:51:42.835Z",
+      "finishedAt": "2026-06-26T09:51:45.053Z"
+    },
+    {
+      "id": "batch-10",
+      "studentName": "테스트학생10",
+      "variationProfileId": "communication-first",
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "model": "gpt-5.4-mini",
+      "content": "도서관 이용 문제를 조사하며 대출 시간과 좌석 이용 사례를 모아 불편 내용을 정리하고, 원인을 이용 시간·좌석 배치·안내 방식으로 나누어 살펴봄. 이를 바탕으로 이용 규칙 안내 개선을 제안함.",
+      "firstSentence": "도서관 이용 문제를 조사하며 대출 시간과 좌석 이용 사례를 모아 불편 내용을 정리하고, 원인을 이용 시간·좌석 배치·안내 방식으로 나누어 살펴봄",
+      "openingFrame": "도서관 이용 문제를",
+      "tokenUsage": {
+        "prompt": 5803,
+        "completion": 118,
+        "total": 5921
+      },
+      "rawError": null,
+      "startedAt": "2026-06-26T09:51:45.053Z",
+      "finishedAt": "2026-06-26T09:51:47.086Z"
+    },
+    {
+      "id": "batch-11",
+      "studentName": "테스트학생11",
+      "variationProfileId": "observable-action-first",
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "model": "gpt-5.4-mini",
+      "content": "비 오는 날 빗물 배수 문제를 조사하며 물이 고이는 장소를 사진으로 기록하고 원인을 배수구 막힘, 경사, 낙엽으로 분류한 뒤 해결 방안으로 배수구 점검표를 제안함.",
+      "firstSentence": "비 오는 날 빗물 배수 문제를 조사하며 물이 고이는 장소를 사진으로 기록하고 원인을 배수구 막힘, 경사, 낙엽으로 분류한 뒤 해결 방안으로 배수구 점검표를 제안함",
+      "openingFrame": "비 오는 날",
+      "tokenUsage": {
+        "prompt": 5794,
+        "completion": 122,
+        "total": 5916
+      },
+      "rawError": null,
+      "startedAt": "2026-06-26T09:51:47.086Z",
+      "finishedAt": "2026-06-26T09:51:49.359Z"
+    },
+    {
+      "id": "batch-12",
+      "studentName": "테스트학생12",
+      "variationProfileId": "process-sequence-first",
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "model": "gpt-5.4-mini",
+      "content": "학교 앞 불법 주정차 문제를 조사하는 과정에서 등교 시간 차량 흐름을 관찰하고 위험 장면을 유형별로 정리함. 이어 원인을 정차 공간 부족, 안내 부족, 보행 동선 겹침으로 나누어 살펴본 뒤 안전 안내 캠페인을 제안함.",
+      "firstSentence": "학교 앞 불법 주정차 문제를 조사하는 과정에서 등교 시간 차량 흐름을 관찰하고 위험 장면을 유형별로 정리함",
+      "openingFrame": "학교 앞 불법",
+      "tokenUsage": {
+        "prompt": 5800,
+        "completion": 222,
+        "total": 6022
+      },
+      "rawError": null,
+      "startedAt": "2026-06-26T09:51:49.359Z",
+      "finishedAt": "2026-06-26T09:51:51.505Z"
+    }
+  ]
+}
