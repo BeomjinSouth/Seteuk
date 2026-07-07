@@ -796,6 +796,27 @@
 | `source_locator` | 관계 판단 근거의 별책8 위치 |
 | `notes` | 관계 해석 메모. 추론 edge는 추론 근거를 남긴다 |
 
+## Cross Band Edges CSV
+
+`cross-band-edges.csv`는 초등(`elementary-concepts.json`), 중학교(`concepts.json`), 고1 공통 과목(`hs-common-concepts.json`) 데이터셋 경계를 잇는 학년군 사이 선수 관계 edge다. 모든 edge는 별책8 원문이 앞·뒤 학년군 학습 내용을 직접 지목하는 문장(성취기준 해설, 적용 시 고려 사항, 과목 성격)에만 근거하며, 항상 낮은 학년군에서 높은 학년군으로 향한다.
+
+| 필드 | 설명 |
+| --- | --- |
+| `edge_id` | `cross_edge_` 접두어의 순번 식별자 |
+| `source_id` | 앞 학년군 concept id |
+| `source_label` | 앞 학년군 concept 한국어 이름 |
+| `source_dataset` | `elementary`, `middle`, `hs_common` 중 출발 데이터셋 |
+| `source_grade` | 앞 학년군 |
+| `target_id` | 뒤 학년군 concept id |
+| `target_label` | 뒤 학년군 concept 한국어 이름 |
+| `target_dataset` | 도착 데이터셋 |
+| `target_grade` | 뒤 학년군 |
+| `relationship_type` | 현재 모두 `prerequisite_for` |
+| `confidence` | 성취기준 해설·고려 사항의 직접 지목은 `high`, 과목 성격의 심화·체계화 서술은 `medium` |
+| `source_locator` | 근거 문장의 별책8 위치 |
+| `summary` | 근거 문장 요약 |
+| `notes` | 근거 유형과 신뢰도 판단 메모 |
+
 ## 신뢰도 기준
 
 - `high`: 공식 교육과정 또는 성취수준 문서에서 직접 확인되는 개념·관계

@@ -16,6 +16,7 @@ VIZ_HTML = OUT_DIR / "k12-spine.html"
 ELEMENTARY_JSON = OUT_DIR / "elementary-concepts.json"
 MIDDLE_JSON = OUT_DIR / "concepts.json"
 HS_COMMON_JSON = OUT_DIR / "hs-common-concepts.json"
+CROSS_EDGES_CSV = OUT_DIR / "cross-band-edges.csv"
 
 # 2026-07-06 사용자 결정: 고등학교 선택 과목은 시각화·미시 분해 범위에서 제외한다.
 # AGENTS.md "Math Concept Map Scope Rules" 참조.
@@ -125,9 +126,22 @@ def group_micro(concepts: list[dict]) -> dict:
     return {"count": len(concepts), "units": grouped}
 
 
-def build_view_model(nodes: list[dict], edges: list[dict], micro_index: dict | None = None) -> dict:
+def load_cross_edges() -> list[dict]:
+    if not CROSS_EDGES_CSV.exists():
+        return []
+    return load_rows(CROSS_EDGES_CSV)
+
+
+def build_view_model(
+    nodes: list[dict],
+    edges: list[dict],
+    micro_index: dict | None = None,
+    cross_edges: list[dict] | None = None,
+) -> dict:
     """스코프 안의 노드·edge를 격자 배치용 view model로 변환한다."""
     micro_index = micro_index or {"elementary": {}, "middle": {}, "hs_common": {}}
+    cross_edges = cross_edges or []
+    concept_to_block: dict[str, str] = {}
     in_scope = [n for n in nodes if n["course_type"] in IN_SCOPE_COURSE_TYPES]
     standards = [n for n in in_scope if n["node_type"] == "achievement_standard"]
 
@@ -150,6 +164,8 @@ def build_view_model(nodes: list[dict], edges: list[dict], micro_index: dict | N
                 micro_concepts = micro_index["elementary"].get((band, domain), [])
             else:  # 중1-3
                 micro_concepts = micro_index["middle"].get(domain, [])
+            for c in micro_concepts:
+                concept_to_block[c["id"]] = node["node_id"]
             micro = group_micro(micro_concepts)
             subtitle = f"성취기준 {len(block_standards)} · 개념 {micro['count']}"
             blocks[node["node_id"]] = {
@@ -210,6 +226,8 @@ def build_view_model(nodes: list[dict], edges: list[dict], micro_index: dict | N
             micro_concepts = (
                 [] if dashed else micro_index["hs_common"].get((subject, area["domain"]), [])
             )
+            for c in micro_concepts:
+                concept_to_block[c["id"]] = area["node_id"]
             micro = group_micro(micro_concepts)
             subtitle = (
                 f"성취기준 {len(area_standards)}"
@@ -267,6 +285,26 @@ def build_view_model(nodes: list[dict], edges: list[dict], micro_index: dict | N
                     "notes": edge["notes"],
                 }
             )
+
+    # 학년군 사이 미시 concept 연결(cross-band-edges.csv)을 양쪽 블록에 붙인다.
+    for block in blocks.values():
+        block["cross"] = []
+    for ce in cross_edges:
+        src_block = concept_to_block.get(ce["source_id"])
+        dst_block = concept_to_block.get(ce["target_id"])
+        entry = {
+            "from_label": ce["source_label"],
+            "from_grade": ce["source_grade"],
+            "to_label": ce["target_label"],
+            "to_grade": ce["target_grade"],
+            "confidence": ce["confidence"],
+            "summary": ce["summary"],
+            "locator": ce["source_locator"],
+        }
+        if src_block in blocks:
+            blocks[src_block]["cross"].append(dict(entry, direction="out"))
+        if dst_block in blocks:
+            blocks[dst_block]["cross"].append(dict(entry, direction="in"))
     return {"blocks": blocks, "arrows": arrows}
 
 
@@ -344,6 +382,7 @@ def render_html(model: dict) -> str:
             "subtitle": b["subtitle"],
             "standards": b["standards"],
             "micro": b.get("micro", {"count": 0, "units": []}),
+            "cross": b.get("cross", []),
         }
         for b in blocks.values()
     }
@@ -379,6 +418,11 @@ def render_html(model: dict) -> str:
   .badge.misc {{ background: #fbe7e2; color: #9a3b21; }}
   .low-dot {{ color: #d99141; font-weight: 700; margin-left: 4px; }}
   .cdef {{ color: #7a8296; font-size: 11.5px; }}
+  .cross-row {{ font-size: 12.5px; margin-bottom: 10px; line-height: 1.45; padding: 8px 10px; background: #f7f9fd; border-radius: 8px; border-left: 3px solid #7d9bd6; }}
+  .cross-row.out {{ border-left-color: #4d9e6a; }}
+  .cross-dir {{ display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; margin-right: 6px; background: #e2ebfa; color: #35507f; }}
+  .cross-row.out .cross-dir {{ background: #e3f2e8; color: #35704a; }}
+  .cross-why {{ color: #7a8296; font-size: 11.5px; margin-top: 3px; }}
   .stage-label {{ font-size: 11px; fill: #8a93a6; text-anchor: middle; }}
   .band-label {{ font-size: 14px; font-weight: 700; fill: #2a3348; text-anchor: middle; }}
   .block rect {{ cursor: pointer; }}
@@ -467,14 +511,37 @@ function renderMicro() {{
     return `<div class="unit-group"><p class="unit-name">${{esc(u.unit)}} <span class="loc">(${{u.items.length}})</span></p>${{rows}}</div>`;
   }}).join('');
 }}
+function renderCross() {{
+  const list = current.cross || [];
+  if (!list.length) return '<div class="meta">이 블록에는 문서가 직접 서술한 학년군 사이 연결이 없습니다.</div>';
+  const ins = list.filter(c => c.direction === 'in');
+  const outs = list.filter(c => c.direction === 'out');
+  const row = c => {{
+    const isOut = c.direction === 'out';
+    const dirLabel = isOut ? '다음 학년군으로' : '앞 학년군에서';
+    const line = isOut
+      ? `${{esc(c.from_label)}} → <b>${{esc(c.to_label)}}</b> (${{esc(c.to_grade)}})`
+      : `<b>${{esc(c.to_label)}}</b> ← ${{esc(c.from_label)}} (${{esc(c.from_grade)}})`;
+    const med = c.confidence === 'medium' ? ' <span class="low-dot" title="과목 성격 서술 기반(medium)">●</span>' : '';
+    return `<div class="cross-row ${{c.direction}}"><span class="cross-dir">${{dirLabel}}</span>${{line}}${{med}}`
+      + `<div class="cross-why">${{esc(c.summary)}} <span class="loc">[${{esc(c.locator)}}]</span></div></div>`;
+  }};
+  let out = '';
+  if (ins.length) out += `<p class="unit-name">앞 학년군에서 들어오는 연결 (${{ins.length}})</p>` + ins.map(row).join('');
+  if (outs.length) out += `<p class="unit-name">다음 학년군으로 이어지는 연결 (${{outs.length}})</p>` + outs.map(row).join('');
+  return out;
+}}
 function render() {{
   const stdN = current.standards.length;
   const microN = current.micro ? current.micro.count : 0;
+  const crossN = current.cross ? current.cross.length : 0;
   let html_ = `<h2>${{esc(current.title)}}</h2><div class="meta">${{esc(current.subtitle)}}</div>`;
   html_ += `<div class="tabs">`
     + `<span class="tab ${{tab==='micro'?'active':''}}" data-tab="micro">미시 개념 ${{microN}}</span>`
-    + `<span class="tab ${{tab==='std'?'active':''}}" data-tab="std">성취기준 ${{stdN}}</span></div>`;
-  html_ += tab === 'micro' ? renderMicro() : renderStandards();
+    + `<span class="tab ${{tab==='std'?'active':''}}" data-tab="std">성취기준 ${{stdN}}</span>`
+    + (crossN ? `<span class="tab ${{tab==='cross'?'active':''}}" data-tab="cross">학년군 연결 ${{crossN}}</span>` : '')
+    + `</div>`;
+  html_ += tab === 'micro' ? renderMicro() : (tab === 'cross' ? renderCross() : renderStandards());
   panel.innerHTML = html_;
   panel.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {{ tab = t.dataset.tab; render(); }}));
 }}
@@ -488,7 +555,8 @@ def main() -> None:
     nodes = load_rows(NODES_CSV)
     edges = load_rows(EDGES_CSV)
     micro_index = load_micro_index()
-    model = build_view_model(nodes, edges, micro_index)
+    cross_edges = load_cross_edges()
+    model = build_view_model(nodes, edges, micro_index, cross_edges)
 
     out_of_scope_labels = {"대수", "미적분Ⅰ", "미적분Ⅱ", "확률과 통계", "기하"}
     titles = {b["title"] for b in model["blocks"].values()}
@@ -497,7 +565,11 @@ def main() -> None:
 
     VIZ_HTML.write_text(render_html(model), encoding="utf-8")
     total_micro = sum(b.get("micro", {}).get("count", 0) for b in model["blocks"].values())
-    print(f"blocks: {len(model['blocks'])}, arrows: {len(model['arrows'])}, micro concepts: {total_micro}")
+    total_cross = sum(len(b.get("cross", [])) for b in model["blocks"].values())
+    print(
+        f"blocks: {len(model['blocks'])}, arrows: {len(model['arrows'])}, "
+        f"micro concepts: {total_micro}, cross links: {total_cross}"
+    )
     print(f"written: {VIZ_HTML}")
 
 

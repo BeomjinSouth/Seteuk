@@ -34,7 +34,7 @@
 - `k12-spine-edges.csv`: 같은 spine의 포함·선수·연계 edge CSV
 - `k12-spine.dot`: 학년군·영역 블록·고등 과목 수준의 Graphviz DOT 시각화
 - `k12-spine.md`: spine 데이터 규모, 과목별 성취기준 수, 과목 위계 edge 근거 요약
-- `k12-spine.html`: 학년군 진행이 가로축, 영역이 세로축인 계층형 위계 그래프. 블록 클릭 시 성취기준 원문과 그 아래로 분해한 미시 개념(단원별, 유형 배지·신뢰도)을 탭으로 표시. 초·중·고 미시 concept 1368개를 드릴다운으로 연결. 선택 과목 제외
+- `k12-spine.html`: 학년군 진행이 가로축, 영역이 세로축인 계층형 위계 그래프. 블록 클릭 시 성취기준 원문, 미시 개념(단원별, 유형 배지·신뢰도), 학년군 사이 연결(cross-band edge)을 탭으로 표시. 초·중·고 미시 concept 1368개를 드릴다운으로 연결. 선택 과목 제외
 - `elementary-concepts.json`: 초등 전체 학년군 미시 concept의 원본 JSON
 - `elementary-concepts.csv`: 같은 데이터셋의 concept 노드 CSV
 - `elementary-edges.csv`: 같은 데이터셋의 관계 edge CSV
@@ -43,6 +43,8 @@
 - `hs-common-concepts.csv`: 같은 데이터셋의 concept 노드 CSV
 - `hs-common-edges.csv`: 같은 데이터셋의 관계 edge CSV
 - `hs-common-pilot.md`: 공통수학1·2 범위, 출처 규칙, 데이터 규모, 추출 한계 요약
+- `cross-band-edges.csv`: 초등·중학교·고1 데이터셋 경계를 잇는 학년군 사이 선수 관계 edge CSV
+- `cross-band-edges.md`: 같은 연결의 근거 문장·신뢰도 요약
 - `achievement-coverage.md`: 공식 성취기준별 연결 concept 요약
 - `achievement-coverage.csv`: 공식 성취기준별 연결 concept 기계 판독용 CSV
 - `review-queue.md`: `low` 신뢰도 concept의 교과서/출처 보강 검토 목록
@@ -119,6 +121,7 @@ python docs/math-concept-map/tools/build_k12_spine.py
 python docs/math-concept-map/tools/build_k12_spine_viz.py
 python docs/math-concept-map/tools/build_elementary_pilot.py
 python docs/math-concept-map/tools/build_hs_common_pilot.py
+python docs/math-concept-map/tools/build_cross_band_edges.py
 python docs/math-concept-map/tools/build_coverage_report.py
 python docs/math-concept-map/tools/build_relationship_audit.py
 python docs/math-concept-map/tools/build_node_edge_consistency_audit.py
@@ -203,6 +206,7 @@ python docs/math-concept-map/tools/test_build_k12_spine.py
 python docs/math-concept-map/tools/test_build_k12_spine_viz.py
 python docs/math-concept-map/tools/test_build_elementary_pilot.py
 python docs/math-concept-map/tools/test_build_hs_common_pilot.py
+python docs/math-concept-map/tools/test_build_cross_band_edges.py
 python docs/math-concept-map/tools/test_validate_concept_map.py
 ```
 

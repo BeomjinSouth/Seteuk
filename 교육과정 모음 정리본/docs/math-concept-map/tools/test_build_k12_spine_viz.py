@@ -13,8 +13,12 @@ class SpineVizModelTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.micro_index = viz.load_micro_index()
+        cls.cross_edges = viz.load_cross_edges()
         cls.model = viz.build_view_model(
-            viz.load_rows(viz.NODES_CSV), viz.load_rows(viz.EDGES_CSV), cls.micro_index
+            viz.load_rows(viz.NODES_CSV),
+            viz.load_rows(viz.EDGES_CSV),
+            cls.micro_index,
+            cls.cross_edges,
         )
 
     def test_elective_subjects_are_excluded(self) -> None:
@@ -73,6 +77,20 @@ class SpineVizModelTests(unittest.TestCase):
         for block in self.model["blocks"].values():
             if block["kind"] in {"subject_alt", "area_alt"}:
                 self.assertEqual(block.get("micro", {}).get("count", 0), 0, block["id"])
+
+    def test_cross_band_links_attached_to_both_sides(self) -> None:
+        if not self.cross_edges:
+            self.skipTest("cross-band-edges.csv가 없다.")
+        blocks = self.model["blocks"]
+        total = sum(len(b.get("cross", [])) for b in blocks.values())
+        # 각 edge는 source 블록(out)과 target 블록(in) 양쪽에 붙는다.
+        self.assertEqual(total, len(self.cross_edges) * 2)
+        m13_num = blocks["spine_dom_m13_01"]["cross"]
+        directions = {c["direction"] for c in m13_num}
+        self.assertEqual(directions, {"in", "out"})  # 초등에서 받고 고1로 보낸다
+        for c in m13_num:
+            self.assertIn("printed p.", c["locator"])
+            self.assertTrue(c["summary"])
 
     def test_micro_items_sorted_by_type_hierarchy(self) -> None:
         # 각 단원 안에서 핵심 개념이 절차·용어보다 앞서야 한다(위계 정렬).
