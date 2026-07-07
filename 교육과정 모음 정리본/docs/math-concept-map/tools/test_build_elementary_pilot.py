@@ -24,7 +24,7 @@ class ElementaryPilotDataTests(unittest.TestCase):
             self.assertIn(edge["target_id"], self.by_id)
 
     def test_scope_is_elementary_bands_all_domains(self) -> None:
-        grades = {"초1-2", "초3-4"}
+        grades = {"초1-2", "초3-4", "초5-6"}
         domains = {"수와 연산", "변화와 관계", "도형과 측정", "자료와 가능성"}
         for c in self.concepts:
             self.assertIn(c["grade"], grades)

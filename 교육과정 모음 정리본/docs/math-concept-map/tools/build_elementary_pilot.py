@@ -7,6 +7,7 @@ from pathlib import Path
 
 import elementary_data_e12_rest as e12_rest
 import elementary_data_e34 as e34
+import elementary_data_e56 as e56
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -593,8 +594,8 @@ NUMBER_EDGE_DEFS = [
 
 
 # 학년군 데이터 모듈을 병합한 전체 concept/edge 정의.
-CONCEPTS = NUMBER_CONCEPTS + e12_rest.CONCEPTS + e34.CONCEPTS
-EDGE_DEFS = NUMBER_EDGE_DEFS + e12_rest.EDGE_DEFS + e34.EDGE_DEFS
+CONCEPTS = NUMBER_CONCEPTS + e12_rest.CONCEPTS + e34.CONCEPTS + e56.CONCEPTS
+EDGE_DEFS = NUMBER_EDGE_DEFS + e12_rest.EDGE_DEFS + e34.EDGE_DEFS + e56.EDGE_DEFS
 
 
 def build_edges() -> list[dict]:
@@ -731,7 +732,7 @@ def main() -> None:
             "title": "초등학교 수학 개념 위계 Map (파일럿)",
             "schema_version": "0.1.0",
             "generated_at": datetime.now().isoformat(timespec="seconds"),
-            "pilot_scope": "초등학교 1~2학년군([2수01-01]~[2수04-03])과 3~4학년군([4수01-01]~[4수04-03]) 전체 영역",
+            "pilot_scope": "초등학교 전체 학년군(초1-2 [2수*], 초3-4 [4수*], 초5-6 [6수*]) 전체 영역",
             "scope_rules": "2026-07-06 사용자 결정: 고등학교 선택 과목 제외, 공식 원문 출처만 사용 (AGENTS.md Math Concept Map Scope Rules)",
             "concept_count": len(concepts),
             "edge_count": len(edges),
