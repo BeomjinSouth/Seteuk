@@ -49,3 +49,67 @@ e12_edge_047,e12_num_positional_notation,e12_num_ten_bundles,represented_by,curr
 e12_edge_048,e12_num_even,e12_num_odd,related_to,curriculum_math_2022:printed p. 11 용어와 기호 - 짝수와 홀수는 같은 용어 목록에서 함께 다루는 개념 쌍이다,,high
 e12_edge_049,e12_num_number_uses,e12_num_need_for_numbers,related_to,curriculum_math_2022:printed p. 11~12 적용 시 고려 사항 - 자연수의 쓰임을 알고 실생활 사례로 수의 필요성을 인식하게 한다는 같은 고려 사항 문장,,high
 e12_edge_050,e12_add_comm,e12_add_assoc,related_to,curriculum_math_2022:printed p. 12 적용 시 고려 사항 - 둘 다 덧셈 연산 법칙의 직관적 이해로 함께 제시된다,,medium
+e12_edge_051,e12_pat_rule,e12_pat_repeat_grow,contains,curriculum_math_2022:printed p. 13 성취기준 해설 - 반복되거나 증가하는 규칙은 배열에서 찾는 규칙의 유형이다,,high
+e12_edge_052,e12_pat_rule,e12_pat_attribute,contains,curriculum_math_2022:printed p. 13 적용 시 고려 사항 - 크기·색깔·위치·순서의 단순한 규칙은 다루는 규칙의 범위다,,high
+e12_edge_053,e12_pat_find,e12_pat_tables_find,contains,curriculum_math_2022:printed p. 13 적용 시 고려 사항 - 수 배열표·덧셈표·곱셈표에서 규칙 찾기는 규칙 찾기의 확장 활동이다,,high
+e12_edge_054,e12_pat_find,e12_pat_talk,contains,curriculum_math_2022:printed p. 13 적용 시 고려 사항 - 다른 사람의 배열에서 규칙 찾기는 규칙 찾기의 소통 활동이다,,high
+e12_edge_055,e12_pat_array,e12_pat_find,used_in,"curriculum_math_2022:printed p. 13; [2수02-01] - 물체, 무늬, 수 등의 배열에서 규칙을 찾는다",,high
+e12_edge_056,e12_pat_find,e12_pat_express,prerequisite_for,curriculum_math_2022:printed p. 13; [2수02-01] - 규칙을 찾아 여러 가지 방법으로 표현한다는 진술 구조,,high
+e12_edge_057,e12_pat_find,e12_pat_predict,prerequisite_for,curriculum_math_2022:printed p. 13 성취기준 해설 - 규칙을 찾고 다음에 올 것이나 빠진 것을 추측하게 한다는 해설 구조,,high
+e12_edge_058,e12_pat_rule,e12_pat_make,used_in,curriculum_math_2022:printed p. 13; [2수02-02] - 자신이 정한 규칙에 따라 배열한다,,high
+e12_edge_059,e12_pat_number_table,e12_pat_tables_find,used_in,curriculum_math_2022:printed p. 13 적용 시 고려 사항 - 수 배열표를 활용하여 규칙을 찾게 한다,,high
+e12_edge_060,e12_pat_addition_table,e12_pat_tables_find,used_in,curriculum_math_2022:printed p. 13 적용 시 고려 사항 - 덧셈표를 활용하여 규칙을 찾게 한다,,high
+e12_edge_061,e12_mul_table,e12_pat_tables_find,used_in,curriculum_math_2022:printed p. 13 적용 시 고려 사항 - 곱셈표를 활용하여 수의 다양한 규칙을 찾게 한다,,high
+e12_edge_062,e12_geo_find_solid,e12_geo_cuboid_shape,used_in,curriculum_math_2022:printed p. 13; [2수03-01] - 물건을 관찰하여 직육면체 모양을 찾는다,,high
+e12_edge_063,e12_geo_find_solid,e12_geo_cylinder_shape,used_in,curriculum_math_2022:printed p. 13; [2수03-01] - 물건을 관찰하여 원기둥 모양을 찾는다,,high
+e12_edge_064,e12_geo_find_solid,e12_geo_sphere_shape,used_in,curriculum_math_2022:printed p. 13; [2수03-01] - 물건을 관찰하여 구 모양을 찾는다,,high
+e12_edge_065,e12_geo_find_solid,e12_geo_make_solid,prerequisite_for,curriculum_math_2022:printed p. 13; [2수03-01] - 모양을 찾고 이를 이용하여 여러 가지 모양을 만든다는 진술 구조,,high
+e12_edge_066,e12_geo_blocks,e12_geo_position_words,prerequisite_for,curriculum_math_2022:printed p. 13; [2수03-02] - 쌓기나무로 모양을 만들고 그 모양에 대해 말한다는 진술 구조,,high
+e12_edge_067,e12_geo_blocks,e12_geo_spatial_sense,used_in,curriculum_math_2022:printed p. 15 적용 시 고려 사항 - 쌓기나무 등을 이용한 모양 만들기를 통하여 공간 감각을 기르게 한다,,high
+e12_edge_068,e12_geo_tangram,e12_geo_spatial_sense,used_in,curriculum_math_2022:printed p. 15 적용 시 고려 사항 - 칠교판 등을 이용한 모양 만들기를 통하여 공간 감각을 기르게 한다,,high
+e12_edge_069,e12_geo_find_plane,e12_geo_triangle,used_in,curriculum_math_2022:printed p. 13; [2수03-03] - 물건을 관찰하여 삼각형 모양을 찾는다,,high
+e12_edge_070,e12_geo_find_plane,e12_geo_quadrilateral,used_in,curriculum_math_2022:printed p. 13; [2수03-03] - 물건을 관찰하여 사각형 모양을 찾는다,,high
+e12_edge_071,e12_geo_find_plane,e12_geo_circle,used_in,curriculum_math_2022:printed p. 13; [2수03-03] - 물건을 관찰하여 원 모양을 찾는다,,high
+e12_edge_072,e12_geo_find_plane,e12_geo_make_plane,prerequisite_for,curriculum_math_2022:printed p. 13; [2수03-03] - 모양을 찾고 이를 이용하여 여러 가지 모양을 만든다는 진술 구조,,high
+e12_edge_073,e12_geo_example_sort,e12_geo_intuitive,used_in,curriculum_math_2022:printed p. 14 성취기준 해설 - 예인 것과 예가 아닌 것을 분류하는 활동으로 직관적으로 이해하게 한다,,high
+e12_edge_074,e12_geo_intuitive,e12_geo_draw,prerequisite_for,curriculum_math_2022:printed p. 13; [2수03-04] - 직관적으로 이해하고 그 모양을 그릴 수 있다는 진술 구조,,high
+e12_edge_075,e12_geo_triangle,e12_geo_common,used_in,curriculum_math_2022:printed p. 14; [2수03-05] - 삼각형에서 공통점을 찾아 말한다,,high
+e12_edge_076,e12_geo_quadrilateral,e12_geo_common,used_in,curriculum_math_2022:printed p. 14; [2수03-05] - 사각형에서 공통점을 찾아 말한다,,high
+e12_edge_077,e12_geo_triangle,e12_geo_intuitive,related_to,curriculum_math_2022:printed p. 13; [2수03-04] - 직관적 이해의 대상 도형,,high
+e12_edge_078,e12_geo_quadrilateral,e12_geo_intuitive,related_to,curriculum_math_2022:printed p. 13; [2수03-04] - 직관적 이해의 대상 도형,,high
+e12_edge_079,e12_geo_circle,e12_geo_intuitive,related_to,curriculum_math_2022:printed p. 13; [2수03-04] - 직관적 이해의 대상 도형,,high
+e12_edge_080,e12_meas_compare_methods,e12_meas_compare_length,used_in,curriculum_math_2022:printed p. 15 적용 시 고려 사항 - 직관적·직접·간접 비교를 상황에 따라 알맞게 다룬다,,high
+e12_edge_081,e12_meas_compare_methods,e12_meas_compare_capacity,used_in,curriculum_math_2022:printed p. 15 적용 시 고려 사항 - 직관적·직접·간접 비교를 상황에 따라 알맞게 다룬다,,high
+e12_edge_082,e12_meas_compare_methods,e12_meas_compare_weight,used_in,curriculum_math_2022:printed p. 15 적용 시 고려 사항 - 직관적·직접·간접 비교를 상황에 따라 알맞게 다룬다,,high
+e12_edge_083,e12_meas_compare_methods,e12_meas_compare_area,used_in,curriculum_math_2022:printed p. 15 적용 시 고려 사항 - 직관적·직접·간접 비교를 상황에 따라 알맞게 다룬다,,high
+e12_edge_084,e12_meas_hour_term,e12_meas_read_time,used_in,curriculum_math_2022:printed p. 14; [2수03-07] - 시각을 '몇 시 몇 분'까지 읽는다,,high
+e12_edge_085,e12_meas_minute_term,e12_meas_read_time,used_in,curriculum_math_2022:printed p. 14; [2수03-07] - 시각을 '몇 시 몇 분'까지 읽는다,,high
+e12_edge_086,e12_meas_read_time,e12_meas_time_before,prerequisite_for,curriculum_math_2022:printed p. 15 적용 시 고려 사항 - '몇 시 몇 분' 읽기에 이어 '몇 시 몇 분 전' 읽기를 다룬다,고려 사항의 시각 읽기 나열 순서에서 추론한 관계다.,medium
+e12_edge_087,e12_meas_model_clock,e12_meas_read_time,used_in,curriculum_math_2022:printed p. 15 적용 시 고려 사항 - 모형 시계를 조작하여 시각을 읽게 한다,,high
+e12_edge_088,e12_meas_hour_minute_rel,e12_meas_express_time,prerequisite_for,curriculum_math_2022:printed p. 14; [2수03-08] - 1시간과 1분의 관계를 이해하고 시간을 표현한다는 진술 구조,,high
+e12_edge_089,e12_meas_calendar,e12_meas_time_units_rel,used_in,curriculum_math_2022:printed p. 15 적용 시 고려 사항 - 달력을 이용하여 시간 단위 사이의 관계를 이해하게 한다,,high
+e12_edge_090,e12_meas_hour_minute_rel,e12_meas_time_units_rel,related_to,"curriculum_math_2022:printed p. 14; [2수03-08], [2수03-09] - 시간 단위 사이의 관계로 함께 다루는 성취기준",,high
+e12_edge_091,e12_meas_informal_units,e12_meas_standard_need,prerequisite_for,curriculum_math_2022:printed p. 14 성취기준 해설 - 임의 단위 측정 활동을 통해 표준 단위의 필요성을 알게 한다,,high
+e12_edge_092,e12_meas_standard_need,e12_meas_cm,prerequisite_for,curriculum_math_2022:printed p. 14 성취기준 해설 - 표준 단위의 필요성을 안 뒤 길이의 표준 단위를 도입한다,,high
+e12_edge_093,e12_meas_standard_need,e12_meas_m,prerequisite_for,curriculum_math_2022:printed p. 14 성취기준 해설 - 표준 단위의 필요성을 안 뒤 길이의 표준 단위를 도입한다,,high
+e12_edge_094,e12_meas_cm,e12_meas_measure_length,used_in,curriculum_math_2022:printed p. 14; [2수03-10] - 1cm를 이용하여 주변 사물의 길이를 측정한다,,high
+e12_edge_095,e12_meas_m,e12_meas_measure_length,used_in,curriculum_math_2022:printed p. 14; [2수03-10] - 1m를 이용하여 주변 사물의 길이를 측정한다,,high
+e12_edge_096,e12_meas_m_cm_rel,e12_meas_express_length,prerequisite_for,curriculum_math_2022:printed p. 14; [2수03-11] - 1m와 1cm의 관계를 이해하고 길이를 표현한다는 진술 구조,,high
+e12_edge_097,e12_meas_measure_length,e12_meas_estimate,related_to,curriculum_math_2022:printed p. 14 성취기준 해설 - 어림해 보고 자로 측정하여 확인하는 활동이 함께 제시된다,,high
+e12_edge_098,e12_meas_estimate,e12_meas_length_sense,used_in,curriculum_math_2022:printed p. 14; [2수03-12] - 어림 활동을 통해 길이에 대한 양감을 기른다,,high
+e12_edge_099,e12_meas_approx,e12_meas_measure_length,used_in,curriculum_math_2022:printed p. 15 적용 시 고려 사항 - 눈금과 일치하지 않는 측정값을 '약'으로 표현할 수 있음을 알게 한다,,high
+e12_edge_100,e12_add,e12_meas_length_addsub,used_in,curriculum_math_2022:printed p. 14; [2수03-13] - 길이의 덧셈을 실생활 문제 상황과 연결하여 다룬다,,high
+e12_edge_101,e12_sub,e12_meas_length_addsub,used_in,curriculum_math_2022:printed p. 14; [2수03-13] - 길이의 뺄셈을 실생활 문제 상황과 연결하여 다룬다,,high
+e12_edge_102,e12_meas_cm,e12_meas_length_addsub,used_in,curriculum_math_2022:printed p. 14; [2수03-13] - 길이의 덧셈과 뺄셈은 길이 단위 표현을 전제로 한다,진술이 단위를 직접 언급하지 않으므로 medium을 유지한다.,medium
+e12_edge_103,e12_data_criteria,e12_data_classify,prerequisite_for,curriculum_math_2022:printed p. 15; [2수04-01] - 기준을 정해 분류한다는 진술 구조,,high
+e12_edge_104,e12_data_classify,e12_data_count,prerequisite_for,curriculum_math_2022:printed p. 15; [2수04-01] - 분류하여 개수를 세어 본다는 진술 구조,,high
+e12_edge_105,e12_data_count,e12_data_state,prerequisite_for,curriculum_math_2022:printed p. 15; [2수04-01] - 개수를 세어 보고 결과를 말한다는 진술 구조,,high
+e12_edge_106,e12_num_counting,e12_data_count,used_in,curriculum_math_2022:printed p. 15; [2수04-01] - 분류한 사물의 개수를 세는 활동에 수 세기를 사용한다,,high
+e12_edge_107,e12_data_classify,e12_data_to_table,prerequisite_for,curriculum_math_2022:printed p. 15; [2수04-02] - 자료를 분류하여 표로 나타낸다는 진술 구조,,high
+e12_edge_108,e12_data_classify,e12_data_to_graph,prerequisite_for,curriculum_math_2022:printed p. 15; [2수04-03] - 자료를 분류하여 그래프로 나타낸다는 진술 구조,,high
+e12_edge_109,e12_data_table,e12_data_to_table,used_in,curriculum_math_2022:printed p. 15; [2수04-02] - 자료를 표로 나타낸다,,high
+e12_edge_110,e12_data_graph,e12_data_to_graph,used_in,curriculum_math_2022:printed p. 15; [2수04-03] - 자료를 그래프로 나타낸다,,high
+e12_edge_111,e12_data_to_table,e12_data_table_benefit,used_in,curriculum_math_2022:printed p. 15; [2수04-02] - 표로 나타내면 편리한 점을 말한다,,high
+e12_edge_112,e12_data_to_graph,e12_data_graph_benefit,used_in,curriculum_math_2022:printed p. 15; [2수04-03] - 그래프로 나타내면 편리한 점을 말한다,,high
+e12_edge_113,e12_data_no_miss,e12_data_to_table,used_in,curriculum_math_2022:printed p. 16 적용 시 고려 사항 - 표를 만들 때 중복되거나 빠지지 않도록 세어 보는 방법을 지도한다,,high
+e12_edge_114,e12_data_no_miss,e12_data_to_graph,used_in,curriculum_math_2022:printed p. 16 적용 시 고려 사항 - 그래프를 만들 때 중복되거나 빠지지 않도록 세어 보는 방법을 지도한다,,high

@@ -5,6 +5,8 @@ import json
 from datetime import datetime
 from pathlib import Path
 
+import elementary_data_e12_rest as e12_rest
+
 
 ROOT = Path(__file__).resolve().parents[3]
 OUT_DIR = ROOT / "docs" / "math-concept-map"
@@ -86,7 +88,7 @@ def concept(
     }
 
 
-CONCEPTS = [
+NUMBER_CONCEPTS = [
     # ---------- 네 자리 이하의 수 ----------
     concept(
         "e12_num_zero_to_100",
@@ -530,7 +532,7 @@ CONCEPTS = [
 ]
 
 # (source_id, target_id, relationship_type, confidence, locator, summary, notes)
-EDGE_DEFS = [
+NUMBER_EDGE_DEFS = [
     # 포함 관계
     ("e12_num_zero_to_100", "e12_num_counting", "contains", "high", "printed p. 11; [2수01-01]", "수 개념 이해와 함께 수를 세는 활동이 같은 성취기준에 묶여 있다", ""),
     ("e12_num_zero_to_100", "e12_num_reading", "contains", "high", "printed p. 11; [2수01-01]", "수 개념 이해와 함께 수를 읽는 활동이 같은 성취기준에 묶여 있다", ""),
@@ -587,6 +589,11 @@ EDGE_DEFS = [
     ("e12_num_number_uses", "e12_num_need_for_numbers", "related_to", "high", "printed p. 11~12 적용 시 고려 사항", "자연수의 쓰임을 알고 실생활 사례로 수의 필요성을 인식하게 한다는 같은 고려 사항 문장", ""),
     ("e12_add_comm", "e12_add_assoc", "related_to", "medium", "printed p. 12 적용 시 고려 사항", "둘 다 덧셈 연산 법칙의 직관적 이해로 함께 제시된다", ""),
 ]
+
+
+# 학년군 데이터 모듈을 병합한 전체 concept/edge 정의.
+CONCEPTS = NUMBER_CONCEPTS + e12_rest.CONCEPTS
+EDGE_DEFS = NUMBER_EDGE_DEFS + e12_rest.EDGE_DEFS
 
 
 def build_edges() -> list[dict]:
@@ -656,7 +663,8 @@ def source_ref_summary(source_refs: list[dict]) -> str:
 def render_md(concepts: list[dict], edges: list[dict]) -> str:
     unit_counts: dict[str, int] = {}
     for c in concepts:
-        unit_counts[c["unit"]] = unit_counts.get(c["unit"], 0) + 1
+        key = f"{c['domain']} · {c['unit']}"
+        unit_counts[key] = unit_counts.get(key, 0) + 1
     type_counts: dict[str, int] = {}
     for c in concepts:
         type_counts[c["concept_type"]] = type_counts.get(c["concept_type"], 0) + 1
@@ -665,10 +673,10 @@ def render_md(concepts: list[dict], edges: list[dict]) -> str:
         rel_counts[e["relationship_type"]] = rel_counts.get(e["relationship_type"], 0) + 1
 
     lines = [
-        "# 초등학교 미시 concept 파일럿: 초1-2 수와 연산",
+        "# 초등학교 미시 concept: 초1-2 전체 영역",
         "",
-        "2022 개정 수학과 교육과정(별책8)의 초등학교 1~2학년 수와 연산 구간",
-        "(성취기준 [2수01-01]~[2수01-11], 인쇄 페이지 p.11~12)을 미시 concept과 관계 edge로 분해한 파일럿이다.",
+        "2022 개정 수학과 교육과정(별책8)의 초등학교 1~2학년 전체 4개 영역",
+        "(성취기준 [2수01-01]~[2수04-03], 인쇄 페이지 p.11~16)을 미시 concept과 관계 edge로 분해한 산출물이다.",
         "",
         "## 범위와 출처 규칙 (2026-07-06 사용자 결정)",
         "",
@@ -692,8 +700,7 @@ def render_md(concepts: list[dict], edges: list[dict]) -> str:
         "",
         "## 다음 확장",
         "",
-        "- 같은 방식으로 초1-2 나머지 3개 영역(변화와 관계, 도형과 측정, 자료와 가능성)을 분해한다.",
-        "- 초3-4, 초5-6으로 학년군을 확장하고, `k12-spine-nodes.csv`의 성취기준 코드로 spine과 조인한다.",
+        "- 같은 방식으로 초3-4, 초5-6, 고등 공통수학1·2로 확장하고, `k12-spine-nodes.csv`의 성취기준 코드로 spine과 조인한다.",
         "- 초등 교과서 PDF가 추가되면 중학교와 같은 교과서 근거 패킷 체계를 적용한다.",
         "",
     ]
@@ -723,7 +730,7 @@ def main() -> None:
             "title": "초등학교 수학 개념 위계 Map (파일럿)",
             "schema_version": "0.1.0",
             "generated_at": datetime.now().isoformat(timespec="seconds"),
-            "pilot_scope": "초등학교 1~2학년군 수와 연산([2수01-01]~[2수01-11])",
+            "pilot_scope": "초등학교 1~2학년군 전체 영역([2수01-01]~[2수04-03])",
             "scope_rules": "2026-07-06 사용자 결정: 고등학교 선택 과목 제외, 공식 원문 출처만 사용 (AGENTS.md Math Concept Map Scope Rules)",
             "concept_count": len(concepts),
             "edge_count": len(edges),

@@ -23,14 +23,23 @@ class ElementaryPilotDataTests(unittest.TestCase):
             self.assertIn(edge["source_id"], self.by_id)
             self.assertIn(edge["target_id"], self.by_id)
 
-    def test_scope_is_elementary_grade12_number_domain(self) -> None:
+    def test_scope_is_elementary_grade12_all_domains(self) -> None:
+        domains = {"수와 연산", "변화와 관계", "도형과 측정", "자료와 가능성"}
         for c in self.concepts:
             self.assertEqual(c["grade"], "초1-2")
-            self.assertEqual(c["domain"], "수와 연산")
-            self.assertIn(
-                c["unit"],
-                {"네 자리 이하의 수", "두 자리 수 범위의 덧셈과 뺄셈", "한 자리 수의 곱셈"},
-            )
+            self.assertIn(c["domain"], domains)
+        covered = {c["domain"] for c in self.concepts}
+        self.assertEqual(covered, domains)
+
+    def test_geometry_terms_and_cross_domain_edges_present(self) -> None:
+        labels = {c["label_ko"] for c in self.concepts}
+        for term in ["삼각형", "사각형", "원", "꼭짓점", "변", "시", "분", "약(어림 표현)", "표", "그래프"]:
+            self.assertIn(term, labels)
+        pairs = {(e["source_id"], e["target_id"]) for e in self.edges}
+        # 영역을 가로지르는 공식 근거 edge
+        self.assertIn(("e12_mul_table", "e12_pat_tables_find"), pairs)
+        self.assertIn(("e12_add", "e12_meas_length_addsub"), pairs)
+        self.assertIn(("e12_num_counting", "e12_data_count"), pairs)
 
     def test_every_concept_has_official_source_ref_with_locator(self) -> None:
         for c in self.concepts:
