@@ -6,17 +6,14 @@ import { usePathname } from 'next/navigation';
 import {
     ScanLine,
     ClipboardList,
-    Settings,
     HelpCircle,
     Sun,
     Moon,
     LogOut,
-    Plus,
     ChevronDown,
     ChevronRight,
     User,
     Calendar,
-    FileText,
     Trash2,
 } from 'lucide-react';
 import clsx from 'clsx';

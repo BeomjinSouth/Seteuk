@@ -328,21 +328,6 @@ function scoreTokensAgainstMatch(tokens: string[], prepared: PreparedGroundingMa
     return tokens.reduce((score, token) => score + (prepared.combinedText.includes(token) ? 1 : 0), 0);
 }
 
-function scoreSegmentAgainstMatch(segment: string, match: RetrievedKnowledgeEvidence): number {
-    const tokens = tokenize(segment);
-    return scoreTokensAgainstMatch(tokens, {
-        match,
-        combinedText: normalizeText([
-        match.title,
-        match.question,
-        match.answer,
-        match.ruleSummary || '',
-        match.snippet,
-        match.categories.join(' '),
-        match.policyAnchors.map((anchor) => anchor.rule).join(' '),
-        ].join(' ')),
-    });
-}
 
 function hasGroundedSourceMatch(tokenCount: number, score: number, retrievalScore: number): boolean {
     if (retrievalScore < MIN_GROUNDED_RETRIEVAL_SCORE) return false;
@@ -409,7 +394,10 @@ export function buildGraphRagAnswerSpans(
         const best = scored[0]?.match ?? primaryMatch;
         const score = scored[0]?.score ?? 0;
 
-        if (!hasGroundedSourceMatch(tokens.length, score, best.score)) {
+        // Use the scale-stable retrievalScore: after RRF fusion, `best.score` no
+        // longer sits on the raw lexical scale MIN_GROUNDED_RETRIEVAL_SCORE expects.
+        const retrievalScore = best.retrievalScore ?? best.score;
+        if (!hasGroundedSourceMatch(tokens.length, score, retrievalScore)) {
             return {
                 id: `span:${index}`,
                 text: segment,

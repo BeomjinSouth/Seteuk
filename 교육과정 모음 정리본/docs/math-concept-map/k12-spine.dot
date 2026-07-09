@@ -1,0 +1,103 @@
+digraph k12_spine {
+  rankdir=LR;
+  node [shape=box, fontname="Malgun Gothic"];
+  edge [fontname="Malgun Gothic"];
+  subgraph cluster_elementary {
+    label="초등학교";
+    "spine_stage_e12" [label="초등학교 1~2학년 수학", shape=ellipse];
+    "spine_dom_e12_01" [label="초1-2 수와 연산", shape=box];
+    "spine_dom_e12_02" [label="초1-2 변화와 관계", shape=box];
+    "spine_dom_e12_03" [label="초1-2 도형과 측정", shape=box];
+    "spine_dom_e12_04" [label="초1-2 자료와 가능성", shape=box];
+    "spine_stage_e34" [label="초등학교 3~4학년 수학", shape=ellipse];
+    "spine_dom_e34_01" [label="초3-4 수와 연산", shape=box];
+    "spine_dom_e34_02" [label="초3-4 변화와 관계", shape=box];
+    "spine_dom_e34_03" [label="초3-4 도형과 측정", shape=box];
+    "spine_dom_e34_04" [label="초3-4 자료와 가능성", shape=box];
+    "spine_stage_e56" [label="초등학교 5~6학년 수학", shape=ellipse];
+    "spine_dom_e56_01" [label="초5-6 수와 연산", shape=box];
+    "spine_dom_e56_02" [label="초5-6 변화와 관계", shape=box];
+    "spine_dom_e56_03" [label="초5-6 도형과 측정", shape=box];
+    "spine_dom_e56_04" [label="초5-6 자료와 가능성", shape=box];
+  }
+  subgraph cluster_middle {
+    label="중학교";
+    "spine_stage_m13" [label="중학교 1~3학년 수학", shape=ellipse];
+    "spine_dom_m13_01" [label="중1-3 수와 연산", shape=box];
+    "spine_dom_m13_02" [label="중1-3 변화와 관계", shape=box];
+    "spine_dom_m13_03" [label="중1-3 도형과 측정", shape=box];
+    "spine_dom_m13_04" [label="중1-3 자료와 가능성", shape=box];
+  }
+  subgraph cluster_high_common {
+    label="고등학교 공통 과목";
+    "spine_subj_gongsu1" [label="공통수학1", shape=ellipse];
+    "spine_subj_gongsu2" [label="공통수학2", shape=ellipse];
+    "spine_subj_gisu1" [label="기본수학1", shape=ellipse];
+    "spine_subj_gisu2" [label="기본수학2", shape=ellipse];
+  }
+  subgraph cluster_high_selective {
+    label="고등학교 선택 과목";
+    "spine_subj_daesu" [label="대수 (일반 선택 과목)", shape=ellipse];
+    "spine_subj_mijeok1" [label="미적분Ⅰ (일반 선택 과목)", shape=ellipse];
+    "spine_subj_hwaktong" [label="확률과 통계 (일반 선택 과목)", shape=ellipse];
+    "spine_subj_mijeok2" [label="미적분Ⅱ (진로 선택 과목)", shape=ellipse];
+    "spine_subj_giha" [label="기하 (진로 선택 과목)", shape=ellipse];
+    "spine_subj_gyeongsu" [label="경제 수학 (진로 선택 과목)", shape=ellipse];
+    "spine_subj_insu" [label="인공지능 수학 (진로 선택 과목)", shape=ellipse];
+    "spine_subj_jiksu" [label="직무 수학 (진로 선택 과목)", shape=ellipse];
+    "spine_subj_sumun" [label="수학과 문화 (융합 선택 과목)", shape=ellipse];
+    "spine_subj_siltong" [label="실용 통계 (융합 선택 과목)", shape=ellipse];
+    "spine_subj_sugwa" [label="수학과제 탐구 (융합 선택 과목)", shape=ellipse];
+  }
+  "spine_stage_e12" -> "spine_dom_e12_01" [style=dotted, color=gray50, label="contains"];
+  "spine_stage_e12" -> "spine_dom_e12_02" [style=dotted, color=gray50, label="contains"];
+  "spine_stage_e12" -> "spine_dom_e12_03" [style=dotted, color=gray50, label="contains"];
+  "spine_stage_e12" -> "spine_dom_e12_04" [style=dotted, color=gray50, label="contains"];
+  "spine_stage_e34" -> "spine_dom_e34_01" [style=dotted, color=gray50, label="contains"];
+  "spine_stage_e34" -> "spine_dom_e34_02" [style=dotted, color=gray50, label="contains"];
+  "spine_stage_e34" -> "spine_dom_e34_03" [style=dotted, color=gray50, label="contains"];
+  "spine_stage_e34" -> "spine_dom_e34_04" [style=dotted, color=gray50, label="contains"];
+  "spine_stage_e56" -> "spine_dom_e56_01" [style=dotted, color=gray50, label="contains"];
+  "spine_stage_e56" -> "spine_dom_e56_02" [style=dotted, color=gray50, label="contains"];
+  "spine_stage_e56" -> "spine_dom_e56_03" [style=dotted, color=gray50, label="contains"];
+  "spine_stage_e56" -> "spine_dom_e56_04" [style=dotted, color=gray50, label="contains"];
+  "spine_stage_m13" -> "spine_dom_m13_01" [style=dotted, color=gray50, label="contains"];
+  "spine_stage_m13" -> "spine_dom_m13_02" [style=dotted, color=gray50, label="contains"];
+  "spine_stage_m13" -> "spine_dom_m13_03" [style=dotted, color=gray50, label="contains"];
+  "spine_stage_m13" -> "spine_dom_m13_04" [style=dotted, color=gray50, label="contains"];
+  "spine_stage_e12" -> "spine_stage_e34" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_dom_e12_01" -> "spine_dom_e34_01" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_dom_e12_02" -> "spine_dom_e34_02" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_dom_e12_03" -> "spine_dom_e34_03" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_dom_e12_04" -> "spine_dom_e34_04" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_stage_e34" -> "spine_stage_e56" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_dom_e34_01" -> "spine_dom_e56_01" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_dom_e34_02" -> "spine_dom_e56_02" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_dom_e34_03" -> "spine_dom_e56_03" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_dom_e34_04" -> "spine_dom_e56_04" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_stage_e56" -> "spine_stage_m13" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_dom_e56_01" -> "spine_dom_m13_01" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_dom_e56_02" -> "spine_dom_m13_02" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_dom_e56_03" -> "spine_dom_m13_03" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_dom_e56_04" -> "spine_dom_m13_04" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_stage_m13" -> "spine_subj_gongsu1" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_stage_m13" -> "spine_subj_gisu1" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_subj_gongsu1" -> "spine_subj_gongsu2" [style=solid, color=orange3, label="prerequisite_for"];
+  "spine_subj_gisu1" -> "spine_subj_gisu2" [style=solid, color=orange3, label="prerequisite_for"];
+  "spine_subj_daesu" -> "spine_subj_mijeok2" [style=solid, color=orange3, label="prerequisite_for"];
+  "spine_subj_mijeok1" -> "spine_subj_mijeok2" [style=solid, color=orange3, label="prerequisite_for"];
+  "spine_subj_mijeok2" -> "spine_subj_giha" [style=dashed, color=gray50, label="related_to"];
+  "spine_subj_mijeok2" -> "spine_subj_gyeongsu" [style=dashed, color=gray50, label="related_to"];
+  "spine_subj_daesu" -> "spine_subj_insu" [style=dashed, color=gray50, label="related_to"];
+  "spine_subj_gongsu2" -> "spine_subj_daesu" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_subj_gongsu2" -> "spine_subj_mijeok1" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_subj_gongsu2" -> "spine_subj_hwaktong" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_subj_gongsu2" -> "spine_subj_mijeok2" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_subj_gongsu2" -> "spine_subj_giha" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_subj_gongsu2" -> "spine_subj_gyeongsu" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_subj_gongsu2" -> "spine_subj_insu" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_subj_gongsu2" -> "spine_subj_jiksu" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_subj_gongsu2" -> "spine_subj_sumun" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_subj_gongsu2" -> "spine_subj_siltong" [style=solid, color=gray50, label="prerequisite_for"];
+  "spine_subj_gongsu2" -> "spine_subj_sugwa" [style=solid, color=gray50, label="prerequisite_for"];
+}

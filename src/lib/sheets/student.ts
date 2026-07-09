@@ -1,4 +1,4 @@
-import { readSheet, appendRow, writeSheet, SHEETS } from './base';
+import { readSheet, writeSheet, SHEETS } from './base';
 
 export interface StudentRow {
     id: string;
@@ -221,7 +221,7 @@ export async function getStudents(filters?: { school?: string; grade?: number })
  * Inserts or updates multiple students by ID while preserving existing learning data.
  * @param students - Student rows to insert or update.
  */
-export async function upsertStudents(students: StudentRow[]): Promise<void> {
+async function upsertStudents(students: StudentRow[]): Promise<void> {
     const existingStudents = await getStudents();
     const existingOrder = existingStudents.map((student) => student.id);
     const updates = dedupeStudents(students);
@@ -349,51 +349,4 @@ export async function updateStudent(id: string, data: Partial<StudentRow>): Prom
         STUDENT_HEADERS,
         ...nextStudents.map(studentToRow),
     ]);
-}
-
-// ============ Class Operations ============
-
-export interface ClassRow {
-    id: string;
-    grade: number;
-    classNumber: number;
-    subjectName: string;
-    semester: string;
-    year: number;
-}
-
-/**
- * Retrieves all classes from the "Class" sheet.
- * @returns Array of class objects.
- */
-export async function getClasses(): Promise<ClassRow[]> {
-    const rows = await readSheet(SHEETS.CLASSES);
-    if (rows.length <= 1) return [];
-
-    return rows.slice(1).map(row => ({
-        id: row[0],
-        grade: parseInt(row[1]) || 0,
-        classNumber: parseInt(row[2]) || 0,
-        subjectName: row[3],
-        semester: row[4],
-        year: parseInt(row[5]) || 2025,
-    }));
-}
-
-/**
- * Adds a new class to the "Class" sheet.
- * @param cls - Class data (excluding ID).
- * @returns The ID of the newly added class.
- */
-export async function addClass(cls: Omit<ClassRow, 'id'>): Promise<string> {
-    const id = `c-${Date.now()}`;
-    await appendRow(SHEETS.CLASSES, [
-        id,
-        String(cls.grade),
-        String(cls.classNumber),
-        cls.subjectName,
-        cls.semester,
-        String(cls.year),
-    ]);
-    return id;
 }

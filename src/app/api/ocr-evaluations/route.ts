@@ -73,24 +73,24 @@ export async function GET(request: NextRequest) {
         const semester = searchParams.get('semester') as '1' | '2' | null;
         const grade = searchParams.get('grade');
 
-        // ID濡??⑥씪 議고쉶
+        // ID로 단일 조회
         if (id) {
             const evaluation = await getOCREvaluationById(id);
             if (!evaluation) {
                 return NextResponse.json(
-                    { success: false, error: '?됯?瑜?李얠쓣 ???놁뒿?덈떎.' },
+                    { success: false, error: '평가를 찾을 수 없습니다.' },
                     { status: 404 }
                 );
             }
 
-            // JSON ?뚯떛
+            // JSON 파싱
             return NextResponse.json({
                 success: true,
                 data: parseEvaluationRow(evaluation),
             });
         }
 
-        // ?꾪꽣 議고쉶
+        // 필터 조회
         let evaluations;
         if (year || semester || grade) {
             evaluations = await getOCREvaluationsByFilter(
@@ -102,7 +102,7 @@ export async function GET(request: NextRequest) {
             evaluations = await getOCREvaluations();
         }
 
-        // JSON ?뚯떛
+        // JSON 파싱
         const parsedEvaluations = evaluations.map(parseEvaluationRow);
 
         return NextResponse.json({
@@ -113,13 +113,13 @@ export async function GET(request: NextRequest) {
         console.error('Failed to get OCR evaluations:', error);
         const errorMessage = error instanceof Error ? error.message : String(error);
         return NextResponse.json(
-            { success: false, error: `OCR ?됯? 議고쉶???ㅽ뙣?덉뒿?덈떎: ${errorMessage}` },
+            { success: false, error: `OCR 평가 조회에 실패했습니다: ${errorMessage}` },
             { status: 500 }
         );
     }
 }
 
-// POST - OCR ?됯? 異붽?
+// POST - OCR 평가 추가
 /**
  * Creates a new OCR evaluation record.
  * 
@@ -156,7 +156,7 @@ export async function POST(request: NextRequest) {
 
         if (!year || !semester || !grade || !title) {
             return NextResponse.json(
-                { success: false, error: '?숇뀈?? ?숆린, ?숇뀈, ?됯?紐낆? ?꾩닔?낅땲??' },
+                { success: false, error: '학년도, 학기, 학년, 평가명은 필수입니다.' },
                 { status: 400 }
             );
         }
@@ -177,19 +177,19 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({
             success: true,
             id,
-            message: 'OCR ?됯?媛 ?깅줉?섏뿀?듬땲??',
+            message: 'OCR 평가가 등록되었습니다.',
         });
     } catch (error) {
         console.error('Failed to add OCR evaluation:', error);
         const errorMessage = error instanceof Error ? error.message : String(error);
         return NextResponse.json(
-            { success: false, error: `OCR ?됯? ?깅줉???ㅽ뙣?덉뒿?덈떎: ${errorMessage}` },
+            { success: false, error: `OCR 평가 등록에 실패했습니다: ${errorMessage}` },
             { status: 500 }
         );
     }
 }
 
-// PUT - OCR ?됯? ?섏젙
+// PUT - OCR 평가 수정
 /**
  * Updates an existing OCR evaluation record.
  * 
@@ -208,7 +208,7 @@ export async function PUT(request: NextRequest) {
 
         if (!id) {
             return NextResponse.json(
-                { success: false, error: 'ID媛 ?꾩슂?⑸땲??' },
+                { success: false, error: 'ID가 필요합니다.' },
                 { status: 400 }
             );
         }
@@ -217,18 +217,18 @@ export async function PUT(request: NextRequest) {
 
         return NextResponse.json({
             success: true,
-            message: 'OCR ?됯?媛 ?섏젙?섏뿀?듬땲??',
+            message: 'OCR 평가가 수정되었습니다.',
         });
     } catch (error) {
         console.error('Failed to update OCR evaluation:', error);
         return NextResponse.json(
-            { success: false, error: 'OCR ?됯? ?섏젙???ㅽ뙣?덉뒿?덈떎.' },
+            { success: false, error: 'OCR 평가 수정에 실패했습니다.' },
             { status: 500 }
         );
     }
 }
 
-// DELETE - OCR ?됯? ??젣
+// DELETE - OCR 평가 삭제
 /**
  * Deletes an OCR evaluation record.
  * 
@@ -245,7 +245,7 @@ export async function DELETE(request: NextRequest) {
 
     if (!id) {
         return NextResponse.json(
-            { success: false, error: 'ID媛 ?꾩슂?⑸땲??' },
+            { success: false, error: 'ID가 필요합니다.' },
             { status: 400 }
         );
     }
@@ -255,12 +255,12 @@ export async function DELETE(request: NextRequest) {
 
         return NextResponse.json({
             success: true,
-            message: 'OCR ?됯?媛 ??젣?섏뿀?듬땲??',
+            message: 'OCR 평가가 삭제되었습니다.',
         });
     } catch (error) {
         console.error('Failed to delete OCR evaluation:', error);
         return NextResponse.json(
-            { success: false, error: 'OCR ?됯? ??젣???ㅽ뙣?덉뒿?덈떎.' },
+            { success: false, error: 'OCR 평가 삭제에 실패했습니다.' },
             { status: 500 }
         );
     }

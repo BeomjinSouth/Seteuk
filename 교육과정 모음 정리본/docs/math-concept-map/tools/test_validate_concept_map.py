@@ -1,0 +1,720 @@
+from __future__ import annotations
+
+import csv
+import tempfile
+import unittest
+from pathlib import Path
+
+import validate_concept_map as validator
+
+
+def ref(locator: str, summary: str = "") -> dict:
+    return {
+        "source_id": "curriculum_math_2022",
+        "locator": locator,
+        "evidence_kind": "achievement_standard",
+        "summary": summary,
+    }
+
+
+class AchievementCoverageTests(unittest.TestCase):
+    def test_expected_middle_school_codes_cover_all_four_domains(self) -> None:
+        expected = validator.EXPECTED_ACHIEVEMENT_CODES
+
+        self.assertEqual(len(expected), 60)
+        self.assertEqual(expected[0], "9수01-01")
+        self.assertEqual(expected[-1], "9수04-09")
+        self.assertIn("9수02-22", expected)
+        self.assertIn("9수03-19", expected)
+
+    def test_missing_achievement_codes_are_reported_from_refs(self) -> None:
+        present = {
+            code: [{"source_refs": [ref(f"printed p. 1; [{code}]")]}]
+            for code in validator.EXPECTED_ACHIEVEMENT_CODES
+        }
+        del present["9수03-19"]
+
+        records = [record for records in present.values() for record in records]
+
+        self.assertEqual(
+            validator.missing_achievement_codes(records),
+            ["9수03-19"],
+        )
+
+    def test_code_ranges_in_locators_are_expanded(self) -> None:
+        records = [
+            {
+                "source_refs": [
+                    ref(
+                        "자료와 가능성 section; [9수04-02]~[9수04-04]",
+                        "도수분포표와 상대도수 성취수준",
+                    )
+                ]
+            }
+        ]
+
+        self.assertEqual(
+            validator.collect_achievement_codes(records),
+            {"9수04-02", "9수04-03", "9수04-04"},
+        )
+
+    def test_low_confidence_count_matches_review_queue_scope(self) -> None:
+        records = [
+            {"confidence": "high"},
+            {"confidence": "low"},
+            {"confidence": "medium"},
+            {"confidence": "low"},
+        ]
+
+        self.assertEqual(validator.low_confidence_concept_count(records), 2)
+
+    def test_term_needs_concept_count_reports_uncovered_terms(self) -> None:
+        rows = [
+            {"coverage_status": "covered"},
+            {"coverage_status": "covered_by_alias"},
+            {"coverage_status": "needs_concept"},
+            {"coverage_status": "excluded_by_curriculum_scope"},
+        ]
+
+        self.assertEqual(validator.term_needs_concept_count(rows), 1)
+
+    def test_unit_group_count_uses_grade_domain_and_unit(self) -> None:
+        records = [
+            {"grade": "중1", "domain": "수와 연산", "unit": "소인수분해"},
+            {"grade": "중1", "domain": "수와 연산", "unit": "소인수분해"},
+            {"grade": "중1", "domain": "변화와 관계", "unit": "소인수분해"},
+        ]
+
+        self.assertEqual(validator.unit_group_count(records), 2)
+
+    def test_isolated_concept_count_reports_concepts_without_edges(self) -> None:
+        concepts = [{"id": "unit"}, {"id": "coord"}, {"id": "isolated"}]
+        edges = [{"source_id": "unit", "target_id": "coord"}]
+
+        self.assertEqual(validator.isolated_concept_count(concepts, edges), 1)
+
+    def test_missing_source_inventory_groups_are_reported(self) -> None:
+        rows = [
+            {"source_group": "curriculum_pdf", "status": "available"},
+            {"source_group": "achievement_pdf", "status": "available"},
+            {"source_group": "textbook_originals", "status": "empty"},
+        ]
+
+        self.assertEqual(
+            validator.missing_source_inventory_groups(rows),
+            ["achievement_research_report_pdf", "unit_summary_json"],
+        )
+
+    def test_invalid_source_inventory_statuses_are_reported(self) -> None:
+        rows = [
+            {"source_group": "curriculum_pdf", "status": "available"},
+            {"source_group": "achievement_pdf", "status": "stale"},
+        ]
+
+        self.assertEqual(
+            validator.invalid_source_inventory_statuses(rows),
+            ["achievement_pdf:stale"],
+        )
+
+    def test_source_ref_count_counts_concept_and_edge_refs(self) -> None:
+        concepts = [
+            {"source_refs": [{"source_id": "curriculum_math_2022"}]},
+            {"source_refs": [{"source_id": "achievement_math_2022"}, {"source_id": "unit_summary_math_json"}]},
+        ]
+        edges = [
+            {"source_refs": [{"source_id": "curriculum_math_2022"}]},
+        ]
+
+        self.assertEqual(validator.source_ref_count(concepts, edges), 4)
+
+    def test_source_ref_audit_missing_detail_count_sums_locator_and_summary_gaps(self) -> None:
+        rows = [
+            {"missing_locator_count": "1", "missing_summary_count": "0"},
+            {"missing_locator_count": "0", "missing_summary_count": "2"},
+        ]
+
+        self.assertEqual(validator.source_ref_audit_missing_detail_count(rows), 3)
+
+    def test_missing_concept_evidence_depth_ids_are_reported(self) -> None:
+        concepts = [{"id": "coord"}, {"id": "axis"}]
+        rows = [{"concept_id": "coord"}]
+
+        self.assertEqual(
+            validator.missing_concept_evidence_depth_ids(concepts, rows),
+            ["axis"],
+        )
+
+    def test_concept_evidence_depth_source_ref_count_sums_rows(self) -> None:
+        rows = [
+            {"source_ref_count": "2"},
+            {"source_ref_count": "3"},
+        ]
+
+        self.assertEqual(validator.concept_evidence_depth_source_ref_count(rows), 5)
+
+    def test_missing_edge_evidence_depth_ids_are_reported(self) -> None:
+        edges = [{"id": "coord__contains__axis"}, {"id": "coord__prerequisite_for__linear"}]
+        rows = [{"edge_id": "coord__contains__axis"}]
+
+        self.assertEqual(
+            validator.missing_edge_evidence_depth_ids(edges, rows),
+            ["coord__prerequisite_for__linear"],
+        )
+
+    def test_edge_evidence_depth_source_ref_count_sums_rows(self) -> None:
+        rows = [
+            {"source_ref_count": "4"},
+            {"source_ref_count": "5"},
+        ]
+
+        self.assertEqual(validator.edge_evidence_depth_source_ref_count(rows), 9)
+
+    def test_edge_textbook_evidence_count_reports_supported_rows(self) -> None:
+        rows = [
+            {"has_textbook_evidence": "no"},
+            {"has_textbook_evidence": "yes"},
+        ]
+
+        self.assertEqual(validator.edge_evidence_depth_textbook_evidence_count(rows), 1)
+
+    def test_textbook_evidence_count_reports_supported_rows(self) -> None:
+        rows = [
+            {"has_textbook_evidence": "yes"},
+            {"has_textbook_evidence": "no"},
+            {"has_textbook_evidence": "yes"},
+        ]
+
+        self.assertEqual(validator.concept_evidence_depth_textbook_evidence_count(rows), 2)
+
+    def test_textbook_queue_unit_group_count_uses_grade_domain_unit(self) -> None:
+        rows = [
+            {"grade": "중1", "domain": "변화와 관계", "unit": "좌표평면과 그래프"},
+            {"grade": "중1", "domain": "변화와 관계", "unit": "좌표평면과 그래프"},
+            {"grade": "중1", "domain": "수와 연산", "unit": "정수와 유리수"},
+        ]
+
+        self.assertEqual(validator.textbook_queue_unit_group_count(rows), 2)
+
+    def test_textbook_queue_needs_textbook_count_sums_rows(self) -> None:
+        rows = [
+            {"needs_textbook_evidence_count": "2"},
+            {"needs_textbook_evidence_count": "3"},
+        ]
+
+        self.assertEqual(validator.textbook_queue_needs_textbook_count(rows), 5)
+
+    def test_textbook_packet_missing_concepts_are_reported_for_target_unit(self) -> None:
+        concepts = [
+            {"id": "coord", "grade": "g1", "domain": "relation", "unit": "coordinate plane"},
+            {"id": "axis", "grade": "g1", "domain": "relation", "unit": "coordinate plane"},
+            {"id": "integer", "grade": "g1", "domain": "number", "unit": "integer"},
+        ]
+        packet_rows = [{"concept_id": "coord"}]
+        target = {"grade": "g1", "domain": "relation", "unit": "coordinate plane"}
+
+        self.assertEqual(
+            validator.textbook_packet_missing_concepts(concepts, packet_rows, target),
+            ["axis"],
+        )
+
+    def test_textbook_packet_pending_count_reports_pending_rows(self) -> None:
+        rows = [
+            {"extraction_status": "pending_textbook_pdf"},
+            {"extraction_status": "textbook_evidence_linked"},
+            {"extraction_status": "pending_textbook_pdf"},
+        ]
+
+        self.assertEqual(validator.textbook_packet_pending_count(rows), 2)
+
+    def test_textbook_packet_index_missing_ranks_are_reported(self) -> None:
+        rows = [
+            {"rank": "1"},
+            {"rank": "3"},
+        ]
+
+        self.assertEqual(
+            validator.textbook_packet_index_missing_ranks(rows, expected_ranks=[1, 2, 3]),
+            [2],
+        )
+
+    def test_textbook_packet_expected_ranks_follow_queue_rows(self) -> None:
+        queue_rows = [
+            {"rank": "2"},
+            {"rank": "1"},
+            {"rank": "3"},
+        ]
+
+        self.assertEqual(validator.textbook_packet_expected_ranks(queue_rows), [1, 2, 3])
+
+    def test_textbook_packet_index_pending_count_sums_rows(self) -> None:
+        rows = [
+            {"pending_textbook_evidence_count": "2"},
+            {"pending_textbook_evidence_count": "3"},
+        ]
+
+        self.assertEqual(validator.textbook_packet_index_pending_count(rows), 5)
+
+    def test_textbook_workplan_missing_ranks_are_reported(self) -> None:
+        rows = [
+            {"rank": "1"},
+            {"rank": "3"},
+        ]
+
+        self.assertEqual(
+            validator.textbook_workplan_missing_ranks(rows, expected_ranks=[1, 2, 3]),
+            [2],
+        )
+
+    def test_pilot_unit_map_missing_ids_are_reported(self) -> None:
+        expected_rows = [
+            {"concept_id": "coord"},
+            {"concept_id": "axis"},
+        ]
+        actual_rows = [
+            {"concept_id": "coord"},
+        ]
+
+        self.assertEqual(
+            validator.pilot_unit_map_missing_ids(expected_rows, actual_rows, "concept_id"),
+            ["axis"],
+        )
+
+    def test_pilot_unit_map_value_count_counts_matching_rows(self) -> None:
+        rows = [
+            {"edge_scope": "intra_unit"},
+            {"edge_scope": "cross_unit"},
+            {"edge_scope": "cross_unit"},
+        ]
+
+        self.assertEqual(
+            validator.pilot_unit_map_value_count(rows, "edge_scope", "cross_unit"),
+            2,
+        )
+
+    def test_csv_rows_for_fields_stringifies_generated_rows(self) -> None:
+        rows = [
+            {"rank": 1, "concept_id": "coord", "extra": "ignored"},
+        ]
+
+        self.assertEqual(
+            validator.csv_rows_for_fields(rows, ["rank", "concept_id", "missing"]),
+            [{"rank": "1", "concept_id": "coord", "missing": ""}],
+        )
+
+    def test_unit_map_packet_missing_ranks_are_reported(self) -> None:
+        rows = [
+            {"rank": "1"},
+            {"rank": "3"},
+        ]
+
+        self.assertEqual(
+            validator.unit_map_packet_missing_ranks(rows, expected_ranks=[1, 2, 3]),
+            [2],
+        )
+
+    def test_unit_map_packet_index_total_sums_counts(self) -> None:
+        rows = [
+            {"concept_count": "2", "edge_count": "5"},
+            {"concept_count": "3", "edge_count": "7"},
+        ]
+
+        self.assertEqual(
+            validator.unit_map_packet_index_total(rows, "concept_count"),
+            5,
+        )
+        self.assertEqual(
+            validator.unit_map_packet_index_total(rows, "edge_count"),
+            12,
+        )
+
+    def test_equivalence_alias_audit_record_type_count_counts_rows(self) -> None:
+        rows = [
+            {"record_type": "concept_alias"},
+            {"record_type": "concept_alias"},
+            {"record_type": "equivalent_edge"},
+        ]
+
+        self.assertEqual(
+            validator.equivalence_alias_audit_record_type_count(rows, "concept_alias"),
+            2,
+        )
+        self.assertEqual(
+            validator.equivalence_alias_audit_record_type_count(rows, "duplicate_label"),
+            0,
+        )
+
+    def test_missing_equivalence_alias_audit_record_ids_are_reported(self) -> None:
+        expected_rows = [
+            {"record_type": "concept_alias", "record_id": "coord"},
+            {"record_type": "equivalent_edge", "record_id": "coord__equivalent_to__point"},
+        ]
+        actual_rows = [
+            {"record_type": "concept_alias", "record_id": "coord"},
+        ]
+
+        self.assertEqual(
+            validator.missing_equivalence_alias_audit_record_ids(expected_rows, actual_rows),
+            ["equivalent_edge:coord__equivalent_to__point"],
+        )
+
+    def test_research_report_signal_action_count_counts_rows(self) -> None:
+        rows = [
+            {"recommended_action": "inspect_research_report_context_before_confidence_change"},
+            {"recommended_action": "inspect_research_report_context_before_confidence_change"},
+            {"recommended_action": "use_as_supplemental_trace_only"},
+        ]
+
+        self.assertEqual(
+            validator.research_report_signal_action_count(
+                rows,
+                "inspect_research_report_context_before_confidence_change",
+            ),
+            2,
+        )
+
+    def test_missing_research_report_signal_concept_ids_are_reported(self) -> None:
+        expected_rows = [
+            {"concept_id": "coord"},
+            {"concept_id": "axis_point"},
+        ]
+        actual_rows = [
+            {"concept_id": "coord"},
+        ]
+
+        self.assertEqual(
+            validator.missing_research_report_signal_concept_ids(expected_rows, actual_rows),
+            ["axis_point"],
+        )
+
+    def test_research_report_context_packet_review_status_count_counts_rows(self) -> None:
+        rows = [
+            {"review_status": "pending_context_review"},
+            {"review_status": "pending_context_review"},
+            {"review_status": "reviewed"},
+        ]
+
+        self.assertEqual(
+            validator.research_report_context_packet_review_status_count(
+                rows,
+                "pending_context_review",
+            ),
+            2,
+        )
+
+    def test_missing_research_report_context_packet_keys_are_reported(self) -> None:
+        expected_rows = [
+            {"concept_id": "ratio", "page_number": 10, "matched_term": "비율"},
+            {"concept_id": "figure", "page_number": 20, "matched_term": "도형"},
+        ]
+        actual_rows = [
+            {"concept_id": "ratio", "page_number": "10", "matched_term": "비율"},
+        ]
+
+        self.assertEqual(
+            validator.missing_research_report_context_packet_keys(expected_rows, actual_rows),
+            ["figure:20:도형"],
+        )
+
+    def test_research_report_source_review_action_count_counts_rows(self) -> None:
+        rows = [
+            {"source_ref_action": "candidate_add_after_manual_review"},
+            {"source_ref_action": "candidate_add_after_manual_review"},
+            {"source_ref_action": "do_not_add_from_this_row"},
+        ]
+
+        self.assertEqual(
+            validator.research_report_source_review_action_count(
+                rows,
+                "candidate_add_after_manual_review",
+            ),
+            2,
+        )
+
+    def test_research_report_source_review_has_source_ref_work_accepts_applied_rows(self) -> None:
+        self.assertTrue(
+            validator.research_report_source_review_has_source_ref_work(
+                [{"source_ref_action": "applied_to_concepts_json"}]
+            )
+        )
+        self.assertTrue(
+            validator.research_report_source_review_has_source_ref_work(
+                [{"source_ref_action": "candidate_add_after_manual_review"}]
+            )
+        )
+        self.assertFalse(
+            validator.research_report_source_review_has_source_ref_work(
+                [{"source_ref_action": "do_not_add_from_this_row"}]
+            )
+        )
+
+    def test_missing_research_report_source_review_keys_are_reported(self) -> None:
+        expected_rows = [
+            {"context_packet_rank": "1", "concept_id": "ratio", "page_number": "180"},
+            {"context_packet_rank": "2", "concept_id": "figure", "page_number": "9"},
+        ]
+        actual_rows = [
+            {"context_packet_rank": "1", "concept_id": "ratio", "page_number": "180"},
+        ]
+
+        self.assertEqual(
+            validator.missing_research_report_source_review_keys(expected_rows, actual_rows),
+            ["2:figure:9"],
+        )
+
+    def test_textbook_workplan_pending_count_sums_rows(self) -> None:
+        rows = [
+            {"total_pending_evidence_count": "6"},
+            {"total_pending_evidence_count": "4"},
+        ]
+
+        self.assertEqual(validator.textbook_workplan_pending_count(rows), 10)
+
+    def test_csv_fieldnames_reads_header_even_without_rows(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "empty.csv"
+            with path.open("w", encoding="utf-8-sig", newline="") as f:
+                writer = csv.DictWriter(f, fieldnames=["a", "b"])
+                writer.writeheader()
+
+            self.assertEqual(validator.csv_fieldnames(path), ["a", "b"])
+
+    def test_textbook_source_audit_not_ready_count_reports_non_ready_rows(self) -> None:
+        rows = [
+            {"intake_status": "ready_for_textbook_extraction"},
+            {"intake_status": "needs_manifest_metadata"},
+            {"intake_status": "invalid_pdf_header"},
+        ]
+
+        self.assertEqual(validator.textbook_source_audit_not_ready_count(rows), 2)
+
+    def test_legacy_gap_needs_review_count_reports_review_candidates(self) -> None:
+        rows = [
+            {"coverage_status": "covered_by_label"},
+            {"coverage_status": "needs_review"},
+            {"coverage_status": "covered_by_alias"},
+            {"coverage_status": "needs_review"},
+        ]
+
+        self.assertEqual(validator.legacy_gap_needs_review_count(rows), 2)
+
+    def test_duplicate_legacy_gap_ids_are_reported(self) -> None:
+        rows = [
+            {"legacy_id": "legacy-coordinate-plane"},
+            {"legacy_id": "legacy-axis-point"},
+            {"legacy_id": "legacy-coordinate-plane"},
+        ]
+
+        self.assertEqual(
+            validator.duplicate_legacy_gap_ids(rows),
+            ["legacy-coordinate-plane"],
+        )
+
+    def test_duplicate_legacy_resolution_labels_are_reported(self) -> None:
+        rows = [
+            {"candidate_label": "addition"},
+            {"candidate_label": "ratio"},
+            {"candidate_label": "addition"},
+        ]
+
+        self.assertEqual(
+            validator.duplicate_legacy_resolution_labels(rows),
+            ["addition"],
+        )
+
+    def test_legacy_resolution_candidate_count_reports_rows(self) -> None:
+        rows = [
+            {"candidate_label": "addition"},
+            {"candidate_label": "ratio"},
+        ]
+
+        self.assertEqual(validator.legacy_resolution_candidate_count(rows), 2)
+
+    def test_duplicate_legacy_integration_labels_are_reported(self) -> None:
+        rows = [
+            {"candidate_label": "addition"},
+            {"candidate_label": "ratio"},
+            {"candidate_label": "addition"},
+        ]
+
+        self.assertEqual(
+            validator.duplicate_legacy_integration_labels(rows),
+            ["addition"],
+        )
+
+    def test_legacy_integration_candidate_count_reports_rows(self) -> None:
+        rows = [
+            {"candidate_label": "addition", "integration_status": "stage_prerequisite_node"},
+            {"candidate_label": "ratio", "integration_status": "stage_alias_review"},
+        ]
+
+        self.assertEqual(validator.legacy_integration_candidate_count(rows), 2)
+
+    def test_duplicate_legacy_source_review_labels_are_reported(self) -> None:
+        rows = [
+            {"candidate_label": "addition"},
+            {"candidate_label": "ratio"},
+            {"candidate_label": "addition"},
+        ]
+
+        self.assertEqual(
+            validator.duplicate_legacy_source_review_labels(rows),
+            ["addition"],
+        )
+
+    def test_legacy_source_review_candidate_count_reports_rows(self) -> None:
+        rows = [
+            {"candidate_label": "addition", "review_status": "needs_official_prerequisite_confirmation"},
+            {"candidate_label": "ratio", "review_status": "needs_alias_confirmation"},
+        ]
+
+        self.assertEqual(validator.legacy_source_review_candidate_count(rows), 2)
+
+    def test_duplicate_legacy_evidence_scan_labels_are_reported(self) -> None:
+        rows = [
+            {"candidate_label": "addition"},
+            {"candidate_label": "ratio"},
+            {"candidate_label": "addition"},
+        ]
+
+        self.assertEqual(
+            validator.duplicate_legacy_evidence_scan_labels(rows),
+            ["addition"],
+        )
+
+    def test_legacy_evidence_scan_candidate_count_reports_rows(self) -> None:
+        rows = [
+            {"candidate_label": "addition", "evidence_signal": "target_source_refs_mention_candidate"},
+            {"candidate_label": "ratio", "evidence_signal": "direct_legacy_unit_review_needed"},
+        ]
+
+        self.assertEqual(validator.legacy_evidence_scan_candidate_count(rows), 2)
+
+    def test_prerequisite_edge_count_reports_only_prerequisite_relationships(self) -> None:
+        edges = [
+            {"id": "e1", "relationship_type": "prerequisite_for"},
+            {"id": "e2", "relationship_type": "contains"},
+            {"id": "e3", "relationship_type": "prerequisite_for"},
+        ]
+
+        self.assertEqual(validator.prerequisite_edge_count(edges), 2)
+
+    def test_missing_prerequisite_map_edge_ids_are_reported(self) -> None:
+        edges = [
+            {"id": "e1", "relationship_type": "prerequisite_for"},
+            {"id": "e2", "relationship_type": "contains"},
+            {"id": "e3", "relationship_type": "prerequisite_for"},
+        ]
+        rows = [{"edge_id": "e1"}]
+
+        self.assertEqual(
+            validator.missing_prerequisite_map_edge_ids(edges, rows),
+            ["e3"],
+        )
+
+    def test_prerequisite_unit_graph_edge_line_count_reports_dot_edges(self) -> None:
+        dot = "\n".join(
+            [
+                "digraph prerequisite_unit_graph {",
+                "  unit_001 -> unit_002 [label=\"1 prerequisite edges\"];",
+                "  unit_002 -> unit_003 [label=\"2 prerequisite edges\"];",
+                "}",
+            ]
+        )
+
+        self.assertEqual(validator.prerequisite_unit_graph_edge_line_count(dot), 2)
+
+    def test_prerequisite_unit_graph_has_required_content_checks_header_and_edges(self) -> None:
+        valid_dot = "\n".join(
+            [
+                "digraph prerequisite_unit_graph {",
+                "  rankdir=\"LR\";",
+                "  unit_001 -> unit_002 [label=\"1 prerequisite edges\"];",
+                "}",
+            ]
+        )
+        invalid_dot = "digraph other_graph { }"
+
+        self.assertTrue(validator.prerequisite_unit_graph_has_required_content(valid_dot))
+        self.assertFalse(validator.prerequisite_unit_graph_has_required_content(invalid_dot))
+
+    def test_node_edge_consistency_issue_key_makes_stable_identity(self) -> None:
+        row = {
+            "issue_type": "missing_edge_for_parent_id",
+            "node_id": "integer",
+            "array_field": "parent_ids",
+            "related_id": "unit",
+            "expected_relationship_type": "contains",
+        }
+
+        self.assertEqual(
+            validator.node_edge_consistency_issue_key(row),
+            ("missing_edge_for_parent_id", "integer", "parent_ids", "unit", "contains"),
+        )
+
+    def test_missing_node_edge_consistency_issue_keys_are_reported(self) -> None:
+        expected = [
+            {
+                "issue_type": "missing_edge_for_parent_id",
+                "node_id": "integer",
+                "array_field": "parent_ids",
+                "related_id": "unit",
+                "expected_relationship_type": "contains",
+            },
+            {
+                "issue_type": "edge_without_prerequisite_id",
+                "node_id": "equation",
+                "array_field": "prerequisite_ids",
+                "related_id": "unit",
+                "expected_relationship_type": "prerequisite_for",
+            },
+        ]
+        actual = [expected[0]]
+
+        self.assertEqual(
+            validator.missing_node_edge_consistency_issue_keys(expected, actual),
+            [("edge_without_prerequisite_id", "equation", "prerequisite_ids", "unit", "prerequisite_for")],
+        )
+
+    def test_related_edge_resolution_queue_key_makes_stable_identity(self) -> None:
+        row = {
+            "node_id": "axis_swap",
+            "related_id": "axis",
+            "candidate_relationship_types": "often_confused_with",
+            "next_action": "confirm_often_confused_with_evidence",
+        }
+
+        self.assertEqual(
+            validator.related_edge_resolution_queue_key(row),
+            (
+                "axis_swap",
+                "axis",
+                "often_confused_with",
+                "confirm_often_confused_with_evidence",
+            ),
+        )
+
+    def test_missing_related_edge_resolution_queue_keys_are_reported(self) -> None:
+        expected = [
+            {
+                "node_id": "axis_swap",
+                "related_id": "axis",
+                "candidate_relationship_types": "often_confused_with",
+                "next_action": "confirm_often_confused_with_evidence",
+            },
+            {
+                "node_id": "coord",
+                "related_id": "axis",
+                "candidate_relationship_types": "represented_by; related_to",
+                "next_action": "confirm_representation_or_related_edge",
+            },
+        ]
+        actual = [expected[0]]
+
+        self.assertEqual(
+            validator.missing_related_edge_resolution_queue_keys(expected, actual),
+            [("coord", "axis", "represented_by; related_to", "confirm_representation_or_related_edge")],
+        )
+
+
+if __name__ == "__main__":
+    unittest.main()

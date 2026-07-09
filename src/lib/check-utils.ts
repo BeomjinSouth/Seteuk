@@ -1,6 +1,13 @@
 ﻿import { SpellError } from '@/components/SpellCheckModal';
 import { SubjectRecord } from '@/types';
-import { DEFAULT_FORBIDDEN_WORDS } from '@/lib/forbidden-words';
+
+/** Thrown when a check request fails — callers must not record the check as passed. */
+class CheckRequestError extends Error {
+    constructor(message: string, public readonly cause?: unknown) {
+        super(message);
+        this.name = 'CheckRequestError';
+    }
+}
 
 export interface ForbiddenIssue {
     word: string;
@@ -18,7 +25,7 @@ function normalizeCount(value: number | undefined): number {
     return Math.max(0, Math.floor(value));
 }
 
-export function mergeCheckResult(
+function mergeCheckResult(
     record: SubjectRecord,
     updates: Partial<CheckResultCounts>
 ): CheckResultCounts {
@@ -60,17 +67,25 @@ export function applyCheckResultToRecord(
 
 /**
  * Calls /api/speller and normalizes payload into SpellError[] for UI.
+ * Throws CheckRequestError on failure so a failed check is never recorded as "no issues".
  */
 export async function performSpellCheckRequest(text: string): Promise<SpellError[]> {
+    let response: Response;
     try {
-        const response = await fetch('/api/speller', {
+        response = await fetch('/api/speller', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ text }),
         });
+    } catch (error) {
+        throw new CheckRequestError('맞춤법 검사 서버에 연결하지 못했습니다.', error);
+    }
 
-        if (!response.ok) return [];
+    if (!response.ok) {
+        throw new CheckRequestError(`맞춤법 검사에 실패했습니다. (HTTP ${response.status})`);
+    }
 
+    try {
         const data = await response.json();
         if (!data.suggestions || data.suggestions.length === 0) return [];
 
@@ -101,47 +116,38 @@ export async function performSpellCheckRequest(text: string): Promise<SpellError
             })
             .filter((error: SpellError) => error.position.start >= 0 && error.position.end >= error.position.start);
     } catch (error) {
-        console.error('Spell check request failed:', error);
-        return [];
+        throw new CheckRequestError('맞춤법 검사 응답을 해석하지 못했습니다.', error);
     }
 }
 
 /**
  * Calls /api/forbidden with optional custom forbidden words.
+ * Throws CheckRequestError on failure so a failed check is never recorded as "no issues".
  */
 export async function checkForbiddenWordsRequest(
     text: string,
     customForbiddenWords: string[] = []
 ): Promise<ForbiddenIssue[]> {
+    let response: Response;
     try {
-        const response = await fetch('/api/forbidden', {
+        response = await fetch('/api/forbidden', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ text, customForbiddenWords }),
         });
+    } catch (error) {
+        throw new CheckRequestError('금지어 검사 서버에 연결하지 못했습니다.', error);
+    }
 
-        if (!response.ok) return [];
+    if (!response.ok) {
+        throw new CheckRequestError(`금지어 검사에 실패했습니다. (HTTP ${response.status})`);
+    }
 
+    try {
         const data = await response.json();
         return data.issues || [];
     } catch (error) {
-        console.error('Forbidden check request failed:', error);
+        throw new CheckRequestError('금지어 검사 응답을 해석하지 못했습니다.', error);
     }
-
-    const fallbackWords = Array.from(new Set([
-        ...DEFAULT_FORBIDDEN_WORDS,
-        ...customForbiddenWords
-            .filter((word) => typeof word === 'string')
-            .map((word) => word.trim())
-            .filter(Boolean),
-    ]));
-
-    return fallbackWords
-        .filter((word) => text.includes(word))
-        .map((word) => ({
-            word,
-            reason: 'forbidden expression',
-            suggestion: 'replace with a neutral, evidence-based expression',
-        }));
 }
 

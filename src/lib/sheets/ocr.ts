@@ -99,18 +99,44 @@ export async function getObservationsByStudent(studentId: string): Promise<Obser
     return all.filter(obs => obs.studentId === studentId);
 }
 
+function getSemesterDateRange(semester: 1 | 2, academicYear: number): { start: string; end: string } {
+    // Korean school year: semester 1 = Mar–Jul, semester 2 = Aug–Feb of the next year.
+    return semester === 1
+        ? { start: `${academicYear}-03-01`, end: `${academicYear}-07-31` }
+        : { start: `${academicYear}-08-01`, end: `${academicYear + 1}-02-29` };
+}
+
+function inferAcademicYear(now: Date = new Date()): number {
+    return now.getMonth() + 1 >= 3 ? now.getFullYear() : now.getFullYear() - 1;
+}
+
 export async function getObservationsForContext(input: {
     studentId: string;
     teacherKey?: string;
     classId?: string;
+    semester?: 1 | 2;
+    academicYear?: number;
 }): Promise<ObservationRow[]> {
     const all = await getObservations();
-    return all.filter((obs) => {
-        if (obs.studentId !== input.studentId) return false;
-        if (input.teacherKey && obs.teacherKey && obs.teacherKey !== input.teacherKey) return false;
-        if (input.classId && obs.classId && obs.classId !== input.classId) return false;
-        return true;
-    });
+    const range = input.semester
+        ? getSemesterDateRange(input.semester, input.academicYear ?? inferAcademicYear())
+        : null;
+
+    return all
+        .filter((obs) => {
+            if (obs.studentId !== input.studentId) return false;
+            // Strict scope match: legacy rows with an empty teacherKey/classId are excluded
+            // so one teacher's memos never leak into another teacher's prompt.
+            if (input.teacherKey && obs.teacherKey !== input.teacherKey) return false;
+            if (input.classId && obs.classId !== input.classId) return false;
+            if (range && /^\d{4}-\d{2}-\d{2}/.test(obs.date)) {
+                // Memos with unparsable dates are kept rather than silently dropped.
+                const day = obs.date.slice(0, 10);
+                if (day < range.start || day > range.end) return false;
+            }
+            return true;
+        })
+        .sort((a, b) => (a.date || '').localeCompare(b.date || ''));
 }
 
 /**
@@ -118,10 +144,6 @@ export async function getObservationsForContext(input: {
  * @param assessmentId - The ID of the assessment.
  * @returns Array of observations for the assessment.
  */
-export async function getObservationsByAssessment(assessmentId: string): Promise<ObservationRow[]> {
-    const all = await getObservations();
-    return all.filter(obs => obs.assessmentId === assessmentId);
-}
 
 /**
  * Adds a new observation memo.

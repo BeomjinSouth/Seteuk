@@ -1,0 +1,25 @@
+digraph pilot_unit_map {
+  rankdir="LR";
+  graph [fontname="Malgun Gothic", label="수와 연산", labelloc="t"];
+  node [shape=box, style="rounded,filled", fontname="Malgun Gothic", fillcolor="#f7fbff", color="#557a95"];
+  edge [fontname="Malgun Gothic", color="#6b7280"];
+  "m1_num_domain" [label="수와 연산\\ncore_concept", fillcolor="#f7fbff"];
+  "m1_num_ratio" [label="비\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_data_domain" [label="자료와 가능성\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_geo_domain" [label="도형과 측정\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_expr_unit" [label="문자의 사용과 식\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_num_integer_rational_unit" [label="정수와 유리수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_num_prime_factor_unit" [label="소인수분해\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_num_repeating_decimal_unit" [label="유리수와 순환소수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_num_square_root_real_unit" [label="제곱근과 실수\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_calc_unit" [label="식의 계산\\nexternal", fillcolor="#f3f4f6", color="#9ca3af"];
+  "m1_num_domain" -> "m1_num_ratio" [label="contains", style="dashed", color="#b91c1c"];
+  "m1_data_domain" -> "m1_num_domain" [label="related_to", style="dashed", color="#b91c1c"];
+  "m1_geo_domain" -> "m1_num_domain" [label="related_to", style="dashed", color="#b91c1c"];
+  "m1_num_domain" -> "m1_expr_unit" [label="related_to", style="dashed", color="#b91c1c"];
+  "m1_num_domain" -> "m1_num_integer_rational_unit" [label="contains", style="dashed", color="#6b7280"];
+  "m1_num_domain" -> "m1_num_prime_factor_unit" [label="contains", style="dashed", color="#6b7280"];
+  "m1_num_domain" -> "m1_num_repeating_decimal_unit" [label="contains", style="dashed", color="#6b7280"];
+  "m1_num_domain" -> "m1_num_square_root_real_unit" [label="contains", style="dashed", color="#6b7280"];
+  "m1_num_domain" -> "m1_calc_unit" [label="related_to", style="dashed", color="#6b7280"];
+}

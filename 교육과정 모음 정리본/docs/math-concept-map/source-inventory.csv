@@ -1,0 +1,6 @@
+﻿source_group,title,path,file_count,pdf_count,json_count,status,use_for_concept_map,notes
+curriculum_pdf,2022 개정 수학과 교육과정 [별책8],2022_개정_중학교_교육과정_PDF/교과/02_[별책8] 수학과 교육과정.pdf,1,1,0,available,primary official curriculum evidence,Official curriculum PDF is available and is the primary source for achievement standards and official terminology.
+achievement_pdf,2022 개정 중학교 수학 성취수준,2022_개정_중학교_성취수준_PDF/성취수준/02_수학_성취수준.pdf,1,1,0,available,official performance-level and evidence-detail support,Official achievement-level PDF is available and supports finer evidence notes.
+achievement_research_report_pdf,2022 개정 초·중학교 수학과 성취수준 개발 연구보고서,2022_개정_중학교_성취수준_PDF/연구보고서/02_수학_성취수준_개발_연구보고서.pdf,1,1,0,available,supplemental research-report and example assessment-tool context,Official KICE research report PDF is available; use it as a candidate signal source before adding source_refs.
+unit_summary_json,수학 단원 정리 JSON,교육과정_단원_정리/교과별_JSON/02_수학_단원_정리.json,1,0,1,available,helper unit grouping and source cross-check,"Unit summary JSON is available as a helper source, not as a replacement for official PDFs."
+textbook_originals,교과서 원본,교과서_원본,1,0,0,empty,textbook table-of-contents and body evidence after PDFs are added,"No textbook PDFs are present yet; textbook body, examples, summaries, and problem evidence remain unavailable."

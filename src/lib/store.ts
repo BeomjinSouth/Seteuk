@@ -39,7 +39,7 @@ function normalizeSchoolKey(value?: string): string {
 }
 
 // Notification types
-export interface AdminNotification {
+interface AdminNotification {
     id: string;
     type: 'setting_request' | 'forbidden_request';
     requester: {
@@ -55,7 +55,7 @@ export interface AdminNotification {
 }
 
 // Curriculum content by grade/semester
-export interface CurriculumContent {
+interface CurriculumContent {
     id: string;
     grade: number;  // 1, 2, 3
     semester: 1 | 2;

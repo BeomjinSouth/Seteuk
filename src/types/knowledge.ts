@@ -1,16 +1,16 @@
-export interface KnowledgeUnitPolicyAnchor {
+interface KnowledgeUnitPolicyAnchor {
     rule: string;
     exception: string | null;
     source: string;
 }
 
-export interface KnowledgeUnitSourceDocument {
+interface KnowledgeUnitSourceDocument {
     document_id: string;
     relation_type: 'primary' | 'duplicate' | 'versioned';
     primary: boolean;
 }
 
-export interface KnowledgeUnit {
+interface KnowledgeUnit {
     knowledge_unit_id: string;
     source_board: 'faq' | 'qa' | 'mixed';
     canonical_title: string;
@@ -27,7 +27,7 @@ export interface KnowledgeUnit {
     source_documents: KnowledgeUnitSourceDocument[];
 }
 
-export interface CanonicalKnowledgeSource {
+interface CanonicalKnowledgeSource {
     sourceType: 'faq' | 'qna';
     sourceId: string;
     title: string;
@@ -54,7 +54,7 @@ export interface CanonicalKnowledgeEntry {
     sources: CanonicalKnowledgeSource[];
 }
 
-export interface KnowledgeDatasetStats {
+interface KnowledgeDatasetStats {
     faqListed: number;
     qnaLastPage: number;
     qnaPagesFetched: number;
@@ -112,7 +112,15 @@ export interface RetrievedKnowledgeEvidence {
     policyAnchors: KnowledgeUnitPolicyAnchor[];
     /** Offline graph-rag-labels tags (domain/policy/risk/workflow), when available. */
     graphLabels?: KnowledgeGraphLabels;
+    /** Final ranking score. Raw lexical when hosted search is off, RRF-fused when on. */
     score: number;
+    /**
+     * Scale-stable retrieval strength of the underlying match (raw lexical score,
+     * or scaled hosted score for vector-only hits). Unlike `score`, this does not
+     * change scale when hosted search is enabled, so grounding/confidence gates can
+     * use a fixed threshold regardless of retrieval configuration.
+     */
+    retrievalScore?: number;
     snippet: string;
 }
 
@@ -143,7 +151,7 @@ export interface CounselChatResponse {
     error?: string;
 }
 
-export type GraphRagNodeType = 'query' | 'ontology' | 'knowledge' | 'source' | 'answer';
+type GraphRagNodeType = 'query' | 'ontology' | 'knowledge' | 'source' | 'answer';
 
 export interface GraphRagNode {
     id: string;

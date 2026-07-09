@@ -73,14 +73,6 @@ export interface GroupRecommendationResult {
     createdAt: string;
 }
 
-export interface PartnerRecommendation {
-    studentId: string;
-    name: string;
-    number: number;
-    score: number;
-    reasons: string[];
-}
-
 export interface GroupingRecommendationRun {
     id: string;
     teacherKey: string;

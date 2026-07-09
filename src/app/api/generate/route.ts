@@ -135,6 +135,8 @@ export async function POST(request: NextRequest) {
         studentId?: string;  // NEW: For fetching observations
         teacherKey?: string;
         classId?: string;
+        semester?: number;       // Limits observation context to the target semester
+        academicYear?: number;   // Defaults to the current Korean school year
         gradeLevel?: number;
         subjectName?: string;
         learningData?: Record<string, string>;
@@ -187,6 +189,8 @@ export async function POST(request: NextRequest) {
         studentId,
         teacherKey,
         classId,
+        semester,
+        academicYear,
         gradeLevel,
         subjectName,
         learningData,
@@ -214,13 +218,23 @@ export async function POST(request: NextRequest) {
     let observationsText = '';
     let usedObservationIds: string[] = [];
 
+    const normalizedSemester = semester === 1 || semester === 2 ? semester : undefined;
+    const normalizedAcademicYear = typeof academicYear === 'number' && Number.isFinite(academicYear)
+        ? Math.floor(academicYear)
+        : undefined;
     const normalizedGradeLevel = typeof gradeLevel === 'number' && Number.isFinite(gradeLevel)
         ? Math.max(1, Math.min(3, Math.floor(gradeLevel)))
         : undefined;
 
     if (studentId && includeObservations) {
         try {
-            const observations = await getObservationsForContext({ studentId, teacherKey, classId });
+            const observations = await getObservationsForContext({
+                studentId,
+                teacherKey,
+                classId,
+                semester: normalizedSemester,
+                academicYear: normalizedAcademicYear,
+            });
             const assessments = await getAssessments();
 
             if (observations.length > 0) {
@@ -487,7 +501,7 @@ function formatFallbackEvidence(values: string[]): string {
         )
         .filter(Boolean);
 
-    const clauses = normalized.map(formatFallbackClause);
+    const clauses = Array.from(new Set(normalized.map(formatFallbackClause)));
 
     if (clauses.length === 0) return '제공된 관찰 내용을 기록함.';
 
@@ -495,17 +509,19 @@ function formatFallbackEvidence(values: string[]): string {
 }
 
 function formatFallbackClause(value: string): string {
+    if (/설명/u.test(value) && /문제|풀이|계산/u.test(value)) return '풀이 과정에서 확인한 조건과 결과를 말로 설명함.';
+    if (/설명/u.test(value)) return '확인한 내용을 말로 설명함.';
     if (/문제|풀이|계산/u.test(value)) return '주어진 조건을 확인하며 풀이 과정을 이어감.';
     if (/글|읽/u.test(value) && /질문|답/u.test(value)) return '읽은 내용의 중심 내용을 확인하고 질문에 답함.';
     if (/글|읽/u.test(value)) return '글의 중심 내용과 근거를 확인함.';
     if (/질문|답변|응답|답/u.test(value)) return '읽은 내용을 바탕으로 질문에 답함.';
-    if (/설명/u.test(value)) return '확인한 내용을 말로 설명함.';
     if (/실험|관찰/u.test(value) && /결과|기록/u.test(value)) return '관찰한 변화와 결과를 기록함.';
     if (/실험|관찰/u.test(value)) return '관찰 대상의 변화와 특징을 확인함.';
+    if (/결과|기록/u.test(value)) return '확인한 결과를 기록함.';
     if (/자료\s*조사/u.test(value)) return '자료의 주요 내용을 확인함.';
     if (/활동지/u.test(value) && /제출/u.test(value)) return '확인한 내용을 산출물로 제출함.';
     if (/활동지/u.test(value) && /(작성|정리)/u.test(value)) return '확인한 내용을 교과 맥락에 맞게 기록함.';
-    if (/발표/u.test(value)) return '확인한 교과 내용을 말로 설명함.';
+    if (/발표/u.test(value)) return '확인한 내용을 발표함.';
     if (/모둠|모둠활동/u.test(value)) return '공동 활동의 흐름에 맞추어 맡은 과정을 수행함.';
     if (/태도/u.test(value) && /(좋|양호)/u.test(value)) return '수업 흐름에 맞추어 활동에 참여함.';
 

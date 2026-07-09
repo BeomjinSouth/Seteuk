@@ -3,7 +3,7 @@ import { AttachedFile, Semester } from './common';
 /**
  * Achievement level definition (e.g., High, Medium, Low).
  */
-export interface EvaluationAchievementLevel {
+interface EvaluationAchievementLevel {
     /** Level identifier or name (e.g., '상', '중', '하'). */
     level: string;        // '상', '중', '하' 또는 커스텀
     /** Description of the level. */
@@ -27,7 +27,7 @@ export interface EvaluationAchievementStandard {
 /**
  * Scoring level definition.
  */
-export interface EvaluationScoringLevel {
+interface EvaluationScoringLevel {
     /** Score value (e.g., 4, 3, 2, 1). */
     score: number;          // 4, 3, 2, 1 등
     /** Description for this score. */
@@ -132,7 +132,7 @@ export interface ModelAnswer {
 /**
  * A tabbed set of model answers (e.g., 표준/대안).
  */
-export interface ModelAnswerSet {
+interface ModelAnswerSet {
     /** Unique ID for this set. */
     id: string;
     /** Tab label. */
@@ -196,7 +196,7 @@ export interface StudentMappingItem {
 /**
  * Full mapping of students to exam pages.
  */
-export interface StudentMapping {
+interface StudentMapping {
     /** Evaluation ID. */
     evaluationId: string;
     /** Class ID. */

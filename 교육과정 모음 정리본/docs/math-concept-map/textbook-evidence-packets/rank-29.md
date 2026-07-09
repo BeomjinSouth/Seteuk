@@ -1,0 +1,55 @@
+# Textbook Evidence Packet
+
+This generated packet is the unit-level worksheet for adding textbook-grounded evidence.
+
+## Target Unit
+
+- rank: 29
+- grade: 중2(교육과정 학년군: 중1-3)
+- domain: 도형과 측정
+- unit: 피타고라스 정리
+- priority tier: high
+- priority score: 39
+- concepts in packet: 23
+- pending textbook evidence: 23
+- low confidence concepts: 4
+
+## Concept Evidence Slots
+
+| concept_id | label_ko | type | confidence | evidence_depth | status | required evidence | focus | source refs |
+|---|---|---|---|---|---|---|---|---:|
+| m1_mis_pythagorean_converse_unsorted_sides | 가장 긴 변을 확인하지 않고 역을 적용하는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
+| m1_mis_pythagorean_hypotenuse_misidentification | 빗변을 가장 길지 않은 변으로 잘못 정하는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
+| m1_mis_pythagorean_leg_subtraction | 한 직각변을 구할 때 제곱의 차를 쓰지 않는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
+| m1_mis_pythagorean_non_right_triangle | 직각삼각형이 아닌 삼각형에 피타고라스 정리를 적용하는 오류 | misconception_risk | low | official_dual_source | pending_textbook_pdf | example_ref;problem_pattern_ref;textbook_page_refs;extraction_notes | Confirm from examples or repeated problem patterns. | 2 |
+| m1_geo_pythagorean_area_dissection_justification | 넓이 분해로 피타고라스 정리 정당화하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_geo_pythagorean_converse | 피타고라스 정리의 역 | property | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 2 |
+| m1_geo_pythagorean_converse_judgement | 피타고라스 정리의 역으로 직각삼각형 판별하기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 2 |
+| m1_geo_pythagorean_converse_side_ordering | 가장 긴 변을 빗변 후보로 정하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 2 |
+| m1_geo_pythagorean_formula | 피타고라스 정리의 식 표현 | representation | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 3 |
+| m1_geo_pythagorean_hypotenuse | 피타고라스 정리에서의 빗변 | term | medium | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 4 |
+| m1_geo_pythagorean_hypotenuse_length | 피타고라스 정리로 빗변의 길이 구하기 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_geo_pythagorean_justification | 피타고라스 정리의 정당화 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_geo_pythagorean_leg_length | 피타고라스 정리로 한 직각변의 길이 구하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 2 |
+| m1_geo_pythagorean_legs | 직각삼각형의 두 직각변 | term | medium | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 2 |
+| m1_geo_pythagorean_right_angle | 직각삼각형의 직각 | term | medium | official_dual_source | pending_textbook_pdf | term_explanation_ref;definition_ref;textbook_page_refs | Find textbook term explanation or definition. | 2 |
+| m1_geo_pythagorean_square_area_relation | 세 변 위 정사각형 넓이 관계 | property | medium | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 3 |
+| m1_geo_pythagorean_square_on_side | 변 위의 정사각형 | representation | medium | official_dual_source | pending_textbook_pdf | definition_ref;example_ref;textbook_page_refs | Find textbook diagram, table, graph, expression, or worked example. | 3 |
+| m1_geo_pythagorean_theorem | 피타고라스 정리 | property | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook statement of the property and any summary box. | 3 |
+| m1_geo_pythagorean_triple_check | 세 수가 피타고라스 관계를 만족하는지 확인하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 2 |
+| m1_geo_pythagorean_unit | 피타고라스 정리 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 2 |
+| m1_geo_pythagorean_unknown_side_selection | 구하려는 변이 빗변인지 직각변인지 판단하기 | procedure | medium | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 3 |
+| m1_geo_right_triangle | 직각삼각형 | core_concept | high | official_dual_source | pending_textbook_pdf | definition_ref;summary_ref;textbook_page_refs | Find textbook definition, summary, and page reference. | 3 |
+| m1_geo_right_triangle_judgement | 세 변의 길이로 직각삼각형 판별 | procedure | high | official_dual_source | pending_textbook_pdf | summary_ref;example_ref;textbook_page_refs | Find worked example or summary that shows the procedure. | 2 |
+
+## Textbook Evidence Fields
+
+- toc_ref
+- learning_objective_ref
+- definition_ref
+- summary_ref
+- example_ref
+- term_explanation_ref
+- problem_pattern_ref
+- textbook_page_refs
+- extraction_notes

@@ -1,0 +1,2737 @@
+{
+ "metadata": {
+  "title": "고등학교 공통 과목 수학 개념 위계 Map (공통수학1·2)",
+  "schema_version": "0.1.0",
+  "generated_at": "2026-07-07T10:19:13",
+  "pilot_scope": "공통수학1([10공수1-*] 19개), 공통수학2([10공수2-*] 20개) 전체 영역",
+  "scope_rules": "2026-07-06 사용자 결정: 고등학교 선택 과목 제외, 공식 원문 출처만 사용 (AGENTS.md Math Concept Map Scope Rules)",
+  "concept_count": 61,
+  "edge_count": 56
+ },
+ "sources": [
+  {
+   "id": "curriculum_math_2022",
+   "title": "2022 개정 수학과 교육과정 [별책8]",
+   "path": "2022_개정_중학교_교육과정_PDF/교과/02_[별책8] 수학과 교육과정.pdf",
+   "sha256": "ba7c7c63ad31ba0fd32e5eb8148d696dd73288acce111495c593298112f8f840",
+   "source_type": "official_curriculum_pdf"
+  },
+  {
+   "id": "textbook_originals",
+   "title": "교과서 원본 폴더",
+   "path": "교과서_원본/",
+   "source_type": "pending_textbook_sources",
+   "notes": "현재 분석할 초등 교과서, 익힘책, 지도서 PDF 또는 이미지 파일이 없다."
+  }
+ ],
+ "concepts": [
+  {
+   "id": "hs1_poly_ops",
+   "label_ko": "다항식의 사칙연산",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "다항식",
+   "concept_type": "procedure",
+   "short_definition": "다항식의 사칙연산의 원리를 설명하고 계산하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 60; [10공수1-01-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "다항식의 사칙연산의 원리를 설명하고 계산할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "hs1_synthetic_div"
+   ],
+   "notes": "중학교에서 학습한 내용을 토대로 고등학교에서 추가된 내용을 이해하게 한다(printed p. 60).",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_identity",
+   "label_ko": "항등식의 성질",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "다항식",
+   "concept_type": "property",
+   "short_definition": "항등식이 가지는 성질.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 60; [10공수1-01-02]",
+     "evidence_kind": "achievement_standard",
+     "summary": "항등식의 성질과 나머지정리를 이해하고 활용한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "hs1_remainder_thm"
+   ],
+   "notes": "항등식의 성질을 활용하는 복잡한 문제는 다루지 않는다(printed p. 60).",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_undetermined",
+   "label_ko": "미정계수법",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "다항식",
+   "concept_type": "term",
+   "short_definition": "항등식의 성질을 이용해 미지의 계수를 정하는 방법을 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 60 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 미정계수법"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_remainder_thm",
+   "label_ko": "나머지정리",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "다항식",
+   "concept_type": "core_concept",
+   "short_definition": "다항식을 일차식으로 나눈 나머지에 관한 정리.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 60 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 나머지정리"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 60; [10공수1-01-02]",
+     "evidence_kind": "achievement_standard",
+     "summary": "나머지정리를 이해하고 활용하여 문제를 해결한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "hs1_identity",
+    "hs1_factor_thm"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_factor_thm",
+   "label_ko": "인수정리",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "다항식",
+   "concept_type": "term",
+   "short_definition": "다항식의 인수와 나머지의 관계를 나타내는 정리를 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 60 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 인수정리"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "hs1_remainder_thm"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_synthetic_div",
+   "label_ko": "조립제법",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "다항식",
+   "concept_type": "term",
+   "short_definition": "다항식을 일차식으로 나누는 계산을 간단히 하는 방법.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 60 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 조립제법"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 60 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "중학교에서 학습한 다항식을 단항식으로 나누는 연산과 연계하여 이해하게 하고 간단히 다룬다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "hs1_poly_ops"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_factorization",
+   "label_ko": "다항식의 인수분해",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "다항식",
+   "concept_type": "procedure",
+   "short_definition": "다항식을 인수분해하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 60; [10공수1-01-03]",
+     "evidence_kind": "achievement_standard",
+     "summary": "다항식의 인수분해를 할 수 있다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 60 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "인수분해로 다루는 경우가 해설에 제시된다"
+    }
+   ],
+   "prerequisite_ids": [
+    "hs1_poly_ops"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "해설의 인수분해 공식 목록은 수식 글꼴 문제로 텍스트 추출이 되지 않았다. 복잡한 인수분해 문제는 다루지 않는다(printed p. 60). 용어·기호 목록의 수학 기호 일부는 한글 수식 글꼴(HyhwpEQ) 문제로 텍스트 추출이 되지 않아 원문 시각 확인 또는 교과서 확인 전까지 concept으로 추가하지 않는다.",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_imaginary_unit",
+   "label_ko": "허수단위",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "방정식과 부등식",
+   "concept_type": "term",
+   "short_definition": "복소수 도입에 쓰는 허수단위를 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 허수단위"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_complex",
+   "label_ko": "복소수",
+   "aliases": [
+    "실수부분",
+    "허수부분",
+    "허수"
+   ],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "방정식과 부등식",
+   "concept_type": "core_concept",
+   "short_definition": "실수부분과 허수부분으로 이루어진 수.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 복소수, 실수부분, 허수부분, 허수"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61; [10공수1-02-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "복소수의 뜻과 성질을 설명한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_conjugate",
+   "label_ko": "켤레복소수",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "방정식과 부등식",
+   "concept_type": "term",
+   "short_definition": "허수부분의 부호를 바꾼 복소수.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 켤레복소수"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "복소수의 나눗셈은 켤레복소수를 이용하여 계산하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_complex_ops",
+   "label_ko": "복소수의 사칙연산",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "방정식과 부등식",
+   "concept_type": "procedure",
+   "short_definition": "복소수의 사칙연산을 수행하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61; [10공수1-02-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "복소수의 사칙연산을 수행할 수 있다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "중학교에서 학습한 실수의 성질과 사칙연산과 연계하여 이해하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_real_imag_roots",
+   "label_ko": "이차방정식의 실근과 허근",
+   "aliases": [
+    "실근",
+    "허근"
+   ],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "방정식과 부등식",
+   "concept_type": "sub_concept",
+   "short_definition": "이차방정식이 가지는 실근과 허근.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 실근, 허근"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61; [10공수1-02-02]",
+     "evidence_kind": "achievement_standard",
+     "summary": "이차방정식의 실근과 허근을 이해한다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "계수가 실수인 이차방정식은 복소수 범위에서 항상 근을 가짐을 이해하게 한다"
+    }
+   ],
+   "prerequisite_ids": [
+    "hs1_complex"
+   ],
+   "parent_ids": [],
+   "related_ids": [
+    "hs1_root_coeff"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_discriminant",
+   "label_ko": "판별식",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "방정식과 부등식",
+   "concept_type": "core_concept",
+   "short_definition": "이차방정식의 근을 판별하는 식.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 판별식"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61; [10공수1-02-02]",
+     "evidence_kind": "achievement_standard",
+     "summary": "판별식을 이용하여 이차방정식의 근을 판별한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "판별식을 활용하는 지나치게 복잡한 문제는 다루지 않는다(printed p. 61).",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_root_coeff",
+   "label_ko": "이차방정식의 근과 계수의 관계",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "방정식과 부등식",
+   "concept_type": "property",
+   "short_definition": "이차방정식의 근과 계수 사이의 관계.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61; [10공수1-02-03]",
+     "evidence_kind": "achievement_standard",
+     "summary": "근과 계수의 관계를 설명할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "hs1_real_imag_roots"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_quad_eq_func",
+   "label_ko": "이차방정식과 이차함수의 관계",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "방정식과 부등식",
+   "concept_type": "property",
+   "short_definition": "이차방정식과 이차함수를 연결하여 설명하는 관계.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61; [10공수1-02-04]",
+     "evidence_kind": "achievement_standard",
+     "summary": "이차방정식과 이차함수를 연결하여 그 관계를 설명한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "hs2_circle_line"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_graph_line",
+   "label_ko": "이차함수의 그래프와 직선의 위치 관계",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "방정식과 부등식",
+   "concept_type": "procedure",
+   "short_definition": "이차함수의 그래프와 직선의 위치 관계를 판단하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61; [10공수1-02-05]",
+     "evidence_kind": "achievement_standard",
+     "summary": "이차함수의 그래프와 직선의 위치 관계를 판단할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "hs1_quad_eq_func"
+   ],
+   "parent_ids": [],
+   "related_ids": [
+    "hs1_quad_maxmin"
+   ],
+   "notes": "탐구할 때 공학 도구를 이용할 수 있다(printed p. 62).",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_quad_maxmin",
+   "label_ko": "이차함수의 최대와 최소",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "방정식과 부등식",
+   "concept_type": "procedure",
+   "short_definition": "이차함수의 최대, 최소를 탐구하고 실생활과 연결하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61; [10공수1-02-06]",
+     "evidence_kind": "achievement_standard",
+     "summary": "이차함수의 최대, 최소를 탐구하고 실생활과 연결한다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "이차함수의 최대, 최소는 제한된 범위에서만 다룬다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "hs1_graph_line"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_cubic_quartic",
+   "label_ko": "삼차방정식과 사차방정식 풀기",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "방정식과 부등식",
+   "concept_type": "procedure",
+   "short_definition": "간단한 삼차방정식과 사차방정식을 푸는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61; [10공수1-02-07]",
+     "evidence_kind": "achievement_standard",
+     "summary": "간단한 삼차방정식과 사차방정식을 풀 수 있다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "계수가 실수이고 인수분해 공식이나 인수정리, 조립제법으로 풀 수 있는 경우만 다룬다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_system_quad",
+   "label_ko": "연립이차방정식 풀기",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "방정식과 부등식",
+   "concept_type": "procedure",
+   "short_definition": "미지수가 2개인 연립이차방정식을 푸는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61; [10공수1-02-08]",
+     "evidence_kind": "achievement_standard",
+     "summary": "미지수가 2개인 연립이차방정식을 풀 수 있다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "일차식과 이차식이 한 개씩이거나 한 이차식이 간단히 인수분해 되는 경우만 다룬다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_system_ineq",
+   "label_ko": "연립일차부등식 풀기",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "방정식과 부등식",
+   "concept_type": "procedure",
+   "short_definition": "미지수가 1개인 연립일차부등식을 푸는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 연립부등식"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61; [10공수1-02-09]",
+     "evidence_kind": "achievement_standard",
+     "summary": "미지수가 1개인 연립일차부등식을 풀 수 있다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 62 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "연립부등식은 중학교에서 학습한 연립일차방정식 내용을 토대로 이해하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_abs_ineq",
+   "label_ko": "절댓값을 포함한 일차부등식 풀기",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "방정식과 부등식",
+   "concept_type": "procedure",
+   "short_definition": "절댓값을 포함한 일차부등식을 푸는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61; [10공수1-02-10]",
+     "evidence_kind": "achievement_standard",
+     "summary": "절댓값을 포함한 일차부등식을 풀 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_quad_ineq",
+   "label_ko": "이차부등식과 연립이차부등식 풀기",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "방정식과 부등식",
+   "concept_type": "procedure",
+   "short_definition": "이차부등식과 이차함수의 관계를 설명하고 이차부등식과 연립이차부등식을 푸는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61; [10공수1-02-11]",
+     "evidence_kind": "achievement_standard",
+     "summary": "이차부등식과 이차함수를 연결하여 설명하고 풀 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "hs1_system_ineq"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "이차함수의 그래프를 이용해 해를 탐구할 때 공학 도구를 이용할 수 있다(printed p. 62).",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_addition_rule",
+   "label_ko": "합의 법칙",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "경우의 수",
+   "concept_type": "core_concept",
+   "short_definition": "두 사건의 경우의 수를 더하여 세는 법칙.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 62 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 합의 법칙"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 62; [10공수1-03-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "합의 법칙과 곱의 법칙을 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "hs1_mult_rule"
+   ],
+   "notes": "중학교에서 학습한 경우의 수와 연계하여 간단히 다룬다(printed p. 62).",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_mult_rule",
+   "label_ko": "곱의 법칙",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "경우의 수",
+   "concept_type": "core_concept",
+   "short_definition": "잇달아 일어나는 사건의 경우의 수를 곱하여 세는 법칙.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 62 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 곱의 법칙"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 62; [10공수1-03-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "합의 법칙과 곱의 법칙을 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "hs1_addition_rule"
+   ],
+   "notes": "두 법칙이 적용되는 상황의 차이점을 설명하게 할 수 있다(printed p. 62).",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_counting",
+   "label_ko": "경우의 수 문제해결",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "경우의 수",
+   "concept_type": "procedure",
+   "short_definition": "합의 법칙과 곱의 법칙 중 적절한 전략을 사용하여 경우의 수 문제를 해결하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 62; [10공수1-03-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "적절한 전략을 사용하여 경우의 수 문제를 해결한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "지나치게 복잡한 문제는 다루지 않는다(printed p. 62).",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_permutation",
+   "label_ko": "순열",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "경우의 수",
+   "concept_type": "core_concept",
+   "short_definition": "서로 다른 것에서 순서를 생각하여 택하는 배열.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 62 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 순열"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 62; [10공수1-03-02]",
+     "evidence_kind": "achievement_standard",
+     "summary": "순열의 개념을 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "hs1_mult_rule"
+   ],
+   "parent_ids": [],
+   "related_ids": [
+    "hs1_combination"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_factorial",
+   "label_ko": "계승",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "경우의 수",
+   "concept_type": "term",
+   "short_definition": "1부터 어떤 자연수까지의 곱을 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 62 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 계승"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_permutation_count",
+   "label_ko": "순열의 수 구하기",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "경우의 수",
+   "concept_type": "procedure",
+   "short_definition": "순열의 수를 구하는 방법을 설명하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 62; [10공수1-03-02]",
+     "evidence_kind": "achievement_standard",
+     "summary": "순열의 수를 구하는 방법을 설명할 수 있다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 62 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "직접 나열하거나 수형도를 이용하는 등 다양한 방법으로 구하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_combination",
+   "label_ko": "조합",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "경우의 수",
+   "concept_type": "core_concept",
+   "short_definition": "서로 다른 것에서 순서를 생각하지 않고 택하는 것.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 62 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 조합"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 62; [10공수1-03-03]",
+     "evidence_kind": "achievement_standard",
+     "summary": "조합의 개념을 이해한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "hs1_permutation"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_combination_count",
+   "label_ko": "조합의 수 구하기",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "경우의 수",
+   "concept_type": "procedure",
+   "short_definition": "조합의 수를 구하는 방법을 설명하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 62; [10공수1-03-03]",
+     "evidence_kind": "achievement_standard",
+     "summary": "조합의 수를 구하는 방법을 설명할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_matrix",
+   "label_ko": "행렬",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "행렬",
+   "concept_type": "core_concept",
+   "short_definition": "수를 직사각형 모양으로 배열한 것.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 63 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 행렬, m×n 행렬"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 63; [10공수1-04-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "행렬의 뜻을 안다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_matrix_elements",
+   "label_ko": "행·열·성분",
+   "aliases": [
+    "행",
+    "열",
+    "성분"
+   ],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "행렬",
+   "concept_type": "term",
+   "short_definition": "행렬의 구성 요소를 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 63 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 행, 열, 성분"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "hs1_matrix"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_matrix_represent",
+   "label_ko": "실생활 상황을 행렬로 표현하기",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "행렬",
+   "concept_type": "procedure",
+   "short_definition": "실생활 자료를 행렬로 표현하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 63; [10공수1-04-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "실생활 상황을 행렬로 표현할 수 있다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 63 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "직사각형 모양으로 나타낼 수 있는 실생활 자료를 찾아 유용성을 인식하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs1_matrix_ops",
+   "label_ko": "행렬의 연산",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학1",
+   "unit": "행렬",
+   "concept_type": "procedure",
+   "short_definition": "행렬의 덧셈, 뺄셈, 실수배, 곱셈을 수행하고 문제를 해결하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 63; [10공수1-04-02]",
+     "evidence_kind": "achievement_standard",
+     "summary": "행렬의 연산을 수행하고 문제를 해결한다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 63 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "덧셈, 뺄셈, 실수배, 곱셈을 다루고 행과 열의 수가 2를 넘지 않는 범위에서 곱셈을 하게 한다"
+    }
+   ],
+   "prerequisite_ids": [
+    "hs1_matrix"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "연산의 대수적 구조 성질을 일반화하여 법칙으로 다루지 않는다(printed p. 63).",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_distance",
+   "label_ko": "두 점 사이의 거리",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "도형의 방정식",
+   "concept_type": "sub_concept",
+   "short_definition": "선분의 내분을 도입하기 전에 다루는 두 점 사이의 거리.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 65 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "선분의 내분을 도입하기 전에 두 점 사이의 거리를 구하는 방법을 다룬다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_division",
+   "label_ko": "선분의 내분과 내분점",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "도형의 방정식",
+   "concept_type": "core_concept",
+   "short_definition": "선분을 주어진 비로 나누는 내분과 그 점의 좌표.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 65 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 내분"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 65; [10공수2-01-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "선분의 내분을 이해하고 내분점의 좌표를 계산한다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 65 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "내분은 수직선 위에서, 좌표평면 위에서 구할 수 있도록 점차 확장하여 다룬다"
+    }
+   ],
+   "prerequisite_ids": [
+    "hs2_distance"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_line_condition",
+   "label_ko": "두 직선의 평행 조건과 수직 조건",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "도형의 방정식",
+   "concept_type": "property",
+   "short_definition": "좌표평면에서 두 직선이 평행하거나 수직이 되는 조건.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 65; [10공수2-01-02]",
+     "evidence_kind": "achievement_standard",
+     "summary": "두 직선의 평행 조건과 수직 조건을 탐구하고 이해한다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 65 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "중학교에서 학습한 일차방정식과 일차함수의 그래프, 직선의 방정식과 연계하여 다룰 수 있다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "hs2_point_line"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_point_line",
+   "label_ko": "점과 직선 사이의 거리",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "도형의 방정식",
+   "concept_type": "procedure",
+   "short_definition": "점과 직선 사이의 거리를 구하고 문제를 해결하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 65; [10공수2-01-03]",
+     "evidence_kind": "achievement_standard",
+     "summary": "점과 직선 사이의 거리를 구하고 문제를 해결한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "hs2_line_condition"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_circle_eq",
+   "label_ko": "원의 방정식",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "도형의 방정식",
+   "concept_type": "core_concept",
+   "short_definition": "원을 좌표평면 위의 방정식으로 나타낸 것.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 65; [10공수2-01-04]",
+     "evidence_kind": "achievement_standard",
+     "summary": "원의 방정식을 구하고 그래프를 그릴 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "'원의 방정식' 용어는 교수·학습 상황에서 사용할 수 있다(printed p. 65).",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_circle_line",
+   "label_ko": "원과 직선의 위치 관계",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "도형의 방정식",
+   "concept_type": "procedure",
+   "short_definition": "좌표평면에서 원과 직선의 위치 관계를 판단하고 활용하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 65; [10공수2-01-05]",
+     "evidence_kind": "achievement_standard",
+     "summary": "원과 직선의 위치 관계를 판단하고 활용하여 문제를 해결한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "hs2_circle_eq"
+   ],
+   "parent_ids": [],
+   "related_ids": [
+    "hs1_quad_eq_func"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_translation",
+   "label_ko": "평행이동",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "도형의 방정식",
+   "concept_type": "core_concept",
+   "short_definition": "도형을 일정한 방향과 거리만큼 옮기는 이동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 65; [10공수2-01-06]",
+     "evidence_kind": "achievement_standard",
+     "summary": "평행이동을 탐구하고 실생활과 연결하여 문제를 해결한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "hs2_reflection"
+   ],
+   "notes": "좌표축의 평행이동은 다루지 않는다(printed p. 65).",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_reflection",
+   "label_ko": "대칭이동",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "도형의 방정식",
+   "concept_type": "core_concept",
+   "short_definition": "원점, x축, y축, 직선 y=x에 대한 대칭이동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 65 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 대칭이동"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 65; [10공수2-01-07]",
+     "evidence_kind": "achievement_standard",
+     "summary": "원점, x축, y축, 직선에 대한 대칭이동을 탐구한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "hs2_translation"
+   ],
+   "notes": "대상 직선 표기(y=x)는 수식 글꼴 문제로 텍스트 추출에서 일부 누락되었다. 용어·기호 목록의 수학 기호 일부는 한글 수식 글꼴(HyhwpEQ) 문제로 텍스트 추출이 되지 않아 원문 시각 확인 또는 교과서 확인 전까지 concept으로 추가하지 않는다.",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_set",
+   "label_ko": "집합",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "집합과 명제",
+   "concept_type": "core_concept",
+   "short_definition": "대상을 논리적으로 표현하고 이해하는 도구.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 집합"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66; [10공수2-02-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "집합의 개념을 이해하고 집합을 표현할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "집합의 개념은 이해하는 수준에서 간단히 평가한다(printed p. 66). '원소나열법', '조건제시법' 용어는 교수·학습 상황에서 사용할 수 있다.",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_element",
+   "label_ko": "원소와 공집합",
+   "aliases": [
+    "원소",
+    "공집합"
+   ],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "집합과 명제",
+   "concept_type": "term",
+   "short_definition": "집합을 이루는 대상과 원소가 하나도 없는 집합.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 원소, 공집합"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "hs2_set"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_subset",
+   "label_ko": "부분집합과 포함관계",
+   "aliases": [
+    "부분집합",
+    "진부분집합"
+   ],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "집합과 명제",
+   "concept_type": "sub_concept",
+   "short_definition": "두 집합 사이의 포함관계와 부분집합.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 부분집합, 진부분집합"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66; [10공수2-02-02]",
+     "evidence_kind": "achievement_standard",
+     "summary": "두 집합 사이의 포함관계를 판단할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "hs2_set"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_set_ops",
+   "label_ko": "집합의 연산",
+   "aliases": [
+    "합집합",
+    "교집합",
+    "여집합",
+    "차집합"
+   ],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "집합과 명제",
+   "concept_type": "procedure",
+   "short_definition": "합집합, 교집합, 여집합, 차집합을 수행하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 합집합, 교집합, 전체집합, 여집합, 차집합"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66; [10공수2-02-03]",
+     "evidence_kind": "achievement_standard",
+     "summary": "집합의 연산을 수행하고 벤 다이어그램으로 나타낸다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "연산 법칙(교환·결합·분배·드모르간)은 벤 다이어그램으로 확인하는 정도로 간단히 다룬다"
+    }
+   ],
+   "prerequisite_ids": [
+    "hs2_set"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_venn",
+   "label_ko": "벤 다이어그램",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "집합과 명제",
+   "concept_type": "representation",
+   "short_definition": "집합과 그 연산을 나타내는 그림 표현.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 벤 다이어그램"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66; [10공수2-02-03]",
+     "evidence_kind": "achievement_standard",
+     "summary": "벤 다이어그램을 이용하여 나타낼 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_proposition",
+   "label_ko": "명제와 조건",
+   "aliases": [
+    "가정",
+    "결론",
+    "조건"
+   ],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "집합과 명제",
+   "concept_type": "core_concept",
+   "short_definition": "참, 거짓을 판별할 수 있는 문장과 조건.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 명제, 가정, 결론, 조건"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66; [10공수2-02-04]",
+     "evidence_kind": "achievement_standard",
+     "summary": "명제와 조건의 뜻을 알고 '모든', '어떤'을 포함한 명제를 이해한다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "명제와 조건의 뜻은 수학적인 문장을 이해하는 수준에서 간단히 다룬다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "hs2_truth_set"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_truth_set",
+   "label_ko": "진리집합",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "집합과 명제",
+   "concept_type": "term",
+   "short_definition": "조건을 참이 되게 하는 원소의 집합.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 진리집합"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [
+    "hs2_proposition"
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_converse",
+   "label_ko": "명제의 역과 대우",
+   "aliases": [
+    "역",
+    "대우",
+    "부정"
+   ],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "집합과 명제",
+   "concept_type": "sub_concept",
+   "short_definition": "명제의 역과 대우.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 역, 대우, 부정"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66; [10공수2-02-05]",
+     "evidence_kind": "achievement_standard",
+     "summary": "명제의 역과 대우를 이해하고 설명할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "hs2_proposition"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_conditions",
+   "label_ko": "충분조건과 필요조건",
+   "aliases": [
+    "필요충분조건"
+   ],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "집합과 명제",
+   "concept_type": "sub_concept",
+   "short_definition": "충분조건, 필요조건, 필요충분조건.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 충분조건, 필요조건, 필요충분조건"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66; [10공수2-02-06]",
+     "evidence_kind": "achievement_standard",
+     "summary": "충분조건과 필요조건을 이해하고 판단할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "hs2_proposition"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "구체적인 예를 통하여 이해하게 한다(printed p. 66).",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_proof",
+   "label_ko": "대우 증명법과 귀류법",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "집합과 명제",
+   "concept_type": "procedure",
+   "short_definition": "대우를 이용한 증명법과 귀류법으로 명제를 증명하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 귀류법"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66; [10공수2-02-07]",
+     "evidence_kind": "achievement_standard",
+     "summary": "대우를 이용한 증명법과 귀류법을 이해하고 증명한다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "대우를 이용한 증명법과 귀류법을 이용한 증명은 간단한 것만 다룬다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "증명을 지도할 때는 직관적인 이해로부터 시작하여 점진적으로 형식화하게 한다(printed p. 66).",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_abs_ineq",
+   "label_ko": "절대부등식",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "집합과 명제",
+   "concept_type": "core_concept",
+   "short_definition": "문자를 포함한 식에서 항상 성립하는 부등식.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 절대부등식"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66; [10공수2-02-08]",
+     "evidence_kind": "achievement_standard",
+     "summary": "절대부등식의 뜻을 알고 간단한 절대부등식을 증명한다는 진술"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_function",
+   "label_ko": "함수(두 집합 사이의 대응)",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "함수와 그래프",
+   "concept_type": "core_concept",
+   "short_definition": "두 집합 사이의 대응으로 일반화된 함수.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 67; [10공수2-03-01]",
+     "evidence_kind": "achievement_standard",
+     "summary": "함수의 개념을 설명하고 그 그래프를 이해한다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 67 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "중학교에서 학습한 내용을 확장하여 두 집합 사이의 대응 관계로 이해하게 한다"
+    }
+   ],
+   "prerequisite_ids": [
+    "hs2_set"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_domain",
+   "label_ko": "정의역·공역·치역",
+   "aliases": [
+    "정의역",
+    "치역",
+    "공역",
+    "대응"
+   ],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "함수와 그래프",
+   "concept_type": "term",
+   "short_definition": "함수를 이루는 집합을 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 67 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 정의역, 치역, 공역, 대응"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "hs2_function"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_function_types",
+   "label_ko": "일대일대응·항등함수·상수함수·일대일함수",
+   "aliases": [
+    "일대일대응",
+    "항등함수",
+    "상수함수",
+    "일대일함수"
+   ],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "함수와 그래프",
+   "concept_type": "term",
+   "short_definition": "함수의 종류를 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 67 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 일대일대응, 항등함수, 상수함수, 일대일함수"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 67 적용 시 고려 사항",
+     "evidence_kind": "teaching_note",
+     "summary": "의미는 구체적인 예를 통해 이해하게 한다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "hs2_function"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_composition",
+   "label_ko": "함수의 합성과 합성함수",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "함수와 그래프",
+   "concept_type": "procedure",
+   "short_definition": "함수의 합성을 설명하고 합성함수를 구하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 67 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 합성함수"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 67; [10공수2-03-02]",
+     "evidence_kind": "achievement_standard",
+     "summary": "함수의 합성을 설명하고 합성함수를 구할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "hs2_function"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_inverse",
+   "label_ko": "역함수",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "함수와 그래프",
+   "concept_type": "procedure",
+   "short_definition": "역함수의 개념을 설명하고 역함수를 구하는 활동.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 67 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 역함수"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 67; [10공수2-03-03]",
+     "evidence_kind": "achievement_standard",
+     "summary": "역함수의 개념을 설명하고 역함수를 구할 수 있다는 진술"
+    }
+   ],
+   "prerequisite_ids": [
+    "hs2_function"
+   ],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_rational_func",
+   "label_ko": "유리함수와 그 그래프",
+   "aliases": [
+    "유리식"
+   ],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "함수와 그래프",
+   "concept_type": "core_concept",
+   "short_definition": "유리식으로 나타내어지는 함수와 그 그래프.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 67 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 유리식, 유리함수"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 67; [10공수2-03-04]",
+     "evidence_kind": "achievement_standard",
+     "summary": "유리함수의 그래프를 그리고 성질을 탐구한다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 67 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "유리식은 유리함수의 의미를 이해할 정도로 간단히 다루고 기본적인 형태 중심의 간단한 문제만 다룬다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "hs2_function"
+   ],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_asymptote",
+   "label_ko": "점근선",
+   "aliases": [],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "함수와 그래프",
+   "concept_type": "term",
+   "short_definition": "그래프가 한없이 가까워지는 직선을 가리키는 공식 용어.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 67 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 점근선"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [],
+   "related_ids": [],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs2_irrational_func",
+   "label_ko": "무리함수와 그 그래프",
+   "aliases": [
+    "무리식"
+   ],
+   "grade": "고1",
+   "domain": "공통수학2",
+   "unit": "함수와 그래프",
+   "concept_type": "core_concept",
+   "short_definition": "무리식으로 나타내어지는 함수와 그 그래프.",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 67 용어와 기호",
+     "evidence_kind": "term_list",
+     "summary": "용어 목록의 무리식, 무리함수"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 67; [10공수2-03-05]",
+     "evidence_kind": "achievement_standard",
+     "summary": "무리함수의 그래프를 그리고 성질을 탐구한다는 진술"
+    },
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 67 성취기준 해설",
+     "evidence_kind": "achievement_standard_note",
+     "summary": "무리식은 무리함수의 의미를 이해할 정도로 간단히 다루고 기본적인 형태 중심의 간단한 문제만 다룬다"
+    }
+   ],
+   "prerequisite_ids": [],
+   "parent_ids": [
+    "hs2_function"
+   ],
+   "related_ids": [],
+   "notes": "그래프와 성질을 탐구할 때 공학 도구를 이용할 수 있다(printed p. 67).",
+   "confidence": "high"
+  }
+ ],
+ "edges": [
+  {
+   "id": "hs_edge_001",
+   "source_id": "hs1_identity",
+   "target_id": "hs1_undetermined",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 60 용어와 기호",
+     "evidence_kind": "relationship_evidence",
+     "summary": "항등식의 성질을 이용하는 미정계수법을 다룬다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_002",
+   "source_id": "hs1_identity",
+   "target_id": "hs1_remainder_thm",
+   "relationship_type": "related_to",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 60; [10공수1-01-02]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "항등식의 성질과 나머지정리를 함께 다룬다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_003",
+   "source_id": "hs1_remainder_thm",
+   "target_id": "hs1_factor_thm",
+   "relationship_type": "related_to",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 60 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "나머지정리와 인수정리를 함께 다룬다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_004",
+   "source_id": "hs1_poly_ops",
+   "target_id": "hs1_factorization",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 60; [10공수1-01-01]~[10공수1-01-03]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "다항식 연산에서 인수분해로 이어지는 성취기준 구성"
+    }
+   ],
+   "notes": "성취기준 배열 순서에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "hs_edge_005",
+   "source_id": "hs1_factor_thm",
+   "target_id": "hs1_factorization",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 60 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "인수정리가 인수분해와 연결된다"
+    }
+   ],
+   "notes": "문서가 관계를 직접 서술하지 않으므로 medium을 유지한다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "hs_edge_006",
+   "source_id": "hs1_synthetic_div",
+   "target_id": "hs1_poly_ops",
+   "relationship_type": "related_to",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 60 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "조립제법을 다항식 나눗셈 연산과 연계하여 이해하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_007",
+   "source_id": "hs1_imaginary_unit",
+   "target_id": "hs1_complex",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61 용어와 기호",
+     "evidence_kind": "relationship_evidence",
+     "summary": "허수단위로 복소수를 도입한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_008",
+   "source_id": "hs1_complex",
+   "target_id": "hs1_complex_ops",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61; [10공수1-02-01]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "복소수의 사칙연산을 수행한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_009",
+   "source_id": "hs1_conjugate",
+   "target_id": "hs1_complex_ops",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "나눗셈은 켤레복소수를 이용하여 계산하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_010",
+   "source_id": "hs1_complex",
+   "target_id": "hs1_real_imag_roots",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61 성취기준 해설",
+     "evidence_kind": "relationship_evidence",
+     "summary": "이차방정식이 복소수 범위에서 항상 근을 가짐을 이해하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_011",
+   "source_id": "hs1_discriminant",
+   "target_id": "hs1_real_imag_roots",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61; [10공수1-02-02]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "판별식을 이용하여 이차방정식의 근을 판별한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_012",
+   "source_id": "hs1_real_imag_roots",
+   "target_id": "hs1_root_coeff",
+   "relationship_type": "related_to",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61; [10공수1-02-02]~[10공수1-02-03]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "근 판별과 근과 계수의 관계가 이어지는 구성"
+    }
+   ],
+   "notes": "성취기준 배열 순서에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "hs_edge_013",
+   "source_id": "hs1_quad_eq_func",
+   "target_id": "hs1_graph_line",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61; [10공수1-02-04]~[10공수1-02-05]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "이차방정식·이차함수 관계를 바탕으로 그래프와 직선의 위치 관계를 판단하는 구성"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_014",
+   "source_id": "hs1_quad_eq_func",
+   "target_id": "hs1_quad_ineq",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61; [10공수1-02-11]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "이차부등식과 이차함수를 연결하여 설명하고 푼다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_015",
+   "source_id": "hs1_factorization",
+   "target_id": "hs1_cubic_quartic",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61 성취기준 해설",
+     "evidence_kind": "relationship_evidence",
+     "summary": "인수분해 공식이나 인수정리, 조립제법으로 풀 수 있는 경우만 다룬다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_016",
+   "source_id": "hs1_factor_thm",
+   "target_id": "hs1_cubic_quartic",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61 성취기준 해설",
+     "evidence_kind": "relationship_evidence",
+     "summary": "인수정리를 이용하여 풀 수 있는 경우를 다룬다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_017",
+   "source_id": "hs1_synthetic_div",
+   "target_id": "hs1_cubic_quartic",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61 성취기준 해설",
+     "evidence_kind": "relationship_evidence",
+     "summary": "조립제법을 이용하여 풀 수 있는 경우를 다룬다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_018",
+   "source_id": "hs1_factorization",
+   "target_id": "hs1_system_quad",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61 성취기준 해설",
+     "evidence_kind": "relationship_evidence",
+     "summary": "한 이차식이 간단히 인수분해 되는 경우를 다룬다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_019",
+   "source_id": "hs1_system_ineq",
+   "target_id": "hs1_quad_ineq",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61; [10공수1-02-09]~[10공수1-02-11]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "연립일차부등식에서 이차부등식으로 이어지는 구성"
+    }
+   ],
+   "notes": "성취기준 배열 순서에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "hs_edge_020",
+   "source_id": "hs1_graph_line",
+   "target_id": "hs1_quad_maxmin",
+   "relationship_type": "related_to",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61~62; [10공수1-02-05]~[10공수1-02-06]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "이차함수 그래프 탐구 활동으로 함께 제시된다"
+    }
+   ],
+   "notes": "성취기준 배열 순서에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "hs_edge_021",
+   "source_id": "hs1_addition_rule",
+   "target_id": "hs1_counting",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 62; [10공수1-03-01]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "합의 법칙을 사용하여 경우의 수 문제를 해결한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_022",
+   "source_id": "hs1_mult_rule",
+   "target_id": "hs1_counting",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 62; [10공수1-03-01]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "곱의 법칙을 사용하여 경우의 수 문제를 해결한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_023",
+   "source_id": "hs1_addition_rule",
+   "target_id": "hs1_mult_rule",
+   "relationship_type": "contrasts_with",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 62 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "두 법칙이 적용되는 상황의 차이점을 설명하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_024",
+   "source_id": "hs1_mult_rule",
+   "target_id": "hs1_permutation",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 62; [10공수1-03-01]~[10공수1-03-02]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "경우의 수 법칙에서 순열로 체계화되는 구성"
+    }
+   ],
+   "notes": "성취기준 배열 순서와 성격의 체계화 서술에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "hs_edge_025",
+   "source_id": "hs1_factorial",
+   "target_id": "hs1_permutation_count",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 62 용어와 기호",
+     "evidence_kind": "relationship_evidence",
+     "summary": "계승으로 순열의 수를 나타낸다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_026",
+   "source_id": "hs1_permutation",
+   "target_id": "hs1_permutation_count",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 62; [10공수1-03-02]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "순열의 수를 구하는 방법을 설명한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_027",
+   "source_id": "hs1_permutation",
+   "target_id": "hs1_combination",
+   "relationship_type": "related_to",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 62; [10공수1-03-02]~[10공수1-03-03]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "순열과 조합을 이어서 다루는 구성"
+    }
+   ],
+   "notes": "성취기준 배열 순서에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "hs_edge_028",
+   "source_id": "hs1_combination",
+   "target_id": "hs1_combination_count",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 62; [10공수1-03-03]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "조합의 수를 구하는 방법을 설명한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_029",
+   "source_id": "hs1_matrix",
+   "target_id": "hs1_matrix_elements",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 63 용어와 기호",
+     "evidence_kind": "relationship_evidence",
+     "summary": "행, 열, 성분은 행렬의 구성 요소다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_030",
+   "source_id": "hs1_matrix",
+   "target_id": "hs1_matrix_represent",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 63; [10공수1-04-01]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "실생활 상황을 행렬로 표현한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_031",
+   "source_id": "hs1_matrix",
+   "target_id": "hs1_matrix_ops",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 63; [10공수1-04-01]~[10공수1-04-02]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "행렬의 뜻을 알고 연산을 수행하는 진술 구조"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_032",
+   "source_id": "hs2_distance",
+   "target_id": "hs2_division",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 65 성취기준 해설",
+     "evidence_kind": "relationship_evidence",
+     "summary": "내분 도입 전에 두 점 사이의 거리를 다룬다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_033",
+   "source_id": "hs2_line_condition",
+   "target_id": "hs2_point_line",
+   "relationship_type": "related_to",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 65; [10공수2-01-02]~[10공수2-01-03]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "직선의 성질에서 점과 직선 사이의 거리로 이어지는 구성"
+    }
+   ],
+   "notes": "성취기준 배열 순서에서 추론한 관계다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "hs_edge_034",
+   "source_id": "hs2_circle_eq",
+   "target_id": "hs2_circle_line",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 65; [10공수2-01-04]~[10공수2-01-05]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "원의 방정식을 구하고 원과 직선의 위치 관계를 판단하는 진술 구조"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_035",
+   "source_id": "hs2_point_line",
+   "target_id": "hs2_circle_line",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 65; [10공수2-01-03], [10공수2-01-05]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "점과 직선 사이의 거리가 원과 직선의 위치 관계 판단에 쓰인다"
+    }
+   ],
+   "notes": "문서가 직접 연결을 말하지 않으므로 medium을 유지한다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "hs_edge_036",
+   "source_id": "hs2_translation",
+   "target_id": "hs2_reflection",
+   "relationship_type": "related_to",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 65; [10공수2-01-06]~[10공수2-01-07]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "도형의 이동으로 평행이동과 대칭이동을 함께 다룬다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_037",
+   "source_id": "hs2_set",
+   "target_id": "hs2_element",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66 용어와 기호",
+     "evidence_kind": "relationship_evidence",
+     "summary": "원소와 공집합은 집합의 기본 구성 개념이다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_038",
+   "source_id": "hs2_set",
+   "target_id": "hs2_subset",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66; [10공수2-02-01]~[10공수2-02-02]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "집합의 개념을 이해하고 포함관계를 판단하는 진술 구조"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_039",
+   "source_id": "hs2_set",
+   "target_id": "hs2_set_ops",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66; [10공수2-02-01], [10공수2-02-03]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "집합의 개념을 바탕으로 집합의 연산을 수행하는 구성"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_040",
+   "source_id": "hs2_set_ops",
+   "target_id": "hs2_venn",
+   "relationship_type": "represented_by",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66; [10공수2-02-03]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "집합의 연산을 벤 다이어그램으로 나타낸다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_041",
+   "source_id": "hs2_proposition",
+   "target_id": "hs2_truth_set",
+   "relationship_type": "related_to",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66 용어와 기호",
+     "evidence_kind": "relationship_evidence",
+     "summary": "조건과 진리집합을 함께 다룬다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_042",
+   "source_id": "hs2_set",
+   "target_id": "hs2_truth_set",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66 용어와 기호",
+     "evidence_kind": "relationship_evidence",
+     "summary": "조건의 진리집합은 집합으로 나타낸다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_043",
+   "source_id": "hs2_proposition",
+   "target_id": "hs2_converse",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66; [10공수2-02-04]~[10공수2-02-05]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "명제의 뜻을 알고 역과 대우를 이해하는 진술 구조"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_044",
+   "source_id": "hs2_proposition",
+   "target_id": "hs2_conditions",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66; [10공수2-02-04], [10공수2-02-06]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "명제와 조건을 바탕으로 충분조건과 필요조건을 판단하는 구성"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_045",
+   "source_id": "hs2_converse",
+   "target_id": "hs2_proof",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66; [10공수2-02-07]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "대우를 이용한 증명법으로 명제를 증명한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_046",
+   "source_id": "hs2_proof",
+   "target_id": "hs2_abs_ineq",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 66; [10공수2-02-08]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "간단한 절대부등식을 증명한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_047",
+   "source_id": "hs2_set",
+   "target_id": "hs2_function",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 67 성취기준 해설",
+     "evidence_kind": "relationship_evidence",
+     "summary": "함수를 두 집합 사이의 대응 관계로 이해하게 한다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_048",
+   "source_id": "hs2_function",
+   "target_id": "hs2_domain",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 67 용어와 기호",
+     "evidence_kind": "relationship_evidence",
+     "summary": "정의역, 공역, 치역은 함수의 구성 요소다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_049",
+   "source_id": "hs2_function",
+   "target_id": "hs2_function_types",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 67 용어와 기호",
+     "evidence_kind": "relationship_evidence",
+     "summary": "일대일대응 등은 함수의 종류다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_050",
+   "source_id": "hs2_function",
+   "target_id": "hs2_composition",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 67; [10공수2-03-01]~[10공수2-03-02]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "함수의 개념을 바탕으로 합성함수를 구하는 구성"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_051",
+   "source_id": "hs2_function",
+   "target_id": "hs2_inverse",
+   "relationship_type": "prerequisite_for",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 67; [10공수2-03-01], [10공수2-03-03]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "함수의 개념을 바탕으로 역함수를 구하는 구성"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_052",
+   "source_id": "hs2_function_types",
+   "target_id": "hs2_inverse",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 67 적용 시 고려 사항",
+     "evidence_kind": "relationship_evidence",
+     "summary": "일대일대응의 이해가 역함수 이해에 쓰인다"
+    }
+   ],
+   "notes": "문서가 직접 연결을 말하지 않으므로 medium을 유지한다.",
+   "confidence": "medium"
+  },
+  {
+   "id": "hs_edge_053",
+   "source_id": "hs2_function",
+   "target_id": "hs2_rational_func",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 67; [10공수2-03-04]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "유리함수는 함수의 한 종류다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_054",
+   "source_id": "hs2_function",
+   "target_id": "hs2_irrational_func",
+   "relationship_type": "contains",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 67; [10공수2-03-05]",
+     "evidence_kind": "relationship_evidence",
+     "summary": "무리함수는 함수의 한 종류다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_055",
+   "source_id": "hs2_asymptote",
+   "target_id": "hs2_rational_func",
+   "relationship_type": "used_in",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 67 용어와 기호",
+     "evidence_kind": "relationship_evidence",
+     "summary": "점근선으로 유리함수의 그래프 성질을 다룬다"
+    }
+   ],
+   "notes": "",
+   "confidence": "high"
+  },
+  {
+   "id": "hs_edge_056",
+   "source_id": "hs1_quad_eq_func",
+   "target_id": "hs2_circle_line",
+   "relationship_type": "related_to",
+   "source_refs": [
+    {
+     "source_id": "curriculum_math_2022",
+     "locator": "printed p. 61, 65",
+     "evidence_kind": "relationship_evidence",
+     "summary": "그래프와 도형의 위치 관계 판단이라는 같은 사고가 이어진다"
+    }
+   ],
+   "notes": "문서가 직접 연결을 말하지 않으므로 medium을 유지한다.",
+   "confidence": "medium"
+  }
+ ]
+}

@@ -292,6 +292,11 @@ function scoreEntry(entry: RetrievedKnowledgeEvidence, params: SearchParams): nu
     if (entry.variantCount === 1) score += 2;
 
     const combinedText = [title, question, answer, categoryText, policyText].join(' ');
+    // "Aboutness" signal for the name-related boosts. An incidental mention of
+    // 성명/이름 buried in a long answer body must not inflate an otherwise
+    // unrelated doc (e.g. a 봉사활동 FAQ whose answer happens to quote 학생의 성명),
+    // so the positive boosts key off the title/question rather than the full text.
+    const focusText = [title, question].join(' ');
     for (const rule of CONCEPT_BOOSTS) {
         if (rule.queryIncludes.every((token) => normalizedQuery.includes(token))) {
             if (rule.targetIncludes.some((token) => combinedText.includes(normalizeText(token)))) {
@@ -301,9 +306,11 @@ function scoreEntry(entry: RetrievedKnowledgeEvidence, params: SearchParams): nu
     }
 
     if (normalizedQuery.includes('학생') && (normalizedQuery.includes('이름') || normalizedQuery.includes('성명'))) {
-        if (combinedText.includes('성명')) score += 90;
-        if (combinedText.includes('본인 이름')) score += 72;
-        if (combinedText.includes('학생의 성명')) score += 96;
+        if (focusText.includes('성명')) score += 90;
+        if (focusText.includes('본인 이름')) score += 72;
+        if (focusText.includes('학생의 성명')) score += 96;
+        // Penalty still inspects the full text: a doc with no name mention anywhere
+        // is genuinely off-topic for a name query.
         if (!combinedText.includes('성명') && !combinedText.includes('이름')) score -= 96;
     }
 
@@ -391,6 +398,7 @@ export async function searchKnowledgeBase(params: SearchParams): Promise<Retriev
                 ...entry,
                 graphLabels,
                 score,
+                retrievalScore: score,
                 snippet: extractSnippet(`${entry.answer}\n${entry.question}`, tokenize(params.query)),
             };
         })

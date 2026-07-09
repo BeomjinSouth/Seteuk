@@ -1,0 +1,3 @@
+﻿rank,grade,domain,unit,concept_id,label_ko,concept_type,confidence,evidence_depth,needs_textbook_evidence,source_ref_count,parent_ids,prerequisite_ids,related_ids,short_definition,notes
+34,중1(교육과정 학년군: 중1-3),자료와 가능성,자료와 가능성,m1_data_dataset,자료,core_concept,high,official_dual_source,yes,4,m1_data_domain,,m1_data_data_collection,"조사, 실험, 관찰, 공공 자료 등으로 얻은 관측값의 모음.",
+34,중1(교육과정 학년군: 중1-3),자료와 가능성,자료와 가능성,m1_data_variable,변량,term,high,official_dual_source,yes,2,m1_data_domain,m1_data_dataset,m1_data_scatter_plot,자료를 이루는 각각의 관측값이나 조사 대상의 특성값.,

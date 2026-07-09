@@ -1,0 +1,2 @@
+﻿rank,grade,domain,unit,concept_id,label_ko,concept_type,confidence,evidence_depth,needs_textbook_evidence,source_ref_count,parent_ids,prerequisite_ids,related_ids,short_definition,notes
+32,중학교(교육과정 학년군: 중1-3),수와 연산,수와 연산,m1_num_domain,수와 연산,core_concept,high,official_single_source,yes,10,,,m1_expr_unit; m1_calc_unit,"소인수분해, 정수와 유리수, 유리수와 순환소수, 제곱근과 실수로 이어지는 중학교 수 체계와 계산 영역.",

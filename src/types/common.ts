@@ -40,35 +40,3 @@ export type IssueType =
 
 /** Risk level: low, medium, high. */
 export type RiskLevel = 'low' | 'medium' | 'high';
-
-/** Labels for IssueType. */
-export const ISSUE_TYPE_LABELS: Record<IssueType, string> = {
-    grammatical_error: '문법적 오류',
-    question_defect: '출제 오류',
-    contradiction: '모순된 표현',
-    condition_mismatch: '조건 불일치',
-    unrealistic_condition: '비현실적 조건',
-    format: '형식 오류',
-    other: '기타',
-};
-
-/** Labels for RiskLevel. */
-export const RISK_LEVEL_LABELS: Record<RiskLevel, string> = {
-    low: '저위험',
-    medium: '중위험',
-    high: '고위험',
-};
-
-/** Labels for difficulty levels. */
-export const DIFFICULTY_LABELS: Record<'high' | 'medium' | 'low', string> = {
-    high: '상',
-    medium: '중',
-    low: '하',
-};
-
-/** Labels for frequency levels. */
-export const FREQUENCY_LABELS: Record<'high' | 'medium' | 'low', string> = {
-    high: '높음',
-    medium: '중간',
-    low: '낮음',
-};
