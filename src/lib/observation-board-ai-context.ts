@@ -95,6 +95,7 @@ const GRADE3_CLASS1_MATH_ACTIVITY_SESSIONS: ObservationBoardActivitySession[] = 
 ];
 
 interface ObservationBoardActivitySessionClassHint {
+    classId?: string;
     grade?: number;
     classNumber?: number;
     subjectName?: string;
@@ -104,14 +105,87 @@ function cloneObservationBoardActivitySessions(sessions: ObservationBoardActivit
     return sessions.map((session) => ({ ...session }));
 }
 
-function isMathSubject(subjectName?: string) {
-    return !subjectName || subjectName.replace(/\s+/g, '').includes('수학');
+function getGradeClassFromClassId(classId?: string) {
+    if (!classId) return undefined;
+
+    const parts = classId.split('-');
+    if (parts[0] === 'teach') {
+        const grade = Number(parts[4]);
+        const classNumber = Number(parts[5]);
+        return Number.isFinite(grade) && Number.isFinite(classNumber)
+            ? { grade, classNumber }
+            : undefined;
+    }
+
+    if (parts[0] === 'home') {
+        const grade = Number(parts[parts.length - 2]);
+        const classNumber = Number(parts[parts.length - 1]);
+        return Number.isFinite(grade) && Number.isFinite(classNumber)
+            ? { grade, classNumber }
+            : undefined;
+    }
+
+    return undefined;
+}
+
+function isGrade3Class1ObservationBoardClass(classHint?: ObservationBoardActivitySessionClassHint) {
+    const classIdHint = getGradeClassFromClassId(classHint?.classId);
+    const grade = classHint?.grade ?? classIdHint?.grade;
+    const classNumber = classHint?.classNumber ?? classIdHint?.classNumber;
+
+    return grade === 3 && classNumber === 1;
+}
+
+function areActivitySessionSequencesEqual(
+    left: ObservationBoardActivitySession[],
+    right: ObservationBoardActivitySession[]
+) {
+    return left.length === right.length
+        && left.every((session, index) => {
+            const other = right[index];
+            return !!other
+                && session.id === other.id
+                && session.label === other.label
+                && session.date === other.date
+                && session.topic === other.topic;
+        });
+}
+
+function isBlankDefaultActivitySessions(sessions: ObservationBoardActivitySession[]) {
+    return sessions.length === DEFAULT_OBSERVATION_BOARD_ACTIVITY_SESSIONS.length
+        && sessions.every((session, index) => {
+            const defaultSession = DEFAULT_OBSERVATION_BOARD_ACTIVITY_SESSIONS[index];
+            return !!defaultSession
+                && session.id === defaultSession.id
+                && session.label === defaultSession.label
+                && session.date.trim() === ''
+                && session.topic.trim() === '';
+        });
+}
+
+function hasUnrelatedReadingActivitySessions(sessions: ObservationBoardActivitySession[]) {
+    const staleKeywords = ['독서', '읽기', '도서', '책'];
+    return sessions.some((session) => {
+        const text = `${session.date} ${session.topic}`;
+        return staleKeywords.some((keyword) => text.includes(keyword));
+    });
+}
+
+function shouldUseGrade3Class1DefaultSessions(input: {
+    sessions?: ObservationBoardActivitySession[];
+    classHint?: ObservationBoardActivitySessionClassHint;
+}) {
+    if (!input.sessions?.length || !isGrade3Class1ObservationBoardClass(input.classHint)) return false;
+    if (areActivitySessionSequencesEqual(input.sessions, GRADE3_CLASS1_MATH_ACTIVITY_SESSIONS)) return false;
+
+    return isBlankDefaultActivitySessions(input.sessions)
+        || hasUnrelatedReadingActivitySessions(input.sessions);
 }
 
 export function getDefaultObservationBoardActivitySessionsForClass(
     classHint?: ObservationBoardActivitySessionClassHint
 ): ObservationBoardActivitySession[] {
-    if (classHint?.grade === 3 && classHint.classNumber === 1 && isMathSubject(classHint.subjectName)) {
+    if (isGrade3Class1ObservationBoardClass(classHint)) {
         return cloneObservationBoardActivitySessions(GRADE3_CLASS1_MATH_ACTIVITY_SESSIONS);
     }
 
@@ -184,6 +258,16 @@ export function normalizeObservationBoardActivitySessions(value: unknown): Obser
     return normalized.length > 0 ? normalized : getDefaultObservationBoardActivitySessionsForClass();
 }
 
+export function normalizeObservationBoardActivitySessionsForClass(
+    value: unknown,
+    classHint?: ObservationBoardActivitySessionClassHint
+): ObservationBoardActivitySession[] {
+    const normalized = normalizeObservationBoardActivitySessions(value);
+    return shouldUseGrade3Class1DefaultSessions({ sessions: normalized, classHint })
+        ? getDefaultObservationBoardActivitySessionsForClass(classHint)
+        : normalized;
+}
+
 export function normalizeObservationBoardActivitySessionsByClass(
     value: unknown
 ): ObservationBoardActivitySessionsByClass {
@@ -192,7 +276,7 @@ export function normalizeObservationBoardActivitySessionsByClass(
     const normalized: ObservationBoardActivitySessionsByClass = {};
     Object.entries(value as Record<string, unknown>).forEach(([classId, sessions]) => {
         if (!classId.trim()) return;
-        normalized[classId] = normalizeObservationBoardActivitySessions(sessions);
+        normalized[classId] = normalizeObservationBoardActivitySessionsForClass(sessions, { classId });
     });
 
     return normalized;
@@ -203,13 +287,26 @@ export function getObservationBoardActivitySessionsForClass(input: {
     classId?: string;
     fallbackSessions?: ObservationBoardActivitySession[];
     defaultSessions?: ObservationBoardActivitySession[];
+    classHint?: ObservationBoardActivitySessionClassHint;
 }): ObservationBoardActivitySession[] {
     const defaultSessions = input.defaultSessions ?? getDefaultObservationBoardActivitySessionsForClass();
+    const classHint = input.classHint ?? { classId: input.classId };
 
     if (input.classId && input.classId !== 'all') {
-        return input.sessionsByClass[input.classId]
-            ?? input.fallbackSessions
-            ?? defaultSessions;
+        const savedSessions = input.sessionsByClass[input.classId];
+        if (savedSessions) {
+            return shouldUseGrade3Class1DefaultSessions({ sessions: savedSessions, classHint })
+                ? defaultSessions
+                : savedSessions;
+        }
+
+        if (input.fallbackSessions) {
+            return shouldUseGrade3Class1DefaultSessions({ sessions: input.fallbackSessions, classHint })
+                ? defaultSessions
+                : input.fallbackSessions;
+        }
+
+        return defaultSessions;
     }
 
     const firstClassSessions = Object.values(input.sessionsByClass)[0];
@@ -565,19 +662,22 @@ export function readObservationBoardAiContext(input: {
         ?? window.localStorage.getItem(getObservationBoardMentorAssignmentSnapshotStorageKey());
 
     const sessionValue = parseJsonValue(sessionRaw);
+    const classHint = {
+        classId: input.classId,
+        grade: input.gradeLevel,
+        classNumber: input.classNumber,
+        subjectName: input.subjectName,
+    };
     const sessionsByClass = normalizeObservationBoardActivitySessionsByClass(sessionValue);
     const legacySessions = Array.isArray(sessionValue)
-        ? normalizeObservationBoardActivitySessions(sessionValue)
+        ? normalizeObservationBoardActivitySessionsForClass(sessionValue, classHint)
         : undefined;
     const sessions = getObservationBoardActivitySessionsForClass({
         sessionsByClass,
         classId: input.classId,
         fallbackSessions: legacySessions,
-        defaultSessions: getDefaultObservationBoardActivitySessionsForClass({
-            grade: input.gradeLevel,
-            classNumber: input.classNumber,
-            subjectName: input.subjectName,
-        }),
+        defaultSessions: getDefaultObservationBoardActivitySessionsForClass(classHint),
+        classHint,
     });
     const marks = normalizeObservationBoardMarks(parseJsonValue(markRaw));
     const assignmentsByClass = normalizeObservationBoardMentorAssignmentsByClass(parseJsonValue(assignmentRaw));

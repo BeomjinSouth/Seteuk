@@ -49,6 +49,7 @@ import {
     getObservationBoardMentorAssignmentSnapshotStorageKey,
     getObservationBoardSessionStorageKey,
     normalizeObservationBoardActivitySessions,
+    normalizeObservationBoardActivitySessionsForClass,
     normalizeObservationBoardActivitySessionsByClass,
     normalizeObservationBoardMentorAssignmentSnapshotsByClass,
     normalizeObservationBoardMentorAssignmentsByClass,
@@ -518,9 +519,10 @@ export default function ObservationBoard2Page() {
         () => getObservationBoardActivitySessionsForClass({
             sessionsByClass: activitySessionsByClass,
             classId: selectedClassId,
+            classHint: selectedClass,
             defaultSessions: defaultActivitySessionsForSelectedClass,
         }),
-        [activitySessionsByClass, defaultActivitySessionsForSelectedClass, selectedClassId]
+        [activitySessionsByClass, defaultActivitySessionsForSelectedClass, selectedClass, selectedClassId]
     );
 
     const boardStudents = useMemo(() => {
@@ -808,12 +810,15 @@ export default function ObservationBoard2Page() {
             ? selectedClassId
             : teacherClasses[0].id;
 
+        const targetClass = teacherClasses.find((cls) => cls.id === targetClassId);
+        const normalizedLegacySessions = normalizeObservationBoardActivitySessionsForClass(
+            legacyActivitySessions,
+            targetClass ?? { classId: targetClassId }
+        );
+
         setActivitySessionsByClass((prev) => {
             if (Object.keys(prev).length > 0 || prev[targetClassId]?.length) return prev;
-            return {
-                ...prev,
-                [targetClassId]: legacyActivitySessions,
-            };
+            return { ...prev, [targetClassId]: normalizedLegacySessions };
         });
         setLegacyActivitySessions(null);
     }, [legacyActivitySessions, selectedClassId, teacherClasses]);
