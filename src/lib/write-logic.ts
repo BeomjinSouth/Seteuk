@@ -51,6 +51,8 @@ interface GenerationContext {
     teacherKey?: string;
     classId?: string;
     gradeLevel?: number;
+    classNumber?: number;
+    subjectName?: string;
     semester?: 1 | 2;
     curriculumContext?: CurriculumGenerationContext;
 }
@@ -180,6 +182,9 @@ export async function generateDraft(
         studentId,
         teacherKey: context?.teacherKey,
         classId: context?.classId,
+        gradeLevel: context?.gradeLevel,
+        classNumber: context?.classNumber,
+        subjectName,
     });
 
     let response: Response;
@@ -254,6 +259,9 @@ export async function generateDraftBatch(
                     studentId: student.studentId,
                     teacherKey: student.context?.teacherKey,
                     classId: student.context?.classId,
+                    gradeLevel: student.context?.gradeLevel,
+                    classNumber: student.context?.classNumber,
+                    subjectName: student.subjectName,
                 }),
                 ocrEvaluationContext: student.ocrEvaluationContext,
                 teacherKey: student.context?.teacherKey,

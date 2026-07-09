@@ -83,6 +83,41 @@ export const DEFAULT_OBSERVATION_BOARD_ACTIVITY_SESSIONS: ObservationBoardActivi
     { id: 'session-5', label: '5차시', date: '', topic: '' },
 ];
 
+const GRADE3_CLASS1_MATH_ACTIVITY_SESSIONS: ObservationBoardActivitySession[] = [
+    { id: 'session-1', label: '1차시', date: '4/9', topic: '제곱근의 덧셈 뺄셈' },
+    { id: 'session-2', label: '2차시', date: '4/10', topic: '곱셈공식 - 완전제곱식' },
+    { id: 'session-3', label: '3차시', date: '4/15', topic: '곱셈공식 - (x+a)(x+b)' },
+    { id: 'session-4', label: '4차시', date: '4/16', topic: '인수분해 - (x+a)(x+b)' },
+    { id: 'session-5', label: '5차시', date: '4/22', topic: '중단원마무리 - 인수분해' },
+    { id: 'session-6', label: '6차시', date: '5/13', topic: '이차방정식 - 인수분해' },
+    { id: 'session-7', label: '7차시', date: '5/20', topic: '이차방정식 - 완전제곱식' },
+    { id: 'session-8', label: '8차시', date: '5/27', topic: '이차방정식 활용 문제' },
+];
+
+interface ObservationBoardActivitySessionClassHint {
+    grade?: number;
+    classNumber?: number;
+    subjectName?: string;
+}
+
+function cloneObservationBoardActivitySessions(sessions: ObservationBoardActivitySession[]) {
+    return sessions.map((session) => ({ ...session }));
+}
+
+function isMathSubject(subjectName?: string) {
+    return !subjectName || subjectName.replace(/\s+/g, '').includes('수학');
+}
+
+export function getDefaultObservationBoardActivitySessionsForClass(
+    classHint?: ObservationBoardActivitySessionClassHint
+): ObservationBoardActivitySession[] {
+    if (classHint?.grade === 3 && classHint.classNumber === 1 && isMathSubject(classHint.subjectName)) {
+        return cloneObservationBoardActivitySessions(GRADE3_CLASS1_MATH_ACTIVITY_SESSIONS);
+    }
+
+    return cloneObservationBoardActivitySessions(DEFAULT_OBSERVATION_BOARD_ACTIVITY_SESSIONS);
+}
+
 const markLabels: Record<Exclude<ObservationBoardMarkState, 'none'>, string> = {
     participated: '참여함',
     excellent: '매우 잘함',
@@ -114,7 +149,7 @@ function parseJsonValue(raw: string | null): unknown {
 }
 
 export function normalizeObservationBoardActivitySessions(value: unknown): ObservationBoardActivitySession[] {
-    if (!Array.isArray(value)) return DEFAULT_OBSERVATION_BOARD_ACTIVITY_SESSIONS;
+    if (!Array.isArray(value)) return getDefaultObservationBoardActivitySessionsForClass();
 
     const normalized = value
         .map((item, index) => {
@@ -146,7 +181,7 @@ export function normalizeObservationBoardActivitySessions(value: unknown): Obser
         })
         .filter(Boolean) as ObservationBoardActivitySession[];
 
-    return normalized.length > 0 ? normalized : DEFAULT_OBSERVATION_BOARD_ACTIVITY_SESSIONS;
+    return normalized.length > 0 ? normalized : getDefaultObservationBoardActivitySessionsForClass();
 }
 
 export function normalizeObservationBoardActivitySessionsByClass(
@@ -167,17 +202,20 @@ export function getObservationBoardActivitySessionsForClass(input: {
     sessionsByClass: ObservationBoardActivitySessionsByClass;
     classId?: string;
     fallbackSessions?: ObservationBoardActivitySession[];
+    defaultSessions?: ObservationBoardActivitySession[];
 }): ObservationBoardActivitySession[] {
+    const defaultSessions = input.defaultSessions ?? getDefaultObservationBoardActivitySessionsForClass();
+
     if (input.classId && input.classId !== 'all') {
         return input.sessionsByClass[input.classId]
             ?? input.fallbackSessions
-            ?? DEFAULT_OBSERVATION_BOARD_ACTIVITY_SESSIONS;
+            ?? defaultSessions;
     }
 
     const firstClassSessions = Object.values(input.sessionsByClass)[0];
     return input.fallbackSessions
         ?? firstClassSessions
-        ?? DEFAULT_OBSERVATION_BOARD_ACTIVITY_SESSIONS;
+        ?? defaultSessions;
 }
 
 export function normalizeObservationBoardMarks(value: unknown): Record<string, ObservationBoardMarkState> {
@@ -511,6 +549,9 @@ export function readObservationBoardAiContext(input: {
     studentId: string;
     teacherKey?: string;
     classId?: string;
+    gradeLevel?: number;
+    classNumber?: number;
+    subjectName?: string;
 }): ObservationBoardAiContext | undefined {
     if (typeof window === 'undefined') return undefined;
 
@@ -532,6 +573,11 @@ export function readObservationBoardAiContext(input: {
         sessionsByClass,
         classId: input.classId,
         fallbackSessions: legacySessions,
+        defaultSessions: getDefaultObservationBoardActivitySessionsForClass({
+            grade: input.gradeLevel,
+            classNumber: input.classNumber,
+            subjectName: input.subjectName,
+        }),
     });
     const marks = normalizeObservationBoardMarks(parseJsonValue(markRaw));
     const assignmentsByClass = normalizeObservationBoardMentorAssignmentsByClass(parseJsonValue(assignmentRaw));

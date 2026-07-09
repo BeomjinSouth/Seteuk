@@ -42,6 +42,7 @@ import {
     DEFAULT_OBSERVATION_BOARD_ACTIVITY_SESSIONS as defaultActivitySessions,
     areObservationBoardMentorAssignmentsEqual,
     getObservationBoardActivitySessionsForClass,
+    getDefaultObservationBoardActivitySessionsForClass,
     getObservationBoardAssignmentMembers,
     getObservationBoardMarkStorageKey,
     getObservationBoardMentorAssignmentStorageKey,
@@ -509,12 +510,17 @@ export default function ObservationBoard2Page() {
     }, [students, teacherStudents]);
 
     const selectedClass = teacherClasses.find((cls) => cls.id === selectedClassId);
+    const defaultActivitySessionsForSelectedClass = useMemo(
+        () => getDefaultObservationBoardActivitySessionsForClass(selectedClass),
+        [selectedClass]
+    );
     const activitySessions = useMemo(
         () => getObservationBoardActivitySessionsForClass({
             sessionsByClass: activitySessionsByClass,
             classId: selectedClassId,
+            defaultSessions: defaultActivitySessionsForSelectedClass,
         }),
-        [activitySessionsByClass, selectedClassId]
+        [activitySessionsByClass, defaultActivitySessionsForSelectedClass, selectedClassId]
     );
 
     const boardStudents = useMemo(() => {
@@ -1594,7 +1600,7 @@ export default function ObservationBoard2Page() {
         if (selectedClassId === 'all') return;
 
         setActivitySessionsByClass((prev) => {
-            const currentSessions = prev[selectedClassId] ?? defaultActivitySessions;
+            const currentSessions = prev[selectedClassId] ?? defaultActivitySessionsForSelectedClass;
             const nextSessionsByClass = {
                 ...prev,
                 [selectedClassId]: updater(currentSessions),

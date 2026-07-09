@@ -368,6 +368,8 @@ function WritePageContent() {
                                 teacherKey: teacher?.teacherKey,
                                 classId: teachingClass.id,
                                 gradeLevel: studentGrade,
+                                classNumber: teachingClass.classNumber,
+                                subjectName: teachingClass.subjectName || '',
                                 semester: currentSemester,
                                 curriculumContext,
                             },
@@ -447,6 +449,8 @@ function WritePageContent() {
                         teacherKey: teacher?.teacherKey,
                         classId: teachingClass.id,
                         gradeLevel: studentGrade,
+                        classNumber: teachingClass.classNumber,
+                        subjectName: teachingClass.subjectName || '',
                         semester: currentSemester,
                         curriculumContext,
                     }
