@@ -1,7 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { addStudent, getStudents, mergeStudentsForSchool, updateStudent } from '@/lib/sheets';
 import { initializeSheets } from '@/lib/sheets/base';
-import { rejectWhenDifferentSchool, requireTeacherSession } from '@/lib/auth/guards';
+import { rejectWhenDifferentSchool, withTeacherAuth } from '@/lib/auth/guards';
 import { isSupabaseRequiredButMissing } from '@/lib/supabase/config';
 import { supabaseRequiredResponse } from '@/lib/supabase/required-response';
 
@@ -15,16 +15,14 @@ import { supabaseRequiredResponse } from '@/lib/supabase/required-response';
  *   - success: boolean
  *   - students: Array of Student objects
  */
-export async function GET(request: NextRequest) {
+export const GET = withTeacherAuth(async (request, { teacher }) => {
     try {
-        const session = await requireTeacherSession();
-        if (!session.ok) return session.response;
         if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         const { searchParams } = new URL(request.url);
         const school = searchParams.get('school') || undefined;
         const grade = searchParams.get('grade');
-        const schoolGuard = rejectWhenDifferentSchool(session.teacher.school, school);
+        const schoolGuard = rejectWhenDifferentSchool(teacher.school, school);
         if (schoolGuard) return schoolGuard;
 
         const students = await getStudents({
@@ -40,7 +38,7 @@ export async function GET(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});
 
 /**
  * Adds a new student record.
@@ -55,10 +53,8 @@ export async function GET(request: NextRequest) {
  *   - success: boolean
  *   - id: string
  */
-export async function POST(request: NextRequest) {
+export const POST = withTeacherAuth(async (request, { teacher }) => {
     try {
-        const session = await requireTeacherSession();
-        if (!session.ok) return session.response;
         if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         const body = await request.json();
@@ -67,7 +63,7 @@ export async function POST(request: NextRequest) {
         if (body.mode === 'merge_school_roster') {
             const school = typeof body.school === 'string' ? body.school.trim() : '';
             const students = Array.isArray(body.students) ? body.students : [];
-            const schoolGuard = rejectWhenDifferentSchool(session.teacher.school, school);
+            const schoolGuard = rejectWhenDifferentSchool(teacher.school, school);
             if (schoolGuard) return schoolGuard;
 
             if (!school || students.length === 0) {
@@ -82,7 +78,7 @@ export async function POST(request: NextRequest) {
         }
 
         const { classId, number, name, learningData, grade, school, classNumber, classLearningData } = body;
-        const schoolGuard = rejectWhenDifferentSchool(session.teacher.school, school);
+        const schoolGuard = rejectWhenDifferentSchool(teacher.school, school);
         if (schoolGuard) return schoolGuard;
 
         if (!classId || !number || !name) {
@@ -111,7 +107,7 @@ export async function POST(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});
 
 /**
  * Updates an existing student record.
@@ -123,15 +119,13 @@ export async function POST(request: NextRequest) {
  * @returns {NextResponse} JSON response containing:
  *   - success: boolean
  */
-export async function PUT(request: NextRequest) {
+export const PUT = withTeacherAuth(async (request, { teacher }) => {
     try {
-        const session = await requireTeacherSession();
-        if (!session.ok) return session.response;
         if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         const body = await request.json();
         const { id, ...data } = body;
-        const schoolGuard = rejectWhenDifferentSchool(session.teacher.school, data.school);
+        const schoolGuard = rejectWhenDifferentSchool(teacher.school, data.school);
         if (schoolGuard) return schoolGuard;
         await initializeSheets();
 
@@ -152,4 +146,4 @@ export async function PUT(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});

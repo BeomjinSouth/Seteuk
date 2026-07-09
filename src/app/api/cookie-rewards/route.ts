@@ -1,17 +1,14 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { getCookieRewards, saveCookieReward } from '@/lib/sheets';
 import { initializeSheets } from '@/lib/sheets/base';
-import { rejectWhenDifferentSchool, requireTeacherSession } from '@/lib/auth/guards';
+import { rejectWhenDifferentSchool, withTeacherAuth } from '@/lib/auth/guards';
 
-export async function GET(request: NextRequest) {
+export const GET = withTeacherAuth(async (request, { teacher }) => {
     try {
-        const session = await requireTeacherSession();
-        if (!session.ok) return session.response;
-
         const { searchParams } = new URL(request.url);
         const activeOnlyParam = searchParams.get('activeOnly');
         const school = searchParams.get('school') || undefined;
-        const schoolGuard = rejectWhenDifferentSchool(session.teacher.school, school);
+        const schoolGuard = rejectWhenDifferentSchool(teacher.school, school);
         if (schoolGuard) return schoolGuard;
         const rewards = await getCookieRewards({
             school,
@@ -26,17 +23,14 @@ export async function GET(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});
 
-export async function POST(request: NextRequest) {
+export const POST = withTeacherAuth(async (request, { teacher }) => {
     try {
-        const session = await requireTeacherSession();
-        if (!session.ok) return session.response;
-
         await initializeSheets();
         const body = await request.json();
         const cost = Number(body.cost);
-        const schoolGuard = rejectWhenDifferentSchool(session.teacher.school, body.school ? String(body.school) : undefined);
+        const schoolGuard = rejectWhenDifferentSchool(teacher.school, body.school ? String(body.school) : undefined);
         if (schoolGuard) return schoolGuard;
 
         if (!body.school || !body.name || !Number.isFinite(cost) || cost <= 0) {
@@ -62,8 +56,6 @@ export async function POST(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});
 
-export async function PUT(request: NextRequest) {
-    return POST(request);
-}
+export const PUT = POST;

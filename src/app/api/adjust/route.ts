@@ -1,4 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
+import { withTeacherAuth } from '@/lib/auth/guards';
 import { getOpenAIClient, hasOpenAIApiKey } from '@/lib/openai-client';
 import { getPromptCacheParams } from '@/lib/prompt-cache';
 
@@ -24,7 +25,7 @@ const DEFAULT_MODEL = 'gpt-5.4-mini';
  *   - direction: 'expand' | 'shorten'
  *   - tokenUsage: object (Token usage stats)
  */
-export async function POST(request: NextRequest) {
+export const POST = withTeacherAuth(async (request) => {
     let body: {
         content: string;
         direction: 'expand' | 'shorten';
@@ -138,4 +139,4 @@ export async function POST(request: NextRequest) {
             content: content
         }, { status: 500 });
     }
-}
+});

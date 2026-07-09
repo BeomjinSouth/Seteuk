@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { requireTeacherSession } from '@/lib/auth/guards';
+import { NextResponse } from 'next/server';
+import { withTeacherAuth } from '@/lib/auth/guards';
 import {
     buildGroupRecommendation,
     buildSurveyProfiles,
@@ -54,10 +54,8 @@ async function loadClassSurveyPayload(input: {
     };
 }
 
-export async function GET(request: NextRequest) {
+export const GET = withTeacherAuth(async (request, { teacher }) => {
     try {
-        const session = await requireTeacherSession();
-        if (!session.ok) return session.response;
         if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         const classId = request.nextUrl.searchParams.get('classId') || '';
@@ -70,7 +68,7 @@ export async function GET(request: NextRequest) {
         }
 
         const payload = await loadClassSurveyPayload({
-            teacherKey: session.teacher.teacherKey,
+            teacherKey: teacher.teacherKey,
             classId,
             sessionId,
         });
@@ -87,12 +85,10 @@ export async function GET(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});
 
-export async function POST(request: NextRequest) {
+export const POST = withTeacherAuth(async (request, { teacher }) => {
     try {
-        const session = await requireTeacherSession();
-        if (!session.ok) return session.response;
         if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         const body = await request.json() as {
@@ -109,16 +105,16 @@ export async function POST(request: NextRequest) {
 
         if (body.action === 'create_session') {
             const surveySession = await createGroupSurveySession({
-                school: session.teacher.school,
-                teacherKey: session.teacher.teacherKey,
-                teacherName: session.teacher.name,
+                school: teacher.school,
+                teacherKey: teacher.teacherKey,
+                teacherName: teacher.name,
                 classId: 'all',
                 grade: 1,
                 classNumber: 1,
                 title: '전체 학급 함께 배우기 설문',
             });
             const payload = await loadClassSurveyPayload({
-                teacherKey: session.teacher.teacherKey,
+                teacherKey: teacher.teacherKey,
                 classId: body.classId || 'all',
                 sessionId: surveySession.id,
             });
@@ -135,7 +131,7 @@ export async function POST(request: NextRequest) {
             }
             const updated = await updateGroupSurveySessionStatus({
                 sessionId: body.sessionId,
-                teacherKey: session.teacher.teacherKey,
+                teacherKey: teacher.teacherKey,
                 status: body.status,
             });
 
@@ -151,7 +147,7 @@ export async function POST(request: NextRequest) {
             }
 
             const skill = await upsertGroupStudentSkillScore({
-                teacherKey: session.teacher.teacherKey,
+                teacherKey: teacher.teacherKey,
                 classId: body.classId,
                 studentId: body.studentId,
                 skillScore: body.skillScore,
@@ -169,7 +165,7 @@ export async function POST(request: NextRequest) {
             }
 
             const surveySession = await getGroupSurveySessionById(body.sessionId);
-            if (!surveySession || surveySession.teacherKey !== session.teacher.teacherKey) {
+            if (!surveySession || surveySession.teacherKey !== teacher.teacherKey) {
                 return NextResponse.json(
                     { success: false, error: '설문을 찾을 수 없습니다.' },
                     { status: 404 }
@@ -183,7 +179,7 @@ export async function POST(request: NextRequest) {
             const [responses, skills] = await Promise.all([
                 getGroupSurveyResponses(surveySession.id),
                 getGroupStudentSkillScores({
-                    teacherKey: session.teacher.teacherKey,
+                    teacherKey: teacher.teacherKey,
                     classId: body.classId,
                 }),
             ]);
@@ -192,7 +188,7 @@ export async function POST(request: NextRequest) {
                 parseGroupSize(body.groupSize)
             );
             const run = await saveGroupingRecommendationRun({
-                teacherKey: session.teacher.teacherKey,
+                teacherKey: teacher.teacherKey,
                 classId: body.classId,
                 sessionId: surveySession.id,
                 groupSize: parseGroupSize(body.groupSize),
@@ -217,4 +213,4 @@ export async function POST(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});

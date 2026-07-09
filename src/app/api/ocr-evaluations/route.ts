@@ -1,4 +1,5 @@
-﻿import { NextRequest, NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
+import { withTeacherAuth } from '@/lib/auth/guards';
 import {
     getOCREvaluations,
     getOCREvaluationById,
@@ -63,7 +64,7 @@ const parseEvaluationRow = (evaluation: OCREvaluationRow) => ({
  *   - success: boolean
  *   - data: Evaluation object(s)
  */
-export async function GET(request: NextRequest) {
+export const GET = withTeacherAuth(async (request) => {
     try {
         await ensureSheetsExist();
 
@@ -117,7 +118,7 @@ export async function GET(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});
 
 // POST - OCR 평가 추가
 /**
@@ -136,7 +137,7 @@ export async function GET(request: NextRequest) {
  *   - id: string
  *   - message: string
  */
-export async function POST(request: NextRequest) {
+export const POST = withTeacherAuth(async (request) => {
     try {
         await ensureSheetsExist();
 
@@ -187,7 +188,7 @@ export async function POST(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});
 
 // PUT - OCR 평가 수정
 /**
@@ -201,7 +202,7 @@ export async function POST(request: NextRequest) {
  *   - success: boolean
  *   - message: string
  */
-export async function PUT(request: NextRequest) {
+export const PUT = withTeacherAuth(async (request) => {
     try {
         const body = await request.json();
         const { id, ...data } = body;
@@ -226,7 +227,7 @@ export async function PUT(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});
 
 // DELETE - OCR 평가 삭제
 /**
@@ -239,7 +240,7 @@ export async function PUT(request: NextRequest) {
  *   - success: boolean
  *   - message: string
  */
-export async function DELETE(request: NextRequest) {
+export const DELETE = withTeacherAuth(async (request) => {
     const searchParams = request.nextUrl.searchParams;
     const id = searchParams.get('id');
 
@@ -264,4 +265,4 @@ export async function DELETE(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});

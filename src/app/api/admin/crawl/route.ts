@@ -5,8 +5,8 @@ import { execFile } from 'node:child_process';
 import { access, copyFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { promisify } from 'node:util';
-import { NextRequest, NextResponse } from 'next/server';
-import { requireAdminRequest } from '@/lib/admin-auth';
+import { NextResponse } from 'next/server';
+import { withAdminAuth } from '@/lib/auth/guards';
 import { clearKnowledgeDatasetCache } from '@/lib/knowledge-base';
 
 const execFileAsync = promisify(execFile);
@@ -23,10 +23,7 @@ type CrawlRequestBody = {
     preferFaqOnConflict?: boolean;
 };
 
-export async function POST(request: NextRequest) {
-    const unauthorized = requireAdminRequest(request);
-    if (unauthorized) return unauthorized;
-
+export const POST = withAdminAuth(async (request) => {
     let body: CrawlRequestBody = {};
 
     try {
@@ -85,4 +82,4 @@ export async function POST(request: NextRequest) {
             { status: missingPackage ? 503 : 500 },
         );
     }
-}
+});

@@ -1,4 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
+import { withTeacherAuth } from '@/lib/auth/guards';
 
 const DEFAULT_THRESHOLD = 0.9;
 const MAX_MATCHED_SENTENCES = 5;
@@ -105,7 +106,7 @@ interface SimilarityResult {
  *   - totalCompared: number
  *   - similarCount: number
  */
-export async function POST(request: NextRequest) {
+export const POST = withTeacherAuth(async (request) => {
     let body: {
         contents: ContentItem[];
         threshold?: number;
@@ -193,4 +194,4 @@ export async function POST(request: NextRequest) {
         similarCount: results.length,
         threshold,
     });
-}
+});

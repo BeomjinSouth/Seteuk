@@ -14,7 +14,8 @@
  * - PNU (부산대): 더 상세한 교정 제안
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
+import { withTeacherAuth } from '@/lib/auth/guards';
 import * as hanspell from 'hanspell';
 
 // 맞춤법 검사 결과 인터페이스
@@ -171,7 +172,7 @@ async function spellCheckWithRetry(
  * - original: 원본 텍스트
  * - errorCount: 발견된 오류 개수
  */
-export async function POST(request: NextRequest) {
+export const POST = withTeacherAuth(async (request) => {
     try {
         // Rate Limit 확인 - 과도한 요청 방지
         if (!checkRateLimit()) {
@@ -305,4 +306,4 @@ export async function POST(request: NextRequest) {
             errorCount: 0
         });
     }
-}
+});

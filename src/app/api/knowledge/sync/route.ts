@@ -1,10 +1,12 @@
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
+import { withAdminAuth } from '@/lib/auth/guards';
 import { syncKnowledgeToVectorStore } from '@/lib/knowledge-hosted';
 
-export async function POST(request: NextRequest) {
+// Paid vector-store sync — admin only, matching /api/admin/reindex.
+export const POST = withAdminAuth(async (request) => {
     let body: {
         year?: string;
         vectorStoreId?: string;
@@ -40,4 +42,4 @@ export async function POST(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});

@@ -1,4 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
+import { withTeacherAuth } from '@/lib/auth/guards';
 import OpenAI from 'openai';
 import { getPromptCacheParams } from '@/lib/prompt-cache';
 
@@ -147,7 +148,7 @@ const ANALYZE_PROMPT = `당신은 한국 교육과정 역량 분류 전문가입
  *   - success: boolean
  *   - segments: Array of CompetencySegment objects
  */
-export async function POST(request: NextRequest) {
+export const POST = withTeacherAuth(async (request) => {
     try {
         const body = await request.json();
         const { text } = body;
@@ -197,4 +198,4 @@ export async function POST(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});

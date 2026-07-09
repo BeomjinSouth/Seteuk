@@ -1,10 +1,11 @@
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
+import { withTeacherAuth } from '@/lib/auth/guards';
 import { searchHostedKnowledge } from '@/lib/knowledge-hosted';
 
-export async function POST(request: NextRequest) {
+export const POST = withTeacherAuth(async (request) => {
     let body: {
         query?: string;
         schoolLevel?: string;
@@ -50,4 +51,4 @@ export async function POST(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});

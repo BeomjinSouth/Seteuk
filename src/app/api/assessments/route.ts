@@ -1,11 +1,11 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import {
     getAssessments,
     addAssessment,
     updateAssessment,
     deleteAssessment,
 } from '@/lib/sheets';
-import { requireTeacherSession } from '@/lib/auth/guards';
+import { withTeacherAuth } from '@/lib/auth/guards';
 import { isSupabaseRequiredButMissing } from '@/lib/supabase/config';
 import { supabaseRequiredResponse } from '@/lib/supabase/required-response';
 
@@ -18,10 +18,8 @@ import { supabaseRequiredResponse } from '@/lib/supabase/required-response';
  *   - success: boolean
  *   - data: Array of Assessment objects
  */
-export async function GET() {
+export const GET = withTeacherAuth(async () => {
     try {
-        const session = await requireTeacherSession();
-        if (!session.ok) return session.response;
         if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         const assessments = await getAssessments();
@@ -37,7 +35,7 @@ export async function GET() {
             { status: 500 }
         );
     }
-}
+});
 
 // POST - 평가 과제 추가
 // POST - 평가 과제 추가
@@ -57,10 +55,8 @@ export async function GET() {
  *   - id: string (The ID of the created assessment)
  *   - message: string
  */
-export async function POST(request: NextRequest) {
+export const POST = withTeacherAuth(async (request) => {
     try {
-        const session = await requireTeacherSession();
-        if (!session.ok) return session.response;
         if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         const body = await request.json();
@@ -101,7 +97,7 @@ export async function POST(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});
 
 // PUT - 평가 과제 수정
 // PUT - 평가 과제 수정
@@ -116,10 +112,8 @@ export async function POST(request: NextRequest) {
  *   - success: boolean
  *   - message: string
  */
-export async function PUT(request: NextRequest) {
+export const PUT = withTeacherAuth(async (request) => {
     try {
-        const session = await requireTeacherSession();
-        if (!session.ok) return session.response;
         if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         const body = await request.json();
@@ -145,7 +139,7 @@ export async function PUT(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});
 
 // DELETE - 평가 과제 삭제
 // DELETE - 평가 과제 삭제
@@ -158,9 +152,7 @@ export async function PUT(request: NextRequest) {
  *   - success: boolean
  *   - message: string
  */
-export async function DELETE(request: NextRequest) {
-    const session = await requireTeacherSession();
-    if (!session.ok) return session.response;
+export const DELETE = withTeacherAuth(async (request) => {
     if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
     const searchParams = request.nextUrl.searchParams;
@@ -187,4 +179,4 @@ export async function DELETE(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});

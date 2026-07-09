@@ -1,14 +1,11 @@
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-import { NextRequest, NextResponse } from 'next/server';
-import { requireAdminRequest } from '@/lib/admin-auth';
+import { NextResponse } from 'next/server';
+import { withAdminAuth } from '@/lib/auth/guards';
 import { syncKnowledgeToVectorStore } from '@/lib/knowledge-hosted';
 
-export async function POST(request: NextRequest) {
-    const unauthorized = requireAdminRequest(request);
-    if (unauthorized) return unauthorized;
-
+export const POST = withAdminAuth(async (request) => {
     let body: {
         year?: string;
         vectorStoreId?: string;
@@ -44,4 +41,4 @@ export async function POST(request: NextRequest) {
             { status: 500 },
         );
     }
-}
+});

@@ -1,7 +1,8 @@
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
+import { withTeacherAuth } from '@/lib/auth/guards';
 import { getOpenAIClient, hasOpenAIApiKey } from '@/lib/openai-client';
 import { getPromptCacheParams } from '@/lib/prompt-cache';
 
@@ -26,7 +27,7 @@ const DEFAULT_MODEL = 'gpt-5.4-mini';
  *     - totalPages: number
  *     - items: Array of mapped items (slotIndex, recognizedText, studentInfo, etc.)
  */
-export async function POST(request: NextRequest) {
+export const POST = withTeacherAuth(async (request) => {
     try {
         const body = await request.json();
         const { pdfData, pagesPerStudent, startPage = 1, students } = body;
@@ -184,4 +185,4 @@ JSON 형식으로만 응답해 주세요.`;
             { status: 500 }
         );
     }
-}
+});

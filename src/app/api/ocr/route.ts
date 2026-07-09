@@ -1,4 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
+import { withTeacherAuth } from '@/lib/auth/guards';
 import { getOpenAIClient, hasOpenAIApiKey } from '@/lib/openai-client';
 import { getPromptCacheParams } from '@/lib/prompt-cache';
 
@@ -88,7 +89,7 @@ interface OCRResult {
  *   - model: string
  *   - tokenUsage: object
  */
-export async function POST(request: NextRequest) {
+export const POST = withTeacherAuth(async (request) => {
     let body: {
         image?: string; // Base64 encoded image
         imageUrl?: string; // Or URL to image
@@ -236,7 +237,7 @@ JSON 형식으로만 응답해 주세요.`
             error: 'API 호출 실패로 기본 결과를 반환했습니다.'
         });
     }
-}
+});
 
 // Fallback result generator
 function generateFallbackResult(includeEvaluation: boolean = false): OCRResult {

@@ -1,4 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
+import { withTeacherAuth } from '@/lib/auth/guards';
 import {
     extractQuestionStructure,
     extractQuestionStructureFromPdf,
@@ -354,7 +355,7 @@ async function generateModelAnswerForQuestion(params: {
  *   - result: object
  *     - questions: Array of analyzed questions with model answers
  */
-export async function POST(request: NextRequest) {
+export const POST = withTeacherAuth(async (request) => {
     try {
         const body = await request.json();
         // Support both fileData (PDF/image) and imageDataList
@@ -481,4 +482,4 @@ export async function POST(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});

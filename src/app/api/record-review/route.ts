@@ -1,7 +1,8 @@
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
+import { withTeacherAuth } from '@/lib/auth/guards';
 import OpenAI from 'openai';
 import { getPromptCacheParams } from '@/lib/prompt-cache';
 import { buildCitations } from '@/lib/knowledge-base';
@@ -275,7 +276,7 @@ async function generateImprovedDraft(params: {
     return sanitizeImprovedDraft(response.output_text || recordText) || recordText;
 }
 
-export async function POST(request: NextRequest) {
+export const POST = withTeacherAuth(async (request) => {
     let body: ReviewRequestBody;
 
     try {
@@ -436,4 +437,4 @@ export async function POST(request: NextRequest) {
             { status: 500 },
         );
     }
-}
+});

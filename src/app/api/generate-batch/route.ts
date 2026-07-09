@@ -1,4 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
+import { withTeacherAuth } from '@/lib/auth/guards';
 import { getOpenAIClient, hasOpenAIApiKey } from '@/lib/openai-client';
 import { OPENAI_STANDARD_MODEL, normalizeOpenAIModel } from '@/lib/openai-models';
 import {
@@ -205,7 +206,7 @@ function parseBatchOutput(text: string): Array<{ studentId: string; content: str
         .filter((item): item is { studentId: string; content: string } => item !== null);
 }
 
-export async function POST(request: NextRequest) {
+export const POST = withTeacherAuth(async (request) => {
     let body: BatchBody;
 
     try {
@@ -311,7 +312,7 @@ export async function POST(request: NextRequest) {
         console.error('Batch generation failed:', error);
         return NextResponse.json({ error: 'Batch generation failed.' }, { status: 502 });
     }
-}
+});
 
 function buildNoKeyFallback(student: PreparedStudent): string {
     const evidence = [

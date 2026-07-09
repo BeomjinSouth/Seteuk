@@ -1,4 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
+import { withTeacherAuth } from '@/lib/auth/guards';
 import { getOpenAIClient, hasOpenAIApiKey } from '@/lib/openai-client';
 
 const DEFAULT_MODEL = 'gpt-5.4-mini';
@@ -34,7 +35,7 @@ const SYSTEM_PROMPT = `당신은 학생 세특(교과세부능력 및 특기사�
  *   - student1Suggestion: string
  *   - student2Suggestion: string
  */
-export async function POST(request: NextRequest) {
+export const POST = withTeacherAuth(async (request) => {
     try {
         const body = await request.json();
         const { text1, text2, name1, name2 } = body;
@@ -90,4 +91,4 @@ ${text2}
             { status: 500 }
         );
     }
-}
+});

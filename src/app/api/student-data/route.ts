@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import {
     deleteStudentDataEntry,
     getStudentDataEntries,
@@ -6,7 +6,7 @@ import {
 } from '@/lib/sheets';
 import { initializeSheets } from '@/lib/sheets/base';
 import { StudentDataKind, StudentDataPayload } from '@/types';
-import { rejectWhenDifferentSchool, rejectWhenDifferentTeacher, requireTeacherSession } from '@/lib/auth/guards';
+import { rejectWhenDifferentSchool, rejectWhenDifferentTeacher, withTeacherAuth } from '@/lib/auth/guards';
 import { isSupabaseRequiredButMissing } from '@/lib/supabase/config';
 import { supabaseRequiredResponse } from '@/lib/supabase/required-response';
 
@@ -16,10 +16,8 @@ function parseKind(value: unknown): StudentDataKind | null {
         : null;
 }
 
-export async function GET(request: NextRequest) {
+export const GET = withTeacherAuth(async (request, { teacher }) => {
     try {
-        const session = await requireTeacherSession();
-        if (!session.ok) return session.response;
         if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         const { searchParams } = new URL(request.url);
@@ -30,14 +28,14 @@ export async function GET(request: NextRequest) {
 
         const school = searchParams.get('school') || undefined;
         const teacherKey = searchParams.get('teacherKey') || undefined;
-        const schoolGuard = rejectWhenDifferentSchool(session.teacher.school, school);
+        const schoolGuard = rejectWhenDifferentSchool(teacher.school, school);
         if (schoolGuard) return schoolGuard;
-        const teacherGuard = rejectWhenDifferentTeacher(session.teacher.teacherKey, teacherKey);
+        const teacherGuard = rejectWhenDifferentTeacher(teacher.teacherKey, teacherKey);
         if (teacherGuard) return teacherGuard;
 
         const entries = await getStudentDataEntries({
             school,
-            teacherKey: teacherKey || session.teacher.teacherKey,
+            teacherKey: teacherKey || teacher.teacherKey,
             classId: searchParams.get('classId') || undefined,
             semester: searchParams.get('semester') === '1' || searchParams.get('semester') === '2'
                 ? searchParams.get('semester') as '1' | '2'
@@ -54,20 +52,18 @@ export async function GET(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});
 
-export async function POST(request: NextRequest) {
+export const POST = withTeacherAuth(async (request, { teacher }) => {
     try {
-        const session = await requireTeacherSession();
-        if (!session.ok) return session.response;
         if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         await initializeSheets();
         const body = await request.json();
         const kind = parseKind(body.kind);
-        const schoolGuard = rejectWhenDifferentSchool(session.teacher.school, body.school ? String(body.school) : undefined);
+        const schoolGuard = rejectWhenDifferentSchool(teacher.school, body.school ? String(body.school) : undefined);
         if (schoolGuard) return schoolGuard;
-        const teacherGuard = rejectWhenDifferentTeacher(session.teacher.teacherKey, body.teacherKey ? String(body.teacherKey) : undefined);
+        const teacherGuard = rejectWhenDifferentTeacher(teacher.teacherKey, body.teacherKey ? String(body.teacherKey) : undefined);
         if (teacherGuard) return teacherGuard;
 
         if (!kind || !body.school || !body.teacherKey || !body.classId || !body.studentId) {
@@ -106,16 +102,12 @@ export async function POST(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});
 
-export async function PUT(request: NextRequest) {
-    return POST(request);
-}
+export const PUT = POST;
 
-export async function DELETE(request: NextRequest) {
+export const DELETE = withTeacherAuth(async (request) => {
     try {
-        const session = await requireTeacherSession();
-        if (!session.ok) return session.response;
         if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         await initializeSheets();
@@ -136,4 +128,4 @@ export async function DELETE(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});

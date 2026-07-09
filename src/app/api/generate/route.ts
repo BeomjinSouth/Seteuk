@@ -1,4 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
+import { withTeacherAuth } from '@/lib/auth/guards';
 import { getOpenAIClient, hasOpenAIApiKey } from '@/lib/openai-client';
 import { OPENAI_STANDARD_MODEL, normalizeOpenAIModel } from '@/lib/openai-models';
 import {
@@ -118,7 +119,7 @@ const SUBJECT_CONTEXT_HINTS: Array<{
  *   - usedObservationIds: string[]
  *   - tokenUsage: object
  */
-export async function POST(request: NextRequest) {
+export const POST = withTeacherAuth(async (request) => {
     // Parse body once and store it
     let body: {
         studentName?: string;
@@ -414,7 +415,7 @@ ${exampleTemplates.join('\n\n')}
             observationBoardContextCount,
         });
     }
-}
+});
 
 
 // Fallback content generator - properly uses learning data

@@ -1,4 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
+import { withTeacherAuth } from '@/lib/auth/guards';
 import { checkForbiddenExpressions } from '@/lib/openai';
 import { DEFAULT_FORBIDDEN_WORDS } from '@/lib/forbidden-words';
 
@@ -53,7 +54,7 @@ type ForbiddenRequestBody = {
     customForbiddenWords?: string[];
 };
 
-export async function POST(request: NextRequest) {
+export const POST = withTeacherAuth(async (request) => {
     try {
         const body = await request.json() as ForbiddenRequestBody;
         const text = body.text || '';
@@ -110,4 +111,4 @@ export async function POST(request: NextRequest) {
         console.error('Forbidden check error:', error);
         return NextResponse.json({ error: 'Forbidden check failed' }, { status: 500 });
     }
-}
+});

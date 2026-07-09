@@ -1,7 +1,8 @@
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
+import { withTeacherAuth } from '@/lib/auth/guards';
 import OpenAI from 'openai';
 import { getPromptCacheParams } from '@/lib/prompt-cache';
 import {
@@ -68,7 +69,7 @@ function buildPayload(input: {
     };
 }
 
-export async function POST(request: NextRequest) {
+export const POST = withTeacherAuth(async (request) => {
     let body: {
         question?: string;
         schoolLevel?: string;
@@ -181,4 +182,4 @@ export async function POST(request: NextRequest) {
             { status: 500 },
         );
     }
-}
+});

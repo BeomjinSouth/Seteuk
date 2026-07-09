@@ -1,10 +1,11 @@
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
+import { withTeacherAuth } from '@/lib/auth/guards';
 import { runKnowledgeEval } from '@/lib/knowledge-eval';
 
-export async function GET(request: NextRequest) {
+export const GET = withTeacherAuth(async (request) => {
     try {
         const mode = request.nextUrl.searchParams.get('mode') === 'hybrid' ? 'hybrid' : 'lexical';
         const requestedLimit = Number(request.nextUrl.searchParams.get('limit') ?? 5);
@@ -26,4 +27,4 @@ export async function GET(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});

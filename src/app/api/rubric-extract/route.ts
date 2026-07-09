@@ -1,4 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
+import { withTeacherAuth } from '@/lib/auth/guards';
 import { getOpenAIClient, hasOpenAIApiKey } from '@/lib/openai-client';
 import { getPromptCacheParams } from '@/lib/prompt-cache';
 
@@ -70,7 +71,7 @@ const RUBRIC_EXTRACTION_PROMPT = `당신은 채점기준표(루브릭) 이미지
  *     - rawText: string
  *     - confidence: 'high' | 'medium' | 'low'
  */
-export async function POST(request: NextRequest) {
+export const POST = withTeacherAuth(async (request) => {
     let body: {
         image?: string; // Base64 encoded image
         imageUrl?: string;
@@ -172,7 +173,7 @@ export async function POST(request: NextRequest) {
             error: '채점기준표 분석 중 오류가 발생했습니다.'
         }, { status: 500 });
     }
-}
+});
 
 function generateDemoExtraction() {
     return {

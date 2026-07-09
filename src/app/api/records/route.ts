@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { getRecords, saveRecord } from '@/lib/sheets';
-import { rejectWhenDifferentTeacher, requireTeacherSession } from '@/lib/auth/guards';
+import { rejectWhenDifferentTeacher, withTeacherAuth } from '@/lib/auth/guards';
 import { isSupabaseRequiredButMissing } from '@/lib/supabase/config';
 import { supabaseRequiredResponse } from '@/lib/supabase/required-response';
 
@@ -11,14 +11,12 @@ import { supabaseRequiredResponse } from '@/lib/supabase/required-response';
  *   - success: boolean
  *   - records: Array of Record objects
  */
-export async function GET() {
+export const GET = withTeacherAuth(async (_request, { teacher }) => {
     try {
-        const session = await requireTeacherSession();
-        if (!session.ok) return session.response;
         if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         const records = (await getRecords()).filter((record) =>
-            !record.teacherKey || record.teacherKey === session.teacher.teacherKey
+            !record.teacherKey || record.teacherKey === teacher.teacherKey
         );
         return NextResponse.json({ success: true, records });
     } catch (error) {
@@ -28,7 +26,7 @@ export async function GET() {
             { status: 500 }
         );
     }
-}
+});
 
 /**
  * Saves or updates a student record.
@@ -43,15 +41,13 @@ export async function GET() {
  * @returns {NextResponse} JSON response containing:
  *   - success: boolean
  */
-export async function POST(request: NextRequest) {
+export const POST = withTeacherAuth(async (request, { teacher }) => {
     try {
-        const session = await requireTeacherSession();
-        if (!session.ok) return session.response;
         if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         const body = await request.json();
         const { id, studentId, classId, teacherKey, content, status } = body;
-        const teacherGuard = rejectWhenDifferentTeacher(session.teacher.teacherKey, teacherKey);
+        const teacherGuard = rejectWhenDifferentTeacher(teacher.teacherKey, teacherKey);
         if (teacherGuard) return teacherGuard;
 
         if (!studentId || !classId) {
@@ -65,7 +61,7 @@ export async function POST(request: NextRequest) {
             id: id || `r-${Date.now()}`,
             studentId,
             classId,
-            teacherKey: teacherKey || session.teacher.teacherKey,
+            teacherKey: teacherKey || teacher.teacherKey,
             content: content || '',
             status: status || 'draft',
             lastUpdated: new Date().toISOString(),
@@ -79,4 +75,4 @@ export async function POST(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});

@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import {
     getObservations,
     getObservationsByStudent,
@@ -7,7 +7,7 @@ import {
     updateObservation,
     deleteObservation,
 } from '@/lib/sheets';
-import { rejectWhenDifferentTeacher, requireTeacherSession } from '@/lib/auth/guards';
+import { rejectWhenDifferentTeacher, withTeacherAuth } from '@/lib/auth/guards';
 import { isSupabaseRequiredButMissing } from '@/lib/supabase/config';
 import { supabaseRequiredResponse } from '@/lib/supabase/required-response';
 
@@ -22,16 +22,14 @@ import { supabaseRequiredResponse } from '@/lib/supabase/required-response';
  *   - success: boolean
  *   - data: Array of Observation objects
  */
-export async function GET(request: NextRequest) {
-    const session = await requireTeacherSession();
-    if (!session.ok) return session.response;
+export const GET = withTeacherAuth(async (request, { teacher }) => {
     if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
     const searchParams = request.nextUrl.searchParams;
     const studentId = searchParams.get('studentId');
     const teacherKey = searchParams.get('teacherKey') || undefined;
     const classId = searchParams.get('classId') || undefined;
-    const teacherGuard = rejectWhenDifferentTeacher(session.teacher.teacherKey, teacherKey);
+    const teacherGuard = rejectWhenDifferentTeacher(teacher.teacherKey, teacherKey);
     if (teacherGuard) return teacherGuard;
 
     try {
@@ -45,7 +43,7 @@ export async function GET(request: NextRequest) {
             observations = await getObservations();
         }
         const visibleObservations = observations.filter((observation) =>
-            !observation.teacherKey || observation.teacherKey === session.teacher.teacherKey
+            !observation.teacherKey || observation.teacherKey === teacher.teacherKey
         );
 
         return NextResponse.json({
@@ -64,7 +62,7 @@ export async function GET(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});
 
 // POST - 관찰 메모 추가
 /**
@@ -83,10 +81,8 @@ export async function GET(request: NextRequest) {
  *   - id: string
  *   - message: string
  */
-export async function POST(request: NextRequest) {
+export const POST = withTeacherAuth(async (request, { teacher }) => {
     try {
-        const session = await requireTeacherSession();
-        if (!session.ok) return session.response;
         if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         const body = await request.json();
@@ -105,7 +101,7 @@ export async function POST(request: NextRequest) {
             ocrData,
             imageUrl,
         } = body;
-        const teacherGuard = rejectWhenDifferentTeacher(session.teacher.teacherKey, teacherKey);
+        const teacherGuard = rejectWhenDifferentTeacher(teacher.teacherKey, teacherKey);
         if (teacherGuard) return teacherGuard;
 
         if (!studentId || !classId || !teacherKey || !date || !memo) {
@@ -148,7 +144,7 @@ export async function POST(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});
 
 // PUT - 관찰 메모 수정
 /**
@@ -162,15 +158,13 @@ export async function POST(request: NextRequest) {
  *   - success: boolean
  *   - message: string
  */
-export async function PUT(request: NextRequest) {
+export const PUT = withTeacherAuth(async (request, { teacher }) => {
     try {
-        const session = await requireTeacherSession();
-        if (!session.ok) return session.response;
         if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
         const body = await request.json();
         const { id, ...data } = body;
-        const teacherGuard = rejectWhenDifferentTeacher(session.teacher.teacherKey, data.teacherKey);
+        const teacherGuard = rejectWhenDifferentTeacher(teacher.teacherKey, data.teacherKey);
         if (teacherGuard) return teacherGuard;
 
         if (!id) {
@@ -198,7 +192,7 @@ export async function PUT(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});
 
 // DELETE - 관찰 메모 삭제
 /**
@@ -211,9 +205,7 @@ export async function PUT(request: NextRequest) {
  *   - success: boolean
  *   - message: string
  */
-export async function DELETE(request: NextRequest) {
-    const session = await requireTeacherSession();
-    if (!session.ok) return session.response;
+export const DELETE = withTeacherAuth(async (request) => {
     if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
 
     const searchParams = request.nextUrl.searchParams;
@@ -245,4 +237,4 @@ export async function DELETE(request: NextRequest) {
             { status: 500 }
         );
     }
-}
+});
