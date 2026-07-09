@@ -67,12 +67,20 @@ export interface ObservationBoardAiContext {
     roleContext?: ObservationBoardRoleContext;
 }
 
-export const DEFAULT_OBSERVATION_BOARD_ACTIVITY_SESSIONS: ObservationBoardActivitySession[] = [
+const LEGACY_DEMO_OBSERVATION_BOARD_ACTIVITY_SESSIONS: ObservationBoardActivitySession[] = [
     { id: 'session-1', label: '1차시', date: '5/2 (금)', topic: '서로 알아가기' },
     { id: 'session-2', label: '2차시', date: '5/9 (금)', topic: '협동 게임' },
     { id: 'session-3', label: '3차시', date: '5/16 (금)', topic: '책 함께 읽기' },
     { id: 'session-4', label: '4차시', date: '5/23 (금)', topic: '미션 활동' },
     { id: 'session-5', label: '5차시', date: '5/30 (금)', topic: '마무리 나누기' },
+];
+
+export const DEFAULT_OBSERVATION_BOARD_ACTIVITY_SESSIONS: ObservationBoardActivitySession[] = [
+    { id: 'session-1', label: '1차시', date: '', topic: '' },
+    { id: 'session-2', label: '2차시', date: '', topic: '' },
+    { id: 'session-3', label: '3차시', date: '', topic: '' },
+    { id: 'session-4', label: '4차시', date: '', topic: '' },
+    { id: 'session-5', label: '5차시', date: '', topic: '' },
 ];
 
 const markLabels: Record<Exclude<ObservationBoardMarkState, 'none'>, string> = {
@@ -112,7 +120,7 @@ export function normalizeObservationBoardActivitySessions(value: unknown): Obser
         .map((item, index) => {
             if (!item || typeof item !== 'object') return null;
             const session = item as Partial<ObservationBoardActivitySession>;
-            return {
+            const normalizedSession = {
                 id: typeof session.id === 'string' && session.id.trim()
                     ? session.id
                     : `session-${index + 1}`,
@@ -122,6 +130,19 @@ export function normalizeObservationBoardActivitySessions(value: unknown): Obser
                 date: typeof session.date === 'string' ? session.date : '',
                 topic: typeof session.topic === 'string' ? session.topic : '',
             };
+
+            const legacyDemoSession = LEGACY_DEMO_OBSERVATION_BOARD_ACTIVITY_SESSIONS[index];
+            if (
+                legacyDemoSession
+                && normalizedSession.id === legacyDemoSession.id
+                && normalizedSession.label === legacyDemoSession.label
+                && normalizedSession.date === legacyDemoSession.date
+                && normalizedSession.topic === legacyDemoSession.topic
+            ) {
+                return { ...normalizedSession, date: '', topic: '' };
+            }
+
+            return normalizedSession;
         })
         .filter(Boolean) as ObservationBoardActivitySession[];
 
