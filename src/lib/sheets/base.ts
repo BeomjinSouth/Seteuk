@@ -1,7 +1,7 @@
 import { google } from 'googleapis';
 import { promises as fs } from 'fs';
 import path from 'path';
-import { isSupabaseConfigured, isSupabaseRequiredButMissing } from '@/lib/supabase/config';
+import { isProductionRuntime, isSupabaseConfigured, isSupabaseRequiredButMissing } from '@/lib/supabase/config';
 import {
     appendSupabaseSheetRow,
     deleteSupabaseSheetRows,
@@ -75,6 +75,37 @@ type LocalSheetStore = Record<string, string[][]>;
 
 function shouldUseLocalSheetFallback() {
     return process.env.NODE_ENV !== 'production';
+}
+
+function getErrorMessage(error: unknown): string {
+    if (error instanceof Error) return error.message;
+    try {
+        return JSON.stringify(error);
+    } catch {
+        return String(error);
+    }
+}
+
+function isGoogleSheetsConfigured() {
+    return Boolean(
+        SPREADSHEET_ID
+        && process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL?.trim()
+        && normalizeGooglePrivateKey(process.env.GOOGLE_PRIVATE_KEY)
+    );
+}
+
+function isLikelySupabaseNetworkReadError(error: unknown): boolean {
+    const message = getErrorMessage(error);
+    return [
+        "fetch failed",
+        "getaddrinfo",
+        "ENOTFOUND",
+        "EAI_AGAIN",
+        "ECONNRESET",
+        "ECONNREFUSED",
+        "ETIMEDOUT",
+        "UND_ERR",
+    ].some((pattern) => message.includes(pattern));
 }
 
 function assertProductionStorageConfigured() {
@@ -155,7 +186,17 @@ export async function readSheet(sheetName: string): Promise<string[][]> {
     assertProductionStorageConfigured();
 
     if (isSupabaseConfigured()) {
-        return readSupabaseSheet(sheetName);
+        try {
+            return await readSupabaseSheet(sheetName);
+        } catch (error: unknown) {
+            const message = getErrorMessage(error);
+            const canTryFallback = isLikelySupabaseNetworkReadError(error)
+                && (!isProductionRuntime() || isGoogleSheetsConfigured());
+
+            if (!canTryFallback) throw error;
+
+            console.warn("[sheets] Supabase read failed for \"" + sheetName + "\", trying Google Sheets read fallback: " + message);
+        }
     }
 
     try {

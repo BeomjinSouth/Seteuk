@@ -44,9 +44,9 @@ Set these in local `.env.local` and in the Vercel project settings.
 - `SUPABASE_URL` or `SUPABASE_PROJECT_ID`
 - `SUPABASE_SECRET_KEY`
 
-Production runtime is Supabase-only. If Supabase is not configured in production, workspace/student/record storage APIs return a clear `503` instead of falling back to Google Sheets.
+Production runtime is Supabase-primary. If Supabase is not configured in production, workspace/student/record storage APIs return a clear `503`. If Supabase is configured but a sheet read fails with a network/DNS error and Google Sheets credentials are present, read-only sheet APIs can fall back to Google Sheets; writes stay Supabase-only.
 
-Google Sheets variables are optional and kept only for roster import or Google-to-Supabase migration helpers:
+Google Sheets variables are optional and kept for roster import, Google-to-Supabase migration helpers, and read-only fallback during Supabase network/DNS incidents:
 
 - `GOOGLE_SERVICE_ACCOUNT_EMAIL`
 - `GOOGLE_PRIVATE_KEY`
