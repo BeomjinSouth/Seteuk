@@ -120,7 +120,10 @@ async function prepareStudent(input: BatchStudentInput): Promise<PreparedStudent
         sanitizedLearningData,
         observationsText,
         usedObservationIds,
-        observationBoardText: formatObservationBoardContextForPrompt(input.observationBoardContext),
+        observationBoardText: formatObservationBoardContextForPrompt(input.observationBoardContext, {
+            observationsText,
+            learningData: sanitizedLearningData,
+        }),
         observationBoardContextCount: countObservationBoardContextItems(input.observationBoardContext),
     };
 }
@@ -163,7 +166,7 @@ function buildBatchPrompt(students: PreparedStudent[], exampleTemplates: string[
             '[Observation memos]',
             student.observationsText || '- none',
             '',
-            '[Observation-board interpreted activity]',
+            '[Observation-board attitude evidence: supporting context only]',
             student.observationBoardText || '- none',
             '',
             '[Selected curriculum context: background only, not student evidence]',

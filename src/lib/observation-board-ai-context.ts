@@ -67,6 +67,11 @@ export interface ObservationBoardAiContext {
     roleContext?: ObservationBoardRoleContext;
 }
 
+interface ObservationBoardPromptEvidence {
+    observationsText?: string;
+    learningData?: Record<string, string>;
+}
+
 const LEGACY_DEMO_OBSERVATION_BOARD_ACTIVITY_SESSIONS: ObservationBoardActivitySession[] = [
     { id: 'session-1', label: '1차시', date: '5/2 (금)', topic: '서로 알아가기' },
     { id: 'session-2', label: '2차시', date: '5/9 (금)', topic: '협동 게임' },
@@ -720,27 +725,33 @@ export function readObservationBoardAiContext(input: {
     };
 }
 
-export function formatObservationBoardContextForPrompt(context?: ObservationBoardAiContext): string {
-    if (!context?.derivedSummary?.summaryLines.length) return '';
+export function formatObservationBoardContextForPrompt(
+    context?: ObservationBoardAiContext,
+    evidence: ObservationBoardPromptEvidence = {}
+): string {
+    if (!context?.sessionMarks?.length) return '';
+
+    const hasPrimaryEvidence = Boolean(
+        evidence.observationsText?.trim()
+        || Object.values(evidence.learningData || {}).some((value) => value?.trim())
+    );
+    const { markedSessions, participationRate } = context.derivedSummary;
+    const participationSummary = markedSessions >= 2 && participationRate >= 0.8
+        ? '수업 활동에 꾸준히 참여한 기록이 있음.'
+        : markedSessions >= 2 && participationRate >= 0.5
+            ? '수업 활동에 일정하게 참여한 기록이 있음.'
+            : '수업 활동에 참여한 기록이 있음.';
 
     return [
-        '[활동 해석 요약]',
-        ...context.derivedSummary.summaryLines.map((line) => `• ${line}`),
+        '[활동판 태도 보조 근거]',
+        `• ${participationSummary}`,
         '',
-        '[차시별 기록]',
-        ...context.sessionMarks.map((item) => {
-            const details = [
-                item.date,
-                item.topic,
-                item.roleContext
-                    ? `${item.roleContext.groupTitle ? `${item.roleContext.groupTitle} ` : ''}${item.roleContext.roleLabel}`
-                    : undefined,
-            ].filter(Boolean).join(' / ');
-            return `• ${item.label}: ${item.markLabel}${details ? ` (${details})` : ''}`;
-        }),
-        '',
-        '[작성 지침]',
-        ...context.derivedSummary.writingGuidance.map((line) => `• ${line}`),
+        '[활용 제한]',
+        hasPrimaryEvidence
+            ? '• 관찰 메모와 학생별 입력 자료를 문장의 중심에 두고, 이 자료는 태도를 뒷받침하는 짧은 보조 근거로만 사용하세요.'
+            : '• 상위 근거가 없으므로 이 자료는 일반적인 수업 참여 태도 한 문장으로만 짧게 서술하세요.',
+        '• 조 번호, 역할명, 활동명, 날짜, 차시별 주제와 표시 정보는 제공하지도 추론하지도 마세요.',
+        '• 이 자료만으로 교과 지식 성취, 리더십, 우수성이나 성장 정도를 단정하지 마세요.',
     ].join('\n');
 }
 

@@ -273,10 +273,13 @@ export const POST = withTeacherAuth(async (request) => {
         userPrompt += `\n\n[관찰 메모]\n${observationsText}\n\n// 관찰 메모는 수업 중 학생을 직접 관찰하고 기록한 내용입니다.\n// 관찰 내용을 근거로 구체적인 사례와 역량을 포함하여 세특을 작성해 주세요.`;
     }
 
-    const observationBoardText = formatObservationBoardContextForPrompt(observationBoardContext);
+    const observationBoardText = formatObservationBoardContextForPrompt(observationBoardContext, {
+        observationsText,
+        learningData,
+    });
     const observationBoardContextCount = countObservationBoardContextItems(observationBoardContext);
     if (observationBoardText) {
-        userPrompt += `\n\n[멘토·멘티 활동 해석]\n${observationBoardText}\n\n// 이 섹션은 교사가 차시별 활동 표에 남긴 △/○ 기록을 해석한 요약입니다.\n// 차시명이나 △/○를 그대로 나열하지 말고, 관계 기반 활동에서 드러난 성실성·책임감·협력 태도·활동 지속성·성장 흐름으로 자연스럽게 반영하세요.\n// 활동판 기록만으로 교과 지식 성취나 리더십을 단정하지 말고, 관찰 메모와 학습 데이터가 있으면 그 구체 장면을 우선하세요.`;
+        userPrompt += `\n\n${observationBoardText}`;
     }
 
     if (curriculumContextText) {

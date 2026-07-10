@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test:seteuk-prompt": "node --test tests/observation-board-ai-context.test.mjs",
     "sync:knowledge-docs": "node scripts/sync-knowledge-docs.mjs",
     "label:graph-rag": "node scripts/generate-graph-rag-labels.mjs"
   },
