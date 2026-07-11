@@ -13,7 +13,6 @@ type IdentifyResult = {
     token: string;
     alreadySubmitted?: boolean;
     student: {
-        name: string;
         grade: number;
         classNumber: number;
         number: number;
@@ -35,6 +34,7 @@ export default function GroupSurveyPageClient({ accessCode }: { accessCode: stri
     const [grade, setGrade] = useState('');
     const [classNumber, setClassNumber] = useState('');
     const [number, setNumber] = useState('');
+    const [studentName, setStudentName] = useState('');
     const [identified, setIdentified] = useState<IdentifyResult | null>(null);
     const [step, setStep] = useState<'identify' | 'confirm' | 'survey' | 'done'>('identify');
     const [answers, setAnswers] = useState<Array<SurveyAnswerValue | 0>>(emptyAnswers);
@@ -61,6 +61,7 @@ export default function GroupSurveyPageClient({ accessCode }: { accessCode: stri
                     grade: Number(grade),
                     classNumber: Number(classNumber),
                     number: Number(number),
+                    name: studentName,
                 }),
             });
             const payload = await response.json() as IdentifyResult & { success?: boolean; error?: string };
@@ -163,6 +164,16 @@ export default function GroupSurveyPageClient({ accessCode }: { accessCode: stri
                                     required
                                 />
                             </label>
+                            <label>
+                                이름
+                                <input
+                                    type="text"
+                                    autoComplete="off"
+                                    value={studentName}
+                                    onChange={(event) => setStudentName(event.target.value)}
+                                    required
+                                />
+                            </label>
                         </div>
                         {message && <p className={styles.errorText}>{message}</p>}
                         <button type="submit" className={styles.primaryButton} disabled={isLoading}>
@@ -175,7 +186,7 @@ export default function GroupSurveyPageClient({ accessCode }: { accessCode: stri
                 {step === 'confirm' && identified && (
                     <section className={styles.confirmPanel}>
                         <UserCheck size={42} />
-                        <h2>{identified.student.name} 님이 맞습니까?</h2>
+                        <h2>{studentName.trim()} 님이 맞습니까?</h2>
                         <p>
                             {identified.student.grade}학년 {identified.student.classNumber}반 {identified.student.number}번으로 확인되었습니다.
                         </p>

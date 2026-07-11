@@ -13,6 +13,19 @@ function parsePositiveInt(value: unknown): number | null {
     return Number.isInteger(parsed) && parsed > 0 ? parsed : null;
 }
 
+function normalizeStudentName(value: unknown): string {
+    return typeof value === 'string' ? value.replace(/\s+/g, '') : '';
+}
+
+// 이름 불일치와 좌표 불일치를 구분할 수 없게 동일한 실패 응답을 사용한다.
+// 명렬표 실명은 어떤 경우에도 응답에 싣지 않는다.
+function identifyFailedResponse() {
+    return NextResponse.json(
+        { success: false, error: '입력한 학년·반·번호·이름과 일치하는 학생을 찾지 못했습니다.' },
+        { status: 404 }
+    );
+}
+
 export async function POST(request: NextRequest) {
     try {
         if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
@@ -22,16 +35,18 @@ export async function POST(request: NextRequest) {
             grade?: unknown;
             classNumber?: unknown;
             number?: unknown;
+            name?: unknown;
         };
 
         const accessCode = (body.accessCode || '').trim().toUpperCase();
         const grade = parsePositiveInt(body.grade);
         const classNumber = parsePositiveInt(body.classNumber);
         const number = parsePositiveInt(body.number);
+        const enteredName = normalizeStudentName(body.name);
 
-        if (!accessCode || !grade || !classNumber || !number) {
+        if (!accessCode || !grade || !classNumber || !number || !enteredName) {
             return NextResponse.json(
-                { success: false, error: '학년, 반, 번호를 모두 입력해 주세요.' },
+                { success: false, error: '학년, 반, 번호, 이름을 모두 입력해 주세요.' },
                 { status: 400 }
             );
         }
@@ -57,11 +72,8 @@ export async function POST(request: NextRequest) {
             && item.number === number
         );
 
-        if (!student) {
-            return NextResponse.json(
-                { success: false, error: '입력한 학년·반·번호와 일치하는 학생을 찾지 못했습니다.' },
-                { status: 404 }
-            );
+        if (!student || normalizeStudentName(student.name) !== enteredName) {
+            return identifyFailedResponse();
         }
 
         const existingResponse = await getGroupSurveyResponse({
@@ -78,7 +90,6 @@ export async function POST(request: NextRequest) {
             token,
             alreadySubmitted: Boolean(existingResponse),
             student: {
-                name: student.name,
                 grade: student.grade,
                 classNumber: student.classNumber,
                 number: student.number,
