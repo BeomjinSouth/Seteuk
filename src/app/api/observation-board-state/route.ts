@@ -48,9 +48,29 @@ export async function PUT(request: NextRequest) {
         return NextResponse.json({ success: true, configured: false, skipped: true });
     }
 
-    const body = await request.json() as { teacherKey?: string; data?: unknown };
+    const body = await request.json() as {
+        teacherKey?: string;
+        data?: unknown;
+        expectedUpdatedAt?: string | null;
+    };
     if (body.teacherKey && body.teacherKey !== teacher.teacherKey) {
         return NextResponse.json({ success: false, error: '교사 세션이 일치하지 않습니다.' }, { status: 403 });
+    }
+
+    // expectedUpdatedAt을 보낸 클라이언트에 한해 낙관적 동시성 검사를 한다.
+    // (관찰판 클라이언트는 자체 병합·백업 경로가 있어 아직 이 값을 보내지 않는다.)
+    if (body.expectedUpdatedAt !== undefined) {
+        const current = await getAppStateDocument('observation-board', teacher.teacherKey);
+        const currentUpdatedAt = current?.updatedAt ?? null;
+        if (currentUpdatedAt !== body.expectedUpdatedAt) {
+            return NextResponse.json({
+                success: false,
+                conflict: true,
+                error: '다른 기기에서 더 최신 상태가 저장되었습니다.',
+                updatedAt: currentUpdatedAt,
+                data: current?.payload ?? null,
+            }, { status: 409 });
+        }
     }
 
     const document = await upsertAppStateDocument('observation-board', teacher.teacherKey, body.data || {});

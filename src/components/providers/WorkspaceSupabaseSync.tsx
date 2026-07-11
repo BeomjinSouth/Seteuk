@@ -36,6 +36,9 @@ export function WorkspaceSupabaseSync() {
     const keywords = useAppStore((state) => state.keywords);
     const [isRemoteLoaded, setIsRemoteLoaded] = useState(false);
     const lastSyncedPayloadRef = useRef('');
+    // 서버 문서의 updatedAt. PUT 시 expectedUpdatedAt으로 보내 다른 기기의
+    // 더 최신 저장본을 조용히 덮어쓰지 않게 한다 (서버가 409로 알려줌).
+    const lastRemoteUpdatedAtRef = useRef<string | null>(null);
     const teacherKey = teacher?.teacherKey || '';
 
     const payload: WorkspacePayload = useMemo(() => ({
@@ -85,7 +88,11 @@ export function WorkspaceSupabaseSync() {
                 const body = await response.json() as {
                     configured?: boolean;
                     data?: Partial<WorkspacePayload> | null;
+                    updatedAt?: string | null;
                 };
+                if (body.configured) {
+                    lastRemoteUpdatedAtRef.current = body.updatedAt ?? null;
+                }
                 if (body.configured && body.data && Object.keys(body.data).length > 0) {
                     replaceSyncedWorkspaceState(body.data);
                     lastSyncedPayloadRef.current = JSON.stringify(body.data);
@@ -112,21 +119,55 @@ export function WorkspaceSupabaseSync() {
 
         const timeout = window.setTimeout(() => {
             lastSyncedPayloadRef.current = serializedPayload;
-            void fetch('/api/workspace-state', {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    teacherKey,
-                    data: JSON.parse(serializedPayload) as WorkspacePayload,
-                }),
-            }).catch((error) => {
-                console.error('Workspace Supabase sync save failed:', error);
-                lastSyncedPayloadRef.current = '';
-            });
+            void (async () => {
+                try {
+                    const response = await fetch('/api/workspace-state', {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            teacherKey,
+                            data: JSON.parse(serializedPayload) as WorkspacePayload,
+                            expectedUpdatedAt: lastRemoteUpdatedAtRef.current,
+                        }),
+                    });
+
+                    if (response.status === 409) {
+                        // 다른 기기/탭이 먼저 저장했다. 그쪽 기록을 지우지 않도록
+                        // 서버의 최신본을 받아들인다 (이 탭의 미전송 변경은 화면에서
+                        // 되돌아가므로 사용자에게 즉시 보인다).
+                        const conflictBody = await response.json() as {
+                            updatedAt?: string | null;
+                            data?: Partial<WorkspacePayload> | null;
+                        };
+                        console.warn('Workspace state conflict: adopting the newer remote copy.');
+                        lastRemoteUpdatedAtRef.current = conflictBody.updatedAt ?? null;
+                        if (conflictBody.data && Object.keys(conflictBody.data).length > 0) {
+                            replaceSyncedWorkspaceState(conflictBody.data);
+                            lastSyncedPayloadRef.current = JSON.stringify(conflictBody.data);
+                        } else {
+                            lastSyncedPayloadRef.current = '';
+                        }
+                        return;
+                    }
+
+                    if (!response.ok) {
+                        lastSyncedPayloadRef.current = '';
+                        return;
+                    }
+
+                    const okBody = await response.json() as { updatedAt?: string | null };
+                    if (okBody.updatedAt) {
+                        lastRemoteUpdatedAtRef.current = okBody.updatedAt;
+                    }
+                } catch (error) {
+                    console.error('Workspace Supabase sync save failed:', error);
+                    lastSyncedPayloadRef.current = '';
+                }
+            })();
         }, 900);
 
         return () => window.clearTimeout(timeout);
-    }, [hasHydrated, isRemoteLoaded, serializedPayload, teacherKey]);
+    }, [hasHydrated, isRemoteLoaded, replaceSyncedWorkspaceState, serializedPayload, teacherKey]);
 
     return null;
 }
