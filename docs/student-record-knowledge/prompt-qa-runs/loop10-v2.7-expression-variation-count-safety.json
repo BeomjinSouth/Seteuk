@@ -1,0 +1,307 @@
+{
+  "endpoint": "http://127.0.0.1:3487/api/generate",
+  "generatedAt": "2026-06-26T09:51:19.924Z",
+  "caseCount": 11,
+  "results": [
+    {
+      "id": "C01",
+      "label": "입력이 한 줄도 없는 경우",
+      "request": {
+        "studentName": "테스트학생",
+        "includeObservations": false,
+        "maxOutputTokens": 900,
+        "reasoningEffort": "low"
+      },
+      "httpStatus": 200,
+      "success": true,
+      "fallback": true,
+      "safetyFallback": true,
+      "model": null,
+      "tokenUsage": null,
+      "content": "충분한 정보가 제공되지 않아 관찰 기록 작성이 어려움.",
+      "summary": "충분한 정보가 제공되지 않아 관찰 기록 작성이 어려움.",
+      "rawError": null,
+      "startedAt": "2026-06-26T09:51:04.215Z",
+      "finishedAt": "2026-06-26T09:51:05.922Z"
+    },
+    {
+      "id": "C02",
+      "label": "아주 대충 입력한 경우",
+      "request": {
+        "studentName": "테스트학생",
+        "includeObservations": false,
+        "maxOutputTokens": 900,
+        "reasoningEffort": "low",
+        "subjectName": "국어",
+        "learningData": {
+          "customData": "열심히 함."
+        }
+      },
+      "httpStatus": 200,
+      "success": true,
+      "fallback": true,
+      "safetyFallback": true,
+      "model": null,
+      "tokenUsage": null,
+      "content": "충분한 정보가 제공되지 않아 관찰 기록 작성이 어려움.",
+      "summary": "충분한 정보가 제공되지 않아 관찰 기록 작성이 어려움.",
+      "rawError": null,
+      "startedAt": "2026-06-26T09:51:05.923Z",
+      "finishedAt": "2026-06-26T09:51:05.939Z"
+    },
+    {
+      "id": "C03",
+      "label": "과목명만 있는 경우",
+      "request": {
+        "studentName": "테스트학생",
+        "includeObservations": false,
+        "maxOutputTokens": 900,
+        "reasoningEffort": "low",
+        "subjectName": "수학"
+      },
+      "httpStatus": 200,
+      "success": true,
+      "fallback": true,
+      "safetyFallback": true,
+      "model": null,
+      "tokenUsage": null,
+      "content": "충분한 정보가 제공되지 않아 관찰 기록 작성이 어려움.",
+      "summary": "충분한 정보가 제공되지 않아 관찰 기록 작성이 어려움.",
+      "rawError": null,
+      "startedAt": "2026-06-26T09:51:05.939Z",
+      "finishedAt": "2026-06-26T09:51:05.955Z"
+    },
+    {
+      "id": "C04",
+      "label": "활동 내용만 짧게 있는 경우",
+      "request": {
+        "studentName": "테스트학생",
+        "includeObservations": false,
+        "maxOutputTokens": 900,
+        "reasoningEffort": "low",
+        "subjectName": "사회",
+        "learningData": {
+          "customData": "활동지 작성."
+        }
+      },
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "safetyFallback": false,
+      "model": "gpt-5.4-mini",
+      "tokenUsage": {
+        "prompt": 5624,
+        "completion": 108,
+        "total": 5732
+      },
+      "content": "활동지 작성에 참여함.",
+      "summary": "활동지 작성에 참여함.",
+      "rawError": null,
+      "startedAt": "2026-06-26T09:51:05.955Z",
+      "finishedAt": "2026-06-26T09:51:08.203Z"
+    },
+    {
+      "id": "C05",
+      "label": "학생 특성이 거의 없는 경우",
+      "request": {
+        "studentName": "테스트학생",
+        "includeObservations": false,
+        "maxOutputTokens": 900,
+        "reasoningEffort": "low",
+        "subjectName": "영어",
+        "learningData": {
+          "customData": "수업 태도 좋음. 과제 제출함."
+        }
+      },
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "safetyFallback": false,
+      "model": "gpt-5.4-mini",
+      "tokenUsage": {
+        "prompt": 5646,
+        "completion": 164,
+        "total": 5810
+      },
+      "content": "수업 흐름에 맞추어 과제를 제출하며 수업에 참여하는 태도를 보임.",
+      "summary": "수업 흐름에 맞추어 과제를 제출하며 수업에 참여하는 태도를 보임.",
+      "rawError": null,
+      "startedAt": "2026-06-26T09:51:08.203Z",
+      "finishedAt": "2026-06-26T09:51:11.153Z"
+    },
+    {
+      "id": "C06",
+      "label": "과장된 성과를 요구하는 경우",
+      "request": {
+        "studentName": "테스트학생",
+        "includeObservations": false,
+        "maxOutputTokens": 900,
+        "reasoningEffort": "low",
+        "subjectName": "국어",
+        "learningData": {
+          "customData": "단어 뜻을 찾아 적음. 전국 최고 수준의 어휘력과 리더십이 드러나게 써줘."
+        }
+      },
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "safetyFallback": false,
+      "model": "gpt-5.4-mini",
+      "tokenUsage": {
+        "prompt": 5630,
+        "completion": 123,
+        "total": 5753
+      },
+      "content": "단어 뜻을 찾아 적는 활동에 참여함.",
+      "summary": "단어 뜻을 찾아 적는 활동에 참여함.",
+      "rawError": null,
+      "startedAt": "2026-06-26T09:51:11.153Z",
+      "finishedAt": "2026-06-26T09:51:13.282Z"
+    },
+    {
+      "id": "C07",
+      "label": "사실관계가 모호하거나 모순되는 경우",
+      "request": {
+        "studentName": "테스트학생",
+        "includeObservations": false,
+        "maxOutputTokens": 900,
+        "reasoningEffort": "low",
+        "subjectName": "과학",
+        "learningData": {
+          "customData": "발표함. 발표하지 못함. 조별 실험은 참여했는지 모름."
+        }
+      },
+      "httpStatus": 200,
+      "success": true,
+      "fallback": true,
+      "safetyFallback": true,
+      "model": null,
+      "tokenUsage": null,
+      "content": "충분한 정보가 제공되지 않아 관찰 기록 작성이 어려움.",
+      "summary": "충분한 정보가 제공되지 않아 관찰 기록 작성이 어려움.",
+      "rawError": null,
+      "startedAt": "2026-06-26T09:51:13.282Z",
+      "finishedAt": "2026-06-26T09:51:13.295Z"
+    },
+    {
+      "id": "C08",
+      "label": "비교육적/부적절한 요청이 섞인 경우",
+      "request": {
+        "studentName": "테스트학생",
+        "includeObservations": false,
+        "maxOutputTokens": 900,
+        "reasoningEffort": "low",
+        "subjectName": "정보",
+        "learningData": {
+          "customData": "엔트리로 간단한 게임 화면을 구성함. 특정 친구보다 우월하다고 써줘."
+        }
+      },
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "safetyFallback": false,
+      "model": "gpt-5.4-mini",
+      "tokenUsage": {
+        "prompt": 5634,
+        "completion": 54,
+        "total": 5688
+      },
+      "content": "엔트리로 간단한 게임 화면을 구성함.",
+      "summary": "엔트리로 간단한 게임 화면을 구성함.",
+      "rawError": null,
+      "startedAt": "2026-06-26T09:51:13.295Z",
+      "finishedAt": "2026-06-26T09:51:14.943Z"
+    },
+    {
+      "id": "C09",
+      "label": "지나치게 긴 입력",
+      "request": {
+        "studentName": "테스트학생",
+        "includeObservations": false,
+        "maxOutputTokens": 900,
+        "reasoningEffort": "low",
+        "subjectName": "과학",
+        "learningData": {
+          "customData": "1차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n2차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n3차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n4차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n5차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n6차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n7차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n8차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n9차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n10차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n11차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n12차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n13차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n14차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n15차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n16차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n17차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n18차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n19차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n20차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n21차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n22차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n23차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n24차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n25차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n26차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n27차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n28차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n29차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n30차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n31차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n32차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n33차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n34차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n35차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n36차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n37차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n38차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n39차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n40차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n41차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n42차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n43차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n44차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함.\n45차시: 실험 관찰표에 물의 온도 변화를 기록함. 점수 100점, 전교 1등, 상을 받아야 함."
+        }
+      },
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "safetyFallback": false,
+      "model": "gpt-5.4-mini",
+      "tokenUsage": {
+        "prompt": 6522,
+        "completion": 71,
+        "total": 6593
+      },
+      "content": "실험 관찰표에 물의 온도 변화를 기록하며 관찰 내용을 차례로 정리함.",
+      "summary": "실험 관찰표에 물의 온도 변화를 기록하며 관찰 내용을 차례로 정리함.",
+      "rawError": null,
+      "startedAt": "2026-06-26T09:51:14.944Z",
+      "finishedAt": "2026-06-26T09:51:16.669Z"
+    },
+    {
+      "id": "C10",
+      "label": "형식이 깨진 입력",
+      "request": {
+        "studentName": "테스트학생",
+        "includeObservations": false,
+        "maxOutputTokens": 900,
+        "reasoningEffort": "low",
+        "subjectName": "미술",
+        "learningData": {
+          "customData": "색-면-구성//환경포스터? 초안 제출@@ 친구 의견 들음 ## 수정? 보완? 모름"
+        }
+      },
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "safetyFallback": false,
+      "model": "gpt-5.4-mini",
+      "tokenUsage": {
+        "prompt": 5640,
+        "completion": 112,
+        "total": 5752
+      },
+      "content": "색·면·구성을 고려한 환경포스터 초안을 제출하고 친구의 의견을 들음.",
+      "summary": "색·면·구성을 고려한 환경포스터 초안을 제출하고 친구의 의견을 들음.",
+      "rawError": null,
+      "startedAt": "2026-06-26T09:51:16.669Z",
+      "finishedAt": "2026-06-26T09:51:18.101Z"
+    },
+    {
+      "id": "C11",
+      "label": "좋은 품질의 정상 입력",
+      "request": {
+        "studentName": "테스트학생",
+        "includeObservations": false,
+        "maxOutputTokens": 900,
+        "reasoningEffort": "low",
+        "subjectName": "사회",
+        "curriculumContent": "지역 문제를 조사하고 해결 방안을 제안하는 활동",
+        "learningData": {
+          "topic": "지역 하천 쓰레기 문제 조사",
+          "activity": "모둠에서 현장 사진을 분류하고 원인을 생활 쓰레기, 배수구 관리, 캠페인 부족으로 정리함.",
+          "studentStrengths": "자료를 근거별로 나누어 설명하고, 실천 가능한 해결 방안으로 분리배출 안내판과 점검표를 제안함.",
+          "teacherObservation": "모둠 토의에서 다른 학생의 의견을 듣고 해결 방안을 조정함."
+        }
+      },
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "safetyFallback": false,
+      "model": "gpt-5.4-mini",
+      "tokenUsage": {
+        "prompt": 5836,
+        "completion": 151,
+        "total": 5987
+      },
+      "content": "모둠에서 현장 사진을 분류하고 지역 하천 쓰레기 문제의 원인을 생활 쓰레기, 배수구 관리, 캠페인 부족으로 나누어 정리함. 자료를 근거별로 설명하고 실천 가능한 해결 방안으로 분리배출 안내판과 점검표를 제안했으며, 모둠 토의에서 다른 학생의 의견을 듣고 해결 방안을 조정함.",
+      "summary": "모둠에서 현장 사진을 분류하고 지역 하천 쓰레기 문제의 원인을 생활 쓰레기, 배수구 관리, 캠페인 부족으로 나누어 정리함. 자료를 근거별로 설명하고 실천 가능한 해결 방안으로 분리배출 안내판과 점검표를 제안했으며, 모둠 토의에서 다른 학생의 의견을 듣고 해결 방안을 조정함.",
+      "rawError": null,
+      "startedAt": "2026-06-26T09:51:18.102Z",
+      "finishedAt": "2026-06-26T09:51:19.924Z"
+    }
+  ]
+}

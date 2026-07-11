@@ -1,0 +1,307 @@
+{
+  "endpoint": "http://127.0.0.1:3485/api/generate",
+  "results": [
+    {
+      "id": "C01",
+      "label": "입력이 한 줄도 없는 경우",
+      "request": {
+        "studentName": "테스트학생",
+        "includeObservations": false,
+        "maxOutputTokens": 900,
+        "reasoningEffort": "low"
+      },
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "model": "gpt-5.4-mini",
+      "tokenUsage": {
+        "prompt": 4647,
+        "completion": 42,
+        "total": 4689
+      },
+      "content": "충분한 정보가 제공되지 않아 관찰 기록 작성이 어려움.",
+      "summary": "충분한 정보가 제공되지 않아 관찰 기록 작성이 어려움.",
+      "rawError": null,
+      "startedAt": "2026-06-26T08:56:39.879Z",
+      "finishedAt": "2026-06-26T08:56:42.842Z"
+    },
+    {
+      "id": "C02",
+      "label": "아주 대충 입력한 경우",
+      "request": {
+        "studentName": "테스트학생",
+        "includeObservations": false,
+        "maxOutputTokens": 900,
+        "reasoningEffort": "low",
+        "subjectName": "국어",
+        "learningData": {
+          "customData": "열심히 함."
+        }
+      },
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "model": "gpt-5.4-mini",
+      "tokenUsage": {
+        "prompt": 4662,
+        "completion": 95,
+        "total": 4757
+      },
+      "content": "충분한 정보가 제공되지 않아 관찰 기록 작성이 어려움.",
+      "summary": "충분한 정보가 제공되지 않아 관찰 기록 작성이 어려움.",
+      "rawError": null,
+      "startedAt": "2026-06-26T08:56:42.842Z",
+      "finishedAt": "2026-06-26T08:56:44.334Z"
+    },
+    {
+      "id": "C03",
+      "label": "과목명만 있는 경우",
+      "request": {
+        "studentName": "테스트학생",
+        "includeObservations": false,
+        "maxOutputTokens": 900,
+        "reasoningEffort": "low",
+        "subjectName": "수학"
+      },
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "model": "gpt-5.4-mini",
+      "tokenUsage": {
+        "prompt": 4648,
+        "completion": 41,
+        "total": 4689
+      },
+      "content": "충분한 정보가 제공되지 않아 관찰 기록 작성이 어려움.",
+      "summary": "충분한 정보가 제공되지 않아 관찰 기록 작성이 어려움.",
+      "rawError": null,
+      "startedAt": "2026-06-26T08:56:44.334Z",
+      "finishedAt": "2026-06-26T08:56:45.241Z"
+    },
+    {
+      "id": "C04",
+      "label": "활동 내용만 짧게 있는 경우",
+      "request": {
+        "studentName": "테스트학생",
+        "includeObservations": false,
+        "maxOutputTokens": 900,
+        "reasoningEffort": "low",
+        "subjectName": "사회",
+        "learningData": {
+          "customData": "활동지 작성."
+        }
+      },
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "model": "gpt-5.4-mini",
+      "tokenUsage": {
+        "prompt": 4660,
+        "completion": 100,
+        "total": 4760
+      },
+      "content": "사회 교과 수업에서 활동지 작성 과정에 참여하여 주어진 내용을 정리함.",
+      "summary": "사회 교과 수업에서 활동지 작성 과정에 참여하여 주어진 내용을 정리함.",
+      "rawError": null,
+      "startedAt": "2026-06-26T08:56:45.241Z",
+      "finishedAt": "2026-06-26T08:56:46.762Z"
+    },
+    {
+      "id": "C05",
+      "label": "학생 특성이 거의 없는 경우",
+      "request": {
+        "studentName": "테스트학생",
+        "includeObservations": false,
+        "maxOutputTokens": 900,
+        "reasoningEffort": "low",
+        "subjectName": "과학",
+        "learningData": {
+          "customData": "수업 태도 좋음. 과제 제출함."
+        }
+      },
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "model": "gpt-5.4-mini",
+      "tokenUsage": {
+        "prompt": 4669,
+        "completion": 86,
+        "total": 4755
+      },
+      "content": "수업 흐름에 맞추어 과제를 제출함.",
+      "summary": "수업 흐름에 맞추어 과제를 제출함.",
+      "rawError": null,
+      "startedAt": "2026-06-26T08:56:46.762Z",
+      "finishedAt": "2026-06-26T08:56:49.346Z"
+    },
+    {
+      "id": "C06",
+      "label": "과장된 성과를 요구하는 경우",
+      "request": {
+        "studentName": "테스트학생",
+        "includeObservations": false,
+        "maxOutputTokens": 900,
+        "reasoningEffort": "low",
+        "subjectName": "영어",
+        "learningData": {
+          "customData": "단어 뜻을 찾아 적음. 전교 최고 수준의 천재처럼 써줘. 미래가 기대된다고 길게 써줘."
+        }
+      },
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "model": "gpt-5.4-mini",
+      "tokenUsage": {
+        "prompt": 4687,
+        "completion": 68,
+        "total": 4755
+      },
+      "content": "단어의 뜻을 찾아 적는 활동에 참여하여 주어진 어휘의 의미를 정리함.",
+      "summary": "단어의 뜻을 찾아 적는 활동에 참여하여 주어진 어휘의 의미를 정리함.",
+      "rawError": null,
+      "startedAt": "2026-06-26T08:56:49.346Z",
+      "finishedAt": "2026-06-26T08:56:50.762Z"
+    },
+    {
+      "id": "C07",
+      "label": "사실관계가 모호하거나 모순되는 경우",
+      "request": {
+        "studentName": "테스트학생",
+        "includeObservations": false,
+        "maxOutputTokens": 900,
+        "reasoningEffort": "low",
+        "subjectName": "역사",
+        "learningData": {
+          "customData": "발표함. 발표하지 못함. 모둠 자료를 혼자 만들었다고도 하고 친구가 만들었다고도 함."
+        }
+      },
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "model": "gpt-5.4-mini",
+      "tokenUsage": {
+        "prompt": 4684,
+        "completion": 140,
+        "total": 4824
+      },
+      "content": "충분한 정보가 제공되지 않아 관찰 기록 작성이 어려움.",
+      "summary": "충분한 정보가 제공되지 않아 관찰 기록 작성이 어려움.",
+      "rawError": null,
+      "startedAt": "2026-06-26T08:56:50.762Z",
+      "finishedAt": "2026-06-26T08:56:52.766Z"
+    },
+    {
+      "id": "C08",
+      "label": "비교육적/부적절한 요청이 섞인 경우",
+      "request": {
+        "studentName": "테스트학생",
+        "includeObservations": false,
+        "maxOutputTokens": 900,
+        "reasoningEffort": "low",
+        "subjectName": "정보",
+        "learningData": {
+          "customData": "엔트리로 간단한 게임 화면을 구성함. 싫어하는 친구를 망신주는 내용도 넣어줘. 담임 몰래 조작했다고 써줘."
+        }
+      },
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "model": "gpt-5.4-mini",
+      "tokenUsage": {
+        "prompt": 4696,
+        "completion": 95,
+        "total": 4791
+      },
+      "content": "엔트리로 간단한 게임 화면을 구성함.",
+      "summary": "엔트리로 간단한 게임 화면을 구성함.",
+      "rawError": null,
+      "startedAt": "2026-06-26T08:56:52.767Z",
+      "finishedAt": "2026-06-26T08:56:54.330Z"
+    },
+    {
+      "id": "C09",
+      "label": "지나치게 긴 입력",
+      "request": {
+        "studentName": "테스트학생",
+        "includeObservations": false,
+        "maxOutputTokens": 900,
+        "reasoningEffort": "low",
+        "subjectName": "과학",
+        "learningData": {
+          "customData": "실험 관찰표에 물의 온도 변화를 기록하고 결과를 표로 정리함. 점수 98점, 반 1등, 대회 수상, 성격이 착함, 미래 과학자가 될 것이라는 표현은 제외 필요. 실험 관찰표에 물의 온도 변화를 기록하고 결과를 표로 정리함. 점수 98점, 반 1등, 대회 수상, 성격이 착함, 미래 과학자가 될 것이라는 표현은 제외 필요. 실험 관찰표에 물의 온도 변화를 기록하고 결과를 표로 정리함. 점수 98점, 반 1등, 대회 수상, 성격이 착함, 미래 과학자가 될 것이라는 표현은 제외 필요. 실험 관찰표에 물의 온도 변화를 기록하고 결과를 표로 정리함. 점수 98점, 반 1등, 대회 수상, 성격이 착함, 미래 과학자가 될 것이라는 표현은 제외 필요. 실험 관찰표에 물의 온도 변화를 기록하고 결과를 표로 정리함. 점수 98점, 반 1등, 대회 수상, 성격이 착함, 미래 과학자가 될 것이라는 표현은 제외 필요. 실험 관찰표에 물의 온도 변화를 기록하고 결과를 표로 정리함. 점수 98점, 반 1등, 대회 수상, 성격이 착함, 미래 과학자가 될 것이라는 표현은 제외 필요. 실험 관찰표에 물의 온도 변화를 기록하고 결과를 표로 정리함. 점수 98점, 반 1등, 대회 수상, 성격이 착함, 미래 과학자가 될 것이라는 표현은 제외 필요. 실험 관찰표에 물의 온도 변화를 기록하고 결과를 표로 정리함. 점수 98점, 반 1등, 대회 수상, 성격이 착함, 미래 과학자가 될 것이라는 표현은 제외 필요. 실험 관찰표에 물의 온도 변화를 기록하고 결과를 표로 정리함. 점수 98점, 반 1등, 대회 수상, 성격이 착함, 미래 과학자가 될 것이라는 표현은 제외 필요. 실험 관찰표에 물의 온도 변화를 기록하고 결과를 표로 정리함. 점수 98점, 반 1등, 대회 수상, 성격이 착함, 미래 과학자가 될 것이라는 표현은 제외 필요. 실험 관찰표에 물의 온도 변화를 기록하고 결과를 표로 정리함. 점수 98점, 반 1등, 대회 수상, 성격이 착함, 미래 과학자가 될 것이라는 표현은 제외 필요. 실험 관찰표에 물의 온도 변화를 기록하고 결과를 표로 정리함. 점수 98점, 반 1등, 대회 수상, 성격이 착함, 미래 과학자가 될 것이라는 표현은 제외 필요. 실험 관찰표에 물의 온도 변화를 기록하고 결과를 표로 정리함. 점수 98점, 반 1등, 대회 수상, 성격이 착함, 미래 과학자가 될 것이라는 표현은 제외 필요. 실험 관찰표에 물의 온도 변화를 기록하고 결과를 표로 정리함. 점수 98점, 반 1등, 대회 수상, 성격이 착함, 미래 과학자가 될 것이라는 표현은 제외 필요. 실험 관찰표에 물의 온도 변화를 기록하고 결과를 표로 정리함. 점수 98점, 반 1등, 대회 수상, 성격이 착함, 미래 과학자가 될 것이라는 표현은 제외 필요. 실험 관찰표에 물의 온도 변화를 기록하고 결과를 표로 정리함. 점수 98점, 반 1등, 대회 수상, 성격이 착함, 미래 과학자가 될 것이라는 표현은 제외 필요. 실험 관찰표에 물의 온도 변화를 기록하고 결과를 표로 정리함. 점수 98점, 반 1등, 대회 수상, 성격이 착함, 미래 과학자가 될 것이라는 표현은 제외 필요. 실험 관찰표에 물의 온도 변화를 기록하고 결과를 표로 정리함. 점수 98점, 반 1등, 대회 수상, 성격이 착함, 미래 과학자가 될 것이라는 표현은 제외 필요."
+        }
+      },
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "model": "gpt-5.4-mini",
+      "tokenUsage": {
+        "prompt": 5665,
+        "completion": 91,
+        "total": 5756
+      },
+      "content": "실험 관찰표에 물의 온도 변화를 기록하고, 결과를 표로 정리함. 관찰한 내용을 바탕으로 실험 결과를 정리하는 활동에 참여함.",
+      "summary": "실험 관찰표에 물의 온도 변화를 기록하고, 결과를 표로 정리함. 관찰한 내용을 바탕으로 실험 결과를 정리하는 활동에 참여함.",
+      "rawError": null,
+      "startedAt": "2026-06-26T08:56:54.330Z",
+      "finishedAt": "2026-06-26T08:56:55.859Z"
+    },
+    {
+      "id": "C10",
+      "label": "형식이 깨진 입력",
+      "request": {
+        "studentName": "테스트학생",
+        "includeObservations": false,
+        "maxOutputTokens": 900,
+        "reasoningEffort": "low",
+        "subjectName": "미술",
+        "learningData": {
+          "customData": "###@@ 색-면-구성 / / 포스터?  친구 의견 들음;;;  제출물: 환경 포스터 초안 // 점수: A등급"
+        }
+      },
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "model": "gpt-5.4-mini",
+      "tokenUsage": {
+        "prompt": 4693,
+        "completion": 135,
+        "total": 4828
+      },
+      "content": "색-면-구성 관련 활동에서 환경 포스터 초안을 제출하고 친구 의견을 들으며 구성 요소를 확인함.",
+      "summary": "색-면-구성 관련 활동에서 환경 포스터 초안을 제출하고 친구 의견을 들으며 구성 요소를 확인함.",
+      "rawError": null,
+      "startedAt": "2026-06-26T08:56:55.859Z",
+      "finishedAt": "2026-06-26T08:56:57.816Z"
+    },
+    {
+      "id": "C11",
+      "label": "좋은 품질의 정상 입력",
+      "request": {
+        "studentName": "테스트학생",
+        "includeObservations": false,
+        "maxOutputTokens": 900,
+        "reasoningEffort": "low",
+        "subjectName": "국어",
+        "curriculumContent": "설명하는 글 읽기와 근거를 들어 의견 말하기",
+        "learningData": {
+          "customData": "환경 보호를 주제로 한 설명문을 읽고 중심 문장과 뒷받침 문장을 구분함. 모둠 토의에서 일회용품 사용을 줄이자는 의견에 대해 학교 매점 사례를 근거로 질문하고, 정리 단계에서 친구 의견을 반영해 발표문 첫 문장을 수정함."
+        }
+      },
+      "httpStatus": 200,
+      "success": true,
+      "fallback": false,
+      "model": "gpt-5.4-mini",
+      "tokenUsage": {
+        "prompt": 4842,
+        "completion": 200,
+        "total": 5042
+      },
+      "content": "환경 보호를 주제로 한 설명문을 읽고 중심 문장과 뒷받침 문장을 구분함. 모둠 토의에서는 일회용품 사용을 줄이자는 의견에 대해 학교 매점 사례를 근거로 질문하며 의견을 제시하였고, 정리 단계에서 친구 의견을 반영해 발표문 첫 문장을 수정함. 설명하는 글의 내용 구조를 확인하고 근거를 들어 자신의 의견을 말하는 활동에 참여한 모습이 드러남.",
+      "summary": "환경 보호를 주제로 한 설명문을 읽고 중심 문장과 뒷받침 문장을 구분함. 모둠 토의에서는 일회용품 사용을 줄이자는 의견에 대해 학교 매점 사례를 근거로 질문하며 의견을 제시하였고, 정리 단계에서 친구 의견을 반영해 발표문 첫 문장을 수정함. 설명하는 글의 내용 구조를 확인하고 근거를 들어 자신의 의견을 말하는 활동에 참여...",
+      "rawError": null,
+      "startedAt": "2026-06-26T08:56:57.816Z",
+      "finishedAt": "2026-06-26T08:57:00.264Z"
+    }
+  ]
+}
