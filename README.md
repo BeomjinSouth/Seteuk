@@ -45,6 +45,9 @@ Set these in local `.env.local` and in the Vercel project settings.
 - `NEIS_API_KEY` (나이스 오픈API 키 — 소스에 있던 구 키는 공개 이력에 노출되어 재발급 후 이 변수로만 주입할 것)
 - `SUPABASE_URL` or `SUPABASE_PROJECT_ID`
 - `SUPABASE_SECRET_KEY`
+- `EVAL_CHECK_ENABLED` (선택 — `true`일 때만 평가 점검 API가 열린다. 교사별 소유자 격리가 없어 기본은 404 차단)
+
+Security defaults: teacher sessions expire after 12 hours (signed cookies cannot be revoked server-side), and login/survey endpoints are rate limited per instance (login 10/15min, survey identify 20/10min, survey submit 10/10min → HTTP 429 with `Retry-After`).
 
 Production runtime is Supabase-primary. If Supabase is not configured in production, workspace/student/record storage APIs return a clear `503`. If Supabase is configured but a sheet read fails with a network/DNS error and Google Sheets credentials are present, read-only sheet APIs can fall back to Google Sheets; writes stay Supabase-only.
 
