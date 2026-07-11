@@ -49,7 +49,11 @@ export default function LoginPage() {
       router.push('/students');
     } catch (error) {
       console.error('Login failed:', error);
-      setLoginError('로그인 세션을 만들지 못했습니다.');
+      setLoginError(
+        error instanceof TypeError
+          ? '서버에 연결하지 못했습니다. 잠시 후 다시 시도해 주세요.'
+          : '로그인 세션을 만들지 못했습니다.',
+      );
     } finally {
       setIsLoading(false);
     }

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { requireTeacherSession } from '@/lib/auth/guards';
 
 // NEIS 오픈API 키는 환경변수 우선. 아래 폴백 키는 이미 공개 이력에 노출된 값이므로
 // NEIS_API_KEY 설정 후 나이스 포털에서 재발급·교체할 것.
@@ -202,6 +203,9 @@ async function getSchedule(officeCode: string, schoolCode: string, fromDate?: st
  *   - data: object (The requested NEIS data)
  */
 export async function GET(request: NextRequest) {
+    const auth = await requireTeacherSession();
+    if (!auth.ok) return auth.response;
+
     const { searchParams } = new URL(request.url);
     const type = searchParams.get('type');
     const schoolName = searchParams.get('school') || '성호중학교';

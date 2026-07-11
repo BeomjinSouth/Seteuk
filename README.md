@@ -16,7 +16,7 @@ Open `http://localhost:3000`.
 
 - 학교: `성호중학교`
 - 아이디: 교사 본인 한글 이름
-- 비밀번호: `123123`
+- 비밀번호: `SETEUK_LOGIN_PASSWORD` 환경변수 값 (프로덕션 필수. 이 저장소는 공개되어 있으므로 실제 비밀번호를 문서·코드에 적지 않는다. 로컬 개발은 미설정 시 기존 개발용 폴백을 사용)
 - 로그인 성공 시 `/students`에서 2026 성호중학교 명렬표 기반 학급을 선택 등록한다.
 
 ## App Navigation
@@ -41,6 +41,8 @@ Set these in local `.env.local` and in the Vercel project settings.
 - `OPENAI_API_KEY`
 - `ADMIN_API_TOKEN`
 - `AUTH_SESSION_SECRET`
+- `SETEUK_LOGIN_PASSWORD` (교사 로그인 비밀번호 — 프로덕션에서 미설정 시 로그인이 거부된다)
+- `NEIS_API_KEY` (나이스 오픈API 키 — 소스에 있던 구 키는 공개 이력에 노출되어 재발급 후 이 변수로만 주입할 것)
 - `SUPABASE_URL` or `SUPABASE_PROJECT_ID`
 - `SUPABASE_SECRET_KEY`
 
