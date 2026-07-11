@@ -3,6 +3,7 @@ import {
     normalizeSurveyAnswers,
 } from '@/lib/group-survey';
 import { verifyGroupSurveySubmitToken } from '@/lib/group-survey-token';
+import { checkRateLimit, getClientAddress } from '@/lib/rate-limit';
 import { getStudents } from '@/lib/sheets';
 import { isSupabaseRequiredButMissing } from '@/lib/supabase/config';
 import { supabaseRequiredResponse } from '@/lib/supabase/required-response';
@@ -14,6 +15,19 @@ import {
 export async function POST(request: NextRequest) {
     try {
         if (isSupabaseRequiredButMissing()) return supabaseRequiredResponse();
+
+        const rate = checkRateLimit({
+            scope: 'survey-submit',
+            identity: getClientAddress(request),
+            limit: 10,
+            windowSeconds: 10 * 60,
+        });
+        if (!rate.allowed) {
+            return NextResponse.json(
+                { success: false, error: '제출 시도가 너무 많습니다. 잠시 후 다시 시도해 주세요.' },
+                { status: 429, headers: { 'Retry-After': String(rate.retryAfterSeconds) } },
+            );
+        }
 
         const body = await request.json() as {
             token?: string;

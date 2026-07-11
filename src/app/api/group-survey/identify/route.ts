@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createGroupSurveySubmitToken } from '@/lib/group-survey-token';
+import { checkRateLimit, getClientAddress } from '@/lib/rate-limit';
 import { getStudents } from '@/lib/sheets';
 import { isSupabaseRequiredButMissing } from '@/lib/supabase/config';
 import { supabaseRequiredResponse } from '@/lib/supabase/required-response';
@@ -48,6 +49,19 @@ export async function POST(request: NextRequest) {
             return NextResponse.json(
                 { success: false, error: '학년, 반, 번호, 이름을 모두 입력해 주세요.' },
                 { status: 400 }
+            );
+        }
+
+        const rate = checkRateLimit({
+            scope: 'survey-identify',
+            identity: `${getClientAddress(request)}:${accessCode}`,
+            limit: 20,
+            windowSeconds: 10 * 60,
+        });
+        if (!rate.allowed) {
+            return NextResponse.json(
+                { success: false, error: '확인 시도가 너무 많습니다. 잠시 후 다시 시도해 주세요.' },
+                { status: 429, headers: { 'Retry-After': String(rate.retryAfterSeconds) } },
             );
         }
 
