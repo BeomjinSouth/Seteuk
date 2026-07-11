@@ -45,3 +45,6 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+# local dev sheet fallback store (may contain real student data)
+.local-sheet-store.json
