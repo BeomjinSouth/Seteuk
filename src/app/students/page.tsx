@@ -15,7 +15,6 @@ import {
     FlaskConical,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import * as XLSX from 'xlsx';
 import { ClassGroup, Student } from '@/types';
 import {
     buildHomeroomClassId,
@@ -206,7 +205,8 @@ export default function StudentsPage() {
         return '담당 학급을 표시할 명렬표가 없습니다.';
     }, [isSeonghoRosterMode, sharedRosterStatus]);
 
-    const handleDownloadTemplate = () => {
+    const handleDownloadTemplate = async () => {
+        const XLSX = await import('xlsx');
         const template = [
             ['학교', '학년', '반', '번호', '이름'],
             [teacher?.school || '성호중학교', '2', '3', '1', '홍길동'],
@@ -243,6 +243,7 @@ export default function StudentsPage() {
         };
         reader.onload = async (e) => {
             try {
+                const XLSX = await import('xlsx');
                 const data = new Uint8Array(e.target?.result as ArrayBuffer);
                 const workbook = XLSX.read(data, { type: 'array' });
                 const sheetName = workbook.SheetNames[0];

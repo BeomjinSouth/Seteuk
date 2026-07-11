@@ -12,7 +12,6 @@ import {
     DownloadCloud
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import * as XLSX from 'xlsx';
 import styles from './page.module.css';
 import ClassSelectionTabs from '@/components/ClassSelectionTabs';
 
@@ -107,7 +106,8 @@ export default function ExportPage() {
     };
 
     // Export single class to Excel
-    const exportClassToExcel = (gradeClass: string, recordsToExport: typeof records) => {
+    const exportClassToExcel = async (gradeClass: string, recordsToExport: typeof records) => {
+        const XLSX = await import('xlsx');
         const [grade, classNum] = gradeClass.split('-').map(Number);
 
         const data = recordsToExport.map(record => {
@@ -140,9 +140,10 @@ export default function ExportPage() {
     };
 
     // Export to Excel (current selection)
-    const handleExportExcel = () => {
+    const handleExportExcel = async () => {
         if (selectedGradeClass === 'all') {
             // Export all as single file
+            const XLSX = await import('xlsx');
             const data = exportableRecords.map(record => {
                 const { student, cls } = getStudentInfo(record.studentId);
                 const recordClass = classes.find(c => c.id === record.classId);
@@ -170,7 +171,7 @@ export default function ExportPage() {
             const fileName = `세특_전체_${new Date().toISOString().split('T')[0]}.xlsx`;
             XLSX.writeFile(wb, fileName);
         } else {
-            exportClassToExcel(selectedGradeClass, exportableRecords);
+            await exportClassToExcel(selectedGradeClass, exportableRecords);
         }
     };
 
@@ -196,7 +197,7 @@ export default function ExportPage() {
             });
 
             if (classRecords.length > 0) {
-                exportClassToExcel(gc, classRecords);
+                await exportClassToExcel(gc, classRecords);
 
                 // Small delay between downloads
                 await new Promise(resolve => setTimeout(resolve, 500));
