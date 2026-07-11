@@ -1,5 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { setTeacherSession } from '@/lib/auth/session';
+import { verifyTeacherLogin } from '@/lib/auth/accounts';
+import {
+    createAccountTeacherSession,
+    isTeacherAccountsEnabled,
+    setTeacherSession,
+    teacherProfileFromAccount,
+} from '@/lib/auth/session';
 import { checkRateLimit, getClientAddress } from '@/lib/rate-limit';
 import {
     SEONGHO_AUTH_MODE,
@@ -28,6 +34,26 @@ export async function POST(request: NextRequest) {
                 { success: false, error: '로그인 시도가 너무 많습니다. 잠시 후 다시 시도해 주세요.' },
                 { status: 429, headers: { 'Retry-After': String(rate.retryAfterSeconds) } },
             );
+        }
+
+        // 계정 모드: 개별 교사 계정 + 서버 저장(폐기 가능) 세션.
+        // 미존재 아이디와 틀린 비밀번호는 같은 응답으로 구분을 막는다.
+        if (isTeacherAccountsEnabled()) {
+            const account = await verifyTeacherLogin({
+                school: body.school || '',
+                loginId: body.userId || '',
+                password: body.password || '',
+            });
+
+            if (!account) {
+                return NextResponse.json(
+                    { success: false, error: '로그인 정보를 확인해 주세요.' },
+                    { status: 401 },
+                );
+            }
+
+            await createAccountTeacherSession(account);
+            return NextResponse.json({ success: true, teacher: teacherProfileFromAccount(account) });
         }
 
         const result = validateSeonghoLogin({

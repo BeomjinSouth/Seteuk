@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "test:seteuk-prompt": "node --test tests/observation-board-ai-context.test.mjs",
+    "test:unit": "node --test tests/observation-board-ai-context.test.mjs tests/rate-limit.test.mjs tests/auth-password.test.mjs",
+    "provision:teacher": "node scripts/provision-teacher-account.mjs",
     "sync:knowledge-docs": "node scripts/sync-knowledge-docs.mjs",
     "label:graph-rag": "node scripts/generate-graph-rag-labels.mjs"
   },

@@ -46,6 +46,7 @@ Set these in local `.env.local` and in the Vercel project settings.
 - `SUPABASE_URL` or `SUPABASE_PROJECT_ID`
 - `SUPABASE_SECRET_KEY`
 - `EVAL_CHECK_ENABLED` (선택 — `true`일 때만 평가 점검 API가 열린다. 교사별 소유자 격리가 없어 기본은 404 차단)
+- `TEACHER_ACCOUNTS_ENABLED` (선택 — `true`이면 개별 교사 계정 + 서버 폐기형 세션 로그인으로 전환. 먼저 `supabase/migrations/202607100001_teacher_accounts_and_sessions.sql` 적용 후 `npm run provision:teacher`로 계정을 만들어야 한다. `docs/operations/account-provisioning.md` 참조)
 
 Security defaults: teacher sessions expire after 12 hours (signed cookies cannot be revoked server-side), and login/survey endpoints are rate limited per instance (login 10/15min, survey identify 20/10min, survey submit 10/10min → HTTP 429 with `Retry-After`).
 
