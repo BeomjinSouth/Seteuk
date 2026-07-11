@@ -3,7 +3,10 @@ import { cookies } from 'next/headers';
 import type { TeacherProfile } from '@/types';
 
 const SESSION_COOKIE_NAME = 'seteuk-session';
-const SESSION_TTL_SECONDS = 60 * 60 * 24 * 30;
+// 서명 쿠키 세션은 서버에서 개별 폐기가 불가능하므로 TTL이 유일한 만료 수단이다.
+// 학교 일과(오전 출근~야근)를 넉넉히 덮는 12시간으로 제한한다. 서버 저장
+// 세션(안정화 계획 Task 3)으로 전환하면 이 값은 그 체계를 따른다.
+const SESSION_TTL_SECONDS = 60 * 60 * 12;
 
 interface SessionPayload {
     teacher: TeacherProfile;
