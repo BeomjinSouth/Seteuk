@@ -24,6 +24,7 @@ import {
     Tag
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { MarkdownLite } from '@/components/ui/MarkdownLite';
 import type {
     CounselChatResponse,
     GraphRagAnswerSpan,
@@ -1066,7 +1067,7 @@ function CounselChatPageContent() {
                             <h2>답변</h2>
                             {counselResult.fallback && <span className={styles.badge}>Fallback</span>}
                         </div>
-                        <p className={styles.answerText}>{counselResult.answer}</p>
+                        <MarkdownLite className={styles.answerText} text={counselResult.answer} />
                         {counselResult.conflictNote && (
                             <div className={styles.noticeBox}>
                                 <strong>주의</strong>

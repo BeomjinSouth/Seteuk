@@ -946,9 +946,27 @@
 }
 
 .answerText {
-    white-space: pre-wrap;
     line-height: 1.8;
     color: hsl(var(--foreground));
+}
+
+.answerText p {
+    margin: 0;
+}
+
+.answerText p + p,
+.answerText ul + p,
+.answerText p + ul,
+.answerText ul + ul {
+    margin-top: 0.75rem;
+}
+
+.answerText ul {
+    margin: 0;
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
 }
 
 .noticeBox,
