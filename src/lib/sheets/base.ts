@@ -2,6 +2,7 @@ import { google } from 'googleapis';
 import { promises as fs } from 'fs';
 import path from 'path';
 import { isProductionRuntime, isSupabaseConfigured, isSupabaseRequiredButMissing } from '@/lib/supabase/config';
+import { LEGACY_SHEET_RENAMES } from '@/lib/sheets/legacy-names';
 import {
     appendSupabaseSheetRow,
     deleteSupabaseSheetRows,
@@ -117,7 +118,26 @@ function assertProductionStorageConfigured() {
 async function readLocalSheetStore(): Promise<LocalSheetStore> {
     try {
         const raw = await fs.readFile(LOCAL_SHEET_STORE_PATH, 'utf8');
-        return JSON.parse(raw) as LocalSheetStore;
+        const store = JSON.parse(raw) as LocalSheetStore;
+
+        let renamed = false;
+        for (const [legacyName, currentName] of Object.entries(LEGACY_SHEET_RENAMES)) {
+            const legacyRows = store[legacyName];
+            if (!legacyRows) continue;
+            const currentRows = store[currentName];
+            const currentIsEmpty = !currentRows
+                || currentRows.every((row) => row.every((cell) => !cell));
+            if (currentIsEmpty) {
+                store[currentName] = legacyRows;
+            }
+            delete store[legacyName];
+            renamed = true;
+        }
+        if (renamed) {
+            await writeLocalSheetStore(store);
+        }
+
+        return store;
     } catch {
         return {};
     }
@@ -145,7 +165,7 @@ export const SHEETS = {
     SETTINGS: '\uC124\uC815', // settings
     EXAMPLES: '\uC608\uC2DC\uC591\uC2DD', // examples
     ASSESSMENTS: '\uD3C9\uAC00\uACFC\uC81C', // assessments
-    OBSERVATIONS: '\uAD00\uC230\uBA54\uBAA8', // observation notes
+    OBSERVATIONS: '\uAD00\uCC30\uBA54\uBAA8', // observation notes; legacy typo tab migrates via LEGACY_SHEET_RENAMES
     STUDENT_DATA: '\uD559\uC0DD\uB370\uC774\uD130', // student data
     COOKIE_LEDGER: '\uCFE0\uD0A4\uC6D0\uC7A5', // cookie ledger
     COOKIE_REWARDS: '\uCFE0\uD0A4\uC0C1\uD488', // cookie rewards
@@ -471,19 +491,38 @@ export async function initializeSheets(): Promise<{ created: string[]; errors: s
             response.data.sheets?.map(s => s.properties?.title).filter((t): t is string => !!t) || []
         );
 
-        const sheetsToCreate = Object.values(SHEETS).filter(sheetName => !existingSheetNames.has(sheetName));
+        // 오타로 생성된 레거시 탭이 있으면 새로 만들지 않고 rename으로 데이터를 보존한다.
+        const renameRequests: Array<{ updateSheetProperties: { properties: { sheetId: number; title: string }; fields: string } }> = [];
+        const renamedTargets = new Set<string>();
+        for (const [legacyName, currentName] of Object.entries(LEGACY_SHEET_RENAMES)) {
+            if (!existingSheetNames.has(legacyName) || existingSheetNames.has(currentName)) continue;
+            const sheetId = response.data.sheets
+                ?.find(s => s.properties?.title === legacyName)?.properties?.sheetId;
+            if (sheetId === undefined || sheetId === null) continue;
+            renameRequests.push({
+                updateSheetProperties: { properties: { sheetId, title: currentName }, fields: 'title' },
+            });
+            renamedTargets.add(currentName);
+        }
 
-        if (sheetsToCreate.length === 0) {
+        const sheetsToCreate = Object.values(SHEETS).filter(
+            sheetName => !existingSheetNames.has(sheetName) && !renamedTargets.has(sheetName)
+        );
+
+        if (sheetsToCreate.length === 0 && renameRequests.length === 0) {
             return { created: [], errors: [] };
         }
 
-        const requests = sheetsToCreate.map(sheetName => ({
-            addSheet: {
-                properties: {
-                    title: sheetName,
+        const requests = [
+            ...renameRequests,
+            ...sheetsToCreate.map(sheetName => ({
+                addSheet: {
+                    properties: {
+                        title: sheetName,
+                    },
                 },
-            },
-        }));
+            })),
+        ];
 
         await sheets.spreadsheets.batchUpdate({
             spreadsheetId: SPREADSHEET_ID,
