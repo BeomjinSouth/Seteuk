@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { withTeacherAuth } from '@/lib/auth/guards';
+import { rejectWhenDifferentTeacher, withTeacherAuth } from '@/lib/auth/guards';
 import { getOpenAIClient, hasOpenAIApiKey } from '@/lib/openai-client';
 import { OPENAI_STANDARD_MODEL, normalizeOpenAIModel } from '@/lib/openai-models';
 import {
@@ -129,7 +129,7 @@ const SUBJECT_CONTEXT_HINTS: Array<{
  *   - usedObservationIds: string[]
  *   - tokenUsage: object
  */
-export const POST = withTeacherAuth(async (request) => {
+export const POST = withTeacherAuth(async (request, { teacher }) => {
     // Parse body once and store it
     let body: {
         studentName?: string;
@@ -207,6 +207,9 @@ export const POST = withTeacherAuth(async (request) => {
         ocrEvaluationContext,  // OCR evaluation data
     } = body;
     const sanitizedLearningData = sanitizeSeteukLearningData(learningData);
+
+    const teacherGuard = rejectWhenDifferentTeacher(teacher.teacherKey, teacherKey);
+    if (teacherGuard) return teacherGuard;
 
     if (!studentName) {
         return NextResponse.json(

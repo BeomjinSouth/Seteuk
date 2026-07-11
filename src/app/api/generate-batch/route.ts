@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { withTeacherAuth } from '@/lib/auth/guards';
+import { rejectWhenDifferentTeacher, withTeacherAuth } from '@/lib/auth/guards';
 import { getOpenAIClient, hasOpenAIApiKey } from '@/lib/openai-client';
 import { OPENAI_STANDARD_MODEL, normalizeOpenAIModel } from '@/lib/openai-models';
 import {
@@ -209,7 +209,7 @@ function parseBatchOutput(text: string): Array<{ studentId: string; content: str
         .filter((item): item is { studentId: string; content: string } => item !== null);
 }
 
-export const POST = withTeacherAuth(async (request) => {
+export const POST = withTeacherAuth(async (request, { teacher }) => {
     let body: BatchBody;
 
     try {
@@ -217,6 +217,13 @@ export const POST = withTeacherAuth(async (request) => {
     } catch {
         return NextResponse.json({ error: 'Invalid request body.' }, { status: 400 });
     }
+
+    const teacherGuard = rejectWhenDifferentTeacher(teacher.teacherKey, body.teacherKey)
+        || (body.students || [])
+            .map((student) => rejectWhenDifferentTeacher(teacher.teacherKey, student?.teacherKey))
+            .find((response) => response !== null)
+        || null;
+    if (teacherGuard) return teacherGuard;
 
     const requestedStudents = (body.students || [])
         .filter((student) => student?.studentId?.trim() && student?.studentName?.trim())
