@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getEvalCheckDocumentById } from '@/lib/sheets';
 import { getAnalysisProgress } from '../route';
+import { requireTeacherSession } from '@/lib/auth/guards';
 
 /**
  * 평가 점검 진행률 API
@@ -9,6 +10,8 @@ import { getAnalysisProgress } from '../route';
  */
 
 export async function GET(request: NextRequest) {
+    const auth = await requireTeacherSession();
+    if (!auth.ok) return auth.response;
     try {
         const { searchParams } = new URL(request.url);
         const documentId = searchParams.get('documentId');

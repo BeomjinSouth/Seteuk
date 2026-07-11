@@ -9,7 +9,7 @@ import { useAppStore } from '@/lib/store';
 import {
   SEONGHO_DEFAULT_SUBJECT,
   SEONGHO_SCHOOL_NAME,
-  validateSeonghoLogin,
+  validateSeonghoLoginFields,
 } from '@/lib/seongho-auth';
 import { Sparkles, ArrowRight, GraduationCap } from 'lucide-react';
 import styles from './page.module.css';
@@ -25,7 +25,7 @@ export default function LoginPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const result = validateSeonghoLogin({ school, userId, password });
+    const result = validateSeonghoLoginFields({ school, userId });
     if (!result.ok) {
       setLoginError(result.message);
       return;

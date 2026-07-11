@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// NEIS API Key
-const API_KEY = '2308873a1ac04ea6813f34222481887e';
+// NEIS 오픈API 키는 환경변수 우선. 아래 폴백 키는 이미 공개 이력에 노출된 값이므로
+// NEIS_API_KEY 설정 후 나이스 포털에서 재발급·교체할 것.
+const API_KEY = (process.env.NEIS_API_KEY || '').trim() || '2308873a1ac04ea6813f34222481887e';
 const BASE_URL = 'https://open.neis.go.kr/hub';
 
 // 시도교육청 코드 매핑

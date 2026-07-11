@@ -6,6 +6,7 @@ import {
     deleteEvalCheckRule,
 } from '@/lib/sheets/eval-check';
 import { DEFAULT_RULES } from '@/types';
+import { requireTeacherSession } from '@/lib/auth/guards';
 
 /**
  * 평가 점검 규칙 API
@@ -26,6 +27,8 @@ import { DEFAULT_RULES } from '@/types';
  *   - isDefault: boolean (True if returning default built-in rules)
  */
 export async function GET() {
+    const auth = await requireTeacherSession();
+    if (!auth.ok) return auth.response;
     try {
         const rules = await getEvalCheckRules();
 
@@ -80,6 +83,8 @@ export async function GET() {
  *   - createdIds?: string[] (If initializing defaults)
  */
 export async function POST(request: NextRequest) {
+    const auth = await requireTeacherSession();
+    if (!auth.ok) return auth.response;
     try {
         const body = await request.json();
         const { name, enabled, target, condition, correctionGuide, exampleWrong, exampleCorrect, initializeDefaults } = body as {
@@ -175,6 +180,8 @@ export async function POST(request: NextRequest) {
  *   - message: string
  */
 export async function PUT(request: NextRequest) {
+    const auth = await requireTeacherSession();
+    if (!auth.ok) return auth.response;
     try {
         const body = await request.json();
         const { ruleId, ...data } = body as {
@@ -237,6 +244,8 @@ export async function PUT(request: NextRequest) {
  *   - message: string
  */
 export async function DELETE(request: NextRequest) {
+    const auth = await requireTeacherSession();
+    if (!auth.ok) return auth.response;
     try {
         const { searchParams } = new URL(request.url);
         const ruleId = searchParams.get('ruleId');

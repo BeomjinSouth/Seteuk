@@ -34,6 +34,7 @@ import {
 } from '@/lib/evalcheck-openai';
 import { convertPdfToImages, extractPdfText } from '@/lib/pdf-converter-server';
 import type { DocumentAnalysisStatus } from '@/types';
+import { requireTeacherSession } from '@/lib/auth/guards';
 
 /**
  * 시험지 오류 점검 메인 API (하이브리드 모드)
@@ -506,6 +507,8 @@ function formatConsistencyReport(report: ConsistencyReport | null): string {
  *   - count?: number
  */
 export async function GET(request: NextRequest) {
+    const auth = await requireTeacherSession();
+    if (!auth.ok) return auth.response;
     try {
         const { searchParams } = new URL(request.url);
         const documentId = searchParams.get('documentId');
@@ -615,6 +618,8 @@ async function convertAnalysisFilesToPageImages(
  *   - reused: boolean (If true, indicates existing analysis was used)
  */
 export async function POST(request: NextRequest) {
+    const auth = await requireTeacherSession();
+    if (!auth.ok) return auth.response;
     try {
         // 시트 초기화 확인
         await initializeSheets();
@@ -779,6 +784,8 @@ export async function POST(request: NextRequest) {
  *   - success: boolean
  */
 export async function DELETE(request: NextRequest) {
+    const auth = await requireTeacherSession();
+    if (!auth.ok) return auth.response;
     try {
         const { searchParams } = new URL(request.url);
         const documentId = searchParams.get('documentId');
