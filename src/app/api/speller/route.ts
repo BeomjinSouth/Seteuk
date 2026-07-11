@@ -2,16 +2,17 @@
  * Speller API - 맞춤법 검사 API
  * 
  * 이 파일은 hanspell 라이브러리를 사용하여 한국어 맞춤법 검사를 수행합니다.
- * 다음(Daum) 맞춤법 검사기와 부산대학교(PNU) 맞춤법 검사기를 지원합니다.
- * 
+ * 다음(Daum) 맞춤법 검사기와 네이버(NAVER) 맞춤법 검사기를 지원합니다.
+ * (hanspell 1.x에서 PNU 서비스가 제거되고 NAVER로 대체됨)
+ *
  * 주요 기능:
  * - 재시도 로직: 서버 연결 실패 시 최대 2회 재시도
- * - 대체 서비스: 다음 서버 실패 시 부산대 서버로 자동 전환
+ * - 대체 서비스: 다음 서버 실패 시 네이버 서버로 자동 전환
  * - Rate Limiting: 분당 20회 요청 제한
- * 
+ *
  * 사용되는 외부 서비스:
  * - DAUM: 더 빠르고 안정적 (기본값)
- * - PNU (부산대): 더 상세한 교정 제안
+ * - NAVER: 대체 서비스
  */
 
 import { NextResponse } from 'next/server';
@@ -21,11 +22,11 @@ import * as hanspell from 'hanspell';
 // 맞춤법 검사 결과 인터페이스
 // hanspell은 suggestions를 단일 문자열(|로 구분) 또는 배열로 반환할 수 있음
 interface SpellCheckResult {
-    type: string;      // 오류 유형 (맞춤법, 띄어쓰기 등)
+    type?: string;     // 오류 유형 (맞춤법, 띄어쓰기 등) — NAVER 결과에는 없음
     token: string;     // 오류가 있는 원본 단어
     suggestions: string | string[]; // 수정 제안 (문자열 또는 배열)
-    context: string;   // 오류가 발생한 문맥
-    info: string;      // 오류에 대한 설명
+    context?: string;  // 오류가 발생한 문맥 — NAVER 결과에는 없음
+    info?: string;     // 오류에 대한 설명
 }
 
 // ============================================================
@@ -64,10 +65,10 @@ function recordRequest() {
  * hanspell 라이브러리를 Promise로 감싸는 래퍼 함수
  * 
  * @param text 검사할 텍스트
- * @param service 사용할 서비스 ('daum' 또는 'pnu')
+ * @param service 사용할 서비스 ('daum' 또는 'naver')
  * @returns 맞춤법 검사 결과 배열
  */
-function spellCheckAsync(text: string, service: 'daum' | 'pnu' = 'daum'): Promise<SpellCheckResult[]> {
+function spellCheckAsync(text: string, service: 'daum' | 'naver' = 'daum'): Promise<SpellCheckResult[]> {
     return new Promise((resolve, reject) => {
         const results: SpellCheckResult[] = [];
         const timeout = 15000; // 15초 (타임아웃을 10초에서 15초로 증가)
@@ -88,19 +89,21 @@ function spellCheckAsync(text: string, service: 'daum' | 'pnu' = 'daum'): Promis
         };
 
         // 오류 발생 시 호출되는 콜백
-        const errorCallback = (err: Error | null) => {
+        const errorCallback = (err: unknown) => {
             // hanspell은 때때로 null 에러를 전달함
-            if (err === null) {
+            if (err === null || err === undefined) {
                 // null 에러는 서버 연결 문제 - 빈 결과 반환하지 않고 reject
                 reject(new Error(`${service.toUpperCase()} 서버 연결 실패`));
-            } else {
+            } else if (err instanceof Error) {
                 reject(err);
+            } else {
+                reject(new Error(String(err)));
             }
         };
 
         // 서비스에 따라 적절한 함수 호출
-        if (service === 'pnu') {
-            hanspell.spellCheckByPNU(text, timeout, callback, endCallback, errorCallback);
+        if (service === 'naver') {
+            hanspell.spellCheckByNAVER(text, timeout, callback, endCallback, errorCallback);
         } else {
             hanspell.spellCheckByDAUM(text, timeout, callback, endCallback, errorCallback);
         }
@@ -117,7 +120,7 @@ function spellCheckAsync(text: string, service: 'daum' | 'pnu' = 'daum'): Promis
  */
 async function spellCheckWithRetry(
     text: string,
-    service: 'daum' | 'pnu' = 'daum',
+    service: 'daum' | 'naver' = 'daum',
     maxRetries: number = 2
 ): Promise<{ results: SpellCheckResult[], usedService: string }> {
     let lastError: Error | null = null;
@@ -142,7 +145,7 @@ async function spellCheckWithRetry(
     }
 
     // 2단계: 대체 서비스로 시도 (원래 서비스가 완전히 실패한 경우)
-    const fallbackService = service === 'daum' ? 'pnu' : 'daum';
+    const fallbackService = service === 'daum' ? 'naver' : 'daum';
     console.log(`[Speller] ${fallbackService.toUpperCase()} 대체 서비스로 전환 시도`);
 
     try {
@@ -163,7 +166,7 @@ async function spellCheckWithRetry(
  * 
  * 요청 본문:
  * - text: 검사할 텍스트 (필수)
- * - service: 'daum' 또는 'pnu' (선택, 기본값: 'daum')
+ * - service: 'daum' 또는 'naver' (선택, 기본값: 'daum'; 구버전 'pnu'는 'naver'로 처리)
  * 
  * 응답:
  * - success: 성공 여부
@@ -187,7 +190,9 @@ export const POST = withTeacherAuth(async (request) => {
 
         // 요청 본문 파싱
         const body = await request.json();
-        const { text, service = 'daum' } = body;
+        const { text } = body;
+        const service: 'daum' | 'naver' =
+            body.service === 'naver' || body.service === 'pnu' ? 'naver' : 'daum';
 
         // 텍스트 유효성 검사
         if (!text) {
@@ -197,7 +202,7 @@ export const POST = withTeacherAuth(async (request) => {
             );
         }
 
-        // 텍스트 길이 제한 확인 (DAUM: 1000자, PNU: 500자)
+        // 텍스트 길이 제한 확인
         // 대체 서비스 사용을 고려해 더 넉넉한 1000자 기준으로 통일
         const maxLength = 1000;
         if (text.length > maxLength) {
@@ -214,10 +219,7 @@ export const POST = withTeacherAuth(async (request) => {
         if (process.env.NODE_ENV !== 'production') {
             console.log('[Speller] 검사 시작, 텍스트 길이:', text.length, '서비스:', service);
         }
-        const { results: rawResults, usedService } = await spellCheckWithRetry(
-            text,
-            service as 'daum' | 'pnu'
-        );
+        const { results: rawResults, usedService } = await spellCheckWithRetry(text, service);
         if (process.env.NODE_ENV !== 'production') {
             console.log('[Speller] 검사 완료, 원본 결과 수:', rawResults.length, '사용 서비스:', usedService);
         }
