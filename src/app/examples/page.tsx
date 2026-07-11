@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import type { ChangeEvent } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
@@ -88,15 +88,18 @@ export default function ExamplesPage() {
         return Array.from(subjects.values()).sort((a, b) => a.localeCompare(b, 'ko'));
     }, [mergedUnits, selectedGrade, selectedSemester]);
 
-    useEffect(() => {
+    // Keep selectedSubject valid when the option set changes (grade/semester switch).
+    // Adjusted during render rather than in an effect to avoid cascading re-renders;
+    // subjectOptions is memoized so this only runs when the options genuinely change.
+    const [prevSubjectOptions, setPrevSubjectOptions] = useState(subjectOptions);
+    if (prevSubjectOptions !== subjectOptions) {
+        setPrevSubjectOptions(subjectOptions);
         if (subjectOptions.length === 0) {
             setSelectedSubject('');
-            return;
-        }
-        if (!subjectOptions.some((subject) => normalizeSubjectKey(subject) === normalizeSubjectKey(selectedSubject))) {
+        } else if (!subjectOptions.some((subject) => normalizeSubjectKey(subject) === normalizeSubjectKey(selectedSubject))) {
             setSelectedSubject(subjectOptions[0]);
         }
-    }, [selectedSubject, subjectOptions]);
+    }
 
     const currentUnits = useMemo(() => {
         if (!selectedSubject) return [];
@@ -108,11 +111,14 @@ export default function ExamplesPage() {
         });
     }, [mergedUnits, selectedGrade, selectedSemester, selectedSubject]);
 
-    useEffect(() => {
+    // Keep selectedUnitId valid when the unit list changes (adjusted during render).
+    const [prevCurrentUnits, setPrevCurrentUnits] = useState(currentUnits);
+    if (prevCurrentUnits !== currentUnits) {
+        setPrevCurrentUnits(currentUnits);
         setSelectedUnitId((current) =>
             currentUnits.some((unit) => unit.id === current) ? current : currentUnits[0]?.id || ''
         );
-    }, [currentUnits]);
+    }
 
     const selectedUnit = useMemo(
         () => currentUnits.find((unit) => unit.id === selectedUnitId),
@@ -124,13 +130,12 @@ export default function ExamplesPage() {
         [curriculumUnitOverrides]
     );
 
-    useEffect(() => {
-        if (!selectedUnit) {
-            setUnitDraft(null);
-            return;
-        }
-        setUnitDraft(toUnitDraft(selectedUnit));
-    }, [selectedUnit]);
+    // Sync the editable draft to the selected unit (adjusted during render).
+    const [prevSelectedUnit, setPrevSelectedUnit] = useState(selectedUnit);
+    if (prevSelectedUnit !== selectedUnit) {
+        setPrevSelectedUnit(selectedUnit);
+        setUnitDraft(selectedUnit ? toUnitDraft(selectedUnit) : null);
+    }
 
     const showSaved = () => {
         setSaved(true);

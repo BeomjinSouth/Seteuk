@@ -423,6 +423,7 @@ function GraphRagResultView({
         [groundedSpans],
     );
     const [selectedSpanId, setSelectedSpanId] = useState(groundedSpans[0]?.id ?? '');
+    const [prevGroundedSpans, setPrevGroundedSpans] = useState(groundedSpans);
     const graphMap = useMemo(
         () => buildObsidianGraphMap(result.graph.nodes, result.graph.edges),
         [result.graph.edges, result.graph.nodes],
@@ -436,9 +437,14 @@ function GraphRagResultView({
     const plainSpanCount = result.answerSpans.length - groundedSpans.length;
     const selectedMatchId = selectedSpan?.knowledgeUnitId ?? null;
 
-    useEffect(() => {
+    // Reset the selected span when a new result arrives (groundedSpans is memoized
+    // on result.answerSpans, so this only fires on genuinely new results).
+    // Done during render per React's "adjusting state when props change" pattern,
+    // which avoids the cascading re-render an effect+setState would cause.
+    if (prevGroundedSpans !== groundedSpans) {
+        setPrevGroundedSpans(groundedSpans);
         setSelectedSpanId(groundedSpans[0]?.id ?? '');
-    }, [groundedSpans]);
+    }
 
     const selectLinkedSpan = (matchId: string | undefined) => {
         if (!matchId) return;
