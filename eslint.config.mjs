@@ -17,6 +17,13 @@ const eslintConfig = defineConfig([
     // Claude Code worktrees are separate checkouts, not project source.
     ".claude/**",
   ]),
+  {
+    rules: {
+      // `const { omitted, ...rest } = value` 형태로 필드를 제거하는 관용구를
+      // 미사용 변수로 오탐하지 않도록 rest sibling은 무시한다.
+      "@typescript-eslint/no-unused-vars": ["warn", { ignoreRestSiblings: true }],
+    },
+  },
 ]);
 
 export default eslintConfig;

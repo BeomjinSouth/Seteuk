@@ -48,3 +48,7 @@ next-env.d.ts
 
 # local dev sheet fallback store (may contain real student data)
 .local-sheet-store.json
+
+# local artifacts and one-off generated outputs (keep out of the app repo)
+/outputs/
+/.claude/

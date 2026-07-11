@@ -1,0 +1,10 @@
+# Deployment excludes: local artifacts, source archives, docs.
+# NOTE: runtime knowledge lives in output/ (singular) and MUST stay deployable.
+.claude
+outputs
+docs
+글꼴
+교육과정 모음 정리본
+Skill-Will_모둠편성_설문_패키지
+*.log
+.local-sheet-store.json
