@@ -7,6 +7,7 @@ import {
 } from '@/lib/sheets/eval-check';
 import type { IssueType } from '@/types';
 import { requireTeacherSession } from '@/lib/auth/guards';
+import { evalCheckDisabledResponse, isEvalCheckEnabled } from '@/lib/api-feature-flags';
 
 const ISSUE_TYPE_SET = new Set<IssueType>([
     'grammatical_error',
@@ -276,6 +277,7 @@ function hasReviewProblems(reviewSections: ReviewSections): boolean {
  * Retrieves checking results for a specific document.
  */
 export async function GET(request: NextRequest) {
+    if (!isEvalCheckEnabled()) return evalCheckDisabledResponse();
     const auth = await requireTeacherSession();
     if (!auth.ok) return auth.response;
     try {

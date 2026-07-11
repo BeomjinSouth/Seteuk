@@ -7,6 +7,7 @@ import {
 } from '@/lib/sheets/eval-check';
 import { DEFAULT_RULES } from '@/types';
 import { requireTeacherSession } from '@/lib/auth/guards';
+import { evalCheckDisabledResponse, isEvalCheckEnabled } from '@/lib/api-feature-flags';
 
 /**
  * 평가 점검 규칙 API
@@ -27,6 +28,7 @@ import { requireTeacherSession } from '@/lib/auth/guards';
  *   - isDefault: boolean (True if returning default built-in rules)
  */
 export async function GET() {
+    if (!isEvalCheckEnabled()) return evalCheckDisabledResponse();
     const auth = await requireTeacherSession();
     if (!auth.ok) return auth.response;
     try {
@@ -83,6 +85,7 @@ export async function GET() {
  *   - createdIds?: string[] (If initializing defaults)
  */
 export async function POST(request: NextRequest) {
+    if (!isEvalCheckEnabled()) return evalCheckDisabledResponse();
     const auth = await requireTeacherSession();
     if (!auth.ok) return auth.response;
     try {
@@ -180,6 +183,7 @@ export async function POST(request: NextRequest) {
  *   - message: string
  */
 export async function PUT(request: NextRequest) {
+    if (!isEvalCheckEnabled()) return evalCheckDisabledResponse();
     const auth = await requireTeacherSession();
     if (!auth.ok) return auth.response;
     try {
@@ -244,6 +248,7 @@ export async function PUT(request: NextRequest) {
  *   - message: string
  */
 export async function DELETE(request: NextRequest) {
+    if (!isEvalCheckEnabled()) return evalCheckDisabledResponse();
     const auth = await requireTeacherSession();
     if (!auth.ok) return auth.response;
     try {

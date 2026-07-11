@@ -35,6 +35,7 @@ import {
 import { convertPdfToImages, extractPdfText } from '@/lib/pdf-converter-server';
 import type { DocumentAnalysisStatus } from '@/types';
 import { requireTeacherSession } from '@/lib/auth/guards';
+import { evalCheckDisabledResponse, isEvalCheckEnabled } from '@/lib/api-feature-flags';
 
 /**
  * 시험지 오류 점검 메인 API (하이브리드 모드)
@@ -507,6 +508,7 @@ function formatConsistencyReport(report: ConsistencyReport | null): string {
  *   - count?: number
  */
 export async function GET(request: NextRequest) {
+    if (!isEvalCheckEnabled()) return evalCheckDisabledResponse();
     const auth = await requireTeacherSession();
     if (!auth.ok) return auth.response;
     try {
@@ -618,6 +620,7 @@ async function convertAnalysisFilesToPageImages(
  *   - reused: boolean (If true, indicates existing analysis was used)
  */
 export async function POST(request: NextRequest) {
+    if (!isEvalCheckEnabled()) return evalCheckDisabledResponse();
     const auth = await requireTeacherSession();
     if (!auth.ok) return auth.response;
     try {
@@ -784,6 +787,7 @@ export async function POST(request: NextRequest) {
  *   - success: boolean
  */
 export async function DELETE(request: NextRequest) {
+    if (!isEvalCheckEnabled()) return evalCheckDisabledResponse();
     const auth = await requireTeacherSession();
     if (!auth.ok) return auth.response;
     try {

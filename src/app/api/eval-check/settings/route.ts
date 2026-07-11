@@ -7,6 +7,7 @@ import { initializeSheets } from '@/lib/sheets/base';
 import { verifyRootFolder } from '@/lib/drive';
 import type { EvalCheckSettings } from '@/types';
 import { requireTeacherSession } from '@/lib/auth/guards';
+import { evalCheckDisabledResponse, isEvalCheckEnabled } from '@/lib/api-feature-flags';
 
 /**
  * 평가 점검 설정 API
@@ -64,6 +65,7 @@ function normalizeSettings(raw: Record<string, string>): EvalCheckSettings {
  *   - settings: Settings object or null
  */
 export async function GET() {
+    if (!isEvalCheckEnabled()) return evalCheckDisabledResponse();
     const auth = await requireTeacherSession();
     if (!auth.ok) return auth.response;
     try {
@@ -120,6 +122,7 @@ export async function GET() {
  *   - message?: string
  */
 export async function POST(request: NextRequest) {
+    if (!isEvalCheckEnabled()) return evalCheckDisabledResponse();
     const auth = await requireTeacherSession();
     if (!auth.ok) return auth.response;
     try {

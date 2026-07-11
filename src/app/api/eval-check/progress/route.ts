@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getEvalCheckDocumentById } from '@/lib/sheets';
 import { getAnalysisProgress } from '../route';
 import { requireTeacherSession } from '@/lib/auth/guards';
+import { evalCheckDisabledResponse, isEvalCheckEnabled } from '@/lib/api-feature-flags';
 
 /**
  * 평가 점검 진행률 API
@@ -10,6 +11,7 @@ import { requireTeacherSession } from '@/lib/auth/guards';
  */
 
 export async function GET(request: NextRequest) {
+    if (!isEvalCheckEnabled()) return evalCheckDisabledResponse();
     const auth = await requireTeacherSession();
     if (!auth.ok) return auth.response;
     try {
