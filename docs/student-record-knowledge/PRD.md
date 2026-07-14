@@ -158,3 +158,6 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - runtime storage: production is Supabase-only and returns `503` when Supabase env is missing; Google Sheets is retained only for local fallback and import/migration helpers
 - browser state sync: workspace state, teacher prompt mode/body, and observation-board sessions/marks/mentor assignments/notices sync to Supabase after login through signed server sessions
 - forbidden expression defaults: the store and `/api/forbidden` share the same default list covering 과장, 서열/점수, 부정 낙인, 미래 예측, and 직접 조언 표현
+
+## 2026-07-14 update
+- Forbidden-term checks now include a hardcoded reference list for branded services, English expressions, abbreviations, devices, and international organizations. Each match returns a generalized replacement suggestion and is labeled as a reference caution, separate from the editable default forbidden-word list.

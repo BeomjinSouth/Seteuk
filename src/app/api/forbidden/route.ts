@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { withTeacherAuth } from '@/lib/auth/guards';
 import { checkForbiddenExpressions } from '@/lib/openai';
-import { DEFAULT_FORBIDDEN_WORDS } from '@/lib/forbidden-words';
+import { DEFAULT_FORBIDDEN_WORDS, findReferenceForbiddenTermIssues } from '@/lib/forbidden-words';
 
 function findEnglishWords(text: string): Array<{ word: string; suggestion: string; reason: string }> {
     const ignored = new Set(['AI', 'IT', 'DNA', 'RNA', 'ICT', 'STEAM', 'SW', 'AR', 'VR']);
@@ -82,6 +82,7 @@ export const POST = withTeacherAuth(async (request) => {
                 suggestion: '중립적이고 근거 중심의 표현으로 바꿔주세요.',
             }));
 
+        const referenceIssues = findReferenceForbiddenTermIssues(text);
         const englishIssues = findEnglishWords(text);
         const symbolIssues = findInappropriateSymbols(text);
         const numberIssues = findProblematicNumbers(text);
@@ -106,7 +107,13 @@ export const POST = withTeacherAuth(async (request) => {
                 return acc;
             }, []);
 
-        return NextResponse.json({ success: true, issues });
+        const combinedIssues = [...issues, ...referenceIssues].reduce<Array<{ word: string; reason: string; suggestion: string }>>((acc, issue) => {
+            if (!acc.find((item) => item.word === issue.word && item.reason === issue.reason)) {
+                acc.push(issue);
+            }
+            return acc;
+        }, []);
+        return NextResponse.json({ success: true, issues: combinedIssues });
     } catch (error) {
         console.error('Forbidden check error:', error);
         return NextResponse.json({ error: 'Forbidden check failed' }, { status: 500 });

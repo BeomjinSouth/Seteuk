@@ -235,3 +235,6 @@
 2. monitor the expanded retrieval eval set before further scoring changes
 3. decide when hosted retrieval is good enough to become the default provider
 4. automate doc mirroring further if the workflow expands
+
+## 2026-07-14 update
+- src/lib/forbidden-words.ts exports findReferenceForbiddenTermIssues(text), a deterministic hardcoded reference matcher for the supplied 2023 terminology examples. /api/forbidden merges these reference issues into its existing response contract without changing word, reason, or suggestion fields.

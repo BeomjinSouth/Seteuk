@@ -286,3 +286,6 @@
 - improve retrieval ranking for difficult query classes
 - replace lexical-first retrieval with vector or hosted file search
 - automate more of the doc mirror workflow if needed
+
+- 2026-07-14: Added hardcoded branded-service, English/abbreviation, device, and international-organization reference cautions to the forbidden-term checker. Unit regression test tests/forbidden-term-rules.test.mjs passes (2/2).
+px.cmd tsc --noEmit remains blocked by pre-existing malformed literals in src/app/api/forbidden/route.ts at lines 40 and 81.
