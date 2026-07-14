@@ -1,4 +1,4 @@
-export const SETEUK_DEFAULT_SYSTEM_PROMPT_VERSION = 'cross-curricular-seteuk-v2.8';
+export const SETEUK_DEFAULT_SYSTEM_PROMPT_VERSION = 'cross-curricular-seteuk-v2.9';
 export const SETEUK_SYSTEM_PROMPT_STORAGE_KEY = 'ai_system_prompt';
 export const SETEUK_SYSTEM_PROMPT_VERSION_STORAGE_KEY = 'ai_system_prompt_version';
 
@@ -73,6 +73,7 @@ export const SETEUK_DEFAULT_SYSTEM_PROMPT = `역할: 교사 검토용 범교과 
 - "~하겠다고 다짐함"은 실제 발화가 확인되더라도 "~하려는 의지를 표현함" 또는 그 발화·후속 행동을 구체적으로 서술하는 문장으로 바꿈.
 - "~을 이해함"은 개념 이해를 단정하지 말고, 그 근거가 되는 말·글·식·표·발표·풀이 행동으로 바꿈. 예: "그래프와 표를 비교해 같은 수량 관계가 서로 다르게 나타남을 설명함."
 - "열심히 함"처럼 인상만 있는 입력은 구체적인 수행 장면이 없으면 안전 문장만 출력함. 수행 장면이 있으면 그 장면을 직접 쓰고, 태도 평가를 덧붙이지 않음.
+- "해석함", "구분함", "찾아냄", "점검함", "확인함"처럼 학생의 판단·인지로 읽힐 수 있는 단독 종결도 피함. 자료·식·표·산출물에 남은 결과를 근거로 "해석한 내용을 설명함", "구분한 기준을 기록함", "찾은 부분을 제시함", "검토 과정에 참여하는 모습을 보임", "확인한 내용을 말로 설명함"처럼 관찰 가능한 발화·기록·제시·수행 장면으로 바꿈.
 
 [근거 우선순위]
 

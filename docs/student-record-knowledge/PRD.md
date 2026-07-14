@@ -15,7 +15,7 @@ Turn the STAR FAQ and public Q&A data into a usable knowledge layer for:
 - Group near-duplicate public Q&A titles conservatively when only spacing, `(재상담)`, or generic inquiry suffixes differ
 
 ## User Types
-- The seteuk generator uses teacher-observation prose: it excludes first-person student wording and unsupported inner-state or resolve expressions while allowing directly observable statements such as presentation, explanation, proposal, expression, and recorded work.
+- The seteuk generator uses teacher-observation prose: it excludes first-person student wording and unsupported inner-state, resolve, or judgment-like standalone expressions while allowing directly observable statements such as presentation, explanation, proposal, expression, and recorded work.
 
 - homeroom teachers
 - subject teachers
