@@ -11,6 +11,7 @@
 ## Current Implementation
 
 ### Curriculum Unit Context
+- Seteuk observation-prose safety: version cross-curricular-seteuk-v2.8 prohibits first-person student wording and unsupported inner-state, intention, or resolve wording. The default prompt preserves observable teacher-perspective verbs including introduction, presentation, proposal, expression, writing, recording, and direct descriptions of visible behavior.
 
 - `src/data/curriculum-context/default-middle-school-units.json` bundles the developer-provided unit catalog with `version` and `units`.
 - `src/lib/curriculum-context.ts` validates imported JSON, normalizes subject matching, generates ids for units without ids, rejects duplicate ids, merges default units with teacher overrides, filters units by grade/semester/subject, and compresses selected units for AI prompt context.

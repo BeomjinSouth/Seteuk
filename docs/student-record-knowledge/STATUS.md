@@ -16,6 +16,7 @@
 ## Web Status
 
 - counsel chat API: implemented
+- seteuk observation-prose policy: cross-curricular-seteuk-v2.8 implemented; first-person student wording and unobservable inner-state/resolve claims are prohibited, while directly observable teacher-perspective actions remain available.
 - record review API: implemented
 - write review-improve action: implemented
 - raw search API: implemented
