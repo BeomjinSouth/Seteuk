@@ -87,7 +87,7 @@ function getErrorMessage(error: unknown): string {
     }
 }
 
-function isGoogleSheetsConfigured() {
+export function isGoogleSheetsConfigured() {
     return Boolean(
         SPREADSHEET_ID
         && process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL?.trim()
@@ -95,7 +95,7 @@ function isGoogleSheetsConfigured() {
     );
 }
 
-function isLikelySupabaseNetworkReadError(error: unknown): boolean {
+export function isLikelySupabaseNetworkError(error: unknown): boolean {
     const message = getErrorMessage(error);
     return [
         "fetch failed",
@@ -107,6 +107,38 @@ function isLikelySupabaseNetworkReadError(error: unknown): boolean {
         "ETIMEDOUT",
         "UND_ERR",
     ].some((pattern) => message.includes(pattern));
+}
+
+async function readGoogleSheet(sheetName: string): Promise<string[][]> {
+    const sheets = getSheets();
+    const response = await sheets.spreadsheets.values.get({
+        spreadsheetId: SPREADSHEET_ID,
+        range: `${sheetName}!A:ZZ`,
+    });
+    return response.data.values || [];
+}
+
+async function appendGoogleSheetRow(sheetName: string, values: string[]): Promise<void> {
+    const sheets = getSheets();
+    await sheets.spreadsheets.values.append({
+        spreadsheetId: SPREADSHEET_ID,
+        range: `${sheetName}!A1`,
+        valueInputOption: 'USER_ENTERED',
+        insertDataOption: 'INSERT_ROWS',
+        requestBody: {
+            values: [values],
+        },
+    });
+}
+
+/**
+ * Reads Google Sheets directly when its credentials are available.
+ * Append-only ledgers use this to merge rows written during a temporary
+ * Supabase network outage without exposing configuration values.
+ */
+export async function readGoogleSheetIfConfigured(sheetName: string): Promise<string[][] | null> {
+    if (!isGoogleSheetsConfigured()) return null;
+    return readGoogleSheet(sheetName);
 }
 
 function assertProductionStorageConfigured() {
@@ -210,7 +242,7 @@ export async function readSheet(sheetName: string): Promise<string[][]> {
             return await readSupabaseSheet(sheetName);
         } catch (error: unknown) {
             const message = getErrorMessage(error);
-            const canTryFallback = isLikelySupabaseNetworkReadError(error)
+            const canTryFallback = isLikelySupabaseNetworkError(error)
                 && (!isProductionRuntime() || isGoogleSheetsConfigured());
 
             if (!canTryFallback) throw error;
@@ -220,12 +252,7 @@ export async function readSheet(sheetName: string): Promise<string[][]> {
     }
 
     try {
-        const sheets = getSheets();
-        const response = await sheets.spreadsheets.values.get({
-            spreadsheetId: SPREADSHEET_ID,
-            range: `${sheetName}!A:ZZ`,
-        });
-        return response.data.values || [];
+        return await readGoogleSheet(sheetName);
     } catch (error: unknown) {
         const message = error instanceof Error ? error.message : String(error);
         if (message.includes('Unable to parse range') || message.includes('not found')) {
@@ -255,21 +282,37 @@ export async function appendRow(sheetName: string, values: string[]): Promise<vo
     }
 
     try {
-        const sheets = getSheets();
-        await sheets.spreadsheets.values.append({
-            spreadsheetId: SPREADSHEET_ID,
-            range: `${sheetName}!A1`,
-            valueInputOption: 'USER_ENTERED',
-            insertDataOption: 'INSERT_ROWS',
-            requestBody: {
-                values: [values],
-            },
-        });
+        await appendGoogleSheetRow(sheetName, values);
     } catch (error) {
         if (!shouldUseLocalSheetFallback()) throw error;
         const store = await ensureLocalSheet(sheetName);
         store[sheetName].push(values);
         await writeLocalSheetStore(store);
+    }
+}
+
+/**
+ * Appends to Supabase normally and uses Google Sheets only for a confirmed
+ * Supabase network/DNS failure. Use only for append-only ledgers whose rows
+ * can be merged safely by a stable identifier.
+ */
+export async function appendRowWithGoogleNetworkFallback(sheetName: string, values: string[]): Promise<void> {
+    assertProductionStorageConfigured();
+
+    if (!isSupabaseConfigured()) {
+        await appendRow(sheetName, values);
+        return;
+    }
+
+    try {
+        await appendSupabaseSheetRow(sheetName, values);
+    } catch (error: unknown) {
+        if (!isLikelySupabaseNetworkError(error) || !isGoogleSheetsConfigured()) {
+            throw error;
+        }
+
+        console.warn(`[sheets] Supabase append failed for "${sheetName}", using Google Sheets append fallback: ${getErrorMessage(error)}`);
+        await appendGoogleSheetRow(sheetName, values);
     }
 }
 

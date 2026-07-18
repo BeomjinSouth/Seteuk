@@ -1,5 +1,11 @@
 import { CookieBalance, CookieReward, CookieTransaction, StudentDataEntry, StudentDataPayload } from '@/types';
-import { readSheet, SHEETS, writeSheet } from './base';
+import {
+    appendRowWithGoogleNetworkFallback,
+    readGoogleSheetIfConfigured,
+    readSheet,
+    SHEETS,
+    writeSheet,
+} from './base';
 
 const STUDENT_DATA_HEADERS = [
     'id',
@@ -273,12 +279,24 @@ export async function getCookieTransactions(filters?: {
     studentId?: string;
 }): Promise<CookieTransaction[]> {
     const rows = await readSheet(SHEETS.COOKIE_LEDGER);
-    const dataRows = isHeaderRow(rows[0], COOKIE_LEDGER_HEADERS) ? rows.slice(1) : rows;
+    let googleRows: string[][] = [];
+    try {
+        googleRows = await readGoogleSheetIfConfigured(SHEETS.COOKIE_LEDGER) || [];
+    } catch (error) {
+        console.warn(`[cookies] Google Sheets ledger merge skipped: ${error instanceof Error ? error.message : String(error)}`);
+    }
 
-    return dataRows
-        .filter((row) => row.some((cell) => (cell || '').trim() !== ''))
-        .map(rowToCookieTransaction)
-        .filter((transaction): transaction is CookieTransaction => transaction !== null)
+    const transactionsById = new Map<string, CookieTransaction>();
+    [rows, googleRows].forEach((sourceRows) => {
+        const dataRows = isHeaderRow(sourceRows[0], COOKIE_LEDGER_HEADERS) ? sourceRows.slice(1) : sourceRows;
+        dataRows
+            .filter((row) => row.some((cell) => (cell || '').trim() !== ''))
+            .map(rowToCookieTransaction)
+            .filter((transaction): transaction is CookieTransaction => transaction !== null)
+            .forEach((transaction) => transactionsById.set(transaction.id, transaction));
+    });
+
+    return Array.from(transactionsById.values())
         .filter((transaction) => !filters?.school || transaction.school === filters.school)
         .filter((transaction) => !filters?.studentId || transaction.studentId === filters.studentId)
         .sort((a, b) => b.createdAt.localeCompare(a.createdAt));
@@ -315,17 +333,13 @@ export function calculateCookieBalances(transactions: CookieTransaction[]): Cook
 }
 
 export async function addCookieTransaction(input: Omit<CookieTransaction, 'id' | 'createdAt'>): Promise<CookieTransaction> {
-    const transactions = await getCookieTransactions();
     const transaction: CookieTransaction = {
         ...input,
         id: `cookie-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
         createdAt: nowIso(),
     };
 
-    await writeSheet(SHEETS.COOKIE_LEDGER, [
-        COOKIE_LEDGER_HEADERS,
-        ...[...transactions, transaction].map(cookieTransactionToRow),
-    ]);
+    await appendRowWithGoogleNetworkFallback(SHEETS.COOKIE_LEDGER, cookieTransactionToRow(transaction));
 
     return transaction;
 }
