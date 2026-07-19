@@ -29,11 +29,17 @@ type ConceptConstraint = {
     anyOf: string[];
 };
 
+type TermStats = {
+    docTexts: string[];
+    idfFactorCache: Map<string, number>;
+};
+
 type CachedDataset = {
     key: string;
     loadedAt: number;
     data: KnowledgeDataset;
     mergedRecords: RetrievedKnowledgeEvidence[];
+    termStats: TermStats;
 };
 
 let datasetCache: CachedDataset | null = null;
@@ -208,6 +214,53 @@ function matchesCategory(entry: RetrievedKnowledgeEvidence, category?: string): 
     return entry.categories.some((item) => normalizeText(item) === target);
 }
 
+// IDF term weighting: token contributions in scoreEntry are scaled by how
+// distinctive the token is across the corpus. In this dataset nearly every doc
+// mentions 세특/특기사항/기재, so equal token weights let generic docs outscore
+// the one doc whose title carries the query's rare terms (인용문, 대회 용어...).
+//
+// The factor is idf/IDF_REF clamped to [MIN, MAX]. IDF_REF is chosen so that
+// moderately distinctive recurring terms (성명, 용어, 대회 — idf ≈ 3 at N≈1450)
+// keep a ~1.0 factor, which preserves the calibration of the absolute boosts
+// (+90/+72/CONCEPT_BOOSTS) and of the downstream score thresholds
+// (MIN_GROUNDED_RETRIEVAL_SCORE, HIGH_CONFIDENCE_TOP_SCORE/MARGIN).
+//
+// Document frequency is computed with the same substring semantics scoreEntry
+// uses (`text.includes(token)`), not tokenized equality — a token like 능력 is
+// rare as a standalone word but occurs inside 세부능력특기사항 in hundreds of
+// docs, and substring df is what actually drives its match rate.
+const IDF_REF = 3.0;
+const IDF_FACTOR_MIN = 0.25;
+const IDF_FACTOR_MAX = 2.0;
+
+function buildTermStats(records: RetrievedKnowledgeEvidence[]): TermStats {
+    return {
+        docTexts: records.map((record) => normalizeText([
+            record.title,
+            record.question,
+            record.answer,
+            record.categories.join(' '),
+            record.schoolLevels.join(' '),
+        ].join(' '))),
+        idfFactorCache: new Map(),
+    };
+}
+
+function idfFactor(token: string, stats: TermStats): number {
+    const cached = stats.idfFactorCache.get(token);
+    if (cached !== undefined) return cached;
+
+    let documentFrequency = 0;
+    for (const text of stats.docTexts) {
+        if (text.includes(token)) documentFrequency += 1;
+    }
+
+    const idf = Math.log(stats.docTexts.length / (1 + documentFrequency));
+    const factor = Math.min(IDF_FACTOR_MAX, Math.max(IDF_FACTOR_MIN, idf / IDF_REF));
+    stats.idfFactorCache.set(token, factor);
+    return factor;
+}
+
 function mergeKnowledgeRecords(dataset: KnowledgeDataset): RetrievedKnowledgeEvidence[] {
     const unitMap = new Map(dataset.knowledgeUnits.map((unit) => [unit.knowledge_unit_id, unit]));
 
@@ -237,7 +290,7 @@ function mergeKnowledgeRecords(dataset: KnowledgeDataset): RetrievedKnowledgeEvi
     });
 }
 
-function scoreEntry(entry: RetrievedKnowledgeEvidence, params: SearchParams): number {
+function scoreEntry(entry: RetrievedKnowledgeEvidence, params: SearchParams, stats: TermStats): number {
     const normalizedQuery = normalizeText(params.query);
     const tokens = expandQueryTokens(params.query);
     const title = normalizeText(entry.title);
@@ -263,12 +316,16 @@ function scoreEntry(entry: RetrievedKnowledgeEvidence, params: SearchParams): nu
     }
 
     for (const token of tokens) {
-        const titleWeight = LOW_SIGNAL_TOKENS.has(token) ? 2 : 14;
-        const questionWeight = LOW_SIGNAL_TOKENS.has(token) ? 1 : 7;
-        const answerWeight = LOW_SIGNAL_TOKENS.has(token) ? 1 : 3;
-        const categoryWeight = LOW_SIGNAL_TOKENS.has(token) ? 1 : 8;
-        const schoolWeight = LOW_SIGNAL_TOKENS.has(token) ? 1 : 6;
-        const policyWeight = LOW_SIGNAL_TOKENS.has(token) ? 1 : 5;
+        // Low-signal tokens keep their hand-tuned floor weights; everything else
+        // is scaled by corpus distinctiveness so rare terms dominate common ones.
+        const isLowSignal = LOW_SIGNAL_TOKENS.has(token);
+        const factor = isLowSignal ? 1 : idfFactor(token, stats);
+        const titleWeight = isLowSignal ? 2 : 14 * factor;
+        const questionWeight = isLowSignal ? 1 : 7 * factor;
+        const answerWeight = isLowSignal ? 1 : 3 * factor;
+        const categoryWeight = isLowSignal ? 1 : 8 * factor;
+        const schoolWeight = isLowSignal ? 1 : 6 * factor;
+        const policyWeight = isLowSignal ? 1 : 5 * factor;
 
         if (title.includes(token)) score += titleWeight;
         if (question.includes(token)) score += questionWeight;
@@ -314,7 +371,9 @@ function scoreEntry(entry: RetrievedKnowledgeEvidence, params: SearchParams): nu
         if (!combinedText.includes('성명') && !combinedText.includes('이름')) score -= 96;
     }
 
-    return score;
+    // Token weights are fractional after IDF scaling; keep the public score an
+    // integer since downstream diagnostics/UI treat it as one.
+    return Math.round(score);
 }
 
 export async function loadKnowledgeDataset(year: string = DEFAULT_YEAR): Promise<KnowledgeDataset> {
@@ -332,6 +391,7 @@ export async function loadKnowledgeDataset(year: string = DEFAULT_YEAR): Promise
         loadedAt: Date.now(),
         data,
         mergedRecords,
+        termStats: buildTermStats(mergedRecords),
     };
 
     return data;
@@ -357,7 +417,9 @@ const DOMAIN_LABEL_EXTRA_BOOST = 4;
 export async function searchKnowledgeBase(params: SearchParams): Promise<RetrievedKnowledgeEvidence[]> {
     const year = params.year ? String(params.year) : DEFAULT_YEAR;
     const data = await loadKnowledgeDataset(year);
-    const mergedRecords = datasetCache?.data === data ? datasetCache.mergedRecords : mergeKnowledgeRecords(data);
+    const cacheHit = datasetCache?.data === data ? datasetCache : null;
+    const mergedRecords = cacheHit ? cacheHit.mergedRecords : mergeKnowledgeRecords(data);
+    const termStats = cacheHit ? cacheHit.termStats : buildTermStats(mergedRecords);
     const constraints = detectConstraints(params.query);
     const labelMap = await loadKnowledgeGraphLabelMap(year);
     const queryDomains = detectQueryDomainTags(params.query);
@@ -381,7 +443,7 @@ export async function searchKnowledgeBase(params: SearchParams): Promise<Retriev
         })
         .map((entry) => {
             const graphLabels = labelMap.get(entry.knowledgeUnitId);
-            let score = scoreEntry(entry, params);
+            let score = scoreEntry(entry, params, termStats);
 
             // Graph label boost: entries whose offline domain tags overlap the
             // query's detected domains rank higher. Only boosts entries that
